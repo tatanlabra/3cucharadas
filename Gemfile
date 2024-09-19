@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Gestión de versiones para Jekyll
-gem 'jekyll', '~> 4.3', '>= 4.3.3'
+gem 'jekyll', '~> 4.3'
 
 # Tema
 gem 'jekyll-theme-chirpy', '~> 7.0', '>= 7.0.1'
