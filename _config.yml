@@ -1,0 +1,70 @@
+# _config.yml
+title: "3 cucharadas"
+email: cristianlabra@protonmail.com
+description: "Explorando políticas sociales, biología, estadística e IA."
+baseurl: "/3cucharadas"
+url: "https://tatanlabra.gitlab.io"
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-chirpy # minima #jekyll-theme-chirpy # minimal-mistakes-jekyll
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-scholar
+  - jekyll-polyglot
+  - jekyll-toc
+  - jekyll-asciidoc
+  - jekyll-sitemap
+  - jekyll-responsive-image  # Habilitado para optimización de imágenes
+
+# Redes sociales
+twitter_username: tatanlabra
+github_username: tatanlabra
+gitlab_username: tatanlabra
+linkedin_username: cristianlabra
+instagram_username: tatanlabra
+
+# Exclusiones
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Configuración para GitLab Pages
+gitlab:
+  url: https://tatanlabra.gitlab.io/3cucharadas
+  branch: main
+
+# SEO y meta tags
+seo:
+  twitter_username: tatanlabra
+  author: "Cristian Labra"
+  og_image: /avatar.png
+
+# Google Analytics
+google_analytics: UA-XXXXX-Y
+
+navigation:
+  - title: "Sobre Mí"
+    url: /about/
+
+collections:
+  authors:
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "bundler" # Tipo de gestor de paquetes
+    directory: "/" # Directorio donde se encuentra el Gemfile
+    schedule:
+      interval: "monthly" # Frecuencia de las actualizaciones (p.ej., "daily", "weekly", "monthly")
+    open-pull-requests-limit: 10 # Límite de pull requests abiertos por Dependabot
