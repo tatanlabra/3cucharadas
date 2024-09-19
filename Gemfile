@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem 'jekyll', '~> 4.3', '>= 4.3.3'
 
 # Tema
-gem 'jekyll-theme-chirpy', '~> 7.0', '>= 7.0.1'
+gem 'jekyll-theme-chirpy', '~> 7.1'
 #gem 'minimal-mistakes-jekyll', '~> 4.26', '>= 4.26.2'
 
 # Plugins esenciales para funcionalidad extendida y SEO
