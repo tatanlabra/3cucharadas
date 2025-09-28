@@ -8,7 +8,7 @@ toc: true
 
 Hola, soy Cristián Labra Olivares (tatan), economista y servidor público desde 2012. Me gustan temas de datos/estadística, biología, políticas sociales y programación en general.
 
-Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de instrumentos para la asignación y racionaliza$ion de recursos. Me gustaría constribuir a la disminución de la pobreza y la desigualdad. [Descargar CV (PDF)]({{ site.cv_path | relative_url }})
+Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de instrumentos para la asignación y racionaliza$ion de recursos. Me gustaría constribuir a la disminución de la pobreza y la desigualdad. [Descargar CV]({{ "/3cucharadas/assets/cv/cv_clabraol_2024.pdf" | relative_url }})
 
 >Mi formación incluye estudios de pregrado y postgrado en la Universidad de Chile, así como diplomados y cursos en datos, visualización y programación. Manejo herramientas como **Stata**, **R**, **Python**, **SQL**, **Julia**, y sistemas **Linux**.
 
@@ -41,7 +41,7 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 
 <p><i class="fab fa-fw fa-mastodon"></i><a href="https://mastodon.social/@asiole" target="_blank">asiole@mastodon.social</a></p>
 
-<p><i class="fas fa-brands fa-bluesky"></i> <strong></strong><a href="https://bsky.app/profile/labra.bsky.social" target="_blank">labra.bsky.social</a></p>
+<p><i class="fa-brands fa-bluesky"></i><a href="https://bsky.app/profile/labra.bsky.social" target="_blank">labra.bsky.social</a></p>
 
 </div>
 
