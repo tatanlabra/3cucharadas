@@ -71,7 +71,6 @@ analytics:
     anonymize_ip: true
 
 cv_path: /assets/cv/cv_clabraol_2024.pdf
-cv_url: "https://tatanlabra.gitlab.io/3cucharadas/assets/cv/cv_clabraol_2024.pdf"
 
 # Autor
 author:
@@ -93,8 +92,8 @@ author:
     #   icon: "fab fa-fw fa-instagram"
     #   url: "https://instagram.com/tatanlabra"
     - label: "CV" 
-      icon: "fas fa-fw fa-file"
-      url: "https://tatanlabra.gitlab.io/3cucharadas/assets/cv/cv_clabraol_2024.pdf"
+      icon: "fas fa-fw fa-file-pdf"
+      url: /assets/cv/cv_clabraol_2024.pdf
 
 # Footer
 footer:
