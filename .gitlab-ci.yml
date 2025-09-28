@@ -1,0 +1,41 @@
+# .gitlab-ci.yml — Jekyll 4.x + Minimal Mistakes (gem-based) → GitLab Pages
+image: ruby:3.3
+
+variables:
+  JEKYLL_ENV: "production"
+  BUNDLE_PATH: "vendor/bundle"
+  BUNDLE_DEPLOYMENT: "true"
+  GIT_DEPTH: "50"   # mitiga rate limits y acelera fetch
+
+cache:
+  paths:
+    - vendor/bundle
+
+stages:
+  - build
+  - deploy
+
+build_site:
+  stage: build
+  script:
+    - ruby -v
+    - gem install bundler -N
+    - bundle install
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+pages:
+  stage: deploy
+  dependencies: [build_site]
+  script:
+    - echo "Publishing to GitLab Pages…"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
