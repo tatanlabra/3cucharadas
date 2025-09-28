@@ -1,0 +1,15 @@
+# Authors
+YourName:
+  name        : "Cristian Labra"
+  bio         : "3 cucharadas... "
+  avatar      : "/assets/images/avatar_site.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:tatanlabra@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://gitlab.com/tatanlabra"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/tatanlabra"

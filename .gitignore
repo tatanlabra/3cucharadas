@@ -1,7 +1,3 @@
-# Vim
-*~
-*.sw[p_]
-
 # IntelliJ IDEA
 *.idea
 
@@ -15,14 +11,27 @@
 Gemfile.lock
 **/vendor/bundle
 
+# Bundler
+/vendor/
+/.bundle/
+
+# GitLab Pages (artefacto local si llegas a usar 'public')
+/public/
+/pruebas/
+
 # Node.js and NPM
 node_modules
 npm-debug.log*
 package-lock.json
 codekit-config.json
 
-# macOS
+# OS/editores
 .DS_Store
+*.swp
+
+# Vim
+*~
+*.sw[p_]
 
 # Jekyll generated files
 .jekyll-cache
