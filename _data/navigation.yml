@@ -22,12 +22,12 @@ foo:
 main:
 #  - title: "Eliminar"
 #    url: /docs/quick-start-guide/
-  - title: "Acerca"
+  - title: "Acerca de"
     url: /about/
-  - title: "Posts (por año)"
+  - title: "Publicaciones"
     url: /year-archive/
-  - title: "Colecciones"
-    url: /collection-archive/
+# - title: "Colecciones"
+#   url: /collection-archive/
 #  - title: "Terms &amp; Privacy Policy"
 #    url: /terms/
 
