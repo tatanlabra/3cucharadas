@@ -199,6 +199,7 @@ defaults:
 sass:
   sass_dir: _sass
   style: compressed
+  quiet_deps: true
 
 # Salida/URLs
 permalink    : /:categories/:title/
