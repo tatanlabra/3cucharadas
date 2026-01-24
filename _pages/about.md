@@ -6,9 +6,9 @@ last_modified_at: 2025-04-12T08:00:00-04:00
 toc: true
 ---
 
-Hola, soy Cristián Labra Olivares (tatan), economista y servidor público desde 2012. Me gustan temas de datos/estadística, biología, políticas sociales y programación en general.
+Hola, soy Cristián Labra Olivares, economista y servidor público desde 2012. Me gustan temas de datos/estadística, biología, políticas sociales y programación en general.
 
-Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de instrumentos para la asignación y racionaliza$ion de recursos. Me gustaría constribuir a la disminución de la pobreza y la desigualdad. [Descargar CV]({{ "/assets/cv/cv_clabraol_2024.pdf" | relative_url }})
+Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de políticas sociales, en particular para la asignación y racionalización de prestaciones sociales. Me gustaría constribuir a la disminución de la pobreza y la desigualdad. [Descargar CV]({{ "/assets/cv/cv_clabraol_2024.pdf" | relative_url }})
 
 >Mi formación incluye estudios de pregrado y postgrado en la Universidad de Chile, así como diplomados y cursos en datos, visualización y programación. Manejo herramientas como **Stata**, **R**, **Python**, **SQL**, **Julia**, y sistemas **Linux**.
 

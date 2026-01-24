@@ -160,11 +160,12 @@ kramdown:
   input: GFM
   hard_wrap: false
   auto_ids: true
+  transliterated_header_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+  syntax_highlighter: rouge
 
 # Colecciones (ejemplos desactivados)
 #collections:
@@ -187,6 +188,7 @@ defaults:
       comments: true     # actívalo por post cuando configures el provider
       share: true
       related: true
+      math: true
   # _pages
   - scope:
       path: "_pages"

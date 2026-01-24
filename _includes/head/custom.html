@@ -1,9 +1,5 @@
 <!-- start custom head snippets -->
 
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
-
 <!-- Favicons -->
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ '/assets/images/favicons/favicon-16x16.ico' | relative_url }}">
@@ -12,3 +8,20 @@
 <link rel="shortcut icon" href="{{ '/assets/images/favicons/favicon.ico' | relative_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicons/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest' | relative_url }}">
+
+
+{% if page.math or site.math %}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)'], ['$', '$']],
+      displayMath: [['\\[','\\]'], ['$$','$$']],
+      processEscapes: true,
+      tags: 'ams'
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{% endif %}
+<!-- end custom head snippets -->
