@@ -24,4 +24,50 @@
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 {% endif %}
+
+<!-- Tablas: centrado + cabecera roja + caption class -->
+<style>
+  /* Centrado y estilo general */
+  .page__content table {
+    margin: 1.4em auto 0.4em auto;
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.84em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  /* Cabecera roja (tono acento del tema contrast) */
+  .page__content table thead th {
+    background-color: #b71c1c;
+    color: #ffffff;
+    padding: 0.45em 0.9em;
+    text-align: center;
+    font-size: 0.88em;
+    letter-spacing: 0.02em;
+    border: none;
+  }
+  /* Celdas */
+  .page__content table td {
+    padding: 0.38em 0.85em;
+    border-bottom: 1px solid #e8e8e8;
+    text-align: center;
+  }
+  /* Texto izquierdo en primera columna de cuerpo */
+  .page__content table tbody tr td:first-child {
+    text-align: left;
+  }
+  /* Fila alterna */
+  .page__content table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  .page__content table tbody tr:hover {
+    background-color: #fff3f3;
+  }
+  /* Etiqueta de tabla: párrafo con clase .table-caption */
+  p.table-caption {
+    font-size: 0.82em;
+    color: #555;
+    margin-bottom: 0.2em;
+    font-style: italic;
+  }
+</style>
 <!-- end custom head snippets -->
