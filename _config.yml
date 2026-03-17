@@ -31,9 +31,8 @@ lang          : es
 # Comentarios
 comments:
   provider: "disqus"
-
-disqus:
-  shortname: "Blas_Radomiro"
+  disqus:
+    shortname: "https-tatanlabra-gitlab-io-3cucharadas"
 
 # Búsqueda (Lunr por defecto en Minimal Mistakes)
 search: true

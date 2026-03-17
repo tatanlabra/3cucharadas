@@ -1,3 +1,6 @@
 # _config_github.yml — overrides SOLO para el build en GitHub Pages
 url: "https://tatanlabra.github.io"  # dominio de GitHub Pages
 # baseurl se mantiene igual en ambos: /3cucharadas
+comments:
+  disqus:
+    shortname: "https-tatanlabra-github-io-3cucharadas"
