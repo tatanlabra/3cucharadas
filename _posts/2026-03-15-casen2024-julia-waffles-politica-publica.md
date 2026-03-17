@@ -156,7 +156,7 @@ ci_hi = clamp(p̂ + 1.96 * se, 0.0, 1.0)
 
 Se usan todos los PSU del diseño (incluidos los fuera del dominio, con $z_j = 0$), lo que es correcto para estimación de dominio aleatorio. El SE mediano regional es **1.66 pp** de ancho de IC; el máximo es **5.76 pp** (regiones pequeñas con categorías de baja prevalencia).
 
-> **Próxima entrada, en algún momento 👀 — Jackknife y Bootstrap para CASEN como contraste:** TSL es una aproximación de primer orden óptima para medias y proporciones, pero para estadísticos no lineales (Gini, medianas, razones de cuantiles) puede sub-estimar la varianza. El [repositorio de código](https://github.com/tatanlabra/casen2024-julia-viz/blob/main/docs/ic-varianza-casen.md) incluye la teoría y el código Julia en desarrollo para contrastar TSL con Jackknife (delete-1) y Bootstrap — entrada futura de esta serie, no lo he revisado en profundidad.
+> **Próxima entrada, en algún momento 👀 — Jackknife y Bootstrap para CASEN como contraste:** TSL es una aproximación de primer orden óptima para medias y proporciones, pero para estadísticos no lineales (Gini, medianas, razones de cuantiles) puede sub-estimar la varianza. El [repositorio de código](https://github.com/tatanlabra/casen24_julia_viz/blob/main/docs/ic-varianza-casen.md) incluye la teoría y el código Julia en desarrollo para contrastar TSL con Jackknife (delete-1) y Bootstrap — entrada futura de esta serie, no lo he revisado en profundidad.
 
 ### Resto Mayor o "Largest remainder": por qué importa en un waffle chart
 
