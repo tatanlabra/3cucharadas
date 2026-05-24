@@ -1,0 +1,40 @@
+name: Fetch news feeds
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC diario (03:00 Chile verano / 02:00 invierno)
+  workflow_dispatch:        # también se puede disparar manualmente desde GitHub UI
+
+permissions:
+  contents: write           # necesario para hacer git commit + push
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install feedparser pyyaml
+
+      - name: Fetch RSS feeds → _data/feedly_news.json
+        run: python scripts/fetch_news.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet _data/feedly_news.json || (
+            git add _data/feedly_news.json &&
+            git commit -m "chore: update news feed [skip ci]" &&
+            git push
+          )
+        # [skip ci] evita que GitHub Actions reejecutar el workflow de pages en loop.
+        # GitLab CI ignora este hint y sí hace rebuild → deploy actualizado en GitLab Pages.

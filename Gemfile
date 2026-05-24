@@ -6,7 +6,7 @@ gem "jekyll", "~> 4.4"              # 4.4.1 a enero 2025
 gem "webrick", "~> 1.9", group: :development  # necesario para `jekyll serve` en Ruby 3+
 
 # Tema
-gem "minimal-mistakes-jekyll", "~> 4.27"      # 4.27.3
+gem "minimal-mistakes-jekyll", "~> 4.28"      # 4.28.0
 gem "faraday-retry", "~> 2.2"
 
 # Plugins recomendados por el tema
