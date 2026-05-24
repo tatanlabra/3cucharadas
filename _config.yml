@@ -69,12 +69,12 @@ analytics:
     tracking_id: "G-E5NT0GJ9VT"
     anonymize_ip: true
 
-cv_path: /assets/cv/cv_clabraol_2024.pdf
+cv_path: /assets/cv/cv_esp_clabraol_2026.pdf
 
 # Autor
 author:
   name   : *name
-  avatar : "/assets/images/clabra2024.jpg"
+  avatar : "/assets/images/clabra2026.png"
   bio    : *description
   location: "Santiago, Chile"
   links:
@@ -98,7 +98,7 @@ author:
     #   url: "https://bsky.app/profile/labra.bsky.social"
     - label: "CV"
       icon: "fas fa-fw fa-file-pdf"
-      url: "/3cucharadas/assets/cv/cv_clabraol_2024.pdf"  # ver nota abajo
+      url: "/3cucharadas/assets/cv/cv_esp_clabraol_2026.pdf"
 
 # Footer
 footer:
