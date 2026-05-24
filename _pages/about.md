@@ -10,7 +10,7 @@ Hola, soy Cristián Labra Olivares, economista y servidor público desde 2012. M
 
 Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de políticas sociales, en particular para la asignación y racionalización de prestaciones sociales. Me gustaría contribuir a la disminución de la pobreza y la desigualdad. [Descargar CV]({{ "/assets/cv/cv_esp_clabraol_2026.pdf" | relative_url }})
 
-><a href="{{ '/assets/cv/beca_pregrado.pdf' | relative_url }}" style="color:inherit;text-decoration:none;font-weight:700">Mi formación incluye estudios de pregrado</a> y <a href="{{ '/assets/cv/beca_postgrado.pdf' | relative_url }}" style="color:inherit;text-decoration:none;font-weight:700">postgrado</a> en la Universidad de Chile, así como diplomados y cursos en datos, visualización y programación. Manejo herramientas como **Stata**, **R**, **Python**, **SQL**, **Julia**, y sistemas **Linux**.
+>Mi formación incluye estudios de pregrado y postgrado en la Universidad de Chile, así como diplomados y cursos en datos, visualización y programación. Manejo herramientas como **Stata**, **R**, **Python**, **SQL**, **Julia**, y sistemas **Linux**.
 
 ---
 
