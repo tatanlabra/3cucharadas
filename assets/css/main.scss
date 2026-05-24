@@ -92,11 +92,42 @@ $code-font-family:    $monospace !default;
 /* Main partials del tema */
 @import "minimal-mistakes";
 
-/* 5) Ajustes finos opcionales del sitio */
+/* 5) Ajustes finos del sitio */
 
 .page__content {
   line-height: 1.4;
   font-size: 0.8rem;
+}
+
+/* ── Landing hero: más compacto y elegante ──────────────────────────────── */
+.page__hero--overlay {
+  padding: 2.2em 0 2em;
+  min-height: 0;
+
+  .page__title {
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  .page__lead {
+    font-size: 0.82em;
+    font-weight: 400;
+    max-width: 520px;
+    opacity: 0.78;
+    margin-bottom: 1.4em;
+    line-height: 1.55;
+  }
+
+  /* Botones más discretos en el hero */
+  .btn--large {
+    font-size: 0.72em;
+    padding: 0.55em 1.3em;
+    letter-spacing: 0.04em;
+  }
 }
 
 code,
