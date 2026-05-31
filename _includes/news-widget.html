@@ -1,7 +1,7 @@
 {% comment %}
   Widget RSS — 6 feeds random diarios desde el OPML personal.
   Datos: _data/feedly_news.json · OPML: assets/feedly-subscriptions.opml
-  Actualizado diariamente por .github/workflows/fetch-news.yml
+  Actualizado en build server-side (GitHub Pages + GitLab CI)
 {% endcomment %}
 
 {% assign news = site.data.feedly_news %}
@@ -42,7 +42,7 @@
        download="feedly-subscriptions.opml"
        class="news-widget__opml-link"
        title="Importar en Feedly, Inoreader, NewsBlur…">
-      <i class="fas fa-download" aria-hidden="true"></i> OPML ({{ news.count }} feeds)
+      <i class="fas fa-download" aria-hidden="true"></i> OPML ({{ news.articles.size }} artículos hoy)
     </a>
   </p>
 

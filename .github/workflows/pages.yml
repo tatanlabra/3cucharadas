@@ -1,6 +1,8 @@
 name: Build & Deploy Jekyll to GitHub Pages
 
 on:
+  schedule:
+    - cron: "0 9 * * *"  # 09:00 UTC diario (05:00 Chile invierno / 06:00 verano)
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -22,6 +24,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install RSS fetch dependencies
+        run: pip install feedparser
+
+      - name: Refresh RSS sample for this build
+        run: python scripts/fetch_news.py
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
