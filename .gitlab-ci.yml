@@ -20,9 +20,10 @@ build_site:
   script:
     - ruby -v
     - apt-get update -y
-    - apt-get install -y --no-install-recommends python3 python3-pip
-    - pip3 install feedparser
-    - python3 scripts/fetch_news.py
+    - apt-get install -y --no-install-recommends python3 python3-pip python3-venv
+    - python3 -m venv .venv
+    - .venv/bin/pip install feedparser
+    - .venv/bin/python scripts/fetch_news.py
     - gem install bundler -N
     - bundle install
     - bundle exec jekyll build -d public
