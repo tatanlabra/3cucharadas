@@ -26,3 +26,17 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 ---
 
 **Gracias por pasar por aquí** 🙌
+
+## Operación RSS diaria (server-side)
+
+- El widget RSS se genera durante el build en ambos servidores:
+  - GitHub Pages: `.github/workflows/pages.yml` con `schedule` diario `09:00 UTC`.
+  - GitLab CI: `.gitlab-ci.yml` ejecuta `scripts/fetch_news.py` antes de `jekyll build`.
+- No hay commits automáticos diarios de `_data/feedly_news.json`; el JSON es artefacto de build.
+
+### Configuración requerida en GitLab UI
+
+1. Ir a `Build > Pipeline schedules` en el proyecto `tatanlabra/3cucharadas`.
+2. Crear schedule diario con cron: `0 9 * * *` (UTC).
+3. Seleccionar branch objetivo: `main`.
+4. Guardar y ejecutar una corrida manual inicial para validar que el job `build_site` publique el widget actualizado.

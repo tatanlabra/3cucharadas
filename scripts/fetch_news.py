@@ -2,14 +2,15 @@
 """Fetches 6 random RSS feeds from the personal OPML (assets/feedly-subscriptions.opml).
 
 Selection strategy:
-- Seeded with today's date → same 6 feeds all day, different every day
+- Seeded with Santiago day (`America/Santiago`) -> same 6 feeds all day, different every day
 - Stratified: 1 feed per OPML category, extras fill remaining slots
-- Resilient: skips dead/slow feeds (6s timeout), fills gaps from other categories
+- Resilient: skips dead/slow feeds (6s timeout), with per-slot + global fallback budgets
 
 Output: _data/feedly_news.json  (read by _includes/news-widget.html)
 """
 
 import json
+import os
 import random
 import re
 import socket
@@ -17,6 +18,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 try:
     import feedparser
@@ -27,9 +29,11 @@ ROOT = Path(__file__).resolve().parents[1]
 OPML_FILE = ROOT / "assets" / "feedly-subscriptions.opml"
 OUTPUT_FILE = ROOT / "_data" / "feedly_news.json"
 TARGET_COUNT = 6
-SOCKET_TIMEOUT = 6          # seconds per feed request
-MAX_ATTEMPTS_PER_SLOT = 4   # tries before giving up on a category slot
-MAX_ARTICLE_AGE_DAYS = 60   # skip articles older than this
+SOCKET_TIMEOUT = 6                  # seconds per feed request
+MAX_ATTEMPTS_PER_SLOT = 4           # tries before giving up on a category slot
+MAX_GLOBAL_FALLBACK_ATTEMPTS = 64   # tries to complete missing slots from global pool
+MAX_ARTICLE_AGE_DAYS = 60           # skip articles older than this
+LOCAL_TZ = ZoneInfo("America/Santiago")
 
 
 # ── OPML parsing ─────────────────────────────────────────────────────────────
@@ -58,18 +62,20 @@ def parse_opml(path: Path) -> dict[str, list[dict]]:
 
 # ── Stratified daily-seeded sampling ─────────────────────────────────────────
 
-def stratified_sample(feeds_by_cat: dict, n: int, rng: random.Random) -> list[dict]:
-    """Pick up to n feeds: 1 per category first, then extras to fill the quota."""
+def stratified_sample(feeds_by_cat: dict, n: int, rng: random.Random) -> tuple[list[dict], list[dict]]:
+    """Pick up to n feeds with per-category pools plus a global fallback pool."""
     categories = list(feeds_by_cat.keys())
     rng.shuffle(categories)
 
     selected: list[dict] = []
+    selected_urls: set[str] = set()
     # Round 1: one random feed per category
     for cat in categories:
         pool = list(feeds_by_cat[cat])
         rng.shuffle(pool)
         feed = pool[0]
         selected.append({**feed, "category": cat, "_pool": pool[1:]})
+        selected_urls.add(feed["url"])
         if len(selected) >= n:
             break
 
@@ -85,21 +91,30 @@ def stratified_sample(feeds_by_cat: dict, n: int, rng: random.Random) -> list[di
             if len(selected) >= n:
                 break
             selected.append({**feed, "_pool": []})
+            selected_urls.add(feed["url"])
 
-    return selected
+    global_pool: list[dict] = []
+    for cat in categories:
+        for feed in feeds_by_cat[cat]:
+            if feed["url"] in selected_urls:
+                continue
+            global_pool.append({**feed, "category": cat})
+    rng.shuffle(global_pool)
+
+    return selected, global_pool
 
 
 # ── RSS fetching ──────────────────────────────────────────────────────────────
 
-def _parse_date(entry: dict) -> datetime:
+def _parse_date(entry: dict) -> tuple[datetime | None, bool]:
     for attr in ("published_parsed", "updated_parsed"):
         t = entry.get(attr)
         if t:
             try:
-                return datetime(*t[:6], tzinfo=timezone.utc)
+                return datetime(*t[:6], tzinfo=timezone.utc), True
             except Exception:
                 pass
-    return datetime.now(timezone.utc)
+    return None, False
 
 
 def _clean(text: str, max_len: int = 200) -> str:
@@ -108,9 +123,6 @@ def _clean(text: str, max_len: int = 200) -> str:
 
 
 _VERSION_RE = re.compile(r"^v?\d+(\.\d+)+\s*$", re.IGNORECASE)
-_NONWORD_RE = re.compile(r"[^\w\s]", re.UNICODE)
-
-
 def _is_informative(title: str) -> bool:
     """Return False if title looks like a version number or is too short to be useful."""
     t = title.strip()
@@ -125,7 +137,29 @@ def _is_informative(title: str) -> bool:
     return True
 
 
-def fetch_article(feed_meta: dict, descriptions: dict | None = None) -> dict | None:
+def _build_article(feed_meta: dict, entry: dict, pub: datetime | None, descriptions: dict | None = None) -> dict:
+    raw_title = _clean(entry.get("title", ""), 120)
+    summary_text = _clean(entry.get("summary", entry.get("description", "")), 200)
+    display_title = summary_text[:120] if summary_text and not _is_informative(raw_title) else raw_title
+    published_iso = pub.isoformat() if pub else ""
+    return {
+        "title": raw_title,
+        "display_title": display_title,
+        "link": entry.get("link", feed_meta["url"]),
+        "summary": summary_text,
+        "published": published_iso,
+        "source_label": feed_meta["title"],
+        "category": feed_meta["category"],
+        "feed_description": (descriptions or {}).get(feed_meta["url"], ""),
+    }
+
+
+def fetch_article(
+    feed_meta: dict,
+    descriptions: dict | None = None,
+    *,
+    allow_undated: bool = False,
+) -> dict | None:
     """Fetch most recent article within MAX_ARTICLE_AGE_DAYS. Returns None on failure."""
     url = feed_meta["url"]
     try:
@@ -143,47 +177,96 @@ def fetch_article(feed_meta: dict, descriptions: dict | None = None) -> dict | N
         return None
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=MAX_ARTICLE_AGE_DAYS)
+    undated_candidate = None
     for e in entries[:10]:
-        pub = _parse_date(e)
-        if pub < cutoff:
-            continue
-        raw_title = _clean(e.get("title", ""), 120)
-        summary_text = _clean(e.get("summary", e.get("description", "")), 200)
-        display_title = summary_text[:120] if summary_text and not _is_informative(raw_title) else raw_title
-        return {
-            "title": raw_title,
-            "display_title": display_title,
-            "link": e.get("link", url),
-            "summary": summary_text,
-            "published": pub.isoformat(),
-            "source_label": feed_meta["title"],
-            "category": feed_meta["category"],
-            "feed_description": (descriptions or {}).get(url, ""),
-        }
+        pub, has_explicit_date = _parse_date(e)
+        if has_explicit_date and pub:
+            if pub < cutoff:
+                continue
+            return _build_article(feed_meta, e, pub, descriptions)
+        if allow_undated and undated_candidate is None:
+            undated_candidate = e
+
+    if allow_undated and undated_candidate is not None:
+        print(f"  OK? [{feed_meta['title']}]: using undated fallback entry", file=sys.stderr)
+        return _build_article(feed_meta, undated_candidate, None, descriptions)
 
     print(f"  SKIP [{feed_meta['title']}]: no recent articles (>{MAX_ARTICLE_AGE_DAYS}d)", file=sys.stderr)
     return None
 
 
-def fetch_stratified(candidates: list[dict], target: int, descriptions: dict | None = None) -> list[dict]:
-    """Try each candidate in order; fall back to pool extras for failed slots."""
+def fetch_stratified(
+    candidates: list[dict],
+    global_pool: list[dict],
+    target: int,
+    descriptions: dict | None = None,
+) -> list[dict]:
+    """Try candidates per slot first, then fill globally to always target up to availability."""
     articles: list[dict] = []
+    attempted_urls: set[str] = set()
+
     for candidate in candidates:
         if len(articles) >= target:
             break
-        art = fetch_article(candidate, descriptions)
+
+        slot_attempts = 0
+        slot_queue = [candidate] + [
+            {**extra, "category": candidate["category"]}
+            for extra in candidate.get("_pool", [])
+        ]
+        for feed_meta in slot_queue:
+            if len(articles) >= target or slot_attempts >= MAX_ATTEMPTS_PER_SLOT:
+                break
+            if feed_meta["url"] in attempted_urls:
+                continue
+
+            attempted_urls.add(feed_meta["url"])
+            slot_attempts += 1
+            art = fetch_article(feed_meta, descriptions)
+            if art:
+                articles.append(art)
+                print(f"  OK  [{feed_meta['category']}] {feed_meta['title']}")
+                break
+
+    # Global fallback with recent-only policy first
+    global_attempts = 0
+    for feed_meta in global_pool:
+        if len(articles) >= target or global_attempts >= MAX_GLOBAL_FALLBACK_ATTEMPTS:
+            break
+        if feed_meta["url"] in attempted_urls:
+            continue
+        attempted_urls.add(feed_meta["url"])
+        global_attempts += 1
+        art = fetch_article(feed_meta, descriptions)
         if art:
             articles.append(art)
-            print(f"  OK  [{candidate['category']}] {candidate['title']}")
-        else:
-            # Try extras from the same-category pool
-            for extra in candidate.get("_pool", []):
-                art = fetch_article({**extra, "category": candidate["category"]}, descriptions)
-                if art:
-                    articles.append(art)
-                    print(f"  OK* [{candidate['category']}] {extra['title']} (fallback)")
-                    break
+            print(f"  OK+ [{feed_meta['category']}] {feed_meta['title']} (global)")
+
+    # Last-resort pass: allow undated entries to avoid dropping below target
+    if len(articles) < target:
+        for feed_meta in global_pool:
+            if len(articles) >= target:
+                break
+            if feed_meta["url"] in attempted_urls:
+                continue
+            attempted_urls.add(feed_meta["url"])
+            art = fetch_article(feed_meta, descriptions, allow_undated=True)
+            if art:
+                articles.append(art)
+                print(f"  OK~ [{feed_meta['category']}] {feed_meta['title']} (undated last resort)")
+
     return articles
+
+
+def resolve_seed_date() -> date:
+    """Return seed date in America/Santiago. Supports RSS_SEED_DATE=YYYY-MM-DD override."""
+    override = os.getenv("RSS_SEED_DATE", "").strip()
+    if override:
+        try:
+            return date.fromisoformat(override)
+        except ValueError:
+            print(f"WARN invalid RSS_SEED_DATE={override!r}; falling back to local Santiago date", file=sys.stderr)
+    return datetime.now(LOCAL_TZ).date()
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -204,14 +287,20 @@ def main() -> None:
     total = sum(len(v) for v in feeds_by_cat.values())
     print(f"OPML: {total} feeds in {len(feeds_by_cat)} categories")
 
-    rng = random.Random(date.today().isoformat())
-    candidates = stratified_sample(feeds_by_cat, TARGET_COUNT, rng)
-    print(f"Selected {len(candidates)} candidates (stratified, seed={date.today()}):")
+    seed_date = resolve_seed_date()
+    rng = random.Random(seed_date.isoformat())
+    candidates, global_pool = stratified_sample(feeds_by_cat, TARGET_COUNT, rng)
+    print(f"Selected {len(candidates)} candidates (stratified, seed={seed_date} America/Santiago):")
+    print(
+        f"Budgets: slot_attempts={MAX_ATTEMPTS_PER_SLOT} "
+        f"global_attempts={MAX_GLOBAL_FALLBACK_ATTEMPTS}"
+    )
 
-    articles = fetch_stratified(candidates, TARGET_COUNT, feed_descriptions)
+    articles = fetch_stratified(candidates, global_pool, TARGET_COUNT, feed_descriptions)
 
     output = {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "seed_date": seed_date.isoformat(),
         "count": len(articles),
         "articles": articles,
     }
