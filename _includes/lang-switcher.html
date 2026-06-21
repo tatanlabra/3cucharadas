@@ -1,0 +1,20 @@
+{%- comment -%}
+Chip/selector de idioma ES↔EN. Requiere que las versiones compartan el mismo `permalink`
+canónico (jekyll-polyglot antepone el código de idioma para los idiomas no-default).
+Se usa el tag `static_href` de polyglot para que estos enlaces NO sean relativizados con el
+idioma activo (de lo contrario, en una página EN el enlace a ES recibiría el prefijo /en/).
+El path canónico (sin prefijo de idioma) es `page.permalink`, idéntico en ES y EN.
+{%- endcomment -%}
+{% if page.lang and page.permalink and site.languages and site.languages.size > 1 %}
+<div class="lang-switcher" role="navigation" aria-label="Idioma / Language">
+  {% for lang in site.languages %}
+    {% if lang == page.lang %}
+      <span class="lang-active" aria-current="true">{{ lang | upcase }}</span>
+    {% elsif lang == site.default_lang %}
+      <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+    {% else %}
+      <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}

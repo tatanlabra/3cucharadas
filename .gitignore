@@ -39,3 +39,8 @@ font_NF.sh
 .sass-cache
 _asset_bundler_cache
 _site
+_site_test
+
+# Python cache
+__pycache__/
+*.py[cod]
