@@ -1,0 +1,34 @@
+{%- comment -%}
+JSON-LD por artículo: BlogPosting con autor (Person + sameAs) y publisher (Organization "3 Cucharadas").
+Refuerza E-E-A-T y la asociación del nombre del autor en buscadores. Solo se emite en páginas con fecha (posts).
+{%- endcomment -%}
+{%- if page.date -%}
+  {%- assign author_key = page.author | default: site.author -%}
+  {%- assign author = site.data.authors[author_key] | default: site.author -%}
+  {%- assign post_image = page.header.og_image | default: page.header.image | default: site.og_image -%}
+  {%- assign desc = page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 300 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ page.url | absolute_url | jsonify }} },
+  "headline": {{ page.title | strip_html | jsonify }},
+  "description": {{ desc | jsonify }},
+  "image": {{ post_image | absolute_url | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "inLanguage": {{ page.lang | default: site.lang | default: "es" | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ author.name | default: site.social.name | jsonify }},
+    "url": {{ "/about/" | absolute_url | jsonify }}{% if site.social.links %},
+    "sameAs": {{ site.social.links | jsonify }}{% endif %}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "logo": { "@type": "ImageObject", "url": {{ site.logo | absolute_url | jsonify }} }
+  }
+}
+</script>
+{%- endif -%}

@@ -5,7 +5,10 @@ date: 2026-03-15
 categories: [datos, politica-publica, julia, casen]
 tags: [casen2024, julia, expansion, diseno-muestral, waffle, dotplot, politica-publica, bidat, brecha-territorial]
 description: "Análisis reproducible de CASEN 2024 en Julia: validación oficial con datos en el BIDAT, composición nacional por waffle chart y brechas regionales en educación, salud y pobreza para priorización territorial."
-author: "3 Cucharadas"
+author: clabra
+lang: es
+ref: casen2024-julia-waffles
+permalink: /datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/
 toc: true
 toc_sticky: true
 author_profile: true

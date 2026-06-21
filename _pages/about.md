@@ -44,3 +44,26 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 ---
 
 **Gracias por pasar por aquí** 🙌
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Cristián Labra",
+    "alternateName": "Cristián Labra Olivares",
+    "jobTitle": "Economista y servidor público",
+    "worksFor": { "@type": "Organization", "name": "Ministerio de Desarrollo Social y Familia" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad de Chile" },
+    "knowsAbout": ["Políticas sociales", "Estadística", "Ciencia de datos", "Stata", "R", "Python", "Julia"],
+    "url": "{{ '/about/' | absolute_url }}",
+    "sameAs": [
+      "https://www.linkedin.com/in/cristianlabra/",
+      "https://x.com/tatanlabra",
+      "https://github.com/tatanlabra",
+      "https://gitlab.com/tatanlabra"
+    ]
+  }
+}
+</script>

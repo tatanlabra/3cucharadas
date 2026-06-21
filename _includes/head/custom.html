@@ -69,5 +69,48 @@
     margin-bottom: 0.2em;
     font-style: italic;
   }
+
+  /* Chip/selector de idioma ES↔EN */
+  .lang-switcher {
+    display: inline-flex;
+    gap: 0.25em;
+    margin: 0.3em 0 0.6em 0;
+    border: 1px solid #d0d0d0;
+    border-radius: 999px;
+    padding: 0.12em;
+    background: #fafafa;
+    vertical-align: middle;
+  }
+  .lang-switcher a, .lang-switcher span {
+    font-size: 0.72em;
+    line-height: 1;
+    padding: 0.35em 0.7em;
+    border-radius: 999px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .lang-switcher .lang-active {
+    background: #b71c1c;
+    color: #fff;
+    font-weight: 600;
+  }
+  .lang-switcher a.lang-inactive { color: #555; }
+  .lang-switcher a.lang-inactive:hover { background: #fff3f3; color: #b71c1c; }
 </style>
+
+{%- comment %} JSON-LD por artículo (autor Person + publisher) {% endcomment -%}
+{% include schema-article.html %}
+
+{%- comment %} hreflang para versiones de idioma (jekyll-polyglot) {% endcomment -%}
+{% if site.languages and page.url %}
+  {% for lang in site.languages %}
+    {% if lang == site.default_lang %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    {% else %}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ page.url }}">
+    {% endif %}
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+{% endif %}
 <!-- end custom head snippets -->

@@ -6,7 +6,10 @@ date: 2026-06-20
 categories: [mlops, hpo, python, h2o]
 tags: [bayesian-optimization, hyperparameter-optimization, h2o, xgboost, ebm, rsh, ecommerce, aucpr, reproducibilidad]
 description: "Guía directa para usar optimización bayesiana como estrategia de búsqueda de hiperparámetros en modelos predictivos: un caso público tipo RSH con EBM y un caso privado tipo ecommerce con H2O XGBoost."
-author: "3 Cucharadas"
+author: clabra
+lang: es
+ref: bayes-hiperparametros
+permalink: /mlops/bayes-hiperparametros/
 toc: true
 toc_sticky: true
 comments: true
