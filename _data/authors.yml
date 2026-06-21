@@ -22,4 +22,6 @@ clabra:
       url: "mailto:tatanlabra@gmail.com"
     - label: "CV"
       icon: "fas fa-fw fa-file-pdf"
-      url: "/assets/cv/cv_esp_clabraol_2026.pdf"
+      # Los links de autor en Minimal Mistakes NO pasan por relative_url:
+      # hay que incluir el baseurl (/3cucharadas) explícitamente.
+      url: "/3cucharadas/assets/cv/cv_esp_clabraol_2026.pdf"
