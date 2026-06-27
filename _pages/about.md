@@ -74,7 +74,8 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
       "https://github.com/tatanlabra",
       "https://gitlab.com/tatanlabra",
       "https://repositorio.uchile.cl/browse?authority=88cfb186-afaf-4086-ac6f-36fbc7adf42a&type=author",
-      "https://scholar.google.com/citations?user=ByUN51gAAAAJ"
+      "https://scholar.google.com/citations?user=ByUN51gAAAAJ",
+      "https://orcid.org/0009-0008-5047-8762"
     ]
   }
 }
