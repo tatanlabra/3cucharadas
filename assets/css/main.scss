@@ -130,6 +130,29 @@ $code-font-family:    $monospace !default;
   }
 }
 
+.layout--home.home-codera-hero .page__hero--overlay {
+  background-position: center right;
+  background-size: cover;
+}
+
+@media (max-width: 1200px) {
+  .layout--home.home-codera-hero .page__hero--overlay {
+    background-image:
+      linear-gradient(90deg, rgba(8, 13, 16, 0.97) 0%, rgba(8, 13, 16, 0.93) 40%, rgba(8, 13, 16, 0.50) 68%, rgba(8, 13, 16, 0.16) 100%),
+      url("{{ '/assets/images/home/el-salvador-codera-hero-1600x524.webp' | relative_url }}") !important;
+    background-position: center right;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout--home.home-codera-hero .page__hero--overlay {
+    background-image:
+      linear-gradient(180deg, rgba(8, 13, 16, 0.95) 0%, rgba(8, 13, 16, 0.86) 52%, rgba(8, 13, 16, 0.36) 100%),
+      url("{{ '/assets/images/home/el-salvador-codera-hero-mobile-1200x720.webp' | relative_url }}") !important;
+    background-position: center right;
+  }
+}
+
 code,
 pre,
 .highlight {
