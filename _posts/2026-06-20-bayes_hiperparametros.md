@@ -55,7 +55,7 @@ Este post no compara resultados empíricos todavía (segunda patita), pero he pr
 
 ## Cucharada 1: dos problemas de ranking, no dos juguetes predictivos
 
-Quiero usar dos ejemplos con igual peso. Uno viene del mundo público: ordenar hogares por vulnerabilidad relativa usando una muestra pública del RSH. El otro viene del mundo privado: ordenar clientes, sesiones o contactos según el valor esperado de una acción comercial en ecommerce.
+Quiero usar dos ejemplos con igual peso. Uno viene del mundo público: ordenar hogares por vulnerabilidad relativa usando una muestra pública del RSH (sobre lectura territorial de datos sociales en Chile escribí antes en [CASEN 2024 en 3 cucharadas]({{ "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/" | relative_url }})). El otro viene del mundo privado: ordenar clientes, sesiones o contactos según el valor esperado de una acción comercial en ecommerce.
 {: .text-justify}
 
 No son problemas equivalentes en lo sustantivo. El primero tiene consecuencias de legitimidad pública; el segundo, de eficiencia comercial. Pero ambos comparten una misma pregunta estadística: si lo importante es ordenar bien los casos, ¿cómo buscamos hiperparámetros que mejoren ese orden sin gastar cómputo en combinaciones poco informativas?

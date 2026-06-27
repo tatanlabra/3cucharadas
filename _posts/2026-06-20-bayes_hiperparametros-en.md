@@ -56,7 +56,7 @@ This post does not yet compare empirical results (the second leg), but I have te
 
 ## Spoonful 1: two ranking problems, not two predictive toys
 
-I want to use two examples with equal weight. One comes from the public world: ranking households by relative vulnerability using a public RSH sample. The other comes from the private world: ranking customers, sessions or contacts by the expected value of a commercial action in ecommerce.
+I want to use two examples with equal weight. One comes from the public world: ranking households by relative vulnerability using a public RSH sample (on the territorial reading of social data in Chile I wrote earlier in [CASEN 2024 in 3 spoonfuls]({{ "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/" | relative_url }})). The other comes from the private world: ranking customers, sessions or contacts by the expected value of a commercial action in ecommerce.
 {: .text-justify}
 
 They are not equivalent in substance. The first has consequences for public legitimacy; the second, for commercial efficiency. But both share the same statistical question: if what matters is ordering cases well, how do we search for hyperparameters that improve that order without spending compute on uninformative combinations?

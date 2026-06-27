@@ -29,6 +29,16 @@ No hay línea editorial estricta.
 
 ---
 
+### Publicaciones recientes
+
+- [CASEN 2024 en 3 cucharadas: lectura territorial para la política social]({{ "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/" | relative_url }}) — análisis reproducible en Julia con intervalos de confianza de diseño complejo.
+- [Hiperparámetros con Bayes: menos grilla, más memoria estadística]({{ "/mlops/bayes-hiperparametros/" | relative_url }}) — optimización bayesiana para modelos de vulnerabilidad (RSH) y de valor esperado en ecommerce.
+- [Multiagentes en 3 cucharadas: lo que me funcionó y lo que no]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) — cómo orquesto varios modelos de IA para trabajar.
+
+Puedes explorar todo por [temas]({{ "/categories/" | relative_url }}) o por [etiquetas]({{ "/tags/" | relative_url }}).
+
+---
+
 ### Contacto
 
 Si quieres comentar, criticar o colaborar, puedes encontrarme en:
@@ -51,18 +61,20 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
   "@type": "ProfilePage",
   "mainEntity": {
     "@type": "Person",
-    "name": "Cristián Labra",
-    "alternateName": "Cristián Labra Olivares",
+    "name": "Cristián Labra Olivares",
+    "alternateName": ["Cristián Labra", "tatan"],
     "jobTitle": "Economista y servidor público",
     "worksFor": { "@type": "Organization", "name": "Ministerio de Desarrollo Social y Familia" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad de Chile" },
-    "knowsAbout": ["Políticas sociales", "Estadística", "Ciencia de datos", "Stata", "R", "Python", "Julia"],
+    "knowsAbout": ["Políticas sociales", "Estadística", "Ciencia de datos", "Registro Social de Hogares", "CASEN", "Stata", "R", "Python", "Julia"],
     "url": "{{ '/about/' | absolute_url }}",
     "sameAs": [
       "https://www.linkedin.com/in/cristianlabra/",
       "https://x.com/tatanlabra",
       "https://github.com/tatanlabra",
-      "https://gitlab.com/tatanlabra"
+      "https://gitlab.com/tatanlabra",
+      "https://repositorio.uchile.cl/browse?authority=88cfb186-afaf-4086-ac6f-36fbc7adf42a&type=author",
+      "https://scholar.google.com/citations?user=ByUN51gAAAAJ"
     ]
   }
 }
