@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -u
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+env_file="${EPUB_CURATOR_ENV_FILE:-${HOME:-/home/ende}/.config/epub-curator.env}"
+script="$repo_root/scripts/notify_telegram_commit.py"
+
+if [ -f "$env_file" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "$env_file" >/dev/null 2>&1 || true
+  set +a
+fi
+
+if [ ! -f "$script" ]; then
+  exit 0
+fi
+
+if command -v python3 >/dev/null 2>&1; then
+  python_bin="python3"
+elif command -v python >/dev/null 2>&1; then
+  python_bin="python"
+else
+  printf '%s\n' "telegram-send-failed"
+  exit 0
+fi
+
+output="$("$python_bin" "$script" --repo-root "$repo_root" 2>/dev/null)"
+status=$?
+
+case "$status" in
+  0|2)
+    if [ -n "$output" ]; then
+      printf '%s\n' "$output"
+    fi
+    ;;
+  *)
+    printf '%s\n' "telegram-send-failed"
+    ;;
+esac
+
+exit 0
