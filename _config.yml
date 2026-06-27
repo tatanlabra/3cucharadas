@@ -11,7 +11,7 @@ locale        : "es"
 title         : "3 Cucharadas"
 title_separator: "-"
 subtitle      : "Explorando curiosidades"
-name          : &name "Cristián Labra"
+name          : &name "Cristián Labra Olivares"
 description   : &description "Explorando curiosidades"
 
 # Producción (tu hosting actual)
@@ -43,6 +43,15 @@ search_full_content: true
 atom_feed:
   path: /feed.xml
 
+# Feeds por categoría (jekyll-feed): genera /feed/<categoria>.xml para los temas principales,
+# de modo que cada línea temática que publico tenga su propio RSS suscribible.
+feed:
+  categories:
+    - datos
+    - politica-publica
+    - mlops
+    - ia
+
 # SEO
 google_site_verification: "UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y"
 og_image: "/assets/images/3cucharadas-logo.png"
@@ -62,6 +71,10 @@ social:
     - "https://github.com/tatanlabra"
     - "https://gitlab.com/tatanlabra"
     - "https://instagram.com/tatanlabra"
+    - "https://repositorio.uchile.cl/browse?authority=88cfb186-afaf-4086-ac6f-36fbc7adf42a&type=author"
+    - "https://scholar.google.com/citations?user=ByUN51gAAAAJ"
+    # TODO: añadir ORCID cuando exista (refuerza la entidad en Google):
+    # - "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
 
 # Analytics (GA4)
 analytics:
@@ -212,7 +225,8 @@ paginate_path: /page:num/
 # Plugins
 plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+  # jekyll-sitemap desactivado: usamos un sitemap.xml propio multilingüe (incluye /en/),
+  # ver _pages/sitemap.xml. jekyll-sitemap no emite las URLs de polyglot.
   - jekyll-gist
   - jekyll-feed
   - jemoji
@@ -224,7 +238,7 @@ plugins:
 # Las cadenas de UI en inglés ya vienen en _data/ui-text.yml.
 languages: ["es", "en"]
 default_lang: "es"
-exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "robots.txt", "cv", "public"]
+exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "robots.txt", "sitemap.xml", "cv", "public"]
 parallel_localization: true
 
 # Archivos (categorías/tags por páginas dedicadas)
