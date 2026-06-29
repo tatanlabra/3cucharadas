@@ -1,66 +1,67 @@
 {
-  "updated": "2026-05-24T20:00:36Z",
+  "updated": "2026-06-29T04:17:26Z",
+  "seed_date": "2026-06-29",
   "count": 6,
   "articles": [
     {
-      "title": "Share de la Semana: Cielo",
-      "display_title": "Share de la Semana: Cielo",
-      "link": "https://blog.latam.playstation.com/2026/05/22/share-de-la-semana-cielo/",
-      "summary": "La inmensidad del cielo se prestó para que los jugadores de la comunidad crearan sus mejores capturas, y pueden ver el resultado a continuación.",
-      "published": "2026-05-22T17:03:59+00:00",
-      "source_label": "PlayStation.Blog LATAM",
-      "category": "digital",
-      "feed_description": "PlayStation Blog: El Blog Oficial de PlayStation, noticias de PlayStation Network, Playstation 3, PSP y NGP"
+      "title": "Why AI isn’t showing up on your bottom line",
+      "display_title": "Why AI isn’t showing up on your bottom line",
+      "link": "https://www.exponentialview.co",
+      "summary": "More than three years after ChatGPT's release, only 27% of executives say AI has met their ROI expectations. The history of factory electrification explains why — most companies are at the light-bulb",
+      "published": "2026-06-04T16:40:35+00:00",
+      "source_label": "Exponential View",
+      "category": "codigo",
+      "feed_description": "How will the future unfold? What is the impact of AI and other exponential technologies on business & society? Join Azeem Azhar, founder of Exponentia"
     },
     {
-      "title": "Kumo desu ga, Nani ka? c.78b",
-      "display_title": "Kumo desu ga, Nani ka? c.78b",
-      "link": "https://api.mangaupdates.com/v1/series/27148870074/rss",
-      "summary": "Aumakua",
-      "published": "2026-05-24T20:00:26.529940+00:00",
-      "source_label": "Kumo desu ga, Nani ka? - Releases on MangaUpdates",
-      "category": "curiosidad",
-      "feed_description": "This feed shows the latest releases for the series Kumo desu ga, Nani ka? as shown on MangaUpdates.com"
-    },
-    {
-      "title": "Friday Squid Blogging: Regulating Squid Fishing in the South Pacific",
-      "display_title": "Friday Squid Blogging: Regulating Squid Fishing in the South Pacific",
-      "link": "https://www.schneier.com/blog/archives/2026/05/friday-squid-blogging-regulating-squid-fishing-in-the-south-pacific.html",
-      "summary": "The South Pacific Regional Fisheries Management Organization (SPRFMO) needs to regulate squid fishing in the South Pacific. As usual, you can also use this squid post to talk about the security storie",
-      "published": "2026-05-22T21:04:16+00:00",
+      "title": "The Chinese Control the Majority of Argentina’s Squid Fleet",
+      "display_title": "The Chinese Control the Majority of Argentina’s Squid Fleet",
+      "link": "https://www.schneier.com/blog/archives/2026/06/the-chinese-control-the-majority-of-argentinas-squid-fleet.html",
+      "summary": "Chinese companies control nearly two-thirds of Argentina’s own squid fleet.",
+      "published": "2026-06-26T20:57:04+00:00",
       "source_label": "Schneier on Security",
       "category": "seguridad",
       "feed_description": "Análisis experto sobre seguridad informática, privacidad y criptografía."
     },
     {
-      "title": "Acerca de la edad de jubilación y la supervivencia",
-      "display_title": "Acerca de la edad de jubilación y la supervivencia",
-      "link": "https://elquintopoder.cl/sociedad/acerca-de-la-edad-de-jubilacion-y-la-supervivencia/",
-      "summary": "Derivado de las cada vez más altas esperanzas de vida, mucho se viene hablando de una nueva edad de jubilación. Cuando en 1980, en plena dictadura militar chilena, se dictó la Ley 3.500, se mantuvo la",
-      "published": "2026-05-22T17:03:17+00:00",
-      "source_label": "5toPoder",
-      "category": "noticias",
-      "feed_description": "Comunidad orientada a estimular la participación ciudadana y la acción política. Espacio abierto de debate y construcción de ideas y acciones concreta"
-    },
-    {
-      "title": "Los Knicks sueñan con las Finales NBA",
-      "display_title": "Los Knicks sueñan con las Finales NBA",
-      "link": "https://www.nbamaniacs.com/pospartidos/los-knicks-estan-a-una-sola-victoria-de-las-finales/",
-      "summary": "10 victorias consecutivas en los playoffs de 2026. Récord absoluto de la franquicia. Se imponen en el Rocket Arena de Cleveland por 121-108 La entrada Los Knicks sueñan con las Finales NBA se publicó",
-      "published": "2026-05-24T18:00:09+00:00",
-      "source_label": "NBAManiacs",
+      "title": "Kecmanovic: \"Cuando conocí a Sinner, jamás habría imaginado que llegaría a este nivel\"",
+      "display_title": "Kecmanovic: \"Cuando conocí a Sinner, jamás habría imaginado que llegaría a este nivel\"",
+      "link": "http://www.puntodebreak.com/2026/06/29/kecmanovic-conoci-sinner-jamas-habria-imaginado-llegaria-nivel",
+      "summary": "El serbio, rival de Sinner en primera ronda de Wimbledon 2026, confiesa sentirse muy sorprendido por la progresión de un jugador al que conoció hace muchos años.",
+      "published": "2026-06-28T22:50:27+00:00",
+      "source_label": "Punto de Break",
       "category": "deportes",
-      "feed_description": "NBAmaniacs - Noticias, artículos y rumores de la NBA"
+      "feed_description": "Noticias, resultados y análisis exhaustivos del mundo del tenis profesional."
     },
     {
-      "title": "The Real Python Podcast – Episode #296: Managing Polars Schema Issues & Profiling GitHub Users",
-      "display_title": "The Real Python Podcast – Episode #296: Managing Polars Schema Issues & Profiling GitHub Users",
-      "link": "https://realpython.com/podcasts/rpp/296/",
-      "summary": "How can you avoid schema problems in your Polars data pipeline when adding new columns? How can you quickly examine a GitHub user's profile to decide how much to invest in their contributions? Christo",
-      "published": "2026-05-22T12:00:00+00:00",
-      "source_label": "Real Python",
-      "category": "codigo",
-      "feed_description": "Tutoriales detallados y mejores prácticas para programación en Python."
+      "title": "KDE se centra en la corrección de errores de Plasma 6.7 mientras prepara las novedades de Plasma 6.8",
+      "display_title": "KDE se centra en la corrección de errores de Plasma 6.7 mientras prepara las novedades de Plasma 6.8",
+      "link": "https://ubunlog.com/kde-se-centra-en-la-correccion-de-errores-de-plasma-6-7-mientras-prepara-las-novedades-de-plasma-6-8/",
+      "summary": "KDE lanzó Plasma 6.7 hace menos de dos semanas y 6.7.1 hace cuatro días. Lo que tienen por delante son...",
+      "published": "2026-06-27T08:27:53+00:00",
+      "source_label": "Ubunlog",
+      "category": "digital",
+      "feed_description": "Tutoriales, escritorios y software para Ubuntu"
+    },
+    {
+      "title": "Fundación Paternitas por crimen de niño: \"Bajar la edad de imputabilidad es un fracaso del sistema\"",
+      "display_title": "Fundación Paternitas por crimen de niño: \"Bajar la edad de imputabilidad es un fracaso del sistema\"",
+      "link": "https://www.cooperativa.cl/noticias/pais/infancia/fundacion-paternitas-por-crimen-de-nino-bajar-la-edad-de-imputabilidad/2026-06-25/112226.html",
+      "summary": "",
+      "published": "2026-06-25T15:22:26+00:00",
+      "source_label": "NNA",
+      "category": "noticias",
+      "feed_description": "Somos un medio de comunicación con más de 80 años de trayectoria y un serio compromiso informativo. Actualidad nacional, política, futbolística, cultu"
+    },
+    {
+      "title": "El giro del Capítulo 1186 de One Piece redefine la tragedia de Brook",
+      "display_title": "El giro del Capítulo 1186 de One Piece redefine la tragedia de Brook",
+      "link": "https://animanga.es/el-giro-del-capitulo-1186-de-one-piece-redefine-la-tragedia-de-brook-no-127292/",
+      "summary": "El último capítulo del manga One Piece ha desvelado una sorprendente reinterpretación sobre la Fruta Revive-Revive de Brook, intensificando la tragedia de su inmortalidad.",
+      "published": "2026-06-28T20:00:44+00:00",
+      "source_label": "Animanga",
+      "category": "curiosidad",
+      "feed_description": "En Animanga te ofrecemos todas las noticias sobre manga y anime: Cómics, tomos, ovas, películas, series y videojuegos."
     }
   ]
 }
