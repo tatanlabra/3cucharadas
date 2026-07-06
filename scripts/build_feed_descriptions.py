@@ -69,7 +69,7 @@ def _fetch_channel_desc(feed: dict) -> tuple[str, str]:
     try:
         parsed = feedparser.parse(
             url,
-            request_headers={"User-Agent": "3cucharadas-bot/1.0 (+https://tatanlabra.gitlab.io/3cucharadas)"},
+            request_headers={"User-Agent": "3cucharadas-bot/1.0 (+https://3cucharadas.cl/)"},
         )
         f = parsed.get("feed", {})
         desc = _clean(f.get("description", "") or f.get("subtitle", ""))
