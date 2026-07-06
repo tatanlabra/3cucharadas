@@ -88,6 +88,11 @@ JEKYLL_ENV=production bundle exec jekyll build
 python3 tools/build_github_redirector.py
 ```
 
-Publish `.redirect_build/` to the `gh-pages-redirect` branch. GitHub Pages must
-use `Deploy from a branch`, branch `gh-pages-redirect`, folder `/`, with no
-custom domain.
+Publish `.redirect_build/` to the `gh-pages-redirect` branch, with no custom
+domain.
+
+Preferred setup is GitHub Pages `Deploy from a branch`, branch
+`gh-pages-redirect`, folder `/`. If the legacy Pages build stays stuck, use the
+dedicated workflow `.github/workflows/github-pages-redirector.yml`; it checks out
+only `gh-pages-redirect` and deploys that redirector artifact, not the full
+Jekyll site.
