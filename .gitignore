@@ -41,6 +41,7 @@ _asset_bundler_cache
 _site
 _site_test
 _site_gh
+.redirect_build
 
 # Python cache
 __pycache__/

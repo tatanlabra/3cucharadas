@@ -1,4 +1,5 @@
-# GitLab Pages — redirección server-side de la raíz al proyecto 3cucharadas.
+# GitLab Pages - redireccion server-side de la raiz al dominio propio.
 # Colocar en la raíz publicada del repo `tatanlabra.gitlab.io`.
 # Docs: https://docs.gitlab.com/ee/user/project/pages/redirects.html
-/                /3cucharadas/        301
+/                https://3cucharadas.cl/        301
+/3cucharadas/*   https://3cucharadas.cl/:splat  301

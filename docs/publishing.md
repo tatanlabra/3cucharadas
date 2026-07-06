@@ -1,5 +1,18 @@
 # Publishing 3cucharadas
 
+## Production model
+
+Production is GitLab Pages on the custom domain:
+
+```text
+https://3cucharadas.cl
+```
+
+The canonical Jekyll config is `url: "https://3cucharadas.cl"` and
+`baseurl: ""`. GitHub remains a public mirror and its Pages surface must publish
+only the static redirector from `gh-pages-redirect`; it must not publish a
+duplicate copy of the site.
+
 ## Push targets
 
 `origin` is the publishing remote for the site. Its fetch URL points to GitLab,
@@ -65,3 +78,16 @@ python -m py_compile scripts/notify_telegram_commit.py
 Also scan `scripts`, `docs`, and `README.md` for concrete Telegram variable
 assignments, bot API tokens, bearer tokens, OpenAI-style API keys, and private
 key headers.
+
+## GitHub Pages redirector
+
+Build the real site first, then generate the redirector:
+
+```bash
+JEKYLL_ENV=production bundle exec jekyll build
+python3 tools/build_github_redirector.py
+```
+
+Publish `.redirect_build/` to the `gh-pages-redirect` branch. GitHub Pages must
+use `Deploy from a branch`, branch `gh-pages-redirect`, folder `/`, with no
+custom domain.

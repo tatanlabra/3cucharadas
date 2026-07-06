@@ -14,9 +14,9 @@ subtitle      : "Explorando curiosidades"
 name          : &name "Cristián Labra Olivares"
 description   : &description "Explorando curiosidades"
 
-# Producción (tu hosting actual)
-url           : "https://tatanlabra.gitlab.io"
-baseurl       : "/3cucharadas"
+# Producción: dominio propio servido desde la raíz por GitLab Pages.
+url           : "https://3cucharadas.cl"
+baseurl       : ""
 repository    : "tatanlabra/3cucharadas"
 
 teaser        : "/assets/images/unsplash-image-5.jpg"
@@ -111,7 +111,7 @@ author:
     #   url: "https://bsky.app/profile/labra.bsky.social"
     - label: "CV"
       icon: "fas fa-fw fa-file-pdf"
-      url: "/3cucharadas/assets/cv/cv_esp_clabraol_2026.pdf"
+      url: "/assets/cv/cv_esp_clabraol_2026.pdf"
 
 # Footer
 footer:
@@ -135,6 +135,7 @@ exclude:
   - "*.sublime-workspace"
   - vendor
   - public          # dir de salida de GitLab Pages; nunca tratarlo como fuente
+  - .redirect_build # salida temporal del redirector GitHub Pages
   - .asset-cache
   - .bundle
   - .jekyll-assets-cache
@@ -152,8 +153,11 @@ exclude:
   - log
   - node_modules
   - package.json
+  - deploy
+  - docs
   - Rakefile
   - README
+  - tools
   - tmp
 keep_files:
   - .git

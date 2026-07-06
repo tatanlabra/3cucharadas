@@ -78,5 +78,5 @@ Resultado: build exitoso. Las advertencias observadas son de deprecacion Sass `@
 Preview local usado para revision:
 
 ```text
-http://127.0.0.1:4001/3cucharadas/
+http://127.0.0.1:4001/
 ```

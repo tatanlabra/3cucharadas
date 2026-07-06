@@ -165,7 +165,7 @@ def fetch_article(
     try:
         parsed = feedparser.parse(
             url,
-            request_headers={"User-Agent": "3cucharadas-bot/1.0 (+https://tatanlabra.gitlab.io/3cucharadas)"},
+            request_headers={"User-Agent": "3cucharadas-bot/1.0 (+https://3cucharadas.cl/)"},
         )
     except Exception as exc:
         print(f"  WARN [{feed_meta['title']}]: {exc}", file=sys.stderr)
