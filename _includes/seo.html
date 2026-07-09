@@ -11,7 +11,24 @@
 {%- assign page_title = page_title | markdownify | strip_html | strip_newlines | escape_once -%}
 {%- assign seo_title  = seo_title  | markdownify | strip_html | strip_newlines | escape_once -%}
 
-{%- assign canonical_url = page.canonical_url | default: page.url | replace: "/index.html", "/" | absolute_url %}
+{%- if page.canonical_url -%}
+  {%- if page.canonical_url contains "://" -%}
+    {%- assign canonical_url = page.canonical_url | replace: "/index.html", "/" -%}
+  {%- else -%}
+    {%- capture canonical_url -%}{% include localized-absolute-url.html path=page.canonical_url %}{%- endcapture -%}
+    {%- assign canonical_url = canonical_url | strip -%}
+  {%- endif -%}
+{%- else -%}
+  {%- capture canonical_url -%}{% include localized-absolute-url.html path=page.url %}{%- endcapture -%}
+  {%- assign canonical_url = canonical_url | strip -%}
+{%- endif -%}
+
+{%- assign seo_locale = site.locale | replace: "-", "_" | default: "es_CL" -%}
+{%- if site.active_lang == "en" -%}
+  {%- assign seo_locale = "en_US" -%}
+{%- elsif site.active_lang == "es" -%}
+  {%- assign seo_locale = "es_CL" -%}
+{%- endif -%}
 
 {%- assign seo_description = page.description | default: page.excerpt | default: site.description -%}
 {%- if seo_description -%}
@@ -46,7 +63,7 @@
 {% endif %}
 
 <meta property="og:type" content="{{ og_type }}">
-<meta property="og:locale" content="{{ site.locale | replace: "-", "_" | default: "en_US" }}">
+<meta property="og:locale" content="{{ seo_locale }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ page_title }}">
 <meta property="og:url" content="{{ canonical_url }}">

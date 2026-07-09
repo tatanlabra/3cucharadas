@@ -7,11 +7,16 @@ Refuerza E-E-A-T y la asociación del nombre del autor en buscadores. Solo se em
   {%- assign author = site.data.authors[author_key] | default: site.author -%}
   {%- assign post_image = page.header.og_image | default: page.header.image | default: site.og_image -%}
   {%- assign desc = page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 300 -%}
+  {%- capture article_url -%}{% include localized-absolute-url.html path=page.url %}{%- endcapture -%}
+  {%- assign article_url = article_url | strip -%}
+  {%- capture author_url -%}{% include localized-absolute-url.html path="/about/" %}{%- endcapture -%}
+  {%- assign author_url = author_url | strip -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ page.url | absolute_url | jsonify }} },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ article_url | jsonify }} },
+  "url": {{ article_url | jsonify }},
   "headline": {{ page.title | strip_html | jsonify }},
   "description": {{ desc | jsonify }},
   "image": {{ post_image | absolute_url | jsonify }},
@@ -21,7 +26,7 @@ Refuerza E-E-A-T y la asociación del nombre del autor en buscadores. Solo se em
   "author": {
     "@type": "Person",
     "name": {{ author.name | default: site.social.name | jsonify }},
-    "url": {{ "/about/" | absolute_url | jsonify }}{% if site.social.links %},
+    "url": {{ author_url | jsonify }}{% if site.social.links %},
     "sameAs": {{ site.social.links | jsonify }}{% endif %}
   },
   "publisher": {

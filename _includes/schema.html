@@ -1,19 +1,38 @@
+{%- capture site_home_url -%}{% include localized-absolute-url.html path="/" %}{%- endcapture -%}
+{%- assign site_home_url = site_home_url | strip -%}
+{%- assign schema_language = "es-CL" -%}
+{%- if site.active_lang == "en" -%}
+  {%- assign schema_language = "en" -%}
+{%- endif -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  {% if site.social.type == "Organization" -%}
-    "@type": "Organization",
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.og_image %},
-    "logo": {{ site_og_image | jsonify }}{% endif %}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- else -%}
-    "@type": "Person",
-    "name": {{ site.social.name | default: site.name | jsonify }},
-    "alternateName": ["Cristián Labra", "tatan"],
-    "jobTitle": "Economista · servidor público",
-    "knowsAbout": ["Políticas sociales", "Estadística", "Ciencia de datos", "Registro Social de Hogares", "CASEN", "Julia", "R", "Python"],
-    "url": {{ '/' | absolute_url | jsonify }}{% if site.social.links %},
-    "sameAs": {{ site.social.links | jsonify }}{% endif %}
-  {%- endif %}
+  "@graph": [
+    {
+      "@type": "Blog",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site_home_url | jsonify }},
+      "inLanguage": {{ schema_language | jsonify }}
+    },
+    {% if site.social.type == "Organization" -%}
+    {
+      "@type": "Organization",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site_home_url | jsonify }}{% if site.og_image %},
+      "logo": {{ site_og_image | jsonify }}{% endif %}{% if site.social.links %},
+      "sameAs": {{ site.social.links | jsonify }}{% endif %}
+    }
+    {%- else -%}
+    {
+      "@type": "Person",
+      "name": {{ site.social.name | default: site.name | jsonify }},
+      "alternateName": ["Cristián Labra", "tatan"],
+      "jobTitle": "Economista · servidor público",
+      "knowsAbout": ["Políticas sociales", "Estadística", "Ciencia de datos", "Registro Social de Hogares", "CASEN", "Julia", "R", "Python"],
+      "url": {{ site_home_url | jsonify }}{% if site.social.links %},
+      "sameAs": {{ site.social.links | jsonify }}{% endif %}
+    }
+    {%- endif %}
+  ]
 }
 </script>
