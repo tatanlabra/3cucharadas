@@ -18,16 +18,16 @@ REDIRECT_TEMPLATE = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Redireccion a 3 Cucharadas</title>
+  <title>Redirección a 3 Cucharadas</title>
   <link rel="canonical" href="{target}">
   <meta http-equiv="refresh" content="0; url={target}">
-  <meta name="robots" content="noindex, follow, noarchive">
+  <meta name="robots" content="index, follow">
   <script>
     window.location.replace({target_js});
   </script>
 </head>
 <body>
-  <p>El sitio se traslado a <a href="{target}">{target}</a>.</p>
+  <p>El sitio se trasladó a <a href="{target}">{target}</a>.</p>
 </body>
 </html>
 """
@@ -37,9 +37,9 @@ FOUR_O_FOUR = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Redireccion a 3 Cucharadas</title>
+  <title>Redirección a 3 Cucharadas</title>
   <link rel="canonical" href="https://3cucharadas.cl/">
-  <meta name="robots" content="noindex, follow, noarchive">
+  <meta name="robots" content="index, follow">
   <script>
     (function () {
       var path = window.location.pathname || "/";
@@ -52,7 +52,7 @@ FOUR_O_FOUR = """<!doctype html>
   </script>
 </head>
 <body>
-  <p>El sitio se traslado a <a href="https://3cucharadas.cl/">https://3cucharadas.cl/</a>.</p>
+  <p>El sitio se trasladó a <a href="https://3cucharadas.cl/">https://3cucharadas.cl/</a>.</p>
 </body>
 </html>
 """
@@ -108,7 +108,10 @@ def main() -> None:
         written += 1
 
     (OUT_DIR / "404.html").write_text(FOUR_O_FOUR, encoding="utf-8")
-    (OUT_DIR / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+    (OUT_DIR / "robots.txt").write_text(
+        "User-agent: *\nAllow: /\n\nSitemap: https://3cucharadas.cl/sitemap.xml\n",
+        encoding="utf-8",
+    )
     (OUT_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
     if (OUT_DIR / "CNAME").exists():

@@ -27,12 +27,12 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 
 **Gracias por pasar por aquí** 🙌
 
-## Publicacion
+## Publicación
 
-Sitio productivo: https://3cucharadas.cl
+Sitio publicado en: https://3cucharadas.cl/
 
 Este repositorio se publica productivamente mediante GitLab Pages. GitHub se
-conserva como espejo publico y como redirector de la URL historica
+conserva como espejo público, respaldo y redirector de la URL histórica
 `https://tatanlabra.github.io/3cucharadas/`, no como hosting productivo del
 contenido principal.
 
@@ -41,7 +41,7 @@ contenido principal.
 - El widget RSS se genera durante el build de GitLab CI: `.gitlab-ci.yml`
   ejecuta `scripts/fetch_news.py` antes de `jekyll build`.
 - GitHub Pages no publica una copia del sitio real; solo sirve redirectores
-  estaticos desde la rama `gh-pages-redirect`.
+  estáticos desde la rama `gh-pages-redirect`.
 - No hay commits automáticos diarios de `_data/feedly_news.json`; el JSON es artefacto de build.
 
 ### Configuración requerida en GitLab UI

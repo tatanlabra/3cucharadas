@@ -89,10 +89,11 @@ python3 tools/build_github_redirector.py
 ```
 
 Publish `.redirect_build/` to the `gh-pages-redirect` branch, with no custom
-domain.
+domain. The redirector must keep canonical links on `https://3cucharadas.cl/`
+and `robots` as `index, follow` so the historical GitHub Pages URLs point
+cleanly to the new canonical site instead of becoming a duplicate site.
 
-Preferred setup is GitHub Pages `Deploy from a branch`, branch
-`gh-pages-redirect`, folder `/`. If the legacy Pages build stays stuck, use the
-dedicated workflow `.github/workflows/github-pages-redirector.yml`; it checks out
-only `gh-pages-redirect` and deploys that redirector artifact, not the full
-Jekyll site.
+Preferred setup is the dedicated workflow
+`.github/workflows/github-pages-redirector.yml`; it checks out only
+`gh-pages-redirect`, stages it as `_site_redirect`, and deploys exactly one
+GitHub Pages artifact. It does not build or publish the full Jekyll site.
