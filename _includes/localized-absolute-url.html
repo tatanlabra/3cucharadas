@@ -1,0 +1,19 @@
+{%- assign localized_path = include.path | default: page.url | default: "/" | replace: "/index.html", "/" -%}
+{%- if localized_path == "" -%}
+  {%- assign localized_path = "/" -%}
+{%- endif -%}
+{%- assign first_char = localized_path | slice: 0, 1 -%}
+{%- unless first_char == "/" -%}
+  {%- assign localized_path = "/" | append: localized_path -%}
+{%- endunless -%}
+{%- assign active_lang = site.active_lang | default: site.default_lang -%}
+{%- assign path_segments = localized_path | split: "/" -%}
+{%- assign first_segment = path_segments[1] -%}
+{%- if active_lang and site.default_lang and active_lang != site.default_lang and first_segment != active_lang -%}
+  {%- if localized_path == "/" -%}
+    {%- assign localized_path = "/" | append: active_lang | append: "/" -%}
+  {%- else -%}
+    {%- assign localized_path = "/" | append: active_lang | append: localized_path -%}
+  {%- endif -%}
+{%- endif -%}
+{{- site.url | append: site.baseurl | append: localized_path -}}
