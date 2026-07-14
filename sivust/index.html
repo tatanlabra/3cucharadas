@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIVUST · Explora la vulnerabilidad socioterritorial de Chile, barrio por barrio</title>
+  <meta name="description" content="Visor abierto del Índice Global de Vulnerabilidad Socioterritorial (IGVUST) del SIVUST a nivel de Unidad Vecinal, comuna y región. Explóralo, encuentra tu comuna y llega a la información oficial de BIDAT. Datos junio 2026.">
+  <link rel="canonical" href="https://3cucharadas.cl/sivust/">
+  <meta name="theme-color" content="#16356a">
+  <meta property="og:title" content="SIVUST · Explora la vulnerabilidad socioterritorial de Chile, barrio por barrio">
+  <meta property="og:description" content="Visor abierto del IGVUST/SIVUST a nivel de Unidad Vecinal, comuna y región. Explóralo y llega a la información oficial de BIDAT. Datos junio 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://3cucharadas.cl/sivust/">
+  <meta property="og:image" content="https://3cucharadas.cl/sivust/data/og-sivust.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Póster del IGVUST: 6.891 Unidades Vecinales, 346 comunas, 16 regiones y 84,1% de cobertura RSH nacional.">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="3 Cucharadas">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316356a'/><rect x='7' y='7' width='9' height='9' fill='%232e8cc4'/><rect x='16' y='7' width='9' height='9' fill='%237d4a9c'/><rect x='7' y='16' width='9' height='9' fill='%239fc3e0'/><rect x='16' y='16' width='9' height='9' fill='%23cdd3d9'/></svg>">
+  <script>
+    // Tema: respeta preferencia guardada; si no, sistema. Sin flash.
+    (function () {
+      try {
+        var t = localStorage.getItem("sivust-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#mapa">Saltar al mapa</a>
+
+<header class="hero">
+  <span class="grain" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="brand"><span class="glyph" aria-hidden="true"></span> SIVUST · Visor abierto</span>
+      <div class="hero-tools">
+        <span class="chip"><span class="dot" aria-hidden="true"></span> Datos junio 2026</span>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
+          <span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span>
+        </button>
+      </div>
+    </div>
+
+    <p class="kicker">SIVUST · Índice Global de Vulnerabilidad Socioterritorial</p>
+    <h1>La vulnerabilidad de tu territorio,<br><span class="accent-word">barrio por barrio</span></h1>
+    <p class="sub">El SIVUST mide la vulnerabilidad socioterritorial de Chile hasta el nivel de <strong>Unidad Vecinal</strong>. Este visor abierto te invita a explorarla en el mapa, encontrar tu comuna y dar el primer paso hacia la información oficial de BIDAT.</p>
+
+    <p class="disclaimer"><strong>Visualización independiente de 3 Cucharadas</strong>, construida con datos públicos de BIDAT bajo licencia CC BY. No es un sitio oficial del Ministerio de Desarrollo Social y Familia.</p>
+
+    <div class="hero-cta">
+      <a class="btn primary" href="#mapa">Explorar el mapa <span class="arrow" aria-hidden="true">↓</span></a>
+      <a class="btn secondary" href="#oficial">Ver información oficial</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="contenido">
+
+  <noscript>
+    <section class="card">
+      <h2>Este visor necesita JavaScript</h2>
+      <p>El mapa y las tablas se construyen en tu navegador a partir de datos abiertos, así que sin JavaScript no pueden mostrarse. Puedes activarlo, o ir directo a los datos y a la fuente oficial:</p>
+      <ul>
+        <li><a href="data/resumen_regional.csv" download>Resumen regional (CSV)</a></li>
+        <li><a href="data/resumen_comunal.csv" download>Resumen comunal (CSV)</a></li>
+        <li><a href="data/uv_cuartiles_extremos.csv" download>Unidades Vecinales en cuartiles extremos (CSV)</a></li>
+        <li><a href="metodologia.html">Metodología, fuentes y licencia</a></li>
+        <li><a href="https://bidat.gob.cl/directorio/SIVUST%20-%20Vulnerabilidad%20Socioterritorial" target="_blank" rel="noopener">Fuente oficial: directorio SIVUST en BIDAT</a></li>
+      </ul>
+      <p class="small">Datos: BIDAT / SIVUST — Ministerio de Desarrollo Social y Familia · IGVUST junio 2026 · Licencia CC BY.</p>
+    </section>
+  </noscript>
+
+  <section id="kpis" class="kpis reveal" aria-label="Chile en el IGVUST, junio 2026">
+    <div class="kpi">
+      <span class="ic" aria-hidden="true">▤</span>
+      <span class="v" id="kpi-uv">—</span><span class="l">Unidades Vecinales</span>
+    </div>
+    <div class="kpi">
+      <span class="ic" aria-hidden="true">◫</span>
+      <span class="v" id="kpi-com">—</span><span class="l">Comunas</span>
+    </div>
+    <div class="kpi">
+      <span class="ic" aria-hidden="true">◇</span>
+      <span class="v" id="kpi-reg">—</span><span class="l">Regiones</span>
+    </div>
+    <div class="kpi">
+      <span class="ic" aria-hidden="true">◉</span>
+      <span class="v" id="kpi-pob">—</span><span class="l">Personas en RSH</span>
+    </div>
+    <div class="kpi accent">
+      <span class="ic" aria-hidden="true">◍</span>
+      <span class="v" id="kpi-cob">—</span><span class="l">Cobertura RSH nacional</span>
+    </div>
+    <div class="kpi">
+      <span class="ic" aria-hidden="true">⌂</span>
+      <span class="v" id="kpi-hog">—</span><span class="l">Hogares en RSH</span>
+    </div>
+  </section>
+
+  <section class="card explain-card reveal" id="que-es" aria-labelledby="que-es-title">
+    <span class="section-eyebrow">Para quienes recién lo descubren</span>
+    <h2 id="que-es-title">¿Qué es el <span class="lead-accent">SIVUST</span>?</h2>
+    <p class="big">El <strong>SIVUST</strong> es el Sistema de Indicadores de Vulnerabilidad Socioterritorial. Su <strong>IGVUST</strong> resume <strong>18 indicadores en 7 dimensiones</strong> en un solo cuartil de vulnerabilidad: <span class="badge q1">C1</span> reúne a los territorios de mayor vulnerabilidad relativa y <span class="badge q4">C4</span> a los de menor. Este visor lo acerca en lenguaje simple; la fuente oficial y completa vive en BIDAT.</p>
+    <h3>Las 7 dimensiones y su peso en el índice</h3>
+    <div class="dims" aria-label="Ponderadores por dimensión del IGVUST">
+      <div class="dim"><span class="name">Trabajo</span><span class="weight">29,1%</span></div>
+      <div class="dim"><span class="name">Ingresos</span><span class="weight">19,5%</span></div>
+      <div class="dim"><span class="name">Salud</span><span class="weight">14,4%</span></div>
+      <div class="dim"><span class="name">Educación</span><span class="weight">12,1%</span></div>
+      <div class="dim"><span class="name">Accesibilidad</span><span class="weight">11,3%</span></div>
+      <div class="dim"><span class="name">Seguridad</span><span class="weight">7,2%</span></div>
+      <div class="dim"><span class="name">Vivienda</span><span class="weight">6,5%</span></div>
+    </div>
+    <p class="hint">Los cuartiles priorizan preguntas, no sentencian. Son un punto de partida para mirar el territorio con más evidencia. <a href="metodologia.html">Ver metodología, fuentes y licencia →</a></p>
+  </section>
+
+  <section class="card reveal" aria-labelledby="pasos-title">
+    <span class="section-eyebrow">Cómo recorrerlo</span>
+    <h2 id="pasos-title">Explóralo en 3 pasos</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Mira el mapa</h3>
+        <p>Cada comuna se pinta por su cuartil de vulnerabilidad y por su población en el RSH. Elige una región para enfocar la lectura.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Encuentra tu comuna</h3>
+        <p>Busca tu comuna en el explorador y compárala con su región y con el país. Baja hasta la Unidad Vecinal.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Profundiza en lo oficial</h3>
+        <p>Cuando algo te llame la atención, ve a BIDAT: ahí están las bases completas, los mapas oficiales y la metodología del SIVUST.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card map-card reveal" id="mapa" aria-labelledby="map-title">
+    <div class="map-head">
+      <div>
+        <span class="section-eyebrow">El país de un vistazo</span>
+        <h2 id="map-title">Mapa bivariado de Chile por comuna</h2>
+        <p class="hint">Mapa referencial continental, rotado horizontalmente. Color = cuartil IGVUST; intensidad = población RSH comunal bajo/sobre la mediana.</p>
+      </div>
+      <p class="map-status" id="map-status">Cargando mapa…</p>
+    </div>
+    <div class="region-buttons" id="region-buttons" aria-label="Seleccionar región"></div>
+    <div class="map-layout">
+      <div class="map-stage">
+        <svg id="bivariado-map" class="bivariado-map" role="img" aria-describedby="map-alt" aria-label="Mapa bivariado de comunas de Chile por región"></svg>
+        <p id="map-alt" class="visually-hidden">Mapa referencial. El cuartil de vulnerabilidad y la población en el RSH de cada comuna están disponibles, en formato navegable por teclado, en la tabla «Explorador comunal» más abajo en esta página. Para filtrar por región usa los botones de región que preceden al mapa.</p>
+      </div>
+      <div class="map-side map-legend-strip">
+        <div class="map-side-copy">
+          <h3>Cómo leer el color</h3>
+          <p class="small">A la izquierda, más vulnerable (C1); a la derecha, menos (C4). Un tono más intenso indica más población en el RSH.</p>
+          <p class="small" id="map-pop-median"></p>
+        </div>
+        <div id="map-legend" class="map-legend" aria-label="Leyenda bivariada"></div>
+        <p class="small map-instruction">Al elegir una región, el resto del país baja de opacidad y las tablas se filtran al mismo territorio. Usa <strong>Nacional</strong> para restablecer la lectura completa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card reveal" aria-labelledby="reg-title">
+    <div class="sec-head">
+      <div>
+        <span class="section-eyebrow">Ranking país</span>
+        <h2 id="reg-title">Ranking regional</h2>
+      </div>
+      <a class="btn ghost small-btn" href="data/resumen_regional.csv" download>Descargar CSV</a>
+    </div>
+    <p class="hint" id="region-filter-note">Ordenado por vulnerabilidad (rank nacional, 1 = mayor vulnerabilidad relativa). Haz clic en los encabezados para reordenar.</p>
+    <div class="tablewrap"><table id="tbl-reg"></table></div>
+  </section>
+
+  <section class="card reveal" id="explorador" aria-labelledby="com-title">
+    <div class="sec-head">
+      <div>
+        <span class="section-eyebrow">Baja a tu territorio</span>
+        <h2 id="com-title">Explorador comunal</h2>
+      </div>
+      <a class="btn ghost small-btn" href="data/resumen_comunal.csv" download>Descargar CSV</a>
+    </div>
+    <div class="finder">
+      <div class="finder-copy">
+        <strong>Encuentra tu comuna</strong>
+        <span>Escribe su nombre y salta directo a su fila en la tabla.</span>
+      </div>
+      <div class="finder-input">
+        <input type="search" id="f-com" placeholder="Ej.: La Pintana, Alto Hospicio…" aria-label="Buscar comuna">
+      </div>
+    </div>
+    <div class="controls">
+      <p class="hint" style="margin:0">La región activa viene del mapa. La búsqueda ubica una comuna dentro de la selección actual.</p>
+      <span class="count" id="com-count"></span>
+    </div>
+    <div class="tablewrap"><table id="tbl-com"></table></div>
+  </section>
+
+  <section class="card reveal" aria-labelledby="uv-title">
+    <div class="sec-head">
+      <div>
+        <span class="section-eyebrow">El detalle fino</span>
+        <h2 id="uv-title">Unidades Vecinales en cuartiles extremos</h2>
+      </div>
+      <a class="btn ghost small-btn" href="data/uv_cuartiles_extremos.csv" download>Descargar CSV</a>
+    </div>
+    <div class="controls">
+      <span class="hint" style="margin:0">Muestra UV en C1 y C4 nacional. La selección Nacional/región del mapa también filtra esta tabla. También puedes descargar el <a href="data/top_uv_region.csv" download>top 10 de UV más vulnerables por región (CSV)</a>.</span>
+      <span class="count" id="uv-count"></span>
+    </div>
+    <div class="tablewrap"><table id="tbl-uv"></table></div>
+  </section>
+
+  <section class="card reveal" aria-labelledby="cautelas-title">
+    <span class="section-eyebrow">Léelo con cuidado</span>
+    <h2 id="cautelas-title">Tres cautelas antes de sacar conclusiones</h2>
+    <div class="callout-grid" aria-label="Cautelas para usar el visor">
+      <p class="callout-yellow"><strong>Es un punto de partida.</strong> Los cuartiles ayudan a priorizar preguntas; no reemplazan el análisis técnico ni el conocimiento local.</p>
+      <p class="callout-yellow"><strong>Forma tus propios juicios.</strong> Para programas, oferta pública o inversión, complementa con evidencia sectorial, diagnósticos locales y juicio experto.</p>
+      <p class="callout-yellow"><strong>Verifica en la fuente oficial.</strong> Para metodología y resultados definitivos, revisa los documentos oficiales del SIVUST/IGVUST en BIDAT.</p>
+    </div>
+  </section>
+
+  <section class="card official-links reveal" id="oficial" aria-labelledby="oficial-title">
+    <span class="section-eyebrow">El siguiente paso es oficial</span>
+    <h2 id="oficial-title">Sigue en BIDAT, la fuente oficial</h2>
+    <p>Este visor te <strong>acerca</strong> al SIVUST para que empieces a mirarlo. Cuando quieras las bases completas, los mapas oficiales y la documentación metodológica, el camino continúa en las fichas públicas de BIDAT:</p>
+    <ul class="link-cards">
+      <li><a class="link-card" href="https://bidat.gob.cl/directorio/SIVUST%20-%20Vulnerabilidad%20Socioterritorial" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">🗂</span>
+        <span class="lc-body"><span class="lc-title">Directorio SIVUST</span><span class="lc-sub">Vulnerabilidad Socioterritorial</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+      <li><a class="link-card" href="https://bidat.gob.cl/details/ficha/dataset/bases-de-datos-junio-2026" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">📊</span>
+        <span class="lc-body"><span class="lc-title">Bases de datos</span><span class="lc-sub">Junio 2026 · descarga completa</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+      <li><a class="link-card" href="https://bidat.gob.cl/details/ficha/dataset/mapas-de-resultado-junio-2026" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">🗺</span>
+        <span class="lc-body"><span class="lc-title">Mapas de resultado</span><span class="lc-sub">Cartografía oficial junio 2026</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+      <li><a class="link-card" href="https://bidat.gob.cl/details/ficha/dataset/documentos" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">📄</span>
+        <span class="lc-body"><span class="lc-title">Informe metodológico</span><span class="lc-sub">Documentación del SIVUST</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+    </ul>
+    <p class="callout-yellow compact">Los cuartiles priorizan, no sentencian: orientan exploración y focalización, pero requieren contraste con información local y experta.</p>
+    <div class="official-cta-row">
+      <a class="btn solid" href="https://bidat.gob.cl/directorio/SIVUST%20-%20Vulnerabilidad%20Socioterritorial" target="_blank" rel="noopener">Ir a BIDAT <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn ghost" href="metodologia.html">Metodología y licencia</a>
+      <a class="btn ghost" href="data/carrusel_igvust.pdf" download>Resumen visual (PDF)</a>
+      <a class="btn ghost" href="data/igvust_202606.png" download>Póster IGVUST (PNG)</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><span class="foot-brand">SIVUST · Visor abierto.</span> Visualización independiente de <a href="https://3cucharadas.cl">3 Cucharadas</a> con datos públicos de BIDAT. <strong>No es un sitio oficial del MDSF.</strong></p>
+    <p class="small"><strong>Datos:</strong> BIDAT / SIVUST — Ministerio de Desarrollo Social y Familia · IGVUST junio 2026 · Licencia <strong>Creative Commons Attribution (CC BY)</strong> · Cartografía UV agosto 2025 · INE Estimaciones y proyecciones 2002-2035 (base censo 2017).</p>
+    <p class="small">Datos agregados a nivel UV / comuna / región, sin información individual. Las coberturas RSH &gt;100% se truncan a 100%; el exceso se asocia probablemente a limitaciones de las proyecciones base censo 2017 y debe revisarse con nuevas proyecciones censales.</p>
+    <p class="small">Verificado el 14 de julio de 2026 · <a href="metodologia.html">Ficha técnica completa</a> · URL canónica: <a href="https://3cucharadas.cl/sivust/">https://3cucharadas.cl/sivust/</a></p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

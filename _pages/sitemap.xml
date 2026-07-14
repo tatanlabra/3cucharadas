@@ -32,6 +32,12 @@ sitemap: false
   {%- assign es = base | append: page.url -%}
   {%- assign en = base | append: '/en' | append: page.url -%}
   {%- assign lm = page.last_modified_at | date_to_xmlschema -%}
+  {%- if page.url contains '/sivust/' -%}
+  <url>
+    <loc>{{ es }}</loc>
+    {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
+  </url>
+  {%- else -%}
   <url>
     <loc>{{ es }}</loc>
     {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
@@ -46,6 +52,14 @@ sitemap: false
     <xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ es }}"/>
   </url>
+  {%- endif -%}
   {%- endunless -%}
 {%- endfor -%}
+{%- comment -%} Micrositios estáticos sin front matter. No tienen versión /en/. {%- endcomment -%}
+<url>
+  <loc>{{ base }}/sivust/</loc>
+</url>
+<url>
+  <loc>{{ base }}/sivust/metodologia.html</loc>
+</url>
 </urlset>

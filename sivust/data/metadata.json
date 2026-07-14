@@ -1,0 +1,47 @@
+{
+  "fuente": "BIDAT — SIVUST / IGVUST",
+  "periodo": "202606",
+  "cartografia_uv": "Shape_UV_ago2025 (ago-2025, SIRGAS 2000 / EPSG:4674)",
+  "fecha_proceso": "2026-07-14",
+  "nota_cuartil": "Cuartil 1 = mayor vulnerabilidad; rank_nac 1 = región más vulnerable",
+  "cobertura_rsh_uv": "Σ pob_rsh_uv(UV con definición municipal) / pob_rsh_com (primaria)",
+  "tasa_asignacion_uv": "Σ pob_rsh_uv(cualquier UV, incl. SIN DEF) / pob_rsh_com",
+  "nota_antartica": "Comuna Antártica (12202) sin población RSH: cobertura indefinida (NaN)",
+  "privacidad": "Datos agregados a nivel UV/comuna/región. Sin información individual.",
+  "qa": {
+    "uv_total": 6891,
+    "uv_definidas": 6799,
+    "uv_sin_def": 92,
+    "comunas": 346,
+    "regiones": 16,
+    "pob_rsh_total": 17087435,
+    "hogares_total": 9178623,
+    "pob_rsh_en_uv": 15978644,
+    "tasa_asignacion_nacional": 0.9351,
+    "cuartiles_uv_validos": true,
+    "cobertura_en_rango": true,
+    "cobertura_nan": 1,
+    "na_en_claves": 0
+  },
+  "outputs": [
+    "igvust_regional.parquet",
+    "igvust_comunal.parquet",
+    "igvust_uv.parquet",
+    "uv_full.parquet"
+  ],
+  "fuente_proyeccion": "INE Estimaciones y proyecciones 2002-2035 (base censo 2017), comunas",
+  "cobertura_rsh": "pob_rsh / población proyectada INE 2026 (comuna y región); truncada a 100%",
+  "nota_cobertura_mayor_100": "Coberturas >100% se truncan a 100%. El exceso se debe probablemente a limitaciones de las proyecciones base censo 2017, que se subsanarán con las proyecciones sobre censo 2024 (incorporan mejor el aumento migratorio, sobre todo en comunas muy receptoras).",
+  "qa_cobertura_rsh": {
+    "comunas_total": 346,
+    "comunas_con_proyeccion": 346,
+    "comunas_sin_proyeccion": 0,
+    "pob_proy_2026_nacional": 20322807,
+    "cobertura_rsh_truncada_a_100": "sí (valores >100% por proyección base censo 2017)",
+    "comunas_truncadas": 160,
+    "cobertura_rsh_min": 0.0,
+    "cobertura_rsh_mediana": 0.9894,
+    "cobertura_rsh_max": 1.0,
+    "cobertura_rsh_nacional": 0.8408
+  }
+}
