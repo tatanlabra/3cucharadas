@@ -32,16 +32,16 @@ gallery_nacional:
 gallery_regional:
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
-    alt: "Chart 4: Dot plot of regional gaps in educational level by category, CASEN 2024. Each panel has its axis fitted to its own range; a hollow point marks the national reference."
-    title: "Chart 4 — Regional gaps in education: dot plot by category (axis fitted per panel, hollow point = national reference)"
+    alt: "Chart 4: Dot plot of regional gaps in educational level by category, CASEN 2024. Each panel has its axis fitted to its own range; dashed vertical line = national reference and grey band = national 95% CI."
+    title: "Chart 4 — Regional gaps in education: dot plot by category (axis fitted per panel, dashed line = national, band = 95% CI)"
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
     alt: "Chart 5: Dot plot of regional gaps in the health insurance system by category, CASEN 2024. Axis fitted per panel with national reference."
-    title: "Chart 5 — Regional gaps in health: dot plot by category (axis fitted per panel, hollow point = national reference)"
+    title: "Chart 5 — Regional gaps in health: dot plot by category (axis fitted per panel, dashed line = national, band = 95% CI)"
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
     alt: "Chart 6: Dot plot of regional gaps in income poverty, CASEN 2024. Axis fitted per panel with national reference."
-    title: "Chart 6 — Regional gaps in poverty: dot plot (axis fitted per panel, hollow point = national reference)"
+    title: "Chart 6 — Regional gaps in poverty: dot plot (axis fitted per panel, dashed line = national, band = 95% CI)"
 ---
 
 In Chile, **La Araucanía records 13.0% extreme poverty; Magallanes, 4.2%**. That is 8.8 percentage points of difference — and if a public agency at the central or local level (regional governments / municipalities) designs its intervention using only the national average (6.9%), or disregarding regional differences, it could get the allocation of resources or the distribution of its components wrong.
@@ -75,7 +75,7 @@ All results were checked against the official tables available in [BIDAT](https:
 | National rows compared | 16 |
 | Regional rows compared | 256 |
 
-The maximum observed difference is below 3 millionths of a percentage point, well within tolerance 😀. **The results are numerically identical to the official ones.**
+The maximum observed difference is below 3 millionths of a percentage point and within the preset tolerance. **The results match the official tables within the predefined tolerances.**
 
 ---
 
@@ -136,7 +136,7 @@ The following percentages correspond to proportions weighted with `expr`, valida
 
 ## Spoonful 2: the technical flow in Julia
 
-The pipeline runs end to end with `julia --project=. scripts/run_all.jl` (the orchestrator). The two most relevant pieces of code to reproduce and "audit" these results are the cell-allocation algorithm and the sampling-design specification (both in the GitLab/GitHub repository).
+The pipeline runs end to end with `julia --project=. scripts/run_all.jl` (the orchestrator). The two most relevant pieces of code to reproduce and "audit" these results are the cell-allocation algorithm and the sampling-design specification, available in the [public repository](https://github.com/tatanlabra/casen24_julia_viz).
 
 ### Taylor linearization: SE and CI of the complex design
 
@@ -157,7 +157,7 @@ ci_lo = clamp(p̂ - 1.96 * se, 0.0, 1.0)
 ci_hi = clamp(p̂ + 1.96 * se, 0.0, 1.0)
 ```
 
-All PSUs of the design are used (including those outside the domain, with $z_j = 0$), which is correct for random-domain estimation. The median regional SE is **1.66 pp** of CI width; the maximum is **5.76 pp** (small regions with low-prevalence categories).
+All PSUs of the design are used (including those outside the domain, with $z_j = 0$), which is correct for random-domain estimation. The median regional 95% CI width is **1.66 pp**; the maximum is **5.76 pp** (small regions with low-prevalence categories).
 
 > **Next entry, at some point 👀 — Jackknife and Bootstrap for CASEN as a contrast:** TSL is an optimal first-order approximation for means and proportions, but for non-linear statistics (Gini, medians, quantile ratios) it can under-estimate the variance. The [code repository](https://github.com/tatanlabra/casen24_julia_viz/blob/main/docs/ic-varianza-casen.md) includes the theory and the in-progress Julia code to contrast TSL with Jackknife (delete-1) and Bootstrap — a future entry in this series, which I have not reviewed in depth.
 
@@ -208,9 +208,9 @@ Each waffle represents 100 cells allocated by largest remainder over the weighte
 
 ### Regional gaps (Charts 4–6)
 
-Each panel uses an **axis fitted to the range of its own category** (not a shared global scale), which makes it possible to visualize differences that flatten out if all categories share the same axis. The **horizontal bars** are 95% CIs computed by Taylor linearization. The hollow point (○) marks the national reference in each panel (with its CI).
+Each panel uses an **axis fitted to the range of its own category** (not a shared global scale), which makes it possible to visualize differences that flatten out if all categories share the same axis. The **horizontal bars** are 95% CIs computed by Taylor linearization; the dashed vertical line marks the national estimate and the pale grey band its 95% CI.
 
-{% include gallery id="gallery_regional" layout="third" caption="**Charts 4–6** — Regional gaps with 95% CIs (Taylor linearization, complex design): education, health and poverty. Bars = 95% CI; hollow point (○) = national reference. Axis fitted per category. Click to enlarge." %}
+{% include gallery id="gallery_regional" layout="third" caption="**Charts 4–6** — Regional gaps with 95% CIs (Taylor linearization, complex design): education, health and poverty. Bars = regional 95% CI; dashed line = national estimate; grey band = national 95% CI. Axis fitted per category. Click to enlarge." %}
 
 ### Gaps with 95% CIs — all statistically robust
 

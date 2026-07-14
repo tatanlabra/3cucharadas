@@ -1,0 +1,25 @@
+---
+layout: null
+permalink: /feed-julia.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ site.title | xml_escape }} - Julia</title>
+    <link>{{ '/' | absolute_url | xml_escape }}</link>
+    <description>English posts by Cristián Labra about Julia, reproducible data analysis, and public policy.</description>
+    <language>en</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <atom:link href="{{ page.url | absolute_url | xml_escape }}" rel="self" type="application/rss+xml" />
+    {% for post in site.data.julia_feed_posts %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <link>{{ post.url | xml_escape }}</link>
+        <guid isPermaLink="true">{{ post.url | xml_escape }}</guid>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <description>{{ post.description | xml_escape }}</description>
+        <content:encoded xml:base="{{ post.url | xml_escape }}"><![CDATA[{{ post.content }}]]></content:encoded>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
