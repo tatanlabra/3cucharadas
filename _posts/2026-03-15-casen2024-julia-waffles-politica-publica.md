@@ -32,16 +32,16 @@ gallery_nacional:
 gallery_regional:
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
-    alt: "Gráfico 4: Dot plot de brechas regionales en nivel educacional por categoría, CASEN 2024. Cada panel tiene eje ajustado a su rango; punto vacío indica referencia nacional."
-    title: "Gráfico 4 — Brechas regionales en educación: dot plot por categoría (eje ajustado por panel, punto vacío = referencia nacional)"
+    alt: "Gráfico 4: Dot plot de brechas regionales en nivel educacional por categoría, CASEN 2024. Cada panel tiene eje ajustado a su rango; línea vertical punteada = referencia nacional y banda gris = IC 95 % nacional."
+    title: "Gráfico 4 — Brechas regionales en educación: dot plot por categoría (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
     alt: "Gráfico 5: Dot plot de brechas regionales en sistema previsional de salud por categoría, CASEN 2024. Eje ajustado por panel con referencia nacional."
-    title: "Gráfico 5 — Brechas regionales en salud: dot plot por categoría (eje ajustado por panel, punto vacío = referencia nacional)"
+    title: "Gráfico 5 — Brechas regionales en salud: dot plot por categoría (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
   - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
     alt: "Gráfico 6: Dot plot de brechas regionales en pobreza por ingresos, CASEN 2024. Eje ajustado por panel con referencia nacional."
-    title: "Gráfico 6 — Brechas regionales en pobreza: dot plot (eje ajustado por panel, punto vacío = referencia nacional)"
+    title: "Gráfico 6 — Brechas regionales en pobreza: dot plot (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
 ---
 
 En Chile, **La Araucanía registra 13.0% de pobreza extrema; Magallanes, 4.2%**. Son 8.8 puntos porcentuales de diferencia — y si un servicio público de nivel central o local (GOREs/Municipios) diseñan su intervención usando solo el promedio nacional (6.9%), o despreciando las diferencias regionales, podrían equivocarse en asignar recursos o distribuir sus componentes.
@@ -75,7 +75,7 @@ Todos los resultados fueron contrastados contra las tablas oficiales disponibles
 | Filas comparadas nacional | 16 |
 | Filas comparadas regional | 256 |
 
-La diferencia máxima observada es inferior a 3 millonésimas de punto porcentual, tolerable 😀. **Los resultados son numéricamente idénticos a los oficiales.**
+La diferencia máxima observada es inferior a 3 millonésimas de punto porcentual y está dentro de la tolerancia definida. **Los resultados coinciden con las tablas oficiales dentro de las tolerancias predefinidas.**
 
 ---
 
@@ -136,7 +136,7 @@ Los porcentajes siguientes corresponden a proporciones ponderadas con `expr`, va
 
 ## Cucharada 2: el flujo técnico en Julia
 
-El pipeline corre de punta a punta con `julia --project=. scripts/run_all.jl` (orquestador). Las dos piezas de código más relevantes para reproducir y "auditar" estos resultados son el algoritmo de asignación de celdas y la especificación del diseño muestral (ambos en el repositorio de gitlab/github).
+El pipeline corre de punta a punta con `julia --project=. scripts/run_all.jl` (orquestador). Las dos piezas de código más relevantes para reproducir y "auditar" estos resultados son el algoritmo de asignación de celdas y la especificación del diseño muestral, disponibles en el [repositorio público](https://github.com/tatanlabra/casen24_julia_viz).
 
 ### Taylor linearization: SE e IC del diseño complejo
 
@@ -157,7 +157,7 @@ ci_lo = clamp(p̂ - 1.96 * se, 0.0, 1.0)
 ci_hi = clamp(p̂ + 1.96 * se, 0.0, 1.0)
 ```
 
-Se usan todos los PSU del diseño (incluidos los fuera del dominio, con $z_j = 0$), lo que es correcto para estimación de dominio aleatorio. El SE mediano regional es **1.66 pp** de ancho de IC; el máximo es **5.76 pp** (regiones pequeñas con categorías de baja prevalencia).
+Se usan todos los PSU del diseño (incluidos los fuera del dominio, con $z_j = 0$), lo que es correcto para estimación de dominio aleatorio. La mediana del ancho de los IC regionales es **1.66 pp**; el máximo es **5.76 pp** (regiones pequeñas con categorías de baja prevalencia).
 
 > **Próxima entrada, en algún momento 👀 — Jackknife y Bootstrap para CASEN como contraste:** TSL es una aproximación de primer orden óptima para medias y proporciones, pero para estadísticos no lineales (Gini, medianas, razones de cuantiles) puede sub-estimar la varianza. El [repositorio de código](https://github.com/tatanlabra/casen24_julia_viz/blob/main/docs/ic-varianza-casen.md) incluye la teoría y el código Julia en desarrollo para contrastar TSL con Jackknife (delete-1) y Bootstrap — entrada futura de esta serie, no lo he revisado en profundidad.
 
@@ -208,9 +208,9 @@ Cada waffle representa 100 celdas asignadas por "largest remainder" sobre las pr
 
 ### Brechas regionales (Gráficos 4–6)
 
-Cada panel usa un **eje ajustado al rango de su propia categoría** (no escala global compartida), lo que permite visualizar diferencias que se aplanan si todas las categorías comparten el mismo eje. Las **barras horizontales** son IC 95 % calculados por Taylor linearization. El punto vacío (○) marca la referencia nacional en cada panel (con su CI).
+Cada panel usa un **eje ajustado al rango de su propia categoría** (no escala global compartida), lo que permite visualizar diferencias que se aplanan si todas las categorías comparten el mismo eje. Las **barras horizontales** son IC 95 % calculados por Taylor linearization; la línea vertical punteada marca la estimación nacional y la banda gris tenue su IC 95 %.
 
-{% include gallery id="gallery_regional" layout="third" caption="**Gráficos 4–6** — Brechas regionales con IC 95 % (Taylor linearization, diseño complejo): educación, salud y pobreza. Barras = IC 95 %; punto vacío (○) = referencia nacional. Eje ajustado por categoría. Clic para ampliar." %}
+{% include gallery id="gallery_regional" layout="third" caption="**Gráficos 4–6** — Brechas regionales con IC 95 % (Taylor linearization, diseño complejo): educación, salud y pobreza. Barras = IC 95 % regional; línea punteada = estimación nacional; banda gris = IC 95 % nacional. Eje ajustado por categoría. Clic para ampliar." %}
 
 ### Brechas con IC 95 % — todas estadísticamente robustas
 
