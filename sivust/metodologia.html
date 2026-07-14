@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metodología y fuentes · Visor SIVUST / IGVUST</title>
+  <meta name="description" content="Ficha técnica del visor SIVUST/IGVUST: fuentes, licencia CC BY, corte de datos junio 2026, transformaciones, limitaciones conocidas y cautelas de lectura.">
+  <link rel="canonical" href="https://3cucharadas.cl/sivust/metodologia.html">
+  <meta property="og:title" content="Metodología y fuentes · Visor SIVUST / IGVUST">
+  <meta property="og:description" content="Fuentes, licencia, transformaciones, limitaciones y cautelas del visor SIVUST/IGVUST. Datos BIDAT junio 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://3cucharadas.cl/sivust/metodologia.html">
+  <meta property="og:image" content="https://3cucharadas.cl/sivust/data/og-sivust.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#16356a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316356a'/><rect x='7' y='7' width='9' height='9' fill='%232e8cc4'/><rect x='16' y='7' width='9' height='9' fill='%237d4a9c'/><rect x='7' y='16' width='9' height='9' fill='%239fc3e0'/><rect x='16' y='16' width='9' height='9' fill='%23cdd3d9'/></svg>">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sivust-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <span class="grain" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="brand"><span class="glyph" aria-hidden="true"></span> SIVUST · Visor abierto</span>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
+        <span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+    <p class="kicker">Ficha técnica · SIVUST / IGVUST</p>
+    <h1>Cómo leer el visor de vulnerabilidad socioterritorial</h1>
+    <p class="sub">Fuentes, licencia, corte de datos, transformaciones y limitaciones conocidas. Todo lo necesario para usar los cuartiles IGVUST con criterio — y para saber cuándo no usarlos.</p>
+    <div class="method-nav">
+      <a class="btn primary" href="index.html">Volver al visor</a>
+      <a class="btn secondary" href="https://bidat.gob.cl/directorio/SIVUST%20-%20Vulnerabilidad%20Socioterritorial" target="_blank" rel="noopener">Fuente oficial en BIDAT</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <span class="section-eyebrow">Lo primero</span>
+    <h2>Qué es esto y qué no es</h2>
+    <p><strong>Este es un visor independiente de 3 Cucharadas</strong>, construido con datos públicos publicados por BIDAT. <strong>No es un sitio oficial del Ministerio de Desarrollo Social y Familia (MDSF)</strong> ni sustituye sus publicaciones. Su propósito es acercar el SIVUST a quienes aún no lo conocen, para que lo exploren y lleguen a la fuente oficial.</p>
+    <p class="callout-yellow"><strong>Los cuartiles priorizan, no sentencian.</strong> El cuartil 1 indica mayor vulnerabilidad relativa y el cuartil 4, menor. La lectura debe contrastarse con información local, evidencia sectorial y juicio experto.</p>
+  </section>
+
+  <section class="card">
+    <span class="section-eyebrow">Ficha técnica</span>
+    <h2>Fuente, licencia y corte</h2>
+    <div class="tablewrap">
+      <table class="ficha">
+        <tbody>
+          <tr><th scope="row">Fuente</th><td>Banco Integrado de Datos (BIDAT), Ministerio de Desarrollo Social y Familia — Sistema de Indicadores de Vulnerabilidad Socioterritorial (SIVUST) e Índice Global de Vulnerabilidad Socioterritorial (IGVUST).</td></tr>
+          <tr><th scope="row">Corte de datos</th><td>Junio 2026 (período 202606).</td></tr>
+          <tr><th scope="row">Licencia</th><td><strong>Creative Commons Attribution (CC BY)</strong>, según la ficha publicada por BIDAT. Este visor reutiliza los datos atribuyendo la fuente.</td></tr>
+          <tr><th scope="row">Atribución</th><td>Datos: BIDAT / SIVUST — Ministerio de Desarrollo Social y Familia, Gobierno de Chile. Visualización: 3 Cucharadas.</td></tr>
+          <tr><th scope="row">Cartografía</th><td>Unidades Vecinales, agosto 2025 (SIRGAS 2000 / EPSG:4674).</td></tr>
+          <tr><th scope="row">Denominador poblacional</th><td>INE, Estimaciones y proyecciones 2002-2035, base censo 2017 (proyección comunal 2026).</td></tr>
+          <tr><th scope="row">Verificado</th><td>14 de julio de 2026, contra las fichas públicas de BIDAT.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">El IGVUST se organiza en <strong>7 dimensiones y 18 indicadores</strong>. La documentación metodológica completa está en las fichas oficiales de BIDAT.</p>
+  </section>
+
+  <section class="card">
+    <span class="section-eyebrow">El índice</span>
+    <h2>Dimensiones del IGVUST</h2>
+    <p>Ponderadores por dimensión usados en esta versión del índice:</p>
+    <div class="method-grid" aria-label="Ponderadores por dimensión IGVUST">
+      <div class="dimension"><span class="name">Trabajo</span><span class="weight">29,1%</span></div>
+      <div class="dimension"><span class="name">Ingresos</span><span class="weight">19,5%</span></div>
+      <div class="dimension"><span class="name">Salud</span><span class="weight">14,4%</span></div>
+      <div class="dimension"><span class="name">Educación</span><span class="weight">12,1%</span></div>
+      <div class="dimension"><span class="name">Accesibilidad</span><span class="weight">11,3%</span></div>
+      <div class="dimension"><span class="name">Seguridad</span><span class="weight">7,2%</span></div>
+      <div class="dimension"><span class="name">Vivienda</span><span class="weight">6,5%</span></div>
+    </div>
+    <p class="hint">Fuente de los ponderadores: informe de resultados IGVUST publicado por el MDSF, figura «Ponderadores por dimensión e indicador del IGVUST».</p>
+  </section>
+
+  <section class="card">
+    <span class="section-eyebrow">Qué hicimos con los datos</span>
+    <h2>Transformaciones aplicadas</h2>
+    <p>Este visor no recalcula el índice: usa los cuartiles IGVUST tal como los publica BIDAT. Sobre ellos se aplican únicamente agregaciones y derivaciones de presentación:</p>
+    <ul>
+      <li><strong>Agregación territorial:</strong> se consolidan los resultados a nivel de región, comuna y Unidad Vecinal a partir de las bases oficiales de cuartiles.</li>
+      <li><strong>Cobertura RSH:</strong> se calcula como población comunal en el Registro Social de Hogares dividida por la proyección INE 2026 de esa comuna, expresada en porcentaje.</li>
+      <li><strong>Mapa bivariado:</strong> cruza dos dimensiones comunales — el matiz representa el cuartil IGVUST y la intensidad indica si la población RSH de la comuna está sobre o bajo la mediana comunal.</li>
+      <li><strong>Cuartiles extremos:</strong> se listan las Unidades Vecinales en cuartil 1 y cuartil 4 nacional para facilitar la comparación entre los polos.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <span class="section-eyebrow">Lo que hay que saber</span>
+    <h2>Limitaciones conocidas</h2>
+    <ul>
+      <li><strong>Coberturas sobre 100% truncadas.</strong> La cobertura RSH se trunca a 100% cuando el cociente supera ese valor; afecta a 160 comunas en este corte. El exceso se asocia a limitaciones de las proyecciones base censo 2017 —especialmente en comunas receptoras de migración— y deberá revisarse con las proyecciones basadas en el censo 2024. En esos casos la lectura operativa es «alta cobertura administrativa respecto del denominador disponible», no que el dato resuelva por sí solo la caracterización territorial.</li>
+      <li><strong>Antártica es un caso especial.</strong> La comuna Antártica (12202) no registra población en el RSH, por lo que su cobertura queda indefinida y no se colorea en el mapa.</li>
+      <li><strong>Unidades Vecinales sin definición municipal.</strong> Una fracción de las UV no tiene definición municipal vigente y se marca como tal en la tabla; no se les asigna nombre.</li>
+      <li><strong>El mapa es referencial.</strong> Se muestra el territorio continental, simplificado y rotado para lectura horizontal. No sirve para mediciones ni para delimitar límites administrativos.</li>
+      <li><strong>Un índice no es un diagnóstico.</strong> El IGVUST ordena territorios por vulnerabilidad relativa; no explica sus causas ni reemplaza el análisis de oferta, accesibilidad, capacidad institucional o conocimiento situado.</li>
+    </ul>
+  </section>
+
+  <section class="card purple-card">
+    <span class="section-eyebrow">Cómo leer el mapa</span>
+    <h2>La lectura bivariada</h2>
+    <p>El mapa cruza <strong>vulnerabilidad</strong> (el matiz del color, de C1 a C4) con <strong>escala poblacional</strong> (la intensidad: más oscuro cuando la comuna supera la mediana de población en el RSH). Esta combinación ayuda a distinguir territorios con alta vulnerabilidad relativa pero muy distinta cantidad de personas involucradas.</p>
+    <p>Sirve para orientar preguntas de focalización — dónde mirar primero, qué comparar — pero no reemplaza el análisis de oferta, accesibilidad, capacidad institucional, inversión disponible ni el conocimiento del territorio.</p>
+  </section>
+
+  <section class="card">
+    <span class="section-eyebrow">Datos personales</span>
+    <h2>Privacidad</h2>
+    <p>El visor publica exclusivamente datos <strong>agregados</strong> a nivel de Unidad Vecinal, comuna y región. No contiene registros individuales ni datos personales. Las tablas descargables son resúmenes territoriales derivados de fuentes públicas.</p>
+  </section>
+
+  <section class="card official-links">
+    <span class="section-eyebrow">El siguiente paso es oficial</span>
+    <h2>Fuentes oficiales en BIDAT</h2>
+    <p>Para las bases completas, los mapas oficiales y la documentación metodológica, el camino continúa en las fichas públicas de BIDAT:</p>
+    <ul class="link-cards">
+      <li><a class="link-card" href="https://bidat.gob.cl/directorio/SIVUST%20-%20Vulnerabilidad%20Socioterritorial" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">🗂</span>
+        <span class="lc-body"><span class="lc-title">Directorio SIVUST</span><span class="lc-sub">Vulnerabilidad Socioterritorial</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+      <li><a class="link-card" href="https://bidat.gob.cl/details/ficha/dataset/documentos" target="_blank" rel="noopener">
+        <span class="lc-ic" aria-hidden="true">📄</span>
+        <span class="lc-body"><span class="lc-title">Informe metodológico</span><span class="lc-sub">Documentación del SIVUST</span></span>
+        <span class="lc-arrow" aria-hidden="true">→</span>
+      </a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><span class="foot-brand">SIVUST · Visor abierto.</span> Visualización independiente de <a href="https://3cucharadas.cl">3 Cucharadas</a> con datos públicos de BIDAT. <strong>No es un sitio oficial del MDSF.</strong></p>
+    <p class="small"><strong>Datos:</strong> BIDAT / SIVUST — Ministerio de Desarrollo Social y Familia · IGVUST junio 2026 · Licencia Creative Commons Attribution (CC BY) · Cartografía UV agosto 2025 · INE Estimaciones y proyecciones 2002-2035 (base censo 2017).</p>
+    <p class="small">Datos agregados a nivel UV / comuna / región, sin información individual.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("sivust-theme", next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>

@@ -241,7 +241,7 @@ plugins:
 # Las cadenas de UI en inglés ya vienen en _data/ui-text.yml.
 languages: ["es", "en"]
 default_lang: "es"
-exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "robots.txt", "sitemap.xml", "cv", "public"]
+exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "robots.txt", "sitemap.xml", "cv", "public", "sivust"]
 parallel_localization: true
 
 # Archivos (categorías/tags por páginas dedicadas)
