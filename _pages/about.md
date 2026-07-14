@@ -3,6 +3,8 @@ permalink: /about/
 title: "Acerca de mí"
 excerpt: "Quién soy, por qué escribo este blog y de que trata."
 last_modified_at: 2026-05-01T08:00:00-04:00
+lang: es
+ref: about
 toc: true
 ---
 
