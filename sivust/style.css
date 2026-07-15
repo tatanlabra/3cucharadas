@@ -790,7 +790,11 @@ button:focus-visible, .btn:focus-visible, .region-btn:focus-visible, a:focus-vis
 
 .count { margin-left: auto; color: var(--slate); font-size: 0.9rem; font-weight: 800; }
 
-.tablewrap { width: 100%; overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); }
+/* Tope de altura con scroll interno: la tabla de UV tiene ~3.445 filas y sin tope
+   generaba una sección de ~210.000 px y una página de ~240.000 px. Con el tope, el
+   encabezado sticky queda siempre visible y el layout no se dispara. Las tablas
+   cortas (regional, 16 filas) no alcanzan el tope y no muestran scroll. */
+.tablewrap { width: 100%; max-height: 70vh; overflow: auto; overscroll-behavior: contain; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); }
 table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.9rem; }
 th, td { padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: middle; text-align: left; }
 th {
