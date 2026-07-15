@@ -43,9 +43,14 @@
       <span class="brand"><img class="glyph" src="/assets/images/favicons/favicon-96x96.png" alt="" width="30" height="30"> SIVUST · Visor abierto</span>
       <div class="hero-tools">
         <span class="chip"><span class="dot" aria-hidden="true"></span> Datos junio 2026</span>
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
-          <span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span>
-        </button>
+        <div class="theme-switch" id="theme-switch" role="group" aria-label="Tema del sitio">
+          <button type="button" class="theme-opt" data-theme-set="light" aria-pressed="false">
+            <span class="ic" aria-hidden="true">☀</span><span class="lbl">Claro</span>
+          </button>
+          <button type="button" class="theme-opt" data-theme-set="dark" aria-pressed="false">
+            <span class="ic" aria-hidden="true">☾</span><span class="lbl">Oscuro</span>
+          </button>
+        </div>
       </div>
     </div>
 
