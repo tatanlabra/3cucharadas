@@ -347,29 +347,18 @@ function setupReveal() {
 }
 
 function setupThemeToggle() {
-  const group = document.getElementById("theme-switch");
-  if (!group) return;
-  const options = [...group.querySelectorAll(".theme-opt")];
-
-  function currentTheme() {
-    return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  }
-  function syncSwitch() {
-    const theme = currentTheme();
-    options.forEach((opt) => opt.setAttribute("aria-pressed", String(opt.dataset.themeSet === theme)));
-  }
-  function setTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
     try {
-      localStorage.setItem("sivust-theme", theme);
+      localStorage.setItem("sivust-theme", next);
     } catch (error) {
       /* almacenamiento no disponible: el tema queda solo en memoria */
     }
-    syncSwitch();
-  }
-
-  options.forEach((opt) => opt.addEventListener("click", () => setTheme(opt.dataset.themeSet)));
-  syncSwitch();
+  });
 }
 
 function activeRegionRows(rows) {

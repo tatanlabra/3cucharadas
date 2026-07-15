@@ -34,14 +34,9 @@
   <div class="wrap">
     <div class="hero-top">
       <span class="brand"><img class="glyph" src="/assets/images/favicons/favicon-96x96.png" alt="" width="30" height="30"> SIVUST · Visor abierto</span>
-      <div class="theme-switch" id="theme-switch" role="group" aria-label="Tema del sitio">
-        <button type="button" class="theme-opt" data-theme-set="light" aria-pressed="false">
-          <span class="ic" aria-hidden="true">☀</span><span class="lbl">Claro</span>
-        </button>
-        <button type="button" class="theme-opt" data-theme-set="dark" aria-pressed="false">
-          <span class="ic" aria-hidden="true">☾</span><span class="lbl">Oscuro</span>
-        </button>
-      </div>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
+        <span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span>
+      </button>
     </div>
     <p class="kicker">Ficha técnica · SIVUST / IGVUST</p>
     <h1>Cómo leer el visor de vulnerabilidad socioterritorial</h1>
@@ -164,23 +159,14 @@
 
 <script>
   (function () {
-    var group = document.getElementById("theme-switch");
-    if (!group) return;
-    var options = [].slice.call(group.querySelectorAll(".theme-opt"));
-    function sync() {
-      var theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-      options.forEach(function (opt) {
-        opt.setAttribute("aria-pressed", String(opt.dataset.themeSet === theme));
-      });
-    }
-    options.forEach(function (opt) {
-      opt.addEventListener("click", function () {
-        document.documentElement.setAttribute("data-theme", opt.dataset.themeSet);
-        try { localStorage.setItem("sivust-theme", opt.dataset.themeSet); } catch (e) {}
-        sync();
-      });
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("sivust-theme", next); } catch (e) {}
     });
-    sync();
   })();
 </script>
 </body>
