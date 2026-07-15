@@ -331,6 +331,10 @@ function setupReveal() {
     animateKpis(true);
     return;
   }
+  // threshold 0 (revela en cuanto el borde entra) en vez de un porcentaje: una
+  // sección más alta que el viewport —como la tabla de UV, ~210.000 px— nunca
+  // llega a cubrir un 14% de sí misma, así que con threshold 0.14 no cruzaba el
+  // umbral y se quedaba en opacity:0 de forma permanente.
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -338,7 +342,7 @@ function setupReveal() {
       if (entry.target.id === "kpis") animateKpis(false);
       obs.unobserve(entry.target);
     });
-  }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+  }, { threshold: 0, rootMargin: "0px 0px -80px 0px" });
   els.forEach((el) => io.observe(el));
 }
 
