@@ -27,6 +27,9 @@ build_site:
     - gem install bundler -N
     - bundle install
     - bundle exec jekyll build -d public
+    - ruby scripts/verify_site_artifact.rb public
+    - bundle exec jekyll build --future -d .future-check
+    - ruby scripts/verify_site_artifact.rb .future-check
   artifacts:
     paths:
       - public
