@@ -6,6 +6,8 @@ sitemap: false
 {%- assign base = site.url | append: site.baseurl -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>{{ base }}/catastro_sii_brecha/</loc></url>
+  <url><loc>{{ base }}/catastro_sii_brecha/metodologia.html</loc></url>
 {%- comment -%} Posts (cada uno con su par ES/EN bajo el mismo permalink) {%- endcomment -%}
 {%- for post in site.posts -%}
   {%- assign es = base | append: post.url -%}
