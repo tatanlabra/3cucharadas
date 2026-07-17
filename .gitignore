@@ -48,9 +48,14 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .coverage
-difusion/.conda/
-difusion/.venv/
-difusion/build/
-difusion/dist/
-difusion/**/*.egg-info/
-difusion/.state/
+
+# Flujo local y privado de difusión: conservar fuera del repositorio público.
+/difusion/
+
+# Fuentes gráficas locales; el sitio versiona únicamente los derivados optimizados.
+/assets/img/
+/assets/images/ai-quota-hud/bar_gemini.png
+/assets/images/ai-quota-hud/popup.png
+
+# Borrador local reemplazado por el post CASEN ya publicado.
+/_drafts/2026-07-14-casen2024-julia-waffles-politica-publica.md
