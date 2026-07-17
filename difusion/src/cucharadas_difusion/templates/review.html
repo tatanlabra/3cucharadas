@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3cucharadas · Revisión de difusión</title>
+    <link rel="stylesheet" href="/assets/review.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">3 Cucharadas · Difusión local</p>
+        <h1 id="page-title">Cargando borrador…</h1>
+        <p id="page-meta" class="muted"></p>
+      </div>
+      <div id="global-status" class="status" role="status">Conectando</div>
+    </header>
+
+    <main>
+      <section class="guardrail" aria-label="Guardarraíles">
+        <strong>Vista previa local.</strong>
+        Ningún modelo puede publicar. La acción real requiere aprobar ambas cadenas y escribir la confirmación completa.
+      </section>
+
+      <section class="base-copy" aria-labelledby="base-copy-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Fuente editorial única</p>
+            <h2 id="base-copy-title">Mensaje base por idioma</h2>
+          </div>
+          <p class="muted">Mastodon añade la URL UTM; Bluesky reutiliza el mismo texto con tarjeta externa.</p>
+        </div>
+        <div class="base-grid">
+          <label class="base-editor">
+            <span><strong>ES</strong> · publicación raíz</span>
+            <textarea id="base-es" rows="5" spellcheck="true"></textarea>
+            <button id="regenerate-es" class="ghost small" type="button">Regenerar ES</button>
+          </label>
+          <label class="base-editor">
+            <span><strong>EN</strong> · autorrespuesta</span>
+            <textarea id="base-en" rows="5" spellcheck="true"></textarea>
+            <button id="regenerate-en" class="ghost small" type="button">Regenerar EN</button>
+          </label>
+        </div>
+      </section>
+
+      <section id="networks" class="network-grid">
+        <article class="network" data-network="mastodon">
+          <div class="network-heading">
+            <div><span class="network-icon">M</span><h2>Mastodon</h2></div>
+            <label class="approval"><input id="approve-mastodon" type="checkbox"> Aprobar cadena</label>
+          </div>
+          <div id="card-mastodon-es" class="message-card"></div>
+          <div class="reply-line" aria-hidden="true">└ autorrespuesta</div>
+          <div id="card-mastodon-en" class="message-card reply"></div>
+        </article>
+
+        <article class="network" data-network="bluesky">
+          <div class="network-heading">
+            <div><span class="network-icon bluesky">B</span><h2>Bluesky</h2></div>
+            <label class="approval"><input id="approve-bluesky" type="checkbox"> Aprobar cadena</label>
+          </div>
+          <div id="card-bluesky-es" class="message-card"></div>
+          <div class="reply-line" aria-hidden="true">└ autorrespuesta</div>
+          <div id="card-bluesky-en" class="message-card reply"></div>
+        </article>
+      </section>
+
+      <section id="results" class="results" hidden aria-live="polite"></section>
+
+      <footer class="actions">
+        <button id="save" class="secondary" type="button">Guardar borrador</button>
+        <button id="close" class="ghost" type="button">Cerrar sin publicar</button>
+        <button id="publish" class="primary" type="button" disabled>Publicar ahora</button>
+      </footer>
+    </main>
+
+    <template id="message-template">
+      <div class="message-header">
+        <div>
+          <strong class="account"></strong>
+          <span class="badge language"></span>
+          <span class="badge role"></span>
+        </div>
+        <span class="counter"></span>
+      </div>
+      <div class="derived-text" aria-label="Texto derivado"></div>
+      <div class="hashtag-row"></div>
+      <div class="warnings" role="alert"></div>
+      <a class="link-card" target="_blank" rel="noopener noreferrer">
+        <img alt="" loading="lazy">
+        <span><strong class="link-title"></strong><small class="link-description"></small><code class="link-url"></code></span>
+      </a>
+      <div class="card-actions">
+        <button class="copy ghost small" type="button">Copiar</button>
+        <a class="canonical small" target="_blank" rel="noopener noreferrer">Abrir canónico</a>
+      </div>
+    </template>
+
+    <script src="/assets/review.js" defer></script>
+  </body>
+</html>
