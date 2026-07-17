@@ -9,6 +9,8 @@ author: clabra
 lang: es
 ref: casen2024-julia-waffles
 permalink: /datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/
+distribution:
+  social: true
 toc: true
 toc_sticky: true
 author_profile: true
