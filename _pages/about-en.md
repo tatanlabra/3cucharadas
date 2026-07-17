@@ -8,7 +8,7 @@ ref: about
 toc: true
 ---
 
-Hello, I am Cristián Labra Olivares, an economist and public servant since 2012. I write about data, statistics, biology, social policy, and programming.
+Hello, I am Cristián Labra Olivares, an economist and public servant since 2012. I write about data, statistics, MLOps, biology, social policy, and programming.
 
 For more than a decade, I have worked at Chile's **Ministry of Social Development and Family (MDSF)**. That work has taught me a great deal about the design, implementation, and administration of social benefits, especially the rules and evidence behind their allocation. I care about contributing to lower poverty and inequality. [Download my CV in Spanish]({{ "/assets/cv/cv_esp_clabraol_2026.pdf" | relative_url }}).
 
