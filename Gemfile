@@ -18,5 +18,6 @@ group :jekyll_plugins do
   gem "jekyll-paginate", "~> 1.1"
   gem "jekyll-seo-tag", "~> 2.8"
   gem "kramdown-parser-gfm", "~> 1.1"
+  gem "kramdown-math-katex", "~> 1.0"
   gem "jekyll-polyglot", "~> 1.9"             # multi-idioma ES/EN (build local + CI)
 end

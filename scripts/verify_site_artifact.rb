@@ -5,7 +5,9 @@ require "cgi"
 require "find"
 
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
-max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "21000000"))
+# KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
+max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "22000000"))
+draft_fixture_mode = ENV["VERIFY_MATH_DRAFTS"] == "1"
 
 abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_dir)
 
@@ -16,6 +18,7 @@ required_files = %w[
   assets/js/lunr/lunr-en.js
   assets/js/lunr/lunr-store.js
   assets/js/lunr/lunr.min.js
+  assets/vendor/katex/0.17.0/katex.css
   assets/images/clabra2026-320.webp
   assets/images/teasers/teaser-ai-quota-hud-640.webp
   assets/images/teasers/teaser-bayes-hiperparametros-640.webp
@@ -66,16 +69,104 @@ Dir.glob(File.join(site_dir, "**", "*.{html,css}")).each do |document|
 end
 
 unless missing_references.empty?
-  missing_references.uniq.each { |document, relative| warn "Missing #{relative} referenced by #{document}" }
-  abort "Rendered internal asset references are broken"
+  if draft_fixture_mode
+    warn "Ignoring internal asset references from unrelated drafts in fixture mode"
+  else
+    missing_references.uniq.each { |document, relative| warn "Missing #{relative} referenced by #{document}" }
+    abort "Rendered internal asset references are broken"
+  end
 end
 
-home = File.read(File.join(site_dir, "index.html"))
-abort "Home LCP card is not eager" unless home.include?('loading="eager"') && home.include?('fetchpriority="high"')
-abort "Home responsive teaser sources are absent" unless home.include?('teaser-ai-quota-hud-640.webp')
+katex_css = File.join(site_dir, "assets/vendor/katex/0.17.0/katex.css")
+katex_font_paths = File.read(katex_css).scan(/url\(fonts\/([^\)]+)\)/).flatten.uniq
+abort "KaTeX CSS does not reference versioned fonts" if katex_font_paths.empty?
+
+katex_font_paths.each do |font|
+  relative = File.join("assets/vendor/katex/0.17.0/fonts", font)
+  abort "KaTeX font is missing: #{relative}" unless File.file?(File.join(site_dir, relative))
+end
+
+rendered_html = Dir.glob(File.join(site_dir, "**", "*.html"))
+forbidden_runtime = {
+  "window.MathJax" => "MathJax",
+  "cdn.jsdelivr.net/npm/mathjax" => "MathJax",
+  "pagead2.googlesyndication.com" => "AdSense",
+  "adsbygoogle" => "AdSense"
+}.freeze
+
+forbidden_runtime.each do |needle, label|
+  offender = rendered_html.find { |document| File.read(document).include?(needle) }
+  abort "#{label} remains in rendered output: #{offender.delete_prefix("#{site_dir}/")}" if offender
+end
+
+unless draft_fixture_mode
+  home = File.read(File.join(site_dir, "index.html"))
+  abort "Home LCP card is not eager" unless home.include?('loading="eager"') && home.include?('fetchpriority="high"')
+  abort "Home responsive teaser sources are absent" unless home.include?('teaser-ai-quota-hud-640.webp')
+  abort "Spanish home brand description is stale" unless home.include?("Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible.")
+
+  home_en_path = File.join(site_dir, "en", "index.html")
+  abort "English home is missing" unless File.file?(home_en_path)
+  home_en = File.read(home_en_path)
+  abort "English home brand description is stale" unless home_en.include?("Open data, statistics, MLOps, curiosities, applied economics, and social policy, with reproducible code.")
+
+  hud_titles = {
+    "ia/productividad/ai-quota-hud-kde/index.html" => "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+    "en/ia/productividad/ai-quota-hud-kde/index.html" => "AI quotas in three spoonfuls: a HUD for the KDE panel"
+  }.freeze
+
+  hud_titles.each do |relative, title|
+    path = File.join(site_dir, relative)
+    abort "HUD page is missing: #{relative}" unless File.file?(path)
+    abort "HUD title is stale: #{relative}" unless File.read(path).include?(title)
+  end
+
+  math_documents = %w[
+    mlops/bayes-hiperparametros/index.html
+    en/mlops/bayes-hiperparametros/index.html
+    datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/index.html
+    en/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/index.html
+    feed.xml
+    en/feed.xml
+  ].freeze
+  raw_tex_delimiters = ["$$", "\\(", "\\)", "\\[", "\\]"].freeze
+
+  math_documents.each do |relative|
+    path = File.join(site_dir, relative)
+    abort "Static math document is missing: #{relative}" unless File.file?(path)
+
+    body = File.read(path)
+    abort "KaTeX HTML is missing: #{relative}" unless body.include?('class="katex"')
+    abort "MathML is missing: #{relative}" unless body.include?("<math")
+    abort "KaTeX render error is present: #{relative}" if body.include?("katex-error")
+    delimiter = raw_tex_delimiters.find { |marker| body.include?(marker) }
+    abort "Raw TeX delimiter #{delimiter.inspect} remains: #{relative}" if delimiter
+  end
+end
+
+if draft_fixture_mode
+  math_drafts = {
+    "informatics/prueba-webfonts-katex/index.html" => ['class="nf"', "", "⠿"],
+    "r/bioinformatics/biology/prueba-webfonts2/index.html" => ["→", "⇄", "ﬁ"]
+  }.freeze
+
+  math_drafts.each do |relative, required_symbols|
+    path = File.join(site_dir, relative)
+    abort "Math draft fixture is missing: #{relative}" unless File.file?(path)
+
+    body = File.read(path)
+    abort "KaTeX HTML is missing from draft: #{relative}" unless body.include?('class="katex"')
+    abort "MathML is missing from draft: #{relative}" unless body.include?("<math")
+    abort "KaTeX render error is present in draft: #{relative}" if body.include?("katex-error")
+    missing_symbol = required_symbols.find { |symbol| !body.include?(symbol) }
+    abort "Draft symbol is missing (#{missing_symbol.inspect}): #{relative}" if missing_symbol
+  end
+end
 
 artifact_bytes = 0
 Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(entry) }
-abort "Artifact exceeds #{max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > max_bytes
+unless draft_fixture_mode
+  abort "Artifact exceeds #{max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > max_bytes
+end
 
 puts "Artifact verification passed: #{artifact_bytes} bytes"

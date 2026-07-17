@@ -12,7 +12,7 @@ title         : "3 Cucharadas"
 title_separator: "-"
 subtitle      : "Directo al grano"
 name          : &name "Cristián Labra Olivares"
-description   : &description "Datos abiertos, curiosidades, economía aplicada y políticas sociales en Chile y América Latina, con código reproducible."
+description   : &description "Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible."
 
 # Producción: dominio propio servido desde la raíz por GitLab Pages.
 url           : "https://3cucharadas.cl"
@@ -187,6 +187,7 @@ incremental : false
 
 kramdown:
   input: GFM
+  math_engine: katex
   hard_wrap: false
   auto_ids: true
   transliterated_header_ids: true
@@ -217,7 +218,7 @@ defaults:
       comments: true     # actívalo por post cuando configures el provider
       share: true
       related: true
-      math: true
+      math: false
   # _pages
   - scope:
       path: "_pages"

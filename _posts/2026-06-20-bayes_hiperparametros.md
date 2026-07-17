@@ -12,6 +12,7 @@ ref: bayes-hiperparametros
 permalink: /mlops/bayes-hiperparametros/
 toc: true
 toc_sticky: true
+math: true
 comments: true
 author_profile: true
 header:

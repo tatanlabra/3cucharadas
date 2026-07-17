@@ -10,18 +10,7 @@
 
 
 {% if page.math or site.math %}
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(','\\)'], ['$', '$']],
-      displayMath: [['\\[','\\]'], ['$$','$$']],
-      processEscapes: true,
-      tags: 'ams'
-    },
-    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
-  };
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="{{ '/assets/vendor/katex/0.17.0/katex.css' | relative_url }}">
 {% endif %}
 
 {%- comment %} JSON-LD por artículo (autor Person + publisher) {% endcomment -%}

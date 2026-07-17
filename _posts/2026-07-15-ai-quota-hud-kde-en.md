@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [ai-quota-hud-post]
-title: "An AI quota HUD on the KDE panel"
+title: "AI quotas in three spoonfuls: a HUD for the KDE panel"
 subtitle: "Claude, Codex, Gemini, and DeepSeek, before one of them declares itself out of service"
 date: 2026-07-15 00:00:00 +0000
 categories: [ai, productivity, development, kde]

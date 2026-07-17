@@ -20,7 +20,7 @@ build_site:
   script:
     - ruby -v
     - apt-get update -y
-    - apt-get install -y --no-install-recommends python3 python3-pip python3-venv
+    - apt-get install -y --no-install-recommends nodejs python3 python3-pip python3-venv
     - python3 -m venv .venv
     - .venv/bin/pip install feedparser
     - .venv/bin/python scripts/fetch_news.py
@@ -30,6 +30,8 @@ build_site:
     - ruby scripts/verify_site_artifact.rb public
     - bundle exec jekyll build --future -d .future-check
     - ruby scripts/verify_site_artifact.rb .future-check
+    - bundle exec jekyll build --drafts --future -d .draft-math-check
+    - VERIFY_MATH_DRAFTS=1 ruby scripts/verify_site_artifact.rb .draft-math-check
   artifacts:
     paths:
       - public
