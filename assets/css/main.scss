@@ -167,3 +167,660 @@ pre,
   font-style: normal;
   font-feature-settings: "liga" 0; /* evita ligaduras si el navegador intenta usarlas */
 }
+/* ── Controles de idioma y apariencia ──────────────────────────────────── */
+:root {
+  color-scheme: light;
+  /* Paleta inspirada en Carbon Gray 100: neutros dominantes y color funcional. */
+  --night-bg: #161616;
+  --night-bg-dark: #0f0f0f;
+  --night-bg-darker: #000000;
+  --night-layer: #262626;
+  --night-layer-strong: #393939;
+  --night-border: #525252;
+  --night-border-strong: #8d8d8d;
+  --night-text: #f4f4f4;
+  --night-muted: #c6c6c6;
+  --night-link: #78a9ff;
+  --night-link-hover: #a6c8ff;
+  --night-action: #0f62fe;
+  --night-action-hover: #0043ce;
+  --night-purple: #be95ff;
+  --night-green: #42be65;
+  --night-yellow: #f1c21b;
+  --night-orange: #ff832b;
+  --night-red: #fa4d56;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.18rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lang-switcher > a,
+.lang-switcher > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  min-height: 1.8rem;
+  padding: 0.38rem 0.52rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.lang-switcher .lang-active {
+  background: #1a1b26;
+  color: #fff;
+}
+
+.lang-switcher .lang-inactive {
+  color: #343434;
+}
+
+.lang-switcher .lang-inactive:hover,
+.lang-switcher .lang-inactive:focus-visible {
+  background: rgba(122, 162, 247, 0.18);
+  color: #10131c;
+}
+
+.page__hero--overlay .lang-switcher {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(10, 10, 14, 0.52);
+  box-shadow: none;
+  backdrop-filter: blur(6px);
+}
+
+.page__hero--overlay .lang-switcher .lang-active {
+  background: var(--night-link);
+  color: var(--night-bg-dark);
+}
+
+.page__hero--overlay .lang-switcher .lang-inactive,
+.page__hero--overlay .lang-switcher .lang-inactive:hover,
+.page__hero--overlay .lang-switcher .lang-inactive:focus-visible {
+  color: #fff;
+}
+
+.page__hero--overlay .lang-switcher .lang-inactive:hover,
+.page__hero--overlay .lang-switcher .lang-inactive:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  width: 2.4rem;
+  min-height: 2rem;
+  margin-left: 0.3rem;
+  padding: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.theme-toggle:hover {
+  background: rgba(122, 162, 247, 0.14);
+}
+
+.theme-toggle__icon {
+  width: 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.theme-toggle__icon--sun {
+  display: none;
+}
+
+.no-js .theme-toggle {
+  display: none;
+}
+
+/* ── Nocturno académico ────────────────────────────────────────────────────────── */
+html[data-theme="academic-night"] {
+  color-scheme: dark;
+  background: var(--night-bg);
+}
+
+html[data-theme="academic-night"] body,
+html[data-theme="academic-night"] .initial-content,
+html[data-theme="academic-night"] .search-content,
+html[data-theme="academic-night"] #main {
+  background-color: var(--night-bg);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] ::selection {
+  background: rgba(120, 169, 255, 0.34);
+  color: #fff;
+}
+
+html[data-theme="academic-night"] :focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+html[data-theme="academic-night"] h1,
+html[data-theme="academic-night"] h2,
+html[data-theme="academic-night"] h3,
+html[data-theme="academic-night"] h4,
+html[data-theme="academic-night"] h5,
+html[data-theme="academic-night"] h6,
+html[data-theme="academic-night"] .page__title,
+html[data-theme="academic-night"] .archive__item-title,
+html[data-theme="academic-night"] .author__name {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__title a,
+html[data-theme="academic-night"] .page__title a:visited,
+html[data-theme="academic-night"] .author__name a,
+html[data-theme="academic-night"] .author__name a:visited {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__title a:hover,
+html[data-theme="academic-night"] .page__title a:focus-visible,
+html[data-theme="academic-night"] .author__name a:hover,
+html[data-theme="academic-night"] .author__name a:focus-visible {
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .page__content a:not(.btn),
+html[data-theme="academic-night"] .archive a,
+html[data-theme="academic-night"] .sidebar a,
+html[data-theme="academic-night"] .breadcrumbs a {
+  color: var(--night-link);
+}
+
+html[data-theme="academic-night"] .page__content a:not(.btn):visited,
+html[data-theme="academic-night"] .archive a:visited {
+  color: var(--night-purple);
+}
+
+html[data-theme="academic-night"] .page__content a:not(.btn):hover,
+html[data-theme="academic-night"] .archive a:hover,
+html[data-theme="academic-night"] .sidebar a:hover,
+html[data-theme="academic-night"] .breadcrumbs a:hover {
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .page__meta,
+html[data-theme="academic-night"] .page__date,
+html[data-theme="academic-night"] .archive__item-excerpt,
+html[data-theme="academic-night"] .author__bio,
+html[data-theme="academic-night"] .breadcrumbs,
+html[data-theme="academic-night"] figcaption,
+html[data-theme="academic-night"] .taxonomy__count {
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] hr,
+html[data-theme="academic-night"] table,
+html[data-theme="academic-night"] th,
+html[data-theme="academic-night"] td {
+  border-color: var(--night-border);
+}
+
+html[data-theme="academic-night"] blockquote {
+  border-left-color: var(--night-purple);
+  color: var(--night-muted);
+}
+
+/* Cabecera y navegación */
+html[data-theme="academic-night"] .masthead,
+html[data-theme="academic-night"] .masthead__inner-wrap,
+html[data-theme="academic-night"] .greedy-nav,
+html[data-theme="academic-night"] .greedy-nav .visible-links {
+  background: var(--night-bg-dark);
+}
+
+html[data-theme="academic-night"] .masthead {
+  border-bottom: 1px solid var(--night-border);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="academic-night"] .greedy-nav a,
+html[data-theme="academic-night"] .site-title,
+html[data-theme="academic-night"] .masthead__menu-item a {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .site-subtitle {
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] .site-logo img {
+  filter: grayscale(1) invert(1);
+  opacity: 0.88;
+}
+
+html[data-theme="academic-night"] .greedy-nav .visible-links a::before {
+  background: var(--night-link);
+}
+
+html[data-theme="academic-night"] .greedy-nav .hidden-links {
+  border: 1px solid var(--night-border);
+  background: var(--night-layer-strong);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
+}
+
+html[data-theme="academic-night"] .greedy-nav .hidden-links a {
+  border-bottom-color: var(--night-border);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .greedy-nav .hidden-links a:hover {
+  background: var(--night-layer);
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .search__toggle,
+html[data-theme="academic-night"] .greedy-nav__toggle,
+html[data-theme="academic-night"] .theme-toggle {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .theme-toggle {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] .theme-toggle:hover {
+  border-color: var(--night-link);
+  background: var(--night-layer-strong);
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+html[data-theme="academic-night"] .theme-toggle__icon--sun {
+  display: inline-block;
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .navicon,
+html[data-theme="academic-night"] .navicon::before,
+html[data-theme="academic-night"] .navicon::after {
+  background: var(--night-text);
+}
+
+html[data-theme="academic-night"] .lang-switcher {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
+  box-shadow: none;
+}
+
+html[data-theme="academic-night"] .lang-switcher .lang-active {
+  background: var(--night-link);
+  color: var(--night-bg-dark);
+}
+
+html[data-theme="academic-night"] .lang-switcher .lang-inactive {
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] .lang-switcher .lang-inactive:hover,
+html[data-theme="academic-night"] .lang-switcher .lang-inactive:focus-visible {
+  background: var(--night-layer-strong);
+  color: var(--night-link-hover);
+}
+
+/* Hero, archivos y paneles */
+html[data-theme="academic-night"] .page__hero--overlay,
+html[data-theme="academic-night"] .page__hero--overlay .page__title,
+html[data-theme="academic-night"] .page__hero--overlay .page__lead,
+html[data-theme="academic-night"] .page__hero--overlay a {
+  color: #fff;
+}
+
+html[data-theme="academic-night"] .page__hero--overlay .btn--light-outline {
+  border-color: rgba(255, 255, 255, 0.68);
+  background: rgba(22, 22, 22, 0.46);
+  color: #fff;
+}
+
+html[data-theme="academic-night"] .page__hero--overlay .btn--light-outline:hover {
+  border-color: var(--night-link-hover);
+  background: var(--night-link);
+  color: var(--night-bg-dark);
+}
+
+html[data-theme="academic-night"] .archive__item,
+html[data-theme="academic-night"] .list__item,
+html[data-theme="academic-night"] .grid__item,
+html[data-theme="academic-night"] .taxonomy__section,
+html[data-theme="academic-night"] .archive__item-teaser {
+  border-color: var(--night-border);
+}
+
+html[data-theme="academic-night"] .archive__item-teaser,
+html[data-theme="academic-night"] .author__urls-wrapper button,
+html[data-theme="academic-night"] .toc {
+  border-color: var(--night-border);
+  background: var(--night-layer);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .author__urls {
+  border-color: var(--night-border);
+  background: var(--night-layer);
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] .author__urls-wrapper button {
+  border-color: var(--night-border-strong);
+}
+
+html[data-theme="academic-night"] .author__urls a {
+  color: var(--night-link);
+}
+
+html[data-theme="academic-night"] .author__urls a:hover,
+html[data-theme="academic-night"] .author__urls a:focus-visible {
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .author__urls i {
+  color: currentColor !important;
+}
+
+@media (min-width: 64em) {
+  html[data-theme="academic-night"] .author__urls {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+html[data-theme="academic-night"] .toc .nav__title,
+html[data-theme="academic-night"] th {
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .toc__menu a {
+  border-bottom-color: var(--night-border);
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] .toc__menu a:hover,
+html[data-theme="academic-night"] .toc__menu a:focus {
+  background: var(--night-layer-strong);
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .toc__menu li.active > a {
+  border-left: 0.2rem solid var(--night-link);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .pagination--pager,
+html[data-theme="academic-night"] .pagination--pager:visited {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .pagination--pager:hover {
+  border-color: var(--night-link);
+  background: var(--night-link);
+  color: var(--night-bg-dark);
+}
+
+html[data-theme="academic-night"] .page__content .btn--primary,
+html[data-theme="academic-night"] .page__content .btn--primary:visited {
+  border-color: var(--night-action);
+  background: var(--night-action);
+  color: #fff;
+}
+
+html[data-theme="academic-night"] .page__content .btn--primary:hover,
+html[data-theme="academic-night"] .page__content .btn--primary:focus-visible {
+  border-color: var(--night-action-hover);
+  background: var(--night-action-hover);
+  color: #fff;
+}
+
+/* Formularios, tablas y avisos */
+html[data-theme="academic-night"] input,
+html[data-theme="academic-night"] textarea,
+html[data-theme="academic-night"] select,
+html[data-theme="academic-night"] .search__input {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] input::placeholder,
+html[data-theme="academic-night"] textarea::placeholder,
+html[data-theme="academic-night"] .search__input::placeholder {
+  color: var(--night-muted);
+  opacity: 0.82;
+}
+
+html[data-theme="academic-night"] input:focus,
+html[data-theme="academic-night"] textarea:focus,
+html[data-theme="academic-night"] select:focus,
+html[data-theme="academic-night"] .search__input:focus {
+  border-color: var(--night-link-hover);
+  box-shadow: 0 0 0 2px rgba(166, 200, 255, 0.24);
+}
+
+html[data-theme="academic-night"] tbody tr:nth-child(even) {
+  background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] .notice,
+html[data-theme="academic-night"] .notice--primary,
+html[data-theme="academic-night"] .notice--info,
+html[data-theme="academic-night"] .notice--warning,
+html[data-theme="academic-night"] .notice--success,
+html[data-theme="academic-night"] .notice--danger {
+  border: 1px solid var(--night-border);
+  background: var(--night-layer);
+  color: var(--night-text);
+  box-shadow: none;
+}
+
+html[data-theme="academic-night"] .notice--info { border-left: 0.3rem solid var(--night-link-hover); }
+html[data-theme="academic-night"] .notice--warning { border-left: 0.3rem solid var(--night-yellow); }
+html[data-theme="academic-night"] .notice--success { border-left: 0.3rem solid var(--night-green); }
+html[data-theme="academic-night"] .notice--danger { border-left: 0.3rem solid var(--night-red); }
+
+/* Código y resaltado Rouge */
+html[data-theme="academic-night"] code,
+html[data-theme="academic-night"] kbd {
+  border-color: var(--night-border);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__content pre,
+html[data-theme="academic-night"] .page__content .highlight,
+html[data-theme="academic-night"] .highlighter-rouge .highlight {
+  border-color: var(--night-border);
+  background: var(--night-bg-dark);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__content .highlight pre,
+html[data-theme="academic-night"] .highlighter-rouge .highlight pre {
+  border: 0;
+  background: transparent;
+}
+
+html[data-theme="academic-night"] .highlight .c,
+html[data-theme="academic-night"] .highlight .cm,
+html[data-theme="academic-night"] .highlight .c1,
+html[data-theme="academic-night"] .highlight .cs,
+html[data-theme="academic-night"] .highlight .cp { color: #8d8d8d; }
+
+html[data-theme="academic-night"] .highlight .k,
+html[data-theme="academic-night"] .highlight .kc,
+html[data-theme="academic-night"] .highlight .kd,
+html[data-theme="academic-night"] .highlight .kn,
+html[data-theme="academic-night"] .highlight .kp,
+html[data-theme="academic-night"] .highlight .kr,
+html[data-theme="academic-night"] .highlight .kt { color: var(--night-purple); }
+
+html[data-theme="academic-night"] .highlight .s,
+html[data-theme="academic-night"] .highlight .s1,
+html[data-theme="academic-night"] .highlight .s2,
+html[data-theme="academic-night"] .highlight .se,
+html[data-theme="academic-night"] .highlight .si,
+html[data-theme="academic-night"] .highlight .sr { color: var(--night-green); }
+
+html[data-theme="academic-night"] .highlight .m,
+html[data-theme="academic-night"] .highlight .mf,
+html[data-theme="academic-night"] .highlight .mi,
+html[data-theme="academic-night"] .highlight .mh { color: var(--night-orange); }
+
+html[data-theme="academic-night"] .highlight .na,
+html[data-theme="academic-night"] .highlight .nc,
+html[data-theme="academic-night"] .highlight .nt { color: var(--night-link-hover); }
+
+html[data-theme="academic-night"] .highlight .nf,
+html[data-theme="academic-night"] .highlight .nx,
+html[data-theme="academic-night"] .highlight .nv { color: var(--night-link); }
+
+html[data-theme="academic-night"] .highlight .o,
+html[data-theme="academic-night"] .highlight .ow { color: #82cfff; }
+html[data-theme="academic-night"] .highlight .err,
+html[data-theme="academic-night"] .highlight .gd { color: var(--night-red); }
+html[data-theme="academic-night"] .highlight .gi { color: var(--night-green); }
+
+/* Pie */
+html[data-theme="academic-night"] .page__footer {
+  border-top: 1px solid var(--night-border);
+  background: var(--night-bg-dark);
+  color: var(--night-muted) !important;
+}
+
+html[data-theme="academic-night"] .page__footer a,
+html[data-theme="academic-night"] .page__footer-follow .social-icons a {
+  color: var(--night-link);
+}
+
+html[data-theme="academic-night"] .page__footer a:hover {
+  color: var(--night-link-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .masthead,
+  .greedy-nav,
+  .page__footer,
+  .theme-toggle,
+  .lang-switcher,
+  input,
+  textarea,
+  select {
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    min-width: 2.15rem;
+    width: 2.15rem;
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+  }
+
+}
+
+/* Tablas del sitio: antes estaban inline en head/custom.html. */
+.page__content table {
+  width: auto;
+  margin: 1.4em auto 0.4em;
+  border-collapse: collapse;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: 0.84em;
+}
+
+.page__content table thead th {
+  border: 0;
+  background-color: #b71c1c;
+  color: #fff;
+  padding: 0.45em 0.9em;
+  font-size: 0.88em;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.page__content table td {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0.38em 0.85em;
+  text-align: center;
+}
+
+.page__content table tbody tr td:first-child {
+  text-align: left;
+}
+
+.page__content table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.page__content table tbody tr:hover {
+  background-color: #fff3f3;
+}
+
+p.table-caption {
+  margin-bottom: 0.2em;
+  color: #555;
+  font-size: 0.82em;
+  font-style: italic;
+}
+
+html[data-theme="academic-night"] .page__content table {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.32);
+}
+
+html[data-theme="academic-night"] .page__content table thead th {
+  border-color: var(--night-border);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__content table td {
+  border-bottom-color: var(--night-border);
+}
+
+html[data-theme="academic-night"] .page__content table tbody tr:nth-child(even) {
+  background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] .page__content table tbody tr:hover {
+  background: var(--night-layer-strong);
+}
+
+html[data-theme="academic-night"] p.table-caption {
+  color: var(--night-muted);
+}

@@ -1,5 +1,8 @@
 <!-- begin _includes/seo.html -->
 {%- assign title_separator = site.title_separator | default: '-' -%}
+{%- assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" -%}
+{%- assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] -%}
+{%- assign brand = site.data.brand[active_lang] | default: site.data.brand[site.default_lang] -%}
 
 {%- assign page_title = page.title | default: site.title | replace: '|', '&#124;' -%}
 {%- if page_title contains site.title -%}
@@ -30,7 +33,10 @@
   {%- assign seo_locale = "es_CL" -%}
 {%- endif -%}
 
-{%- assign seo_description = page.description | default: page.excerpt | default: site.description -%}
+{%- assign seo_description = page.description | default: page.excerpt | default: brand.description | default: site.description -%}
+{%- if page.ref == "home" -%}
+  {%- assign seo_description = brand.description -%}
+{%- endif -%}
 {%- if seo_description -%}
   {%- assign seo_description = seo_description | markdownify | strip_html | newline_to_br | strip_newlines | replace: '<br />', ' ' | escape_once | strip -%}
 {%- endif -%}
@@ -52,7 +58,7 @@
   {%- assign og_type = "website" -%}
 {%- endif -%}
 
-<title>{{ seo_title }}{% if paginator %}{% unless paginator.page == 1 %} {{ title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
+<title>{{ seo_title }}{% if paginator %}{% unless paginator.page == 1 %} {{ title_separator }} {{ ui_text.page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
 <meta name="description" content="{{ seo_description }}">
 
 {% if author.name %}

@@ -4,6 +4,13 @@ main:
     url: /about/
   - title: "Publicaciones"
     url: /year-archive/
+
+# Polyglot antepone /en/ a estos enlaces localizables en la versión inglesa.
+main_en:
+  - title: "About"
+    url: /about/
+  - title: "Posts"
+    url: /year-archive/
 # - title: "Colecciones"
 #   url: /collection-archive/
 # - title: "Terms & Privacy Policy"
