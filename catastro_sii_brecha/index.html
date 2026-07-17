@@ -46,6 +46,31 @@
   <main class="wrap" id="contenido">
     <noscript><section class="card notice-card"><h2>Datos abiertos, visualización con JavaScript</h2><p>Sin JavaScript puedes revisar el <a href="metodologia.html">método y sus límites</a> y descargar la tabla comunal en <a href="data/metricas_comunales.parquet">Parquet</a>.</p></section></noscript>
 
+    <section class="card finder-card reveal" id="explorar" aria-labelledby="explorar-title">
+      <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Parte por una región. El visor carga la comuna elegida, sus celdas agregadas y las métricas que permiten leer el registro sin sobreinterpretarlo.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando la primera comuna…</span></p></div>
+      <div class="finder-fields" aria-label="Seleccionar territorio">
+        <label class="finder-field" for="region"><span class="field-label">01 · Región</span><span class="select-wrap"><select id="region"><option value="">Cargando regiones…</option></select></span></label>
+        <label class="finder-field" for="comuna"><span class="field-label">02 · Comuna</span><span class="select-wrap"><select id="comuna" disabled><option value="">Elige una región primero</option></select></span></label>
+        <p class="finder-status" id="status" role="status">Cargando datos comunales…</p>
+      </div>
+      <p class="finder-note">La capa inicial muestra celdas agregadas. Los polígonos prediales experimentales, cuando existan para la región, se activan aparte y nunca cargan antes de que los solicites.</p>
+    </section>
+
+    <section class="card map-card reveal" aria-labelledby="map-title">
+      <div class="map-head">
+        <div><span class="section-eyebrow">Concentración, no predios individuales</span><h2 id="map-title">Predios H en <span class="lead-accent" id="territory">Chile</span></h2></div>
+        <div class="map-tools"><p class="map-status" id="map-status">Preparando la capa agregada…</p><label class="parcel-toggle"><input id="parcel-layer" type="checkbox" disabled><span><strong>Polígonos H</strong><small id="parcel-layer-note">Piloto regional aún no disponible.</small></span></label></div>
+      </div>
+      <div class="map-stage">
+        <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
+      </div>
+      <div class="map-support">
+        <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
+        <p>Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible. Sin teselas externas, se conserva la capa agregada.</p>
+        <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
     <section class="card intro-card reveal" aria-labelledby="que-mide-title">
       <span class="section-eyebrow">Una medida, no un diagnóstico</span>
       <h2 id="que-mide-title">¿Qué mide esta <span class="lead-accent">brecha</span>?</h2>
@@ -66,33 +91,6 @@
         <article class="step"><span class="n">1</span><h3>Ubica una comuna</h3><p>Elige primero una región y luego una comuna. El visor carga sólo las celdas de ese territorio.</p></article>
         <article class="step"><span class="n">2</span><h3>Lee la cobertura</h3><p>La tarjeta principal compara la población equivalente del registro H con el Censo 2024.</p></article>
         <article class="step"><span class="n">3</span><h3>Contrasta, no atribuyas</h3><p>Revisa coordenadas, avalúo, superficie y referencia histórica antes de interpretar una diferencia.</p></article>
-      </div>
-    </section>
-
-    <section class="card control-card reveal" id="explorar" aria-labelledby="explorar-title">
-      <div class="section-head">
-        <div><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Explorador comunal</h2></div>
-        <p class="status-pill" id="status" role="status">Cargando datos comunales…</p>
-      </div>
-      <div class="controls" aria-label="Seleccionar territorio">
-        <label for="region"><span class="control-number">1</span> Región<select id="region"><option value="">Cargando regiones…</option></select></label>
-        <label for="comuna"><span class="control-number">2</span> Comuna<select id="comuna" disabled><option value="">Elige una región primero</option></select></label>
-      </div>
-      <p class="hint control-hint">La selección carga los agregados de la comuna. No hay puntos, direcciones, roles ni polígonos prediales en el mapa por defecto.</p>
-    </section>
-
-    <section class="card map-card reveal" aria-labelledby="map-title">
-      <div class="map-head">
-        <div><span class="section-eyebrow">Concentración, no predios individuales</span><h2 id="map-title">Predios H en <span class="lead-accent" id="territory">Chile</span></h2></div>
-        <p class="map-status" id="map-status">Preparando la capa agregada…</p>
-      </div>
-      <div class="map-stage">
-        <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
-      </div>
-      <div class="map-support">
-        <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
-        <p>Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible. Sin teselas externas, se conserva la capa agregada.</p>
-        <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
       </div>
     </section>
 

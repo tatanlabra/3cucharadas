@@ -3,6 +3,7 @@
 
 require "cgi"
 require "find"
+require "json"
 
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
 # KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
@@ -51,6 +52,26 @@ if Dir.exist?(microsite_dir)
   end
   abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))
   abort "Catastro SII Brecha lacks density cells" unless Dir.glob(File.join(microsite_dir, "data", "comunas", "*.json")).length == 346
+  parcels_manifest_path = File.join(microsite_dir, "data", "capas_prediales", "manifest.json")
+  abort "Catastro SII Brecha parcel-layer manifest is missing" unless File.file?(parcels_manifest_path)
+  parcels_manifest = JSON.parse(File.read(parcels_manifest_path))
+  abort "Catastro SII Brecha parcel-layer format is invalid" unless parcels_manifest["format"] == "mvt-directory"
+  parcels_manifest.fetch("regions", {}).each do |region, layer|
+    next unless layer["available"]
+
+    abort "Catastro SII Brecha #{region} parcel layer has invalid format" unless layer["format"] == "mvt-directory"
+    %w[tiles metadata].each do |field|
+      value = layer[field].to_s
+      abort "Catastro SII Brecha #{region} parcel layer has unsafe #{field}" if value.empty? || value.start_with?("/") || value.include?("..")
+    end
+    metadata_path = File.join(microsite_dir, "data", "capas_prediales", layer.fetch("metadata"))
+    abort "Catastro SII Brecha #{region} parcel metadata is missing" unless File.file?(metadata_path)
+    metadata = JSON.parse(File.read(metadata_path))
+    embedded = JSON.parse(metadata.fetch("json"))
+    vector_layer = embedded.fetch("vector_layers").first
+    abort "Catastro SII Brecha #{region} parcel layer name is invalid" unless metadata["name"] == "predios_h" && vector_layer["id"] == "predios_h"
+    abort "Catastro SII Brecha #{region} parcel fields are not minimized" unless vector_layer.fetch("fields").keys == ["dc_cod_destino"]
+  end
   index = File.read(File.join(microsite_dir, "index.html"))
   abort "Catastro SII Brecha canonical URL is missing" unless index.include?("https://3cucharadas.cl/catastro_sii_brecha/")
   abort "Catastro SII Brecha unexpectedly exposes a configured MapTiler key" if index.match?(/maptiler[^<]{0,80}key=[A-Za-z0-9_-]{12,}/i)

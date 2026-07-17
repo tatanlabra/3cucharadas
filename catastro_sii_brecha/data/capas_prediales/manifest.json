@@ -1,0 +1,20 @@
+{
+  "version": "pilot-v1",
+  "generated_at": null,
+  "scope": "release",
+  "format": "mvt-directory",
+  "predicate": "dc_cod_destino == 'H' AND geometry IS NOT NULL",
+  "regions": {
+    "Atacama": {
+      "available": false,
+      "format": "mvt-directory",
+      "reason": "Piloto Atacama pendiente: la teselación completa se publica sólo si supera el presupuesto de rendimiento y tamaño."
+    },
+    "Biobío": {
+      "available": false,
+      "format": "mvt-directory",
+      "reason": "Piloto Biobío pendiente: la teselación completa se publica sólo si supera el presupuesto de rendimiento y tamaño."
+    }
+  },
+  "warning": "Sin capas poligonales activas en esta entrega. El visor conserva celdas agregadas por comuna."
+}

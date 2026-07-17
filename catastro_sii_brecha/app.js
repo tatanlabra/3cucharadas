@@ -3,7 +3,7 @@
 
   const $ = (selector) => document.querySelector(selector);
   const config = window.CATASTRO_MAP_CONFIG || {};
-  const state = { communes: [], regions: [], selected: null, map: null, cells: null, requestId: 0 };
+  const state = { communes: [], regions: [], selected: null, map: null, cells: null, parcelRegions: {}, activeParcelRegion: null, requestId: 0 };
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
   const money = (value) => value == null ? "No disponible" : `$${number.format(value)}`;
@@ -60,6 +60,7 @@
         set("#map-status", "Fondo OSM activo; la luz neón sigue mostrando celdas agregadas.");
         $("#map")?.closest(".map-shell")?.classList.add("map-ready");
         if (state.cells) renderMapLibre(state.cells);
+        updateParcelControl();
       });
     } catch (_) {
       set("#map-note", "Fondo cartográfico no disponible; se mantiene la capa agregada.");
@@ -141,6 +142,85 @@
     }
   }
 
+  function removeParcelLayer() {
+    if (!state.map) return;
+    if (state.map.getLayer("regional-parcels-fill")) state.map.removeLayer("regional-parcels-fill");
+    if (state.map.getLayer("regional-parcels-line")) state.map.removeLayer("regional-parcels-line");
+    if (state.map.getSource("regional-parcels")) state.map.removeSource("regional-parcels");
+    $("#map")?.closest(".map-shell")?.classList.remove("parcel-active");
+    state.activeParcelRegion = null;
+  }
+
+  function parcelEntry() {
+    return state.selected ? state.parcelRegions[state.selected.region] : null;
+  }
+
+  function updateParcelControl() {
+    const toggle = $("#parcel-layer");
+    const note = $("#parcel-layer-note");
+    if (!toggle || !note) return;
+    const entry = parcelEntry();
+    const mapReady = Boolean(state.map && state.map.isStyleLoaded());
+    const available = Boolean(entry?.available && entry.format === "mvt-directory" && mapReady);
+    if (!available) {
+      toggle.checked = false;
+      toggle.disabled = true;
+      removeParcelLayer();
+      if (entry?.available) note.textContent = "Disponible al activar el fondo OSM.";
+      else if (entry) note.textContent = entry.reason || "Piloto regional no incluido en este artefacto.";
+      else note.textContent = "Piloto disponible sólo para regiones seleccionadas.";
+      return;
+    }
+    toggle.disabled = false;
+    note.textContent = `${number.format(entry.feature_count)} polígonos H · carga sólo al activar.`;
+  }
+
+  function toggleParcelLayer() {
+    const toggle = $("#parcel-layer");
+    const entry = parcelEntry();
+    if (!toggle || !entry || !state.map || !state.map.isStyleLoaded()) return;
+    removeParcelLayer();
+    if (!toggle.checked) {
+      set("#map-status", "Celdas agregadas activas; polígonos H ocultos.");
+      return;
+    }
+    state.map.addSource("regional-parcels", {
+      type: "vector",
+      tiles: [new URL(`data/capas_prediales/${entry.tiles}`, window.location.href).href],
+      minzoom: entry.zoom.min,
+      maxzoom: entry.zoom.max
+    });
+    state.map.addLayer({
+      id: "regional-parcels-fill",
+      type: "fill",
+      source: "regional-parcels",
+      "source-layer": "predios_h",
+      paint: { "fill-color": "#ff4fd8", "fill-opacity": 0.22 }
+    });
+    state.map.addLayer({
+      id: "regional-parcels-line",
+      type: "line",
+      source: "regional-parcels",
+      "source-layer": "predios_h",
+      paint: { "line-color": "#ffd7f6", "line-opacity": 0.58, "line-width": 0.55 }
+    });
+    $("#map")?.closest(".map-shell")?.classList.add("parcel-active");
+    state.activeParcelRegion = state.selected.region;
+    set("#map-status", `Polígonos H experimentales activos para ${state.selected.region}.`);
+  }
+
+  async function loadParcelManifest() {
+    try {
+      const response = await fetch("data/capas_prediales/manifest.json", { cache: "force-cache" });
+      if (!response.ok) return;
+      const manifest = await response.json();
+      state.parcelRegions = manifest.regions || {};
+      updateParcelControl();
+    } catch (_) {
+      // La capa es opcional: el visor de celdas no depende de estos pilotos.
+    }
+  }
+
   function flashMetrics() {
     const grid = $(".metric-grid");
     if (!grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -163,7 +243,9 @@
     set("#casen-note", row.casen_nota);
     set("#finding", row.hallazgo);
     set("#status", `${row.region} · ${row.fuente_sii_disponible ? "extracto SII disponible" : "sin extracto SII en el corte"}`);
+    set("#selection-context", `Ahora estás mirando ${row.comuna}, ${row.region}.`);
     set("#map-status", `Celdas agregadas para ${row.comuna}, ${row.region}.`);
+    updateParcelControl();
     flashMetrics();
   }
 
@@ -229,6 +311,7 @@
       state.communes = await communes.json();
       state.regions = await regions.json();
       updateNationalSummary(state.communes);
+      await loadParcelManifest();
 
       const regionSelect = $("#region");
       regionSelect.innerHTML = "";
@@ -240,6 +323,7 @@
       }
       regionSelect.addEventListener("change", () => populateCommunes(regionSelect.value));
       $("#comuna").addEventListener("change", (event) => selectCommune(event.target.value));
+      $("#parcel-layer").addEventListener("change", toggleParcelLayer);
       populateCommunes(regionSelect.value);
       await initialiseMap();
       window.addEventListener("resize", () => {
