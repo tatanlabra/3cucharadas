@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [ai-quota-hud-post]
-title: "Un HUD de cuotas de IA en el panel de KDE"
+title: "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE"
 subtitle: "Claude, Codex, Gemini y DeepSeek, antes de que alguno se declare fuera de servicio"
 date: 2026-07-15 00:00:00 +0000
 categories: [ia, productividad, desarrollo, kde]

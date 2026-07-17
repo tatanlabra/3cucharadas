@@ -14,6 +14,7 @@ distribution:
   republish: [dev, medium]
 toc: true
 toc_sticky: true
+math: true
 author_profile: true
 header:
   teaser: /assets/images/teasers/teaser-casen-2024.webp

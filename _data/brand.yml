@@ -1,15 +1,15 @@
 es:
   name: "3 Cucharadas"
   tagline: "Directo al grano"
-  description: "Datos abiertos, curiosidades, economía aplicada y políticas sociales en Chile y América Latina, con código reproducible."
-  author_bio: "Economista y servidor público. Datos, estadística y programación para políticas sociales."
+  description: "Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible."
+  author_bio: "Economista y servidor público. Datos, estadística, MLOps y programación para políticas sociales."
   theme_to_dark: "Usar tema nocturno"
   theme_to_light: "Usar tema claro"
 
 en:
   name: "3 Cucharadas"
   tagline: "Just the Essentials"
-  description: "Open data, curiosities, applied economics, and social policy in Chile and Latin America—with reproducible code."
-  author_bio: "Economist and public servant. Data, statistics, and programming for social policy."
+  description: "Open data, statistics, MLOps, curiosities, applied economics, and social policy, with reproducible code."
+  author_bio: "Economist and public servant. Data, statistics, MLOps, and programming for social policy."
   theme_to_dark: "Use dark theme"
   theme_to_light: "Use light theme"
