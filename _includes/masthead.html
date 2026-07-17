@@ -1,3 +1,12 @@
+{% assign active_lang = include.lang | default: site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign brand = site.data.brand[active_lang] | default: site.data.brand[site.default_lang] %}
+{% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
+{% assign navigation = site.data.navigation.main %}
+{% assign localized_navigation_key = "main_" | append: active_lang %}
+{% assign localized_navigation = site.data.navigation[localized_navigation_key] %}
+{% if localized_navigation %}
+  {% assign navigation = localized_navigation %}
+{% endif %}
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
 <div class="masthead">
@@ -5,14 +14,14 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ brand.name }}"></a>
         {% endunless %}
         <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.masthead_title | default: site.title }}
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
+          {{ brand.name }}
+          <span class="site-subtitle">{{ brand.tagline }}</span>
         </a>
         <ul class="visible-links">
-          {%- for link in site.data.navigation.main -%}
+          {%- for link in navigation -%}
             <li class="masthead__menu-item">
               <a
                 href="{{ link.url | relative_url }}"
@@ -24,12 +33,13 @@
         </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
+          <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
+          <i class="fas fa-search" aria-hidden="true"></i>
         </button>
         {% endif %}
+        {% include theme-toggle.html %}
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <span class="visually-hidden">{{ ui_text.menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>

@@ -1,0 +1,14 @@
+{%- comment -%}Conmutador explícito; no sigue el tema del sistema.{%- endcomment -%}
+<button
+  class="theme-toggle"
+  type="button"
+  data-theme-toggle
+  data-theme-dark-label="{{ brand.theme_to_dark }}"
+  data-theme-light-label="{{ brand.theme_to_light }}"
+  aria-pressed="false"
+  aria-label="{{ brand.theme_to_dark }}"
+  title="{{ brand.theme_to_dark }}"
+>
+  <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+  <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+</button>

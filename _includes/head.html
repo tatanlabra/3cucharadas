@@ -8,9 +8,33 @@
 
 {%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff" data-theme-color>
 
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  (function () {
+    var root = document.documentElement;
+    var theme = "light";
+
+    root.className = root.className.replace(/\bno-js\b/g, "") + " js ";
+
+    try {
+      var storedTheme = window.localStorage.getItem("3cucharadas-theme");
+      if (storedTheme === "academic-night" || storedTheme === "tokyo-night") {
+        theme = "academic-night";
+      }
+    } catch (error) {
+      // El tema claro sigue disponible cuando localStorage está bloqueado.
+    }
+
+    root.setAttribute("data-theme", theme);
+    root.style.colorScheme = theme === "academic-night" ? "dark" : "light";
+
+    var themeColor = document.querySelector("meta[data-theme-color]");
+    if (themeColor) {
+      themeColor.setAttribute("content", theme === "academic-night" ? "#161616" : "#ffffff");
+    }
+  }());
+
   {% if site.enable_copy_code_button -%}
     window.enable_copy_code_button = true;
   {%- endif %}

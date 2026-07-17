@@ -5,12 +5,26 @@
 {% endcomment %}
 
 {% assign news = site.data.feedly_news %}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% if active_lang == "en" %}
+  {% assign news_title = "Feeds I follow" %}
+  {% assign news_count = "random picks today" %}
+  {% assign news_updated = "Updated" %}
+  {% assign news_import_title = "Import into Feedly, Inoreader, or NewsBlur" %}
+  {% assign news_articles_today = "articles today" %}
+{% else %}
+  {% assign news_title = "RSS a los que sigo" %}
+  {% assign news_count = "random de hoy" %}
+  {% assign news_updated = "Actualizado el" %}
+  {% assign news_import_title = "Importar en Feedly, Inoreader o NewsBlur" %}
+  {% assign news_articles_today = "artículos hoy" %}
+{% endif %}
 {% if news.articles and news.articles.size > 0 %}
 <section class="news-widget" aria-labelledby="news-widget-title">
 
   <h3 id="news-widget-title" class="archive__subtitle">
-    RSS a los que sigo
-    <small class="news-widget__count">({{ news.articles.size }} random de hoy)</small>
+    {{ news_title }}
+    <small class="news-widget__count">({{ news.articles.size }} {{ news_count }})</small>
   </h3>
 
   <ul class="news-widget__list">
@@ -36,13 +50,13 @@
   <p class="news-widget__footer">
     <span class="page__meta">
       <i class="fas fa-sync-alt" aria-hidden="true"></i>
-      Actualizado el {{ news.updated | date: "%d/%m/%Y" }}
+      {{ news_updated }} {{ news.updated | date: "%d/%m/%Y" }}
     </span>
     <a href="{{ '/assets/feedly-subscriptions.opml' | relative_url }}"
        download="feedly-subscriptions.opml"
        class="news-widget__opml-link"
-       title="Importar en Feedly, Inoreader, NewsBlur…">
-      <i class="fas fa-download" aria-hidden="true"></i> OPML ({{ news.articles.size }} artículos hoy)
+       title="{{ news_import_title }}">
+      <i class="fas fa-download" aria-hidden="true"></i> OPML ({{ news.articles.size }} {{ news_articles_today }})
     </a>
   </p>
 

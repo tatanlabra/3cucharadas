@@ -10,9 +10,9 @@ minimal_mistakes_skin: "contrast"  # "air","aqua","contrast","dark","dirt","neon
 locale        : "es"
 title         : "3 Cucharadas"
 title_separator: "-"
-subtitle      : "Explorando curiosidades"
+subtitle      : "Directo al grano"
 name          : &name "Cristián Labra Olivares"
-description   : &description "Explorando curiosidades"
+description   : &description "Datos abiertos, curiosidades, economía aplicada y políticas sociales en Chile y América Latina, con código reproducible."
 
 # Producción: dominio propio servido desde la raíz por GitLab Pages.
 url           : "https://3cucharadas.cl"
@@ -21,7 +21,7 @@ repository    : "tatanlabra/3cucharadas"
 
 teaser        : "/assets/images/unsplash-image-5.jpg"
 logo          : "/assets/images/3cucharadas-logo.png"
-masthead_title: "3 Cucharadas ... "
+masthead_title: "3 Cucharadas"
 words_per_minute: 200
 enable_copy_code_button: true
 
