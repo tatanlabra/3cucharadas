@@ -38,6 +38,9 @@ def _prompt(context: dict[str, Any]) -> str:
 Rules:
 - Return no factual number that is absent from the supplied title or description.
 - Spanish drafts must be natural Spanish; English drafts must be natural English.
+- Write in the author's first person, as a brief note about something they built.
+- Prefer this arc when the metadata supports it: concrete problem, what I built, and the practical difficulty or lesson.
+- Do not address the reader with imperatives and do not add generic calls to action such as stay informed, take control, discover, or learn more.
 - Each message must fit in 190 characters, including at most 2 hashtags.
 - Do not include a URL. The local application derives the Mastodon URL variant and Bluesky card.
 - Use the same editorial idea in Spanish and English, translated naturally.
