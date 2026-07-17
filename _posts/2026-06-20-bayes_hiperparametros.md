@@ -14,6 +14,8 @@ toc: true
 toc_sticky: true
 comments: true
 author_profile: true
+header:
+  teaser: /assets/images/teasers/teaser-bayes-hiperparametros.webp
 ---
 
 Imaginemos un modelo tabular con 10 valores de <span class="text-nowrap">learn_rate</span>, 8 de <span class="text-nowrap">max_depth</span>, 5 de <span class="text-nowrap">sample_rate</span> y 5 de <span class="text-nowrap">col_sample_rate</span>. Una grilla cartesiana entrenaría **2.000 modelos**. Con validación cruzada de 5 folds, la cuenta operativa sube a **10.000 ajustes internos**. En una máquina con RAM, VRAM o CPU acotadas, eso no es necesariamente más rigor: puede ser solo una forma cara de ignorar lo aprendido en las evaluaciones anteriores.

@@ -15,6 +15,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 math: true
+header:
+  teaser: /assets/images/teasers/teaser-bayes-hiperparametros.webp
 ---
 
 Imagine a tabular model with 10 values of <span class="text-nowrap">learn_rate</span>, 8 of <span class="text-nowrap">max_depth</span>, 5 of <span class="text-nowrap">sample_rate</span> and 5 of <span class="text-nowrap">col_sample_rate</span>. A Cartesian grid would train **2,000 models**. With 5-fold cross-validation, the operational count rises to **10,000 internal fits**. On a machine with limited RAM, VRAM or CPU, that is not necessarily more rigor: it can be just an expensive way of ignoring what was learned in previous evaluations.

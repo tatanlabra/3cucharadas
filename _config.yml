@@ -19,7 +19,7 @@ url           : "https://3cucharadas.cl"
 baseurl       : ""
 repository    : "tatanlabra/3cucharadas"
 
-teaser        : "/assets/images/unsplash-image-5.jpg"
+teaser        : "/assets/images/home/el-salvador-codera-hero-1600x524.webp"
 logo          : "/assets/images/3cucharadas-logo.png"
 masthead_title: "3 Cucharadas"
 words_per_minute: 200
@@ -66,6 +66,8 @@ social:
   name: *name
   links:
     - "https://www.linkedin.com/in/cristianlabra/"
+    - "https://mastodon.social/@asiole"
+    - "https://bsky.app/profile/labra.bsky.social"
     - "https://x.com/tatanlabra"
     - "https://www.facebook.com/cristianlabra"
     - "https://github.com/tatanlabra"
@@ -103,12 +105,12 @@ author:
     # - label: "X (Twitter)"
     #   icon: "fab fa-fw fa-twitter"       # en FA5 NO existe 'fa-x-twitter'
     #   url: "https://x.com/tatanlabra"
-    # - label: "Mastodon"
-    #   icon: "fab fa-fw fa-mastodon"
-    #   url: "https://mastodon.social/@asiole"
-    # - label: "Bluesky"
-    #   icon: "fa-brands fa-bluesky"         # FA5 no trae 'fa-bluesky'; usamos un fallback neutro
-    #   url: "https://bsky.app/profile/labra.bsky.social"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://mastodon.social/@asiole"
+    - label: "Bluesky"
+      icon: "fas fa-fw fa-cloud"              # fallback compatible con el set de iconos del tema
+      url: "https://bsky.app/profile/labra.bsky.social"
     - label: "CV"
       icon: "fas fa-fw fa-file-pdf"
       url: "/assets/cv/cv_esp_clabraol_2026.pdf"
@@ -116,6 +118,12 @@ author:
 # Footer
 footer:
   links:
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://mastodon.social/@asiole"
+    - label: "Bluesky"
+      icon: "fas fa-fw fa-cloud"
+      url: "https://bsky.app/profile/labra.bsky.social"
     - label: "X"
       icon: "fab fa-fw fa-x-twitter"
       url: "https://x.com/tatanlabra"
@@ -154,6 +162,7 @@ exclude:
   - node_modules
   - package.json
   - deploy
+  - difusion       # herramienta local; nunca copiar codigo/tests al sitio publico
   - docs
   - Rakefile
   - README
@@ -241,7 +250,7 @@ plugins:
 # Las cadenas de UI en inglés ya vienen en _data/ui-text.yml.
 languages: ["es", "en"]
 default_lang: "es"
-exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "robots.txt", "sitemap.xml", "cv", "public"]
+exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "feed-dev-en.xml", "robots.txt", "sitemap.xml", "cv", "public"]
 parallel_localization: true
 
 # Archivos (categorías/tags por páginas dedicadas)
