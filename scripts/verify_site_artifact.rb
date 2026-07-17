@@ -46,7 +46,7 @@ end
 microsite = "catastro_sii_brecha"
 microsite_dir = File.join(site_dir, microsite)
 if Dir.exist?(microsite_dir)
-  %w[index.html metodologia.html style.css app.js assets/map-config.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
+  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
     abort "Catastro SII Brecha asset is missing: #{relative}" unless File.file?(File.join(microsite_dir, relative))
   end
   abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))

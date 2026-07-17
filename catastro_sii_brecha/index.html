@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,46 +18,119 @@
   <meta property="og:image:alt" content="Brecha residencial del Catastro SII: Python, OSM y celdas neón.">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Brecha residencial del Catastro SII","url":"https://3cucharadas.cl/catastro_sii_brecha/","applicationCategory":"DataVisualization","inLanguage":"es-CL","creator":{"@type":"Organization","name":"3 Cucharadas"}}</script>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("catastro-brecha-theme")||"dark"}catch(_){}</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#visor">Saltar al visor</a>
-  <header class="hero"><div class="wrap">
-    <p class="eyebrow">3 Cucharadas / Python + OpenStreetMap</p>
-    <h1>El catastro no es<br><em>la población.</em></h1>
-    <p class="lede">Medimos qué fracción de la población censada podría cubrir el registro de predios habitacionales del SII bajo un supuesto explícito de vivienda. Es una brecha de cobertura del registro, no una cuenta de personas ni una explicación de sus causas.</p>
-    <div class="hero-meta"><span class="pulse">●</span> corte SII: primer semestre 2026 <span>·</span> Censo 2024 <span>·</span> 346 comunas</div>
-  </div></header>
+  <a class="skip-link" href="#explorar">Saltar al visor</a>
 
-  <main class="wrap" id="visor">
-    <noscript><section class="panel"><h2>Datos abiertos, visualización con JavaScript</h2><p>Sin JavaScript puedes revisar el <a href="metodologia.html">método</a> y descargar la tabla comunal en <a href="data/metricas_comunales.parquet">Parquet</a>.</p></section></noscript>
-    <section class="controls panel" aria-label="Seleccionar territorio">
-      <div><label for="region">Región</label><select id="region"><option value="">Cargando regiones…</option></select></div>
-      <div><label for="comuna">Comuna</label><select id="comuna" disabled><option value="">Elige una región primero</option></select></div>
-      <p id="status" role="status">Cargando datos comunales…</p>
+  <header class="hero">
+    <span class="grain" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="brand"><span class="brand-mark" aria-hidden="true">3</span> Catastro SII · Visor abierto</span>
+        <div class="hero-tools">
+          <span class="status-chip"><span class="dot" aria-hidden="true"></span> Corte SII 2026</span>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar apariencia" aria-pressed="true" title="Cambiar apariencia"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span></button>
+        </div>
+      </div>
+
+      <p class="kicker">3 Cucharadas · Python + OpenStreetMap</p>
+      <h1>El catastro no es<br><span class="accent-word">la población.</span></h1>
+      <p class="sub">Medimos qué fracción de la población censada podría cubrir el registro de predios habitacionales del SII bajo un supuesto explícito de vivienda. Es una brecha de cobertura del registro, no una cuenta de personas ni una explicación de sus causas.</p>
+      <p class="disclaimer"><strong>Visualización independiente de 3 Cucharadas.</strong> Trabaja con registros públicos agregados, Censo 2024 y un método reproducible. No es un sitio oficial del SII, INE ni MDSF.</p>
+      <div class="hero-cta"><a class="btn primary" href="#explorar">Explorar una comuna <span class="arrow" aria-hidden="true">↓</span></a><a class="btn secondary" href="metodologia.html">Ver método y límites</a></div>
+    </div>
+  </header>
+
+  <main class="wrap" id="contenido">
+    <noscript><section class="card notice-card"><h2>Datos abiertos, visualización con JavaScript</h2><p>Sin JavaScript puedes revisar el <a href="metodologia.html">método y sus límites</a> y descargar la tabla comunal en <a href="data/metricas_comunales.parquet">Parquet</a>.</p></section></noscript>
+
+    <section class="card intro-card reveal" aria-labelledby="que-mide-title">
+      <span class="section-eyebrow">Una medida, no un diagnóstico</span>
+      <h2 id="que-mide-title">¿Qué mide esta <span class="lead-accent">brecha</span>?</h2>
+      <p class="big">Cada predio SII de destino <strong>H</strong> se convierte en una población equivalente mediante la relación comunal entre población y viviendas particulares ocupadas del Censo 2024. Al compararla con la población censada, obtenemos una <strong>cobertura residencial equivalente</strong>.</p>
+      <p class="hint">Una cifra menor a 100% no identifica la causa: sólo muestra hasta dónde llega este registro bajo el supuesto declarado. La sensibilidad CASEN queda separada porque no es representativa a escala comunal.</p>
     </section>
 
-    <section class="stage panel" aria-labelledby="map-title">
-      <div class="stage-head"><div><p class="eyebrow">Concentración, no predios individuales</p><h2 id="map-title">Predios H en <span id="territory">Chile</span></h2></div><a href="metodologia.html">Método y fuentes →</a></div>
-      <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
-      <p class="map-caption">Cada marca neón es una celda agregada: no representa un domicilio, rol ni límite predial. Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible.</p>
+    <section class="kpis reveal" aria-label="Chile en el corte SII 2026">
+      <article class="kpi"><span class="ic" aria-hidden="true">▦</span><span class="v" id="national-records">—</span><span class="l">Predios H en el corte</span></article>
+      <article class="kpi"><span class="ic" aria-hidden="true">◫</span><span class="v" id="national-communes">—</span><span class="l">Comunas Censo 2024</span></article>
+      <article class="kpi accent"><span class="ic" aria-hidden="true">◎</span><span class="v" id="national-coordinate-coverage">—</span><span class="l">Con coordenadas válidas</span></article>
     </section>
 
-    <section class="metric-grid" aria-live="polite" aria-label="Indicadores comunales">
-      <article class="chip primary"><span>Cobertura residencial equivalente</span><strong id="coverage">—</strong><small>frente a población Censo 2024</small></article>
-      <article class="chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
-      <article class="chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
-      <article class="chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
-      <article class="chip"><span>Superficie total</span><strong id="surface">—</strong><small>m² de terreno reportados</small></article>
-      <article class="chip"><span>Avalúo total</span><strong id="assessment">—</strong><small>CLP, percentil nacional <b id="assessment-percentile">—</b></small></article>
-      <article class="chip"><span>Referencia histórica</span><strong id="historical">—</strong><small>vs proyección 2024 base Censo 2017</small></article>
-      <article class="chip caution"><span>Sensibilidad CASEN</span><strong id="casen">—</strong><small id="casen-note">No disponible</small></article>
+    <section class="card steps-card reveal" aria-labelledby="pasos-title">
+      <span class="section-eyebrow">Cómo recorrerlo</span>
+      <h2 id="pasos-title">Explóralo en 3 pasos</h2>
+      <div class="steps">
+        <article class="step"><span class="n">1</span><h3>Ubica una comuna</h3><p>Elige primero una región y luego una comuna. El visor carga sólo las celdas de ese territorio.</p></article>
+        <article class="step"><span class="n">2</span><h3>Lee la cobertura</h3><p>La tarjeta principal compara la población equivalente del registro H con el Censo 2024.</p></article>
+        <article class="step"><span class="n">3</span><h3>Contrasta, no atribuyas</h3><p>Revisa coordenadas, avalúo, superficie y referencia histórica antes de interpretar una diferencia.</p></article>
+      </div>
     </section>
 
-    <section class="finding panel"><p class="eyebrow">Lectura comunal</p><p id="finding">Elige una comuna para cargar la lectura y el mapa.</p></section>
-    <section class="method-note panel"><h2>Cómo leerlo sin sobreinterpretar</h2><p>La medida principal multiplica los predios SII de destino H por <code>personas Censo 2024 / viviendas particulares con moradores presentes</code>. La comparación histórica usa proyecciones INE cuya base es el Censo 2017. CASEN 2024 sólo aparece como sensibilidad: MDSF no recomienda estimaciones representativas a escala comunal.</p><p><a href="data/metricas_comunales.parquet">Descargar métricas comunales (Parquet)</a> · <a href="metodologia.html">metodología, contratos y límites</a></p></section>
+    <section class="card control-card reveal" id="explorar" aria-labelledby="explorar-title">
+      <div class="section-head">
+        <div><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Explorador comunal</h2></div>
+        <p class="status-pill" id="status" role="status">Cargando datos comunales…</p>
+      </div>
+      <div class="controls" aria-label="Seleccionar territorio">
+        <label for="region"><span class="control-number">1</span> Región<select id="region"><option value="">Cargando regiones…</option></select></label>
+        <label for="comuna"><span class="control-number">2</span> Comuna<select id="comuna" disabled><option value="">Elige una región primero</option></select></label>
+      </div>
+      <p class="hint control-hint">La selección carga los agregados de la comuna. No hay puntos, direcciones, roles ni polígonos prediales en el mapa por defecto.</p>
+    </section>
+
+    <section class="card map-card reveal" aria-labelledby="map-title">
+      <div class="map-head">
+        <div><span class="section-eyebrow">Concentración, no predios individuales</span><h2 id="map-title">Predios H en <span class="lead-accent" id="territory">Chile</span></h2></div>
+        <p class="map-status" id="map-status">Preparando la capa agregada…</p>
+      </div>
+      <div class="map-stage">
+        <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
+      </div>
+      <div class="map-support">
+        <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
+        <p>Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible. Sin teselas externas, se conserva la capa agregada.</p>
+        <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="metric-section reveal" aria-labelledby="metricas-title">
+      <div class="section-head metric-head"><div><span class="section-eyebrow">El registro frente al censo</span><h2 id="metricas-title">Indicadores comunales</h2></div><p class="hint">El verde es la lectura principal. CASEN aparece sólo como sensibilidad.</p></div>
+      <div class="metric-grid" aria-live="polite">
+        <article class="metric-chip primary"><span>Cobertura residencial equivalente</span><strong id="coverage">—</strong><small>frente a población Censo 2024</small></article>
+        <article class="metric-chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
+        <article class="metric-chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
+        <article class="metric-chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
+        <article class="metric-chip"><span>Superficie total</span><strong id="surface">—</strong><small>m² de terreno reportados</small></article>
+        <article class="metric-chip"><span>Avalúo total</span><strong id="assessment">—</strong><small>CLP, percentil nacional <b id="assessment-percentile">—</b></small></article>
+        <article class="metric-chip"><span>Referencia histórica</span><strong id="historical">—</strong><small>vs proyección 2024 base Censo 2017</small></article>
+        <article class="metric-chip caution"><span>Sensibilidad CASEN</span><strong id="casen">—</strong><small id="casen-note">No disponible</small></article>
+      </div>
+    </section>
+
+    <section class="card finding-card reveal" aria-labelledby="hallazgo-title"><span class="section-eyebrow">Lectura comunal</span><h2 id="hallazgo-title">Lo que muestran los <span class="lead-accent">agregados</span></h2><p id="finding">Elige una comuna para cargar la lectura y el mapa.</p></section>
+
+    <section class="card caution-card reveal" aria-labelledby="cautelas-title">
+      <span class="section-eyebrow">Léelo con cuidado</span><h2 id="cautelas-title">Tres cautelas antes de sacar conclusiones</h2>
+      <div class="callout-grid">
+        <p><strong>No es población residente.</strong> Es una equivalencia estadística aplicada a registros de destino H.</p>
+        <p><strong>No identifica causas.</strong> Vacancia, clasificación, fechas o coberturas pueden ser compatibles con una brecha; el visor no decide cuál opera.</p>
+        <p><strong>CASEN no ordena resultados.</strong> Su sensibilidad comunal se marca como no representativa y queda fuera de los hallazgos.</p>
+      </div>
+    </section>
+
+    <section class="card sources-card reveal" aria-labelledby="fuentes-title">
+      <span class="section-eyebrow">Datos y reproducibilidad</span><h2 id="fuentes-title">Sigue la evidencia, no sólo el gráfico</h2>
+      <div class="link-cards">
+        <a class="link-card" href="data/metricas_comunales.parquet"><span class="lc-ic" aria-hidden="true">⇩</span><span><strong>Métricas comunales</strong><small>Parquet público para Python, R u otros flujos.</small></span><span class="lc-arrow" aria-hidden="true">→</span></a>
+        <a class="link-card" href="metodologia.html"><span class="lc-ic" aria-hidden="true">⌘</span><span><strong>Método y controles</strong><small>Fórmula, fuentes, cruces y límites del indicador.</small></span><span class="lc-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap">Hecho con Python, Parquet y datos abiertos. Fondo cartográfico: <span id="attribution">modo degradado sin teselas externas</span>.</div></footer>
-  <script src="assets/map-config.js"></script><script src="app.js"></script>
+
+  <footer class="foot"><div class="wrap"><p><strong>Catastro SII · Visor abierto.</strong> Hecho con Python, Parquet y datos abiertos por <a href="https://3cucharadas.cl">3 Cucharadas</a>.</p><p class="small">Fondo cartográfico: <span id="attribution">modo degradado sin teselas externas</span> · Datos agregados por comuna y celdas · <a href="metodologia.html">Ficha técnica completa</a></p></div></footer>
+  <script src="assets/map-config.js"></script><script src="assets/site-ui.js"></script><script src="app.js"></script>
 </body>
 </html>
