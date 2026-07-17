@@ -46,3 +46,11 @@ _site_gh
 # Python cache
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.coverage
+difusion/.conda/
+difusion/.venv/
+difusion/build/
+difusion/dist/
+difusion/**/*.egg-info/
+difusion/.state/

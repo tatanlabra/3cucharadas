@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cucharadas-difusion"
+version = "0.2.0"
+description = "Difusion local y revisada de posts bilingues de 3 Cucharadas"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "PyYAML>=6,<7",
+  "Jinja2>=3.1,<4",
+  "regex>=2024.11",
+  "atproto==0.0.69",
+]
+
+[project.optional-dependencies]
+test = [
+  "httpx>=0.28,<1",
+  "pytest>=8,<9",
+  "pytest-cov>=6,<7",
+]
+
+[project.scripts]
+cucharadas-difusion = "cucharadas_difusion.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cucharadas_difusion = ["templates/*.html", "static/*.css", "static/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"

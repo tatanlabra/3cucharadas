@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # jekyll-polyglot narrows site.posts to the active language. This generator
-# reads the source posts so the root-level JuliaBloggers feed can stay English.
-module JuliaFeed
+# reads source posts once and prepares explicit, root-level distribution feeds.
+module DistributionFeeds
   class Generator < Jekyll::Generator
     safe true
     priority :lowest
@@ -11,23 +11,13 @@ module JuliaFeed
       return unless site.active_lang == site.default_lang
 
       collection = site.collections.fetch("posts")
-      site.data["julia_feed_posts"] = post_paths(collection).filter_map do |path|
+      documents = post_paths(collection).map do |path|
         document = Jekyll::Document.new(path, :site => site, :collection => collection)
         document.read
-        next unless eligible?(document)
-
-        document.data["layout"] = "none"
-        rendered_content = document.renderer.run
-        url = absolute_url(site, localized_path(site, document))
-
-        {
-          "title" => document.data.fetch("title"),
-          "url" => url,
-          "date" => document.date,
-          "description" => document.data.fetch("description", ""),
-          "content" => absolutize_urls(rendered_content, site),
-        }
-      end.sort_by { |post| post.fetch("date") }.reverse
+        document
+      end
+      site.data["julia_feed_posts"] = build_feed(site, documents, method(:julia_eligible?))
+      site.data["dev_feed_posts"] = build_feed(site, documents, method(:dev_eligible?))
     end
 
     private
@@ -38,10 +28,36 @@ module JuliaFeed
       end
     end
 
-    def eligible?(document)
+    def build_feed(site, documents, predicate)
+      documents.filter_map do |document|
+        next unless predicate.call(document)
+
+        document.data["layout"] = "none"
+        rendered_content = document.renderer.run
+        url = absolute_url(site, localized_path(site, document))
+        {
+          "title" => document.data.fetch("title"),
+          "url" => url,
+          "date" => document.date,
+          "description" => document.data.fetch("description", ""),
+          "content" => absolutize_urls(rendered_content, site),
+          "tags" => Array(document.data["tags"]).map(&:to_s),
+        }
+      end.sort_by { |post| post.fetch("date") }.reverse
+    end
+
+    def julia_eligible?(document)
       document.data["lang"] == "en" &&
         document.data["author"] == "clabra" &&
         Array(document.data["tags"]).map { |tag| tag.to_s.downcase }.include?("julia")
+    end
+
+    def dev_eligible?(document)
+      distribution = document.data["distribution"]
+      return false unless distribution.is_a?(Hash)
+
+      document.data["lang"] == "en" &&
+        Array(distribution["republish"]).map { |target| target.to_s.downcase }.include?("dev")
     end
 
     def localized_path(site, document)
