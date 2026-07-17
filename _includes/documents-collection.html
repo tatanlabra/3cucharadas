@@ -9,5 +9,9 @@
 {% endif %}
 
 {%- for post in entries -%}
-  {% include archive-single.html type=include.type %}
+  {% assign is_home_lcp = false %}
+  {% if page.layout == 'home' and forloop.first %}
+    {% assign is_home_lcp = true %}
+  {% endif %}
+  {% include archive-single.html type=include.type is_lcp=is_home_lcp %}
 {%- endfor -%}

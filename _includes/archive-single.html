@@ -10,11 +10,26 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% assign is_responsive_teaser = false %}
+{% if teaser contains '/assets/images/teasers/' and teaser contains '.webp' %}
+  {% assign is_responsive_teaser = true %}
+  {% assign teaser_filename = teaser | split: '/' | last %}
+  {% assign teaser_stem = teaser_filename | remove: '.webp' %}
+{% endif %}
+
+{% if include.is_lcp %}
+  {% assign image_loading = 'eager' %}
+{% else %}
+  {% assign image_loading = 'lazy' %}
+{% endif %}
+
 <div class="{{ include.type | default: 'list' }}__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
-        <img src="{{ teaser | relative_url }}" alt="" loading="lazy" decoding="async" width="1280" height="720">
+        <img src="{{ teaser | relative_url }}"
+          {% if is_responsive_teaser %}srcset="{{ '/assets/images/teasers/' | append: teaser_stem | append: '-640.webp' | relative_url }} 640w, {{ teaser | relative_url }} 1280w" sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px"{% endif %}
+          alt="" loading="{{ image_loading }}" decoding="async" width="1280" height="720"{% if include.is_lcp %} fetchpriority="high"{% endif %}>
       </div>
     {% endif %}
     <h2 class="archive__item-title no_toc" itemprop="headline">

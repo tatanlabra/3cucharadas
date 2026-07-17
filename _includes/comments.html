@@ -1,12 +1,17 @@
+{% assign comments_lang = site.active_lang | default: page.lang | default: site.locale %}
+{% assign comments_text = site.data.ui-text[comments_lang] | default: site.data.ui-text[site.locale] %}
 <div class="page__comments">
-  {% capture comments_label %}{{ site.data.ui-text[site.locale].comments_label | default: "Comments" }}{% endcapture %}
+  {% capture comments_label %}{{ comments_text.comments_label | default: "Comments" }}{% endcapture %}
   {% case site.comments.provider %}
     {% when "discourse" %}
       <h4 class="page__comments-title">{{ comments_label }}</h4>
       <section id="discourse-comments"></section>
     {% when "disqus" %}
       <h4 class="page__comments-title">{{ comments_label }}</h4>
-      <section id="disqus_thread"></section>
+      <section id="disqus_thread" aria-live="polite">
+        <button id="load-disqus" class="btn btn--primary" type="button" data-loading-label="{{ comments_text.loading_label | default: 'Loading...' }}" data-error-label="{{ comments_text.comments_error_label | default: 'Comments could not be loaded. Try again.' }}">{{ comments_text.load_comments_label | default: 'Load comments' }}</button>
+        <p class="small">{{ comments_text.comments_privacy_note | default: 'Disqus is contacted only if you choose to load comments.' }}</p>
+      </section>
     {% when "facebook" %}
       <h4 class="page__comments-title">{{ comments_label }}</h4>
       <section class="fb-comments" data-href="{{ page.url | absolute_url }}" data-mobile="true" data-num-posts="{{ site.comments.facebook.num_posts | default: 5 }}" data-width="100%" data-colorscheme="{{ site.comments.facebook.colorscheme | default: 'light' }}"></section>
