@@ -7,17 +7,20 @@ Selector ES/EN. Solo aparece cuando Polyglot confirma una contraparte mediante
 {% if page.translation_languages %}
   {% assign switcher_languages = page.translation_languages %}
 {% endif %}
+{% assign language_order = "es,en" | split: "," %}
 {% assign switcher_label = "Idioma" %}
 {% if active_lang == "en" %}{% assign switcher_label = "Language" %}{% endif %}
 {% if page.permalink and switcher_languages and switcher_languages.size > 1 %}
 <div class="lang-switcher" role="navigation" aria-label="{{ switcher_label }}">
-  {% for lang in switcher_languages %}
-    {% if lang == active_lang %}
-      <span class="lang-active" aria-current="page">{{ lang | upcase }}</span>
-    {% elsif lang == site.default_lang %}
-      <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
-    {% else %}
-      <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+  {% for lang in language_order %}
+    {% if switcher_languages contains lang %}
+      {% if lang == active_lang %}
+        <span class="lang-active" aria-current="page">{{ lang | upcase }}</span>
+      {% elsif lang == site.default_lang %}
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+      {% else %}
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+      {% endif %}
     {% endif %}
   {% endfor %}
 </div>

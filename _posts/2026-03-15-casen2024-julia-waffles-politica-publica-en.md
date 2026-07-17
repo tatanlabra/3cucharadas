@@ -13,6 +13,7 @@ toc: true
 toc_sticky: true
 author_profile: true
 header:
+  teaser: /assets/images/teasers/teaser-casen-2024.webp
   og_image: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
 
 gallery_nacional:

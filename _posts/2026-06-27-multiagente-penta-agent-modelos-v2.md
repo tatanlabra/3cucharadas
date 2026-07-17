@@ -14,6 +14,8 @@ toc: true
 toc_sticky: true
 comments: true
 author_profile: true
+header:
+  teaser: /assets/images/teasers/teaser-multiagentes-vscode.webp
 ---
 
 Esto empezó como una molestia práctica: tareas largas que se cortaban por cuota, conversaciones que quedaban demasiado cargadas y revisiones que exigían copiar contexto entre ventanas de forma incómoda e ineficiente. Para resolverlo armé un multiagente en VS Code, sobre Arch Linux, y llamé primero tri-agent y luego de un par de meses ya es `penta-agent`, una forma todavía imperfecta de coordinar agentes, roles, permisos y trazas dentro de mi flujo.

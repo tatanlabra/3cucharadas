@@ -47,10 +47,10 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 
 <div class="contact-links" style="font-size: 0.8em; line-height: 1.1;">
   <p><i class="fas fa-fw fa-envelope"></i><a href="mailto:tatanlabra@gmail.com">tatanlabra</a></p>
-  <p><i class="fab fa-fw fa-x-twitter"></i><a href="https://x.com/tatanlabra" target="_blank">tatanlabra</a></p>
-  <p><i class="fab fa-fw fa-mastodon"></i><a href="https://mastodon.social/@asiole" target="_blank">asiole@mastodon.social</a></p>
-  <p><i class="fab fa-fw fa-linkedin"></i><a href="https://www.linkedin.com/in/cristianlabra/" target="_blank">cristianlabra</a></p>
-  <p><i class="fa-brands fa-bluesky"></i><a href="https://bsky.app/profile/labra.bsky.social" target="_blank">labra.bsky.social</a></p>
+  <p><i class="fab fa-fw fa-x-twitter"></i><a href="https://x.com/tatanlabra" target="_blank" rel="noopener noreferrer">tatanlabra</a></p>
+  <p><i class="fab fa-fw fa-mastodon"></i><a href="https://mastodon.social/@asiole" target="_blank" rel="me noopener noreferrer">asiole@mastodon.social</a></p>
+  <p><i class="fab fa-fw fa-linkedin"></i><a href="https://www.linkedin.com/in/cristianlabra/" target="_blank" rel="noopener noreferrer">cristianlabra</a></p>
+  <p><i class="fas fa-fw fa-cloud"></i><a href="https://bsky.app/profile/labra.bsky.social" target="_blank" rel="noopener noreferrer">labra.bsky.social</a></p>
 </div>
 
 ---
@@ -72,6 +72,8 @@ Si quieres comentar, criticar o colaborar, puedes encontrarme en:
     "url": "{{ '/about/' | absolute_url }}",
     "sameAs": [
       "https://www.linkedin.com/in/cristianlabra/",
+      "https://mastodon.social/@asiole",
+      "https://bsky.app/profile/labra.bsky.social",
       "https://x.com/tatanlabra",
       "https://github.com/tatanlabra",
       "https://gitlab.com/tatanlabra",

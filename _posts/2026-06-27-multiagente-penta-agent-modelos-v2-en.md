@@ -14,6 +14,8 @@ toc: true
 toc_sticky: true
 comments: true
 author_profile: true
+header:
+  teaser: /assets/images/teasers/teaser-multiagentes-vscode.webp
 ---
 
 This started as a practical annoyance: long tasks interrupted by quota limits, conversations that became too heavy, and reviews that required copying context across windows in clumsy and inefficient ways. To deal with that, I built a multi-agent workflow in VS Code, on Arch Linux. I first called it tri-agent; after a couple of months it became `penta-agent`, a still imperfect way of coordinating agents, roles, permissions, and traces in my own workflow.
