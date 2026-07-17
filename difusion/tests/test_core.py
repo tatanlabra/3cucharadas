@@ -6,7 +6,7 @@ import pytest
 
 from cucharadas_difusion.destinations import destination_status
 from cucharadas_difusion.posts import PostError, add_utm, update_draft_from_ui, validate_draft
-from cucharadas_difusion.providers import ProviderError, _parse_json
+from cucharadas_difusion.providers import ProviderError, _parse_json, _prompt
 from cucharadas_difusion.storage import StaleRevisionError, Storage
 
 
@@ -86,6 +86,13 @@ def test_provider_result_parser(valid_payload):
     assert parsed == valid_payload
     with pytest.raises(ProviderError):
         _parse_json("status: success but no payload")
+
+
+def test_provider_prompt_requires_first_person_without_generic_cta():
+    prompt = _prompt({"title_es": "Un HUD de cuotas", "title_en": "An AI quota HUD"})
+    assert "author's first person" in prompt
+    assert "Do not address the reader with imperatives" in prompt
+    assert "stay informed" in prompt
 
 
 def test_provider_parser_decodes_only_whole_percent_encoded_messages(valid_payload):

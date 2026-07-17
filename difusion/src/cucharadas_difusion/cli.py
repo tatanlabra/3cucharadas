@@ -318,6 +318,9 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         return int(args.func(args))
+    except KeyboardInterrupt:
+        print("\nRevision cerrada; el borrador local permanece guardado.", file=sys.stderr)
+        return 130
     except (OSError, PostError, PublishError, StorageError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
