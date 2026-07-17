@@ -43,6 +43,22 @@ required_files.each do |relative|
   abort "Required runtime asset is missing: #{relative}" unless File.file?(File.join(site_dir, relative))
 end
 
+microsite = "catastro_sii_brecha"
+microsite_dir = File.join(site_dir, microsite)
+if Dir.exist?(microsite_dir)
+  %w[index.html metodologia.html style.css app.js assets/map-config.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
+    abort "Catastro SII Brecha asset is missing: #{relative}" unless File.file?(File.join(microsite_dir, relative))
+  end
+  abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))
+  abort "Catastro SII Brecha lacks density cells" unless Dir.glob(File.join(microsite_dir, "data", "comunas", "*.json")).length == 346
+  index = File.read(File.join(microsite_dir, "index.html"))
+  abort "Catastro SII Brecha canonical URL is missing" unless index.include?("https://3cucharadas.cl/catastro_sii_brecha/")
+  abort "Catastro SII Brecha unexpectedly exposes a configured MapTiler key" if index.match?(/maptiler[^<]{0,80}key=[A-Za-z0-9_-]{12,}/i)
+  microsite_bytes = 0
+  Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
+  abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
+end
+
 pruned_files.each do |relative|
   abort "Pruned asset is present: #{relative}" if File.exist?(File.join(site_dir, relative))
 end
@@ -166,7 +182,10 @@ end
 artifact_bytes = 0
 Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(entry) }
 unless draft_fixture_mode
-  abort "Artifact exceeds #{max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > max_bytes
+  microsite_bytes = 0
+  Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) } if Dir.exist?(microsite_dir)
+  base_artifact_bytes = artifact_bytes - microsite_bytes
+  abort "Artifact outside Catastro SII Brecha exceeds #{max_bytes} bytes: #{base_artifact_bytes}" if base_artifact_bytes > max_bytes
 end
 
 puts "Artifact verification passed: #{artifact_bytes} bytes"
