@@ -2,22 +2,24 @@
 
 ## Texto principal
 
-Construí este HUD porque estaba cansado de descubrir el límite de cuota justo cuando una
-tarea ya llevaba contexto, archivos revisados y media hora de trabajo.
+Cuatro agentes, cuatro relojes y ninguna unidad común.
 
-Lo dejé en el panel de KDE Plasma: cuatro anillos para ver cuánto margen les queda a
-Claude, Codex, Gemini y DeepSeek, sin abrir cuatro pestañas ni salir de lo que estaba
-haciendo.
+Claude mide en horas y días. Codex mueve las ventanas. Gemini se estima. DeepSeek habla en
+saldo. La industria consiguió inventar la semana-token: una unidad de planificación que
+nadie pidió.
 
-El widget terminó enseñándome algo cuando Codex cambió su esquema de ventanas y mi primera
-implementación empezó a confundir una semana con cinco horas. La duración era la identidad
-del dato; la posición había sido apenas una coincidencia temporal.
+Para no descubrir el límite justo cuando la tarea ya tenía contexto, archivos y media hora
+encima, hice lo evidente: otro indicador. Un HUD en el panel de @KDE Plasma con cuatro
+anillos que me dicen quién todavía puede terminar el trabajo.
 
-Lo ordené, quité las rutas y artefactos privados y lo publiqué con licencia MIT. No crea más
-cuota ni negocia mejores planes: solo me ayuda a decidir a quién pasarle el trabajo antes de
-que se corte.
+Funcionó hasta que Codex cambió su esquema y mi primera versión informó una ventana de
+«5 h» que reiniciaba seis días después. Demasiada innovación incluso para la IA. Ahora el
+monitor identifica cada ventana por su duración, no por el lugar donde apareció ese día.
 
-#KDE #Linux #OpenSource #Python #Plasma6 #DeveloperTools #IA
+Todo corre local, sin enviar credenciales. No crea más cuota ni negocia mejores planes.
+Solo evita pasarle una tarea al agente que se fue a descansar hasta el martes.
+
+#KDE #Linux #OpenSource #Python #InteligenciaArtificial
 
 ## Primer comentario
 
@@ -29,5 +31,13 @@ https://3cucharadas.cl/ia/productividad/ai-quota-hud-kde/?utm_source=linkedin&ut
 
 - Subir `ai-quota-hud-carrusel.pdf` como documento PDF nativo de ocho páginas.
 - Usar el texto principal sin URL en el cuerpo.
+- Al pegar el texto, reemplazar `@KDE` seleccionando la página oficial **KDE** en el menú de
+  menciones de LinkedIn. No dejar la arroba como texto plano.
+- No mencionar por defecto a las cuatro empresas: `@KDE` es la relación central y más
+  natural. `@OpenAI` puede añadirse en la frase sobre Codex, pero es opcional y menos
+  probable que aporte conversación pertinente.
 - Publicar el enlace canónico con UTM como primer comentario.
 - Revisar una vez el preview móvil antes de confirmar la publicación manual.
+- Programación recomendada: **miércoles 22 de julio de 2026, 16:00
+  (America/Santiago)**. Si debe salir el sábado 18, preferir **09:00** a 07:45, asumiendo
+  menor alcance que en un día hábil.
