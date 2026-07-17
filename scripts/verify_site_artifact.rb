@@ -118,7 +118,7 @@ end
 unless draft_fixture_mode
   home = File.read(File.join(site_dir, "index.html"))
   abort "Home LCP card is not eager" unless home.include?('loading="eager"') && home.include?('fetchpriority="high"')
-  abort "Home responsive teaser sources are absent" unless home.include?('teaser-ai-quota-hud-640.webp')
+  abort "Home responsive teaser sources are absent" unless home.match?(/srcset=["'][^"']*teaser-[^"']+-640\.webp/)
   abort "Spanish home brand description is stale" unless home.include?("Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible.")
 
   home_en_path = File.join(site_dir, "en", "index.html")
