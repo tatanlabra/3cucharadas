@@ -20,7 +20,7 @@ baseurl       : ""
 repository    : "tatanlabra/3cucharadas"
 
 teaser        : "/assets/images/home/el-salvador-codera-hero-1600x524.webp"
-logo          : "/assets/images/3cucharadas-logo.png"
+logo          : "/assets/images/3cucharadas-logo.webp"
 masthead_title: "3 Cucharadas"
 words_per_minute: 200
 enable_copy_code_button: true
@@ -89,7 +89,7 @@ cv_path: /assets/cv/cv_esp_clabraol_2026.pdf
 # Autor
 author:
   name   : *name
-  avatar : "/assets/images/clabra2026.png"
+  avatar : "/assets/images/clabra2026.webp"
   bio    : *description
   location: "Santiago, Chile"
   links:
@@ -148,6 +148,9 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
+  - assets/img
+  - assets/images/ai-quota-hud/bar_gemini.png
+  - assets/images/ai-quota-hud/popup.png
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
@@ -228,6 +231,7 @@ sass:
   sass_dir: _sass
   style: compressed
   quiet_deps: true
+  sourcemap: never
 
 # Salida/URLs
 permalink    : /:categories/:title/

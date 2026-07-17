@@ -19,30 +19,30 @@ header:
   og_image: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
 
 gallery_nacional:
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
     alt: "Gráfico 1: Distribución del nivel educacional alcanzado en la población adulta (≥18 años), Chile, CASEN 2024. Waffle chart de 100 celdas con proporciones por largest remainder."
     title: "Gráfico 1 — Educación: nivel educacional alcanzado (población ≥18 años, CASEN 2024)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp
     alt: "Gráfico 2: Distribución del sistema previsional de salud al que pertenece la población, Chile, CASEN 2024. Waffle chart con 6 categorías incluyendo FONASA, Isapre y otros."
     title: "Gráfico 2 — Salud: sistema previsional de salud (población total, CASEN 2024)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp
     alt: "Gráfico 3: Situación de pobreza por ingresos en Chile según CASEN 2024: pobreza extrema, pobreza no extrema y no pobreza. Waffle chart de 100 celdas."
     title: "Gráfico 3 — Pobreza por ingresos: extrema, no extrema y no pobreza (población total, CASEN 2024)"
 
 gallery_regional:
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp
     alt: "Gráfico 4: Dot plot de brechas regionales en nivel educacional por categoría, CASEN 2024. Cada panel tiene eje ajustado a su rango; línea vertical punteada = referencia nacional y banda gris = IC 95 % nacional."
     title: "Gráfico 4 — Brechas regionales en educación: dot plot por categoría (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp
     alt: "Gráfico 5: Dot plot de brechas regionales en sistema previsional de salud por categoría, CASEN 2024. Eje ajustado por panel con referencia nacional."
     title: "Gráfico 5 — Brechas regionales en salud: dot plot por categoría (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
     alt: "Gráfico 6: Dot plot de brechas regionales en pobreza por ingresos, CASEN 2024. Eje ajustado por panel con referencia nacional."
     title: "Gráfico 6 — Brechas regionales en pobreza: dot plot (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
 ---
