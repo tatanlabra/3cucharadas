@@ -8,7 +8,7 @@ ref: about
 toc: true
 ---
 
-Hola, soy Cristián Labra Olivares, economista y servidor público desde 2012. Me gustan temas de datos/estadística, biología, políticas sociales y programación en general.
+Hola, soy Cristián Labra Olivares, economista y servidor público desde 2012. Me gustan temas de datos, estadística, MLOps, biología, políticas sociales y programación en general.
 
 Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y Familia (MDSF)**, donde he aprendido mucho y colaborado en temas varios asociados a diseño, implementación y creación de políticas sociales, en particular para la asignación y racionalización de prestaciones sociales. Me gustaría contribuir a la disminución de la pobreza y la desigualdad. [Descargar CV]({{ "/assets/cv/cv_esp_clabraol_2026.pdf" | relative_url }})
 
