@@ -20,30 +20,30 @@ header:
   og_image: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
 
 gallery_nacional:
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
     alt: "Chart 1: Distribution of the highest educational level attained in the adult population (≥18 years), Chile, CASEN 2024. A 100-cell waffle chart with proportions by largest remainder."
     title: "Chart 1 — Education: highest educational level attained (population ≥18 years, CASEN 2024)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp
     alt: "Chart 2: Distribution of the health insurance system to which the population belongs, Chile, CASEN 2024. A waffle chart with 6 categories including FONASA, Isapre and others."
     title: "Chart 2 — Health: health insurance system (total population, CASEN 2024)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp
     alt: "Chart 3: Income poverty status in Chile according to CASEN 2024: extreme poverty, non-extreme poverty and non-poverty. A 100-cell waffle chart."
     title: "Chart 3 — Income poverty: extreme, non-extreme and non-poverty (total population, CASEN 2024)"
 
 gallery_regional:
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp
     alt: "Chart 4: Dot plot of regional gaps in educational level by category, CASEN 2024. Each panel has its axis fitted to its own range; dashed vertical line = national reference and grey band = national 95% CI."
     title: "Chart 4 — Regional gaps in education: dot plot by category (axis fitted per panel, dashed line = national, band = 95% CI)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp
     alt: "Chart 5: Dot plot of regional gaps in the health insurance system by category, CASEN 2024. Axis fitted per panel with national reference."
     title: "Chart 5 — Regional gaps in health: dot plot by category (axis fitted per panel, dashed line = national, band = 95% CI)"
-  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
-    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.png
+  - url: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
+    image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
     alt: "Chart 6: Dot plot of regional gaps in income poverty, CASEN 2024. Axis fitted per panel with national reference."
     title: "Chart 6 — Regional gaps in poverty: dot plot (axis fitted per panel, dashed line = national, band = 95% CI)"
 ---
