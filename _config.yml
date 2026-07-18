@@ -164,6 +164,14 @@ exclude:
   - log
   - node_modules
   - package.json
+  - package-lock.json
+  - tsconfig.catastro.json
+  - vite.catastro.config.ts
+  - vitest.catastro.config.ts
+  - assets/src
+  - tests
+  - reports
+  - scripts/catastro_sii
   - deploy
   - difusion       # herramienta local; nunca copiar codigo/tests al sitio publico
   - docs

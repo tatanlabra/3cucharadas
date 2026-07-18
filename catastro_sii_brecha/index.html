@@ -66,7 +66,8 @@
       </div>
       <div class="map-support">
         <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
-        <p>Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible. Sin teselas externas, se conserva la capa agregada.</p>
+        <p>El fondo Protomaps/OpenStreetMap se sirve como PMTiles desde el origen del visor y mantiene su atribución visible. Si aún no está publicado, se conserva la capa agregada.</p>
+        <p>La cartografía predial es referencial: no acredita deslindes, dominio ni límites legales.</p>
         <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
       </div>
     </section>
@@ -129,6 +130,6 @@
   </main>
 
   <footer class="foot"><div class="wrap"><p><strong>Catastro SII · Visor abierto.</strong> Hecho con Python, Parquet y datos abiertos por <a href="https://3cucharadas.cl">3 Cucharadas</a>.</p><p class="small">Fondo cartográfico: <span id="attribution">modo degradado sin teselas externas</span> · Datos agregados por comuna y celdas · <a href="metodologia.html">Ficha técnica completa</a></p></div></footer>
-  <script src="assets/map-config.js"></script><script src="assets/site-ui.js"></script><script src="app.js"></script>
+  <script src="assets/map-config.js"></script><script src="assets/site-ui.js"></script><script src="app.js"></script><script src="assets/map-app-loader.js"></script>
 </body>
 </html>

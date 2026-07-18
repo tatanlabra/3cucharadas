@@ -1,0 +1,39 @@
+{
+  "version": 8,
+  "name": "3 Cucharadas · Protomaps Chile",
+  "sources": {
+    "protomaps": {
+      "type": "vector",
+      "url": "__BASEMAP_PM_TILES__",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {"background-color": "#edf1f4"}
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "landuse",
+      "paint": {"fill-color": "#e5ebe3", "fill-opacity": 0.58}
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "water",
+      "paint": {"fill-color": "#b9d9e7"}
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "roads",
+      "paint": {"line-color": "#98a5ad", "line-opacity": 0.7, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.25, 13, 1.25]}
+    }
+  ]
+}

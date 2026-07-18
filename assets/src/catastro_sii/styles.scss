@@ -1,0 +1,21 @@
+#map.catastro-maplibre .maplibregl-ctrl-group {
+  border: 1px solid color-mix(in srgb, var(--line-strong) 78%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+#map.catastro-maplibre .maplibregl-ctrl button {
+  background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+}
+
+#map.catastro-maplibre .maplibregl-ctrl button span {
+  filter: var(--catastro-map-control-filter, none);
+}
+
+#map.catastro-maplibre .maplibregl-ctrl-attrib {
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+#map.catastro-maplibre .maplibregl-ctrl-attrib a { color: var(--cyan); }
+
+:root[data-theme="dark"] #map.catastro-maplibre { --catastro-map-control-filter: invert(1); }

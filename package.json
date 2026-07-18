@@ -1,0 +1,24 @@
+{
+  "name": "3cucharadas-catastro-sii-maps",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <26"
+  },
+  "scripts": {
+    "build:catastro": "vite build --config vite.catastro.config.ts",
+    "dev:catastro": "vite --config vite.catastro.config.ts",
+    "check:catastro": "tsc --noEmit --project tsconfig.catastro.json",
+    "test:catastro": "vitest run --config vitest.catastro.config.ts"
+  },
+  "dependencies": {
+    "maplibre-gl": "5.6.0",
+    "pmtiles": "3.2.0"
+  },
+  "devDependencies": {
+    "sass": "1.89.0",
+    "typescript": "5.9.2",
+    "vite": "7.3.6",
+    "vitest": "3.2.7"
+  }
+}
