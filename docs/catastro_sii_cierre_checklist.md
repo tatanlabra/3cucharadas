@@ -46,7 +46,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] El reintento corrigió el constructor con índice no contiguo antes del run persistido.
 - [x] `pmtiles-show`, capas, bounds, zoom, conteos, esquema exacto de atributos y cero geometrías derivadas inválidas validados en `stata01`.
 - [x] Presupuesto de tesela se mide y exige antes de persistir: comunal p50=632 B, p95=4.668 B, máx=96.708 B; predial p50=259 B, p95=277 B, máx=86.630 B (límites 150 KB/500 KB/1 MB).
-- [ ] Pruebas de integración: nacional → Atacama → Caldera/Diego → cambio de región y liberación de source previo.
+- [~] Pruebas de integración: nacional → Atacama → Caldera/Diego pasó en Firefox (URL, estado, canvas y cero errores); falta verificar cambio fuera de Atacama y liberación del source predial previo.
 - [x] Gate funcional unitario: una fuente predial sólo puede resolverse para una región seleccionada con `AUTHORIZED_VECTOR`; `PENDING` retorna nulo y no inicia carga.
 - [ ] Pruebas visuales y móviles, accesibilidad básica, atribución visible y métricas sincronizadas.
 
@@ -75,4 +75,5 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Preview predeterminado corregido | El loopback normal consume el manifest local actual, inicia MapLibre sin esperar intersección y carga el piloto Atacama por defecto. Vite/Jekyll y 8 tests pasan; HTTP local entrega manifest `200` y PMTiles con `206 Range`. |
 | 2026-07-18 | Diagnóstico de runtime del visor | Firefox detectó que Vite precargaba el chunk MapLibre desde `/chunks/` y recibía HTML. Se fija `base=/assets/dist/catastro_sii/`, se agrega test de configuración, atribución por defecto para la capa comunal y ocultamiento prioritario del canvas heredado. La URL normal queda comprobada con canvas MapLibre, PMTiles comunal/predial y cero errores JavaScript. |
 | 2026-07-18 | Corrección de layout CSS del visor | Una función `linear-gradient` sin cerrar hacía que el navegador descartara las reglas posteriores y dejara el contenedor en altura cero. Se corrige y se incorpora `check:catastro:static-css` al gate. Firefox confirma ahora canvas 1082×598 px, PMTiles comunal/predial, `density` oculto y cero errores. |
+| 2026-07-18 | Flujo Caldera/Diego comprobado | Firefox selecciona Caldera (`03102`) y Diego de Almagro (`03202`), actualiza URL y estado de la capa predial referencial, conserva MapLibre y no registra errores. |
 | 2026-07-18 | Evidencia de redistribución SII | Se incorpora una fuente oficial sobre la Base de Datos Catastro y la carta compromiso de no traspaso. Se clasifica como hecho/inferencia/no verificado: no hay contrato de adquisición de estas fuentes ni autorización para publicar vector predial, por lo que el gate sigue `PENDING`. |
