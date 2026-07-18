@@ -144,6 +144,27 @@ def select_public_residential_geometries(
     }
 
 
+def public_parcel_frame(
+    geometries: gpd.GeoDataFrame,
+    commune_code: str,
+    version: str,
+    crs: Any,
+) -> gpd.GeoDataFrame:
+    """Build the allowlisted derivative while preserving the selected row index."""
+    return gpd.GeoDataFrame(
+        {
+            "cod_region": "03",
+            "cod_comuna": commune_code,
+            "destino_clase": "Residencial",
+            "calidad_geometrica": "Referencial",
+            "version_datos": version,
+        },
+        index=geometries.index,
+        geometry=geometries.geometry,
+        crs=crs,
+    ).to_crs(4326)
+
+
 def write_fgb(frame: gpd.GeoDataFrame, path: Path, layer: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -261,13 +282,7 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
             raise FileNotFoundError(f"Fuente piloto ausente: {source}")
         raw = gpd.read_parquet(source, columns=["dc_cod_destino", "geometry"])
         residential, counts = select_public_residential_geometries(raw, filename)
-        public = gpd.GeoDataFrame({
-            "cod_region": "03",
-            "cod_comuna": commune_code,
-            "destino_clase": "Residencial",
-            "calidad_geometrica": "Referencial",
-            "version_datos": version,
-        }, geometry=residential.geometry, crs=raw.crs).to_crs(4326)
+        public = public_parcel_frame(residential, commune_code, version, raw.crs)
         ensure_public_parcel_schema(public)
         parts.append(public)
         fingerprints[filename] = sha256(source)
