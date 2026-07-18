@@ -111,6 +111,39 @@ def ensure_public_parcel_schema(frame: gpd.GeoDataFrame) -> None:
         raise RuntimeError(f"Atributos prohibidos en salida predial: {leaked}")
 
 
+def select_public_residential_geometries(
+    raw: gpd.GeoDataFrame,
+    label: str,
+) -> tuple[gpd.GeoDataFrame, dict[str, int]]:
+    """Create a read-only public selection and account for unrenderable records.
+
+    Empty and null source geometries cannot be encoded as vector tiles. They are
+    excluded from the derivative only and counted in the build manifest; the
+    canonical GeoParquet is never repaired, rewritten, or otherwise mutated.
+    Non-empty invalid geometries remain a hard failure because silently dropping
+    them would conceal a material source-quality issue.
+    """
+    residential = raw.loc[
+        raw["dc_cod_destino"].fillna("").astype(str).str.strip().eq("H"),
+        ["geometry"],
+    ].copy()
+    missing = residential.geometry.isna()
+    empty = ~missing & residential.geometry.is_empty
+    invalid = ~missing & ~empty & ~residential.geometry.is_valid
+    if int(invalid.sum()):
+        raise RuntimeError(
+            f"{label}: geometrías residenciales inválidas no vacías={int(invalid.sum())}; "
+            "la fuente maestra no se repara ni se altera."
+        )
+    usable = residential.loc[~missing & ~empty].copy()
+    ensure_valid_geometries(usable, label)
+    return usable, {
+        "residential_input": int(len(residential)),
+        "excluded_null_geometries": int(missing.sum()),
+        "excluded_empty_geometries": int(empty.sum()),
+    }
+
+
 def write_fgb(frame: gpd.GeoDataFrame, path: Path, layer: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -221,14 +254,13 @@ def build_communes(
 def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> BuildResult:
     parts: list[gpd.GeoDataFrame] = []
     fingerprints: dict[str, str] = {}
+    geometry_exclusions: dict[str, dict[str, int]] = {}
     for commune_code, filename in PILOT_SOURCES.items():
         source = source_dir / filename
         if not source.is_file():
             raise FileNotFoundError(f"Fuente piloto ausente: {source}")
         raw = gpd.read_parquet(source, columns=["dc_cod_destino", "geometry"])
-        residential = raw.loc[raw["dc_cod_destino"].fillna("").astype(str).str.strip().eq("H"), ["geometry"]].copy()
-        residential = residential.loc[residential.geometry.notna()].copy()
-        ensure_valid_geometries(residential, filename)
+        residential, counts = select_public_residential_geometries(raw, filename)
         public = gpd.GeoDataFrame({
             "cod_region": "03",
             "cod_comuna": commune_code,
@@ -239,6 +271,7 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
         ensure_public_parcel_schema(public)
         parts.append(public)
         fingerprints[filename] = sha256(source)
+        geometry_exclusions[filename] = counts
     combined = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), geometry="geometry", crs=4326)
     ensure_valid_geometries(combined, "piloto Atacama")
     ensure_public_parcel_schema(combined)
@@ -247,7 +280,10 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
     pmtiles = output_dir / f"predios_region_03_{version}.pmtiles"
     tippecanoe(fgb, pmtiles, "predios", 13, 18, sorted(PUBLIC_PARCEL_FIELDS - {"geometry"}))
     validate_pmtiles(pmtiles, "predios", output_dir / "reports" / f"atacama_{version}_pmtiles_show.txt")
-    return BuildResult(pmtiles, "predios", 13, 18, len(combined), pmtiles.stat().st_size, fingerprints)
+    return BuildResult(
+        pmtiles, "predios", 13, 18, len(combined), pmtiles.stat().st_size,
+        fingerprints, metadata={"source_geometry_exclusions": geometry_exclusions},
+    )
 
 
 def result_dict(result: BuildResult, *, available: bool, pilot: bool = False, communes: list[str] | None = None) -> dict[str, Any]:
@@ -322,7 +358,7 @@ def main() -> int:
         "legal_publication_status": legal,
         "tiles_base": args.tiles_base.rstrip("/"),
         "build_scope": "publishable" if args.publishable else "private-validation",
-        "source_geometry": "Canonical GeoParquet was read-only; invalid geometries are rejected, never repaired in place.",
+        "source_geometry": "Canonical GeoParquet was read-only; null/empty geometries are counted and excluded only from the derivative, while invalid geometries are rejected and never repaired in place.",
         "results": results,
     }
     (output_dir / f"tiles_manifest_{args.version}.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
