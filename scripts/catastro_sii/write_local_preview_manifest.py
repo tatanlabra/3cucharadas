@@ -34,13 +34,16 @@ def atomic_write(path: Path, payload: dict[str, Any]) -> None:
 
 
 def tile_entry(result: dict[str, Any]) -> dict[str, Any]:
-    return {
+    entry = {
         "available": True,
         "url": result["url"],
         "source_layer": result["source_layer"],
         "minzoom": result["minzoom"],
         "maxzoom": result["maxzoom"],
     }
+    if isinstance(result.get("commune_focus_bounds"), dict):
+        entry["commune_focus_bounds"] = result["commune_focus_bounds"]
+    return entry
 
 
 def main() -> int:
@@ -50,6 +53,9 @@ def main() -> int:
     parser.add_argument("--current-output", type=Path)
     parser.add_argument("--tiles-base", required=True)
     parser.add_argument("--territories-output", type=Path, required=True)
+    parser.add_argument("--basemap-file", required=True)
+    parser.add_argument("--basemap-style", required=True)
+    parser.add_argument("--basemap-fonts-dir", type=Path, required=True)
     args = parser.parse_args()
 
     built = read(args.tiles_manifest)
@@ -63,6 +69,12 @@ def main() -> int:
     territories = args.tiles_manifest.parent / territories_name
     if not territories.is_file():
         raise FileNotFoundError(f"Índice territorial ausente: {territories}")
+    basemap = args.tiles_manifest.parent / args.basemap_file
+    style = args.tiles_manifest.parent / args.basemap_style
+    latin_font = args.basemap_fonts_dir / "Noto Sans Regular" / "0-255.pbf"
+    for asset in (basemap, style, latin_font):
+        if not asset.is_file():
+            raise FileNotFoundError(f"Activo de base cartográfica ausente: {asset}")
 
     # This status activates only a localhost-only manifest generated under an
     # ignored path. It is deliberately not a declaration of public authorization.
@@ -73,9 +85,9 @@ def main() -> int:
         "legal_publication_status": "AUTHORIZED_VECTOR",
         "tiles_base": args.tiles_base.rstrip("/"),
         "basemap": {
-            "available": False,
-            "url": "basemap_chile_PENDING.pmtiles",
-            "style_url": "basemap_chile_PENDING.style.json",
+            "available": True,
+            "url": args.basemap_file,
+            "style_url": args.basemap_style,
             "attribution": "© OpenStreetMap contributors",
         },
         "communes": {

@@ -1,6 +1,7 @@
 {
   "version": 8,
   "name": "3 Cucharadas · Protomaps Chile",
+  "glyphs": "fonts/{fontstack}/{range}.pbf",
   "sources": {
     "protomaps": {
       "type": "vector",
@@ -12,28 +13,81 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#edf1f4"}
+      "paint": {"background-color": "#070a13"}
+    },
+    {
+      "id": "earth",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "earth",
+      "paint": {"fill-color": "#111928"}
+    },
+    {
+      "id": "landcover",
+      "type": "fill",
+      "source": "protomaps",
+      "source-layer": "landcover",
+      "paint": {"fill-color": "#17283a", "fill-opacity": 0.38}
     },
     {
       "id": "landuse",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "landuse",
-      "paint": {"fill-color": "#e5ebe3", "fill-opacity": 0.58}
+      "paint": {"fill-color": "#1c3141", "fill-opacity": 0.56}
     },
     {
       "id": "water",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "water",
-      "paint": {"fill-color": "#b9d9e7"}
+      "paint": {"fill-color": "#0a2032", "fill-opacity": 0.92}
     },
     {
-      "id": "roads",
+      "id": "roads-glow",
       "type": "line",
       "source": "protomaps",
       "source-layer": "roads",
-      "paint": {"line-color": "#98a5ad", "line-opacity": 0.7, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.25, 13, 1.25]}
+      "filter": ["in", ["get", "kind"], ["literal", ["highway", "major_road", "minor_road"]]],
+      "paint": {
+        "line-color": "#62edff",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.12, 10, 0.34, 16, 0.72],
+        "line-blur": ["interpolate", ["linear"], ["zoom"], 4, 0.35, 13, 1.8, 16, 2.8],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 10, 2.0, 16, 6.2]
+      }
+    },
+    {
+      "id": "roads-neon-core",
+      "type": "line",
+      "source": "protomaps",
+      "source-layer": "roads",
+      "filter": ["in", ["get", "kind"], ["literal", ["highway", "major_road", "minor_road"]]],
+      "paint": {
+        "line-color": "#f6fdff",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.3, 10, 0.76, 16, 0.96],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.2, 10, 0.62, 16, 1.75]
+      }
+    },
+    {
+      "id": "places-cities",
+      "type": "symbol",
+      "source": "protomaps",
+      "source-layer": "places",
+      "filter": ["in", ["get", "kind_detail"], ["literal", ["city", "town", "village"]]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans Regular"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 4, 10, 8, 12, 13, 15],
+        "text-max-width": 9,
+        "text-letter-spacing": 0.025,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "#f5fbff",
+        "text-halo-color": "#070a13",
+        "text-halo-width": 1.45,
+        "text-halo-blur": 0.8
+      }
     }
   ]
 }

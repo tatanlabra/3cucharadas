@@ -47,6 +47,13 @@ class LocalPreviewManifestTests(unittest.TestCase):
             source.write_text(json.dumps(build_manifest()), encoding="utf-8")
             territories = directory / "territories_20260718T194751Z.json"
             territories.write_text('{"communes": {}}\n', encoding="utf-8")
+            basemap = directory / "basemap_chile_20260718T194751Z.pmtiles"
+            basemap.write_bytes(b"pmtiles-fixture")
+            style = directory / "basemap_chile_20260718T194751Z.style.json"
+            style.write_text('{"version": 8}\n', encoding="utf-8")
+            fonts = directory / "fonts" / "Noto Sans Regular"
+            fonts.mkdir(parents=True)
+            (fonts / "0-255.pbf").write_bytes(b"font-fixture")
             output = directory / "local" / "manifest.json"
             copied_territories = directory / "local" / "territories.json"
 
@@ -57,6 +64,9 @@ class LocalPreviewManifestTests(unittest.TestCase):
                     "--output", str(output),
                     "--tiles-base", "/assets/data/catastro_sii/local/20260718T194751Z",
                     "--territories-output", str(copied_territories),
+                    "--basemap-file", basemap.name,
+                    "--basemap-style", style.name,
+                    "--basemap-fonts-dir", str(directory / "fonts"),
                 ],
                 text=True,
                 capture_output=True,
@@ -70,6 +80,8 @@ class LocalPreviewManifestTests(unittest.TestCase):
             self.assertEqual(preview["source_legal_publication_status"], "PENDING")
             self.assertEqual(preview["legal_publication_status"], "AUTHORIZED_VECTOR")
             self.assertTrue(preview["parcel_regions"]["03"]["available"])
+            self.assertTrue(preview["basemap"]["available"])
+            self.assertEqual(preview["basemap"]["url"], basemap.name)
             self.assertEqual(copied_territories.read_text(encoding="utf-8"), territories.read_text(encoding="utf-8"))
 
 

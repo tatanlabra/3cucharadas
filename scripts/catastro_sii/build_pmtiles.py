@@ -21,8 +21,9 @@ import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
+from decimal import Decimal, InvalidOperation
 from datetime import UTC, datetime
-from math import ceil
+from math import asinh, atan, ceil, degrees, pi, sinh, tan
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -41,12 +42,15 @@ PUBLIC_PARCEL_FIELDS = {
     "destino_clase",
     "calidad_geometrica",
     "version_datos",
+    "predio",
+    "avaluo_fiscal_clp",
     "geometry",
 }
 FORBIDDEN_FIELD_FRAGMENTS = (
     "direccion", "address", "rol", "propiet", "run", "folio", "cliente", "interno",
-    "avaluo", "valor", "sup_", "superficie", "predio", "manzana", "utm", "match",
+    "valor", "sup_", "superficie", "manzana", "utm", "match",
 )
+PILOT_SOURCE_FIELDS = ("dc_cod_destino", "predio", "dc_avaluo_fiscal", "geometry")
 TILE_BUDGET_BYTES = {
     "p50": 150 * 1024,
     "p95": 500 * 1024,
@@ -117,6 +121,33 @@ def ensure_public_parcel_schema(frame: gpd.GeoDataFrame) -> None:
         raise RuntimeError(f"Atributos prohibidos en salida predial: {leaked}")
 
 
+def normalized_integer(value: object, *, field: str, label: str) -> int:
+    """Convert a declared source field to an exact non-negative integer.
+
+    The source expresses fiscal values as strings with a decimal comma.  The
+    normalisation is deliberately local to the two explicitly allowlisted
+    fields: no generic numeric conversion is applied to the source extract.
+    """
+    if pd.isna(value):
+        raise RuntimeError(f"{label}: {field} nulo en registro residencial")
+    text = str(value).strip().replace("\u00a0", "").replace(" ", "")
+    if not text:
+        raise RuntimeError(f"{label}: {field} vacío en registro residencial")
+    if text.count(",") > 1:
+        raise RuntimeError(f"{label}: {field} tiene formato numérico ambiguo: {text!r}")
+    if "," in text and "." in text:
+        text = text.replace(".", "").replace(",", ".")
+    else:
+        text = text.replace(",", ".")
+    try:
+        parsed = Decimal(text)
+    except InvalidOperation as error:
+        raise RuntimeError(f"{label}: {field} no es numérico: {value!r}") from error
+    if not parsed.is_finite() or parsed < 0 or parsed != parsed.to_integral_value():
+        raise RuntimeError(f"{label}: {field} debe ser entero no negativo: {value!r}")
+    return int(parsed)
+
+
 def select_public_residential_geometries(
     raw: gpd.GeoDataFrame,
     label: str,
@@ -129,9 +160,12 @@ def select_public_residential_geometries(
     Non-empty invalid geometries remain a hard failure because silently dropping
     them would conceal a material source-quality issue.
     """
+    missing_columns = sorted(set(PILOT_SOURCE_FIELDS) - set(raw.columns))
+    if missing_columns:
+        raise RuntimeError(f"{label}: faltan columnas fuente requeridas: {missing_columns}")
     residential = raw.loc[
         raw["dc_cod_destino"].fillna("").astype(str).str.strip().eq("H"),
-        ["geometry"],
+        list(PILOT_SOURCE_FIELDS[1:]),
     ].copy()
     missing = residential.geometry.isna()
     empty = ~missing & residential.geometry.is_empty
@@ -164,11 +198,45 @@ def public_parcel_frame(
             "destino_clase": "Residencial",
             "calidad_geometrica": "Referencial",
             "version_datos": version,
+            "predio": [
+                normalized_integer(value, field="predio", label=f"comuna {commune_code}")
+                for value in geometries["predio"]
+            ],
+            "avaluo_fiscal_clp": [
+                normalized_integer(value, field="dc_avaluo_fiscal", label=f"comuna {commune_code}")
+                for value in geometries["dc_avaluo_fiscal"]
+            ],
         },
         index=geometries.index,
         geometry=geometries.geometry,
         crs=crs,
     ).to_crs(4326)
+
+
+def web_mercator_tile_bounds(z: int, x: int, y: int) -> list[float]:
+    """Return WGS84 bounds for one XYZ tile without changing source geometry."""
+    tiles = 1 << z
+    west = x / tiles * 360 - 180
+    east = (x + 1) / tiles * 360 - 180
+    north = degrees(atan(sinh(pi * (1 - 2 * y / tiles))))
+    south = degrees(atan(sinh(pi * (1 - 2 * (y + 1) / tiles))))
+    return [round(west, 7), round(south, 7), round(east, 7), round(north, 7)]
+
+
+def dense_parcel_focus_bounds(frame: gpd.GeoDataFrame, zoom: int = 13) -> list[float]:
+    """Choose the densest render tile as a view hint, never as a data product."""
+    if frame.empty:
+        raise RuntimeError("No se puede calcular foco para predios vacíos")
+    representatives = frame.geometry.representative_point()
+    tiles = 1 << zoom
+    counts: dict[tuple[int, int], int] = {}
+    for point in representatives:
+        x = min(tiles - 1, max(0, int((point.x + 180) / 360 * tiles)))
+        latitude = max(-85.051129, min(85.051129, point.y))
+        y = min(tiles - 1, max(0, int((1 - (asinh(tan(latitude * pi / 180)) / pi)) / 2 * tiles)))
+        counts[(x, y)] = counts.get((x, y), 0) + 1
+    x, y = max(counts, key=lambda tile: (counts[tile], -tile[0], -tile[1]))
+    return web_mercator_tile_bounds(zoom, x, y)
 
 
 def write_fgb(frame: gpd.GeoDataFrame, path: Path, layer: str) -> None:
@@ -192,7 +260,7 @@ def tippecanoe(
         "--minimum-zoom", str(minzoom), "--maximum-zoom", str(maxzoom),
         "--projection=EPSG:4326", "--simplify-only-low-zooms",
         "--no-simplification-of-shared-nodes", "--no-tiny-polygon-reduction-at-maximum-zoom",
-        "--extend-zooms-if-still-dropping",
+        "--extend-zooms-if-still-dropping", "--no-progress-indicator",
     ]
     for field in fields:
         command.extend(["--include", field])
@@ -320,15 +388,17 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
     parts: list[gpd.GeoDataFrame] = []
     fingerprints: dict[str, str] = {}
     geometry_exclusions: dict[str, dict[str, int]] = {}
+    commune_focus_bounds: dict[str, list[float]] = {}
     for commune_code, filename in PILOT_SOURCES.items():
         source = source_dir / filename
         if not source.is_file():
             raise FileNotFoundError(f"Fuente piloto ausente: {source}")
-        raw = gpd.read_parquet(source, columns=["dc_cod_destino", "geometry"])
+        raw = gpd.read_parquet(source, columns=list(PILOT_SOURCE_FIELDS))
         residential, counts = select_public_residential_geometries(raw, filename)
         public = public_parcel_frame(residential, commune_code, version, raw.crs)
         ensure_public_parcel_schema(public)
         parts.append(public)
+        commune_focus_bounds[commune_code] = dense_parcel_focus_bounds(public)
         fingerprints[filename] = sha256(source)
         geometry_exclusions[filename] = counts
     combined = gpd.GeoDataFrame(pd.concat(parts, ignore_index=True), geometry="geometry", crs=4326)
@@ -344,6 +414,11 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
         pmtiles, "predios", 13, 18, len(combined), pmtiles.stat().st_size,
         fingerprints, metadata={
             "source_geometry_exclusions": geometry_exclusions,
+            "attribute_contract": {
+                "predio": "predio",
+                "avaluo_fiscal_clp": "dc_avaluo_fiscal",
+            },
+            "commune_focus_bounds": commune_focus_bounds,
             "tile_budget": tile_budget,
         },
     )

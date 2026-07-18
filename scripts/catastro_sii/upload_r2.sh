@@ -33,8 +33,16 @@ range_check() {
 for asset in "$@"; do
   test -f "${asset}" || { printf 'Activo ausente: %s\n' "${asset}" >&2; exit 2; }
   name="$(basename "${asset}")"
+  object_name="${name}"
   case "${name}" in
     chile_comunas_brechas_*.pmtiles|basemap_chile_*.pmtiles|basemap_chile_*.style.json) ;;
+    0-255.pbf)
+      [[ "${asset}" == */fonts/Noto\ Sans\ Regular/0-255.pbf ]] || {
+        printf 'Fuente PBF no permitida para R2: %s\n' "${asset}" >&2
+        exit 2
+      }
+      object_name="fonts/Noto Sans Regular/0-255.pbf"
+      ;;
     predios_region_*.pmtiles)
       [[ "${LEGAL_PUBLICATION_STATUS}" == "AUTHORIZED_VECTOR" ]] || {
         printf '%s\n' 'ABORTADO: un PMTiles predial exige LEGAL_PUBLICATION_STATUS=AUTHORIZED_VECTOR.' >&2
@@ -46,8 +54,8 @@ for asset in "$@"; do
       exit 2
       ;;
   esac
-  rclone copyto "${asset}" "${remote}/${name}" --checksum --immutable --progress
-  [[ "${name}" == *.pmtiles ]] && range_check "${name}"
+  rclone copyto "${asset}" "${remote}/${object_name}" --checksum --immutable --progress
+  [[ "${name}" == *.pmtiles ]] && range_check "${object_name}"
 done
 
 printf '%s\n' 'Activos versionados copiados y cada PMTiles verificó GET Range/CORS. Promueve el manifest sólo después de este PASS.'

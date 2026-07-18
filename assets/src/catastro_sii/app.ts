@@ -23,6 +23,7 @@ async function json<T>(url: string): Promise<T> {
 export class CatastroMapApplication {
   private state: AppState;
   private map: MapController | null = null;
+  private pilotControlSyncAttempts = 0;
 
   private constructor(private readonly manifest: TilesManifest, private readonly rows: CommuneRecord[]) {
     this.state = stateFromUrl(rows);
@@ -105,8 +106,14 @@ export class CatastroMapApplication {
     this.state.regionCode = regionCodeForName(row.region);
     this.state.communeCode = row.codigo_comuna;
     replaceUrl(this.state);
+    const territory = document.getElementById("territory");
+    if (territory) territory.textContent = row.comuna;
     this.map?.setCommuneFilter(this.state.communeCode.padStart(5, "0"));
-    this.map?.fitBounds(row.bounds, 13);
+    const parcelSource = this.state.regionCode ? this.manifest.parcel_regions[this.state.regionCode] : undefined;
+    this.state.parcelLayerVisible = Boolean(parcelSource?.available);
+    const parcelFocus = parcelSource?.commune_focus_bounds?.[this.state.communeCode.padStart(5, "0")];
+    if (parcelFocus) this.map?.fitParcelFocus(parcelFocus);
+    else this.map?.fitBounds(row.bounds, 13);
     const parcelsLoaded = this.map?.setParcelLayer(this.state) ?? false;
     setStatus(
       parcelsLoaded
@@ -120,11 +127,24 @@ export class CatastroMapApplication {
     if (!regionCode) return false;
     const entry = this.manifest.parcel_regions[regionCode];
     this.state.regionCode = regionCode;
-    this.state.communeCode = null;
     this.state.parcelLayerVisible = true;
+    const defaultCommune = entry.communes?.[0];
+    const defaultRow = defaultCommune
+      ? this.rows.find((row) => row.codigo_comuna.padStart(5, "0") === defaultCommune)
+      : undefined;
+    // The legacy selector owns the retained metrics/text.  Make its first
+    // selection match the visible pilot so the controls, metrics and map never
+    // point at different communes in localhost review.
+    if (defaultRow) {
+      this.syncPilotControls(defaultRow);
+      this.selectRow(defaultRow);
+      return true;
+    }
+    this.state.communeCode = null;
     replaceUrl(this.state);
     const territory = document.getElementById("territory");
     if (territory) territory.textContent = entry.scope ?? `Región ${regionCode}`;
+    const focus = defaultCommune ? entry.commune_focus_bounds?.[defaultCommune] : undefined;
     const selected = this.rows.filter((row) => entry.communes?.includes(row.codigo_comuna.padStart(5, "0")));
     const bounds = selected.reduce<Bounds | null>((combined, row) => {
       if (!row.bounds) return combined;
@@ -134,9 +154,25 @@ export class CatastroMapApplication {
         Math.max(combined[2], row.bounds[2]), Math.max(combined[3], row.bounds[3])
       ];
     }, null);
-    this.map?.fitBounds(bounds, 10);
+    if (focus) this.map?.fitParcelFocus(focus);
+    else this.map?.fitBounds(bounds, 10);
     const loaded = this.map?.setParcelLayer(this.state) ?? false;
     if (loaded) setStatus(`${entry.scope ?? "Piloto regional"} visible por defecto. Cartografía referencial.`);
     return loaded;
+  }
+
+  private syncPilotControls(row: CommuneRecord): void {
+    const region = document.getElementById("region");
+    if (region instanceof HTMLSelectElement && Array.from(region.options).some((option) => option.value === row.region)) {
+      this.selectFromMap(row.codigo_comuna.padStart(5, "0"));
+      return;
+    }
+    // `app.js` owns the historical selector and may still be fetching when
+    // Vite mounts this local cartographic preview. Retry briefly, then retain
+    // the already-visible pilot rather than letting a race select another
+    // commune.
+    if (this.pilotControlSyncAttempts >= 20) return;
+    this.pilotControlSyncAttempts += 1;
+    window.setTimeout(() => this.syncPilotControls(row), 50);
   }
 }

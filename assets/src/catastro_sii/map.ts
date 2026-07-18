@@ -27,12 +27,23 @@ function tileUrl(manifest: TilesManifest, path: string): string {
   return new URL(path, base).toString();
 }
 
+function assetUrl(manifest: TilesManifest, path: string): string {
+  const base = new URL(manifest.tiles_base, window.location.origin).toString().replace(/\/$/, "");
+  return `${base}/${path.replace(/^\//, "")}`;
+}
+
 function rewritePmtilesStyle(style: maplibregl.StyleSpecification, manifest: TilesManifest): maplibregl.StyleSpecification {
   const copy = structuredClone(style);
   for (const source of Object.values(copy.sources ?? {})) {
     if (source.type !== "vector" || !("url" in source) || typeof source.url !== "string") continue;
     if (source.url.startsWith("pmtiles://")) continue;
     source.url = `pmtiles://${tileUrl(manifest, source.url)}`;
+  }
+  if (typeof copy.glyphs === "string" && !/^https?:\/\//.test(copy.glyphs)) {
+    copy.glyphs = assetUrl(manifest, copy.glyphs);
+  }
+  if (typeof copy.sprite === "string" && !/^https?:\/\//.test(copy.sprite)) {
+    copy.sprite = assetUrl(manifest, copy.sprite);
   }
   return copy;
 }
@@ -52,6 +63,10 @@ export class MapController {
 
   private constructor(map: maplibregl.Map, private readonly manifest: TilesManifest) {
     this.map = map;
+  }
+
+  private overlayBeforeId(): string | undefined {
+    return this.map.getLayer("roads-glow") ? "roads-glow" : undefined;
   }
 
   static async create(manifest: TilesManifest, container: HTMLElement): Promise<MapController> {
@@ -77,7 +92,7 @@ export class MapController {
     const source = this.manifest.communes;
     if (!source.available) return false;
     addPmtilesSource(this.map, COMMUNE_SOURCE_ID, source, tileUrl(this.manifest, source.url));
-    addCommuneLayers(this.map, source);
+    addCommuneLayers(this.map, source, this.overlayBeforeId());
     this.communeSourceReady = true;
     this.map.on("click", COMMUNE_FILL_ID, (event) => {
       const code = event.features?.[0]?.properties?.cod_comuna;
@@ -105,6 +120,27 @@ export class MapController {
     });
   }
 
+  /**
+   * A z13 PMTiles focus tile is intentionally broad enough to be a stable
+   * geographic hint.  A viewer, however, needs a closer initial frame to
+   * perceive the individual parcels.  This changes only the camera envelope;
+   * it never changes or simplifies source geometry.
+   */
+  fitParcelFocus(bounds: Bounds | null | undefined): void {
+    if (!bounds) return;
+    const [west, south, east, north] = bounds;
+    const centerX = (west + east) / 2;
+    const centerY = (south + north) / 2;
+    const factor = 0.5;
+    const focused: Bounds = [
+      centerX - (east - west) * factor / 2,
+      centerY - (north - south) * factor / 2,
+      centerX + (east - west) * factor / 2,
+      centerY + (north - south) * factor / 2
+    ];
+    this.fitBounds(focused, 18);
+  }
+
   setParcelLayer(state: AppState): boolean {
     const region = state.regionCode;
     const source = authorizedParcelSource(this.manifest, state);
@@ -116,19 +152,26 @@ export class MapController {
     if (this.parcelRegion !== region) {
       removeParcelLayers(this.map);
       addPmtilesSource(this.map, PARCEL_SOURCE_ID, source, tileUrl(this.manifest, source.url));
-      addParcelLayers(this.map, source, state.parcelOpacity);
+      addParcelLayers(this.map, source, state.parcelOpacity, this.overlayBeforeId());
       this.parcelRegion = region;
       if (!this.parcelPopupBound) {
         this.map.on("click", PARCEL_FILL_ID, (event) => {
           const properties = event.features?.[0]?.properties ?? {};
           const content = document.createElement("div");
+          const parcel = document.createElement("p");
+          parcel.textContent = `Predio: ${typeof properties.predio === "number" || typeof properties.predio === "string" ? properties.predio : "No disponible"}`;
+          const appraisal = document.createElement("p");
+          const fiscalValue = Number(properties.avaluo_fiscal_clp);
+          appraisal.textContent = Number.isFinite(fiscalValue)
+            ? `Avalúo fiscal: ${new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 }).format(fiscalValue)}`
+            : "Avalúo fiscal: No disponible";
           const destination = document.createElement("strong");
           destination.textContent = `Destino predial: ${properties.destino_clase === "Residencial" ? "Residencial" : "No disponible"}`;
           const quality = document.createElement("p");
           quality.textContent = `Calidad geométrica: ${properties.calidad_geometrica === "Referencial" ? "Referencial" : "No disponible"}`;
           const notice = document.createElement("p");
           notice.textContent = "Geometría referencial; no acredita deslindes ni dominio.";
-          content.append(destination, quality, notice);
+          content.append(destination, parcel, appraisal, quality, notice);
           new maplibregl.Popup({ closeButton: true, maxWidth: "260px" }).setLngLat(event.lngLat).setDOMContent(content).addTo(this.map);
         });
         this.parcelPopupBound = true;

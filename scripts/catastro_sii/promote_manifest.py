@@ -22,13 +22,16 @@ def read(path: Path) -> dict[str, Any]:
 
 
 def tile_entry(result: dict[str, Any]) -> dict[str, Any]:
-    return {
+    entry = {
         "available": bool(result["available"]),
         "url": result["url"],
         "source_layer": result["source_layer"],
         "minzoom": result["minzoom"],
         "maxzoom": result["maxzoom"],
     }
+    if isinstance(result.get("commune_focus_bounds"), dict):
+        entry["commune_focus_bounds"] = result["commune_focus_bounds"]
+    return entry
 
 
 def atomic_write(path: Path, contents: bytes) -> None:
