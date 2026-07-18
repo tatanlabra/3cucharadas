@@ -9,7 +9,7 @@ set -euo pipefail
 : "${METRICAS_COMUNALES_SOURCE:?Definir METRICAS_COMUNALES_SOURCE en stata01}"
 : "${COMUNAS_EXCLUDED_CODES:?Declarar las comunas métricas sin geometría autorizada}"
 : "${LEGAL_PUBLICATION_STATUS:=PENDING}"
-: "${PYTHON_BIN:=python3}"
+: "${PYTHON_BIN:=/opt/conda/envs/python_base/bin/python}"
 
 test -x "${PYTHON_BIN}" || { printf 'PYTHON_BIN no es ejecutable: %s\n' "${PYTHON_BIN}" >&2; exit 2; }
 test -d "${SITE_SOURCE_DIR}" || { printf 'SITE_SOURCE_DIR no existe: %s\n' "${SITE_SOURCE_DIR}" >&2; exit 2; }
@@ -23,7 +23,12 @@ if [[ -z "${usage_pct}" || "${usage_pct}" -ge 90 ]]; then
 fi
 
 tool_dir="$(dirname "${PYTHON_BIN}")"
+env_prefix="$(cd "${tool_dir}/.." && pwd)"
 export PATH="${tool_dir}:${PATH}"
+# Keep GDAL/pyproj bound to the same Conda prefix even when the SSH shell was
+# not activated with `conda activate`.
+test -d "${env_prefix}/share/proj" || { printf 'Datos PROJ no disponibles: %s\n' "${env_prefix}/share/proj" >&2; exit 2; }
+export PROJ_DATA="${env_prefix}/share/proj"
 run_id="$(date -u +%Y%m%dT%H%M%SZ)"
 output_dir="${TILES_OUTPUT_ROOT}/${run_id}"
 IFS=',' read -r -a excluded_codes <<< "${COMUNAS_EXCLUDED_CODES}"
@@ -35,7 +40,7 @@ done
 [[ "${#excluded_args[@]}" -gt 0 ]] || { printf 'No hay exclusiones comunales declaradas.\n' >&2; exit 2; }
 
 command -v tippecanoe >/dev/null
-command -v pmtiles >/dev/null
+command -v pmtiles-show >/dev/null
 "${PYTHON_BIN}" -c 'import geopandas, pandas, pyarrow'
 
 mkdir -p "${output_dir}"

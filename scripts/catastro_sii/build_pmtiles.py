@@ -141,7 +141,9 @@ def tippecanoe(
 
 
 def validate_pmtiles(path: Path, expected_layer: str, report: Path) -> None:
-    result = run(["pmtiles", "show", str(path)], capture=True)
+    # conda-forge's Python PMTiles package exposes pmtiles-show rather than the
+    # unrelated Go CLI named pmtiles. Keep the build tied to the installed tool.
+    result = run(["pmtiles-show", str(path)], capture=True)
     if expected_layer not in result.stdout:
         raise RuntimeError(f"{path.name}: PMTiles no declara la capa {expected_layer!r}")
     report.parent.mkdir(parents=True, exist_ok=True)
@@ -294,7 +296,7 @@ def main() -> int:
         raise RuntimeError("La publicación vectorial exige LEGAL_PUBLICATION_STATUS=AUTHORIZED_VECTOR")
     if not args.build_communes and not args.build_atacama_pilot:
         raise RuntimeError("Indica --build-communes, --build-atacama-pilot o ambos")
-    require_programs("tippecanoe", "pmtiles")
+    require_programs("tippecanoe", "pmtiles-show")
     if args.build_communes and (args.comunas_source is None or args.metrics_source is None):
         raise RuntimeError("La capa comunal requiere --comunas-source y --metrics-source")
     if args.build_atacama_pilot and args.predios_source_dir is None:

@@ -28,16 +28,16 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 
 - [x] Caldera, Diego de Almagro y DPA 2023 coinciden por SHA-256 entre local y `stata01`.
 - [x] Workspace remoto aislado creado con sólo código versionado; no contiene GeoParquet ni credenciales.
-- [x] Tippecanoe, rclone y PMTiles se resolvieron desde conda-forge al clonar el entorno geoespacial.
-- [!] El primer clon Conda quedó en un CIFS sin ejecución de binarios: el Python del entorno devuelve `Permission denied`.
-- [~] Separar entorno y datos: el entorno requiere filesystem ejecutable <90%; los tiles privados pueden persistir en otro volumen <90%.
-- [ ] Confirmar GeoPandas, PyArrow, GDAL, Tippecanoe, PMTiles y rclone ejecutables en el entorno final.
+- [x] Se identificaron como faltantes en `python_base`: Tippecanoe, PMTiles y rclone; GeoPandas, PyArrow y GDAL ya están disponibles.
+- [x] Retiro de los clones temporales creados en `/mnt/d_58` y `/tmp`; permanecen `site`, logs, tiles y las fuentes.
+- [x] Instalación directa de Tippecanoe, PMTiles (`pmtiles-show`) y rclone en `/opt/conda/envs/python_base` mediante conda-forge.
+- [x] GeoPandas, PyArrow, GDAL, Tippecanoe, PMTiles (`pmtiles-show`) y rclone validados en `python_base`; Fedora ya tenía `proj-data`, por lo que no se instala DNF adicional.
 - [ ] Extraer DPA 2023 y validar el cruce 345 geometrías + exclusión explícita `12202` contra 346 métricas.
 
 ## 4. Piloto privado Atacama
 
 - [ ] Construir PMTiles comunal y Atacama con `PENDING`, sólo en almacenamiento privado.
-- [ ] Validar `pmtiles verify/show`, capa, bounds, zoom, conteos, atributos y cero geometrías inválidas.
+- [ ] Validar `pmtiles-show`, capa, bounds, zoom, conteos, atributos y cero geometrías inválidas.
 - [ ] Medir tamaños de tesela: p50 <150 KB, p95 <500 KB, máximo <1 MB o excepción documentada.
 - [ ] Pruebas de integración: nacional → Atacama → Caldera/Diego → cambio de región y liberación de source previo.
 - [ ] Pruebas visuales y móviles, accesibilidad básica, atribución visible y métricas sincronizadas.
@@ -56,4 +56,5 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | UTC | Cambio | Evidencia / siguiente gate |
 | --- | --- | --- |
 | 2026-07-18 | Integración y hardening local | `2fc2424c`; validación completa local aprobada. |
-| 2026-07-18 | Workspace remoto y aprovisionamiento Conda | Paquetes instalados en clon aislado; falla de ejecución por montaje CIFS. Siguiente: clonar el entorno en filesystem ejecutable y reutilizar la caché ya descargada. |
+| 2026-07-18 | Corrección de entorno por instrucción del usuario | Se abandona el clon temporal: el script queda restringido a `python_base`; se eliminan los directorios creados y se instalarán sólo los tres binarios faltantes en `/opt/conda`. |
+| 2026-07-18 | Entorno `python_base` cerrado | Tippecanoe 2.79.0, PMTiles 3.7.0 (`pmtiles-show`) y rclone 1.74.3 instalados desde conda-forge. DNF ya tenía `proj-data`; no se modifica Fedora. |
