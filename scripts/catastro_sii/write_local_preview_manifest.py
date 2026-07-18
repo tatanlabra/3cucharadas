@@ -3,7 +3,7 @@
 
 This is a cartographic review aid.  It never uploads data, never changes the
 versioned production manifest and is only read by the browser on localhost when
-``?catastroPreview=local&run=<run-id>`` is present.
+the loopback preview is opened. A run id can still pin a specific audited run.
 """
 
 from __future__ import annotations
@@ -47,6 +47,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--tiles-manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--current-output", type=Path)
     parser.add_argument("--tiles-base", required=True)
     parser.add_argument("--territories-output", type=Path, required=True)
     args = parser.parse_args()
@@ -93,6 +94,8 @@ def main() -> int:
         },
     }
     atomic_write(args.output, payload)
+    if args.current_output:
+        atomic_write(args.current_output, payload)
     args.territories_output.parent.mkdir(parents=True, exist_ok=True)
     args.territories_output.write_bytes(territories.read_bytes())
     return 0

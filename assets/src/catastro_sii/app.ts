@@ -1,7 +1,7 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 import { defaultAuthorizedParcelRegion } from "./availability";
 import { MapController } from "./map";
-import { manifestUrlForLocation } from "./preview";
+import { isLocalPreviewLocation, manifestUrlForLocation } from "./preview";
 import { regionCodeForName, replaceUrl, stateFromUrl, toDataCommuneCode } from "./state";
 import type { AppState, Bounds, CommuneRecord, TilesManifest } from "./types";
 
@@ -63,6 +63,10 @@ export class CatastroMapApplication {
   }
 
   private applyInitialSelection(): void {
+    if (
+      isLocalPreviewLocation(window.location.hostname, window.location.search)
+      && this.activateDefaultParcelPilot()
+    ) return;
     const selector = document.getElementById("comuna");
     const selectedCode = this.state.communeCode
       ?? (selector instanceof HTMLSelectElement ? toDataCommuneCode(selector.value) : null);
@@ -106,6 +110,8 @@ export class CatastroMapApplication {
     this.state.communeCode = null;
     this.state.parcelLayerVisible = true;
     replaceUrl(this.state);
+    const territory = document.getElementById("territory");
+    if (territory) territory.textContent = entry.scope ?? `Región ${regionCode}`;
     const selected = this.rows.filter((row) => entry.communes?.includes(row.codigo_comuna.padStart(5, "0")));
     const bounds = selected.reduce<Bounds | null>((combined, row) => {
       if (!row.bounds) return combined;
