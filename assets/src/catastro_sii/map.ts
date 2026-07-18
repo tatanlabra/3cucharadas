@@ -23,7 +23,8 @@ const FALLBACK_STYLE: maplibregl.StyleSpecification = {
 };
 
 function tileUrl(manifest: TilesManifest, path: string): string {
-  return new URL(path, `${manifest.tiles_base.replace(/\/$/, "")}/`).toString();
+  const base = new URL(`${manifest.tiles_base.replace(/\/$/, "")}/`, window.location.origin);
+  return new URL(path, base).toString();
 }
 
 function rewritePmtilesStyle(style: maplibregl.StyleSpecification, manifest: TilesManifest): maplibregl.StyleSpecification {
