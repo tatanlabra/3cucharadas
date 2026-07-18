@@ -25,6 +25,11 @@ if gpd is not None:
 
 @unittest.skipUnless(gpd is not None, "La prueba geoespacial se ejecuta en python_base de stata01")
 class PublicResidentialGeometryTests(unittest.TestCase):
+    def test_nearest_rank_uses_a_conservative_index(self) -> None:
+        assert BUILD is not None
+        self.assertEqual(BUILD.nearest_rank([1, 2, 3, 4], 0.50), 2)
+        self.assertEqual(BUILD.nearest_rank([1, 2, 3, 4], 0.95), 4)
+
     def test_empty_and_null_residential_geometries_are_audited_not_repaired(self) -> None:
         raw = gpd.GeoDataFrame(
             {"dc_cod_destino": ["H", "H", "H", "C"]},
