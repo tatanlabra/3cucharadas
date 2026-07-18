@@ -36,7 +36,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Workspace de procesamiento migrado desde `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; el scratch SQLite permanece en `/tmp` y el piloto usó el override no versionado de 95% registrado.
 - [x] DPA 2023 validada: 345 geometrías y exclusión explícita `12202` frente a 346 métricas.
 - [x] PMTiles e índices del run `20260718T194751Z` migrados a la laptop; cuatro SHA-256 coinciden con `stata01`, están ignorados por Git y el preview responde `200` + `206 Range` local.
-- [x] El preview local elimina el selector H y, cuando existe un piloto autorizado para revisión, encuadra y carga Atacama por defecto; la capa heredada de celdas queda oculta para no tapar el mapa vectorial.
+- [x] El preview local elimina el selector H y abre por defecto, sin parámetros especiales, el último piloto auditado de Atacama; la capa heredada de celdas queda oculta al iniciar MapLibre para no tapar el mapa vectorial.
 
 ## 4. Piloto de validación Atacama
 
@@ -71,3 +71,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Clasificación de datos y entrega local | El usuario declara que no hay datos privados a resguardar. Se auditaron sólo nombres de columnas, se mantiene una derivación mínima y se agrega flujo `stata01` → laptop para preview localhost ignorado por Git. |
 | 2026-07-18 | Hardening de publicación | Se reemplaza el CLI PMTiles inexistente por el adaptador Conda/Python y R2 pasa a allowlist de activos + PASS real de GET Range/CORS. |
 | 2026-07-18 | Preflight de dependencias externas | No se encontró archivo Protomaps/OSM en `nas05` ni remoto/variables R2 configuradas en `stata01`; ambos quedan identificados, sin intentar descarga ni publicación. |
+| 2026-07-18 | Preview predeterminado corregido | El loopback normal consume el manifest local actual, inicia MapLibre sin esperar intersección y carga el piloto Atacama por defecto. Vite/Jekyll y 8 tests pasan; HTTP local entrega manifest `200` y PMTiles con `206 Range`. |

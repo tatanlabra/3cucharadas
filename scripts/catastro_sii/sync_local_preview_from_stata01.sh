@@ -27,6 +27,7 @@ done
 "${PYTHON_BIN}" "$(dirname "$0")/write_local_preview_manifest.py" \
   --tiles-manifest "${local_root}/tiles_manifest_${run_id}.json" \
   --output "${local_root}/manifest.json" \
+  --current-output "${repo_root}/assets/data/catastro_sii/local/manifest.json" \
   --tiles-base "/assets/data/catastro_sii/local/${run_id}" \
   --territories-output "${repo_root}/assets/data/catastro_sii/local/territories.json"
 
@@ -35,4 +36,5 @@ sha256sum \
   "${local_root}/predios_region_03_${run_id}.pmtiles" \
   "${local_root}/territories_${run_id}.json" \
   "${local_root}/tiles_manifest_${run_id}.json"
-printf '%s\n' "Preview local listo: /catastro_sii_brecha/?catastroPreview=local&run=${run_id}"
+printf '%s\n' "Preview local listo: /catastro_sii_brecha/ (última corrida)"
+printf '%s\n' "Corrida fijada: /catastro_sii_brecha/?catastroPreview=local&run=${run_id}"

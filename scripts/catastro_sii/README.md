@@ -33,7 +33,8 @@
    ```
 
    El resultado queda ignorado por Git bajo `assets/data/catastro_sii/local/` y se
-   abre en `http://127.0.0.1:4001/catastro_sii_brecha/?catastroPreview=local&run=20260718T194751Z`.
+   abre en `http://127.0.0.1:4001/catastro_sii_brecha/`. Para fijar una corrida
+   específica, usa `?catastroPreview=local&run=20260718T194751Z`.
    Su manifest sólo funciona en localhost y no modifica el manifest versionado.
 7. Preparar la base Protomaps/OSM desde una fuente con licencia compatible. El
    adaptador usa la biblioteca `pmtiles` ya instalada en `python_base` para copiar
