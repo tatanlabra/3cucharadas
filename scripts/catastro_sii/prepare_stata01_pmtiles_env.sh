@@ -13,6 +13,8 @@ test "${target_env}" = "/opt/conda/envs/python_base" || {
 }
 test -x "${PYTHON_BIN}" || { printf 'Python no ejecutable: %s\n' "${PYTHON_BIN}" >&2; exit 2; }
 test -x "${CONDA_BIN}" || { printf 'Conda no ejecutable: %s\n' "${CONDA_BIN}" >&2; exit 2; }
+test -d "${target_env}/share/proj" || { printf 'Datos PROJ no disponibles: %s\n' "${target_env}/share/proj" >&2; exit 2; }
+export PROJ_DATA="${target_env}/share/proj"
 
 missing=()
 for tool in tippecanoe pmtiles-show rclone; do
