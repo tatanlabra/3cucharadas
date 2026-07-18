@@ -22,6 +22,14 @@ const FALLBACK_STYLE: maplibregl.StyleSpecification = {
   layers: [{ id: "background", type: "background", paint: { "background-color": "#0c1320" } }]
 };
 
+const MAP_LOCALE = {
+  "Map.Title": "Mapa interactivo",
+  "NavigationControl.ZoomIn": "Acercar",
+  "NavigationControl.ZoomOut": "Alejar",
+  "NavigationControl.ResetBearing": "Restablecer orientación",
+  "Popup.Close": "Cerrar"
+};
+
 function tileUrl(manifest: TilesManifest, path: string): string {
   const base = new URL(`${manifest.tiles_base.replace(/\/$/, "")}/`, window.location.origin);
   return new URL(path, base).toString();
@@ -81,7 +89,8 @@ export class MapController {
       style,
       center: [-71.0, -33.0],
       zoom: 4.2,
-      cooperativeGestures: true
+      cooperativeGestures: true,
+      locale: MAP_LOCALE
     });
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
     await new Promise<void>((resolve) => map.once("load", () => resolve()));

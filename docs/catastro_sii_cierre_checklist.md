@@ -49,7 +49,8 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Presupuesto de tesela se mide y exige antes de persistir: predial p50=540 B, p95=558 B, máx=132.485 B (límites 150 KB/500 KB/1 MB).
 - [x] Pruebas de integración: nacional → Atacama → Caldera/Diego y salida a Antofagasta pasó en Firefox. Fuera de Atacama el estado confirma mapa comunal sin capa predial autorizada; el unit test cubre la liberación ordenada de capas y source.
 - [x] Gate funcional unitario: una fuente predial sólo puede resolverse para una región seleccionada con `AUTHORIZED_VECTOR`; `PENDING` retorna nulo y no inicia carga.
-- [~] Pruebas visuales desktop y viewport móvil (390 px), atribución visible y métricas sincronizadas: PASS en Firefox; falta recorrido de accesibilidad con teclado/lector de pantalla.
+- [x] Pruebas visuales desktop y viewport móvil (390 px), atribución visible y métricas sincronizadas: PASS en Firefox.
+- [~] Accesibilidad: el canvas MapLibre es una región enfocables (`tabindex=0`) con etiqueta en español y los botones Acercar/Alejar son controles semánticos; falta una pasada manual con lector de pantalla antes de producción.
 
 ## 5. Staging, producción y rollback
 
@@ -86,3 +87,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Integración de salida y móvil | Firefox en 390 px mantiene canvas 288×302, Caldera/Diego y atribución. Al cambiar a Antofagasta, el estado confirma que sólo queda la capa comunal y no hay predial autorizado. |
 | 2026-07-18 | Gate integral | `validate_build.sh` PASS con Node 24.18.0/npm 11.16.0: `npm ci`, TypeScript, CSS, 12 tests Vitest, 14 Python (7 geoespaciales omitidos localmente), Vite, Jekyll y verificador de artefacto. |
 | 2026-07-18 | Cierre de scratch remoto | Tras verificar hashes y copia local, se retiraron 409 MB de builds y storage Podman efímeros en `/tmp`; los artefactos versionados de `20260718T212932Z` permanecen intactos en `/mnt/nas05`. |
+| 2026-07-18 | Semántica accesible del visor | Firefox comprueba canvas `role=region`, `tabindex=0`, etiqueta `Mapa interactivo` y botones `Acercar`/`Alejar` en español. Se conserva como pendiente sólo la validación manual con lector de pantalla. |
