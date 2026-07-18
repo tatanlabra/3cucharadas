@@ -13,6 +13,9 @@
 
    El script clona `py_3_12_geopandas_jc`, instala Tippecanoe y rclone desde
    conda-forge y usa `pip` sólo si no existe un paquete Conda para la CLI PMTiles.
+   Si existe una caché Conda confiable en el volumen persistente, se puede declarar
+   `CONDA_PKGS_DIRS` para evitar descargar otra vez los paquetes; el entorno final
+   debe permanecer en `ENV_WORK_ROOT` ejecutable.
 4. Sincronizar sólo el código versionado del sitio, la DPA autorizada y las dos fuentes
    piloto a `stata01`. No copiar ni exponer credenciales R2 en ese paso.
 5. Ejecutar `run_atacama_pilot_stata01.sh` con `LEGAL_PUBLICATION_STATUS=PENDING`
