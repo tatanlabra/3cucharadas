@@ -21,7 +21,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] El usuario declara que este proyecto no contiene datos privados a resguardar; se documenta la diferencia entre privacidad y licencia en `docs/catastro_sii_clasificacion_publicacion.md`.
 - [x] Pipeline limita la derivación predial a seis campos, rechaza geometrías inválidas y no altera la fuente maestra.
 - [x] Upload R2 admite sólo nombres versionados de base/comunas con `PENDING`; un PMTiles `predios_region_*` exige `AUTHORIZED_VECTOR`, y nunca sube GeoParquet, FGB, reportes ni manifests de build.
-- [~] Revisión de licencia/permiso de redistribución vectorial SII, separada de privacidad; no hay evidencia documental incorporada todavía.
+- [!] Redistribución vectorial SII: no está incorporado el documento de adquisición ni autorización aplicable. Una resolución oficial del SII describe una carta compromiso que prohíbe traspasar o vender la Base de Datos Catastro a terceros; no prueba el contrato de estas fuentes, pero obliga a mantener el gate `PENDING` hasta verificarlo.
 - [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: no existe aún un remoto `rclone` ni variables de despliegue configuradas en `stata01`; faltan esos insumos externos.
 
 ## 3. Datos y entorno remoto
@@ -74,3 +74,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Preflight de dependencias externas | No se encontró archivo Protomaps/OSM en `nas05` ni remoto/variables R2 configuradas en `stata01`; ambos quedan identificados, sin intentar descarga ni publicación. |
 | 2026-07-18 | Preview predeterminado corregido | El loopback normal consume el manifest local actual, inicia MapLibre sin esperar intersección y carga el piloto Atacama por defecto. Vite/Jekyll y 8 tests pasan; HTTP local entrega manifest `200` y PMTiles con `206 Range`. |
 | 2026-07-18 | Diagnóstico de runtime del visor | Firefox detectó que Vite precargaba el chunk MapLibre desde `/chunks/` y recibía HTML. Se fija `base=/assets/dist/catastro_sii/`, se agrega test de configuración, atribución por defecto para la capa comunal y ocultamiento prioritario del canvas heredado. La URL normal queda comprobada con canvas MapLibre, PMTiles comunal/predial y cero errores JavaScript. |
+| 2026-07-18 | Evidencia de redistribución SII | Se incorpora una fuente oficial sobre la Base de Datos Catastro y la carta compromiso de no traspaso. Se clasifica como hecho/inferencia/no verificado: no hay contrato de adquisición de estas fuentes ni autorización para publicar vector predial, por lo que el gate sigue `PENDING`. |
