@@ -5,6 +5,7 @@ set -euo pipefail
 : "${SITE_SOURCE_DIR:?Definir SITE_SOURCE_DIR con la copia versionada del sitio}"
 : "${TILES_OUTPUT_ROOT:?Definir TILES_OUTPUT_ROOT en un filesystem verificado}"
 : "${BUILD_WORK_ROOT:=${TILES_OUTPUT_ROOT}}"
+: "${MAX_VOLUME_USAGE_PCT:=90}"
 : "${PREDIOS_SOURCE_DIR:?Definir PREDIOS_SOURCE_DIR en stata01}"
 : "${COMUNAS_SOURCE:?Definir COMUNAS_SOURCE en stata01}"
 : "${METRICAS_COMUNALES_SOURCE:?Definir METRICAS_COMUNALES_SOURCE en stata01}"
@@ -17,12 +18,17 @@ test -x "${PYTHON_BIN}" || { printf 'PYTHON_BIN no es ejecutable: %s\n' "${PYTHO
 test -d "${SITE_SOURCE_DIR}" || { printf 'SITE_SOURCE_DIR no existe: %s\n' "${SITE_SOURCE_DIR}" >&2; exit 2; }
 test -d "${TILES_OUTPUT_ROOT}" || { printf 'TILES_OUTPUT_ROOT no existe: %s\n' "${TILES_OUTPUT_ROOT}" >&2; exit 2; }
 test -d "${BUILD_WORK_ROOT}" || { printf 'BUILD_WORK_ROOT no existe: %s\n' "${BUILD_WORK_ROOT}" >&2; exit 2; }
+[[ "${MAX_VOLUME_USAGE_PCT}" =~ ^[0-9]+$ ]] && (( MAX_VOLUME_USAGE_PCT >= 1 && MAX_VOLUME_USAGE_PCT <= 100 )) || {
+  printf 'MAX_VOLUME_USAGE_PCT inválido: %s\n' "${MAX_VOLUME_USAGE_PCT}" >&2
+  exit 2
+}
 
 # Nunca construir ni persistir PMTiles en un volumen que ya está en zona de riesgo.
 for volume in "${BUILD_WORK_ROOT}" "${TILES_OUTPUT_ROOT}"; do
   usage_pct="$(df -P "${volume}" | awk 'NR == 2 {gsub(/%/, "", $5); print $5}')"
-  if [[ -z "${usage_pct}" || "${usage_pct}" -ge 90 ]]; then
-    printf 'ABORTADO: %s está a %s%% de uso; elegir un volumen bajo 90%%.\n' "${volume}" "${usage_pct:-desconocido}" >&2
+  if [[ -z "${usage_pct}" || "${usage_pct}" -ge "${MAX_VOLUME_USAGE_PCT}" ]]; then
+    printf 'ABORTADO: %s está a %s%% de uso; límite configurado: %s%%.\n' \
+      "${volume}" "${usage_pct:-desconocido}" "${MAX_VOLUME_USAGE_PCT}" >&2
     exit 2
   fi
 done
