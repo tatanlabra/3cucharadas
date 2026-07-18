@@ -33,6 +33,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Instalación directa de Tippecanoe, PMTiles (`pmtiles-show`) y rclone en `/opt/conda/envs/python_base` mediante conda-forge.
 - [x] GeoPandas, PyArrow, GDAL, Tippecanoe, PMTiles (`pmtiles-show`) y rclone validados en `python_base`; Fedora ya tenía `proj-data`, por lo que no se instala DNF adicional.
 - [x] Se confirmó que Tippecanoe no puede crear su base SQLite sobre CIFS; el runner construye en disco local y copia los artefactos privados al almacenamiento persistente tras validar.
+- [~] Workspace privado se migra de `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; la capacidad se registra y se usa un límite privado de 95% autorizado para este piloto.
 - [ ] Extraer DPA 2023 y validar el cruce 345 geometrías + exclusión explícita `12202` contra 346 métricas.
 
 ## 4. Piloto privado Atacama
@@ -61,3 +62,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Entorno `python_base` cerrado | Tippecanoe 2.79.0, PMTiles 3.7.0 (`pmtiles-show`) y rclone 1.74.3 instalados desde conda-forge. DNF ya tenía `proj-data`; no se modifica Fedora. |
 | 2026-07-18 | Primer intento de piloto detenido sin artefactos | La DPA usa `CUT_COM`; el runner no lo propagaba. Se corrige el contrato antes de reintentar. |
 | 2026-07-18 | Segundo intento detenido sin artefactos válidos | Tippecanoe no obtiene lock SQLite sobre CIFS. Se aísla el build en `/tmp`; el directorio fallido se retira antes de reintentar. |
+| 2026-07-18 | Corrección operativa | El workspace completo deja `d_58` y pasa a `nas05`; el scratch SQLite sigue en `/tmp`. |

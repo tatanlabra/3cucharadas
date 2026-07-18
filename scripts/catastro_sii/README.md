@@ -1,11 +1,13 @@
 # Operación de tiles Catastro SII
 
 1. Obtener la DPA 2023 de fuente oficial y registrar fecha, licencia y SHA-256.
-2. Elegir rutas existentes con uso menor a 90% para `BUILD_WORK_ROOT` y
+2. Elegir rutas existentes bajo `MAX_VOLUME_USAGE_PCT` para `BUILD_WORK_ROOT` y
    `TILES_OUTPUT_ROOT`. La primera debe ser disco local ejecutable: Tippecanoe
    requiere locks SQLite y no puede construir sobre CIFS/NFS. El resultado se
    copia al segundo directorio sólo después de sus validaciones privadas.
    No usar el árbol canónico ni un NFS ya saturado para artefactos temporales.
+   El máximo normal es 90%; un override debe residir sólo en la configuración
+   privada, dejar registrado el espacio libre y tener rollback probado.
 3. Instalar sólo las herramientas faltantes en el entorno mantenido de `stata01`:
 
    ```bash
