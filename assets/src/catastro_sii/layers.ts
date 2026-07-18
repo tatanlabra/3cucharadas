@@ -8,6 +8,10 @@ export const COMMUNE_LINE_ID = "catastro-communes-line";
 export const PARCEL_FILL_ID = "catastro-parcels-fill";
 export const PARCEL_LINE_ID = "catastro-parcels-line";
 
+export function sourceAttribution(source: TileSource): string {
+  return source.attribution ?? "Fuente cartográfica: 3 Cucharadas.";
+}
+
 export function addPmtilesSource(
   map: maplibregl.Map,
   id: string,
@@ -20,7 +24,7 @@ export function addPmtilesSource(
     url: `pmtiles://${url}`,
     minzoom: source.minzoom,
     maxzoom: source.maxzoom,
-    attribution: source.attribution
+    attribution: sourceAttribution(source)
   });
 }
 

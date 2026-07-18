@@ -559,7 +559,7 @@ main.wrap {
 #map, #density { position: absolute; inset: 0; width: 100%; height: 100%; }
 #map { z-index: 1; }
 #density { z-index: 2; pointer-events: none; mix-blend-mode: screen; }
-.map-shell.map-ready #density, .map-shell.map-ready .map-note { display: none; }
+.map-shell.map-ready #density, .map-shell.map-ready .map-note { display: none !important; }
 
 .map-note {
   position: absolute;
