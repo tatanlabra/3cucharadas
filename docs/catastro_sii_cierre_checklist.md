@@ -42,7 +42,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [~] El primer build en `nas05` identificó 5 geometrías residenciales vacías en Caldera; se excluyen sólo de la derivación con conteo auditado, sin reparar ni alterar el GeoParquet fuente.
 - [~] El reintento expuso y corrige un constructor de GeoDataFrame con índice no contiguo; no escribió artefactos prediales persistentes.
 - [ ] Validar `pmtiles-show`, capa, bounds, zoom, conteos, atributos y cero geometrías inválidas.
-- [ ] Medir tamaños de tesela: p50 <150 KB, p95 <500 KB, máximo <1 MB o excepción documentada.
+- [~] Medir y hacer cumplir tamaños de tesela: p50 <150 KB, p95 <500 KB, máximo <1 MB. El piloto actual mide 4,7 KB/94 KB (comunal) y 277 B/85 KB (predial) en p95/máximo; el reporte se integrará al run.
 - [ ] Pruebas de integración: nacional → Atacama → Caldera/Diego → cambio de región y liberación de source previo.
 - [ ] Pruebas visuales y móviles, accesibilidad básica, atribución visible y métricas sincronizadas.
 

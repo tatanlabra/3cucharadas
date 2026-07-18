@@ -22,6 +22,7 @@ import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+from math import ceil
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -46,6 +47,11 @@ FORBIDDEN_FIELD_FRAGMENTS = (
     "direccion", "address", "rol", "propiet", "run", "folio", "cliente", "interno",
     "avaluo", "valor", "sup_", "superficie", "predio", "manzana", "utm", "match",
 )
+TILE_BUDGET_BYTES = {
+    "p50": 150 * 1024,
+    "p95": 500 * 1024,
+    "max": 1024 * 1024,
+}
 
 
 @dataclass(frozen=True)
@@ -204,6 +210,43 @@ def validate_pmtiles(path: Path, expected_layer: str, report: Path) -> None:
     report.write_text(result.stdout, encoding="utf-8")
 
 
+def nearest_rank(values: list[int], percentile: float) -> int:
+    if not values:
+        raise RuntimeError("PMTiles sin teselas direccionables")
+    if not 0 < percentile <= 1:
+        raise ValueError(f"Percentil inválido: {percentile}")
+    return values[ceil(percentile * len(values)) - 1]
+
+
+def validate_tile_budget(path: Path, report: Path) -> dict[str, int]:
+    """Measure stored tile payloads before a private result can be persisted."""
+    from pmtiles.reader import MmapSource, all_tiles
+
+    with path.open("rb") as handle:
+        sizes = sorted(len(payload) for _, payload in all_tiles(MmapSource(handle)))
+    summary = {
+        "tile_count": len(sizes),
+        "p50_bytes": nearest_rank(sizes, 0.50),
+        "p95_bytes": nearest_rank(sizes, 0.95),
+        "max_bytes": sizes[-1],
+    }
+    if (
+        summary["p50_bytes"] >= TILE_BUDGET_BYTES["p50"]
+        or summary["p95_bytes"] >= TILE_BUDGET_BYTES["p95"]
+        or summary["max_bytes"] >= TILE_BUDGET_BYTES["max"]
+    ):
+        raise RuntimeError(
+            f"{path.name}: excede presupuesto de teselas "
+            f"(p50={summary['p50_bytes']}, p95={summary['p95_bytes']}, max={summary['max_bytes']})"
+        )
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(
+        json.dumps({"budget_bytes": TILE_BUDGET_BYTES, **summary}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return summary
+
+
 def build_communes(
     boundaries_path: Path,
     code_field: str,
@@ -256,6 +299,7 @@ def build_communes(
     fields = [column for column in communal.columns if column != "geometry"]
     tippecanoe(fgb, pmtiles, "comunas", 4, 12, fields)
     validate_pmtiles(pmtiles, "comunas", output_dir / "reports" / f"communes_{version}_pmtiles_show.txt")
+    tile_budget = validate_tile_budget(pmtiles, output_dir / "reports" / f"communes_{version}_tile_budget.json")
     territories_path = output_dir / f"territories_{version}.json"
     territories = {
         "schema_version": 1,
@@ -268,7 +312,7 @@ def build_communes(
     return BuildResult(
         pmtiles, "comunas", 4, 12, len(communal), pmtiles.stat().st_size,
         {boundaries_path.name: sha256(boundaries_path)}, territories_path.name,
-        {"excluded_communes": sorted(missing_metrics_geometry)},
+        {"excluded_communes": sorted(missing_metrics_geometry), "tile_budget": tile_budget},
     )
 
 
@@ -295,9 +339,13 @@ def build_atacama_pilot(source_dir: Path, output_dir: Path, version: str) -> Bui
     pmtiles = output_dir / f"predios_region_03_{version}.pmtiles"
     tippecanoe(fgb, pmtiles, "predios", 13, 18, sorted(PUBLIC_PARCEL_FIELDS - {"geometry"}))
     validate_pmtiles(pmtiles, "predios", output_dir / "reports" / f"atacama_{version}_pmtiles_show.txt")
+    tile_budget = validate_tile_budget(pmtiles, output_dir / "reports" / f"atacama_{version}_tile_budget.json")
     return BuildResult(
         pmtiles, "predios", 13, 18, len(combined), pmtiles.stat().st_size,
-        fingerprints, metadata={"source_geometry_exclusions": geometry_exclusions},
+        fingerprints, metadata={
+            "source_geometry_exclusions": geometry_exclusions,
+            "tile_budget": tile_budget,
+        },
     )
 
 
