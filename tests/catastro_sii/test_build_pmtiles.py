@@ -45,6 +45,20 @@ class PublicResidentialGeometryTests(unittest.TestCase):
         self.assertEqual(counts["excluded_empty_geometries"], 1)
         self.assertEqual(counts["excluded_null_geometries"], 1)
 
+    def test_public_derivative_preserves_non_contiguous_selected_index(self) -> None:
+        residential = gpd.GeoDataFrame(
+            {"geometry": [Polygon([(0, 0), (1, 0), (1, 1), (0, 0)])]},
+            index=[7],
+            crs=4326,
+        )
+
+        assert BUILD is not None
+        public = BUILD.public_parcel_frame(residential, "03102", "pilot", residential.crs)
+
+        self.assertEqual(list(public.index), [7])
+        self.assertEqual(set(public.columns), BUILD.PUBLIC_PARCEL_FIELDS)
+        self.assertEqual(public.iloc[0].cod_comuna, "03102")
+
     def test_non_empty_invalid_residential_geometry_stops_build(self) -> None:
         raw = gpd.GeoDataFrame(
             {"dc_cod_destino": ["H"]},
