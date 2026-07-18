@@ -2,24 +2,24 @@
 set -euo pipefail
 
 # Provision a dedicated PMTiles environment without mutating the shared Conda env.
-# The caller must choose an existing workspace on a filesystem below 90% usage.
-: "${TILES_WORK_ROOT:?Definir TILES_WORK_ROOT en un volumen verificado}"
+# The caller must choose an executable workspace on a filesystem below 90% usage.
+: "${ENV_WORK_ROOT:?Definir ENV_WORK_ROOT en un volumen ejecutable y verificado}"
 : "${CONDA_BIN:=conda}"
 : "${SOURCE_ENV_PREFIX:=/opt/conda/envs/py_3_12_geopandas_jc}"
 
-test -d "${TILES_WORK_ROOT}" || { printf 'TILES_WORK_ROOT no existe: %s\n' "${TILES_WORK_ROOT}" >&2; exit 2; }
+test -d "${ENV_WORK_ROOT}" || { printf 'ENV_WORK_ROOT no existe: %s\n' "${ENV_WORK_ROOT}" >&2; exit 2; }
 test -x "${SOURCE_ENV_PREFIX}/bin/python" || { printf 'Entorno fuente inválido: %s\n' "${SOURCE_ENV_PREFIX}" >&2; exit 2; }
 command -v "${CONDA_BIN}" >/dev/null || { printf 'Conda no está disponible: %s\n' "${CONDA_BIN}" >&2; exit 2; }
 
-usage_pct="$(df -P "${TILES_WORK_ROOT}" | awk 'NR == 2 {gsub(/%/, "", $5); print $5}')"
+usage_pct="$(df -P "${ENV_WORK_ROOT}" | awk 'NR == 2 {gsub(/%/, "", $5); print $5}')"
 if [[ -z "${usage_pct}" || "${usage_pct}" -ge 90 ]]; then
-  printf 'ABORTADO: %s está a %s%% de uso; elegir un volumen bajo 90%%.\n' "${TILES_WORK_ROOT}" "${usage_pct:-desconocido}" >&2
+  printf 'ABORTADO: %s está a %s%% de uso; elegir un volumen bajo 90%%.\n' "${ENV_WORK_ROOT}" "${usage_pct:-desconocido}" >&2
   exit 2
 fi
 
-target_env="${TILES_WORK_ROOT}/conda-env"
-export CONDA_PKGS_DIRS="${TILES_WORK_ROOT}/conda-pkgs"
-mkdir -p "${CONDA_PKGS_DIRS}" "${TILES_WORK_ROOT}/logs"
+target_env="${ENV_WORK_ROOT}/conda-env"
+export CONDA_PKGS_DIRS="${ENV_WORK_ROOT}/conda-pkgs"
+mkdir -p "${CONDA_PKGS_DIRS}" "${ENV_WORK_ROOT}/logs"
 
 if [[ ! -x "${target_env}/bin/python" ]]; then
   "${CONDA_BIN}" create --yes --prefix "${target_env}" --clone "${SOURCE_ENV_PREFIX}"
