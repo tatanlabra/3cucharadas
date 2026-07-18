@@ -39,6 +39,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 ## 4. Piloto privado Atacama
 
 - [ ] Construir PMTiles comunal y Atacama con `PENDING`, sólo en almacenamiento privado.
+- [~] El primer build en `nas05` identificó 5 geometrías residenciales vacías en Caldera; se excluyen sólo de la derivación con conteo auditado, sin reparar ni alterar el GeoParquet fuente.
 - [ ] Validar `pmtiles-show`, capa, bounds, zoom, conteos, atributos y cero geometrías inválidas.
 - [ ] Medir tamaños de tesela: p50 <150 KB, p95 <500 KB, máximo <1 MB o excepción documentada.
 - [ ] Pruebas de integración: nacional → Atacama → Caldera/Diego → cambio de región y liberación de source previo.
