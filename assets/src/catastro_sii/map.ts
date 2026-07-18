@@ -1,5 +1,6 @@
 import maplibregl, { LngLatBounds } from "maplibre-gl";
 import { Protocol } from "pmtiles";
+import { authorizedParcelSource } from "./availability";
 import {
   addCommuneLayers,
   addParcelLayers,
@@ -105,8 +106,8 @@ export class MapController {
 
   setParcelLayer(state: AppState): boolean {
     const region = state.regionCode;
-    const source = region ? this.manifest.parcel_regions[region] : undefined;
-    if (!region || !source || !source.available || this.manifest.legal_publication_status !== "AUTHORIZED_VECTOR") {
+    const source = authorizedParcelSource(this.manifest, state);
+    if (!region || !source) {
       removeParcelLayers(this.map);
       this.parcelRegion = null;
       return false;
