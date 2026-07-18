@@ -7,6 +7,7 @@ set -euo pipefail
 : "${PREDIOS_SOURCE_DIR:?Definir PREDIOS_SOURCE_DIR en stata01}"
 : "${COMUNAS_SOURCE:?Definir COMUNAS_SOURCE en stata01}"
 : "${METRICAS_COMUNALES_SOURCE:?Definir METRICAS_COMUNALES_SOURCE en stata01}"
+: "${COMUNAS_SOURCE_CODE_FIELD:=CUT_COM}"
 : "${COMUNAS_EXCLUDED_CODES:?Declarar las comunas métricas sin geometría autorizada}"
 : "${LEGAL_PUBLICATION_STATUS:=PENDING}"
 : "${PYTHON_BIN:=/opt/conda/envs/python_base/bin/python}"
@@ -50,6 +51,7 @@ mkdir -p "${output_dir}"
   --legal-status "${LEGAL_PUBLICATION_STATUS}" \
   --build-communes \
   --comunas-source "${COMUNAS_SOURCE}" \
+  --comunas-code-field "${COMUNAS_SOURCE_CODE_FIELD}" \
   --metrics-source "${METRICAS_COMUNALES_SOURCE}" \
   --build-atacama-pilot \
   --predios-source-dir "${PREDIOS_SOURCE_DIR}" \
