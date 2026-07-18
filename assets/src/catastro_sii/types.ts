@@ -18,6 +18,7 @@ export interface TileSource {
   scope?: string;
   pilot?: boolean;
   communes?: string[];
+  commune_focus_bounds?: Record<string, Bounds>;
 }
 
 export interface TilesManifest {

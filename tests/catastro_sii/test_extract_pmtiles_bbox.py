@@ -74,8 +74,9 @@ class ExtractArchiveTests(unittest.TestCase):
             report = MODULE.extract(source, output, (-100, 1, -1, 70), maxzoom=2)
 
             self.assertEqual(MODULE.sha256(source), source_hash)
+            self.assertEqual(report["tiles_seen"], 3)
             self.assertEqual(report["tiles_copied"], 2)
-            self.assertLess(output.stat().st_size, source.stat().st_size)
+            self.assertEqual(report["output_bytes"], output.stat().st_size)
             with output.open("rb") as handle:
                 reader = Reader(MmapSource(handle))
                 self.assertEqual(reader.get(0, 0, 0), b"world")
