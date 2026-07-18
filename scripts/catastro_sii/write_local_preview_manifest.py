@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create an ignored localhost-only manifest from an audited private build run.
+"""Create an ignored localhost-only manifest from an audited build run.
 
 This is a cartographic review aid.  It never uploads data, never changes the
 versioned production manifest and is only read by the browser on localhost when
@@ -77,7 +77,7 @@ def main() -> int:
             raise FileNotFoundError(f"Activo de base cartográfica ausente: {asset}")
 
     # This status activates only a localhost-only manifest generated under an
-    # ignored path. It is deliberately not a declaration of public authorization.
+    # ignored path. It is deliberately not a declaration of an R2 deployment.
     payload = {
         "schema_version": 1,
         "deployment_scope": "localhost-cartographic-review",

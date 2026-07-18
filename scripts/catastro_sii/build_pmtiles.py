@@ -6,9 +6,10 @@ metrics to an approved boundary source.  The parcel pilot reads only the canonic
 Caldera and Diego de Almagro GeoParquet files, retains destination H geometries,
 constructs a new allowlisted GeoDataFrame, and feeds FlatGeobuf to Tippecanoe.
 
-`--publishable` is a safety boundary: parcel output cannot be marked publishable
-unless LEGAL_PUBLICATION_STATUS is AUTHORIZED_VECTOR.  Private validation artefacts
-remain possible with the default PENDING status but must not be uploaded to R2.
+`--publishable` is an explicit deployment boundary: parcel output cannot be marked
+ready for public-vector deployment unless LEGAL_PUBLICATION_STATUS is
+AUTHORIZED_VECTOR.  A PENDING run is a local pre-deployment validation artifact;
+it is not a classification of the data as private and must not be uploaded to R2.
 """
 
 from __future__ import annotations
@@ -495,7 +496,7 @@ def main() -> int:
         "generated_at": datetime.now(UTC).isoformat(),
         "legal_publication_status": legal,
         "tiles_base": args.tiles_base.rstrip("/"),
-        "build_scope": "publishable" if args.publishable else "private-validation",
+        "build_scope": "publishable" if args.publishable else "local-predeployment-validation",
         "source_geometry": "Canonical GeoParquet was read-only; null/empty geometries are counted and excluded only from the derivative, while invalid geometries are rejected and never repaired in place.",
         "results": results,
     }

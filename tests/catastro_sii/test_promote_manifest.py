@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts" / "catastro_sii" / "promote_manifest.py"
+AUTHORIZE_SCRIPT = ROOT / "scripts" / "catastro_sii" / "authorize_vector_manifest.py"
 
 
 def tiles_manifest(territories_file: str = "territories.json") -> dict[str, object]:
@@ -32,6 +33,9 @@ def tiles_manifest(territories_file: str = "territories.json") -> dict[str, obje
                     "source_layer": "predios",
                     "minzoom": 13,
                     "maxzoom": 18,
+                    "feature_count": 10892,
+                    "bytes": 22050380,
+                    "source_sha256": "fixture-source-sha256",
                 }
             },
         },
@@ -51,6 +55,19 @@ class PromoteManifestTests(unittest.TestCase):
                 "--territories-output", str(territories),
             ],
             cwd=directory,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+
+    def authorize(self, manifest: Path, output: Path) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [
+                sys.executable, str(AUTHORIZE_SCRIPT),
+                "--tiles-manifest", str(manifest),
+                "--output", str(output),
+                "--confirm-public-vector",
+            ],
             text=True,
             capture_output=True,
             check=False,
@@ -90,6 +107,30 @@ class PromoteManifestTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(output.read_text(encoding="utf-8"), '{"previous": true}\n')
             self.assertFalse(territories.exists())
+
+    def test_authorized_existing_artifact_promotes_the_same_vector_pilot(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            source = directory / "tiles_manifest.json"
+            source.write_text(json.dumps(tiles_manifest()), encoding="utf-8")
+            (directory / "territories.json").write_text('{"communes": {}}\n', encoding="utf-8")
+            authorized = directory / "tiles_manifest_authorized.json"
+
+            authorization = self.authorize(source, authorized)
+            self.assertEqual(authorization.returncode, 0, authorization.stderr)
+            site_manifest = directory / "site" / "manifest.json"
+            site_territories = directory / "site" / "territories.json"
+
+            promotion = self.run_promotion(directory, authorized, site_manifest, site_territories)
+
+            self.assertEqual(promotion.returncode, 0, promotion.stderr)
+            promoted = json.loads(site_manifest.read_text(encoding="utf-8"))
+            self.assertEqual(promoted["legal_publication_status"], "AUTHORIZED_VECTOR")
+            self.assertTrue(promoted["parcel_regions"]["03"]["available"])
+            self.assertEqual(
+                promoted["parcel_regions"]["03"]["url"],
+                "predios_region_03_20260718.pmtiles",
+            )
 
 
 if __name__ == "__main__":
