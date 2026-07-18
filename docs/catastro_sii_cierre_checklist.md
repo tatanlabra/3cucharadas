@@ -10,7 +10,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Diagnóstico, placeholders, textos y fallback de la página existente preservados.
 - [x] MapLibre GL JS, PMTiles, TypeScript y Vite integrados con carga diferida.
 - [x] URL compartible región/comuna y alias plural → ruta canónica.
-- [~] Gate reproducible: el gate integral se ejecuta con Node 24.18.0/npm 11.16.0 temporal en `/tmp`; el PATH persistente aún sólo ofrece Node 26.4.0/npm 12.0.1 y falla en `npm ci`. Falta instalar/registrar el runtime aislado de Node 24 para que el PASS sea reproducible tras reinicio.
+- [x] Gate reproducible local: `validate_build.sh` selecciona Node 24.18.0/npm 11.16.0 desde `herramientas/local-config/runtimes/` cuando el PATH expone Node 26; permite override explícito con `NODE24_HOME` y no modifica el runtime del sistema.
 - [x] Dependencias de desarrollo actualizadas y auditoría npm sin vulnerabilidades.
 - [x] Commit fuente remoto registrado: `2fc2424c`.
 - [x] Promoción de manifest atómica, con prueba de éxito y de rollback ante índice territorial ausente.
@@ -88,3 +88,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Gate integral | `validate_build.sh` PASS con Node 24.18.0/npm 11.16.0: `npm ci`, TypeScript, CSS, 12 tests Vitest, 14 Python (7 geoespaciales omitidos localmente), Vite, Jekyll y verificador de artefacto. |
 | 2026-07-18 | Cierre de scratch remoto | Tras verificar hashes y copia local, se retiraron 409 MB de builds y storage Podman efímeros en `/tmp`; los artefactos versionados de `20260718T212932Z` permanecen intactos en `/mnt/nas05`. |
 | 2026-07-18 | Semántica accesible del visor | Firefox comprueba canvas `role=region`, `tabindex=0`, etiqueta `Mapa interactivo` y botones `Acercar`/`Alejar` en español. Se conserva como pendiente sólo la validación manual con lector de pantalla. |
+| 2026-07-18 | Runtime local reproducible | Node 24.18.0/npm 11.16.0 se trasladan desde `/tmp` a `herramientas/local-config/runtimes/`; el gate lo detecta automáticamente o acepta `NODE24_HOME`, sin cambiar Node 26 del sistema. |

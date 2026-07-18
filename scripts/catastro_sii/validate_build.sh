@@ -1,8 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
+required_node="$(tr -d '[:space:]' < "${repo_root}/.nvmrc")"
+current_node="$(node --version 2>/dev/null || true)"
+if [[ "${current_node}" != "v${required_node}" ]]; then
+  workspace_root="$(cd "${repo_root}/../.." && pwd)"
+  node_home="${NODE24_HOME:-${workspace_root}/herramientas/local-config/runtimes/node-v${required_node}-linux-x64}"
+  if [[ ! -x "${node_home}/bin/node" ]]; then
+    printf 'Node %s requerido; define NODE24_HOME o instala el runtime en %s\n' \
+      "${required_node}" "${node_home}" >&2
+    exit 2
+  fi
+  export PATH="${node_home}/bin:${PATH}"
+fi
+
 node --version
 npm --version
+[[ "$(node --version)" == "v${required_node}" ]] || {
+  printf 'Runtime Node inesperado; se esperaba v%s\n' "${required_node}" >&2
+  exit 2
+}
 npm ci
 npm run check:catastro
 npm run check:catastro:static-css
