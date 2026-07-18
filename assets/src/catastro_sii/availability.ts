@@ -6,3 +6,8 @@ export function authorizedParcelSource(manifest: TilesManifest, state: AppState)
   const source = manifest.parcel_regions[state.regionCode];
   return source?.available ? source : null;
 }
+
+export function defaultAuthorizedParcelRegion(manifest: TilesManifest): string | null {
+  if (manifest.legal_publication_status !== "AUTHORIZED_VECTOR") return null;
+  return Object.entries(manifest.parcel_regions).find(([, source]) => source.available)?.[0] ?? null;
+}

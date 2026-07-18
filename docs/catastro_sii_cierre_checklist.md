@@ -36,6 +36,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Workspace de procesamiento migrado desde `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; el scratch SQLite permanece en `/tmp` y el piloto usó el override no versionado de 95% registrado.
 - [x] DPA 2023 validada: 345 geometrías y exclusión explícita `12202` frente a 346 métricas.
 - [x] PMTiles e índices del run `20260718T194751Z` migrados a la laptop; cuatro SHA-256 coinciden con `stata01`, están ignorados por Git y el preview responde `200` + `206 Range` local.
+- [x] El preview local elimina el selector H y, cuando existe un piloto autorizado para revisión, encuadra y carga Atacama por defecto; la capa heredada de celdas queda oculta para no tapar el mapa vectorial.
 
 ## 4. Piloto de validación Atacama
 
