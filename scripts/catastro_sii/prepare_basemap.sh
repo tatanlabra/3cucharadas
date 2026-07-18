@@ -6,16 +6,23 @@ set -euo pipefail
 : "${PROTOMAPS_SOURCE:?Definir PROTOMAPS_SOURCE}"
 output_dir="${1:?Uso: prepare_basemap.sh /ruta/salida version}"
 version="${2:?Uso: prepare_basemap.sh /ruta/salida version}"
+: "${PYTHON_BIN:=/opt/conda/envs/python_base/bin/python}"
+: "${BASEMAP_MAXZOOM:=14}"
 
-command -v pmtiles >/dev/null
+test -r "${PROTOMAPS_SOURCE}"
+test -x "${PYTHON_BIN}"
+"${PYTHON_BIN}" -c 'import pmtiles'
 mkdir -p "${output_dir}"
 tile="${output_dir}/basemap_chile_${version}.pmtiles"
 
 # Bounds include Chile continental and archipelagos; the selected source must carry
 # its own licensing/attribution compatible with OSM and the published style.
-pmtiles extract "${PROTOMAPS_SOURCE}" "${tile}" --bbox "-112,-57,-66,-17"
-pmtiles verify "${tile}"
-pmtiles show "${tile}" > "${output_dir}/basemap_chile_${version}.show.txt"
+"${PYTHON_BIN}" "$(dirname "$0")/extract_pmtiles_bbox.py" \
+  --input "${PROTOMAPS_SOURCE}" \
+  --output "${tile}" \
+  --bbox "-112,-57,-66,-17" \
+  --maxzoom "${BASEMAP_MAXZOOM}" \
+  --report "${output_dir}/basemap_chile_${version}.report.json"
 
 sed "s/__BASEMAP_PM_TILES__/basemap_chile_${version}.pmtiles/g" \
   "$(dirname "$0")/protomaps-basemap-style.template.json" \

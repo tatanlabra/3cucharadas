@@ -28,6 +28,10 @@ codekit-config.json
 # Artefactos Vite reproducidos en CI/local, no fuentes del sitio.
 /assets/dist/catastro_sii/
 
+# PMTiles locales para revisión cartográfica. Se obtienen desde stata01 y nunca se
+# añaden por accidente al repositorio ni al despliegue GitLab Pages.
+/assets/data/catastro_sii/local/
+
 # OS/editores
 .DS_Store
 *.swp

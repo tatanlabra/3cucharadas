@@ -25,12 +25,35 @@
    Declarar `COMUNAS_SOURCE_CODE_FIELD=CUT_COM` y
    `COMUNAS_EXCLUDED_CODES=12202`: la DPA 2023 tiene 345 geometrías y la exclusión
    antártica debe ser explícita, nunca implícita.
-6. Cambiar el gate sólo con aprobación documentada. Reejecutar con
-   `AUTHORIZED_VECTOR`, actualizar el manifest público versionado y recién entonces
-   ejecutar `upload_r2.sh`. `promote_manifest.py` copia además el pequeño índice de
+6. Para la revisión local, copiar sólo los dos PMTiles y los índices auditados desde
+   `stata01`; nunca el GeoParquet ni los intermedios:
+
+   ```bash
+   scripts/catastro_sii/sync_local_preview_from_stata01.sh 20260718T194751Z
+   ```
+
+   El resultado queda ignorado por Git bajo `assets/data/catastro_sii/local/` y se
+   abre en `http://127.0.0.1:4001/catastro_sii_brecha/?catastroPreview=local&run=20260718T194751Z`.
+   Su manifest sólo funciona en localhost y no modifica el manifest versionado.
+7. Preparar la base Protomaps/OSM desde una fuente con licencia compatible. El
+   adaptador usa la biblioteca `pmtiles` ya instalada en `python_base` para copiar
+   teselas por bbox sin modificar el archivo fuente; no requiere el CLI Go ausente:
+
+   ```bash
+   PROTOMAPS_SOURCE=/ruta/a/fuente.pmtiles \
+   scripts/catastro_sii/prepare_basemap.sh /ruta/a/salida 20260718
+   ```
+
+8. Tras los PASS de datos, cartografía y licencia/redistribución aplicable,
+   actualizar el manifest público versionado y ejecutar `upload_r2.sh` con una
+   lista explícita de activos. La capa comunal y el basemap pueden comprobarse con
+   `PENDING`; un archivo `predios_region_*.pmtiles` exige
+   `AUTHORIZED_VECTOR`. `promote_manifest.py` copia además el pequeño índice de
    bounding boxes de la capa comunal a `assets/data/catastro_sii/territories.json`.
-7. Aplicar `r2-cors.json` al bucket/dominio y confirmar que una petición `Range`
-   desde `https://3cucharadas.cl` recibe `206`, `Accept-Ranges` y `Content-Range`.
+9. Aplicar `r2-cors.json` al bucket/dominio. `upload_r2.sh` exige para cada PMTiles
+   una petición **GET** `Range` desde `https://3cucharadas.cl` con `206`,
+   `Accept-Ranges`, `Content-Range` y los encabezados CORS expuestos antes de
+   permitir promover el manifest.
 
 `build_pmtiles.py` nunca escribe sobre la fuente GeoParquet. Rechaza geometrías
 inválidas; no aplica `MakeValid` ni publica los atributos fuente.

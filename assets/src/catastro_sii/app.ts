@@ -1,9 +1,9 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 import { MapController } from "./map";
+import { manifestUrlForLocation } from "./preview";
 import { regionCodeForName, replaceUrl, stateFromUrl, toDataCommuneCode } from "./state";
 import type { AppState, CommuneRecord, TilesManifest } from "./types";
 
-const manifestUrl = "/assets/data/catastro_sii/manifest.json";
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
 
 type TerritoryIndex = { communes?: Record<string, { bounds?: [number, number, number, number] }> };
@@ -34,6 +34,7 @@ export class CatastroMapApplication {
   }
 
   static async start(): Promise<CatastroMapApplication> {
+    const manifestUrl = manifestUrlForLocation(window.location.hostname, window.location.search);
     const [manifest, rows] = await Promise.all([json<TilesManifest>(manifestUrl), json<CommuneRecord[]>(communesUrl)]);
     const territories: TerritoryIndex = manifest.communes.territories_url
       ? await json<TerritoryIndex>(manifest.communes.territories_url).catch(() => ({ communes: {} }))
