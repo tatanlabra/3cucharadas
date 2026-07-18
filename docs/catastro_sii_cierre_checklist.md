@@ -10,7 +10,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Diagnóstico, placeholders, textos y fallback de la página existente preservados.
 - [x] MapLibre GL JS, PMTiles, TypeScript y Vite integrados con carga diferida.
 - [x] URL compartible región/comuna y alias plural → ruta canónica.
-- [x] Build reproducible con Node 24, TypeScript, Vitest, tests Python, Vite, Jekyll y verificador de artefacto.
+- [~] Gate reproducible: TypeScript, Vitest, tests Python, Vite, Jekyll y verificador de artefacto pasan; el runtime fijado por `.nvmrc` es Node 24.18.0, pero el PATH local actual sólo ofrece Node 26.4.0/npm 12.0.1 y `npm ci` falla antes del gate completo. Falta restaurar Node 24 aislado o aprobar una actualización explícita del contrato de engines.
 - [x] Dependencias de desarrollo actualizadas y auditoría npm sin vulnerabilidades.
 - [x] Commit fuente remoto registrado: `2fc2424c`.
 - [x] Promoción de manifest atómica, con prueba de éxito y de rollback ante índice territorial ausente.
@@ -77,3 +77,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Corrección de layout CSS del visor | Una función `linear-gradient` sin cerrar hacía que el navegador descartara las reglas posteriores y dejara el contenedor en altura cero. Se corrige y se incorpora `check:catastro:static-css` al gate. Firefox confirma ahora canvas 1082×598 px, PMTiles comunal/predial, `density` oculto y cero errores. |
 | 2026-07-18 | Flujo Caldera/Diego comprobado | Firefox selecciona Caldera (`03102`) y Diego de Almagro (`03202`), actualiza URL y estado de la capa predial referencial, conserva MapLibre y no registra errores. |
 | 2026-07-18 | Evidencia de redistribución SII | Se incorpora una fuente oficial sobre la Base de Datos Catastro y la carta compromiso de no traspaso. Se clasifica como hecho/inferencia/no verificado: no hay contrato de adquisición de estas fuentes ni autorización para publicar vector predial, por lo que el gate sigue `PENDING`. |
+| 2026-07-18 | Brecha de runtime local detectada | La máquina ahora expone sólo Node 26.4.0/npm 12.0.1, mientras el repositorio fija Node 24.18.0. Los checks directos pasan, pero `npm ci` falla con Node 26 antes del gate integral; no se cambia el contrato ni se instala un runtime sin decisión explícita. |
