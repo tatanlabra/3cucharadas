@@ -46,6 +46,14 @@ export class CatastroMapApplication {
     this.map = await MapController.create(this.manifest, container);
     const mapShell = container.closest(".map-shell");
     mapShell?.classList.add("map-ready");
+    const legacyCanvas = document.getElementById("density");
+    if (legacyCanvas instanceof HTMLCanvasElement) {
+      legacyCanvas.style.setProperty("display", "none", "important");
+      legacyCanvas.setAttribute("aria-hidden", "true");
+    }
+    const legacyNote = document.getElementById("map-note");
+    if (legacyNote) legacyNote.style.setProperty("display", "none", "important");
+    requestAnimationFrame(() => this.map?.resize());
     const communesAdded = this.map.addCommunes((code) => this.selectFromMap(code));
     if (communesAdded) setStatus("Capa comunal nacional lista. Elige una región o comuna para explorar.");
     else setStatus("La capa comunal PMTiles aún no está disponible en este manifest.");
