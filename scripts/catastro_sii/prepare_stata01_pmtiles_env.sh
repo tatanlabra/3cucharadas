@@ -18,7 +18,7 @@ if [[ -z "${usage_pct}" || "${usage_pct}" -ge 90 ]]; then
 fi
 
 target_env="${ENV_WORK_ROOT}/conda-env"
-export CONDA_PKGS_DIRS="${ENV_WORK_ROOT}/conda-pkgs"
+export CONDA_PKGS_DIRS="${CONDA_PKGS_DIRS:-${ENV_WORK_ROOT}/conda-pkgs}"
 mkdir -p "${CONDA_PKGS_DIRS}" "${ENV_WORK_ROOT}/logs"
 
 if [[ ! -x "${target_env}/bin/python" ]]; then

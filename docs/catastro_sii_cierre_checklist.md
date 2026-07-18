@@ -56,4 +56,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | UTC | Cambio | Evidencia / siguiente gate |
 | --- | --- | --- |
 | 2026-07-18 | Integración y hardening local | `2fc2424c`; validación completa local aprobada. |
-| 2026-07-18 | Workspace remoto y aprovisionamiento Conda | Paquetes instalados en clon aislado; falla de ejecución por montaje CIFS. Siguiente: volumen ejecutable. |
+| 2026-07-18 | Workspace remoto y aprovisionamiento Conda | Paquetes instalados en clon aislado; falla de ejecución por montaje CIFS. Siguiente: clonar el entorno en filesystem ejecutable y reutilizar la caché ya descargada. |
