@@ -22,7 +22,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Contrato predial de ocho campos regenerado: `predio` y `avaluo_fiscal_clp`, sin rol/dirección/propietario; el run `20260718T212932Z` conserva 10.892 polígonos H y rechaza geometrías inválidas sin alterar la fuente.
 - [x] Upload R2 admite sólo nombres versionados de base/comunas con `PENDING`; un PMTiles `predios_region_*` exige `AUTHORIZED_VECTOR`, y nunca sube GeoParquet, FGB, reportes ni manifests de build.
 - [x] Alcance de publicación aclarado: el usuario declara públicas las fuentes y autoriza su uso; la Resolución 8656 regula la venta SII de 1999, no se usa como bloqueo genérico. Se conserva atribución, derivación mínima y aviso referencial; `PENDING` sólo señala que R2/manifest aún no se despliegan.
-- [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: no existe aún un remoto `rclone` ni variables de despliegue configuradas en `stata01`; faltan esos insumos externos.
+- [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: verificado el 2026-07-18, `stata01` no tiene `rclone.conf` efectivo ni `R2_REMOTE`, `R2_BUCKET`, `R2_PREFIX` o `PUBLIC_TILES_BASE`; faltan esos insumos externos.
 
 ## 3. Datos y entorno remoto
 
