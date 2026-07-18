@@ -32,12 +32,12 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Retiro de los clones temporales creados en `/mnt/d_58` y `/tmp`; permanecen `site`, logs, tiles y las fuentes.
 - [x] Instalación directa de Tippecanoe, PMTiles (`pmtiles-show`) y rclone en `/opt/conda/envs/python_base` mediante conda-forge.
 - [x] GeoPandas, PyArrow, GDAL, Tippecanoe, PMTiles (`pmtiles-show`) y rclone validados en `python_base`; Fedora ya tenía `proj-data`, por lo que no se instala DNF adicional.
-- [x] Se confirmó que Tippecanoe no puede crear su base SQLite sobre CIFS; el runner construye en disco local y copia los artefactos privados al almacenamiento persistente tras validar.
-- [x] Workspace de procesamiento migrado desde `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; el scratch SQLite permanece en `/tmp` y el piloto usó el override privado de 95% registrado.
+- [x] Se confirmó que Tippecanoe no puede crear su base SQLite sobre CIFS; el runner construye en disco local y copia los artefactos no publicados al almacenamiento persistente tras validar.
+- [x] Workspace de procesamiento migrado desde `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; el scratch SQLite permanece en `/tmp` y el piloto usó el override no versionado de 95% registrado.
 - [x] DPA 2023 validada: 345 geometrías y exclusión explícita `12202` frente a 346 métricas.
 - [x] PMTiles e índices del run `20260718T194751Z` migrados a la laptop; cuatro SHA-256 coinciden con `stata01`, están ignorados por Git y el preview responde `200` + `206 Range` local.
 
-## 4. Piloto privado Atacama
+## 4. Piloto de validación Atacama
 
 - [x] PMTiles comunal y Atacama construidos con `PENDING` en almacenamiento de procesamiento; run `20260718T194751Z` persiste sólo sus derivados validados.
 - [x] El piloto audita y excluye de la derivación 2 geometrías `null` y 5 vacías en Caldera, y 456 `null` en Diego de Almagro; no modifica el GeoParquet fuente.
@@ -51,7 +51,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 ## 5. Staging, producción y rollback
 
 - [!] Basemap Protomaps/OSM: extractor por bbox probado en código con `python_base`, estilo listo; no hay aún un archivo Protomaps/OSM versionado bajo `nas05` para generar y revisar el PMTiles Chile.
-- [ ] Staging privado o autorizado, sin exponer vectores SII con el gate actual.
+- [ ] Staging local o autorizado, sin exponer vectores SII mientras el gate de entrega siga pendiente.
 - [ ] Tras autorización: upload R2 versionado, CORS/Range comprobados y manifest promovido.
 - [ ] Rollback ensayado: manifest anterior, PMTiles versionados y reversión Git documentada.
 - [ ] Producción.
