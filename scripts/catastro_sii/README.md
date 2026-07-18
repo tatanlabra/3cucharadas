@@ -4,10 +4,10 @@
 2. Elegir rutas existentes bajo `MAX_VOLUME_USAGE_PCT` para `BUILD_WORK_ROOT` y
    `TILES_OUTPUT_ROOT`. La primera debe ser disco local ejecutable: Tippecanoe
    requiere locks SQLite y no puede construir sobre CIFS/NFS. El resultado se
-   copia al segundo directorio sólo después de sus validaciones privadas.
+   copia al segundo directorio sólo después de sus validaciones no publicadas.
    No usar el árbol canónico ni un NFS ya saturado para artefactos temporales.
    El máximo normal es 90%; un override debe residir sólo en la configuración
-   privada, dejar registrado el espacio libre y tener rollback probado.
+   no versionada, dejar registrado el espacio libre y tener rollback probado.
 3. Instalar sólo las herramientas faltantes en el entorno mantenido de `stata01`:
 
    ```bash
@@ -20,7 +20,7 @@
 4. Sincronizar sólo el código versionado del sitio, la DPA autorizada y las dos fuentes
    piloto a `stata01`. No copiar ni exponer credenciales R2 en ese paso.
 5. Ejecutar `run_atacama_pilot_stata01.sh` con `LEGAL_PUBLICATION_STATUS=PENDING`
-   para un artefacto privado de validación. Revisar `pmtiles-show`, conteos,
+   para un artefacto de validación aún no publicado. Revisar `pmtiles-show`, conteos,
    geometrías, atributos y presupuesto antes de cualquier promoción.
    Declarar `COMUNAS_SOURCE_CODE_FIELD=CUT_COM` y
    `COMUNAS_EXCLUDED_CODES=12202`: la DPA 2023 tiene 345 geometrías y la exclusión
