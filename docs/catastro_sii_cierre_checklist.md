@@ -37,7 +37,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] DPA 2023 validada: 345 geometrías y exclusión explícita `12202` frente a 346 métricas.
 - [x] PMTiles e índices del run `20260718T194751Z` migrados a la laptop; cuatro SHA-256 coinciden con `stata01`, están ignorados por Git y el preview responde `200` + `206 Range` local.
 - [x] El preview local elimina el selector H y abre por defecto, sin parámetros especiales, el último piloto auditado de Atacama; la capa heredada de celdas queda oculta al iniciar MapLibre para no tapar el mapa vectorial.
-- [x] Prueba de navegador Firefox sobre la URL normal: el chunk dinámico, los PMTiles comunal/predial y el canvas MapLibre cargan sin errores JavaScript; el estado confirma Caldera y Diego de Almagro por defecto.
+- [x] Prueba de navegador Firefox sobre la URL normal: el chunk dinámico, los PMTiles comunal/predial y un canvas MapLibre de 1082×598 px cargan sin errores JavaScript; `density` queda oculto y el estado confirma Caldera y Diego de Almagro por defecto.
 
 ## 4. Piloto de validación Atacama
 
@@ -74,4 +74,5 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Preflight de dependencias externas | No se encontró archivo Protomaps/OSM en `nas05` ni remoto/variables R2 configuradas en `stata01`; ambos quedan identificados, sin intentar descarga ni publicación. |
 | 2026-07-18 | Preview predeterminado corregido | El loopback normal consume el manifest local actual, inicia MapLibre sin esperar intersección y carga el piloto Atacama por defecto. Vite/Jekyll y 8 tests pasan; HTTP local entrega manifest `200` y PMTiles con `206 Range`. |
 | 2026-07-18 | Diagnóstico de runtime del visor | Firefox detectó que Vite precargaba el chunk MapLibre desde `/chunks/` y recibía HTML. Se fija `base=/assets/dist/catastro_sii/`, se agrega test de configuración, atribución por defecto para la capa comunal y ocultamiento prioritario del canvas heredado. La URL normal queda comprobada con canvas MapLibre, PMTiles comunal/predial y cero errores JavaScript. |
+| 2026-07-18 | Corrección de layout CSS del visor | Una función `linear-gradient` sin cerrar hacía que el navegador descartara las reglas posteriores y dejara el contenedor en altura cero. Se corrige y se incorpora `check:catastro:static-css` al gate. Firefox confirma ahora canvas 1082×598 px, PMTiles comunal/predial, `density` oculto y cero errores. |
 | 2026-07-18 | Evidencia de redistribución SII | Se incorpora una fuente oficial sobre la Base de Datos Catastro y la carta compromiso de no traspaso. Se clasifica como hecho/inferencia/no verificado: no hay contrato de adquisición de estas fuentes ni autorización para publicar vector predial, por lo que el gate sigue `PENDING`. |
