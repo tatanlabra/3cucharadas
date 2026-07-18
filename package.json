@@ -9,6 +9,7 @@
     "build:catastro": "vite build --config vite.catastro.config.ts",
     "dev:catastro": "vite --config vite.catastro.config.ts",
     "check:catastro": "tsc --noEmit --project tsconfig.catastro.json",
+    "check:catastro:static-css": "node scripts/catastro_sii/check_static_css.mjs catastro_sii_brecha/style.css",
     "test:catastro": "vitest run --config vitest.catastro.config.ts"
   },
   "dependencies": {

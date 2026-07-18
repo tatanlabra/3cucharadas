@@ -5,6 +5,7 @@ node --version
 npm --version
 npm ci
 npm run check:catastro
+npm run check:catastro:static-css
 npm run test:catastro
 python3 -m unittest discover -s tests/catastro_sii -p 'test_*.py'
 npm run build:catastro
