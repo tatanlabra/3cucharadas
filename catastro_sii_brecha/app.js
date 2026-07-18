@@ -2,8 +2,7 @@
   "use strict";
 
   const $ = (selector) => document.querySelector(selector);
-  const config = window.CATASTRO_MAP_CONFIG || {};
-  const state = { communes: [], regions: [], selected: null, map: null, cells: null, parcelRegions: {}, activeParcelRegion: null, requestId: 0 };
+  const state = { communes: [], regions: [], selected: null, cells: null, requestId: 0 };
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
   const money = (value) => value == null ? "No disponible" : `$${number.format(value)}`;
@@ -11,96 +10,6 @@
     const element = $(selector);
     if (element) element.textContent = value;
   };
-
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      const tag = document.createElement("script");
-      tag.src = src;
-      tag.onload = resolve;
-      tag.onerror = reject;
-      document.head.append(tag);
-    });
-  }
-
-  function loadStyle(href) {
-    return new Promise((resolve, reject) => {
-      if (document.querySelector(`link[data-maplibre-css="${href}"]`)) return resolve();
-      const tag = document.createElement("link");
-      tag.rel = "stylesheet";
-      tag.href = href;
-      tag.dataset.maplibreCss = href;
-      tag.onload = resolve;
-      tag.onerror = reject;
-      document.head.append(tag);
-    });
-  }
-
-  async function initialiseMap() {
-    if (!config.maptilerKey || !config.maplibreScript) {
-      const selected = state.selected;
-      set("#map-status", selected
-        ? `Celdas agregadas para ${selected.comuna}; fondo OSM aún no configurado.`
-        : "Capa agregada en modo local; fondo OSM aún no configurado.");
-      return;
-    }
-    try {
-      if (config.maplibreCss) await loadStyle(config.maplibreCss);
-      if (!window.maplibregl) await loadScript(config.maplibreScript);
-      const style = config.styleUrl.replace("{key}", encodeURIComponent(config.maptilerKey));
-      state.map = new window.maplibregl.Map({
-        container: "map",
-        style,
-        center: [-71, -33],
-        zoom: 4,
-        attributionControl: true
-      });
-      state.map.addControl(new window.maplibregl.NavigationControl({ showCompass: false }), "top-right");
-      state.map.on("load", () => {
-        set("#attribution", "© OpenStreetMap contributors · © MapTiler");
-        set("#map-status", "Fondo OSM activo; la luz neón sigue mostrando celdas agregadas.");
-        $("#map")?.closest(".map-shell")?.classList.add("map-ready");
-        if (state.cells) renderMapLibre(state.cells);
-        updateParcelControl();
-      });
-    } catch (_) {
-      set("#map-note", "Fondo cartográfico no disponible; se mantiene la capa agregada.");
-      set("#map-status", "La vista agregada sigue disponible sin fondo cartográfico.");
-    }
-  }
-
-  function cellCenter(cell, zoom) {
-    const n = 2 ** zoom;
-    const lon = ((cell[0] + 0.5) / n) * 360 - 180;
-    const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * ((cell[1] + 0.5) / n)))) * 180 / Math.PI;
-    return [lon, lat];
-  }
-
-  function renderMapLibre(data) {
-    if (!state.map || !state.map.isStyleLoaded() || !data.cells.length) return;
-    const features = data.cells.map((cell) => ({
-      type: "Feature",
-      properties: { n: cell[2] },
-      geometry: { type: "Point", coordinates: cellCenter(cell, data.zoom) }
-    }));
-    const source = { type: "geojson", data: { type: "FeatureCollection", features } };
-    if (state.map.getLayer("density-cells")) state.map.removeLayer("density-cells");
-    if (state.map.getSource("density-cells")) state.map.removeSource("density-cells");
-    state.map.addSource("density-cells", source);
-    state.map.addLayer({
-      id: "density-cells",
-      type: "circle",
-      source: "density-cells",
-      paint: {
-        "circle-color": "#b8ff3c",
-        "circle-opacity": 0.72,
-        "circle-blur": 0.32,
-        "circle-radius": ["interpolate", ["linear"], ["ln", ["get", "n"]], 0, 2, 9, 12]
-      }
-    });
-    const coordinates = features.map((feature) => feature.geometry.coordinates);
-    const bounds = coordinates.reduce((box, point) => box.extend(point), new window.maplibregl.LngLatBounds(coordinates[0], coordinates[0]));
-    state.map.fitBounds(bounds, { padding: 52, duration: 450, maxZoom: 13 });
-  }
 
   function renderCanvas(data) {
     const canvas = $("#density");
@@ -142,85 +51,6 @@
     }
   }
 
-  function removeParcelLayer() {
-    if (!state.map) return;
-    if (state.map.getLayer("regional-parcels-fill")) state.map.removeLayer("regional-parcels-fill");
-    if (state.map.getLayer("regional-parcels-line")) state.map.removeLayer("regional-parcels-line");
-    if (state.map.getSource("regional-parcels")) state.map.removeSource("regional-parcels");
-    $("#map")?.closest(".map-shell")?.classList.remove("parcel-active");
-    state.activeParcelRegion = null;
-  }
-
-  function parcelEntry() {
-    return state.selected ? state.parcelRegions[state.selected.region] : null;
-  }
-
-  function updateParcelControl() {
-    const toggle = $("#parcel-layer");
-    const note = $("#parcel-layer-note");
-    if (!toggle || !note) return;
-    const entry = parcelEntry();
-    const mapReady = Boolean(state.map && state.map.isStyleLoaded());
-    const available = Boolean(entry?.available && entry.format === "mvt-directory" && mapReady);
-    if (!available) {
-      toggle.checked = false;
-      toggle.disabled = true;
-      removeParcelLayer();
-      if (entry?.available) note.textContent = "Disponible al activar el fondo OSM.";
-      else if (entry) note.textContent = entry.reason || "Piloto regional no incluido en este artefacto.";
-      else note.textContent = "Piloto disponible sólo para regiones seleccionadas.";
-      return;
-    }
-    toggle.disabled = false;
-    note.textContent = `${number.format(entry.feature_count)} polígonos H · carga sólo al activar.`;
-  }
-
-  function toggleParcelLayer() {
-    const toggle = $("#parcel-layer");
-    const entry = parcelEntry();
-    if (!toggle || !entry || !state.map || !state.map.isStyleLoaded()) return;
-    removeParcelLayer();
-    if (!toggle.checked) {
-      set("#map-status", "Celdas agregadas activas; polígonos H ocultos.");
-      return;
-    }
-    state.map.addSource("regional-parcels", {
-      type: "vector",
-      tiles: [new URL(`data/capas_prediales/${entry.tiles}`, window.location.href).href],
-      minzoom: entry.zoom.min,
-      maxzoom: entry.zoom.max
-    });
-    state.map.addLayer({
-      id: "regional-parcels-fill",
-      type: "fill",
-      source: "regional-parcels",
-      "source-layer": "predios_h",
-      paint: { "fill-color": "#ff4fd8", "fill-opacity": 0.22 }
-    });
-    state.map.addLayer({
-      id: "regional-parcels-line",
-      type: "line",
-      source: "regional-parcels",
-      "source-layer": "predios_h",
-      paint: { "line-color": "#ffd7f6", "line-opacity": 0.58, "line-width": 0.55 }
-    });
-    $("#map")?.closest(".map-shell")?.classList.add("parcel-active");
-    state.activeParcelRegion = state.selected.region;
-    set("#map-status", `Polígonos H experimentales activos para ${state.selected.region}.`);
-  }
-
-  async function loadParcelManifest() {
-    try {
-      const response = await fetch("data/capas_prediales/manifest.json", { cache: "force-cache" });
-      if (!response.ok) return;
-      const manifest = await response.json();
-      state.parcelRegions = manifest.regions || {};
-      updateParcelControl();
-    } catch (_) {
-      // La capa es opcional: el visor de celdas no depende de estos pilotos.
-    }
-  }
-
   function flashMetrics() {
     const grid = $(".metric-grid");
     if (!grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -245,7 +75,6 @@
     set("#status", `${row.region} · ${row.fuente_sii_disponible ? "extracto SII disponible" : "sin extracto SII en el corte"}`);
     set("#selection-context", `Ahora estás mirando ${row.comuna}, ${row.region}.`);
     set("#map-status", `Celdas agregadas para ${row.comuna}, ${row.region}.`);
-    updateParcelControl();
     flashMetrics();
   }
 
@@ -264,6 +93,7 @@
     state.selected = row;
     $("#comuna").value = code;
     updateMetrics(row);
+    window.dispatchEvent(new CustomEvent("catastro:selection", { detail: { row } }));
     set("#map-note", "Cargando celdas agregadas…");
     try {
       const response = await fetch(`data/${row.mapa.path}`, { cache: "force-cache" });
@@ -272,7 +102,6 @@
       if (requestId !== state.requestId) return;
       state.cells = cells;
       renderCanvas(cells);
-      renderMapLibre(cells);
       set("#map-note", `${number.format(cells.cells.length)} celdas agregadas · zoom ${cells.zoom}`);
     } catch (_) {
       if (requestId !== state.requestId) return;
@@ -311,7 +140,6 @@
       state.communes = await communes.json();
       state.regions = await regions.json();
       updateNationalSummary(state.communes);
-      await loadParcelManifest();
 
       const regionSelect = $("#region");
       regionSelect.innerHTML = "";
@@ -323,12 +151,21 @@
       }
       regionSelect.addEventListener("change", () => populateCommunes(regionSelect.value));
       $("#comuna").addEventListener("change", (event) => selectCommune(event.target.value));
-      $("#parcel-layer").addEventListener("change", toggleParcelLayer);
-      populateCommunes(regionSelect.value);
-      await initialiseMap();
+      const urlCode = new URLSearchParams(window.location.search).get("comuna");
+      const normalizedUrlCode = urlCode && /^\d{4,5}$/.test(urlCode)
+        ? (urlCode.length === 5 && urlCode.startsWith("0") ? urlCode.slice(1) : urlCode.padStart(4, "0"))
+        : null;
+      const requested = normalizedUrlCode && state.communes.find((row) => row.codigo_comuna === normalizedUrlCode);
+      if (requested) {
+        regionSelect.value = requested.region;
+        populateCommunes(requested.region, requested.codigo_comuna);
+      } else {
+        populateCommunes(regionSelect.value);
+      }
+      set("#map-status", "Preparando el mapa vectorial bajo demanda…");
+      window.dispatchEvent(new CustomEvent("catastro:legacy-ready", { detail: { selected: state.selected } }));
       window.addEventListener("resize", () => {
-        if (state.cells && !state.map) renderCanvas(state.cells);
-        if (state.map) state.map.resize();
+        if (state.cells) renderCanvas(state.cells);
       });
     } catch (_) {
       set("#status", "No se pudieron cargar los datos. Reintenta o revisa la metodología.");

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "generated_at": null,
+  "legal_publication_status": "PENDING",
+  "tiles_base": "https://tiles.3cucharadas.cl/catastro-sii",
+  "basemap": {
+    "available": false,
+    "url": "basemap_chile_PENDING.pmtiles",
+    "style_url": "basemap_chile_PENDING.style.json",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "communes": {
+    "available": false,
+    "url": "chile_comunas_brechas_PENDING.pmtiles",
+    "source_layer": "comunas",
+    "minzoom": 4,
+    "maxzoom": 12,
+    "territories_url": "/assets/data/catastro_sii/territories.json"
+  },
+  "parcel_regions": {
+    "03": {
+      "available": false,
+      "pilot": true,
+      "scope": "Caldera (03102) y Diego de Almagro (03202)",
+      "url": "predios_region_03_PENDING.pmtiles",
+      "source_layer": "predios",
+      "minzoom": 13,
+      "maxzoom": 18,
+      "communes": ["03102", "03202"],
+      "attribution": "Fuente predial: Servicio de Impuestos Internos. Cartografía referencial."
+    }
+  }
+}

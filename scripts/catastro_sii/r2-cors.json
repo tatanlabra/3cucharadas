@@ -1,0 +1,14 @@
+[
+  {
+    "AllowedOrigins": [
+      "https://3cucharadas.cl",
+      "https://www.3cucharadas.cl",
+      "http://localhost:4001",
+      "http://localhost:5173"
+    ],
+    "AllowedMethods": ["GET", "HEAD"],
+    "AllowedHeaders": ["Range", "If-None-Match"],
+    "ExposeHeaders": ["Accept-Ranges", "Content-Length", "Content-Range", "ETag"],
+    "MaxAgeSeconds": 7200
+  }
+]

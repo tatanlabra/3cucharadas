@@ -1,6 +1,6 @@
 # MapLibre GL JS local
 
-El visor sólo activa MapLibre cuando el artefacto de despliegue contiene una copia
-local fijada de `maplibre-gl.js` y, si corresponde, su CSS. La descarga queda fuera de
-este repositorio hasta verificar versión y SHA-256; después CI puede inyectar la ruta
-local mediante `scripts/inject_maptiler_key.py` sin versionar `MAPTILER_PUBLIC_KEY`.
+MapLibre GL JS y PMTiles se empaquetan con Vite desde versiones exactas de
+`package-lock.json`. El cargador estable `assets/map-app-loader.js` resuelve el
+manifest Vite y carga los activos hasheados sólo al acercarse al visor. No se inyectan
+claves ni se depende de MapTiler u otro proveedor de teselas externo.

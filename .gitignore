@@ -21,8 +21,12 @@
 # Node.js and NPM
 node_modules
 npm-debug.log*
-package-lock.json
+# El visor Catastro SII usa versiones auditables; su lockfile es parte del contrato.
+!package-lock.json
 codekit-config.json
+
+# Artefactos Vite reproducidos en CI/local, no fuentes del sitio.
+/assets/dist/catastro_sii/
 
 # OS/editores
 .DS_Store
