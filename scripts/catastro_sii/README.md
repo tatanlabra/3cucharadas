@@ -1,25 +1,21 @@
 # Operación de tiles Catastro SII
 
 1. Obtener la DPA 2023 de fuente oficial y registrar fecha, licencia y SHA-256.
-2. Elegir dos rutas existentes, ambas con uso menor a 90%: `ENV_WORK_ROOT` debe ser
-   ejecutable para Conda; `TILES_OUTPUT_ROOT` puede ser almacenamiento persistente.
+2. Elegir una ruta existente con uso menor a 90% para `TILES_OUTPUT_ROOT`.
    No usar el árbol canónico ni un NFS ya saturado para artefactos temporales.
-3. Preparar un entorno aislado desde el Conda geoespacial existente:
+3. Instalar sólo las herramientas faltantes en el entorno mantenido de `stata01`:
 
    ```bash
-   ENV_WORK_ROOT=/ruta/en/volumen-ejecutable \
+   PYTHON_BIN=/opt/conda/envs/python_base/bin/python \
    scripts/catastro_sii/prepare_stata01_pmtiles_env.sh
    ```
 
-   El script clona `py_3_12_geopandas_jc`, instala Tippecanoe y rclone desde
-   conda-forge y usa `pip` sólo si no existe un paquete Conda para la CLI PMTiles.
-   Si existe una caché Conda confiable en el volumen persistente, se puede declarar
-   `CONDA_PKGS_DIRS` para evitar descargar otra vez los paquetes; el entorno final
-   debe permanecer en `ENV_WORK_ROOT` ejecutable.
+   El script no crea ni clona entornos Conda: instala únicamente Tippecanoe,
+   PMTiles y rclone que no estén ya presentes en `python_base`, desde conda-forge.
 4. Sincronizar sólo el código versionado del sitio, la DPA autorizada y las dos fuentes
    piloto a `stata01`. No copiar ni exponer credenciales R2 en ese paso.
 5. Ejecutar `run_atacama_pilot_stata01.sh` con `LEGAL_PUBLICATION_STATUS=PENDING`
-   para un artefacto privado de validación. Revisar `pmtiles show`, conteos,
+   para un artefacto privado de validación. Revisar `pmtiles-show`, conteos,
    geometrías, atributos y presupuesto antes de cualquier promoción.
    Declarar `COMUNAS_SOURCE_CODE_FIELD=CUT_COM` y
    `COMUNAS_EXCLUDED_CODES=12202`: la DPA 2023 tiene 345 geometrías y la exclusión

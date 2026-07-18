@@ -1,47 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Provision a dedicated PMTiles environment without mutating the shared Conda env.
-# The caller must choose an executable workspace on a filesystem below 90% usage.
-: "${ENV_WORK_ROOT:?Definir ENV_WORK_ROOT en un volumen ejecutable y verificado}"
-: "${CONDA_BIN:=conda}"
-: "${SOURCE_ENV_PREFIX:=/opt/conda/envs/py_3_12_geopandas_jc}"
+# Install only the missing PMTiles tools in the maintained environment on stata01.
+# It deliberately never creates or clones a Conda environment outside /opt/conda.
+: "${PYTHON_BIN:=/opt/conda/envs/python_base/bin/python}"
+: "${CONDA_BIN:=/usr/bin/conda}"
 
-test -d "${ENV_WORK_ROOT}" || { printf 'ENV_WORK_ROOT no existe: %s\n' "${ENV_WORK_ROOT}" >&2; exit 2; }
-test -x "${SOURCE_ENV_PREFIX}/bin/python" || { printf 'Entorno fuente inválido: %s\n' "${SOURCE_ENV_PREFIX}" >&2; exit 2; }
-command -v "${CONDA_BIN}" >/dev/null || { printf 'Conda no está disponible: %s\n' "${CONDA_BIN}" >&2; exit 2; }
-
-usage_pct="$(df -P "${ENV_WORK_ROOT}" | awk 'NR == 2 {gsub(/%/, "", $5); print $5}')"
-if [[ -z "${usage_pct}" || "${usage_pct}" -ge 90 ]]; then
-  printf 'ABORTADO: %s está a %s%% de uso; elegir un volumen bajo 90%%.\n' "${ENV_WORK_ROOT}" "${usage_pct:-desconocido}" >&2
+target_env="$(cd "$(dirname "${PYTHON_BIN}")/.." && pwd)"
+test "${target_env}" = "/opt/conda/envs/python_base" || {
+  printf 'ABORTADO: PYTHON_BIN debe pertenecer a /opt/conda/envs/python_base, recibió %s\n' "${PYTHON_BIN}" >&2
   exit 2
-fi
+}
+test -x "${PYTHON_BIN}" || { printf 'Python no ejecutable: %s\n' "${PYTHON_BIN}" >&2; exit 2; }
+test -x "${CONDA_BIN}" || { printf 'Conda no ejecutable: %s\n' "${CONDA_BIN}" >&2; exit 2; }
 
-target_env="${ENV_WORK_ROOT}/conda-env"
-export CONDA_PKGS_DIRS="${CONDA_PKGS_DIRS:-${ENV_WORK_ROOT}/conda-pkgs}"
-mkdir -p "${CONDA_PKGS_DIRS}" "${ENV_WORK_ROOT}/logs"
-
-if [[ ! -x "${target_env}/bin/python" ]]; then
-  "${CONDA_BIN}" create --yes --prefix "${target_env}" --clone "${SOURCE_ENV_PREFIX}"
-fi
-
-# First choice: conda-forge for native binaries and the PMTiles CLI package.
-for package in tippecanoe rclone; do
-  if [[ ! -x "${target_env}/bin/${package}" ]]; then
-    "${CONDA_BIN}" install --yes --override-channels -c conda-forge --prefix "${target_env}" "${package}"
-  fi
+missing=()
+for tool in tippecanoe pmtiles-show rclone; do
+  [[ -x "${target_env}/bin/${tool}" ]] && continue
+  case "${tool}" in
+    pmtiles-show) missing+=("pmtiles") ;;
+    *) missing+=("${tool}") ;;
+  esac
 done
 
-if [[ ! -x "${target_env}/bin/pmtiles" ]]; then
-  if ! "${CONDA_BIN}" install --yes --override-channels -c conda-forge --prefix "${target_env}" pmtiles; then
-    # PyPI is an explicit last resort only for the Python PMTiles CLI.
-    "${target_env}/bin/python" -m pip install --upgrade pmtiles
-  fi
+if [[ "${#missing[@]}" -gt 0 ]]; then
+  # python_base is administrated under /opt/conda; sudo is needed for ordinary SSH users.
+  sudo -n "${CONDA_BIN}" install --yes --override-channels -c conda-forge \
+    --prefix "${target_env}" "${missing[@]}"
 fi
 
-"${target_env}/bin/python" -c 'import geopandas, pandas, pyarrow, shapely, fiona, pyogrio'
+"${PYTHON_BIN}" -c 'import geopandas, pandas, pyarrow, shapely, fiona, pyogrio'
 "${target_env}/bin/ogrinfo" --version
 "${target_env}/bin/tippecanoe" --version
-"${target_env}/bin/pmtiles" --help >/dev/null
+test -x "${target_env}/bin/pmtiles-show"
 "${target_env}/bin/rclone" version
-printf 'PYTHON_BIN=%s\n' "${target_env}/bin/python"
+printf 'PYTHON_BIN=%s\n' "${PYTHON_BIN}"
