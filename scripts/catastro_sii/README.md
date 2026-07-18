@@ -1,12 +1,13 @@
 # Operación de tiles Catastro SII
 
 1. Obtener la DPA 2023 de fuente oficial y registrar fecha, licencia y SHA-256.
-2. Elegir un `TILES_WORK_ROOT` existente en un filesystem con uso menor a 90%.
+2. Elegir dos rutas existentes, ambas con uso menor a 90%: `ENV_WORK_ROOT` debe ser
+   ejecutable para Conda; `TILES_OUTPUT_ROOT` puede ser almacenamiento persistente.
    No usar el árbol canónico ni un NFS ya saturado para artefactos temporales.
 3. Preparar un entorno aislado desde el Conda geoespacial existente:
 
    ```bash
-   TILES_WORK_ROOT=/ruta/en/volumen-verificado \
+   ENV_WORK_ROOT=/ruta/en/volumen-ejecutable \
    scripts/catastro_sii/prepare_stata01_pmtiles_env.sh
    ```
 
