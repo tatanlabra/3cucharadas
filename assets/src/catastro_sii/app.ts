@@ -107,7 +107,12 @@ export class CatastroMapApplication {
     replaceUrl(this.state);
     this.map?.setCommuneFilter(this.state.communeCode.padStart(5, "0"));
     this.map?.fitBounds(row.bounds, 13);
-    this.map?.setParcelLayer(this.state);
+    const parcelsLoaded = this.map?.setParcelLayer(this.state) ?? false;
+    setStatus(
+      parcelsLoaded
+        ? `Mapa de ${row.comuna}: capa predial regional referencial activa.`
+        : `Mapa comunal de ${row.comuna}. No hay capa predial autorizada para esta región.`
+    );
   }
 
   private activateDefaultParcelPilot(): boolean {
