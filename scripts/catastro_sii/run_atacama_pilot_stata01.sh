@@ -73,4 +73,4 @@ mkdir -p "${build_dir}"
 if [[ "${build_dir}" != "${output_dir}" ]]; then
   cp -a "${build_dir}" "${output_dir}"
 fi
-printf 'Piloto de validación no publicado generado en %s\n' "${output_dir}"
+printf 'Piloto de validación predespliegue generado en %s\n' "${output_dir}"

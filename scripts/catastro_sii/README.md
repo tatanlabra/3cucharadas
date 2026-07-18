@@ -20,7 +20,8 @@
 4. Sincronizar sólo el código versionado del sitio, la DPA autorizada y las dos fuentes
    piloto a `stata01`. No copiar ni exponer credenciales R2 en ese paso.
 5. Ejecutar `run_atacama_pilot_stata01.sh` con `LEGAL_PUBLICATION_STATUS=PENDING`
-   para un artefacto de validación aún no desplegado. El piloto Atacama deriva sólo
+   para un artefacto de validación predespliegue aún no publicado. `PENDING` describe
+   el estado de despliegue, no la privacidad ni una prohibición legal. El piloto Atacama deriva sólo
    `predio` y `dc_avaluo_fiscal` como `avaluo_fiscal_clp`; no incluye rol, dirección,
    propietario, superficie ni `valorTotal`. Revisar `pmtiles-show`, conteos,
    geometrías, atributos y presupuesto antes de cualquier promoción.
@@ -50,8 +51,20 @@
    scripts/catastro_sii/prepare_basemap.sh /ruta/a/salida 20260718
    ```
 
-8. Tras los PASS de datos, cartografía y configuración de despliegue,
-   actualizar el manifest público versionado y ejecutar `upload_r2.sh` con una
+8. Tras los PASS de datos y cartografía, la confirmación explícita del titular del
+   proyecto puede promover el manifiesto auditado, sin regenerar PMTiles:
+
+   ```bash
+   python3 scripts/catastro_sii/authorize_vector_manifest.py \
+     --tiles-manifest /ruta/de/la-corrida/tiles_manifest_YYYYMMDDTHHMMSSZ.json \
+     --output /ruta/de/la-corrida/tiles_manifest_YYYYMMDDTHHMMSSZ_authorized.json \
+     --confirm-public-vector
+   ```
+
+   El archivo nuevo conserva una huella SHA-256 del manifest de origen y sólo modifica
+   metadatos de publicación. Debe permanecer en la misma corrida para conservar las
+   referencias versionadas de PMTiles e índice territorial. Tras la configuración de despliegue, actualizar el manifest
+   público versionado y ejecutar `upload_r2.sh` con una
    lista explícita de activos. La capa comunal y el basemap pueden comprobarse con
    `PENDING`; un archivo `predios_region_*.pmtiles` exige
    `AUTHORIZED_VECTOR`. `promote_manifest.py` copia además el pequeño índice de

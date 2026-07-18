@@ -22,6 +22,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Contrato predial de ocho campos regenerado: `predio` y `avaluo_fiscal_clp`, sin rol/dirección/propietario; el run `20260718T212932Z` conserva 10.892 polígonos H y rechaza geometrías inválidas sin alterar la fuente.
 - [x] Upload R2 admite sólo nombres versionados de base/comunas con `PENDING`; un PMTiles `predios_region_*` exige `AUTHORIZED_VECTOR`, y nunca sube GeoParquet, FGB, reportes ni manifests de build.
 - [x] Alcance de publicación aclarado: el usuario declara públicas las fuentes y autoriza su uso; la Resolución 8656 regula la venta SII de 1999, no se usa como bloqueo genérico. Se conserva atribución, derivación mínima y aviso referencial; `PENDING` sólo señala que R2/manifest aún no se despliegan.
+- [x] Promoción explícita del vector implementada sin reproceso: `authorize_vector_manifest.py` requiere `--confirm-public-vector`, conserva el SHA-256 del manifest auditado y habilita únicamente el mismo PMTiles regional. Contra el run real `20260718T212932Z` verificó 10.892 entidades y 22.050.380 B, sin tocar geometrías ni tiles.
 - [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: verificado el 2026-07-18, `stata01` no tiene `rclone.conf` efectivo ni `R2_REMOTE`, `R2_BUCKET`, `R2_PREFIX` o `PUBLIC_TILES_BASE`; faltan esos insumos externos.
 
 ## 3. Datos y entorno remoto
@@ -34,6 +35,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] GeoPandas, PyArrow, GDAL, Tippecanoe, PMTiles (`pmtiles-show`) y rclone validados en `python_base`; Fedora ya tenía `proj-data`, por lo que no se instala DNF adicional.
 - [x] Se confirmó que Tippecanoe no puede crear su base SQLite sobre CIFS; el runner construye en disco local y copia los artefactos no publicados al almacenamiento persistente tras validar.
 - [x] Workspace de procesamiento migrado desde `d_58` a `/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps`; el scratch SQLite permanece en `/tmp` y el piloto usó el override no versionado de 95% registrado.
+- [!] Nueva regeneración pesada detenida: comprobado el 2026-07-18 que `/mnt/nas05` está en 91% (334.696.100 KiB libres), sobre el límite normal de 90%. Los artefactos ya auditados permanecen disponibles; la promoción de estado no requiere recomputarlos.
 - [x] DPA 2023 validada: 345 geometrías y exclusión explícita `12202` frente a 346 métricas.
 - [x] PMTiles, estilo, fuente PBF e índices del run `20260718T212932Z` migrados a la laptop; los SHA-256 coinciden con `stata01`, están ignorados por Git y el preview responde `200` + `206 Range` local.
 - [x] El preview local elimina el selector H y abre por defecto Caldera con el piloto Atacama; selector, métricas y cámara quedan sincronizados y la capa heredada de celdas queda oculta al iniciar MapLibre.
@@ -42,7 +44,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 
 ## 4. Piloto de validación Atacama
 
-- [x] PMTiles comunal y Atacama construidos con `PENDING` en almacenamiento de procesamiento; run `20260718T212932Z` persiste sólo sus derivados validados.
+- [x] PMTiles comunal y Atacama construidos con `PENDING` en almacenamiento de procesamiento; run `20260718T212932Z` persiste sólo sus derivados validados. El promotor de estado probado sobre ese manifest puede emitir su sucesor `AUTHORIZED_VECTOR` sin regenerar los activos.
 - [x] El piloto audita y excluye de la derivación 2 geometrías `null` y 5 vacías en Caldera, y 456 `null` en Diego de Almagro; no modifica el GeoParquet fuente.
 - [x] El reintento corrigió el constructor con índice no contiguo antes del run persistido.
 - [x] `pmtiles-show`, capas, bounds, zoom, conteos, esquema exacto de atributos y cero geometrías derivadas inválidas validados en `stata01`.
@@ -55,8 +57,8 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 ## 5. Staging, producción y rollback
 
 - [x] Basemap Protomaps/OSM: extractor oficial remoto con región multipolígono, PMTiles autoalojado (600.873.308 B), fuente PBF, etiquetas de ciudades y calles blanco-neón; revisado y sincronizado al preview.
-- [ ] Staging local o autorizado, sin exponer vectores SII mientras el gate de entrega siga pendiente.
-- [ ] Tras autorización: upload R2 versionado, CORS/Range comprobados y manifest promovido.
+- [x] Staging local: preview localhost consume PMTiles auditados, con predial Atacama visible por defecto; no modifica el manifest versionado ni publica assets.
+- [!] Upload R2 versionado, CORS/Range comprobados y manifest promovido: bloqueado sólo por ausencia de remoto, bucket, prefijo y dominio público configurados.
 - [ ] Rollback ensayado: manifest anterior, PMTiles versionados y reversión Git documentada.
 - [ ] Producción.
 - [ ] Generalización a otras regiones sólo después de aprobar íntegramente el piloto.
@@ -78,7 +80,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Diagnóstico de runtime del visor | Firefox detectó que Vite precargaba el chunk MapLibre desde `/chunks/` y recibía HTML. Se fija `base=/assets/dist/catastro_sii/`, se agrega test de configuración, atribución por defecto para la capa comunal y ocultamiento prioritario del canvas heredado. La URL normal queda comprobada con canvas MapLibre, PMTiles comunal/predial y cero errores JavaScript. |
 | 2026-07-18 | Corrección de layout CSS del visor | Una función `linear-gradient` sin cerrar hacía que el navegador descartara las reglas posteriores y dejara el contenedor en altura cero. Se corrige y se incorpora `check:catastro:static-css` al gate. Firefox confirma ahora canvas 1082×598 px, PMTiles comunal/predial, `density` oculto y cero errores. |
 | 2026-07-18 | Flujo Caldera/Diego comprobado | Firefox selecciona Caldera (`03102`) y Diego de Almagro (`03202`), actualiza URL y estado de la capa predial referencial, conserva MapLibre y no registra errores. |
-| 2026-07-18 | Evidencia de redistribución SII | Se incorpora una fuente oficial sobre la Base de Datos Catastro y la carta compromiso de no traspaso. Se clasifica como hecho/inferencia/no verificado: no hay contrato de adquisición de estas fuentes ni autorización para publicar vector predial, por lo que el gate sigue `PENDING`. |
+| 2026-07-18 | Alcance de publicación corregido | El titular del proyecto confirma que las fuentes son públicas y que la Resolución 8656 no rige esta adquisición. Se mantiene derivación mínima y atribución; `PENDING` describe sólo un artefacto aún no desplegado. |
 | 2026-07-18 | Brecha de runtime local detectada | La máquina ahora expone sólo Node 26.4.0/npm 12.0.1, mientras el repositorio fija Node 24.18.0. Los checks directos pasan, pero `npm ci` falla con Node 26 antes del gate integral; no se cambia el contrato ni se instala un runtime sin decisión explícita. |
 | 2026-07-18 | Diagnóstico deductivo e inductivo del visor | El manifest local desactiva el basemap y el predial inicia en z13 mientras Diego se enfoca a una comuna extensa; los Parquet H verifican `predio` y `dc_avaluo_fiscal` sin nulos. Se implementan fondo Protomaps oscuro, fuentes PBF, calles blanco-neón, etiquetas y foco de mayor densidad predial. |
 | 2026-07-18 | Gate remoto de atributos | Tras sincronizar scripts y tests, `python_base` aprueba 13 pruebas geoespaciales. El primer intento reveló tests remotos desactualizados y una aserción frágil de tamaño de archivo; ambos se corrigen antes de iniciar la nueva corrida Atacama. |
@@ -89,3 +91,5 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Cierre de scratch remoto | Tras verificar hashes y copia local, se retiraron 409 MB de builds y storage Podman efímeros en `/tmp`; los artefactos versionados de `20260718T212932Z` permanecen intactos en `/mnt/nas05`. |
 | 2026-07-18 | Semántica accesible del visor | Firefox comprueba canvas `role=region`, `tabindex=0`, etiqueta `Mapa interactivo` y botones `Acercar`/`Alejar` en español. Se conserva como pendiente sólo la validación manual con lector de pantalla. |
 | 2026-07-18 | Runtime local reproducible | Node 24.18.0/npm 11.16.0 se trasladan desde `/tmp` a `herramientas/local-config/runtimes/`; el gate lo detecta automáticamente o acepta `NODE24_HOME`, sin cambiar Node 26 del sistema. |
+| 2026-07-18 | Promoción de estado sin recálculo | Se agrega `authorize_vector_manifest.py`: exige confirmación explícita, copia sólo el JSON, conserva SHA-256 del manifest fuente y habilita el PMTiles Atacama ya auditado. Cuatro pruebas directas, la transición integrada hacia el manifest de sitio y la ejecución contra el run real pasan. |
+| 2026-07-18 | Capacidad NAS revalidada | `nas05` marca 91% de uso, con 334.696.100 KiB libres. No se inicia un nuevo build pesado sobre ese volumen; quedan intactos los artefactos que permiten promoción de metadata y despliegue cuando exista R2. |
