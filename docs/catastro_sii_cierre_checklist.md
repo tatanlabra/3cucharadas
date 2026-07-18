@@ -23,7 +23,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] Upload R2 admite sólo nombres versionados de base/comunas con `PENDING`; un PMTiles `predios_region_*` exige `AUTHORIZED_VECTOR`, y nunca sube GeoParquet, FGB, reportes ni manifests de build.
 - [x] Alcance de publicación aclarado: el usuario declara públicas las fuentes y autoriza su uso; la Resolución 8656 regula la venta SII de 1999, no se usa como bloqueo genérico. Se conserva atribución, derivación mínima y aviso referencial; `PENDING` sólo señala que R2/manifest aún no se despliegan.
 - [x] Promoción explícita del vector implementada sin reproceso: `authorize_vector_manifest.py` requiere `--confirm-public-vector`, conserva el SHA-256 del manifest auditado y habilita únicamente el mismo PMTiles regional. Contra el run real `20260718T212932Z` verificó 10.892 entidades y 22.050.380 B, sin tocar geometrías ni tiles.
-- [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: verificado el 2026-07-18, `stata01` no tiene `rclone.conf` efectivo ni `R2_REMOTE`, `R2_BUCKET`, `R2_PREFIX` o `PUBLIC_TILES_BASE`; faltan esos insumos externos.
+- [!] Bucket R2, dominio, CORS y prueba HTTP `Range` pública: revalidado el 2026-07-18. `stata01` no tiene `rclone.conf` efectivo ni `R2_REMOTE`, `R2_BUCKET`, `R2_PREFIX` o `PUBLIC_TILES_BASE`; la laptop sólo tiene un remoto rclone Google Drive (sin object storage) y CI no referencia R2. Faltan esos insumos externos.
 
 ## 3. Datos y entorno remoto
 
@@ -93,3 +93,4 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 | 2026-07-18 | Runtime local reproducible | Node 24.18.0/npm 11.16.0 se trasladan desde `/tmp` a `herramientas/local-config/runtimes/`; el gate lo detecta automáticamente o acepta `NODE24_HOME`, sin cambiar Node 26 del sistema. |
 | 2026-07-18 | Promoción de estado sin recálculo | Se agrega `authorize_vector_manifest.py`: exige confirmación explícita, copia sólo el JSON, conserva SHA-256 del manifest fuente y habilita el PMTiles Atacama ya auditado. Cuatro pruebas directas, la transición integrada hacia el manifest de sitio y la ejecución contra el run real pasan. |
 | 2026-07-18 | Capacidad NAS revalidada | `nas05` marca 91% de uso, con 334.696.100 KiB libres. No se inicia un nuevo build pesado sobre ese volumen; quedan intactos los artefactos que permiten promoción de metadata y despliegue cuando exista R2. |
+| 2026-07-18 | Preflight R2 local y remoto | `stata01` continúa sin remoto/variables R2; la laptop tiene sólo rclone Google Drive, sin backend de object storage, y CI no contiene variables o pipeline R2. `r2-cors.json` valida como JSON. No se infieren bucket, dominio ni credenciales. |
