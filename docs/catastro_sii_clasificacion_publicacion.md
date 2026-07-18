@@ -40,3 +40,25 @@ La capa comunal usa DPA 2023 y métricas agregadas. Los PMTiles de preview local
 están ignorados por Git y se sirven sólo desde `localhost`; el manifest versionado
 de producción continúa sin exponer la capa predial hasta que la entrega se
 promueva explícitamente.
+
+## Evidencia de redistribución a resolver antes del vector predial
+
+- **HECHO.** La [Resolución Exenta N° 8656 del
+  SII](https://www.sii.cl/documentos/resoluciones/1999/r865699.htm) describe la
+  venta de la Base de Datos Catastro y señala que toda venta se acompaña de una
+  carta compromiso que prohíbe traspasar o vender esa información a terceros.
+  También indica que la base no contiene nombre ni RUT de propietarios.
+- **INFERENCIA OPERATIVA.** Si las fuentes de este piloto se obtuvieron bajo
+  esa modalidad o una condición equivalente, publicar PMTiles que preservan
+  geometrías prediales individualizadas requeriría una autorización expresa de
+  redistribución; la reducción de atributos no sustituye ese permiso.
+- **NO VERIFICADO.** Aún no se ha incorporado el documento de adquisición de
+  estas fuentes ni una autorización posterior del SII que permita el vector
+  derivado. Tampoco se declara aquí que la resolución de 1999 sea la única
+  norma aplicable o que continúe sin modificaciones.
+
+Por tanto, se mantiene `PENDING` para el vector predial público. Para levantar
+el gate se requiere conservar, junto al run de publicación, la evidencia de la
+modalidad de adquisición y una autorización escrita aplicable a esta
+redistribución. La capa comunal agregada y el basemap OSM se evalúan por sus
+propios términos, separados de este gate.
