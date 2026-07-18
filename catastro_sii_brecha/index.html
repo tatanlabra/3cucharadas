@@ -53,19 +53,19 @@
         <label class="finder-field" for="comuna"><span class="field-label">02 · Comuna</span><span class="select-wrap"><select id="comuna" disabled><option value="">Elige una región primero</option></select></span></label>
         <p class="finder-status" id="status" role="status">Cargando datos comunales…</p>
       </div>
-      <p class="finder-note">La capa inicial muestra celdas agregadas. Los polígonos prediales experimentales, cuando existan para la región, se activan aparte y nunca cargan antes de que los solicites.</p>
+      <p class="finder-note">El visor abre la capa cartográfica auditada disponible. Las métricas agregadas y los polígonos del piloto mantienen sus fuentes y límites explícitos.</p>
     </section>
 
     <section class="card map-card reveal" aria-labelledby="map-title">
       <div class="map-head">
-        <div><span class="section-eyebrow">Concentración, no predios individuales</span><h2 id="map-title">Predios H en <span class="lead-accent" id="territory">Chile</span></h2></div>
-        <div class="map-tools"><p class="map-status" id="map-status">Preparando la capa agregada…</p><label class="parcel-toggle"><input id="parcel-layer" type="checkbox" disabled><span><strong>Polígonos H</strong><small id="parcel-layer-note">Piloto regional aún no disponible.</small></span></label></div>
+        <div><span class="section-eyebrow">Capa comunal + piloto cartográfico</span><h2 id="map-title">Mapa de <span class="lead-accent" id="territory">Chile</span></h2></div>
+        <div class="map-tools"><p class="map-status" id="map-status">Cargando mapa auditado…</p></div>
       </div>
       <div class="map-stage">
-        <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
+        <div class="map-shell"><div id="map" aria-label="Mapa comunal y piloto predial cartográfico"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando mapa…</div></div>
       </div>
       <div class="map-support">
-        <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
+        <div><h3>Cómo leer el mapa</h3><p>La capa comunal entrega el contexto nacional. Cuando existe un piloto validado, sus polígonos se muestran desde la escala definida.</p></div>
         <p>El fondo Protomaps/OpenStreetMap se sirve como PMTiles desde el origen del visor y mantiene su atribución visible. Si aún no está publicado, se conserva la capa agregada.</p>
         <p>La cartografía predial es referencial: no acredita deslindes, dominio ni límites legales.</p>
         <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>

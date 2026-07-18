@@ -559,7 +559,7 @@ main.wrap {
 #map, #density { position: absolute; inset: 0; width: 100%; height: 100%; }
 #map { z-index: 1; }
 #density { z-index: 2; pointer-events: none; mix-blend-mode: screen; }
-.map-shell.map-ready #density { opacity: 0.56; }
+.map-shell.map-ready #density, .map-shell.map-ready .map-note { display: none; }
 
 .map-note {
   position: absolute;
@@ -594,26 +594,6 @@ main.wrap {
 
 .map-tools { display: grid; justify-items: end; gap: 8px; }
 .map-tools .map-status { text-align: right; }
-.parcel-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  max-width: 300px;
-  padding: 8px 10px;
-  border: 1px solid color-mix(in srgb, var(--pink) 38%, var(--line));
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--pink) 7%, var(--surface));
-  color: var(--ink-soft);
-  cursor: pointer;
-  font-size: 0.8rem;
-  line-height: 1.2;
-}
-
-.parcel-toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--acid); }
-.parcel-toggle strong, .parcel-toggle small { display: block; }
-.parcel-toggle strong { color: var(--ink); font-size: 0.8rem; }
-.parcel-toggle small { margin-top: 2px; color: var(--muted); font-size: 0.72rem; }
-.parcel-toggle:has(input:disabled) { opacity: 0.68; cursor: not-allowed; }
 
 .metric-section { margin: 22px 0; }
 .metric-head { margin-bottom: 14px; }

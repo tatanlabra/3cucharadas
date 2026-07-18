@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authorizedParcelSource } from "../../assets/src/catastro_sii/availability";
+import { authorizedParcelSource, defaultAuthorizedParcelRegion } from "../../assets/src/catastro_sii/availability";
 import type { AppState, TilesManifest } from "../../assets/src/catastro_sii/types";
 
 const state: AppState = {
@@ -31,5 +31,11 @@ describe("parcel loading safety gate", () => {
     const authorized = { ...manifest, legal_publication_status: "AUTHORIZED_VECTOR" as const };
     expect(authorizedParcelSource(authorized, state)?.url).toBe("predios.pmtiles");
     expect(authorizedParcelSource(authorized, { ...state, regionCode: "04" })).toBeNull();
+  });
+
+  it("uses the first available authorized pilot as the default view", () => {
+    const authorized = { ...manifest, legal_publication_status: "AUTHORIZED_VECTOR" as const };
+    expect(defaultAuthorizedParcelRegion(manifest)).toBeNull();
+    expect(defaultAuthorizedParcelRegion(authorized)).toBe("03");
   });
 });
