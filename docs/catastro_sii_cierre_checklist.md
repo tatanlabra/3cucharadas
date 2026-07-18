@@ -44,6 +44,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [ ] Validar `pmtiles-show`, capa, bounds, zoom, conteos, atributos y cero geometrías inválidas.
 - [~] Medir y hacer cumplir tamaños de tesela: p50 <150 KB, p95 <500 KB, máximo <1 MB. El piloto actual mide 4,7 KB/94 KB (comunal) y 277 B/85 KB (predial) en p95/máximo; el reporte se integrará al run.
 - [ ] Pruebas de integración: nacional → Atacama → Caldera/Diego → cambio de región y liberación de source previo.
+- [x] Gate funcional unitario: una fuente predial sólo puede resolverse para una región seleccionada con `AUTHORIZED_VECTOR`; `PENDING` retorna nulo y no inicia carga.
 - [ ] Pruebas visuales y móviles, accesibilidad básica, atribución visible y métricas sincronizadas.
 
 ## 5. Staging, producción y rollback
