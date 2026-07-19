@@ -13,35 +13,35 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#070a13"}
+      "paint": {"background-color": "#eef2f3"}
     },
     {
       "id": "earth",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "earth",
-      "paint": {"fill-color": "#111928"}
+      "paint": {"fill-color": "#eef2f3"}
     },
     {
       "id": "landcover",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "landcover",
-      "paint": {"fill-color": "#17283a", "fill-opacity": 0.38}
+      "paint": {"fill-color": "#d8e5d7", "fill-opacity": 0.72}
     },
     {
       "id": "landuse",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "landuse",
-      "paint": {"fill-color": "#1c3141", "fill-opacity": 0.56}
+      "paint": {"fill-color": "#e2e9df", "fill-opacity": 0.78}
     },
     {
       "id": "water",
       "type": "fill",
       "source": "protomaps",
       "source-layer": "water",
-      "paint": {"fill-color": "#0a2032", "fill-opacity": 0.92}
+      "paint": {"fill-color": "#b8d9e7", "fill-opacity": 0.94}
     },
     {
       "id": "roads-glow",
@@ -50,10 +50,10 @@
       "source-layer": "roads",
       "filter": ["in", ["get", "kind"], ["literal", ["highway", "major_road", "minor_road"]]],
       "paint": {
-        "line-color": "#62edff",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.12, 10, 0.34, 16, 0.72],
-        "line-blur": ["interpolate", ["linear"], ["zoom"], 4, 0.35, 13, 1.8, 16, 2.8],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 10, 2.0, 16, 6.2]
+        "line-color": "#aebfc7",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.14, 10, 0.38, 16, 0.8],
+        "line-blur": ["interpolate", ["linear"], ["zoom"], 4, 0, 13, 0.25, 16, 0.45],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 10, 2.0, 16, 5.4]
       }
     },
     {
@@ -63,9 +63,9 @@
       "source-layer": "roads",
       "filter": ["in", ["get", "kind"], ["literal", ["highway", "major_road", "minor_road"]]],
       "paint": {
-        "line-color": "#f6fdff",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.3, 10, 0.76, 16, 0.96],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.2, 10, 0.62, 16, 1.75]
+        "line-color": "#ffffff",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 4, 0.35, 10, 0.88, 16, 0.98],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.22, 10, 0.72, 16, 2.0]
       }
     },
     {
@@ -83,10 +83,10 @@
         "text-allow-overlap": false
       },
       "paint": {
-        "text-color": "#f5fbff",
-        "text-halo-color": "#070a13",
-        "text-halo-width": 1.45,
-        "text-halo-blur": 0.8
+        "text-color": "#2a4352",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1.25,
+        "text-halo-blur": 0.45
       }
     }
   ]
