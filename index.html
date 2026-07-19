@@ -1,7 +1,10 @@
 ---
 layout: home
 ref: home
-permalink: /
+# Sin `permalink: /` a propósito. Un index.html en la raíz ya se sirve en `/`, y
+# declararlo hacía que jekyll-paginate generara la página 2 sobre esa misma ruta:
+# pisaba la primera y la portada terminaba mostrando el post más antiguo. Sin el
+# permalink, la paginación usa `paginate_path` y las páginas siguientes van a /page2/.
 translation_languages: [es, en]
 author_profile: true
 entries_layout: grid
