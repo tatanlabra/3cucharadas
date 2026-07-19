@@ -1,0 +1,284 @@
+/*!
+ * explorer.css · Explorador de burbujas comunal — Catastro SII / brecha UV-avalúo.
+ *
+ * Hoja hermana de assets/explorer.js. Vive aparte de style.css a propósito: la
+ * hoja principal se edita en paralelo y este componente debe poder entrar y
+ * salir sin tocarla.
+ *
+ * Las clases de color (.exp-c0…4, .exp-k0…15, .exp-cn) declaran `fill` y
+ * `background` en la misma regla: `fill` pinta los <circle> del SVG y
+ * `background` las muestras de la leyenda, con una sola fuente de verdad. Ese es
+ * el motivo de que el JS no contenga ni un color: el tema claro/oscuro se
+ * resuelve aquí y cambiar de tema no obliga a redibujar el gráfico.
+ *
+ * Convención heredada de style.css: :root es el tema oscuro y
+ * :root[data-theme="light"] sobrescribe.
+ */
+
+:root {
+  /* Rampa secuencial de 5 clases, de menor a mayor. En oscuro sube la
+     luminosidad; en claro baja. En ambos casos "más" es "más contraste contra
+     el fondo", que es lo que la vista lee como intensidad. */
+  --exp-seq-0: #2f6690;
+  --exp-seq-1: #2a92a8;
+  --exp-seq-2: #34bb9a;
+  --exp-seq-3: #7adc6a;
+  --exp-seq-4: #b8ff3c;
+
+  /* Paleta categórica de 16 regiones ordenada como espectro. Dieciséis colores
+     no son discriminables de a pares, así que se ordenan norte-sur para que se
+     lea como gradiente territorial; el nombre exacto lo da la leyenda y el
+     tooltip nativo de cada burbuja. */
+  --exp-k0: #ff7a45;
+  --exp-k1: #ff9d3c;
+  --exp-k2: #ffc23a;
+  --exp-k3: #ffe14d;
+  --exp-k4: #d7ec4a;
+  --exp-k5: #a4e34f;
+  --exp-k6: #6fd96b;
+  --exp-k7: #45cf94;
+  --exp-k8: #37c5bd;
+  --exp-k9: #37b0e0;
+  --exp-k10: #4f92ee;
+  --exp-k11: #6f78ef;
+  --exp-k12: #9166e8;
+  --exp-k13: #b45cd8;
+  --exp-k14: #d456c1;
+  --exp-k15: #ff4fd8;
+
+  --exp-nd: #5a6478;
+  /* Contorno del color del fondo: separa burbujas superpuestas sin agregar tinta. */
+  --exp-borde: rgba(7, 7, 12, 0.72);
+}
+
+:root[data-theme="light"] {
+  --exp-seq-0: #86d0c4;
+  --exp-seq-1: #46a6b4;
+  --exp-seq-2: #2b7ba4;
+  --exp-seq-3: #275186;
+  --exp-seq-4: #14305e;
+
+  --exp-k0: #c94a24;
+  --exp-k1: #c06c10;
+  --exp-k2: #a8850a;
+  --exp-k3: #8f8a00;
+  --exp-k4: #74981a;
+  --exp-k5: #4f9226;
+  --exp-k6: #2a8c43;
+  --exp-k7: #158066;
+  --exp-k8: #107c80;
+  --exp-k9: #16709f;
+  --exp-k10: #2a5db2;
+  --exp-k11: #4849b4;
+  --exp-k12: #6a3cab;
+  --exp-k13: #8a3391;
+  --exp-k14: #a32b80;
+  --exp-k15: #bd1c8f;
+
+  --exp-nd: #98a5b6;
+  --exp-borde: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- controles ---------- */
+
+.exp-controles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 13px 16px;
+  align-items: end;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 34%, var(--line));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-3) 88%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), var(--shadow-sm);
+}
+
+.exp-campo {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 820;
+}
+
+.exp-campo-titulo {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.exp-select-wrap { position: relative; display: block; }
+
+.exp-select-wrap::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  color: var(--cyan);
+  content: "⌄";
+  font-size: 1.15rem;
+  font-weight: 900;
+  pointer-events: none;
+  transform: translateY(-57%);
+}
+
+.exp-campo select {
+  width: 100%;
+  min-height: 52px;
+  appearance: none;
+  padding: 11px 44px 11px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 720;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.exp-campo select:hover { border-color: color-mix(in srgb, var(--cyan) 75%, var(--line)); background: var(--surface); }
+
+/* El outline transparente conserva el diseño y sobrevive al modo de alto
+   contraste forzado, donde los box-shadow se descartan. */
+.exp-campo select:focus {
+  border-color: var(--cyan);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--ring);
+}
+
+.exp-casilla {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 52px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.exp-casilla input { width: 16px; height: 16px; margin: 0; accent-color: var(--cyan); }
+.exp-casilla input:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
+
+/* ---------- lienzo ---------- */
+
+.exp-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+.exp-rejilla { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 4; }
+.exp-marca { fill: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; }
+.exp-eje-titulo { fill: var(--ink-soft); font-size: 12.5px; font-weight: 780; }
+
+.exp-burbuja {
+  fill-opacity: 0.62;
+  stroke: var(--exp-borde);
+  stroke-width: 1;
+  transition: fill-opacity 120ms ease, stroke-width 120ms ease;
+}
+
+/* Refuerza la burbuja bajo el cursor mientras el navegador arma el tooltip nativo. */
+.exp-burbuja:hover { fill-opacity: 0.92; stroke-width: 2; }
+
+/* ---------- leyenda y estado ---------- */
+
+.exp-leyenda { margin-top: 14px; }
+.exp-leyenda-titulo {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.exp-leyenda-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exp-leyenda-lista li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 720;
+}
+
+.exp-muestra {
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--exp-borde);
+  border-radius: 50%;
+  flex: none;
+}
+
+.exp-estatus {
+  min-height: 1.4em;
+  margin: 12px 2px 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 720;
+}
+
+/* ---------- clases de color compartidas por SVG y leyenda ---------- */
+
+.exp-c0 { fill: var(--exp-seq-0); background: var(--exp-seq-0); }
+.exp-c1 { fill: var(--exp-seq-1); background: var(--exp-seq-1); }
+.exp-c2 { fill: var(--exp-seq-2); background: var(--exp-seq-2); }
+.exp-c3 { fill: var(--exp-seq-3); background: var(--exp-seq-3); }
+.exp-c4 { fill: var(--exp-seq-4); background: var(--exp-seq-4); }
+.exp-cn { fill: var(--exp-nd); background: var(--exp-nd); }
+
+.exp-k0 { fill: var(--exp-k0); background: var(--exp-k0); }
+.exp-k1 { fill: var(--exp-k1); background: var(--exp-k1); }
+.exp-k2 { fill: var(--exp-k2); background: var(--exp-k2); }
+.exp-k3 { fill: var(--exp-k3); background: var(--exp-k3); }
+.exp-k4 { fill: var(--exp-k4); background: var(--exp-k4); }
+.exp-k5 { fill: var(--exp-k5); background: var(--exp-k5); }
+.exp-k6 { fill: var(--exp-k6); background: var(--exp-k6); }
+.exp-k7 { fill: var(--exp-k7); background: var(--exp-k7); }
+.exp-k8 { fill: var(--exp-k8); background: var(--exp-k8); }
+.exp-k9 { fill: var(--exp-k9); background: var(--exp-k9); }
+.exp-k10 { fill: var(--exp-k10); background: var(--exp-k10); }
+.exp-k11 { fill: var(--exp-k11); background: var(--exp-k11); }
+.exp-k12 { fill: var(--exp-k12); background: var(--exp-k12); }
+.exp-k13 { fill: var(--exp-k13); background: var(--exp-k13); }
+.exp-k14 { fill: var(--exp-k14); background: var(--exp-k14); }
+.exp-k15 { fill: var(--exp-k15); background: var(--exp-k15); }
+
+/* ---------- preferencias del sistema ---------- */
+
+/* El explorador no anima nada por diseño; sólo quedan las transiciones de hover
+   y foco, que aquí se retiran. */
+@media (prefers-reduced-motion: reduce) {
+  .exp-campo select,
+  .exp-burbuja { transition: none; }
+}
+
+@media (forced-colors: active) {
+  .exp-campo select:focus,
+  .exp-casilla input:focus-visible { outline: 3px solid Highlight; }
+  .exp-burbuja { fill-opacity: 1; }
+}
+
+@media (max-width: 560px) {
+  .exp-controles { padding: 14px; }
+  .exp-casilla { min-height: 0; margin-top: -4px; }
+}
