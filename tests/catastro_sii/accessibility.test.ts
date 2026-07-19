@@ -13,14 +13,16 @@ const runtime = vi.hoisted(() => {
   class FakeMap {
     static readonly instances: FakeMap[] = [];
     readonly canvas = new FakeCanvas();
+    readonly controls: unknown[] = [];
 
     constructor(readonly options: Record<string, unknown>) {
       FakeMap.instances.push(this);
     }
 
     getCanvas(): FakeCanvas { return this.canvas; }
-    addControl(): void {}
+    addControl(control: unknown): void { this.controls.push(control); }
     once(_event: string, callback: () => void): void { callback(); }
+    getStyle(): { layers: [] } { return { layers: [] }; }
   }
 
   return { FakeCanvas, FakeMap };
@@ -30,7 +32,8 @@ vi.mock("maplibre-gl", () => ({
   default: {
     addProtocol: vi.fn(),
     Map: runtime.FakeMap,
-    NavigationControl: class {}
+    NavigationControl: class {},
+    ScaleControl: class {}
   },
   LngLatBounds: class {}
 }));
@@ -68,6 +71,7 @@ describe("accesibilidad del visor cartográfico", () => {
       "Popup.Close": "Cerrar"
     }));
     expect(MAP_LOCALE["Map.Title"]).toBe("Mapa interactivo de brechas catastrales");
+    expect(map?.controls).toHaveLength(2);
   });
 
   it("mantiene un canvas regional, nombrado, descrito y alcanzable por teclado", () => {

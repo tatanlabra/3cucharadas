@@ -6,7 +6,7 @@
   "basemap": {
     "available": true,
     "url": "basemap_chile_20260718T212932Z.pmtiles",
-    "style_url": "basemap_chile_20260718T212932Z.style.json",
+    "style_url": "basemap_chile_20260719T124804Z.style.json",
     "attribution": "© OpenStreetMap contributors"
   },
   "communes": {
@@ -40,6 +40,10 @@
           -70.0048828,
           -26.3524979
         ]
+      },
+      "commune_default_views": {
+        "03102": {"center": [-70.8267, -27.0674], "zoom": 15.4},
+        "03202": {"center": [-70.0494, -26.3670], "zoom": 15.3}
       },
       "pilot": true,
       "scope": "Caldera (03102) y Diego de Almagro (03202)",

@@ -5,7 +5,11 @@
   const base = new URL("/assets/dist/catastro_sii/", window.location.origin);
   const manifestUrl = new URL("manifest.json", base);
 
+  let loaded = false;
+
   async function load() {
+    if (loaded) return;
+    loaded = true;
     const response = await fetch(manifestUrl, { cache: "no-cache" });
     if (!response.ok) throw new Error(`manifest Vite no disponible (${response.status})`);
     const manifest = await response.json();
@@ -26,8 +30,12 @@
     document.body.append(script);
   }
 
-  load().catch(() => {
-    const status = document.getElementById("map-status");
-    if (status) status.textContent = "La vista agregada sigue disponible; el mapa vectorial se activará al publicar el artefacto.";
+  window.addEventListener("catastro:map-eligibility", (event) => {
+    if (!event.detail?.eligible) return;
+    load().catch(() => {
+      loaded = false;
+      const status = document.getElementById("map-status");
+      if (status) status.textContent = "No fue posible iniciar el mapa cartográfico publicado.";
+    });
   });
 })();

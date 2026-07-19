@@ -6,6 +6,12 @@ export type LegalPublicationStatus =
 
 export type Bounds = [number, number, number, number];
 
+/** Camera-only metadata. It guides the initial view and never alters geometry. */
+export interface CommuneDefaultView {
+  center: [number, number];
+  zoom: number;
+}
+
 export interface TileSource {
   available: boolean;
   url: string;
@@ -19,6 +25,7 @@ export interface TileSource {
   pilot?: boolean;
   communes?: string[];
   commune_focus_bounds?: Record<string, Bounds>;
+  commune_default_views?: Record<string, CommuneDefaultView>;
 }
 
 export interface TilesManifest {

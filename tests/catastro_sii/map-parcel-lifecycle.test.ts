@@ -6,6 +6,7 @@ vi.mock("maplibre-gl", () => ({
     addProtocol: vi.fn(),
     Map: class {},
     NavigationControl: class {},
+    ScaleControl: class {},
     Popup: class {}
   },
   LngLatBounds: class {}
@@ -87,6 +88,8 @@ class FakeMap {
   on(): void {}
   setFilter(): void {}
   setPaintProperty(): void {}
+  setLayoutProperty(): void {}
+  getStyle(): { layers: [] } { return { layers: [] }; }
 }
 
 function controllerFor(map: FakeMap): MapController {

@@ -1,5 +1,5 @@
 import maplibregl, { LngLatBounds } from "maplibre-gl";
-import { Protocol } from "pmtiles";
+import { PMTiles, Protocol } from "pmtiles";
 import { authorizedParcelSource } from "./availability";
 import {
   addCommuneLayers,
@@ -9,18 +9,59 @@ import {
   COMMUNE_LINE_ID,
   COMMUNE_SOURCE_ID,
   PARCEL_FILL_ID,
+  PARCEL_LINE_ID,
   PARCEL_SOURCE_ID,
   removeParcelLayers
 } from "./layers";
-import type { AppState, Bounds, TileSource, TilesManifest } from "./types";
+import type { RangeResponse, Source } from "pmtiles";
+import type { AppState, Bounds, CommuneDefaultView, TileSource, TilesManifest } from "./types";
 
 let protocolInstalled = false;
+let pmtilesProtocol: Protocol | null = null;
 
 const FALLBACK_STYLE: maplibregl.StyleSpecification = {
   version: 8,
   sources: {},
   layers: [{ id: "background", type: "background", paint: { "background-color": "#0c1320" } }]
 };
+
+/**
+ * Jekyll/WEBrick may answer a cached byte-range request with 304 and no body.
+ * PMTiles needs the bytes for every range, so local development disables the
+ * browser HTTP cache for this transport. It affects delivery only; archive
+ * contents remain untouched.
+ */
+class NoStoreFetchSource implements Source {
+  constructor(private readonly url: string) {}
+
+  getKey(): string { return this.url; }
+
+  async getBytes(offset: number, length: number, signal?: AbortSignal): Promise<RangeResponse> {
+    const response = await fetch(this.url, {
+      signal,
+      cache: "no-store",
+      headers: { Range: `bytes=${offset}-${offset + length - 1}` }
+    });
+    if (!response.ok) throw new Error(`PMTiles respondió ${response.status}`);
+    const contentLength = response.headers.get("Content-Length");
+    if (response.status === 200 && (!contentLength || Number(contentLength) > length)) {
+      throw new Error("El origen PMTiles no soporta byte ranges");
+    }
+    return {
+      data: await response.arrayBuffer(),
+      etag: response.headers.get("ETag") ?? undefined,
+      cacheControl: response.headers.get("Cache-Control") ?? "no-store",
+      expires: response.headers.get("Expires") ?? undefined
+    };
+  }
+}
+
+function registerPmtiles(url: string): void {
+  if (!pmtilesProtocol || pmtilesProtocol.get(url)) return;
+  const hostname = new URL(url).hostname;
+  const useNoStore = hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]";
+  pmtilesProtocol.add(new PMTiles(useNoStore ? new NoStoreFetchSource(url) : url));
+}
 
 export const MAP_LOCALE = {
   "Map.Title": "Mapa interactivo de brechas catastrales",
@@ -78,6 +119,11 @@ function rewritePmtilesStyle(style: maplibregl.StyleSpecification, manifest: Til
   if (typeof copy.sprite === "string" && !/^https?:\/\//.test(copy.sprite)) {
     copy.sprite = assetUrl(manifest, copy.sprite);
   }
+  for (const source of Object.values(copy.sources ?? {})) {
+    if (source.type === "vector" && "url" in source && typeof source.url === "string" && source.url.startsWith("pmtiles://")) {
+      registerPmtiles(source.url.slice("pmtiles://".length));
+    }
+  }
   return copy;
 }
 
@@ -90,12 +136,15 @@ async function getBaseStyle(manifest: TilesManifest): Promise<maplibregl.StyleSp
 
 export class MapController {
   private readonly map: maplibregl.Map;
+  private readonly baseLayerIds: string[];
   private communeSourceReady = false;
   private parcelRegion: string | null = null;
   private parcelPopupBound = false;
+  private defaultView: CommuneDefaultView | null = null;
 
   private constructor(map: maplibregl.Map, private readonly manifest: TilesManifest) {
     this.map = map;
+    this.baseLayerIds = map.getStyle().layers?.map((layer) => layer.id) ?? [];
   }
 
   private overlayBeforeId(): string | undefined {
@@ -106,6 +155,7 @@ export class MapController {
     if (!protocolInstalled) {
       const protocol = new Protocol();
       maplibregl.addProtocol("pmtiles", protocol.tile);
+      pmtilesProtocol = protocol;
       protocolInstalled = true;
     }
     const style = await getBaseStyle(manifest).catch(() => FALLBACK_STYLE);
@@ -119,6 +169,7 @@ export class MapController {
     });
     configureMapCanvasAccessibility(map.getCanvas());
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+    map.addControl(new maplibregl.ScaleControl({ maxWidth: 120, unit: "metric" }), "bottom-left");
     await new Promise<void>((resolve) => map.once("load", () => resolve()));
     return new MapController(map, manifest);
   }
@@ -126,7 +177,9 @@ export class MapController {
   addCommunes(onClick: (communeCode: string) => void): boolean {
     const source = this.manifest.communes;
     if (!source.available) return false;
-    addPmtilesSource(this.map, COMMUNE_SOURCE_ID, source, tileUrl(this.manifest, source.url));
+    const url = tileUrl(this.manifest, source.url);
+    registerPmtiles(url);
+    addPmtilesSource(this.map, COMMUNE_SOURCE_ID, source, url);
     addCommuneLayers(this.map, source, this.overlayBeforeId());
     this.communeSourceReady = true;
     this.map.on("click", COMMUNE_FILL_ID, (event) => {
@@ -176,6 +229,34 @@ export class MapController {
     this.fitBounds(focused, 18);
   }
 
+  /** Use the agreed municipal-capital camera as the reset point. */
+  setDefaultView(view: CommuneDefaultView): void {
+    this.defaultView = view;
+    this.map.easeTo({ center: view.center, zoom: view.zoom, duration: 450 });
+  }
+
+  resetView(): void {
+    if (this.defaultView) this.map.easeTo({ center: this.defaultView.center, zoom: this.defaultView.zoom, duration: 450 });
+  }
+
+  setBasemapVisible(visible: boolean): void {
+    for (const id of this.baseLayerIds) {
+      if (this.map.getLayer(id)) this.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
+    }
+  }
+
+  setCommunesVisible(visible: boolean): void {
+    for (const id of [COMMUNE_FILL_ID, COMMUNE_LINE_ID]) {
+      if (this.map.getLayer(id)) this.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
+    }
+  }
+
+  setParcelsVisible(visible: boolean): void {
+    for (const id of [PARCEL_FILL_ID, PARCEL_LINE_ID]) {
+      if (this.map.getLayer(id)) this.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
+    }
+  }
+
   setParcelLayer(state: AppState): boolean {
     const region = state.regionCode;
     const source = authorizedParcelSource(this.manifest, state);
@@ -186,7 +267,9 @@ export class MapController {
     }
     if (this.parcelRegion !== region) {
       removeParcelLayers(this.map);
-      addPmtilesSource(this.map, PARCEL_SOURCE_ID, source, tileUrl(this.manifest, source.url));
+      const url = tileUrl(this.manifest, source.url);
+      registerPmtiles(url);
+      addPmtilesSource(this.map, PARCEL_SOURCE_ID, source, url);
       addParcelLayers(this.map, source, state.parcelOpacity, this.overlayBeforeId());
       this.parcelRegion = region;
       if (!this.parcelPopupBound) {
