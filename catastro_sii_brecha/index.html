@@ -17,6 +17,9 @@
   <meta property="og:image" content="https://3cucharadas.cl/catastro_sii_brecha/assets/og-brecha.svg">
   <meta property="og:image:alt" content="Brecha residencial del Catastro SII: Python, OSM y celdas neón.">
   <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Brecha residencial del Catastro SII","url":"https://3cucharadas.cl/catastro_sii_brecha/","applicationCategory":"DataVisualization","inLanguage":"es-CL","creator":{"@type":"Organization","name":"3 Cucharadas"}}</script>
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("catastro-brecha-theme")||"dark"}catch(_){}</script>
   <link rel="stylesheet" href="style.css">
@@ -28,10 +31,12 @@
     <span class="grain" aria-hidden="true"></span>
     <div class="wrap">
       <div class="hero-top">
-        <span class="brand"><span class="brand-mark" aria-hidden="true">3</span> Catastro SII · Visor abierto</span>
+        <a class="brand" href="../" aria-label="Volver a 3 Cucharadas"><span class="brand-mark"><img src="../assets/images/favicons/favicon-96x96.png" width="24" height="24" alt=""></span><span>Catastro SII · Visor abierto</span></a>
         <div class="hero-tools">
-          <span class="status-chip"><span class="dot" aria-hidden="true"></span> Corte SII 2026</span>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar apariencia" aria-pressed="true" title="Cambiar apariencia"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span></button>
+          <span class="status-chip"><span class="dot" aria-hidden="true"></span><span id="map-version-date">Versión: preparando sello…</span></span>
+          <!-- site-ui.js fija aria-pressed y aria-label según el tema efectivo. Codificarlos
+               aquí anunciaría un estado falso cuando localStorage guarda la apariencia clara. -->
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar apariencia" title="Cambiar apariencia"><span class="moon" aria-hidden="true">☾</span><span class="sun" aria-hidden="true">☀</span></button>
         </div>
       </div>
 
@@ -48,25 +53,56 @@
 
     <section class="card finder-card reveal" id="explorar" aria-labelledby="explorar-title">
       <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Parte por una región. El visor carga la comuna elegida, sus celdas agregadas y las métricas que permiten leer el registro sin sobreinterpretarlo.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando la primera comuna…</span></p></div>
-      <div class="finder-fields" aria-label="Seleccionar territorio">
+      <div class="finder-fields" role="group" aria-label="Seleccionar territorio">
         <label class="finder-field" for="region"><span class="field-label">01 · Región</span><span class="select-wrap"><select id="region"><option value="">Cargando regiones…</option></select></span></label>
         <label class="finder-field" for="comuna"><span class="field-label">02 · Comuna</span><span class="select-wrap"><select id="comuna" disabled><option value="">Elige una región primero</option></select></span></label>
         <p class="finder-status" id="status" role="status">Cargando datos comunales…</p>
       </div>
-      <p class="finder-note">La capa inicial muestra celdas agregadas. Los polígonos prediales experimentales, cuando existan para la región, se activan aparte y nunca cargan antes de que los solicites.</p>
+      <p class="finder-note" id="map-availability-note"><strong>*</strong> indica una comuna con mapa cartográfico publicado. Las métricas agregadas mantienen sus fuentes y límites explícitos.</p>
     </section>
 
-    <section class="card map-card reveal" aria-labelledby="map-title">
+    <section class="card map-card reveal" id="cartographic-map" aria-labelledby="map-title" hidden>
       <div class="map-head">
-        <div><span class="section-eyebrow">Concentración, no predios individuales</span><h2 id="map-title">Predios H en <span class="lead-accent" id="territory">Chile</span></h2></div>
-        <div class="map-tools"><p class="map-status" id="map-status">Preparando la capa agregada…</p><label class="parcel-toggle"><input id="parcel-layer" type="checkbox" disabled><span><strong>Polígonos H</strong><small id="parcel-layer-note">Piloto regional aún no disponible.</small></span></label></div>
+        <div><span class="section-eyebrow">Capa comunal + piloto cartográfico</span><h2 id="map-title">Mapa de <span class="lead-accent" id="territory">Chile</span></h2></div>
+        <div class="map-tools">
+          <fieldset class="map-layer-picker" aria-label="Capas del mapa">
+            <legend>Capas</legend>
+            <label><input id="map-layer-basemap" type="checkbox" checked> OSM</label>
+            <label><input id="map-layer-communes" type="checkbox" checked> Comunas</label>
+            <label><input id="map-layer-parcels" type="checkbox" checked> Predios</label>
+            <!-- Oculto hasta que exista data/uv/<cut>.json y el handler que lo carga.
+                 Publicar el control antes que su comportamiento daría un checkbox
+                 muerto; la capa y su leyenda ya están listas debajo esperándolo. -->
+            <label hidden id="map-layer-uv-label"><input id="map-layer-uv" type="checkbox"> Unidades vecinales</label>
+          </fieldset>
+          <button class="map-reset" id="map-reset" type="button"><span aria-hidden="true">⌖</span> Recentrar</button>
+          <p class="map-status" id="map-status">Cargando mapa auditado…</p>
+        </div>
       </div>
       <div class="map-stage">
-        <div class="map-shell"><div id="map" aria-label="Mapa de celdas de densidad de predios habitacionales"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando celdas…</div></div>
+        <div class="map-shell"><div id="map" aria-label="Mapa comunal y piloto predial cartográfico"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando mapa…</div></div>
+      </div>
+      <!-- Leyenda bivariada: 16 celdas de color puro, sin JavaScript. Los colores
+           salen de BIVARIATE_PALETTE en layers.ts; si se tocan allá, hay que tocarlos
+           aquí. El grid vive en style.css con las mismas variables. -->
+      <div class="uv-legend" id="uv-legend" hidden>
+        <h3 class="uv-legend-title">Avalúo por hogar × vulnerabilidad</h3>
+        <div class="uv-legend-body">
+          <span class="uv-axis-y" aria-hidden="true">Más vulnerable ↑</span>
+          <div class="uv-matrix" role="img" aria-label="Matriz de 16 combinaciones: cuatro cuartiles de avalúo por hogar en el eje horizontal y cuatro cuartiles de vulnerabilidad en el vertical. La esquina superior derecha marca las unidades vecinales muy vulnerables donde el catastro registra alto avalúo.">
+            <span class="c11"></span><span class="c12"></span><span class="c13"></span><span class="c14"></span>
+            <span class="c21"></span><span class="c22"></span><span class="c23"></span><span class="c24"></span>
+            <span class="c31"></span><span class="c32"></span><span class="c33"></span><span class="c34"></span>
+            <span class="c41"></span><span class="c42"></span><span class="c43"></span><span class="c44"></span>
+          </div>
+          <span class="uv-axis-x" aria-hidden="true">Mayor avalúo →</span>
+        </div>
+        <p class="uv-legend-note">Cuartiles nacionales sobre las 6.891 unidades vecinales. El cuartil 1 del IGVUST es el de <strong>mayor</strong> vulnerabilidad. Cada cuartil agrupa un cuarto de las unidades vecinales, no un cuarto de la población: el más vulnerable reúne el 25% de las unidades y solo el 12,5% de las personas, así que el mapa sobrerrepresenta territorio rural disperso.</p>
       </div>
       <div class="map-support">
-        <div><h3>Cómo leer la luz</h3><p>Cada marca neón es una celda que reúne predios H válidamente ubicados. No representa un domicilio.</p></div>
-        <p>Cuando se configure MapTiler, el fondo oscuro incorpora calles de OpenStreetMap con atribución visible. Sin teselas externas, se conserva la capa agregada.</p>
+        <div><h3>Cómo leer el mapa</h3><p>La capa comunal entrega el contexto nacional. Cuando existe un piloto validado, sus polígonos se muestran desde la escala definida.</p></div>
+        <p>El fondo Protomaps/OpenStreetMap se sirve como PMTiles desde el origen del visor y mantiene su atribución visible. Si aún no está publicado, se conserva la capa agregada.</p>
+        <p><strong>Leyenda:</strong> los predios se ordenan por avalúo fiscal con una escala azul discreta. La cartografía es referencial: no acredita deslindes, dominio ni límites legales.</p>
         <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
       </div>
     </section>
@@ -128,7 +164,7 @@
     </section>
   </main>
 
-  <footer class="foot"><div class="wrap"><p><strong>Catastro SII · Visor abierto.</strong> Hecho con Python, Parquet y datos abiertos por <a href="https://3cucharadas.cl">3 Cucharadas</a>.</p><p class="small">Fondo cartográfico: <span id="attribution">modo degradado sin teselas externas</span> · Datos agregados por comuna y celdas · <a href="metodologia.html">Ficha técnica completa</a></p></div></footer>
-  <script src="assets/map-config.js"></script><script src="assets/site-ui.js"></script><script src="app.js"></script>
+  <footer class="foot"><div class="wrap"><p><strong>Catastro SII · Visor abierto.</strong> Hecho con Python, Parquet y datos abiertos por <a href="https://3cucharadas.cl">3 Cucharadas</a>.</p><p class="small">Fondo cartográfico: <span id="attribution">modo degradado sin teselas externas</span> · Datos agregados por comuna y celdas · <a href="metodologia.html">Ficha técnica completa</a></p><p class="small map-version" id="map-version" role="status">Versión: preparando sello de datos…</p></div></footer>
+  <script src="assets/map-config.js"></script><script src="assets/site-ui.js"></script><script src="app.js"></script><script src="assets/map-app-loader.js"></script>
 </body>
 </html>

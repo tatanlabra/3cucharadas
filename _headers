@@ -1,0 +1,24 @@
+# Cabeceras de seguridad para GitLab Pages (soportado desde 16.7).
+#
+# La CSP va en Report-Only a propósito: el sitio carga GA4, Disqus y Font Awesome
+# desde terceros, y el visor Catastro SII necesita workers y Range requests a R2.
+# Publicar una CSP efectiva sin haber observado violaciones reales rompería el visor
+# en producción. Promover a Content-Security-Policy sólo tras una publicación
+# completa con la consola limpia.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.disquscdn.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://*.disquscdn.com https://referrer.disqus.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://tiles.3cucharadas.cl https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.disqus.com; worker-src 'self' blob:; frame-src https://disqus.com; form-action 'self'
+
+# Los PMTiles y el manifest se sirven desde R2, no desde Pages. Aquí sólo viajan los
+# datos agregados comunales, que son públicos por diseño.
+/assets/data/*
+  X-Content-Type-Options: nosniff
+  Access-Control-Allow-Origin: *
+
+# Artefactos Vite con hash en el nombre: inmutables por construcción.
+/assets/dist/*
+  Cache-Control: public, max-age=31536000, immutable
