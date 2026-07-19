@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts" / "catastro_sii" / "promote_manifest.py"
 AUTHORIZE_SCRIPT = ROOT / "scripts" / "catastro_sii" / "authorize_vector_manifest.py"
+DEFAULT_VIEWS = ROOT / "scripts" / "catastro_sii" / "commune_default_views.json"
 
 
 def tiles_manifest(territories_file: str = "territories.json") -> dict[str, object]:
@@ -43,17 +44,27 @@ def tiles_manifest(territories_file: str = "territories.json") -> dict[str, obje
 
 
 class PromoteManifestTests(unittest.TestCase):
-    def run_promotion(self, directory: Path, manifest: Path, output: Path, territories: Path) -> subprocess.CompletedProcess[str]:
+    def run_promotion(
+        self,
+        directory: Path,
+        manifest: Path,
+        output: Path,
+        territories: Path,
+        commune_views: Path | None = None,
+    ) -> subprocess.CompletedProcess[str]:
+        arguments = [
+            sys.executable, str(SCRIPT),
+            "--tiles-manifest", str(manifest),
+            "--output", str(output),
+            "--tiles-base", "https://tiles.example.test/catastro-sii",
+            "--basemap-file", "basemap_chile_20260718.pmtiles",
+            "--basemap-style", "basemap_chile_20260718.style.json",
+            "--territories-output", str(territories),
+        ]
+        if commune_views is not None:
+            arguments += ["--commune-views", str(commune_views)]
         return subprocess.run(
-            [
-                sys.executable, str(SCRIPT),
-                "--tiles-manifest", str(manifest),
-                "--output", str(output),
-                "--tiles-base", "https://tiles.example.test/catastro-sii",
-                "--basemap-file", "basemap_chile_20260718.pmtiles",
-                "--basemap-style", "basemap_chile_20260718.style.json",
-                "--territories-output", str(territories),
-            ],
+            arguments,
             cwd=directory,
             text=True,
             capture_output=True,
@@ -131,6 +142,78 @@ class PromoteManifestTests(unittest.TestCase):
                 promoted["parcel_regions"]["03"]["url"],
                 "predios_region_03_20260718.pmtiles",
             )
+
+    def test_promotion_preserves_commune_default_views(self) -> None:
+        """Una promoción no puede degradar la cámara inicial de las comunas piloto.
+
+        El campo se editó a mano una vez y una re-ejecución del runbook lo borraba en
+        silencio, dejando ambos pilotos abriendo en una vista regional inútil.
+        """
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            manifest = directory / "tiles_manifest.json"
+            built = tiles_manifest()
+            built["results"]["parcel_regions"]["03"]["communes"] = ["03102", "03202"]
+            manifest.write_text(json.dumps(built), encoding="utf-8")
+            (directory / "territories.json").write_text('{"communes": {}}\n', encoding="utf-8")
+            views = directory / "views.json"
+            views.write_text(
+                json.dumps({"03": {"03102": {"center": [-70.8267, -27.0674], "zoom": 15.4}}}),
+                encoding="utf-8",
+            )
+            output = directory / "site" / "manifest.json"
+
+            result = self.run_promotion(
+                directory, manifest, output, directory / "site" / "territories.json", views
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            promoted = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(
+                promoted["parcel_regions"]["03"]["commune_default_views"],
+                {"03102": {"center": [-70.8267, -27.0674], "zoom": 15.4}},
+            )
+
+    def test_promotion_drops_views_for_unauthorized_communes(self) -> None:
+        """Una cámara de configuración no puede filtrar una comuna fuera del piloto."""
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            manifest = directory / "tiles_manifest.json"
+            built = tiles_manifest()
+            built["results"]["parcel_regions"]["03"]["communes"] = ["03102"]
+            manifest.write_text(json.dumps(built), encoding="utf-8")
+            (directory / "territories.json").write_text('{"communes": {}}\n', encoding="utf-8")
+            views = directory / "views.json"
+            views.write_text(
+                json.dumps({
+                    "03": {
+                        "03102": {"center": [-70.8267, -27.0674], "zoom": 15.4},
+                        "03101": {"center": [-70.3314, -27.3665], "zoom": 15.0},
+                    }
+                }),
+                encoding="utf-8",
+            )
+            output = directory / "site" / "manifest.json"
+
+            result = self.run_promotion(
+                directory, manifest, output, directory / "site" / "territories.json", views
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            promoted = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(
+                list(promoted["parcel_regions"]["03"]["commune_default_views"]), ["03102"]
+            )
+
+    def test_versioned_views_cover_every_pilot_commune(self) -> None:
+        """La configuración versionada debe cubrir el piloto vigente de Atacama."""
+        self.assertTrue(DEFAULT_VIEWS.is_file(), f"Falta la configuración de cámaras: {DEFAULT_VIEWS}")
+        configured = json.loads(DEFAULT_VIEWS.read_text(encoding="utf-8"))
+        for commune in ("03102", "03202"):
+            view = configured.get("03", {}).get(commune)
+            self.assertIsInstance(view, dict, f"Sin cámara configurada para {commune}")
+            self.assertEqual(len(view["center"]), 2)
+            self.assertIsInstance(view["zoom"], (int, float))
 
 
 if __name__ == "__main__":

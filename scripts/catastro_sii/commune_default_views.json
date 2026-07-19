@@ -1,0 +1,13 @@
+{
+  "_comment": "Cámara inicial por comuna piloto, en el núcleo urbano de la capital comunal. Son metadatos de vista, no una edición geométrica: no alteran la geometría fuente. promote_manifest.py sólo promueve las comunas que el manifest de tiles ya autorizó, así que añadir una entrada aquí no habilita una comuna por sí solo.",
+  "03": {
+    "03102": {
+      "center": [-70.8267, -27.0674],
+      "zoom": 15.4
+    },
+    "03202": {
+      "center": [-70.0494, -26.3670],
+      "zoom": 15.3
+    }
+  }
+}
