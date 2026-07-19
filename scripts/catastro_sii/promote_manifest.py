@@ -17,8 +17,38 @@ from pathlib import Path
 from typing import Any
 
 
+DEFAULT_VIEWS = Path(__file__).resolve().parent / "commune_default_views.json"
+
+
 def read(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def commune_default_views(path: Path, region: str, authorized: list[str]) -> dict[str, Any]:
+    """Cámaras iniciales versionadas, restringidas a las comunas ya autorizadas.
+
+    La configuración es sólo metadatos de vista.  Filtrar por `authorized` mantiene el
+    invariante del piloto: una entrada añadida aquí no puede exponer una comuna que el
+    manifest de tiles no habilitó.
+    """
+    if not path.is_file():
+        raise RuntimeError(f"Configuración de cámaras comunales ausente: {path}")
+    configured = read(path).get(region, {})
+    views: dict[str, Any] = {}
+    for commune in authorized:
+        view = configured.get(commune)
+        if not isinstance(view, dict):
+            continue
+        center = view.get("center")
+        zoom = view.get("zoom")
+        if not (isinstance(center, list) and len(center) == 2):
+            raise RuntimeError(f"Cámara inválida para {commune}: 'center' debe ser [lon, lat]")
+        if not all(isinstance(value, (int, float)) for value in center):
+            raise RuntimeError(f"Cámara inválida para {commune}: 'center' no es numérico")
+        if not isinstance(zoom, (int, float)):
+            raise RuntimeError(f"Cámara inválida para {commune}: 'zoom' no es numérico")
+        views[commune] = {"center": [float(center[0]), float(center[1])], "zoom": float(zoom)}
+    return views
 
 
 def tile_entry(result: dict[str, Any]) -> dict[str, Any]:
@@ -54,6 +84,12 @@ def main() -> None:
     parser.add_argument("--basemap-file", required=True)
     parser.add_argument("--basemap-style", required=True)
     parser.add_argument("--territories-output", type=Path, required=True)
+    parser.add_argument(
+        "--commune-views",
+        type=Path,
+        default=DEFAULT_VIEWS,
+        help="Configuración versionada de cámaras iniciales por comuna piloto.",
+    )
     args = parser.parse_args()
 
     built = read(args.tiles_manifest)
@@ -73,13 +109,17 @@ def main() -> None:
 
     parcels: dict[str, Any] = {}
     if pilot:
+        authorized = pilot.get("communes", [])
+        views = commune_default_views(args.commune_views, "03", authorized)
         parcels["03"] = {
             **tile_entry(pilot),
             "pilot": True,
             "scope": "Caldera (03102) y Diego de Almagro (03202)",
-            "communes": pilot.get("communes", []),
+            "communes": authorized,
             "attribution": "Fuente predial: Servicio de Impuestos Internos. Cartografía referencial."
         }
+        if views:
+            parcels["03"]["commune_default_views"] = views
     payload = {
         "schema_version": 1,
         "generated_at": datetime.now(UTC).isoformat(),
