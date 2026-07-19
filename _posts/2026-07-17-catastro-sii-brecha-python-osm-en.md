@@ -1,5 +1,7 @@
 ---
 layout: single
+# Retirado de publicación: se reescribe antes de volver a salir.
+published: false
 title: "A cadastre is not a census: measuring residential coverage with Python and OSM"
 subtitle: "H records, Parquet, neon cells, and one rule against inventing residents"
 date: 2026-07-17 15:00:00 -0400

@@ -1,5 +1,7 @@
 ---
 layout: single
+# Retirado de publicación: se reescribe antes de volver a salir.
+published: false
 title: "Un catastro no es un censo: medir la brecha residencial con Python y OSM"
 subtitle: "Predios H, Parquet, celdas neón y una regla simple para no inventar habitantes"
 date: 2026-07-17 15:00:00 -0400
