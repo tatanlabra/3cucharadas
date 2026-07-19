@@ -1,11 +1,13 @@
 import "maplibre-gl/dist/maplibre-gl.css";
-import { defaultAuthorizedParcelRegion } from "./availability";
+import { defaultAuthorizedParcelRegion, uvLayerAvailable } from "./availability";
+import type { UvIndex } from "./availability";
 import { MapController } from "./map";
 import { manifestUrlForLocation } from "./preview";
 import { regionCodeForName, replaceUrl, stateFromUrl, toDataCommuneCode } from "./state";
 import type { AppState, Bounds, CommuneRecord, TilesManifest } from "./types";
 
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
+const uvIndexUrl = "/catastro_sii_brecha/data/uv/index.json";
 
 type TerritoryIndex = { communes?: Record<string, { bounds?: [number, number, number, number] }> };
 
@@ -33,8 +35,13 @@ export class CatastroMapApplication {
   private pilotControlSyncAttempts = 0;
   private selectedRow: CommuneRecord | null = null;
 
-  private constructor(private readonly manifest: TilesManifest, private readonly rows: CommuneRecord[]) {
+  private constructor(
+    private readonly manifest: TilesManifest,
+    private readonly rows: CommuneRecord[],
+    uvIndex: UvIndex | null = null
+  ) {
     this.state = stateFromUrl(rows);
+    this.uvIndex = uvIndex;
   }
 
   static async start(): Promise<CatastroMapApplication> {
@@ -45,7 +52,9 @@ export class CatastroMapApplication {
       : { communes: {} };
     const boundsByCommune = territories.communes ?? {};
     const enriched = rows.map((row) => ({ ...row, bounds: boundsByCommune[row.codigo_comuna.padStart(5, "0")]?.bounds ?? null }));
-    return new CatastroMapApplication(manifest, enriched);
+    // El indice puede no existir todavia: la capa UV degrada a ausente, no a error.
+    const uvIndex = await json<UvIndex>(uvIndexUrl).catch(() => null);
+    return new CatastroMapApplication(manifest, enriched, uvIndex);
   }
 
   async mount(): Promise<void> {
@@ -139,6 +148,7 @@ export class CatastroMapApplication {
         ? `Mapa de ${row.comuna}: capa predial regional referencial activa.`
         : `Mapa comunal de ${row.comuna}. No hay capa predial autorizada para esta región.`
     );
+    void this.refreshUvLayer();
   }
 
   private activateDefaultParcelPilot(): boolean {
@@ -195,11 +205,54 @@ export class CatastroMapApplication {
     window.setTimeout(() => this.syncPilotControls(row), 50);
   }
 
+  /** Índice de comunas con capa UV publicada. `null` mientras no se haya cargado. */
+  private uvIndex: UvIndex | null = null;
+
+  private currentTheme(): "light" | "dark" {
+    return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  }
+
+  /** Carga la capa UV de la comuna activa, si tiene una publicada. */
+  private async refreshUvLayer(): Promise<void> {
+    const label = document.getElementById("map-layer-uv-label");
+    const legend = document.getElementById("uv-legend");
+    const code = this.state.communeCode;
+    const available = uvLayerAvailable(this.uvIndex, code);
+
+    // El control solo aparece donde hay datos: un checkbox que no puede hacer nada
+    // confunde más de lo que informa.
+    if (label) label.hidden = !available;
+    if (!available || !this.state.uvLayerVisible) {
+      await this.map?.setUvLayer(null);
+      if (legend) legend.hidden = true;
+      return;
+    }
+    const loaded = await this.map?.setUvLayer(`data/uv/${code}.json`, this.currentTheme());
+    if (legend) legend.hidden = !loaded;
+    if (!loaded) setStatus("La capa de unidades vecinales no está disponible para esta comuna.");
+  }
+
   private bindMapTools(): void {
     const base = document.getElementById("map-layer-basemap");
     const communes = document.getElementById("map-layer-communes");
     const parcels = document.getElementById("map-layer-parcels");
+    const uv = document.getElementById("map-layer-uv");
     const reset = document.getElementById("map-reset");
+
+    if (uv instanceof HTMLInputElement) {
+      uv.addEventListener("change", () => {
+        this.state.uvLayerVisible = uv.checked;
+        void this.refreshUvLayer();
+        setStatus(uv.checked
+          ? "Unidades vecinales: avalúo por hogar contra vulnerabilidad del IGVUST."
+          : "Capa de unidades vecinales oculta.");
+      });
+    }
+    // El relleno bivariado es una expresión que depende del tema, así que hay que
+    // reconstruirla cuando el usuario cambia de claro a oscuro.
+    window.addEventListener("catastro:theme", () => {
+      if (this.state.uvLayerVisible) void this.refreshUvLayer();
+    });
 
     if (base instanceof HTMLInputElement) {
       base.addEventListener("change", () => this.map?.setBasemapVisible(base.checked));
