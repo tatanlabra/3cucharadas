@@ -70,6 +70,10 @@
             <label><input id="map-layer-basemap" type="checkbox" checked> OSM</label>
             <label><input id="map-layer-communes" type="checkbox" checked> Comunas</label>
             <label><input id="map-layer-parcels" type="checkbox" checked> Predios</label>
+            <!-- Oculto hasta que exista data/uv/<cut>.json y el handler que lo carga.
+                 Publicar el control antes que su comportamiento daría un checkbox
+                 muerto; la capa y su leyenda ya están listas debajo esperándolo. -->
+            <label hidden id="map-layer-uv-label"><input id="map-layer-uv" type="checkbox"> Unidades vecinales</label>
           </fieldset>
           <button class="map-reset" id="map-reset" type="button"><span aria-hidden="true">⌖</span> Recentrar</button>
           <p class="map-status" id="map-status">Cargando mapa auditado…</p>
@@ -77,6 +81,23 @@
       </div>
       <div class="map-stage">
         <div class="map-shell"><div id="map" aria-label="Mapa comunal y piloto predial cartográfico"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando mapa…</div></div>
+      </div>
+      <!-- Leyenda bivariada: 16 celdas de color puro, sin JavaScript. Los colores
+           salen de BIVARIATE_PALETTE en layers.ts; si se tocan allá, hay que tocarlos
+           aquí. El grid vive en style.css con las mismas variables. -->
+      <div class="uv-legend" id="uv-legend" hidden>
+        <h3 class="uv-legend-title">Avalúo por hogar × vulnerabilidad</h3>
+        <div class="uv-legend-body">
+          <span class="uv-axis-y" aria-hidden="true">Más vulnerable ↑</span>
+          <div class="uv-matrix" role="img" aria-label="Matriz de 16 combinaciones: cuatro cuartiles de avalúo por hogar en el eje horizontal y cuatro cuartiles de vulnerabilidad en el vertical. La esquina superior derecha marca las unidades vecinales muy vulnerables donde el catastro registra alto avalúo.">
+            <span class="c11"></span><span class="c12"></span><span class="c13"></span><span class="c14"></span>
+            <span class="c21"></span><span class="c22"></span><span class="c23"></span><span class="c24"></span>
+            <span class="c31"></span><span class="c32"></span><span class="c33"></span><span class="c34"></span>
+            <span class="c41"></span><span class="c42"></span><span class="c43"></span><span class="c44"></span>
+          </div>
+          <span class="uv-axis-x" aria-hidden="true">Mayor avalúo →</span>
+        </div>
+        <p class="uv-legend-note">Cuartiles nacionales sobre las 6.891 unidades vecinales. El cuartil 1 del IGVUST es el de <strong>mayor</strong> vulnerabilidad. Cada cuartil agrupa un cuarto de las unidades vecinales, no un cuarto de la población: el más vulnerable reúne el 25% de las unidades y solo el 12,5% de las personas, así que el mapa sobrerrepresenta territorio rural disperso.</p>
       </div>
       <div class="map-support">
         <div><h3>Cómo leer el mapa</h3><p>La capa comunal entrega el contexto nacional. Cuando existe un piloto validado, sus polígonos se muestran desde la escala definida.</p></div>

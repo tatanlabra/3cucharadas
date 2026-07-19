@@ -46,7 +46,9 @@ const pilotState: AppState = {
   communeCode: "3102",
   activeMetric: "cobertura_censo_pct",
   parcelLayerVisible: true,
-  parcelOpacity: 0.28
+  parcelOpacity: 0.28,
+  mapScale: "predial",
+  uvLayerVisible: false
 };
 
 /**

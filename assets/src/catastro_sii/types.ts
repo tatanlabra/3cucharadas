@@ -53,10 +53,32 @@ export interface CommuneRecord {
   bounds?: Bounds | null;
 }
 
+/** Escala del mapa. La capa UV es un gate independiente del piloto predial. */
+export type MapScale = "predial" | "uv";
+
+/** Propiedades del GeoJSON de Unidades Vecinales que produce el pipeline uv_avaluo.
+ *  `qv` es el cuartil IGVUST nacional, donde 1 = MAYOR vulnerabilidad (convención
+ *  MDSF vigente desde enero de 2026). `qa` es el cuartil nacional de avalúo por
+ *  hogar: mismo alcance que `qv`, que es lo que hace legítimo cruzarlos. */
+export interface UvFeatureProperties {
+  uv: number;
+  nombre: string | null;
+  qv: number | null;
+  qa: number | null;
+  pob: number;
+  hog: number;
+  urb: number;
+  av: number;
+  avh: number;
+  pv: number;
+}
+
 export interface AppState {
   regionCode: string | null;
   communeCode: string | null;
   activeMetric: "cobertura_censo_pct" | "brecha_equivalente_censo";
   parcelLayerVisible: boolean;
   parcelOpacity: number;
+  mapScale: MapScale;
+  uvLayerVisible: boolean;
 }
