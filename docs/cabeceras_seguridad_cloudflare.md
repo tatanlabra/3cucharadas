@@ -1,3 +1,22 @@
+> ⚠️ **Este documento tiene errores. Usa el runbook operativo:**
+> [`docs/runbook_cloudflare_headers.md`](runbook_cloudflare_headers.md)
+>
+> Cuatro datos de aquí son incorrectos o quedaron obsoletos, y uno de ellos habría
+> roto el visor cartográfico:
+> 1. La regla de `/assets/data/` con `Access-Control-Allow-Origin: *` **sin filtro de
+>    host** alcanzaba también a `tiles.3cucharadas.cl`, que no sirve CORS con comodín
+>    sino con allowlist condicional, y habría pisado `access-control-expose-headers`,
+>    que PMTiles necesita para las Range requests.
+> 2. El campo de expresión no es `hostname` sino **`http.host`** — el original era
+>    inválido y la regla no habría podido guardarse.
+> 3. La ruta de UI cambió: **`Rules → Overview → Create rule`**.
+> 4. Instalar el Origin Certificate *antes* de activar el proxy deja el origen
+>    presentando un certificado que solo Cloudflare reconoce: error TLS para todos
+>    los visitantes directos.
+>
+> Este archivo se conserva por el diagnóstico de la causa raíz, que sigue siendo
+> válido: GitLab Pages no soporta `_headers`.
+
 # Cabeceras de seguridad: por qué `_headers` no basta y cómo aplicarlas
 
 Estado: **el sitio se publica hoy sin política de seguridad.** El archivo `_headers`
