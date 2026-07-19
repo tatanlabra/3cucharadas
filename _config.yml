@@ -138,6 +138,9 @@ footer:
 include:
   - .htaccess
   - _pages
+  # Cabeceras de seguridad de GitLab Pages. Jekyll ignora los archivos con guion bajo
+  # inicial, así que sin esta línea el artefacto se publica sin ninguna política.
+  - _headers
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"

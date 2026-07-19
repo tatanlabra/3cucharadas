@@ -32,6 +32,12 @@ codekit-config.json
 # añaden por accidente al repositorio ni al despliegue GitLab Pages.
 /assets/data/catastro_sii/local/
 
+# Entorno local. El runbook R2 crea un .env con credenciales de Cloudflare;
+# solo la plantilla sin valores viaja en el repositorio.
+.env
+.env.*
+!.env.example
+
 # OS/editores
 .DS_Store
 *.swp
