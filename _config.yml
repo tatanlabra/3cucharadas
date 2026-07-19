@@ -145,6 +145,10 @@ include:
   # inicial, así que sin esta línea el artefacto se publica sin ninguna política.
   - _headers
 exclude:
+  # Visor Catastro SII retirado de publicación mientras se pule. Para volver a
+  # publicarlo basta con quitar estas dos líneas y el published:false de los posts.
+  - catastro_sii_brecha
+  - assets/dist/catastro_sii
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor
