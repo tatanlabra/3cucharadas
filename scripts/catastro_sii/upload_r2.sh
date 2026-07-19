@@ -10,6 +10,9 @@ set -euo pipefail
 [[ "$#" -gt 0 ]] || { printf '%s\n' 'Uso: upload_r2.sh <activo-publico> [activo-publico...]' >&2; exit 2; }
 command -v rclone >/dev/null
 command -v curl >/dev/null
+# range_check depende de rg; sin él fallaría siempre, con un diagnóstico engañoso.
+command -v rg >/dev/null || { printf '%s\n' 'Falta ripgrep (rg): range_check no puede verificar cabeceras' >&2; exit 2; }
+command -v jq >/dev/null || { printf '%s\n' 'Falta jq: fetch_check no puede validar el estilo JSON' >&2; exit 2; }
 
 remote="${R2_REMOTE}:${R2_BUCKET}/${R2_PREFIX%/}"
 range_check() {
@@ -27,6 +30,28 @@ range_check() {
     passed=1
   fi
   rm -f "${headers}"
+  [[ "${passed}" -eq 1 ]]
+}
+
+# El estilo y la fuente no admiten Range check, y sin esto se subían sin verificar
+# absolutamente nada: quedaban públicos aunque el objeto llegara truncado o sin CORS.
+fetch_check() {
+  local object_name="$1" headers body passed=0
+  headers="$(mktemp "${TMPDIR:-/tmp}/catastro-r2-get.XXXXXX")"
+  body="$(mktemp "${TMPDIR:-/tmp}/catastro-r2-body.XXXXXX")"
+  if curl --fail --silent --show-error --dump-header "${headers}" --output "${body}" \
+      --header 'Origin: https://3cucharadas.cl' \
+      "${PUBLIC_TILES_BASE%/}/${object_name}" \
+    && rg -qi '^HTTP/[0-9.]+ 200' "${headers}" \
+    && rg -qi '^access-control-allow-origin: https://3cucharadas\.cl' "${headers}" \
+    && [[ -s "${body}" ]]; then
+    passed=1
+    # Un .style.json truncado sigue siendo "no vacío"; exigir que parsee.
+    if [[ "${object_name}" == *.json ]]; then
+      jq -e . "${body}" >/dev/null 2>&1 || passed=0
+    fi
+  fi
+  rm -f "${headers}" "${body}"
   [[ "${passed}" -eq 1 ]]
 }
 
@@ -55,7 +80,17 @@ for asset in "$@"; do
       ;;
   esac
   rclone copyto "${asset}" "${remote}/${object_name}" --checksum --immutable --progress
-  [[ "${name}" == *.pmtiles ]] && range_check "${object_name}"
+  if [[ "${name}" == *.pmtiles ]]; then
+    range_check "${object_name}" || {
+      printf 'FALLO Range/CORS tras subir %s\n' "${object_name}" >&2
+      exit 4
+    }
+  else
+    fetch_check "${object_name}" || {
+      printf 'FALLO GET/CORS tras subir %s\n' "${object_name}" >&2
+      exit 4
+    }
+  fi
 done
 
-printf '%s\n' 'Activos versionados copiados y cada PMTiles verificó GET Range/CORS. Promueve el manifest sólo después de este PASS.'
+printf '%s\n' 'Activos versionados copiados y verificados sobre el origen público (PMTiles por Range, resto por GET). Promueve el manifest sólo después de este PASS.'

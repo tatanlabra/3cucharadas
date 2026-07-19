@@ -11,9 +11,20 @@ version="${2:?Uso: prepare_basemap.sh /ruta/salida version}"
 : "${BASEMAP_BBOXES:=-76,-56,-66,-17;-110.5,-28.5,-108.5,-26.5;-81,-34.5,-78,-32}"
 : "${PMTILES_IMAGE:=docker.io/protomaps/go-pmtiles@sha256:dcec7fe1bdd371e28289f2e7cef419a0a402289e02640c094570d54beb29fa8a}"
 : "${CONTAINER_RUNTIME:=podman}"
-: "${CONTAINER_RUNROOT:=/tmp/catastro-sii-pmtiles-runroot-${version}}"
-: "${CONTAINER_STORAGE_ROOT:=/tmp/catastro-sii-pmtiles-storage-${version}}"
+# Vacías por defecto: se resuelven con mktemp dentro de run_pmtiles. Una ruta fija y
+# predecible en /tmp permitiría a otro usuario del host pre-crear el storage root.
+: "${CONTAINER_RUNROOT:=}"
+: "${CONTAINER_STORAGE_ROOT:=}"
 : "${FONT_BASE_URL:=https://protomaps.github.io/basemaps-assets/fonts}"
+# Hash esperado del glifo Noto. Se publica en R2, así que una fuente alterada aguas
+# arriba llegaría a producción sin este pin. Vacío = registrar sin verificar.
+: "${FONT_PBF_SHA256:=}"
+
+# `version` compone nombres de archivo y el patrón de sed que inyecta el estilo.
+[[ "${version}" =~ ^[0-9]{8}T[0-9]{6}Z$ ]] || {
+  printf 'version inválida: %s (se espera AAAAMMDDTHHMMSSZ)\n' "${version}" >&2
+  exit 2
+}
 
 [[ "${BASEMAP_MAXZOOM}" =~ ^[0-9]+$ ]] && (( BASEMAP_MAXZOOM >= 0 && BASEMAP_MAXZOOM <= 15 )) || {
   printf 'BASEMAP_MAXZOOM inválido: %s\n' "${BASEMAP_MAXZOOM}" >&2
@@ -23,7 +34,6 @@ mkdir -p "${output_dir}"
 tile="${output_dir}/basemap_chile_${version}.pmtiles"
 style="${output_dir}/basemap_chile_${version}.style.json"
 report="${output_dir}/basemap_chile_${version}.report.json"
-storage_root="${CONTAINER_STORAGE_ROOT}"
 
 run_pmtiles() {
   if [[ -n "${PMTILES_BIN:-}" ]]; then
@@ -34,9 +44,11 @@ run_pmtiles() {
     printf 'Falta PMTILES_BIN o runtime de contenedor: %s\n' "${CONTAINER_RUNTIME}" >&2
     exit 2
   }
-  mkdir -p "${storage_root}" "${CONTAINER_RUNROOT}"
+  [[ -n "${CONTAINER_STORAGE_ROOT}" ]] || CONTAINER_STORAGE_ROOT="$(mktemp -d -t catastro-sii-storage-XXXXXXXXXX)"
+  [[ -n "${CONTAINER_RUNROOT}" ]] || CONTAINER_RUNROOT="$(mktemp -d -t catastro-sii-runroot-XXXXXXXXXX)"
+  mkdir -p "${CONTAINER_STORAGE_ROOT}" "${CONTAINER_RUNROOT}"
   "${CONTAINER_RUNTIME}" \
-    --root "${storage_root}" \
+    --root "${CONTAINER_STORAGE_ROOT}" \
     --runroot "${CONTAINER_RUNROOT}" \
     --storage-driver vfs \
     run --rm \
@@ -77,22 +89,32 @@ test -s "${tile}"
 run_pmtiles verify "/data/$(basename "${tile}")"
 
 mkdir -p "${output_dir}/fonts/Noto Sans Regular"
+font_pbf="${output_dir}/fonts/Noto Sans Regular/0-255.pbf"
 curl --fail --location --silent --show-error \
   "${FONT_BASE_URL}/Noto%20Sans%20Regular/0-255.pbf" \
-  --output "${output_dir}/fonts/Noto Sans Regular/0-255.pbf"
-test -s "${output_dir}/fonts/Noto Sans Regular/0-255.pbf"
+  --output "${font_pbf}"
+test -s "${font_pbf}"
+font_sha256="$(sha256sum "${font_pbf}" | cut -d' ' -f1)"
+if [[ -n "${FONT_PBF_SHA256}" && "${font_sha256}" != "${FONT_PBF_SHA256}" ]]; then
+  printf 'Glifo Noto no coincide con el hash pinneado.\n  esperado: %s\n  obtenido: %s\n' \
+    "${FONT_PBF_SHA256}" "${font_sha256}" >&2
+  rm -f "${font_pbf}"
+  exit 3
+fi
+[[ -n "${FONT_PBF_SHA256}" ]] \
+  || printf 'Aviso: glifo Noto sin pin. Fijar FONT_PBF_SHA256=%s para verificarlo.\n' "${font_sha256}" >&2
 
 sed "s/__BASEMAP_PM_TILES__/$(basename "${tile}")/g" \
   "$(dirname "$0")/protomaps-basemap-style.template.json" > "${style}"
 
-python3 - "${report}" "${tile}" "${style}" "${PROTOMAPS_SOURCE}" "${PMTILES_IMAGE}" "${BASEMAP_MAXZOOM}" "${BASEMAP_BBOXES}" <<'PY'
+python3 - "${report}" "${tile}" "${style}" "${PROTOMAPS_SOURCE}" "${PMTILES_IMAGE}" "${BASEMAP_MAXZOOM}" "${BASEMAP_BBOXES}" "${font_sha256}" <<'PY'
 from __future__ import annotations
 import hashlib
 import json
 import sys
 from pathlib import Path
 
-report, tile, style, source, image, maxzoom, bboxes = sys.argv[1:]
+report, tile, style, source, image, maxzoom, bboxes, font_sha256 = sys.argv[1:]
 def sha256(path: str) -> str:
     digest = hashlib.sha256()
     with open(path, "rb") as handle:
@@ -106,7 +128,7 @@ Path(report).write_text(json.dumps({
     "bboxes": bboxes.split(";"),
     "tile": {"file": Path(tile).name, "bytes": Path(tile).stat().st_size, "sha256": sha256(tile)},
     "style": {"file": Path(style).name, "sha256": sha256(style)},
-    "font": {"file": "fonts/Noto Sans Regular/0-255.pbf"},
+    "font": {"file": "fonts/Noto Sans Regular/0-255.pbf", "sha256": font_sha256},
 }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 PY
 
