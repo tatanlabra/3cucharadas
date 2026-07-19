@@ -97,6 +97,17 @@ end
 source_maps = Dir.glob(File.join(site_dir, "**", "*.map"))
 abort "Source maps are public: #{source_maps.join(', ')}" unless source_maps.empty?
 
+# Los PMTiles de revisión viven en una ruta ignorada por Git, pero Jekyll sí los copia
+# al artefacto: el preview local los necesita same-origin. En CI nunca deberían existir,
+# así que su aparición significa que entraron al repositorio o que el runner arrastra
+# caché sucia. Publicarlos serían ~665 MB de teselas que pertenecen a R2, no a Pages.
+if ENV["CI"]
+  local_tiles = Dir.glob(File.join(site_dir, "assets", "data", "catastro_sii", "local", "**", "*")).select { |entry| File.file?(entry) }
+  unless local_tiles.empty?
+    abort "Local review tiles leaked into the deploy artifact (#{local_tiles.length} files): #{local_tiles.first(3).join(', ')}"
+  end
+end
+
 missing_references = []
 extract_references = lambda do |body|
   values = body.scan(/\b(?:src|href|poster|content)=["']([^"']+)["']/i).flatten
