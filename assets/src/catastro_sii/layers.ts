@@ -38,13 +38,17 @@ export function addCommuneLayers(map: maplibregl.Map, source: TileSource, before
     paint: {
       "fill-color": [
         "case",
-        ["!", ["has", "cobertura_censo_pct"]], "#667085",
-        ["<", ["get", "cobertura_censo_pct"], 80], "#4c78a8",
-        ["<", ["get", "cobertura_censo_pct"], 100], "#72b7b2",
-        ["<", ["get", "cobertura_censo_pct"], 120], "#f2cf5b",
-        "#e45756"
+        ["!", ["has", "cobertura_censo_pct"]], "#98a7b0",
+        ["<", ["get", "cobertura_censo_pct"], 80], "#b8c8d2",
+        ["<", ["get", "cobertura_censo_pct"], 100], "#9bbbc1",
+        ["<", ["get", "cobertura_censo_pct"], 120], "#6f9fa7",
+        "#4e7f89"
       ],
-      "fill-opacity": 0.48
+      // La fuente comunal corta en z12; más allá MapLibre sobre-escala esa tesela y el
+      // relleno cubre el viewport completo con un velo plano que no distingue nada y
+      // apaga el basemap y los predios. Se desvanece justo donde entra la capa predial
+      // (z13). La capa sigue existiendo: mantiene el click de selección comunal.
+      "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.28, 13, 0.05, 14, 0]
     }
   }, beforeId);
   map.addLayer({
@@ -52,7 +56,8 @@ export function addCommuneLayers(map: maplibregl.Map, source: TileSource, before
     type: "line",
     source: COMMUNE_SOURCE_ID,
     "source-layer": source.source_layer,
-    paint: { "line-color": "#d9e6ef", "line-opacity": 0.72, "line-width": 0.75 }
+    // El borde sí orienta a zoom alto —dice dónde termina la comuna— y no lava color.
+    paint: { "line-color": "#5f7786", "line-opacity": 0.65, "line-width": 0.75 }
   }, beforeId);
 }
 
@@ -73,9 +78,9 @@ export function addParcelLayers(map: maplibregl.Map, source: TileSource, opacity
     paint: {
       "fill-color": [
         "interpolate", ["linear"], ["to-number", ["get", "avaluo_fiscal_clp"], 0],
-        0, "#7d37be", 25_000_000, "#ff55d7", 100_000_000, "#ffe47d"
+        0, "#d6e3e7", 25_000_000, "#94b8c7", 100_000_000, "#3d7896"
       ],
-      "fill-opacity": opacity
+      "fill-opacity": Math.max(opacity, 0.52)
     }
   }, beforeId);
   map.addLayer({
@@ -84,6 +89,6 @@ export function addParcelLayers(map: maplibregl.Map, source: TileSource, opacity
     source: PARCEL_SOURCE_ID,
     "source-layer": source.source_layer,
     minzoom: source.minzoom,
-    paint: { "line-color": "#ffd7f6", "line-opacity": 0.8, "line-width": 0.55 }
+    paint: { "line-color": "#315f78", "line-opacity": 0.82, "line-width": 0.65 }
   }, beforeId);
 }

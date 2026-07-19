@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authorizedParcelSource, defaultAuthorizedParcelRegion } from "../../assets/src/catastro_sii/availability";
+import { authorizedParcelCommuneCodes, authorizedParcelSource, defaultAuthorizedParcelRegion } from "../../assets/src/catastro_sii/availability";
 import type { AppState, TilesManifest } from "../../assets/src/catastro_sii/types";
 
 const state: AppState = {
@@ -33,9 +33,29 @@ describe("parcel loading safety gate", () => {
     expect(authorizedParcelSource(authorized, { ...state, regionCode: "04" })).toBeNull();
   });
 
+  it("does not expose a regional PMTiles outside its authorized pilot communes", () => {
+    const authorized = {
+      ...manifest,
+      legal_publication_status: "AUTHORIZED_VECTOR" as const,
+      parcel_regions: { "03": { ...manifest.parcel_regions["03"], communes: ["03102"] } }
+    };
+    expect(authorizedParcelSource(authorized, { ...state, communeCode: "3102" })?.url).toBe("predios.pmtiles");
+    expect(authorizedParcelSource(authorized, { ...state, communeCode: "3101" })).toBeNull();
+  });
+
   it("uses the first available authorized pilot as the default view", () => {
     const authorized = { ...manifest, legal_publication_status: "AUTHORIZED_VECTOR" as const };
     expect(defaultAuthorizedParcelRegion(manifest)).toBeNull();
     expect(defaultAuthorizedParcelRegion(authorized)).toBe("03");
+  });
+
+  it("exposes only authorized pilot communes for map selectors", () => {
+    const authorized = {
+      ...manifest,
+      legal_publication_status: "AUTHORIZED_VECTOR" as const,
+      parcel_regions: { "03": { ...manifest.parcel_regions["03"], communes: ["03102", "03202"] } }
+    };
+    expect([...authorizedParcelCommuneCodes(authorized)]).toEqual(["03102", "03202"]);
+    expect([...authorizedParcelCommuneCodes(manifest)]).toEqual([]);
   });
 });

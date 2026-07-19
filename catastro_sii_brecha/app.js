@@ -2,7 +2,7 @@
   "use strict";
 
   const $ = (selector) => document.querySelector(selector);
-  const state = { communes: [], regions: [], selected: null, cells: null, requestId: 0 };
+  const state = { communes: [], regions: [], selected: null, cells: null, requestId: 0, mapCommuneCodes: new Set(), mapRegions: new Set() };
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
   const money = (value) => value == null ? "No disponible" : `$${number.format(value)}`;
@@ -10,6 +10,64 @@
     const element = $(selector);
     if (element) element.textContent = value;
   };
+  const sharedCode = (code) => String(code).padStart(5, "0");
+  const hasPublishedMap = (row) => state.mapCommuneCodes.has(sharedCode(row.codigo_comuna));
+
+  function formatVersionTimestamp(value) {
+    if (!value) return "Versión: sin sello de publicación disponible";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "Versión: sin sello de publicación disponible";
+    const parts = new Intl.DateTimeFormat("es-CL", {
+      timeZone: "America/Santiago",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true
+    }).formatToParts(date);
+    const valueFor = (type) => parts.find((part) => part.type === type)?.value || "";
+    const period = valueFor("dayPeriod").toUpperCase().replace(/[.\s]/g, "") || "AM";
+    return `Versión: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")} ${valueFor("hour")}:${valueFor("minute")} ${period}`;
+  }
+
+  function formatVersionDate(value) {
+    if (!value) return "Versión: sin sello disponible";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "Versión: sin sello disponible";
+    const parts = new Intl.DateTimeFormat("es-CL", {
+      timeZone: "America/Santiago",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    }).formatToParts(date);
+    const valueFor = (type) => parts.find((part) => part.type === type)?.value || "";
+    return `Versión: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")}`;
+  }
+
+  function configurePublishedMaps(manifest) {
+    const published = manifest?.legal_publication_status === "AUTHORIZED_VECTOR";
+    for (const source of Object.values(manifest?.parcel_regions || {})) {
+      if (!published || !source?.available || !Array.isArray(source.communes)) continue;
+      for (const code of source.communes) state.mapCommuneCodes.add(sharedCode(code));
+    }
+    for (const row of state.communes) {
+      if (hasPublishedMap(row)) state.mapRegions.add(row.region);
+    }
+    set("#map-version", formatVersionTimestamp(manifest?.generated_at));
+    set("#map-version-date", formatVersionDate(manifest?.generated_at));
+  }
+
+  function updateMapVisibility(row) {
+    const eligible = hasPublishedMap(row);
+    const section = $("#cartographic-map");
+    if (section) section.hidden = !eligible;
+    set("#map-availability-note", eligible
+      ? `* ${row.comuna} tiene mapa cartográfico publicado.`
+      : "* indica una comuna con mapa cartográfico publicado. Esta comuna conserva sus métricas agregadas.");
+    window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible, row } }));
+    return eligible;
+  }
 
   function renderCanvas(data) {
     const canvas = $("#density");
@@ -93,7 +151,12 @@
     state.selected = row;
     $("#comuna").value = code;
     updateMetrics(row);
-    window.dispatchEvent(new CustomEvent("catastro:selection", { detail: { row } }));
+    const mapEligible = updateMapVisibility(row);
+    if (mapEligible) window.dispatchEvent(new CustomEvent("catastro:selection", { detail: { row } }));
+    if (!mapEligible) {
+      state.cells = null;
+      return;
+    }
     set("#map-note", "Cargando celdas agregadas…");
     try {
       const response = await fetch(`data/${row.mapa.path}`, { cache: "force-cache" });
@@ -119,7 +182,7 @@
     for (const row of rows) {
       const option = document.createElement("option");
       option.value = row.codigo_comuna;
-      option.textContent = row.comuna;
+      option.textContent = `${row.comuna}${hasPublishedMap(row) ? " *" : ""}`;
       select.append(option);
     }
     select.disabled = !rows.length;
@@ -131,14 +194,17 @@
 
   async function boot() {
     try {
-      const [manifest, communes, regions] = await Promise.all([
+      const publishedManifestUrl = window.CATASTRO_MAP_CONFIG?.publishedManifestUrl || "/assets/data/catastro_sii/manifest.json";
+      const [manifest, communes, regions, publishedManifest] = await Promise.all([
         fetch("data/manifest.json"),
         fetch("data/comunas.json"),
-        fetch("data/regiones.json")
+        fetch("data/regiones.json"),
+        fetch(publishedManifestUrl).then((response) => response.ok ? response.json() : null).catch(() => null)
       ]);
       if (![manifest, communes, regions].every((response) => response.ok)) throw new Error("datos incompletos");
       state.communes = await communes.json();
       state.regions = await regions.json();
+      configurePublishedMaps(publishedManifest);
       updateNationalSummary(state.communes);
 
       const regionSelect = $("#region");
@@ -146,7 +212,7 @@
       for (const region of state.regions) {
         const option = document.createElement("option");
         option.value = region.region;
-        option.textContent = `${region.region} (${region.comunas})`;
+        option.textContent = `${region.region}${state.mapRegions.has(region.region) ? " *" : ""} (${region.comunas})`;
         regionSelect.append(option);
       }
       regionSelect.addEventListener("change", () => populateCommunes(regionSelect.value));
