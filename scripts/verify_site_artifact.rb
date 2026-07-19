@@ -46,8 +46,10 @@ end
 
 microsite = "catastro_sii_brecha"
 microsite_dir = File.join(site_dir, microsite)
+catastro_data_dir = File.join(site_dir, "assets", "data", "catastro_sii")
+catastro_bundle_dir = File.join(site_dir, "assets", "dist", "catastro_sii")
 if Dir.exist?(microsite_dir)
-  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
+  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js assets/map-app-loader.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
     abort "Catastro SII Brecha asset is missing: #{relative}" unless File.file?(File.join(microsite_dir, relative))
   end
   abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))
@@ -75,6 +77,14 @@ if Dir.exist?(microsite_dir)
   index = File.read(File.join(microsite_dir, "index.html"))
   abort "Catastro SII Brecha canonical URL is missing" unless index.include?("https://3cucharadas.cl/catastro_sii_brecha/")
   abort "Catastro SII Brecha unexpectedly exposes a configured MapTiler key" if index.match?(/maptiler[^<]{0,80}key=[A-Za-z0-9_-]{12,}/i)
+  map_manifest_path = File.join(catastro_bundle_dir, "manifest.json")
+  abort "Catastro SII Brecha Vite manifest is missing" unless File.file?(map_manifest_path)
+  vite_manifest = JSON.parse(File.read(map_manifest_path))
+  vite_entry = vite_manifest.fetch("assets/src/catastro_sii/main.ts")
+  vite_file = vite_entry.fetch("file")
+  abort "Catastro SII Brecha Vite entry is unsafe" if vite_file.start_with?("/") || vite_file.include?("..")
+  abort "Catastro SII Brecha Vite entry is missing" unless File.file?(File.join(catastro_bundle_dir, vite_file))
+  abort "Catastro SII Brecha tiles manifest is missing" unless File.file?(File.join(catastro_data_dir, "manifest.json"))
   microsite_bytes = 0
   Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
   abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
@@ -86,6 +96,17 @@ end
 
 source_maps = Dir.glob(File.join(site_dir, "**", "*.map"))
 abort "Source maps are public: #{source_maps.join(', ')}" unless source_maps.empty?
+
+# Los PMTiles de revisión viven en una ruta ignorada por Git, pero Jekyll sí los copia
+# al artefacto: el preview local los necesita same-origin. En CI nunca deberían existir,
+# así que su aparición significa que entraron al repositorio o que el runner arrastra
+# caché sucia. Publicarlos serían ~665 MB de teselas que pertenecen a R2, no a Pages.
+if ENV["CI"]
+  local_tiles = Dir.glob(File.join(site_dir, "assets", "data", "catastro_sii", "local", "**", "*")).select { |entry| File.file?(entry) }
+  unless local_tiles.empty?
+    abort "Local review tiles leaked into the deploy artifact (#{local_tiles.length} files): #{local_tiles.first(3).join(', ')}"
+  end
+end
 
 missing_references = []
 extract_references = lambda do |body|
@@ -203,9 +224,14 @@ end
 artifact_bytes = 0
 Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(entry) }
 unless draft_fixture_mode
-  microsite_bytes = 0
-  Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) } if Dir.exist?(microsite_dir)
-  base_artifact_bytes = artifact_bytes - microsite_bytes
+  catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir].sum do |directory|
+    next 0 unless Dir.exist?(directory)
+
+    bytes = 0
+    Find.find(directory) { |entry| bytes += File.size(entry) if File.file?(entry) }
+    bytes
+  end
+  base_artifact_bytes = artifact_bytes - catastro_bytes
   abort "Artifact outside Catastro SII Brecha exceeds #{max_bytes} bytes: #{base_artifact_bytes}" if base_artifact_bytes > max_bytes
 end
 

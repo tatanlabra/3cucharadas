@@ -20,7 +20,10 @@ baseurl       : ""
 repository    : "tatanlabra/3cucharadas"
 
 teaser        : "/assets/images/home/el-salvador-codera-hero-1600x524.webp"
-logo          : "/assets/images/3cucharadas-logo.webp"
+# El masthead lo pinta a 32px (max-height: 2rem). La variante de 128px cubre hasta
+# DPR 4 y pesa 3,5 KB en vez de 154 KB, en carga eager de cada página.
+# El archivo de 1024px se conserva para usos que sí necesiten resolución completa.
+logo          : "/assets/images/3cucharadas-logo-128.webp"
 masthead_title: "3 Cucharadas"
 words_per_minute: 200
 enable_copy_code_button: true
@@ -138,6 +141,9 @@ footer:
 include:
   - .htaccess
   - _pages
+  # Cabeceras de seguridad de GitLab Pages. Jekyll ignora los archivos con guion bajo
+  # inicial, así que sin esta línea el artefacto se publica sin ninguna política.
+  - _headers
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -164,6 +170,14 @@ exclude:
   - log
   - node_modules
   - package.json
+  - package-lock.json
+  - tsconfig.catastro.json
+  - vite.catastro.config.ts
+  - vitest.catastro.config.ts
+  - assets/src
+  - tests
+  - reports
+  - scripts/catastro_sii
   - deploy
   - difusion       # herramienta local; nunca copiar codigo/tests al sitio publico
   - docs

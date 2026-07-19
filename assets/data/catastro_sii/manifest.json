@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-19T09:43:07.314176+00:00",
+  "legal_publication_status": "AUTHORIZED_VECTOR",
+  "tiles_base": "https://tiles.3cucharadas.cl/catastro-sii",
+  "basemap": {
+    "available": true,
+    "url": "basemap_chile_20260718T212932Z.pmtiles",
+    "style_url": "basemap_chile_20260719T124804Z.style.json",
+    "attribution": "© OpenStreetMap contributors"
+  },
+  "communes": {
+    "available": true,
+    "url": "chile_comunas_brechas_20260718T212932Z.pmtiles",
+    "source_layer": "comunas",
+    "minzoom": 4,
+    "maxzoom": 12,
+    "territories_url": "/assets/data/catastro_sii/territories.json",
+    "excluded_communes": [
+      "12202"
+    ]
+  },
+  "parcel_regions": {
+    "03": {
+      "available": true,
+      "url": "predios_region_03_20260718T212932Z.pmtiles",
+      "source_layer": "predios",
+      "minzoom": 13,
+      "maxzoom": 18,
+      "commune_focus_bounds": {
+        "03102": [
+          -70.8398438,
+          -27.0982539,
+          -70.7958984,
+          -27.0591258
+        ],
+        "03202": [
+          -70.0488281,
+          -26.3918697,
+          -70.0048828,
+          -26.3524979
+        ]
+      },
+      "commune_default_views": {
+        "03102": {"center": [-70.8267, -27.0674], "zoom": 15.4},
+        "03202": {"center": [-70.0494, -26.3670], "zoom": 15.3}
+      },
+      "pilot": true,
+      "scope": "Caldera (03102) y Diego de Almagro (03202)",
+      "communes": [
+        "03102",
+        "03202"
+      ],
+      "attribution": "Fuente predial: Servicio de Impuestos Internos. Cartografía referencial."
+    }
+  }
+}
