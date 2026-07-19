@@ -11,7 +11,12 @@ import {
   PARCEL_FILL_ID,
   PARCEL_LINE_ID,
   PARCEL_SOURCE_ID,
-  removeParcelLayers
+  removeParcelLayers,
+  addUvLayers,
+  removeUvLayers,
+  UV_FILL_ID,
+  UV_LINE_ID,
+  UV_SOURCE_ID
 } from "./layers";
 import type { RangeResponse, Source } from "pmtiles";
 import type { AppState, Bounds, CommuneDefaultView, TileSource, TilesManifest } from "./types";
@@ -255,6 +260,45 @@ export class MapController {
     for (const id of [PARCEL_FILL_ID, PARCEL_LINE_ID]) {
       if (this.map.getLayer(id)) this.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
     }
+  }
+
+  setUvVisible(visible: boolean): void {
+    for (const id of [UV_FILL_ID, UV_LINE_ID]) {
+      if (this.map.getLayer(id)) this.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
+    }
+  }
+
+  /**
+   * Monta o actualiza la capa de Unidades Vecinales de una comuna.
+   *
+   * Al cambiar de comuna reemplaza los datos con `setData` en vez de retirar y volver
+   * a añadir la fuente: es más barato y evita el problema de teardown que el visor ya
+   * arrastra en la capa predial.
+   */
+  async setUvLayer(url: string | null, theme: "light" | "dark" = "light"): Promise<boolean> {
+    if (!url) {
+      removeUvLayers(this.map);
+      return false;
+    }
+    let payload: unknown;
+    try {
+      const response = await fetch(url, { cache: "force-cache" });
+      if (!response.ok) throw new Error(`${url} respondió ${response.status}`);
+      payload = await response.json();
+    } catch {
+      // Una comuna sin capa UV degrada a mapa sin capa, no a mapa roto.
+      removeUvLayers(this.map);
+      return false;
+    }
+    const collection = { type: "FeatureCollection", features: (payload as { features?: unknown[] }).features ?? [] };
+    const existing = this.map.getSource(UV_SOURCE_ID);
+    if (existing && "setData" in existing) {
+      (existing as maplibregl.GeoJSONSource).setData(collection as never);
+      return true;
+    }
+    this.map.addSource(UV_SOURCE_ID, { type: "geojson", data: collection as never });
+    addUvLayers(this.map, theme, this.overlayBeforeId());
+    return true;
   }
 
   setParcelLayer(state: AppState): boolean {

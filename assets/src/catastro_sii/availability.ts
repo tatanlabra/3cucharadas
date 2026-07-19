@@ -15,6 +15,25 @@ export function defaultAuthorizedParcelRegion(manifest: TilesManifest): string |
   return Object.entries(manifest.parcel_regions).find(([, source]) => source.available)?.[0] ?? null;
 }
 
+/** Índice de comunas con capa de Unidades Vecinales publicada. */
+export interface UvIndex {
+  communes: string[];
+  generated_at?: string;
+}
+
+/**
+ * Gate de la capa UV. Es deliberadamente **independiente** del gate predial:
+ * `authorizedParcelSource` protege microdato predial bajo autorización legal, mientras
+ * que la capa UV solo publica agregados por Unidad Vecinal. Mezclarlos haría que un
+ * cambio en la política de una capa moviera silenciosamente la otra.
+ *
+ * Por lo mismo la disponibilidad vive en su propio índice y no en `parcel_regions`.
+ */
+export function uvLayerAvailable(index: UvIndex | null, communeCode: string | null): boolean {
+  if (!index?.communes?.length || !communeCode) return false;
+  return index.communes.includes(communeCode);
+}
+
 /** Shared five-digit commune codes that may load a published parcel map. */
 export function authorizedParcelCommuneCodes(manifest: TilesManifest): ReadonlySet<string> {
   const codes = new Set<string>();

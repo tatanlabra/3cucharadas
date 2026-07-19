@@ -45,7 +45,10 @@ export function stateFromUrl(rows: CommuneRecord[]): AppState {
     communeCode: matchingRegion && matchingRegion === regionCode ? communeCode : null,
     activeMetric: "cobertura_censo_pct",
     parcelLayerVisible: false,
-    parcelOpacity: 0.28
+    parcelOpacity: 0.28,
+    // El visor abre en la escala predial que ya existia; la capa UV es opt-in.
+    mapScale: "predial",
+    uvLayerVisible: false
   };
 }
 

@@ -757,3 +757,57 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
   .metric-chip.primary { grid-column: auto; min-height: 154px; }
   .link-card { flex-basis: 100%; }
 }
+
+/* ── Leyenda bivariada de unidades vecinales ─────────────────────────────────
+   16 celdas de color plano que replican BIVARIATE_PALETTE de layers.ts: la fila es
+   el cuartil de vulnerabilidad (1 = mayor) y la columna el cuartil nacional de
+   avaluo por hogar (4 = mayor). La celda 14 es la contradiccion que el mapa
+   persigue -- territorio muy vulnerable con alto avaluo registrado -- y por eso es
+   la mas saliente del conjunto.
+   El visor arranca en tema oscuro, asi que :root lleva los tonos oscuros y
+   [data-theme="light"] los sobreescribe. */
+.uv-legend { margin: 16px 0 0; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.uv-legend[hidden] { display: none; }
+.uv-legend-title { margin: 0 0 10px; font-size: .82rem; font-weight: 820; letter-spacing: .02em; text-transform: uppercase; color: var(--muted); }
+.uv-legend-body { display: grid; grid-template-columns: auto auto; grid-template-rows: auto auto; align-items: center; gap: 6px 8px; width: max-content; }
+.uv-axis-y { grid-column: 1; grid-row: 1; writing-mode: vertical-rl; transform: rotate(180deg); font-size: .7rem; font-weight: 700; color: var(--muted); }
+.uv-matrix { grid-column: 2; grid-row: 1; display: grid; grid-template-columns: repeat(4, 26px); grid-template-rows: repeat(4, 26px); gap: 2px; }
+.uv-axis-x { grid-column: 2; grid-row: 2; font-size: .7rem; font-weight: 700; color: var(--muted); text-align: right; }
+.uv-matrix span { display: block; border-radius: 3px; }
+.uv-legend-note { max-width: 62ch; margin: 10px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.45; }
+
+/* Tema oscuro (por defecto) */
+.uv-matrix .c11 { background: #e0705c; }
+.uv-matrix .c12 { background: #ce708a; }
+.uv-matrix .c13 { background: #b96faa; }
+.uv-matrix .c14 { background: #a06fc4; }
+.uv-matrix .c21 { background: #bd6252; }
+.uv-matrix .c22 { background: #b06d8d; }
+.uv-matrix .c23 { background: #a077b3; }
+.uv-matrix .c24 { background: #8e7fd1; }
+.uv-matrix .c31 { background: #8f5146; }
+.uv-matrix .c32 { background: #886a91; }
+.uv-matrix .c33 { background: #817dbc; }
+.uv-matrix .c34 { background: #788ddd; }
+.uv-matrix .c41 { background: #3a3a37; }
+.uv-matrix .c42 { background: #476794; }
+.uv-matrix .c43 { background: #5284c4; }
+.uv-matrix .c44 { background: #5b9ae8; }
+
+/* Tema claro */
+:root[data-theme="light"] .uv-matrix .c11 { background: #c94f3d; }
+:root[data-theme="light"] .uv-matrix .c12 { background: #ae4551; }
+:root[data-theme="light"] .uv-matrix .c13 { background: #8d3961; }
+:root[data-theme="light"] .uv-matrix .c14 { background: #5b2a6e; }
+:root[data-theme="light"] .uv-matrix .c21 { background: #d49891; }
+:root[data-theme="light"] .uv-matrix .c22 { background: #b58694; }
+:root[data-theme="light"] .uv-matrix .c23 { background: #8e6e98; }
+:root[data-theme="light"] .uv-matrix .c24 { background: #4f4f9b; }
+:root[data-theme="light"] .uv-matrix .c31 { background: #dec4be; }
+:root[data-theme="light"] .uv-matrix .c32 { background: #bcacbd; }
+:root[data-theme="light"] .uv-matrix .c33 { background: #908ebd; }
+:root[data-theme="light"] .uv-matrix .c34 { background: #3f66bc; }
+:root[data-theme="light"] .uv-matrix .c41 { background: #e8e6e1; }
+:root[data-theme="light"] .uv-matrix .c42 { background: #c3cadd; }
+:root[data-theme="light"] .uv-matrix .c43 { background: #91a7da; }
+:root[data-theme="light"] .uv-matrix .c44 { background: #2a78d6; }
