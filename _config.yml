@@ -255,14 +255,15 @@ paginate_path: /page:num/
 
 # Plugins
 plugins:
+  # Retiradas tras auditoria (2026-07-19): jekyll-gist (0 usos de {% gist %}, hacia
+  # require de octokit 4.x en cada build), jemoji (0 spans emoji en 544 paginas) y
+  # jekyll-seo-tag (los meta tags salen de _includes/seo.html). Siguen en el bundle
+  # porque minimal-mistakes-jekyll las declara como dependencias, pero ya no se cargan.
   - jekyll-paginate
   # jekyll-sitemap desactivado: usamos un sitemap.xml propio multilingüe (incluye /en/),
   # ver _pages/sitemap.xml. jekyll-sitemap no emite las URLs de polyglot.
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
   - jekyll-include-cache
-  - jekyll-seo-tag
   - jekyll-polyglot
 
 # Multi-idioma (jekyll-polyglot). ES por defecto en la raíz del baseurl; EN bajo /en/.
