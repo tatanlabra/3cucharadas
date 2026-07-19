@@ -5,6 +5,28 @@ Alcance bloqueado: capa comunal nacional + piloto predial Atacama (Caldera y Die
 
 Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendiente, `[!]` bloqueado con causa conocida.
 
+## Estado operativo — formato corto
+
+```text
+[x] Diagnóstico del sitio, MapLibre/PMTiles/Vite y carga diferida
+[x] Capa nacional agregada: 345 comunas
+[x] Basemap Protomaps/OSM, estilo neón, etiquetas y fuente PBF
+[x] Piloto predial Atacama: Caldera + Diego de Almagro
+[x] Popup con predio y avalúo fiscal; geometría fuente intacta
+[x] `python_base` en stata01 y artefactos persistentes en /mnt/nas05
+[x] Copia local auditada, manifest autorizado y gate integral de build
+[x] Preflight R2, verificador público, runbook y rollback por manifest
+[x] Accesibilidad automática: foco, etiquetas y popup sin robo de foco
+
+[~] Validación manual con lector de pantalla
+[~] NAS al 91%: artefactos actuales listos, sin margen para rebuild pesado
+
+[!] Crear/configurar R2, `tiles.3cucharadas.cl`, CORS y remoto rclone
+[ ] Ejecutar upload R2, promoción del manifest y smoke test público
+[ ] Verificar rollback real en producción
+[ ] Generalizar predios a otras regiones tras PASS completo de Atacama
+```
+
 ## 1. Código y sitio
 
 - [x] Diagnóstico, placeholders, textos y fallback de la página existente preservados.
