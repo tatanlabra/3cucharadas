@@ -20,6 +20,14 @@
 
 :root[data-theme="dark"] #map.catastro-maplibre { --catastro-map-control-filter: invert(1); }
 
+#map.catastro-maplibre .maplibregl-canvas:focus-visible,
+#map.catastro-maplibre .maplibregl-ctrl button:focus-visible,
+#map.catastro-maplibre .maplibregl-popup-close-button:focus-visible {
+  outline: 3px solid var(--acid);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--acid) 22%, transparent);
+}
+
 #map.catastro-maplibre .maplibregl-popup-content {
   min-width: 224px;
   padding: 12px 14px;

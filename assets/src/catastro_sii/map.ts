@@ -22,13 +22,38 @@ const FALLBACK_STYLE: maplibregl.StyleSpecification = {
   layers: [{ id: "background", type: "background", paint: { "background-color": "#0c1320" } }]
 };
 
-const MAP_LOCALE = {
-  "Map.Title": "Mapa interactivo",
+export const MAP_LOCALE = {
+  "Map.Title": "Mapa interactivo de brechas catastrales",
   "NavigationControl.ZoomIn": "Acercar",
   "NavigationControl.ZoomOut": "Alejar",
   "NavigationControl.ResetBearing": "Restablecer orientación",
   "Popup.Close": "Cerrar"
 };
+
+export const PARCEL_POPUP_OPTIONS = {
+  closeButton: true,
+  focusAfterOpen: false,
+  maxWidth: "260px"
+} as const;
+
+/** MapLibre already exposes a focusable canvas; add the page-level context. */
+export function configureMapCanvasAccessibility(canvas: Pick<HTMLCanvasElement, "setAttribute">): void {
+  canvas.setAttribute("role", "region");
+  canvas.setAttribute("tabindex", "0");
+  canvas.setAttribute("aria-label", MAP_LOCALE["Map.Title"]);
+  canvas.setAttribute("aria-describedby", "map-status");
+}
+
+/**
+ * A parcel click is supplementary information, not a modal action. Announce it
+ * politely while keeping keyboard focus on the control the reader is using.
+ */
+export function configureParcelPopupAccessibility(content: Pick<HTMLElement, "setAttribute">): void {
+  content.setAttribute("role", "status");
+  content.setAttribute("aria-live", "polite");
+  content.setAttribute("aria-atomic", "true");
+  content.setAttribute("aria-label", "Información referencial del predio");
+}
 
 function tileUrl(manifest: TilesManifest, path: string): string {
   const base = new URL(`${manifest.tiles_base.replace(/\/$/, "")}/`, window.location.origin);
@@ -92,6 +117,7 @@ export class MapController {
       cooperativeGestures: true,
       locale: MAP_LOCALE
     });
+    configureMapCanvasAccessibility(map.getCanvas());
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
     await new Promise<void>((resolve) => map.once("load", () => resolve()));
     return new MapController(map, manifest);
@@ -167,6 +193,7 @@ export class MapController {
         this.map.on("click", PARCEL_FILL_ID, (event) => {
           const properties = event.features?.[0]?.properties ?? {};
           const content = document.createElement("div");
+          configureParcelPopupAccessibility(content);
           const parcel = document.createElement("p");
           parcel.textContent = `Predio: ${typeof properties.predio === "number" || typeof properties.predio === "string" ? properties.predio : "No disponible"}`;
           const appraisal = document.createElement("p");
@@ -181,7 +208,7 @@ export class MapController {
           const notice = document.createElement("p");
           notice.textContent = "Geometría referencial; no acredita deslindes ni dominio.";
           content.append(destination, parcel, appraisal, quality, notice);
-          new maplibregl.Popup({ closeButton: true, maxWidth: "260px" }).setLngLat(event.lngLat).setDOMContent(content).addTo(this.map);
+          new maplibregl.Popup(PARCEL_POPUP_OPTIONS).setLngLat(event.lngLat).setDOMContent(content).addTo(this.map);
         });
         this.parcelPopupBound = true;
       }

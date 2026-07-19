@@ -74,5 +74,13 @@
    `Accept-Ranges`, `Content-Range` y los encabezados CORS expuestos antes de
    permitir promover el manifest.
 
+   Antes del upload, ejecutar `preflight_r2.sh --run-dir <corrida-local>`: no usa
+   red ni credenciales, comprueba que el remoto es S3/Cloudflare R2, y valida
+   procedencia, allowlist y CORS. Tras GitLab Pages, ejecutar
+   `verify_public_tiles.sh`: compara manifest e índice público contra el candidato,
+   exige 345 comunas y verifica GET/Range/CORS de base, fuente, comunas y Atacama.
+   El procedimiento completo, incluido rollback por manifest, está en
+   `docs/catastro_sii_runbook_r2.md`.
+
 `build_pmtiles.py` nunca escribe sobre la fuente GeoParquet. Rechaza geometrías
 inválidas; no aplica `MakeValid` ni publica los atributos fuente.
