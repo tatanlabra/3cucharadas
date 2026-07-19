@@ -1,4 +1,18 @@
-# Cabeceras de seguridad para GitLab Pages (soportado desde 16.7).
+# ⚠️ ESTE ARCHIVO NO TIENE EFECTO EN GITLAB PAGES. Se conserva como fuente única de
+# la política, pero quien la aplica es Cloudflare.
+#
+# GitLab Pages nunca ha soportado `_headers` (verificado en el código fuente de
+# gitlab-org/gitlab-pages: cero referencias, frente a un parser completo para
+# `_redirects`; issue #50 abierta desde 2017). El archivo se publica y se sirve como
+# contenido estático, y el servidor lo ignora. La única `permissions-policy` que llega
+# hoy a producción es `interest-cohort=()`, puesta por GitLab.com a nivel de instancia.
+#
+# APLICACIÓN REAL: Cloudflare → Rules → Transform Rules → Modify Response Header,
+# con acción **Set** (no Add: el origen ya manda su propia permissions-policy y Add
+# dejaría dos cabeceras en conflicto). Requiere pasar el registro A del apex a
+# proxied (naranja) y SSL/TLS en Full (strict).
+# Al activar el proxy, sustituir el certificado Let's Encrypt automático de GitLab por
+# un Cloudflare Origin Certificate, o la renovación ACME http-01 fallará.
 #
 # La CSP va en Report-Only a propósito: el sitio carga GA4, Disqus y Font Awesome
 # desde terceros, y el visor Catastro SII necesita workers y Range requests a R2.
