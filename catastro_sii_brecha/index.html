@@ -70,9 +70,7 @@
             <label><input id="map-layer-basemap" type="checkbox" checked> OSM</label>
             <label><input id="map-layer-communes" type="checkbox" checked> Comunas</label>
             <label><input id="map-layer-parcels" type="checkbox" checked> Predios</label>
-            <!-- Oculto hasta que exista data/uv/<cut>.json y el handler que lo carga.
-                 Publicar el control antes que su comportamiento daría un checkbox
-                 muerto; la capa y su leyenda ya están listas debajo esperándolo. -->
+            <!-- app.ts lo revela solo en comunas presentes en data/uv/index.json. -->
             <label hidden id="map-layer-uv-label"><input id="map-layer-uv" type="checkbox"> Unidades vecinales</label>
           </fieldset>
           <button class="map-reset" id="map-reset" type="button"><span aria-hidden="true">⌖</span> Recentrar</button>
