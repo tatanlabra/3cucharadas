@@ -241,6 +241,19 @@ My stack should not be read as a universal template. It is not one. What may be 
 
 ---
 
+## Update · July 2026
+
+I updated the public repo to a `v3.1` profile. None of it came from a redesign: it all came from broken things that kept running.
+{: .text-justify}
+
+The main one, **a silent fallback is the actual failure**. Degrading is fine; degrading quietly leaves the system "running" on stale inputs. My board detected exactly that, and nobody found out, because looking at it required suspecting it first. It now notifies only on transitions, every check says how long it has been red, and it separates a broken probe from a downed provider: identical on screen, opposite fixes.
+{: .text-justify}
+
+The executor also stopped being at the top. And the cheap models I praise here as a sidecar turned out to be untraced delegations against models I had never verified; they now hold the same evidence contract as everything else. Less impressive than adding another agent, considerably more useful.
+{: .text-justify}
+
+---
+
 ## Technical References
 
 [^openai-config]: OpenAI Developers, "Configuration Reference -- Codex," accessed June 21, 2026. It documents configuration, permissions, sandboxing, MCP, `AGENTS.md`, skills, and subagents in Codex. <https://developers.openai.com/codex/config-reference>

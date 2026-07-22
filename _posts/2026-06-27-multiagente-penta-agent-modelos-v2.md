@@ -241,6 +241,19 @@ No conviene mirar mi stack como si fuera plantilla universal, no lo es. Lo que s
 
 ---
 
+## Actualización · julio 2026
+
+Actualicé el repo público a un perfil `v3.1`. Nada vino de un rediseño: todo vino de cosas rotas que seguían andando.
+{: .text-justify}
+
+La principal, **un fallback silencioso es el fallo real**. Degradar está bien; degradar sin avisar deja el sistema "andando" con datos viejos. Mi tablero lo detectaba a la perfección y no se enteraba nadie, porque para mirarlo había que sospechar primero. Ahora avisa solo en las transiciones, cada check dice desde cuándo está en rojo, y separa una sonda rota de un proveedor caído: en pantalla son idénticos, el arreglo es el opuesto.
+{: .text-justify}
+
+También el ejecutor dejó de estar arriba del todo. Y los modelos baratos que acá celebro como sidecar resultaron ser delegaciones sin rastro contra modelos que nunca verifiqué; ya tienen el mismo contrato de evidencia que el resto. Menos vistoso que sumar un agente nuevo, bastante más útil.
+{: .text-justify}
+
+---
+
 ## Referencias técnicas
 
 [^openai-config]: OpenAI Developers, “Configuration Reference — Codex”, consultado el 21 de junio de 2026. Documenta configuración, permisos, sandbox, MCP, `AGENTS.md`, skills y subagentes en Codex. <https://developers.openai.com/codex/config-reference>
