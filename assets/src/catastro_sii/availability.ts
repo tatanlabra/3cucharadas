@@ -10,6 +10,12 @@ export function authorizedParcelSource(manifest: TilesManifest, state: AppState)
   return source;
 }
 
+/** Segunda barrera: incluso una fuente autorizada no se registra hasta que la
+ * persona active explícitamente la vista predial. */
+export function parcelLayerRequested(manifest: TilesManifest, state: AppState): boolean {
+  return state.parcelLayerVisible && authorizedParcelSource(manifest, state) !== null;
+}
+
 export function defaultAuthorizedParcelRegion(manifest: TilesManifest): string | null {
   if (manifest.legal_publication_status !== "AUTHORIZED_VECTOR") return null;
   return Object.entries(manifest.parcel_regions).find(([, source]) => source.available)?.[0] ?? null;
@@ -32,6 +38,13 @@ export interface UvIndex {
 export function uvLayerAvailable(index: UvIndex | null, communeCode: string | null): boolean {
   if (!index?.communes?.length || !communeCode) return false;
   return index.communes.includes(communeCode);
+}
+
+/** Contrato de red UV: sin comuna no se descarga nada; con selección e intent
+ * visible se solicita exactamente un shard agregado. */
+export function uvShardUrl(index: UvIndex | null, state: AppState): string | null {
+  if (!state.uvLayerVisible || !uvLayerAvailable(index, state.communeCode)) return null;
+  return `data/uv/${state.communeCode}.json`;
 }
 
 /** Shared five-digit commune codes that may load a published parcel map. */

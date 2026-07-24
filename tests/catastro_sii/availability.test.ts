@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { authorizedParcelCommuneCodes, authorizedParcelSource, defaultAuthorizedParcelRegion, uvLayerAvailable } from "../../assets/src/catastro_sii/availability";
+import { authorizedParcelCommuneCodes, authorizedParcelSource, defaultAuthorizedParcelRegion, parcelLayerRequested, uvLayerAvailable, uvShardUrl } from "../../assets/src/catastro_sii/availability";
 import type { AppState, TilesManifest } from "../../assets/src/catastro_sii/types";
 
 const state: AppState = {
@@ -7,7 +7,7 @@ const state: AppState = {
   communeCode: "3102",
   activeMetric: "cobertura_censo_pct",
   parcelLayerVisible: true,
-  parcelOpacity: 0.28,
+  parcelOpacity: 0.18,
   mapScale: "predial",
   uvLayerVisible: false
 };
@@ -43,6 +43,13 @@ describe("parcel loading safety gate", () => {
     };
     expect(authorizedParcelSource(authorized, { ...state, communeCode: "3102" })?.url).toBe("predios.pmtiles");
     expect(authorizedParcelSource(authorized, { ...state, communeCode: "3101" })).toBeNull();
+  });
+
+  it("no solicita el PMTiles piloto hasta activar Predios explícitamente", () => {
+    const authorized = { ...manifest, legal_publication_status: "AUTHORIZED_VECTOR" as const };
+    expect(parcelLayerRequested(authorized, { ...state, mapScale: "uv", parcelLayerVisible: false })).toBe(false);
+    expect(parcelLayerRequested(authorized, { ...state, mapScale: "predial", parcelLayerVisible: true })).toBe(true);
+    expect(parcelLayerRequested(authorized, { ...state, mapScale: "mixta", parcelLayerVisible: true, uvLayerVisible: true })).toBe(true);
   });
 
   it("uses the first available authorized pilot as the default view", () => {
@@ -90,5 +97,13 @@ describe("capa UV: gate paralelo al predial", () => {
     // Y a la inversa: estar en el piloto no implica tener capa UV.
     expect(authorizedParcelSource(authorized, { ...state, communeCode: "3102" })).not.toBeNull();
     expect(uvLayerAvailable({ communes: [] }, "3102")).toBe(false);
+  });
+
+  it("secuencia nacional -> comuna no piloto conserva intent UV y produce un solo shard", () => {
+    const national: AppState = { ...state, communeCode: null, regionCode: null, mapScale: "uv", uvLayerVisible: true, parcelLayerVisible: false };
+    expect(uvShardUrl(index, national)).toBeNull();
+    const selected: AppState = { ...national, communeCode: "5101", regionCode: "05" };
+    expect(uvShardUrl(index, selected)).toBe("data/uv/5101.json");
+    expect(selected).toEqual(expect.objectContaining({ mapScale: "uv", uvLayerVisible: true, parcelLayerVisible: false }));
   });
 });

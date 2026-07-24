@@ -57,6 +57,8 @@ TILE_BUDGET_BYTES = {
     "p95": 500 * 1024,
     "max": 1024 * 1024,
 }
+COMMUNES_MINZOOM = 3
+COMMUNES_MAXZOOM = 12
 
 
 @dataclass(frozen=True)
@@ -366,7 +368,10 @@ def build_communes(
     write_fgb(communal, fgb, "comunas")
     pmtiles = output_dir / f"chile_comunas_brechas_{version}.pmtiles"
     fields = [column for column in communal.columns if column != "geometry"]
-    tippecanoe(fgb, pmtiles, "comunas", 4, 12, fields)
+    # La cámara nacional encuadra Chile continental e insular americano cerca de
+    # z3. El archivo debe contener ese nivel: declarar z4 aquí dejaría la vista
+    # inicial sin la capa comunal aunque el frontend la haya activado.
+    tippecanoe(fgb, pmtiles, "comunas", COMMUNES_MINZOOM, COMMUNES_MAXZOOM, fields)
     validate_pmtiles(pmtiles, "comunas", output_dir / "reports" / f"communes_{version}_pmtiles_show.txt")
     tile_budget = validate_tile_budget(pmtiles, output_dir / "reports" / f"communes_{version}_tile_budget.json")
     territories_path = output_dir / f"territories_{version}.json"
@@ -379,7 +384,7 @@ def build_communes(
     }
     territories_path.write_text(json.dumps(territories, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return BuildResult(
-        pmtiles, "comunas", 4, 12, len(communal), pmtiles.stat().st_size,
+        pmtiles, "comunas", COMMUNES_MINZOOM, COMMUNES_MAXZOOM, len(communal), pmtiles.stat().st_size,
         {boundaries_path.name: sha256(boundaries_path)}, territories_path.name,
         {"excluded_communes": sorted(missing_metrics_geometry), "tile_budget": tile_budget},
     )

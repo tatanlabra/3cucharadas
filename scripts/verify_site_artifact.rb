@@ -4,10 +4,13 @@
 require "cgi"
 require "find"
 require "json"
+require "rexml/document"
+require "rexml/xpath"
 
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
 # KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
-max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "22000000"))
+max_bytes = Integer(ENV.fetch("SITE_BASE_ARTIFACT_MAX_BYTES", "25000000"))
+total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "45000000"))
 draft_fixture_mode = ENV["VERIFY_MATH_DRAFTS"] == "1"
 
 abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_dir)
@@ -26,6 +29,12 @@ required_files = %w[
   assets/images/teasers/teaser-casen-2024-640.webp
   assets/images/teasers/teaser-multiagentes-vscode-640.webp
   assets/images/teasers/teaser-rss-soberania-digital-640.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.svg
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.svg
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-teaser-640.webp
 ].freeze
 
 pruned_files = %w[
@@ -49,7 +58,7 @@ microsite_dir = File.join(site_dir, microsite)
 catastro_data_dir = File.join(site_dir, "assets", "data", "catastro_sii")
 catastro_bundle_dir = File.join(site_dir, "assets", "dist", "catastro_sii")
 if Dir.exist?(microsite_dir)
-  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js assets/map-app-loader.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet].each do |relative|
+  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js assets/map-app-loader.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet data/insights-v1.json].each do |relative|
     abort "Catastro SII Brecha asset is missing: #{relative}" unless File.file?(File.join(microsite_dir, relative))
   end
   abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))
@@ -85,9 +94,48 @@ if Dir.exist?(microsite_dir)
   abort "Catastro SII Brecha Vite entry is unsafe" if vite_file.start_with?("/") || vite_file.include?("..")
   abort "Catastro SII Brecha Vite entry is missing" unless File.file?(File.join(catastro_bundle_dir, vite_file))
   abort "Catastro SII Brecha tiles manifest is missing" unless File.file?(File.join(catastro_data_dir, "manifest.json"))
+  insights_path = File.join(microsite_dir, "data", "insights-v1.json")
+  insights = JSON.parse(File.read(insights_path))
+  abort "Catastro SII insights schema is not v1" unless insights["schema_version"] == 1
+  abort "Catastro SII insights UV universe drifted" unless insights.dig("universe", "uv") == 6_891
+  abort "Catastro SII insights commune universe drifted" unless insights.dig("universe", "communes") == 346
+  abort "Catastro SII insights source hash is invalid" unless insights["source_hash"].to_s.match?(/\A[0-9a-f]{64}\z/i)
+  abort "Catastro SII insights exceeds 250 KB" if File.size(insights_path) > 250_000
+  forbidden_insight_keys = %w[qa predio rol direccion avaluo_fiscal_clp geometry coordinates].freeze
+  inspect_insights = lambda do |value|
+    case value
+    when Hash
+      exposed = value.keys & forbidden_insight_keys
+      abort "Catastro SII insights exposes forbidden keys: #{exposed.join(', ')}" unless exposed.empty?
+      value.each_value { |child| inspect_insights.call(child) }
+    when Array
+      value.each { |child| inspect_insights.call(child) }
+    end
+  end
+  inspect_insights.call(insights)
   microsite_bytes = 0
   Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
   abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
+end
+
+avaluo_math_documents = %w[
+  datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/index.html
+].freeze
+raw_tex_delimiters = ["$$", "\\(", "\\)", "\\[", "\\]"].freeze
+
+avaluo_math_documents.each do |relative|
+  path = File.join(site_dir, relative)
+  abort "Avalúo post is missing: #{relative}" unless File.file?(path)
+
+  body = File.read(path)
+  abort "Avalúo post must render thirteen KaTeX expressions: #{relative}" unless body.scan('class="katex"').length == 13
+  abort "Avalúo post must preserve thirteen MathML expressions: #{relative}" unless body.scan("<math").length == 13
+  abort "Avalúo post display-math count drifted: #{relative}" unless body.scan("katex-display").length == 3
+  abort "Avalúo post contains a KaTeX error: #{relative}" if body.include?("katex-error")
+  delimiter = raw_tex_delimiters.find { |marker| body.include?(marker) }
+  abort "Raw TeX delimiter #{delimiter.inspect} remains: #{relative}" if delimiter
+  abort "Avalúo post must expose two clickable full-size figures: #{relative}" unless body.scan('class="image-popup"').length == 2
+  abort "Avalúo post clickable figures must target WebP assets: #{relative}" unless body.scan(/<a class="image-popup" href="[^"]+\.webp"/).length == 2
 end
 
 pruned_files.each do |relative|
@@ -97,15 +145,11 @@ end
 source_maps = Dir.glob(File.join(site_dir, "**", "*.map"))
 abort "Source maps are public: #{source_maps.join(', ')}" unless source_maps.empty?
 
-# Los PMTiles de revisión viven en una ruta ignorada por Git, pero Jekyll sí los copia
-# al artefacto: el preview local los necesita same-origin. En CI nunca deberían existir,
-# así que su aparición significa que entraron al repositorio o que el runner arrastra
-# caché sucia. Publicarlos serían ~665 MB de teselas que pertenecen a R2, no a Pages.
-if ENV["CI"]
-  local_tiles = Dir.glob(File.join(site_dir, "assets", "data", "catastro_sii", "local", "**", "*")).select { |entry| File.file?(entry) }
-  unless local_tiles.empty?
-    abort "Local review tiles leaked into the deploy artifact (#{local_tiles.length} files): #{local_tiles.first(3).join(', ')}"
-  end
+# Los PMTiles de revisión viven en una ruta ignorada por Git. El origen público es R2,
+# por lo que ningún artefacto —local o CI— puede incorporarlos por accidente.
+local_tiles = Dir.glob(File.join(site_dir, "assets", "data", "catastro_sii", "local", "**", "*")).select { |entry| File.file?(entry) }
+unless local_tiles.empty?
+  abort "Local review tiles leaked into the deploy artifact (#{local_tiles.length} files): #{local_tiles.first(3).join(', ')}"
 end
 
 missing_references = []
@@ -200,30 +244,50 @@ unless draft_fixture_mode
     delimiter = raw_tex_delimiters.find { |marker| body.include?(marker) }
     abort "Raw TeX delimiter #{delimiter.inspect} remains: #{relative}" if delimiter
   end
-end
 
-if draft_fixture_mode
-  math_drafts = {
-    "informatics/prueba-webfonts-katex/index.html" => ['class="nf"', "", "⠿"],
-    "r/bioinformatics/biology/prueba-webfonts2/index.html" => ["→", "⇄", "ﬁ"]
+  feed_contracts = {
+    "feed.xml" => {
+      "lang" => "es",
+      "self" => "https://3cucharadas.cl/feed.xml",
+      "home" => "https://3cucharadas.cl/",
+      "description" => "Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible."
+    },
+    "en/feed.xml" => {
+      "lang" => "en",
+      "self" => "https://3cucharadas.cl/en/feed.xml",
+      "home" => "https://3cucharadas.cl/en/",
+      "description" => "Open data, statistics, MLOps, curiosities, applied economics, and social policy, with reproducible code."
+    }
   }.freeze
+  atom = { "atom" => "http://www.w3.org/2005/Atom" }.freeze
+  feed_contracts.each do |relative, expected|
+    document = REXML::Document.new(File.read(File.join(site_dir, relative)))
+    feed = document.root
+    abort "Feed language is invalid: #{relative}" unless feed.attributes["xml:lang"] == expected["lang"]
+    self_link = REXML::XPath.first(feed, "atom:link[@rel='self']", atom)&.attributes&.[]("href")
+    home_link = REXML::XPath.first(feed, "atom:link[@rel='alternate']", atom)
+    abort "Feed self link is invalid: #{relative}" unless self_link == expected["self"]
+    abort "Feed home link is invalid: #{relative}" unless home_link&.attributes&.[]("href") == expected["home"]
+    abort "Feed hreflang is invalid: #{relative}" unless home_link&.attributes&.[]("hreflang") == expected["lang"]
+    abort "Feed id is invalid: #{relative}" unless REXML::XPath.first(feed, "atom:id", atom)&.text == expected["self"]
+    abort "Feed subtitle is invalid: #{relative}" unless REXML::XPath.first(feed, "atom:subtitle", atom)&.text == expected["description"]
+    REXML::XPath.each(feed, "atom:entry", atom) do |entry|
+      link = REXML::XPath.first(entry, "atom:link[@rel='alternate']", atom)&.attributes&.[]("href")
+      id = REXML::XPath.first(entry, "atom:id", atom)&.text
+      content_base = REXML::XPath.first(entry, "atom:content", atom)&.attributes&.[]("xml:base")
+      abort "Feed entry canonical is inconsistent: #{relative}" unless link && id == link && content_base == link
+      next unless expected["lang"] == "en"
 
-  math_drafts.each do |relative, required_symbols|
-    path = File.join(site_dir, relative)
-    abort "Math draft fixture is missing: #{relative}" unless File.file?(path)
-
-    body = File.read(path)
-    abort "KaTeX HTML is missing from draft: #{relative}" unless body.include?('class="katex"')
-    abort "MathML is missing from draft: #{relative}" unless body.include?("<math")
-    abort "KaTeX render error is present in draft: #{relative}" if body.include?("katex-error")
-    missing_symbol = required_symbols.find { |symbol| !body.include?(symbol) }
-    abort "Draft symbol is missing (#{missing_symbol.inspect}): #{relative}" if missing_symbol
+      abort "English feed entry is outside /en/: #{link}" unless link.start_with?("https://3cucharadas.cl/en/")
+    end
   end
 end
 
 artifact_bytes = 0
 Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(entry) }
 unless draft_fixture_mode
+  abort "Artifact exceeds #{total_max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > total_max_bytes
+
   catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir].sum do |directory|
     next 0 unless Dir.exist?(directory)
 

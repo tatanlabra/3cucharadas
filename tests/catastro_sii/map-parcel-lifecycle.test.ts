@@ -6,6 +6,7 @@ vi.mock("maplibre-gl", () => ({
     addProtocol: vi.fn(),
     Map: class {},
     NavigationControl: class {},
+    GeolocateControl: class {},
     ScaleControl: class {},
     Popup: class {}
   },
@@ -14,11 +15,14 @@ vi.mock("maplibre-gl", () => ({
 
 vi.mock("pmtiles", () => ({ Protocol: class {} }));
 
-import { MapController } from "../../assets/src/catastro_sii/map";
+import { geojsonFeatureBounds, LOCAL_DETAIL_ZOOM, MapController } from "../../assets/src/catastro_sii/map";
 import {
   PARCEL_FILL_ID,
   PARCEL_LINE_ID,
-  PARCEL_SOURCE_ID
+  PARCEL_SOURCE_ID,
+  UV_FILL_ID,
+  UV_LINE_ID,
+  UV_SOURCE_ID
 } from "../../assets/src/catastro_sii/layers";
 
 vi.stubGlobal("window", { location: { origin: "http://127.0.0.1:4001" } });
@@ -46,7 +50,7 @@ const pilotState: AppState = {
   communeCode: "3102",
   activeMetric: "cobertura_censo_pct",
   parcelLayerVisible: true,
-  parcelOpacity: 0.28,
+  parcelOpacity: 0.18,
   mapScale: "predial",
   uvLayerVisible: false
 };
@@ -59,6 +63,7 @@ class FakeMap {
   readonly sources = new Map<string, unknown>();
   readonly layers = new Map<string, unknown>();
   readonly calls: string[] = [];
+  lastEaseTo: unknown = null;
 
   addSource(id: string, source: unknown): void {
     this.calls.push(`addSource:${id}`);
@@ -87,11 +92,16 @@ class FakeMap {
     this.layers.delete(id);
   }
 
+  moveLayer(id: string, beforeId?: string): void {
+    this.calls.push(`moveLayer:${id}:${beforeId ?? "top"}`);
+  }
+
   on(): void {}
   setFilter(): void {}
   setPaintProperty(): void {}
   setLayoutProperty(): void {}
   getStyle(): { layers: [] } { return { layers: [] }; }
+  easeTo(options: unknown): void { this.lastEaseTo = options; }
 }
 
 function controllerFor(map: FakeMap): MapController {
@@ -102,6 +112,21 @@ function controllerFor(map: FakeMap): MapController {
 }
 
 describe("lifecycle de la capa predial", () => {
+  it("no registra fuente predial mientras la vista inicial sea UV", () => {
+    const map = new FakeMap();
+    const controller = controllerFor(map);
+    expect(controller.setParcelLayer({ ...pilotState, mapScale: "uv", parcelLayerVisible: false })).toBe(false);
+    expect(map.getSource(PARCEL_SOURCE_ID)).toBeUndefined();
+    expect(map.calls.some((call) => call === `addSource:${PARCEL_SOURCE_ID}`)).toBe(false);
+  });
+
+  it("permite fuente predial cuando el mapa queda en capa mixta", () => {
+    const map = new FakeMap();
+    const controller = controllerFor(map);
+    expect(controller.setParcelLayer({ ...pilotState, mapScale: "mixta", uvLayerVisible: true })).toBe(true);
+    expect(map.getSource(PARCEL_SOURCE_ID)).toBeDefined();
+  });
+
   it("retira las capas y la fuente prediales anteriores al seleccionar una región sin PMTiles autorizado", () => {
     const map = new FakeMap();
     const controller = controllerFor(map);
@@ -121,5 +146,40 @@ describe("lifecycle de la capa predial", () => {
       `removeLayer:${PARCEL_LINE_ID}`,
       `removeSource:${PARCEL_SOURCE_ID}`
     ]);
+  });
+});
+
+describe("fallback de shard UV", () => {
+  it("calcula bounds locales desde un GeoJSON UV para la cámara cercana", () => {
+    expect(geojsonFeatureBounds({
+      features: [
+        { geometry: { coordinates: [[[-70.86, -26.41], [-70.84, -26.41], [-70.84, -26.39], [-70.86, -26.39], [-70.86, -26.41]]] } },
+        { geometry: { coordinates: [[[-70.82, -26.43], [-70.81, -26.43], [-70.81, -26.42], [-70.82, -26.42], [-70.82, -26.43]]] } }
+      ]
+    })).toEqual([-70.86, -26.43, -70.81, -26.39]);
+  });
+
+  it("usa zoom local cercano al seleccionar una comuna con shard UV", () => {
+    const map = new FakeMap();
+    const controller = controllerFor(map);
+    controller.focusLocalBounds([-70.86, -26.43, -70.81, -26.39]);
+    const options = map.lastEaseTo as { center: [number, number]; zoom: number };
+    expect(options.center[0]).toBeCloseTo(-70.835, 6);
+    expect(options.center[1]).toBeCloseTo(-26.41, 6);
+    expect(options.zoom).toBe(LOCAL_DETAIL_ZOOM);
+  });
+
+  it("retira una capa anterior y devuelve false si el shard falla", async () => {
+    const map = new FakeMap();
+    map.addSource(UV_SOURCE_ID, { type: "geojson" });
+    map.addLayer({ id: UV_FILL_ID, source: UV_SOURCE_ID } as never);
+    map.addLayer({ id: UV_LINE_ID, source: UV_SOURCE_ID } as never);
+    const controller = controllerFor(map);
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue({ ok: false, status: 404 } as Response);
+    await expect(controller.setUvLayer("data/uv/5101.json")).resolves.toBe(false);
+    expect(map.getLayer(UV_FILL_ID)).toBeUndefined();
+    expect(map.getLayer(UV_LINE_ID)).toBeUndefined();
+    expect(map.getSource(UV_SOURCE_ID)).toBeUndefined();
+    fetchSpy.mockRestore();
   });
 });
