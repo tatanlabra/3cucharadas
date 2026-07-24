@@ -1,0 +1,111 @@
+direction: down
+
+classes: {
+  input: {
+    style.fill: "#282a36"
+    style.stroke: "#8be9fd"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 11
+  }
+  process: {
+    style.fill: "#303446"
+    style.stroke: "#bd93f9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 11
+  }
+  canonical: {
+    style.fill: "#263f35"
+    style.stroke: "#50fa7b"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 11
+  }
+  derived: {
+    style.fill: "#3f3328"
+    style.stroke: "#ffb86c"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 11
+  }
+  output: {
+    style.fill: "#392b3f"
+    style.stroke: "#ff79c6"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 11
+  }
+}
+
+raw: "Curated traces: handoffs, hooks and metrics" {
+  class: input
+}
+
+ingest: "Selective ingest: record-context / import-context-handoffs" {
+  class: process
+}
+
+canonical: "Canonical source: local JSONL/YAML\ncurated-context-manifest.jsonl" {
+  class: canonical
+}
+
+embedding: "Representation: Ollama /api/embed: bge-m3\nFastEmbed: Qdrant/bm25" {
+  class: process
+}
+
+index: "Derived index: Qdrant\npenta_context_v2 / penta_experience_v1" {
+  class: derived
+}
+
+retrieval: "Hybrid retrieval: hybrid_context_hits\ndense + lexical JSONL + BM25; recency + lifecycle" {
+  class: derived
+}
+
+mcp: "Working context: MCP experience-memory / recall-context skill" {
+  class: output
+}
+
+agents: "Session use: Codex / Claude / Gemini; human closure" {
+  class: output
+}
+
+raw -> ingest: {
+  style.stroke: "#bd93f9"
+  style.stroke-width: 2
+}
+ingest -> canonical: "sanitizes and records provenance" {
+  style.stroke: "#bd93f9"
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 9
+}
+canonical -> embedding: "derives index" {
+  style.stroke: "#8be9fd"
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 9
+}
+embedding -> index: {
+  style.stroke: "#8be9fd"
+  style.stroke-width: 2
+}
+index -> retrieval: {
+  style.stroke: "#ffb86c"
+  style.stroke-width: 2
+}
+canonical -> retrieval: "source of truth" {
+  style.stroke: "#50fa7b"
+  style.stroke-dash: 4
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 9
+}
+retrieval -> mcp: {
+  style.stroke: "#ff79c6"
+  style.stroke-width: 2
+}
+mcp -> agents: {
+  style.stroke: "#ff79c6"
+  style.stroke-width: 2
+}
