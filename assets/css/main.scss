@@ -1175,6 +1175,151 @@ html[data-theme="academic-night"] .page__footer a:hover {
     padding-left: 0.35rem;
   }
 
+  body.avaluo-vulnerabilidad-post {
+    .sidebar__right {
+      display: none !important;
+    }
+
+    .greedy-nav .visible-links {
+      display: none !important;
+    }
+
+    .greedy-nav__toggle {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page__content table {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars {
+  margin: 1.5rem 0 1.7rem;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid #d8dde6;
+  border-radius: 0.35rem;
+  background: #f8fafc;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars figcaption {
+  margin: 0 0 0.85rem;
+  color: #4b5563;
+  font-size: 0.82em;
+  line-height: 1.45;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__panel {
+  min-width: 0;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__panel h3 {
+  margin: 0 0 0.55rem;
+  color: #172033;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__row {
+  display: grid;
+  grid-template-columns: minmax(6.8rem, 10rem) minmax(0, 1fr) minmax(3.2rem, auto);
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 1.8rem;
+  color: #374151;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__row > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__track {
+  height: 0.52rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6edf4;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__track span {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #1494a5, #5f5a91);
+  opacity: 0.78;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__row strong {
+  color: #172033;
+  font-size: 0.78rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+body.avaluo-vulnerabilidad-post .avaluo-bars__note {
+  margin: 0.8rem 0 0;
+  color: #5f6b7b;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars {
+  border-color: var(--night-border);
+  background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars figcaption,
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars__note {
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars__panel h3,
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars__row strong {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars__row {
+  color: var(--night-muted);
+}
+
+html[data-theme="academic-night"] body.avaluo-vulnerabilidad-post .avaluo-bars__track {
+  background: #303642;
+}
+
+@media (max-width: 700px) {
+  body.avaluo-vulnerabilidad-post .avaluo-bars__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  body.avaluo-vulnerabilidad-post .avaluo-bars__row {
+    grid-template-columns: minmax(0, 1fr) minmax(3rem, auto);
+    gap: 0.35rem 0.5rem;
+    padding: 0.22rem 0;
+  }
+
+  body.avaluo-vulnerabilidad-post .avaluo-bars__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
 }
 
 /* Tablas del sitio: antes estaban inline en head/custom.html. */

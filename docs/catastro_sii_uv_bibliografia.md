@@ -2,7 +2,9 @@
 
 Bibliografía de respaldo para el post que agrega el avalúo fiscal de 10.343.893 predios del SII
 a Unidades Vecinales mediante prorrateo geométrico y lo cruza con el Índice Global de
-Vulnerabilidad Socioterritorial (IGVUST) del Ministerio de Desarrollo Social y Familia.
+Vulnerabilidad Socioterritorial (IGVUST) del Ministerio de Desarrollo Social y Familia. El cierre
+editorial del 22/07/2026 usa un corte analítico del 19/07/2026 y trata sus asociaciones como
+descriptivas, condicionales a la malla UV y sensibles al denominador.
 
 ---
 
@@ -462,18 +464,16 @@ Parlamentaria. 29 pp.
 
 **🌐 Ley N° 17.235, sobre Impuesto Territorial** (texto refundido: DFL N° 1 de 1998, Ministerio de
 Hacienda). Biblioteca del Congreso Nacional.
-URL probable: `https://www.bcn.cl/leychile/navegar?idNorma=28849`
+[Texto en LeyChile](https://www.bcn.cl/leychile/Navegar?buscar=17235&idNorma=128563)
 
 **🌐 Ley N° 19.418, sobre Juntas de Vecinos y demás Organizaciones Comunitarias** (texto refundido:
 DTO 58 de 1997, Ministerio del Interior — `idNorma=70040`). Biblioteca del Congreso Nacional.
-URL probable: `https://www.bcn.cl/leychile/navegar?idNorma=30785`
+[Texto en LeyChile](https://www.bcn.cl/leychile/Navegar?idNorma=70040)
 
-> ⚠️ **Las dos URL están sin verificar de primera mano.** BCN LeyChile es una aplicación JS que
-> devuelve **HTTP 401** a acceso programático y no renderiza en el recuperador. Los `idNorma`
-> provienen de títulos indexados por buscador ("Ley Chile - Ley 17235…", "Ley Chile - Ley 19418…"),
-> que es evidencia razonable pero **no confirmación**. **Abrir ambas en navegador antes de
-> publicar.** El *contenido* sustantivo de la Ley 17.235, en cambio, sí está verificado vía el
-> documento BCN anterior.
+> Enlaces consolidados para el cierre editorial del 22/07/2026. El contenido sustantivo de la Ley
+> 17.235 también está verificado mediante el informe técnico BCN de Cavada (2025). Como LeyChile
+> puede limitar clientes automatizados, la revisión final conserva una comprobación humana en
+> navegador.
 >
 > Lo que aporta la **Ley 19.418** es el núcleo del hallazgo del post sobre el 2,88%: define la
 > Unidad Vecinal como **"el territorio jurisdiccional de una Junta de Vecinos"**, que debe
@@ -527,14 +527,13 @@ DOI: [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008
 
 Cada punto es una advertencia que el post debe incluir explícitamente, con su respaldo.
 
-**1. El avalúo fiscal es regresivo respecto del valor de mercado, y eso sesga el cruce.**
+**1. El avalúo fiscal puede apartarse del valor de mercado; este cruce no mide ese sesgo.**
 *(Berry 2021; Hodge et al. 2017; McMillen & Singh 2020; IAAO)*
-Las propiedades baratas tienden a estar **sobre-tasadas** respecto de las caras. Si eso ocurre en
-Chile, el avalúo **comprime** la desigualdad real: el Gini de 0,7265 sería un **piso**, no una
-estimación centrada. El post no puede verificarlo porque **no dispone de precios de transacción**,
-y debe decirlo. Además, Hodge et al. (2017) implica que el sesgo es **peor donde el mercado está
-deprimido** — o sea, correlacionado con el propio IGVUST, que es el peor escenario posible para un
-cruce: no es ruido, es sesgo alineado con la variable de interés.
+La literatura citada documenta regresividad y rezagos en mercados e instituciones específicos.
+Es una advertencia de medición, no evidencia transferible al SII ni al IGVUST. Sin precios de
+transacción comparables para Chile, el post no estima *assessment ratios*, no identifica su signo
+y no puede afirmar que el Gini de 0,7265 sea piso o techo de una desigualdad de mercado. Ese Gini
+describe exclusivamente la concentración territorial de la base fiscal asignada.
 
 **2. El avalúo se desactualiza por ley, no sólo por rezago técnico.**
 *(BCN / Cavada 2025 — verificado en documento oficial)*
@@ -563,19 +562,19 @@ un uso legítimo, honesto y de hecho más interesante. Complemento útil: aclara
 aditivamente descomponible** (Bourguignon; Shorrocks 1980), lo que explica por qué se usó Theil
 para descomponer y Gini sólo como nivel.
 
-**5. Los cuartiles del IGVUST no son comparables entre grupos — y lo dice la propia fuente.**
+**5. Los cuartiles publicados por IGVUST son regionales; el post recalcula cortes nacionales.**
 *(Informe IGVUST, MDSF — verbatim verificado)*
 El informe oficial señala textualmente:
 
 > "**Nota 2:** Los cuartiles asignados son válidos exclusivamente para la región analizada, por lo
 > que **no es posible establecer comparaciones directas con comunas o UV de otras regiones**."
 
-El productor del índice **ya declaró** el límite. A esto se suma lo que observó el post: los
-cuartiles son **equipoblados en UV, no en personas** — el cuartil más vulnerable concentra 25% de
-las UV pero sólo 12,5% de la población. Se sigue que **"cuartil 4" no significa lo mismo en dos
-regiones distintas**, y que cualquier lectura per cápita a partir de cuartiles de UV está mal
-planteada. Citar la Nota 2 textual es la jugada más fuerte disponible: es el límite reconocido por
-la fuente, no una objeción externa.
+El productor del índice **ya declaró** el límite de sus cuartiles regionales. Para la matriz del
+post, el pipeline ordena el percentil nacional y construye cuartiles nacionales explícitos; no
+reutiliza los rótulos regionales como si fueran comparables. Aun así, esos cortes son equipoblados
+en UV, no en personas: el cuartil más vulnerable concentra 25% de las UV, pero 2.032.893 de
+15.978.644 personas RSH (12,7%). La clasificación sigue siendo territorial y no admite lectura
+individual.
 
 **6. Falacia ecológica: nada de esto habla de personas ni de predios.**
 *(Robinson 1950)*
@@ -610,11 +609,11 @@ central **exclusivamente** en la lectura del mapa bivariado.
 
 Detectados al verificar; conviene resolverlos antes de publicar.
 
-1. **Discrepancia en el número de UV.** El brief indica **6.891** UV. El informe oficial del
-   IGVUST señala textualmente: *"A nivel nacional, existen **6.887** Unidades Vecinales"*
-   (atribuido a Ministerio de Desarrollo Social y Familia, 2025). Diferencia de 4 unidades.
-   Probablemente vintages distintos de la capa, pero **el post debe declarar la fuente y fecha de
-   corte de su capa UV**, porque la cifra oficial es citable y no coincide.
+1. **Discrepancia en el número de UV documentada.** El cruce de geometría 202603 y atributos
+   202606 produce **6.891 UV** en el procesamiento. El informe oficial señala textualmente:
+   *"A nivel nacional, existen **6.887** Unidades Vecinales"* (atribuido a Ministerio de Desarrollo
+   Social y Familia, 2025). El post publica el universo efectivamente procesado y explicita la
+   diferencia de cuatro unidades entre cortes, sin atribuirla a un error de ninguna fuente.
 
 2. **"Se invierte" (Theil) es una sobreafirmación.** Ver §9.4. Es la corrección de mayor impacto
    de este documento.
@@ -631,9 +630,21 @@ Detectados al verificar; conviene resolverlos antes de publicar.
    la operación central del post y tiene literatura propia; sin ella, la objeción "¿cómo repartiste
    10,3 millones de predios?" queda sin respuesta bibliográfica.
 
+6. **Robustez y sensibilidad añadidas al cierre.** En las 6.843 UV con cuartiles disponibles por
+   hogar y por m², 1.362 (19,9%) conservan cuartil y 3.132 (45,8%) se mueven dos o más. Las
+   asociaciones Pearson/Spearman son, respectivamente: total −0,371/−0,382; por hogar
+   −0,061/−0,047; por persona −0,079/−0,072; por m² nacional −0,582/−0,575; y por m² con
+   `p_urbano > 50` +0,079/+0,081. Son controles descriptivos, no inferencia causal.
+
+7. **Contrato de las dos figuras.** El Sankey distingue registros, duplicados, predios únicos,
+   predios que tocan al menos una UV y predios sin UV; tocar una UV no implica asignación total.
+   El tríptico de violines compara denominadores y universo urbano, declara que la forma KDE
+   depende del ancho de banda y muestra mediana e IQR. Ninguna figura sostiene por sí sola una
+   afirmación sobre riqueza, ingreso, precio de mercado o personas.
+
 ---
 
 *Referencias: 31 ítems. Verificadas contra CrossRef: 25. Verificadas por recuperación del documento
-primario: 4. Verificadas sólo por búsqueda web: 2 (Openshaw & Taylor 1979; URLs BCN). Sin verificar,
+primario: 4. Verificadas sólo por búsqueda web: 2. Sin verificar,
 marcadas como tales: Theil (1967) datos editoriales, edición IAAO, año CATMOG 38, fecha informe
 IGVUST, Olson (1975).*
