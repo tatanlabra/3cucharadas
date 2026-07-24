@@ -13,10 +13,12 @@
     "test:catastro": "vitest run --config vitest.catastro.config.ts"
   },
   "dependencies": {
+    "echarts": "6.1.0",
     "maplibre-gl": "5.6.0",
     "pmtiles": "3.2.0"
   },
   "devDependencies": {
+    "@types/node": "24.13.3",
     "sass": "1.89.0",
     "typescript": "5.9.2",
     "vite": "7.3.6",
