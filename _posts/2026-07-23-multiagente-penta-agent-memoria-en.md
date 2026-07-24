@@ -6,7 +6,7 @@ date: 2026-07-23 00:00:00 +0000
 last_modified_at: 2026-07-24 00:00:00 +0000
 categories: [ai, productivity, development, multi-agent]
 tags: [multi-agent, rag, embeddings, agent-memory, qdrant, bm25, mcp, context-engineering, arch-linux]
-description: "The second penta-agent log: how I turned operational memory into a testable mechanism, what architecture actually shipped, and how I avoided treating a plausible match as evidence."
+description: "The second log from a multi-agent setup: how I turned operational memory into a testable mechanism, what architecture actually shipped, and how I avoided treating a plausible match as evidence."
 excerpt: "I already had handoffs and decisions. The next step was to prove what the system retrieved, with which architecture, and when it had to admit it lacked enough evidence."
 author: clabra
 lang: en
@@ -24,10 +24,10 @@ published: true
 header:
   teaser: /assets/images/teasers/teaser-multiagentes-memoria.webp
   og_image: /assets/images/teasers/teaser-multiagentes-memoria.webp
-  og_image_alt: "Illustration of auditable multi-agent memory for penta-agent"
+  og_image_alt: "Illustration of auditable memory for a local multi-agent setup"
 ---
 
-In the [first post]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) I described how I organized `penta-agent`: Codex executes, Claude reviews, other agents enter in bounded ways, and the human keeps closure authority. I also argued that operational memory should not depend on a single conversation or be confused with the vector index.
+In the [first post]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) I described how I organized my local multi-agent setup, `penta-agent`: Codex executes, Claude reviews, other agents enter in bounded ways, and the human keeps closure authority. I also argued that operational memory should not depend on a single conversation or be confused with the vector index.
 {: .text-justify}
 
 By the time I closed that first post, I already had continuity mechanisms: handoffs, routing rules, append-only logs, experiential memory in JSONL/YAML, a rebuildable vector collection, and the `recall-context` skill. My problem was not absolute amnesia. It was that I still could not prove what the system retrieved, when it confused a coincidence with evidence, and when it should admit that it did not have an answer.
@@ -64,8 +64,8 @@ The actual flow ended up like this:
 {: .text-justify}
 
 <figure class="align-center memory-flow-figure">
-  <img src="{{ '/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg' | relative_url }}" alt="Flow diagram of penta-agent memory: curated traces, selective ingestion, canonical source, embeddings and BM25 representation, derived Qdrant index, hybrid retrieval, MCP, and use by Codex, Claude, or Gemini with human closure." loading="lazy" decoding="async">
-  <figcaption><strong>Figure 1</strong> - Operational flow of the auditable memory in <code>penta-agent</code>. Note: local JSONL/YAML files are the source of truth; Qdrant and BM25 are derived retrieval indexes, not final evidence.</figcaption>
+  <img src="{{ '/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg' | relative_url }}" alt="Flow diagram of multi-agent memory: curated traces, selective ingestion, canonical source, embeddings and BM25 representation, derived Qdrant index, hybrid retrieval, MCP, and use by Codex, Claude, or Gemini with human closure." loading="lazy" decoding="async">
+  <figcaption><strong>Figure 1</strong> - Operational flow of auditable memory in my multi-agent setup. Note: local JSONL/YAML files are the source of truth; Qdrant and BM25 are derived retrieval indexes, not final evidence.</figcaption>
 </figure>
 
 ### RAG, without turning it into magic

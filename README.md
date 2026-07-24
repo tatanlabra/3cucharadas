@@ -36,6 +36,12 @@ conserva como espejo público, respaldo y redirector de la URL histórica
 `https://tatanlabra.github.io/3cucharadas/`, no como hosting productivo del
 contenido principal.
 
+Para revisar mensajes de difusión antes de publicarlos, ejecutar
+`scripts/difusion-review-url.sh`. El comando levanta o reutiliza el visor local,
+detecta el último borrador disponible en `difusion/state/drafts` e imprime una
+URL validada. También acepta un ref explícito, por ejemplo:
+`scripts/difusion-review-url.sh multiagente-penta-agent-memoria`.
+
 ## Operación RSS diaria (server-side)
 
 - El widget RSS se genera durante el build de GitLab CI: `.gitlab-ci.yml`

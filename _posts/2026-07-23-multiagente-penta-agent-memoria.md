@@ -6,7 +6,7 @@ date: 2026-07-23 00:00:00 +0000
 last_modified_at: 2026-07-24 00:00:00 +0000
 categories: [ia, productividad, desarrollo, multiagente]
 tags: [multiagente, rag, embeddings, memoria-agentes, qdrant, bm25, mcp, context-engineering, arch-linux]
-description: "Segunda bitácora de penta-agent: cómo convertí su memoria operativa en un mecanismo evaluable, qué arquitectura quedó realmente implementada y cómo evité confundir una coincidencia plausible con evidencia."
+description: "Segunda bitácora de un sistema multiagente: cómo convertí su memoria operativa en un mecanismo evaluable, qué arquitectura quedó realmente implementada y cómo evité confundir una coincidencia plausible con evidencia."
 excerpt: "Ya tenía handoffs y decisiones. El paso siguiente fue comprobar qué recuperaba, con qué arquitectura y cuándo debía reconocer que no tenía evidencia suficiente."
 author: clabra
 lang: es
@@ -24,10 +24,10 @@ published: true
 header:
   teaser: /assets/images/teasers/teaser-multiagentes-memoria.webp
   og_image: /assets/images/teasers/teaser-multiagentes-memoria.webp
-  og_image_alt: "Ilustración de memoria multiagente validable para penta-agent"
+  og_image_alt: "Ilustración de una memoria validable para un sistema multiagente local"
 ---
 
-En el [primer post](/ia/productividad/desarrollo/multiagente-penta-agent-modelos/) conté cómo ordené `penta-agent`: Codex ejecuta, Claude revisa, otros agentes entran de manera acotada y el humano conserva el cierre. También dejé planteado que la memoria operativa no debía depender de una conversación aislada ni confundirse con el índice vectorial.
+En el [primer post](/ia/productividad/desarrollo/multiagente-penta-agent-modelos/) conté cómo ordené mi sistema multiagente local, `penta-agent`: Codex ejecuta, Claude revisa, otros agentes entran de manera acotada y el humano conserva el cierre. También dejé planteado que la memoria operativa no debía depender de una conversación aislada ni confundirse con el índice vectorial.
 {: .text-justify}
 
 Al cerrar esa primera publicación ya tenía mecanismos de continuidad: handoffs, reglas de routing, bitácoras append-only, una memoria experiencial en JSONL/YAML, una colección vectorial reconstruible y la skill `recall-context`. Mi problema no era una amnesia absoluta. Era que todavía no podía demostrar qué recuperaba, cuándo confundía una coincidencia con evidencia y cuándo debía reconocer que no tenía respuesta.
@@ -61,8 +61,8 @@ El flujo real quedó así:
 {: .text-justify}
 
 <figure class="align-center memory-flow-figure">
-  <img src="{{ '/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg' | relative_url }}" alt="Diagrama de flujo de la memoria de penta-agent: trazas curadas, ingesta selectiva, fuente canónica, representación con embeddings y BM25, Qdrant derivado, recuperación híbrida, MCP y uso por Codex, Claude o Gemini con cierre humano." loading="lazy" decoding="async">
-  <figcaption><strong>Figura 1</strong> — Flujo operativo de la memoria validable de <code>penta-agent</code>. Nota: los JSONL/YAML locales son la fuente de verdad; Qdrant y BM25 son índices derivados para recuperación, no evidencia final.</figcaption>
+  <img src="{{ '/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg' | relative_url }}" alt="Diagrama de flujo de una memoria multiagente: trazas curadas, ingesta selectiva, fuente canónica, representación con embeddings y BM25, Qdrant derivado, recuperación híbrida, MCP y uso por Codex, Claude o Gemini con cierre humano." loading="lazy" decoding="async">
+  <figcaption><strong>Figura 1</strong> — Flujo operativo de la memoria validable de mi sistema multiagente. Nota: los JSONL/YAML locales son la fuente de verdad; Qdrant y BM25 son índices derivados para recuperación, no evidencia final.</figcaption>
 </figure>
 
 ### RAG, sin convertirlo en magia
