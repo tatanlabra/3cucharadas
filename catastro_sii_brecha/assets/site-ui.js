@@ -18,6 +18,7 @@
     if (persist) {
       try { localStorage.setItem(storageKey, theme); } catch (_) { /* El visor también funciona sin almacenamiento. */ }
     }
+    window.dispatchEvent(new CustomEvent("catastro:theme", { detail: { theme } }));
   }
 
   setTheme(root.dataset.theme === "light" ? "light" : "dark", false);

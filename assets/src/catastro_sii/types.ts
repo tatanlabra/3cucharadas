@@ -10,6 +10,8 @@ export type Bounds = [number, number, number, number];
 export interface CommuneDefaultView {
   center: [number, number];
   zoom: number;
+  bearing?: number;
+  pitch?: number;
 }
 
 export interface TileSource {
@@ -50,26 +52,51 @@ export interface CommuneRecord {
   cobertura_coordenadas_pct?: number | null;
   predios_habitacionales?: number | null;
   poblacion_censo_2024?: number | null;
+  poblacion_equivalente_censo?: number | null;
+  hogares_censo_2024?: number | null;
+  viviendas_ocupadas_censo_2024?: number | null;
+  predios_habitacionales_mapeados?: number | null;
+  superficie_total_m2?: number | null;
+  cobertura_superficie_pct?: number | null;
+  avaluo_total_clp?: number | null;
+  avaluo_por_predio_clp?: number | null;
+  cobertura_avaluo_pct?: number | null;
+  percentil_avaluo_nacional?: number | null;
+  percentil_avaluo_regional?: number | null;
+  cobertura_vs_proyeccion_base_2017_pct?: number | null;
+  casen_sensibilidad_disponible?: boolean | null;
+  cobertura_casen_sensibilidad_pct?: number | null;
+  casen_nota?: string | null;
+  fuente_sii_disponible?: boolean | null;
+  periodo_catastro?: string | null;
   bounds?: Bounds | null;
 }
 
-/** Escala del mapa. La capa UV es un gate independiente del piloto predial. */
-export type MapScale = "predial" | "uv";
+/** Intención visible del mapa. Predios y UV pueden coexistir como capas independientes. */
+export type MapScale = "predial" | "uv" | "mixta";
+
+/** Eje de avalúo soportado por la paleta; el visor público fija el mapa UV en m². */
+export type UvValuationMode = "household" | "m2";
+
+/** Vista compartible del visor. `mapa` vive fuera del laboratorio analítico. */
+export type VisualizationView = "mapa" | "flujo" | "avaluos" | "distribuciones" | "sensibilidad" | "comunas";
 
 /** Propiedades del GeoJSON de Unidades Vecinales que produce el pipeline uv_avaluo.
- *  `qv` es el cuartil IGVUST nacional, donde 1 = MAYOR vulnerabilidad (convención
- *  MDSF vigente desde enero de 2026). `qa` es el cuartil nacional de avalúo por
- *  hogar: mismo alcance que `qv`, que es lo que hace legítimo cruzarlos. */
+ *  `qv` es el cuartil IGVUST nacional, donde 1 = MAYOR vulnerabilidad. `qa_h` y
+ *  `qa_m2` conservan los cuartiles analíticos originales; la leyenda puede compactar
+ *  visualmente el eje de avalúo sin modificar estos campos fuente. */
 export interface UvFeatureProperties {
   uv: number;
   nombre: string | null;
   qv: number | null;
-  qa: number | null;
+  qa_h: number | null;
+  qa_m2: number | null;
   pob: number;
   hog: number;
   urb: number;
   av: number;
   avh: number;
+  avm2: number;
   pv: number;
 }
 
@@ -81,4 +108,87 @@ export interface AppState {
   parcelOpacity: number;
   mapScale: MapScale;
   uvLayerVisible: boolean;
+}
+
+export interface InsightsUniverse {
+  uv: number;
+  communes: number;
+  complete_quartiles: number;
+  urban_uv: number;
+}
+
+export interface PipelineNode {
+  id: string;
+  label: string;
+  value: number;
+  unit: "records" | "properties";
+}
+
+export interface PipelineLink {
+  source: string;
+  target: string;
+  value: number;
+}
+
+export interface ViolinGroup {
+  quartile: number;
+  n: number;
+  min: number;
+  q1: number;
+  median: number;
+  q3: number;
+  max: number;
+  points: Array<[number, number]>;
+}
+
+export interface ViolinPanel {
+  id: string;
+  title: string;
+  metric: string;
+  universe: string;
+  display_scale?: "original";
+  bandwidth_method?: string;
+  cut?: number;
+  groups: ViolinGroup[];
+}
+
+export interface SensitivityRow {
+  id: string;
+  label: string;
+  n: number;
+  pearson: number;
+  spearman: number;
+  universe: string;
+}
+
+export interface CommuneInsight {
+  code: string;
+  name: string;
+  region: string;
+  vulnerability: number | null;
+  av_total: number | null;
+  av_household: number | null;
+  av_person: number | null;
+  av_m2: number | null;
+  households: number | null;
+  urban_pct: number | null;
+}
+
+/** Sólo contiene agregados territoriales; nunca registros prediales individuales. */
+export interface InsightsV1 {
+  schema_version: 1;
+  generated_at: string;
+  source_hash: string;
+  universe: InsightsUniverse;
+  limits: string[];
+  pipeline: { nodes: PipelineNode[]; links: PipelineLink[] };
+  violin_densities: { panels: ViolinPanel[] };
+  quartile_transition: {
+    matrix: number[][];
+    same_quartile_pct: number;
+    moved_two_plus_pct: number;
+    n: number;
+  };
+  sensitivity: { rows: SensitivityRow[] };
+  communes: CommuneInsight[];
 }

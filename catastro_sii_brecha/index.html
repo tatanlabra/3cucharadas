@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,7 +7,7 @@
   <meta name="description" content="Explora la cobertura residencial equivalente del Catastro SII frente al Censo 2024, comuna por comuna.">
   <link rel="canonical" href="https://3cucharadas.cl/catastro_sii_brecha/">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#07070c">
+  <meta name="theme-color" content="#e9edf4">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="3 Cucharadas">
@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/favicon-96x96.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Brecha residencial del Catastro SII","url":"https://3cucharadas.cl/catastro_sii_brecha/","applicationCategory":"DataVisualization","inLanguage":"es-CL","creator":{"@type":"Organization","name":"3 Cucharadas"}}</script>
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem("catastro-brecha-theme")||"dark"}catch(_){}</script>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("catastro-brecha-theme")||"light"}catch(_){}</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,14 +52,29 @@
     <noscript><section class="card notice-card"><h2>Datos abiertos, visualización con JavaScript</h2><p>Sin JavaScript puedes revisar el <a href="metodologia.html">método y sus límites</a> y descargar la tabla comunal en <a href="data/metricas_comunales.parquet">Parquet</a>.</p></section></noscript>
 
     <section class="card finder-card reveal" id="explorar" aria-labelledby="explorar-title">
-      <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Parte por una región. El visor carga la comuna elegida, sus celdas agregadas y las métricas que permiten leer el registro sin sobreinterpretarlo.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando la primera comuna…</span></p></div>
+      <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Parte por una región. El visor carga la comuna elegida, sus celdas agregadas y las métricas que permiten leer el registro sin sobreinterpretarlo.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando contexto nacional…</span></p></div>
       <div class="finder-fields" role="group" aria-label="Seleccionar territorio">
         <label class="finder-field" for="region"><span class="field-label">01 · Región</span><span class="select-wrap"><select id="region"><option value="">Cargando regiones…</option></select></span></label>
         <label class="finder-field" for="comuna"><span class="field-label">02 · Comuna</span><span class="select-wrap"><select id="comuna" disabled><option value="">Elige una región primero</option></select></span></label>
         <p class="finder-status" id="status" role="status">Cargando datos comunales…</p>
       </div>
-      <p class="finder-note" id="map-availability-note"><strong>*</strong> indica una comuna con mapa cartográfico publicado. Las métricas agregadas mantienen sus fuentes y límites explícitos.</p>
+      <p class="finder-note" id="map-availability-note"><strong>*</strong> indica disponibilidad predial SII en Caldera o Diego de Almagro. Las 346 comunas mantienen su mapa UV agregado.</p>
     </section>
+
+    <nav class="selection-dock" id="selection-dock" aria-label="Selección territorial activa">
+      <div class="selection-dock-main">
+        <span class="selection-dock-kicker">Selección activa</span>
+        <strong id="selection-dock-title">Diego de Almagro</strong>
+        <span id="selection-dock-meta">Atacama · código 03202</span>
+      </div>
+      <div class="selection-dock-links" aria-label="Saltar a vistas del territorio">
+        <a href="#cartographic-map">Capas</a>
+        <a href="#bivariate-card">Bivariado</a>
+        <a href="#territory-detail">Tabla</a>
+        <a href="#denominator-lab">Laboratorio</a>
+      </div>
+      <button class="selection-reset" id="selection-reset" type="button">Reset Diego</button>
+    </nav>
 
     <section class="card map-card reveal" id="cartographic-map" aria-labelledby="map-title" hidden>
       <div class="map-head">
@@ -68,40 +83,156 @@
           <fieldset class="map-layer-picker" aria-label="Capas del mapa">
             <legend>Capas</legend>
             <label><input id="map-layer-basemap" type="checkbox" checked> OSM</label>
-            <label><input id="map-layer-communes" type="checkbox" checked> Comunas</label>
-            <label><input id="map-layer-parcels" type="checkbox" checked> Predios</label>
+            <label><input id="map-layer-parcels" type="checkbox"> Predios</label>
             <!-- app.ts lo revela solo en comunas presentes en data/uv/index.json. -->
-            <label hidden id="map-layer-uv-label"><input id="map-layer-uv" type="checkbox"> Unidades vecinales</label>
+            <label hidden id="map-layer-uv-label"><input id="map-layer-uv" type="checkbox" checked> Unidades vecinales</label>
           </fieldset>
           <button class="map-reset" id="map-reset" type="button"><span aria-hidden="true">⌖</span> Recentrar</button>
+          <button class="map-reset" id="map-tilt" type="button" aria-pressed="true"><span aria-hidden="true">◩</span> 3D</button>
           <p class="map-status" id="map-status">Cargando mapa auditado…</p>
         </div>
       </div>
       <div class="map-stage">
         <div class="map-shell"><div id="map" aria-label="Mapa comunal y piloto predial cartográfico"></div><canvas id="density" aria-hidden="true"></canvas><div class="map-note" id="map-note">Cargando mapa…</div></div>
       </div>
-      <!-- Leyenda bivariada: 16 celdas de color puro, sin JavaScript. Los colores
-           salen de BIVARIATE_PALETTE en layers.ts; si se tocan allá, hay que tocarlos
-           aquí. El grid vive en style.css con las mismas variables. -->
-      <div class="uv-legend" id="uv-legend" hidden>
-        <h3 class="uv-legend-title">Avalúo por hogar × vulnerabilidad</h3>
-        <div class="uv-legend-body">
-          <span class="uv-axis-y" aria-hidden="true">Más vulnerable ↑</span>
-          <div class="uv-matrix" role="img" aria-label="Matriz de 16 combinaciones: cuatro cuartiles de avalúo por hogar en el eje horizontal y cuatro cuartiles de vulnerabilidad en el vertical. La esquina superior derecha marca las unidades vecinales muy vulnerables donde el catastro registra alto avalúo.">
-            <span class="c11"></span><span class="c12"></span><span class="c13"></span><span class="c14"></span>
-            <span class="c21"></span><span class="c22"></span><span class="c23"></span><span class="c24"></span>
-            <span class="c31"></span><span class="c32"></span><span class="c33"></span><span class="c34"></span>
-            <span class="c41"></span><span class="c42"></span><span class="c43"></span><span class="c44"></span>
-          </div>
-          <span class="uv-axis-x" aria-hidden="true">Mayor avalúo →</span>
-        </div>
-        <p class="uv-legend-note">Cuartiles nacionales sobre las 6.891 unidades vecinales. El cuartil 1 del IGVUST es el de <strong>mayor</strong> vulnerabilidad. Cada cuartil agrupa un cuarto de las unidades vecinales, no un cuarto de la población: el más vulnerable reúne el 25% de las unidades y solo el 12,5% de las personas, así que el mapa sobrerrepresenta territorio rural disperso.</p>
-      </div>
       <div class="map-support">
-        <div><h3>Cómo leer el mapa</h3><p>La capa comunal entrega el contexto nacional. Cuando existe un piloto validado, sus polígonos se muestran desde la escala definida.</p></div>
-        <p>El fondo Protomaps/OpenStreetMap se sirve como PMTiles desde el origen del visor y mantiene su atribución visible. Si aún no está publicado, se conserva la capa agregada.</p>
-        <p><strong>Leyenda:</strong> los predios se ordenan por avalúo fiscal con una escala azul discreta. La cartografía es referencial: no acredita deslindes, dominio ni límites legales.</p>
+        <div><h3>Cómo leer el mapa</h3><p>Este primer mapa sólo muestra geometría: OSM, predios SII piloto y unidades vecinales. No codifica el bivariado.</p></div>
+        <p>Los bordes azules gruesos son UV; los bordes rojo-anaranjados finos son predios. El relleno de ambas capas es deliberadamente transparente para leer límites y calles.</p>
+        <p><strong>Nota:</strong> la capa predial es referencial y no acredita deslindes, dominio ni límites legales. Si una comuna tiene predios sin geometría o fuga fuera de UV, el cruce analítico subrepresenta esa parte del catastro.</p>
         <a class="inline-link" href="metodologia.html">Método, fuentes y límites <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="card bivariate-card reveal" id="bivariate-card" aria-labelledby="bivariate-title" hidden>
+      <div class="bivariate-head">
+        <div>
+          <span class="section-eyebrow">Bivariado UV-only</span>
+          <h2 id="bivariate-title">Avalúo por m² frente a <span class="lead-accent">IGVUST</span></h2>
+          <p>Este segundo mapa apaga los predios y deja sólo unidades vecinales. Filas: cuartiles nacionales oficiales IGVUST. Columnas: avalúo fiscal por m² predial asignado, compactado en bajo, medio y alto.</p>
+        </div>
+      </div>
+      <div class="bivariate-selector-grid" aria-label="Selector territorial del bivariado">
+        <div class="bivariate-selector-copy">
+          <h3>Selector gráfico de Chile</h3>
+          <p>Haz clic sobre una comuna del mapa acostado para cargarla en ambos mapas y mantener el filtro en el laboratorio. La región atenúa el resto del país; la comuna activa queda marcada.</p>
+          <p class="bivariate-selector-status" id="bivariate-selector-status" role="status">Cargando selector comunal…</p>
+        </div>
+        <div class="chile-selector-scroll" tabindex="0" aria-label="Desplazar selector gráfico de Chile">
+          <svg id="bivariate-chile-selector" class="chile-selector-map" role="img" aria-describedby="bivariate-selector-status" aria-label="Selector gráfico de comunas de Chile"></svg>
+        </div>
+        <div class="bivariate-controls" role="group" aria-label="Seleccionar territorio para el bivariado">
+          <label for="bivariate-region"><span>Región</span><select id="bivariate-region"><option value="">Elige una región</option></select></label>
+          <label for="bivariate-comuna"><span>Comuna</span><select id="bivariate-comuna" disabled><option value="">Elige una comuna</option></select></label>
+        </div>
+      </div>
+      <p class="bivariate-finding" id="bivariate-finding">Elige una comuna para cargar el cruce UV. Pasa el cursor sobre una UV para ver cuartil IGVUST, avalúo por m² y denominadores.</p>
+      <div class="bivariate-layout">
+        <div class="map-stage bivariate-stage">
+          <div class="map-shell bivariate-map-shell"><div id="bivariate-map" aria-label="Mapa bivariado de unidades vecinales"></div><div class="map-note" id="bivariate-map-note">Cargando bivariado…</div></div>
+        </div>
+        <!-- Leyenda bivariada: 12 celdas de color puro, sin JavaScript. Los colores
+             salen de BIVARIATE_PALETTE en layers.ts; si se tocan allá, hay que tocarlos
+             aquí. El grid vive en style.css con las mismas variables. -->
+        <aside class="uv-legend bivariate-legend" id="bivariate-uv-legend" hidden>
+          <h3 class="uv-legend-title" id="bivariate-uv-legend-title">Avalúo por m² × vulnerabilidad</h3>
+          <div class="uv-legend-body">
+            <span class="uv-axis-y" aria-hidden="true">Más vulnerable ↑</span>
+            <div class="uv-matrix" id="bivariate-uv-matrix" role="img" aria-label="Matriz de 12 combinaciones: tres tramos visuales de avalúo por metro cuadrado predial asignado en el eje horizontal y cuatro cuartiles nacionales oficiales de vulnerabilidad IGVUST en el vertical.">
+              <span class="c11"></span><span class="c12"></span><span class="c13"></span>
+              <span class="c21"></span><span class="c22"></span><span class="c23"></span>
+              <span class="c31"></span><span class="c32"></span><span class="c33"></span>
+              <span class="c41"></span><span class="c42"></span><span class="c43"></span>
+            </div>
+            <span class="uv-axis-x" id="bivariate-uv-axis-x" aria-hidden="true">Mayor avalúo por m² →</span>
+          </div>
+          <p class="uv-legend-note" id="bivariate-uv-legend-note">Filas: cuartiles nacionales oficiales IGVUST sobre las 6.891 unidades vecinales, con q1 como mayor vulnerabilidad. Columnas: avalúo por m² compactado en bajo, medio y alto. La celda más oscura concentra la lectura menos obvia: alta vulnerabilidad territorial con alto avalúo unitario fiscal.</p>
+        </aside>
+      </div>
+      <p class="map-status bivariate-status" id="bivariate-map-status" role="status">Bivariado en espera de comuna.</p>
+    </section>
+
+    <section class="card lab-card reveal" id="denominator-lab" data-state="idle" aria-labelledby="lab-title">
+      <div class="section-head lab-head">
+        <div><span class="section-eyebrow">Laboratorio de denominadores</span><h2 id="lab-title">La conclusión cambia cuando cambia la <span class="lead-accent">unidad</span></h2></div>
+        <p>Compara el flujo de construcción, las distribuciones y la sensibilidad estadística. Son descripciones territoriales: no miden riqueza, ingreso ni precio de mercado.</p>
+      </div>
+      <div class="lab-tabs" role="tablist" aria-label="Vistas del laboratorio">
+        <button id="tab-flujo" type="button" role="tab" data-lab-tab="flujo" aria-controls="panel-flujo" aria-selected="true">Flujo</button>
+        <button id="tab-avaluos" type="button" role="tab" data-lab-tab="avaluos" aria-controls="panel-avaluos" aria-selected="false" tabindex="-1">Avalúos</button>
+        <button id="tab-distribuciones" type="button" role="tab" data-lab-tab="distribuciones" aria-controls="panel-distribuciones" aria-selected="false" tabindex="-1">Distribuciones</button>
+        <button id="tab-sensibilidad" type="button" role="tab" data-lab-tab="sensibilidad" aria-controls="panel-sensibilidad" aria-selected="false" tabindex="-1">Sensibilidad</button>
+        <button id="tab-comunas" type="button" role="tab" data-lab-tab="comunas" aria-controls="panel-comunas" aria-selected="false" tabindex="-1">Comunas</button>
+      </div>
+      <p class="lab-status" id="lab-status" role="status" aria-live="polite">El laboratorio se cargará cuando llegue a la pantalla.</p>
+
+      <div class="lab-panel" id="panel-flujo" role="tabpanel" data-lab-panel="flujo" aria-labelledby="tab-flujo" tabindex="0">
+        <div class="lab-panel-copy"><h3>De registros a cobertura territorial</h3><p>El primer corte elimina duplicados; el segundo distingue los predios únicos que tocan al menos una unidad vecinal de aquellos que no la tocan.</p></div>
+        <p class="lab-panel-message" aria-live="polite"></p>
+        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico de flujo"><div class="lab-chart lab-chart-wide" id="lab-flow-chart" aria-busy="true"></div></div>
+        <details class="lab-table-details"><summary>Ver datos del flujo</summary><div class="lab-table-scroll" id="lab-flow-table"></div></details>
+      </div>
+
+      <div class="lab-panel" id="panel-avaluos" role="tabpanel" data-lab-panel="avaluos" aria-labelledby="tab-avaluos" tabindex="0" hidden>
+        <div class="lab-panel-copy"><h3>Primero el tamaño del numerador</h3><p>El avalúo fiscal total asignado muestra la escala administrativa antes de dividir por hogares RSH, personas o superficie. La concentración regional y comunal no es una explicación causal: fija el tamaño de lo que después se normaliza.</p></div>
+        <p class="lab-panel-message" aria-live="polite"></p>
+        <div class="lab-appraisal-grid">
+          <article><h4>Avalúo asignado por región</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico regional de avalúos"><div class="lab-chart" id="lab-appraisal-regions-chart"></div></div></article>
+          <article><h4>Comunas de mayor avalúo total</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico comunal de avalúos"><div class="lab-chart" id="lab-appraisal-communes-chart"></div></div></article>
+        </div>
+        <details class="lab-table-details"><summary>Ver principales regiones</summary><div class="lab-table-scroll" id="lab-appraisal-table"></div></details>
+      </div>
+
+      <div class="lab-panel" id="panel-distribuciones" role="tabpanel" data-lab-panel="distribuciones" aria-labelledby="tab-distribuciones" tabindex="0" hidden>
+        <div class="lab-panel-copy"><h3>Primero la mediana; después la forma</h3><p>La línea resume la mediana por cuartil IGVUST y los violines muestran la dispersión. Si la pendiente se mueve y la forma se abre, el denominador está cambiando algo más que una etiqueta.</p></div>
+        <p class="lab-panel-message" aria-live="polite"></p>
+        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar resumen de medianas por cuartil"><div class="lab-chart lab-chart-wide" id="lab-violin-summary-chart"></div></div>
+        <div class="lab-violin-grid" id="lab-violin-charts"></div>
+        <details class="lab-table-details"><summary>Ver medianas e intervalos</summary><div class="lab-table-scroll" id="lab-distributions-table"></div></details>
+      </div>
+
+      <div class="lab-panel" id="panel-sensibilidad" role="tabpanel" data-lab-panel="sensibilidad" aria-labelledby="tab-sensibilidad" tabindex="0" hidden>
+        <div class="lab-panel-copy"><h3>Cuartiles y correlaciones bajo presión</h3><p>Sólo 19,9% de las UV conserva cuartil entre hogar y m²; 45,8% se desplaza dos o más. Pearson y Spearman cuentan la misma advertencia: robustez descriptiva no significa causalidad.</p></div>
+        <p class="lab-panel-message" aria-live="polite"></p>
+        <div class="lab-sensitivity-grid">
+          <article><h4>Transición hogar → m²</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar matriz de transición"><div class="lab-chart" id="lab-transition-chart"></div></div><details class="lab-table-details"><summary>Ver matriz 4×4</summary><div class="lab-table-scroll" id="lab-transition-table"></div></details></article>
+          <article><h4>Pearson frente a Spearman</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico de correlaciones"><div class="lab-chart" id="lab-sensitivity-chart"></div></div><details class="lab-table-details"><summary>Ver correlaciones</summary><div class="lab-table-scroll" id="lab-sensitivity-table"></div></details></article>
+        </div>
+      </div>
+
+      <div class="lab-panel" id="panel-comunas" role="tabpanel" data-lab-panel="comunas" aria-labelledby="tab-comunas" tabindex="0" hidden>
+        <div class="lab-panel-copy"><h3>Ranking nacional para comparar territorios</h3><p>El eje horizontal usa ranking nacional IGVUST, no percentiles nuevos. Elige unidad territorial, normalización y universo; si arriba seleccionaste una comuna, queda declarado como filtro activo.</p></div>
+        <div class="lab-filter-bar">
+          <p class="lab-filter-note" id="lab-commune-filter-note">Sin filtro comunal activo; se muestran todos los territorios disponibles.</p>
+          <button class="lab-reset-filter" id="lab-commune-reset" type="button">Reset filtro</button>
+        </div>
+        <div class="lab-controls" role="group" aria-label="Configurar gráfico comunal">
+          <label for="lab-ranking-unit"><span>Unidad territorial</span><select id="lab-ranking-unit"><option value="communes">Comunas</option><option value="regions">Regiones</option></select></label>
+          <label for="lab-commune-metric"><span>Normalización</span><select id="lab-commune-metric"><option value="av_total">Avalúo total</option><option value="av_household">Por hogar RSH</option><option value="av_person">Por persona RSH</option><option value="av_m2">Por m² predial</option></select></label>
+          <label for="lab-commune-universe"><span>Universo</span><select id="lab-commune-universe"><option value="all">Todas con dato</option><option value="urban">Más de 50% urbano</option></select></label>
+          <label for="lab-commune-search"><span>Resaltar comuna</span><input id="lab-commune-search" type="search" autocomplete="off" placeholder="Ej. Caldera"></label>
+        </div>
+        <p class="lab-panel-message" aria-live="polite"></p>
+        <p class="lab-communes-status" id="lab-communes-status" role="status"></p>
+        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar burbujas de ranking nacional"><div class="lab-chart lab-chart-wide lab-bubble-chart" id="lab-communes-chart"></div></div>
+        <details class="lab-table-details"><summary>Ver tabla comunal filtrada</summary><div class="lab-table-scroll" id="lab-communes-table"></div></details>
+      </div>
+
+      <div class="lab-footer"><p>Fuente agregada y método reproducible. El laboratorio rechaza esquemas desconocidos y sólo descarga indicadores territoriales agregados; la capa predial piloto se solicita por separado al activarla.</p><a class="inline-link" href="data/insights-v1.json" download>Descargar JSON agregado <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section class="card territory-detail-card reveal" id="territory-detail" aria-labelledby="territory-detail-title">
+      <div class="section-head">
+        <div><span class="section-eyebrow">Tabla heredada de la selección</span><h2 id="territory-detail-title">Detalle de <span class="lead-accent" id="territory-detail-name">Diego de Almagro</span></h2></div>
+        <p>Esta tabla sigue la misma comuna seleccionada en el selector gráfico de Chile. El laboratorio nacional y estadístico queda separado en sus pestañas.</p>
+      </div>
+      <div class="territory-detail-summary" id="territory-detail-summary" role="status">Cargando indicadores seleccionados…</div>
+      <div class="lab-table-scroll territory-table-scroll">
+        <table class="lab-data-table territory-detail-table" id="territory-detail-table">
+          <caption>Indicadores territoriales agregados de la comuna seleccionada</caption>
+          <tbody id="territory-detail-table-body">
+            <tr><th scope="row">Selección</th><td>Diego de Almagro, Atacama</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 

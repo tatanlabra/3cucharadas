@@ -6,6 +6,7 @@
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
   const money = (value) => value == null ? "No disponible" : `$${number.format(value)}`;
+  const DEFAULT_COMMUNE_CODE = "3202";
   const set = (selector, value) => {
     const element = $(selector);
     if (element) element.textContent = value;
@@ -59,13 +60,16 @@
   }
 
   function updateMapVisibility(row) {
-    const eligible = hasPublishedMap(row);
+    // Las 346 comunas tienen capa UV agregada. El gate predial permanece separado:
+    // el asterisco sólo informa dónde se puede solicitar ese PMTiles regional.
+    const hasPredial = hasPublishedMap(row);
+    const eligible = true;
     const section = $("#cartographic-map");
-    if (section) section.hidden = !eligible;
-    set("#map-availability-note", eligible
-      ? `* ${row.comuna} tiene mapa cartográfico publicado.`
-      : "* indica una comuna con mapa cartográfico publicado. Esta comuna conserva sus métricas agregadas.");
-    window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible, row } }));
+    if (section) section.hidden = false;
+    set("#map-availability-note", hasPredial
+      ? `* ${row.comuna} tiene piloto predial SII; todas las comunas mantienen su mapa UV agregado.`
+      : "* indica disponibilidad predial SII en Caldera o Diego de Almagro. Esta comuna mantiene su mapa UV agregado.");
+    window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible, hasPredial, row } }));
     return eligible;
   }
 
@@ -179,6 +183,10 @@
     const select = $("#comuna");
     const rows = state.communes.filter((row) => row.region === region).sort((a, b) => a.comuna.localeCompare(b.comuna, "es"));
     select.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = rows.length ? "Elige una comuna" : "Elige una región primero";
+    select.append(placeholder);
     for (const row of rows) {
       const option = document.createElement("option");
       option.value = row.codigo_comuna;
@@ -186,9 +194,12 @@
       select.append(option);
     }
     select.disabled = !rows.length;
-    if (rows.length) {
-      const initial = selectedCode && rows.some((row) => row.codigo_comuna === selectedCode) ? selectedCode : rows[0].codigo_comuna;
-      selectCommune(initial);
+    const initial = selectedCode && rows.some((row) => row.codigo_comuna === selectedCode) ? selectedCode : null;
+    if (initial) selectCommune(initial);
+    else {
+      select.value = "";
+      set("#selection-context", region ? `Región ${region} lista. Elige una comuna para cargar su UV.` : "Elige una región y una comuna.");
+      set("#status", region ? "Sin comuna seleccionada" : "Contexto nacional listo");
     }
   }
 
@@ -209,6 +220,10 @@
 
       const regionSelect = $("#region");
       regionSelect.innerHTML = "";
+      const regionPlaceholder = document.createElement("option");
+      regionPlaceholder.value = "";
+      regionPlaceholder.textContent = "Elige una región";
+      regionSelect.append(regionPlaceholder);
       for (const region of state.regions) {
         const option = document.createElement("option");
         option.value = region.region;
@@ -216,19 +231,27 @@
         regionSelect.append(option);
       }
       regionSelect.addEventListener("change", () => populateCommunes(regionSelect.value));
-      $("#comuna").addEventListener("change", (event) => selectCommune(event.target.value));
+      $("#comuna").addEventListener("change", (event) => {
+        if (event.target.value) selectCommune(event.target.value);
+      });
       const urlCode = new URLSearchParams(window.location.search).get("comuna");
       const normalizedUrlCode = urlCode && /^\d{4,5}$/.test(urlCode)
         ? (urlCode.length === 5 && urlCode.startsWith("0") ? urlCode.slice(1) : urlCode.padStart(4, "0"))
         : null;
       const requested = normalizedUrlCode && state.communes.find((row) => row.codigo_comuna === normalizedUrlCode);
-      if (requested) {
-        regionSelect.value = requested.region;
-        populateCommunes(requested.region, requested.codigo_comuna);
+      const defaultCommune = state.communes.find((row) => row.codigo_comuna === DEFAULT_COMMUNE_CODE);
+      const initial = requested || defaultCommune;
+      if (initial) {
+        regionSelect.value = initial.region;
+        populateCommunes(initial.region, initial.codigo_comuna);
       } else {
-        populateCommunes(regionSelect.value);
+        regionSelect.value = "";
+        populateCommunes("");
       }
-      set("#map-status", "Preparando el mapa vectorial bajo demanda…");
+      const mapSection = $("#cartographic-map");
+      if (mapSection) mapSection.hidden = false;
+      set("#map-status", requested ? "Preparando la comuna solicitada…" : "Preparando Diego de Almagro como selección inicial…");
+      window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible: true, hasPredial: Boolean(initial && hasPublishedMap(initial)), row: initial || null } }));
       window.dispatchEvent(new CustomEvent("catastro:legacy-ready", { detail: { selected: state.selected } }));
       window.addEventListener("resize", () => {
         if (state.cells) renderCanvas(state.cells);

@@ -4,6 +4,10 @@
 }
 
 #map.catastro-maplibre .maplibregl-ctrl button {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
   background-color: rgba(255, 255, 255, .96);
 }
 
@@ -28,7 +32,7 @@
 
 #map.catastro-maplibre .maplibregl-popup-content {
   min-width: 224px;
-  padding: 12px 14px;
+  padding: 12px 48px 12px 14px;
   color: #223744;
   background: #f8fbfc;
   border: 1px solid #4f879f;
@@ -47,6 +51,10 @@
 #map.catastro-maplibre .maplibregl-popup-content p { margin: .32rem 0; }
 
 #map.catastro-maplibre .maplibregl-popup-close-button {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
   color: #223744;
   font-size: 1.1rem;
 }

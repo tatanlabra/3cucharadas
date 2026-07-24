@@ -26,6 +26,7 @@ npm run check:catastro
 npm run check:catastro:static-css
 npm run test:catastro
 python3 -m unittest discover -s tests/catastro_sii -p 'test_*.py'
+python3 scripts/catastro_sii/verify_local_preview_manifest.py
 npm run build:catastro
 output_dir="$(mktemp -d "${TMPDIR:-/tmp}/3cucharadas-catastro-check.XXXXXX")"
 trap 'rm -rf "${output_dir}"' EXIT

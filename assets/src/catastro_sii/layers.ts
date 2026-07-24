@@ -1,5 +1,5 @@
 import type maplibregl from "maplibre-gl";
-import type { TileSource } from "./types";
+import type { TileSource, UvValuationMode } from "./types";
 
 export const COMMUNE_SOURCE_ID = "catastro-communes";
 export const PARCEL_SOURCE_ID = "catastro-parcels";
@@ -10,39 +10,57 @@ export const PARCEL_LINE_ID = "catastro-parcels-line";
 export const UV_SOURCE_ID = "catastro-uv";
 export const UV_FILL_ID = "catastro-uv-fill";
 export const UV_LINE_ID = "catastro-uv-line";
+export type UvLayerStyle = "simple" | "bivariate";
 
-/** Matriz bivariada 4×4: cuartil de vulnerabilidad (qv) × cuartil de avalúo (qa).
+export const UV_SIMPLE_BLUE = "#21468b";
+export const PARCEL_FILL_ORANGE = "#f97316";
+export const PARCEL_LINE_ORANGE = "#e44714";
+
+/** Matriz bivariada 4×3: cuartil IGVUST oficial × avalúo normalizado.
  *
- *  Generada por interpolación bilineal entre cuatro esquinas con significado, no
- *  elegida a ojo. `qv=1` es MAYOR vulnerabilidad (convención MDSF) y `qa=4` mayor
- *  avalúo por hogar, así que la celda `14` —territorio muy vulnerable donde el
- *  catastro registra mucho valor— es la contradicción que el mapa busca mostrar y
- *  recibe el color más saliente del conjunto.
+ *  `qv=1` es MAYOR vulnerabilidad y se conserva como cuartil oficial. Sólo el eje
+ *  de avalúo se compacta visualmente: q1=bajo, q2-q3=medio, q4=alto. Así el mapa
+ *  mantiene los cuatro tramos IGVUST sin obligar a descifrar 16 tonos casi iguales.
  *
- *  Las claves son `"<qv><qa>"`. Ambos modos se validaron contra su propia
- *  superficie; el modo oscuro tiene menos separación entre celdas adyacentes, por
- *  eso la leyenda y el popup nunca son opcionales.
+ *  Las claves son `"<qv><avaluo>"`. La celda 13 (mayor vulnerabilidad + mayor
+ *  avalúo/m²) es el foco oscuro; las demás quedan deliberadamente transparentes.
  */
 export const BIVARIATE_PALETTE: Record<"light" | "dark", Record<string, string>> = {
   light: {
-    "11": "#c94f3d", "12": "#ae4551", "13": "#8d3961", "14": "#5b2a6e",
-    "21": "#d49891", "22": "#b58694", "23": "#8e6e98", "24": "#4f4f9b",
-    "31": "#dec4be", "32": "#bcacbd", "33": "#908ebd", "34": "#3f66bc",
-    "41": "#e8e6e1", "42": "#c3cadd", "43": "#91a7da", "44": "#2a78d6"
+    "11": "#e4e9ed", "12": "#a9a6d8", "13": "#4a245d",
+    "21": "#dce9ec", "22": "#8ca9cb", "23": "#555a9d",
+    "31": "#d2e7eb", "32": "#6ab3c7", "33": "#247fac",
+    "41": "#edf3ef", "42": "#8fccd2", "43": "#1597a7"
   },
   dark: {
-    "11": "#e0705c", "12": "#ce708a", "13": "#b96faa", "14": "#a06fc4",
-    "21": "#bd6252", "22": "#b06d8d", "23": "#a077b3", "24": "#8e7fd1",
-    "31": "#8f5146", "32": "#886a91", "33": "#817dbc", "34": "#788ddd",
-    "41": "#3a3a37", "42": "#476794", "43": "#5284c4", "44": "#5b9ae8"
+    "11": "#6d7481", "12": "#5f5a91", "13": "#2b184d",
+    "21": "#5c7480", "22": "#4f6f92", "23": "#3c4685",
+    "31": "#435f6b", "32": "#32798f", "33": "#236fa1",
+    "41": "#313941", "42": "#28717d", "43": "#1494a5"
   }
 };
 
 /** Color de una UV sin cuartil calculable: sin hogares RSH o sin predios. */
 export const BIVARIATE_MISSING: Record<"light" | "dark", string> = {
-  light: "#f0efec",
-  dark: "#2b2b29"
+  light: "#f1f4f7",
+  dark: "#252b33"
 };
+
+export const UV_QUARTILE_PROPERTY: Record<UvValuationMode, "qa_h" | "qa_m2"> = {
+  household: "qa_h",
+  m2: "qa_m2"
+};
+
+function valuationDisplayClassExpression(property: string): unknown[] {
+  const value = ["to-number", ["get", property], 0];
+  return [
+    "case",
+    ["==", value, 1], "1",
+    ["==", value, 4], "3",
+    ["all", [">=", value, 2], ["<=", value, 3]], "2",
+    "x"
+  ];
+}
 
 /**
  * Expresión `match` de MapLibre para el relleno bivariado.
@@ -50,11 +68,15 @@ export const BIVARIATE_MISSING: Record<"light" | "dark", string> = {
  * Es una función pura sobre el tema: no toca el mapa, así que se puede testear
  * sin instanciar MapLibre ni un canvas.
  */
-export function bivariateFillExpression(theme: "light" | "dark" = "light"): unknown[] {
+export function bivariateFillExpression(
+  theme: "light" | "dark" = "light",
+  valuationMode: UvValuationMode = "household"
+): unknown[] {
   const palette = BIVARIATE_PALETTE[theme];
+  const quartileProperty = UV_QUARTILE_PROPERTY[valuationMode];
   const expression: unknown[] = [
     "match",
-    ["concat", ["to-string", ["get", "qv"]], ["to-string", ["get", "qa"]]]
+    ["concat", ["to-string", ["get", "qv"]], valuationDisplayClassExpression(quartileProperty)]
   ];
   for (const [cell, color] of Object.entries(palette)) {
     expression.push(cell, color);
@@ -120,7 +142,9 @@ export function addCommuneLayers(map: maplibregl.Map, source: TileSource, before
 export function addUvLayers(
   map: maplibregl.Map,
   theme: "light" | "dark" = "light",
-  beforeId?: string
+  valuationMode: UvValuationMode = "household",
+  beforeId?: string,
+  layerStyle: UvLayerStyle = "bivariate"
 ): void {
   if (map.getLayer(UV_FILL_ID)) return;
   map.addLayer({
@@ -128,16 +152,42 @@ export function addUvLayers(
     type: "fill",
     source: UV_SOURCE_ID,
     paint: {
-      "fill-color": bivariateFillExpression(theme) as never,
-      "fill-opacity": 0.72
+      "fill-color": (layerStyle === "simple"
+        ? UV_SIMPLE_BLUE
+        : bivariateFillExpression(theme, valuationMode)) as never,
+      "fill-opacity": layerStyle === "simple" ? 0.12 : 0.62
     }
   }, beforeId);
   map.addLayer({
     id: UV_LINE_ID,
     type: "line",
     source: UV_SOURCE_ID,
-    paint: { "line-color": "#3c4a52", "line-opacity": 0.55, "line-width": 0.6 }
+    paint: {
+      "line-color": UV_SIMPLE_BLUE,
+      "line-opacity": layerStyle === "simple" ? 0.94 : 0.68,
+      "line-width": layerStyle === "simple"
+        ? ["interpolate", ["linear"], ["zoom"], 10, 1.1, 13, 1.8, 16, 2.55]
+        : ["interpolate", ["linear"], ["zoom"], 10, 0.65, 13, 0.95, 16, 1.45]
+    }
   }, beforeId);
+}
+
+/** Actualiza sólo la expresión de relleno cuando cambia tema o denominador. */
+export function updateUvFillExpression(
+  map: maplibregl.Map,
+  theme: "light" | "dark",
+  valuationMode: UvValuationMode,
+  layerStyle: UvLayerStyle = "bivariate"
+): void {
+  if (!map.getLayer(UV_FILL_ID)) return;
+  map.setPaintProperty(
+    UV_FILL_ID,
+    "fill-color",
+    (layerStyle === "simple" ? UV_SIMPLE_BLUE : bivariateFillExpression(theme, valuationMode)) as never
+  );
+  map.setPaintProperty(UV_FILL_ID, "fill-opacity", layerStyle === "simple" ? 0.12 : 0.62);
+  map.setPaintProperty(UV_LINE_ID, "line-color", UV_SIMPLE_BLUE);
+  map.setPaintProperty(UV_LINE_ID, "line-opacity", layerStyle === "simple" ? 0.94 : 0.68);
 }
 
 export function removeUvLayers(map: maplibregl.Map): void {
@@ -155,6 +205,7 @@ export function removeParcelLayers(map: maplibregl.Map): void {
 }
 
 export function addParcelLayers(map: maplibregl.Map, source: TileSource, opacity: number, beforeId?: string): void {
+  const fillOpacity = Math.max(0.055, Math.min(opacity, 0.11));
   map.addLayer({
     id: PARCEL_FILL_ID,
     type: "fill",
@@ -162,11 +213,8 @@ export function addParcelLayers(map: maplibregl.Map, source: TileSource, opacity
     "source-layer": source.source_layer,
     minzoom: source.minzoom,
     paint: {
-      "fill-color": [
-        "interpolate", ["linear"], ["to-number", ["get", "avaluo_fiscal_clp"], 0],
-        0, "#d6e3e7", 25_000_000, "#94b8c7", 100_000_000, "#3d7896"
-      ],
-      "fill-opacity": Math.max(opacity, 0.52)
+      "fill-color": PARCEL_FILL_ORANGE,
+      "fill-opacity": fillOpacity
     }
   }, beforeId);
   map.addLayer({
@@ -175,6 +223,10 @@ export function addParcelLayers(map: maplibregl.Map, source: TileSource, opacity
     source: PARCEL_SOURCE_ID,
     "source-layer": source.source_layer,
     minzoom: source.minzoom,
-    paint: { "line-color": "#315f78", "line-opacity": 0.82, "line-width": 0.65 }
+    paint: {
+      "line-color": PARCEL_LINE_ORANGE,
+      "line-opacity": 0.94,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.34, 16, 0.62, 18, 0.92]
+    }
   }, beforeId);
 }

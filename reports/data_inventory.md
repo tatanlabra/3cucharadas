@@ -39,19 +39,25 @@ como reemplazo.
 
 ## Campos y clasificación de publicación
 
-Los dos GeoParquet piloto contienen identificadores prediales, direcciones y valores
-exactos, entre otros campos operativos. Son **prohibidos** en cualquier salida web:
+Los dos GeoParquet piloto contienen identificadores prediales, direcciones y atributos
+operativos. Son **prohibidos** en cualquier salida web:
 
 - `rol`, componentes `predioPublicado_*`, `dc_bc*`, `dc_padre_*`, `_poly_idx` y
   cualquier identificador fuente;
 - `direccion_sii`, `dc_direccion`, `ubicacion` y cualquier dirección;
-- avalúos, superficies o contribuciones exactas;
 - coordenadas auxiliares, métodos de emparejamiento, errores y atributos de proceso.
 
-El extracto público mínimo admite sólo geometría y clases no identificables:
+**Actualización 2026-07-23.** Los **valores de avalúo y superficie dejaron de estar
+prohibidos**. El visor publica avalúo fiscal por predio, avalúo por m² agregado por unidad
+vecinal (`avm2`) y superficie, además de las clases derivadas. El límite que se mantiene es
+la **identificación**, no el valor: puede mostrarse cuánto vale un predio, no quién es su
+titular ni su dirección exacta.
+
+El extracto público admite geometría, clases no identificables y los valores señalados:
 `destino_clase`, `superficie_clase`, `avaluo_m2_clase`, `brecha_clase`,
-`calidad_geometrica`, `cod_region`, `cod_comuna`, `version_datos` e `id_publico`
-aleatorio/salteado. La construcción fallará si detecta un campo fuera de esa lista.
+`calidad_geometrica`, `cod_region`, `cod_comuna`, `version_datos`, `id_publico`
+aleatorio/salteado y los valores de avalúo/superficie descritos arriba. La construcción
+falla si detecta un identificador fuente o una dirección.
 
 ## Validación pendiente de entorno de build
 
