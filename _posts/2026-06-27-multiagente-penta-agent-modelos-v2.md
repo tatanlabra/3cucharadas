@@ -252,6 +252,9 @@ La principal, **un fallback silencioso es el fallo real**. Degradar está bien; 
 También el ejecutor dejó de estar arriba del todo. Y los modelos baratos que acá celebro como sidecar resultaron ser delegaciones sin rastro contra modelos que nunca verifiqué; ya tienen el mismo contrato de evidencia que el resto. Menos vistoso que sumar un agente nuevo, bastante más útil.
 {: .text-justify}
 
+Y queda un frente que no es de roles sino de **memoria**: el sistema coordina bien, pero olvida. Cada sesión arranca de cero y los handoffs los muevo a mano. En la [segunda parte de esta serie](/ia/productividad/desarrollo/multiagente-penta-agent-memoria/) abordo cómo le di memoria semántica compartida —mejorando el MCP que la sirve— para que Codex y Claude recuerden qué hicimos juntos: embeddings multilingües, búsqueda híbrida y un test que avisa cuando la memoria empieza a degradarse.
+{: .text-justify}
+
 ---
 
 ## Referencias técnicas

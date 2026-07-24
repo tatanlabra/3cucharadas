@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="956.88pt" height="523.700094pt" viewBox="0 0 956.88 523.700094" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Cadastral processing flow</title>
+<desc id="chart-desc">From 10,343,893 records, 942,616 duplicates were removed (9.11% of records), leaving 9,401,277 unique properties (90.89% of records). 9,130,127 touch at least one Neighborhood Unit (97.116% of unique properties) and 271,150 do not intersect any (2.884% of unique properties).</desc>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 523.700094 
+L 956.88 523.700094 
+L 956.88 0 
+L 0 0 
+z
+" style="fill: #0b1020"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 78.094513 438.617112 
+C 224.220616 438.617112 236.397791 438.617112 382.523894 438.617112 
+L 382.523894 187.609273 
+C 236.397791 187.609273 224.220616 187.609273 78.094513 187.609273 
+z
+" clip-path="url(#pac695ee337)" style="fill: #3de5ff; opacity: 0.35"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 78.094513 187.609273 
+C 224.220616 187.609273 236.397791 170.871391 382.523894 170.871391 
+L 382.523894 145.704171 
+C 236.397791 145.704171 224.220616 162.442053 78.094513 162.442053 
+z
+" clip-path="url(#pac695ee337)" style="fill: #ff65d8; opacity: 0.35"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 411.715752 438.617112 
+C 549.834945 438.617112 561.344878 438.617112 699.464071 438.617112 
+L 699.464071 194.848798 
+C 561.344878 194.848798 549.834945 194.848798 411.715752 194.848798 
+z
+" clip-path="url(#pac695ee337)" style="fill: #b7ff44; opacity: 0.35"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 411.715752 194.848798 
+C 549.834945 194.848798 561.344878 178.110915 699.464071 178.110915 
+L 699.464071 170.871391 
+C 561.344878 170.871391 549.834945 187.609273 411.715752 187.609273 
+z
+" clip-path="url(#pac695ee337)" style="fill: #ff9f43; opacity: 0.35"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(88.10315 289.399293)">Original</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(88.10315 303.494215)">records</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(88.10315 321.456348)">10,343,893 records</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(88.10315 332.990095)">100% of the universe</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 302.031732)">Unique</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 316.028997)">properties</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 334.039958)">9,401,277 properties</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 345.573705)">90.89% of records</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 147.20632)">Duplicates</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 161.203585)">removed</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 179.214546)">942,616 records</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 190.748293)">9.11% of records</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 305.651494)">Touch at least</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 319.648759)">one UV</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 337.65972)">9,130,127 properties</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 349.193467)">97.116% of unique properties</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 163.409692)">No UV</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 177.406958)">intersection</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 195.417918)">271,150 properties</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 206.951665)">2.884% of unique properties</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 53.07292 439.872453 
+L 73.924248 439.872453 
+Q 80.596673 439.872453 80.596673 436.524877 
+L 80.596673 164.534289 
+Q 80.596673 161.186712 73.924248 161.186712 
+L 53.07292 161.186712 
+Q 46.400496 161.186712 46.400496 164.534289 
+L 46.400496 436.524877 
+Q 46.400496 439.872453 53.07292 439.872453 
+z
+" clip-path="url(#pac695ee337)" style="fill: #a78bfa"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 386.694159 439.872453 
+L 407.545487 439.872453 
+Q 414.217912 439.872453 414.217912 436.524877 
+L 414.217912 189.701508 
+Q 414.217912 186.353932 407.545487 186.353932 
+L 386.694159 186.353932 
+Q 380.021735 186.353932 380.021735 189.701508 
+L 380.021735 436.524877 
+Q 380.021735 439.872453 386.694159 439.872453 
+z
+" clip-path="url(#pac695ee337)" style="fill: #3de5ff"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 386.694159 172.126732 
+L 407.545487 172.126732 
+Q 414.217912 172.126732 414.217912 168.779156 
+L 414.217912 147.796406 
+Q 414.217912 144.44883 407.545487 144.44883 
+L 386.694159 144.44883 
+Q 380.021735 144.44883 380.021735 147.796406 
+L 380.021735 168.779156 
+Q 380.021735 172.126732 386.694159 172.126732 
+z
+" clip-path="url(#pac695ee337)" style="fill: #ff65d8"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 703.634336 439.872453 
+L 724.485664 439.872453 
+Q 731.158088 439.872453 731.158088 436.524877 
+L 731.158088 196.941033 
+Q 731.158088 193.593457 724.485664 193.593457 
+L 703.634336 193.593457 
+Q 696.961912 193.593457 696.961912 196.941033 
+L 696.961912 436.524877 
+Q 696.961912 439.872453 703.634336 439.872453 
+z
+" clip-path="url(#pac695ee337)" style="fill: #b7ff44"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 703.634336 179.366257 
+L 724.485664 179.366257 
+Q 731.158088 179.366257 731.158088 176.01868 
+L 731.158088 172.963626 
+Q 731.158088 169.61605 724.485664 169.61605 
+L 703.634336 169.61605 
+Q 696.961912 169.61605 696.961912 172.963626 
+L 696.961912 176.01868 
+Q 696.961912 179.366257 703.634336 179.366257 
+z
+" clip-path="url(#pac695ee337)" style="fill: #ff9f43"/>
+   </g>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f8fafc" x="12.24" y="24.676406" transform="rotate(-0 12.24 24.676406)">From 10.3 million records to 9.4 million unique properties</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #aeb9cc" x="12.24" y="54.772406" transform="rotate(-0 12.24 54.772406)">Territorial leakage remains visible: it is neither corrected nor redistributed across Neighborhood Units.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #aeb9cc" x="12.24" y="514.420406" transform="rotate(-0 12.24 514.420406)">Source: SII + MDSF/IGVUST · Data cut 19 July 2026 · Independent visualization by 3 Cucharadas</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pac695ee337">
+   <rect x="7.2" y="112.228406" width="942.48" height="355.68"/>
+  </clipPath>
+ </defs>
+</svg>
