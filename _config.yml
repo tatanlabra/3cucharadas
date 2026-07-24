@@ -253,7 +253,7 @@ sass:
 
 # Salida/URLs
 permalink    : /:categories/:title/
-paginate     : 5
+paginate     : 8
 paginate_path: /page:num/
 
 # Plugins
