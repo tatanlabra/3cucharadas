@@ -89,19 +89,27 @@ def parse_args() -> argparse.Namespace:
         default=".",
         help="Repository root or any path inside the repository.",
     )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Validate environment and build the message without sending it.",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
+    args = parse_args()
     token = os.environ.get("EPUB_CURATOR_TG_TOKEN", "").strip()
     chat_id = os.environ.get("EPUB_CURATOR_TG_CHAT_ID", "").strip()
     if not token or not chat_id:
         print("telegram-missing-env")
         return 2
 
-    args = parse_args()
     repo_root = _repo_root(Path(args.repo_root).resolve())
     message = _build_message(repo_root)
+    if args.dry_run:
+        print("telegram-dry-run-ok")
+        return 0
 
     if _send_message(token, chat_id, message):
         print("telegram-sent")

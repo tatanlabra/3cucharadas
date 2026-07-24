@@ -73,7 +73,13 @@ Before publishing, keep checking:
 ```bash
 bash -n scripts/git-hooks/post-commit scripts/install_git_hooks.sh
 python -m py_compile scripts/notify_telegram_commit.py
+TELEGRAM_HOOK_DRY_RUN=1 .git/hooks/post-commit
 ```
+
+When commits are created from Codex with `CODEX_SANDBOX_NETWORK_DISABLED`
+present, the hook skips the Telegram API call and prints
+`telegram-skipped-network-sandbox`. Run the dry-run above to validate the local
+configuration without sending a message.
 
 Also scan `scripts`, `docs`, and `README.md` for concrete Telegram variable
 assignments, bot API tokens, bearer tokens, OpenAI-style API keys, and private
