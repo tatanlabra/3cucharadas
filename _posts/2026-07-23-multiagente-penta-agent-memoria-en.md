@@ -12,6 +12,9 @@ author: clabra
 lang: en
 ref: multiagente-penta-agent-memoria
 permalink: /ia/productividad/desarrollo/multiagente-penta-agent-memoria/
+distribution:
+  social: true
+  republish: []
 toc: true
 toc_sticky: true
 comments: true
@@ -20,6 +23,8 @@ math: true
 published: true
 header:
   teaser: /assets/images/teasers/teaser-multiagentes-memoria.webp
+  og_image: /assets/images/teasers/teaser-multiagentes-memoria.webp
+  og_image_alt: "Illustration of auditable multi-agent memory for penta-agent"
 ---
 
 In the [first post]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) I described how I organized `penta-agent`: Codex executes, Claude reviews, other agents enter in bounded ways, and the human keeps closure authority. I also argued that operational memory should not depend on a single conversation or be confused with the vector index.

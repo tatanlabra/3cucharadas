@@ -12,6 +12,9 @@ author: clabra
 lang: es
 ref: multiagente-penta-agent-memoria
 permalink: /ia/productividad/desarrollo/multiagente-penta-agent-memoria/
+distribution:
+  social: true
+  republish: []
 toc: true
 toc_sticky: true
 comments: true
@@ -20,6 +23,8 @@ math: true
 published: true
 header:
   teaser: /assets/images/teasers/teaser-multiagentes-memoria.webp
+  og_image: /assets/images/teasers/teaser-multiagentes-memoria.webp
+  og_image_alt: "Ilustración de memoria multiagente validable para penta-agent"
 ---
 
 En el [primer post](/ia/productividad/desarrollo/multiagente-penta-agent-modelos/) conté cómo ordené `penta-agent`: Codex ejecuta, Claude revisa, otros agentes entran de manera acotada y el humano conserva el cierre. También dejé planteado que la memoria operativa no debía depender de una conversación aislada ni confundirse con el índice vectorial.
