@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="956.88pt" height="524.620094pt" viewBox="0 0 956.88 524.620094" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Flujo de procesamiento del catastro</title>
+<desc id="chart-desc">De 10.343.893 registros se eliminaron 942.616 duplicados (9,11% de los registros); quedaron 9.401.277 predios únicos (90,89% de los registros). 9.130.127 tocan al menos una Unidad Vecinal (97,116% de los predios únicos) y 271.150 no la intersectan (2,884% de los predios únicos).</desc>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 524.620094 
+L 956.88 524.620094 
+L 956.88 0 
+L 0 0 
+z
+" style="fill: #0b1020"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 78.094513 439.537112 
+C 224.220616 439.537112 236.397791 439.537112 382.523894 439.537112 
+L 382.523894 188.529273 
+C 236.397791 188.529273 224.220616 188.529273 78.094513 188.529273 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #3de5ff; opacity: 0.35"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 78.094513 188.529273 
+C 224.220616 188.529273 236.397791 171.791391 382.523894 171.791391 
+L 382.523894 146.624171 
+C 236.397791 146.624171 224.220616 163.362053 78.094513 163.362053 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #ff65d8; opacity: 0.35"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 411.715752 439.537112 
+C 549.834945 439.537112 561.344878 439.537112 699.464071 439.537112 
+L 699.464071 195.768798 
+C 561.344878 195.768798 549.834945 195.768798 411.715752 195.768798 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #b7ff44; opacity: 0.35"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 411.715752 195.768798 
+C 549.834945 195.768798 561.344878 179.030915 699.464071 179.030915 
+L 699.464071 171.791391 
+C 561.344878 171.791391 549.834945 188.529273 411.715752 188.529273 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #ff9f43; opacity: 0.35"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(88.10315 290.270465)">Registros</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(88.10315 304.365387)">originales</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(88.10315 322.376348)">10.343.893 registros</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(88.10315 333.910095)">100% del universo</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 302.951732)">Predios</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 316.948997)">únicos</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 334.959958)">9.401.277 predios</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 346.493705)">90,89% de registros</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 148.12632)">Duplicados</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(421.724389 162.123585)">eliminados</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 180.134546)">942.616 registros</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(421.724389 191.668293)">9,11% de registros</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 306.571494)">Tocan al</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 320.568759)">menos una UV</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 338.33252)">9.130.127 predios</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 350.360667)">97,116% de predios únicos</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 164.329692)">Sin</text>
+    <text style="font-weight: 700; font-size: 12.5px; font-family: 'DejaVu Sans'; fill: #f8fafc" transform="translate(738.664566 178.326958)">intersección UV</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 196.090718)">271.150 predios</text>
+    <text style="font-size: 10.3px; font-family: 'DejaVu Sans'; fill: #aeb9cc" transform="translate(738.664566 208.118865)">2,884% de predios únicos</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 53.07292 440.792453 
+L 73.924248 440.792453 
+Q 80.596673 440.792453 80.596673 437.444877 
+L 80.596673 165.454289 
+Q 80.596673 162.106712 73.924248 162.106712 
+L 53.07292 162.106712 
+Q 46.400496 162.106712 46.400496 165.454289 
+L 46.400496 437.444877 
+Q 46.400496 440.792453 53.07292 440.792453 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #a78bfa"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 386.694159 440.792453 
+L 407.545487 440.792453 
+Q 414.217912 440.792453 414.217912 437.444877 
+L 414.217912 190.621508 
+Q 414.217912 187.273932 407.545487 187.273932 
+L 386.694159 187.273932 
+Q 380.021735 187.273932 380.021735 190.621508 
+L 380.021735 437.444877 
+Q 380.021735 440.792453 386.694159 440.792453 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #3de5ff"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 386.694159 173.046732 
+L 407.545487 173.046732 
+Q 414.217912 173.046732 414.217912 169.699156 
+L 414.217912 148.716406 
+Q 414.217912 145.36883 407.545487 145.36883 
+L 386.694159 145.36883 
+Q 380.021735 145.36883 380.021735 148.716406 
+L 380.021735 169.699156 
+Q 380.021735 173.046732 386.694159 173.046732 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #ff65d8"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 703.634336 440.792453 
+L 724.485664 440.792453 
+Q 731.158088 440.792453 731.158088 437.444877 
+L 731.158088 197.861033 
+Q 731.158088 194.513457 724.485664 194.513457 
+L 703.634336 194.513457 
+Q 696.961912 194.513457 696.961912 197.861033 
+L 696.961912 437.444877 
+Q 696.961912 440.792453 703.634336 440.792453 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #b7ff44"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 703.634336 180.286257 
+L 724.485664 180.286257 
+Q 731.158088 180.286257 731.158088 176.93868 
+L 731.158088 173.883626 
+Q 731.158088 170.53605 724.485664 170.53605 
+L 703.634336 170.53605 
+Q 696.961912 170.53605 696.961912 173.883626 
+L 696.961912 176.93868 
+Q 696.961912 180.286257 703.634336 180.286257 
+z
+" clip-path="url(#p8d26c280ba)" style="fill: #ff9f43"/>
+   </g>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #f8fafc" x="12.24" y="25.596406" transform="rotate(-0 12.24 25.596406)">De 10,3 millones de registros a 9,4 millones de predios únicos</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 12.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #aeb9cc" x="12.24" y="55.692406" transform="rotate(-0 12.24 55.692406)">La fuga territorial se conserva: no se corrige ni se reparte artificialmente entre Unidades Vecinales.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #aeb9cc" x="12.24" y="515.340406" transform="rotate(-0 12.24 515.340406)">Fuente: SII + MDSF/IGVUST · Corte 19/07/2026 · Visualización independiente de 3 Cucharadas</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8d26c280ba">
+   <rect x="7.2" y="113.148406" width="942.48" height="355.68"/>
+  </clipPath>
+ </defs>
+</svg>
