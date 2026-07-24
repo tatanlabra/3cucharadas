@@ -8,6 +8,7 @@ require "rexml/document"
 require "rexml/xpath"
 
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
+source_root = File.expand_path("..", __dir__)
 # KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
 max_bytes = Integer(ENV.fetch("SITE_BASE_ARTIFACT_MAX_BYTES", "25000000"))
 total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "45000000"))
@@ -118,13 +119,26 @@ if Dir.exist?(microsite_dir)
   abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
 end
 
-avaluo_math_documents = %w[
-  datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/index.html
-].freeze
+avaluo_math_documents = {
+  "datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/index.html" => {
+    post: "_posts/2026-07-23-avaluo-vulnerabilidad-unidad-vecinal.md",
+    draft: "_drafts/2026-07-23-avaluo-vulnerabilidad-unidad-vecinal.md"
+  }
+}.freeze
 raw_tex_delimiters = ["$$", "\\(", "\\)", "\\[", "\\]"].freeze
 
-avaluo_math_documents.each do |relative|
+avaluo_math_documents.each do |relative, source|
   path = File.join(site_dir, relative)
+  source_post = File.join(source_root, source.fetch(:post))
+  source_draft = File.join(source_root, source.fetch(:draft))
+  if File.file?(source_draft) && !File.file?(source_post)
+    unless draft_fixture_mode
+      abort "Draft Avalúo post leaked into public artifact: #{relative}" if File.file?(path)
+
+      next
+    end
+  end
+
   abort "Avalúo post is missing: #{relative}" unless File.file?(path)
 
   body = File.read(path)

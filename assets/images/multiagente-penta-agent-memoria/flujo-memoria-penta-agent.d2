@@ -1,0 +1,111 @@
+direction: down
+
+classes: {
+  input: {
+    style.fill: "#282a36"
+    style.stroke: "#8be9fd"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 16
+  }
+  process: {
+    style.fill: "#303446"
+    style.stroke: "#bd93f9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 16
+  }
+  canonical: {
+    style.fill: "#263f35"
+    style.stroke: "#50fa7b"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 16
+  }
+  derived: {
+    style.fill: "#3f3328"
+    style.stroke: "#ffb86c"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 16
+  }
+  output: {
+    style.fill: "#392b3f"
+    style.stroke: "#ff79c6"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 16
+  }
+}
+
+raw: "Trazas curadas\nhandoffs, hooks y métricas" {
+  class: input
+}
+
+ingest: "Ingesta selectiva\nrecord-context\nimport-context-handoffs" {
+  class: process
+}
+
+canonical: "Fuente canónica\nJSONL/YAML locales\ncurated-context-manifest.jsonl" {
+  class: canonical
+}
+
+embedding: "Representación\nOllama /api/embed: bge-m3\nFastEmbed: Qdrant/bm25" {
+  class: process
+}
+
+index: "Índice derivado\nQdrant\npenta_context_v2\npenta_experience_v1" {
+  class: derived
+}
+
+retrieval: "Recuperación híbrida\nhybrid_context_hits\ndenso + JSONL léxico + BM25\nrecencia + ciclo de vida" {
+  class: derived
+}
+
+mcp: "Contexto de trabajo\nMCP experience-memory\nskill recall-context" {
+  class: output
+}
+
+agents: "Uso en sesión\nCodex / Claude / Gemini\ncierre humano" {
+  class: output
+}
+
+raw -> ingest: {
+  style.stroke: "#bd93f9"
+  style.stroke-width: 2
+}
+ingest -> canonical: "sanea y registra procedencia" {
+  style.stroke: "#bd93f9"
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 13
+}
+canonical -> embedding: "deriva índice" {
+  style.stroke: "#8be9fd"
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 13
+}
+embedding -> index: {
+  style.stroke: "#8be9fd"
+  style.stroke-width: 2
+}
+index -> retrieval: {
+  style.stroke: "#ffb86c"
+  style.stroke-width: 2
+}
+canonical -> retrieval: "fuente de verdad" {
+  style.stroke: "#50fa7b"
+  style.stroke-dash: 4
+  style.stroke-width: 2
+  style.font-color: "#cdd6f4"
+  style.font-size: 13
+}
+retrieval -> mcp: {
+  style.stroke: "#ff79c6"
+  style.stroke-width: 2
+}
+mcp -> agents: {
+  style.stroke: "#ff79c6"
+  style.stroke-width: 2
+}
