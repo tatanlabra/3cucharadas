@@ -184,6 +184,9 @@ pre,
   --night-link-hover: #ffffff;
   --night-action: #393939;
   --night-action-hover: #525252;
+  --night-toc-active-bg: #f2c7cc;
+  --night-toc-active-text: #161616;
+  --night-toc-active-border: #ff8a99;
   --night-purple: #be95ff;
   --night-green: #42be65;
   --night-yellow: #f1c21b;
@@ -579,10 +582,30 @@ html[data-theme="academic-night"] .toc__menu a:focus {
   color: var(--night-link-hover);
 }
 
-html[data-theme="academic-night"] .toc__menu li.active > a {
-  border-left: 0.2rem solid var(--night-link);
-  background: var(--night-layer-strong);
-  color: var(--night-text);
+html[data-theme="academic-night"] .toc .active a,
+html[data-theme="academic-night"] .toc__menu li.active > a,
+html[data-theme="academic-night"] .toc__menu a.active {
+  border-left: 0.2rem solid var(--night-toc-active-border);
+  background: var(--night-toc-active-bg);
+  color: var(--night-toc-active-text);
+}
+
+html[data-theme="academic-night"] .toc .active a:hover,
+html[data-theme="academic-night"] .toc .active a:focus,
+html[data-theme="academic-night"] .toc__menu a.active:hover,
+html[data-theme="academic-night"] .toc__menu a.active:focus {
+  color: var(--night-toc-active-text);
+}
+
+.memory-flow-figure img {
+  width: min(70%, 42rem);
+  max-width: 100%;
+}
+
+@media (max-width: 47.99em) {
+  .memory-flow-figure img {
+    width: 100%;
+  }
 }
 
 html[data-theme="academic-night"] .pagination--pager,
