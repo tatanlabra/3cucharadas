@@ -55,7 +55,7 @@ La distinción importa. Un resultado recuperado no es todavía una decisión com
 El flujo real quedó así:
 {: .text-justify}
 
-<figure class="align-center">
+<figure class="align-center memory-flow-figure">
   <img src="{{ '/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg' | relative_url }}" alt="Diagrama de flujo de la memoria de penta-agent: trazas curadas, ingesta selectiva, fuente canónica, representación con embeddings y BM25, Qdrant derivado, recuperación híbrida, MCP y uso por Codex, Claude o Gemini con cierre humano." loading="lazy" decoding="async">
   <figcaption><strong>Figura 1</strong> — Flujo operativo de la memoria validable de <code>penta-agent</code>. Nota: los JSONL/YAML locales son la fuente de verdad; Qdrant y BM25 son índices derivados para recuperación, no evidencia final.</figcaption>
 </figure>

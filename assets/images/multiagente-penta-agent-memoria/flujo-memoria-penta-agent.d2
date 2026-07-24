@@ -6,67 +6,67 @@ classes: {
     style.stroke: "#8be9fd"
     style.stroke-width: 2
     style.font-color: "#f8f8f2"
-    style.font-size: 16
+    style.font-size: 11
   }
   process: {
     style.fill: "#303446"
     style.stroke: "#bd93f9"
     style.stroke-width: 2
     style.font-color: "#f8f8f2"
-    style.font-size: 16
+    style.font-size: 11
   }
   canonical: {
     style.fill: "#263f35"
     style.stroke: "#50fa7b"
     style.stroke-width: 2
     style.font-color: "#f8f8f2"
-    style.font-size: 16
+    style.font-size: 11
   }
   derived: {
     style.fill: "#3f3328"
     style.stroke: "#ffb86c"
     style.stroke-width: 2
     style.font-color: "#f8f8f2"
-    style.font-size: 16
+    style.font-size: 11
   }
   output: {
     style.fill: "#392b3f"
     style.stroke: "#ff79c6"
     style.stroke-width: 2
     style.font-color: "#f8f8f2"
-    style.font-size: 16
+    style.font-size: 11
   }
 }
 
-raw: "Trazas curadas\nhandoffs, hooks y métricas" {
+raw: "Trazas curadas: handoffs, hooks y métricas" {
   class: input
 }
 
-ingest: "Ingesta selectiva\nrecord-context\nimport-context-handoffs" {
+ingest: "Ingesta selectiva: record-context / import-context-handoffs" {
   class: process
 }
 
-canonical: "Fuente canónica\nJSONL/YAML locales\ncurated-context-manifest.jsonl" {
+canonical: "Fuente canónica: JSONL/YAML locales\ncurated-context-manifest.jsonl" {
   class: canonical
 }
 
-embedding: "Representación\nOllama /api/embed: bge-m3\nFastEmbed: Qdrant/bm25" {
+embedding: "Representación: Ollama /api/embed: bge-m3\nFastEmbed: Qdrant/bm25" {
   class: process
 }
 
-index: "Índice derivado\nQdrant\npenta_context_v2\npenta_experience_v1" {
+index: "Índice derivado: Qdrant\npenta_context_v2 / penta_experience_v1" {
   class: derived
 }
 
-retrieval: "Recuperación híbrida\nhybrid_context_hits\ndenso + JSONL léxico + BM25\nrecencia + ciclo de vida" {
+retrieval: "Recuperación híbrida: hybrid_context_hits\ndenso + JSONL léxico + BM25; recencia + ciclo de vida" {
   class: derived
 }
 
-mcp: "Contexto de trabajo\nMCP experience-memory\nskill recall-context" {
+mcp: "Contexto de trabajo: MCP experience-memory / skill recall-context" {
   class: output
 }
 
-agents: "Uso en sesión\nCodex / Claude / Gemini\ncierre humano" {
+agents: "Uso en sesión: Codex / Claude / Gemini; cierre humano" {
   class: output
 }
 
@@ -78,13 +78,13 @@ ingest -> canonical: "sanea y registra procedencia" {
   style.stroke: "#bd93f9"
   style.stroke-width: 2
   style.font-color: "#cdd6f4"
-  style.font-size: 13
+  style.font-size: 9
 }
 canonical -> embedding: "deriva índice" {
   style.stroke: "#8be9fd"
   style.stroke-width: 2
   style.font-color: "#cdd6f4"
-  style.font-size: 13
+  style.font-size: 9
 }
 embedding -> index: {
   style.stroke: "#8be9fd"
@@ -99,7 +99,7 @@ canonical -> retrieval: "fuente de verdad" {
   style.stroke-dash: 4
   style.stroke-width: 2
   style.font-color: "#cdd6f4"
-  style.font-size: 13
+  style.font-size: 9
 }
 retrieval -> mcp: {
   style.stroke: "#ff79c6"
