@@ -236,6 +236,12 @@ defaults:
       share: true
       related: true
       math: false
+      # Default de imagen social (Fase 1, auditoria-2026-07-25): variante 1200x630
+      # (1,91:1) derivada del hero de portada, sin reemplazarlo. Se sobreescribe
+      # por post con header.og_image cuando exista una imagen propia (merge
+      # profundo de Jekyll para defaults de front matter).
+      header:
+        og_image: /assets/images/home/el-salvador-codera-hero-og-1200x630.webp
   # _pages
   - scope:
       path: "_pages"
