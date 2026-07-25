@@ -8,6 +8,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicons/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest' | relative_url }}">
 
+{%- comment %} Habilita vistas previas de imagen grande en resultados de búsqueda (Fase 1, auditoria-2026-07-25) {% endcomment -%}
+<meta name="robots" content="max-image-preview:large">
 
 {% if page.math or site.math %}
 <link rel="stylesheet" href="{{ '/assets/vendor/katex/0.17.0/katex.css' | relative_url }}">
