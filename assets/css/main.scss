@@ -293,7 +293,13 @@ pre,
   text-align: center;
 }
 
-.theme-toggle__icon--sun {
+.theme-toggle .theme-toggle__icon--sun {
+  /* Selector compuesto a propósito: Font Awesome declara
+     `.fas { display: var(--fa-display, inline-block) }` con la misma
+     especificidad que un `.theme-toggle__icon--sun` suelto, y gana el
+     empate por orden de carga (su CDN se inyecta después de este CSS).
+     Calificar con `.theme-toggle` sube la especificidad y evita depender
+     del orden de <link> en <head>. */
   display: none;
 }
 
