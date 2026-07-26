@@ -15,19 +15,19 @@ function onceNearViewport(element: Element, start: () => void, rootMargin: strin
 }
 
 function beginMap(): void {
-  const container = document.getElementById("map");
+  const container = document.getElementById("bivariate-map");
   if (!container) return;
   const start = () => {
     import("./app")
       .then(({ CatastroMapApplication }) => CatastroMapApplication.start())
       .then((application) => application.mount())
       .catch(() => {
-        const status = document.getElementById("map-status");
-        if (status) status.textContent = "La vista agregada sigue disponible; no fue posible iniciar el mapa vectorial.";
+        const status = document.getElementById("bivariate-map-status") ?? document.getElementById("status");
+        if (status) status.textContent = "La vista agregada sigue disponible; no fue posible iniciar el mapa UV vectorial.";
       });
   };
   const requested = new URLSearchParams(window.location.search);
-  const needsImmediateMap = requested.get("vista") === "mapa" || requested.has("comuna") || window.location.hash === "#cartographic-map";
+  const needsImmediateMap = requested.get("vista") === "mapa" || requested.has("comuna") || window.location.hash === "#bivariate-card";
   if (isLocalPreviewLocation(window.location.hostname, window.location.search) || needsImmediateMap) {
     start();
     return;

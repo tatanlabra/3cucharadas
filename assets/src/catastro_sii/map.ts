@@ -8,6 +8,7 @@ import {
   COMMUNE_FILL_ID,
   COMMUNE_LINE_ID,
   COMMUNE_SOURCE_ID,
+  communeQuartileFillExpression,
   PARCEL_FILL_ID,
   PARCEL_LINE_ID,
   PARCEL_SOURCE_ID,
@@ -21,7 +22,7 @@ import {
 } from "./layers";
 import type { RangeResponse, Source } from "pmtiles";
 import type { UvLayerStyle } from "./layers";
-import type { AppState, Bounds, CommuneDefaultView, TileSource, TilesManifest, UvValuationMode } from "./types";
+import type { AppState, Bounds, CommuneDefaultView, TileSource, TilesManifest } from "./types";
 
 let protocolInstalled = false;
 let pmtilesProtocol: Protocol | null = null;
@@ -172,7 +173,15 @@ export const UV_CLICK_POPUP_OPTIONS = {
   maxWidth: "290px"
 } as const;
 
+export const COMMUNE_POPUP_OPTIONS = {
+  closeButton: true,
+  closeOnClick: true,
+  focusAfterOpen: false,
+  maxWidth: "300px"
+} as const;
+
 type UvHoverFormatter = (properties: Record<string, unknown>) => HTMLElement | string;
+type CommuneFormatter = (properties: Record<string, unknown>) => HTMLElement | string | null;
 
 /** MapLibre already exposes a focusable canvas; add the page-level context. */
 export function configureMapCanvasAccessibility(
@@ -250,6 +259,7 @@ export class MapController {
   private uvHoverBound = false;
   private uvClickBound = false;
   private uvHoverFormatter: UvHoverFormatter | null = null;
+  private communeFormatter: CommuneFormatter | null = null;
   private activeHoverPopup: maplibregl.Popup | null = null;
   private activeClickPopup: maplibregl.Popup | null = null;
   private defaultView: CommuneDefaultView | null = null;
@@ -308,21 +318,44 @@ export class MapController {
     return controller;
   }
 
-  addCommunes(onClick: (communeCode: string) => void): boolean {
+  addCommunes(
+    onClick: (communeCode: string) => void,
+    communeFormatter: CommuneFormatter | null = null,
+    quartilesByCommune: Record<string, 1 | 2 | 3 | 4 | null> = {},
+    theme: "light" | "dark" = "light"
+  ): boolean {
     const source = this.manifest.communes;
     if (!source.available) return false;
     const url = tileUrl(this.manifest, source.url);
     registerPmtiles(url);
     addPmtilesSource(this.map, COMMUNE_SOURCE_ID, source, url);
-    addCommuneLayers(this.map, source, this.overlayBeforeId());
+    addCommuneLayers(this.map, source, this.overlayBeforeId(), communeQuartileFillExpression(theme, quartilesByCommune));
     this.communeSourceReady = true;
+    this.communeFormatter = communeFormatter;
     this.map.on("click", COMMUNE_FILL_ID, (event) => {
-      const code = event.features?.[0]?.properties?.cod_comuna;
+      const properties = event.features?.[0]?.properties ?? {};
+      const code = properties.cod_comuna;
       if (typeof code === "string" || typeof code === "number") onClick(String(code));
+      const content = this.communeFormatter?.(properties);
+      if (!content) return;
+      this.activeClickPopup?.remove();
+      const popup = new maplibregl.Popup(COMMUNE_POPUP_OPTIONS).setLngLat(event.lngLat);
+      if (typeof content === "string") popup.setHTML(content);
+      else popup.setDOMContent(content);
+      popup.addTo(this.map);
+      this.activeClickPopup = popup;
     });
     this.map.on("mouseenter", COMMUNE_FILL_ID, () => { this.map.getCanvas().style.cursor = "pointer"; });
     this.map.on("mouseleave", COMMUNE_FILL_ID, () => { this.map.getCanvas().style.cursor = ""; });
     return true;
+  }
+
+  setCommuneQuartiles(
+    theme: "light" | "dark",
+    quartilesByCommune: Record<string, 1 | 2 | 3 | 4 | null>
+  ): void {
+    if (!this.communeSourceReady || !this.map.getLayer(COMMUNE_FILL_ID)) return;
+    this.map.setPaintProperty(COMMUNE_FILL_ID, "fill-color", communeQuartileFillExpression(theme, quartilesByCommune));
   }
 
   setCommuneFilter(communeCode: string | null): void {
@@ -497,7 +530,7 @@ export class MapController {
   async setUvLayer(
     url: string | null,
     theme: "light" | "dark" = "light",
-    valuationMode: UvValuationMode = "household",
+    regionalMedianAvm2: number | null = null,
     focusLocal = false,
     layerStyle: UvLayerStyle = "bivariate"
   ): Promise<boolean> {
@@ -519,13 +552,13 @@ export class MapController {
     const existing = this.map.getSource(UV_SOURCE_ID);
     if (existing && "setData" in existing) {
       (existing as maplibregl.GeoJSONSource).setData(collection as never);
-      updateUvFillExpression(this.map, theme, valuationMode, layerStyle);
+      updateUvFillExpression(this.map, theme, regionalMedianAvm2, layerStyle);
       if (focusLocal) this.focusLocalBounds(geojsonFeatureBounds(collection));
       this.orderAnalysisLayers();
       return true;
     }
     this.map.addSource(UV_SOURCE_ID, { type: "geojson", data: collection as never });
-    addUvLayers(this.map, theme, valuationMode, this.overlayBeforeId(), layerStyle);
+    addUvLayers(this.map, theme, regionalMedianAvm2, this.overlayBeforeId(), layerStyle);
     if (focusLocal) this.focusLocalBounds(geojsonFeatureBounds(collection));
     this.orderAnalysisLayers();
     return true;

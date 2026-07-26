@@ -1,9 +1,11 @@
-#map.catastro-maplibre .maplibregl-ctrl-group {
+#map.catastro-maplibre .maplibregl-ctrl-group,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl-group {
   border: 1px solid rgba(48, 81, 99, .38);
   box-shadow: 0 5px 16px rgba(25, 52, 67, .18);
 }
 
-#map.catastro-maplibre .maplibregl-ctrl button {
+#map.catastro-maplibre .maplibregl-ctrl button,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl button {
   width: 44px;
   min-width: 44px;
   height: 44px;
@@ -11,26 +13,33 @@
   background-color: rgba(255, 255, 255, .96);
 }
 
-#map.catastro-maplibre .maplibregl-ctrl button span {
+#map.catastro-maplibre .maplibregl-ctrl button span,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl button span {
   filter: none;
 }
 
-#map.catastro-maplibre .maplibregl-ctrl-attrib {
+#map.catastro-maplibre .maplibregl-ctrl-attrib,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl-attrib {
   color: #314a59;
   background: rgba(255, 255, 255, .9);
 }
 
-#map.catastro-maplibre .maplibregl-ctrl-attrib a { color: #236b8a; }
+#map.catastro-maplibre .maplibregl-ctrl-attrib a,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl-attrib a { color: #236b8a; }
 
 #map.catastro-maplibre .maplibregl-canvas:focus-visible,
 #map.catastro-maplibre .maplibregl-ctrl button:focus-visible,
-#map.catastro-maplibre .maplibregl-popup-close-button:focus-visible {
+#map.catastro-maplibre .maplibregl-popup-close-button:focus-visible,
+#bivariate-map.catastro-maplibre .maplibregl-canvas:focus-visible,
+#bivariate-map.catastro-maplibre .maplibregl-ctrl button:focus-visible,
+#bivariate-map.catastro-maplibre .maplibregl-popup-close-button:focus-visible {
   outline: 3px solid #3e7e9e;
   outline-offset: 3px;
   box-shadow: 0 0 0 6px rgba(62, 126, 158, .22);
 }
 
-#map.catastro-maplibre .maplibregl-popup-content {
+#map.catastro-maplibre .maplibregl-popup-content,
+#bivariate-map.catastro-maplibre .maplibregl-popup-content {
   min-width: 224px;
   padding: 12px 48px 12px 14px;
   color: #223744;
@@ -42,15 +51,18 @@
   line-height: 1.38;
 }
 
-#map.catastro-maplibre .maplibregl-popup-content strong {
+#map.catastro-maplibre .maplibregl-popup-content strong,
+#bivariate-map.catastro-maplibre .maplibregl-popup-content strong {
   display: block;
   margin-bottom: .42rem;
   color: #285f7a;
 }
 
-#map.catastro-maplibre .maplibregl-popup-content p { margin: .32rem 0; }
+#map.catastro-maplibre .maplibregl-popup-content p,
+#bivariate-map.catastro-maplibre .maplibregl-popup-content p { margin: .32rem 0; }
 
-#map.catastro-maplibre .maplibregl-popup-close-button {
+#map.catastro-maplibre .maplibregl-popup-close-button,
+#bivariate-map.catastro-maplibre .maplibregl-popup-close-button {
   width: 44px;
   min-width: 44px;
   height: 44px;
@@ -63,3 +75,7 @@
 #map.catastro-maplibre .maplibregl-popup-anchor-top .maplibregl-popup-tip { border-bottom-color: #f8fbfc; }
 #map.catastro-maplibre .maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: #f8fbfc; }
 #map.catastro-maplibre .maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: #f8fbfc; }
+#bivariate-map.catastro-maplibre .maplibregl-popup-anchor-bottom .maplibregl-popup-tip { border-top-color: #f8fbfc; }
+#bivariate-map.catastro-maplibre .maplibregl-popup-anchor-top .maplibregl-popup-tip { border-bottom-color: #f8fbfc; }
+#bivariate-map.catastro-maplibre .maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: #f8fbfc; }
+#bivariate-map.catastro-maplibre .maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: #f8fbfc; }

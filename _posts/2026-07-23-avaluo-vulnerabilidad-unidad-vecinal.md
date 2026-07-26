@@ -9,6 +9,7 @@ description: "Cruce descriptivo entre avalúo fiscal SII e IGVUST por unidad vec
 excerpt: "Un catastro registra predios, no personas. Para compararlo con vulnerabilidad territorial hay que declarar qué se suma, por qué se divide, qué superficie se observa y qué queda fuera."
 author: clabra
 lang: es
+lang-exclusive: [es]
 ref: avaluo-vulnerabilidad-uv
 permalink: /datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
 header:
@@ -161,13 +162,13 @@ El visor incorpora esta lectura pura en la pestaña **Avalúos**. Primero el num
 
 ## Cucharada 2: cuartiles, bivariado y denominadores
 
-El IGVUST ordena unidades vecinales según vulnerabilidad socioterritorial. Mantengo sus cuatro cuartiles oficiales porque son el contrato analítico de esa fuente. En el mapa, sólo compacto visualmente el eje de avalúo en tres tramos: bajo, medio y alto. El resultado es una matriz 3×4 más legible: tres columnas de avalúo por cuatro filas IGVUST. Una partición más fina volvería el bivariado más difícil de leer y, en territorios con pocas comunas como Arica y Parinacota, podría sugerir una precisión que los datos agregados no entregan. Un cuartil indica orden relativo, no distancia.
+El IGVUST ordena unidades vecinales según vulnerabilidad socioterritorial. Mantengo sus cuatro cuartiles oficiales porque son el contrato analítico de esa fuente. En el eje de avalúo por m², cada UV se compara contra la mediana de su propia región, no contra un corte nacional fijo: queda bajo o sobre esa mediana regional. El resultado es una matriz 4×2 —cuatro filas IGVUST por dos columnas de avalúo— que evita dos problemas a la vez: una partición más fina volvería el bivariado difícil de leer y, en regiones con pocas UV como Arica y Parinacota, sugeriría una precisión que los datos agregados no entregan; y un corte nacional fijo ignoraría que el nivel de avalúo típico difiere mucho entre regiones. Un cuartil indica orden relativo, no distancia.
 {: .text-justify}
 
 En el mapa bivariado la lectura principal usa **avalúo por m² predial**. Es la señal más clara para poner atención donde alto avalúo unitario coincide con alta vulnerabilidad territorial. En la paleta, esas celdas quedan más oscuras, con una capa transparente para no tapar el fondo ni convertir el mapa en alarma cromática. Lo contraintuitivo debe llamar la atención; lo evidente no necesita megáfono. El indicador sigue siendo descriptivo y nacional; al restringir a UV con $$p_\text{urbano} > 50$$ la asociación por m² se atenúa fuertemente.
 {: .text-justify}
 
-En el visor separé la lectura en dos mapas. El primero es geométrico: OSM, predios SII piloto y UV transparentes, con bordes distintos para revisar límites antes de leer colores. El segundo es analítico: sólo UV, selector gráfico de Chile, selector de región/comuna como respaldo, hover con datos de la UV y leyenda 3×4. La selección tomada en ese bloque se mantiene en las tablas y en el ranking territorial cuando corresponde. Esa separación evita mezclar la inspección de geometría predial con la clasificación bivariada.
+En el visor separé la lectura en dos mapas. El primero es geométrico: OSM, predios SII piloto y UV transparentes, con bordes distintos para revisar límites antes de leer colores. El segundo es analítico: sólo UV, selector gráfico de Chile, selector de región/comuna como respaldo, hover con datos de la UV y leyenda 4×2. La selección tomada en ese bloque se mantiene en las tablas y en el ranking territorial cuando corresponde. Esa separación evita mezclar la inspección de geometría predial con la clasificación bivariada.
 {: .text-justify}
 
 ### 1. Por hogar, la celda llamativa es una pista

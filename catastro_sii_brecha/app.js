@@ -64,18 +64,20 @@
     // el asterisco sólo informa dónde se puede solicitar ese PMTiles regional.
     const hasPredial = hasPublishedMap(row);
     const eligible = true;
-    const section = $("#cartographic-map");
+    const section = $("#bivariate-card");
     if (section) section.hidden = false;
     set("#map-availability-note", hasPredial
-      ? `* ${row.comuna} tiene piloto predial SII; todas las comunas mantienen su mapa UV agregado.`
-      : "* indica disponibilidad predial SII en Caldera o Diego de Almagro. Esta comuna mantiene su mapa UV agregado.");
+      ? `* ${row.comuna} aparece en el anexo geométrico piloto; el visor principal mantiene UV agregadas.`
+      : "* marca comunas del anexo geométrico piloto. Esta comuna mantiene UV agregadas.");
     window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible, hasPredial, row } }));
     return eligible;
   }
 
   function renderCanvas(data) {
     const canvas = $("#density");
+    if (!canvas) return;
     const host = canvas.parentElement;
+    if (!host) return;
     const width = host.clientWidth;
     const height = host.clientHeight;
     const ratio = window.devicePixelRatio || 1;
@@ -136,7 +138,7 @@
     set("#finding", row.hallazgo);
     set("#status", `${row.region} · ${row.fuente_sii_disponible ? "extracto SII disponible" : "sin extracto SII en el corte"}`);
     set("#selection-context", `Ahora estás mirando ${row.comuna}, ${row.region}.`);
-    set("#map-status", `Celdas agregadas para ${row.comuna}, ${row.region}.`);
+    set("#bivariate-map-status", `Vista UV analítica para ${row.comuna}, ${row.region}.`);
     flashMetrics();
   }
 
@@ -161,6 +163,7 @@
       state.cells = null;
       return;
     }
+    if (!$("#density")) return;
     set("#map-note", "Cargando celdas agregadas…");
     try {
       const response = await fetch(`data/${row.mapa.path}`, { cache: "force-cache" });
@@ -248,9 +251,9 @@
         regionSelect.value = "";
         populateCommunes("");
       }
-      const mapSection = $("#cartographic-map");
+      const mapSection = $("#bivariate-card");
       if (mapSection) mapSection.hidden = false;
-      set("#map-status", requested ? "Preparando la comuna solicitada…" : "Preparando Diego de Almagro como selección inicial…");
+      set("#bivariate-map-status", requested ? "Preparando la comuna solicitada…" : "Preparando Diego de Almagro como selección inicial…");
       window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible: true, hasPredial: Boolean(initial && hasPublishedMap(initial)), row: initial || null } }));
       window.dispatchEvent(new CustomEvent("catastro:legacy-ready", { detail: { selected: state.selected } }));
       window.addEventListener("resize", () => {
@@ -259,7 +262,7 @@
     } catch (_) {
       set("#status", "No se pudieron cargar los datos. Reintenta o revisa la metodología.");
       set("#map-note", "Modo degradado: datos no disponibles.");
-      set("#map-status", "No fue posible preparar la capa agregada.");
+      set("#bivariate-map-status", "No fue posible preparar la capa UV agregada.");
     }
   }
 

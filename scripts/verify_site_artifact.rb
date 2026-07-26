@@ -58,9 +58,13 @@ microsite = "catastro_sii_brecha"
 microsite_dir = File.join(site_dir, microsite)
 catastro_data_dir = File.join(site_dir, "assets", "data", "catastro_sii")
 catastro_bundle_dir = File.join(site_dir, "assets", "dist", "catastro_sii")
+catastro_annex_dir = File.join(site_dir, "assets", "images", "catastro-anexo")
 if Dir.exist?(microsite_dir)
-  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js assets/map-app-loader.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet data/insights-v1.json].each do |relative|
+  %w[index.html metodologia.html style.css app.js assets/map-config.js assets/site-ui.js assets/map-app-loader.js data/manifest.json data/comunas.json data/regiones.json data/quality.json data/metricas_comunales.parquet data/diccionario_metricas_comunales.json data/insights-v1.json data/agregados_territoriales.json].each do |relative|
     abort "Catastro SII Brecha asset is missing: #{relative}" unless File.file?(File.join(microsite_dir, relative))
+  end
+  %w[diego_de_almagro_03202_geom.png caldera_03102_geom.png].each do |relative|
+    abort "Catastro SII Brecha annex image is missing: #{relative}" unless File.file?(File.join(catastro_annex_dir, relative))
   end
   abort "Catastro SII Brecha was localized under /en" if Dir.exist?(File.join(site_dir, "en", microsite))
   abort "Catastro SII Brecha lacks density cells" unless Dir.glob(File.join(microsite_dir, "data", "comunas", "*.json")).length == 346
@@ -114,6 +118,16 @@ if Dir.exist?(microsite_dir)
     end
   end
   inspect_insights.call(insights)
+  territorial_path = File.join(microsite_dir, "data", "agregados_territoriales.json")
+  territorial = JSON.parse(File.read(territorial_path))
+  abort "Catastro SII territorial schema is not v1" unless territorial["schema_version"] == 1
+  abort "Catastro SII territorial commune universe drifted" unless territorial.dig("national", "n_comunas") == 346
+  abort "Catastro SII territorial published UV universe drifted" unless territorial.dig("national", "n_uv") == 6_888
+  abort "Catastro SII territorial UV reconciliation drifted" unless territorial.dig("technical_notes", "uv_universe_reconciliation", "difference") == 3
+  dictionary_path = File.join(microsite_dir, "data", "diccionario_metricas_comunales.json")
+  dictionary = JSON.parse(File.read(dictionary_path))
+  abort "Catastro SII Parquet dictionary schema is not v1" unless dictionary["schema_version"] == 1
+  abort "Catastro SII Parquet dictionary field count drifted" unless dictionary.fetch("fields").length == 39
   microsite_bytes = 0
   Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
   abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
@@ -302,7 +316,7 @@ Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(e
 unless draft_fixture_mode
   abort "Artifact exceeds #{total_max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > total_max_bytes
 
-  catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir].sum do |directory|
+  catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir, catastro_annex_dir].sum do |directory|
     next 0 unless Dir.exist?(directory)
 
     bytes = 0

@@ -64,26 +64,27 @@ describe("estado compartible", () => {
     }));
   });
 
-  it("restaura predial y vista, y serializa sin normalizacion cartografica", () => {
+  it("acepta capa predial antigua y serializa sin normalizacion cartografica", () => {
     const runtime = browser("https://3cucharadas.cl/catastro_sii_brecha/?region=03&comuna=03102&capa=predial&normalizacion=m2&vista=sensibilidad");
     const state = stateFromUrl(rows);
-    expect(state).toEqual(expect.objectContaining({ mapScale: "predial", parcelLayerVisible: true, uvLayerVisible: false }));
+    expect(state).toEqual(expect.objectContaining({ mapScale: "uv", parcelLayerVisible: false, uvLayerVisible: true }));
     expect(visualizationViewFromUrl()).toBe("sensibilidad");
     expect(isLaboratoryView("sensibilidad")).toBe(true);
     expect(isLaboratoryView("avaluos")).toBe(true);
     replaceUrl(state, "mapa");
     replaceVisualizationView("comunas");
     expect(runtime.replaced.join("\n")).not.toContain("normalizacion=");
+    expect(runtime.replaced[0]).toContain("capa=uv");
     expect(runtime.replaced[0]).toContain("vista=mapa");
     expect(runtime.replaced.join("\n")).toContain("vista=comunas");
   });
 
-  it("serializa una vista mixta cuando predios y UV quedan activos simultáneamente", () => {
+  it("acepta una vista mixta antigua pero serializa la experiencia nueva", () => {
     const runtime = browser("https://3cucharadas.cl/catastro_sii_brecha/?region=03&comuna=03102&capa=mixta&normalizacion=m2");
     const state = stateFromUrl(rows);
-    expect(state).toEqual(expect.objectContaining({ mapScale: "mixta", parcelLayerVisible: true, uvLayerVisible: true, parcelOpacity: 0.18 }));
+    expect(state).toEqual(expect.objectContaining({ mapScale: "uv", parcelLayerVisible: false, uvLayerVisible: true, parcelOpacity: 0.18 }));
     replaceUrl(state, "mapa");
-    expect(runtime.replaced[0]).toContain("capa=mixta");
+    expect(runtime.replaced[0]).toContain("capa=uv");
   });
 
   it("conserva una vista analítica durante la hidratación inicial del mapa", () => {
@@ -92,12 +93,12 @@ describe("estado compartible", () => {
     expect(runtime.replaced[0]).toContain("vista=sensibilidad");
   });
 
-  it("degrada una URL predial a UV al seleccionar una comuna fuera del piloto", () => {
+  it("normaliza la disponibilidad predial al recorrido analítico", () => {
     browser("https://3cucharadas.cl/catastro_sii_brecha/?region=03&comuna=03102&capa=predial");
     const predial = stateFromUrl(rows);
-    expect(reconcileMapAvailability(predial, true)).toEqual(expect.objectContaining({ mapScale: "predial", parcelLayerVisible: true, uvLayerVisible: false }));
+    expect(reconcileMapAvailability(predial, true)).toEqual(expect.objectContaining({ mapScale: "uv", parcelLayerVisible: false, uvLayerVisible: true }));
     expect(reconcileMapAvailability(predial, false)).toEqual(expect.objectContaining({ mapScale: "uv", parcelLayerVisible: false, uvLayerVisible: true }));
     const mixed = { ...predial, mapScale: "mixta" as const, parcelLayerVisible: true, uvLayerVisible: true };
-    expect(reconcileMapAvailability(mixed, true)).toEqual(expect.objectContaining({ mapScale: "mixta", parcelLayerVisible: true, uvLayerVisible: true }));
+    expect(reconcileMapAvailability(mixed, true)).toEqual(expect.objectContaining({ mapScale: "uv", parcelLayerVisible: false, uvLayerVisible: true }));
   });
 });

@@ -21,7 +21,7 @@ describe("atribución de fuentes PMTiles", () => {
   });
 });
 
-describe("capa comunal en vista predial", () => {
+describe("capa comunal analítica", () => {
   function addedCommuneFill(): Record<string, unknown> {
     const layers: Record<string, unknown>[] = [];
     const map = {
@@ -34,21 +34,17 @@ describe("capa comunal en vista predial", () => {
     return (fill as { paint: Record<string, unknown> }).paint;
   }
 
-  it("desvanece el relleno comunal antes de que entren los predios", () => {
+  it("mantiene relleno visible para leer cuartiles comunales", () => {
     const opacity = addedCommuneFill()["fill-opacity"] as unknown[];
-    // ["interpolate", ["linear"], ["zoom"], 11, 0.28, 13, 0.05, 14, 0]
+    // ["interpolate", ["linear"], ["zoom"], 3, 0.78, 10, 0.62, 14, 0.42]
     expect(opacity[0]).toBe("interpolate");
     expect(opacity.at(-2)).toBe(14);
-    expect(opacity.at(-1)).toBe(0);
-    const parcelMinzoom = 13;
-    const stopAtParcelZoom = opacity[opacity.indexOf(parcelMinzoom) + 1] as number;
-    expect(stopAtParcelZoom).toBeLessThan(0.1);
+    expect(opacity.at(-1)).toBeGreaterThan(0.4);
   });
 
   it("mantiene la capa clickeable para la selección comunal", () => {
     // Un fill-opacity 0 no retira la capa: el hit-testing usa la geometría, así que
-    // eliminar la capa —en vez de desvanecerla— rompería el click en las 344 comunas
-    // sin piloto predial.
+    // eliminarla rompería el click que sincroniza selector, mapas y tabla.
     const map = { getLayer: vi.fn(() => undefined), addLayer: vi.fn() };
     addCommuneLayers(map as unknown as Parameters<typeof addCommuneLayers>[0], source);
     expect(map.addLayer).toHaveBeenCalledTimes(2);

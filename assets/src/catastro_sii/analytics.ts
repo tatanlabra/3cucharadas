@@ -52,6 +52,7 @@ const CHART_COLORS = [
 const formatter = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 2 });
 const integer = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
 const currency = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
+const currencySmall = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 2 });
 
 const METRICS: Record<BubbleMetric, { label: string; short: string }> = {
   av_total: { label: "Avalúo fiscal total", short: "total" },
@@ -223,15 +224,32 @@ function replaceTable(hostId: string, headers: string[], rows: Array<Array<strin
 
 function displayLogValue(value: number): string {
   const original = 10 ** value;
-  return original >= 1_000_000_000
-    ? `$${formatter.format(original / 1_000_000_000)} mil millones`
-    : original >= 1_000_000
-      ? `$${formatter.format(original / 1_000_000)} millones`
-      : currency.format(original);
+  return formatCurrencyTick(original);
 }
 
 function appraisalLabel(value: number): string {
   return `${formatter.format(value / 1_000_000_000_000)} billones`;
+}
+
+function logAxisBounds(values: Array<number | null | undefined>): { min: number; max: number } | Record<string, never> {
+  const positives = values.filter((value): value is number => finiteNumber(value) && value > 0);
+  if (!positives.length) return {};
+  let minExponent = Math.floor(Math.log10(Math.min(...positives)));
+  let maxExponent = Math.ceil(Math.log10(Math.max(...positives)));
+  if (minExponent === maxExponent) {
+    minExponent -= 1;
+    maxExponent += 1;
+  }
+  return { min: 10 ** minExponent, max: 10 ** maxExponent };
+}
+
+function formatCurrencyTick(value: number): string {
+  if (!Number.isFinite(value) || value <= 0) return "";
+  if (value >= 1_000_000_000_000) return `$${formatter.format(value / 1_000_000_000_000)} billones`;
+  if (value >= 1_000_000_000) return `$${formatter.format(value / 1_000_000_000)} mil millones`;
+  if (value >= 1_000_000) return `$${formatter.format(value / 1_000_000)} millones`;
+  if (value >= 1_000) return `$${formatter.format(value / 1_000)} mil`;
+  return value >= 100 ? currency.format(value) : currencySmall.format(value);
 }
 
 function renderAppraisals(data: InsightsV1): void {
@@ -251,16 +269,20 @@ function renderAppraisals(data: InsightsV1): void {
     .slice()
     .sort((a, b) => (b.av_total ?? 0) - (a.av_total ?? 0))
     .slice(0, 12);
+  const regionLogBounds = logAxisBounds(regions.map((region) => region.value));
+  const communeLogBounds = logAxisBounds(communes.map((commune) => commune.av_total));
 
   getChart(regionsElement, "Avalúo fiscal total asignado por región").setOption({
-    ...chartBase("Barras horizontales del avalúo fiscal total asignado por región. El total nacional asignado alcanza 587,4 billones de pesos."),
+    ...chartBase("Barras horizontales del avalúo fiscal total asignado por región en escala log10. Una misma distancia representa multiplicar por 10; etiquetas, porcentajes y tooltips conservan pesos originales."),
     grid: { left: 184, right: 28, top: 18, bottom: 46 },
     xAxis: {
-      type: "value",
-      name: "Billones CLP",
+      type: "log",
+      logBase: 10,
+      name: "Avalúo total (log10; etiquetas CLP)",
       nameLocation: "middle",
-      nameGap: 30,
-      axisLabel: { color: colors.muted, formatter: (value: number) => formatter.format(value / 1_000_000_000_000) },
+      nameGap: 34,
+      ...regionLogBounds,
+      axisLabel: { color: colors.muted, formatter: (value: number) => formatCurrencyTick(value) },
       splitLine: { lineStyle: { color: colors.line, opacity: 0.6 } }
     },
     yAxis: {
@@ -292,14 +314,16 @@ function renderAppraisals(data: InsightsV1): void {
   }, true);
 
   getChart(communesElement, "Doce comunas con mayor avalúo fiscal total asignado").setOption({
-    ...chartBase("Barras horizontales de las comunas con mayor avalúo fiscal total asignado. La escala permite ubicar magnitud antes de normalizar."),
+    ...chartBase("Barras horizontales de las comunas con mayor avalúo fiscal total asignado en escala log10. La escala reduce el dominio visual de outliers antes de normalizar por hogares, personas o superficie."),
     grid: { left: 128, right: 26, top: 18, bottom: 46 },
     xAxis: {
-      type: "value",
-      name: "Billones CLP",
+      type: "log",
+      logBase: 10,
+      name: "Avalúo total (log10; etiquetas CLP)",
       nameLocation: "middle",
-      nameGap: 30,
-      axisLabel: { color: colors.muted, formatter: (value: number) => formatter.format(value / 1_000_000_000_000) },
+      nameGap: 34,
+      ...communeLogBounds,
+      axisLabel: { color: colors.muted, formatter: (value: number) => formatCurrencyTick(value) },
       splitLine: { lineStyle: { color: colors.line, opacity: 0.6 } }
     },
     yAxis: {
@@ -399,6 +423,7 @@ function violinOption(panel: ViolinPanel): EChartsCoreOption {
       type: "value",
       min: minimum,
       max: maximum,
+      name: "Escala log10",
       axisLabel: { color: colors.muted, formatter: (value: number) => displayLogValue(value) },
       splitLine: { lineStyle: { color: colors.line, opacity: 0.55 } }
     },
@@ -445,7 +470,7 @@ function renderDistributionSummary(data: InsightsV1): void {
   const panels = data.violin_densities.panels;
   const allMedians = panels.flatMap((panel) => panel.groups.map((group) => group.median));
   getChart(element, "Medianas de avalúo por cuartil IGVUST y denominador").setOption({
-    ...chartBase("Líneas de medianas por cuartil oficial IGVUST. El cambio de pendiente muestra cuánto se mueve la lectura al cambiar el denominador."),
+    ...chartBase("Líneas de medianas por cuartil oficial IGVUST en coordenada log10. El cambio de pendiente muestra cuánto se mueve la lectura al cambiar el denominador sin dejar que los valores extremos dominen la escala."),
     legend: { top: 0, textStyle: { color: colors.ink } },
     grid: { left: 92, right: 26, top: 54, bottom: 58 },
     xAxis: {
@@ -461,7 +486,7 @@ function renderDistributionSummary(data: InsightsV1): void {
       type: "value",
       min: Math.min(...allMedians),
       max: Math.max(...allMedians),
-      name: "Mediana",
+      name: "Mediana en escala log10",
       axisLabel: { color: colors.muted, formatter: (value: number) => displayLogValue(value) },
       splitLine: { lineStyle: { color: colors.line, opacity: 0.55 } }
     },
@@ -685,6 +710,7 @@ function renderCommunes(
   const matches = (record: RankingRecord) => !normalizedQuery || `${record.name} ${record.region}`.toLocaleLowerCase("es-CL").includes(normalizedQuery);
   const unitPlural = rankingUnit === "regions" ? "regiones" : "comunas";
   const maxRank = Math.max(...allRanked.map((record) => record.rank), 1);
+  const yLogBounds = logAxisBounds(eligible.map((record) => metricValue(record, metric)));
   const series = seriesKeys.map((key, keyIndex) => ({
     name: key,
     type: "scatter" as const,
@@ -698,7 +724,7 @@ function renderCommunes(
   }));
   const xLabel = `Ranking nacional IGVUST (1 = mayor vulnerabilidad relativa)`;
   getChart(element, `Burbujas de ${eligible.length} ${unitPlural}: avalúo ${METRICS[metric].short} por ranking nacional IGVUST; tamaño por hogares RSH`).setOption({
-    ...chartBase(`Gráfico descriptivo. El eje horizontal es ranking nacional IGVUST, el vertical ${METRICS[metric].label}, el área hogares RSH y el color región cuando la unidad es comuna.`),
+    ...chartBase(`Gráfico descriptivo. El eje horizontal es ranking nacional IGVUST; el vertical usa escala log10 para ${METRICS[metric].label}; el área representa hogares RSH y el color región cuando la unidad es comuna.`),
     legend: { type: "scroll", bottom: 0, textStyle: { color: colors.muted }, pageTextStyle: { color: colors.muted }, show: rankingUnit === "communes" },
     grid: { left: 78, right: 22, top: 22, bottom: 92 },
     xAxis: {
@@ -711,7 +737,14 @@ function renderCommunes(
       axisLabel: { color: colors.muted, formatter: (value: number) => integer.format(value) },
       splitLine: { lineStyle: { color: colors.line } }
     },
-    yAxis: { type: "log", name: METRICS[metric].label, axisLabel: { color: colors.muted, formatter: (value: number) => value >= 1_000_000_000 ? `${formatter.format(value / 1_000_000_000)} MM` : value >= 1_000_000 ? `${formatter.format(value / 1_000_000)} M` : integer.format(value) }, splitLine: { lineStyle: { color: colors.line } } },
+    yAxis: {
+      type: "log",
+      logBase: 10,
+      name: `${METRICS[metric].label} (log10)`,
+      ...yLogBounds,
+      axisLabel: { color: colors.muted, formatter: (value: number) => formatCurrencyTick(value) },
+      splitLine: { lineStyle: { color: colors.line } }
+    },
     dataZoom: [{ type: "inside", xAxisIndex: 0, filterMode: "none" }],
     series,
     tooltip: { formatter: (params: unknown) => {

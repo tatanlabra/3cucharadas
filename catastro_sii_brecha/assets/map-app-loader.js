@@ -34,8 +34,8 @@
     if (!event.detail?.eligible) return;
     load().catch(() => {
       loaded = false;
-      const status = document.getElementById("map-status");
-      if (status) status.textContent = "No fue posible iniciar el mapa cartográfico publicado.";
+      const status = document.getElementById("bivariate-map-status") || document.getElementById("status");
+      if (status) status.textContent = "No fue posible iniciar el mapa UV publicado.";
     });
   });
 })();

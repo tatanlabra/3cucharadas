@@ -10,7 +10,9 @@
     "dev:catastro": "vite --config vite.catastro.config.ts",
     "check:catastro": "tsc --noEmit --project tsconfig.catastro.json",
     "check:catastro:static-css": "node scripts/catastro_sii/check_static_css.mjs catastro_sii_brecha/style.css",
-    "test:catastro": "vitest run --config vitest.catastro.config.ts"
+    "test:catastro": "vitest run --config vitest.catastro.config.ts",
+    "serve:catastro:range": "node scripts/catastro_sii/serve_range_static.mjs _site 4014 127.0.0.1",
+    "serve:catastro:mcp": "node scripts/catastro_sii/serve_range_static.mjs _site 4015 0.0.0.0"
   },
   "dependencies": {
     "echarts": "6.1.0",
