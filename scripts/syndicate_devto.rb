@@ -40,6 +40,36 @@ def parse_front_matter(path)
   [YAML.safe_load(parts[1], permitted_classes: [Date, Time]) || {}, parts[2].strip]
 end
 
+FIGURE_TAG = /\{%-?\s*include\s+figure\s+([^%]*?)-?%\}/.freeze
+ATTR = /(\w+)="([^"]*)"/.freeze
+
+# dev.to rechaza cualquier `{% include %}` (lo desactivan por seguridad: 422
+# "Liquid#include tag is disabled"). El tema usa `{% include figure ... %}`
+# para imágenes con caption/lightbox en casi todos los posts — se convierte a
+# markdown plano. Cualquier otro include desconocido se elimina (con aviso),
+# en vez de dejar que rompa la llamada entera a la API.
+def sanitize_body_for_devto(body, site_url)
+  warnings = []
+  sanitized = body.gsub(FIGURE_TAG) do
+    attrs = Regexp.last_match(1).to_s.scan(ATTR).to_h
+    image = attrs["image_path"]
+    alt = attrs["alt"] || ""
+    caption = attrs["caption"]
+    image_url = image ? "#{site_url}#{image}" : nil
+    parts = []
+    parts << "![#{alt}](#{image_url})" if image_url
+    parts << caption if caption
+    parts.join("\n\n")
+  end
+
+  sanitized = sanitized.gsub(/\{%-?\s*include\s+([^\s%]+)[^%]*-?%\}/) do
+    warnings << Regexp.last_match(1)
+    ""
+  end
+
+  [sanitized, warnings.uniq]
+end
+
 def slug_from_permalink(permalink)
   permalink.to_s.chomp("/").split("/").last
 end
@@ -50,12 +80,17 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
   next unless %w[bajo medio].include?(front["valor_seo"])
   next unless front["permalink"]
 
+  sanitized_body, unhandled_includes = sanitize_body_for_devto(body, "https://3cucharadas.cl")
+  unless unhandled_includes.empty?
+    warn "#{File.basename(path)}: include(s) sin manejar, eliminados del cuerpo enviado a dev.to: #{unhandled_includes.join(', ')}"
+  end
+
   {
     slug: slug_from_permalink(front["permalink"]),
     ref_interno: front["ref"] || slug_from_permalink(front["permalink"]),
     url_canonica: "https://3cucharadas.cl/en#{front['permalink']}",
     titulo_usado: front.fetch("title"),
-    body_markdown: body,
+    body_markdown: sanitized_body,
     description: front["description"],
     tags: (front["tags"] || []).first(4).map { |t| t.to_s.downcase.gsub(/[^a-z0-9]/, "") }.reject(&:empty?)
   }
