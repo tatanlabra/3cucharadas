@@ -14,3 +14,12 @@
 {% endcase %}
 
 {% endif %}
+
+{% comment %}
+  Fase 5.1: GoatCounter corre en paralelo al switch de arriba (decisión
+  explícita del autor: GA4 + GoatCounter juntos, no reemplazo). No depende
+  de site.analytics.provider para no interferir con el case de GA4.
+{% endcomment %}
+{% if jekyll.environment == 'production' and site.analytics.goatcounter.code and page.analytics != false %}
+  {% include /analytics-providers/goatcounter.html %}
+{% endif %}

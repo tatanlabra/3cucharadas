@@ -86,6 +86,11 @@ analytics:
   google:
     tracking_id: "G-E5NT0GJ9VT"
     anonymize_ip: true
+  # Fase 5.1: corre en paralelo a GA4 (decisión explícita del autor, no
+  # reemplaza). Independiente del switch `provider` de arriba — ver
+  # _includes/analytics.html.
+  goatcounter:
+    code: "3cucharadas"
 
 cv_path: /assets/cv/cv_esp_clabraol_2026.pdf
 
