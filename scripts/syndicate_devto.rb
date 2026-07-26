@@ -124,7 +124,7 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
     body_markdown: sanitized_body,
     description: front["description"],
     cover_image: og_image ? "https://3cucharadas.cl#{og_image}" : nil,
-    tags: (front["tags"] || []).first(4).map { |t| t.to_s.downcase.gsub(/[^a-z0-9]/, "") }.reject(&:empty?)
+    tags: (front["devto_tags"] || front["tags"] || []).first(4).map { |t| t.to_s.downcase.gsub(/[^a-z0-9]/, "") }.reject(&:empty?)
   }
 end
 

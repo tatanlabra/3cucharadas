@@ -17,6 +17,7 @@ distribution:
   republish: [dev, medium]
 sindicar: true
 valor_seo: bajo
+devto_tags: [ai, chatgpt, claude, deepseek]
 toc: true
 toc_sticky: true
 comments: true
