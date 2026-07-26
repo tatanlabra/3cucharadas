@@ -1,5 +1,5 @@
 import type maplibregl from "maplibre-gl";
-import type { TileSource, UvValuationMode } from "./types";
+import type { TileSource } from "./types";
 
 export const COMMUNE_SOURCE_ID = "catastro-communes";
 export const PARCEL_SOURCE_ID = "catastro-parcels";
@@ -16,27 +16,48 @@ export const UV_SIMPLE_BLUE = "#21468b";
 export const PARCEL_FILL_ORANGE = "#f97316";
 export const PARCEL_LINE_ORANGE = "#e44714";
 
-/** Matriz bivariada 4×3: cuartil IGVUST oficial × avalúo normalizado.
+/** Cuartiles nacionales de mediana comunal de avalúo fiscal por m2. */
+export const COMMUNE_QUARTILE_PALETTE: Record<"light" | "dark", Record<1 | 2 | 3 | 4, string>> = {
+  light: {
+    1: "#d7eef1",
+    2: "#91c9c6",
+    3: "#408c93",
+    4: "#164e63"
+  },
+  dark: {
+    1: "#5da7ad",
+    2: "#3f8793",
+    3: "#256a78",
+    4: "#0f4655"
+  }
+};
+
+export const COMMUNE_QUARTILE_MISSING: Record<"light" | "dark", string> = {
+  light: "#edf1f4",
+  dark: "#222a31"
+};
+
+/** Matriz bivariada 4×2: cuartil IGVUST oficial × avalúo contra mediana regional.
  *
- *  `qv=1` es MAYOR vulnerabilidad y se conserva como cuartil oficial. Sólo el eje
- *  de avalúo se compacta visualmente: q1=bajo, q2-q3=medio, q4=alto. Así el mapa
- *  mantiene los cuatro tramos IGVUST sin obligar a descifrar 16 tonos casi iguales.
+ *  `qv=1` es MAYOR vulnerabilidad y se conserva como cuartil oficial. El eje de
+ *  avalúo se corta en dos columnas: `avm2` bajo/igual a la mediana regional activa
+ *  y `avm2` sobre esa mediana. La comparación usa el valor directo del shard UV.
  *
- *  Las claves son `"<qv><avaluo>"`. La celda 13 (mayor vulnerabilidad + mayor
+ *  Las claves son `"<qv><avaluo>"`. La celda 12 (mayor vulnerabilidad + mayor
  *  avalúo/m²) es el foco oscuro; las demás quedan deliberadamente transparentes.
  */
 export const BIVARIATE_PALETTE: Record<"light" | "dark", Record<string, string>> = {
   light: {
-    "11": "#e4e9ed", "12": "#a9a6d8", "13": "#4a245d",
-    "21": "#dce9ec", "22": "#8ca9cb", "23": "#555a9d",
-    "31": "#d2e7eb", "32": "#6ab3c7", "33": "#247fac",
-    "41": "#edf3ef", "42": "#8fccd2", "43": "#1597a7"
+    "11": "#f5a8bd", "12": "#8e0f4e",
+    "21": "#d59ae0", "22": "#6a1a70",
+    "31": "#9db5f2", "32": "#4a3a9e",
+    "41": "#7ad4f7", "42": "#0b7ab5"
   },
   dark: {
-    "11": "#6d7481", "12": "#5f5a91", "13": "#2b184d",
-    "21": "#5c7480", "22": "#4f6f92", "23": "#3c4685",
-    "31": "#435f6b", "32": "#32798f", "33": "#236fa1",
-    "41": "#313941", "42": "#28717d", "43": "#1494a5"
+    "11": "#d98fa8", "12": "#8f2158",
+    "21": "#bd8ac9", "22": "#6d2b7d",
+    "31": "#8fa3dd", "32": "#454099",
+    "41": "#6fbde0", "42": "#1f6fa8"
   }
 };
 
@@ -46,20 +67,30 @@ export const BIVARIATE_MISSING: Record<"light" | "dark", string> = {
   dark: "#252b33"
 };
 
-export const UV_QUARTILE_PROPERTY: Record<UvValuationMode, "qa_h" | "qa_m2"> = {
-  household: "qa_h",
-  m2: "qa_m2"
-};
-
-function valuationDisplayClassExpression(property: string): unknown[] {
-  const value = ["to-number", ["get", property], 0];
+function avm2RegionalClassExpression(regionalMedianAvm2: number | null | undefined): unknown[] {
+  if (!Number.isFinite(regionalMedianAvm2) || Number(regionalMedianAvm2) <= 0) return ["literal", "x"];
+  const value = ["to-number", ["get", "avm2"], -1];
   return [
     "case",
-    ["==", value, 1], "1",
-    ["==", value, 4], "3",
-    ["all", [">=", value, 2], ["<=", value, 3]], "2",
+    ["all", [">", value, 0], ["<=", value, Number(regionalMedianAvm2)]], "1",
+    [">", value, Number(regionalMedianAvm2)], "2",
     "x"
   ];
+}
+
+export function communeQuartileFillExpression(
+  theme: "light" | "dark" = "light",
+  quartilesByCommune: Record<string, 1 | 2 | 3 | 4 | null> = {}
+): unknown[] {
+  const palette = COMMUNE_QUARTILE_PALETTE[theme];
+  const expression: unknown[] = ["match", ["to-string", ["get", "cod_comuna"]]];
+  for (const [code, quartile] of Object.entries(quartilesByCommune)) {
+    if (quartile !== 1 && quartile !== 2 && quartile !== 3 && quartile !== 4) continue;
+    const labels = new Set([code, code.startsWith("0") ? code.slice(1) : code.padStart(5, "0")]);
+    for (const label of labels) expression.push(label, palette[quartile]);
+  }
+  expression.push(COMMUNE_QUARTILE_MISSING[theme]);
+  return expression;
 }
 
 /**
@@ -70,13 +101,12 @@ function valuationDisplayClassExpression(property: string): unknown[] {
  */
 export function bivariateFillExpression(
   theme: "light" | "dark" = "light",
-  valuationMode: UvValuationMode = "household"
+  regionalMedianAvm2: number | null = null
 ): unknown[] {
   const palette = BIVARIATE_PALETTE[theme];
-  const quartileProperty = UV_QUARTILE_PROPERTY[valuationMode];
   const expression: unknown[] = [
     "match",
-    ["concat", ["to-string", ["get", "qv"]], valuationDisplayClassExpression(quartileProperty)]
+    ["concat", ["to-string", ["get", "qv"]], avm2RegionalClassExpression(regionalMedianAvm2)]
   ];
   for (const [cell, color] of Object.entries(palette)) {
     expression.push(cell, color);
@@ -105,7 +135,12 @@ export function addPmtilesSource(
   });
 }
 
-export function addCommuneLayers(map: maplibregl.Map, source: TileSource, beforeId?: string): void {
+export function addCommuneLayers(
+  map: maplibregl.Map,
+  source: TileSource,
+  beforeId?: string,
+  fillColor: unknown = communeQuartileFillExpression()
+): void {
   if (map.getLayer(COMMUNE_FILL_ID)) return;
   map.addLayer({
     id: COMMUNE_FILL_ID,
@@ -113,19 +148,8 @@ export function addCommuneLayers(map: maplibregl.Map, source: TileSource, before
     source: COMMUNE_SOURCE_ID,
     "source-layer": source.source_layer,
     paint: {
-      "fill-color": [
-        "case",
-        ["!", ["has", "cobertura_censo_pct"]], "#98a7b0",
-        ["<", ["get", "cobertura_censo_pct"], 80], "#b8c8d2",
-        ["<", ["get", "cobertura_censo_pct"], 100], "#9bbbc1",
-        ["<", ["get", "cobertura_censo_pct"], 120], "#6f9fa7",
-        "#4e7f89"
-      ],
-      // La fuente comunal corta en z12; más allá MapLibre sobre-escala esa tesela y el
-      // relleno cubre el viewport completo con un velo plano que no distingue nada y
-      // apaga el basemap y los predios. Se desvanece justo donde entra la capa predial
-      // (z13). La capa sigue existiendo: mantiene el click de selección comunal.
-      "fill-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.28, 13, 0.05, 14, 0]
+      "fill-color": fillColor as never,
+      "fill-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.78, 10, 0.62, 14, 0.42]
     }
   }, beforeId);
   map.addLayer({
@@ -142,7 +166,7 @@ export function addCommuneLayers(map: maplibregl.Map, source: TileSource, before
 export function addUvLayers(
   map: maplibregl.Map,
   theme: "light" | "dark" = "light",
-  valuationMode: UvValuationMode = "household",
+  regionalMedianAvm2: number | null = null,
   beforeId?: string,
   layerStyle: UvLayerStyle = "bivariate"
 ): void {
@@ -154,7 +178,7 @@ export function addUvLayers(
     paint: {
       "fill-color": (layerStyle === "simple"
         ? UV_SIMPLE_BLUE
-        : bivariateFillExpression(theme, valuationMode)) as never,
+        : bivariateFillExpression(theme, regionalMedianAvm2)) as never,
       "fill-opacity": layerStyle === "simple" ? 0.12 : 0.62
     }
   }, beforeId);
@@ -176,14 +200,14 @@ export function addUvLayers(
 export function updateUvFillExpression(
   map: maplibregl.Map,
   theme: "light" | "dark",
-  valuationMode: UvValuationMode,
+  regionalMedianAvm2: number | null,
   layerStyle: UvLayerStyle = "bivariate"
 ): void {
   if (!map.getLayer(UV_FILL_ID)) return;
   map.setPaintProperty(
     UV_FILL_ID,
     "fill-color",
-    (layerStyle === "simple" ? UV_SIMPLE_BLUE : bivariateFillExpression(theme, valuationMode)) as never
+    (layerStyle === "simple" ? UV_SIMPLE_BLUE : bivariateFillExpression(theme, regionalMedianAvm2)) as never
   );
   map.setPaintProperty(UV_FILL_ID, "fill-opacity", layerStyle === "simple" ? 0.12 : 0.62);
   map.setPaintProperty(UV_LINE_ID, "line-color", UV_SIMPLE_BLUE);

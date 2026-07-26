@@ -8,8 +8,20 @@ sitemap: false
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>{{ base }}/catastro_sii_brecha/</loc></url>
   <url><loc>{{ base }}/catastro_sii_brecha/metodologia.html</loc></url>
-{%- comment -%} Posts (cada uno con su par ES/EN bajo el mismo permalink) {%- endcomment -%}
+{%- comment -%}
+  Posts (cada uno con su par ES/EN bajo el mismo permalink, salvo que
+  declare `lang-exclusive` restringiendo a un solo idioma — entonces
+  jekyll-polyglot no genera la variante y este sitemap no debe fingir
+  que existe, o Google recibe una URL en el sitemap que 404.
+{%- endcomment -%}
 {%- for post in site.posts -%}
+  {%- assign lang_exclusive = post.lang-exclusive -%}
+  {%- assign has_en = true -%}
+  {%- if lang_exclusive and lang_exclusive.size > 0 and lang_exclusive != empty -%}
+    {%- unless lang_exclusive contains "en" -%}
+      {%- assign has_en = false -%}
+    {%- endunless -%}
+  {%- endif -%}
   {%- assign es = base | append: post.url -%}
   {%- assign en = base | append: '/en' | append: post.url -%}
   {%- assign lm = post.last_modified_at | default: post.date | date_to_xmlschema -%}
@@ -17,9 +29,10 @@ sitemap: false
     <loc>{{ es }}</loc>
     {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
     <xhtml:link rel="alternate" hreflang="es" href="{{ es }}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>
+    {%- if has_en %}<xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>{% endif %}
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ es }}"/>
   </url>
+  {%- if has_en %}
   <url>
     <loc>{{ en }}</loc>
     {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
@@ -27,6 +40,7 @@ sitemap: false
     <xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ es }}"/>
   </url>
+  {%- endif -%}
 {%- endfor -%}
 {%- comment -%} Páginas indexables (excluye feeds, assets, xml, 404 y las marcadas sitemap:false) {%- endcomment -%}
 {%- for page in site.pages -%}

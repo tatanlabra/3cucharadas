@@ -1,10 +1,11 @@
 import "maplibre-gl/dist/maplibre-gl.css";
-import { authorizedParcelSource, uvLayerAvailable, uvShardUrl } from "./availability";
+import { uvLayerAvailable, uvShardUrl } from "./availability";
 import type { UvIndex } from "./availability";
 import { MapController } from "./map";
 import { manifestUrlsForLocation } from "./preview";
 import { communeCityDefaultView, communeViewBounds, reconcileMapAvailability, regionCodeForName, replaceUrl, stateFromUrl, toDataCommuneCode } from "./state";
-import type { AppState, Bounds, CommuneRecord, TilesManifest, UvFeatureProperties } from "./types";
+import { communeAggregateFor, loadTerritorialAggregates } from "./territorial";
+import type { AppState, Bounds, CommuneAggregate, CommuneRecord, TerritorialAggregates, TilesManifest, UvFeatureProperties } from "./types";
 
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
 const uvIndexUrl = "/catastro_sii_brecha/data/uv/index.json";
@@ -17,7 +18,7 @@ type ChileSelectorFeature = { code: string; comuna: string; region: string; d: s
 type ChileSelectorData = { viewBox: string; features: ChileSelectorFeature[] };
 
 function setStatus(message: string): void {
-  const element = document.getElementById("map-status");
+  const element = document.getElementById("status");
   if (element) element.textContent = message;
 }
 
@@ -38,9 +39,9 @@ const UV_LEGEND_COPY: {
   note: string;
 } = {
   title: "Avalúo por m² × vulnerabilidad",
-  axis: "Mayor avalúo por m² →",
-  aria: "Matriz de 12 combinaciones: tres tramos visuales de avalúo por metro cuadrado predial asignado en el eje horizontal y cuatro cuartiles nacionales oficiales de vulnerabilidad IGVUST en el vertical.",
-  note: "Filas: cuartiles nacionales oficiales IGVUST sobre las 6.891 unidades vecinales, con q1 como mayor vulnerabilidad. Columnas: avalúo por m² compactado en bajo, medio y alto. La celda más oscura destaca alto avalúo unitario con mayor vulnerabilidad; no mide ingreso, riqueza ni precio de mercado."
+  axis: "Sobre mediana regional →",
+  aria: "Matriz de 8 combinaciones: avalúo fiscal por metro cuadrado bajo o igual a la mediana regional y sobre la mediana regional en el eje horizontal, y cuatro cuartiles nacionales oficiales de vulnerabilidad IGVUST en el vertical.",
+  note: "Filas: cuartiles nacionales oficiales IGVUST sobre las unidades vecinales publicadas, con q1 como mayor vulnerabilidad. Columnas: avalúo fiscal por m² bajo/igual o sobre la mediana de la región de la comuna activa. El eje horizontal es relativo a esa región; no mide ingreso, riqueza ni precio de mercado."
 };
 
 function updateUvLegend(): void {
@@ -132,52 +133,64 @@ type UvSummary = {
   vulnerableHighM2: number;
   vulnerableLowM2: number;
   lessVulnerableHighM2: number;
+  regionalMedianAvm2: number | null;
 };
 
-function summarizeUvFeatures(features: Array<{ properties?: Partial<UvFeatureProperties> }>): UvSummary {
+function validQuartile(value: number | null): value is 1 | 2 | 3 | 4 {
+  return value === 1 || value === 2 || value === 3 || value === 4;
+}
+
+function summarizeUvFeatures(
+  features: Array<{ properties?: Partial<UvFeatureProperties> }>,
+  regionalMedianAvm2: number | null
+): UvSummary {
   const summary: UvSummary = {
     classified: 0,
     missing: 0,
     vulnerableHighM2: 0,
     vulnerableLowM2: 0,
-    lessVulnerableHighM2: 0
+    lessVulnerableHighM2: 0,
+    regionalMedianAvm2
   };
+  const hasMedian = regionalMedianAvm2 !== null && regionalMedianAvm2 > 0;
   for (const feature of features) {
     const qv = finiteNumber(feature.properties?.qv);
-    const qaM2 = finiteNumber(feature.properties?.qa_m2);
-    if (!qv || !qaM2) {
+    const avm2 = finiteNumber(feature.properties?.avm2);
+    if (!validQuartile(qv) || avm2 === null || avm2 <= 0 || !hasMedian) {
       summary.missing += 1;
       continue;
     }
     summary.classified += 1;
-    if (qv === 1 && qaM2 === 4) summary.vulnerableHighM2 += 1;
-    if (qv === 1 && qaM2 === 1) summary.vulnerableLowM2 += 1;
-    if (qv === 4 && qaM2 === 4) summary.lessVulnerableHighM2 += 1;
+    const aboveRegionalMedian = avm2 > regionalMedianAvm2;
+    if (qv === 1 && aboveRegionalMedian) summary.vulnerableHighM2 += 1;
+    if (qv === 1 && !aboveRegionalMedian) summary.vulnerableLowM2 += 1;
+    if (qv === 4 && aboveRegionalMedian) summary.lessVulnerableHighM2 += 1;
   }
   return summary;
 }
 
 function bivariateFinding(row: CommuneRecord, summary: UvSummary): string {
   if (!summary.classified) {
-    return `${row.comuna}: el shard UV carga geometría, pero no trae suficientes celdas clasificadas para leer el bivariado. Revisa fuga territorial y denominadores antes de interpretar.`;
+    return `${row.comuna}: el shard UV carga geometría, pero no trae suficientes celdas con avm2 positivo y mediana regional para leer el bivariado. Revisa fuga territorial y denominadores antes de interpretar.`;
   }
   const total = integerFormatter.format(summary.classified);
   const focus = integerFormatter.format(summary.vulnerableHighM2);
   const low = integerFormatter.format(summary.vulnerableLowM2);
+  const median = formatCurrency(summary.regionalMedianAvm2);
   const missing = summary.missing ? ` ${integerFormatter.format(summary.missing)} UV quedan sin celda por falta de cuartil o denominador.` : "";
-  return `${row.comuna}: ${total} UV clasificadas. ${focus} combinan mayor vulnerabilidad IGVUST con alto avalúo fiscal por m²; ${low} combinan mayor vulnerabilidad con bajo avalúo por m².${missing} El color orienta la inspección, no certifica una explicación social.`;
+  return `${row.comuna}: ${total} UV clasificadas contra una mediana regional de ${median}/m². ${focus} combinan mayor vulnerabilidad IGVUST con avalúo fiscal por m² sobre esa mediana; ${low} combinan mayor vulnerabilidad con avalúo bajo o igual a la mediana regional.${missing} El color orienta la inspección, no certifica una explicación social.`;
 }
 
-async function uvSummaryFromUrl(url: string): Promise<UvSummary | null> {
+async function uvSummaryFromUrl(url: string, regionalMedianAvm2: number | null): Promise<UvSummary | null> {
   try {
     const payload = await json<{ features?: Array<{ properties?: Partial<UvFeatureProperties> }> }>(url);
-    return summarizeUvFeatures(payload.features ?? []);
+    return summarizeUvFeatures(payload.features ?? [], regionalMedianAvm2);
   } catch {
     return null;
   }
 }
 
-function uvHoverContent(properties: Record<string, unknown>): HTMLElement {
+function uvHoverContent(properties: Record<string, unknown>, regionalMedianAvm2: number | null = null): HTMLElement {
   const content = document.createElement("div");
   content.className = "uv-popup";
   const title = document.createElement("strong");
@@ -186,27 +199,63 @@ function uvHoverContent(properties: Record<string, unknown>): HTMLElement {
     : `UV ${String(properties.uv ?? "sin nombre")}`;
   title.textContent = name;
   const qv = finiteNumber(properties.qv);
-  const qaM2 = finiteNumber(properties.qa_m2);
   const avm2 = finiteNumber(properties.avm2);
   const households = finiteNumber(properties.hog);
   const population = finiteNumber(properties.pob);
+  const regionalCut = regionalMedianAvm2 !== null && avm2 !== null && avm2 > 0
+    ? (avm2 > regionalMedianAvm2 ? `sobre mediana regional (${currencyFormatter.format(regionalMedianAvm2)}/m²)` : `bajo/igual mediana regional (${currencyFormatter.format(regionalMedianAvm2)}/m²)`)
+    : "sin corte regional";
   const rows = [
     `IGVUST: ${qv ? `q${qv}` : "sin cuartil"}`,
-    `Avalúo/m²: ${qaM2 ? `q${qaM2}` : "sin cuartil"}${avm2 ? ` · ${compactCurrencyFormatter.format(avm2)}` : ""}`,
+    `Avalúo/m²: ${regionalCut}${avm2 !== null ? ` · ${compactCurrencyFormatter.format(avm2)}/m²` : ""}`,
     `RSH: ${households ? `${integerFormatter.format(households)} hogares` : "hogares sin dato"} · ${population ? `${integerFormatter.format(population)} personas` : "personas sin dato"}`
   ];
+  // En una UV sin área urbana el avalúo por m² se reparte sobre suelo mayoritariamente
+  // no edificado y cae a uno o dos pesos. Sin este aviso la cifra se lee como un error
+  // del visor en vez de como el efecto del denominador que el propio laboratorio explica.
+  const urban = finiteNumber(properties.urb);
+  const denominatorNote = avm2 !== null && urban !== null && urban < 5
+    ? `Sin área urbana (${percentFormatter.format(urban)}%): el avalúo por m² se reparte sobre suelo no edificado.`
+    : null;
   content.append(title);
   for (const row of rows) {
     const line = document.createElement("p");
     line.textContent = row;
     content.append(line);
   }
+  if (denominatorNote) {
+    const note = document.createElement("p");
+    note.className = "uv-popup-note";
+    note.textContent = denominatorNote;
+    content.append(note);
+  }
+  return content;
+}
+
+function communePopupContent(row: CommuneRecord, aggregate: CommuneAggregate | null): HTMLElement {
+  const content = document.createElement("div");
+  content.className = "commune-popup";
+  const title = document.createElement("strong");
+  title.textContent = `${row.comuna}, ${row.region}`;
+  const quartile = document.createElement("p");
+  quartile.textContent = aggregate?.cuartil_nacional_avm2
+    ? `Cuartil comunal avm2: q${aggregate.cuartil_nacional_avm2}`
+    : "Cuartil comunal avm2: sin dato positivo";
+  const median = document.createElement("p");
+  median.textContent = `Mediana comunal avm2: ${formatCurrency(aggregate?.avm2_mediana)}/m²`;
+  const regional = document.createElement("p");
+  regional.textContent = `Mediana regional: ${formatCurrency(aggregate?.mediana_regional_avm2)}/m²`;
+  const coverage = document.createElement("p");
+  coverage.textContent = `Cobertura equivalente: ${formatPercent(row.cobertura_censo_pct)}`;
+  const note = document.createElement("p");
+  note.className = "uv-popup-note";
+  note.textContent = "Click sincroniza selector, mapas, tabla y laboratorio.";
+  content.append(title, quartile, median, regional, coverage, note);
   return content;
 }
 
 export class CatastroMapApplication {
   private state: AppState;
-  private map: MapController | null = null;
   private bivariateMap: MapController | null = null;
   private selectedRow: CommuneRecord | null = null;
   private selectedRegionName: string | null = null;
@@ -214,6 +263,7 @@ export class CatastroMapApplication {
   private constructor(
     private readonly manifest: TilesManifest,
     private readonly rows: CommuneRecord[],
+    private readonly territorial: TerritorialAggregates,
     uvIndex: UvIndex | null = null,
     private readonly chileSelector: ChileSelectorData | null = null
   ) {
@@ -223,10 +273,11 @@ export class CatastroMapApplication {
 
   static async start(): Promise<CatastroMapApplication> {
     const manifestUrls = manifestUrlsForLocation(window.location.hostname, window.location.search);
-    const [manifest, rows, chileSelector] = await Promise.all([
+    const [manifest, rows, chileSelector, territorial] = await Promise.all([
       firstJson<TilesManifest>(manifestUrls),
       json<CommuneRecord[]>(communesUrl),
-      json<ChileSelectorData>(chileSelectorUrl).catch(() => null)
+      json<ChileSelectorData>(chileSelectorUrl).catch(() => null),
+      loadTerritorialAggregates()
     ]);
     const territories: TerritoryIndex = manifest.communes.territories_url
       ? await json<TerritoryIndex>(manifest.communes.territories_url).catch(() => ({ communes: {} }))
@@ -235,33 +286,17 @@ export class CatastroMapApplication {
     const enriched = rows.map((row) => ({ ...row, bounds: boundsByCommune[row.codigo_comuna.padStart(5, "0")]?.bounds ?? null }));
     // El indice puede no existir todavia: la capa UV degrada a ausente, no a error.
     const uvIndex = await json<UvIndex>(uvIndexUrl).catch(() => null);
-    return new CatastroMapApplication(manifest, enriched, uvIndex, chileSelector);
+    return new CatastroMapApplication(manifest, enriched, territorial, uvIndex, chileSelector);
   }
 
   async mount(): Promise<void> {
-    const container = document.getElementById("map");
+    const container = document.getElementById("bivariate-map");
     if (!container) return;
-    container.classList.add("catastro-maplibre");
-    this.map = await MapController.create(this.manifest, container);
-    const mapShell = container.closest(".map-shell");
-    mapShell?.classList.add("map-ready");
     setAttribution(this.manifest.basemap?.attribution);
-    const legacyCanvas = document.getElementById("density");
-    if (legacyCanvas instanceof HTMLCanvasElement) {
-      legacyCanvas.style.setProperty("display", "none", "important");
-      legacyCanvas.setAttribute("aria-hidden", "true");
-    }
-    const legacyNote = document.getElementById("map-note");
-    if (legacyNote) legacyNote.style.setProperty("display", "none", "important");
-    requestAnimationFrame(() => this.map?.resize());
-    const communesAdded = this.map.addCommunes((code) => this.selectFromMap(code));
-    this.map.bindUvHover(uvHoverContent);
-    this.map.bindUvClick(uvHoverContent);
-    this.bindMapTools();
     this.bindSelectionDock();
     await this.mountBivariateMap();
-    if (communesAdded) setStatus("Capa comunal nacional lista. Elige una región o comuna para explorar.");
-    else setStatus("La capa comunal PMTiles aún no está disponible en este manifest.");
+    this.bindMapTools();
+    setStatus("Visor UV listo. Elige una región y comuna para leer el bivariado.");
 
     window.addEventListener("catastro:selection", (event) => {
       const row = (event as CustomEvent<{ row?: CommuneRecord }>).detail?.row;
@@ -274,7 +309,7 @@ export class CatastroMapApplication {
       const row = (event as CustomEvent<{ selected?: CommuneRecord }>).detail?.selected;
       if (row) this.selectRow(row);
     });
-    window.addEventListener("resize", () => this.map?.resize());
+    window.addEventListener("resize", () => this.bivariateMap?.resize());
     this.applyInitialSelection();
   }
 
@@ -283,12 +318,20 @@ export class CatastroMapApplication {
     if (!container) return;
     container.classList.add("catastro-maplibre");
     this.bivariateMap = await MapController.create(this.manifest, container, "bivariate-map-status");
-    this.bivariateMap.bindUvHover(uvHoverContent);
-    this.bivariateMap.bindUvClick(uvHoverContent);
+    this.bivariateMap.bindUvHover((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()));
+    this.bivariateMap.bindUvClick((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()));
     container.closest(".map-shell")?.classList.add("map-ready");
     this.bindBivariateTools();
     this.renderChileSelector();
     requestAnimationFrame(() => this.bivariateMap?.resize());
+  }
+
+  private aggregateFor(row: CommuneRecord | null = this.selectedRow): CommuneAggregate | null {
+    return row ? communeAggregateFor(this.territorial, row.codigo_comuna) : null;
+  }
+
+  private currentRegionalMedianAvm2(): number | null {
+    return this.aggregateFor()?.mediana_regional_avm2 ?? null;
   }
 
   private applyInitialSelection(): void {
@@ -300,9 +343,9 @@ export class CatastroMapApplication {
       if (defaultRow) {
         this.state.regionCode = regionCodeForName(defaultRow.region);
         this.state.communeCode = defaultRow.codigo_comuna;
-        this.state.parcelLayerVisible = true;
+        this.state.parcelLayerVisible = false;
         this.state.uvLayerVisible = true;
-        this.state.mapScale = "mixta";
+        this.state.mapScale = "uv";
         this.selectFromMap(defaultRow.codigo_comuna);
         return;
       }
@@ -311,7 +354,6 @@ export class CatastroMapApplication {
       // Mantener el intent UV encendido: sin comuna no hay fetch; al seleccionar
       // una, el shard se carga sin que el checkbox mienta sobre el estado.
       this.state.uvLayerVisible = true;
-      this.map?.setCommuneFilter(null);
       void this.bivariateMap?.setUvLayer(null);
       const bivariateCard = document.getElementById("bivariate-card");
       if (bivariateCard) bivariateCard.hidden = false;
@@ -347,49 +389,19 @@ export class CatastroMapApplication {
     this.selectedRow = row;
     this.state.regionCode = regionCodeForName(row.region);
     this.state.communeCode = row.codigo_comuna;
-    if (row.codigo_comuna === DEFAULT_COMMUNE_CODE && !new URLSearchParams(window.location.search).has("comuna")) {
-      this.state.parcelLayerVisible = true;
-      this.state.uvLayerVisible = true;
-      this.state.mapScale = "mixta";
-    }
+    this.state = reconcileMapAvailability(this.state, false);
     this.updateSelectionDock(row);
     this.updateTerritoryTable(row);
-    const territory = document.getElementById("territory");
-    if (territory) territory.textContent = row.comuna;
-    const section = document.getElementById("cartographic-map");
-    if (section) section.hidden = false;
-    this.map?.setCommuneFilter(row.codigo_comuna.padStart(5, "0"));
     const bivariateCard = document.getElementById("bivariate-card");
     if (bivariateCard) bivariateCard.hidden = false;
     this.syncBivariateSelectors(row);
-    const parcelSource = this.state.regionCode ? this.manifest.parcel_regions[this.state.regionCode] : undefined;
-    const parcelAvailable = Boolean(authorizedParcelSource(this.manifest, { ...this.state, parcelLayerVisible: true }));
-    this.state = reconcileMapAvailability(this.state, parcelAvailable);
     replaceUrl(this.state, activateMapView ? "mapa" : undefined);
-    const cameraSet = this.map ? this.applyCommuneCamera(this.map, row, parcelSource, true) : false;
-    const bivariateCameraSet = this.bivariateMap ? this.applyCommuneCamera(this.bivariateMap, row, parcelSource, false) : false;
-    const parcelsLoaded = this.state.parcelLayerVisible
-      ? (this.map?.setParcelLayer(this.state) ?? false)
-      : (this.map?.setParcelLayer({ ...this.state, regionCode: null }) ?? false);
-    const parcelToggle = document.getElementById("map-layer-parcels");
-    if (parcelToggle instanceof HTMLInputElement) {
-      parcelToggle.disabled = !parcelAvailable;
-      parcelToggle.checked = parcelsLoaded;
-    }
-    const uvToggle = document.getElementById("map-layer-uv");
-    if (uvToggle instanceof HTMLInputElement) uvToggle.checked = this.state.uvLayerVisible;
-    const tiltToggle = document.getElementById("map-tilt");
-    if (tiltToggle instanceof HTMLButtonElement) tiltToggle.setAttribute("aria-pressed", "true");
-    setStatus(
-      parcelsLoaded && this.state.uvLayerVisible
-        ? `Mapa de ${row.comuna}: OSM, predios referenciales y unidades vecinales activos.`
-        : parcelsLoaded
-          ? `Mapa de ${row.comuna}: capa predial regional referencial activa.`
-        : parcelAvailable
-          ? `Mapa UV de ${row.comuna}. Activa Predios para cargar el piloto regional bajo demanda.`
-          : `Mapa UV de ${row.comuna}. El asterisco identifica las comunas con piloto predial.`
-    );
-    void this.refreshUvLayer(!cameraSet);
+    const bivariateCameraSet = this.bivariateMap ? this.applyCommuneCamera(this.bivariateMap, row, undefined, false) : false;
+    const tiltToggle = document.getElementById("bivariate-map-tilt");
+    if (tiltToggle instanceof HTMLButtonElement) tiltToggle.setAttribute("aria-pressed", "false");
+    const aggregate = this.aggregateFor(row);
+    const quartile = aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2}` : "sin cuartil";
+    setStatus(`${row.comuna}: cuartil nacional de mediana avm2 ${quartile}. El mapa UV y los descriptivos usan esta selección.`);
     void this.refreshBivariateLayer(!bivariateCameraSet);
   }
 
@@ -592,6 +604,7 @@ export class CatastroMapApplication {
     const row = this.selectedRow;
     const available = uvLayerAvailable(this.uvIndex, code);
     const shardUrl = uvShardUrl(this.uvIndex, this.state);
+    const regionalMedianAvm2 = this.currentRegionalMedianAvm2();
     if (!row || !available || !shardUrl) {
       await this.bivariateMap?.setUvLayer(null);
       if (legend) legend.hidden = true;
@@ -601,7 +614,7 @@ export class CatastroMapApplication {
       return;
     }
     updateUvLegend();
-    const loaded = await this.bivariateMap?.setUvLayer(shardUrl, this.currentTheme(), "m2", focusLocal, "bivariate");
+    const loaded = await this.bivariateMap?.setUvLayer(shardUrl, this.currentTheme(), regionalMedianAvm2, focusLocal, "bivariate");
     if (legend) legend.hidden = !loaded;
     if (!loaded) {
       if (finding) finding.textContent = `${row.comuna}: no hay capa UV publicada para el bivariado.`;
@@ -609,10 +622,10 @@ export class CatastroMapApplication {
       setBivariateStatus("La capa bivariada no pudo cargarse.");
       return;
     }
-    const summary = await uvSummaryFromUrl(shardUrl);
+    const summary = await uvSummaryFromUrl(shardUrl, regionalMedianAvm2);
     if (finding) finding.textContent = summary ? bivariateFinding(row, summary) : `${row.comuna}: bivariado cargado; el resumen no pudo calcularse desde el shard.`;
     this.updateTerritoryTable(row, summary);
-    setBivariateStatus(`${row.comuna}, ${row.region}: bivariado UV por m² cargado. Pasa el cursor o haz clic sobre una UV para leer sus datos.`);
+    setBivariateStatus(`${row.comuna}, ${row.region}: bivariado UV por m² cargado contra mediana regional. Pasa el cursor o haz clic sobre una UV para leer sus datos.`);
     requestAnimationFrame(() => this.bivariateMap?.resize());
   }
 
@@ -623,14 +636,6 @@ export class CatastroMapApplication {
     return document.documentElement.dataset.theme === "light" ? "light" : "dark";
   }
 
-  private syncMapScale(): void {
-    this.state.mapScale = this.state.parcelLayerVisible && this.state.uvLayerVisible
-      ? "mixta"
-      : this.state.parcelLayerVisible
-        ? "predial"
-        : "uv";
-  }
-
   private bindSelectionDock(): void {
     const reset = document.getElementById("selection-reset");
     if (!(reset instanceof HTMLButtonElement)) return;
@@ -639,9 +644,9 @@ export class CatastroMapApplication {
       if (!defaultRow) return;
       this.state.regionCode = regionCodeForName(defaultRow.region);
       this.state.communeCode = defaultRow.codigo_comuna;
-      this.state.parcelLayerVisible = true;
+      this.state.parcelLayerVisible = false;
       this.state.uvLayerVisible = true;
-      this.state.mapScale = "mixta";
+      this.state.mapScale = "uv";
       this.selectFromMap(defaultRow.codigo_comuna);
     });
   }
@@ -651,14 +656,15 @@ export class CatastroMapApplication {
     const title = document.getElementById("selection-dock-title");
     const meta = document.getElementById("selection-dock-meta");
     const reset = document.getElementById("selection-reset");
+    const aggregate = this.aggregateFor(row);
     dock?.classList.add("has-selection");
     if (title) title.textContent = row.comuna;
     if (meta) {
       meta.textContent = [
         row.region,
         `código ${row.codigo_comuna.padStart(5, "0")}`,
-        `${formatInteger(row.predios_habitacionales)} predios H`,
-        `${formatPercent(row.cobertura_censo_pct)} cobertura`
+        aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2} avm2 comunal` : "sin cuartil avm2",
+        `mediana ${formatCurrency(aggregate?.avm2_mediana)}/m²`
       ].join(" · ");
     }
     if (reset instanceof HTMLButtonElement) {
@@ -670,12 +676,14 @@ export class CatastroMapApplication {
     const name = document.getElementById("territory-detail-name");
     const lead = document.getElementById("territory-detail-summary");
     const body = document.getElementById("territory-detail-table-body");
+    const aggregate = this.aggregateFor(row);
     if (name) name.textContent = row.comuna;
     if (lead) {
       const uvText = summary
         ? `${formatInteger(summary.classified)} UV clasificadas; ${formatInteger(summary.missing)} sin celda bivariada.`
         : "Resumen UV pendiente o no disponible para la comuna seleccionada.";
-      lead.textContent = `${row.comuna}, ${row.region}: cobertura residencial equivalente ${formatPercent(row.cobertura_censo_pct)}, ${formatInteger(row.predios_habitacionales)} predios H y avalúo fiscal total ${formatCurrency(row.avaluo_total_clp)}. ${uvText}`;
+      const quartile = aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2}` : "sin cuartil";
+      lead.textContent = `${row.comuna}, ${row.region}: cuartil comunal de mediana avm2 ${quartile}, mediana comunal ${formatCurrency(aggregate?.avm2_mediana)}/m² y mediana regional ${formatCurrency(aggregate?.mediana_regional_avm2)}/m². ${uvText}`;
     }
     if (!body) return;
 
@@ -683,8 +691,9 @@ export class CatastroMapApplication {
       ? `${formatPercent(row.cobertura_casen_sensibilidad_pct)} como sensibilidad no representativa comunal`
       : "No disponible";
     const uvSummary = summary
-      ? `${formatInteger(summary.classified)} clasificadas; ${formatInteger(summary.vulnerableHighM2)} con mayor vulnerabilidad y alto avalúo/m²; ${formatInteger(summary.missing)} sin clasificación completa`
+      ? `${formatInteger(summary.classified)} clasificadas; ${formatInteger(summary.vulnerableHighM2)} con mayor vulnerabilidad y sobre mediana regional; ${formatInteger(summary.missing)} sin clasificación completa`
       : "Pendiente, sin shard o sin variables suficientes";
+    const quartile = aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2}` : "No disponible";
     const rows: Array<[string, string, string]> = [
       ["Selección", `${row.comuna}, ${row.region}`, `Código compartible ${row.codigo_comuna.padStart(5, "0")}`],
       ["Catastro SII", row.fuente_sii_disponible ? row.periodo_catastro ?? "Disponible" : "Sin extracto SII en el corte", "Predios de destino H; geometría referencial cuando existe."],
@@ -693,10 +702,12 @@ export class CatastroMapApplication {
       ["Población equivalente SII", formatInteger(row.poblacion_equivalente_censo), `Brecha equivalente: ${formatInteger(row.brecha_equivalente_censo)} personas frente al Censo.`],
       ["Superficie reportada", formatSquareMeters(row.superficie_total_m2), `Cobertura de superficie válida: ${formatPercent(row.cobertura_superficie_pct)}.`],
       ["Avalúo fiscal total", formatCurrency(row.avaluo_total_clp), `Por predio: ${formatCurrency(row.avaluo_por_predio_clp)}; cobertura de avalúo: ${formatPercent(row.cobertura_avaluo_pct)}.`],
+      ["Mediana comunal avm2", `${formatCurrency(aggregate?.avm2_mediana)}/m²`, `Cuartil nacional de mediana comunal: ${quartile}.`],
+      ["Mediana regional avm2", `${formatCurrency(aggregate?.mediana_regional_avm2)}/m²`, aggregate?.sobre_mediana_regional === null ? "Sin comparación regional por falta de avm2 positivo." : aggregate?.sobre_mediana_regional ? "La mediana comunal está sobre la mediana regional." : "La mediana comunal está bajo o igual a la mediana regional."],
       ["Ranking de avalúo", `Percentil nacional ${formatPercent(row.percentil_avaluo_nacional)}`, `Percentil regional ${formatPercent(row.percentil_avaluo_regional)}.`],
       ["Referencia 2017", formatPercent(row.cobertura_vs_proyeccion_base_2017_pct), "Comparación auxiliar frente a la proyección base 2017."],
       ["Sensibilidad CASEN", casen, row.casen_nota ?? "No usar CASEN para rankings comunales."],
-      ["UV bivariado", uvSummary, "Cuartiles IGVUST oficiales; el eje de avalúo por m² se compacta visualmente en tres tramos."]
+      ["UV bivariado", uvSummary, "Cuartiles IGVUST oficiales; el eje de avalúo por m² compara cada UV contra la mediana regional."]
     ];
     body.replaceChildren(...rows.map(([metric, value, note]) => {
       const tr = document.createElement("tr");
@@ -713,90 +724,35 @@ export class CatastroMapApplication {
     }));
   }
 
-  /** Carga la capa UV de la comuna activa, si tiene una publicada. */
-  private async refreshUvLayer(focusLocal = false): Promise<void> {
-    const label = document.getElementById("map-layer-uv-label");
-    const code = this.state.communeCode;
-    const available = uvLayerAvailable(this.uvIndex, code);
-    const shardUrl = uvShardUrl(this.uvIndex, this.state);
-
-    // El control solo aparece donde hay datos: un checkbox que no puede hacer nada
-    // confunde más de lo que informa.
-    if (label) label.hidden = !available;
-    if (!available || !shardUrl || !this.state.uvLayerVisible) {
-      await this.map?.setUvLayer(null);
-      return;
-    }
-    const loaded = await this.map?.setUvLayer(
-      shardUrl,
-      this.currentTheme(),
-      "m2",
-      focusLocal,
-      "simple"
-    );
-    if (loaded) this.map?.setUvVisible(true);
-    else setStatus("La capa de unidades vecinales no está disponible para esta comuna.");
-  }
-
   private bindMapTools(): void {
-    const base = document.getElementById("map-layer-basemap");
-    const parcels = document.getElementById("map-layer-parcels");
-    const uv = document.getElementById("map-layer-uv");
-    const reset = document.getElementById("map-reset");
-    const tilt = document.getElementById("map-tilt");
+    const base = document.getElementById("bivariate-map-layer-basemap");
+    const reset = document.getElementById("bivariate-map-reset");
+    const tilt = document.getElementById("bivariate-map-tilt");
 
-    if (uv instanceof HTMLInputElement) uv.checked = this.state.uvLayerVisible;
-    if (parcels instanceof HTMLInputElement) parcels.checked = this.state.parcelLayerVisible;
-
-    if (uv instanceof HTMLInputElement) {
-      uv.addEventListener("change", () => {
-        this.state.uvLayerVisible = uv.checked;
-        this.syncMapScale();
-        replaceUrl(this.state, "mapa");
-        void this.refreshUvLayer();
-        setStatus(uv.checked ? "Unidades vecinales visibles como capa azul transparente." : "Capa de unidades vecinales oculta.");
-      });
-    }
-    // El segundo mapa usa una expresión bivariada que depende del tema; se
-    // reconstruye junto a la capa simple para mantener ambos mapas sincronizados.
     window.addEventListener("catastro:theme", () => {
-      if (this.state.uvLayerVisible) void this.refreshUvLayer();
       void this.refreshBivariateLayer();
     });
 
     if (base instanceof HTMLInputElement) {
       base.addEventListener("change", () => {
-        this.map?.setBasemapVisible(base.checked);
+        this.bivariateMap?.setBasemapVisible(base.checked);
         replaceUrl(this.state, "mapa");
-      });
-    }
-    if (parcels instanceof HTMLInputElement) {
-      parcels.addEventListener("change", () => {
-        this.state.parcelLayerVisible = parcels.checked;
-        this.syncMapScale();
-        const loaded = this.map?.setParcelLayer(this.state) ?? false;
-        this.state.parcelLayerVisible = parcels.checked && loaded;
-        if (parcels.checked && !loaded) parcels.checked = false;
-        this.syncMapScale();
-        this.map?.setParcelsVisible(parcels.checked);
-        replaceUrl(this.state, "mapa");
-        setStatus(this.state.parcelLayerVisible ? "Capa predial referencial visible junto a las unidades vecinales si están activas." : "Capa predial oculta; las métricas se mantienen.");
       });
     }
     if (reset instanceof HTMLButtonElement) {
       reset.addEventListener("click", () => {
-        this.map?.resetView();
+        this.bivariateMap?.resetView();
         replaceUrl(this.state, "mapa");
-        if (this.selectedRow) setStatus(`Vista inicial de ${this.selectedRow.comuna} restablecida.`);
+        if (this.selectedRow) setBivariateStatus(`Vista inicial de ${this.selectedRow.comuna} restablecida.`);
       });
     }
     if (tilt instanceof HTMLButtonElement) {
       tilt.addEventListener("click", () => {
         const enabled = tilt.getAttribute("aria-pressed") !== "true";
         tilt.setAttribute("aria-pressed", String(enabled));
-        this.map?.setPerspective(enabled);
+        this.bivariateMap?.setPerspective(enabled);
         if (this.selectedRow) {
-          setStatus(enabled ? `Perspectiva 3D de ${this.selectedRow.comuna} activa.` : `Vista plana de ${this.selectedRow.comuna} activa.`);
+          setBivariateStatus(enabled ? `Perspectiva 3D de ${this.selectedRow.comuna} activa.` : `Vista plana de ${this.selectedRow.comuna} activa.`);
         }
       });
     }

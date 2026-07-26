@@ -1,4 +1,4 @@
-import type { AppState, Bounds, CommuneDefaultView, CommuneRecord, MapScale, VisualizationView } from "./types";
+import type { AppState, Bounds, CommuneDefaultView, CommuneRecord, VisualizationView } from "./types";
 
 const REGION_CODES: Record<string, string> = {
   "Arica y Parinacota": "15",
@@ -61,21 +61,14 @@ export function stateFromUrl(rows: CommuneRecord[]): AppState {
   const commune = communeCode ? rows.find((row) => row.codigo_comuna === communeCode) : undefined;
   const matchingRegion = commune ? regionCodeForName(commune.region) : null;
   const validTerritory = Boolean(matchingRegion && (!regionCode || matchingRegion === regionCode));
-  const layer = params.get("capa");
-  const mixedRequested = layer === "mixta";
-  const predialRequested = mixedRequested || layer === "predial";
-  const uvRequested = mixedRequested || layer !== "predial";
-  const mapScale: MapScale = mixedRequested ? "mixta" : predialRequested ? "predial" : "uv";
-
   return {
     regionCode: validTerritory ? matchingRegion : null,
     communeCode: validTerritory ? communeCode : null,
     activeMetric: "cobertura_censo_pct",
-    parcelLayerVisible: predialRequested,
+    parcelLayerVisible: false,
     parcelOpacity: 0.18,
-    mapScale,
-    // UV es la lectura nacional liviana. El predial sigue siendo un piloto bajo demanda.
-    uvLayerVisible: uvRequested
+    mapScale: "uv",
+    uvLayerVisible: true
   };
 }
 
@@ -87,29 +80,15 @@ export function replaceUrl(state: AppState, view?: VisualizationView): void {
   if (commune) url.searchParams.set("comuna", commune);
   else url.searchParams.delete("comuna");
   url.searchParams.set("metrica", state.activeMetric);
-  const layer: MapScale = state.parcelLayerVisible && state.uvLayerVisible
-    ? "mixta"
-    : state.parcelLayerVisible
-      ? "predial"
-      : "uv";
-  url.searchParams.set("capa", layer);
+  url.searchParams.set("capa", "uv");
   url.searchParams.delete("normalizacion");
   if (view) url.searchParams.set("vista", view);
   window.history.replaceState({}, "", url);
 }
 
-/** Evita una vista vacía cuando una URL predial se abre fuera del piloto. */
-export function reconcileMapAvailability(state: AppState, parcelAvailable: boolean): AppState {
-  if (state.parcelLayerVisible && !parcelAvailable) {
-    return { ...state, mapScale: "uv", uvLayerVisible: true, parcelLayerVisible: false };
-  }
-  const parcelLayerVisible = parcelAvailable && state.parcelLayerVisible;
-  const mapScale: MapScale = parcelLayerVisible && state.uvLayerVisible
-    ? "mixta"
-    : parcelLayerVisible
-      ? "predial"
-      : "uv";
-  return { ...state, mapScale, parcelLayerVisible };
+/** Acepta URLs antiguas con capa predial/mixta, pero serializa la experiencia analítica nueva. */
+export function reconcileMapAvailability(state: AppState, _parcelAvailable: boolean): AppState {
+  return { ...state, mapScale: "uv", uvLayerVisible: true, parcelLayerVisible: false };
 }
 
 const LAB_VIEWS = new Set<VisualizationView>(["flujo", "avaluos", "distribuciones", "sensibilidad", "comunas"]);

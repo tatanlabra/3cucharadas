@@ -72,6 +72,75 @@ export interface CommuneRecord {
   bounds?: Bounds | null;
 }
 
+export interface TerritorialStats {
+  n_uv: number;
+  n_uv_validas: number;
+  avm2_mediana: number | null;
+  avm2_p25: number | null;
+  avm2_p75: number | null;
+  avm2_p90: number | null;
+  avm2_min: number | null;
+  avm2_max: number | null;
+  avaluo_total_clp: number | null;
+  superficie_total_m2: number | null;
+  predios_enrolados: number | null;
+}
+
+export interface RegionAggregate extends TerritorialStats {
+  region: string;
+  n_comunas: number;
+  n_comunas_con_avm2: number;
+}
+
+export interface CommuneAggregate extends TerritorialStats {
+  codigo_comuna: string;
+  codigo_comuna_dato: string;
+  comuna: string;
+  region: string;
+  hogares_rsh: number | null;
+  poblacion_censo: number | null;
+  pct_urbano: number | null;
+  vulnerabilidad_media: number | null;
+  p90_p50: number | null;
+  gini_avaluo: number | null;
+  cuartil_nacional_avm2: 1 | 2 | 3 | 4 | null;
+  mediana_regional_avm2: number | null;
+  sobre_mediana_regional: boolean | null;
+}
+
+export interface NationalAggregate extends TerritorialStats {
+  n_comunas: number;
+  n_regiones: number;
+  n_comunas_con_avm2: number;
+  comunas_sin_avm2: string[];
+  cortes_cuartil_comunal: [number, number, number];
+}
+
+export interface TerritorialTechnicalNotes {
+  uv_universe_reconciliation: {
+    insights_v1_uv: number;
+    published_uv_features: number;
+    difference: number;
+    reason: string;
+    not_navigable_uv: Array<{
+      uv_rsh: number;
+      codigo_comuna: string;
+      comuna: string;
+      region: string;
+    }>;
+  };
+}
+
+export interface TerritorialAggregates {
+  schema_version: 1;
+  generated_at: string;
+  method: Record<string, string>;
+  technical_notes: TerritorialTechnicalNotes;
+  national: NationalAggregate;
+  regions: Record<string, RegionAggregate>;
+  communes: Record<string, CommuneAggregate>;
+}
+
 /** Intención visible del mapa. Predios y UV pueden coexistir como capas independientes. */
 export type MapScale = "predial" | "uv" | "mixta";
 

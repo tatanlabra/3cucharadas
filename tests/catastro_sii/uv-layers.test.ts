@@ -2,11 +2,12 @@ import { describe, expect, it } from "vitest";
 import {
   BIVARIATE_MISSING,
   BIVARIATE_PALETTE,
+  COMMUNE_QUARTILE_PALETTE,
   PARCEL_FILL_ORANGE,
   PARCEL_LINE_ORANGE,
   UV_SIMPLE_BLUE,
-  UV_QUARTILE_PROPERTY,
   bivariateFillExpression,
+  communeQuartileFillExpression,
   PARCEL_FILL_ID,
   PARCEL_LINE_ID,
   UV_FILL_ID,
@@ -39,12 +40,12 @@ function fakeMap() {
 }
 
 describe("paleta bivariada", () => {
-  it("conserva cuatro cuartiles IGVUST y tres tramos visuales de avalúo", () => {
+  it("conserva cuatro cuartiles IGVUST y dos tramos regionales de avalúo", () => {
     for (const theme of ["light", "dark"] as const) {
       const cells = Object.keys(BIVARIATE_PALETTE[theme]);
-      expect(cells).toHaveLength(12);
+      expect(cells).toHaveLength(8);
       for (const qv of [1, 2, 3, 4]) {
-        for (const qa of [1, 2, 3]) expect(cells).toContain(`${qv}${qa}`);
+        for (const qa of [1, 2]) expect(cells).toContain(`${qv}${qa}`);
       }
     }
   });
@@ -59,34 +60,46 @@ describe("paleta bivariada", () => {
       const linear = channels.map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
       return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
     };
-    const row = [1, 2, 3].map((qa) => luminance(light[`1${qa}`]));
-    expect(Math.min(...row)).toBe(row[2]);
+    const row = [1, 2].map((qa) => luminance(light[`1${qa}`]));
+    expect(Math.min(...row)).toBe(row[1]);
   });
 
-  it("la expresión mantiene qv oficial y compacta sólo el eje de avalúo", () => {
-    for (const mode of ["household", "m2"] as const) {
-      const expression = bivariateFillExpression("light", mode);
-      expect(expression[0]).toBe("match");
-      expect(expression[1]).toEqual([
-        "concat",
-        ["to-string", ["get", "qv"]],
-        [
-          "case",
-          ["==", ["to-number", ["get", UV_QUARTILE_PROPERTY[mode]], 0], 1], "1",
-          ["==", ["to-number", ["get", UV_QUARTILE_PROPERTY[mode]], 0], 4], "3",
-          ["all", [">=", ["to-number", ["get", UV_QUARTILE_PROPERTY[mode]], 0], 2], ["<=", ["to-number", ["get", UV_QUARTILE_PROPERTY[mode]], 0], 3]], "2",
-          "x"
-        ]
-      ]);
-      // match + input + 12 pares + fallback
-      expect(expression).toHaveLength(2 + 12 * 2 + 1);
-      expect(expression.at(-1)).toBe(BIVARIATE_MISSING.light);
-    }
+  it("la expresión mantiene qv oficial y corta avm2 contra mediana regional", () => {
+    const expression = bivariateFillExpression("light", 15103.5);
+    const avm2 = ["to-number", ["get", "avm2"], -1];
+    expect(expression[0]).toBe("match");
+    expect(expression[1]).toEqual([
+      "concat",
+      ["to-string", ["get", "qv"]],
+      [
+        "case",
+        ["all", [">", avm2, 0], ["<=", avm2, 15103.5]], "1",
+        [">", avm2, 15103.5], "2",
+        "x"
+      ]
+    ]);
+    // match + input + 8 pares + fallback
+    expect(expression).toHaveLength(2 + 8 * 2 + 1);
+    expect(expression.at(-1)).toBe(BIVARIATE_MISSING.light);
+  });
+
+  it("degrada a fallback si no hay mediana regional activa", () => {
+    const expression = bivariateFillExpression("light", null);
+    expect(expression[1]).toEqual(["concat", ["to-string", ["get", "qv"]], ["literal", "x"]]);
   });
 
   it("cada tema usa su propio fallback", () => {
     expect(bivariateFillExpression("dark").at(-1)).toBe(BIVARIATE_MISSING.dark);
     expect(bivariateFillExpression("dark").at(-1)).not.toBe(BIVARIATE_MISSING.light);
+  });
+
+  it("colorea comunas por cuartil nacional de mediana avm2 con match por codigo", () => {
+    const expression = communeQuartileFillExpression("light", { "03202": 3, "05201": null });
+    expect(expression[0]).toBe("match");
+    expect(expression).toContain("03202");
+    expect(expression).toContain("3202");
+    expect(expression).toContain(COMMUNE_QUARTILE_PALETTE.light[3]);
+    expect(expression).not.toContain("05201");
   });
 });
 
@@ -108,7 +121,7 @@ describe("ciclo de vida de la capa UV", () => {
 
   it("puede montar UV como capa simple azul sin expresion bivariada", () => {
     const { map, layers } = fakeMap();
-    addUvLayers(map, "light", "m2", undefined, "simple");
+    addUvLayers(map, "light", null, undefined, "simple");
     expect(layers[0]).toMatchObject({ paint: { "fill-color": UV_SIMPLE_BLUE, "fill-opacity": 0.12 } });
     expect(layers[1]).toMatchObject({
       paint: {
@@ -128,12 +141,12 @@ describe("ciclo de vida de la capa UV", () => {
 
   it("actualiza el eje bivariado sin recargar la fuente", () => {
     const { map, paints } = fakeMap();
-    addUvLayers(map, "dark", "household");
-    updateUvFillExpression(map, "dark", "m2");
+    addUvLayers(map, "dark", 15103.5);
+    updateUvFillExpression(map, "dark", 15103.5);
     expect(paints).toEqual([{
       id: UV_FILL_ID,
       property: "fill-color",
-      value: bivariateFillExpression("dark", "m2")
+      value: bivariateFillExpression("dark", 15103.5)
     }, {
       id: UV_FILL_ID,
       property: "fill-opacity",
@@ -151,8 +164,8 @@ describe("ciclo de vida de la capa UV", () => {
 
   it("actualiza la capa simple sin arrastrar el color bivariado", () => {
     const { map, paints } = fakeMap();
-    addUvLayers(map, "light", "m2", undefined, "simple");
-    updateUvFillExpression(map, "dark", "household", "simple");
+    addUvLayers(map, "light", 15103.5, undefined, "simple");
+    updateUvFillExpression(map, "dark", 15103.5, "simple");
     expect(paints).toContainEqual({ id: UV_FILL_ID, property: "fill-color", value: UV_SIMPLE_BLUE });
     expect(paints).toContainEqual({ id: UV_FILL_ID, property: "fill-opacity", value: 0.12 });
     expect(paints).toContainEqual({ id: UV_LINE_ID, property: "line-opacity", value: 0.94 });
