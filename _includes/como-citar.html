@@ -1,0 +1,29 @@
+{%- comment -%}
+  Cita formateada (autor, título, año, URL) para enlaces entrantes desde
+  trabajos académicos y municipales. Se deriva de front matter/datos ya
+  existentes (page.title, page.date, page.author, site.data.authors,
+  site.url) — no requiere campos nuevos. Fase 3, auditoria-2026-07-25.
+{%- endcomment -%}
+{%- if page.date and page.title -%}
+  {%- assign cite_author_key = page.author | default: site.author.name -%}
+  {%- assign cite_author = site.data.authors[cite_author_key] -%}
+  {%- assign cite_author_name = cite_author.name | default: cite_author_key -%}
+  {%- assign cite_year = page.date | date: "%Y" -%}
+  {%- comment -%}
+    No usar `page.url | absolute_url`: jekyll-polyglot reescribe los `href="..."`
+    del HTML ya renderizado vía regex (post-procesamiento), pero no toca texto
+    plano — imprimir la misma URL como texto visible queda desincronizada del
+    href. Se construye a mano, igual que el hreflang de head/custom.html.
+  {%- endcomment -%}
+  {%- if page.lang and page.lang != site.default_lang -%}
+    {%- assign cite_url = site.url | append: site.baseurl | append: "/" | append: page.lang | append: page.permalink -%}
+  {%- else -%}
+    {%- assign cite_url = site.url | append: site.baseurl | append: page.permalink -%}
+  {%- endif -%}
+  {%- assign cite_label = "Cómo citar" -%}
+  {%- if page.lang == "en" -%}{%- assign cite_label = "How to cite" -%}{%- endif -%}
+<div class="notice como-citar">
+  <p><strong>{{ cite_label }}</strong></p>
+  <p>{{ cite_author_name }} ({{ cite_year }}). <em>{{ page.title | strip_html }}</em>. 3 Cucharadas. <a href="{{ cite_url }}">{{ cite_url }}</a></p>
+</div>
+{%- endif -%}

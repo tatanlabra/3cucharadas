@@ -15,6 +15,23 @@ permalink: /ia/productividad/desarrollo/multiagente-penta-agent-memoria/
 distribution:
   social: true
   republish: []
+repo: https://github.com/tatanlabra/penta-agent
+entorno: "Arch Linux, KDE Plasma, servicios locales (Ollama + Qdrant por loopback, timers systemd --user)"
+en_abstract: >
+  I run a local multi-agent setup (Codex executes, Claude reviews) and needed
+  its shared memory to be more than a vague RAG claim. This post turns that
+  memory into something I can actually evaluate: a hybrid retriever (dense
+  embeddings via Qdrant, lexical JSONL, BM25 sparse) scored against a small,
+  curated golden set with a weekly regression gate. On the validated local
+  configuration, Recall@5 is 0.9896, MRR 0.9479, Precision@5 0.4448 (low on
+  purpose — I prefer extra context over losing the expected document), and
+  negative rejection is a clean 8/8. Isolating the canonical fallback without
+  Qdrant drops aggregate recall to 0.8177, which is the actual evidence for
+  how much the semantic layer contributes, not just an assumption. I also
+  flag what this does not prove: retrieval quality is not answer fidelity,
+  and a multi-document case still comes back partial. Tested on a local Arch
+  Linux/KDE Plasma box, Ollama and Qdrant over loopback, systemd --user
+  timers.
 toc: true
 toc_sticky: true
 comments: true

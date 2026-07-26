@@ -1,0 +1,12 @@
+{%- comment -%}
+  Bloque de 150-250 palabras en inglés para posts en español. Habilita HN,
+  Reddit anglófono y citación por asistentes de IA sin traducir la pieza
+  completa. No renderiza nada si el post no declara `en_abstract` en el
+  front matter. Fase 3, auditoria-2026-07-25.
+{%- endcomment -%}
+{%- if page.en_abstract -%}
+<div class="notice--info en-abstract" role="note" aria-label="English summary">
+  <p><strong>In English</strong> — this post is written in Spanish. Short summary for non-Spanish readers:</p>
+  <p>{{ page.en_abstract }}</p>
+</div>
+{%- endif -%}
