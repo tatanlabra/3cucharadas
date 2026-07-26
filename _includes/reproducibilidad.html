@@ -1,0 +1,24 @@
+{%- comment -%}
+  Enlaces a repositorio, dataset y entorno probado, con advertencia de
+  plataforma. Se alimenta de `repo`, `dataset`, `entorno` en el front
+  matter; no renderiza nada si los tres están ausentes, y cada línea
+  individual se omite si falta su campo. Fase 3, auditoria-2026-07-25.
+{%- endcomment -%}
+{%- if page.repo or page.dataset or page.entorno -%}
+{%- assign repro_label = "Reproducibilidad" -%}
+{%- if page.lang == "en" -%}{%- assign repro_label = "Reproducibility" -%}{%- endif -%}
+<div class="notice reproducibilidad">
+  <p><strong>{{ repro_label }}</strong></p>
+  <ul>
+    {%- if page.repo -%}
+    <li>{% if page.lang == "en" %}Repository{% else %}Repositorio{% endif %}: <a href="{{ page.repo }}">{{ page.repo }}</a></li>
+    {%- endif -%}
+    {%- if page.dataset -%}
+    <li>{% if page.lang == "en" %}Dataset{% else %}Dataset{% endif %}: <a href="{{ page.dataset }}">{{ page.dataset }}</a></li>
+    {%- endif -%}
+    {%- if page.entorno -%}
+    <li>{% if page.lang == "en" %}Tested environment{% else %}Entorno probado{% endif %}: {{ page.entorno }}</li>
+    {%- endif -%}
+  </ul>
+</div>
+{%- endif -%}
