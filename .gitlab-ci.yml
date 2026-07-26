@@ -36,6 +36,7 @@ build_site:
     - bundle install
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
+    - ruby scripts/verify_distribution_readiness.rb public
     - bundle exec jekyll build --future -d .future-check
     - ruby scripts/verify_site_artifact.rb .future-check
     - bundle exec jekyll build --drafts --future -d .draft-math-check

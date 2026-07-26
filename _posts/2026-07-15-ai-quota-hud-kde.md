@@ -21,7 +21,7 @@ comments: true
 author_profile: true
 header:
   teaser: /assets/images/teasers/teaser-ai-quota-hud.webp
-  og_image: /assets/images/ai-quota-hud/popup-hidpi.png
+  og_image: /assets/images/ai-quota-hud/popup-og-1200.webp
   og_image_alt: "Popup del plasmoide AI Quota HUD con cuatro indicadores circulares de cuota"
 ---
 

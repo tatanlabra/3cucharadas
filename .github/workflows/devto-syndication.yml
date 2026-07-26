@@ -1,0 +1,54 @@
+name: Sindicación dev.to (borrador)
+
+# Fase 4.3 (archivo/handoffs/difusion/HANDOFF-2026-07-25-distribucion-3cucharadas.md).
+# Solo actúa sobre posts EN marcados `sindicar: true` + `valor_seo: bajo|medio`
+# en su front matter, y siempre publica como borrador en dev.to. Sin el
+# secreto DEV_TO_API_KEY configurado en este repo, scripts/syndicate_devto.rb
+# no hace nada (ver el script): el workflow puede vivir aquí sin activar
+# sindicación real hasta que alguien configure el secreto deliberadamente.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "_posts/*-en.md"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simular sin llamar a la API de dev.to"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: devto-syndication
+  cancel-in-progress: false
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ejecutar sindicación
+        env:
+          DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
+          DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+        run: ruby scripts/syndicate_devto.rb
+
+      - name: Commit del registro de distribución si cambió
+        if: ${{ !inputs.dry_run }}
+        run: |
+          if ! git diff --quiet -- _data/distribucion.yml; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add _data/distribucion.yml
+            git commit -m "chore(distribucion): registra sindicación dev.to automatizada"
+            git push
+          else
+            echo "Sin cambios en _data/distribucion.yml"
+          fi
