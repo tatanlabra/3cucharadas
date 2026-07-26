@@ -1,57 +1,37 @@
-# Registro de distribución externa por post — Fase 3 (auditoria-2026-07-25).
-#
-# Esquema tomado de archivo/handoffs/difusion/PILOTO-distribucion-piezas.md:
-# slug, plataforma, fecha, url_publicada, titulo_usado, resultado_30d.
-#
-# Fuente: reconciliado contra ~/.local/state/3cucharadas-difusion/ledger.jsonl
-# (herramienta cucharadas_difusion, fuera de este repo) el 2026-07-26. Solo se
-# listan aquí publicaciones con estado "published_verified" en el ledger — no
-# se inventan entradas para lo que no está verificado.
-#
-# Nota de corrección: una síntesis previa de esta sesión afirmó que el post
-# multiagente-penta-agent-memoria ya había sido publicado en Mastodon/Bluesky
-# el 24-07-2026. Al revisar el ledger real, esa entrada solo tiene un evento
-# de "social_accounts_followed_batch", sin publicación verificada. Se corrige
-# aquí: memoria NO tiene distribución externa registrada todavía.
-#
-# titulo_usado: título del post en el blog (no se extrajo del ledger el copy
-# social exacto usado en cada red; si difiere, corregir a mano).
-# resultado_30d: pendiente de medición a 30 días desde el último envío, por
-# diseño (ver checklists.md — no evaluar antes de ese plazo).
-
+---
 - slug: casen2024-julia-waffles-politica-publica
   ref_interno: casen2024-julia-waffles
   url_canonica: https://3cucharadas.cl/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/
-  titulo_usado: "CASEN 2024 en 3 cucharadas"
+  titulo_usado: CASEN 2024 en 3 cucharadas
   publicaciones:
-    - plataforma: mastodon
-      fecha: 2026-07-15
-      url_publicada: https://mastodon.social/@asiole/116922101828570614
-      resultado_30d:
-    - plataforma: bluesky
-      fecha: 2026-07-15
-      url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqnv2cbbyc2d
-      resultado_30d:
-
+  - plataforma: mastodon
+    fecha: 2026-07-15
+    url_publicada: https://mastodon.social/@asiole/116922101828570614
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-07-15
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqnv2cbbyc2d
+    resultado_30d:
 - slug: ai-quota-hud-kde
   ref_interno: ai-quota-hud-kde
   url_canonica: https://3cucharadas.cl/ia/productividad/ai-quota-hud-kde/
-  titulo_usado: "AI Quota HUD para KDE"
+  titulo_usado: AI Quota HUD para KDE
   publicaciones:
-    - plataforma: mastodon
-      fecha: 2026-07-17
-      url_publicada: https://mastodon.social/@asiole/116933620780343771
-      resultado_30d:
-    - plataforma: bluesky
-      fecha: 2026-07-17
-      url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqszgrgnpy25
-      resultado_30d:
-
+  - plataforma: mastodon
+    fecha: 2026-07-17
+    url_publicada: https://mastodon.social/@asiole/116933620780343771
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-07-17
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqszgrgnpy25
+    resultado_30d:
+  - plataforma: devto
+    fecha: '2026-07-26'
+    devto_article_id: 4235233
+    url_publicada: https://dev.to/tatanlabra/ai-quotas-in-three-spoonfuls-a-hud-for-the-kde-panel-33ac-temp-slug-7519507
+    estado: borrador
 - slug: multiagente-penta-agent-memoria
   ref_interno: multiagente-penta-agent-memoria
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-memoria/
-  titulo_usado: "Multiagentes en 3 cucharadas II: una memoria que se puede auditar"
+  titulo_usado: 'Multiagentes en 3 cucharadas II: una memoria que se puede auditar'
   publicaciones: []
-  # Sin publicaciones verificadas en el ledger a la fecha de este registro.
-  # Es la pieza piloto de PILOTO-distribucion-piezas.md (Arm B) — pendiente
-  # de ejecutar la secuencia r/LocalLLaMA -> Medium EN -> dev.to -> HN.

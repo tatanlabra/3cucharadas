@@ -15,6 +15,8 @@ permalink: /ia/productividad/ai-quota-hud-kde/
 distribution:
   social: true
   republish: [dev, medium]
+sindicar: true
+valor_seo: bajo
 toc: true
 toc_sticky: true
 comments: true
