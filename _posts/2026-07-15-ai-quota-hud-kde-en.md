@@ -17,7 +17,8 @@ distribution:
   republish: [dev, medium]
 sindicar: true
 valor_seo: bajo
-devto_tags: [ai, chatgpt, claude, deepseek]
+devto_tags: [ai, claude, deepseek, kde]
+devto_video_url: https://youtu.be/OuRMIQEURes
 toc: true
 toc_sticky: true
 comments: true

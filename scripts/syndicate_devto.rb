@@ -56,7 +56,14 @@ VIDEO_FIGURE = %r{<figure[^>]*>\s*<video\b([^>]*)>.*?</video>\s*(<figcaption>(.*
 # literal para dev.to — se elimina. Y cualquier atributo src/poster/href con
 # ruta relativa al sitio (ej. el <video> autoalojado) se resuelve a absoluta,
 # porque dev.to renderiza el cuerpo fuera del contexto del sitio.
-def sanitize_body_for_devto(body, site_url, canonical_url)
+def youtube_id_from_url(url)
+  return nil unless url
+
+  match = url.match(%r{(?:youtu\.be/|youtube\.com/(?:watch\?v=|embed/|shorts/))([\w-]{11})})
+  match && match[1]
+end
+
+def sanitize_body_for_devto(body, site_url, canonical_url, youtube_id: nil)
   warnings = []
   sanitized = body.gsub(FIGURE_TAG) do
     attrs = Regexp.last_match(1).to_s.scan(ATTR).to_h
@@ -72,8 +79,9 @@ def sanitize_body_for_devto(body, site_url, canonical_url)
 
   # dev.to elimina <video>/<source> por seguridad y solo deja el texto de
   # respaldo huérfano ("your browser does not support..."), sin el elemento
-  # que ese texto describe. Se reemplaza el bloque completo por el poster
-  # como imagen enlazada al post original, en vez de dejar ese fragmento roto.
+  # que ese texto describe. Si hay devto_video_url (YouTube), se embebe de
+  # verdad con el tag Liquid propio de dev.to; si no, se cae al poster como
+  # imagen enlazada al post original, en vez de dejar ese fragmento roto.
   sanitized = sanitized.gsub(VIDEO_FIGURE) do
     caption = Regexp.last_match(3)
     video_attrs = Regexp.last_match(1).to_s.scan(ATTR).to_h
@@ -81,8 +89,12 @@ def sanitize_body_for_devto(body, site_url, canonical_url)
     alt = video_attrs["aria-label"] || "Video demonstration"
     poster_url = poster ? (poster.start_with?("/") ? "#{site_url}#{poster}" : poster) : nil
     parts = []
-    parts << "[![#{alt}](#{poster_url})](#{canonical_url})" if poster_url
-    parts << "*Watch the full video demo on [3cucharadas.cl](#{canonical_url}).*"
+    if youtube_id
+      parts << "{% youtube #{youtube_id} %}"
+    elsif poster_url
+      parts << "[![#{alt}](#{poster_url})](#{canonical_url})"
+      parts << "*Watch the full video demo on [3cucharadas.cl](#{canonical_url}).*"
+    end
     parts << caption if caption
     parts.join("\n\n")
   end
@@ -109,7 +121,8 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
   next unless front["permalink"]
 
   url_canonica = "https://3cucharadas.cl/en#{front['permalink']}"
-  sanitized_body, unhandled_includes = sanitize_body_for_devto(body, "https://3cucharadas.cl", url_canonica)
+  youtube_id = youtube_id_from_url(front["devto_video_url"])
+  sanitized_body, unhandled_includes = sanitize_body_for_devto(body, "https://3cucharadas.cl", url_canonica, youtube_id: youtube_id)
   unless unhandled_includes.empty?
     warn "#{File.basename(path)}: include(s) sin manejar, eliminados del cuerpo enviado a dev.to: #{unhandled_includes.join(', ')}"
   end
