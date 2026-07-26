@@ -32,6 +32,11 @@ codekit-config.json
 # añaden por accidente al repositorio ni al despliegue GitLab Pages.
 /assets/data/catastro_sii/local/
 
+# Caché de respuestas crudas de APIs externas (Wikidata/Nominatim) usada por
+# scripts/catastro_sii/build_capitales_comunales.py para re-ejecutar sin
+# volver a golpear esas APIs; no es fuente de verdad, se regenera on demand.
+/catastro_sii_brecha/data/.cache/
+
 # Entorno local. El runbook R2 crea un .env con credenciales de Cloudflare;
 # solo la plantilla sin valores viaja en el repositorio.
 .env
