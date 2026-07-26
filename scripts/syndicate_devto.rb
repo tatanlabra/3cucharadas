@@ -42,13 +42,21 @@ end
 
 FIGURE_TAG = /\{%-?\s*include\s+figure\s+([^%]*?)-?%\}/.freeze
 ATTR = /(\w+)="([^"]*)"/.freeze
+KRAMDOWN_IAL = /\n?\{:\s*\.[\w-]+(?:\s+\.[\w-]+)*\s*\}\n?/.freeze
+RELATIVE_ASSET_ATTR = /(src|poster|href)="(\/[^"]+)"/.freeze
+VIDEO_FIGURE = %r{<figure[^>]*>\s*<video\b([^>]*)>.*?</video>\s*(<figcaption>(.*?)</figcaption>)?\s*</figure>}m.freeze
 
 # dev.to rechaza cualquier `{% include %}` (lo desactivan por seguridad: 422
 # "Liquid#include tag is disabled"). El tema usa `{% include figure ... %}`
 # para imágenes con caption/lightbox en casi todos los posts — se convierte a
 # markdown plano. Cualquier otro include desconocido se elimina (con aviso),
 # en vez de dejar que rompa la llamada entera a la API.
-def sanitize_body_for_devto(body, site_url)
+#
+# Además: {: .clase} (Kramdown IAL, ej. `{: .text-justify}`) queda como texto
+# literal para dev.to — se elimina. Y cualquier atributo src/poster/href con
+# ruta relativa al sitio (ej. el <video> autoalojado) se resuelve a absoluta,
+# porque dev.to renderiza el cuerpo fuera del contexto del sitio.
+def sanitize_body_for_devto(body, site_url, canonical_url)
   warnings = []
   sanitized = body.gsub(FIGURE_TAG) do
     attrs = Regexp.last_match(1).to_s.scan(ATTR).to_h
@@ -62,10 +70,30 @@ def sanitize_body_for_devto(body, site_url)
     parts.join("\n\n")
   end
 
+  # dev.to elimina <video>/<source> por seguridad y solo deja el texto de
+  # respaldo huérfano ("your browser does not support..."), sin el elemento
+  # que ese texto describe. Se reemplaza el bloque completo por el poster
+  # como imagen enlazada al post original, en vez de dejar ese fragmento roto.
+  sanitized = sanitized.gsub(VIDEO_FIGURE) do
+    caption = Regexp.last_match(3)
+    video_attrs = Regexp.last_match(1).to_s.scan(ATTR).to_h
+    poster = video_attrs["poster"]
+    alt = video_attrs["aria-label"] || "Video demonstration"
+    poster_url = poster ? (poster.start_with?("/") ? "#{site_url}#{poster}" : poster) : nil
+    parts = []
+    parts << "[![#{alt}](#{poster_url})](#{canonical_url})" if poster_url
+    parts << "*Watch the full video demo on [3cucharadas.cl](#{canonical_url}).*"
+    parts << caption if caption
+    parts.join("\n\n")
+  end
+
   sanitized = sanitized.gsub(/\{%-?\s*include\s+([^\s%]+)[^%]*-?%\}/) do
     warnings << Regexp.last_match(1)
     ""
   end
+
+  sanitized = sanitized.gsub(KRAMDOWN_IAL, "\n")
+  sanitized = sanitized.gsub(RELATIVE_ASSET_ATTR) { "#{Regexp.last_match(1)}=\"#{site_url}#{Regexp.last_match(2)}\"" }
 
   [sanitized, warnings.uniq]
 end
@@ -80,18 +108,22 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
   next unless %w[bajo medio].include?(front["valor_seo"])
   next unless front["permalink"]
 
-  sanitized_body, unhandled_includes = sanitize_body_for_devto(body, "https://3cucharadas.cl")
+  url_canonica = "https://3cucharadas.cl/en#{front['permalink']}"
+  sanitized_body, unhandled_includes = sanitize_body_for_devto(body, "https://3cucharadas.cl", url_canonica)
   unless unhandled_includes.empty?
     warn "#{File.basename(path)}: include(s) sin manejar, eliminados del cuerpo enviado a dev.to: #{unhandled_includes.join(', ')}"
   end
 
+  og_image = front.dig("header", "og_image")
+
   {
     slug: slug_from_permalink(front["permalink"]),
     ref_interno: front["ref"] || slug_from_permalink(front["permalink"]),
-    url_canonica: "https://3cucharadas.cl/en#{front['permalink']}",
+    url_canonica: url_canonica,
     titulo_usado: front.fetch("title"),
     body_markdown: sanitized_body,
     description: front["description"],
+    cover_image: og_image ? "https://3cucharadas.cl#{og_image}" : nil,
     tags: (front["tags"] || []).first(4).map { |t| t.to_s.downcase.gsub(/[^a-z0-9]/, "") }.reject(&:empty?)
   }
 end
@@ -143,6 +175,7 @@ eligible.each do |post|
       published: false,
       canonical_url: post[:url_canonica],
       description: post[:description],
+      main_image: post[:cover_image],
       tags: post[:tags]
     }.compact
   }
