@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Avalúo fiscal e IGVUST por unidad vecinal: el denominador cambia el mapa"
+title: "Avalúo y vulnerabilidad en 3 cucharadas: el denominador cambia el mapa"
 subtitle: "Una lectura descriptiva de 9,4 millones de predios SII agregados a unidades vecinales, con foco en superficie, hogares RSH, fuga territorial y escala"
 date: 2026-07-23 10:00:00 -0400
 categories: [datos, python, territorio]
@@ -26,10 +26,13 @@ author_profile: true
 classes: [avaluo-vulnerabilidad-post]
 ---
 
-Un mapa de datos no empieza en los colores. Empieza antes, en cuatro decisiones menos fotogénicas: **qué se suma, entre qué se divide, sobre qué territorio se agrega y qué casos quedan fuera**. Si cualquiera de esas decisiones cambia, el mapa también puede cambiar aunque el catastro original sea el mismo.
+Un avalúo fiscal no es solo una cifra en el recibo de contribuciones. Es la vara con que el Estado mide cuánto vale la tierra urbana, y esa vara importa: buena parte de la desigualdad de una ciudad se juega en el valor de su suelo, en quién capitaliza esa plusvalía y en quién queda fuera de ella ([Sabatini, Cáceres & Cerda, 2001](https://doi.org/10.4067/S0250-71612001008200002); [López-Morales, Sanhueza, Espinoza & Órdenes, 2019](https://doi.org/10.4067/S0250-71612019000300113)).
 {: .text-justify}
 
-La fracción mínima es esta:
+Este post cruza ese número administrativo —el avalúo fiscal del SII— con un índice oficial de vulnerabilidad territorial, unidad vecinal por unidad vecinal. El resultado no es una revelación dramática. Depende de decisiones que casi nunca se hacen explícitas: **qué se suma, entre qué se divide, sobre qué territorio se agrega y qué casos quedan fuera**. Este texto sí las declara.
+{: .text-justify}
+
+La pregunta cabe en una fracción mínima:
 {: .text-justify}
 
 $$
@@ -39,12 +42,12 @@ $$
 {\text{unidad con que se lo compara}}
 $$
 
-El total de avalúo fiscal de una unidad vecinal responde cuánto valor administrativo fue asignado allí. Dividir ese mismo total por hogares, personas o metros cuadrados responde preguntas distintas. Ninguna es "la correcta" por naturaleza; el error aparece cuando se las usa como si fueran equivalentes.
+Sumar el avalúo de una unidad vecinal responde cuánto valor administrativo fue asignado allí. Dividir ese mismo total por hogares, personas o metros cuadrados responde preguntas distintas. Ninguna es "la correcta" por naturaleza; el error aparece cuando se las trata como si fueran lo mismo.
 {: .text-justify}
 
 ## Contrato de lectura
 
-Cruzo dos registros administrativos chilenos. El primero es el catastro de bienes raíces del Servicio de Impuestos Internos (SII). El segundo es el Índice Global de Vulnerabilidad Socioterritorial (IGVUST) del Ministerio de Desarrollo Social y Familia. La unidad de análisis es la **unidad vecinal (UV)**, no el predio, el hogar ni la persona.
+Cruzo dos registros administrativos chilenos: el catastro de bienes raíces del Servicio de Impuestos Internos (SII) y el Índice Global de Vulnerabilidad Socioterritorial (IGVUST) del Ministerio de Desarrollo Social y Familia. La unidad de análisis es la **unidad vecinal (UV)**, no el predio, el hogar ni la persona.
 {: .text-justify}
 
 | Concepto | Qué significa aquí | Qué no significa |
@@ -57,10 +60,10 @@ Cruzo dos registros administrativos chilenos. El primero es el catastro de biene
 | **Unidad vecinal** | Territorio definido para organización y participación vecinal. | Malla exhaustiva que cubra todo Chile predio por predio. |
 | **Denominador** | Magnitud por la que se divide el avalúo asignado. | Letra chica posterior: define la pregunta. |
 
-El punto del RSH es importante. A escala nacional su universo es amplio, pero no reemplaza la proyección censal ni tiene igual cobertura en todas las comunas. En comunas con baja presencia relativa en RSH, como puede ocurrir en Vitacura, un indicador "por hogar RSH" puede amplificar el avalúo por un denominador estrecho. El visor SIVUST que aún no está público trabaja esa comparación contra proyecciones censales y RSH con disclaimers explícitos; aquí mantengo la misma cautela.
+El RSH importa porque es la fuente de hogares y personas que uso como denominador. A escala nacional es amplio —cerca de 85% de la población—, pero no cubre todas las comunas por igual. En comunas con baja presencia relativa en RSH, como puede ocurrir en Vitacura, un indicador "por hogar RSH" puede inflarse por un denominador angosto, no por más avalúo real. El visor SIVUST, aún no público, trata esa misma comparación con igual cautela.
 {: .text-justify}
 
-El avalúo fiscal tampoco es precio de mercado. El SII lo construye con características del bien y su área homogénea. Puede ser una señal territorial útil, siempre que conserve su apellido: **fiscal**. La teoría de precios hedónicos de [Rosen (1974)](https://doi.org/10.1086/260169) ayuda a entender por qué el entorno importa en la valoración de bienes diferenciados, pero este post no observa transacciones ni patrimonio familiar.
+El avalúo fiscal tampoco es precio de mercado: el SII lo construye a partir de las características del bien y su área homogénea, no de una transacción real. Puede ser una señal territorial útil si conserva su apellido, **fiscal** — la teoría de precios hedónicos de [Rosen (1974)](https://doi.org/10.1086/260169) explica por qué el entorno pesa en la valoración de un bien diferenciado como una vivienda, pero este post no observa transacciones ni patrimonio de los hogares.
 {: .text-justify}
 
 **Corte de datos:** 19 de julio de 2026. **Fecha editorial:** 23 de julio de 2026. Todas las relaciones son descriptivas y dependen de la malla UV utilizada.
@@ -68,7 +71,7 @@ El avalúo fiscal tampoco es precio de mercado. El SII lo construye con caracter
 
 ## Pregunta
 
-Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden nacional de vulnerabilidad del IGVUST. Mantengo fijo el numerador y cambio la lente:
+Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden nacional de vulnerabilidad del IGVUST, manteniendo fijo el numerador y cambiando la lente:
 {: .text-justify}
 
 | Medida | Pregunta que responde |
@@ -78,10 +81,10 @@ Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden
 | Avalúo por persona RSH | ¿Cuánto corresponde por persona registrada? |
 | Avalúo por m² predial | ¿Cuánto avalúo corresponde por superficie predial asignada? |
 
-La respuesta corta: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero al mirar sólo UV mayoritariamente urbanas esa relación se diluye. El hallazgo no es una paradoja glamorosa entre riqueza y vulnerabilidad. Es más sobrio, y por eso más útil: **denominador, universo y escala forman parte del resultado**.
+La respuesta corta: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero se diluye al mirar sólo UV mayoritariamente urbanas. No es una paradoja glamorosa entre riqueza y vulnerabilidad. Es más sobrio, y por eso más útil: **el denominador, el universo y la escala forman parte del resultado**.
 {: .text-justify}
 
-Este análisis no permite saber cuánto ganan los habitantes, cuánto vale una vivienda en el mercado ni quién vive en un predio. Convertir una asociación territorial en afirmación sobre individuos sería la inferencia ecológica que [Robinson (1950)](https://doi.org/10.2307/2087176) dejó advertida hace rato.
+Una advertencia antes de seguir: nada de esto dice cuánto gana quien vive ahí, cuánto vale su casa en el mercado ni quién es su dueño. Convertir una asociación territorial en una afirmación sobre personas es exactamente la inferencia ecológica que [Robinson (1950)](https://doi.org/10.2307/2087176) advirtió hace más de setenta años.
 {: .text-justify}
 
 ## Cucharada 1: construir el numerador sin cerrar la fuga
@@ -300,6 +303,8 @@ El visor permite explorar esas brechas con dos mapas separados —capas geométr
 
 **Método y teoría**
 
+- Sabatini, F., Cáceres, G. & Cerda, J. (2001). *Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción*. EURE, 27(82), 21-42. [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008200002).
+- López-Morales, E., Sanhueza, C., Espinoza, S. & Órdenes, F. (2019). *Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011*. EURE, 45(136), 113-134. [10.4067/S0250-71612019000300113](https://doi.org/10.4067/S0250-71612019000300113).
 - Rosen, S. (1974). *Hedonic Prices and Implicit Markets*. Journal of Political Economy, 82(1), 34-55. [10.1086/260169](https://doi.org/10.1086/260169).
 - Goodchild, M. F., Anselin, L. & Deichmann, U. (1993). *A Framework for the Areal Interpolation of Socioeconomic Data*. Environment and Planning A, 25(3), 383-397. [10.1068/a250383](https://doi.org/10.1068/a250383).
 - Robinson, W. S. (1950). *Ecological Correlations and the Behavior of Individuals*. American Sociological Review, 15(3), 351-357. [10.2307/2087176](https://doi.org/10.2307/2087176).
