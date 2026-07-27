@@ -35,6 +35,20 @@ function beginMap(): void {
   onceNearViewport(container, start, "320px");
 }
 
+function beginCoverageTeaser(): void {
+  const container = document.getElementById("coverage-teaser-chart");
+  if (!container) return;
+  const start = () => {
+    import("./coverage-teaser")
+      .then(({ mountCoverageTeaser }) => mountCoverageTeaser())
+      .catch(() => {
+        const status = document.getElementById("coverage-teaser-status");
+        if (status) status.textContent = "No fue posible cargar este gráfico introductorio; el resto del visor sigue disponible.";
+      });
+  };
+  onceNearViewport(container, start, "480px");
+}
+
 function beginLaboratory(): void {
   const host = document.getElementById("denominator-lab");
   if (!host) return;
@@ -53,4 +67,5 @@ function beginLaboratory(): void {
 }
 
 beginMap();
+beginCoverageTeaser();
 beginLaboratory();

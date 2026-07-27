@@ -9,7 +9,23 @@ import {
   TooltipComponent
 } from "echarts/components";
 import { SVGRenderer } from "echarts/renderers";
-import type { ECharts, EChartsCoreOption } from "echarts/core";
+import type { EChartsCoreOption } from "echarts/core";
+import {
+  CHART_COLORS,
+  chartBase,
+  currency,
+  escapeHtml,
+  finiteNumber,
+  formatCurrencyTick,
+  formatter,
+  getChart,
+  integer,
+  logAxisBounds,
+  makeElement,
+  reducedMotion,
+  replaceTable,
+  themeColors
+} from "./chart-theme";
 import { loadInsights } from "./insights";
 import type { InsightsLoadResult } from "./insights";
 import { isLaboratoryView, replaceVisualizationView, toDataCommuneCode, visualizationViewFromUrl } from "./state";
@@ -42,17 +58,6 @@ type BubbleMetric = "av_total" | "av_household" | "av_person" | "av_m2";
 type RankingUnit = "communes" | "regions";
 
 const LAB_VIEWS: LaboratoryView[] = ["flujo", "avaluos", "distribuciones", "sensibilidad", "comunas"];
-// Una clave estable por región: no se reciclan colores dentro de las 16 regiones.
-const CHART_COLORS = [
-  "#37e7ff", "#b8ff3c", "#ff4fd8", "#ffd166",
-  "#8c7cff", "#62d6a6", "#ff7d66", "#60a5fa",
-  "#19c3b1", "#ef5f75", "#b58cff", "#8bd346",
-  "#f7a35c", "#4cc9f0", "#e76fbd", "#7f91a8"
-];
-const formatter = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 2 });
-const integer = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
-const currency = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 });
-const currencySmall = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 2 });
 
 const METRICS: Record<BubbleMetric, { label: string; short: string }> = {
   av_total: { label: "Avalúo fiscal total", short: "total" },
@@ -72,10 +77,6 @@ interface RankingRecord {
   households: number;
   urban_pct: number | null;
   members: number;
-}
-
-function finiteNumber(value: number | null | undefined): value is number {
-  return typeof value === "number" && Number.isFinite(value);
 }
 
 function weightedMean(values: Array<{ value: number | null | undefined; weight: number | null | undefined }>): number | null {
@@ -146,82 +147,6 @@ function regionRankings(communes: CommuneInsight[]): RankingRecord[] {
   }));
 }
 
-function themeColors(): { ink: string; muted: string; line: string; surface: string; dark: boolean } {
-  const styles = getComputedStyle(document.documentElement);
-  return {
-    ink: styles.getPropertyValue("--ink").trim() || "#f3f5f8",
-    muted: styles.getPropertyValue("--muted").trim() || "#a9afbd",
-    line: styles.getPropertyValue("--line").trim() || "#2a3041",
-    surface: styles.getPropertyValue("--surface").trim() || "#10121d",
-    dark: document.documentElement.dataset.theme !== "light"
-  };
-}
-
-function reducedMotion(): boolean {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-function escapeHtml(value: unknown): string {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function chartBase(ariaDescription: string): EChartsCoreOption {
-  const colors = themeColors();
-  return {
-    animation: !reducedMotion(),
-    animationDuration: reducedMotion() ? 0 : 360,
-    color: CHART_COLORS,
-    textStyle: { color: colors.ink, fontFamily: 'Inter, "Inter var", system-ui, sans-serif' },
-    aria: { enabled: true, decal: { show: true }, description: ariaDescription },
-    tooltip: {
-      trigger: "item",
-      confine: true,
-      backgroundColor: colors.surface,
-      borderColor: colors.line,
-      textStyle: { color: colors.ink },
-      extraCssText: "max-width:320px;white-space:normal"
-    }
-  };
-}
-
-function getChart(element: HTMLElement, label: string): ECharts {
-  const existing = echarts.getInstanceByDom(element);
-  element.setAttribute("role", "img");
-  element.setAttribute("aria-label", label);
-  return existing ?? echarts.init(element, undefined, { renderer: "svg" });
-}
-
-function makeElement<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string): HTMLElementTagNameMap[K] {
-  const element = document.createElement(tag);
-  if (className) element.className = className;
-  if (text != null) element.textContent = text;
-  return element;
-}
-
-function replaceTable(hostId: string, headers: string[], rows: Array<Array<string | number>>): void {
-  const host = document.getElementById(hostId);
-  if (!host) return;
-  const table = makeElement("table", "lab-data-table");
-  const caption = makeElement("caption", "visually-hidden", "Datos equivalentes a la visualización");
-  const thead = makeElement("thead");
-  const headRow = makeElement("tr");
-  for (const header of headers) headRow.append(makeElement("th", undefined, header));
-  thead.append(headRow);
-  const tbody = makeElement("tbody");
-  for (const row of rows) {
-    const tr = makeElement("tr");
-    row.forEach((cell, index) => tr.append(index === 0 ? makeElement("th", undefined, String(cell)) : makeElement("td", undefined, String(cell))));
-    tbody.append(tr);
-  }
-  table.append(caption, thead, tbody);
-  host.replaceChildren(table);
-}
-
 function displayLogValue(value: number): string {
   const original = 10 ** value;
   return formatCurrencyTick(original);
@@ -229,27 +154,6 @@ function displayLogValue(value: number): string {
 
 function appraisalLabel(value: number): string {
   return `${formatter.format(value / 1_000_000_000_000)} billones`;
-}
-
-function logAxisBounds(values: Array<number | null | undefined>): { min: number; max: number } | Record<string, never> {
-  const positives = values.filter((value): value is number => finiteNumber(value) && value > 0);
-  if (!positives.length) return {};
-  let minExponent = Math.floor(Math.log10(Math.min(...positives)));
-  let maxExponent = Math.ceil(Math.log10(Math.max(...positives)));
-  if (minExponent === maxExponent) {
-    minExponent -= 1;
-    maxExponent += 1;
-  }
-  return { min: 10 ** minExponent, max: 10 ** maxExponent };
-}
-
-function formatCurrencyTick(value: number): string {
-  if (!Number.isFinite(value) || value <= 0) return "";
-  if (value >= 1_000_000_000_000) return `$${formatter.format(value / 1_000_000_000_000)} billones`;
-  if (value >= 1_000_000_000) return `$${formatter.format(value / 1_000_000_000)} mil millones`;
-  if (value >= 1_000_000) return `$${formatter.format(value / 1_000_000)} millones`;
-  if (value >= 1_000) return `$${formatter.format(value / 1_000)} mil`;
-  return value >= 100 ? currency.format(value) : currencySmall.format(value);
 }
 
 function renderAppraisals(data: InsightsV1): void {

@@ -7,6 +7,7 @@ import {
   regionCodeForName,
   replaceUrl,
   replaceVisualizationView,
+  setCapitalComunalViews,
   stateFromUrl,
   toDataCommuneCode,
   toSharedCommuneCode,
@@ -37,6 +38,17 @@ describe("territorial code contract", () => {
     expect(communeCityDefaultView("03102")).toEqual({ center: [-70.8267, -27.0674], zoom: 13.35, bearing: -14, pitch: 48 });
     expect(communeCityDefaultView("03202")).toEqual({ center: [-70.0494, -26.367], zoom: 13.35, bearing: -14, pitch: 48 });
     expect(communeCityDefaultView("03103")).toBeNull();
+  });
+
+  it("prioriza la cámara editorial manual por sobre la vista de capital comunal cargada por datos", () => {
+    setCapitalComunalViews({ "3102": { center: [1, 1], zoom: 9 }, "3103": { center: [2, 2], zoom: 10 } });
+    try {
+      expect(communeCityDefaultView("03102")).toEqual({ center: [-70.8267, -27.0674], zoom: 13.35, bearing: -14, pitch: 48 });
+      expect(communeCityDefaultView("03103")).toEqual({ center: [2, 2], zoom: 10 });
+      expect(communeCityDefaultView("03199")).toBeNull();
+    } finally {
+      setCapitalComunalViews({});
+    }
   });
 });
 

@@ -6,6 +6,7 @@ const legacyApp = fs.readFileSync("catastro_sii_brecha/app.js", "utf8");
 const entry = fs.readFileSync("assets/src/catastro_sii/main.ts", "utf8");
 const mapApplication = fs.readFileSync("assets/src/catastro_sii/app.ts", "utf8");
 const analytics = fs.readFileSync("assets/src/catastro_sii/analytics.ts", "utf8");
+const chartTheme = fs.readFileSync("assets/src/catastro_sii/chart-theme.ts", "utf8");
 const dictionary = JSON.parse(fs.readFileSync("catastro_sii_brecha/data/diccionario_metricas_comunales.json", "utf8"));
 
 describe("laboratorio accesible y perezoso", () => {
@@ -14,8 +15,8 @@ describe("laboratorio accesible y perezoso", () => {
       expect(html).toContain(`data-lab-tab="${view}"`);
       expect(html).toContain(`data-lab-panel="${view}"`);
     }
-    expect(html.match(/class="[^"]*\blab-table-scroll\b/g)).toHaveLength(7);
-    expect(html.match(/class="lab-chart-scroll"/g)).toHaveLength(7);
+    expect(html.match(/class="[^"]*\blab-table-scroll\b/g)).toHaveLength(8);
+    expect(html.match(/class="lab-chart-scroll"/g)).toHaveLength(8);
     expect(html).toContain('id="lab-violin-summary-chart"');
     expect(html).toContain('id="lab-ranking-unit"');
     expect(html).toContain('id="lab-commune-filter-note"');
@@ -48,7 +49,7 @@ describe("laboratorio accesible y perezoso", () => {
     expect(analytics).toContain("formatCurrencyTick(original)");
     expect(analytics).toContain("logAxisBounds(regions.map((region) => region.value))");
     expect(analytics).toContain("logAxisBounds(eligible.map((record) => metricValue(record, metric)))");
-    expect(analytics).toContain("currencySmall.format(value)");
+    expect(chartTheme).toContain("currencySmall.format(value)");
   });
 });
 

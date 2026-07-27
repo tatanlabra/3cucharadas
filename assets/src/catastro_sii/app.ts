@@ -3,13 +3,14 @@ import { uvLayerAvailable, uvShardUrl } from "./availability";
 import type { UvIndex } from "./availability";
 import { MapController } from "./map";
 import { manifestUrlsForLocation } from "./preview";
-import { communeCityDefaultView, communeViewBounds, reconcileMapAvailability, regionCodeForName, replaceUrl, stateFromUrl, toDataCommuneCode } from "./state";
+import { communeCityDefaultView, communeViewBounds, reconcileMapAvailability, regionCodeForName, replaceUrl, setCapitalComunalViews, stateFromUrl, toDataCommuneCode } from "./state";
 import { communeAggregateFor, loadTerritorialAggregates } from "./territorial";
-import type { AppState, Bounds, CommuneAggregate, CommuneRecord, TerritorialAggregates, TilesManifest, UvFeatureProperties } from "./types";
+import type { AppState, Bounds, CommuneAggregate, CommuneDefaultView, CommuneRecord, TerritorialAggregates, TilesManifest, UvFeatureProperties } from "./types";
 
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
 const uvIndexUrl = "/catastro_sii_brecha/data/uv/index.json";
 const chileSelectorUrl = "/catastro_sii_brecha/data/chile-selector.json";
+const capitalComunalViewsUrl = "/catastro_sii_brecha/data/capital_comunal_views.json";
 const SVG_NS = "http://www.w3.org/2000/svg";
 const DEFAULT_COMMUNE_CODE = "3202";
 
@@ -34,12 +35,14 @@ function setBivariateSelectorStatus(message: string): void {
 
 const UV_LEGEND_COPY: {
   title: string;
-  axis: string;
+  axisLow: string;
+  axisHigh: string;
   aria: string;
   note: string;
 } = {
   title: "Avalúo por m² × vulnerabilidad",
-  axis: "Sobre mediana regional →",
+  axisLow: "← Bajo/igual",
+  axisHigh: "Sobre →",
   aria: "Matriz de 8 combinaciones: avalúo fiscal por metro cuadrado bajo o igual a la mediana regional y sobre la mediana regional en el eje horizontal, y cuatro cuartiles nacionales oficiales de vulnerabilidad IGVUST en el vertical.",
   note: "Filas: cuartiles nacionales oficiales IGVUST sobre las unidades vecinales publicadas, con q1 como mayor vulnerabilidad. Columnas: avalúo fiscal por m² bajo/igual o sobre la mediana de la región de la comuna activa. El eje horizontal es relativo a esa región; no mide ingreso, riqueza ni precio de mercado."
 };
@@ -47,11 +50,13 @@ const UV_LEGEND_COPY: {
 function updateUvLegend(): void {
   const copy = UV_LEGEND_COPY;
   const title = document.getElementById("bivariate-uv-legend-title");
-  const axis = document.getElementById("bivariate-uv-axis-x");
+  const axisLow = document.getElementById("bivariate-uv-axis-x-low");
+  const axisHigh = document.getElementById("bivariate-uv-axis-x-high");
   const matrix = document.getElementById("bivariate-uv-matrix");
   const note = document.getElementById("bivariate-uv-legend-note");
   if (title) title.textContent = copy.title;
-  if (axis) axis.textContent = copy.axis;
+  if (axisLow) axisLow.textContent = copy.axisLow;
+  if (axisHigh) axisHigh.textContent = copy.axisHigh;
   if (matrix) matrix.setAttribute("aria-label", copy.aria);
   if (note) note.textContent = copy.note;
 }
@@ -273,12 +278,14 @@ export class CatastroMapApplication {
 
   static async start(): Promise<CatastroMapApplication> {
     const manifestUrls = manifestUrlsForLocation(window.location.hostname, window.location.search);
-    const [manifest, rows, chileSelector, territorial] = await Promise.all([
+    const [manifest, rows, chileSelector, territorial, capitalComunalViews] = await Promise.all([
       firstJson<TilesManifest>(manifestUrls),
       json<CommuneRecord[]>(communesUrl),
       json<ChileSelectorData>(chileSelectorUrl).catch(() => null),
-      loadTerritorialAggregates()
+      loadTerritorialAggregates(),
+      json<Record<string, CommuneDefaultView>>(capitalComunalViewsUrl).catch(() => ({}))
     ]);
+    setCapitalComunalViews(capitalComunalViews);
     const territories: TerritoryIndex = manifest.communes.territories_url
       ? await json<TerritoryIndex>(manifest.communes.territories_url).catch(() => ({ communes: {} }))
       : { communes: {} };
