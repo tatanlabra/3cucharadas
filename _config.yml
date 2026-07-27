@@ -183,6 +183,10 @@ exclude:
   # PMTiles de revisión local: se sirven en preview, pero su origen público es R2.
   # Excluirlos explícitamente evita que una copia ignorada por Git infle _site/public.
   - assets/data/catastro_sii/local
+  # Caché de respuestas crudas de Wikidata/Nominatim para re-ejecutar
+  # scripts/catastro_sii/build_capitales_comunales.py sin re-consultar esas
+  # APIs; no es fuente del sitio.
+  - catastro_sii_brecha/data/.cache
   - tests
   - reports
   - scripts/catastro_sii

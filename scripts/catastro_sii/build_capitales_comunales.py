@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Capitales comunales (ciudad/pueblo cabecera) para las 346 comunas del visor Catastro SII.
 
-Produce ``catastro_sii_brecha/data/capitales_comunales.parquet`` con el centro
-y zoom sugerido para encuadrar la capital comunal (no el centroide del
-polígono comunal) al seleccionar una comuna en el visor. La lista de 346
-comunas y sus llaves de unión (``codigo_comuna``, ``comuna``, ``region``) se
-toman tal cual de ``catastro_sii_brecha/data/metricas_comunales.parquet``: no
-se derivan códigos ni nombres propios.
+Produce ``catastro_sii_brecha/data/capitales_comunales.parquet`` (tabla completa,
+con fuente y capital_comunal) y ``catastro_sii_brecha/data/capital_comunal_views.json``
+(solo center/zoom, consumido por el visor en runtime — ver
+``assets/src/catastro_sii/state.ts::setCapitalComunalViews``) con el centro y
+zoom sugerido para encuadrar la capital comunal (no el centroide del polígono
+comunal) al seleccionar una comuna. La lista de 346 comunas y sus llaves de
+unión (``codigo_comuna``, ``comuna``, ``region``) se toman tal cual de
+``catastro_sii_brecha/data/metricas_comunales.parquet``: no se derivan
+códigos ni nombres propios. El ``codigo_comuna`` de esa tabla ya viene en el
+mismo formato que usa el visor (sin cero a la izquierda, ej. "3102"), así que
+se usa directamente como llave del JSON sin reformatear.
 
 Fuentes de coordenadas, en orden de preferencia:
   1. Wikidata (SPARQL, https://query.wikidata.org/sparql): comunas de Chile
@@ -46,6 +51,7 @@ DATA = ROOT / "catastro_sii_brecha" / "data"
 CACHE_DIR = DATA / ".cache"
 COMMUNES_PARQUET = DATA / "metricas_comunales.parquet"
 OUTPUT = DATA / "capitales_comunales.parquet"
+FRONTEND_OUTPUT = DATA / "capital_comunal_views.json"
 
 WIKIDATA_CACHE = CACHE_DIR / "wikidata_comunas_raw.json"
 NOMINATIM_CACHE = CACHE_DIR / "nominatim_capitales.json"
@@ -232,6 +238,16 @@ def within_chile(lon: float, lat: float) -> bool:
     return mainland or rapa_nui
 
 
+def write_frontend_json(df: pd.DataFrame) -> None:
+    """Solo center/zoom, solo filas resueltas: lo mínimo que necesita el visor."""
+    resolved = df[df["lon"].notna() & df["lat"].notna()]
+    views = {
+        str(row.codigo_comuna): {"center": [row.lon, row.lat], "zoom": row.zoom_sugerido}
+        for row in resolved.itertuples(index=False)
+    }
+    FRONTEND_OUTPUT.write_text(json.dumps(views, ensure_ascii=False, indent=2, sort_keys=True))
+
+
 def main() -> None:
     communes = pd.read_parquet(COMMUNES_PARQUET)[["codigo_comuna", "comuna", "region"]].copy()
     assert communes["codigo_comuna"].is_unique, "codigo_comuna no es único en metricas_comunales.parquet"
@@ -311,6 +327,7 @@ def main() -> None:
 
     out = pd.DataFrame(rows)
     out.to_parquet(OUTPUT, index=False)
+    write_frontend_json(out)
 
     total = len(out)
     resolved = out["lon"].notna().sum()
@@ -333,6 +350,7 @@ def main() -> None:
             print(f"  - {codigo} {comuna} -> {capital}")
 
     print(f"\nEscrito: {OUTPUT}")
+    print(f"Escrito: {FRONTEND_OUTPUT}")
 
 
 if __name__ == "__main__":

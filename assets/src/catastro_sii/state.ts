@@ -25,11 +25,22 @@ export const COMMUNE_VIEW_FALLBACKS: Readonly<Record<string, Bounds>> = {
   "12202": [-77.58383, -55.85101, -75.47444, -53.29438]
 };
 
-/** Cámaras editoriales para comunas donde el extent UV cubre mucho territorio rural. */
+/** Cámaras editoriales manuales: bearing/pitch cinematográfico curado a mano.
+ * Tienen prioridad sobre las vistas de capital comunal cargadas por datos. */
 export const COMMUNE_CITY_DEFAULT_VIEWS: Readonly<Record<string, CommuneDefaultView>> = {
   "3102": { center: [-70.8267, -27.0674], zoom: 13.35, bearing: -14, pitch: 48 },
   "3202": { center: [-70.0494, -26.367], zoom: 13.35, bearing: -14, pitch: 48 }
 };
+
+/** Vistas por capital comunal para las 346 comunas, cargadas en runtime desde
+ * `catastro_sii_brecha/data/capital_comunal_views.json` (ver
+ * `scripts/catastro_sii/build_capitales_comunales.py`). Encuadra la capital
+ * comunal real, no el centroide del polígono de la comuna. */
+let capitalComunalViews: Readonly<Record<string, CommuneDefaultView>> = {};
+
+export function setCapitalComunalViews(views: Record<string, CommuneDefaultView>): void {
+  capitalComunalViews = views;
+}
 
 export function communeViewBounds(row: CommuneRecord): Bounds | null {
   return row.bounds ?? COMMUNE_VIEW_FALLBACKS[row.codigo_comuna] ?? null;
@@ -37,7 +48,8 @@ export function communeViewBounds(row: CommuneRecord): Bounds | null {
 
 export function communeCityDefaultView(code: string | null): CommuneDefaultView | null {
   const normalized = toDataCommuneCode(code);
-  return normalized ? COMMUNE_CITY_DEFAULT_VIEWS[normalized] ?? null : null;
+  if (!normalized) return null;
+  return COMMUNE_CITY_DEFAULT_VIEWS[normalized] ?? capitalComunalViews[normalized] ?? null;
 }
 
 export function regionCodeForName(name: string): string | null {
