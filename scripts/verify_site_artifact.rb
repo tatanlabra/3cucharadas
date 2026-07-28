@@ -135,7 +135,7 @@ end
 
 avaluo_math_documents = {
   "datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/index.html" => {
-    post: "_posts/2026-07-23-avaluo-vulnerabilidad-unidad-vecinal.md",
+    post: "_posts/2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md",
     draft: "_drafts/2026-07-23-avaluo-vulnerabilidad-unidad-vecinal.md"
   }
 }.freeze
