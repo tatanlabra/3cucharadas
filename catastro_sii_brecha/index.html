@@ -72,7 +72,7 @@
       <p class="finder-note" id="map-availability-note"><strong>*</strong> marca comunas documentadas en el anexo geométrico piloto. El recorrido principal carga sólo unidades vecinales agregadas.</p>
     </section>
 
-    <p class="hint">Las seis pestañas de abajo llevan a las mismas vistas, en el orden en que suelen leerse: el visor UV de tu comuna, los descriptivos nacionales, la ficha comunal completa, el método, la descarga en Parquet y el anexo geométrico. Puedes seguir ese orden o saltar directo; mientras te mueves, el separador que sigue mantiene a la vista qué comuna tienes seleccionada.</p>
+    <p class="hint">Las seis pestañas de abajo abren esas mismas vistas por separado, en el orden en que conviene leerlas la primera vez: el visor UV de tu comuna, los descriptivos nacionales, la ficha comunal completa, el método, la descarga en Parquet y el anexo geométrico. El separador que aparece justo debajo queda fijo mientras navegas, para que siempre veas qué comuna tienes seleccionada.</p>
     <nav class="story-tabs reveal" aria-label="Pestañas del visor">
       <a href="#bivariate-card">Visor UV</a>
       <a href="#denominator-lab">Descriptivos nacionales</a>
@@ -104,7 +104,7 @@
         <div>
           <span class="section-eyebrow">Visor analítico único · UV 2×4</span>
           <h2 id="bivariate-title">Avalúo por m² relativo a la región frente a <span class="lead-accent">IGVUST</span></h2>
-          <p>El mapa muestra sólo las unidades vecinales de la comuna seleccionada. Cada color cruza dos preguntas: qué tan vulnerable es la UV en el ranking nacional IGVUST, y si su avalúo fiscal por m² queda bajo, igual o sobre la mediana de su propia región.</p>
+          <p>El mapa muestra sólo las unidades vecinales de la comuna seleccionada. Cada color cruza dos preguntas: qué tan vulnerable es la UV en el ranking nacional IGVUST (Índice Global de Vulnerabilidad Socioterritorial, del Ministerio de Desarrollo Social y Familia), y si su avalúo fiscal por m² queda bajo, igual o sobre la mediana de su propia región.</p>
         </div>
         <div class="map-tools bivariate-map-tools" aria-label="Controles del mapa UV">
           <fieldset class="map-layer-picker" aria-label="Capas del mapa UV">
@@ -161,7 +161,7 @@
               <span class="uv-axis-x-label uv-axis-x-high" id="bivariate-uv-axis-x-high">Sobre →</span>
             </div>
           </div>
-          <p class="uv-legend-note" id="bivariate-uv-legend-note">Filas: cuartiles nacionales oficiales IGVUST sobre las unidades vecinales publicadas, con q1 como mayor vulnerabilidad. Columnas: avalúo por m² bajo/igual o sobre la mediana regional de la comuna activa. La celda más oscura concentra la lectura menos obvia: alta vulnerabilidad territorial con alto avalúo unitario fiscal relativo a su región.</p>
+          <p class="uv-legend-note" id="bivariate-uv-legend-note">Filas: cuartiles nacionales oficiales IGVUST sobre las unidades vecinales publicadas, con q1 como mayor vulnerabilidad. Columnas: avalúo fiscal por m² bajo/igual o sobre la mediana de la región de la comuna activa. El eje horizontal es relativo a esa región; no mide ingreso, riqueza ni precio de mercado.</p>
         </aside>
       </div>
       <p class="map-status bivariate-status" id="bivariate-map-status" role="status">Bivariado en espera de comuna.</p>

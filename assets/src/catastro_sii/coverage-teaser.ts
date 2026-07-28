@@ -204,7 +204,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
       type: "value",
       min: 0,
       max: 100,
-      name: "Cobertura censal equivalente (%, tope 100)",
+      name: "Cobertura residencial equivalente (%, tope 100)",
       nameLocation: "middle",
       nameGap: 44,
       axisLabel: { color: colors.muted, formatter: (value: number) => `${integer.format(value)}%` },
@@ -228,7 +228,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
 function renderChart(points: CoveragePoint[]): ECharts {
   const element = document.getElementById("coverage-teaser-chart");
   if (!element) throw new Error("contenedor del gráfico introductorio ausente");
-  const chart = getChart(element, `Dispersión introductoria de ${points.length} comunas: avalúo fiscal total frente a cobertura censal equivalente`);
+  const chart = getChart(element, `Dispersión introductoria de ${points.length} comunas: avalúo fiscal total frente a cobertura residencial equivalente`);
   chart.setOption(chartOption(points), true);
   chart.off("click");
   chart.on("click", (params: unknown) => {
