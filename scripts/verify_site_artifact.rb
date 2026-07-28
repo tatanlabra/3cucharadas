@@ -127,7 +127,7 @@ if Dir.exist?(microsite_dir)
   dictionary_path = File.join(microsite_dir, "data", "diccionario_metricas_comunales.json")
   dictionary = JSON.parse(File.read(dictionary_path))
   abort "Catastro SII Parquet dictionary schema is not v1" unless dictionary["schema_version"] == 1
-  abort "Catastro SII Parquet dictionary field count drifted" unless dictionary.fetch("fields").length == 39
+  abort "Catastro SII Parquet dictionary field count drifted" unless dictionary.fetch("fields").length == 43
   microsite_bytes = 0
   Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
   abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000

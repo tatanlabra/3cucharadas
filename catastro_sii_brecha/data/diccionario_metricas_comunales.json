@@ -3,47 +3,223 @@
   "dataset": "metricas_comunales.parquet",
   "unit": "comuna",
   "rows": 346,
-  "top_level_columns": 39,
+  "top_level_columns": 43,
   "privacy": "Contiene métricas agregadas comunales. No contiene predios individuales, roles, RUT/RUN, direcciones ni geometrías prediales.",
   "fields": [
-    {"name": "codigo_comuna", "type": "string", "description": "Código comunal usado por el visor; puede venir sin cero inicial en los datos JSON."},
-    {"name": "comuna", "type": "string", "description": "Nombre canónico de la comuna."},
-    {"name": "region", "type": "string", "description": "Nombre canónico de la región."},
-    {"name": "fuentes_sii", "type": "list<string>", "description": "Fuentes SII usadas para la comuna en el corte publicado."},
-    {"name": "fuente_sii_disponible", "type": "bool", "description": "Indica si la comuna tiene extracto SII disponible en el corte."},
-    {"name": "fuentes_sii_con_avaluo_fiscal_fallback", "type": "int64", "description": "Conteo de fuentes donde se aplicó fallback de avalúo fiscal."},
-    {"name": "periodo_catastro", "type": "string", "description": "Periodo del catastro usado para la comuna."},
-    {"name": "poblacion_censo_2024", "type": "int64", "description": "Población comunal del Censo 2024."},
-    {"name": "hogares_censo_2024", "type": "int64", "description": "Hogares comunales del Censo 2024."},
-    {"name": "viviendas_ocupadas_censo_2024", "type": "int64", "description": "Viviendas particulares ocupadas del Censo 2024."},
-    {"name": "poblacion_proyectada_2024_base_2017", "type": "int64", "description": "Proyección comunal 2024 con base Censo 2017, usada sólo como referencia histórica."},
-    {"name": "catastro_rows_total", "type": "int64", "description": "Filas SII comunales antes de restringir a destino habitacional H."},
-    {"name": "predios_habitacionales", "type": "int64", "description": "Registros comunales SII de destino habitacional H."},
-    {"name": "predios_habitacionales_mapeados", "type": "int64", "description": "Predios H con geometría o coordenadas válidas para el flujo cartográfico."},
-    {"name": "superficie_total_m2", "type": "int64", "description": "Superficie total reportada, en metros cuadrados."},
-    {"name": "predios_con_superficie_valida", "type": "int64", "description": "Predios H con superficie utilizable para métricas agregadas."},
-    {"name": "avaluo_total_clp", "type": "int64", "description": "Avalúo fiscal total comunal en pesos chilenos."},
-    {"name": "predios_con_avaluo_valido", "type": "int64", "description": "Predios H con avalúo fiscal válido."},
-    {"name": "cobertura_coordenadas_pct", "type": "double", "description": "Porcentaje de predios H con coordenadas válidas."},
-    {"name": "cobertura_superficie_pct", "type": "double", "description": "Porcentaje de predios H con superficie válida."},
-    {"name": "cobertura_avaluo_pct", "type": "double", "description": "Porcentaje de predios H con avalúo válido."},
-    {"name": "poblacion_equivalente_censo", "type": "double", "description": "Población equivalente: predios H multiplicados por personas por vivienda ocupada del Censo 2024."},
-    {"name": "cobertura_censo_pct", "type": "double", "description": "Población equivalente SII como porcentaje de la población Censo 2024."},
-    {"name": "brecha_equivalente_censo", "type": "double", "description": "Diferencia entre población Censo 2024 y población equivalente SII."},
-    {"name": "cobertura_vs_proyeccion_base_2017_pct", "type": "double", "description": "Comparación auxiliar frente a la proyección 2024 base Censo 2017."},
-    {"name": "casen_sensibilidad_disponible", "type": "bool", "description": "Indica si hay sensibilidad CASEN disponible. No habilita ranking comunal representativo."},
-    {"name": "personas_por_hogar_casen", "type": "double", "description": "Razón personas por hogar CASEN usada sólo como sensibilidad."},
-    {"name": "hogares_por_vivienda_casen", "type": "double", "description": "Razón hogares por vivienda CASEN usada sólo como sensibilidad."},
-    {"name": "casen_n_viviendas_muestrales", "type": "int64", "description": "Tamaño muestral CASEN usado para advertencias de sensibilidad."},
-    {"name": "casen_nota", "type": "string", "description": "Nota metodológica sobre el uso comunal no representativo de CASEN."},
-    {"name": "cobertura_casen_sensibilidad_pct", "type": "double", "description": "Cobertura alternativa bajo sensibilidad CASEN, no usada como lectura principal."},
-    {"name": "catalogo_catastral_cobertura_pct", "type": "double", "description": "Indicador auxiliar de cobertura del catálogo catastral."},
-    {"name": "avaluo_por_predio_clp", "type": "double", "description": "Avalúo fiscal promedio por predio H, en pesos chilenos."},
-    {"name": "superficie_por_predio_m2", "type": "double", "description": "Superficie promedio por predio H, en metros cuadrados."},
-    {"name": "percentil_avaluo_nacional", "type": "double", "description": "Percentil nacional de avalúo total comunal."},
-    {"name": "percentil_avaluo_regional", "type": "double", "description": "Percentil regional de avalúo total comunal."},
-    {"name": "percentil_cobertura_nacional", "type": "double", "description": "Percentil nacional de cobertura residencial equivalente."},
-    {"name": "hallazgo", "type": "string", "description": "Texto sintético mostrado en el visor para la comuna."},
-    {"name": "mapa", "type": "struct<path:string, zoom:int64, cells:int64, bytes:int64>", "description": "Referencia heredada a celdas agregadas del visor estático; no contiene geometría predial individual."}
+    {
+      "name": "codigo_comuna",
+      "type": "string",
+      "description": "Código comunal usado por el visor; puede venir sin cero inicial en los datos JSON."
+    },
+    {
+      "name": "comuna",
+      "type": "string",
+      "description": "Nombre canónico de la comuna."
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "description": "Nombre canónico de la región."
+    },
+    {
+      "name": "fuentes_sii",
+      "type": "list<string>",
+      "description": "Fuentes SII usadas para la comuna en el corte publicado."
+    },
+    {
+      "name": "fuente_sii_disponible",
+      "type": "bool",
+      "description": "Indica si la comuna tiene extracto SII disponible en el corte."
+    },
+    {
+      "name": "fuentes_sii_con_avaluo_fiscal_fallback",
+      "type": "int64",
+      "description": "Conteo de fuentes donde se aplicó fallback de avalúo fiscal."
+    },
+    {
+      "name": "periodo_catastro",
+      "type": "string",
+      "description": "Periodo del catastro usado para la comuna."
+    },
+    {
+      "name": "poblacion_censo_2024",
+      "type": "int64",
+      "description": "Población comunal del Censo 2024."
+    },
+    {
+      "name": "hogares_censo_2024",
+      "type": "int64",
+      "description": "Hogares comunales del Censo 2024."
+    },
+    {
+      "name": "viviendas_ocupadas_censo_2024",
+      "type": "int64",
+      "description": "Viviendas particulares ocupadas del Censo 2024."
+    },
+    {
+      "name": "poblacion_proyectada_2024_base_2017",
+      "type": "int64",
+      "description": "Proyección comunal 2024 con base Censo 2017, usada sólo como referencia histórica."
+    },
+    {
+      "name": "catastro_rows_total",
+      "type": "int64",
+      "description": "Filas SII comunales antes de restringir a destino habitacional H."
+    },
+    {
+      "name": "predios_habitacionales",
+      "type": "int64",
+      "description": "Registros comunales SII de destino habitacional H."
+    },
+    {
+      "name": "predios_habitacionales_mapeados",
+      "type": "int64",
+      "description": "Predios H con geometría o coordenadas válidas para el flujo cartográfico."
+    },
+    {
+      "name": "superficie_total_m2",
+      "type": "int64",
+      "description": "Superficie total reportada, en metros cuadrados."
+    },
+    {
+      "name": "predios_con_superficie_valida",
+      "type": "int64",
+      "description": "Predios H con superficie utilizable para métricas agregadas."
+    },
+    {
+      "name": "avaluo_total_clp",
+      "type": "int64",
+      "description": "Avalúo fiscal total comunal en pesos chilenos."
+    },
+    {
+      "name": "predios_con_avaluo_valido",
+      "type": "int64",
+      "description": "Predios H con avalúo fiscal válido."
+    },
+    {
+      "name": "cobertura_coordenadas_pct",
+      "type": "double",
+      "description": "Porcentaje de predios H con coordenadas válidas."
+    },
+    {
+      "name": "cobertura_superficie_pct",
+      "type": "double",
+      "description": "Porcentaje de predios H con superficie válida."
+    },
+    {
+      "name": "cobertura_avaluo_pct",
+      "type": "double",
+      "description": "Porcentaje de predios H con avalúo válido."
+    },
+    {
+      "name": "poblacion_equivalente_censo",
+      "type": "double",
+      "description": "Población equivalente: predios H multiplicados por personas por vivienda ocupada del Censo 2024."
+    },
+    {
+      "name": "cobertura_censo_pct",
+      "type": "double",
+      "description": "Población equivalente SII como porcentaje de la población Censo 2024."
+    },
+    {
+      "name": "brecha_equivalente_censo",
+      "type": "double",
+      "description": "Diferencia entre población Censo 2024 y población equivalente SII."
+    },
+    {
+      "name": "cobertura_vs_proyeccion_base_2017_pct",
+      "type": "double",
+      "description": "Comparación auxiliar frente a la proyección 2024 base Censo 2017."
+    },
+    {
+      "name": "casen_sensibilidad_disponible",
+      "type": "bool",
+      "description": "Indica si hay sensibilidad CASEN disponible. No habilita ranking comunal representativo."
+    },
+    {
+      "name": "personas_por_hogar_casen",
+      "type": "double",
+      "description": "Razón personas por hogar CASEN usada sólo como sensibilidad."
+    },
+    {
+      "name": "hogares_por_vivienda_casen",
+      "type": "double",
+      "description": "Razón hogares por vivienda CASEN usada sólo como sensibilidad."
+    },
+    {
+      "name": "casen_n_viviendas_muestrales",
+      "type": "int64",
+      "description": "Tamaño muestral CASEN usado para advertencias de sensibilidad."
+    },
+    {
+      "name": "casen_nota",
+      "type": "string",
+      "description": "Nota metodológica sobre el uso comunal no representativo de CASEN."
+    },
+    {
+      "name": "cobertura_casen_sensibilidad_pct",
+      "type": "double",
+      "description": "Cobertura alternativa bajo sensibilidad CASEN, no usada como lectura principal."
+    },
+    {
+      "name": "catalogo_catastral_cobertura_pct",
+      "type": "double",
+      "description": "Indicador auxiliar de cobertura del catálogo catastral."
+    },
+    {
+      "name": "avaluo_por_predio_clp",
+      "type": "double",
+      "description": "Avalúo fiscal promedio por predio H, en pesos chilenos."
+    },
+    {
+      "name": "superficie_por_predio_m2",
+      "type": "double",
+      "description": "Superficie promedio por predio H, en metros cuadrados."
+    },
+    {
+      "name": "percentil_avaluo_nacional",
+      "type": "double",
+      "description": "Percentil nacional de avalúo total comunal."
+    },
+    {
+      "name": "percentil_avaluo_regional",
+      "type": "double",
+      "description": "Percentil regional de avalúo total comunal."
+    },
+    {
+      "name": "percentil_cobertura_nacional",
+      "type": "double",
+      "description": "Percentil nacional de cobertura residencial equivalente."
+    },
+    {
+      "name": "hallazgo",
+      "type": "string",
+      "description": "Texto sintético mostrado en el visor para la comuna."
+    },
+    {
+      "name": "mapa",
+      "type": "struct<path:string, zoom:int64, cells:int64, bytes:int64>",
+      "description": "Referencia heredada a celdas agregadas del visor estático; no contiene geometría predial individual."
+    },
+    {
+      "name": "viviendas_totales_censo_2024",
+      "type": "int64",
+      "description": "Viviendas particulares del Censo 2024 (ocupadas + desocupadas). Denominador principal de cobertura junto a predios_habitacionales."
+    },
+    {
+      "name": "viviendas_desocupadas_censo_2024",
+      "type": "int64",
+      "description": "Viviendas particulares desocupadas del Censo 2024 (subconjunto de viviendas_totales_censo_2024)."
+    },
+    {
+      "name": "cobertura_vivienda_pct",
+      "type": "float64",
+      "description": "Lectura principal: predios_habitacionales como porcentaje de viviendas_totales_censo_2024. Comparación directa de estructuras, sin razón de conversión intermedia."
+    },
+    {
+      "name": "cobertura_hogar_pct",
+      "type": "float64",
+      "description": "Lectura secundaria: predios_habitacionales como porcentaje de hogares_censo_2024."
+    }
   ]
 }
