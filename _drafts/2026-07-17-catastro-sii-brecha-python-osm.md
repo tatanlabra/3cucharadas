@@ -7,7 +7,7 @@ subtitle: "Predios H, Parquet, celdas neón y una regla simple para no inventar 
 date: 2026-07-17 15:00:00 -0400
 categories: [datos, python, openstreetmap]
 tags: [python, openstreetmap, osm, maplibre, parquet, catastro-sii, censo-2024, datos-abiertos, geodata]
-description: "Cómo construí un visor Python + OpenStreetMap que compara la cobertura residencial equivalente del Catastro SII con el Censo 2024, sin convertir registros en personas imaginarias."
+description: "Cómo construí un visor Python + OpenStreetMap que compara la cobertura residencial del Catastro SII con las viviendas del Censo 2024, sin convertir registros en personas imaginarias."
 excerpt: "Casi seis millones de predios H no son casi seis millones de hogares. La diferencia importa y ahora tiene visor."
 author: clabra
 lang: es
@@ -25,10 +25,10 @@ author_profile: true
 El Catastro SII es una fuente fantástica para mirar territorio. También es una fuente peligrosa si uno hace la conversión mental demasiado rápido: “hay N predios, entonces viven N hogares, entonces viven N personas”. No.
 {: .text-justify}
 
-Publiqué el visor [Brecha residencial del Catastro SII](/catastro_sii_brecha/). Parte con los predios de destino habitacional (`H`) y pregunta algo más modesto: ¿qué porcentaje de la población censada 2024 quedaría cubierto si esos registros siguieran la relación comunal de personas por vivienda ocupada?
+Publiqué el visor [Brecha residencial del Catastro SII](/catastro_sii_brecha/). Parte con los predios de destino habitacional (`H`) y pregunta algo más modesto: ¿qué porcentaje de las viviendas particulares del Censo 2024 —ocupadas y desocupadas— cubren esos registros?
 {: .text-justify}
 
-No responde dónde vive una persona. No diagnostica informalidad, vacancia, mala clasificación ni subregistro. Es una medida de cobertura equivalente. Ese límite es el producto.
+No responde dónde vive una persona. No diagnostica informalidad, vacancia, mala clasificación ni subregistro. Es una medida de cobertura residencial. Ese límite es el producto.
 {: .text-justify}
 
 ## La fórmula cabe en una línea
@@ -36,11 +36,10 @@ No responde dónde vive una persona. No diagnostica informalidad, vacancia, mala
 Para cada comuna calculé:
 
 ```python
-poblacion_equivalente = predios_H * (poblacion_censo_2024 / viviendas_con_moradores_presentes)
-cobertura = poblacion_equivalente / poblacion_censo_2024
+cobertura_vivienda = predios_H / viviendas_totales_censo_2024 * 100
 ```
 
-Es deliberadamente auditable. También puede descomponerse en personas por hogar y hogares por vivienda, pero el resultado principal termina siendo personas por vivienda con moradores presentes. El visor muestra esa cobertura frente al Censo 2024 y, como contexto histórico separado, frente a la proyección INE 2024 cuya base es el Censo 2017.
+Es deliberadamente auditable: una comparación directa entre registros y estructuras, sin convertir nada en personas. El visor muestra esa cobertura frente al Censo 2024 como lectura principal, frente a los hogares censados como lectura secundaria y, como contraste adicional, frente a una vieja conversión a población equivalente. Por separado sigue el contexto histórico: la misma cobertura frente a la proyección INE 2024 cuya base es el Censo 2017.
 {: .text-justify}
 
 CASEN 2024 aparece sólo como sensibilidad. La base permite construir una aritmética comunal con factores, pero MDSF no recomienda usarla como estimación comunal representativa. Por eso no ordena comunas, no pinta el mapa y no escribe el titular.

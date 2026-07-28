@@ -10,7 +10,7 @@ import type { CommuneRecord } from "../../assets/src/catastro_sii/types";
 function commune(overrides: Partial<CommuneRecord> & Pick<CommuneRecord, "codigo_comuna" | "comuna" | "region">): CommuneRecord {
   return {
     avaluo_total_clp: 1_000_000_000,
-    cobertura_censo_pct: 80,
+    cobertura_vivienda_pct: 80,
     hogares_censo_2024: 1000,
     ...overrides
   };
@@ -19,7 +19,7 @@ function commune(overrides: Partial<CommuneRecord> & Pick<CommuneRecord, "codigo
 describe("buildCoveragePoints", () => {
   it("recorta la cobertura en 100 pero conserva el valor real para el tooltip y la tabla", () => {
     const [point] = buildCoveragePoints([
-      commune({ codigo_comuna: "0101", comuna: "Alta cobertura", region: "Tarapacá", cobertura_censo_pct: 932.9 })
+      commune({ codigo_comuna: "0101", comuna: "Alta cobertura", region: "Tarapacá", cobertura_vivienda_pct: 932.9 })
     ]);
     expect(point.coverageDisplay).toBe(100);
     expect(point.coverageReal).toBeCloseTo(932.9);
@@ -28,7 +28,7 @@ describe("buildCoveragePoints", () => {
 
   it("no recorta ni marca como truncada una cobertura bajo 100", () => {
     const [point] = buildCoveragePoints([
-      commune({ codigo_comuna: "0102", comuna: "Cobertura normal", region: "Tarapacá", cobertura_censo_pct: 83.5 })
+      commune({ codigo_comuna: "0102", comuna: "Cobertura normal", region: "Tarapacá", cobertura_vivienda_pct: 83.5 })
     ]);
     expect(point.coverageDisplay).toBeCloseTo(83.5);
     expect(point.coverageReal).toBeCloseTo(83.5);
@@ -48,7 +48,7 @@ describe("buildCoveragePoints", () => {
 
   it("excluye comunas con cobertura censal nula", () => {
     const points = buildCoveragePoints([
-      commune({ codigo_comuna: "0301", comuna: "Sin cobertura", region: "Atacama", cobertura_censo_pct: null })
+      commune({ codigo_comuna: "0301", comuna: "Sin cobertura", region: "Atacama", cobertura_vivienda_pct: null })
     ]);
     expect(points).toHaveLength(0);
   });
@@ -77,9 +77,9 @@ describe("medianOf", () => {
 
 describe("extremos destacados", () => {
   const points = buildCoveragePoints([
-    commune({ codigo_comuna: "1", comuna: "Baja cobertura", region: "Tarapacá", cobertura_censo_pct: 1.6 }),
-    commune({ codigo_comuna: "2", comuna: "Cobertura media", region: "Tarapacá", cobertura_censo_pct: 80 }),
-    commune({ codigo_comuna: "3", comuna: "Muy sobre el tope", region: "Tarapacá", cobertura_censo_pct: 932.9 })
+    commune({ codigo_comuna: "1", comuna: "Baja cobertura", region: "Tarapacá", cobertura_vivienda_pct: 1.6 }),
+    commune({ codigo_comuna: "2", comuna: "Cobertura media", region: "Tarapacá", cobertura_vivienda_pct: 80 }),
+    commune({ codigo_comuna: "3", comuna: "Muy sobre el tope", region: "Tarapacá", cobertura_vivienda_pct: 932.9 })
   ]);
 
   it("lowestCoveragePoint identifica la comuna con menor cobertura real", () => {

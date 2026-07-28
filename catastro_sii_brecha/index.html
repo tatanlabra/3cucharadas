@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>La brecha del Catastro SII frente al Censo 2024 · 3 Cucharadas</title>
-  <meta name="description" content="Un visor para mirar, comuna por comuna, qué fracción de la población censada cubre el registro residencial del SII, bajar los datos y sacar sus propias conclusiones.">
+  <meta name="description" content="Un visor para mirar, comuna por comuna, qué fracción de las viviendas del Censo 2024 cubre el registro residencial del SII, bajar los datos y sacar sus propias conclusiones.">
   <link rel="canonical" href="https://3cucharadas.cl/catastro_sii_brecha/">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#e9edf4">
@@ -12,7 +12,7 @@
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="3 Cucharadas">
   <meta property="og:title" content="La brecha del Catastro SII frente al Censo 2024">
-  <meta property="og:description" content="Un visor con Python y OpenStreetMap para revisar, comuna por comuna, la cobertura residencial equivalente del Catastro SII, y descargar los datos.">
+  <meta property="og:description" content="Un visor con Python y OpenStreetMap para revisar, comuna por comuna, la cobertura residencial del Catastro SII frente a las viviendas del Censo 2024, y descargar los datos.">
   <meta property="og:url" content="https://3cucharadas.cl/catastro_sii_brecha/">
   <meta property="og:image" content="https://3cucharadas.cl/catastro_sii_brecha/assets/og-brecha.svg">
   <meta property="og:image:alt" content="Brecha residencial del Catastro SII: un visor de datos abiertos hecho con Python y OpenStreetMap.">
@@ -42,7 +42,7 @@
 
       <p class="kicker">3 Cucharadas · Python + OpenStreetMap</p>
       <h1>Un catastro no es<br><span class="accent-word">un censo.</span></h1>
-      <p class="sub">Aquí mido qué fracción de la población censada podría cubrir el registro de predios habitacionales del SII, bajo un supuesto explícito de vivienda. Es una brecha de cobertura del registro, no una cuenta de personas ni una explicación de sus causas. Explora por comuna, baja los datos y saca tus propias conclusiones.</p>
+      <p class="sub">Aquí mido qué fracción de las viviendas particulares del Censo 2024 cubre el registro de predios habitacionales del SII, comparando registros contra estructuras, sin pasar por una conversión a población. Es una brecha de cobertura del registro, no una cuenta de personas ni una explicación de sus causas. Explora por comuna, baja los datos y saca tus propias conclusiones.</p>
       <p class="disclaimer"><strong>Visualización independiente de 3 Cucharadas.</strong> Trabaja con registros públicos agregados, Censo 2024 y un método reproducible. No es un sitio oficial del SII, INE ni MDSF.</p>
       <div class="hero-cta"><a class="btn primary" href="#explorar">Explorar una comuna <span class="arrow" aria-hidden="true">↓</span></a><a class="btn secondary" href="metodologia.html">Ver método y límites</a></div>
       <p class="hint">Este visor tiene tres capas: primero el panorama nacional, aquí abajo; después el detalle de la comuna que elijas; al final, el método completo con sus supuestos y límites. Puedes seguir ese orden o saltar directo a lo que te interese — las pestañas de navegación están más abajo.</p>
@@ -55,7 +55,7 @@
     <section class="card coverage-teaser-card reveal" id="coverage-teaser" aria-labelledby="coverage-teaser-title">
       <div class="section-head">
         <div><span class="section-eyebrow">Antes de elegir una comuna</span><h2 id="coverage-teaser-title">346 comunas: <span class="lead-accent">cuánto valen</span> y <span class="lead-accent">cuánto cubre</span> el registro</h2></div>
-        <p>Antes de bajar a una comuna, esta dispersión las pone a las 346 juntas. Cada burbuja es una comuna con avalúo fiscal registrado. El eje horizontal ubica el avalúo fiscal total en escala log10: cada marca que avanza multiplica por 10, aunque las etiquetas siguen mostrando pesos originales. El eje vertical ubica la cobertura residencial equivalente frente al Censo 2024, con un tope de 100%. Algunas comunas superan ese valor y el gráfico las recorta ahí para no aplastar la lectura del resto, pero el tooltip y la tabla conservan el valor real sin recortar. El tamaño de cada burbuja usa hogares del Censo 2024; el color agrupa por región. Haz clic en una burbuja para cargar esa comuna en el buscador de abajo, o revisa primero la tabla completa.</p>
+        <p>Antes de bajar a una comuna, esta dispersión las pone a las 346 juntas. Cada burbuja es una comuna con avalúo fiscal registrado. El eje horizontal ubica el avalúo fiscal total en escala log10: cada marca que avanza multiplica por 10, aunque las etiquetas siguen mostrando pesos originales. El eje vertical ubica la cobertura residencial frente a las viviendas particulares totales del Censo 2024, con un tope de 100%. Algunas comunas superan ese valor y el gráfico las recorta ahí para no aplastar la lectura del resto, pero el tooltip y la tabla conservan el valor real sin recortar. El tamaño de cada burbuja usa hogares del Censo 2024; el color agrupa por región. Haz clic en una burbuja para cargar esa comuna en el buscador de abajo, o revisa primero la tabla completa.</p>
       </div>
       <p class="lab-communes-status" id="coverage-teaser-status" role="status">Cargando comunas…</p>
       <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico introductorio de cobertura frente a avalúo"><div class="lab-chart lab-chart-wide" id="coverage-teaser-chart" aria-busy="true"></div></div>
@@ -258,7 +258,7 @@
     <section class="card intro-card reveal" id="metodologia-resumen" aria-labelledby="que-mide-title">
       <span class="section-eyebrow">Una medida, no un diagnóstico</span>
       <h2 id="que-mide-title">¿Qué mide esta <span class="lead-accent">brecha</span>?</h2>
-      <p class="big">Convierto cada predio SII de destino <strong>H</strong> en una población equivalente, usando la relación comunal entre población y viviendas particulares ocupadas del Censo 2024. Al comparar esa población equivalente con la población censada, obtengo una <strong>cobertura residencial equivalente</strong>.</p>
+      <p class="big">Comparo cada predio SII de destino <strong>H</strong> directamente contra las viviendas particulares del Censo 2024 —ocupadas y desocupadas—, sin convertir registros en población. Esa razón es la <strong>cobertura residencial</strong>. Como lectura secundaria, la contrasto también contra los hogares censados; y como contraste adicional, mantengo la vieja conversión a población equivalente.</p>
       <p class="hint">Una cifra menor a 100% no identifica la causa: sólo muestra hasta dónde llega este registro bajo el supuesto declarado. La sensibilidad CASEN queda separada porque no es representativa a escala comunal; revísala como eso, una sensibilidad, no como un segundo hallazgo.</p>
       <div class="technical-note" id="nota-universo-uv">
         <h3>Nota técnica sobre las UV</h3>
@@ -277,7 +277,7 @@
       <h2 id="pasos-title">Tres pasos para leer los indicadores de abajo</h2>
       <div class="steps">
         <article class="step"><span class="n">1</span><h3>Ubica una comuna</h3><p>Elige primero una región y luego una comuna. El visor carga sólo las celdas de ese territorio.</p></article>
-        <article class="step"><span class="n">2</span><h3>Lee la cobertura</h3><p>La tarjeta principal compara la población equivalente del registro H con el Censo 2024.</p></article>
+        <article class="step"><span class="n">2</span><h3>Lee la cobertura</h3><p>La tarjeta principal compara los predios habitacionales H directamente con las viviendas particulares del Censo 2024.</p></article>
         <article class="step"><span class="n">3</span><h3>Contrasta, no atribuyas</h3><p>Revisa coordenadas, avalúo, superficie y referencia histórica antes de interpretar una diferencia como si fuera una causa.</p></article>
       </div>
     </section>
@@ -285,7 +285,8 @@
     <section class="metric-section reveal" aria-labelledby="metricas-title">
       <div class="section-head metric-head"><div><span class="section-eyebrow">El registro frente al censo</span><h2 id="metricas-title">Indicadores comunales</h2></div><p class="hint">El verde es la lectura principal, la que uso para el hallazgo comunal. CASEN aparece sólo como sensibilidad, para contrastar sin reemplazarla.</p></div>
       <div class="metric-grid" aria-live="polite">
-        <article class="metric-chip primary"><span>Cobertura residencial equivalente</span><strong id="coverage">—</strong><small>frente a población Censo 2024</small></article>
+        <article class="metric-chip primary"><span>Cobertura residencial</span><strong id="coverage">—</strong><small>frente a viviendas Censo 2024</small></article>
+        <article class="metric-chip"><span>Cobertura por hogar</span><strong id="coverage-hogar">—</strong><small>lectura secundaria, frente a hogares Censo 2024</small></article>
         <article class="metric-chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
         <article class="metric-chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
         <article class="metric-chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
@@ -318,7 +319,7 @@
         <summary>Vista rápida del diccionario</summary>
         <div class="dictionary-grid" aria-label="Diccionario resumido de columnas">
           <article><h3>Identificación</h3><p><code>codigo_comuna</code>, <code>comuna</code>, <code>region</code>, <code>periodo_catastro</code>.</p></article>
-          <article><h3>Censo y cobertura</h3><p><code>poblacion_censo_2024</code>, <code>hogares_censo_2024</code>, <code>viviendas_ocupadas_censo_2024</code>, <code>cobertura_censo_pct</code>.</p></article>
+          <article><h3>Censo y cobertura</h3><p><code>poblacion_censo_2024</code>, <code>hogares_censo_2024</code>, <code>viviendas_ocupadas_censo_2024</code>, <code>viviendas_totales_censo_2024</code>, <code>viviendas_desocupadas_censo_2024</code>, <code>cobertura_vivienda_pct</code>, <code>cobertura_hogar_pct</code>, <code>cobertura_censo_pct</code>.</p></article>
           <article><h3>Catastro SII</h3><p><code>predios_habitacionales</code>, <code>predios_habitacionales_mapeados</code>, <code>superficie_total_m2</code>, <code>avaluo_total_clp</code>.</p></article>
           <article><h3>Lectura y límites</h3><p><code>hallazgo</code>, <code>casen_nota</code>, percentiles y sensibilidades. No contiene registros prediales individuales.</p></article>
         </div>

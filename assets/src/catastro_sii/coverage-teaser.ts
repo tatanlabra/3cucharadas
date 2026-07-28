@@ -58,7 +58,7 @@ export interface CoveragePoint {
 export function buildCoveragePoints(communes: CommuneRecord[]): CoveragePoint[] {
   return communes.reduce<CoveragePoint[]>((points, commune) => {
     const avaluo = commune.avaluo_total_clp;
-    const coverage = commune.cobertura_censo_pct;
+    const coverage = commune.cobertura_vivienda_pct;
     if (!finiteNumber(avaluo) || avaluo <= 0 || !finiteNumber(coverage)) return points;
     points.push({
       code: commune.codigo_comuna,
@@ -186,7 +186,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
 
   return {
     ...chartBase(
-      `Dispersión de ${points.length} comunas: avalúo fiscal total en escala log10 en el eje horizontal y cobertura residencial equivalente frente al Censo 2024, con tope en 100%, en el eje vertical. El tamaño de la burbuja usa hogares del Censo 2024 y el color agrupa por región. Una línea punteada marca la mediana nacional de cobertura; dos burbujas destacadas muestran la comuna con menor cobertura y la comuna cuyo valor real supera más el tope de 100%.`
+      `Dispersión de ${points.length} comunas: avalúo fiscal total en escala log10 en el eje horizontal y cobertura residencial frente a las viviendas particulares totales del Censo 2024, con tope en 100%, en el eje vertical. El tamaño de la burbuja usa hogares del Censo 2024 y el color agrupa por región. Una línea punteada marca la mediana nacional de cobertura; dos burbujas destacadas muestran la comuna con menor cobertura y la comuna cuyo valor real supera más el tope de 100%.`
     ),
     legend: { type: "scroll", bottom: 0, textStyle: { color: colors.muted }, pageTextStyle: { color: colors.muted } },
     grid: { left: 64, right: 26, top: 40, bottom: 92 },
@@ -204,7 +204,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
       type: "value",
       min: 0,
       max: 100,
-      name: "Cobertura residencial equivalente (%, tope 100)",
+      name: "Cobertura residencial frente a viviendas Censo 2024 (%, tope 100)",
       nameLocation: "middle",
       nameGap: 44,
       axisLabel: { color: colors.muted, formatter: (value: number) => `${integer.format(value)}%` },
@@ -219,7 +219,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
         const truncatedNote = coverageReal > 100
           ? `<br><em>Valor real ${integer.format(coverageReal)}%, recortado a 100% en el gráfico.</em>`
           : "";
-        return `<strong>${escapeHtml(name)}</strong> · ${escapeHtml(region)}<br>Avalúo fiscal total: ${currency.format(value[0])}<br>Cobertura equivalente: ${integer.format(Math.min(coverageReal, 100))}%${truncatedNote}<br>Hogares Censo 2024: ${integer.format(value[2])}`;
+        return `<strong>${escapeHtml(name)}</strong> · ${escapeHtml(region)}<br>Avalúo fiscal total: ${currency.format(value[0])}<br>Cobertura residencial: ${integer.format(Math.min(coverageReal, 100))}%${truncatedNote}<br>Hogares Censo 2024: ${integer.format(value[2])}`;
       }
     }
   };
@@ -228,7 +228,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
 function renderChart(points: CoveragePoint[]): ECharts {
   const element = document.getElementById("coverage-teaser-chart");
   if (!element) throw new Error("contenedor del gráfico introductorio ausente");
-  const chart = getChart(element, `Dispersión introductoria de ${points.length} comunas: avalúo fiscal total frente a cobertura residencial equivalente`);
+  const chart = getChart(element, `Dispersión introductoria de ${points.length} comunas: avalúo fiscal total frente a cobertura residencial`);
   chart.setOption(chartOption(points), true);
   chart.off("click");
   chart.on("click", (params: unknown) => {
@@ -250,7 +250,7 @@ function renderTable(points: CoveragePoint[]): void {
       `${integer.format(point.coverageReal)}%${point.truncated ? " (recortado a 100% en el gráfico)" : ""}`,
       integer.format(point.households)
     ]);
-  replaceTable("coverage-teaser-table", ["Comuna", "Región", "Avalúo fiscal total", "Cobertura equivalente", "Hogares Censo 2024"], rows);
+  replaceTable("coverage-teaser-table", ["Comuna", "Región", "Avalúo fiscal total", "Cobertura residencial", "Hogares Censo 2024"], rows);
 }
 
 let cachedPoints: CoveragePoint[] | null = null;

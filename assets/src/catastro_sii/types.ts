@@ -55,6 +55,10 @@ export interface CommuneRecord {
   poblacion_equivalente_censo?: number | null;
   hogares_censo_2024?: number | null;
   viviendas_ocupadas_censo_2024?: number | null;
+  viviendas_totales_censo_2024?: number | null;
+  viviendas_desocupadas_censo_2024?: number | null;
+  cobertura_vivienda_pct?: number | null;
+  cobertura_hogar_pct?: number | null;
   predios_habitacionales_mapeados?: number | null;
   superficie_total_m2?: number | null;
   cobertura_superficie_pct?: number | null;

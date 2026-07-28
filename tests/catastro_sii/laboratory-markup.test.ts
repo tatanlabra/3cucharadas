@@ -134,8 +134,8 @@ describe("disponibilidad cartográfica nacional", () => {
   });
 
   it("publica diccionario del Parquet comunal sin campos prediales individuales", () => {
-    expect(dictionary).toMatchObject({ schema_version: 1, dataset: "metricas_comunales.parquet", rows: 346, top_level_columns: 39 });
-    expect(dictionary.fields).toHaveLength(39);
+    expect(dictionary).toMatchObject({ schema_version: 1, dataset: "metricas_comunales.parquet", rows: 346, top_level_columns: 43 });
+    expect(dictionary.fields).toHaveLength(43);
     const names = dictionary.fields.map((field: { name: string }) => field.name);
     expect(names).toContain("codigo_comuna");
     expect(names).toContain("cobertura_censo_pct");
