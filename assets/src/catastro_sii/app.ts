@@ -251,7 +251,7 @@ function communePopupContent(row: CommuneRecord, aggregate: CommuneAggregate | n
   const regional = document.createElement("p");
   regional.textContent = `Mediana regional: ${formatCurrency(aggregate?.mediana_regional_avm2)}/m²`;
   const coverage = document.createElement("p");
-  coverage.textContent = `Cobertura equivalente: ${formatPercent(row.cobertura_censo_pct)}`;
+  coverage.textContent = `Cobertura residencial: ${formatPercent(row.cobertura_vivienda_pct)}`;
   const note = document.createElement("p");
   note.className = "uv-popup-note";
   note.textContent = "Click sincroniza selector, mapas, tabla y laboratorio.";

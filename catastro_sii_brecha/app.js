@@ -125,7 +125,8 @@
 
   function updateMetrics(row) {
     set("#territory", row.comuna);
-    set("#coverage", pct(row.cobertura_censo_pct));
+    set("#coverage", pct(row.cobertura_vivienda_pct));
+    set("#coverage-hogar", pct(row.cobertura_hogar_pct));
     set("#population", number.format(row.poblacion_censo_2024));
     set("#records", number.format(row.predios_habitacionales));
     set("#coordinates", pct(row.cobertura_coordenadas_pct));
