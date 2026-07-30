@@ -16,7 +16,8 @@ describe("laboratorio accesible y perezoso", () => {
       expect(html).toContain(`data-lab-panel="${view}"`);
     }
     expect(html.match(/class="[^"]*\blab-table-scroll\b/g)).toHaveLength(8);
-    expect(html.match(/class="lab-chart-scroll"/g)).toHaveLength(8);
+    expect(html.match(/class="[^"]*\blab-chart-scroll\b[^"]*"/g)).toHaveLength(8);
+    expect(html).toContain('class="lab-chart-scroll lab-chart-scroll--wide"');
     expect(html).toContain('id="lab-violin-summary-chart"');
     expect(html).toContain('id="lab-ranking-unit"');
     expect(html).toContain('id="lab-commune-filter-note"');

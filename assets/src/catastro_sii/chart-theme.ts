@@ -113,6 +113,16 @@ export function logAxisBounds(values: Array<number | null | undefined>): { min: 
   return { min: 10 ** minExponent, max: 10 ** maxExponent };
 }
 
+/** Avalúos grandes en millones de CLP, con el mismo criterio ya usado en las tablas
+ * publicadas del blog (ej. "Avalúo/hogar mediano (millones CLP)" en el post de
+ * avalúo-vulnerabilidad): separador de miles es-CL, sin decimales, sufijo explícito.
+ * No reemplaza formatCurrencyTick (ejes, con "mil millones"/"billones") ni
+ * currencySmall (montos menores a $100). */
+export function formatMillonesClp(value: number): string {
+  if (!Number.isFinite(value)) return "";
+  return `$${integer.format(Math.round(value / 1_000_000))} millones`;
+}
+
 export function formatCurrencyTick(value: number): string {
   if (!Number.isFinite(value) || value <= 0) return "";
   if (value >= 1_000_000_000_000) return `$${formatter.format(value / 1_000_000_000_000)} billones`;

@@ -17,6 +17,7 @@ import {
   escapeHtml,
   finiteNumber,
   formatCurrencyTick,
+  formatMillonesClp,
   formatter,
   getChart,
   integer,
@@ -65,6 +66,19 @@ const METRICS: Record<BubbleMetric, { label: string; short: string }> = {
   av_person: { label: "Avalúo fiscal por persona RSH", short: "por persona" },
   av_m2: { label: "Avalúo fiscal por m² predial asignado", short: "por m²" }
 };
+
+/** av_total/av_household/av_person viven en el rango de millones a billones de CLP
+ * (medianas reales: ~459 mil millones, ~47 y ~24 millones respectivamente), así que
+ * se expresan en millones igual que el resto del sitio. av_m2 vive en el rango de
+ * cientos a decenas de miles de CLP/m² (mediana real ~793): formatearlo en millones
+ * lo mostraría como "$0 millones", así que conserva pesos completos. */
+function formatMetricValue(metric: BubbleMetric, value: number): string {
+  return metric === "av_m2" ? currency.format(value) : formatMillonesClp(value);
+}
+
+function metricColumnLabel(metric: BubbleMetric): string {
+  return metric === "av_m2" ? METRICS[metric].label : `${METRICS[metric].label} (millones CLP)`;
+}
 
 interface RankingRecord {
   id: string;
@@ -274,7 +288,7 @@ function renderFlow(data: InsightsV1): void {
     series: [{
       type: "sankey",
       left: 12,
-      right: 16,
+      right: 150,
       top: 18,
       bottom: 28,
       nodeWidth: 18,
@@ -654,7 +668,7 @@ function renderCommunes(
     tooltip: { formatter: (params: unknown) => {
       const item = params as { name?: string; seriesName?: string; value?: Array<number | string> };
       const unit = rankingUnit === "regions" ? `${integer.format(Number(item.value?.[6]))} comunas` : escapeHtml(item.seriesName);
-      return `<strong>${escapeHtml(item.name)}</strong> · ${unit}<br>Rank IGVUST: <strong>${integer.format(Number(item.value?.[0]))}</strong> de ${integer.format(maxRank)}<br>Indicador IGVUST de ordenamiento: ${formatter.format(Number(item.value?.[3]))}<br>${escapeHtml(METRICS[metric].label)}: ${currency.format(Number(item.value?.[1]))}<br>Hogares RSH: ${integer.format(Number(item.value?.[2]))}<br>Urbano: ${formatter.format(Number(item.value?.[4]))}%`;
+      return `<strong>${escapeHtml(item.name)}</strong> · ${unit}<br>Rank IGVUST: <strong>${integer.format(Number(item.value?.[0]))}</strong> de ${integer.format(maxRank)}<br>Indicador IGVUST de ordenamiento: ${formatter.format(Number(item.value?.[3]))}<br>${escapeHtml(METRICS[metric].label)}: ${formatMetricValue(metric, Number(item.value?.[1]))}<br>Hogares RSH: ${integer.format(Number(item.value?.[2]))}<br>Urbano: ${formatter.format(Number(item.value?.[4]))}%`;
     } }
   }, true);
   updateCommuneFilterNote(communes, rankingUnit, selectedCode, effectiveRegionName, selectedFilterEnabled);
@@ -670,8 +684,8 @@ function renderCommunes(
   const tableRows = eligible
     .filter(matches)
     .sort((a, b) => a.rank - b.rank)
-    .map((record) => [integer.format(record.rank), record.name, record.region, currency.format(metricValue(record, metric) ?? 0), integer.format(record.households), `${formatter.format(record.urban_pct ?? 0)}%`]);
-  replaceTable("lab-communes-table", ["Rank IGVUST", "Territorio", "Región", METRICS[metric].label, "Hogares RSH", "% urbano"], tableRows);
+    .map((record) => [integer.format(record.rank), record.name, record.region, formatMetricValue(metric, metricValue(record, metric) ?? 0), integer.format(record.households), `${formatter.format(record.urban_pct ?? 0)}%`]);
+  replaceTable("lab-communes-table", ["Rank IGVUST", "Territorio", "Región", metricColumnLabel(metric), "Hogares RSH", "% urbano"], tableRows);
 }
 
 export class DenominatorLaboratory {
