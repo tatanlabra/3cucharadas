@@ -82,7 +82,7 @@
       <a href="#catastro-anexo">Anexo</a>
     </nav>
 
-    <nav class="selection-dock" id="selection-dock" aria-label="Selección territorial activa">
+    <nav class="selection-dock" id="selection-dock" hidden aria-label="Selección territorial activa">
       <div class="selection-dock-main">
         <span class="selection-dock-kicker">Selección activa</span>
         <strong id="selection-dock-title">Diego de Almagro</strong>
@@ -184,7 +184,7 @@
       <div class="lab-panel" id="panel-flujo" role="tabpanel" data-lab-panel="flujo" aria-labelledby="tab-flujo" tabindex="0">
         <div class="lab-panel-copy"><h3>De registros a cobertura territorial</h3><p>El primer corte elimina duplicados; el segundo distingue los predios únicos que tocan al menos una unidad vecinal de los que no tocan ninguna. Ese residuo importa: es el catastro que la malla UV deja fuera.</p></div>
         <p class="lab-panel-message" aria-live="polite"></p>
-        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico de flujo"><div class="lab-chart lab-chart-wide" id="lab-flow-chart" aria-busy="true"></div></div>
+        <div class="lab-chart-scroll lab-chart-scroll--wide" tabindex="0" aria-label="Desplazar gráfico de flujo"><div class="lab-chart lab-chart-wide" id="lab-flow-chart" aria-busy="true"></div></div>
         <details class="lab-table-details"><summary>Ver datos del flujo</summary><div class="lab-table-scroll" id="lab-flow-table" tabindex="0" aria-label="Desplazar tabla de flujo de predios"></div></details>
       </div>
 

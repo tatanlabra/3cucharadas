@@ -14,10 +14,10 @@ import type { ECharts, EChartsCoreOption } from "echarts/core";
 import {
   CHART_COLORS,
   chartBase,
-  currency,
   escapeHtml,
   finiteNumber,
   formatCurrencyTick,
+  formatMillonesClp,
   getChart,
   integer,
   logAxisBounds,
@@ -120,6 +120,22 @@ interface ScatterDatum {
   itemStyle: { color: string; opacity: number };
 }
 
+/** Divide las 16 regiones en filas de leyenda ECharts (un componente `legend` por
+ * fila, cada uno con su propio `data`) para lograr una grilla 4×4 en vez del carrusel
+ * paginado por defecto de `type: "scroll"`. Se probó una variante 2×8 para móvil,
+ * pero varios nombres de región son largos ("Aysén del General Carlos Ibáñez del
+ * Campo", "Libertador General Bernardo O'Higgins"): 8 en una fila fuerza el
+ * auto-wrap interno del legend "plain" de ECharts y las filas quedan pisadas entre
+ * sí. Como el contenedor del chart en móvil ya fuerza scroll horizontal (ver
+ * `.lab-chart-scroll > .lab-chart` en style.css), 4×4 uniforme es más estable que
+ * intentar una grilla distinta por breakpoint. */
+function legendRows(regions: string[]): string[][] {
+  const groupSize = 4;
+  const groups: string[][] = [];
+  for (let index = 0; index < regions.length; index += groupSize) groups.push(regions.slice(index, index + groupSize));
+  return groups;
+}
+
 function chartOption(points: CoveragePoint[]): EChartsCoreOption {
   const colors = themeColors();
   const regions = [...new Set(points.map((point) => point.region))].sort((a, b) => a.localeCompare(b, "es"));
@@ -184,12 +200,29 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
     };
   });
 
+  const narrow = window.innerWidth < 640;
+  const rows = legendRows(regions);
+  const legendRowHeight = narrow ? 20 : 22;
+  const legendBottomBase = 6;
+  const legend = rows.map((rowData, rowIndex) => ({
+    type: "plain" as const,
+    orient: "horizontal" as const,
+    data: rowData,
+    left: "center" as const,
+    bottom: legendBottomBase + (rows.length - 1 - rowIndex) * legendRowHeight,
+    itemWidth: 14,
+    itemHeight: 10,
+    itemGap: narrow ? 10 : 18,
+    textStyle: { color: colors.muted, fontSize: narrow ? 10 : 12 }
+  }));
+  const gridBottom = legendBottomBase + rows.length * legendRowHeight + 66;
+
   return {
     ...chartBase(
       `Dispersión de ${points.length} comunas: avalúo fiscal total en escala log10 en el eje horizontal y cobertura residencial frente a las viviendas particulares totales del Censo 2024, con tope en 100%, en el eje vertical. El tamaño de la burbuja usa hogares del Censo 2024 y el color agrupa por región. Una línea punteada marca la mediana nacional de cobertura; dos burbujas destacadas muestran la comuna con menor cobertura y la comuna cuyo valor real supera más el tope de 100%.`
     ),
-    legend: { type: "scroll", bottom: 0, textStyle: { color: colors.muted }, pageTextStyle: { color: colors.muted } },
-    grid: { left: 64, right: 26, top: 40, bottom: 92 },
+    legend,
+    grid: { left: 64, right: 26, top: 40, bottom: gridBottom },
     xAxis: {
       type: "log",
       logBase: 10,
@@ -219,7 +252,7 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
         const truncatedNote = coverageReal > 100
           ? `<br><em>Valor real ${integer.format(coverageReal)}%, recortado a 100% en el gráfico.</em>`
           : "";
-        return `<strong>${escapeHtml(name)}</strong> · ${escapeHtml(region)}<br>Avalúo fiscal total: ${currency.format(value[0])}<br>Cobertura residencial: ${integer.format(Math.min(coverageReal, 100))}%${truncatedNote}<br>Hogares Censo 2024: ${integer.format(value[2])}`;
+        return `<strong>${escapeHtml(name)}</strong> · ${escapeHtml(region)}<br>Avalúo fiscal total: ${formatMillonesClp(value[0])}<br>Cobertura residencial: ${integer.format(Math.min(coverageReal, 100))}%${truncatedNote}<br>Hogares Censo 2024: ${integer.format(value[2])}`;
       }
     }
   };
@@ -246,11 +279,11 @@ function renderTable(points: CoveragePoint[]): void {
     .map((point) => [
       point.name,
       point.region,
-      currency.format(point.avaluoTotalClp),
+      formatMillonesClp(point.avaluoTotalClp),
       `${integer.format(point.coverageReal)}%${point.truncated ? " (recortado a 100% en el gráfico)" : ""}`,
       integer.format(point.households)
     ]);
-  replaceTable("coverage-teaser-table", ["Comuna", "Región", "Avalúo fiscal total", "Cobertura residencial", "Hogares Censo 2024"], rows);
+  replaceTable("coverage-teaser-table", ["Comuna", "Región", "Avalúo fiscal total (millones CLP)", "Cobertura residencial", "Hogares Censo 2024"], rows);
 }
 
 let cachedPoints: CoveragePoint[] | null = null;
@@ -283,7 +316,17 @@ export async function mountCoverageTeaser(): Promise<void> {
   window.addEventListener("catastro:theme", () => {
     if (cachedPoints) renderChart(cachedPoints);
   });
+  let lastNarrow = window.innerWidth < 640;
   window.addEventListener("resize", () => {
+    const narrow = window.innerWidth < 640;
+    if (narrow !== lastNarrow && cachedPoints) {
+      // La grilla 4×4 se mantiene en todos los anchos, pero el tamaño de fuente e
+      // itemGap del legend se ajustan al cruzar el breakpoint móvil, así que hay que
+      // reconstruir el option completo, no sólo redimensionar el lienzo existente.
+      lastNarrow = narrow;
+      renderChart(cachedPoints);
+      return;
+    }
     const element = document.getElementById("coverage-teaser-chart");
     if (element) echarts.getInstanceByDom(element)?.resize();
   });
