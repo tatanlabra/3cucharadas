@@ -13,6 +13,7 @@ import { SVGRenderer } from "echarts/renderers";
 import type { ECharts, EChartsCoreOption } from "echarts/core";
 import {
   CHART_COLORS,
+  balancedRows,
   bindLegendSelectionControls,
   chartBase,
   escapeHtml,
@@ -24,6 +25,7 @@ import {
   logAxisBounds,
   reducedMotion,
   replaceTable,
+  sortRegionsNorthToSouth,
   themeColors
 } from "./chart-theme";
 import { toDataCommuneCode } from "./state";
@@ -163,25 +165,16 @@ interface ScatterDatum {
   itemStyle: { color: string; opacity: number; borderColor?: string; borderWidth?: number };
 }
 
-/** Divide las 16 regiones en filas de leyenda ECharts (un componente `legend` por
- * fila, cada uno con su propio `data`) para lograr una grilla 4×4 en vez del carrusel
- * paginado por defecto de `type: "scroll"`. Se probó una variante 2×8 para móvil,
- * pero varios nombres de región son largos ("Aysén del General Carlos Ibáñez del
- * Campo", "Libertador General Bernardo O'Higgins"): 8 en una fila fuerza el
- * auto-wrap interno del legend "plain" de ECharts y las filas quedan pisadas entre
- * sí. Como el contenedor del chart en móvil ya fuerza scroll horizontal (ver
- * `.lab-chart-scroll > .lab-chart` en style.css), 4×4 uniforme es más estable que
- * intentar una grilla distinta por breakpoint. */
+/** Un componente `legend` de ECharts por fila (su `type: "plain"` no sabe hacer
+ * grillas), repartidos en 3 filas balanceadas: 6/5/5. Con 4 filas la leyenda comía
+ * ~160px del alto y aplastaba la grilla de burbujas. */
 function legendRows(regions: string[]): string[][] {
-  const groupSize = 4;
-  const groups: string[][] = [];
-  for (let index = 0; index < regions.length; index += groupSize) groups.push(regions.slice(index, index + groupSize));
-  return groups;
+  return balancedRows(regions, 3);
 }
 
 function chartOption(points: CoveragePoint[]): EChartsCoreOption {
   const colors = themeColors();
-  const regions = [...new Set(points.map((point) => point.region))].sort((a, b) => a.localeCompare(b, "es"));
+  const regions = sortRegionsNorthToSouth([...new Set(points.map((point) => point.region))]);
   const maximumHouseholds = Math.max(...points.map((point) => point.households), 1);
   const size = (value: number) => 6 + 26 * Math.sqrt(value / maximumHouseholds);
   const median = medianOf(points.map((point) => point.coverageReal));

@@ -12,8 +12,10 @@ import { SVGRenderer } from "echarts/renderers";
 import type { EChartsCoreOption } from "echarts/core";
 import {
   CHART_COLORS,
+  balancedRows,
   bindLegendSelectionControls,
   chartBase,
+  sortRegionsNorthToSouth,
   currency,
   escapeHtml,
   finiteNumber,
@@ -629,7 +631,7 @@ function renderCommunes(
   });
   const seriesKeys = rankingUnit === "regions"
     ? ["Regiones"]
-    : [...new Set(eligible.map((record) => record.region))].sort((a, b) => a.localeCompare(b, "es"));
+    : sortRegionsNorthToSouth([...new Set(eligible.map((record) => record.region))]);
   const maximumHouseholds = Math.max(...eligible.map((record) => record.households), 1);
   const size = (value: number) => 5 + 25 * Math.sqrt(value / maximumHouseholds);
   const matches = (record: RankingRecord) => !normalizedQuery || `${record.name} ${record.region}`.toLocaleLowerCase("es-CL").includes(normalizedQuery);
@@ -647,11 +649,32 @@ function renderCommunes(
     })),
     emphasis: { focus: "series", itemStyle: { opacity: 1, borderColor: colors.ink, borderWidth: 2 } }
   }));
+  // Leyenda en 3 filas balanceadas (un `legend` por fila) en vez del carrusel
+  // paginado: con 16 regiones el scroll obligaba a paginar para ver el color de
+  // media Chile. `bottom` de cada fila se apila desde el borde y `grid.bottom`
+  // reserva exactamente ese alto más el título del eje.
+  const legendNarrow = window.innerWidth < 640;
+  const legendRowHeight = legendNarrow ? 20 : 22;
+  const legendRowsData = rankingUnit === "communes" ? balancedRows(seriesKeys, 3) : [];
+  const legendGroups = legendRowsData.map((rowData, rowIndex) => ({
+    type: "plain" as const,
+    orient: "horizontal" as const,
+    data: rowData,
+    left: "center" as const,
+    bottom: 6 + (legendRowsData.length - 1 - rowIndex) * legendRowHeight,
+    itemWidth: 14,
+    itemHeight: 10,
+    itemGap: legendNarrow ? 10 : 18,
+    textStyle: { color: colors.muted, fontSize: legendNarrow ? 10 : 12 }
+  }));
+  const legendGridBottom = 6 + legendRowsData.length * legendRowHeight + 52;
   const xLabel = `Ranking nacional IGVUST (1 = mayor vulnerabilidad relativa)`;
   getChart(element, `Burbujas de ${eligible.length} ${unitPlural}: avalúo ${METRICS[metric].short} por ranking nacional IGVUST; tamaño por hogares RSH`).setOption({
     ...chartBase(`Gráfico descriptivo. El eje horizontal es ranking nacional IGVUST; el vertical usa escala log10 para ${METRICS[metric].label}; el área representa hogares RSH y el color región cuando la unidad es comuna.`),
-    legend: { type: "scroll", bottom: 0, textStyle: { color: colors.muted }, pageTextStyle: { color: colors.muted }, show: rankingUnit === "communes" },
-    grid: { left: 78, right: 22, top: 22, bottom: 92 },
+    // Mismo criterio que el chart de inicio: un `legend` por fila, 3 filas
+    // balanceadas y en orden norte→sur, en vez del carrusel paginado por defecto.
+    legend: legendGroups,
+    grid: { left: 78, right: 22, top: 22, bottom: legendGridBottom },
     xAxis: {
       type: "value",
       min: 1,
