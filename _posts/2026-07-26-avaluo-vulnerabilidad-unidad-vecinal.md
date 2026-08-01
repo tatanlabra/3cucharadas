@@ -196,6 +196,11 @@ Las cinco comunas de la tabla suman **112,8 billones**: **19,2% de toda la base 
 El IGVUST ordena unidades vecinales según vulnerabilidad socioterritorial. Mantengo sus cuatro cuartiles oficiales porque son el contrato analítico de esa fuente. En el eje de avalúo por m², cada UV se compara contra la mediana de su propia región, no contra un corte nacional fijo: queda bajo o sobre esa mediana regional. El resultado es una matriz 4×2 —cuatro filas IGVUST por dos columnas de avalúo— que evita dos problemas a la vez: una partición más fina volvería el bivariado difícil de leer y, en regiones con pocas UV como Arica y Parinacota, sugeriría una precisión que los datos agregados no entregan; y un corte nacional fijo ignoraría que el nivel de avalúo típico difiere mucho entre regiones. Un cuartil indica orden relativo, no distancia.
 {: .text-justify}
 
+<figure class="align-center">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/bivariado-clasificacion-4x2-1200x1623.webp' | relative_url }}" alt="Matriz de cuatro filas por dos columnas: las filas son los cuartiles nacionales de vulnerabilidad IGVUST, desde q1 como mayor vulnerabilidad hasta q4 como menor; las columnas separan avalúo fiscal por metro cuadrado bajo y alto." width="1200" height="1623" loading="lazy" decoding="async">
+  <figcaption><strong>Figura 3</strong> — La clasificación 4×2, sin colores todavía. Cuatro filas de cuartil IGVUST por dos columnas de avalúo por m². Cada celda nombra la combinación que le corresponde por definición; no informa cuántas UV caen en ella ni qué tan frecuente es. En el visor, la columna separa por la mediana de la propia región, no por un corte nacional. Elaboración propia.</figcaption>
+</figure>
+
 En el mapa bivariado la lectura principal usa **avalúo por m² predial**. Es la señal más clara para poner atención donde alto avalúo unitario coincide con alta vulnerabilidad territorial. En la paleta, esas celdas quedan más oscuras, con una capa transparente para no tapar el fondo ni convertir el mapa en alarma cromática. Lo contraintuitivo debe llamar la atención; lo evidente no necesita megáfono. El indicador sigue siendo descriptivo y nacional; al restringir a UV con $$p_\text{urbano} > 50$$ la asociación por m² se atenúa fuertemente.
 {: .text-justify}
 
@@ -257,17 +262,17 @@ La siguiente tabla usa dos resúmenes entre -1 y +1. **Pearson** resume una rela
 Por hogar y por persona, la asociación es casi nula. Por m², el patrón nacional parece fuerte. Al restringir a UV predominantemente urbanas cambia a aproximadamente +0,08. La lectura prudente es que el resultado nacional por m² contiene mucho contraste urbano-rural; no que se haya identificado un mecanismo de barrio.
 {: .text-justify}
 
-Los violines de la Figura 3 muestran la distribución completa. Su ancho indica dónde se concentran más UV; las líneas internas muestran mediana y rango intercuartílico. Son densidades suavizadas, no siluetas literales del territorio.
+Los violines de la Figura 4 muestran la distribución completa. Su ancho indica dónde se concentran más UV; las líneas internas muestran mediana y rango intercuartílico. Son densidades suavizadas, no siluetas literales del territorio.
 {: .text-justify}
 
 <figure class="align-center">
-  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" title="Figura 3 — Sensibilidad al denominador y al universo" aria-label="Abrir la Figura 3 ampliada">
+  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" title="Figura 4 — Sensibilidad al denominador y al universo" aria-label="Abrir la Figura 4 ampliada">
     <picture>
       <source srcset="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.svg' | relative_url }}" type="image/svg+xml">
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" alt="Tres gráficos de violín comparan las distribuciones de avalúo por hogar, avalúo por metro cuadrado nacional y avalúo por metro cuadrado en unidades vecinales mayoritariamente urbanas, para los cuatro cuartiles nacionales de vulnerabilidad." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 3</strong> — El mismo avalúo produce distribuciones distintas al cambiar el denominador y el universo. Los violines muestran densidades estimadas; su forma depende del ancho de banda y no prueba grupos naturales ni causalidad. Las líneas internas resumen mediana y rango intercuartílico. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
+  <figcaption><strong>Figura 4</strong> — El mismo avalúo produce distribuciones distintas al cambiar el denominador y el universo. Los violines muestran densidades estimadas; su forma depende del ancho de banda y no prueba grupos naturales ni causalidad. Las líneas internas resumen mediana y rango intercuartílico. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
 </figure>
 
 ### 4. Lo robusto es la sensibilidad
