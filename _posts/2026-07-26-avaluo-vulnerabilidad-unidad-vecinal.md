@@ -27,7 +27,7 @@ classes: [avaluo-vulnerabilidad-post]
 
 <figure class="align-center">
   <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp' | relative_url }}" alt="Un mismo avalúo fiscal de 9,4 millones de predios se divide por hogares, personas y metros cuadrados, y produce tres lecturas territoriales distintas; junto a las cifras 19,9% de unidades vecinales que conservan cuartil y 45,8% que se desplazan dos o más." width="1600" height="900" loading="eager" decoding="async">
-  <figcaption>Apertura conceptual del argumento. Las cifras —9,4 millones de predios únicos, 19,9% que conserva cuartil, 45,8% que se desplaza dos o más— son las del procesamiento y se detallan más abajo. Los tres mapas pequeños son ilustrativos: representan la idea de que el patrón cambia con el denominador, no son geometrías ni resultados del cruce.</figcaption>
+  <figcaption>Apertura conceptual del argumento. Las cifras —9,4 millones de predios únicos, 19,9% que conserva cuartil, 45,8% que se desplaza dos o más— son las del procesamiento y se detallan más abajo. Los tres paneles ilustran la idea de que el patrón cambia con el denominador; no son un resultado del cruce.</figcaption>
 </figure>
 
 Chile mantiene un catastro capaz de seguir millones de predios y, aun así, suele reducir toda la conversación a una cuota trimestral. El dato no nació del entusiasmo estatal por dibujar polígonos: existe porque el impuesto territorial necesita saber **qué hay, dónde está, para qué se usa y cuánto vale fiscalmente**.
