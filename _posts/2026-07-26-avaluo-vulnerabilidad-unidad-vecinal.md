@@ -9,12 +9,11 @@ description: "Cruce descriptivo entre avalúo fiscal SII e IGVUST por unidad vec
 excerpt: "El catastro registra predios, no personas. Cambiar el denominador cambia el mapa; omitirlo cambia la historia."
 author: clabra
 lang: es
-lang-exclusive: [es]
 ref: avaluo-vulnerabilidad-uv
 permalink: /datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
 header:
-  teaser: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-teaser-640.webp
-  og_image: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630.webp
+  teaser: /assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
+  og_image: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/og-avaluo-vulnerabilidad-1200x630.webp
 math: true
 distribution:
   social: true
@@ -25,6 +24,11 @@ comments: true
 author_profile: true
 classes: [avaluo-vulnerabilidad-post]
 ---
+
+<figure class="align-center">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp' | relative_url }}" alt="Un mismo avalúo fiscal de 9,4 millones de predios se divide por hogares, personas y metros cuadrados, y produce tres lecturas territoriales distintas; junto a las cifras 19,9% de unidades vecinales que conservan cuartil y 45,8% que se desplazan dos o más." width="1600" height="900" loading="eager" decoding="async">
+  <figcaption>Apertura conceptual del argumento. Las cifras —9,4 millones de predios únicos, 19,9% que conserva cuartil, 45,8% que se desplaza dos o más— son las del procesamiento y se detallan más abajo. Los tres mapas pequeños son ilustrativos: representan la idea de que el patrón cambia con el denominador, no son geometrías ni resultados del cruce.</figcaption>
+</figure>
 
 Chile mantiene un catastro capaz de seguir millones de predios y, aun así, suele reducir toda la conversación a una cuota trimestral. El dato no nació del entusiasmo estatal por dibujar polígonos: existe porque el impuesto territorial necesita saber **qué hay, dónde está, para qué se usa y cuánto vale fiscalmente**.
 {: .text-justify}
@@ -84,6 +88,11 @@ Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden
 | Avalúo por persona RSH | ¿Cuánto corresponde por persona registrada? |
 | Avalúo por m² predial | ¿Cuánto avalúo corresponde por superficie predial asignada? |
 
+<figure class="align-center">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/numerador-tres-denominadores-1200x900.webp' | relative_url }}" alt="Un mismo avalúo fiscal total se divide por hogares, personas y metros cuadrados, produciendo tres patrones territoriales distintos." width="1200" height="900" loading="lazy" decoding="async">
+  <figcaption><strong>Figura 1</strong> — Un numerador, tres historias. El total asignado no cambia; cambia la pregunta que se le hace. Esquema conceptual, no un resultado del procesamiento. Elaboración propia.</figcaption>
+</figure>
+
 La respuesta corta: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero se diluye al mirar sólo UV mayoritariamente urbanas. No es una paradoja glamorosa entre riqueza y vulnerabilidad. Es más sobrio, y por eso más útil: **el denominador, el universo y la escala forman parte del resultado**.
 {: .text-justify}
 
@@ -140,13 +149,13 @@ Ese sesgo se declara, no se barre debajo de la alfombra. En comunas con muchos p
 {: .text-justify}
 
 <figure class="align-center">
-  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp' | relative_url }}" title="Figura 1 — Del registro original al universo espacial" aria-label="Abrir la Figura 1 ampliada">
+  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp' | relative_url }}" title="Figura 2 — Del registro original al universo espacial" aria-label="Abrir la Figura 2 ampliada">
     <picture>
       <source srcset="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.svg' | relative_url }}" type="image/svg+xml">
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp' | relative_url }}" alt="Diagrama de flujo: 10.343.893 registros originales se separan en 942.616 duplicados y 9.401.277 predios únicos; de estos últimos, 9.130.127 tocan al menos una unidad vecinal y 271.150 no tocan ninguna." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 1</strong> — Del registro original al universo espacial. «Toca al menos una UV» no significa asignación completa: un predio puede intersectar una UV y conservar parte de su superficie fuera de la malla. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
+  <figcaption><strong>Figura 2</strong> — Del registro original al universo espacial. «Toca al menos una UV» no significa asignación completa: un predio puede intersectar una UV y conservar parte de su superficie fuera de la malla. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
 </figure>
 
 ## Antes del IGVUST: tamaño del avalúo observado
@@ -160,28 +169,27 @@ Por comuna, las mayores sumas asignadas son Las Condes (**38,2 billones**), Sant
 El visor incorpora esta lectura pura en la pestaña **Avalúos** de su laboratorio de denominadores. Primero el numerador; después la historia.
 {: .text-justify}
 
-<figure class="avaluo-bars" aria-labelledby="avaluo-bars-title">
-  <figcaption id="avaluo-bars-title"><strong>Gráfico 1</strong> — Avalúo fiscal total asignado antes de normalizar. Las barras regionales muestran participación sobre el total nacional asignado; las comunales, monto total en billones de pesos.</figcaption>
-  <div class="avaluo-bars__grid">
-    <section class="avaluo-bars__panel" aria-label="Participación regional del avalúo fiscal asignado">
-      <h3>Regiones</h3>
-      <div class="avaluo-bars__row"><span>Metropolitana</span><div class="avaluo-bars__track"><span style="--w: 100%"></span></div><strong>48,8%</strong></div>
-      <div class="avaluo-bars__row"><span>Valparaíso</span><div class="avaluo-bars__track"><span style="--w: 19.7%"></span></div><strong>9,6%</strong></div>
-      <div class="avaluo-bars__row"><span>Biobío</span><div class="avaluo-bars__track"><span style="--w: 13.7%"></span></div><strong>6,7%</strong></div>
-      <div class="avaluo-bars__row"><span>La Araucanía</span><div class="avaluo-bars__track"><span style="--w: 9.8%"></span></div><strong>4,8%</strong></div>
-      <div class="avaluo-bars__row"><span>Maule</span><div class="avaluo-bars__track"><span style="--w: 9.2%"></span></div><strong>4,5%</strong></div>
-    </section>
-    <section class="avaluo-bars__panel" aria-label="Comunas con mayor avalúo fiscal asignado">
-      <h3>Comunas</h3>
-      <div class="avaluo-bars__row"><span>Las Condes</span><div class="avaluo-bars__track"><span style="--w: 100%"></span></div><strong>38,2</strong></div>
-      <div class="avaluo-bars__row"><span>Santiago</span><div class="avaluo-bars__track"><span style="--w: 71.0%"></span></div><strong>27,1</strong></div>
-      <div class="avaluo-bars__row"><span>Providencia</span><div class="avaluo-bars__track"><span style="--w: 42.7%"></span></div><strong>16,3</strong></div>
-      <div class="avaluo-bars__row"><span>Lo Barnechea</span><div class="avaluo-bars__track"><span style="--w: 41.9%"></span></div><strong>16,0</strong></div>
-      <div class="avaluo-bars__row"><span>Vitacura</span><div class="avaluo-bars__track"><span style="--w: 39.8%"></span></div><strong>15,2</strong></div>
-    </section>
-  </div>
-  <p class="avaluo-bars__note">Total nacional asignado: 587,4 billones CLP. En comunas con fuga UV o baja cobertura relativa del denominador RSH, este tamaño no debe confundirse con una lectura completa del territorio ni de sus residentes.</p>
-</figure>
+{: .table-caption}
+**Tabla 1** — Avalúo fiscal asignado antes de normalizar
+
+| Nivel | Territorio | Avalúo asignado (billones CLP) | Participación nacional |
+|---|---|---:|---:|
+| Región | Metropolitana | 286,7 | 48,8% |
+| Región | Valparaíso | 56,2 | 9,6% |
+| Región | Biobío | 39,4 | 6,7% |
+| Región | La Araucanía | 28,2 | 4,8% |
+| Región | Maule | 26,4 | 4,5% |
+| Comuna | Las Condes | 38,2 | 6,5% |
+| Comuna | Santiago | 27,1 | 4,6% |
+| Comuna | Providencia | 16,3 | 2,8% |
+| Comuna | Lo Barnechea | 16,0 | 2,7% |
+| Comuna | Vitacura | 15,2 | 2,6% |
+
+Participación calculada sobre el total nacional asignado de 587,4 billones. Los montos de La Araucanía y Maule se derivan de esa participación publicada, no de una cifra medida aparte. En comunas con fuga UV o baja cobertura relativa del denominador RSH, este tamaño no debe confundirse con una lectura completa del territorio ni de sus residentes.
+{: .small}
+
+Las cinco comunas de la tabla suman **112,8 billones**: **19,2% de toda la base asignada del país** en cinco de 346 comunas, todas del sector oriente de Santiago. Esa es la concentración que después queda escondida cuando se divide por hogares o por metros cuadrados.
+{: .text-justify}
 
 ## Cucharada 2: cuartiles, bivariado y denominadores
 
@@ -200,7 +208,7 @@ Si se divide por hogares RSH, el cuartil de mayor vulnerabilidad (`q1` IGVUST) c
 {: .text-justify}
 
 {: .table-caption}
-**Tabla 1** — Unidades vecinales por cuartil nacional de vulnerabilidad y avalúo por hogar
+**Tabla 2** — Unidades vecinales por cuartil nacional de vulnerabilidad y avalúo por hogar
 
 | Cuartil IGVUST | Avalúo/hogar q1 | q2 | q3 | q4 |
 |---|---:|---:|---:|---:|
@@ -218,7 +226,7 @@ Las UV vulnerables con mayor avalúo por hogar tienen mediana de **120,5 hogares
 {: .text-justify}
 
 {: .table-caption}
-**Tabla 2** — Mecanismo del cuartil más vulnerable (`q1` IGVUST)
+**Tabla 3** — Mecanismo del cuartil más vulnerable (`q1` IGVUST)
 
 | Avalúo/hogar | UV | Hogares mediana | Superficie mediana (km²) | Avalúo/hogar mediano (millones CLP) |
 |---|---:|---:|---:|---:|
@@ -236,7 +244,7 @@ La siguiente tabla usa dos resúmenes entre -1 y +1. **Pearson** resume una rela
 {: .text-justify}
 
 {: .table-caption}
-**Tabla 3** — Sensibilidad de la asociación al denominador
+**Tabla 4** — Sensibilidad de la asociación al denominador
 
 | Medida de avalúo | Pearson | Spearman | UV |
 |---|---:|---:|---:|
@@ -249,17 +257,17 @@ La siguiente tabla usa dos resúmenes entre -1 y +1. **Pearson** resume una rela
 Por hogar y por persona, la asociación es casi nula. Por m², el patrón nacional parece fuerte. Al restringir a UV predominantemente urbanas cambia a aproximadamente +0,08. La lectura prudente es que el resultado nacional por m² contiene mucho contraste urbano-rural; no que se haya identificado un mecanismo de barrio.
 {: .text-justify}
 
-Los violines de la Figura 2 muestran la distribución completa. Su ancho indica dónde se concentran más UV; las líneas internas muestran mediana y rango intercuartílico. Son densidades suavizadas, no siluetas literales del territorio.
+Los violines de la Figura 3 muestran la distribución completa. Su ancho indica dónde se concentran más UV; las líneas internas muestran mediana y rango intercuartílico. Son densidades suavizadas, no siluetas literales del territorio.
 {: .text-justify}
 
 <figure class="align-center">
-  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" title="Figura 2 — Sensibilidad al denominador y al universo" aria-label="Abrir la Figura 2 ampliada">
+  <a class="image-popup" href="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" title="Figura 3 — Sensibilidad al denominador y al universo" aria-label="Abrir la Figura 3 ampliada">
     <picture>
       <source srcset="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.svg' | relative_url }}" type="image/svg+xml">
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp' | relative_url }}" alt="Tres gráficos de violín comparan las distribuciones de avalúo por hogar, avalúo por metro cuadrado nacional y avalúo por metro cuadrado en unidades vecinales mayoritariamente urbanas, para los cuatro cuartiles nacionales de vulnerabilidad." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 2</strong> — El mismo avalúo produce distribuciones distintas al cambiar el denominador y el universo. Los violines muestran densidades estimadas; su forma depende del ancho de banda y no prueba grupos naturales ni causalidad. Las líneas internas resumen mediana y rango intercuartílico. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
+  <figcaption><strong>Figura 3</strong> — El mismo avalúo produce distribuciones distintas al cambiar el denominador y el universo. Los violines muestran densidades estimadas; su forma depende del ancho de banda y no prueba grupos naturales ni causalidad. Las líneas internas resumen mediana y rango intercuartílico. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
 </figure>
 
 ### 4. Lo robusto es la sensibilidad
@@ -286,13 +294,13 @@ $$
 Agrupando por región, $$T = 1{,}2042$$ y 81,0% queda dentro de las regiones. Al reagrupar por comuna, la parte entre-grupos llega a 56,9%. La comuna no "revela" segregación por arte de magia: al refinar una partición, parte de la desigualdad se desplaza desde el componente intra al componente entre por construcción ([Shorrocks, 1984](https://doi.org/10.2307/1913511)).
 {: .text-justify}
 
-Ese es el problema de la unidad areal modificable, o MAUP ([Fotheringham & Wong, 1991](https://doi.org/10.1068/a231025)). Los mismos predios pueden producir estadísticas distintas si se agrupan en regiones, comunas o UV. La escala no adorna el resultado: lo define.
+Ese es el problema de la unidad areal modificable, o MAUP ([Fotheringham & Wong, 1991](https://doi.org/10.1068/a231025)). Los mismos predios pueden producir estadísticas distintas si se agrupan en regiones, comunas o UV. La escala no adorna el resultado: lo define. Por eso importa qué es la UV antes de usarla como contenedor: si la unidad no corresponde a un territorio con sentido propio, la estadística que produce hereda ese desajuste.
 {: .text-justify}
 
 Segundo freno: los cuartiles IGVUST ordenan UV, no personas. El cuartil de mayor vulnerabilidad reúne 25% de las unidades, pero **2.032.893 de 15.978.644 personas RSH (12,7%)**. Una coropleta puede sobrerrepresentar territorio rural disperso aunque sus colores estén perfectamente calculados.
 {: .text-justify}
 
-Tercer freno: la literatura de *assessment ratio* muestra que la valoración fiscal puede apartarse sistemáticamente de valores de mercado y que el patrón depende del contexto institucional. [Hodge, McMillen, Sands y Skidmore (2017)](https://doi.org/10.1111/1540-6229.12126) estudian ese problema en otro mercado; no prueban que el SII tenga el mismo sesgo. Lo que sí impiden es usar avalúo fiscal como sinónimo de precio de mercado.
+Tercer freno: la literatura de *assessment ratio* muestra que la valoración fiscal puede apartarse sistemáticamente de valores de mercado y que el patrón depende del contexto institucional. [Hodge, McMillen, Sands y Skidmore (2017)](https://doi.org/10.1111/1540-6229.12126) estudian ese problema en otro mercado; no prueban que el SII tenga el mismo sesgo. Lo que sí evidencian es que usar avalúo fiscal como sinónimo de precio de mercado requiere de factores de ajuste importantes, pese a eso, los gradientes o tendencias territoriales no deberían distar tanto.
 {: .text-justify}
 
 ## Cierre: las brechas también pagan contribuciones
@@ -306,7 +314,7 @@ El mapa no dicta una política tributaria. Sí impide fingir que la base es homo
 **Brecha 2: geometría y superficie.** El prorrateo requiere polígonos. La superficie declarada no reemplaza una geometría faltante sin una regla espacial adicional. Comunas con muchos predios sin polígono necesitan una alerta antes de interpretar su color.
 {: .text-justify}
 
-**Brecha 3: fuga fuera de UV.** La UV no cubre todo el territorio catastral. Si una comuna concentra mucho avalúo fuera de UV, el cruce describe un subconjunto, no su total comunal.
+**Brecha 3: fuga fuera de UV.** La UV no cubre todo el territorio catastral. Si una comuna concentra mucho avalúo fuera de UV, el cruce describe un subconjunto, no su total comunal. Las UVs requieren de trabajo local para ajustarse mejor a la realidad.
 {: .text-justify}
 
 **Brecha 4: urbano-rural.** El avalúo por m² tiene una señal nacional fuerte, pero cambia al restringir el universo a UV urbanas. El indicador requiere un filtro de universo, no sólo una paleta intensa.
@@ -318,13 +326,13 @@ El mapa no dicta una política tributaria. Sí impide fingir que la base es homo
 Estas brechas tampoco son una defensa automática de cada avalúo, tasa o cobro vigente. Aliviar a una persona con poca liquidez y una vivienda valorizada es un problema real. La evidencia comparada ofrece instrumentos más precisos: rebajas según ingreso, topes de carga, diferimientos hasta la venta o herencia y reavalúos transparentes. No hace falta pedirle al catastro que finja que el activo dejó de existir.
 {: .text-justify}
 
-Se puede, desde luego, retirar la obligación de una columna y reponerla con transferencias desde otra. El alivio queda visible; su financiamiento se muda. Antes de celebrar que la cuenta desapareció, conviene revisar la segunda planilla y preguntar qué territorios terminan pagando la cortesía.
+Se puede, desde luego, retirar la obligación de una columna y reponerla con transferencias desde otra. El alivio queda visible; su financiamiento se muda. Antes de celebrar que la cuenta desapareció, conviene revisar la segunda planilla y preguntar qué territorios terminan pagando la "cortesía".
 {: .text-justify}
 
 El visor permite explorar estas brechas de lo general a lo particular: el país completo, la comuna que elijas, sus unidades vecinales en el bivariado y un laboratorio que vuelve a subir de escala para probar denominadores, con vista de avalúos, distribuciones, sensibilidad y lectura comunal. Una exención no deja de ser distributiva porque se llame beneficio: también tiene numerador, denominador y geografía.
 {: .text-justify}
 
-<a class="btn btn--primary" href="{{ '/catastro_sii_brecha/?vista=avaluos' | relative_url }}">Explorar el mapa y el laboratorio de denominadores</a>
+<a class="btn btn--primary" href="{{ '/catastro_sii_brecha/' | relative_url }}">Explorar el mapa y el laboratorio de denominadores</a>
 
 ---
 

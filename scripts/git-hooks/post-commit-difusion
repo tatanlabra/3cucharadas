@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+# Hook de difusión: RESUELVE Y REGISTRA, NO PUBLICA.
+#
+# Cuando un commit toca un post de `_posts/`, calcula a qué destinos corresponde
+# ese artículo —cruzando el idioma de sus versiones, el público de cada destino y
+# las etiquetas que realmente declara— y deja la resolución escrita en
+# `difusion/state/destinos/<ref>.json`.
+#
+# Deliberadamente no publica nada. La publicación real sigue pasando por
+# `cucharadas-difusion publish`, que tiene revisión humana por diseño. Un hook que
+# publicara al commitear pondría contenido en público antes de que nadie lo lea.
+#
+# Existe porque la elegibilidad de un destino depende de detalles fáciles de
+# romper sin darse cuenta: una etiqueta `geospatial` donde el destino espera
+# `geo` deja el artículo fuera de OSGeo sin ningún aviso. Registrar la resolución
+# en cada commit hace visible ese tipo de error mientras aún se puede corregir.
+#
+# Instalación: ver scripts/git-hooks/README.md
+# Nunca falla el commit: el peor caso es no dejar traza.
+
+set -u
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+difusion_src="$repo_root/difusion/src"
+
+# Sin la herramienta local no hay nada que resolver.
+[ -d "$difusion_src" ] || exit 0
+
+if command -v python3 >/dev/null 2>&1; then
+  python_bin="python3"
+elif command -v python >/dev/null 2>&1; then
+  python_bin="python"
+else
+  exit 0
+fi
+
+# Sólo los posts tocados por ESTE commit. Si el commit no toca posts, no hay
+# nada que recalcular y el hook sale en silencio.
+posts_tocados="$(git diff-tree --no-commit-id --name-only -r HEAD -- '_posts/*.md' 2>/dev/null || true)"
+[ -n "$posts_tocados" ] || exit 0
+
+# Un par ES/EN comparte `ref`, así que se deduplica: un commit que toque ambas
+# versiones resuelve una sola vez.
+refs="$(
+  while IFS= read -r archivo; do
+    [ -f "$repo_root/$archivo" ] || continue
+    sed -n 's/^ref:[[:space:]]*//p' "$repo_root/$archivo" | head -1
+  done <<< "$posts_tocados" | sed '/^$/d' | sort -u
+)"
+[ -n "$refs" ] || exit 0
+
+while IFS= read -r ref; do
+  if salida="$(
+    PYTHONPATH="$difusion_src" "$python_bin" -m cucharadas_difusion.cli \
+      --repo "$repo_root" destinations record "$ref" 2>&1
+  )"; then
+    printf 'difusion: destinos resueltos para %s\n' "$ref"
+    # Sólo los listos, para que el terminal no se llene en cada commit.
+    printf '%s\n' "$salida" | grep -F '[x]' || true
+  else
+    printf 'difusion: no se pudo resolver destinos para %s (%s)\n' \
+      "$ref" "$(printf '%s' "$salida" | tail -1)"
+  fi
+done <<< "$refs"
+
+exit 0
