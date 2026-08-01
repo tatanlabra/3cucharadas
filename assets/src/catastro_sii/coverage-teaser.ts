@@ -13,6 +13,7 @@ import { SVGRenderer } from "echarts/renderers";
 import type { ECharts, EChartsCoreOption } from "echarts/core";
 import {
   CHART_COLORS,
+  bindLegendSelectionControls,
   chartBase,
   escapeHtml,
   finiteNumber,
@@ -224,7 +225,9 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
           borderWidth: 2,
           opacity: ghostStyleFor(point, ghostState).opacity
         },
-        label: { formatter: point.name }
+        // El pin de "más sobre el tope" cae en y=100, el máximo del eje: con la etiqueta
+        // arriba queda cortada contra el borde del SVG. Cerca del tope se dibuja abajo.
+        label: { formatter: point.name, position: point.coverageDisplay >= 88 ? "bottom" : "top" }
       }));
     return {
       name: region,
@@ -397,6 +400,11 @@ export async function mountCoverageTeaser(): Promise<void> {
     ghostState = initialGhostState();
     renderChart(points);
     renderTable(points);
+    // Los atajos de leyenda nacen `hidden` en el marcado: sin bundle o sin datos no
+    // controlan nada, así que sólo aparecen cuando ya hay un chart montado.
+    const legendControls = document.getElementById("coverage-teaser-legend-controls");
+    if (legendControls) legendControls.hidden = false;
+    bindLegendSelectionControls("coverage-teaser-chart", "coverage-teaser-legend-all", "coverage-teaser-legend-none");
     const truncatedCount = points.filter((point) => point.truncated).length;
     setStatus(`${integer.format(points.length)} comunas con avalúo fiscal registrado${truncatedCount ? ` · ${integer.format(truncatedCount)} superan 100% de cobertura y se muestran recortadas en el eje vertical, aunque el valor real sigue disponible en el tooltip` : ""}. Haz clic en una burbuja para cargarla abajo, o revisa primero la tabla completa.`);
   } catch (error) {

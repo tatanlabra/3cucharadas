@@ -75,6 +75,43 @@ export function getChart(element: HTMLElement, label: string): ECharts {
   return existing ?? echarts.init(element, undefined, { renderer: "svg" });
 }
 
+/** Enciende o apaga la leyenda completa de una instancia ya montada.
+ *
+ * ECharts 6.1 registra `legendAllSelect` y `legendInverseSelect` (ver
+ * `component/legend/legendAction.js`). El handler consulta
+ * `ecModel.eachComponent({ mainType: "legend", query: payload })`, y con un payload
+ * sin `legendIndex`/`legendId`/`legendName` la query queda vacía: `queryComponents`
+ * devuelve entonces *todos* los componentes `legend` del option. Por eso un único
+ * dispatch alcanza a los cuatro `legend` con que el teaser arma su grilla 4×4 y no
+ * hace falta iterar por índice.
+ *
+ * Para vaciar la leyenda se encadenan las dos acciones. `legendInverseSelect` sólo
+ * invierte: sobre un estado mixto encendería lo que estaba apagado en vez de apagarlo
+ * todo. Pasar antes por `legendAllSelect` uniforma el estado y la inversión lo apaga
+ * entero, en dos dispatches en vez de un `legendUnSelect` por región. */
+export function setLegendSelection(chart: ECharts, selectAll: boolean): void {
+  chart.dispatchAction({ type: "legendAllSelect" });
+  if (!selectAll) chart.dispatchAction({ type: "legendInverseSelect" });
+}
+
+/** Enlaza el par de botones «Seleccionar todas» / «Deseleccionar todas» al gráfico
+ * del contenedor indicado. La instancia se resuelve dentro del click, no al enlazar:
+ * ambos gráficos rehacen su option con `setOption(..., true)` en cada re-render y el
+ * enlace ocurre una sola vez. */
+export function bindLegendSelectionControls(chartElementId: string, allButtonId: string, noneButtonId: string): void {
+  const element = document.getElementById(chartElementId);
+  if (!element) return;
+  const controls: Array<[string, boolean]> = [[allButtonId, true], [noneButtonId, false]];
+  for (const [buttonId, selectAll] of controls) {
+    const button = document.getElementById(buttonId);
+    if (!(button instanceof HTMLButtonElement)) continue;
+    button.addEventListener("click", () => {
+      const chart = echarts.getInstanceByDom(element);
+      if (chart) setLegendSelection(chart, selectAll);
+    });
+  }
+}
+
 export function makeElement<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string): HTMLElementTagNameMap[K] {
   const element = document.createElement(tag);
   if (className) element.className = className;

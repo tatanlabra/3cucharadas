@@ -12,6 +12,7 @@ import { SVGRenderer } from "echarts/renderers";
 import type { EChartsCoreOption } from "echarts/core";
 import {
   CHART_COLORS,
+  bindLegendSelectionControls,
   chartBase,
   currency,
   escapeHtml,
@@ -611,6 +612,12 @@ function renderCommunes(
   const element = document.getElementById("lab-communes-chart");
   const status = document.getElementById("lab-communes-status");
   if (!element) return;
+  // Este chart sólo tiene leyenda por región cuando la unidad territorial es comuna:
+  // con "Regiones" la serie es una sola ("Regiones") y el propio option la oculta
+  // (`show: rankingUnit === "communes"`). Los atajos siguen esa misma condición para
+  // no dejar botones que no controlan nada.
+  const legendControls = document.getElementById("lab-communes-legend-controls");
+  if (legendControls) legendControls.hidden = rankingUnit !== "communes";
   const colors = themeColors();
   const normalizedQuery = query.trim().toLocaleLowerCase("es-CL");
   const allRanked = territoryRecords(communes, rankingUnit);
@@ -800,6 +807,7 @@ export class DenominatorLaboratory {
       this.rendered.delete("comunas");
       this.renderCommunes();
     });
+    bindLegendSelectionControls("lab-communes-chart", "lab-communes-legend-all", "lab-communes-legend-none");
   }
 
   private activate(view: LaboratoryView, updateUrl: boolean): void {

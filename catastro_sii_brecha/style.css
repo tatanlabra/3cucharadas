@@ -20,6 +20,13 @@
   --shadow: 0 7px 18px rgba(0, 0, 0, 0.24), 0 28px 60px rgba(0, 0, 0, 0.31);
   --shadow-lg: 0 14px 34px rgba(0, 0, 0, 0.38), 0 46px 100px rgba(0, 0, 0, 0.42);
   --ring: 0 0 0 3px rgba(55, 231, 255, 0.35);
+  /* Tokens de acento para TEXTO. En oscuro coinciden con el acento; en claro se
+     oscurecen para pasar WCAG AA sobre superficies blancas, donde --acid (1,21:1),
+     --cyan-soft (1,18:1) y --yellow (1,44:1) son ilegibles. Los acentos originales
+     siguen usándose como relleno y borde, que es donde su brillo sí funciona. */
+  --cyan-text: var(--cyan-soft);
+  --acid-text: var(--acid);
+  --yellow-text: var(--yellow);
   --radius: 18px;
   --radius-sm: 11px;
   --radius-pill: 999px;
@@ -41,6 +48,9 @@
   --shadow: 0 7px 18px rgba(11, 23, 42, 0.08), 0 28px 60px rgba(11, 23, 42, 0.12);
   --shadow-lg: 0 14px 34px rgba(11, 23, 42, 0.15), 0 46px 100px rgba(11, 23, 42, 0.17);
   --ring: 0 0 0 3px rgba(0, 153, 181, 0.24);
+  --cyan-text: #05677c;
+  --acid-text: #3f6b00;
+  --yellow-text: #8a5a00;
   color-scheme: light;
 }
 
@@ -73,7 +83,7 @@ body {
 }
 
 a {
-  color: var(--cyan);
+  color: var(--cyan-text);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
   transition: color 140ms ease;
@@ -260,7 +270,7 @@ h3 { font-size: 1rem; }
 .kicker,
 .section-eyebrow {
   margin: 0 0 7px;
-  color: var(--cyan);
+  color: var(--cyan-text);
   font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -375,8 +385,35 @@ main.wrap {
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 620ms cubic-bezier(.2, .7, .2, 1), transform 620ms cubic-bezier(.2, .7, .2, 1); }
 .reveal.in { opacity: 1; transform: none; }
 
-.control-number { display: inline-grid; place-items: center; border-radius: 50%; font-weight: 900; }
-.step .n { width: 34px; height: 34px; background: linear-gradient(145deg, var(--cyan), #3f7cff); box-shadow: 0 6px 14px rgba(55, 231, 255, 0.2); color: #07121b; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+
+.step {
+  padding: 20px 18px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  box-shadow: var(--shadow-sm);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.step:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow); }
+/* `.n` es un <span>, es decir `display: inline` por defecto: sin `inline-grid` el
+   ancho y el alto se ignoran y el degradado se pinta sólo detrás del glifo, que es
+   el número "comprimido" que se veía. Las propiedades de forma vivían en una clase
+   `.control-number` que el marcado nunca aplicó, así que van acá directamente. */
+.step .n {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--cyan), #3f7cff);
+  box-shadow: 0 6px 14px rgba(55, 231, 255, 0.2);
+  color: #07121b;
+  font-size: .95rem;
+  font-weight: 900;
+  line-height: 1;
+}
 .step h3 { margin: 14px 0 6px; }
 .step p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
@@ -467,7 +504,7 @@ main.wrap {
   position: absolute;
   top: 50%;
   right: 15px;
-  color: var(--cyan);
+  color: var(--cyan-text);
   content: "⌄";
   font-size: 1.15rem;
   font-weight: 900;
@@ -605,7 +642,7 @@ main.wrap {
   background: linear-gradient(180deg, color-mix(in srgb, var(--pink) 7%, var(--surface)), var(--surface));
 }
 
-.map-support h3 { margin: 0 0 4px; color: var(--cyan); }
+.map-support h3 { margin: 0 0 4px; color: var(--cyan-text); }
 .map-support p { margin: 0; color: var(--muted); font-size: 0.9rem; }
 .inline-link { font-weight: 800; white-space: nowrap; }
 
@@ -617,7 +654,7 @@ main.wrap {
 .map-layer-picker input:disabled { cursor: not-allowed; opacity: 0.45; }
 .map-reset { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; gap: 6px; padding: 8px 13px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: transparent; color: var(--ink); font: inherit; font-size: .79rem; font-weight: 820; cursor: pointer; }
 .map-reset:hover { border-color: var(--cyan); background: color-mix(in srgb, var(--cyan) 10%, transparent); }
-.map-reset[aria-pressed="true"] { border-color: color-mix(in srgb, var(--cyan) 65%, var(--line-strong)); background: color-mix(in srgb, var(--cyan) 12%, transparent); color: var(--cyan-soft); }
+.map-reset[aria-pressed="true"] { border-color: color-mix(in srgb, var(--cyan) 65%, var(--line-strong)); background: color-mix(in srgb, var(--cyan) 12%, transparent); color: var(--cyan-text); }
 .map-reset:focus-visible, .map-layer-picker input:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
 .map-tools .map-status { grid-column: 1 / -1; text-align: right; }
 
@@ -648,7 +685,7 @@ main.wrap {
   min-height: 2.5em;
   padding-top: 8px;
   border-top: 1px solid var(--line);
-  color: var(--cyan-soft) !important;
+  color: var(--cyan-text) !important;
   font-weight: 760;
 }
 .chile-selector-scroll {
@@ -757,8 +794,8 @@ main.wrap {
 .lab-tabs button:hover { color: var(--ink); border-color: var(--line-strong); }
 .lab-tabs button[aria-selected="true"] { border-color: color-mix(in srgb, var(--cyan) 68%, var(--line)); background: color-mix(in srgb, var(--cyan) 11%, var(--surface)); box-shadow: var(--shadow-sm); color: var(--ink); }
 .lab-tabs button:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
-.lab-status { min-height: 1.5em; margin: 14px 2px 0; color: var(--cyan-soft); font-size: .84rem; font-weight: 720; }
-.lab-card[data-state="partial"] .lab-status { color: var(--yellow); }
+.lab-status { min-height: 1.5em; margin: 14px 2px 0; color: var(--cyan-text); font-size: .84rem; font-weight: 720; }
+.lab-card[data-state="partial"] .lab-status { color: var(--yellow-text); }
 .lab-card[data-state="error"] .lab-status { color: #ff9a94; }
 .lab-panel { margin-top: 15px; padding-top: 20px; border-top: 1px solid var(--line); }
 .lab-panel[hidden] { display: none; }
@@ -809,15 +846,20 @@ main.wrap {
 .lab-sensitivity-grid > article { min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .lab-sensitivity-grid h4 { font-size: .92rem; }
 .lab-filter-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0 0; padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--surface-3) 72%, transparent); }
+/* `.lab-filter-bar` fija `display`, así que gana por especificidad al `display:none`
+   que la hoja del navegador aplica a `[hidden]`. Los atajos de leyenda nacen
+   ocultos y los destapa el bundle, de modo que hay que restituirlo explícitamente. */
+.lab-filter-bar[hidden] { display: none; }
 .lab-filter-note { margin: 0; color: var(--ink-soft); font-size: .84rem; font-weight: 720; }
-.lab-reset-filter { min-height: 40px; flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: var(--surface); color: var(--ink); font: inherit; font-size: .78rem; font-weight: 820; cursor: pointer; }
+.lab-legend-actions { display: flex; flex: 0 0 auto; flex-wrap: wrap; gap: 8px; }
+.lab-reset-filter { min-height: 44px; flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: var(--surface); color: var(--ink); font: inherit; font-size: .78rem; font-weight: 820; cursor: pointer; }
 .lab-reset-filter:hover { border-color: var(--cyan); background: color-mix(in srgb, var(--cyan) 10%, var(--surface)); }
 .lab-reset-filter:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
 .lab-controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 18px 0 8px; }
 .lab-controls label { display: grid; gap: 6px; color: var(--muted); font-size: .78rem; font-weight: 760; }
 .lab-controls select, .lab-controls input { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-3); color: var(--ink); font: inherit; font-size: .88rem; }
 .lab-controls select:focus-visible, .lab-controls input:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
-.lab-communes-status { margin: 10px 0 0; color: var(--cyan-soft); font-size: .82rem; }
+.lab-communes-status { margin: 10px 0 0; color: var(--cyan-text); font-size: .82rem; }
 .lab-table-details { margin-top: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
 .lab-table-details summary { min-height: 44px; padding: 11px 14px; color: var(--ink-soft); font-size: .84rem; font-weight: 800; cursor: pointer; }
 .lab-table-details summary:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; }
@@ -1066,9 +1108,10 @@ main.wrap {
 .metric-chip small b { color: var(--ink-soft); }
 .metric-chip.primary { border-color: color-mix(in srgb, var(--acid) 66%, var(--line)); background: linear-gradient(145deg, color-mix(in srgb, var(--acid) 12%, var(--surface)), var(--surface)); }
 .metric-chip.primary { grid-column: span 2; min-height: 174px; }
-.metric-chip.primary strong { color: var(--acid); font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.04; text-shadow: 0 0 22px rgba(184, 255, 60, 0.18); }
+.metric-chip.primary strong { color: var(--acid-text); font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.04; }
+:root:not([data-theme="light"]) .metric-chip.primary strong { text-shadow: 0 0 22px rgba(184, 255, 60, 0.18); }
 .metric-chip.caution { border-color: color-mix(in srgb, var(--yellow) 49%, var(--line)); }
-.metric-chip.caution strong { color: var(--yellow); }
+.metric-chip.caution strong { color: var(--yellow-text); }
 
 .metric-grid.refresh .metric-chip strong { animation: number-flash 520ms ease both; }
 @keyframes number-flash { 0% { opacity: 0.35; transform: translateY(5px); } 100% { opacity: 1; transform: none; } }
@@ -1087,7 +1130,7 @@ main.wrap {
 
 .finding-inline h3 {
   margin: 0;
-  color: var(--cyan);
+  color: var(--cyan-text);
   font-size: .95rem;
   font-weight: 860;
   letter-spacing: .04em;
@@ -1144,13 +1187,13 @@ main.wrap {
 .link-card strong, .link-card small { display: block; }
 .link-card strong { font-size: 0.98rem; }
 .link-card small { margin-top: 2px; color: var(--muted); font-size: 0.84rem; }
-.link-card .lc-arrow { margin-left: auto; color: var(--cyan); font-size: 1.1rem; font-weight: 900; transition: transform 150ms ease; }
+.link-card .lc-arrow { margin-left: auto; color: var(--cyan-text); font-size: 1.1rem; font-weight: 900; transition: transform 150ms ease; }
 .link-card:hover .lc-arrow { transform: translateX(3px); }
 
 .foot { padding: 34px 0 46px; border-top: 1px solid var(--line); background: var(--surface-2); color: var(--ink-soft); }
 .foot p { margin: 8px 0; }
 .foot .small { color: var(--muted); font-size: 0.86rem; }
-.foot .map-version { color: var(--cyan-soft); font-variant-numeric: tabular-nums; }
+.foot .map-version { color: var(--cyan-text); font-variant-numeric: tabular-nums; }
 
 /* Metodología: comparte componentes sin cargar app.js. */
 .method-hero-shell { padding-bottom: clamp(58px, 8vw, 92px); }
@@ -1159,7 +1202,7 @@ main.wrap {
 .method-grid .card { margin: 0; }
 .method-grid .wide { grid-column: 1 / -1; }
 .method-grid p, .method-grid li { color: var(--ink-soft); }
-.method-grid code, code { overflow-wrap: anywhere; color: var(--acid); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88em; }
+.method-grid code, code { overflow-wrap: anywhere; color: var(--acid-text); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88em; }
 .method-grid ul { padding-left: 20px; }
 .note { padding: 15px 17px; border-left: 4px solid var(--cyan); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: color-mix(in srgb, var(--cyan) 8%, var(--surface)); }
 
