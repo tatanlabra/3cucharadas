@@ -12,7 +12,6 @@ const uvIndexUrl = "/catastro_sii_brecha/data/uv/index.json";
 const chileSelectorUrl = "/catastro_sii_brecha/data/chile-selector.json";
 const capitalComunalViewsUrl = "/catastro_sii_brecha/data/capital_comunal_views.json";
 const SVG_NS = "http://www.w3.org/2000/svg";
-const DEFAULT_COMMUNE_CODE = "3202";
 
 type TerritoryIndex = { communes?: Record<string, { bounds?: [number, number, number, number] }> };
 type ChileSelectorFeature = { code: string; comuna: string; region: string; d: string };
@@ -300,7 +299,6 @@ export class CatastroMapApplication {
     const container = document.getElementById("bivariate-map");
     if (!container) return;
     setAttribution(this.manifest.basemap?.attribution);
-    this.bindSelectionDock();
     await this.mountBivariateMap();
     this.bindMapTools();
     setStatus("Visor UV listo. Elige una región y comuna para leer el bivariado.");
@@ -346,16 +344,11 @@ export class CatastroMapApplication {
     const selectedCode = this.state.communeCode
       ?? (selector instanceof HTMLSelectElement ? toDataCommuneCode(selector.value) : null);
     if (!selectedCode) {
-      const defaultRow = this.rows.find((entry) => entry.codigo_comuna === DEFAULT_COMMUNE_CODE);
-      if (defaultRow) {
-        this.state.regionCode = regionCodeForName(defaultRow.region);
-        this.state.communeCode = defaultRow.codigo_comuna;
-        this.state.parcelLayerVisible = false;
-        this.state.uvLayerVisible = true;
-        this.state.mapScale = "uv";
-        this.selectFromMap(defaultRow.codigo_comuna);
-        return;
-      }
+      // Sin comuna en la URL ni en el <select>, el visor abre en estado nacional
+      // real: los chips de #metric-scope suman las 346 comunas y el bivariado
+      // queda en espera explícita. Acá había un fallback a una comuna fija que
+      // dejaba el mapa cargando un territorio que la ficha nacional no declaraba
+      // en ninguna parte; el arranque sin selección ya no tiene ese default.
       this.state.parcelLayerVisible = false;
       this.state.mapScale = "uv";
       // Mantener el intent UV encendido: sin comuna no hay fetch; al seleccionar
@@ -397,7 +390,6 @@ export class CatastroMapApplication {
     this.state.regionCode = regionCodeForName(row.region);
     this.state.communeCode = row.codigo_comuna;
     this.state = reconcileMapAvailability(this.state, false);
-    this.updateSelectionDock(row);
     this.updateTerritoryTable(row);
     const bivariateCard = document.getElementById("bivariate-card");
     if (bivariateCard) bivariateCard.hidden = false;
@@ -442,73 +434,25 @@ export class CatastroMapApplication {
     return false;
   }
 
+  /** El bivariado ya no tiene su propio par de <select>: el buscador principal
+   * (#region/#comuna en app.js) es el único hub de selección territorial. Acá sólo
+   * se escucha su cambio de región para atenuar el selector gráfico de Chile y
+   * anunciar el estado, sin duplicar un control para el mismo estado. */
   private bindBivariateTools(): void {
-    const region = document.getElementById("bivariate-region");
-    const commune = document.getElementById("bivariate-comuna");
-    if (!(region instanceof HTMLSelectElement) || !(commune instanceof HTMLSelectElement)) return;
-    this.populateBivariateRegions();
+    const region = document.getElementById("region");
+    if (!(region instanceof HTMLSelectElement)) return;
     region.addEventListener("change", () => {
       const regionName = region.value || null;
+      if (regionName === this.selectedRegionName) return;
       this.selectedRegionName = regionName;
-      this.populateBivariateCommunes(region.value);
       this.renderChileSelector();
-      this.dispatchRegionSelection(regionName);
       setBivariateSelectorStatus(regionName ? `${regionName}: selector filtrado; elige una comuna para fijar ambos mapas.` : "Selector nacional listo; elige una comuna.");
-      setBivariateStatus(region.value ? `Región ${region.value} lista; elige una comuna para cargar el mapa UV.` : "Bivariado en espera de comuna.");
+      setBivariateStatus(regionName ? `Región ${regionName} lista; elige una comuna para cargar el mapa UV.` : "Bivariado en espera de comuna.");
     });
-    commune.addEventListener("change", () => {
-      const code = toDataCommuneCode(commune.value);
-      if (code) this.selectFromMap(code);
-    });
-  }
-
-  private populateBivariateRegions(): void {
-    const region = document.getElementById("bivariate-region");
-    if (!(region instanceof HTMLSelectElement)) return;
-    const current = region.value;
-    const regions = [...new Set(this.rows.map((row) => row.region).filter(Boolean))];
-    region.innerHTML = "";
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "Elige una región";
-    region.append(placeholder);
-    for (const name of regions) {
-      const option = document.createElement("option");
-      option.value = name;
-      option.textContent = name;
-      region.append(option);
-    }
-    if (current && regions.includes(current)) region.value = current;
-  }
-
-  private populateBivariateCommunes(regionName: string, selectedCode: string | null = null): void {
-    const commune = document.getElementById("bivariate-comuna");
-    if (!(commune instanceof HTMLSelectElement)) return;
-    const rows = regionName
-      ? this.rows.filter((row) => row.region === regionName).sort((a, b) => a.comuna.localeCompare(b.comuna, "es"))
-      : [];
-    commune.innerHTML = "";
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = rows.length ? "Elige una comuna" : "Elige una región primero";
-    commune.append(placeholder);
-    for (const row of rows) {
-      const option = document.createElement("option");
-      option.value = row.codigo_comuna;
-      option.textContent = row.comuna;
-      commune.append(option);
-    }
-    commune.disabled = !rows.length;
-    if (selectedCode && rows.some((row) => row.codigo_comuna === selectedCode)) {
-      commune.value = selectedCode;
-    }
   }
 
   private syncBivariateSelectors(row: CommuneRecord): void {
     this.selectedRegionName = row.region;
-    const region = document.getElementById("bivariate-region");
-    if (region instanceof HTMLSelectElement) region.value = row.region;
-    this.populateBivariateCommunes(row.region, row.codigo_comuna);
     this.dispatchRegionSelection(row.region, row.codigo_comuna);
     this.renderChileSelector();
   }
@@ -641,42 +585,6 @@ export class CatastroMapApplication {
 
   private currentTheme(): "light" | "dark" {
     return document.documentElement.dataset.theme === "light" ? "light" : "dark";
-  }
-
-  private bindSelectionDock(): void {
-    const reset = document.getElementById("selection-reset");
-    if (!(reset instanceof HTMLButtonElement)) return;
-    reset.addEventListener("click", () => {
-      const defaultRow = this.rows.find((entry) => entry.codigo_comuna === DEFAULT_COMMUNE_CODE);
-      if (!defaultRow) return;
-      this.state.regionCode = regionCodeForName(defaultRow.region);
-      this.state.communeCode = defaultRow.codigo_comuna;
-      this.state.parcelLayerVisible = false;
-      this.state.uvLayerVisible = true;
-      this.state.mapScale = "uv";
-      this.selectFromMap(defaultRow.codigo_comuna);
-    });
-  }
-
-  private updateSelectionDock(row: CommuneRecord): void {
-    const dock = document.getElementById("selection-dock");
-    const title = document.getElementById("selection-dock-title");
-    const meta = document.getElementById("selection-dock-meta");
-    const reset = document.getElementById("selection-reset");
-    const aggregate = this.aggregateFor(row);
-    dock?.classList.add("has-selection");
-    if (title) title.textContent = row.comuna;
-    if (meta) {
-      meta.textContent = [
-        row.region,
-        `código ${row.codigo_comuna.padStart(5, "0")}`,
-        aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2} avm2 comunal` : "sin cuartil avm2",
-        `mediana ${formatCurrency(aggregate?.avm2_mediana)}/m²`
-      ].join(" · ");
-    }
-    if (reset instanceof HTMLButtonElement) {
-      reset.textContent = row.codigo_comuna === DEFAULT_COMMUNE_CODE ? "Reset Diego" : "Volver a Diego";
-    }
   }
 
   private updateTerritoryTable(row: CommuneRecord, summary: UvSummary | null = null): void {
