@@ -7,6 +7,8 @@ const entry = fs.readFileSync("assets/src/catastro_sii/main.ts", "utf8");
 const mapApplication = fs.readFileSync("assets/src/catastro_sii/app.ts", "utf8");
 const analytics = fs.readFileSync("assets/src/catastro_sii/analytics.ts", "utf8");
 const chartTheme = fs.readFileSync("assets/src/catastro_sii/chart-theme.ts", "utf8");
+const coverageTeaser = fs.readFileSync("assets/src/catastro_sii/coverage-teaser.ts", "utf8");
+const stylesheet = fs.readFileSync("catastro_sii_brecha/style.css", "utf8");
 const dictionary = JSON.parse(fs.readFileSync("catastro_sii_brecha/data/diccionario_metricas_comunales.json", "utf8"));
 
 describe("laboratorio accesible y perezoso", () => {
@@ -40,6 +42,28 @@ describe("laboratorio accesible y perezoso", () => {
     expect(entry).toContain('requested.get("vista") === "mapa"');
     expect(entry).toContain('requested.has("comuna")');
     expect(entry).toContain('window.location.hash === "#bivariate-card"');
+  });
+
+  it("ofrece atajos de leyenda para encender o apagar las 16 regiones en los dos gráficos de burbujas", () => {
+    for (const chart of ["coverage-teaser", "lab-communes"]) {
+      // Nacen ocultos: sin bundle no controlan nada, los destapa cada módulo al montar.
+      expect(html).toContain(`id="${chart}-legend-controls" hidden`);
+      expect(html).toContain(`id="${chart}-legend-all" type="button"`);
+      expect(html).toContain(`id="${chart}-legend-none" type="button"`);
+    }
+    // Un `div` sin rol descarta su aria-label: el par de botones va en un role="group".
+    expect(html.match(/class="lab-legend-actions" role="group" aria-label=/g)).toHaveLength(2);
+    expect(stylesheet).toContain(".lab-reset-filter { min-height: 44px;");
+    // Un solo dispatch alcanza a los cuatro componentes `legend` de la grilla 4×4 del
+    // teaser: sin legendIndex/legendId/legendName la query queda vacía y ECharts
+    // devuelve todos. `legendInverseSelect` sólo invierte, así que vaciar exige pasar
+    // antes por `legendAllSelect` para uniformar el estado.
+    expect(chartTheme).toContain('chart.dispatchAction({ type: "legendAllSelect" });');
+    expect(chartTheme).toContain('if (!selectAll) chart.dispatchAction({ type: "legendInverseSelect" });');
+    expect(coverageTeaser).toContain('bindLegendSelectionControls("coverage-teaser-chart", "coverage-teaser-legend-all", "coverage-teaser-legend-none")');
+    expect(analytics).toContain('bindLegendSelectionControls("lab-communes-chart", "lab-communes-legend-all", "lab-communes-legend-none")');
+    // El gráfico del laboratorio sólo tiene leyenda por región con unidad "Comunas".
+    expect(analytics).toContain('legendControls.hidden = rankingUnit !== "communes"');
   });
 
   it("mantiene ejes de avalúo en log10 con etiquetas en pesos originales", () => {
@@ -119,7 +143,30 @@ describe("recorrido narrativo de lo general a lo particular", () => {
     expect(html).toContain('id="assessment-note"');
     expect(legacyApp).toContain('for (const id of ["#historical", "#casen"])');
     expect(legacyApp).not.toContain('"#assessment-percentile", "#historical"');
-    expect(legacyApp).toContain("el percentil nacional aplica sólo a nivel comunal");
+    // La nota del chip cambia de referencia según el nivel, en vez de anunciar
+    // que el dato no aplica: nacional declara el universo sumado, y regional y
+    // comunal dan la porción de la base tributaria registrada.
+    expect(legacyApp).toContain('"CLP · suma de las 346 comunas del catastro"');
+    expect(legacyApp).toContain("del avalúo nacional registrado");
+    expect(legacyApp).toContain("del total nacional · percentil");
+  });
+
+  it("da magnitudes legibles con una referencia del mismo dominio", () => {
+    // Superficie: conversión área→área, sin insinuar valor. Avalúo: porción de la
+    // base tributaria, no sueldos ni autos — eso lo leería como riqueza, que es
+    // justo lo que el contrato de lectura descarta.
+    expect(legacyApp).toContain("const CANCHA_M2 = 105 * 68");
+    expect(legacyApp).toContain("canchas de fútbol");
+    expect(legacyApp).toContain("km²");
+    expect(legacyApp).toContain("billones");
+    expect(legacyApp).not.toMatch(/sueldos? mínimos?/i);
+    expect(html).toContain('id="surface-note"');
+  });
+
+  it("no grita «No aplica» en tipografía de titular", () => {
+    expect(legacyApp).toContain('set("#historical", disabled ? "—"');
+    expect(legacyApp).toContain('set("#casen", disabled ? "—"');
+    expect(html).toContain('id="historical-note"');
   });
 
   it("acepta ?region= tanto por nombre como por el código de 2 dígitos que escribe el visor", () => {

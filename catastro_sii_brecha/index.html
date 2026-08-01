@@ -98,9 +98,9 @@
         <article class="metric-chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
         <article class="metric-chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
         <article class="metric-chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
-        <article class="metric-chip"><span>Superficie total</span><strong id="surface">—</strong><small>m² de terreno reportados</small></article>
+        <article class="metric-chip"><span>Superficie total</span><strong id="surface">—</strong><small id="surface-note">m² de terreno reportados</small></article>
         <article class="metric-chip"><span>Avalúo total</span><strong id="assessment">—</strong><small id="assessment-note">CLP, percentil nacional <b id="assessment-percentile">—</b></small></article>
-        <article class="metric-chip"><span>Referencia histórica</span><strong id="historical">—</strong><small>vs proyección 2024 base Censo 2017</small></article>
+        <article class="metric-chip"><span>Referencia histórica</span><strong id="historical">—</strong><small id="historical-note">vs proyección 2024 base Censo 2017</small></article>
         <article class="metric-chip caution"><span>Sensibilidad CASEN</span><strong id="casen">—</strong><small id="casen-note">No disponible</small></article>
       </div>
     </section>
@@ -111,6 +111,13 @@
         <p>Los indicadores de arriba resumen el país en nueve cifras. Esta dispersión abre esa misma foto a las 346 comunas, para que compares antes de fijar tu elección. Cada burbuja es una comuna con avalúo fiscal registrado. El eje horizontal ubica el avalúo fiscal total en escala log10: cada marca que avanza multiplica por 10, aunque las etiquetas siguen mostrando pesos originales. El eje vertical ubica la cobertura residencial frente a las viviendas particulares totales del Censo 2024, con un tope de 100%. Algunas comunas superan ese valor y el gráfico las recorta ahí para no aplastar la lectura del resto, pero el tooltip y la tabla conservan el valor real sin recortar. El tamaño de cada burbuja usa hogares del Censo 2024; el color agrupa por región. Haz clic en una burbuja para cargar esa comuna en el buscador de abajo, o revisa primero la tabla completa.</p>
       </div>
       <p class="lab-communes-status" id="coverage-teaser-status" role="status">Cargando comunas…</p>
+      <div class="lab-filter-bar" id="coverage-teaser-legend-controls" hidden>
+        <p class="lab-filter-note">La leyenda agrupa las 16 regiones y cada una se apaga con un clic. Para aislar una sola, apaga todas y enciende la que te interesa.</p>
+        <div class="lab-legend-actions" role="group" aria-label="Seleccionar o deseleccionar todas las regiones del gráfico introductorio">
+          <button class="lab-reset-filter" id="coverage-teaser-legend-all" type="button">Seleccionar todas</button>
+          <button class="lab-reset-filter" id="coverage-teaser-legend-none" type="button">Deseleccionar todas</button>
+        </div>
+      </div>
       <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico introductorio de cobertura frente a avalúo"><div class="lab-chart lab-chart-wide" id="coverage-teaser-chart" aria-busy="true"></div></div>
       <details class="lab-table-details"><summary>Ver datos de cobertura y avalúo por comuna</summary><div class="lab-table-scroll" id="coverage-teaser-table" tabindex="0" aria-label="Desplazar tabla de cobertura y avalúo por comuna"></div></details>
     </section>
@@ -287,6 +294,13 @@
         </div>
         <p class="lab-panel-message" aria-live="polite"></p>
         <p class="lab-communes-status" id="lab-communes-status" role="status"></p>
+        <div class="lab-filter-bar" id="lab-communes-legend-controls" hidden>
+          <p class="lab-filter-note">Con unidad territorial «Comunas», la leyenda agrupa por región: estos atajos encienden o apagan las 16 de una vez.</p>
+          <div class="lab-legend-actions" role="group" aria-label="Seleccionar o deseleccionar todas las regiones del gráfico comunal">
+            <button class="lab-reset-filter" id="lab-communes-legend-all" type="button">Seleccionar todas</button>
+            <button class="lab-reset-filter" id="lab-communes-legend-none" type="button">Deseleccionar todas</button>
+          </div>
+        </div>
         <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar burbujas de ranking nacional"><div class="lab-chart lab-chart-wide lab-bubble-chart" id="lab-communes-chart"></div></div>
         <details class="lab-table-details"><summary>Ver tabla comunal filtrada</summary><div class="lab-table-scroll" id="lab-communes-table" tabindex="0" aria-label="Desplazar tabla comunal filtrada"></div></details>
       </div>

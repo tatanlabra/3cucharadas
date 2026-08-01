@@ -6,7 +6,34 @@
   const state = { communes: [], regions: [], selected: null, cells: null, requestId: 0, mapCommuneCodes: new Set(), mapRegions: new Set() };
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
-  const money = (value) => value == null ? "No disponible" : `$${number.format(value)}`;
+  const decimal1 = new Intl.NumberFormat("es-CL", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  /** Cancha de fútbol reglamentaria FIFA: 105 × 68 m. Sirve de referencia porque es
+   * una conversión de área a área — no cruza de dominio ni insinúa valor, riqueza o
+   * capacidad de compra, que es justo lo que este visor se prohíbe sugerir. */
+  const CANCHA_M2 = 105 * 68;
+
+  const surfaceValue = (m2) => {
+    if (m2 == null) return "No disponible";
+    if (m2 >= 1e6) return `${decimal1.format(m2 / 1e6)} km²`;
+    if (m2 >= 1e4) return `${decimal1.format(m2 / 1e4)} ha`;
+    return `${number.format(m2)} m²`;
+  };
+
+  const surfaceNote = (m2) => {
+    if (m2 == null) return "m² de terreno reportados";
+    const canchas = m2 / CANCHA_M2;
+    return `${number.format(m2)} m² · ≈ ${canchas >= 10 ? number.format(Math.round(canchas)) : decimal1.format(canchas)} canchas de fútbol`;
+  };
+
+  /** En Chile un billón son 10¹², no 10⁹. */
+  const money = (value) => {
+    if (value == null) return "No disponible";
+    if (value >= 1e12) return `$${decimal1.format(value / 1e12)} billones`;
+    if (value >= 1e9) return `$${decimal1.format(value / 1e9)} mil millones`;
+    if (value >= 1e6) return `$${decimal1.format(value / 1e6)} millones`;
+    return `$${number.format(value)}`;
+  };
   const set = (selector, value) => {
     const element = $(selector);
     if (element) element.textContent = value;
@@ -192,20 +219,35 @@
     set("#population", number.format(payload.population));
     set("#records", number.format(payload.records));
     set("#coordinates", pct(payload.coordinates));
-    set("#surface", payload.surface == null ? "No disponible" : `${number.format(payload.surface)} m²`);
+    set("#surface", surfaceValue(payload.surface));
+    set("#surface-note", surfaceNote(payload.surface));
     set("#assessment", money(payload.assessment));
     const disabled = scope !== "comunal";
-    set("#historical", disabled ? "No aplica a este nivel" : pct(payload.historical));
-    set("#casen", disabled ? "No aplica a este nivel" : (payload.casenAvailable ? pct(payload.casen) : "No disponible"));
-    set("#casen-note", disabled ? "No aplica a este nivel" : payload.casenNote);
+    // Fuera del nivel comunal estos dos no tienen valor: el slot grande queda en guion
+    // y el motivo va en la nota. Repetir "No aplica a este nivel" en tipografía de
+    // titular convertía un dato ausente en el elemento más ruidoso de la grilla.
+    set("#historical", disabled ? "—" : pct(payload.historical));
+    set("#historical-note", disabled
+      ? "Sólo a nivel comunal: la proyección 2017 no se puede sumar entre territorios"
+      : "vs proyección 2024 base Censo 2017");
+    set("#casen", disabled ? "—" : (payload.casenAvailable ? pct(payload.casen) : "No disponible"));
+    set("#casen-note", disabled
+      ? "Sólo a nivel comunal, y aun ahí como sensibilidad no representativa"
+      : payload.casenNote);
     // El avalúo total sí es sumable y se muestra en los tres niveles: lo que no aplica
     // fuera de lo comunal es su percentil nacional. Por eso se reescribe la nota del
     // chip en vez de atenuar la tarjeta completa, que apagaría una cifra válida.
+    // La referencia del avalúo se queda dentro del mismo dominio fiscal: qué porción
+    // de la base tributaria registrada cae en este territorio. Anclarlo a sueldos o a
+    // autos lo leería como riqueza o poder de compra, que es exactamente la inferencia
+    // que el contrato de lectura descarta.
+    const nationalAssessment = sumField(state.communes, "avaluo_total_clp");
+    const share = nationalAssessment && payload.assessment ? (payload.assessment / nationalAssessment) * 100 : null;
     const assessmentNote = $("#assessment-note");
     if (assessmentNote) {
-      assessmentNote.textContent = disabled
-        ? "CLP · el percentil nacional aplica sólo a nivel comunal"
-        : `CLP, percentil nacional ${pct(payload.assessmentPercentile)}`;
+      if (scope === "nacional") assessmentNote.textContent = "CLP · suma de las 346 comunas del catastro";
+      else if (scope === "regional") assessmentNote.textContent = `CLP · ${pct(share)} del avalúo nacional registrado`;
+      else assessmentNote.textContent = `CLP · ${pct(share)} del total nacional · percentil ${pct(payload.assessmentPercentile)}`;
     }
     for (const id of ["#historical", "#casen"]) {
       const chip = $(id)?.closest(".metric-chip");
@@ -216,6 +258,10 @@
 
   function updateMetrics(row) {
     set("#territory", row.comuna);
+    // El bundle TS también escribe este título, pero sólo cuando el mapa bivariado
+    // se monta al entrar en viewport. Escribirlo acá evita que la ficha diga
+    // "Detalle de tu comuna" mientras el resto del visor ya cambió de territorio.
+    set("#territory-detail-name", row.comuna);
     renderMetricScope(buildCommunePayload(row));
     set("#finding", row.hallazgo);
     set("#status", `${row.region} · ${row.fuente_sii_disponible ? "extracto SII disponible" : "sin extracto SII en el corte"}`);
