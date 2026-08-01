@@ -1,3 +1,19 @@
+> **Dónde están los PNG máster.** Ya no viven acá. Pesaban 13,9 MB y versionarlos
+> en el repo del sitio los dejaba para siempre en el historial de git sin que
+> ninguna página los use: el sitio sirve sólo los derivados `.webp`.
+>
+> Se movieron a, siguiendo la gobernanza del workspace (`recursos/` = assets
+> externos, ver `gobernanza/README.md`):
+>
+> ```
+> /home/ende/Descargas/programaciones/recursos/assets/3cucharadas/avaluo-vulnerabilidad-unidad-vecinal/
+> ```
+>
+> Este documento se queda en el repo porque describe qué es cada imagen, dónde va
+> y qué advertencias tiene — eso sí vale versionarlo.
+
+---
+
 Se generaron siete imágenes únicas. La ubicación propuesta sigue la estructura real del post: presentación de la pregunta, construcción del universo espacial y cruce entre avalúo y vulnerabilidad.
 
 Las rutas sandbox: sirven para descargarlas desde esta conversación. Codex o Claude Code no las verán automáticamente en tu equipo: deben copiarse al repositorio y renombrarse.

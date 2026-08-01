@@ -69,7 +69,17 @@ __pycache__/
 .coverage
 
 # Flujo local y privado de difusión: conservar fuera del repositorio público.
-/difusion/
+# La herramienta de difusion SI se versiona: el hook post-commit-difusion depende
+# de ella, y un repo donde el hook existe pero su dependencia no esta roto por
+# construccion. Se excluye solo lo que no debe viajar.
+/difusion/config/secrets.env
+/difusion/state/
+/difusion/linkedin/*.pdf
+/difusion/linkedin/*.png
+/difusion/**/__pycache__/
+/difusion/.venv/
+/difusion/*.egg-info/
+/difusion/src/*.egg-info/
 
 # Fuentes gráficas locales; el sitio versiona únicamente los derivados optimizados.
 /assets/img/
