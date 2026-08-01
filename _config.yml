@@ -162,6 +162,15 @@ exclude:
   - assets/img
   - assets/images/ai-quota-hud/bar_gemini.png
   - assets/images/ai-quota-hud/popup.png
+  # Másters de render y piezas para subir a mano a redes: se versionan como
+  # fuente pero no se sirven. Publicarlos sumaba 18 MB al artefacto y rompía el
+  # gate de tamaño de verify_site_artifact.rb sin que ninguna página los use.
+  - assets/images/avaluo-vulnerabilidad-unidad-vecinal/source
+  - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social
+  # La figura del pipeline no se publica: duplica el Sankey vectorial generado
+  # desde los datos, que es la figura canónica del post. Se conserva como activo
+  # de difusión. (La bivariada se eliminó: escala IGVUST invertida.)
+  - assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/pipeline-universo-espacial-1200x900.webp
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
