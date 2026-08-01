@@ -18,7 +18,7 @@ header:
 math: true
 distribution:
   social: true
-  republish: []
+  republish: [dev, medium]
 toc: true
 toc_sticky: true
 comments: true
