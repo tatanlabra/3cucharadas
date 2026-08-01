@@ -54,6 +54,81 @@ describe("laboratorio accesible y perezoso", () => {
   });
 });
 
+describe("recorrido narrativo de lo general a lo particular", () => {
+  const at = (needle: string) => {
+    const index = html.indexOf(needle);
+    expect(index, `marcador ausente en index.html: ${needle}`).toBeGreaterThan(-1);
+    return index;
+  };
+
+  it("ordena las secciones contrato → país → selector → comuna → UV → laboratorio → datos", () => {
+    const orden = [
+      'id="metodologia-resumen"',
+      'id="metric-scope"',
+      'id="coverage-teaser"',
+      'id="explorar"',
+      'id="territory-detail"',
+      'id="bivariate-card"',
+      'id="denominator-lab"',
+      'id="descargas-parquet"',
+      'id="catastro-anexo"'
+    ].map(at);
+    expect(orden).toEqual([...orden].sort((a, b) => a - b));
+  });
+
+  it("declara la tesis paraguas del post y enlaza de vuelta a él", () => {
+    expect(html).toContain("El denominador, el universo y la escala forman parte del resultado.");
+    expect(html).toContain("avaluo-vulnerabilidad-unidad-vecinal/");
+  });
+
+  it("fusiona la lectura de agregados dentro de la ficha comunal, sin tarjeta suelta", () => {
+    expect(html).toContain('class="finding-inline"');
+    expect(html).not.toContain('class="card finding-card reveal"');
+    expect(at('class="finding-inline"')).toBeGreaterThan(at('id="territory-detail"'));
+    expect(at('class="finding-inline"')).toBeLessThan(at('id="bivariate-card"'));
+  });
+
+  it("absorbe cautelas y recorrido en el contrato de lectura, sin duplicar bloques", () => {
+    expect(html).toContain('class="contract-grid"');
+    expect(html).not.toContain('class="card caution-card reveal"');
+    expect(html).not.toContain('class="card steps-card reveal"');
+    expect(at('class="callout-grid"')).toBeLessThan(at('id="metric-scope"'));
+    // El texto obsoleto de "equivalencia estadística" salió con el cambio de método.
+    expect(html).not.toContain("Es una equivalencia estadística");
+  });
+
+  it("no deja rastros de la comuna que antes se auto-seleccionaba", () => {
+    expect(html).not.toContain("Reset Diego");
+    expect(html).not.toContain('id="territory-detail-name">Diego de Almagro');
+    expect(html).not.toContain("<td>Diego de Almagro, Atacama</td>");
+    expect(html).not.toContain('id="national-records"');
+  });
+
+  it("deja la nota técnica de UV en un bloque visible sin JavaScript", () => {
+    // #bivariate-card nace con `hidden` y lo destapa el bundle: alojar ahí la nota
+    // la volvía invisible en modo degradado. Vive en el laboratorio, que contrasta
+    // justamente esos dos universos (6.891 tabulares vs 6.888 cartográficas).
+    expect(at('id="nota-universo-uv"')).toBeGreaterThan(at('id="denominator-lab"'));
+    expect(at('id="nota-universo-uv"')).toBeLessThan(at('id="descargas-parquet"'));
+    expect(html).not.toMatch(/id="bivariate-card"[\s\S]*?id="nota-universo-uv"[\s\S]*?<\/section>\s*<section[^>]*id="denominator-lab"/);
+  });
+
+  it("no atenúa el avalúo total, que sí es sumable en los tres niveles", () => {
+    // El percentil nacional vive en el mismo .metric-chip que el avalúo: atenuar la
+    // tarjeta apagaba una cifra válida. Se reescribe la nota, no se apaga el chip.
+    expect(html).toContain('id="assessment-note"');
+    expect(legacyApp).toContain('for (const id of ["#historical", "#casen"])');
+    expect(legacyApp).not.toContain('"#assessment-percentile", "#historical"');
+    expect(legacyApp).toContain("el percentil nacional aplica sólo a nivel comunal");
+  });
+
+  it("acepta ?region= tanto por nombre como por el código de 2 dígitos que escribe el visor", () => {
+    // state.ts::replaceUrl serializa `region=<código>`; el <select> usa el nombre.
+    expect(legacyApp).toContain("regionCodeOf(region.region) === urlRegion.padStart(2");
+    expect(legacyApp).toContain("region.region === urlRegion");
+  });
+});
+
 describe("disponibilidad cartográfica nacional", () => {
   it("mantiene sólo el fondo como control del mapa UV principal", () => {
     expect(html).toContain('<html lang="es" data-theme="light">');
@@ -70,20 +145,21 @@ describe("disponibilidad cartográfica nacional", () => {
 
   it("declara navegación por pestañas, mapa analítico único, leyenda 2x4 y anexo visual final", () => {
     expect(html).toContain('class="story-tabs reveal"');
-    expect(html).toContain('href="#denominator-lab">Descriptivos nacionales</a>');
-    expect(html).toContain('href="#territory-detail">Comunal · regional · UV</a>');
+    expect(html).toContain('href="#denominator-lab">Laboratorio nacional</a>');
+    expect(html).toContain('href="#territory-detail">Tu comuna</a>');
     expect(html).toContain('href="#descargas-parquet">Parquet y diccionario</a>');
     expect(html.indexOf('href="#catastro-anexo">Anexo</a>')).toBeGreaterThan(html.indexOf('href="#descargas-parquet">Parquet y diccionario</a>'));
-    expect(html).toContain('id="selection-dock"');
-    expect(html).toContain('id="selection-reset"');
+    // El dock sticky de selección se eliminó: el buscador principal es el único hub.
+    expect(html).not.toContain('id="selection-dock"');
+    expect(html).not.toContain('id="selection-reset"');
     expect(html).not.toContain('id="cartographic-map"');
     expect(html).not.toContain('id="map" aria-label=');
     expect(html).toContain('id="bivariate-map-tilt"');
     expect(html).toContain('id="bivariate-card"');
     expect(html).toContain('id="bivariate-chile-selector"');
     expect(html).toContain('id="bivariate-selector-status"');
-    expect(html).toContain('id="bivariate-region"');
-    expect(html).toContain('id="bivariate-comuna"');
+    expect(html).not.toContain('id="bivariate-region"');
+    expect(html).not.toContain('id="bivariate-comuna"');
     expect(html).toContain('id="bivariate-map"');
     expect(html).toContain('id="bivariate-uv-legend"');
     expect(html).toContain('Matriz de 8 combinaciones');
@@ -98,8 +174,9 @@ describe("disponibilidad cartográfica nacional", () => {
     expect(html).not.toContain('id="uv-valuation-mode"');
     expect(mapApplication).toContain("chileSelectorUrl");
     expect(mapApplication).toContain("loadTerritorialAggregates()");
-    expect(mapApplication).toContain('const DEFAULT_COMMUNE_CODE = "3202"');
-    expect(mapApplication).toContain("bindSelectionDock()");
+    expect(mapApplication).not.toContain("DEFAULT_COMMUNE_CODE");
+    expect(mapApplication).not.toContain("bindSelectionDock");
+    expect(mapApplication).not.toContain("updateSelectionDock");
     expect(mapApplication).toContain("updateTerritoryTable(row");
     expect(mapApplication).toContain("bindUvClick((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()))");
     expect(mapApplication).toContain("renderChileSelector()");
@@ -116,19 +193,39 @@ describe("disponibilidad cartográfica nacional", () => {
     expect(legacyApp).toContain("el visor principal mantiene UV agregadas");
   });
 
-  it("selecciona Diego de Almagro por defecto sin caer en la primera comuna", () => {
+  it("abre en contexto nacional real, sin auto-seleccionar una comuna por defecto", () => {
     expect(legacyApp).toContain('regionPlaceholder.textContent = "Elige una región"');
     expect(legacyApp).toContain('placeholder.textContent = rows.length ? "Elige una comuna"');
-    expect(legacyApp).toContain('const DEFAULT_COMMUNE_CODE = "3202"');
-    expect(legacyApp).toContain("const initial = requested || defaultCommune");
+    // Sin ?comuna= ni ?region=, `initial` queda nulo y populateCommunes("") deja el
+    // visor en nacional; ninguna comuna se cuela como default silencioso.
+    expect(legacyApp).not.toContain("DEFAULT_COMMUNE_CODE");
+    expect(legacyApp).toContain("const initial = requested || null");
     expect(legacyApp).not.toContain("rows[0].codigo_comuna");
   });
 
-  it("inicia Diego como vista analítica UV explícita", () => {
+  it("restaura la comuna o la región pedidas por URL", () => {
+    expect(legacyApp).toContain('params.get("comuna")');
+    expect(legacyApp).toContain('params.get("region")');
+    expect(legacyApp).toContain("populateCommunes(initial.region, initial.codigo_comuna)");
+    expect(legacyApp).toContain("populateCommunes(requestedRegion.region)");
+  });
+
+  it("agrega los indicadores por nivel sumando antes de dividir", () => {
+    expect(legacyApp).toContain("function buildScopeAggregate(rows, scope, label, region)");
+    expect(legacyApp).toContain('viviendas ? (records / viviendas) * 100 : null');
+    expect(legacyApp).toContain("renderNationalMetrics()");
+    expect(legacyApp).toContain("renderRegionalMetrics(region)");
+    expect(legacyApp).toContain("catastro:region-selection");
+    // Sin componentes crudos no se promedian porcentajes ya calculados.
+    expect(legacyApp).toContain('"No aplica a este nivel"');
+    expect(legacyApp).not.toContain("updateNationalSummary");
+  });
+
+  it("deja el bivariado en espera explícita cuando no hay comuna", () => {
     expect(mapApplication).not.toContain("activateDefaultParcelPilot");
-    expect(mapApplication).toContain("DEFAULT_COMMUNE_CODE");
     const initialBranch = mapApplication.slice(mapApplication.indexOf("if (!selectedCode)"), mapApplication.indexOf("const row =", mapApplication.indexOf("if (!selectedCode)")));
     expect(initialBranch).not.toContain("setParcelLayer");
+    expect(initialBranch).not.toContain("selectFromMap");
     expect(initialBranch).toContain("parcelLayerVisible = false");
     expect(initialBranch).toContain("uvLayerVisible = true");
     expect(initialBranch).toContain('mapScale = "uv"');

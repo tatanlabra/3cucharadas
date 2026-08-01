@@ -25,6 +25,7 @@ import {
   replaceTable,
   themeColors
 } from "./chart-theme";
+import { toDataCommuneCode } from "./state";
 import type { CommuneRecord } from "./types";
 
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
@@ -95,11 +96,52 @@ async function json<T>(url: string): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+/** Estado de resalte del chart. Espeja lo que el resto del visor ya entiende por
+ * "selección": una comuna concreta, o sólo una región cuando el buscador quedó a
+ * medio camino. El mismo criterio de atenuación que usa `renderCommunes` en
+ * analytics.ts (0.78 normal / 0.12 apagado), pero disparado por territorio en vez
+ * de por texto de búsqueda. */
+export interface GhostState {
+  activeCode: string | null;
+  activeRegion: string | null;
+}
+
+export function ghostStyleFor(
+  point: { code: string; region: string },
+  ghost: GhostState
+): { opacity: number; highlight: boolean } {
+  if (ghost.activeCode) {
+    return point.code === ghost.activeCode
+      ? { opacity: 1, highlight: true }
+      : { opacity: 0.12, highlight: false };
+  }
+  if (ghost.activeRegion) {
+    return point.region === ghost.activeRegion
+      ? { opacity: 0.78, highlight: false }
+      : { opacity: 0.12, highlight: false };
+  }
+  return { opacity: 0.78, highlight: false };
+}
+
+let ghostState: GhostState = { activeCode: null, activeRegion: null };
+
+/** El chart puede montarse después de que app.js ya resolvió una selección desde
+ * `?comuna=`/`?region=`. Leer los `<select>` en el montaje evita que la primera
+ * pintura salga sin ghost y salte al recibir el primer evento. */
+function initialGhostState(): GhostState {
+  const regionSelect = document.getElementById("region");
+  const communeSelect = document.getElementById("comuna");
+  const region = regionSelect instanceof HTMLSelectElement && regionSelect.value ? regionSelect.value : null;
+  const code = communeSelect instanceof HTMLSelectElement ? toDataCommuneCode(communeSelect.value) : null;
+  return { activeCode: code, activeRegion: region };
+}
+
 /** Mismo mecanismo real que usa el selector gráfico del mapa (ver `selectFromMap`
  * en app.ts / `selectCommune` en app.js): fijar `.value` de los `<select>` del
  * buscador principal y disparar `change` para que el resto del visor reaccione.
- * El evento `catastro:selection` no se usa como disparador porque nadie lo emite
- * desde este buscador. */
+ * No se emite `catastro:selection` acá: ese evento lo dispara `selectCommune` en
+ * app.js como consecuencia del `change`, y este módulo lo escucha para ghostear.
+ * Emitirlo también desde aquí duplicaría el ciclo. */
 function selectCommuneInFinder(code: string, region: string): void {
   const regionSelect = document.getElementById("region");
   const communeSelect = document.getElementById("comuna");
@@ -117,7 +159,7 @@ interface ScatterDatum {
   region: string;
   coverageReal: number;
   value: [number, number, number];
-  itemStyle: { color: string; opacity: number };
+  itemStyle: { color: string; opacity: number; borderColor?: string; borderWidth?: number };
 }
 
 /** Divide las 16 regiones en filas de leyenda ECharts (un componente `legend` por
@@ -149,20 +191,39 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
 
   const series = regions.map((region, index) => {
     const regionPoints = points.filter((point) => point.region === region);
-    const data: ScatterDatum[] = regionPoints.map((point) => ({
-      name: point.name,
-      code: point.code,
-      region: point.region,
-      coverageReal: point.coverageReal,
-      value: [point.avaluoTotalClp, point.coverageDisplay, point.households],
-      itemStyle: { color: CHART_COLORS[index % CHART_COLORS.length], opacity: 0.78 }
-    }));
+    const data: ScatterDatum[] = regionPoints.map((point) => {
+      const ghost = ghostStyleFor(point, ghostState);
+      return {
+        name: point.name,
+        code: point.code,
+        region: point.region,
+        coverageReal: point.coverageReal,
+        value: [point.avaluoTotalClp, point.coverageDisplay, point.households],
+        itemStyle: {
+          color: CHART_COLORS[index % CHART_COLORS.length],
+          opacity: ghost.opacity,
+          ...(ghost.highlight ? { borderColor: colors.ink, borderWidth: 2 } : {})
+        }
+      };
+    });
     const markPointData = regionPoints
       .filter((point) => highlightCodes.has(point.code))
       .map((point) => ({
         name: point.name,
         coord: [point.avaluoTotalClp, point.coverageDisplay],
-        itemStyle: { color: colors.ink, borderColor: CHART_COLORS[index % CHART_COLORS.length], borderWidth: 2 },
+        // colors.ink es un token de texto/foreground (casi blanco en tema oscuro,
+        // casi negro en claro) — usarlo como relleno de ícono producía el "relleno
+        // blanco" reportado. El relleno pasa a ser el mismo color de la región del
+        // pin (ya usado en las burbujas y como borde acá antes), con el fondo del
+        // chart como borde para separarlo de las burbujas de abajo.
+        // El pin comparte la opacidad de su burbuja: si el chart quedó ghosteado por
+        // una selección, un pin a opacidad plena se leería como si fuera lo resaltado.
+        itemStyle: {
+          color: CHART_COLORS[index % CHART_COLORS.length],
+          borderColor: colors.surface,
+          borderWidth: 2,
+          opacity: ghostStyleFor(point, ghostState).opacity
+        },
         label: { formatter: point.name }
       }));
     return {
@@ -177,7 +238,26 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
               symbol: "pin",
               symbolSize: 44,
               data: markPointData,
-              label: { color: "#10121d", fontWeight: 800, fontSize: 10 },
+              // El label sale del ícono (a 44px no alcanza para nombres largos como
+              // "Isla de Pascua" o "Chile Chico", y se cortaba sin wrap) y se dibuja
+              // arriba del pin con el mismo tratamiento que ya usa el tooltip del
+              // chart (chartBase(): fondo colors.surface, borde colors.line, texto
+              // colors.ink), para que el contraste sea contra el fondo del chart,
+              // no contra el color de relleno del pin.
+              label: {
+                position: "top",
+                distance: 10,
+                color: colors.ink,
+                fontWeight: 800,
+                fontSize: 11,
+                backgroundColor: colors.surface,
+                borderColor: colors.line,
+                borderWidth: 1,
+                borderRadius: 6,
+                padding: [3, 7],
+                overflow: "break",
+                width: 120
+              },
               tooltip: { show: false }
             }
           }
@@ -237,9 +317,18 @@ function chartOption(points: CoveragePoint[]): EChartsCoreOption {
       type: "value",
       min: 0,
       max: 100,
-      name: "Cobertura residencial frente a viviendas Censo 2024 (%, tope 100)",
+      // Partido en 2 líneas + fontSize chico: con nameLocation:"middle" en un eje Y,
+      // ECharts rota el nombre 90°, así que su extensión corre a lo largo del eje
+      // (vertical), no del ancho del chart. Una sola línea de 65 caracteres a
+      // fontSize 12 pedía ~450px verticales contra los ~230px que deja esta grilla
+      // (chart de 430px, top:40, bottom:~160 por la leyenda 4×4) y se recortaba
+      // contra el borde del SVG o se montaba sobre la leyenda. Con 2 líneas de
+      // máx. 34 caracteres a fontSize 10 baja a ~200px y cabe sin tocar `grid`.
+      name: "Cobertura residencial frente a\nviviendas Censo 2024 (%, tope 100)",
       nameLocation: "middle",
       nameGap: 44,
+      nameRotate: 90,
+      nameTextStyle: { fontSize: 10, lineHeight: 12 },
       axisLabel: { color: colors.muted, formatter: (value: number) => `${integer.format(value)}%` },
       splitLine: { lineStyle: { color: colors.line, opacity: 0.55 } }
     },
@@ -305,6 +394,7 @@ export async function mountCoverageTeaser(): Promise<void> {
       return;
     }
     cachedPoints = points;
+    ghostState = initialGhostState();
     renderChart(points);
     renderTable(points);
     const truncatedCount = points.filter((point) => point.truncated).length;
@@ -314,6 +404,21 @@ export async function mountCoverageTeaser(): Promise<void> {
     return;
   }
   window.addEventListener("catastro:theme", () => {
+    if (cachedPoints) renderChart(cachedPoints);
+  });
+  // Mismos dos eventos que ya consumen app.ts y analytics.ts: `catastro:selection`
+  // cuando hay comuna resuelta, `catastro:region-selection` cuando el buscador
+  // quedó en región (o volvió a nacional).
+  window.addEventListener("catastro:selection", (event) => {
+    const row = (event as CustomEvent<{ row?: CommuneRecord }>).detail?.row;
+    if (!row) return;
+    ghostState = { activeCode: row.codigo_comuna, activeRegion: row.region };
+    if (cachedPoints) renderChart(cachedPoints);
+  });
+  window.addEventListener("catastro:region-selection", (event) => {
+    const detail = (event as CustomEvent<{ region?: string | null; communeCode?: string | null }>).detail;
+    const regionName = typeof detail?.region === "string" && detail.region.trim() ? detail.region.trim() : null;
+    ghostState = { activeCode: toDataCommuneCode(detail?.communeCode ?? null), activeRegion: regionName };
     if (cachedPoints) renderChart(cachedPoints);
   });
   let lastNarrow = window.innerWidth < 640;

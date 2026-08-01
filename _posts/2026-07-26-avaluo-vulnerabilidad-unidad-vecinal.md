@@ -157,7 +157,7 @@ Antes de cruzar vulnerabilidad conviene saber de qué magnitud hablamos. En las 
 Por comuna, las mayores sumas asignadas son Las Condes (**38,2 billones**), Santiago (**27,1**), Providencia (**16,3**), Lo Barnechea (**16,0**) y Vitacura (**15,2**). Antofagasta también aparece arriba (**15,1 billones**), pero con una fuga UV comunal muy alta; ese es precisamente el tipo de caso donde el total, el denominador y el universo deben leerse juntos.
 {: .text-justify}
 
-El visor incorpora esta lectura pura en la pestaña **Avalúos**. Primero el numerador; después la historia.
+El visor incorpora esta lectura pura en la pestaña **Avalúos** de su laboratorio de denominadores. Primero el numerador; después la historia.
 {: .text-justify}
 
 <figure class="avaluo-bars" aria-labelledby="avaluo-bars-title">
@@ -191,7 +191,7 @@ El IGVUST ordena unidades vecinales según vulnerabilidad socioterritorial. Mant
 En el mapa bivariado la lectura principal usa **avalúo por m² predial**. Es la señal más clara para poner atención donde alto avalúo unitario coincide con alta vulnerabilidad territorial. En la paleta, esas celdas quedan más oscuras, con una capa transparente para no tapar el fondo ni convertir el mapa en alarma cromática. Lo contraintuitivo debe llamar la atención; lo evidente no necesita megáfono. El indicador sigue siendo descriptivo y nacional; al restringir a UV con $$p_\text{urbano} > 50$$ la asociación por m² se atenúa fuertemente.
 {: .text-justify}
 
-En el visor separé la lectura en dos mapas. El primero es geométrico: OSM, predios SII piloto y UV transparentes, con bordes distintos para revisar límites antes de leer colores. El segundo es analítico: sólo UV, selector gráfico de Chile, selector de región/comuna como respaldo, hover con datos de la UV y leyenda 4×2. La selección tomada en ese bloque se mantiene en las tablas y en el ranking territorial cuando corresponde. Esa separación evita mezclar la inspección de geometría predial con la clasificación bivariada.
+En el visor, este cruce vive en un mapa analítico: sólo UV, selector gráfico de Chile, hover con datos de la unidad vecinal y leyenda 4×2. Un único buscador de región y comuna manda sobre todo el recorrido, y la selección que fijes ahí se mantiene en fichas, tablas y en el ranking territorial cuando corresponde. La inspección de geometría predial queda deliberadamente aparte, como anexo documentado al final: mezclarla con la clasificación bivariada invita a leer un borde catastral como si fuera un resultado.
 {: .text-justify}
 
 ### 1. Por hogar, la celda llamativa es una pista
@@ -300,7 +300,7 @@ Tercer freno: la literatura de *assessment ratio* muestra que la valoración fis
 El mapa no dicta una política tributaria. Sí impide fingir que la base es homogénea, que todas las comunas parten del mismo lugar o que una exención carece de geografía. El cruce identifica cinco brechas que deben cerrarse antes de usar sus colores como evidencia fuerte.
 {: .text-justify}
 
-**Brecha 1: universo del denominador.** El RSH cubre cerca de 85% de la población del país, pero no con igual intensidad comunal. Cualquier indicador por hogar o persona RSH debe declarar esa cobertura y, cuando corresponda, contrastarla con datos censales.
+**Brecha 1: universo del denominador.** El RSH cubre cerca de 85% de la población del país, pero no con igual intensidad comunal. Cualquier indicador por hogar o persona RSH debe declarar esa cobertura y, cuando corresponda, contrastarla con datos censales. Ese contraste es justamente con lo que abre el visor: antes de cualquier cruce, mide qué fracción de las viviendas particulares del Censo 2024 alcanza el registro residencial del SII, comuna por comuna. Es la misma advertencia de este post en su forma más simple — declarar el universo antes de dividir por él.
 {: .text-justify}
 
 **Brecha 2: geometría y superficie.** El prorrateo requiere polígonos. La superficie declarada no reemplaza una geometría faltante sin una regla espacial adicional. Comunas con muchos predios sin polígono necesitan una alerta antes de interpretar su color.
@@ -321,7 +321,7 @@ Estas brechas tampoco son una defensa automática de cada avalúo, tasa o cobro 
 Se puede, desde luego, retirar la obligación de una columna y reponerla con transferencias desde otra. El alivio queda visible; su financiamiento se muda. Antes de celebrar que la cuenta desapareció, conviene revisar la segunda planilla y preguntar qué territorios terminan pagando la cortesía.
 {: .text-justify}
 
-El visor permite explorar estas brechas con dos mapas separados —geometría primero, bivariado UV después—, una vista de avalúos, distribuciones, pruebas de sensibilidad y lectura comunal. Una exención no deja de ser distributiva porque se llame beneficio: también tiene numerador, denominador y geografía.
+El visor permite explorar estas brechas de lo general a lo particular: el país completo, la comuna que elijas, sus unidades vecinales en el bivariado y un laboratorio que vuelve a subir de escala para probar denominadores, con vista de avalúos, distribuciones, sensibilidad y lectura comunal. Una exención no deja de ser distributiva porque se llame beneficio: también tiene numerador, denominador y geografía.
 {: .text-justify}
 
 <a class="btn btn--primary" href="{{ '/catastro_sii_brecha/?vista=avaluos' | relative_url }}">Explorar el mapa y el laboratorio de denominadores</a>

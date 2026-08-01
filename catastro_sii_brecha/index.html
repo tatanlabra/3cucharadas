@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>La brecha del Catastro SII frente al Censo 2024 · 3 Cucharadas</title>
-  <meta name="description" content="Un visor para mirar, comuna por comuna, qué fracción de las viviendas del Censo 2024 cubre el registro residencial del SII, bajar los datos y sacar sus propias conclusiones.">
+  <title>Catastro SII: el denominador, el universo y la escala · 3 Cucharadas</title>
+  <meta name="description" content="Visor abierto en dos movimientos: cuánta vivienda del Censo 2024 cubre el registro residencial del SII, comuna por comuna, y cuánto se mueve el avalúo fiscal al cambiar el denominador y la escala.">
   <link rel="canonical" href="https://3cucharadas.cl/catastro_sii_brecha/">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#e9edf4">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CL">
   <meta property="og:site_name" content="3 Cucharadas">
-  <meta property="og:title" content="La brecha del Catastro SII frente al Censo 2024">
-  <meta property="og:description" content="Un visor con Python y OpenStreetMap para revisar, comuna por comuna, la cobertura residencial del Catastro SII frente a las viviendas del Censo 2024, y descargar los datos.">
+  <meta property="og:title" content="Catastro SII: el denominador, el universo y la escala">
+  <meta property="og:description" content="Un visor con Python y OpenStreetMap: cobertura del Catastro SII frente al Censo 2024 comuna por comuna, avalúo fiscal por unidad vecinal y un laboratorio para probar denominadores. Datos descargables.">
   <meta property="og:url" content="https://3cucharadas.cl/catastro_sii_brecha/">
   <meta property="og:image" content="https://3cucharadas.cl/catastro_sii_brecha/assets/og-brecha.svg">
   <meta property="og:image:alt" content="Brecha residencial del Catastro SII: un visor de datos abiertos hecho con Python y OpenStreetMap.">
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#explorar">Saltar al visor</a>
+  <a class="skip-link" href="#contenido">Saltar al visor</a>
 
   <header class="hero">
     <span class="grain" aria-hidden="true"></span>
@@ -42,20 +42,73 @@
 
       <p class="kicker">3 Cucharadas · Python + OpenStreetMap</p>
       <h1>Un catastro no es<br><span class="accent-word">un censo.</span></h1>
-      <p class="sub">Aquí mido qué fracción de las viviendas particulares del Censo 2024 cubre el registro de predios habitacionales del SII, comparando registros contra estructuras, sin pasar por una conversión a población. Es una brecha de cobertura del registro, no una cuenta de personas ni una explicación de sus causas. Explora por comuna, baja los datos y saca tus propias conclusiones.</p>
+      <p class="sub">Un catastro registra predios; un censo cuenta viviendas y personas. Compararlos obliga a declarar dos cosas antes de mirar cualquier color: <strong>qué universo cubre el registro</strong> y <strong>entre qué se divide</strong>. Eso es todo el visor, en dos movimientos: primero cuánta vivienda del Censo 2024 alcanza el registro residencial del SII, comuna por comuna; después cuánto se mueve el avalúo fiscal al cambiar el denominador y la escala. El denominador, el universo y la escala forman parte del resultado.</p>
       <p class="disclaimer"><strong>Visualización independiente de 3 Cucharadas.</strong> Trabaja con registros públicos agregados, Censo 2024 y un método reproducible. No es un sitio oficial del SII, INE ni MDSF.</p>
       <div class="hero-cta"><a class="btn primary" href="#explorar">Explorar una comuna <span class="arrow" aria-hidden="true">↓</span></a><a class="btn secondary" href="metodologia.html">Ver método y límites</a></div>
-      <p class="hint">Este visor tiene tres capas: primero el panorama nacional, aquí abajo; después el detalle de la comuna que elijas; al final, el método completo con sus supuestos y límites. Puedes seguir ese orden o saltar directo a lo que te interese — las pestañas de navegación están más abajo.</p>
+      <p class="hint">El recorrido va de lo general a lo particular: primero el contrato de lectura, después el país completo, luego la comuna que elijas y sus unidades vecinales. Al final el laboratorio vuelve a subir de escala a propósito, para mostrar por qué el denominador manda. Puedes seguir ese orden o saltar directo con las pestañas.</p>
     </div>
   </header>
 
   <main class="wrap" id="contenido">
     <noscript><section class="card notice-card"><h2>Datos abiertos, visualización con JavaScript</h2><p>Sin JavaScript puedes revisar igual el <a href="metodologia.html">método y sus límites</a>, y descargar la tabla comunal completa en <a href="data/metricas_comunales.parquet">Parquet</a>.</p></section></noscript>
 
+    <section class="card intro-card reveal" id="metodologia-resumen" aria-labelledby="que-mide-title">
+      <span class="section-eyebrow">Contrato de lectura</span>
+      <h2 id="que-mide-title">Qué mide y qué <span class="lead-accent">no mide</span></h2>
+      <p class="big">Comparo cada predio SII de destino <strong>H</strong> directamente contra las viviendas particulares del Censo 2024 —ocupadas y desocupadas—, sin convertir registros en población. Esa razón es la <strong>cobertura residencial</strong>. Como lectura secundaria la contrasto contra los hogares censados. Más abajo cambio de pregunta: cuánto avalúo fiscal quedó asignado a cada territorio, y cuánto se mueve ese resultado según entre qué lo divido.</p>
+      <div class="contract-grid" role="group" aria-label="Qué mide y qué no mide este visor">
+        <article class="contract-does">
+          <h3>Lo que mide</h3>
+          <ul>
+            <li>Cuántos predios habitacionales registra el SII frente a las viviendas que contó el Censo 2024.</li>
+            <li>Cuánto avalúo fiscal quedó asignado a una región, una comuna o una unidad vecinal.</li>
+            <li>Cuánto cambia ese resultado al dividirlo por hogares, personas o metros cuadrados.</li>
+          </ul>
+        </article>
+        <article class="contract-doesnt">
+          <h3>Lo que no mide</h3>
+          <ul>
+            <li>Cuántas personas viven en un predio, ni quién es su dueño.</li>
+            <li>Precio de mercado, ingreso ni patrimonio: el avalúo fiscal conserva su apellido.</li>
+            <li>La causa de ninguna diferencia. Una brecha es compatible con vacancia, clasificación imperfecta o fechas de corte distintas; el visor no decide cuál opera en cada comuna.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout-grid">
+        <p><strong>No es un conteo de personas.</strong> La lectura principal divide predios de destino H por viviendas particulares del Censo 2024: una razón entre registros y estructuras, sin conversión intermedia a población.</p>
+        <p><strong>Un cuartil ordena, no explica.</strong> Las clasificaciones IGVUST ordenan unidades vecinales por vulnerabilidad territorial; no describen a quienes viven ahí ni establecen un mecanismo.</p>
+        <p><strong>CASEN no ordena resultados.</strong> Su sensibilidad comunal se marca como no representativa y queda fuera de los hallazgos; mírala como contraste, no como veredicto.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><span class="n">1</span><h3>Mira el país</h3><p>Los indicadores de abajo parten sumando las 346 comunas. Es el tamaño de lo que después se divide.</p></article>
+        <article class="step"><span class="n">2</span><h3>Baja a tu territorio</h3><p>Elige región y comuna: todo lo que sigue se recalcula a ese nivel y pone de relieve ese territorio.</p></article>
+        <article class="step"><span class="n">3</span><h3>Contrasta, no atribuyas</h3><p>Revisa coordenadas, avalúo, superficie y referencia histórica antes de leer una diferencia como si fuera una causa.</p></article>
+      </div>
+      <p class="hint">Este visor acompaña al post <a href="../datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/">«Avalúo y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa»</a>, donde está el desarrollo completo del argumento. La fórmula, las fuentes, los controles de calidad y los límites están en <a href="metodologia.html">método y límites</a>.</p>
+    </section>
+
+    <section class="metric-section reveal" id="metric-scope" aria-labelledby="metricas-title">
+      <div class="section-head metric-head">
+        <div><span class="section-eyebrow">El registro frente al censo</span><h2 id="metricas-title">Indicadores del registro</h2><p class="metric-scope-badge" id="metric-scope-badge" role="status">Nivel nacional</p></div>
+        <p class="hint" id="metric-scope-hint">El verde es la lectura principal en cualquier nivel. Aquí sumo las 346 comunas antes de dividir, el mismo criterio que uso comuna por comuna. La referencia histórica 2017 y la sensibilidad CASEN no se pueden sumar así, así que no aplican a este nivel: elige una región o una comuna para verlas.</p>
+      </div>
+      <div class="metric-grid" role="group" aria-live="polite" aria-labelledby="metricas-title metric-scope-badge" aria-describedby="metric-scope-hint">
+        <article class="metric-chip primary"><span>Cobertura residencial</span><strong id="coverage">—</strong><small>frente a viviendas Censo 2024</small></article>
+        <article class="metric-chip"><span>Cobertura por hogar</span><strong id="coverage-hogar">—</strong><small>lectura secundaria, frente a hogares Censo 2024</small></article>
+        <article class="metric-chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
+        <article class="metric-chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
+        <article class="metric-chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
+        <article class="metric-chip"><span>Superficie total</span><strong id="surface">—</strong><small>m² de terreno reportados</small></article>
+        <article class="metric-chip"><span>Avalúo total</span><strong id="assessment">—</strong><small id="assessment-note">CLP, percentil nacional <b id="assessment-percentile">—</b></small></article>
+        <article class="metric-chip"><span>Referencia histórica</span><strong id="historical">—</strong><small>vs proyección 2024 base Censo 2017</small></article>
+        <article class="metric-chip caution"><span>Sensibilidad CASEN</span><strong id="casen">—</strong><small id="casen-note">No disponible</small></article>
+      </div>
+    </section>
+
     <section class="card coverage-teaser-card reveal" id="coverage-teaser" aria-labelledby="coverage-teaser-title">
       <div class="section-head">
         <div><span class="section-eyebrow">Antes de elegir una comuna</span><h2 id="coverage-teaser-title">346 comunas: <span class="lead-accent">cuánto valen</span> y <span class="lead-accent">cuánto cubre</span> el registro</h2></div>
-        <p>Antes de bajar a una comuna, esta dispersión las pone a las 346 juntas. Cada burbuja es una comuna con avalúo fiscal registrado. El eje horizontal ubica el avalúo fiscal total en escala log10: cada marca que avanza multiplica por 10, aunque las etiquetas siguen mostrando pesos originales. El eje vertical ubica la cobertura residencial frente a las viviendas particulares totales del Censo 2024, con un tope de 100%. Algunas comunas superan ese valor y el gráfico las recorta ahí para no aplastar la lectura del resto, pero el tooltip y la tabla conservan el valor real sin recortar. El tamaño de cada burbuja usa hogares del Censo 2024; el color agrupa por región. Haz clic en una burbuja para cargar esa comuna en el buscador de abajo, o revisa primero la tabla completa.</p>
+        <p>Los indicadores de arriba resumen el país en nueve cifras. Esta dispersión abre esa misma foto a las 346 comunas, para que compares antes de fijar tu elección. Cada burbuja es una comuna con avalúo fiscal registrado. El eje horizontal ubica el avalúo fiscal total en escala log10: cada marca que avanza multiplica por 10, aunque las etiquetas siguen mostrando pesos originales. El eje vertical ubica la cobertura residencial frente a las viviendas particulares totales del Censo 2024, con un tope de 100%. Algunas comunas superan ese valor y el gráfico las recorta ahí para no aplastar la lectura del resto, pero el tooltip y la tabla conservan el valor real sin recortar. El tamaño de cada burbuja usa hogares del Censo 2024; el color agrupa por región. Haz clic en una burbuja para cargar esa comuna en el buscador de abajo, o revisa primero la tabla completa.</p>
       </div>
       <p class="lab-communes-status" id="coverage-teaser-status" role="status">Cargando comunas…</p>
       <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico introductorio de cobertura frente a avalúo"><div class="lab-chart lab-chart-wide" id="coverage-teaser-chart" aria-busy="true"></div></div>
@@ -63,7 +116,7 @@
     </section>
 
     <section class="card finder-card reveal" id="explorar" aria-labelledby="explorar-title">
-      <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Parte por una región. El visor carga la comuna elegida, sus celdas agregadas y las métricas necesarias para leer el registro sin sobreinterpretarlo.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando contexto nacional…</span></p></div>
+      <div class="finder-copy"><span class="section-eyebrow">Baja a tu territorio</span><h2 id="explorar-title">Encuentra la <span class="lead-accent">brecha</span> de tu comuna</h2><p>Hasta aquí, todo es el país completo. Este selector es la bisagra: elige una región y, si quieres, una comuna, y de aquí abajo todo se reescala a ese territorio — los indicadores del inicio se recalculan, el gráfico pone de relieve lo elegido y el resto queda atenuado.</p><p class="selection-context"><span class="selection-dot" aria-hidden="true"></span><span id="selection-context" role="status">Preparando contexto nacional…</span></p></div>
       <div class="finder-fields" role="group" aria-label="Seleccionar territorio">
         <label class="finder-field" for="region"><span class="field-label">01 · Región</span><span class="select-wrap"><select id="region"><option value="">Cargando regiones…</option></select></span></label>
         <label class="finder-field" for="comuna"><span class="field-label">02 · Comuna</span><span class="select-wrap"><select id="comuna" disabled><option value="">Elige una región primero</option></select></span></label>
@@ -72,32 +125,34 @@
       <p class="finder-note" id="map-availability-note"><strong>*</strong> marca comunas documentadas en el anexo geométrico piloto. El recorrido principal carga sólo unidades vecinales agregadas.</p>
     </section>
 
-    <p class="hint">Las seis pestañas de abajo abren esas mismas vistas por separado, en el orden en que conviene leerlas la primera vez: el visor UV de tu comuna, los descriptivos nacionales, la ficha comunal completa, el método, la descarga en Parquet y el anexo geométrico. El separador que aparece justo debajo queda fijo mientras navegas, para que siempre veas qué comuna tienes seleccionada.</p>
+    <p class="hint">Lo que sigue baja de escala paso a paso: primero la ficha de tu comuna, después sus unidades vecinales, y al final el laboratorio vuelve a subir a nivel nacional a propósito — para mostrar que región, comuna y UV no son versiones ampliadas de la misma pregunta.</p>
     <nav class="story-tabs reveal" aria-label="Pestañas del visor">
-      <a href="#bivariate-card">Visor UV</a>
-      <a href="#denominator-lab">Descriptivos nacionales</a>
-      <a href="#territory-detail">Comunal · regional · UV</a>
-      <a href="#metodologia-resumen">Metodología</a>
+      <a href="#territory-detail">Tu comuna</a>
+      <a href="#bivariate-card">Sus unidades vecinales</a>
+      <a href="#denominator-lab">Laboratorio nacional</a>
       <a href="#descargas-parquet">Parquet y diccionario</a>
       <a href="#catastro-anexo">Anexo</a>
     </nav>
 
-    <nav class="selection-dock" id="selection-dock" hidden aria-label="Selección territorial activa">
-      <div class="selection-dock-main">
-        <span class="selection-dock-kicker">Selección activa</span>
-        <strong id="selection-dock-title">Diego de Almagro</strong>
-        <span id="selection-dock-meta">Atacama · código 03202</span>
+    <section class="card territory-detail-card reveal" id="territory-detail" aria-labelledby="territory-detail-title">
+      <div class="section-head">
+        <div><span class="section-eyebrow">Tu comuna</span><h2 id="territory-detail-title">Detalle de <span class="lead-accent" id="territory-detail-name">tu comuna</span></h2></div>
+        <p>Los indicadores del inicio ya están recalculados para esta comuna. Aquí va lo que no cabe en una tarjeta: la lectura de sus agregados, la mediana regional de avalúo por m² y un resumen de sus unidades vecinales clasificadas.</p>
       </div>
-      <div class="selection-dock-links" aria-label="Saltar a vistas del territorio">
-        <a href="#bivariate-card">Visor UV</a>
-        <a href="#denominator-lab">Nacional</a>
-        <a href="#territory-detail">Territorio</a>
-        <a href="#metodologia-resumen">Método</a>
-        <a href="#descargas-parquet">Parquet</a>
-        <a href="#catastro-anexo">Anexo</a>
+      <div class="finding-inline" role="group" aria-labelledby="hallazgo-title">
+        <h3 id="hallazgo-title">Lo que muestran los agregados</h3>
+        <p id="finding">Elige una comuna para cargar la lectura y el mapa.</p>
       </div>
-      <button class="selection-reset" id="selection-reset" type="button">Reset Diego</button>
-    </nav>
+      <div class="territory-detail-summary" id="territory-detail-summary" role="status">Elige una comuna para cargar su ficha territorial.</div>
+      <div class="lab-table-scroll territory-table-scroll" tabindex="0" aria-label="Desplazar tabla de indicadores territoriales de la comuna">
+        <table class="lab-data-table territory-detail-table" id="territory-detail-table">
+          <caption>Indicadores territoriales agregados de la comuna seleccionada</caption>
+          <tbody id="territory-detail-table-body">
+            <tr><th scope="row">Selección</th><td>Sin comuna seleccionada</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <section class="card bivariate-card reveal" id="bivariate-card" aria-labelledby="bivariate-title" hidden>
       <div class="bivariate-head">
@@ -118,15 +173,11 @@
       <div class="bivariate-selector-grid" aria-label="Selector territorial del bivariado">
         <div class="bivariate-selector-copy">
           <h3>Selector gráfico de Chile</h3>
-          <p>Haz clic sobre una comuna del mapa acostado para cargar su capa UV y mantener la misma selección en fichas, tablas y gráficos de aquí en adelante. La región elegida atenúa el resto del país; la comuna activa queda marcada.</p>
+          <p>Haz clic sobre una comuna del mapa acostado para cargar su capa UV, o usa el buscador de más arriba: ambos escriben la misma selección y se mantienen sincronizados en fichas, tablas y gráficos. La región elegida atenúa el resto del país; la comuna activa queda marcada.</p>
           <p class="bivariate-selector-status" id="bivariate-selector-status" role="status">Cargando selector comunal…</p>
         </div>
         <div class="chile-selector-scroll" tabindex="0" aria-label="Desplazar selector gráfico de Chile">
           <svg id="bivariate-chile-selector" class="chile-selector-map" role="img" aria-describedby="bivariate-selector-status" aria-label="Selector gráfico de comunas de Chile"></svg>
-        </div>
-        <div class="bivariate-controls" role="group" aria-label="Seleccionar territorio para el bivariado">
-          <label for="bivariate-region"><span>Región</span><select id="bivariate-region"><option value="">Elige una región</option></select></label>
-          <label for="bivariate-comuna"><span>Comuna</span><select id="bivariate-comuna" disabled><option value="">Elige una comuna</option></select></label>
         </div>
       </div>
       <div class="reading-cards" aria-label="Guía rápida del mapa">
@@ -169,8 +220,12 @@
 
     <section class="card lab-card reveal" id="denominator-lab" data-state="idle" aria-labelledby="lab-title">
       <div class="section-head lab-head">
-        <div><span class="section-eyebrow">Descriptivos nacionales</span><h2 id="lab-title">La conclusión cambia cuando cambia la <span class="lead-accent">unidad</span></h2></div>
-        <p>Aquí puedes comparar flujo de construcción, avalúos, distribuciones y sensibilidad al denominador. Son descripciones nacionales agregadas: no miden riqueza, ingreso ni precio de mercado, y ninguna reemplaza a las otras cuatro.</p>
+        <div><span class="section-eyebrow">Laboratorio nacional</span><h2 id="lab-title">La conclusión cambia cuando cambia la <span class="lead-accent">unidad</span></h2></div>
+        <p>Aquí puedes comparar flujo de construcción, avalúos, distribuciones y sensibilidad al denominador. Son descripciones nacionales agregadas: no miden riqueza, ingreso ni precio de mercado, y ninguna reemplaza a las otras.</p>
+      </div>
+      <div class="technical-note" id="nota-universo-uv">
+        <h3>Nota técnica sobre las UV</h3>
+        <p><code>insights-v1.json</code> conserva el universo tabular del pipeline nacional: 6.891 UV del cruce geometría IGVUST 202603 × atributos 202606. El visor navegable, en cambio, usa los shards GeoJSON publicados y suma 6.888 features: quedan fuera tres UV con geometría marcada como no usable en el generador cartográfico, ubicadas en Ovalle, Frutillar y Coelemu. Por eso los descriptivos nacionales y el mapa no deben leerse como conteos idénticos — son dos universos, apenas distintos, no un error.</p>
       </div>
       <div class="lab-tabs" role="tablist" aria-label="Vistas del laboratorio">
         <button id="tab-flujo" type="button" role="tab" data-lab-tab="flujo" aria-controls="panel-flujo" aria-selected="true">Flujo</button>
@@ -218,7 +273,7 @@
       </div>
 
       <div class="lab-panel" id="panel-comunas" role="tabpanel" data-lab-panel="comunas" aria-labelledby="tab-comunas" tabindex="0" hidden>
-        <div class="lab-panel-copy"><h3>Ranking nacional para comparar territorios</h3><p>El eje horizontal usa el ranking nacional IGVUST, no percentiles nuevos calculados aquí. Elige unidad territorial, normalización y universo; si más arriba ya seleccionaste una comuna, queda declarada como filtro activo.</p></div>
+        <div class="lab-panel-copy"><h3>Ranking nacional para comparar territorios</h3><p>Este gráfico se parece al del inicio, pero responde otra pregunta. Allá el eje vertical era la cobertura del registro y el horizontal el avalúo total; aquí el eje horizontal es el ranking nacional IGVUST —no percentiles nuevos calculados acá— y el vertical es el avalúo bajo la normalización que elijas. Ahí está el punto: mismo dato, distinto denominador, distinto orden. Elige unidad territorial, normalización y universo; si más arriba ya seleccionaste una comuna, queda declarada como filtro activo.</p></div>
         <p class="lab-scale-note"><strong>Eje vertical log10.</strong> La altura compara órdenes de magnitud del avalúo seleccionado; los puntos siguen informando pesos originales en el tooltip y la tabla. Esto evita que unas pocas comunas de avalúo muy alto oculten el patrón del resto.</p>
         <div class="lab-filter-bar">
           <p class="lab-filter-note" id="lab-commune-filter-note">Sin filtro comunal activo; se muestran todos los territorios disponibles.</p>
@@ -237,75 +292,6 @@
       </div>
 
       <div class="lab-footer"><p>Fuente agregada y método reproducible. El laboratorio rechaza esquemas desconocidos y sólo descarga indicadores territoriales agregados; la capa predial completa no se publica como descarga.</p><a class="inline-link" href="data/insights-v1.json" download>Descargar JSON nacional <span aria-hidden="true">↓</span></a><a class="inline-link" href="data/agregados_territoriales.json" download>Descargar agregados territoriales <span aria-hidden="true">↓</span></a></div>
-    </section>
-
-    <section class="card territory-detail-card reveal" id="territory-detail" aria-labelledby="territory-detail-title">
-      <div class="section-head">
-        <div><span class="section-eyebrow">Descriptivos comunales · regionales · UV</span><h2 id="territory-detail-title">Detalle de <span class="lead-accent" id="territory-detail-name">Diego de Almagro</span></h2></div>
-        <p>Esta ficha sigue a la comuna que elegiste arriba y cruza sus métricas comunales, la mediana regional de avalúo por m² y un resumen de sus UV clasificadas.</p>
-      </div>
-      <div class="territory-detail-summary" id="territory-detail-summary" role="status">Cargando indicadores seleccionados…</div>
-      <div class="lab-table-scroll territory-table-scroll" tabindex="0" aria-label="Desplazar tabla de indicadores territoriales de la comuna">
-        <table class="lab-data-table territory-detail-table" id="territory-detail-table">
-          <caption>Indicadores territoriales agregados de la comuna seleccionada</caption>
-          <tbody id="territory-detail-table-body">
-            <tr><th scope="row">Selección</th><td>Diego de Almagro, Atacama</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="card intro-card reveal" id="metodologia-resumen" aria-labelledby="que-mide-title">
-      <span class="section-eyebrow">Una medida, no un diagnóstico</span>
-      <h2 id="que-mide-title">¿Qué mide esta <span class="lead-accent">brecha</span>?</h2>
-      <p class="big">Comparo cada predio SII de destino <strong>H</strong> directamente contra las viviendas particulares del Censo 2024 —ocupadas y desocupadas—, sin convertir registros en población. Esa razón es la <strong>cobertura residencial</strong>. Como lectura secundaria, la contrasto también contra los hogares censados; y como contraste adicional, mantengo la vieja conversión a población equivalente.</p>
-      <p class="hint">Una cifra menor a 100% no identifica la causa: sólo muestra hasta dónde llega este registro bajo el supuesto declarado. La sensibilidad CASEN queda separada porque no es representativa a escala comunal; revísala como eso, una sensibilidad, no como un segundo hallazgo.</p>
-      <div class="technical-note" id="nota-universo-uv">
-        <h3>Nota técnica sobre las UV</h3>
-        <p><code>insights-v1.json</code> conserva el universo tabular del pipeline nacional: 6.891 UV del cruce geometría IGVUST 202603 × atributos 202606. El visor navegable, en cambio, usa los shards GeoJSON publicados y suma 6.888 features: quedan fuera tres UV con geometría marcada como no usable en el generador cartográfico, ubicadas en Ovalle, Frutillar y Coelemu. Por eso los descriptivos nacionales y el mapa no deben leerse como conteos idénticos — son dos universos, apenas distintos, no un error.</p>
-      </div>
-    </section>
-
-    <section class="kpis reveal" aria-label="Chile en el corte SII 2026">
-      <article class="kpi"><span class="ic" aria-hidden="true">▦</span><span class="v" id="national-records">—</span><span class="l">Predios H en el corte</span></article>
-      <article class="kpi"><span class="ic" aria-hidden="true">◫</span><span class="v" id="national-communes">—</span><span class="l">Comunas Censo 2024</span></article>
-      <article class="kpi accent"><span class="ic" aria-hidden="true">◎</span><span class="v" id="national-coordinate-coverage">—</span><span class="l">Con coordenadas válidas</span></article>
-    </section>
-
-    <section class="card steps-card reveal" aria-labelledby="pasos-title">
-      <span class="section-eyebrow">Cómo recorrerlo</span>
-      <h2 id="pasos-title">Tres pasos para leer los indicadores de abajo</h2>
-      <div class="steps">
-        <article class="step"><span class="n">1</span><h3>Ubica una comuna</h3><p>Elige primero una región y luego una comuna. El visor carga sólo las celdas de ese territorio.</p></article>
-        <article class="step"><span class="n">2</span><h3>Lee la cobertura</h3><p>La tarjeta principal compara los predios habitacionales H directamente con las viviendas particulares del Censo 2024.</p></article>
-        <article class="step"><span class="n">3</span><h3>Contrasta, no atribuyas</h3><p>Revisa coordenadas, avalúo, superficie y referencia histórica antes de interpretar una diferencia como si fuera una causa.</p></article>
-      </div>
-    </section>
-
-    <section class="metric-section reveal" aria-labelledby="metricas-title">
-      <div class="section-head metric-head"><div><span class="section-eyebrow">El registro frente al censo</span><h2 id="metricas-title">Indicadores comunales</h2></div><p class="hint">El verde es la lectura principal, la que uso para el hallazgo comunal. CASEN aparece sólo como sensibilidad, para contrastar sin reemplazarla.</p></div>
-      <div class="metric-grid" aria-live="polite">
-        <article class="metric-chip primary"><span>Cobertura residencial</span><strong id="coverage">—</strong><small>frente a viviendas Censo 2024</small></article>
-        <article class="metric-chip"><span>Cobertura por hogar</span><strong id="coverage-hogar">—</strong><small>lectura secundaria, frente a hogares Censo 2024</small></article>
-        <article class="metric-chip"><span>Población Censo 2024</span><strong id="population">—</strong><small>personas censadas</small></article>
-        <article class="metric-chip"><span>Predios habitacionales H</span><strong id="records">—</strong><small>registros SII</small></article>
-        <article class="metric-chip"><span>Coordenadas válidas</span><strong id="coordinates">—</strong><small>de los predios H</small></article>
-        <article class="metric-chip"><span>Superficie total</span><strong id="surface">—</strong><small>m² de terreno reportados</small></article>
-        <article class="metric-chip"><span>Avalúo total</span><strong id="assessment">—</strong><small>CLP, percentil nacional <b id="assessment-percentile">—</b></small></article>
-        <article class="metric-chip"><span>Referencia histórica</span><strong id="historical">—</strong><small>vs proyección 2024 base Censo 2017</small></article>
-        <article class="metric-chip caution"><span>Sensibilidad CASEN</span><strong id="casen">—</strong><small id="casen-note">No disponible</small></article>
-      </div>
-    </section>
-
-    <section class="card finding-card reveal" aria-labelledby="hallazgo-title"><span class="section-eyebrow">Lectura comunal</span><h2 id="hallazgo-title">Lo que muestran los <span class="lead-accent">agregados</span></h2><p id="finding">Elige una comuna para cargar la lectura y el mapa.</p></section>
-
-    <section class="card caution-card reveal" aria-labelledby="cautelas-title">
-      <span class="section-eyebrow">Léelo con cuidado</span><h2 id="cautelas-title">Tres cautelas antes de sacar conclusiones</h2>
-      <div class="callout-grid">
-        <p><strong>No es población residente.</strong> Es una equivalencia estadística aplicada a registros de destino H, no un conteo de personas.</p>
-        <p><strong>No identifica causas.</strong> Vacancia, clasificación, fechas de corte o cobertura catastral pueden ser compatibles con una brecha; el visor no decide cuál de ellas opera en cada comuna.</p>
-        <p><strong>CASEN no ordena resultados.</strong> Su sensibilidad comunal se marca como no representativa y queda fuera de los hallazgos; mírala como contraste, no como veredicto.</p>
-      </div>
     </section>
 
     <section class="card sources-card reveal" id="descargas-parquet" aria-labelledby="fuentes-title">

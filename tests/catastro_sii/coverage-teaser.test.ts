@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildCoveragePoints,
+  ghostStyleFor,
   lowestCoveragePoint,
   medianOf,
   mostTruncatedPoint
@@ -93,5 +94,34 @@ describe("extremos destacados", () => {
   it("ambas devuelven null para una lista vacía", () => {
     expect(lowestCoveragePoint([])).toBeNull();
     expect(mostTruncatedPoint([])).toBeNull();
+  });
+});
+
+describe("ghosting por selección territorial", () => {
+  const caldera = { code: "3102", region: "Atacama" };
+  const iquique = { code: "1101", region: "Tarapacá" };
+
+  it("con comuna activa resalta sólo esa burbuja y apaga el resto", () => {
+    const ghost = { activeCode: "3102", activeRegion: "Atacama" };
+    expect(ghostStyleFor(caldera, ghost)).toEqual({ opacity: 1, highlight: true });
+    expect(ghostStyleFor(iquique, ghost)).toEqual({ opacity: 0.12, highlight: false });
+  });
+
+  it("la comuna manda por sobre la región cuando ambas están activas", () => {
+    const ghost = { activeCode: "3102", activeRegion: "Atacama" };
+    const otraDeAtacama = { code: "3202", region: "Atacama" };
+    expect(ghostStyleFor(otraDeAtacama, ghost)).toEqual({ opacity: 0.12, highlight: false });
+  });
+
+  it("con sólo región activa deja esa región legible y apaga las demás, sin resaltar ninguna", () => {
+    const ghost = { activeCode: null, activeRegion: "Atacama" };
+    expect(ghostStyleFor(caldera, ghost)).toEqual({ opacity: 0.78, highlight: false });
+    expect(ghostStyleFor(iquique, ghost)).toEqual({ opacity: 0.12, highlight: false });
+  });
+
+  it("sin selección devuelve la opacidad base para todas", () => {
+    const ghost = { activeCode: null, activeRegion: null };
+    expect(ghostStyleFor(caldera, ghost)).toEqual({ opacity: 0.78, highlight: false });
+    expect(ghostStyleFor(iquique, ghost)).toEqual({ opacity: 0.78, highlight: false });
   });
 });
