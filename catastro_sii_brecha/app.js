@@ -2,8 +2,7 @@
   "use strict";
 
   const $ = (selector) => document.querySelector(selector);
-  const $$ = (selector) => document.querySelectorAll(selector);
-  const state = { communes: [], regions: [], selected: null, cells: null, requestId: 0, mapCommuneCodes: new Set(), mapRegions: new Set() };
+  const state = { communes: [], regions: [], selected: null, mapCommuneCodes: new Set(), mapRegions: new Set() };
   const number = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
   const pct = (value) => value == null ? "No disponible" : `${Number(value).toLocaleString("es-CL", { maximumFractionDigits: 1 })}%`;
   const decimal1 = new Intl.NumberFormat("es-CL", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
@@ -47,10 +46,22 @@
   };
   const hasPublishedMap = (row) => state.mapCommuneCodes.has(sharedCode(row.codigo_comuna));
 
+  /** Fecha en que este visor pasó a producción. Se declara aparte del sello de los
+   * datos: el corte del catastro es de julio y presentarlos como una sola fecha
+   * haría parecer los datos más frescos de lo que son. */
+  const PUBLISHED_AT = "2026-08-01";
+
+  function formatPublishedAt() {
+    const parts = new Intl.DateTimeFormat("es-CL", { timeZone: "America/Santiago", day: "2-digit", month: "2-digit", year: "numeric" })
+      .formatToParts(new Date(`${PUBLISHED_AT}T12:00:00-04:00`));
+    const valueFor = (type) => parts.find((part) => part.type === type)?.value || "";
+    return `${valueFor("day")}/${valueFor("month")}/${valueFor("year")}`;
+  }
+
   function formatVersionTimestamp(value) {
-    if (!value) return "Versión: sin sello de publicación disponible";
+    if (!value) return "Datos: sin sello disponible";
     const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return "Versión: sin sello de publicación disponible";
+    if (Number.isNaN(date.getTime())) return "Datos: sin sello disponible";
     const parts = new Intl.DateTimeFormat("es-CL", {
       timeZone: "America/Santiago",
       day: "2-digit",
@@ -62,13 +73,13 @@
     }).formatToParts(date);
     const valueFor = (type) => parts.find((part) => part.type === type)?.value || "";
     const period = valueFor("dayPeriod").toUpperCase().replace(/[.\s]/g, "") || "AM";
-    return `Versión: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")} ${valueFor("hour")}:${valueFor("minute")} ${period}`;
+    return `Datos: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")} ${valueFor("hour")}:${valueFor("minute")} ${period} · Publicado: ${formatPublishedAt()}`;
   }
 
   function formatVersionDate(value) {
-    if (!value) return "Versión: sin sello disponible";
+    if (!value) return `Publicado: ${formatPublishedAt()}`;
     const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return "Versión: sin sello disponible";
+    if (Number.isNaN(date.getTime())) return `Publicado: ${formatPublishedAt()}`;
     const parts = new Intl.DateTimeFormat("es-CL", {
       timeZone: "America/Santiago",
       day: "2-digit",
@@ -76,7 +87,7 @@
       year: "numeric"
     }).formatToParts(date);
     const valueFor = (type) => parts.find((part) => part.type === type)?.value || "";
-    return `Versión: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")}`;
+    return `Datos: ${valueFor("day")}/${valueFor("month")}/${valueFor("year")}`;
   }
 
   function configurePublishedMaps(manifest) {
@@ -104,48 +115,6 @@
       : "* marca comunas del anexo geométrico piloto. Esta comuna mantiene UV agregadas.");
     window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible, hasPredial, row } }));
     return eligible;
-  }
-
-  function renderCanvas(data) {
-    const canvas = $("#density");
-    if (!canvas) return;
-    const host = canvas.parentElement;
-    if (!host) return;
-    const width = host.clientWidth;
-    const height = host.clientHeight;
-    const ratio = window.devicePixelRatio || 1;
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    const context = canvas.getContext("2d");
-    context.scale(ratio, ratio);
-    context.clearRect(0, 0, width, height);
-    if (!data.cells.length) return;
-
-    const xs = data.cells.map((cell) => cell[0]);
-    const ys = data.cells.map((cell) => cell[1]);
-    const pad = Math.max(12, Math.min(width, height) * 0.08);
-    const xmin = Math.min(...xs);
-    const xmax = Math.max(...xs);
-    const ymin = Math.min(...ys);
-    const ymax = Math.max(...ys);
-    const dx = Math.max(1, xmax - xmin);
-    const dy = Math.max(1, ymax - ymin);
-    const max = Math.max(...data.cells.map((cell) => cell[2]));
-
-    for (const [x, y, count] of data.cells) {
-      const px = pad + ((x - xmin) / dx) * (width - pad * 2);
-      const py = pad + ((y - ymin) / dy) * (height - pad * 2);
-      const radius = 1.5 + Math.sqrt(count / max) * 10;
-      const glow = context.createRadialGradient(px, py, 0, px, py, radius * 2.5);
-      glow.addColorStop(0, "rgba(184,255,60,.9)");
-      glow.addColorStop(1, "rgba(184,255,60,0)");
-      context.fillStyle = glow;
-      context.beginPath();
-      context.arc(px, py, radius * 2.5, 0, Math.PI * 2);
-      context.fill();
-    }
   }
 
   function flashMetrics() {
@@ -257,7 +226,6 @@
   }
 
   function updateMetrics(row) {
-    set("#territory", row.comuna);
     // El bundle TS también escribe este título, pero sólo cuando el mapa bivariado
     // se monta al entrar en viewport. Escribirlo acá evita que la ficha diga
     // "Detalle de tu comuna" mientras el resto del visor ya cambió de territorio.
@@ -278,36 +246,14 @@
     renderMetricScope(buildScopeAggregate(rows, "regional", region, region));
   }
 
-  async function selectCommune(code) {
+  function selectCommune(code) {
     const row = state.communes.find((item) => item.codigo_comuna === code);
     if (!row) return;
-    const requestId = ++state.requestId;
     state.selected = row;
     $("#comuna").value = code;
     updateMetrics(row);
     const mapEligible = updateMapVisibility(row);
     if (mapEligible) window.dispatchEvent(new CustomEvent("catastro:selection", { detail: { row } }));
-    if (!mapEligible) {
-      state.cells = null;
-      return;
-    }
-    if (!$("#density")) return;
-    set("#map-note", "Cargando celdas agregadas…");
-    try {
-      const response = await fetch(`data/${row.mapa.path}`, { cache: "force-cache" });
-      if (!response.ok) throw new Error("mapa no disponible");
-      const cells = await response.json();
-      if (requestId !== state.requestId) return;
-      state.cells = cells;
-      renderCanvas(cells);
-      set("#map-note", `${number.format(cells.cells.length)} celdas agregadas · zoom ${cells.zoom}`);
-    } catch (_) {
-      if (requestId !== state.requestId) return;
-      state.cells = { cells: [], zoom: 0 };
-      renderCanvas(state.cells);
-      set("#map-note", "No fue posible cargar la capa de celdas.");
-      set("#map-status", "La ficha comunal se mantiene, pero la capa de celdas no está disponible.");
-    }
   }
 
   function populateCommunes(region, selectedCode) {
@@ -403,12 +349,8 @@
       set("#bivariate-map-status", requested ? "Preparando la comuna solicitada…" : "Elige una comuna para cargar el mapa UV.");
       window.dispatchEvent(new CustomEvent("catastro:map-eligibility", { detail: { eligible: true, hasPredial: Boolean(initial && hasPublishedMap(initial)), row: initial || null } }));
       window.dispatchEvent(new CustomEvent("catastro:legacy-ready", { detail: { selected: state.selected } }));
-      window.addEventListener("resize", () => {
-        if (state.cells) renderCanvas(state.cells);
-      });
     } catch (_) {
       set("#status", "No se pudieron cargar los datos. Reintenta o revisa la metodología.");
-      set("#map-note", "Modo degradado: datos no disponibles.");
       set("#bivariate-map-status", "No fue posible preparar la capa UV agregada.");
     }
   }

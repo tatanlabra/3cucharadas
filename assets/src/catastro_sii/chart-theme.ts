@@ -168,3 +168,49 @@ export function formatCurrencyTick(value: number): string {
   if (value >= 1_000) return `$${formatter.format(value / 1_000)} mil`;
   return value >= 100 ? currency.format(value) : currencySmall.format(value);
 }
+
+/** Orden geográfico norte→sur de las 16 regiones. Ordenar la leyenda
+ * alfabéticamente rompe la intuición territorial: en un país de 4.300 km de largo
+ * el lector espera recorrer el mapa, no el diccionario, y con orden alfabético
+ * Arica queda junto a Aysén, que están a 3.700 km. */
+export const REGIONS_NORTH_TO_SOUTH: readonly string[] = [
+  "Arica y Parinacota",
+  "Tarapacá",
+  "Antofagasta",
+  "Atacama",
+  "Coquimbo",
+  "Valparaíso",
+  "Metropolitana de Santiago",
+  "Libertador General Bernardo O'Higgins",
+  "Maule",
+  "Ñuble",
+  "Biobío",
+  "La Araucanía",
+  "Los Ríos",
+  "Los Lagos",
+  "Aysén del General Carlos Ibáñez del Campo",
+  "Magallanes y de la Antártica Chilena"
+];
+
+/** Cualquier región que no esté en la tabla va al final, en orden alfabético: un
+ * nombre nuevo o distinto no debe desaparecer ni romper el orden del resto. */
+export function sortRegionsNorthToSouth(regions: string[]): string[] {
+  const rank = (name: string): number => {
+    const index = REGIONS_NORTH_TO_SOUTH.indexOf(name);
+    return index === -1 ? REGIONS_NORTH_TO_SOUTH.length : index;
+  };
+  return [...regions].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, "es"));
+}
+
+/** Reparte en `rows` filas lo más parejo posible: 16 en 3 filas da 6/5/5, no 6/6/4.
+ * Filas desiguales al final se leen como si sobraran elementos. */
+export function balancedRows<T>(items: T[], rows: number): T[][] {
+  const groups: T[][] = [];
+  let start = 0;
+  for (let row = 0; row < rows && start < items.length; row += 1) {
+    const size = Math.ceil((items.length - start) / (rows - row));
+    groups.push(items.slice(start, start + size));
+    start += size;
+  }
+  return groups;
+}
