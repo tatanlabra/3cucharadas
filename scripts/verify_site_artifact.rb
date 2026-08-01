@@ -34,8 +34,10 @@ required_files = %w[
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.svg
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp
-  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630.webp
-  assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-teaser-640.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/og-avaluo-vulnerabilidad-1200x630.webp
+  assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
+  assets/images/teasers/teaser-avaluo-vulnerabilidad-640.webp
 ].freeze
 
 pruned_files = %w[

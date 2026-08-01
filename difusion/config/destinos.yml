@@ -1,0 +1,170 @@
+# Catálogo de destinos de difusión.
+#
+# Antes esta lista vivía hardcodeada en destinations.py y asumía que todo post
+# tenía versión en inglés: un post sólo en español ni siquiera se podía evaluar,
+# lanzaba PostError. Además no existía ningún destino hispanohablante, pese a que
+# varios artículos del sitio tienen público primario chileno.
+#
+# Cada destino declara explícitamente el IDIOMA que consume y el PÚBLICO al que
+# habla. La resolución por artículo cruza esas dos dimensiones con lo que el post
+# realmente declara en su front matter.
+#
+# Campos:
+#   lang        idioma del contenido que acepta el destino ("es" | "en").
+#   audiencia   a quién le habla. Sirve para no mandar un post de política
+#               pública chilena a un agregador de programadores y viceversa.
+#   modo        "api"     el CLI puede publicar (hay cliente en networks.py)
+#               "manual"  se prepara el paquete y publica una persona
+#               "feed"    el destino consume un feed; no se empuja nada
+#   requiere    condiciones verificables. Se evalúan todas (AND):
+#     lang_post       el par debe incluir una versión en ese idioma
+#     republish       el valor debe estar en distribution.republish del post
+#     tags_min        {etiqueta: n} — n posts de ese idioma con esa etiqueta,
+#                     contando el post evaluado
+#     verificado      si es false, el destino nunca pasa a "listo": queda en
+#                     "pendiente-verificar" hasta confirmar sus reglas de envío
+#   nota        qué hay que hacer o qué falta, en texto para el humano.
+
+destinos:
+
+  # ─────────────────────────── Español ───────────────────────────
+
+  - id: mastodon-es
+    lang: es
+    audiencia: [general, tecnico]
+    modo: api
+    requiere:
+      lang_post: es
+    nota: >-
+      Hilo en español con revisión humana previa. Cliente implementado
+      (MastodonClient) con hilo, reanudación y rollback.
+
+  - id: bluesky-es
+    lang: es
+    audiencia: [general, tecnico]
+    modo: api
+    requiere:
+      lang_post: es
+    nota: >-
+      Hilo en español con revisión humana previa. Cliente implementado
+      (BlueskyClient); ojo con las facets al cortar el texto.
+
+  - id: linkedin-es
+    lang: es
+    audiencia: [politica-publica, datos]
+    modo: manual
+    requiere:
+      lang_post: es
+    activos:
+      - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png
+      - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png
+    nota: >-
+      Donde vive el público chileno de política pública. El carrusel se arma con
+      scripts/render-linkedin-carousel.sh; el hook sólo prepara el paquete.
+
+  - id: comunidades-datos-gis-es
+    lang: es
+    audiencia: [datos, gis]
+    modo: manual
+    requiere:
+      lang_post: es
+      verificado: false
+    nota: >-
+      Agregadores y comunidades hispanohablantes de datos abiertos y SIG. Encaje
+      temático alto, pero NO se ha verificado cuáles aceptan envíos ni con qué
+      reglas. Se mantiene en "pendiente-verificar" a propósito: declararlo listo
+      sin confirmar la política de cada comunidad es cómo se termina spameando.
+
+  # ─────────────────────────── Inglés ───────────────────────────
+
+  - id: dev
+    lang: en
+    audiencia: [desarrollo]
+    modo: feed
+    requiere:
+      lang_post: en
+      republish: dev
+    nota: "feed-dev-en.xml + revisión humana."
+
+  - id: medium
+    lang: en
+    audiencia: [general, datos]
+    modo: manual
+    requiere:
+      lang_post: en
+      republish: medium
+    nota: "Importar la URL EN y verificar que el canonical apunte al sitio."
+
+  - id: planet-python
+    lang: en
+    audiencia: [python]
+    modo: feed
+    requiere:
+      lang_post: en
+      tags_min: {python: 2}
+    nota: >-
+      Agregador de blogs Python. Pide historial, no un post suelto: por eso el
+      umbral de 2 posts EN etiquetados python.
+
+  - id: comunidades-python-en
+    lang: en
+    audiencia: [python]
+    modo: manual
+    requiere:
+      lang_post: en
+      tags_min: {python: 1}
+    nota: >-
+      Comunidades Python anglófonas donde encaja un caso de datos reales
+      (r/Python, foros de datos). Envío manual y de a una: cada comunidad tiene
+      su propia regla sobre autopromoción.
+
+  - id: osgeo-osm
+    lang: en
+    audiencia: [gis, openstreetmap]
+    modo: manual
+    requiere:
+      lang_post: en
+      tags_min: {geo: 2}
+    nota: >-
+      Canales OSGeo/OpenStreetMap. Umbral de 2 posts EN con etiqueta `geo`.
+      Cuidado con los sinónimos: `geospatial` no cuenta, el destino espera `geo`.
+
+  - id: comunidades-osm-en
+    lang: en
+    audiencia: [openstreetmap, gis]
+    modo: manual
+    requiere:
+      lang_post: en
+      tags_min: {geo: 1}
+    nota: >-
+      Foros y listas OpenStreetMap. Aplica cuando el post usa OSM como fondo
+      cartográfico o discute geometría; menciona la atribución en el envío.
+
+  - id: juliabloggers
+    lang: en
+    audiencia: [julia]
+    modo: feed
+    requiere:
+      lang_post: en
+      tags_min: {julia: 1}
+    nota: "feed-julia.xml enviado; esperar el ciclo semanal."
+
+  - id: r-bloggers
+    lang: en
+    audiencia: [r]
+    modo: feed
+    requiere:
+      lang_post: en
+      tags_min: {r: 2}
+    nota: "Requiere además backlink al agregador desde el post."
+
+  - id: econacademics
+    lang: en
+    audiencia: [economia]
+    modo: manual
+    requiere:
+      lang_post: en
+      verificado: false
+    nota: >-
+      Requiere un post económico con referencia RePEc sustantiva. Ningún post
+      del sitio cumple hoy.
