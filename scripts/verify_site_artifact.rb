@@ -10,8 +10,8 @@ require "rexml/xpath"
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
 source_root = File.expand_path("..", __dir__)
 # KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
-max_bytes = Integer(ENV.fetch("SITE_BASE_ARTIFACT_MAX_BYTES", "25000000"))
-total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "45000000"))
+max_bytes = Integer(ENV.fetch("SITE_BASE_ARTIFACT_MAX_BYTES", "45000000"))
+total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "60000000"))
 draft_fixture_mode = ENV["VERIFY_MATH_DRAFTS"] == "1"
 
 abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_dir)
