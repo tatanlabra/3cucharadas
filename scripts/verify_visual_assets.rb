@@ -20,6 +20,7 @@
 #   ruby scripts/verify_visual_assets.rb            # warnings no fallan
 #   ruby scripts/verify_visual_assets.rb --strict   # warnings fallan
 
+require "date"
 require "yaml"
 require_relative "lib/image_dimensions"
 
