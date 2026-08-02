@@ -1243,6 +1243,20 @@ html[data-theme="academic-night"] .page__footer a:hover {
 
 }
 
+/* Cualquier <video> dentro de un post. Sin esto se renderiza a su ancho
+   intrinseco —1920px en un h264 de 1080p— y desborda el contenedor en cualquier
+   pantalla menor. El sitio solo tenia la regla equivalente scopeada al post de
+   ai-quota, asi que el desborde reaparecia con cada video nuevo. */
+.page__content video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0.75rem;
+  background: #07080f;
+}
+
 /* Tablas del sitio: antes estaban inline en head/custom.html. */
 .page__content table {
   width: auto;
