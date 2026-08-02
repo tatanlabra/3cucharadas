@@ -528,6 +528,36 @@ main.wrap {
 /* El outline transparente conserva el diseño y sobrevive al modo de alto contraste
    forzado, donde los box-shadow se descartan y `outline: none` deja el foco invisible. */
 .finder-field select:focus { border-color: var(--cyan); outline: 2px solid transparent; outline-offset: 2px; box-shadow: var(--ring); }
+
+.finder-random {
+  display: inline-flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--acid) 56%, var(--line-strong));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--acid) 11%, var(--surface));
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 860;
+  cursor: pointer;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease, transform 140ms ease;
+}
+
+.finder-random:hover:not(:disabled) {
+  border-color: var(--acid);
+  background: color-mix(in srgb, var(--acid) 16%, var(--surface));
+  transform: translateY(-1px);
+}
+
+.finder-random:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.finder-random:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px; box-shadow: var(--ring); }
 .finder-status { min-height: 1.4em; margin: 1px 2px 0; color: var(--muted); font-size: 0.82rem; font-weight: 720; }
 .finder-note { grid-column: 1 / -1; max-width: 84ch; margin: 0; color: var(--muted); font-size: 0.86rem; }
 

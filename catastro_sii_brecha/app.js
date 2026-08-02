@@ -290,6 +290,32 @@
     window.dispatchEvent(new CustomEvent("catastro:region-selection", { detail: { region: region || null, communeCode: null } }));
   }
 
+  function randomIndex(length) {
+    if (!length) return -1;
+    if (window.crypto?.getRandomValues) {
+      const values = new Uint32Array(1);
+      window.crypto.getRandomValues(values);
+      return values[0] % length;
+    }
+    return Math.floor(Math.random() * length);
+  }
+
+  function randomCommunePool(region) {
+    const scoped = region ? state.communes.filter((row) => row.region === region) : state.communes;
+    return scoped.length ? scoped : state.communes;
+  }
+
+  function selectRandomCommune(region) {
+    const pool = randomCommunePool(region);
+    const current = state.selected?.codigo_comuna || $("#comuna")?.value || null;
+    const candidates = pool.length > 1 ? pool.filter((row) => row.codigo_comuna !== current) : pool;
+    const row = candidates[randomIndex(candidates.length)];
+    if (!row) return;
+    $("#region").value = row.region;
+    populateCommunes(row.region, row.codigo_comuna);
+    set("#selection-context", `Aleatorio: ${row.comuna}, ${row.region}.`);
+  }
+
   async function boot() {
     try {
       const publishedManifestUrl = window.CATASTRO_MAP_CONFIG?.publishedManifestUrl || "/assets/data/catastro_sii/manifest.json";
@@ -324,6 +350,11 @@
         }
         populateCommunes(regionSelect.value);
       });
+      const randomButton = $("#random-commune");
+      if (randomButton) {
+        randomButton.disabled = !state.communes.length;
+        randomButton.addEventListener("click", () => selectRandomCommune(regionSelect.value));
+      }
       const params = new URLSearchParams(window.location.search);
       const urlCode = params.get("comuna");
       const normalizedUrlCode = urlCode && /^\d{4,5}$/.test(urlCode)
