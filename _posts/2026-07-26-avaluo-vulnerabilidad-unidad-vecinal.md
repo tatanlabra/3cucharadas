@@ -197,7 +197,7 @@ El IGVUST ordena unidades vecinales según vulnerabilidad socioterritorial. Mant
 {: .text-justify}
 
 <figure class="align-center">
-  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/bivariado-clasificacion-4x2-1200x1685.webp' | relative_url }}" alt="Matriz de cuatro filas por dos columnas: las filas son los cuartiles nacionales de vulnerabilidad IGVUST, desde q1 como mayor vulnerabilidad hasta q4 como menor; las columnas separan avalúo fiscal por metro cuadrado bajo y alto." width="1200" height="1685" loading="lazy" decoding="async">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/bivariado-clasificacion-4x2-1200x1685.webp' | relative_url }}" alt="Matriz de cuatro filas por dos columnas: las filas son los cuartiles nacionales de vulnerabilidad IGVUST, desde q1 como mayor vulnerabilidad hasta q4 como menor; las columnas separan avalúo fiscal por metro cuadrado bajo y alto." width="1200" height="1685" style="max-width:min(100%,420px)" loading="lazy" decoding="async">
   <figcaption><strong>Figura 3</strong> — La clasificación 4×2, sin colores todavía. Cuatro filas de cuartil IGVUST por dos columnas de avalúo por m². Cada celda nombra la combinación que le corresponde por definición; no informa cuántas UV caen en ella ni qué tan frecuente es. En el visor, la columna separa por la mediana de la propia región, no por un corte nacional. Elaboración propia.</figcaption>
 </figure>
 
