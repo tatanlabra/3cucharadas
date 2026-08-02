@@ -34,6 +34,9 @@ build_site:
     - .venv/bin/python scripts/fetch_news.py
     - gem install bundler -N
     - bundle install
+    # Corre sobre el árbol fuente, antes de construir: si un post referencia una
+    # imagen inexistente o una pieza no publicable, falla acá y no tras el build.
+    - ruby scripts/verify_visual_assets.rb
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
     - ruby scripts/verify_distribution_readiness.rb public

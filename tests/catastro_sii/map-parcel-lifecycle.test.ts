@@ -182,4 +182,28 @@ describe("fallback de shard UV", () => {
     expect(map.getSource(UV_SOURCE_ID)).toBeUndefined();
     fetchSpy.mockRestore();
   });
+
+  it("ignora un shard UV obsoleto si la selección se limpió mientras cargaba", async () => {
+    const map = new FakeMap();
+    const controller = controllerFor(map);
+    const deferred: { resolveJson?: (payload: unknown) => void } = {};
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue({
+      ok: true,
+      json: () => new Promise<unknown>((resolve) => {
+        deferred.resolveJson = resolve;
+      })
+    } as Response);
+
+    const pending = controller.setUvLayer("data/uv/3102.json");
+    await Promise.resolve();
+    expect(deferred.resolveJson).toBeTypeOf("function");
+
+    await expect(controller.setUvLayer(null)).resolves.toBe(false);
+    deferred.resolveJson?.({ features: [{ geometry: { coordinates: [[[-70.86, -26.41], [-70.84, -26.41], [-70.84, -26.39], [-70.86, -26.39], [-70.86, -26.41]]] } }] });
+
+    await expect(pending).resolves.toBe(false);
+    expect(map.getSource(UV_SOURCE_ID)).toBeUndefined();
+    expect(map.calls).not.toContain(`addSource:${UV_SOURCE_ID}`);
+    fetchSpy.mockRestore();
+  });
 });

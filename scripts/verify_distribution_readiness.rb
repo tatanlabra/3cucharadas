@@ -10,65 +10,16 @@
 #   - enlaces internos del post resuelven a archivos reales del artefacto
 #
 # Sin dependencias nuevas: parsea encabezados WebP/PNG/JPEG a mano (misma
-# filosofía que verify_site_artifact.rb, solo stdlib de Ruby).
+# filosofía que verify_site_artifact.rb, solo stdlib de Ruby). Ese parser vive
+# ahora en scripts/lib/image_dimensions.rb, compartido con verify_visual_assets.rb.
 
 require "cgi"
+require_relative "lib/image_dimensions"
 
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
 abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_dir)
 
 MIN_OG_IMAGE_WIDTH = 1200
-
-def image_width(path)
-  return nil unless File.file?(path)
-
-  bytes = File.open(path, "rb") { |f| f.read(64) }
-  return nil unless bytes
-
-  if bytes[0, 4] == "RIFF" && bytes[8, 4] == "WEBP"
-    chunk = bytes[12, 4]
-    case chunk
-    when "VP8 "
-      # Lossy: width/height son little-endian 14-bit en los bytes 26-29 del chunk.
-      w = bytes[26, 2].unpack1("v") & 0x3FFF
-      w.positive? ? w : nil
-    when "VP8L"
-      b = bytes[21, 4].unpack1("V")
-      ((b & 0x3FFF) + 1)
-    when "VP8X"
-      # Ancho de canvas menos uno, 24-bit little-endian, en los bytes 24-26.
-      bytes[24, 3].bytes.reverse.inject(0) { |acc, b2| (acc << 8) | b2 } + 1
-    end
-  elsif bytes[0, 8] == "\x89PNG\r\n\x1a\n".b
-    bytes[16, 4].unpack1("N")
-  elsif bytes[0, 2] == "\xFF\xD8".b
-    # JPEG: recorre los segmentos SOFn buscando dimensiones.
-    File.open(path, "rb") do |f|
-      f.read(2)
-      loop do
-        marker = f.read(2)
-        break unless marker && marker[0] == "\xFF".b
-
-        code = marker[1].unpack1("C")
-        break if code == 0xD9
-
-        length = f.read(2)&.unpack1("n")
-        break unless length
-
-        if (0xC0..0xCF).cover?(code) && ![0xC4, 0xC8, 0xCC].include?(code)
-          f.read(1)
-          _height, width = f.read(4).unpack("nn")
-          return width
-        else
-          f.read(length - 2)
-        end
-      end
-    end
-    nil
-  end
-rescue StandardError
-  nil
-end
 
 def extract_meta(body, name)
   match = body.match(/<meta\s+name="#{Regexp.escape(name)}"\s+content="([^"]*)"/i) ||

@@ -12,6 +12,16 @@
 > Este documento se queda en el repo porque describe qué es cada imagen, dónde va
 > y qué advertencias tiene — eso sí vale versionarlo.
 
+> **Lo verificable ya no vive acá.** Las rutas, dimensiones, estado de publicación
+> (`publicable` / `solo-difusion` / `bloqueado`), cifras autorizadas y `alt` de cada
+> pieza están en `_data/visuales/avaluo-vulnerabilidad-unidad-vecinal.yml`, y los
+> valida `scripts/verify_visual_assets.rb` como gate de CI.
+>
+> Este documento conserva lo que un validador no puede comprobar: el razonamiento
+> editorial —por qué el teaser sin texto funciona mejor en la portada, por qué el
+> og se reencuadra a mano, en qué orden conviene implementar las piezas—. Si algo
+> de acá contradice al manifest, el manifest manda.
+
 ---
 
 Se generaron siete imágenes únicas. La ubicación propuesta sigue la estructura real del post: presentación de la pregunta, construcción del universo espacial y cruce entre avalúo y vulnerabilidad.
