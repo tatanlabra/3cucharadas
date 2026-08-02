@@ -23,7 +23,6 @@ import {
   getChart,
   integer,
   logAxisBounds,
-  reducedMotion,
   replaceTable,
   sortRegionsNorthToSouth,
   themeColors
@@ -144,7 +143,8 @@ function initialGhostState(): GhostState {
  * buscador principal y disparar `change` para que el resto del visor reaccione.
  * No se emite `catastro:selection` acá: ese evento lo dispara `selectCommune` en
  * app.js como consecuencia del `change`, y este módulo lo escucha para ghostear.
- * Emitirlo también desde aquí duplicaría el ciclo. */
+ * Emitirlo también desde aquí duplicaría el ciclo. Tampoco desplaza la página:
+ * la selección debe sincronizar el visor sin sacar al lector de su posición. */
 function selectCommuneInFinder(code: string, region: string): void {
   const regionSelect = document.getElementById("region");
   const communeSelect = document.getElementById("comuna");
@@ -153,7 +153,6 @@ function selectCommuneInFinder(code: string, region: string): void {
   regionSelect.dispatchEvent(new Event("change", { bubbles: true }));
   communeSelect.value = code;
   communeSelect.dispatchEvent(new Event("change", { bubbles: true }));
-  document.getElementById("explorar")?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
 }
 
 interface ScatterDatum {

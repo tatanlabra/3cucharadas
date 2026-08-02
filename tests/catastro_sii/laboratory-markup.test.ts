@@ -254,6 +254,19 @@ describe("disponibilidad cartográfica nacional", () => {
     expect(legacyApp).not.toContain("rows[0].codigo_comuna");
   });
 
+  it("permite explorar una comuna aleatoria sin desplazar la posición de lectura", () => {
+    expect(html).toContain('<button class="finder-random" id="random-commune" type="button" disabled');
+    expect(stylesheet).toContain(".finder-random {");
+    expect(legacyApp).toContain("function randomCommunePool(region)");
+    expect(legacyApp).toContain("pool.length > 1 ? pool.filter((row) => row.codigo_comuna !== current) : pool");
+    expect(legacyApp).toContain("populateCommunes(row.region, row.codigo_comuna)");
+    expect(legacyApp).toContain('randomButton.addEventListener("click", () => selectRandomCommune(regionSelect.value))');
+    expect(legacyApp).not.toContain("scrollIntoView");
+    expect(coverageTeaser).toContain("Tampoco desplaza la página");
+    expect(coverageTeaser).not.toContain("scrollIntoView");
+    expect(coverageTeaser).not.toContain("reducedMotion");
+  });
+
   it("restaura la comuna o la región pedidas por URL", () => {
     expect(legacyApp).toContain('params.get("comuna")');
     expect(legacyApp).toContain('params.get("region")');

@@ -1,5 +1,9 @@
+import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { isLocalPreviewLocation, manifestUrlForLocation, manifestUrlsForLocation } from "../../assets/src/catastro_sii/preview";
+
+const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
+const rangeServer = fs.readFileSync("scripts/catastro_sii/serve_range_static.mjs", "utf8");
 
 describe("manifestUrlForLocation", () => {
   it("prioriza el overlay local y conserva fallback público en el preview normal", () => {
@@ -28,5 +32,14 @@ describe("manifestUrlForLocation", () => {
       .toBe("/assets/data/catastro_sii/manifest.json");
     expect(manifestUrlForLocation("localhost", "?catastroPreview=local&run=../../otro"))
       .toBe("/assets/data/catastro_sii/manifest.json");
+  });
+
+  it("sirve el preview con Range sobre _site y overlay acotado de PMTiles locales", () => {
+    for (const script of ["serve:catastro:range", "serve:catastro:mcp"]) {
+      expect(packageJson.scripts[script]).toContain("serve_range_static.mjs _site ");
+      expect(packageJson.scripts[script]).toMatch(/ \.$/);
+    }
+    expect(rangeServer).toContain('const localCatastroOverlay = "/assets/data/catastro_sii/local/";');
+    expect(rangeServer).toContain("parsed.pathname.startsWith(localCatastroOverlay)");
   });
 });

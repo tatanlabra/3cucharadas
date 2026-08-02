@@ -5,6 +5,8 @@ import { extname, join, normalize, resolve } from "node:path";
 const root = resolve(process.argv[2] ?? process.cwd());
 const port = Number(process.argv[3] ?? 4014);
 const host = process.argv[4] ?? "127.0.0.1";
+const overlayRoot = process.argv[5] ? resolve(process.argv[5]) : null;
+const localCatastroOverlay = "/assets/data/catastro_sii/local/";
 
 const types = new Map([
   [".html", "text/html; charset=utf-8"],
@@ -21,13 +23,22 @@ const types = new Map([
   [".woff2", "font/woff2"]
 ]);
 
-function pathFor(url) {
-  const parsed = new URL(url, "http://localhost");
-  const requested = normalize(decodeURIComponent(parsed.pathname)).replace(/^(\.\.[/\\])+/, "");
-  const resolved = resolve(join(root, requested));
-  if (!resolved.startsWith(root)) return null;
+function pathInside(base, pathname) {
+  const requested = normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, "");
+  const resolved = resolve(join(base, requested));
+  if (resolved !== base && !resolved.startsWith(`${base}/`)) return null;
   if (existsSync(resolved) && statSync(resolved).isDirectory()) return join(resolved, "index.html");
   return resolved;
+}
+
+function pathFor(url) {
+  const parsed = new URL(url, "http://localhost");
+  const primary = pathInside(root, parsed.pathname);
+  if (primary && existsSync(primary)) return primary;
+  if (overlayRoot && parsed.pathname.startsWith(localCatastroOverlay)) {
+    return pathInside(overlayRoot, parsed.pathname);
+  }
+  return primary;
 }
 
 createServer((request, response) => {
