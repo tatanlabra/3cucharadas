@@ -40,3 +40,14 @@ cucharadas_difusion = ["templates/*.html", "static/*.css", "static/*.js"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# Base razonable sin volverse dogmatico: errores, imports ordenados, modernizacion
+# de sintaxis y bugs frecuentes. BLE (except amplio) se evalua caso a caso con
+# noqa justificado, porque en los pasos post-publicacion propagar es peor.
+select = ["E", "F", "I", "UP", "B", "BLE", "RUF"]
+ignore = ["E501"]
