@@ -337,6 +337,13 @@ Se puede, desde luego, retirar la obligación de una columna y reponerla con tra
 El visor permite explorar estas brechas de lo general a lo particular: el país completo, la comuna que elijas, sus unidades vecinales en el bivariado y un laboratorio que vuelve a subir de escala para probar denominadores, con vista de avalúos, distribuciones, sensibilidad y lectura comunal. Una exención no deja de ser distributiva porque se llame beneficio: también tiene numerador, denominador y geografía.
 {: .text-justify}
 
+<figure class="align-center">
+  <video autoplay loop muted playsinline controls preload="metadata" poster="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/poster-visor-1280x720.jpg' | relative_url }}" width="1920" height="1080" aria-label="Recorrido por el visor: los indicadores nacionales, la elección de una comuna, el mapa bivariado de unidades vecinales y el laboratorio de denominadores.">
+    <source src="{{ '/assets/videos/catastro-sii-visor.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <figcaption>Así se recorre el visor: de los indicadores nacionales a la comuna que elijas, sus unidades vecinales y el laboratorio que prueba denominadores. Sin audio; el detalle está en el texto de arriba.</figcaption>
+</figure>
+
 <a class="btn btn--primary" href="{{ '/catastro_sii_brecha/' | relative_url }}">Explorar el mapa y el laboratorio de denominadores</a>
 
 ---
