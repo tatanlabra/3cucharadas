@@ -224,10 +224,14 @@ describe("disponibilidad cartográfica nacional", () => {
     expect(mapApplication).not.toContain("DEFAULT_COMMUNE_CODE");
     expect(mapApplication).not.toContain("bindSelectionDock");
     expect(mapApplication).not.toContain("updateSelectionDock");
-    expect(mapApplication).toContain("updateTerritoryTable(row");
+    expect(mapApplication).toContain("renderTerritoryDetail(row");
+    expect(mapApplication).toContain("renderTerritoryDetail(null");
+    expect(mapApplication).toContain("this.state.communeCode = null");
     expect(mapApplication).toContain("bindUvClick((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()))");
     expect(mapApplication).toContain("renderChileSelector()");
     expect(mapApplication).toContain("catastro:region-selection");
+    expect(legacyApp).toContain("state.selected = null;");
+    expect(legacyApp).toContain("populateCommunes(regionSelect.value);");
     expect(mapApplication).toContain("regionalMedianAvm2");
     expect(mapApplication).toContain('document.getElementById("bivariate-map")');
     expect(mapApplication).toContain('setUvLayer(shardUrl, this.currentTheme(), regionalMedianAvm2, focusLocal, "bivariate")');

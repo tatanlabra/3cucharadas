@@ -263,6 +263,7 @@ export class CatastroMapApplication {
   private bivariateMap: MapController | null = null;
   private selectedRow: CommuneRecord | null = null;
   private selectedRegionName: string | null = null;
+  private bivariateRefreshToken = 0;
 
   private constructor(
     private readonly manifest: TilesManifest,
@@ -310,6 +311,13 @@ export class CatastroMapApplication {
         this.selectRow(row, !isInitialUrlSelection);
       }
     });
+    window.addEventListener("catastro:region-selection", (event) => {
+      const detail = (event as CustomEvent<{ region?: string | null; communeCode?: string | null }>).detail;
+      const communeCode = toDataCommuneCode(detail?.communeCode ?? null);
+      if (communeCode) return;
+      const regionName = typeof detail?.region === "string" && detail.region.trim() ? detail.region.trim() : null;
+      this.clearCommuneSelection(regionName);
+    });
     window.addEventListener("catastro:legacy-ready", (event) => {
       const row = (event as CustomEvent<{ selected?: CommuneRecord }>).detail?.selected;
       if (row) this.selectRow(row);
@@ -354,6 +362,7 @@ export class CatastroMapApplication {
       // Mantener el intent UV encendido: sin comuna no hay fetch; al seleccionar
       // una, el shard se carga sin que el checkbox mienta sobre el estado.
       this.state.uvLayerVisible = true;
+      this.renderTerritoryDetail(null);
       void this.bivariateMap?.setUvLayer(null);
       const bivariateCard = document.getElementById("bivariate-card");
       if (bivariateCard) bivariateCard.hidden = false;
@@ -390,7 +399,7 @@ export class CatastroMapApplication {
     this.state.regionCode = regionCodeForName(row.region);
     this.state.communeCode = row.codigo_comuna;
     this.state = reconcileMapAvailability(this.state, false);
-    this.updateTerritoryTable(row);
+    this.renderTerritoryDetail(row);
     const bivariateCard = document.getElementById("bivariate-card");
     if (bivariateCard) bivariateCard.hidden = false;
     this.syncBivariateSelectors(row);
@@ -440,15 +449,16 @@ export class CatastroMapApplication {
    * anunciar el estado, sin duplicar un control para el mismo estado. */
   private bindBivariateTools(): void {
     const region = document.getElementById("region");
+    const commune = document.getElementById("comuna");
     if (!(region instanceof HTMLSelectElement)) return;
     region.addEventListener("change", () => {
-      const regionName = region.value || null;
-      if (regionName === this.selectedRegionName) return;
-      this.selectedRegionName = regionName;
-      this.renderChileSelector();
-      setBivariateSelectorStatus(regionName ? `${regionName}: selector filtrado; elige una comuna para fijar ambos mapas.` : "Selector nacional listo; elige una comuna.");
-      setBivariateStatus(regionName ? `Región ${regionName} lista; elige una comuna para cargar el mapa UV.` : "Bivariado en espera de comuna.");
+      this.clearCommuneSelection(region.value || null);
     });
+    if (commune instanceof HTMLSelectElement) {
+      commune.addEventListener("change", () => {
+        if (!commune.value) this.clearCommuneSelection(region.value || null);
+      });
+    }
   }
 
   private syncBivariateSelectors(row: CommuneRecord): void {
@@ -461,6 +471,30 @@ export class CatastroMapApplication {
     window.dispatchEvent(new CustomEvent("catastro:region-selection", {
       detail: { region: regionName, communeCode }
     }));
+  }
+
+  private clearCommuneSelection(regionName: string | null): void {
+    const normalizedRegion = regionName && regionName.trim() ? regionName.trim() : null;
+    const shouldReplaceUrl = Boolean(this.selectedRow || this.state.communeCode || normalizedRegion);
+    this.bivariateRefreshToken += 1;
+    this.selectedRow = null;
+    this.selectedRegionName = normalizedRegion;
+    this.state.regionCode = normalizedRegion ? regionCodeForName(normalizedRegion) : null;
+    this.state.communeCode = null;
+    this.state = reconcileMapAvailability(this.state, false);
+    const bivariateCard = document.getElementById("bivariate-card");
+    if (bivariateCard) bivariateCard.hidden = false;
+    void this.bivariateMap?.setUvLayer(null);
+    const legend = document.getElementById("bivariate-uv-legend");
+    if (legend) legend.hidden = true;
+    const bivariateFinding = document.getElementById("bivariate-finding");
+    if (bivariateFinding) bivariateFinding.textContent = "Elige una comuna para cargar el cruce UV. Si no hay shard publicado, el bivariado queda vacío y no simula datos.";
+    this.renderTerritoryDetail(null, null, normalizedRegion);
+    this.renderChileSelector();
+    if (shouldReplaceUrl) replaceUrl(this.state, "mapa");
+    setBivariateSelectorStatus(normalizedRegion ? `${normalizedRegion}: selector filtrado; elige una comuna para fijar ambos mapas.` : "Selector nacional listo; elige una comuna.");
+    setBivariateStatus(normalizedRegion ? `Región ${normalizedRegion} lista; elige una comuna para cargar el mapa UV.` : "Bivariado en espera de comuna.");
+    setStatus(normalizedRegion ? `${normalizedRegion}: contexto regional listo. Elige una comuna para cargar su capa UV.` : "Contexto comunal nacional listo. Elige una comuna para cargar su capa UV.");
   }
 
   private renderChileSelector(): void {
@@ -549,6 +583,7 @@ export class CatastroMapApplication {
   }
 
   private async refreshBivariateLayer(focusLocal = false): Promise<void> {
+    const token = ++this.bivariateRefreshToken;
     const legend = document.getElementById("bivariate-uv-legend");
     const finding = document.getElementById("bivariate-finding");
     const code = this.state.communeCode;
@@ -558,24 +593,27 @@ export class CatastroMapApplication {
     const regionalMedianAvm2 = this.currentRegionalMedianAvm2();
     if (!row || !available || !shardUrl) {
       await this.bivariateMap?.setUvLayer(null);
+      if (token !== this.bivariateRefreshToken) return;
       if (legend) legend.hidden = true;
       if (finding) finding.textContent = "Elige una comuna para cargar el cruce UV. Si no hay shard publicado, el bivariado queda vacío y no simula datos.";
-      if (row) this.updateTerritoryTable(row, null);
+      this.renderTerritoryDetail(row, null);
       setBivariateStatus("Bivariado UV no disponible para la comuna seleccionada.");
       return;
     }
     updateUvLegend();
     const loaded = await this.bivariateMap?.setUvLayer(shardUrl, this.currentTheme(), regionalMedianAvm2, focusLocal, "bivariate");
+    if (token !== this.bivariateRefreshToken) return;
     if (legend) legend.hidden = !loaded;
     if (!loaded) {
       if (finding) finding.textContent = `${row.comuna}: no hay capa UV publicada para el bivariado.`;
-      this.updateTerritoryTable(row, null);
+      this.renderTerritoryDetail(row, null);
       setBivariateStatus("La capa bivariada no pudo cargarse.");
       return;
     }
     const summary = await uvSummaryFromUrl(shardUrl, regionalMedianAvm2);
+    if (token !== this.bivariateRefreshToken) return;
     if (finding) finding.textContent = summary ? bivariateFinding(row, summary) : `${row.comuna}: bivariado cargado; el resumen no pudo calcularse desde el shard.`;
-    this.updateTerritoryTable(row, summary);
+    this.renderTerritoryDetail(row, summary);
     setBivariateStatus(`${row.comuna}, ${row.region}: bivariado UV por m² cargado contra mediana regional. Pasa el cursor o haz clic sobre una UV para leer sus datos.`);
     requestAnimationFrame(() => this.bivariateMap?.resize());
   }
@@ -587,12 +625,40 @@ export class CatastroMapApplication {
     return document.documentElement.dataset.theme === "light" ? "light" : "dark";
   }
 
-  private updateTerritoryTable(row: CommuneRecord, summary: UvSummary | null = null): void {
+  private renderTerritoryDetail(row: CommuneRecord | null, summary: UvSummary | null = null, regionName: string | null = this.selectedRegionName): void {
     const name = document.getElementById("territory-detail-name");
     const lead = document.getElementById("territory-detail-summary");
     const body = document.getElementById("territory-detail-table-body");
+    const finding = document.getElementById("finding");
+    if (!row) {
+      if (name) name.textContent = "tu comuna";
+      const context = regionName ? `Región ${regionName}` : "Sin comuna seleccionada";
+      if (finding) finding.textContent = regionName
+        ? `${regionName}: indicadores regionales activos; elige una comuna para cargar su ficha, ranking y mapa UV.`
+        : "Elige una comuna para cargar la lectura y el mapa.";
+      if (lead) lead.textContent = regionName
+        ? `${regionName}: los indicadores superiores muestran agregados regionales; esta ficha espera una comuna.`
+        : "Elige una comuna para cargar su ficha territorial.";
+      if (body) {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        const td = document.createElement("td");
+        th.scope = "row";
+        th.textContent = "Selección";
+        td.textContent = context;
+        tr.append(th, td);
+        body.replaceChildren(tr);
+      }
+      return;
+    }
     const aggregate = this.aggregateFor(row);
     if (name) name.textContent = row.comuna;
+    if (finding) {
+      const rowFinding = (row as CommuneRecord & { hallazgo?: unknown }).hallazgo;
+      finding.textContent = typeof rowFinding === "string" && rowFinding.trim()
+        ? rowFinding
+        : `${row.comuna}: ficha territorial cargada; revisa los agregados y el bivariado UV antes de interpretar.`;
+    }
     if (lead) {
       const uvText = summary
         ? `${formatInteger(summary.classified)} UV clasificadas; ${formatInteger(summary.missing)} sin celda bivariada.`

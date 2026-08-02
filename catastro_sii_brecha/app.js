@@ -276,6 +276,7 @@
       selectCommune(initial);
       return;
     }
+    state.selected = null;
     select.value = "";
     if (region) {
       renderRegionalMetrics(region);
@@ -317,7 +318,11 @@
       }
       regionSelect.addEventListener("change", () => populateCommunes(regionSelect.value));
       $("#comuna").addEventListener("change", (event) => {
-        if (event.target.value) selectCommune(event.target.value);
+        if (event.target.value) {
+          selectCommune(event.target.value);
+          return;
+        }
+        populateCommunes(regionSelect.value);
       });
       const params = new URLSearchParams(window.location.search);
       const urlCode = params.get("comuna");

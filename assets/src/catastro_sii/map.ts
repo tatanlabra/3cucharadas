@@ -265,6 +265,7 @@ export class MapController {
   private defaultView: CommuneDefaultView | null = null;
   private defaultBounds: { bounds: Bounds; maxZoom: number } | null = null;
   private perspectiveEnabled = true;
+  private uvLayerRequestId = 0;
 
   private constructor(map: maplibregl.Map, private readonly manifest: TilesManifest) {
     this.map = map;
@@ -534,6 +535,7 @@ export class MapController {
     focusLocal = false,
     layerStyle: UvLayerStyle = "bivariate"
   ): Promise<boolean> {
+    const requestId = ++this.uvLayerRequestId;
     if (!url) {
       removeUvLayers(this.map);
       return false;
@@ -544,10 +546,12 @@ export class MapController {
       if (!response.ok) throw new Error(`${url} respondió ${response.status}`);
       payload = await response.json();
     } catch {
+      if (requestId !== this.uvLayerRequestId) return false;
       // Una comuna sin capa UV degrada a mapa sin capa, no a mapa roto.
       removeUvLayers(this.map);
       return false;
     }
+    if (requestId !== this.uvLayerRequestId) return false;
     const collection = { type: "FeatureCollection", features: (payload as { features?: unknown[] }).features ?? [] };
     const existing = this.map.getSource(UV_SOURCE_ID);
     if (existing && "setData" in existing) {

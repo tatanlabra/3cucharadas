@@ -1,0 +1,252 @@
+# Manifest de activos visuales del post.
+#
+# Se escribe A MANO. Nunca se deriva del post: si se dedujera de él heredaría sus
+# errores en vez de detectarlos, que es justo lo contrario de lo que se busca.
+# El post es lo que se verifica; este archivo es contra qué se verifica.
+#
+# Lo valida scripts/verify_visual_assets.rb (gate de CI). Campos:
+#   rol       hero | teaser | og | figura | social | carrusel
+#   estado    publicable    → se sirve y puede referenciarse desde el post
+#             solo-difusion → se versiona pero no se sirve; solo para subir a redes
+#             bloqueado     → no debe publicarse. `motivo` explica por qué.
+#                             Puede no tener `archivo` si la pieza ya se eliminó.
+#   origen    ia-externa | datos | d2 | render-script | manual
+#   cifras    deben aparecer literalmente en el cuerpo del post
+#
+# El razonamiento editorial (por qué el teaser sin texto funciona mejor en la
+# portada, el orden de implementación) vive en source/readme.md, no acá.
+
+slug: avaluo-vulnerabilidad-unidad-vecinal
+ref: avaluo-vulnerabilidad-uv
+posts:
+  - _posts/2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  - _posts/2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+
+piezas:
+  # --- Piezas generadas con IA externa (paleta ai-generada) ---
+  - id: hero
+    rol: hero
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp
+    ancho: 1600
+    alto: 900
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Un mismo avalúo fiscal de 9,4 millones de predios se divide por hogares, personas y metros cuadrados, y produce tres lecturas territoriales distintas."
+    cifras: ["9,4", "19,9%", "45,8%"]
+    advertencias:
+      - "Los tres paneles ilustran la idea de que el patrón cambia con el denominador; no son un resultado del cruce."
+      - "No usar como teaser pequeño: al reducirse a tarjeta sus textos quedan ilegibles."
+
+  - id: og
+    rol: og
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/og-avaluo-vulnerabilidad-1200x630.webp
+    ancho: 1200
+    alto: 630
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Avalúo fiscal y vulnerabilidad territorial: tres denominadores, tres mapas."
+    advertencias:
+      - "Reencuadre manual desde el hero, no recorte ciego: un recorte centrado corta el titular y la figura derecha."
+
+  - id: teaser
+    rol: teaser
+    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
+    ancho: 1280
+    alto: 720
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Mosaico territorial sin texto incrustado, usado como tarjeta del post en la portada."
+    advertencias:
+      - "Vive en la carpeta compartida assets/images/teasers/, no bajo el slug: la portada agrupa los teasers de todos los posts."
+      - "Sin texto incrustado a propósito, para que el título del post no aparezca duplicado sobre la tarjeta."
+
+  - id: teaser-640
+    rol: teaser
+    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad-640.webp
+    ancho: 640
+    alto: 360
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Derivado 640px del teaser, para listados y miniaturas."
+
+  - id: figura-numerador
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/numerador-tres-denominadores-1200x900.webp
+    ancho: 1200
+    alto: 900
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Un mismo numerador dividido por tres denominadores distintos produce tres ordenamientos territoriales."
+    advertencias:
+      - "Esquema conceptual: ilustra la mecánica del denominador, no un resultado calculado."
+
+  - id: figura-bivariado
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/bivariado-clasificacion-4x2-1200x1685.webp
+    ancho: 1200
+    alto: 1685
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Esquema conceptual de una clasificación bivariada que cruza cuartiles IGVUST con avalúo fiscal por metro cuadrado."
+    advertencias:
+      - "Reemplaza a la pieza bloqueada `figura-bivariado-v1`: es la versión corregida, sin minimapas y con la orientación 4 filas x 2 columnas del post."
+      - "Los cuartiles IGVUST ordenan unidades vecinales; no son tramos iguales del índice."
+
+  - id: figura-bivariado-v1
+    rol: figura
+    estado: bloqueado
+    origen: ia-externa
+    # Sin `archivo`: la pieza se eliminó del repo. Se conserva la entrada porque
+    # el catálogo de errores es el activo, no el archivo.
+    motivo: |
+      Cuatro errores factuales detectados en revisión humana antes de publicar:
+      1. Decía «CATÁSTRO»; debe decir «CATASTRO».
+      2. Expandía IGVUST como «Índice Geográfico de Vulnerabilidad Urbana y Social
+         Territorial»; el post lo define como «Índice Global de Vulnerabilidad
+         Socioterritorial».
+      3. Mostraba 4 columnas de vulnerabilidad x 2 filas de avalúo; el post describe
+         4 filas IGVUST x 2 columnas de avalúo. Misma combinación, orientación invertida.
+      4. Incluía minimapas ilustrativos que se leían como geometrías reales.
+      La escala IGVUST además quedó invertida. Se sustituyó por `figura-bivariado`.
+
+  # --- Piezas generadas desde los datos (canónicas) ---
+  - id: sankey-es
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp
+    ancho: 2126
+    alto: 1166
+    estado: publicable
+    origen: datos
+    alt:
+      es: "Diagrama Sankey del pipeline: de 10.343.893 registros del catastro a 9.130.127 predios con unidad vecinal asignada."
+    cifras: ["10.343.893", "942.616", "9.401.277", "9.130.127", "271.150"]
+    advertencias:
+      - "Figura canónica del post: se genera desde los datos, no con IA. Si las cifras cambian, se regenera."
+
+  - id: sankey-es-svg
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.svg
+    estado: publicable
+    origen: datos
+    # Sin ancho/alto: el validador no verifica dimensiones de SVG (no tiene
+    # encabezado binario y viewBox puede venir en unidades relativas).
+
+  - id: sankey-en
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.webp
+    ancho: 2126
+    alto: 1164
+    estado: publicable
+    origen: datos
+    alt:
+      en: "Sankey diagram of the pipeline: from 10,343,893 cadastre records to 9,130,127 parcels with an assigned neighbourhood unit."
+
+  - id: sankey-en-svg
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.svg
+    estado: publicable
+    origen: datos
+
+  - id: sankey-social-en
+    rol: og
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630-en.webp
+    ancho: 1200
+    alto: 630
+    estado: publicable
+    origen: datos
+    alt:
+      en: "Pipeline summary card used as the social image of the English version."
+
+  - id: sankey-teaser-en
+    rol: teaser
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-teaser-640-en.webp
+    ancho: 640
+    alto: 336
+    estado: publicable
+    origen: datos
+    advertencias:
+      - "Hoy sin referencias: la versión EN usa el teaser compartido. Candidato a poda si sigue sin uso."
+
+  - id: violin-es
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp
+    ancho: 2557
+    alto: 1062
+    estado: publicable
+    origen: datos
+    alt:
+      es: "Distribución del avalúo fiscal por unidad vecinal según el denominador utilizado."
+
+  - id: violin-es-svg
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.svg
+    estado: publicable
+    origen: datos
+
+  - id: violin-en
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores-en.webp
+    ancho: 2523
+    alto: 1060
+    estado: publicable
+    origen: datos
+    alt:
+      en: "Distribution of fiscal appraisal per neighbourhood unit under each denominator."
+
+  - id: violin-en-svg
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores-en.svg
+    estado: publicable
+    origen: datos
+
+  # --- Piezas de difusión: se versionan, no se sirven ---
+  - id: figura-pipeline-ia
+    rol: figura
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/pipeline-universo-espacial-1200x900.webp
+    ancho: 1200
+    alto: 900
+    estado: solo-difusion
+    origen: ia-externa
+    motivo: "Duplica el Sankey vectorial generado desde los datos, que es la figura canónica del post. Se conserva como activo de difusión."
+
+  - id: social-carousel-portada
+    rol: social
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png
+    ancho: 1080
+    alto: 1350
+    estado: solo-difusion
+    origen: ia-externa
+    motivo: "Máster 4:5 para subir a mano a redes. Publicarlo sumaba peso al artefacto sin que ninguna página lo use."
+
+  - id: social-estadisticas
+    rol: social
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png
+    ancho: 1080
+    alto: 1350
+    estado: solo-difusion
+    origen: ia-externa
+    motivo: "Máster 4:5 para redes."
+
+  - id: social-universo-espacial
+    rol: social
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/universo-espacial-1080x1350.png
+    ancho: 1080
+    alto: 1350
+    estado: solo-difusion
+    origen: ia-externa
+    motivo: "Máster 4:5 para redes."
+
+  - id: social-universo-bivariado
+    rol: social
+    archivo: assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/universo-y-bivariado-1200x630.png
+    ancho: 1200
+    alto: 630
+    estado: solo-difusion
+    origen: ia-externa
+    motivo: "Máster horizontal para redes."
