@@ -42,6 +42,11 @@ detecta el último borrador disponible en `difusion/state/drafts` e imprime una
 URL validada. También acepta un ref explícito, por ejemplo:
 `scripts/difusion-review-url.sh multiagente-penta-agent-memoria`.
 
+Para regenerar un carrusel PDF de LinkedIn desde un HTML local, ejecutar
+`scripts/render-linkedin-carousel.sh difusion/linkedin/<ref>-carrusel.html`.
+El script cuenta las láminas, renderiza cada slide en 1080x1350 con Firefox
+headless y produce el PDF junto con un preview mosaico.
+
 ## Operación RSS diaria (server-side)
 
 - El widget RSS se genera durante el build de GitLab CI: `.gitlab-ci.yml`
