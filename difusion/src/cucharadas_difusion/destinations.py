@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -146,7 +146,7 @@ def registrar_resolucion(
         json.dumps(
             {
                 "ref": ref,
-                "resuelto_en": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "resuelto_en": datetime.now(UTC).isoformat(timespec="seconds"),
                 "listos": [f["destination"] for f in filas if f["status"] == LISTO],
                 "destinos": filas,
             },

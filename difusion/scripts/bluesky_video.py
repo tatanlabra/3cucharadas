@@ -44,18 +44,22 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 DIFUSION_ROOT = Path(__file__).resolve().parents[1]
 SRC_ROOT = DIFUSION_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from cucharadas_difusion.networks import BlueskyClient, PublishError, load_secrets  # noqa: E402
-
+# El import va despues del sys.path.insert a proposito: el paquete no es
+# importable hasta que esa ruta entra en sys.path. De ahi el E402 silenciado.
+from cucharadas_difusion.networks import (  # noqa: E402
+    BlueskyClient,
+    PublishError,
+    load_secrets,
+)
 
 DEFAULT_VIDEO_SERVICE = "https://video.bsky.app"
 VIDEO_SERVICE_AUTH_LXM = "com.atproto.repo.uploadBlob"
@@ -109,7 +113,7 @@ class VideoInfo:
 
 
 def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(UTC).isoformat(timespec="seconds")
 
 
 def status(step: str, detail: str) -> None:
@@ -651,7 +655,7 @@ def publish(args: argparse.Namespace) -> int:
 
     try:
         verify_post(client, config, published_uri, info)
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - el post ya existe; propagar invitaria a reintentar y duplicar
         status("verify", f"fallo despues de crear el post; no reintentar publicacion. Detalle: {type(exc).__name__}")
         return 2
     status("verify", "post recuperado y campos criticos confirmados")
