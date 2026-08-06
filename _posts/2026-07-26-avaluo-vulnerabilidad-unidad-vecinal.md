@@ -25,11 +25,6 @@ author_profile: true
 classes: [avaluo-vulnerabilidad-post]
 ---
 
-<figure class="align-center">
-  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp' | relative_url }}" alt="Un mismo avalúo fiscal de 9,4 millones de predios se divide por hogares, personas y metros cuadrados, y produce tres lecturas territoriales distintas; junto a las cifras 19,9% de unidades vecinales que conservan cuartil y 45,8% que se desplazan dos o más." width="1600" height="900" loading="eager" decoding="async">
-  <figcaption>Apertura conceptual del argumento. Las cifras —9,4 millones de predios únicos, 19,9% que conserva cuartil, 45,8% que se desplaza dos o más— son las del procesamiento y se detallan más abajo. Los tres paneles ilustran la idea de que el patrón cambia con el denominador; no son un resultado del cruce.</figcaption>
-</figure>
-
 Chile mantiene un catastro capaz de seguir millones de predios y, aun así, suele reducir toda la conversación a una cuota trimestral. El dato no nació del entusiasmo estatal por dibujar polígonos: existe porque el impuesto territorial necesita saber **qué hay, dónde está, para qué se usa y cuánto vale fiscalmente**.
 {: .text-justify}
 
@@ -63,11 +58,11 @@ Cruzo dos registros administrativos chilenos: el catastro de bienes raíces del 
 | **Predio** | Unidad catastral identificada por comuna, manzana y número predial. | Vivienda, hogar, propietario o persona. |
 | **Avalúo fiscal** | Valoración administrativa usada como base del impuesto territorial. | Precio de compraventa, ingreso o riqueza de residentes. |
 | **IGVUST** | Ordenamiento de unidades vecinales según vulnerabilidad socioterritorial. | Diagnóstico individual ni mecanismo causal. |
-| **RSH** | Fuente de hogares y personas usados como denominadores. En este procesamiento suma 15.978.644 personas, cerca de 85% de la población del país. | Censo completo ni universo homogéneo por comuna. |
+| **RSH** | Fuente de hogares y personas usados como denominadores. En este procesamiento suma 15.978.644 personas. | Censo completo ni universo homogéneo por comuna. |
 | **Unidad vecinal** | Territorio definido para organización y participación vecinal. | Malla exhaustiva que cubra todo Chile predio por predio. |
 | **Denominador** | Magnitud por la que se divide el avalúo asignado. | Letra chica posterior: define la pregunta. |
 
-El RSH importa porque es la fuente de hogares y personas que uso como denominador. A escala nacional es amplio —cerca de 85% de la población—, pero no cubre todas las comunas por igual. En comunas con baja presencia relativa en RSH, como puede ocurrir en Vitacura, un indicador "por hogar RSH" puede inflarse por un denominador angosto, no por más avalúo real. El visor SIVUST, aún no público, trata esa misma comparación con igual cautela.
+El RSH importa porque es la fuente de hogares y personas que uso como denominador. A escala nacional es amplio —casi 16 millones de personas—, pero no cubre todas las comunas por igual. En comunas con baja presencia relativa en RSH, como puede ocurrir en Vitacura, un indicador "por hogar RSH" puede inflarse por un denominador angosto, no por más avalúo real. El visor SIVUST, aún no público, trata esa misma comparación con igual cautela.
 {: .text-justify}
 
 El avalúo fiscal tampoco es precio de mercado: el SII lo construye a partir de las características del bien y su área homogénea, no de una transacción real. Puede ser una señal territorial útil si conserva su apellido, **fiscal** — la teoría de precios hedónicos de [Rosen (1974)](https://doi.org/10.1086/260169) explica por qué el entorno pesa en la valoración de un bien diferenciado como una vivienda, pero este post no observa transacciones ni patrimonio de los hogares.
@@ -90,10 +85,10 @@ Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden
 
 <figure class="align-center">
   <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/numerador-tres-denominadores-1200x900.webp' | relative_url }}" alt="Un mismo avalúo fiscal total se divide por hogares, personas y metros cuadrados, produciendo tres patrones territoriales distintos." width="1200" height="900" loading="lazy" decoding="async">
-  <figcaption><strong>Figura 1</strong> — Un numerador, tres historias. El total asignado no cambia; cambia la pregunta que se le hace. Esquema conceptual, no un resultado del procesamiento. Elaboración propia.</figcaption>
+  <figcaption><strong>Figura 1</strong> — Dibujé el mismo total dividido de tres formas. No sale del procesamiento: es para ver la fracción antes de mirar el mapa.</figcaption>
 </figure>
 
-La respuesta corta: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero se diluye al mirar sólo UV mayoritariamente urbanas. No es una paradoja glamorosa entre riqueza y vulnerabilidad. Es más sobrio, y por eso más útil: **el denominador, el universo y la escala forman parte del resultado**.
+Lo que encontré: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero se diluye al mirar sólo UV mayoritariamente urbanas. Esperaba una paradoja entre riqueza y vulnerabilidad y no apareció. Me quedé con algo más sobrio y, para mi gusto, más útil: **el denominador, el universo y la escala forman parte del resultado**.
 {: .text-justify}
 
 Una advertencia antes de seguir: nada de esto dice cuánto gana quien vive ahí, cuánto vale su casa en el mercado ni quién es su dueño. Convertir una asociación territorial en una afirmación sobre personas es exactamente la inferencia ecológica que [Robinson (1950)](https://doi.org/10.2307/2087176) advirtió hace más de setenta años.
@@ -118,7 +113,7 @@ Con esa perspectiva, el catastro deja de ser una colección de roles y pasa a se
 
 ## Cucharada 1: construir el numerador sin cerrar la fuga
 
-El corte original trae **10.343.893 registros**. Registro no equivale a predio único; las bases administrativas también tienen eco. Después de deduplicar la clave catastral —comuna, manzana y número predial— quedan **9.401.277 predios**. El objetivo es repartir su avalúo sobre **6.891 UV** antes de probar denominadores.
+El corte original trae **10.343.893 registros**. Registro no equivale a predio único; las bases administrativas también tienen eco. Después de deduplicar la clave catastral —comuna, manzana y número predial— quedan **9.401.277 predios**. El objetivo es repartir su avalúo sobre **6.891 UV** antes de probar denominadores. El informe oficial del IGVUST declara 6.887; trabajo con cuatro más y dejo la diferencia anotada sin adjudicarle un error a nadie, porque no tengo cómo resolverla desde acá.
 {: .text-justify}
 
 Predios y UV son polígonos, pero sus límites no coinciden. Un predio puede caer entero en una UV, cruzar varias o no tocar ninguna. Uso prorrateo por área de intersección, una forma de interpolación areal ([Goodchild, Anselin & Deichmann, 1993](https://doi.org/10.1068/a250383)):
@@ -175,17 +170,17 @@ El visor incorpora esta lectura pura en la pestaña **Avalúos** de su laborator
 | Nivel | Territorio | Avalúo asignado (billones CLP) | Participación nacional |
 |---|---|---:|---:|
 | Región | Metropolitana | 286,7 | 48,8% |
-| Región | Valparaíso | 56,2 | 9,6% |
+| Región | Valparaíso | 58,3 | 9,9% |
 | Región | Biobío | 39,4 | 6,7% |
-| Región | La Araucanía | 28,2 | 4,8% |
-| Región | Maule | 26,4 | 4,5% |
+| Región | La Araucanía | 27,9 | 4,8% |
+| Región | Maule | 26,5 | 4,5% |
 | Comuna | Las Condes | 38,2 | 6,5% |
 | Comuna | Santiago | 27,1 | 4,6% |
 | Comuna | Providencia | 16,3 | 2,8% |
 | Comuna | Lo Barnechea | 16,0 | 2,7% |
 | Comuna | Vitacura | 15,2 | 2,6% |
 
-Participación calculada sobre el total nacional asignado de 587,4 billones. Los montos de La Araucanía y Maule se derivan de esa participación publicada, no de una cifra medida aparte. En comunas con fuga UV o baja cobertura relativa del denominador RSH, este tamaño no debe confundirse con una lectura completa del territorio ni de sus residentes.
+Participación calculada sobre el total nacional asignado de 587,4 billones. Todos los montos salen medidos del procesamiento. Corregí esta tabla el 5 de agosto: La Araucanía y Maule los había derivado del porcentaje redondeado en vez de la cifra medida, y a Valparaíso le faltaba Quillota, que en la fuente venía escrita con tilde y quedaba fuera del agrupamiento regional. En comunas con fuga UV o baja cobertura relativa del denominador RSH, este tamaño no debe confundirse con una lectura completa del territorio ni de sus residentes.
 {: .small}
 
 Las cinco comunas de la tabla suman **112,8 billones**: **19,2% de toda la base asignada del país** en cinco de 346 comunas, todas del sector oriente de Santiago. Esa es la concentración que después queda escondida cuando se divide por hogares o por metros cuadrados.
@@ -222,7 +217,7 @@ Si se divide por hogares RSH, el cuartil de mayor vulnerabilidad (`q1` IGVUST) c
 | q3 | 467 | 509 | 429 | 316 |
 | q4 · menor vulnerabilidad | 293 | 419 | 463 | 546 |
 
-La palabra correcta es **pista**, no conclusión. La razón combina avalúo territorial con hogares RSH. Si el denominador es bajo o el territorio es grande, el cociente sube sin que eso demuestre mayor riqueza de quienes viven allí.
+Lo llamo **pista** y no conclusión a propósito. La razón combina avalúo territorial con hogares RSH. Si el denominador es bajo o el territorio es grande, el cociente sube sin que eso demuestre mayor riqueza de quienes viven allí.
 {: .text-justify}
 
 ### 2. El cuadrante llamativo tiene menos hogares y mucha más superficie
@@ -285,7 +280,7 @@ Entre las **6.843 UV** con cuartil disponible tanto por hogar como por m², sól
 Entre las **6.857 UV con avalúo asignado positivo**, el Gini es **0,7265**. Describe una base tributaria territorial muy concentrada; no es un Gini de ingresos ni de patrimonio de personas.
 {: .text-justify}
 
-Este dato importa fuera del ejercicio estadístico. En una base tan concentrada, cualquier exención también redistribuye: no sólo decide quién deja de pagar, sino qué comuna, fondo o impuesto deberá reconstruir el monto. El beneficio cabe en una línea; la incidencia completa suele necesitar otra planilla.
+Este dato importa fuera del ejercicio estadístico. En una base tan concentrada, cualquier exención también redistribuye: no sólo decide quién deja de pagar, sino qué comuna, fondo o impuesto deberá reconstruir el monto. El beneficio cabe en una línea. La incidencia completa me obligó a abrir otra planilla.
 {: .text-justify}
 
 El Gini resume concentración, pero no separa cuánto ocurre dentro y entre grupos. Para eso sirve el índice de **Theil**, que sí se descompone. Con $$x_i$$ como avalúo asignado a la UV $$i$$, $$\mu$$ como su media y $$w_g$$ como la participación del grupo $$g$$ en el avalúo total:
@@ -313,7 +308,7 @@ Tercer freno: la literatura de *assessment ratio* muestra que la valoración fis
 El mapa no dicta una política tributaria. Sí impide fingir que la base es homogénea, que todas las comunas parten del mismo lugar o que una exención carece de geografía. El cruce identifica cinco brechas que deben cerrarse antes de usar sus colores como evidencia fuerte.
 {: .text-justify}
 
-**Brecha 1: universo del denominador.** El RSH cubre cerca de 85% de la población del país, pero no con igual intensidad comunal. Cualquier indicador por hogar o persona RSH debe declarar esa cobertura y, cuando corresponda, contrastarla con datos censales. Ese contraste es justamente con lo que abre el visor: antes de cualquier cruce, mide qué fracción de las viviendas particulares del Censo 2024 alcanza el registro residencial del SII, comuna por comuna. Es la misma advertencia de este post en su forma más simple — declarar el universo antes de dividir por él.
+**Brecha 1: universo del denominador.** El RSH alcanza casi 16 millones de personas, pero no con igual intensidad comunal. Cualquier indicador por hogar o persona RSH debe declarar esa cobertura y, cuando corresponda, contrastarla con datos censales. Ese contraste es justamente con lo que abre el visor: antes de cualquier cruce, mide qué fracción de las viviendas particulares del Censo 2024 alcanza el registro residencial del SII, comuna por comuna. Es la misma advertencia de este post en su forma más simple — declarar el universo antes de dividir por él.
 {: .text-justify}
 
 **Brecha 2: geometría y superficie.** El prorrateo requiere polígonos. La superficie declarada no reemplaza una geometría faltante sin una regla espacial adicional. Comunas con muchos predios sin polígono necesitan una alerta antes de interpretar su color.
