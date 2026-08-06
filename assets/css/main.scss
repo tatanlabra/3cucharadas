@@ -1375,88 +1375,104 @@ html[data-theme="academic-night"] p.table-caption {
   }
 }
 
-/* Selector ES/EN y conmutador de tema: mismo ancho, y la pastilla activa
-   contenida dentro del riel.
+/* Selector de idioma como BOTON, gemelo del conmutador de tema.
 
-   Historia del ajuste, porque el error es facil de repetir. El contenedor
-   computaba `display: flex` en vez del `inline-flex` que declara la regla base,
-   y un contenedor flex de nivel bloque se estira al espacio libre de la barra:
-   daba 113 px para dos celdas que sumaban 67. Ese exceso disimulaba el
-   problema real —le sobraba aire a la pastilla activa—, asi que al apretar el
-   ancho la pastilla empezo a desbordar el riel.
+   Antes era un riel de dos celdas (ES | EN). Se descarto por ancho: a 320 px el
+   conjunto titulo + lupa + idioma + tema + hamburguesa desbordaba el viewport y
+   la pagina ganaba scroll horizontal —medido, el hamburguesa terminaba en
+   327 px—. Un boton unico que muestra el idioma de DESTINO ocupa la mitad y se
+   comporta igual en todos los anchos.
 
-   La solucion no es el ancho sino la proporcion: el riel necesita un padding
-   propio mayor que cero para que el circulo de la celda activa quepa entero
-   dentro de sus esquinas redondeadas. Con `inline-flex` el ancho lo fija el
-   contenido; el conmutador de tema recibe ese mismo ancho por variable
-   compartida para que no se desincronicen al editar uno solo.
+   Se oculta el indicador del idioma activo: es informacion redundante, el
+   idioma en curso se ve en el contenido de la propia pagina. No cambia la
+   plantilla ni el enlace, solo su presentacion.
 
-   Intentos que NO funcionan, verificados en pantalla:
-     - `width: max-content` sobre el contenedor: seguia en 113 px.
-     - `flex: 1 1 50%` en las celdas: las comprimia a 9 px y aplastaba el texto.
+   Ambos controles comparten medidas por variable para que no se
+   desincronicen al editar uno solo. */
 
-   El fondo no se toca: en tema nocturno la regla
-   `html[data-theme="academic-night"] .lang-switcher` gana por especificidad
-   (0,2,1 sobre 0,2,0) y pinta el riel del switch segmentado, que es el aspecto
-   buscado. */
-
-$nav-control-width: 3rem;
-/* Altura compartida: el conmutador traia `min-height: 2rem` (44 px) contra los
-   32 px del selector, y en la barra se veia desproporcionado. */
-$nav-control-height: 1.45rem;
+$nav-control-width: 1.7rem;
+$nav-control-height: 1.55rem;
 
 .greedy-nav .lang-switcher {
+  /* Envoltorio sin forma propia: el boton es el <a>. Sin esto el riel heredado
+     dibujaba un segundo recuadro alrededor. */
   display: inline-flex;
-  box-sizing: border-box;
+  align-items: center;
   flex-shrink: 0;
   align-self: center;
-  align-items: center;
-  justify-content: center;
-  width: $nav-control-width;
-  height: $nav-control-height;
+  width: auto;
+  min-width: 0;
   margin: 0 0.3rem 0 0.45rem;
-  /* El aire del riel. Con menos, la pastilla activa se sale por las esquinas. */
-  padding: 0.16rem;
-  gap: 0.06rem;
+  padding: 0;
+  gap: 0;
   border: 0;
+  background: transparent;
   box-shadow: none;
 }
 
-.greedy-nav .lang-switcher > a,
-.greedy-nav .lang-switcher > span {
-  /* `auto`: la celda toma el ancho de sus dos letras mas su padding, sin que el
-     contenedor la comprima. */
-  flex: 0 0 auto;
-  /* CAUSA REAL del desborde: la barra da margen horizontal a sus enlaces
-     (`1rem`, que a 22 px de raiz son 22 px por lado). Lo heredaba el <a> de EN
-     pero no el <span> de ES, asi que el par salia corrido 11 px a la izquierda
-     en vez de desbordar parejo. Medido con getBoundingClientRect antes de
-     tocar nada mas. */
-  margin: 0;
-  min-width: 0;
-  min-height: 1.15rem;
-  padding: 0.16rem 0.26rem;
-  font-size: 0.56rem;
-  letter-spacing: 0;
-  line-height: 1;
+/* El fondo del riel viene de la regla del tema nocturno, que gana con (0,2,1).
+   Esta la supera con (0,3,1) sin recurrir a !important. */
+html[data-theme="academic-night"] .greedy-nav .lang-switcher {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
+.greedy-nav .lang-switcher .lang-active {
+  display: none;
+}
+
+.greedy-nav .lang-switcher > a,
 .greedy-nav .theme-toggle {
   box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   align-self: center;
   width: $nav-control-width;
   min-width: $nav-control-width;
   height: $nav-control-height;
-  /* Gana al `min-height: 2rem` de la regla base, que es lo que lo estiraba. */
+  /* Gana al `min-height: 2rem` de la regla base del conmutador. */
   min-height: $nav-control-height;
-  padding: 0.2rem;
+  /* La barra da margen horizontal a sus enlaces (1rem); sin esto el boton de
+     idioma quedaba corrido respecto del de tema. */
+  margin: 0;
+  padding: 0.16rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
 }
 
-/* En movil la barra va aun mas apretada, pero los dos controles siguen
-   midiendo lo mismo entre si. */
-@media (max-width: 37.5em) {
-  .greedy-nav .lang-switcher {
-    margin: 0 0.18rem 0 0.22rem;
-  }
+.greedy-nav .theme-toggle {
+  margin-left: 0.3rem;
+}
+
+/* Estados y tema nocturno: el boton de idioma replica los del conmutador para
+   que sean indistinguibles. Se apunta al <a> y no al contenedor. */
+.greedy-nav .lang-switcher > a {
+  color: inherit;
+}
+
+.greedy-nav .lang-switcher > a:hover,
+.greedy-nav .lang-switcher > a:focus-visible {
+  background: rgba(122, 162, 247, 0.14);
+}
+
+html[data-theme="academic-night"] .greedy-nav .lang-switcher > a {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .greedy-nav .lang-switcher > a:hover,
+html[data-theme="academic-night"] .greedy-nav .lang-switcher > a:focus-visible {
+  border-color: var(--night-link);
+  background: var(--night-layer-strong);
+  color: var(--night-link-hover);
 }
