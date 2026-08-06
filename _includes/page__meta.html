@@ -1,7 +1,10 @@
 {% assign document = post | default: page %}
 {% assign active_lang = site.active_lang | default: document.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
-{% unless include.type %}{% include lang-switcher.html %}{% endunless %}
+{%- comment -%}
+El selector se movió al masthead, junto al conmutador de tema, para que exista
+también en la portada. Dejarlo aquí lo duplicaría en cada post.
+{%- endcomment -%}
 {% if document.read_time or document.show_date %}
   <p class="page__meta">
     {% if document.show_date and document.date %}

@@ -37,6 +37,7 @@
           <i class="fas fa-search" aria-hidden="true"></i>
         </button>
         {% endif %}
+        {% include lang-switcher.html %}
         {% include theme-toggle.html %}
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ ui_text.menu_label | default: "Toggle menu" }}</span>

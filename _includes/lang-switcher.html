@@ -1,6 +1,17 @@
 {%- comment -%}
-Selector ES/EN. Solo aparece cuando Polyglot confirma una contraparte mediante
-`page.available_languages`; así no prometemos traducciones inexistentes.
+Selector ES/EN. Vive en el masthead, junto al conmutador de tema.
+
+Antes exigía `page.permalink` y por eso desaparecía de la portada: el home
+declara `translation_languages: [es, en]` pero **no** tiene permalink —lo omite a
+propósito, para que jekyll-paginate no pise la página 1 con la 2—. La condición
+lo dejaba fuera justo en la página donde más se nota.
+
+Ahora la ruta sale de `page.permalink` cuando existe y de `page.url` cuando no,
+que es el caso del home. Se mantiene el criterio original: sólo aparece si la
+página declara sus dos idiomas, para no prometer traducciones inexistentes.
+
+`static_href` evita que Polyglot reescriba el enlace hacia el idioma activo, que
+es justo lo contrario de lo que un conmutador necesita.
 {%- endcomment -%}
 {% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign switcher_languages = page.available_languages %}
@@ -10,16 +21,31 @@ Selector ES/EN. Solo aparece cuando Polyglot confirma una contraparte mediante
 {% assign language_order = "es,en" | split: "," %}
 {% assign switcher_label = "Idioma" %}
 {% if active_lang == "en" %}{% assign switcher_label = "Language" %}{% endif %}
-{% if page.permalink and switcher_languages and switcher_languages.size > 1 %}
+
+{%- comment -%}
+Ruta canónica en el idioma por defecto, sin el prefijo del idioma activo.
+En el home `page.url` es "/", y quitarle el prefijo lo deja igual.
+{%- endcomment -%}
+{% assign canonical_path = page.permalink %}
+{% unless canonical_path %}
+  {% assign canonical_path = page.url %}
+  {% if active_lang != site.default_lang %}
+    {% assign lang_prefix = "/" | append: active_lang %}
+    {% assign canonical_path = canonical_path | remove_first: lang_prefix %}
+    {% if canonical_path == "" %}{% assign canonical_path = "/" %}{% endif %}
+  {% endif %}
+{% endunless %}
+
+{% if canonical_path and switcher_languages and switcher_languages.size > 1 %}
 <div class="lang-switcher" role="navigation" aria-label="{{ switcher_label }}">
   {% for lang in language_order %}
     {% if switcher_languages contains lang %}
       {% if lang == active_lang %}
         <span class="lang-active" aria-current="page">{{ lang | upcase }}</span>
       {% elsif lang == site.default_lang %}
-        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
       {% else %}
-        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ page.permalink }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
       {% endif %}
     {% endif %}
   {% endfor %}
