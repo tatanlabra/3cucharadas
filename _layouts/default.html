@@ -12,7 +12,16 @@
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
     {% include_cached skip-links.html lang=active_lang %}
-    {% include_cached masthead.html lang=active_lang %}
+    {%- comment -%}
+    `include` y no `include_cached`: el masthead ahora contiene el selector
+    ES/EN, que depende de la página. Cacheado por idioma quedaba congelado con
+    la ruta de la primera página construida y todas enlazaban al mismo post.
+    Medido en este sitio: el caché ahorraba ~1,4 s sobre un build de ~6,4 s
+    (6,4 s → 7,8 s). Se acepta ese costo a cambio de que los enlaces del
+    selector sean correctos; si el sitio crece mucho, la salida es mover el
+    selector a JavaScript, no volver a cachear el masthead.
+    {%- endcomment -%}
+    {% include masthead.html lang=active_lang %}
 
     <div class="initial-content">
       {{ content }}
