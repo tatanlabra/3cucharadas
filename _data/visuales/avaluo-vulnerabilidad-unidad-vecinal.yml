@@ -58,10 +58,11 @@ piezas:
     estado: publicable
     origen: ia-externa
     alt:
-      es: "Mosaico territorial sin texto incrustado, usado como tarjeta del post en la portada."
+      es: "Rostro de una mujer sobre una ciudad nocturna, usado como tarjeta del post en la portada."
     advertencias:
       - "Vive en la carpeta compartida assets/images/teasers/, no bajo el slug: la portada agrupa los teasers de todos los posts."
       - "Sin texto incrustado a propósito, para que el título del post no aparezca duplicado sobre la tarjeta."
+      - "Reencuadre del hero (2026-08-05): recorte 545x306 de la zona derecha, reescalado a 1280x720. El teaser anterior dejaba a la mujer cortada en el borde y un tercio izquierdo casi vacío. El recorte respeta la advertencia del hero —no arrastra sus textos— pero viene de una fuente de 545 px de ancho, así que no es nítido a tamaño completo; a tamaño de tarjeta se sostiene."
 
   - id: teaser-640
     rol: teaser
