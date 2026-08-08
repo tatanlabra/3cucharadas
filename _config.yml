@@ -198,12 +198,25 @@ exclude:
   - catastro_sii_brecha/data/.cache
   - tests
   - reports
-  - scripts/catastro_sii
+  # Antes sólo se excluía scripts/catastro_sii, así que el resto del directorio
+  # (verificadores Ruby, fetch_news.py, hooks de git) viajaba al artefacto y se
+  # servía en /scripts/*. Es herramienta de build: CI la ejecuta desde el repo
+  # —`ruby scripts/verify_site_artifact.rb public`—, nunca desde el sitio
+  # publicado, y ninguna página la enlaza. Mismo criterio que difusion/tests/tools.
+  - scripts
   - deploy
   - difusion       # herramienta local; nunca copiar codigo/tests al sitio publico
   - docs
   - Rakefile
   - README
+  # Políticas del repositorio: GitHub y GitLab las leen del repo, no del sitio.
+  # Sin excluirlas Jekyll las copia tal cual y quedan servidas como markdown
+  # crudo, sin plantilla, en /SECURITY.md. LICENSE y README ya estaban fuera por
+  # la misma razón; se completa el conjunto en vez de dejar una a medias.
+  - SECURITY.md
+  # Utilidad de escritorio para regenerar los WOFF2 de Fira desde las fuentes
+  # instaladas en el sistema. No es fuente del sitio ni la usa el build.
+  - font_NF.sh
   - tools
   - tmp
 keep_files:
@@ -297,7 +310,22 @@ plugins:
 # Las cadenas de UI en inglés ya vienen en _data/ui-text.yml.
 languages: ["es", "en"]
 default_lang: "es"
-exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "feed-dev-en.xml", "robots.txt", "sitemap.xml", "cv", "public", "catastro_sii_brecha"]
+# Los patrones se resuelven contra la ruta FUENTE relativa a la raíz del repo,
+# no contra la URL publicada. Dos consecuencias que ya costaron caro:
+#   - "catastro_sii_brecha" no cubría "catastro_sii_brechas": Polyglot copiaba el
+#     stub de redirección a /en/catastro_sii_brechas/, y las tres URLs
+#     (singular, plural y plural bajo /en/) declaraban la misma canónica. Es el
+#     "Duplicada: Google eligió otra canónica" del informe de GSC.
+#   - "sitemap.xml" no cubre "_pages/sitemap.xml", que es donde vive de verdad,
+#     así que se publica un /en/sitemap.xml byte a byte idéntico al de la raíz.
+#     No se corrige aquí a propósito: jekyll-sitemap sigue cargándose (viene en
+#     el grupo :jekyll_plugins del Gemfile, que Jekyll requiere entero pese al
+#     comentario de la sección `plugins`) y sólo se calla porque encuentra una
+#     página que ya ocupa /sitemap.xml. Al excluir la nuestra del pase inglés,
+#     el hueco lo llenaría el sitemap generado por la gema —que es justo lo que
+#     este sitio evita—. Es lo que ya pasa con /en/robots.txt. Arreglarlo de
+#     raíz es sacar jekyll-sitemap del Gemfile.
+exclude_from_localization: ["assets", "javascript", "images", "favicon", "feed.xml", "feed-julia.xml", "feed-dev-en.xml", "robots.txt", "sitemap.xml", "cv", "public", "catastro_sii_brecha", "catastro_sii_brechas", "_pages/sitemap.xml"]
 parallel_localization: true
 
 # Archivos (categorías/tags por páginas dedicadas)
