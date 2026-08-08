@@ -1,56 +1,67 @@
 ---
 permalink: /terms/
-title: "Terms and Privacy Policy"
-last_modified_at: 2017-10-20T12:42:38-04:00
+title: "Términos y política de privacidad"
+# Fuente en español. La inglesa es _pages/terms-en.md, con el MISMO permalink:
+# es el patrón que ya usan about.md/about-en.md y year-archive.md/-en.md, y `lang`
+# es lo único que impide que las dos fuentes colisionen en el mismo pase de
+# Polyglot. Antes había un solo archivo en inglés que Polyglot publicaba en
+# /terms/ y /en/terms/, así que la URL española servía texto inglés.
+last_modified_at: 2026-08-08T00:00:00-04:00
+lang: es
+ref: terms
+# Ya no lleva `noindex_langs: [en]`. Esa marca existía porque /en/terms/ era una
+# copia byte a byte del original, no una traducción, y no debía competir por la
+# indexación. Ahora hay dos textos reales, así que ambas variantes se indexan y
+# `_pages/sitemap.xml` vuelve a declarar el par con su hreflang.
+#
+# El cuerpo venía de la plantilla de Minimal Mistakes y describía un sitio con
+# Google AdSense y afiliados de Amazon. Nada de eso existe aquí —el gate de
+# scripts/verify_site_artifact.rb aborta el build si aparece `adsbygoogle` o
+# `pagead2.googlesyndication.com` en el artefacto—, así que esas secciones se
+# retiran en lugar de traducirse: traducir una afirmación falsa la deja igual de
+# falsa. Lo que sí ocurre en el sitio (GA4 con anonimización de IP y GoatCounter)
+# se declara, porque una política que omite la analítica que sí corre es peor que
+# la plantilla. No se agregan compromisos que el original no tenía.
 toc: true
 ---
 
-## Privacy Policy
+## Política de privacidad
 
-The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.
+La privacidad de quienes visitan este sitio es muy importante. Esta política describe qué información personal se recibe y se recolecta, y cómo se usa.
 
-First and foremost, I will never share your email address or any other personal information to anyone without your direct consent.
+Ante todo: nunca compartiré tu dirección de correo ni ningún otro dato personal con nadie sin tu consentimiento directo.
 
-### Log Files
+### Archivos de registro
 
-Like many other websites, this site uses log files to help learn about when, from where, and how often traffic flows to this site. The information in these log files include:
+Como muchos otros sitios, este usa archivos de registro (*log files*) para conocer cuándo, desde dónde y con qué frecuencia llega el tráfico. La información de esos registros incluye:
 
-* Internet Protocol addresses (IP)
-* Types of browser
-* Internet Service Provider (ISP)
-* Date and time stamp
-* Referring and exit pages
-* Number of clicks
+* Direcciones IP
+* Tipo de navegador
+* Proveedor de acceso a internet (ISP)
+* Fecha y hora
+* Páginas de entrada y de salida
+* Número de clics
 
-All of this information is not linked to anything that is personally identifiable.
+Nada de esa información se vincula con datos que permitan identificarte.
 
-### Cookies and Web Beacons
+### Cookies y balizas web
 
-When you visit this site "convenience" cookies are stored on your computer when you submit a comment to help you log in faster to [Disqus](http://disqus.com) the next time you leave a comment.
+Al enviar un comentario se guardan en tu equipo cookies "de conveniencia" que sirven para que la próxima vez entres más rápido a [Disqus](https://disqus.com).
 
-Third-party advertisers may also place and read cookies on your browser and/or use web beacons to collect information. This site has no access or control over these cookies. You should review the respective privacy policies on any and all third-party ad servers for more information regarding their practices and how to opt-out.
+Los comentarios son de carga manual: Disqus no se contacta ni instala nada mientras no pulses el botón para cargarlos.
 
-If you wish to disable cookies, you may do so through your web browser options. Instructions for doing so can be found on the specific web browsers' websites.
+Si quieres desactivar las cookies, puedes hacerlo desde las opciones de tu navegador. Las instrucciones están en el sitio de cada navegador.
 
 #### Google Analytics
 
-Google Analytics is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors. You can read [Google Analytics Privacy Policy](http://www.google.com/analytics/learn/privacy.html).
+Google Analytics es una herramienta de analítica web que uso para entender cómo se usa este sitio. Informa tendencias mediante cookies y balizas web, sin identificar visitantes individuales, y aquí está configurada para anonimizar la dirección IP. Puedes leer la [política de privacidad de Google Analytics](https://policies.google.com/technologies/partner-sites).
 
-#### Google Adsense
+#### GoatCounter
 
-Google Adsense, a third party affiliate marketing network, uses cookies to help make sure I get a commission when you buy a product after clicking on a link or ad banner that takes you to the site of one of their merchants. You can read [Google Adsense Privacy Policy](http://support.google.com/adsense/bin/answer.py?hl=en&answer=48182).
+En paralelo uso [GoatCounter](https://www.goatcounter.com), un contador de visitas que no usa cookies ni huella digital del navegador (*fingerprinting*).
 
-## Disclosure Policy
+## Publicidad y afiliados
 
-I make money on this website through affiliate programs. If you click an affiliate link or ad banner and buy the product, you help support this website because I'll get a percentage of that sale.
+Este sitio no tiene publicidad, ni programas de afiliados, ni ningún otro mecanismo por el que yo gane dinero con lo que publico aquí. Tampoco recibo compensación por recomendar herramientas o productos: lo que aparece en los artículos es lo que uso.
 
-Currently I'm an affiliate for Amazon and Google Adsense.
-
-What this means for you:
-
-* I became an affiliate to earn revenue towards the costs of running and maintaining this website. Where I have direct control over which ads are served on this website I offer only products that are directly related to the topic of this website and products that a reader/subscriber would have a genuine interest in or need of.
-* I do not and will not recommend a product just for the sake of making money.
-* I do not let the compensation I receive influence the content, topics, posts, or opinions expressed on this website.
-* I respect and value my readers too much to write anything other than my own genuine and objective opinions and advice.
-
-Just like this website, my Disclosure Policy is a work in progress. As the revenue streams evolve, so will this page.
+Igual que el resto del sitio, esta página está en construcción permanente. Si algo cambia, cambia también aquí.

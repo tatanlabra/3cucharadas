@@ -42,9 +42,43 @@ sitemap: false
   </url>
   {%- endif -%}
 {%- endfor -%}
-{%- comment -%} Páginas indexables (excluye feeds, assets, xml, 404 y las marcadas sitemap:false) {%- endcomment -%}
+{%- comment -%}
+  Páginas indexables (excluye feeds, assets, xml, 404 y las marcadas sitemap:false).
+
+  Dos filtros que antes no estaban:
+
+  1. El paginador. Hoy hay menos posts que `paginate`, así que no existe ninguna
+     `/pageN/`; al superar el umbral, jekyll-paginate las inyecta en `site.pages`
+     y sin este filtro entrarían al sitemap. El prefijo sale de `paginate_path`
+     en vez de escribirse a mano, y se exige un dígito detrás para no descartar
+     una página de contenido que empiece por las mismas letras.
+  2. La variante `/en/`. Antes se fabricaba por concatenación para toda página,
+     sin comprobar si existe y es indexable. Declarar en el sitemap una URL que
+     lleva `noindex` es una señal contradictoria: se pide indexar y no indexar la
+     misma URL. Se respetan `lang-exclusive` (Polyglot no genera la variante) y
+     `noindex_langs` (existe, pero no debe competir con el original).
+{%- endcomment -%}
+{%- assign paginator_prefix = site.paginate_path | default: '/page:num/' | split: ':num' | first -%}
+{%- assign paginator_prefix_size = paginator_prefix | size -%}
 {%- for page in site.pages -%}
-  {%- unless page.sitemap == false or page.url contains '/assets/' or page.url contains '/deploy/' or page.url contains '/docs/' or page.url contains '.xml' or page.url contains '.txt' or page.url contains '404' or page.url contains '.json' -%}
+  {%- unless page.sitemap == false or page.noindex or page.url contains '/assets/' or page.url contains '/deploy/' or page.url contains '/docs/' or page.url contains '.xml' or page.url contains '.txt' or page.url contains '404' or page.url contains '.json' -%}
+  {%- assign url_head = page.url | slice: 0, paginator_prefix_size -%}
+  {%- assign url_tail = page.url | remove_first: paginator_prefix | slice: 0, 1 -%}
+  {%- assign is_paginated = false -%}
+  {%- if url_head == paginator_prefix and url_tail != '' and '0123456789' contains url_tail -%}
+    {%- assign is_paginated = true -%}
+  {%- endif -%}
+  {%- unless is_paginated -%}
+  {%- assign has_en = true -%}
+  {%- assign page_lang_exclusive = page.lang-exclusive -%}
+  {%- if page_lang_exclusive.size > 0 -%}
+    {%- unless page_lang_exclusive contains 'en' -%}
+      {%- assign has_en = false -%}
+    {%- endunless -%}
+  {%- endif -%}
+  {%- if page.noindex_langs contains 'en' -%}
+    {%- assign has_en = false -%}
+  {%- endif -%}
   {%- assign es = base | append: page.url -%}
   {%- assign en = base | append: '/en' | append: page.url -%}
   {%- assign lm = page.last_modified_at | date_to_xmlschema -%}
@@ -52,9 +86,10 @@ sitemap: false
     <loc>{{ es }}</loc>
     {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
     <xhtml:link rel="alternate" hreflang="es" href="{{ es }}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>
+    {%- if has_en %}<xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>{% endif %}
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ es }}"/>
   </url>
+  {%- if has_en %}
   <url>
     <loc>{{ en }}</loc>
     {%- if lm %}<lastmod>{{ lm }}</lastmod>{% endif %}
@@ -62,6 +97,8 @@ sitemap: false
     <xhtml:link rel="alternate" hreflang="en" href="{{ en }}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ es }}"/>
   </url>
+  {%- endif -%}
+  {%- endunless -%}
   {%- endunless -%}
 {%- endfor -%}
 </urlset>

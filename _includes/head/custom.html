@@ -8,8 +8,21 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicons/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest' | relative_url }}">
 
-{%- comment %} Habilita vistas previas de imagen grande en resultados de búsqueda (Fase 1, auditoria-2026-07-25) {% endcomment -%}
-<meta name="robots" content="max-image-preview:large">
+{%- comment %}
+Directivas para robots en UNA sola etiqueta. Dos <meta name="robots"> en la misma
+página son una contradicción que Google resuelve por su cuenta, así que el
+`noindex` se acumula aquí en vez de emitirse aparte.
+
+`max-image-preview:large` habilita vistas previas de imagen grande (Fase 1,
+auditoria-2026-07-25). `page.noindex` cubre páginas que responden 200 pero no son
+contenido —la de error 404, que si no queda como soft-404—; `page.noindex_langs`
+cubre el caso distinto de una página cuya variante en otro idioma todavía no está
+traducida y sólo sería un duplicado compitiendo con el original.
+{% endcomment -%}
+{%- assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" -%}
+{%- assign page_noindex = page.noindex -%}
+{%- if page.noindex_langs contains active_lang %}{% assign page_noindex = true %}{% endif -%}
+<meta name="robots" content="{% if page_noindex %}noindex, follow, {% endif %}max-image-preview:large">
 
 {% if page.math or site.math %}
 <link rel="stylesheet" href="{{ '/assets/vendor/katex/0.17.0/katex.css' | relative_url }}">
@@ -18,19 +31,60 @@
 {%- comment %} JSON-LD por artículo (autor Person + publisher) {% endcomment -%}
 {% include schema-article.html %}
 
-{%- comment %} hreflang para versiones de idioma (jekyll-polyglot) {% endcomment -%}
-{% assign alternate_languages = page.available_languages %}
-{% if page.translation_languages %}
-  {% assign alternate_languages = page.translation_languages %}
-{% endif %}
-{% if page.permalink and alternate_languages and alternate_languages.size > 1 %}
-  {% for lang in alternate_languages %}
-    {% if lang == site.default_lang %}
-      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
-    {% else %}
-      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ page.permalink }}">
-    {% endif %}
-  {% endfor %}
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}{{ page.permalink }}">
-{% endif %}
+{%- comment %}
+hreflang para versiones de idioma (jekyll-polyglot).
+
+El guard anterior exigía `page.permalink` y `available_languages.size > 1`, y
+dejaba sin ninguna señal a 12 de las 30 URLs del sitemap. Dos fallos distintos:
+
+1. La portada no declara permalink a propósito (ver index.html), así que la
+   primera condición la excluía. Mismo fallo que ya documenta y resuelve
+   `_includes/lang-switcher.html`: la ruta sale de `page.permalink` cuando existe
+   y de `page.url` cuando no.
+2. Las páginas de una sola fuente —archivo, términos, sitemap— no tienen gemela
+   con `lang:`, así que Polyglot reporta `available_languages == ["es"]` aunque
+   las publique igual bajo `/en/` por fallback. La condición pedía prueba de una
+   traducción que no existe como archivo, pero cuya URL sí existe en el sitio; y
+   una URL sin hreflang mientras el sitemap XML sí declara el par es exactamente
+   la señal contradictoria que hace a Google descartar la canónica declarada.
+
+De ahí el orden: lo que la página declara explícitamente manda, y sólo si no
+declara nada se asume el fallback de Polyglot a todos los idiomas configurados.
+Las páginas con `noindex` en algún idioma no anuncian alternativas: prometerían
+una traducción que le hemos pedido a Google que no indexe.
+{% endcomment -%}
+{%- unless page_noindex or page.noindex_langs -%}
+  {%- assign alternate_languages = site.languages -%}
+  {%- if page.translation_languages -%}
+    {%- assign alternate_languages = page.translation_languages -%}
+  {%- elsif page.available_languages.size > 1 -%}
+    {%- assign alternate_languages = page.available_languages -%}
+  {%- elsif page.lang-exclusive.size > 0 -%}
+    {%- assign alternate_languages = page.lang-exclusive -%}
+  {%- endif -%}
+
+  {%- comment %}
+  Ruta en el idioma por defecto, sin prefijo. En el pase EN `page.url` llega sin
+  prefijar —`_includes/seo.html` depende de ello para la canónica—, pero el
+  recorte se hace igual y por segmento, no con `remove_first` a secas: un
+  `remove_first: "/en"` sobre `/energia/...` lo dejaría en `/ergia/...`.
+  {% endcomment -%}
+  {%- assign alternate_path = page.permalink | default: page.url | default: "/" | replace: "/index.html", "/" -%}
+  {%- assign path_segments = alternate_path | split: "/" -%}
+  {%- if active_lang != site.default_lang and path_segments[1] == active_lang -%}
+    {%- assign lang_prefix = "/" | append: active_lang -%}
+    {%- assign alternate_path = alternate_path | remove_first: lang_prefix | default: "/" -%}
+  {%- endif -%}
+
+  {%- if alternate_languages.size > 1 %}
+    {%- for lang in alternate_languages %}
+    {% if lang == site.default_lang -%}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}{{ alternate_path }}">
+    {%- else -%}
+      <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}/{{ lang }}{{ alternate_path }}">
+    {%- endif %}
+    {%- endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}{{ alternate_path }}">
+  {%- endif -%}
+{%- endunless %}
 <!-- end custom head snippets -->
