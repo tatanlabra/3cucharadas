@@ -41,7 +41,24 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{%- comment -%}
+`?v=` con la marca de tiempo del build. Sin esto, `/assets/css/main.css` es una
+URL fija servida con `cache-control: max-age=14400`, así que un visitante que
+vuelva dentro de las 4 horas siguientes a un despliegue recibe HTML nuevo con
+CSS viejo.
+
+Fue inofensivo mientras los cambios de CSS eran aditivos: una regla que falta
+degrada. Dejó de serlo al renombrar las clases de la barra —el HTML pasó a pedir
+`.masthead__nav` y la hoja cacheada sólo conocía `.greedy-nav`—, y el resultado
+fue una portada sin maquetar: todo apilado, enlaces en el azul por defecto y el
+riel ES|EN de vuelta.
+
+Purgar Cloudflare no habría bastado: no alcanza a las cachés que ya están en los
+navegadores. Cambiar la URL sí, porque una URL nueva no está cacheada en ninguna
+parte. El HTML se sirve con `max-age=600` y sin caché de borde, de modo que la
+referencia nueva se propaga en minutos.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
