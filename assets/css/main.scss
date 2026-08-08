@@ -84,6 +84,32 @@ $header-font-family:  $sans-serif !default;
 $caption-font-family: $sans-serif !default;
 $code-font-family:    $monospace !default;
 
+/* Fondo del tema claro: crema en vez de blanco puro.
+   ─────────────────────────────────────────────────────────────────────────────
+   Se declara AQUÍ, antes de los `@import` de abajo, y SIN `!default`. Ese es el
+   punto: `_variables.scss` del tema declara `$background-color: #fff !default`,
+   y `!default` sólo asigna si la variable aún no tiene valor. Al fijarla antes,
+   la siguen todas las superficies del tema —página, cabecera, buscador, avisos,
+   pie— sin tener que enumerarlas una por una en una lista que se quedaría
+   obsoleta a la primera superficie nueva.
+
+   Medido antes de aplicarlo: el contraste con el texto (#000 en el skin
+   `contrast`) baja de 21:1 a 19,63:1, y el de los enlaces (#0000ff) de 8,59:1 a
+   8,03:1. Ambos siguen muy por encima del 7:1 que pide AAA para texto normal,
+   así que el cambio es puramente estético y no toca accesibilidad.
+
+   Las tarjetas de la portada y el widget de RSS conservan el blanco puro porque
+   lo llevan escrito a mano más abajo. No es un descuido: el contraste entre
+   tarjeta blanca y página crema las levanta del fondo sin necesidad de sombras.
+   El tema oscuro no se ve afectado; va por variables CSS `--night-*` propias. */
+$background-color: #faf7f0;
+
+/* Fondo de bloques de código. El tema lo deja en `#fafafa`, cuya luminancia
+   (0.956) es MAYOR que la del crema (0.931): sobre blanco puro funcionaba como
+   sombra suave, sobre crema se invierte y pasa a leerse como un resalte. Se
+   sustituye por un tono más oscuro y de la misma familia cálida. */
+$code-background-color: #f3efe4;
+
 /* 4) Imports oficiales de Minimal Mistakes */
 
 /* Skin (se selecciona vía _config.yml: minimal_mistakes_skin) */
@@ -94,9 +120,30 @@ $code-font-family:    $monospace !default;
 
 /* 5) Ajustes finos del sitio */
 
+/* ── Tamaño del cuerpo de texto ──────────────────────────────────────────────
+   `.page__content` estaba en `0.8rem`. Como el tema escala la raíz en
+   16/18/20/22 px por breakpoint, el producto daba 12,8 px de cuerpo en móvil y
+   17,6 px en pantalla grande: el texto era MENOS legible justo donde más cuesta
+   leer. Y componía hacia abajo, porque el tema pone `1em` a párrafos y listas y
+   las reglas propias multiplican sobre esa base —las tablas acababan en 10,8 px
+   y los encabezados de tabla en 9,5 px—.
+
+   Se corrigió primero neutralizando la escalera de la raíz (16/17/18). Fue un
+   error: la raíz no gobierna sólo el cuerpo, gobierna TODA la interfaz. Al
+   bajarla, encogieron la cabecera, el logo, los botones y el alto del masthead.
+   El texto mejoró y el sitio empeoró.
+
+   La raíz vuelve a ser la del tema, intacta, y el cuerpo lleva su propia escala
+   en px —desacoplada a propósito— con suelo y techo explícitos:
+
+       375 px -> 16.0    768 px -> 16.7    1024 px -> 17.6    >=1280 px -> 18.0
+
+   El suelo de 16 px es el mínimo que no obliga a hacer zoom en un móvil; el
+   techo de 18 px evita que la medida se descontrole en pantallas anchas. */
 .page__content {
-  line-height: 1.4;
-  font-size: 0.8rem;
+  /* WCAG 1.4.12 pide al menos 1.5 dentro de un párrafo; 1.4 no llegaba. */
+  line-height: 1.65;
+  font-size: clamp(16px, 14px + 0.35vw, 18px);
 }
 
 /* ── Landing hero: más compacto y elegante ──────────────────────────────── */
@@ -403,11 +450,14 @@ html[data-theme="academic-night"] blockquote {
   color: var(--night-muted);
 }
 
-/* Cabecera y navegación */
+/* Cabecera y navegación.
+   Los selectores apuntan a `.site-nav`, la barra propia que reemplazó al
+   greedy-nav del tema. El bloque `.greedy-nav` del tema sigue en el CSS
+   compilado pero ya no encuentra elementos: es peso muerto, no un conflicto. */
 html[data-theme="academic-night"] .masthead,
 html[data-theme="academic-night"] .masthead__inner-wrap,
-html[data-theme="academic-night"] .greedy-nav,
-html[data-theme="academic-night"] .greedy-nav .visible-links {
+html[data-theme="academic-night"] .masthead__controls,
+html[data-theme="academic-night"] .masthead__nav {
   background: var(--night-bg-dark);
 }
 
@@ -416,9 +466,9 @@ html[data-theme="academic-night"] .masthead {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
 }
 
-html[data-theme="academic-night"] .greedy-nav a,
+html[data-theme="academic-night"] .masthead__nav a,
 html[data-theme="academic-night"] .site-title,
-html[data-theme="academic-night"] .masthead__menu-item a {
+html[data-theme="academic-night"] .masthead__nav-link {
   color: var(--night-text);
 }
 
@@ -431,30 +481,33 @@ html[data-theme="academic-night"] .site-logo img {
   opacity: 0.88;
 }
 
-html[data-theme="academic-night"] .greedy-nav .visible-links a::before {
+html[data-theme="academic-night"] .masthead__nav-link::before {
   background: var(--night-link);
 }
 
-html[data-theme="academic-night"] .greedy-nav .hidden-links {
+/* Panel desplegable en móvil. En escritorio la lista es inline y estas reglas
+   de superficie no llegan a aplicarse porque el panel no existe como capa. */
+html[data-theme="academic-night"] .masthead__nav-toggle[aria-expanded="true"] ~ .masthead__nav-list {
   border: 1px solid var(--night-border);
   background: var(--night-layer-strong);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42);
 }
 
-html[data-theme="academic-night"] .greedy-nav .hidden-links a {
-  border-bottom-color: var(--night-border);
-  color: var(--night-text);
-}
-
-html[data-theme="academic-night"] .greedy-nav .hidden-links a:hover {
+html[data-theme="academic-night"] .masthead__nav-list .masthead__nav-link:hover {
   background: var(--night-layer);
   color: var(--night-link-hover);
 }
 
 html[data-theme="academic-night"] .search__toggle,
-html[data-theme="academic-night"] .greedy-nav__toggle,
+html[data-theme="academic-night"] .masthead__nav-toggle,
 html[data-theme="academic-night"] .theme-toggle {
   color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .masthead__navicon,
+html[data-theme="academic-night"] .masthead__navicon::before,
+html[data-theme="academic-night"] .masthead__navicon::after {
+  background: var(--night-text);
 }
 
 html[data-theme="academic-night"] .theme-toggle {
@@ -1199,7 +1252,7 @@ html[data-theme="academic-night"] .page__footer a:hover {
 @media (prefers-reduced-motion: no-preference) {
   body,
   .masthead,
-  .greedy-nav,
+  .masthead__nav,
   .page__footer,
   .theme-toggle,
   .lang-switcher,
@@ -1210,38 +1263,23 @@ html[data-theme="academic-night"] .page__footer a:hover {
   }
 }
 
-@media (max-width: 600px) {
-  .theme-toggle {
-    min-width: 2.15rem;
-    width: 2.15rem;
-    padding-right: 0.35rem;
-    padding-left: 0.35rem;
-  }
+/* Aquí vivía un bloque `@media (max-width: 600px)` que se retiró entero.
+   Contenía dos cosas, ambas rotas:
 
-  body.avaluo-vulnerabilidad-post {
-    .sidebar__right {
-      display: none !important;
-    }
+   1. Overrides de `.theme-toggle` que nunca se aplicaban. El selector era
+      (0,1,0) y `.greedy-nav .theme-toggle`, más abajo en el archivo, era (0,2,0)
+      y ya fijaba `width` y `padding`. Una media query no añade especificidad.
 
-    .greedy-nav .visible-links {
-      display: none !important;
-    }
+   2. Un intento de forzar la hamburguesa scopeado a `body.avaluo-vulnerabilidad-post`.
+      No funcionaba: ocultaba `.visible-links` con `display:none`, y entonces el
+      greedy-nav medía 0 en todos los enlaces, concluía que cabían y no movía
+      ninguno al panel. Además sólo sobrescribía el `display` de la clase
+      `.hidden` del tema, no su `visibility: hidden`, así que el botón quedaba
+      maquetado pero invisible y sin poder recibir el clic. En ese post, por
+      debajo de 600 px, no había navegación en absoluto.
 
-    .greedy-nav__toggle {
-      display: inline-flex !important;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .page__content table {
-      display: block;
-      max-width: 100%;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  }
-
-}
+   La regla de tablas con scroll que también contenía ya existe site-wide más
+   abajo, aplicada a todo el sitio en vez de a un solo post. */
 
 /* Cualquier <video> dentro de un post. Sin esto se renderiza a su ancho
    intrinseco —1920px en un h264 de 1080p— y desborda el contenedor en cualquier
@@ -1263,7 +1301,7 @@ html[data-theme="academic-night"] .page__footer a:hover {
   margin: 1.4em auto 0.4em;
   border-collapse: collapse;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  font-size: 0.84em;
+  font-size: 0.9em;
 }
 
 .page__content table thead th {
@@ -1271,7 +1309,9 @@ html[data-theme="academic-night"] .page__footer a:hover {
   background-color: #b71c1c;
   color: #fff;
   padding: 0.45em 0.9em;
-  font-size: 0.88em;
+  /* Sin `font-size` a propósito: se anidaba dentro del 0.84em de la tabla y el
+     producto dejaba los encabezados en 9,5 px en móvil. Heredan el de la tabla,
+     y la jerarquía la da el peso y el fondo, no un tamaño aún menor. */
   letter-spacing: 0.02em;
   text-align: center;
 }
@@ -1287,11 +1327,13 @@ html[data-theme="academic-night"] .page__footer a:hover {
 }
 
 .page__content table tbody tr:nth-child(even) {
-  background-color: #fafafa;
+  /* Más oscura que el fondo de página, no más clara: con el crema, el #fafafa
+     anterior quedaba por encima en luminancia y la cebra se leía al revés. */
+  background-color: #f3efe4;
 }
 
 .page__content table tbody tr:hover {
-  background-color: #fff3f3;
+  background-color: #f7e9e4;
 }
 
 p.table-caption {
@@ -1375,26 +1417,326 @@ html[data-theme="academic-night"] p.table-caption {
   }
 }
 
-/* Selector de idioma como BOTON, gemelo del conmutador de tema.
+/* ═══════════════════════════════════════════════════════════════════════════
+   BARRA DE NAVEGACIÓN
 
-   Antes era un riel de dos celdas (ES | EN). Se descarto por ancho: a 320 px el
-   conjunto titulo + lupa + idioma + tema + hamburguesa desbordaba el viewport y
-   la pagina ganaba scroll horizontal —medido, el hamburguesa terminaba en
-   327 px—. Un boton unico que muestra el idioma de DESTINO ocupa la mitad y se
-   comporta igual en todos los anchos.
+   Reemplaza al greedy-nav del tema. Aquel decidía qué enlaces caben midiendo
+   anchos en JavaScript, y ese cálculo fallaba por cuatro motivos a la vez:
+   ignoraba los dos controles que este sitio inyectaba dentro del <nav> (~71 px),
+   medía la lupa antes de que llegara Font Awesome desde el CDN (~13 px menos),
+   medía el título después de que el navegador ya lo hubiera encogido, y sólo
+   recalculaba en `resize`. Con `.visible-links { overflow: hidden }`, el error
+   no se manifestaba como desbordamiento sino como recorte silencioso: «Acerca
+   de» cortado a mitad y «Publicaciones» directamente ausente.
 
-   Se oculta el indicador del idioma activo: es informacion redundante, el
-   idioma en curso se ve en el contenido de la propia pagina. No cambia la
-   plantilla ni el enlace, solo su presentacion.
+   Con dos ítems de menú no hay reparto que optimizar. La decisión es un
+   breakpoint, no una medición, y esto no mide nada.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-   Ambos controles comparten medidas por variable para que no se
-   desincronicen al editar uno solo. */
+/* $medium del tema. Por debajo, la lista se pliega tras el botón. */
+$nav-collapse: 48em;
 
+/* Tamaño VISIBLE de los controles. El área táctil se amplía aparte con un
+   pseudo-elemento, así que estos valores no la limitan. */
 $nav-control-width: 1.7rem;
 $nav-control-height: 1.55rem;
 
-.greedy-nav .lang-switcher {
-  /* Envoltorio sin forma propia: el boton es el <a>. Sin esto el riel heredado
+/* ── Reparto del ancho en la cabecera ─────────────────────────────────────── */
+
+/* `.masthead__inner-wrap` es flex con `space-between`, pero hasta ahora
+   `.masthead__menu` era su único hijo y la propiedad no hacía nada. Al aparecer
+   `.masthead__controls` como hermano, ambos pasan a repartirse el espacio.
+
+   `min-width: 0` no es opcional: los flex items arrancan en `min-width: auto` y
+   se niegan a bajar de su contenido mínimo. Sin él, la barra empujaría los
+   controles fuera del viewport en lugar de encoger el título. */
+.masthead__inner-wrap {
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.masthead__menu {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.masthead__controls {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ── La barra ─────────────────────────────────────────────────────────────── */
+
+.masthead__nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2em;
+}
+
+/* El título es lo único que puede ceder ancho; todo lo demás es un control de
+   tamaño fijo. El recorte con puntos suspensivos es la última red de seguridad:
+   con la barra ya plegada no debería activarse, pero evita que un tagline largo
+   reintroduzca scroll horizontal. */
+.masthead__nav .site-title {
+  /* El tema lo deja en `display: flex` y por tanto en fila: el tagline se pegaba
+     al nombre del sitio en la misma línea. En columna recupera su jerarquía. */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  line-height: 1.15;
+}
+
+/* Cada línea se recorta por su cuenta. Es la última red de seguridad: con la
+   barra ya plegada no debería activarse, pero impide que un tagline largo
+   reintroduzca scroll horizontal. */
+.masthead__nav .site-title,
+.masthead__nav .site-subtitle {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* El subtítulo se muestra siempre en el tema, sin ninguna media query. En móvil
+   ensancha el título justo donde el ancho es escaso, y es decorativo. */
+@media (max-width: #{$nav-collapse - 0.01em}) {
+  .site-subtitle {
+    display: none;
+  }
+}
+
+/* ── Lista de enlaces ─────────────────────────────────────────────────────── */
+
+/* `.masthead__menu ul` del tema es (0,1,1) y gana a una clase suelta, así que la
+   regla se ancla al <nav> para no depender de un accidente de especificidad.
+
+   Los enlaces van junto a la marca, no empujados al extremo derecho: ese extremo
+   ya lo ocupan la lupa, el idioma y el tema, y llevarlos allí los amontonaría
+   contra los controles. Pegados al título quedan además más cerca del recorrido
+   natural de lectura. */
+.masthead__nav .masthead__nav-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  /* A la derecha, como estaba. `.masthead__menu ul` del tema es (0,1,1) y gana a
+     una clase suelta, así que la regla se ancla al <nav> para no depender de un
+     accidente de especificidad. */
+  margin-inline-start: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead__nav-item {
+  margin: 0;
+}
+
+/* Incluye el título del sitio, que también es un <a>. Sin esta regla cae al
+   `$link-color` del skin —azul puro en `contrast`— en vez del color que el tema
+   reserva para la cabecera. */
+.masthead__nav a,
+.masthead__nav .site-title {
+  color: $masthead-link-color;
+}
+
+.masthead__nav-link {
+  position: relative;
+  display: block;
+  padding: 0.35rem 0;
+  margin-inline: 0.75rem;
+  font-family: $sans-serif-narrow;
+  font-weight: 700;
+  text-decoration: none;
+  /* Sin esto los enlaces caen al $link-color del skin —azul puro en `contrast`—
+     en vez del color que el tema reserva para la cabecera. */
+  color: $masthead-link-color;
+}
+
+.masthead__nav-link:hover,
+.masthead__nav-link:focus-visible {
+  color: $masthead-link-color-hover;
+}
+
+/* Subrayado que crece desde el centro. Reemplaza al `::before` que el tema
+   aplicaba a `.visible-links a`. */
+.masthead__nav-link::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: $primary-color;
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.masthead__nav-link:hover::before,
+.masthead__nav-link:focus-visible::before {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead__nav-link::before {
+    transition: none;
+  }
+}
+
+/* ── Botón hamburguesa ────────────────────────────────────────────────────── */
+
+.masthead__nav-toggle {
+  display: none; /* sólo aparece por debajo del breakpoint */
+  position: relative;
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.masthead__navicon,
+.masthead__navicon::before,
+.masthead__navicon::after {
+  position: absolute;
+  left: 50%;
+  width: 1.5rem;
+  height: 2px;
+  margin-inline-start: -0.75rem;
+  background: $text-color;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.masthead__navicon {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.masthead__navicon::before,
+.masthead__navicon::after {
+  content: "";
+  left: 0;
+  margin-inline-start: 0;
+}
+
+.masthead__navicon::before {
+  top: -0.45rem;
+}
+
+.masthead__navicon::after {
+  top: 0.45rem;
+}
+
+/* Abierto: las tres barras se convierten en una X. Es la confirmación visual de
+   que el panel está desplegado, redundante con `aria-expanded` a propósito. */
+.masthead__nav-toggle[aria-expanded="true"] .masthead__navicon {
+  background: transparent;
+}
+
+.masthead__nav-toggle[aria-expanded="true"] .masthead__navicon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.masthead__nav-toggle[aria-expanded="true"] .masthead__navicon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead__navicon,
+  .masthead__navicon::before,
+  .masthead__navicon::after {
+    transition: none;
+  }
+}
+
+/* ── Plegado en móvil ─────────────────────────────────────────────────────── */
+
+/* El estado abierto se lee del propio atributo ARIA en vez de una clase
+   paralela. Así el estado accesible y el visual son el mismo dato y no pueden
+   desincronizarse: no hay forma de abrir el panel sin anunciarlo. */
+@media (max-width: #{$nav-collapse - 0.01em}) {
+  .masthead__nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .masthead__nav-list {
+    display: none;
+    position: absolute;
+    inset-inline-end: 0;
+    top: 100%;
+    z-index: 30;
+    min-width: 12rem;
+    padding: 0.35rem 0;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background: $background-color;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  }
+
+  .masthead__nav-toggle[aria-expanded="true"] ~ .masthead__nav-list {
+    display: block;
+  }
+
+  .masthead__nav .masthead__nav-list {
+    margin-inline-start: 0;
+  }
+
+  .masthead__nav-link {
+    margin-inline: 0;
+    padding: 0.7rem 1rem;
+  }
+
+  /* En el panel, el enlace ocupa toda la fila: el subrayado centrado no aporta
+     y el resaltado de fondo comunica mejor el objetivo táctil. */
+  .masthead__nav-link::before {
+    display: none;
+  }
+
+  .masthead__nav-link:hover,
+  .masthead__nav-link:focus-visible {
+    background: $lighter-gray;
+  }
+}
+
+/* Sin JavaScript el botón no puede hacer nada, así que desaparece y la lista se
+   queda visible, envolviéndose si hace falta. La navegación nunca queda
+   inalcanzable por un script que no cargó. */
+.no-js .masthead__nav-toggle {
+  display: none;
+}
+
+.no-js .masthead__nav-list {
+  display: flex;
+  position: static;
+  flex-wrap: wrap;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ── Controles: idioma y tema ─────────────────────────────────────────────── */
+
+/* El selector de idioma fue un riel de dos celdas (ES | EN). Se descartó por
+   ancho: a 320 px el conjunto título + lupa + idioma + tema + hamburguesa
+   desbordaba el viewport —medido, la hamburguesa terminaba en 327 px—. Un botón
+   único que muestra el idioma de DESTINO ocupa la mitad y se comporta igual en
+   todos los anchos.
+
+   Se oculta el indicador del idioma activo: es redundante, el idioma en curso se
+   ve en el contenido de la propia página. */
+.masthead__controls .lang-switcher {
+  /* Envoltorio sin forma propia: el botón es el <a>. Sin esto, el riel heredado
      dibujaba un segundo recuadro alrededor. */
   display: inline-flex;
   align-items: center;
@@ -1402,7 +1744,7 @@ $nav-control-height: 1.55rem;
   align-self: center;
   width: auto;
   min-width: 0;
-  margin: 0 0.3rem 0 0.45rem;
+  margin: 0;
   padding: 0;
   gap: 0;
   border: 0;
@@ -1410,20 +1752,20 @@ $nav-control-height: 1.55rem;
   box-shadow: none;
 }
 
-/* El fondo del riel viene de la regla del tema nocturno, que gana con (0,2,1).
-   Esta la supera con (0,3,1) sin recurrir a !important. */
-html[data-theme="academic-night"] .greedy-nav .lang-switcher {
+html[data-theme="academic-night"] .masthead__controls .lang-switcher {
   border: 0;
   background: transparent;
   box-shadow: none;
 }
 
-.greedy-nav .lang-switcher .lang-active {
+.masthead__controls .lang-switcher .lang-active {
   display: none;
 }
 
-.greedy-nav .lang-switcher > a,
-.greedy-nav .theme-toggle {
+/* Los dos controles comparten medidas por variable para que no se desincronicen
+   al editar uno solo. */
+.masthead__controls .lang-switcher > a,
+.masthead__controls .theme-toggle {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -1433,10 +1775,7 @@ html[data-theme="academic-night"] .greedy-nav .lang-switcher {
   width: $nav-control-width;
   min-width: $nav-control-width;
   height: $nav-control-height;
-  /* Gana al `min-height: 2rem` de la regla base del conmutador. */
   min-height: $nav-control-height;
-  /* La barra da margen horizontal a sus enlaces (1rem); sin esto el boton de
-     idioma quedaba corrido respecto del de tema. */
   margin: 0;
   padding: 0.16rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -1449,30 +1788,389 @@ html[data-theme="academic-night"] .greedy-nav .lang-switcher {
   text-decoration: none;
 }
 
-.greedy-nav .theme-toggle {
-  margin-left: 0.3rem;
-}
-
-/* Estados y tema nocturno: el boton de idioma replica los del conmutador para
-   que sean indistinguibles. Se apunta al <a> y no al contenedor. */
-.greedy-nav .lang-switcher > a {
+.masthead__controls .lang-switcher > a {
   color: inherit;
 }
 
-.greedy-nav .lang-switcher > a:hover,
-.greedy-nav .lang-switcher > a:focus-visible {
+.masthead__controls .lang-switcher > a:hover,
+.masthead__controls .lang-switcher > a:focus-visible {
   background: rgba(122, 162, 247, 0.14);
 }
 
-html[data-theme="academic-night"] .greedy-nav .lang-switcher > a {
+html[data-theme="academic-night"] .masthead__controls .lang-switcher > a {
   border-color: var(--night-border-strong);
   background: var(--night-layer);
   color: var(--night-text);
 }
 
-html[data-theme="academic-night"] .greedy-nav .lang-switcher > a:hover,
-html[data-theme="academic-night"] .greedy-nav .lang-switcher > a:focus-visible {
+html[data-theme="academic-night"] .masthead__controls .lang-switcher > a:hover,
+html[data-theme="academic-night"] .masthead__controls .lang-switcher > a:focus-visible {
   border-color: var(--night-link);
   background: var(--night-layer-strong);
   color: var(--night-link-hover);
+}
+
+.masthead__controls .search__toggle {
+  margin: 0;
+  padding: 0;
+  width: $nav-control-height;
+  height: $nav-control-height;
+}
+
+/* ── Objetivos táctiles ───────────────────────────────────────────────────── */
+
+/* Los controles medían 27x25 px, muy por debajo de los 44x44 que piden WCAG
+   2.5.5 y las guías de las plataformas táctiles.
+
+   Se amplía el área activa con un pseudo-elemento transparente centrado, no
+   agrandando el botón: la barra conserva su proporción y el destino crece sólo
+   donde importa. Es incondicional a propósito —también ayuda con ratón y a quien
+   tenga temblor— y no depende del soporte de ninguna media query. */
+.masthead__controls .lang-switcher > a,
+.masthead__controls .theme-toggle,
+.masthead__controls .search__toggle,
+.masthead__nav-toggle {
+  position: relative;
+}
+
+.masthead__controls .lang-switcher > a::after,
+.masthead__controls .theme-toggle::after,
+.masthead__controls .search__toggle::after,
+.masthead__nav-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
+}
+
+/* Con 27 px visibles y 8 px de separación, dos áreas de 44 px se solapan 9 px y
+   el navegador tiene que adivinar cuál se pulsó. `pointer: coarse` sólo cambia
+   la separación —no el tamaño visible—, que es lo único que ese solapamiento
+   necesita. */
+@media (pointer: coarse) {
+  .masthead__controls {
+    gap: 1.1rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR EN MÓVIL
+
+   El tema sólo convierte la sidebar en columna a partir de $large. Por debajo,
+   `.sidebar` (ficha de autor) y `.sidebar__right` (índice) quedan en el flujo,
+   ANTES del artículo. Con `author_profile: true` global y `toc_sticky: true`, un
+   post largo obligaba a pasar dos pantallas de avatar, biografía e índice
+   completo (h1..h6) antes de llegar a la primera frase.
+
+   Se reordena con `order` en vez de mover el markup: la ficha conserva su
+   posición temprana en el DOM, y con ella el `itemscope Person` que la describe.
+   El corte es 63.99em porque convertir `#main` en flex anula el clearfix del
+   tema, y eso sólo es inocuo por debajo de $large, donde no hay floats.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 63.99em) {
+  #main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main > .page,
+  #main > .archive {
+    order: 1;
+  }
+
+  #main > .sidebar {
+    order: 2;
+    border-top: 1px solid $border-color;
+    padding-top: 1.5em;
+  }
+
+  #main > .page__related {
+    order: 3;
+  }
+
+  /* `sticky` sobre un elemento que ya no es columna sólo produce saltos. */
+  .sidebar.sticky {
+    position: static;
+    overflow: visible;
+    height: auto;
+  }
+}
+
+/* ── Índice colapsable ────────────────────────────────────────────────────── */
+
+/* `<details>` da el plegado sin JavaScript, pero `open` es una propiedad del DOM
+   y no puede gobernarse desde una media query: la sincroniza site-nav.js. */
+.toc__details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  border-radius: $border-radius;
+  background: $lighter-gray;
+  font-family: $sans-serif-narrow;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toc__details > summary::after {
+  content: "\25be"; /* triángulo hacia abajo */
+  transition: transform 180ms ease;
+}
+
+.toc__details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc__details > summary::after {
+    transition: none;
+  }
+}
+
+html[data-theme="academic-night"] .toc__details > summary {
+  background: var(--night-layer);
+  color: var(--night-text);
+}
+
+/* Desde $large el índice recupera su forma de columna fija y el resumen sobra. */
+@media (min-width: 64em) {
+  .toc__details > summary {
+    display: none;
+  }
+}
+
+/* Objetivo táctil en las filas del índice: el tema las deja en ~28 px. */
+@media (pointer: coarse) {
+  .toc__menu a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Con el <summary> visible en móvil, el <h4> interno del índice repetiría la
+   misma etiqueta dos veces seguidas. */
+@media (max-width: 63.99em) {
+  .toc__details > .toc > header {
+    display: none;
+  }
+}
+
+/* ── Fórmulas KaTeX ──────────────────────────────────────────────────────────
+   Bug preexistente que salió a la luz al auditar móvil: una fórmula en bloque
+   con etiquetas `\text{}` largas se compone a su ancho intrínseco —medido, 456 px
+   contra un viewport de 375— y arrastraba scroll horizontal a TODA la página. No
+   lo causaba el tamaño de letra: desbordaba igual con el 0.8rem anterior.
+
+   El scroll se confina a la propia fórmula, que es donde tiene sentido: el
+   contenido matemático no se puede reflotar como el texto. `overflow-y: hidden`
+   evita la barra vertical espuria que aparece al declarar sólo la horizontal, y
+   el padding deja sitio para que los subíndices no se recorten. */
+.katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+/* Fórmulas en línea: no llevan scroll propio —cortaría la frase— pero tampoco
+   deben poder ensanchar el contenedor. */
+.katex {
+  max-width: 100%;
+}
+
+/* ── Justificado y partición de palabras ─────────────────────────────────────
+   El cuerpo va justificado y `hyphens` estaba en `manual`, es decir, sin
+   partición automática. Justificar sin partir necesita línea larga: por debajo
+   de unos 60 caracteres el navegador sólo puede estirar los espacios, y aparecen
+   los ríos blancos. En móvil la medida real es de ~43 caracteres (343 px a
+   16 px), muy por debajo del umbral.
+
+   Se activa la partición automática, que el navegador resuelve con el
+   diccionario del idioma —`<html lang="es">` ya está declarado—, y por debajo de
+   $medium se abandona el justificado: a esa medida, el borde derecho irregular
+   se lee mejor que un texto uniformemente estirado. */
+.page__content {
+  hyphens: auto;
+}
+
+@media (max-width: 47.99em) {
+  .page__content,
+  .page__content p,
+  .page__content li {
+    text-align: left;
+  }
+}
+
+/* Palabras que no caben de ninguna manera —URLs, identificadores largos— antes
+   de que ensanchen el contenedor. */
+.page__content p,
+.page__content li {
+  overflow-wrap: break-word;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RSS
+
+   `#f26522` es el naranja del icono canónico de sindicación (el que fijó
+   Mozilla en 2004 y adoptaron Firefox, Safari y el resto). Se usa tal cual
+   porque su valor comunicativo está justamente en ser reconocible: un naranja
+   "de la casa" lo convertiría en un icono decorativo más.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+$rss-orange: #f26522;
+
+/* Variante para RELLENOS con texto encima. El naranja canónico sobre blanco da
+   3.15:1 —medido— y el botón lleva texto blanco: reprueba el 4.5:1 que WCAG
+   1.4.3 pide para texto normal. Oscurecerlo un 25 % lo lleva a 5.2:1 y sigue
+   leyéndose como el naranja de sindicación.
+
+   No se sustituye al canónico en todas partes: donde no hay texto encima —el
+   icono, el filete lateral— el valor reconocible es el que comunica, y ahí
+   1.4.11 sólo pide 3:1, que sí cumple. */
+$rss-orange-solid: #b64c1a;
+
+/* Icono del widget «RSS a los que sigo». Decorativo: acompaña al encabezado, no
+   es un enlace. Va al final de la línea para no separar el título de su
+   contador. */
+.news-widget__icon {
+  margin-inline-start: 0.5em;
+  color: $rss-orange;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+/* ── Bloque de suscripción ───────────────────────────────────────────────────
+   Deliberadamente distinto del widget de arriba: comparte el tema (RSS) pero no
+   el propósito. Aquel lista lo que el autor lee; éste invita a seguir el sitio.
+   Si se parecieran, el lector no sabría a qué se está suscribiendo.
+
+   La escala se fija en px y no en rem: el resto de la interfaz cuelga de una
+   raíz que el tema sube a 22 px en pantalla grande, y aquí eso agrandaría una
+   caja que debe leerse como secundaria. Interlineado corto por la misma razón:
+   son cuatro líneas de servicio, no prosa. */
+.subscribe-rss {
+  width: 100%;
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid $border-color;
+  border-inline-start: 3px solid $rss-orange;
+  border-radius: 0.5rem;
+  /* Blanco, no `$background-color`: va apilado justo debajo del widget de RSS,
+     que es una tarjeta blanca. Tomar el crema de la página rompería la pila. */
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.subscribe-rss__title {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0 0 0.2em;
+  font-family: $sans-serif-narrow;
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.subscribe-rss__icon {
+  color: $rss-orange;
+}
+
+.subscribe-rss__lead {
+  margin: 0 0 0.55em;
+  font-size: 1em;
+  line-height: 1.35;
+  opacity: 0.85;
+}
+
+.subscribe-rss__row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  margin: 0 0 0.5em;
+}
+
+.subscribe-rss__topics-label {
+  margin-inline: 0.35em 0.1em;
+  opacity: 0.7;
+}
+
+/* Todos los destinos son XML crudo, así que ambos tipos de enlace comparten
+   forma de ficha: avisa de que no llevan a una página legible. El «Todo» se
+   distingue por relleno, no por tamaño, para no romper la altura de la fila. */
+.subscribe-rss__all,
+.subscribe-rss__topic {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  font-size: 1em;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.subscribe-rss__all {
+  border-color: $rss-orange-solid;
+  background: $rss-orange-solid;
+  color: #fff;
+  font-weight: 700;
+}
+
+.subscribe-rss__all:hover,
+.subscribe-rss__all:focus-visible {
+  /* Oscurecido en lugar de aclarado: sobre fondo claro, aclarar el naranja baja
+     el contraste del texto blanco por debajo de AA. */
+  border-color: mix(#000, $rss-orange-solid, 15%);
+  background: mix(#000, $rss-orange-solid, 15%);
+  color: #fff;
+}
+
+.subscribe-rss__topic:hover,
+.subscribe-rss__topic:focus-visible {
+  border-color: $rss-orange;
+  background: rgba(242, 101, 34, 0.1);
+}
+
+.subscribe-rss__hint {
+  margin: 0;
+  font-size: 0.92em;
+  line-height: 1.3;
+  opacity: 0.62;
+}
+
+/* Objetivo táctil: las fichas quedan por debajo del mínimo con esta tipografía.
+   Se amplían sólo en táctil para no engordar la fila con ratón. */
+@media (pointer: coarse) {
+  .subscribe-rss__all,
+  .subscribe-rss__topic {
+    padding-block: 0.55em;
+  }
+}
+
+html[data-theme="academic-night"] .subscribe-rss {
+  border-color: var(--night-border);
+  border-inline-start-color: $rss-orange;
+  background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] .subscribe-rss__topic {
+  border-color: var(--night-border-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .subscribe-rss__topic:hover,
+html[data-theme="academic-night"] .subscribe-rss__topic:focus-visible {
+  border-color: $rss-orange;
+  background: rgba(242, 101, 34, 0.16);
 }

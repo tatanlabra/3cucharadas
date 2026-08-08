@@ -58,8 +58,14 @@ font_NF.sh
 .sass-cache
 _asset_bundler_cache
 _site
-_site_test
-_site_gh
+# Artefactos de verificación: cada fase construye el suyo para no pisar el de
+# otra, y el contrato los borra al terminar.
+_site_*
+
+# Contrato de tarea (.agent/): el contrato, los comprobadores y el README se
+# versionan porque son la definición de "hecho". La evidencia no: se regenera en
+# cada verificación y es salida de ejecución, no fuente.
+/.agent/evidence/
 .redirect_build
 
 # Python cache
