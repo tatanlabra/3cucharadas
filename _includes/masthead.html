@@ -46,6 +46,7 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 {% assign nav_label = ui_text.primary_nav_label | default: "Navegación principal" %}
 {% if active_lang == "en" %}{% assign nav_label = ui_text.primary_nav_label | default: "Primary navigation" %}{% endif %}
+{% assign menu_short = "Menú" %}{% if active_lang == "en" %}{% assign menu_short = "Menu" %}{% endif %}
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -59,26 +60,58 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
           <span class="site-subtitle">{{ brand.tagline }}</span>
         </a>
         {%- comment -%}
-        El botón precede al panel que controla, que es el orden que espera el
-        patrón de divulgación y lo que permite abrirlo con el selector hermano
+        El botón precede al panel que controla: es el orden que espera el patrón
+        de divulgación y lo que permite abrirlo con el selector hermano
         `[aria-expanded="true"] ~ .masthead__nav-list`. Así el estado ARIA y el
         estado visual son el mismo dato y no pueden desincronizarse.
+
+        El rótulo «Menú» acompaña al icono en cuanto hay sitio (desde 30em). Una
+        hamburguesa sin palabra se reconoce peor de lo que suele suponerse, y
+        aquí es la ÚNICA entrada a la navegación: el coste de la palabra es un
+        puñado de píxeles y elimina la ambigüedad.
         {%- endcomment -%}
         <button
           class="masthead__nav-toggle"
           type="button"
           aria-expanded="false"
           aria-controls="site-nav-menu"
+          aria-label="{{ ui_text.menu_label | default: 'Alternar menú' }}"
         >
-          <span class="visually-hidden">{{ ui_text.menu_label | default: "Toggle menu" }}</span>
+          {%- comment -%}
+          El nombre accesible lo fija `aria-label`, no el contenido. Asi es
+          estable aunque el rotulo visible desaparezca por CSS en pantallas
+          estrechas, y no se concatena con el —que daria «Menú Alternar menú»—.
+          El rotulo de dentro es corto a proposito: `ui_text.menu_label` dice
+          «Alternar menú», que describe la ACCION y sirve para un lector de
+          pantalla, pero como etiqueta visible es larga y redundante junto al
+          icono.
+          {%- endcomment -%}
           <span class="masthead__navicon" aria-hidden="true"></span>
+          <span class="masthead__nav-toggle-label" aria-hidden="true">{{ menu_short }}</span>
         </button>
+        {%- comment -%}
+        `aria-current="page"` marca la seccion en curso.
+
+        La comparacion es directa entre `page.url` y `link.url`, sin prefijo de
+        idioma y sin normalizar la barra final, y eso es correcto por dos razones
+        comprobadas: `main` y `main_en` declaran las MISMAS rutas —Polyglot
+        antepone `/en/` al renderizar, no en el dato—, y `page.url` llega sin
+        prefijar tambien en el pase ingles. Anteponer el idioma al destino, como
+        se hizo en un primer intento, rompia justo el caso EN.
+
+        Tampoco se usa `remove_last` para tolerar la barra final: no existe en
+        Liquid 4.0.4 —llego en Liquid 5— y Jekyll, en modo laxo, lo ignora en
+        silencio en vez de fallar. Habria dado una falsa sensacion de robustez.
+        Ambos lados vienen de la misma fuente y la misma forma, asi que la
+        igualdad simple basta.
+        {%- endcomment -%}
         <ul id="site-nav-menu" class="masthead__nav-list">
           {%- for link in navigation -%}
             <li class="masthead__nav-item">
               <a
                 class="masthead__nav-link"
                 href="{{ link.url | relative_url }}"
+                {% if page.url == link.url %}aria-current="page"{% endif %}
                 {% if link.description %} title="{{ link.description }}"{% endif %}
                 {% if link.target %} target="{{ link.target }}"{% endif %}
               >{{ link.title }}</a>

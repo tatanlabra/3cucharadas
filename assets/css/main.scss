@@ -1511,131 +1511,156 @@ $nav-control-height: 1.55rem;
   }
 }
 
-/* ── Lista de enlaces ─────────────────────────────────────────────────────── */
+/* El titulo del sitio tambien es un <a>: sin declarar color cae al `$link-color`
+   del skin —azul puro en `contrast`— en vez del que el tema reserva para la
+   cabecera. Se perdio una vez al reescribir este bloque; de ahi que viva junto
+   al resto de la barra y no suelta. */
+.masthead__nav a,
+.masthead__nav .site-title {
+  color: $masthead-link-color;
+}
 
-/* `.masthead__menu ul` del tema es (0,1,1) y gana a una clase suelta, así que la
-   regla se ancla al <nav> para no depender de un accidente de especificidad.
+/* ── Menú: siempre plegado, en todos los anchos ───────────────────────────────
+   Antes la lista se mostraba en línea desde $medium y se plegaba por debajo. Eso
+   trajo dos problemas: los enlaces competían con la marca por el ancho, y —peor—
+   introdujo una guerra de especificidad que dejó el panel permanentemente
+   abierto. La regla base era `.masthead__nav .masthead__nav-list` (0,2,0), para
+   ganarle al `.masthead__menu ul` del tema, mientras que el `display:none` del
+   móvil era `.masthead__nav-list` (0,1,0) dentro de una media query. Las media
+   queries NO suman especificidad, así que el `flex` ganaba siempre y el panel se
+   quedaba desplegado sobre el hero sin que nadie lo abriera.
 
-   Los enlaces van junto a la marca, no empujados al extremo derecho: ese extremo
-   ya lo ocupan la lupa, el idioma y el tema, y llevarlos allí los amontonaría
-   contra los controles. Pegados al título quedan además más cerca del recorrido
-   natural de lectura. */
+   Ahora no hay breakpoint que negociar: el menú es SIEMPRE un panel y el botón
+   está SIEMPRE visible. Un único estado, una única fuente de verdad para
+   `display`, y todas las reglas que lo tocan al mismo nivel de especificidad o
+   por encima. Es además el patrón coherente con una barra que ya lleva tres
+   controles: la marca a la izquierda, las acciones a la derecha, y el contenido
+   de navegación tras un único punto de entrada. */
+
 .masthead__nav .masthead__nav-list {
-  display: flex;
-  align-items: center;
+  display: none;
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 0.35rem);
+  z-index: 30;
+  min-width: 13rem;
   margin: 0;
-  /* A la derecha, como estaba. `.masthead__menu ul` del tema es (0,1,1) y gana a
-     una clase suelta, así que la regla se ancla al <nav> para no depender de un
-     accidente de especificidad. */
-  margin-inline-start: auto;
-  padding: 0;
+  padding: 0.3rem 0;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
   list-style: none;
+}
+
+/* (0,4,0): por encima de la regla base, de modo que abrir no dependa del orden
+   de aparición en el archivo. */
+.masthead__nav .masthead__nav-toggle[aria-expanded="true"] ~ .masthead__nav-list {
+  display: block;
 }
 
 .masthead__nav-item {
   margin: 0;
 }
 
-/* Incluye el título del sitio, que también es un <a>. Sin esta regla cae al
-   `$link-color` del skin —azul puro en `contrast`— en vez del color que el tema
-   reserva para la cabecera. */
-.masthead__nav a,
-.masthead__nav .site-title {
-  color: $masthead-link-color;
-}
-
 .masthead__nav-link {
-  position: relative;
   display: block;
-  padding: 0.35rem 0;
-  margin-inline: 0.75rem;
+  padding: 0.65rem 1rem;
   font-family: $sans-serif-narrow;
   font-weight: 700;
   text-decoration: none;
-  /* Sin esto los enlaces caen al $link-color del skin —azul puro en `contrast`—
-     en vez del color que el tema reserva para la cabecera. */
   color: $masthead-link-color;
+  white-space: nowrap;
 }
 
 .masthead__nav-link:hover,
 .masthead__nav-link:focus-visible {
+  background: $lighter-gray;
   color: $masthead-link-color-hover;
 }
 
-/* Subrayado que crece desde el centro. Reemplaza al `::before` que el tema
-   aplicaba a `.visible-links a`. */
-.masthead__nav-link::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 2px;
-  background: $primary-color;
-  transform: scaleX(0);
-  transition: transform 180ms ease;
+/* La sección en curso se marca con `aria-current="page"` en el HTML; el filete
+   es sólo el reflejo visual de ese dato, no una clase paralela que pueda
+   desincronizarse. */
+.masthead__nav-link[aria-current="page"] {
+  box-shadow: inset 3px 0 0 $primary-color;
+  background: $lighter-gray;
 }
 
-.masthead__nav-link:hover::before,
-.masthead__nav-link:focus-visible::before {
-  transform: scaleX(1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .masthead__nav-link::before {
-    transition: none;
-  }
-}
-
-/* ── Botón hamburguesa ────────────────────────────────────────────────────── */
-
+/* ── Botón del menú ──────────────────────────────────────────────────────────
+   Visible en todos los anchos. Un icono de hamburguesa sin rótulo se reconoce
+   peor de lo que suele suponerse, y aquí pasa a ser la ÚNICA entrada a la
+   navegación: en pantallas con sitio se acompaña de la palabra «Menú», que es
+   barata y elimina la ambigüedad. Por debajo de $small sólo queda el icono. */
 .masthead__nav-toggle {
-  display: none; /* sólo aparece por debajo del breakpoint */
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   flex-shrink: 0;
   margin-inline-start: auto;
-  padding: 0;
-  width: 2rem;
+  padding: 0.2rem 0.5rem;
   height: 2rem;
-  border: 0;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
   background: transparent;
-  color: inherit;
+  color: $masthead-link-color;
+  font-family: $sans-serif-narrow;
+  font-size: 0.8em;
+  font-weight: 700;
   cursor: pointer;
 }
 
+.masthead__nav-toggle:hover,
+.masthead__nav-toggle:focus-visible {
+  border-color: $border-color;
+  background: $lighter-gray;
+}
+
+.masthead__nav-toggle[aria-expanded="true"] {
+  border-color: $border-color;
+  background: $lighter-gray;
+}
+
+.masthead__nav-toggle-label {
+  display: none;
+}
+
+@media (min-width: 30em) {
+  .masthead__nav-toggle-label {
+    display: inline;
+  }
+}
+
+/* Icono de tres barras dibujado con el propio elemento y sus pseudo-elementos:
+   no depende de que haya llegado Font Awesome desde el CDN. */
 .masthead__navicon,
 .masthead__navicon::before,
 .masthead__navicon::after {
-  position: absolute;
-  left: 50%;
-  width: 1.5rem;
+  display: block;
+  width: 1.15rem;
   height: 2px;
-  margin-inline-start: -0.75rem;
-  background: $text-color;
-  transition: transform 180ms ease, opacity 180ms ease;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 120ms ease;
 }
 
 .masthead__navicon {
-  top: 50%;
-  margin-top: -1px;
+  position: relative;
 }
 
 .masthead__navicon::before,
 .masthead__navicon::after {
   content: "";
+  position: absolute;
   left: 0;
-  margin-inline-start: 0;
 }
 
-.masthead__navicon::before {
-  top: -0.45rem;
-}
+.masthead__navicon::before { top: -0.38rem; }
+.masthead__navicon::after  { top:  0.38rem; }
 
-.masthead__navicon::after {
-  top: 0.45rem;
-}
-
-/* Abierto: las tres barras se convierten en una X. Es la confirmación visual de
-   que el panel está desplegado, redundante con `aria-expanded` a propósito. */
+/* Abierto: las tres barras se convierten en una X. Redundante con
+   `aria-expanded` a propósito: el estado se comunica por dos vías. */
 .masthead__nav-toggle[aria-expanded="true"] .masthead__navicon {
   background: transparent;
 }
@@ -1658,71 +1683,46 @@ $nav-control-height: 1.55rem;
   }
 }
 
-/* ── Plegado en móvil ─────────────────────────────────────────────────────── */
-
-/* El estado abierto se lee del propio atributo ARIA en vez de una clase
-   paralela. Así el estado accesible y el visual son el mismo dato y no pueden
-   desincronizarse: no hay forma de abrir el panel sin anunciarlo. */
-@media (max-width: #{$nav-collapse - 0.01em}) {
-  .masthead__nav-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .masthead__nav-list {
-    display: none;
-    position: absolute;
-    inset-inline-end: 0;
-    top: 100%;
-    z-index: 30;
-    min-width: 12rem;
-    padding: 0.35rem 0;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    background: $background-color;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-  }
-
-  .masthead__nav-toggle[aria-expanded="true"] ~ .masthead__nav-list {
-    display: block;
-  }
-
-  .masthead__nav .masthead__nav-list {
-    margin-inline-start: 0;
-  }
-
-  .masthead__nav-link {
-    margin-inline: 0;
-    padding: 0.7rem 1rem;
-  }
-
-  /* En el panel, el enlace ocupa toda la fila: el subrayado centrado no aporta
-     y el resaltado de fondo comunica mejor el objetivo táctil. */
-  .masthead__nav-link::before {
-    display: none;
-  }
-
-  .masthead__nav-link:hover,
-  .masthead__nav-link:focus-visible {
-    background: $lighter-gray;
-  }
+/* Sin JavaScript el botón no puede abrir nada, así que desaparece y la lista se
+   queda en el flujo. La navegación nunca depende de un script que no cargó.
+   (0,3,0) para ganarle a la regla base. */
+.no-js .masthead__nav .masthead__nav-list {
+  display: flex;
+  position: static;
+  flex-wrap: wrap;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-/* Sin JavaScript el botón no puede hacer nada, así que desaparece y la lista se
-   queda visible, envolviéndose si hace falta. La navegación nunca queda
-   inalcanzable por un script que no cargó. */
 .no-js .masthead__nav-toggle {
   display: none;
 }
 
-.no-js .masthead__nav-list {
-  display: flex;
-  position: static;
-  flex-wrap: wrap;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
+.no-js .masthead__nav-link {
+  padding: 0.35rem 0.6rem;
+}
+
+html[data-theme="academic-night"] .masthead__nav .masthead__nav-list {
+  border-color: var(--night-border);
+  background: var(--night-layer-strong);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="academic-night"] .masthead__nav-link:hover,
+html[data-theme="academic-night"] .masthead__nav-link:focus-visible,
+html[data-theme="academic-night"] .masthead__nav-link[aria-current="page"] {
+  background: var(--night-layer);
+  color: var(--night-link-hover);
+}
+
+html[data-theme="academic-night"] .masthead__nav-toggle:hover,
+html[data-theme="academic-night"] .masthead__nav-toggle:focus-visible,
+html[data-theme="academic-night"] .masthead__nav-toggle[aria-expanded="true"] {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
 }
 
 /* ── Controles: idioma y tema ─────────────────────────────────────────────── */
