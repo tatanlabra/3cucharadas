@@ -31,8 +31,15 @@ jobs:
   syndicate:
     runs-on: ubuntu-latest
     steps:
+      # Pinneado a SHA de commit, no a etiqueta. Este es el único workflow del
+      # repositorio que combina `contents: write`, un secreto (DEV_TO_API_KEY) y
+      # un `git push` de vuelta a `main`, y además dispara solo al hacer push. Una
+      # etiqueta como `@v4` es móvil: quien controle el repositorio de la acción
+      # puede reapuntarla y ejecutar código nuevo con ese secreto y ese permiso de
+      # escritura, sin que aquí cambie una línea. El SHA no se puede reapuntar.
+      # Dependabot (.github/dependabot.yml) es quien propone subirlo.
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
 
       - name: Ejecutar sindicación
         env:

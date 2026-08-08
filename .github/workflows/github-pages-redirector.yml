@@ -15,24 +15,33 @@ concurrency:
   group: github-pages
   cancel-in-progress: true
 
+# Acciones pinneadas a SHA de commit. Este workflow tiene `pages: write` e
+# `id-token: write`: puede publicar en GitHub Pages y pedir un token OIDC a
+# nombre del repositorio. Con una etiqueta móvil, un compromiso del repositorio
+# de la acción se convierte en control del sitio redirector y del token, sin
+# cambiar nada aquí. Los SHA se resolvieron contra el upstream real (`gh api
+# repos/<owner>/<repo>/commits/<tag>`) y corresponden exactamente a las majors
+# que ya usaba el archivo: no se cambió ninguna versión, solo la forma de
+# referenciarla.
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout redirector branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
         with:
           ref: gh-pages-redirect
           path: _site_redirect
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b  # v5.0.0
 
       - name: Remove Git metadata from artifact
         run: rm -rf _site_redirect/.git
 
       - name: Upload redirector artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
         with:
           path: _site_redirect
 
@@ -46,4 +55,4 @@ jobs:
 
       - name: Deploy redirector
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0

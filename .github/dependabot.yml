@@ -1,0 +1,56 @@
+# Dependabot — actualización vigilada de dependencias
+#
+# Por qué existe: `package-lock.json` está versionado y `package.json` fija
+# versiones exactas (echarts 6.1.0, maplibre-gl 5.6.0, vite 7.3.6…). Ese pinning
+# es correcto para reproducir builds, pero sin nadie que avise, el drift se
+# vuelve silencioso: el repositorio se queda en una versión vulnerable sin que
+# ningún gate lo note, porque todos los gates comprueban que el build funcione,
+# no que las dependencias estén al día.
+#
+# ADVERTENCIA OPERATIVA — este repositorio se publica desde GitLab, no desde
+# GitHub. `origin` tiene dos URLs de push (GitLab + GitHub), así que GitHub es un
+# espejo alimentado desde la máquina local. Dependabot sólo puede abrir PRs en
+# GitHub. Por lo tanto:
+#   · Los PRs de Dependabot son un AVISO, no el camino de integración.
+#   · Fusionar un PR de Dependabot directamente en GitHub deja `main` de GitHub
+#     por delante de GitLab, y el siguiente push local se rechaza por
+#     non-fast-forward.
+#   · El procedimiento correcto es leer el PR, aplicar el bump en local, correr
+#     los gates y empujar a ambos remotos. Después, cerrar el PR.
+# Ver docs/security/threat-model.md.
+
+version: 2
+
+updates:
+  # Gemfile / Gemfile.lock: Jekyll 4.x + Minimal Mistakes gem-based. Es la
+  # cadena que construye el HTML publicado.
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+
+  # package.json / package-lock.json: toolchain del visor Catastro SII (vite,
+  # typescript, vitest) y sus dependencias de runtime (maplibre-gl, pmtiles,
+  # echarts), que sí llegan al navegador del visitante.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+
+  # .github/workflows/*.yml: las acciones están pinneadas a SHA de 40 caracteres
+  # (ver AC-SEC-03). Un SHA fijo no recibe parches por sí solo, así que este
+  # ecosistema no es opcional: es lo que evita que el pinning se convierta en
+  # congelación indefinida.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
