@@ -43,9 +43,9 @@ En el home `page.url` es "/", y quitarle el prefijo lo deja igual.
       {% if lang == active_lang %}
         <span class="lang-active" aria-current="page">{{ lang | upcase }}</span>
       {% elsif lang == site.default_lang %}
-        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate" aria-label="{{ lang | upcase }}, {{ switcher_label }}">{{ lang | upcase }}</a>
       {% else %}
-        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate">{{ lang | upcase }}</a>
+        <a class="lang-inactive" {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ canonical_path }}"{% endstatic_href %} hreflang="{{ lang }}" rel="alternate" aria-label="{{ lang | upcase }}, {{ switcher_label }}">{{ lang | upcase }}</a>
       {% endif %}
     {% endif %}
   {% endfor %}

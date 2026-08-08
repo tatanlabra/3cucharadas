@@ -50,15 +50,37 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
+    <div class="masthead__brand">
+      {% unless logo_path == empty %}
+        <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ brand.name }}"></a>
+      {% endunless %}
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        {{ brand.name }}
+        <span class="site-subtitle">{{ brand.tagline }}</span>
+      </a>
+    </div>
+
+    {%- comment -%}
+    Orden: idioma, tema, busqueda y menu. La hamburguesa cierra la fila contra el
+    borde porque es la convencion dominante y el punto mas alcanzable con el
+    pulgar; delante quedan las preferencias y luego la accion de buscar.
+
+    El <nav> se anida DENTRO de los controles en vez de reordenar con `order`
+    porque el boton tiene que seguir siendo hermano del panel: el CSS lo abre con
+    `[aria-expanded="true"] ~ .masthead__nav-list`, sin depender de JavaScript.
+    Reordenar visualmente con `order` habria desalineado el recorrido de foco del
+    orden visual (WCAG 2.4.3).
+    {%- endcomment -%}
+    <div class="masthead__controls">
+      {% include lang-switcher.html %}
+      {% include theme-toggle.html %}
+      {% if site.search == true %}
+      <button class="search__toggle" type="button">
+        <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </button>
+      {% endif %}
       <nav id="site-nav" class="masthead__nav" aria-label="{{ nav_label }}">
-        {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ brand.name }}"></a>
-        {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ brand.name }}
-          <span class="site-subtitle">{{ brand.tagline }}</span>
-        </a>
         {%- comment -%}
         El botón precede al panel que controla: es el orden que espera el patrón
         de divulgación y lo que permite abrirlo con el selector hermano
@@ -119,17 +141,6 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
           {%- endfor -%}
         </ul>
       </nav>
-    </div>
-
-    <div class="masthead__controls">
-      {% if site.search == true %}
-      <button class="search__toggle" type="button">
-        <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
-        <i class="fas fa-search" aria-hidden="true"></i>
-      </button>
-      {% endif %}
-      {% include lang-switcher.html %}
-      {% include theme-toggle.html %}
     </div>
   </div>
 </div>

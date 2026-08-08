@@ -239,6 +239,10 @@ pre,
   --night-yellow: #f1c21b;
   --night-orange: #ff832b;
   --night-red: #fa4d56;
+  /* Acento de interaccion del tema oscuro. Es el teal-30 de IBM Carbon, el mismo
+     sistema del que sale el resto de esta paleta, asi que es neon sin ser
+     arbitrario. 10,63:1 sobre el fondo y 11,26:1 sobre la cabecera. */
+  --night-accent: #3ddbd9;
 }
 
 .lang-switcher {
@@ -330,7 +334,7 @@ pre,
 }
 
 .theme-toggle:hover {
-  background: rgba(122, 162, 247, 0.14);
+  background: rgba(183, 28, 28, 0.09);
 }
 
 .theme-toggle__icon {
@@ -1455,10 +1459,12 @@ $nav-control-height: 1.55rem;
   gap: 0.5rem;
 }
 
-.masthead__menu {
+.masthead__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex: 1 1 auto;
   min-width: 0;
-  width: auto;
 }
 
 .masthead__controls {
@@ -1474,15 +1480,14 @@ $nav-control-height: 1.55rem;
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  min-height: 2em;
+  flex-shrink: 0;
 }
 
 /* El título es lo único que puede ceder ancho; todo lo demás es un control de
    tamaño fijo. El recorte con puntos suspensivos es la última red de seguridad:
    con la barra ya plegada no debería activarse, pero evita que un tagline largo
    reintroduzca scroll horizontal. */
-.masthead__nav .site-title {
+.masthead__brand .site-title {
   /* El tema lo deja en `display: flex` y por tanto en fila: el tagline se pegaba
      al nombre del sitio en la misma línea. En columna recupera su jerarquía. */
   flex-direction: column;
@@ -1495,8 +1500,8 @@ $nav-control-height: 1.55rem;
 /* Cada línea se recorta por su cuenta. Es la última red de seguridad: con la
    barra ya plegada no debería activarse, pero impide que un tagline largo
    reintroduzca scroll horizontal. */
-.masthead__nav .site-title,
-.masthead__nav .site-subtitle {
+.masthead__brand .site-title,
+.masthead__brand .site-subtitle {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1515,8 +1520,9 @@ $nav-control-height: 1.55rem;
    del skin —azul puro en `contrast`— en vez del que el tema reserva para la
    cabecera. Se perdio una vez al reescribir este bloque; de ahi que viva junto
    al resto de la barra y no suelta. */
-.masthead__nav a,
-.masthead__nav .site-title {
+.masthead__brand a,
+.masthead__brand .site-title,
+.masthead__nav a {
   color: $masthead-link-color;
 }
 
@@ -1598,11 +1604,12 @@ $nav-control-height: 1.55rem;
   align-items: center;
   gap: 0.4rem;
   flex-shrink: 0;
-  margin-inline-start: auto;
-  padding: 0.2rem 0.5rem;
-  height: 2rem;
-  border: 1px solid transparent;
-  border-radius: $border-radius;
+  box-sizing: border-box;
+  padding: 0.2rem 0.6rem;
+  height: $nav-control-height;
+  min-height: $nav-control-height;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
   background: transparent;
   color: $masthead-link-color;
   font-family: $sans-serif-narrow;
@@ -1613,12 +1620,12 @@ $nav-control-height: 1.55rem;
 
 .masthead__nav-toggle:hover,
 .masthead__nav-toggle:focus-visible {
-  border-color: $border-color;
-  background: $lighter-gray;
+  background: rgba(183, 28, 28, 0.09);
 }
 
+/* Abierto: el boton queda relleno para que se lea como el origen del panel. */
 .masthead__nav-toggle[aria-expanded="true"] {
-  border-color: $border-color;
+  border-color: transparent;
   background: $lighter-gray;
 }
 
@@ -1794,7 +1801,7 @@ html[data-theme="academic-night"] .masthead__controls .lang-switcher {
 
 .masthead__controls .lang-switcher > a:hover,
 .masthead__controls .lang-switcher > a:focus-visible {
-  background: rgba(122, 162, 247, 0.14);
+  background: rgba(183, 28, 28, 0.09);
 }
 
 html[data-theme="academic-night"] .masthead__controls .lang-switcher > a {
@@ -1805,16 +1812,91 @@ html[data-theme="academic-night"] .masthead__controls .lang-switcher > a {
 
 html[data-theme="academic-night"] .masthead__controls .lang-switcher > a:hover,
 html[data-theme="academic-night"] .masthead__controls .lang-switcher > a:focus-visible {
-  border-color: var(--night-link);
+  border-color: var(--night-accent);
   background: var(--night-layer-strong);
   color: var(--night-link-hover);
 }
 
+/* La lupa la pintaba el tema en `$primary-color` y sin borde: era el unico
+   elemento rojo de la barra y el unico sin pildora. Entra en la familia. */
 .masthead__controls .search__toggle {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
-  width: $nav-control-height;
+  width: $nav-control-width;
+  min-width: $nav-control-width;
   height: $nav-control-height;
+  min-height: $nav-control-height;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.72rem;
+}
+
+.masthead__controls .search__toggle:hover,
+.masthead__controls .search__toggle:focus-visible {
+  background: rgba(183, 28, 28, 0.09);
+}
+
+html[data-theme="academic-night"] .masthead__controls .search__toggle {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .masthead__controls .search__toggle:hover,
+html[data-theme="academic-night"] .masthead__controls .search__toggle:focus-visible {
+  border-color: var(--night-accent);
+  background: var(--night-layer-strong);
+  color: var(--night-link-hover);
+}
+
+/* ── Anillo de foco ──────────────────────────────────────────────────────────
+   Un solo anillo para los cuatro controles de la barra y para los enlaces del
+   menu. Antes convivian dos: el `outline: auto` de 3px del navegador en los <a>
+   y el `5px rojo con offset -2px` que el tema pone en `button:focus, a:focus`
+   —dibujado por DENTRO de la pildora, donde se confunde con el borde—.
+
+   Se conserva en `:focus` y no solo en `:focus-visible`: al pulsar con el raton
+   el anillo confirma que el control recibio la accion, y esa devolucion es util.
+
+   El color es el rojo de las cabeceras de tabla (#b71c1c) en claro y el acento
+   neon en oscuro, de modo que el foco habla el mismo idioma que el resto del
+   tema. Medido: 6,14:1 sobre el crema y 10,63:1 sobre el fondo nocturno, muy por
+   encima del 3:1 que WCAG 1.4.11 pide para un indicador no textual.
+
+   `outline-offset` positivo lo saca de la pildora en vez de meterlo dentro; el
+   navegador respeta el `border-radius`, asi que el anillo sale redondo. */
+:root {
+  --focus-ring: #b71c1c;
+}
+
+html[data-theme="academic-night"] {
+  --focus-ring: var(--night-accent);
+}
+
+.masthead__controls .lang-switcher > a:focus,
+.masthead__controls .theme-toggle:focus,
+.masthead__controls .search__toggle:focus,
+.masthead__nav-toggle:focus,
+.masthead__nav-link:focus {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Al tabular, el anillo engorda: distingue «llegue con el teclado» de «acabo de
+   pulsar», sin quitarle el indicador a ninguno de los dos. */
+.masthead__controls .lang-switcher > a:focus-visible,
+.masthead__controls .theme-toggle:focus-visible,
+.masthead__controls .search__toggle:focus-visible,
+.masthead__nav-toggle:focus-visible,
+.masthead__nav-link:focus-visible {
+  outline-width: 3px;
 }
 
 /* ── Objetivos táctiles ───────────────────────────────────────────────────── */
@@ -2173,4 +2255,12 @@ html[data-theme="academic-night"] .subscribe-rss__topic:hover,
 html[data-theme="academic-night"] .subscribe-rss__topic:focus-visible {
   border-color: $rss-orange;
   background: rgba(242, 101, 34, 0.16);
+}
+
+/* Seleccion de texto en tema oscuro. Sin declararla, el navegador usa su azul
+   de sistema, que en esta paleta se ve como un cuerpo extrano. Con el acento
+   propio, seleccionar texto pertenece visualmente al mismo tema que el foco. */
+html[data-theme="academic-night"] ::selection {
+  background: var(--night-accent);
+  color: var(--night-bg);
 }
