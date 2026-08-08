@@ -1,0 +1,431 @@
+contract_version: 1
+
+task:
+  id: 3cucharadas-nav-seo-seguridad
+  status: active
+  created: 2026-08-07
+  owner: tatan
+
+goal:
+  statement: >
+    Corregir la barra de navegación y la diagramación móvil de 3cucharadas.cl,
+    cerrar las causas mecánicas de no-indexación reportadas por Google Search
+    Console, y ejecutar los controles de seguridad locales verificables sobre la
+    infraestructura real (GitLab Pages + Cloudflare), sin degradar el visor del
+    Catastro SII ni la experiencia de escritorio.
+
+invariants:
+  - id: INV-001
+    statement: "El sitio debe construir y pasar los gates que el repo ya tiene en CI."
+  - id: INV-002
+    statement: "El visor del Catastro SII conserva su comportamiento: tsc y vitest siguen pasando."
+  - id: INV-003
+    statement: "Ninguna URL pública existente cambia de dirección sin redirección equivalente."
+  - id: INV-004
+    statement: "La navegación permanece alcanzable sin JavaScript y con teclado."
+  - id: INV-005
+    statement: "No se introducen credenciales, tokens ni datos personales en el repositorio."
+  - id: INV-006
+    statement: "No hay commit, push ni deploy sin petición explícita del usuario."
+
+deliverables:
+  - id: DEL-001
+    path: "_includes/masthead.html"
+    required: true
+  - id: DEL-002
+    path: "assets/js/site-nav.js"
+    required: true
+  - id: DEL-003
+    path: "assets/css/main.scss"
+    required: true
+  - id: DEL-004
+    path: ".github/dependabot.yml"
+    required: true
+  - id: DEL-005
+    path: "SECURITY.md"
+    required: true
+
+# El artefacto sobre el que corren los verificadores de artefacto.
+# Se sobrescribe con --artifact.
+artifact: _site_check
+
+phases:
+  - id: P0
+    description: "Contrato y línea base"
+    status: pending
+  - id: P1
+    description: "Navegación y diagramación móvil"
+    status: pending
+  - id: P2
+    description: "Indexación / Google Search Console"
+    status: pending
+  - id: P3
+    description: "Seguridad rebaseada sobre GitLab Pages"
+    status: pending
+
+acceptance:
+  # ─── Transversales ────────────────────────────────────────────────────────
+  - id: AC-BUILD-01
+    phase: P0
+    description: "El sitio construye sin errores"
+    command: "bundle exec jekyll build --trace -d {artifact}"
+    required: true
+
+  - id: AC-BUILD-02
+    phase: P0
+    description: "Gate de artefacto del repo"
+    command: "bundle exec ruby scripts/verify_site_artifact.rb {artifact}"
+    required: true
+
+  - id: AC-BUILD-03
+    phase: P0
+    description: "Gate de activos visuales del repo"
+    command: "bundle exec ruby scripts/verify_visual_assets.rb"
+    required: true
+
+  - id: AC-BUILD-04
+    phase: P0
+    description: "Tipos del visor Catastro SII"
+    command: "npm run check:catastro"
+    required: true
+
+  - id: AC-BUILD-05
+    phase: P0
+    description: "Tests del visor Catastro SII"
+    command: "npm run test:catastro"
+    required: true
+
+  # ─── Fase 1: navegación y diagramación ────────────────────────────────────
+  - id: AC-NAV-01
+    phase: P1
+    description: "greedy-nav ausente del HTML construido"
+    command: "python3 .agent/checks/markup.py {artifact} --no-greedy-nav"
+    required: true
+
+  - id: AC-NAV-02
+    phase: P1
+    description: "Barra propia presente y accesible (aria-expanded, aria-controls, botón y lista)"
+    command: "python3 .agent/checks/markup.py {artifact} --site-nav"
+    required: true
+
+  - id: AC-NAV-03
+    phase: P1
+    description: "Los dos controles viven fuera de <nav>, en .masthead__controls"
+    command: "python3 .agent/checks/markup.py {artifact} --controls-outside-nav"
+    required: true
+
+  - id: AC-NAV-04
+    phase: P1
+    description: "El bundle servido del tema es 4.28.0 (sin copia vendorizada obsoleta)"
+    command: "python3 .agent/checks/markup.py {artifact} --theme-bundle-version 4.28.0"
+    required: true
+
+  - id: AC-TYPO-01
+    phase: P1
+    description: "Cuerpo >=16px en móvil sin reescalar la interfaz (ver CHG-007)"
+    command: "python3 .agent/checks/styles.py {artifact} --typography"
+    required: true
+
+  - id: AC-A11Y-01
+    phase: P1
+    description: "Área táctil >=44px en los controles de la barra"
+    command: "python3 .agent/checks/styles.py {artifact} --touch-targets"
+    required: true
+
+  - id: AC-A11Y-02
+    phase: P1
+    description: "Fallback sin JavaScript: la navegación sigue siendo alcanzable"
+    command: "python3 .agent/checks/styles.py {artifact} --no-js-fallback"
+    required: true
+
+  # ─── Fase 2: indexación ───────────────────────────────────────────────────
+  - id: AC-SEO-01
+    phase: P2
+    description: "Cero canonicals compartidos por dos o más URLs"
+    command: "python3 .agent/checks/canonicals.py {artifact} --no-duplicates"
+    required: true
+
+  - id: AC-SEO-02
+    phase: P2
+    description: "Toda URL indexable es autocanónica"
+    command: "python3 .agent/checks/canonicals.py {artifact} --self-referential"
+    required: true
+
+  - id: AC-SEO-03
+    phase: P2
+    description: "Cero pares ES/EN sin hreflang recíproco y x-default"
+    command: "python3 .agent/checks/hreflang.py {artifact}"
+    required: true
+
+  - id: AC-SEO-04
+    phase: P2
+    description: "Las páginas 404 llevan noindex y no se enlazan desde /sitemap/"
+    command: "python3 .agent/checks/markup.py {artifact} --soft-404"
+    required: true
+
+  - id: AC-SEO-05
+    phase: P2
+    description: "El sitemap no lista páginas del paginador, 404 ni redirecciones"
+    command: "python3 .agent/checks/canonicals.py {artifact} --sitemap-clean"
+    required: true
+
+  # ─── Fase 3: seguridad ────────────────────────────────────────────────────
+  - id: AC-SEC-01
+    phase: P3
+    description: "Cero ejecución de código remoto sin verificar en el pipeline de producción"
+    command: "python3 .agent/checks/security.py --pipeline"
+    required: true
+
+  - id: AC-SEC-02
+    phase: P3
+    description: "Cero interpolaciones Liquid sin escapar de datos remotos"
+    command: "python3 .agent/checks/security.py --liquid-escaping"
+    required: true
+
+  - id: AC-SEC-03
+    phase: P3
+    description: "Acciones de workflows con permisos de escritura pinneadas a SHA de 40 caracteres"
+    command: "python3 .agent/checks/security.py --actions-pinned"
+    required: true
+
+  - id: AC-SEC-04
+    phase: P3
+    description: "dependabot.yml cubre los ecosistemas realmente presentes"
+    command: "python3 .agent/checks/security.py --dependabot"
+    required: true
+
+# Verificaciones que requieren navegador y no pueden correr desatendidas.
+# No bloquean el contrato, pero deben registrarse con evidencia manual.
+manual_acceptance:
+  - id: MAN-NAV-01
+    phase: P1
+    description: >
+      A 320/375/414 px: la hamburguesa es visible Y visibility:visible, ambos
+      enlaces son alcanzables al abrirla, y no hay scroll horizontal
+      (documentElement.scrollWidth === window.innerWidth).
+  - id: MAN-NAV-02
+    phase: P1
+    description: >
+      Cero errores de consola al cargar. Prueba de que el IIFE del greedy-nav del
+      tema no-opera en vez de lanzar, y por tanto no arrastra al resto del bundle
+      (búsqueda, sidebar sticky, smooth scroll).
+  - id: MAN-NAV-03
+    phase: P1
+    description: >
+      La barra es correcta ANTES de que llegue Font Awesome desde cdnjs
+      (throttling 3G lento).
+  - id: MAN-NAV-04
+    phase: P1
+    description: >
+      Sin restos blancos en la barra al alternar a academic-night, tras renombrar
+      los selectores .greedy-nav.
+
+change_policy:
+  plan:
+    mutable: true
+  acceptance:
+    mutable: controlled
+  invariants:
+    mutable: explicit_approval
+
+completion:
+  require_all_acceptance: true
+  require_evidence: true
+
+# Desviaciones respecto del plan inicial. Se registran con su evidencia: corregir
+# una premisa equivocada es drift positivo y está permitido; borrar un criterio
+# porque cuesta cumplirlo, no.
+changes:
+  - id: CHG-001
+    type: premise_corrected
+    original: >
+      El diagnóstico atribuía el fallo del menú, en parte, a que
+      `assets/js/main.min.js` era una copia vendorizada 4.26.2 obsoleta frente a
+      la 4.28.0 de la gema.
+    replacement: >
+      Falso. El IIFE del greedy-nav es idéntico carácter a carácter entre ambas
+      versiones; sólo difiere el banner de copyright (50 bytes). Retirar la copia
+      local es higiene —332 KB de deriva—, no la corrección del fallo. La causa
+      real es íntegramente de medición.
+    evidence: comparación byte a byte de ambos bundles y extracción del IIFE
+    affected_acceptance: [AC-NAV-04]
+    requires_human_approval: false
+
+  - id: CHG-002
+    type: premise_corrected
+    original: >
+      Se atribuían las 3 páginas «Duplicada: Google eligió otra canónica» a que
+      `/catastro_sii_brecha/`, `/catastro_sii_brechas/` y `/en/catastro_sii_brechas/`
+      compartían canónica.
+    replacement: >
+      La atribución era incorrecta. Las dos variantes `brechas` llevan `noindex`
+      y meta-refresh: apuntar su canónica al destino es el comportamiento correcto
+      de un stub de redirección, y los comprobadores las excluyen por eso. Sobre
+      la línea base, `--no-duplicates` y `--self-referential` YA pasaban. La causa
+      real de esa categoría es la ausencia de hreflang en 12 de 30 URLs del
+      sitemap, más `/en/terms/` como copia del ES.
+    evidence: .agent/evidence/ sobre _site_baseline — 32 páginas, 0 duplicados
+    affected_acceptance: [AC-SEO-01, AC-SEO-02, AC-SEO-03]
+    requires_human_approval: false
+
+  - id: CHG-003
+    type: premise_corrected
+    original: >
+      Se sospechaba que `upload-pages-artifact@v5` y `deploy-pages@v5` eran
+      majors inexistentes (upstream en v3 y v4) y que por eso el workflow
+      redirector fallaba en cada push.
+    replacement: >
+      Falso. Los tres tags v5.0.0 existen y resuelven a commits reales. El
+      redirector no falla por esa razón.
+    evidence: git ls-remote --tags y gh api sobre los tres repositorios
+    affected_acceptance: [AC-SEC-03]
+    requires_human_approval: false
+
+  - id: CHG-004
+    type: positive_drift
+    original: "El comprobador --liquid-escaping marcaba toda interpolación de dato remoto."
+    replacement: >
+      Se acota a contexto de ATRIBUTO. En texto, `{{ news.articles.size }}` es un
+      entero y `{{ article.published | date: … }}` una fecha ya formateada:
+      marcarlos era ruido que empujaba a escapar cosas inertes y a desconfiar del
+      comprobador. Pasó de 5 hallazgos a 1, que es el vector real.
+    evidence: _includes/news-widget.html:43, href sin escapar alimentado por RSS
+    affected_acceptance: [AC-SEC-02]
+    requires_human_approval: false
+
+  - id: CHG-005
+    type: regression_fixed
+    original: "La barra propia se nombró `.site-nav`."
+    replacement: >
+      Colisión con el tema: `_masthead.scss:66` define `.masthead__menu .site-nav`
+      con `float: inline-end` desde $small, que encogía la barra y la desplazaba
+      al centro-derecha. Además, no declarar color hacía que los enlaces cayeran
+      al `$link-color` del skin (#0000ff en `contrast`) en vez del
+      `$masthead-link-color` (#000). Renombrado a `.masthead__nav`, que el tema no
+      usa, y color anclado a la variable del tema.
+    evidence: detectado por el usuario en tema claro; confirmado leyendo _masthead.scss y skins/_contrast.scss
+    affected_acceptance: [AC-NAV-01, AC-NAV-02, AC-A11Y-02]
+    requires_human_approval: false
+
+  - id: CHG-009
+    type: premise_corrected
+    original: >
+      Afirmé que `npm outdated` y `npm audit` fallaban por el desajuste entre el
+      Node del sistema (v26.7.0) y el `engines` declarado (`>=24 <26`).
+    replacement: >
+      Falso, y refutado empíricamente. El fallo se reproduce en un directorio
+      vacío ajeno al proyecto, así que no es del repositorio ni de `engines`. La
+      causa es un `minipass 3.3.6` de 2023 anidado y huérfano dentro de la
+      instalación del sistema (`/usr/lib/node_modules/npm/node_modules/
+      minipass-collect/node_modules/`): exporta por defecto y no como export
+      nombrado, y `minipass-collect` hace `const { Minipass } = require(…)`.
+      `pacman` no ve esos archivos porque no los posee, de modo que
+      `pacman -Qkk npm` responde «0 altered files» y da falsa tranquilidad.
+
+      Probado en copia aislada: borrando sólo los directorios anidados huérfanos,
+      `npm audit` vuelve a correr —en Node 26, sin tocar `engines`— y reporta 2
+      vulnerabilidades reales (nanoid <3.3.17 alta, postcss <=8.5.22 moderada).
+
+      No afecta a producción: el pipeline de GitLab instala su propio Node
+      24.18.0 verificado por SHA256 y construye el sitio con Jekyll/bundler.
+    evidence: >
+      ~/.npm/_logs/2026-08-08T04_50_56_936Z-debug-0.log:14 y la simulación en
+      copia; `pacman -Qo` sobre el package.json huérfano
+    affected_acceptance: []
+    requires_human_approval: true
+
+  - id: CHG-010
+    type: regression_fixed
+    original: "Se fijó `$background-color: #faf7f0` para pasar el tema claro a crema."
+    replacement: >
+      El cambio invirtió dos superficies que el tema calibra contra blanco puro:
+      la cebra de tablas (`#fafafa`, luminancia 0.956) y `$code-background-color`
+      (el mismo valor) quedaron MÁS CLAROS que la página (0.931), de modo que se
+      leían como resalte en vez de como sombra. Recalibrados a `#f3efe4` (0.864),
+      más oscuros y de la misma familia cálida; el hover de fila pasó de un rosa
+      frío `#fff3f3` a `#f7e9e4`. También se actualizó el `theme-color` del
+      navegador, que seguía anunciando blanco.
+
+      La lección es general: cambiar el fondo base no basta, hay que reauditar
+      todo lo que estaba calibrado *contra* ese fondo.
+    evidence: luminancias medidas en navegador; cebra 0.8639 < página 0.9314
+    affected_acceptance: []
+    requires_human_approval: false
+
+  - id: CHG-011
+    type: premise_corrected
+    original: >
+      Se dio por hecho que el commit `c4e4bcc4` del redirector de GitHub Pages
+      estaba sin empujar, y que por eso seguía vivo el `noindex`.
+    replacement: >
+      Falso donde importa. `origin` es **GitLab**; GitHub es un remoto aparte
+      llamado `github`. Tras `git fetch github`, `github/gh-pages-redirect` ya
+      estaba en `c4e4bcc4`: el redirector lleva desplegado con `index, follow`
+      desde el 8 de julio, confirmado con curl contra la URL en vivo. Sólo el
+      espejo GitLab estaba atrasado, y ese remoto no despliega el redirector.
+
+      Correlato: `/en/404/` en producción no devuelve 404 sino **200**, porque
+      GitLab Pages hace fallback a `.html`. Es un soft 404, peor que un 404 duro,
+      pero ya queda mitigado por el `noindex` que añadió la Fase 2.
+    evidence: git fetch github + curl sobre https://tatanlabra.github.io/3cucharadas/
+    affected_acceptance: []
+    requires_human_approval: false
+
+  - id: CHG-007
+    type: acceptance_amended
+    original: >
+      AC-TYPO-01 exigía «escalera tipográfica única»: neutralizar la escalera de
+      raíz del tema (16/18/20/22) y dejarla en 16/17/18, con `.page__content` a
+      1rem.
+    replacement: >
+      Era un error de diseño, detectado por el usuario comparando con producción.
+      La raíz no gobierna sólo el cuerpo: gobierna TODA la interfaz. Al bajarla,
+      encogieron la cabecera (93 -> 65 px), el logo (44 -> 32 px), el título y los
+      botones. El texto mejoró y el sitio empeoró.
+
+      El criterio pasa a exigir lo que de verdad importa —cuerpo legible— y
+      además PROHÍBE el atajo: la raíz del tema queda intacta y el cuerpo lleva su
+      propia escala en px, `clamp(16px, 14px + 0.35vw, 18px)`. Se comprueba suelo
+      >= 16 px, techo <= 20 px, line-height >= 1.5, ausencia de encadenamiento de
+      em en tablas, y que nadie vuelva a sobrescribir `html { font-size: …% }`.
+
+      El criterio se endurece, no se relaja: ahora cubre un modo de fallo que
+      antes no veía.
+    evidence: >
+      capturas comparadas de producción y del preview; medición posterior a 1360 px
+      (raíz 22px, logo 44px, masthead 93px, título rgb(0,0,0)) y a 375 px
+      (raíz 16px, cuerpo 16px, tablas 14.4px, sin scroll horizontal)
+    affected_acceptance: [AC-TYPO-01]
+    requires_human_approval: false
+
+  - id: CHG-008
+    type: bug_in_verifier
+    original: >
+      `markup.py --soft-404` acusaba al bucle de `/sitemap/` de enlazar
+      `/feed.xml`, `robots.txt` y los assets.
+    replacement: >
+      El comprobador estaba mal, no el sitio: leía TODOS los `<a>` del documento y
+      se los atribuía a la plantilla del sitemap, cuando el enlace al RSS lo emite
+      el pie del tema en las 30 páginas. Con el bucle vacío del todo habría
+      seguido fallando. Se añadió `content_links` (enlaces dentro de `#main`) y el
+      criterio los usa. Sin este arreglo, el único modo de satisfacerlo era quitar
+      el RSS del pie: una decisión de producto sin relación con el soft-404.
+    evidence: .agent/checks/_common.py, campo content_links
+    affected_acceptance: [AC-SEO-04]
+    requires_human_approval: false
+
+  - id: CHG-006
+    type: scope_extended
+    original: "La Fase 1 no contemplaba el desbordamiento de fórmulas ni el justificado."
+    replacement: >
+      La auditoría móvil destapó dos defectos preexistentes que la hacían fallar
+      igualmente: una fórmula KaTeX en bloque se componía a 456 px contra un
+      viewport de 375 y arrastraba scroll horizontal a toda la página —desbordaba
+      también con el tamaño de letra anterior, así que no lo causó la escalera
+      tipográfica—; y el cuerpo iba justificado con `hyphens: manual` sobre una
+      medida de ~43 caracteres, lo que produce ríos blancos. Se confina el scroll
+      a la fórmula y se activa partición automática con alineación a la izquierda
+      bajo $medium.
+    evidence: medición en navegador aislando el tamaño de letra; scrollWidth 456 -> 375
+    affected_acceptance: [AC-TYPO-01]
+    requires_human_approval: false
