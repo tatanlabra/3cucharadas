@@ -1,4 +1,24 @@
-<!-- GoatCounter: analítica sin cookies, hosted gratuito (Fase 5.1, auditoria-2026-07-25).
-     Sin cookies, sin fingerprinting, no requiere banner de consentimiento. -->
+{%- comment %}
+GoatCounter: analítica sin cookies, hosted gratuito (Fase 5.1, auditoria-2026-07-25).
+Sin cookies, sin fingerprinting, no requiere banner de consentimiento.
+
+`https://` explícito en vez de la URL protocol-relative `//gc.zgo.at/…`: ese patrón
+sólo tenía sentido cuando un mismo sitio se servía por http y por https, y aquí todo
+es https. Dejar el esquema al criterio del documento no gana nada.
+
+Sin `integrity`: GoatCounter reescribe el archivo en su CDN sin avisar y sin
+versionarlo de verdad. Medido el 2026-08-08 contra gc.zgo.at: count.js y las cinco
+variantes supuestamente fijas count.v1.js … count.v5.js comparten
+`last-modified: Tue, 28 Jul 2026 21:08` — o sea que ni siquiera pinnear una versión
+congela el contenido. Un hash SRI sobre un recurso así no protege: rompe la analítica
+en silencio el día que lo vuelvan a publicar, y el fallo es invisible porque la página
+sigue funcionando. Font Awesome sí lleva SRI (`_includes/head.html`) porque cdnjs
+sirve rutas inmutables por versión; la asimetría entre los dos es la diferencia entre
+los CDN, no un descuido. La única forma de exigir SRI aquí sería autoalojar count.js
+en assets/ y actualizarlo a mano.
+
+El comentario va en Liquid y no en HTML a propósito: como comentario HTML viajaba a
+las 30 páginas del artefacto (35,5 KiB medidos) y publicaba el razonamiento interno.
+{% endcomment -%}
 <script data-goatcounter="https://{{ site.analytics.goatcounter.code }}.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="https://gc.zgo.at/count.js"></script>

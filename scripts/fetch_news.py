@@ -122,6 +122,35 @@ def _clean(text: str, max_len: int = 200) -> str:
     return " ".join(clean.split())[:max_len].rstrip()
 
 
+# El `link` de una entrada es texto arbitrario controlado por el feed remoto, y
+# acaba dentro de un `href` del HTML publicado. Se filtra ya en la ingesta, no
+# sólo en la plantilla: así el JSON versionado nunca contiene un esquema
+# navegable que no sea http/https.
+#   · Se recortan control chars y espacios de los extremos porque el parser de
+#     URL del navegador los ignora: `"\x01javascript:alert(1)"` se navega como
+#     `javascript:`.
+#   · Tab, LF y CR se eliminan ANTES de mirar el esquema porque el navegador
+#     también los elimina en cualquier posición: `"java\nscript:"` es
+#     `javascript:` para él, pero no para un `startswith` ingenuo.
+_URL_EDGE_JUNK = "".join(chr(c) for c in range(0x21)) + "\x7f"
+_URL_IGNORED_INSIDE = re.compile(r"[\t\n\r]")
+_ALLOWED_SCHEMES = ("http://", "https://")
+
+
+def _safe_link(raw: str, fallback: str) -> str:
+    """Devuelve la primera URL http/https utilizable; "" si ninguna lo es.
+
+    El "" no es un descuido: _includes/news-widget.html omite el enlace y deja
+    el titular como texto cuando no hay URL aceptable.
+    """
+    for candidate in (raw, fallback):
+        cleaned = str(candidate or "").strip(_URL_EDGE_JUNK)
+        probe = _URL_IGNORED_INSIDE.sub("", cleaned).lower()
+        if probe.startswith(_ALLOWED_SCHEMES):
+            return cleaned
+    return ""
+
+
 _VERSION_RE = re.compile(r"^v?\d+(\.\d+)+\s*$", re.IGNORECASE)
 def _is_informative(title: str) -> bool:
     """Return False if title looks like a version number or is too short to be useful."""
@@ -145,7 +174,7 @@ def _build_article(feed_meta: dict, entry: dict, pub: datetime | None, descripti
     return {
         "title": raw_title,
         "display_title": display_title,
-        "link": entry.get("link", feed_meta["url"]),
+        "link": _safe_link(entry.get("link", ""), feed_meta["url"]),
         "summary": summary_text,
         "published": published_iso,
         "source_label": feed_meta["title"],
