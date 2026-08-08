@@ -1,5 +1,11 @@
 {% if page.author_profile or layout.author_profile or page.sidebar %}
-  <div class="sidebar sticky">
+  {%- comment -%}
+  `role="complementary"` porque por debajo de $large esta ficha se reordena con
+  CSS para quedar DESPUÉS del artículo. Ese desajuste entre orden visual y orden
+  del DOM (WCAG 1.3.2) es deliberado —mantiene el `itemscope Person` temprano—,
+  pero necesita que la región se anuncie por lo que es.
+  {%- endcomment -%}
+  <div class="sidebar sticky" role="complementary">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   {% if page.sidebar %}
     {% for s in page.sidebar %}

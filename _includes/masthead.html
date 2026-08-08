@@ -1,3 +1,39 @@
+{%- comment -%}
+Barra de navegación propia. Sustituye al greedy-nav del tema, que estaba roto en
+móvil: «Acerca de» aparecía cortado a mitad de palabra, «Publicaciones» no salía
+y la hamburguesa no llegaba a mostrarse nunca.
+
+La causa era de medición. El algoritmo del tema reparte el ancho calculando
+
+    disponible = nav.innerWidth() − site-logo − site-title − search − hamburguesa
+
+y este sitio le inyectaba DENTRO del <nav> dos controles que esa resta no
+contempla (el selector de idioma y el conmutador de tema, ~71 px juntos). Creía
+que sobraba sitio, no movía ningún enlace al panel oculto, y dejaba la
+hamburguesa en `.hidden`. Como `.visible-links` del tema lleva `overflow:hidden`,
+el excedente no se envolvía: se recortaba en silencio.
+
+Había tres errores más en la misma cuenta: `.search__toggle` se mide antes de que
+llegue Font Awesome desde el CDN (sin glifo mide ~13 px menos y sólo se recalcula
+en `resize`); `.site-title` es un flex item encogible, así que se mide DESPUÉS de
+haberse comprimido e infla el resultado justo en lo que el navegador ya quitó; y
+la única regla que forzaba la hamburguesa en móvil estaba scopeada a un post
+concreto —y rota, porque ocultaba la lista y entonces el JS medía 0—.
+
+En vez de compensar esas cuatro fuentes de error, se retira la medición. Con dos
+ítems de menú no hay nada que repartir: la decisión es un breakpoint, no un
+cálculo. La lista se renderiza una sola vez y un botón la revela por debajo de
+$medium. Sin jQuery, sin `outerWidth()`, sin depender de cuándo llega una fuente.
+
+El <nav> conserva `id="site-nav"` porque `_includes/skip-links.html` lo referencia.
+Al dejar de llamarse `greedy-nav`, los selectores del JS del tema no encuentran
+nada y sus llamadas quedan en no-op; no se parchea ni se desactiva el bundle.
+
+Los dos controles salen del <nav> a `.masthead__controls`. Aunque ya no se mida
+nada, siguen sin pertenecer a la navegación: no son enlaces, son preferencias de
+presentación. La lupa los acompaña; su manejador del tema se engancha por clase
+(`$(".search__toggle").on("click", …)`), no por estar dentro del <nav>.
+{%- endcomment -%}
 {% assign active_lang = include.lang | default: site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign brand = site.data.brand[active_lang] | default: site.data.brand[site.default_lang] %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
@@ -8,11 +44,13 @@
   {% assign navigation = localized_navigation %}
 {% endif %}
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
+{% assign nav_label = ui_text.primary_nav_label | default: "Navegación principal" %}
+{% if active_lang == "en" %}{% assign nav_label = ui_text.primary_nav_label | default: "Primary navigation" %}{% endif %}
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="masthead__nav" aria-label="{{ nav_label }}">
         {% unless logo_path == empty %}
           <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ brand.name }}"></a>
         {% endunless %}
@@ -20,10 +58,26 @@
           {{ brand.name }}
           <span class="site-subtitle">{{ brand.tagline }}</span>
         </a>
-        <ul class="visible-links">
+        {%- comment -%}
+        El botón precede al panel que controla, que es el orden que espera el
+        patrón de divulgación y lo que permite abrirlo con el selector hermano
+        `[aria-expanded="true"] ~ .masthead__nav-list`. Así el estado ARIA y el
+        estado visual son el mismo dato y no pueden desincronizarse.
+        {%- endcomment -%}
+        <button
+          class="masthead__nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+        >
+          <span class="visually-hidden">{{ ui_text.menu_label | default: "Toggle menu" }}</span>
+          <span class="masthead__navicon" aria-hidden="true"></span>
+        </button>
+        <ul id="site-nav-menu" class="masthead__nav-list">
           {%- for link in navigation -%}
-            <li class="masthead__menu-item">
+            <li class="masthead__nav-item">
               <a
+                class="masthead__nav-link"
                 href="{{ link.url | relative_url }}"
                 {% if link.description %} title="{{ link.description }}"{% endif %}
                 {% if link.target %} target="{{ link.target }}"{% endif %}
@@ -31,20 +85,18 @@
             </li>
           {%- endfor -%}
         </ul>
-        {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-        {% endif %}
-        {% include lang-switcher.html %}
-        {% include theme-toggle.html %}
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ ui_text.menu_label | default: "Toggle menu" }}</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
       </nav>
+    </div>
+
+    <div class="masthead__controls">
+      {% if site.search == true %}
+      <button class="search__toggle" type="button">
+        <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </button>
+      {% endif %}
+      {% include lang-switcher.html %}
+      {% include theme-toggle.html %}
     </div>
   </div>
 </div>

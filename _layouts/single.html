@@ -43,11 +43,27 @@ layout: default
 
       <section class="page__content" itemprop="text">
         {% if page.toc %}
+          {%- comment -%}
+          El índice se envuelve en <details> para poder plegarlo por debajo de
+          $large. El tema sólo lo convierte en columna fija a partir de ahí; hasta
+          entonces queda en el flujo, antes del artículo, y con `h_min=1 h_max=6`
+          un post largo empujaba la primera frase fuera de la pantalla inicial.
+
+          Se conserva el <aside class="sidebar__right"> para no alterar ni el
+          comportamiento sticky de $large ni los objetivos del scrollspy. `open`
+          lo sincroniza site-nav.js, porque es una propiedad del DOM y no puede
+          gobernarse desde una media query.
+          {%- endcomment -%}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: ui_text.toc_label | default: "On this page" }}</h4></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
+            <details class="toc__details" open>
+              <summary class="toc__summary">
+                <span><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}" aria-hidden="true"></i> {{ page.toc_label | default: ui_text.toc_label | default: "On this page" }}</span>
+              </summary>
+              <nav class="toc" aria-label="{{ page.toc_label | default: ui_text.toc_label | default: 'On this page' }}">
+                <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: ui_text.toc_label | default: "On this page" }}</h4></header>
+                {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
+              </nav>
+            </details>
           </aside>
         {% endif %}
         {{ content }}
