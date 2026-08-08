@@ -1728,7 +1728,7 @@ html[data-theme="academic-night"] .masthead__nav-link[aria-current="page"] {
 html[data-theme="academic-night"] .masthead__nav-toggle:hover,
 html[data-theme="academic-night"] .masthead__nav-toggle:focus-visible,
 html[data-theme="academic-night"] .masthead__nav-toggle[aria-expanded="true"] {
-  border-color: var(--night-border-strong);
+  border-color: var(--night-accent);
   background: var(--night-layer);
 }
 
@@ -1854,6 +1854,31 @@ html[data-theme="academic-night"] .masthead__controls .search__toggle:focus-visi
   border-color: var(--night-accent);
   background: var(--night-layer-strong);
   color: var(--night-link-hover);
+}
+
+/* Los cuatro controles responden igual al pasar por encima: el borde toma el
+   acento del tema. Se llego a esto tras un descuido — se introdujo
+   `--night-accent` y solo se migraron dos de los cuatro: el conmutador de tema
+   seguia en blanco (`--night-link`) por una regla general del sitio anterior al
+   token, y el menu en gris (`--night-border-strong`) por una regla propia
+   escrita el mismo dia. Un acento que solo aplica a la mitad de una fila de
+   controles no se lee como sistema, se lee como error.
+
+   La regla general de `.theme-toggle` no se modifica —gobierna ese control en
+   cualquier contexto— y se sobrescribe unicamente dentro de la barra. */
+.masthead__controls .lang-switcher > a:hover,
+.masthead__controls .theme-toggle:hover,
+.masthead__controls .search__toggle:hover,
+.masthead__nav-toggle:hover {
+  border-color: $primary-color;
+}
+
+html[data-theme="academic-night"] .masthead__controls .lang-switcher > a:hover,
+html[data-theme="academic-night"] .masthead__controls .theme-toggle:hover,
+html[data-theme="academic-night"] .masthead__controls .search__toggle:hover,
+html[data-theme="academic-night"] .masthead__nav-toggle:hover {
+  border-color: var(--night-accent);
+  color: var(--night-accent);
 }
 
 /* ── Anillo de foco ──────────────────────────────────────────────────────────
