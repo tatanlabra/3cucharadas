@@ -1,0 +1,36 @@
+# Feeds temáticos que el sitio publica, para el bloque de suscripción.
+#
+# Los cuatro primeros los genera jekyll-feed a partir de `feed.categories` en
+# `_config.yml`; si se añade una categoría allí, hay que añadirla aquí para que
+# aparezca en la portada. Los dos últimos son archivos escritos a mano en la raíz
+# del repositorio, no derivados de ninguna categoría.
+#
+# `label` es sólo la etiqueta visible: el nombre de la categoría lo manda
+# `_config.yml`, y cambiarlo aquí no cambia la ruta.
+
+es:
+  - label: "Datos"
+    path: /feed/datos.xml
+  - label: "IA"
+    path: /feed/ia.xml
+  - label: "MLOps"
+    path: /feed/mlops.xml
+  - label: "Política pública"
+    path: /feed/politica-publica.xml
+  - label: "Julia"
+    path: /feed-julia.xml
+
+en:
+  - label: "Data"
+    path: /feed/datos.xml
+  - label: "AI"
+    path: /feed/ia.xml
+  - label: "MLOps"
+    path: /feed/mlops.xml
+  - label: "Public policy"
+    path: /feed/politica-publica.xml
+  - label: "Julia"
+    path: /feed-julia.xml
+  # Sólo en inglés: recoge lo sindicado a dev.to.
+  - label: "DEV"
+    path: /feed-dev-en.xml

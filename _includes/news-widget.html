@@ -1,7 +1,8 @@
 {% comment %}
   Widget RSS — 6 feeds random diarios desde el OPML personal.
   Datos: _data/feedly_news.json · OPML: assets/feedly-subscriptions.opml
-  Actualizado en build server-side (GitHub Pages + GitLab CI)
+  Regenerado por scripts/fetch_news.py dentro del build de GitLab CI, que es el
+  que publica producción (el workflow de GitHub es manual y sólo espejo).
 {% endcomment %}
 
 {% assign news = site.data.feedly_news %}
@@ -22,9 +23,15 @@
 {% if news.articles and news.articles.size > 0 %}
 <section class="news-widget" aria-labelledby="news-widget-title">
 
+  {%- comment -%}
+  El icono va DESPUÉS del contador, no pegado al título, y en naranja RSS.
+  `aria-hidden` porque es decorativo: el encabezado ya dice que esto es RSS, y
+  anunciarlo dos veces sólo alarga la lectura con lector de pantalla.
+  {%- endcomment -%}
   <h3 id="news-widget-title" class="archive__subtitle">
     {{ news_title }}
     <small class="news-widget__count">({{ news.articles.size }} {{ news_count }})</small>
+    <i class="fas fa-rss news-widget__icon" aria-hidden="true"></i>
   </h3>
 
   <ul class="news-widget__list">
@@ -40,9 +47,30 @@
       {% if article.feed_description and article.feed_description != "" %}
       <p class="news-widget__feed-desc">{{ article.feed_description | escape }}</p>
       {% endif %}
-      <a href="{{ article.link }}" target="_blank" rel="noopener noreferrer" class="news-widget__link">
+      {%- comment -%}
+        `article.link` es el único valor de este widget que llega de un feed RSS
+        ajeno y termina dentro de un atributo navegable del HTML publicado. Un
+        feed hostil o comprometido puede emitir `javascript:` o
+        `data:text/html;…`, y `rel="noopener noreferrer"` no filtra esquemas: sólo
+        limita el acceso a `window.opener` y el Referer. Por eso el enlace se
+        emite únicamente si el esquema está en la allowlist http/https, y con
+        `escape` encima para que el valor no pueda cerrar el atributo y abrir uno
+        nuevo. Si no pasa, se conserva el titular como texto plano: perder el
+        enlace de un feed que emite basura es preferible a hornearlo en el sitio.
+        La misma comprobación existe en scripts/fetch_news.py, que es donde el
+        dato entra; aquí se repite porque _data/feedly_news.json también puede
+        llegar de un commit anterior o de una ejecución previa del script.
+      {%- endcomment -%}
+      {%- assign link_probe = article.link | default: "" | strip | downcase -%}
+      {%- assign link_scheme_https = link_probe | slice: 0, 8 -%}
+      {%- assign link_scheme_http = link_probe | slice: 0, 7 -%}
+      {% if link_scheme_https == "https://" or link_scheme_http == "http://" %}
+      <a href="{{ article.link | escape }}" target="_blank" rel="noopener noreferrer" class="news-widget__link">
         {{ article.display_title | default: article.title | escape }}
       </a>
+      {% else %}
+      <span class="news-widget__link">{{ article.display_title | default: article.title | escape }}</span>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
