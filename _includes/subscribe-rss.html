@@ -1,0 +1,64 @@
+{%- comment -%}
+Invitación a seguir el sitio por RSS.
+
+Va SEPARADA del widget «RSS a los que sigo», que trata de los feeds que lee el
+autor. Mezclar ambas cosas bajo un mismo icono naranja invita justo a la
+confusión que hay que evitar: un lector que ve el símbolo RSS sobre una lista de
+medios ajenos no sabe si se suscribe a ellos o a este sitio.
+
+Lo que resuelve: el sitio publica siete feeds y sólo uno —el general— era
+alcanzable, desde el pie y etiquetado «Feed». Los cuatro temáticos que declara
+`_config.yml` (`feed.categories`) y los dos manuales no aparecían en ninguna
+parte. Publicar un feed que nadie puede encontrar es no publicarlo.
+
+Se coloca tras el widget de RSS en la portada: el lector ya está pensando en
+lectores de feeds en ese punto del recorrido, que es cuando la invitación cuesta
+menos de aceptar.
+
+La caja va en tipografía menor que el cuerpo y con poco interlineado: es una
+utilidad, no una llamada a la acción que deba competir con las entradas.
+{%- endcomment -%}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% if active_lang == "en" %}
+  {% assign subscribe_title = "Follow 3 Cucharadas" %}
+  {% assign subscribe_lead = "New posts in your reader, no algorithm in between." %}
+  {% assign subscribe_all = "Everything" %}
+  {% assign subscribe_topics = "Or just one topic:" %}
+  {% assign subscribe_hint = "Copy the link into Feedly, Inoreader, NewsBlur or any reader." %}
+{% else %}
+  {% assign subscribe_title = "Sigue 3 Cucharadas" %}
+  {% assign subscribe_lead = "Las entradas nuevas en tu lector, sin algoritmo de por medio." %}
+  {% assign subscribe_all = "Todo" %}
+  {% assign subscribe_topics = "O sólo un tema:" %}
+  {% assign subscribe_hint = "Copia el enlace en Feedly, Inoreader, NewsBlur o el lector que uses." %}
+{% endif %}
+
+{%- comment -%}
+Las etiquetas de los temas se leen de `site.data.feed-topics`, no se escriben
+aquí, para que añadir una categoría a `feed.categories` en `_config.yml` no
+obligue a tocar esta plantilla.
+{%- endcomment -%}
+{% assign topics = site.data.feed-topics[active_lang] | default: site.data.feed-topics[site.default_lang] %}
+
+<section class="subscribe-rss" aria-labelledby="subscribe-rss-title">
+  <h3 id="subscribe-rss-title" class="subscribe-rss__title">
+    <i class="fas fa-square-rss subscribe-rss__icon" aria-hidden="true"></i>
+    {{ subscribe_title }}
+  </h3>
+
+  <p class="subscribe-rss__lead">{{ subscribe_lead }}</p>
+
+  <p class="subscribe-rss__row">
+    <a class="subscribe-rss__all"
+       href="{{ '/feed.xml' | relative_url }}"
+       type="application/atom+xml">
+      <i class="fas fa-rss" aria-hidden="true"></i> {{ subscribe_all }}
+    </a>
+    <span class="subscribe-rss__topics-label">{{ subscribe_topics }}</span>
+    {% for topic in topics %}<a class="subscribe-rss__topic"
+       href="{{ topic.path | relative_url }}"
+       type="application/atom+xml">{{ topic.label }}</a>{% endfor %}
+  </p>
+
+  <p class="subscribe-rss__hint">{{ subscribe_hint }}</p>
+</section>
