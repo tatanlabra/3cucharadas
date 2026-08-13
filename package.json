@@ -20,7 +20,7 @@
     "pmtiles": "4.4.1"
   },
   "devDependencies": {
-    "@types/node": "24.13.3",
+    "@types/node": "26.2.0",
     "sass": "1.102.0",
     "typescript": "7.0.2",
     "vite": "7.3.6",
