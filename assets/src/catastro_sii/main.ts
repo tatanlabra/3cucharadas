@@ -1,4 +1,5 @@
 import "./styles.scss";
+import { showMapCapabilityFallback, supportsWebGL2 } from "./map-capability";
 import { isLocalPreviewLocation } from "./preview";
 
 function onceNearViewport(element: Element, start: () => void, rootMargin: string): void {
@@ -18,11 +19,15 @@ function beginMap(): void {
   const container = document.getElementById("bivariate-map");
   if (!container) return;
   const start = () => {
+    const status = document.getElementById("bivariate-map-status") ?? document.getElementById("status");
+    if (!supportsWebGL2()) {
+      showMapCapabilityFallback(container, status);
+      return;
+    }
     import("./app")
       .then(({ CatastroMapApplication }) => CatastroMapApplication.start())
       .then((application) => application.mount())
       .catch(() => {
-        const status = document.getElementById("bivariate-map-status") ?? document.getElementById("status");
         if (status) status.textContent = "La vista agregada sigue disponible; no fue posible iniciar el mapa UV vectorial.";
       });
   };
