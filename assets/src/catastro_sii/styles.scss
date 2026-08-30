@@ -79,3 +79,25 @@
 #bivariate-map.catastro-maplibre .maplibregl-popup-anchor-top .maplibregl-popup-tip { border-bottom-color: #f8fbfc; }
 #bivariate-map.catastro-maplibre .maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: #f8fbfc; }
 #bivariate-map.catastro-maplibre .maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: #f8fbfc; }
+
+#bivariate-map[data-map-state="webgl2-unavailable"] {
+  display: grid;
+  place-items: center;
+  min-height: 18rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #eff6f8, #f8fbfc);
+}
+
+#bivariate-map .map-unavailable {
+  max-width: 34rem;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  color: #183b4b;
+  background: #fff;
+  border: 1px solid #4f879f;
+  border-radius: .6rem;
+  box-shadow: 0 0.5rem 1.4rem rgba(25, 52, 67, .12);
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
