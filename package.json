@@ -3,27 +3,32 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=24 <26"
+    "node": ">=26 <27"
   },
   "scripts": {
     "build:catastro": "vite build --config vite.catastro.config.ts",
+    "build:memoria-gobernada": "vite build --config vite.memoria-gobernada.config.ts",
     "dev:catastro": "vite --config vite.catastro.config.ts",
     "check:catastro": "tsc --noEmit --project tsconfig.catastro.json",
+    "check:memoria-gobernada": "tsc --noEmit --project tsconfig.catastro.json",
+    "check:memoria-gobernada:assets": "node scripts/check_memoria_gobernada_assets.mjs",
     "check:catastro:static-css": "node scripts/catastro_sii/check_static_css.mjs catastro_sii_brecha/style.css",
     "test:catastro": "vitest run --config vitest.catastro.config.ts",
+    "test:memoria-gobernada": "vitest run --config vitest.memoria-gobernada.config.ts",
     "serve:catastro:range": "node scripts/catastro_sii/serve_range_static.mjs _site 4014 127.0.0.1 .",
     "serve:catastro:mcp": "node scripts/catastro_sii/serve_range_static.mjs _site 4015 0.0.0.0 ."
   },
   "dependencies": {
     "echarts": "6.1.0",
-    "maplibre-gl": "5.6.0",
-    "pmtiles": "4.4.1"
+    "maplibre-gl": "6.6.0",
+    "pmtiles": "4.5.0",
+    "three": "0.185.1"
   },
   "devDependencies": {
-    "@types/node": "24.13.3",
-    "sass": "1.102.0",
+    "@types/node": "26.2.0",
+    "sass": "1.103.1",
     "typescript": "7.0.2",
-    "vite": "7.3.6",
+    "vite": "8.2.2",
     "vitest": "4.1.10"
   }
 }
