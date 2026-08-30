@@ -113,6 +113,20 @@ $code-background-color: #f3efe4;
 /* 4) Imports oficiales de Minimal Mistakes */
 
 /* Skin (se selecciona vía _config.yml: minimal_mistakes_skin) */
+/* 3 bis) Ancho de la columna de lectura.
+ *
+ * Medido en el navegador el 2026-08-29 sobre un post real: `.page__content` daba 636 px con
+ * 18 px de cuerpo, es decir ~71 caracteres por linea, y el envoltorio `#main` topaba en los
+ * 1.280 px que trae el tema por defecto ($max-width: $x-large). En una pantalla de 1920 eso
+ * dejaba 320 px de aire muerto por lado y estiraba cada post innecesariamente.
+ *
+ * La relacion es lineal: la columna es `max-width - 644` (344 de la barra de autor y 300 de la
+ * de contenidos, ambas fijas en px). Subir el tope a 1.375 px lleva la columna de 636 a 731 px,
+ * un +14,9 %, dejandola en ~82 caracteres por linea — todavia dentro del rango tipografico
+ * habitual — y recorta el aire lateral de 320 a 272 px por lado en 1920.
+ */
+$max-width: 1375px;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 
 /* Main partials del tema */
