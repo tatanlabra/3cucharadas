@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-28T00:00:00Z",
+  "notice": "Proyección pública agregada: no contiene mensajes, direcciones, rutas ni corpus privado.",
+  "nodes": [
+    {
+      "id": "mail_local_pilot",
+      "label": "Piloto de correo personal agregado",
+      "source_kind": "mail",
+      "scope": "personal",
+      "status": "agregado local revisado",
+      "observed_at": "2026-08-28T21:00:00Z",
+      "provenance": "12.072 mensajes únicos; inventario local autorizado sin corpus público"
+    },
+    {
+      "id": "memory_projection",
+      "label": "Proyección pública gobernada",
+      "source_kind": "rag",
+      "scope": "publico",
+      "status": "derivada",
+      "observed_at": "2026-08-28T00:00:00Z",
+      "provenance": "exportación determinista y saneada"
+    },
+    {
+      "id": "rag_curated_context",
+      "label": "Memoria operativa curada",
+      "source_kind": "rag",
+      "scope": "penta-agent",
+      "status": "vigente",
+      "observed_at": "2026-08-28T08:57:33Z",
+      "provenance": "ledger canónico y contexto curado"
+    },
+    {
+      "id": "thesis_provenance",
+      "label": "Índice de proceso de investigación",
+      "source_kind": "thesis",
+      "scope": "tesis",
+      "status": "metadatos derivados verificados",
+      "observed_at": "2026-08-29T18:52:38Z",
+      "provenance": "instantánea pública con conteos, vínculos y huellas; sin documentos ni resultados"
+    }
+  ],
+  "links": [
+    {
+      "source": "mail_local_pilot",
+      "target": "memory_projection",
+      "kind": "belongs_to"
+    },
+    {
+      "source": "rag_curated_context",
+      "target": "memory_projection",
+      "kind": "supports"
+    },
+    {
+      "source": "thesis_provenance",
+      "target": "memory_projection",
+      "kind": "supports"
+    }
+  ]
+}

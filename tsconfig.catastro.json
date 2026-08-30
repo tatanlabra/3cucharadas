@@ -12,5 +12,10 @@
     "skipLibCheck": true,
     "types": ["vitest/globals", "vite/client"]
   },
-  "include": ["assets/src/catastro_sii/**/*.ts", "tests/catastro_sii/**/*.ts"]
+  "include": [
+    "assets/src/catastro_sii/**/*.ts",
+    "assets/src/memoria_gobernada/**/*.ts",
+    "tests/catastro_sii/**/*.ts",
+    "tests/memoria_gobernada/**/*.ts"
+  ]
 }
