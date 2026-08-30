@@ -1,4 +1,5 @@
-import maplibregl, { LngLatBounds } from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
+import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { PMTiles, Protocol } from "pmtiles";
 import { authorizedParcelSource, parcelLayerRequested } from "./availability";
 import {
@@ -26,6 +27,10 @@ import type { AppState, Bounds, CommuneDefaultView, TileSource, TilesManifest } 
 
 let protocolInstalled = false;
 let pmtilesProtocol: Protocol | null = null;
+
+// MapLibre GL JS 6 is ESM-only. Let Vite emit the worker as a same-origin
+// asset instead of relying on a CDN or a legacy default import.
+maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
 const FALLBACK_STYLE: maplibregl.StyleSpecification = {
   version: 8,
@@ -356,7 +361,7 @@ export class MapController {
     quartilesByCommune: Record<string, 1 | 2 | 3 | 4 | null>
   ): void {
     if (!this.communeSourceReady || !this.map.getLayer(COMMUNE_FILL_ID)) return;
-    this.map.setPaintProperty(COMMUNE_FILL_ID, "fill-color", communeQuartileFillExpression(theme, quartilesByCommune));
+    this.map.setPaintProperty(COMMUNE_FILL_ID, "fill-color", communeQuartileFillExpression(theme, quartilesByCommune) as never);
   }
 
   setCommuneFilter(communeCode: string | null): void {
@@ -371,7 +376,7 @@ export class MapController {
     if (!bounds) return;
     this.defaultView = null;
     this.defaultBounds = { bounds: [...bounds], maxZoom };
-    this.map.fitBounds(new LngLatBounds([bounds[0], bounds[1]], [bounds[2], bounds[3]]), {
+    this.map.fitBounds(new maplibregl.LngLatBounds([bounds[0], bounds[1]], [bounds[2], bounds[3]]), {
       padding: 48,
       duration: mapTransitionDuration(),
       maxZoom
@@ -433,7 +438,7 @@ export class MapController {
     }
     if (this.defaultBounds) {
       const { bounds, maxZoom } = this.defaultBounds;
-      this.map.fitBounds(new LngLatBounds([bounds[0], bounds[1]], [bounds[2], bounds[3]]), { padding: 48, duration: mapTransitionDuration(), maxZoom });
+      this.map.fitBounds(new maplibregl.LngLatBounds([bounds[0], bounds[1]], [bounds[2], bounds[3]]), { padding: 48, duration: mapTransitionDuration(), maxZoom });
     }
   }
 

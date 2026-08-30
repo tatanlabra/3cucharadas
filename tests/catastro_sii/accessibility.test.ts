@@ -29,19 +29,20 @@ const runtime = vi.hoisted(() => {
     getStyle(): { layers: [] } { return { layers: [] }; }
   }
 
-  return { FakeCanvas, FakeMap };
+  return { FakeCanvas, FakeMap, setWorkerUrl: vi.fn() };
 });
 
 vi.mock("maplibre-gl", () => ({
-  default: {
-    addProtocol: vi.fn(),
-    Map: runtime.FakeMap,
-    NavigationControl: class {},
-    GeolocateControl: class {},
-    ScaleControl: class {}
-  },
+  addProtocol: vi.fn(),
+  setWorkerUrl: runtime.setWorkerUrl,
+  Map: runtime.FakeMap,
+  NavigationControl: class {},
+  GeolocateControl: class {},
+  ScaleControl: class {},
   LngLatBounds: class {}
 }));
+
+vi.mock("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url", () => ({ default: "/assets/dist/maplibre-worker-test.mjs" }));
 
 vi.mock("pmtiles", () => ({ Protocol: class { tile = vi.fn(); } }));
 
@@ -71,6 +72,10 @@ const manifest: TilesManifest = {
 };
 
 describe("accesibilidad del visor cartográfico", () => {
+  it("configura el worker ESM empaquetado para MapLibre 6", () => {
+    expect(runtime.setWorkerUrl).toHaveBeenCalledWith("/assets/dist/maplibre-worker-test.mjs");
+  });
+
   it("mantiene los controles MapLibre y el cierre del popup en al menos 44 px", () => {
     const styles = readFileSync("assets/src/catastro_sii/styles.scss", "utf8");
 

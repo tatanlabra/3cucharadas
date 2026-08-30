@@ -2,16 +2,17 @@ import { describe, expect, it, vi } from "vitest";
 import type { AppState, TileSource, TilesManifest } from "../../assets/src/catastro_sii/types";
 
 vi.mock("maplibre-gl", () => ({
-  default: {
-    addProtocol: vi.fn(),
-    Map: class {},
-    NavigationControl: class {},
-    GeolocateControl: class {},
-    ScaleControl: class {},
-    Popup: class {}
-  },
+  addProtocol: vi.fn(),
+  setWorkerUrl: vi.fn(),
+  Map: class {},
+  NavigationControl: class {},
+  GeolocateControl: class {},
+  ScaleControl: class {},
+  Popup: class {},
   LngLatBounds: class {}
 }));
+
+vi.mock("maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url", () => ({ default: "/assets/dist/maplibre-worker-test.mjs" }));
 
 vi.mock("pmtiles", () => ({ Protocol: class {} }));
 
