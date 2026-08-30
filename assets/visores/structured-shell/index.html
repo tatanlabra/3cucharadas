@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Structured Shell · Nushell — visor</title>
+<style>
+:root{--bg:#121521;--panel:#1b2032;--rej:#2a3041;--txt:#e8ecf5;--ten:#8b97ad;
+      --cian:#37e7ff;--mag:#ff4fd8;--lima:#b8ff3c;--ambar:#ffd166}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+     font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{padding:14px 16px 18px}
+h1{font-size:1.05rem;margin:0 0 2px}
+.sub{color:var(--ten);font-size:.82rem;margin-bottom:12px}
+nav{display:flex;gap:4px;border-bottom:1px solid var(--rej);margin-bottom:12px;flex-wrap:wrap}
+nav button{background:none;border:0;border-bottom:2px solid transparent;color:var(--ten);
+           padding:7px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+nav button[aria-selected=true]{color:var(--cian);border-bottom-color:var(--cian)}
+.ctl{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.8rem}
+.ctl label{color:var(--ten);display:flex;gap:5px;align-items:center;cursor:pointer}
+select{background:var(--panel);color:var(--txt);border:1px solid var(--rej);
+       border-radius:4px;padding:4px 7px;font:inherit;font-size:.8rem}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.cap{color:var(--ten);font-size:.72rem;margin-top:6px}
+table{border-collapse:collapse;width:100%;font-size:.82rem;margin-top:6px}
+th,td{padding:6px 9px;border-bottom:1px solid var(--rej);text-align:right}
+th:first-child,td:first-child,td.l{text-align:left}
+th{color:var(--ten);font-weight:600}
+.ok{color:var(--lima)}.no{color:var(--ambar)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.grid2{grid-template-columns:1fr}}
+p.nota{color:var(--ten);font-size:.8rem}
+</style></head>
+<body><div class="wrap">
+<h1>Structured Shell · Nushell</h1>
+<div class="sub" id="sub">cargando…</div>
+<nav id="tabs"></nav>
+<div id="vista"></div>
+</div>
+<script>
+const NS="http://www.w3.org/2000/svg", C={cian:"#37e7ff",mag:"#ff4fd8",ten:"#8b97ad",
+  txt:"#e8ecf5",panel:"#1b2032",rej:"#2a3041",lima:"#b8ff3c",ambar:"#ffd166"};
+const col=g=>/Nushell|con la skill/.test(g)?C.cian:C.mag;
+const el=(t,a={},...k)=>{const e=document.createElementNS(NS,t);
+  for(const[n,v]of Object.entries(a))e.setAttribute(n,v);k.forEach(c=>e.append(c));return e};
+const h=(t,a={},...k)=>{const e=document.createElement(t);
+  for(const[n,v]of Object.entries(a))n==="html"?e.innerHTML=v:e.setAttribute(n,v);
+  k.forEach(c=>e.append(c));return e};
+const fmt=n=>n==null?"—":n.toLocaleString("es-CL",{maximumFractionDigits:n<10?1:0});
+
+// Grafico canonico: puntos crudos + mediana + IC. La barra sola esconde la dispersion.
+function puntos(cont,{grupos,valores,res,ylab,log=true,alto=340}){
+  const W=760,H=alto,mL=68,mR=14,mT=14,mB=44,gs=[...new Set(grupos)];
+  const todos=valores.concat(res.inf,res.sup).filter(v=>v!=null&&(!log||v>0));
+  let lo=Math.min(...todos),hi=Math.max(...todos);
+  const T=log?Math.log10:(v=>v), inv=v=>(T(v)-T(lo))/(T(hi)-T(lo));
+  if(log){lo=Math.pow(10,Math.floor(Math.log10(lo)*4)/4);hi=Math.pow(10,Math.ceil(Math.log10(hi)*4)/4)}
+  else{const p=(hi-lo)*.08;lo=Math.max(0,lo-p);hi=hi+p}
+  const y=v=>mT+(1-inv(v))*(H-mT-mB), x=i=>mL+(i+.5)*((W-mL-mR)/gs.length);
+  const s=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
+  s.append(el("rect",{x:mL,y:mT,width:W-mL-mR,height:H-mT-mB,fill:C.panel}));
+  const ticks=[];const n=5;
+  for(let i=0;i<=n;i++){const t=T(lo)+(T(hi)-T(lo))*i/n;ticks.push(log?Math.pow(10,t):t)}
+  ticks.forEach(t=>{s.append(el("line",{x1:mL,x2:W-mR,y1:y(t),y2:y(t),stroke:C.rej}));
+    s.append(el("text",{x:mL-8,y:y(t)+4,fill:C.ten,"font-size":11,"text-anchor":"end"},fmt(t)))});
+  s.append(el("text",{x:16,y:H/2,fill:C.ten,"font-size":12,transform:`rotate(-90 16 ${H/2})`,
+    "text-anchor":"middle"},ylab));
+  grupos.forEach((g,i)=>{const j=gs.indexOf(g),v=valores[i];if(v==null||(log&&v<=0))return;
+    const jit=(((i*2654435761)%1000)/1000-.5)*((W-mL-mR)/gs.length)*.34;
+    s.append(el("circle",{cx:x(j)+jit,cy:y(v),r:3,fill:col(g),opacity:.5}))});
+  res.g.forEach((g,i)=>{const j=gs.indexOf(g);if(j<0)return;const c=col(g);
+    s.append(el("line",{x1:x(j),x2:x(j),y1:y(res.inf[i]),y2:y(res.sup[i]),stroke:c,"stroke-width":2.4}));
+    [res.inf[i],res.sup[i]].forEach(v=>s.append(el("line",{x1:x(j)-9,x2:x(j)+9,y1:y(v),y2:y(v),
+      stroke:c,"stroke-width":2.4})));
+    s.append(el("path",{d:`M${x(j)} ${y(res.est[i])-7}L${x(j)+7} ${y(res.est[i])}L${x(j)} ${y(res.est[i])+7}L${x(j)-7} ${y(res.est[i])}Z`,fill:c}));
+    s.append(el("text",{x:x(j),y:H-mB+20,fill:C.txt,"font-size":12,"text-anchor":"middle"},g));
+    s.append(el("text",{x:x(j),y:y(res.est[i])-13,fill:c,"font-size":11,"text-anchor":"middle"},
+      fmt(res.est[i])))});
+  cont.append(s);
+  cont.append(h("div",{class:"cap"},
+    "Cada punto es una corrida real · rombo = mediana · barra = IC 95 % por bootstrap de percentiles"));
+}
+
+function proporcion(cont,d,ind,titulo,pie){
+  const W=360,H=250,mL=50,mB=42,mT=26;
+  const idx=d.prop.ind.map((v,i)=>v===ind?i:-1).filter(i=>i>=0);
+  const gs=idx.map(i=>d.prop.brazo[i]);
+  const y=v=>mT+(1-v/1.15)*(H-mT-mB), x=i=>mL+(i+.5)*((W-mL-14)/gs.length);
+  const s=el("svg",{viewBox:`0 0 ${W} ${H}`});
+  s.append(el("rect",{x:mL,y:mT,width:W-mL-14,height:H-mT-mB,fill:C.panel}));
+  [0,.25,.5,.75,1].forEach(t=>{s.append(el("line",{x1:mL,x2:W-14,y1:y(t),y2:y(t),stroke:C.rej}));
+    s.append(el("text",{x:mL-7,y:y(t)+4,fill:C.ten,"font-size":11,"text-anchor":"end"},(t*100)+" %")) });
+  s.append(el("text",{x:mL,y:16,fill:C.txt,"font-size":12.5,"font-weight":600},titulo));
+  idx.forEach((i,k)=>{const c=col(d.prop.brazo[i]);
+    s.append(el("line",{x1:x(k),x2:x(k),y1:y(d.prop.inf[i]),y2:y(d.prop.sup[i]),stroke:c,"stroke-width":2.4}));
+    s.append(el("circle",{cx:x(k),cy:y(d.prop.p[i]),r:5,fill:c}));
+    s.append(el("text",{x:x(k),y:y(d.prop.sup[i])-9,fill:c,"font-size":11,"text-anchor":"middle"},
+      `${d.prop.ex[i]}/${d.prop.n[i]}`));
+    s.append(el("text",{x:x(k),y:H-mB+20,fill:C.txt,"font-size":11.5,"text-anchor":"middle"},
+      d.prop.brazo[i]))});
+  cont.append(s); cont.append(h("div",{class:"cap"},pie));
+}
+
+let D=null,tab=0;
+const TABS=["Microbenchmark","A/B de agente","Veredicto","Método"];
+
+function render(){
+  const v=document.getElementById("vista"); v.textContent="";
+  const ctl=h("div",{class:"ctl"}); v.append(ctl);
+
+  if(tab===0){
+    const tareas=[...new Set(D.micro.puntos.g.map(g=>g.split("|")[0]))];
+    const sel=h("select"); tareas.forEach(t=>sel.append(h("option",{value:t},t)));
+    sel.value=render.t0||tareas[0];
+    const met=h("select"); [["ms","Tiempo (ms)"],["bytes","Bytes de salida"]]
+      .forEach(([k,l])=>met.append(h("option",{value:k},l)));
+    met.value=render.m0||"ms";
+    ctl.append(h("label",{},"Tarea ",sel),h("label",{},"Métrica ",met));
+    const box=h("div"); v.append(box);
+    const t=sel.value,m=met.value;
+    const P=D.micro.puntos,R=m==="ms"?D.micro.res_ms:D.micro.res_bytes;
+    const ii=P.g.map((g,i)=>g.startsWith(t+"|")?i:-1).filter(i=>i>=0);
+    const ri=R.g.map((g,i)=>g.startsWith(t+"|")?i:-1).filter(i=>i>=0);
+    puntos(box,{grupos:ii.map(i=>P.g[i].split("|")[1]),valores:ii.map(i=>P[m][i]),
+      res:{g:ri.map(i=>R.g[i].split("|")[1]),est:ri.map(i=>R.est[i]),
+           inf:ri.map(i=>R.inf[i]),sup:ri.map(i=>R.sup[i])},
+      ylab:m==="ms"?"Milisegundos":"Bytes de stdout"});
+    sel.onchange=()=>{render.t0=sel.value;render()};met.onchange=()=>{render.m0=met.value;render()};
+  }
+
+  if(tab===1){
+    const sub=h("select");[["positiva","Positivas (debería activarse)"],
+      ["negativa","Negativas (no debería)"]].forEach(([k,l])=>sub.append(h("option",{value:k},l)));
+    sub.value=render.s1||"positiva";
+    const met=h("select");[["ms","Tiempo (ms)"],["tokens","Tokens de salida"]]
+      .forEach(([k,l])=>met.append(h("option",{value:k},l)));
+    met.value=render.m1||"ms";
+    ctl.append(h("label",{},"Subconjunto ",sub),h("label",{},"Métrica ",met));
+    const box=h("div"); v.append(box);
+    const s=sub.value,m=met.value,P=D.ab.puntos,R=m==="ms"?D.ab.res_ms:D.ab.res_tokens;
+    const ii=P.g.map((g,i)=>g.startsWith(s+"|")?i:-1).filter(i=>i>=0);
+    const ri=R.g.map((g,i)=>g.startsWith(s+"|")?i:-1).filter(i=>i>=0);
+    puntos(box,{grupos:ii.map(i=>P.g[i].split("|")[1]),valores:ii.map(i=>P[m][i]),
+      res:{g:ri.map(i=>R.g[i].split("|")[1]),est:ri.map(i=>R.est[i]),
+           inf:ri.map(i=>R.inf[i]),sup:ri.map(i=>R.sup[i])},
+      ylab:m==="ms"?"Milisegundos":"Tokens de salida"});
+    const g2=h("div",{class:"grid2"}); v.append(g2);
+    const a=h("div"),b=h("div"); g2.append(a,b);
+    proporcion(a,D,"acierto","Acierto","Intervalo exacto de Clopper-Pearson · tareas positivas");
+    proporcion(b,D,"activo","Activó la skill",
+      `Sobreactivación en negativas: ${D.meta.sobreact} de ${D.meta.n_neg}`);
+    sub.onchange=()=>{render.s1=sub.value;render()};met.onchange=()=>{render.m1=met.value;render()};
+  }
+
+  if(tab===2){
+    const box=h("div"); v.append(box);
+    const gs=[...new Set(D.efi.brazo)];
+    const g2=h("div",{class:"grid2"}); box.append(g2);
+    ["tokens","ms"].forEach(ind=>{
+      const c=h("div"); g2.append(c);
+      const idx=D.efi.ind.map((x,i)=>x===ind?i:-1).filter(i=>i>=0);
+      puntos(c,{grupos:idx.map(i=>D.efi.brazo[i]),valores:[],
+        res:{g:idx.map(i=>D.efi.brazo[i]),est:idx.map(i=>D.efi.est[i]),
+             inf:idx.map(i=>D.efi.inf[i]),sup:idx.map(i=>D.efi.sup[i])},
+        ylab:ind==="tokens"?"Tokens por acierto":"Segundos por acierto",log:false,alto:260})});
+    const tb=h("table"); tb.append(h("thead",{},h("tr",{},
+      ...["Efecto","Estimación","IC 95 % / prueba","Veredicto"].map(t=>h("th",{},t)))));
+    const tb2=h("tbody");
+    D.ver.efecto.forEach((e,i)=>{
+      const cruza=D.ver.inf[i]!=null&&D.ver.inf[i]<=1&&D.ver.sup[i]>=1;
+      const conc=D.ver.p[i]!=null?D.ver.p[i]<.05:!cruza;
+      tb2.append(h("tr",{},h("td",{class:"l"},e),
+        h("td",{},D.ver.est[i]!=null?D.ver.est[i].toFixed(2)+"×":D.ver.detalle[i]),
+        h("td",{},D.ver.p[i]!=null?`Fisher p = ${D.ver.p[i].toFixed(4)}`
+          :`[${D.ver.inf[i].toFixed(2)}; ${D.ver.sup[i].toFixed(2)}]`),
+        h("td",{class:conc?"ok":"no"},conc?"concluyente":"no concluyente")))});
+    tb.append(tb2); box.append(tb);
+    box.append(h("p",{class:"nota"},
+      "Un cociente cuyo intervalo cruza el 1 no permite afirmar que haya diferencia."));
+  }
+
+  if(tab===3){
+    v.append(h("div",{class:"nota",html:`
+<p>El brazo con skill tiene media <b>${fmt(D.meta.media_con)} ms</b> y mediana
+<b>${fmt(D.meta.mediana_con)} ms</b>: una sola corrida de <b>${fmt(D.meta.max_con)} ms</b> infla la
+media. Por eso todo se lee en medianas. El atípico no se descarta: se muestra.</p>
+<ul>
+<li><b>Bootstrap de percentiles</b> (B = 10.000) para el intervalo de la mediana y del cociente.
+No se usan pruebas t: con n = 5 por celda la normalidad no se sostiene.</li>
+<li><b>Clopper-Pearson exacto</b> para proporciones: con 30 de 30 el método normal daría [1; 1].</li>
+<li><b>Fisher exacto</b> para la tabla 2×2 del acierto.</li>
+<li><b>Eficiencia</b> = coste por respuesta correcta, remuestreando corridas completas.</li>
+</ul>
+<p>Todo el cálculo está hecho en R (<code>/opt/entornos/r-geo</code>) y viaja precomputado: este
+visor sólo dibuja. Pesa unos pocos KB en vez de los <b>65,3 MB</b> que costaría llevar R al
+navegador con shinylive.</p>`}));
+  }
+}
+
+fetch("../../data/structured-shell/datos.json").then(r=>r.json()).then(d=>{
+  D=d;
+  document.getElementById("sub").textContent=
+    `${d.meta.n_micro} corridas de microbenchmark · ${d.meta.n_ab} del A/B de agente · cálculo precomputado en R`;
+  const nav=document.getElementById("tabs");
+  TABS.forEach((t,i)=>{const b=h("button",{},t);
+    b.setAttribute("aria-selected",i===0);
+    b.onclick=()=>{tab=i;[...nav.children].forEach((c,k)=>c.setAttribute("aria-selected",k===i));render()};
+    nav.append(b)});
+  render();
+}).catch(e=>{document.getElementById("sub").textContent="No se pudieron cargar los datos: "+e});
+</script></body></html>
