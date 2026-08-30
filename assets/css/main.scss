@@ -160,6 +160,53 @@ $max-width: 1375px;
   font-size: clamp(16px, 14px + 0.35vw, 18px);
 }
 
+/* ── Referencias y notas al pie ───────────────────────────────────────────
+   Minimal Mistakes trata las notas al pie como texto auxiliar gris. Sobre el
+   fondo crema del sitio ese gris queda en 2,44:1, insuficiente para una
+   bibliografía que debe poder leerse y seguirse. Se conserva la jerarquía con
+   un tamaño menor, pero el texto y sus enlaces vuelven a un contraste legible. */
+.page__content .footnotes,
+.page__content .footnotes p {
+  color: #303030;
+  font-size: 0.9em;
+}
+
+.page__content a.footnote,
+.page__content .footnotes a,
+.page__content .reversefootnote {
+  color: #004e8c;
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+html[data-theme="academic-night"] .page__content .footnotes,
+html[data-theme="academic-night"] .page__content .footnotes p {
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__content a.footnote,
+html[data-theme="academic-night"] .page__content .footnotes a,
+html[data-theme="academic-night"] .page__content .reversefootnote {
+  color: var(--night-link);
+}
+
+/* ── Botón de compartir X/Twitter ────────────────────────────────────────
+   El azul heredado del tema (#55acee) deja texto blanco en 2,46:1. Se oscurece
+   la superficie sin cambiar el significado del control: blanco sobre #0f6698
+   alcanza contraste AA para el rótulo y conserva un estado hover distinguible. */
+.btn--twitter {
+  background-color: #0f6698;
+  color: #fff;
+}
+
+.btn--twitter:hover,
+.btn--twitter:focus {
+  background-color: #0b4f78;
+  color: #fff;
+}
+
 /* ── Landing hero: más compacto y elegante ──────────────────────────────── */
 .page__hero--overlay {
   padding: 2.2em 0 2em;
