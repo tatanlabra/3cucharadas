@@ -1,0 +1,35 @@
+{
+  "boundaries": [
+    "derived textual project artifacts only",
+    "no historical source datasets, DTA, Parquet, PDF or image ingestion",
+    "no document body, title, path, individual artifact hash or query result export",
+    "not evidence of historical execution, replication or substantive findings"
+  ],
+  "derived_textual_artifacts": {
+    "count": 796,
+    "kinds": {
+      "AUDIT": 316,
+      "CONTRACT": 133,
+      "DOC": 4,
+      "DO_PSEUDOCODE": 71,
+      "INVENTORY": 16,
+      "PROJECT_DOC": 3,
+      "REPLICATION": 9,
+      "REPORT": 244
+    }
+  },
+  "notice": "Metadatos públicos de un índice de proceso de investigación: no contiene documentos, títulos, rutas, resultados, archivos fuente ni microdatos.",
+  "research_process_links": {
+    "count": 533,
+    "leads_to_review": 7
+  },
+  "retrieval": {
+    "embedding_status": "TFIDF_LEXICAL_NO_NEURAL_EMBEDDINGS",
+    "sqlite_fts5": true,
+    "vector_engine": "sklearn.TfidfVectorizer"
+  },
+  "schema_version": 1,
+  "source_fingerprint": "1e65c45d786ee560a7340703a0d4292c2e661f5c73c62dc998d529d9977465a7",
+  "source_kind": "thesis_research_metadata",
+  "source_manifest_sha256": "18d3a9b02213330b2a5d22ba42e17a2bfaf02af88b6c0515c53b84db08bb3118"
+}

@@ -72,6 +72,10 @@ build_site:
     - npm run check:catastro
     - npm run test:catastro
     - npm run build:catastro
+    - npm run check:memoria-gobernada
+    - npm run test:memoria-gobernada
+    - npm run build:memoria-gobernada
+    - npm run check:memoria-gobernada:assets
     - python3 -m venv .venv
     - .venv/bin/pip install feedparser
     - .venv/bin/python scripts/fetch_news.py
