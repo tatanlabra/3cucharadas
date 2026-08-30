@@ -169,7 +169,7 @@
           <h2 id="bivariate-title">Avalúo por m² relativo a la región frente a <span class="lead-accent">IGVUST</span></h2>
           <p>El mapa muestra sólo las unidades vecinales de la comuna seleccionada. Cada color cruza dos preguntas: qué tan vulnerable es la UV en el ranking nacional IGVUST (Índice Global de Vulnerabilidad Socioterritorial, del Ministerio de Desarrollo Social y Familia), y si su avalúo fiscal por m² queda bajo, igual o sobre la mediana de su propia región.</p>
         </div>
-        <div class="map-tools bivariate-map-tools" aria-label="Controles del mapa UV">
+        <div class="map-tools bivariate-map-tools" role="group" aria-label="Controles del mapa UV">
           <fieldset class="map-layer-picker" aria-label="Capas del mapa UV">
             <legend>Capas</legend>
             <label><input id="bivariate-map-layer-basemap" type="checkbox" checked> OSM</label>
@@ -178,24 +178,24 @@
           <button class="map-reset" id="bivariate-map-tilt" type="button" aria-pressed="false"><span aria-hidden="true">◩</span> 3D</button>
         </div>
       </div>
-      <div class="bivariate-selector-grid" aria-label="Selector territorial del bivariado">
+      <div class="bivariate-selector-grid" role="group" aria-label="Selector territorial del bivariado">
         <div class="bivariate-selector-copy">
           <h3>Selector gráfico de Chile</h3>
           <p>Haz clic sobre una comuna del mapa acostado para cargar su capa UV, o usa el buscador de más arriba: ambos escriben la misma selección y se mantienen sincronizados en fichas, tablas y gráficos. La región elegida atenúa el resto del país; la comuna activa queda marcada.</p>
           <p class="bivariate-selector-status" id="bivariate-selector-status" role="status">Cargando selector comunal…</p>
         </div>
-        <div class="chile-selector-scroll" tabindex="0" aria-label="Desplazar selector gráfico de Chile">
-          <svg id="bivariate-chile-selector" class="chile-selector-map" role="img" aria-describedby="bivariate-selector-status" aria-label="Selector gráfico de comunas de Chile"></svg>
+        <div class="chile-selector-scroll" tabindex="0" role="region" aria-label="Desplazar selector gráfico de Chile">
+          <svg id="bivariate-chile-selector" class="chile-selector-map" role="group" aria-describedby="bivariate-selector-status" aria-label="Selector gráfico de comunas de Chile"></svg>
         </div>
       </div>
-      <div class="reading-cards" aria-label="Guía rápida del mapa">
+      <div class="reading-cards" role="group" aria-label="Guía rápida del mapa">
         <article><h3>Qué compara</h3><p>Las filas usan cuartiles nacionales IGVUST: q1 es mayor vulnerabilidad territorial. Las columnas usan la mediana regional de avalúo fiscal por m²: no comparan una UV de Atacama contra una de Santiago, sino contra el punto medio de su propia región.</p></article>
         <article><h3>Qué no dice</h3><p>El color no mide ingreso, riqueza ni precio de mercado. Una UV con avalúo fiscal alto puede perfectamente contener hogares vulnerables; el mapa describe territorios agregados y necesita lectura con contexto, no una mirada rápida.</p></article>
       </div>
       <p class="bivariate-finding" id="bivariate-finding">Elige una comuna para cargar el cruce UV. Pasa el cursor sobre una UV para ver cuartil IGVUST, avalúo por m², mediana regional y denominadores.</p>
       <div class="bivariate-layout">
         <div class="map-stage bivariate-stage">
-          <div class="map-shell bivariate-map-shell"><div id="bivariate-map" aria-label="Mapa bivariado de unidades vecinales"></div><div class="map-note" id="bivariate-map-note">Cargando bivariado…</div></div>
+          <div class="map-shell bivariate-map-shell"><div id="bivariate-map" role="region" aria-label="Mapa bivariado de unidades vecinales"></div><div class="map-note" id="bivariate-map-note">Cargando bivariado…</div></div>
         </div>
         <!-- Leyenda bivariada: 8 celdas de color puro, sin JavaScript. Los colores
              salen de BIVARIATE_PALETTE en layers.ts; si se tocan allá, hay que tocarlos

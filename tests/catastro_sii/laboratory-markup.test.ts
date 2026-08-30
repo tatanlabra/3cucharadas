@@ -208,6 +208,8 @@ describe("disponibilidad cartográfica nacional", () => {
     expect(html).not.toContain('id="bivariate-region"');
     expect(html).not.toContain('id="bivariate-comuna"');
     expect(html).toContain('id="bivariate-map"');
+    expect(html).toContain('id="bivariate-map" role="region" aria-label="Mapa bivariado de unidades vecinales"');
+    expect(html).toContain('id="bivariate-chile-selector" class="chile-selector-map" role="group"');
     expect(html).toContain('id="bivariate-uv-legend"');
     expect(html).toContain('Matriz de 8 combinaciones');
     expect(html).toContain('Bajo/igual región');
