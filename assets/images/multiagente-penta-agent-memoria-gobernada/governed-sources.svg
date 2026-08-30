@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Three governed sources for multi-agent memory</title>
+  <desc id="desc">Diagram distinguishing working memory, personal mail, and thesis or research documents. Each source has a distinct allowed output and none authorizes publishing sensitive content or inferring identity.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111a33"/>
+      <stop offset="1" stop-color="#080d1d"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000615" flood-opacity=".35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11 z" fill="#93a4c4"/>
+    </marker>
+    <style>
+      .bg { fill: url(#surface); }
+      .eyebrow { font: 700 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 3px; fill: #89a1c7; }
+      .heading { font: 700 52px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f3f7ff; }
+      .sub { font: 400 25px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #b8c6de; }
+      .label { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 2px; }
+      .cardtitle { font: 700 31px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f7faff; }
+      .body { font: 400 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #d4def0; }
+      .tiny { font: 500 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #a9b8d1; }
+      .out { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f5f8ff; }
+      .boundary { font: 650 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffd8d0; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1040" rx="34"/>
+  <circle cx="1460" cy="84" r="230" fill="#2675ff" opacity=".10"/>
+  <circle cx="101" cy="960" r="220" fill="#36d89a" opacity=".08"/>
+
+  <text x="88" y="94" class="eyebrow">GOVERNED MEMORY · LOCAL CUT</text>
+  <text x="88" y="157" class="heading">Three sources, three permissions, one public boundary</text>
+  <text x="88" y="202" class="sub">The value is not mixing everything together: it is preserving what may be used, where, and for what purpose.</text>
+
+  <text x="88" y="280" class="label" fill="#7cb8ff">AUTHORIZED SOURCES</text>
+  <text x="920" y="280" class="label" fill="#b8c6de">ALLOWED OUTPUT</text>
+
+  <g filter="url(#shadow)">
+    <rect x="88" y="307" width="676" height="178" rx="22" fill="#142345" stroke="#377cf1" stroke-width="2"/>
+    <rect x="88" y="307" width="12" height="178" rx="6" fill="#57a4ff"/>
+    <text x="128" y="353" class="label" fill="#75b6ff">NOW · WORKING RAG</text>
+    <text x="128" y="397" class="cardtitle">Curated handoffs, decisions, and results</text>
+    <text x="128" y="435" class="body">Canonical local source; Qdrant is only a regenerable index.</text>
+    <text x="128" y="466" class="tiny">Useful question: what evidence supports this task or correction?</text>
+
+    <rect x="88" y="532" width="676" height="178" rx="22" fill="#203025" stroke="#48c885" stroke-width="2"/>
+    <rect x="88" y="532" width="12" height="178" rx="6" fill="#57d995"/>
+    <text x="128" y="578" class="label" fill="#83edb4">PILOT · PERSONAL MAIL</text>
+    <text x="128" y="622" class="cardtitle">Local inventory, not a shared corpus</text>
+    <text x="128" y="660" class="body">Bodies, attachments, and addresses stay outside Git.</text>
+    <text x="128" y="691" class="tiny">Useful question: is there a private, reversible, explicitly scoped path?</text>
+
+    <rect x="88" y="757" width="676" height="178" rx="22" fill="#302845" stroke="#a47af4" stroke-width="2"/>
+    <rect x="88" y="757" width="12" height="178" rx="6" fill="#bd95ff"/>
+    <text x="128" y="803" class="label" fill="#c8a9ff">RESEARCH · THESIS AND DOCUMENTS</text>
+    <text x="128" y="847" class="cardtitle">Metadata, hashes, contracts, and provenance</text>
+    <text x="128" y="885" class="body">Traceability enters; no microdata or unverified results do.</text>
+    <text x="128" y="916" class="tiny">Useful question: where does a claim come from and what verifies it?</text>
+  </g>
+
+  <path d="M 790 396 C 842 396, 860 396, 900 396" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 790 621 C 842 621, 860 621, 900 621" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 790 846 C 842 846, 860 846, 900 846" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="926" y="307" width="578" height="178" rx="22" fill="#101c36" stroke="#377cf1" stroke-width="2"/>
+    <text x="966" y="366" class="out">Retrieval with provenance</text>
+    <text x="966" y="404" class="body">Agent context and a sanitized public graph.</text>
+    <text x="966" y="439" class="tiny">The visualization shows work; it does not prove understanding.</text>
+
+    <rect x="926" y="532" width="578" height="178" rx="22" fill="#16261c" stroke="#48c885" stroke-width="2"/>
+    <text x="966" y="591" class="out">Private, reversible review</text>
+    <text x="966" y="629" class="body">Authorized aggregates, local FTS, purge, and veto.</text>
+    <text x="966" y="664" class="tiny">It does not generate a profile or feed public RAG.</text>
+
+    <rect x="926" y="757" width="578" height="178" rx="22" fill="#261d36" stroke="#a47af4" stroke-width="2"/>
+    <text x="966" y="816" class="out">Citations and verification status</text>
+    <text x="966" y="854" class="body">Contracts and hashes to inspect a claim.</text>
+    <text x="966" y="889" class="tiny">It exposes no microdata and replicates no historical results.</text>
+  </g>
+
+  <rect x="88" y="954" width="1416" height="66" rx="16" fill="#3b1820" stroke="#d66e78" stroke-width="1.5"/>
+  <text x="116" y="982" class="boundary">Public boundary: no mail bodies, attachments, addresses, absolute paths, or microdata leave the system.</text>
+  <text x="116" y="1009" class="boundary">It also makes no inferences about identity, preferences, or third-party states.</text>
+</svg>
