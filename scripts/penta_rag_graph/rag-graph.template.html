@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG memoria compartida · grafo 3D</title>
+<style>
+  :root{
+    --bg:#16161e; --panel:rgba(26,27,38,.9); --border:#2f3350;
+    --fg:#c0caf5; --muted:#7982a9; --accent:#7aa2f7;
+    --green:#9ece6a; --amber:#e0af68; --red:#f7768e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+  #graph{position:fixed;inset:0;z-index:0}
+  .panel{position:fixed;background:var(--panel);border:1px solid var(--border);
+    border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 34px rgba(0,0,0,.5);z-index:2}
+  h1{margin:0 0 2px;font-size:15px;font-weight:700;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:11px;margin:0 0 12px;line-height:1.45}
+  code{background:#1f2335;padding:1px 4px;border-radius:4px;font-size:.92em}
+  .group{margin-bottom:13px}
+  .group>label,.group-label,.glabel{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;
+    color:var(--muted);margin-bottom:7px}
+  .cut-note{font-size:10px;line-height:1.35;color:var(--muted);margin:-3px 0 8px}
+  .toggle{display:flex;align-items:center;gap:9px;font-size:12.5px;padding:4px 0;cursor:pointer}
+  .toggle input{accent-color:var(--accent);width:15px;height:15px;flex:0 0 auto}
+  .toggle .n{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+  .swatch{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  select,input[type=search]{width:100%;background:#161720cc;color:var(--fg);
+    border:1px solid var(--border);border-radius:9px;padding:8px 10px;font-size:12.5px;outline:none}
+  select:focus,input[type=search]:focus{border-color:var(--accent)}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .rowbetween{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted)}
+  button.ghost{width:100%;background:transparent;color:var(--fg);border:1px solid var(--border);
+    border-radius:9px;padding:8px;font-size:12px;cursor:pointer;transition:.15s}
+  button.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .panel-head>div{min-width:0}
+  .mobile-toggle{display:none;background:#1f2335;color:var(--fg);border:1px solid var(--border);
+    border-radius:8px;padding:7px 9px;font:600 11px/1.1 inherit;white-space:nowrap;cursor:pointer}
+  .mobile-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* Controles (izq) */
+  #controls{top:14px;left:14px;width:270px;padding:15px;max-height:calc(100vh - 28px);overflow:auto;z-index:4}
+  details.guide{margin-bottom:12px;border:1px solid var(--border);border-radius:9px;padding:6px 10px;background:#161720aa}
+  details.guide summary{cursor:pointer;font-size:11.5px;color:var(--accent);list-style:none}
+  details.guide summary::-webkit-details-marker{display:none}
+  details.guide p{font-size:11px;color:var(--muted);line-height:1.5;margin:8px 0 2px}
+
+  /* Panel analitico (der) */
+  #insights{top:14px;right:14px;width:308px;max-height:calc(100vh - 28px);display:flex;flex-direction:column;z-index:3}
+  #insights .head{padding:12px 14px 0}
+  .tabs{display:flex;gap:4px;padding:10px 12px 0}
+  .tab{flex:1;text-align:center;font:inherit;font-size:11.5px;padding:7px 4px;border-radius:8px 8px 0 0;
+    cursor:pointer;color:var(--muted);background:transparent;border:1px solid transparent;border-bottom:none}
+  .tab.active{color:var(--fg);background:#1f2335;border-color:var(--border)}
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .tabbody{padding:10px 12px 12px;overflow:auto;flex:1}
+  .metrics{display:flex;gap:8px;padding:0 12px 10px;flex-wrap:wrap}
+  .metric{flex:1 1 44%;background:#161720aa;border:1px solid var(--border);border-radius:9px;padding:8px 10px}
+  .metric b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+  .metric span{font-size:10px;color:var(--muted)}
+  .row{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:8px;cursor:pointer;
+    font-size:12px;transition:.12s;border:1px solid transparent}
+  .row:hover{background:#1f2335;border-color:var(--border)}
+  button.row{width:100%;background:transparent;color:var(--fg);font:inherit;text-align:left}
+  button.row[aria-pressed="true"]{background:#202541;border-color:var(--accent)}
+  button.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .row .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+  .row .meta2{color:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums;flex:0 0 auto}
+  .row .bar{height:5px;border-radius:3px;background:#2f3350;overflow:hidden;flex:0 0 54px}
+  .row .bar i{display:block;height:100%}
+  .subhead{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);
+    margin:12px 2px 6px;border-top:1px solid #2f335055;padding-top:10px}
+  .mono{font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;font-size:11px}
+  .empty{color:var(--muted);font-size:11.5px;padding:8px 2px}
+
+  /* Leyenda + detalle */
+  #legend{bottom:14px;left:14px;padding:11px 13px;font-size:12px;max-width:250px;z-index:1;pointer-events:none}
+  #legend .li{display:flex;align-items:center;gap:8px;padding:2px 0}
+  #legend .n{color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+  #detail{bottom:14px;right:14px;width:308px;padding:13px 15px;font-size:12px;display:none;z-index:5}
+  #detail h3{margin:0 0 8px;font-size:12.5px;word-break:break-word;padding-right:16px}
+  #detail .kv{display:flex;justify-content:space-between;gap:12px;padding:3px 0;border-top:1px solid #2f335055}
+  #detail .kv span:first-child{color:var(--muted)}
+  #detail .kv span:last-child{text-align:right;word-break:break-word}
+  #detail .close{position:absolute;top:10px;right:12px;padding:0;border:0;background:transparent;color:var(--muted);cursor:pointer;font:inherit;font-size:17px;line-height:1}
+  #detail .close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .node-tip{font-size:12px;line-height:1.5;max-width:340px}
+  .node-tip .k{color:#c0caf5;font-weight:600;word-break:break-word}
+  .node-tip .r{color:#7982a9}
+  .node-tip .pill{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;
+    font-weight:700;color:#16161e;text-transform:uppercase;letter-spacing:.4px}
+  #hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:var(--panel);
+    border:1px solid var(--border);border-radius:20px;padding:7px 15px;font-size:11.5px;color:var(--muted);
+    transition:opacity .6s;pointer-events:none;z-index:3}
+  /* La geometría es opcional: si WebGL no está disponible se conserva una
+     lectura útil hecha sólo de metadatos públicos ya embebidos en esta vista. */
+  html.graph-fallback-active,body.graph-fallback-active{height:auto;min-height:100%;overflow:auto}
+  html.graph-fallback-active #graph{position:relative;inset:auto;min-height:100vh;padding:42px 24px;z-index:3}
+  html.graph-fallback-active .panel,html.graph-fallback-active #hint{display:none}
+  .graph-fallback{max-width:920px;margin:0 auto;color:var(--fg)}
+  .graph-fallback__eyebrow{margin:0 0 8px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .graph-fallback h2{margin:0 0 10px;font-size:clamp(22px,4vw,34px);line-height:1.12}
+  .graph-fallback__lead{max-width:70ch;color:var(--muted);font-size:16px;line-height:1.55}
+  .graph-fallback__notice{margin:22px 0;padding:14px 16px;border:1px solid var(--accent);border-radius:12px;background:#1f2335;color:var(--fg);line-height:1.5}
+  .graph-fallback__metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:22px 0}
+  .graph-fallback__metric{padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--panel)}
+  .graph-fallback__metric b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+  .graph-fallback__metric span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+  .graph-fallback h3{margin:28px 0 12px;font-size:17px}
+  .graph-fallback__families{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin:0;padding:0;list-style:none}
+  .graph-fallback__family{padding:15px;border:1px solid var(--border);border-left:5px solid var(--family-color,var(--accent));border-radius:12px;background:var(--panel)}
+  .graph-fallback__family h4{margin:0 0 7px;font-size:15px}.graph-fallback__family p{margin:0;color:var(--muted);font-size:13px;line-height:1.48}
+  .graph-fallback__family small{display:block;margin-top:9px;color:var(--fg);font-variant-numeric:tabular-nums}
+  .graph-fallback__limits{margin:26px 0 0;padding:16px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;line-height:1.55}
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+  @media (max-width:760px){
+    #controls{top:8px;left:8px;width:calc(100vw - 16px);max-height:calc(100vh - 16px);padding:11px;z-index:4}
+    #controls:not(.mobile-open){max-height:82px;overflow:hidden}
+    #controls:not(.mobile-open) .control-body{display:none}
+    #controls .sub{margin-bottom:0}
+    .mobile-toggle{display:inline-flex;align-items:center;justify-content:center}
+    #insights{top:auto;bottom:8px;left:8px;right:8px;width:auto;max-height:calc(100vh - 98px);z-index:3}
+    #insights:not(.mobile-open){max-height:48px;overflow:hidden}
+    #insights:not(.mobile-open) .insights-content{display:none}
+    #insights .mobile-toggle{width:100%;border:none;border-radius:0;background:transparent;text-align:left;justify-content:flex-start}
+    #legend,#hint{display:none}
+    #detail{bottom:62px;left:8px;right:8px;width:auto;max-height:calc(100vh - 132px);overflow:auto;z-index:5}
+    html.graph-fallback-active #graph{padding:28px 16px}
+  }
+</style>
+</head>
+<body>
+<main id="viewer-main" aria-labelledby="graph-title">
+<div id="graph" role="region" aria-label="Grafo 3D de estrategias de trabajo. Use los filtros y las categorías para cambiar la proyección."></div>
+
+<aside id="controls" class="panel" aria-label="Controles del grafo">
+  <div class="panel-head">
+    <div>
+      <h1 id="graph-title">🕸️ Mapa de trabajo aprendido</h1>
+      <p class="sub" id="graph-instructions">Cada punto es una forma reutilizable de trabajar. Parte por <b>tipo de tarea</b>; el rastro técnico aparece sólo al pedir detalle.</p>
+    </div>
+    <button id="toggleControls" class="mobile-toggle" type="button" aria-expanded="false">☰ Explorar</button>
+  </div>
+  <div class="control-body">
+
+  <details class="guide">
+    <summary>❔ Cómo leerlo</summary>
+    <p><b>No es un mapa de personas ni de ideas sueltas.</b> Cada punto resume una táctica observada: por ejemplo,
+    leer evidencia, analizar datos, probar un cambio, coordinar un handoff o operar un servicio.</p>
+    <p><b>Empieza aquí:</b> abre la pestaña <b>Tareas</b>, elige una familia y la cámara enfoca su núcleo para que puedas inspeccionarlo.
+    El <b>color</b> inicial corresponde a esa familia y el <b>tamaño</b> a la evidencia acumulada. Arrastra para rotar,
+    usa la rueda para zoom y haz click en un punto para ver su ficha y, al final, su rastro técnico.</p>
+    <p>Después puedes mirar <b>Proyectos</b> para saber dónde ocurrió el trabajo, o activar <b>🩺 Modo diagnóstico</b>
+    para ver estrategias y relaciones que tocaron un fallo. La cercanía visual es similitud de trazas, no causalidad ni afinidad humana.</p>
+    <p id="covNote" style="color:var(--red);opacity:.85"></p>
+  </details>
+
+  <div class="group">
+    <label for="colorMode">Colorear por</label>
+    <select id="colorMode">
+      <option value="task">Tipo de tarea</option>
+      <option value="theme">Tema (comunidad)</option>
+      <option value="project">Proyecto (repo)</option>
+      <option value="status">Estado (preferida/obsoleta)</option>
+      <option value="health">Salud (tasa de éxito)</option>
+    </select>
+  </div>
+
+  <div class="group">
+    <label class="toggle" style="color:var(--red);font-weight:600">
+      <input type="checkbox" id="tDiagnose"> 🩺 Modo diagnóstico (rojo = fallos)</label>
+  </div>
+
+  <div class="group">
+    <label for="taskFilter">Tipo de tarea</label>
+    <select id="taskFilter"><option value="">Todas</option></select>
+  </div>
+
+  <div class="group">
+    <label for="projectFilter">Proyecto</label>
+    <select id="projectFilter"><option value="">Todos</option></select>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Aristas</div>
+    <label class="toggle"><input type="checkbox" id="tSemantic" checked> <span class="swatch" style="background:#89ddff"></span> Semánticas</label>
+    <label class="toggle"><input type="checkbox" id="tIntra" checked> Solo dentro del tema</label>
+    <label class="toggle"><input type="checkbox" id="tStructural"> <span class="swatch" style="background:#565f89"></span> Estructurales</label>
+    <label class="toggle"><input type="checkbox" id="tFix"> <span class="swatch" style="background:#73daca"></span> 🔧 Correcciones (fallo→fix)</label>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Filtrar por estado</div>
+    <div id="statusFilters"></div>
+  </div>
+
+  <div class="group">
+    <label for="agentFilter">Agente dominante</label>
+    <select id="agentFilter"><option value="">Todos</option></select>
+  </div>
+
+  <div class="group">
+    <label for="search">Buscar estrategia</label>
+    <input type="search" id="search" placeholder="p.ej. tesis, pruebas, handoff, git...">
+  </div>
+
+  <div class="group">
+    <div class="rowbetween"><label for="simThreshold" style="margin:0">Umbral similitud</label><span id="simVal">0.62</span></div>
+    <input type="range" id="simThreshold" min="0.5" max="0.95" step="0.01" value="0.62">
+  </div>
+
+  <div class="group">
+    <label class="toggle"><input type="checkbox" id="tSpin"> Rotación automática</label>
+    <button class="ghost" id="resetView">↺ Reencuadrar y limpiar filtros</button>
+  </div>
+  </div>
+</aside>
+
+<aside id="insights" class="panel" aria-label="Categorías y evidencia">
+  <button id="toggleInsights" class="mobile-toggle" type="button" aria-expanded="false">▤ Categorías y evidencia</button>
+  <div class="insights-content">
+    <div class="head">
+      <div class="glabel" id="insTitle">Panorama</div>
+      <div class="cut-note" id="cutNote"></div>
+      <div class="metrics" id="metrics"></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Perspectiva del grafo">
+      <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="tasks">Tareas</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="themes">Temas</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="projects">Proy</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="libs">Libs</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="errors">Errores</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="improve">Mejora</button>
+    </div>
+    <div class="tabbody" id="tabbody"></div>
+  </div>
+</aside>
+
+<aside id="legend" class="panel" aria-label="Leyenda del grafo"></aside>
+
+<div id="detail" class="panel" role="dialog" aria-labelledby="dTitle" aria-modal="false">
+  <button class="close" id="detailClose" type="button" aria-label="Cerrar detalle">×</button>
+  <h3 id="dTitle"></h3>
+  <div id="dBody"></div>
+</div>
+
+<p id="hint">Arrastra para rotar · rueda para zoom · click en un nodo</p>
+</main>
+
+<script>/*__VENDOR_JS__*/</script>
+<script>
+const GRAPH = "__GRAPH_DATA__";
+const M = GRAPH.meta;
+const STATUS_COLOR = {preferred:"#9ece6a",viable:"#7aa2f7",deprioritized:"#e0af68",blocked:"#f7768e",stale:"#565f89"};
+const STATUS_LABEL = {preferred:"Preferida",viable:"Viable",deprioritized:"Despriorizada",blocked:"Bloqueada",stale:"Obsoleta"};
+
+const nodeById = new Map(GRAPH.nodes.map(n => [n.id, n]));
+const themeById = new Map((M.themes||[]).map(t => [t.id, t]));
+const taskById = new Map((M.task_families||[]).map(t => [t.id, t]));
+
+// ---- estado de filtros ----
+const activeStatus = new Set(Object.keys(M.status_counts || {}));
+let colorMode = "task";
+let showSemantic = true, onlyIntra = true, showStructural = false, simThreshold = 0.62;
+let agentFilter = "", searchTerm = "", clusterFilter = null, errorFilter = null;
+let projectFilter = "", taskFilter = "", diagnose = false, showFix = false, libFilter = "";
+const RED = "#f7768e", FIX = "#73daca";
+
+// ---- color por modo ----
+function hx(c){return [parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16)];}
+function healthColor(r){ if(r==null) return "#565f89";
+  const a=hx("#f7768e"),b=hx("#9ece6a"),m=(i)=>Math.round(a[i]+(b[i]-a[i])*r);
+  return `rgb(${m(0)},${m(1)},${m(2)})`; }
+function baseColor(n){
+  if(colorMode==="task") return n.taskColor;
+  if(colorMode==="project") return n.projectColor;
+  if(colorMode==="status") return n.statusColor;
+  if(colorMode==="health") return healthColor(n.success_rate);
+  return n.themeColor;
+}
+function nodeVisible(n){
+  if(!activeStatus.has(n.status)) return false;
+  if(clusterFilter!=null && n.cluster!==clusterFilter) return false;
+  if(taskFilter && n.task_family!==taskFilter) return false;
+  if(projectFilter && n.project!==projectFilter && !(n.projects||[]).includes(projectFilter)) return false;
+  if(libFilter && n.error_library!==libFilter) return false;
+  if(errorFilter && !(n.error_classes||[]).includes(errorFilter)) return false;
+  if(agentFilter && n.agent!==agentFilter) return false;
+  if(searchTerm && !n.id.toLowerCase().includes(searchTerm)) return false;
+  return true;
+}
+function nodeColor(n){
+  if(!nodeVisible(n)) return "rgba(70,76,110,0.07)";
+  if(diagnose) return n.failures>0 ? RED : "rgba(120,130,170,0.12)";
+  return baseColor(n);
+}
+function edgeEnds(l){
+  const s = typeof l.source==="object"?l.source:nodeById.get(l.source);
+  const t = typeof l.target==="object"?l.target:nodeById.get(l.target);
+  return [s, t];
+}
+function linkVisible(l){
+  const [s, t] = edgeEnds(l);
+  if(!s||!t||!nodeVisible(s)||!nodeVisible(t)) return false;
+  if(l.kind==="fix") return showFix || diagnose;
+  if(diagnose && !(s.failures>0 || t.failures>0)) return false;
+  if(l.kind==="semantic"){ if(!showSemantic||l.weight<simThreshold) return false; if(onlyIntra&&!l.intra) return false; return true; }
+  if(l.kind==="structural") return showStructural;
+  return false;
+}
+function linkColor(l){
+  if(l.kind==="fix") return FIX;
+  if(diagnose){ const [s,t]=edgeEnds(l); if(s&&t&&(s.failures>0||t.failures>0)) return RED; }
+  return l.kind==="semantic" ? (l.intra?"#89ddff":"#7aa2f7") : "#565f89";
+}
+
+function supportsWebGL(){
+  try{
+    const canvas=document.createElement("canvas");
+    return Boolean(canvas.getContext("webgl2")||canvas.getContext("webgl")||canvas.getContext("experimental-webgl"));
+  }catch(_error){ return false; }
+}
+function element(tag,text,className){
+  const node=document.createElement(tag);
+  if(className) node.className=className;
+  if(text!=null) node.textContent=String(text);
+  return node;
+}
+function metric(value,label){
+  const box=element("div",null,"graph-fallback__metric");
+  box.append(element("b",value),element("span",label));
+  return box;
+}
+function renderGraphFallback(){
+  const host=document.getElementById("graph");
+  if(!host) return;
+  document.documentElement.classList.add("graph-fallback-active");
+  document.body.classList.add("graph-fallback-active");
+  host.classList.add("graph-fallback");
+  host.setAttribute("aria-label","Resumen textual del mapa de trabajo; la vista 3D no está disponible");
+  const article=element("article",null,"graph-fallback");
+  article.append(
+    element("p","Vista alternativa del mapa de trabajo","graph-fallback__eyebrow"),
+    element("h2","La proyección 3D no pudo iniciarse"),
+    element("p","Esta página conserva un resumen navegable de las mismas familias de trabajo. No se perdió ni se consulta la memoria canónica: la vista usa sólo metadatos públicos ya incluidos en la exportación.","graph-fallback__lead"),
+    element("p","Tu navegador no expone WebGL disponible. La geometría es opcional: las categorías, sus cantidades y sus límites siguen siendo legibles a continuación.","graph-fallback__notice")
+  );
+  const metrics=element("div",null,"graph-fallback__metrics");
+  metrics.append(
+    metric(M.nodes||0,"estrategias en el corte"),
+    metric(M.semantic_edges||0,"relaciones semánticas derivadas"),
+    metric(M.structural_edges||0,"relaciones estructurales"),
+    metric((M.task_families||[]).length,"tipos de tarea")
+  );
+  article.append(metrics,element("h3","Qué tipo de trabajo representa el corte"));
+  const families=element("ul",null,"graph-fallback__families");
+  for(const family of M.task_families||[]){
+    const item=element("li",null,"graph-fallback__family");
+    item.style.setProperty("--family-color",family.color||"var(--accent)");
+    item.append(
+      element("h4",family.label||"Tipo de tarea"),
+      element("p",family.description||"Categoría pública derivada de la evidencia de trabajo."),
+      element("small",`${family.strategies||0} estrategias · ${family.successes||0} éxitos observados · ${family.failures||0} fallos observados`)
+    );
+    families.append(item);
+  }
+  article.append(families,element("p","Este resumen no convierte una categoría en verdad, una relación en causalidad ni un registro en rasgo personal. Es una proyección pública y estática: para actualizarla hay que regenerarla, sanearla y revisar sus cambios.","graph-fallback__limits"));
+  host.replaceChildren(article);
+}
+
+// ---- grafo (orbit controls => zoom/rotar SIEMPRE funcionan) ----
+if(!supportsWebGL()){
+  renderGraphFallback();
+}else{
+const Graph = ForceGraph3D({controlType:"orbit"})(document.getElementById("graph"))
+  .backgroundColor("#16161e")
+  .graphData(GRAPH)
+  .nodeId("id").nodeVal("val").nodeOpacity(0.92).nodeResolution(12)
+  .nodeColor(nodeColor).nodeLabel(nodeTooltip)
+  .linkVisibility(linkVisible)
+  .linkColor(linkColor)
+  .linkOpacity(0.3)
+  .linkWidth(l => l.kind==="fix" ? 1.6 : l.kind==="semantic" ? Math.max(0.4,(l.weight-0.55)*3) : 0.5)
+  .linkDirectionalArrowLength(l => l.kind==="fix" ? 4 : 0)
+  .linkDirectionalArrowRelPos(1)
+  .linkDirectionalParticles(l => l.kind==="fix" ? 2 : 0)
+  .linkDirectionalParticleWidth(1.6).linkDirectionalParticleColor(()=>FIX)
+  .onNodeClick(n => focusNode(n.id, true))
+  .onBackgroundClick(() => { document.getElementById("detail").style.display="none"; });
+Graph.d3Force("charge").strength(-95);
+try { Graph.controls().enableDamping = true; Graph.controls().dampingFactor = 0.18; Graph.controls().autoRotateSpeed = 0.7; } catch(e){}
+
+function refresh(){ Graph.nodeColor(nodeColor).linkColor(linkColor).linkVisibility(linkVisible); }
+
+// `zoomToFit` enfoca el centro global de la simulación incluso cuando recibe un
+// filtro de nodos. Para una familia de trabajo eso puede dejar el subgrafo muy
+// pequeño. Este encuadre preserva la orientación del lector y apunta al centro
+// robusto del conjunto visible, sin confundir distancia visual con relevancia.
+let frameTimer = 0;
+function median(values){
+  const sorted = [...values].sort((a,b)=>a-b);
+  return sorted[Math.floor(sorted.length/2)];
+}
+function frameVisibleNodes(ms=700){
+  const nodes = Graph.graphData().nodes.filter(nodeVisible).filter(n=>
+    Number.isFinite(n.x) && Number.isFinite(n.y) && Number.isFinite(n.z));
+  if(!nodes.length) return;
+  if(nodes.length===GRAPH.nodes.length){ Graph.zoomToFit(ms,70,nodeVisible); return; }
+  const center = {x:median(nodes.map(n=>n.x)), y:median(nodes.map(n=>n.y)), z:median(nodes.map(n=>n.z))};
+  const radii = nodes.map(n=>Math.hypot(n.x-center.x,n.y-center.y,n.z-center.z)).sort((a,b)=>a-b);
+  // El percentil 72 encuadra la estructura legible sin ocultar los rastros periféricos.
+  const radius = radii[Math.floor((radii.length-1)*0.72)] || 1;
+  const camera = Graph.camera(), target = Graph.controls()?.target || {x:0,y:0,z:0};
+  let dx=camera.position.x-target.x, dy=camera.position.y-target.y, dz=camera.position.z-target.z;
+  const currentDistance=Math.hypot(dx,dy,dz)||1;
+  dx/=currentDistance; dy/=currentDistance; dz/=currentDistance;
+  const fov=(camera.fov||50)*Math.PI/180;
+  const distance=Math.max(220, radius/Math.tan(fov/2)*0.84);
+  Graph.cameraPosition({x:center.x+dx*distance,y:center.y+dy*distance,z:center.z+dz*distance},center,ms);
+}
+function scheduleFrame(){
+  window.clearTimeout(frameTimer);
+  frameTimer=window.setTimeout(()=>frameVisibleNodes(),90);
+}
+
+function nodeTooltip(n){
+  return `<div class="node-tip">
+    <span class="pill" style="background:${n.taskColor}">${n.task_label||"tarea"}</span>
+    <div class="k">${n.task_description||"Estrategia registrada"}</div>
+    <div class="r">${STATUS_LABEL[n.status]||n.status} · ✔ ${n.successes} · ✘ ${n.failures}${n.project?` · ${n.project}`:""}</div>
+  </div>`;
+}
+
+function focusNode(id, openDetail){
+  const n = Graph.graphData().nodes.find(x => x.id===id);
+  if(!n) return;
+  const d = Math.hypot(n.x||1,n.y||1,n.z||1), r = 1 + 140/(d||1);
+  Graph.cameraPosition({x:(n.x||0)*r,y:(n.y||0)*r,z:(n.z||0)*r}, n, 900);
+  if(openDetail) showDetail(n);
+}
+function showDetail(n){
+  const d = document.getElementById("detail");
+  document.getElementById("dTitle").textContent = n.task_label || "Estrategia registrada";
+  const rows = [
+    ["Tipo de tarea", n.task_label||"—"],
+    ["Qué representa", n.task_description||"—"],
+    ["Tema", n.clusterLabel||"—"],
+    ["Estado", STATUS_LABEL[n.status]||n.status],
+    ["Confianza", n.confidence],
+    ["Éxitos / Fallos", `${n.successes} / ${n.failures}`],
+    ["Tasa de éxito", n.success_rate!=null?`${Math.round(n.success_rate*100)}%`:"—"],
+    ["Herramienta", n.tool||"—"],
+    ["Transporte", n.transport||"—"],
+    ["Agente dominante", n.agent||"—"],
+    ["Proyecto", n.project||"—"],
+    ["Librería en fallos", n.error_library||"—"],
+    ["Recuperado (fix)", n.recovered?"sí ✓":"—"],
+    ["Último éxito", n.last_success_at?n.last_success_at.replace("T"," ").replace("Z",""):"—"],
+    ["Errores", (n.error_classes&&n.error_classes.length)?n.error_classes.join(", "):"—"],
+    ["Rastro técnico", n.id],
+  ];
+  document.getElementById("dBody").innerHTML = rows.map(([k,v])=>`<div class="kv"><span>${k}</span><span>${v}</span></div>`).join("");
+  d.style.display="block";
+}
+
+// ---- controles ----
+const $ = id => document.getElementById(id);
+function toggleMobilePanel(panelId, buttonId, otherPanelId, otherButtonId){
+  const panel=$(panelId), button=$(buttonId);
+  button.onclick=()=>{
+    const open=panel.classList.toggle("mobile-open");
+    button.setAttribute("aria-expanded", String(open));
+    if(open && window.matchMedia("(max-width: 760px)").matches){
+      const otherPanel=$(otherPanelId), otherButton=$(otherButtonId);
+      otherPanel.classList.remove("mobile-open");
+      otherButton.setAttribute("aria-expanded", "false");
+    }
+  };
+}
+toggleMobilePanel("controls","toggleControls","insights","toggleInsights");
+toggleMobilePanel("insights","toggleInsights","controls","toggleControls");
+$("colorMode").onchange = e => { colorMode=e.target.value; renderLegend(); refresh(); };
+$("tDiagnose").onchange = e => { diagnose=e.target.checked; renderLegend(); refresh(); };
+$("projectFilter").onchange = e => { projectFilter=e.target.value; refresh(); scheduleFrame(); };
+$("taskFilter").onchange = e => { taskFilter=e.target.value; renderTab(); refresh(); scheduleFrame(); };
+$("tSemantic").onchange = e => { showSemantic=e.target.checked; refresh(); };
+$("tIntra").onchange = e => { onlyIntra=e.target.checked; refresh(); };
+$("tStructural").onchange = e => { showStructural=e.target.checked; refresh(); };
+$("tFix").onchange = e => { showFix=e.target.checked; refresh(); };
+$("simThreshold").oninput = e => { simThreshold=parseFloat(e.target.value); $("simVal").textContent=simThreshold.toFixed(2); refresh(); };
+$("search").oninput = e => { searchTerm=e.target.value.trim().toLowerCase(); refresh(); if(searchTerm) scheduleFrame(); };
+$("agentFilter").onchange = e => { agentFilter=e.target.value; refresh(); if(agentFilter) scheduleFrame(); };
+$("tSpin").onchange = e => { try{ Graph.controls().autoRotate=e.target.checked; }catch(err){} };
+$("detailClose").onclick = () => $("detail").style.display="none";
+$("resetView").onclick = () => {
+  clusterFilter=null; errorFilter=null; agentFilter=""; searchTerm=""; projectFilter=""; taskFilter=""; libFilter="";
+  $("agentFilter").value=""; $("search").value=""; $("projectFilter").value=""; $("taskFilter").value="";
+  activeStatus.clear(); Object.keys(M.status_counts).forEach(s=>activeStatus.add(s));
+  document.querySelectorAll('#statusFilters input').forEach(cb=>cb.checked=true);
+  renderTab(); refresh(); Graph.zoomToFit(700,60,nodeVisible);
+};
+
+// selector de proyectos
+(M.projects||[]).filter(p=>p.events>=3).forEach(p=>{
+  const o=document.createElement("option"); o.value=p.name;
+  o.textContent=`${p.name} (${p.events})`; $("projectFilter").appendChild(o);
+});
+
+// selector de familias de trabajo: clasificación derivada, no reemplazo de la traza
+(M.task_families||[]).forEach(t=>{
+  const o=document.createElement("option"); o.value=t.id;
+  o.textContent=`${t.label} (${t.strategies})`; $("taskFilter").appendChild(o);
+});
+
+// filtros de estado
+const sc = M.status_counts||{};
+$("statusFilters").innerHTML = Object.keys(sc).sort((a,b)=>sc[b]-sc[a]).map(s=>
+  `<label class="toggle"><input type="checkbox" data-status="${s}" checked>
+   <span class="swatch" style="background:${STATUS_COLOR[s]||"#a9b1d6"}"></span>
+   ${STATUS_LABEL[s]||s}<span class="n">${sc[s]}</span></label>`).join("");
+document.querySelectorAll('#statusFilters input').forEach(cb=>cb.onchange=e=>{
+  const s=e.target.dataset.status; e.target.checked?activeStatus.add(s):activeStatus.delete(s); refresh();
+});
+
+// selector agentes
+[...new Set(GRAPH.nodes.map(n=>n.agent).filter(Boolean))].sort().forEach(a=>{
+  const o=document.createElement("option"); o.value=a; o.textContent=a; $("agentFilter").appendChild(o);
+});
+
+// ---- métricas + panel analitico ----
+const totalFail = GRAPH.nodes.reduce((s,n)=>s+n.failures,0);
+const cutDate = M.generated_at ? new Date(M.generated_at).toLocaleString("es-CL", {dateStyle:"medium", timeStyle:"short", timeZone:"UTC"}) : "fecha no disponible";
+const indexed = Number.isFinite(M.points_indexed) ? M.points_indexed.toLocaleString("es-CL") : "conteo no disponible";
+$("cutNote").textContent = `Corte estático · ${cutDate} UTC · ${indexed} puntos indexados`;
+$("metrics").innerHTML =
+  `<div class="metric"><b>${M.nodes}</b><span>estrategias</span></div>
+   <div class="metric"><b>${(M.task_families||[]).length}</b><span>tipos de tarea</span></div>
+   <div class="metric"><b>${totalFail}</b><span>fallos totales</span></div>
+   <div class="metric"><b>${M.fix_edges||0}</b><span>correcciones (fix)</span></div>`;
+
+const COV = M.coverage||{};
+if(COV.total_events){
+  const cn = $("covNote");
+  if(cn) cn.textContent = `Cobertura: ${COV.total_failures} fallos / ${COV.total_events} eventos (${(COV.fail_rate*100).toFixed(1)}%). ` +
+    (COV.library_signal_recorded ? "" : "El RAG aún no clasifica 'mal uso de librería'.");
+}
+
+const A = M.analytics||{errors:[],improve:[],revalidate:[]};
+const maxErr = Math.max(1, ...A.errors.map(e=>e.strategies));
+function tasksTab(){
+  const ts = M.task_families||[];
+  if(!ts.length) return `<div class="empty">Sin clasificación de tareas en esta corrida.</div>`;
+  const maxStrategies = Math.max(...ts.map(t=>t.strategies));
+  const active = taskFilter ? `<button type="button" class="row" style="border-color:var(--accent)" onclick="setTask('')">⟵ Ver todos los tipos de tarea</button>` : "";
+  const selected = taskById.get(taskFilter);
+  const selectedLinks = selected ? GRAPH.links.filter(linkVisible).length : 0;
+  const focus = selected ? `<div class="empty" style="margin:8px 0;padding:8px;border:1px solid var(--accent);border-radius:8px;background:#202541">
+    <b style="color:var(--fg)">Foco: ${selected.label}</b><br>${selected.description}<br>
+    <span style="color:var(--muted)">${selected.strategies} estrategias · ${selectedLinks} relaciones visibles con la configuración actual.</span>
+  </div>` : "";
+  return active + focus + `<div class="empty" style="padding:2px 2px 8px">Familias inferidas por reglas públicas sobre la traza. Sirven para orientarse; no son una etiqueta de la persona ni una evaluación de calidad.</div>` + ts.map(t=>{
+    const w=Math.round(t.strategies/maxStrategies*100);
+    const rate=t.success_rate!=null?`${Math.round(t.success_rate*100)}%`:"—";
+    return `<button type="button" class="row" onclick="setTask('${t.id}')" aria-pressed="${taskFilter===t.id}" title="${t.description}">
+      <span class="swatch" style="background:${t.color}"></span>
+      <span class="lbl"><b>${t.label}</b><br><span style="color:var(--muted);font-size:10.5px">${t.description}</span></span>
+      <span class="bar"><i style="width:${w}%;background:${t.color}"></i></span>
+      <span class="meta2">${t.strategies} · ${rate}</span></button>`;
+  }).join("");
+}
+function themesTab(){
+  const t = (M.themes||[]);
+  if(!t.length) return `<div class="empty">Sin temas (Qdrant no disponible).</div>`;
+  const active = clusterFilter!=null ? `<div class="row" style="border-color:var(--accent)" onclick="setCluster(null)">⟵ Ver todos los temas</div>` : "";
+  return active + t.map(c=>{
+    const rate = c.success_rate!=null?`${Math.round(c.success_rate*100)}%`:"—";
+    return `<div class="row" onclick="setCluster(${c.id})" title="${c.keywords.join(', ')}">
+      <span class="swatch" style="background:${c.color}"></span>
+      <span class="lbl">${c.label}</span>
+      <span class="meta2">${c.size} · ${rate}</span></div>`;
+  }).join("");
+}
+function projectsTab(){
+  const ps = (M.projects||[]).filter(p=>p.events>=3);
+  if(!ps.length) return `<div class="empty">Sin datos de proyectos.</div>`;
+  const maxEv = Math.max(...ps.map(p=>p.events));
+  const active = projectFilter ? `<div class="row" style="border-color:var(--accent)" onclick="setProject('')">⟵ Ver todos los proyectos</div>` : "";
+  return active + ps.map(p=>{
+    const w = Math.round(p.events/maxEv*100);
+    const fr = Math.round(p.fail_rate*100);
+    const failTxt = p.failures>0 ? `<span style="color:var(--red)">${p.failures}f · ${fr}%</span>` : `<span style="color:var(--green)">0f</span>`;
+    return `<div class="row" onclick="setProject('${cssq(p.name)}')" title="${p.top_agent}">
+      <span class="swatch" style="background:${p.color}"></span>
+      <span class="lbl">${p.name}</span>
+      <span class="bar"><i style="width:${w}%;background:${p.color}"></i></span>
+      <span class="meta2">${p.events}· ${failTxt}</span></div>`;
+  }).join("");
+}
+function libsTab(){
+  const ls = M.libraries||[];
+  if(!ls.length) return `<div class="empty">Sin librerías/herramientas implicadas en fallos. 🎉</div>`;
+  const maxF = Math.max(...ls.map(l=>l.failures));
+  const intro = `<div class="empty" style="padding:2px 2px 8px">Herramientas/librerías presentes en fallos. Hoy se infiere el ejecutable; con más uso llegará al módulo Python exacto. Click = aísla en rojo.</div>`;
+  const active = libFilter ? `<div class="row" style="border-color:var(--accent)" onclick="setLibSearch('${cssq(libFilter)}')">⟵ Quitar filtro de librería</div>` : "";
+  return intro + active + ls.map(l=>{
+    const w = Math.round(l.failures/maxF*100);
+    const projs = (l.projects||[]).map(p=>p.name).join(", ");
+    return `<div class="row" onclick="setLibSearch('${cssq(l.name)}')" title="${l.kinds.map(k=>k.kind+':'+k.count).join(' · ')} — ${projs}">
+      <span class="lbl mono">${l.name}</span>
+      <span class="bar"><i style="width:${w}%;background:var(--red)"></i></span>
+      <span class="meta2">${l.failures}f · ${l.top_kind}</span></div>`;
+  }).join("");
+}
+function errorsTab(){
+  if(!A.errors.length) return `<div class="empty">Sin errores registrados. 🎉</div>`;
+  const active = errorFilter ? `<div class="row" style="border-color:var(--accent)" onclick="setError(null)">⟵ Quitar filtro de error</div>` : "";
+  return active + A.errors.map(e=>{
+    const w = Math.round(e.strategies/maxErr*100);
+    return `<div class="row" onclick="setError('${e.error_class}')">
+      <span class="lbl mono">${e.error_class}</span>
+      <span class="bar"><i style="width:${w}%;background:var(--red)"></i></span>
+      <span class="meta2">${e.strategies}× · ${e.failures}f</span></div>`;
+  }).join("");
+}
+function improveTab(){
+  let html = "";
+  html += `<div class="subhead" style="border:none;margin-top:2px">Con fallos (revisar patrón)</div>`;
+  html += A.improve.length ? A.improve.map(n=>
+    `<div class="row" onclick="focusNode('${cssq(n.id)}',true)">
+       <span class="lbl mono">${n.id}</span>
+       <span class="meta2">${n.failures}f/${n.successes}✔</span></div>`).join("")
+    : `<div class="empty">Sin estrategias con fallos.</div>`;
+  html += `<div class="subhead">Obsoletas que antes servían (revalidar)</div>`;
+  html += A.revalidate.length ? A.revalidate.map(n=>
+    `<div class="row" onclick="focusNode('${cssq(n.id)}',true)">
+       <span class="lbl mono">${n.id}</span>
+       <span class="meta2">${n.successes}✔</span></div>`).join("")
+    : `<div class="empty">Ninguna.</div>`;
+  return html;
+}
+function cssq(s){ return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+window.setCluster = id => { clusterFilter=id; renderTab(); refresh(); scheduleFrame(); };
+window.setTask = id => { taskFilter=id; $("taskFilter").value=id; renderTab(); refresh(); scheduleFrame(); };
+window.setError = ec => { errorFilter=ec; renderTab(); refresh(); if(ec) scheduleFrame(); };
+window.setProject = name => { projectFilter=name; $("projectFilter").value=name; renderTab(); refresh(); scheduleFrame(); };
+window.setLibSearch = name => {
+  const on = libFilter!==name;
+  libFilter = on ? name : "";
+  diagnose = on; $("tDiagnose").checked = on;
+  renderLegend(); renderTab(); refresh();
+  if(on) scheduleFrame();
+};
+window.focusNode = focusNode;
+
+let curTab = "tasks";
+function renderTab(){
+  $("tabbody").innerHTML = curTab==="tasks"?tasksTab(): curTab==="themes"?themesTab(): curTab==="projects"?projectsTab():
+    curTab==="libs"?libsTab(): curTab==="errors"?errorsTab(): improveTab();
+}
+document.querySelectorAll(".tab").forEach(tb=>tb.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>{
+    x.classList.remove("active");
+    x.setAttribute("aria-selected", "false");
+  });
+  tb.classList.add("active"); tb.setAttribute("aria-selected", "true"); curTab=tb.dataset.tab; renderTab();
+});
+renderTab();
+
+// ---- leyenda dinámica ----
+function renderLegend(){
+  let html="", title="";
+  if(diagnose){
+    title="Modo diagnóstico";
+    $("legend").innerHTML = `<div style="color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">${title}</div>`+
+      `<div class="li"><span class="swatch" style="background:${RED}"></span>Con fallos</div>`+
+      `<div class="li"><span class="swatch" style="background:#78829a"></span>Sin fallos (atenuado)</div>`+
+      `<div class="li" style="color:var(--muted);font-size:10.5px">aristas rojas = tocan un fallo</div>`;
+    return;
+  }
+  if(colorMode==="task"){
+    title="Tipos de tarea";
+    html=(M.task_families||[]).slice(0,6).map(t=>
+      `<div class="li"><span class="swatch" style="background:${t.color}"></span>${t.label}<span class="n">${t.strategies}</span></div>`).join("")
+      + `<div class="li" style="color:var(--muted)">Clasificación derivada de trazas; el detalle conserva la estrategia original.</div>`;
+    $("legend").innerHTML = `<div style="color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">${title}</div>`+html;
+    return;
+  }
+  if(colorMode==="project"){
+    title="Proyectos (top 6)";
+    html=(M.projects||[]).filter(p=>p.events>=3).slice(0,6).map(p=>
+      `<div class="li"><span class="swatch" style="background:${p.color}"></span>${p.name}<span class="n">${p.events}</span></div>`).join("");
+    $("legend").innerHTML = `<div style="color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">${title}</div>`+html;
+    return;
+  }
+  if(colorMode==="status"){
+    title="Estado de la estrategia";
+    html=Object.keys(sc).sort((a,b)=>sc[b]-sc[a]).map(s=>
+      `<div class="li"><span class="swatch" style="background:${STATUS_COLOR[s]}"></span>${STATUS_LABEL[s]||s}<span class="n">${sc[s]}</span></div>`).join("");
+  } else if(colorMode==="health"){
+    title="Tasa de éxito";
+    html=`<div class="li"><span class="swatch" style="background:${healthColor(1)}"></span>Alta (100%)</div>
+          <div class="li"><span class="swatch" style="background:${healthColor(0.5)}"></span>Media</div>
+          <div class="li"><span class="swatch" style="background:${healthColor(0)}"></span>Baja (0%)</div>
+          <div class="li"><span class="swatch" style="background:#565f89"></span>Sin datos</div>`;
+  } else {
+    title="Temas (top 6)";
+    html=(M.themes||[]).slice(0,6).map(c=>
+      `<div class="li"><span class="swatch" style="background:${c.color}"></span>${c.label}<span class="n">${c.size}</span></div>`).join("")
+      + `<div class="li" style="color:var(--muted)">…y ${(M.themes||[]).length-6>0?(M.themes.length-6):0} más en el panel derecho</div>`;
+  }
+  $("legend").innerHTML = `<div style="color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">${title}</div>`+html;
+}
+renderLegend();
+
+// ---- arranque ----
+setTimeout(()=>Graph.zoomToFit(900,70),700);
+setTimeout(()=>{ const h=$("hint"); if(h){h.style.opacity="0"; setTimeout(()=>h.remove(),700);} },5000);
+window.addEventListener("resize",()=>Graph.width(innerWidth).height(innerHeight));
+}
+</script>
+</body>
+</html>
