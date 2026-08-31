@@ -5,8 +5,8 @@ subtitle: "I rebuilt the master's thesis I wrote on school entry and exit in Chi
 date: 2026-08-29 09:30:00 -0400
 categories: [datos, educacion, politica-publica]
 tags: [replication, education, school-markets, voucher, mineduc, duration-analysis, vulnerability, audit]
-description: "In 2026 I rebuilt my 2014 master's thesis on the entry and exit of schools in Chile, compared every table against the published one, and separated errors in the document from errors in my own replication."
-excerpt: "When a rebuilt table does not match the printed one, the useful question is not which of the two is wrong, but whose error it is. Answering it means putting both side by side."
+description: "In 2026 I rebuilt my 2014 master's thesis on the entry and exit of schools in Chile, compared every table against the published one and, once my own 2014 artefacts turned up, against those too: 26 displays, 43 hypotheses tested and no divergence left unexplained."
+excerpt: "When a rebuilt table does not match the printed one, the useful question is not which of the two is wrong, but whose error it is. Answering it means putting both side by side —and, when it turns up, the artefact that produced them."
 author: clabra
 lang: en
 ref: replica-tesis-establecimientos-educacionales
@@ -25,7 +25,7 @@ author_profile: true
 In April 2014 I submitted a master's thesis on the entry and exit of schools in Chile between 1992 and 2012.[^tesis] I wanted to extend that series to 2025 and ran into the natural order of the problem: before extending my own work, I had to be able to reproduce it.
 {: .text-justify}
 
-What follows is that first half. I rebuilt the eight tables and the figures, put them next to the published ones, and decided, cell by cell, whose difference each one was.
+What follows is that first half. I rebuilt the eight tables and the figures, put them next to the published ones, and decided, cell by cell, whose difference each one was. Halfway through, five 2014 artefacts turned up —the Stata output, sheets from my working spreadsheet, a chart embedded in the manuscript— and the comparison went from two columns to three.
 {: .text-justify}
 
 **The thesis is mine and so is the audit**, so this is not an independent replication: I am reviewing decisions I made myself and that seemed reasonable at the time.
@@ -48,6 +48,7 @@ If it is accurate, it serves me as credential and as bias at once. Daniel Hojman
 | **Discrepancy** | A rebuilt cell that does not match the printed one. | An error: it may sit in the document, in my replication, or in the chain joining them. |
 | **Entry / exit** | A school appearing in, or dropping out of, the official register. | Opening or failure as a decision: I observe the flow, not the motive. |
 | **IVE** | Chile's school vulnerability index: share of enrolment classified as vulnerable. | Household poverty, or an individual measure of any pupil. |
+| **Producer** | The 2014 artefact that generated a figure: a Stata output, a sheet of my working spreadsheet, the chart embedded in the manuscript. | The run that created it: that is still lost. |
 | **Traceable claim** | A statement tied to a verifiable artefact and its hash. | An opinion of mine. |
 
 **Scope.** I work from the 2014 PDF, its LaTeX source and my `do-files`. Nothing below is causal: these are conditional associations within a panel, with no identification strategy behind them.
@@ -66,7 +67,7 @@ The computing side is anecdotal and I dispatch it in two lines: the document no 
 
 <figure class="align-center">
   <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en.webp' | relative_url }}" alt="On the left, the total mobility by administrative dependency figure published in 2014, with bars stacked by year from 1993 to 2012. On the right, the 2026 replication with the same flows pooled over the period: municipal 346 entries and 1,135 exits, publicly funded private 1,468 entries and 597 exits, fee-paying private 354 and 337." loading="lazy" decoding="async">
-  <figcaption><strong>Figure 1</strong> — Total mobility by dependency: the 2014 original and my replication, which pools the twenty years so the balance reads in one glance. The totals on the right add up to 2,168 entries and 2,069 exits, the restricted universe behind the stylised facts. Panel labels are in Spanish, as in the source.</figcaption>
+  <figcaption><strong>Figure 1</strong> — Total mobility by dependency: the 2014 original and my replication, which pools the twenty years so the balance reads in one glance. The totals on the right add up to 2,168 entries and 2,069 exits; the spreadsheet I built that figure with in 2014 says 2,160 and 2,065, which is exactly what got published. Panel labels are in Spanish, as in the source.</figcaption>
 </figure>
 
 Laid out that way, the flows say something the year-by-year stack was hiding: **the reallocation has a direction**. The municipal sector loses schools (346 entries against 1,135 exits) and the publicly funded private sector gains them (1,468 against 597), while fee-paying private roughly breaks even. This is not a market that grows: it is one that changes hands.
@@ -104,7 +105,48 @@ When a cell fails to match, what matters is whose error it is. Without an explic
 My criterion was to build an oracle. I reimplemented, under control and from a versioned snapshot of the code, the route that produces the descriptive tables, and ran it on Stata 17 against my Python version: **44 cells, maximum absolute difference of 3.6·10⁻¹²**.
 {: .text-justify}
 
-With a caveat that forces me to lower my voice: **the historical `do-file` was not executed**; what ran was a controlled reimplementation, and the artefact records it that way.
+With a caveat that forced me to lower my voice: **the historical `do-file` was not executed**; what ran was a controlled reimplementation.
+{: .text-justify}
+
+A month later that caveat was half lifted. The 2014 run is still lost —environment, temporaries and the actual order of my commands— but I did re-estimate the final specification on the original engine, Stata 17 MP under my own licence, and something better than an oracle turned up: **the producer**.
+{: .text-justify}
+
+### Five artefacts of mine, found
+
+Combing the source tree surfaced five objects that produced the published numbers directly: the `outreg` output of the hierarchical model, two sheets of my working spreadsheet, a third with the SIMCE gap, and a chart embedded inside the manuscript with its series still in it. The search covered everything the tree keeps, and that matters as much as the find:
+{: .text-justify}
+
+{: .table-caption}
+**Table 2** — Where the producer of each figure was searched for
+
+| Corpus | Found | Read |
+|---|---:|---:|
+| Stata `.gph` graphs | 15 | 15 |
+| `.doc` / `.docx` documents | 140 | 140 |
+| `.xls` / `.xlsx` spreadsheets | 241 | 241 |
+| Charts embedded in `.docx` | 290 | 290 |
+
+Five binary spreadsheets opened in no library and had to be decoded record by record; ninety-two documents came in the old Word format. Declaring coverage is what lets a «not found» read as data rather than as fatigue.
+{: .small}
+
+That changes the question running through this post. Until here I was comparing **my reconstruction against the print**, and every discrepancy admitted the excuse that the reconstruction was the broken one. With the producer in view there is a third column —and in several cases my reconstruction looks more like my 2014 self's work than the text I published.
+{: .text-justify}
+
+Take the mobility figure: the shares in my spreadsheet sit **3.05 points** from the reconstruction and **13.41 points** from the printed text. My 2026 replication is 4.4 times closer to my own 2014 spreadsheet than my published document is.
+{: .text-justify}
+
+### The coefficient that did not come from my own output
+
+My hierarchical model table publishes **0.003** for the lagged SIMCE mathematics score. The 2014 Stata output that produced that table prints **0.001**.
+{: .text-justify}
+
+It is not an engine difference: the other eleven coefficients of that same output match today's run to the fourth decimal, and between Stata and `statsmodels` the worst discrepancy across the fixed effects is 0.43 %. Nor is it an input problem: the SIMCE imputation the `do-file` declares is identical across both engines over 85,807 cells, with a maximum relative difference of 5.9·10⁻⁸ that comes from Stata storing in 32-bit `float`.
+{: .text-justify}
+
+I put the 0.003 through seven hypotheses of origin —another SIMCE specification among those the thesis itself pre-declares, another print precision, the imputed variable of the `do-file`, a transplant from another cell of the same table, the table's own decimal convention, the 2014 output itself, refitting on the original engine— and **all seven were refuted**. The estimate is 0.000533 on both engines, which rounds to 0.001 and not to 0.003.
+{: .text-justify}
+
+This is the finding that unsettles me most, because I cannot pin it on the translation to Python: the translation and the original agree, and the one that departs is the document.
 {: .text-justify}
 
 The duration model needed its own check, and that is where it got interesting. I model the probability that a school exits in year $$t$$ given that it was still open, with a complementary log-log link, the standard specification when the event is observed by periods rather than in continuous time:[^jenkins]
@@ -128,7 +170,7 @@ $$
 $$
 
 {: .table-caption}
-**Table 2** — The two cells whose asterisks do not add up
+**Table 3** — The two cells whose asterisks do not add up
 
 | Table and term | Published | Rebuilt | Published standard error | max \|z\| | Asterisks printed | Warranted |
 |---|---:|---:|---:|---:|:--:|:--:|
@@ -147,6 +189,9 @@ There is a third kind I cannot assign to anyone. In my LaTeX source the «Observ
 That does not prove any figure is wrong —most match— but it cuts the chain between estimate and print: a discrepant cell may be a crooked transcription or a different input.
 {: .text-justify}
 
+The co-payment table carries an exact example of that broken chain. Its footnote publishes **N = 5,465**, which is the total of one panel; the means printed above it come from another, of **5,022**. Both numbers are mine and they travelled separately onto the same page.
+{: .text-justify}
+
 And a number I would rather not write: of the **30 revision proposals** this audit produced, only **12 today carry a traceable claim with its hash**. The other 18 are labelled proposal or unverified, and that is how they must be read. Anyone taking all 30 as findings has read this post backwards.
 {: .text-justify}
 
@@ -161,18 +206,27 @@ It contaminates the three descriptive tables and the definition of the event in 
 **2. My duration variable measures observed tenure, not institutional age.** The panel starts in 1992 and schools that already existed enter left-truncated, which I did not declare; on top of that I imposed a linear shape on the baseline hazard. Measured year by year that slope is +0.018 percentage points a year with p = 0.27: I cannot tell it from zero. It is not a matter of form, because the baseline hazard is precisely what the model uses to separate the effect of time from that of the covariates.
 {: .text-justify}
 
-**3. The co-payment averages eight years of nominal pesos without deflating.** The crude entrant-exiter gap I published is \$8,133.6. Computed within each year and then weighted, it falls to \$7,124.2: **\$1,009.4, some 12.41 %, was temporal composition** and not a difference between schools. The finding survives, the magnitude does not. And there is something better underneath: the gap moves from \$8,085.69 in the first year of the series to \$3,821.18 in the last. **It converges to less than half**, and my pooled average erased exactly that.
+**3. The co-payment averages eight years of nominal pesos without deflating.** Here the producer turned up too, and with it the universe: the 2014 working sheet prints 17,051.23 and 9,665.54 pesos, and exactly one of the ten panels reproduces it —to **0.00 and 0.005 pesos**, while the wide panel departs by 910.60 and 162.68. On that universe the crude entrant-exiter gap is \$7,385.7; computed within each year and then weighted, \$6,655.7: **\$730.0, some 9.88 %, was temporal composition** and not a difference between schools.
+{: .text-justify}
+
+The finding survives; the magnitude does not —and it is smaller than the one I had measured myself on the wide panel (\$1,009.4, 12.41 %), the panel the 2014 sheet rules out as the universe. Underneath there is something better: the gap moves from \$8,175.8 in 2004 to \$2,481.3 in 2011. **It falls to less than a third**, and my pooled average erased exactly that.
 {: .text-justify}
 
 <figure class="align-center">
-  <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp' | relative_url }}" alt="On the left, the figure published in 2014 relating the municipal Herfindahl index to total mobility, with the horizontal axis running from 0 to 100. On the right, the 2026 replication of the same crosswalk on the canonical 0 to 10,000 axis, with a fitted line of negative slope." loading="lazy" decoding="async">
-  <figcaption><strong>Figure 2</strong> — Municipal concentration and mobility. The original's axis stops at 100; the Herfindahl index is defined between 0 and 10,000, with 2,500 as the high-concentration threshold. The replication adds the line fitted over 336 municipalities.</figcaption>
+  <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp' | relative_url }}" alt="On the left, the figure published in 2014 relating the municipal Herfindahl index to total mobility, with the horizontal axis running from 0 to 100. On the right, the 2026 replication on the canonical 0 to 10,000 axis, measured with the variable the do-file labels as the index: a negative slope, p = 0.084 over 337 municipalities." loading="lazy" decoding="async">
+  <figcaption><strong>Figure 2</strong> — Municipal concentration and mobility. The same index appears on three scales: the original's axis stops at 100, the text cites levels from 1,180 to 1,534, and the canonical definition runs from 0 to 10,000 with 2,500 as the high-concentration threshold. The replication is measured with `hhi_n_alumnos`, the variable the `do-file` itself labels as the index: the slope stays negative, but over 337 municipalities it is not distinguishable from zero at 5 % (p = 0.084).</figcaption>
 </figure>
 
-**4. The concentration index sits on a scale that is not its own, and its sign does not agree.** Put side by side, the original's axis stops at 100 and the Herfindahl index runs to 10,000. The municipality of Santiago, which I named explicitly, measures 157.1 against the 1,534 I published.
+**4. The concentration index runs on a scale ten times its own.** The Herfindahl index is defined between 0 and 10,000. The variable my own `do-file` labels «Herfindahl-Hirschman Index» reproduces the five levels I named explicitly with **1.34 % mean error** —Santiago gives 1,517.5 against the 1,534 published— but it does so multiplied by one hundred thousand: **ten times the canonical scale**. On the correct scale Santiago measures 151.7. This is not a decimal: read as I published it, **318 of 337 municipalities** would sit above the high-concentration threshold; on the canonical scale it is **66**. It changes which market gets called concentrated.
 {: .text-justify}
 
-With the scale corrected, more concentration goes descriptively with **less** mobility (negative slope, p = 0.009, 336 municipalities), while my municipal exits model reported a positive coefficient. And that model stacks three identification problems: contemporaneous regressors my own text declares jointly determined, a lagged dependent variable under random effects,[^nickell] and inference over 15 clusters.[^cameron] With so few groups, the standard error stops being trustworthy before the coefficient does.
+Here I correct myself twice, and the second one stings. First, I measured concentration with **another column** of the panel, not the one the `do-file` labels as the index; the error gives itself away, because its ratio against the published values was almost constant —10.3, dispersion 0.03— the signature of comparing against something proportional but different.
+{: .text-justify}
+
+Second: with that column the descriptive contrast gave a negative and significant slope (p = 0.009, 336 municipalities). **Redone with the `do-file`'s own variable, the sign stays negative but the slope is no longer distinguishable from zero at 5 % (p = 0.084, 337 municipalities).** What still stands is that my municipal exits model reported a positive coefficient and the descriptive cloud does not back it; what falls is the force with which I asserted it.
+{: .text-justify}
+
+And that model stacks three identification problems: contemporaneous regressors my own text declares jointly determined, a lagged dependent variable under random effects,[^nickell] and inference over 15 clusters.[^cameron] With so few groups, the standard error stops being trustworthy before the coefficient does.
 {: .text-justify}
 
 <figure class="align-center">
@@ -189,15 +243,37 @@ With the caveat from finding 1: the axis measures years relative to the last fla
 One debt left is not an error but an absence: the Schumpeterian frame organises my title, my abstract and my conclusion, but I never tested it. The reallocation decomposition separating improvement within incumbents from that coming from entry and exit —the standard in the very literature I was citing— is not in the document.[^griliches]
 {: .text-justify}
 
+## Where the audit landed
+
+Twenty-six objects between tables and figure panels. Ten reproduce what was published; ten diverge with a measured mechanism —a label, a universe, a scale, a rounding convention—; **none is left diverging without an explanation**; six admit no numerical test, because they are structural statements or a datum the panel does not keep.
+{: .text-justify}
+
+{: .table-caption}
+**Table 4** — State of the twenty-six displays
+
+| Verdict | Displays |
+|---|---:|
+| Reproduce what was published | 10 |
+| Diverge with a measured mechanism | 10 |
+| Diverge without explanation | 0 |
+| No numerical test possible | 6 |
+| **Total** | **26** |
+
+Behind those verdicts sit **43 hypotheses put to the test**, of which 34 were refuted and 7 survived. I record the refuted ones alongside the survivors on purpose: an audit that only publishes what it confirmed is not an audit, it is a selection.
+{: .text-justify}
+
 ## Closing: the second half runs to 2025
 
 A second post will bring the recreation extended to 2025. The sources are already acquired —fourteen official MINEDUC collections, including the Official Directory 1992-2025— but I am not previewing figures: extending the window puts regime changes in the middle.
 {: .text-justify}
 
-What I take away is less technical than I expected. The two confirmed errors are asterisks and elementary arithmetic; the findings that move a conclusion came from looking at what my variables actually measured.
+What I take away is less technical than I expected. The confirmed errors are asterisks, scales and elementary arithmetic; the findings that move a conclusion came from looking at what my variables actually measured.
 {: .text-justify}
 
-And I would not have seen any of them arguing over numbers in prose: I saw them when I put the 2014 figure next to the 2026 one and the axes did not line up.
+And what surprised me most was not finding errors, but which side they turned up on. I started out assuming the reconstruction would be the weak link. Once my own 2014 artefacts appeared —the Stata output, the spreadsheet, the embedded chart— the reconstruction turned out to look more like them than the document I signed.
+{: .text-justify}
+
+I would not have seen any of this arguing over numbers in prose: I saw it when I put the 2014 figure next to the 2026 one and the axes did not line up.
 {: .text-justify}
 
 ---
