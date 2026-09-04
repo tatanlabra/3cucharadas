@@ -761,7 +761,13 @@ def main():
 
     pub = build_graph(sanitize=True)
     args.public_json.parent.mkdir(parents=True, exist_ok=True)
-    args.public_json.write_text(json.dumps(pub, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Sin indent: son 0,55 MB de espacios en blanco sobre un artefacto que ya
+    # roza el limite de peso del sitio (60 MB) y que ninguna persona lee a mano
+    # --para inspeccionarlo esta `jq`--. El HTML del visor ya usaba separadores
+    # compactos en su copia inline; esto solo alinea el fichero suelto.
+    args.public_json.write_text(
+        json.dumps(pub, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
+    )
     if not args.json_only:
         args.public_html.parent.mkdir(parents=True, exist_ok=True)
         args.public_html.write_text(render_html(pub), encoding="utf-8")

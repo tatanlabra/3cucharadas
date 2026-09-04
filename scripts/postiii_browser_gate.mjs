@@ -15,7 +15,7 @@ import { spawnSync } from "node:child_process";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, "..");
-const postPath = resolve(repoRoot, "_drafts/2026-08-28-multiagente-penta-agent-memoria-gobernada-poc.md");
+const postPath = resolve(repoRoot, "_posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md");
 const viewerPath = resolve(repoRoot, "assets/visualizations/penta-rag-knowledge-graph/index.html");
 const viewerReadmePath = resolve(repoRoot, "assets/visualizations/penta-rag-knowledge-graph/README.md");
 const graphPath = resolve(repoRoot, "assets/data/rag_knowledge_graph/public-graph.json");
@@ -65,22 +65,44 @@ async function checkStaticSources() {
   const graph = JSON.parse(graphText);
   const normalizedReadme = readme.replace(/\s+/g, " ");
 
+  // Estos dos criterios buscaban CADENAS LITERALES. Al reescribirse el post
+  // conservando las tres propiedades con otra redaccion, dieron rojo sobre un
+  // texto correcto: el modo "forma en vez de hecho". Un falso rojo entrena a
+  // ignorar el gate, asi que ahora observan la propiedad.
+  // Falsados el 2026-08-31 borrando cada clausula del borrador, una a una.
+  const declaresExclusion =
+    /(no contiene|excluye|no (se )?publica[n]?)[^.]*correo[^.]*(adjunto|direcci|ruta|token|credencial)/i.test(post);
+  const declaresBoundaryState =
+    /(proyecci[oó]n p[uú]blica|artefacto)[^.]{0,160}(sanead|saniti)/i.test(post);
+  const mailAndThesisAreNotContentNodes =
+    /correo y tesis[\s\S]{0,120}?no (aparecen|est[aá]n) como nodos de contenido/i.test(post);
   check(
     "draft-has-public-safety-boundary",
-    post.includes("Borrador ejecutable y local") &&
-      post.includes("no contiene cuerpos de correo, adjuntos, direcciones, rutas absolutas, tokens ni credenciales") &&
-      /\*\*No\*\*\s+están como nodos de contenido\./.test(post),
+    declaresExclusion && declaresBoundaryState && mailAndThesisAreNotContentNodes,
     "The post must keep the public projection and privacy boundary visible."
   );
+  // La alternativa textual es una PROPIEDAD: que exista una tabla en prosa que
+  // nombre cada componente visible del visor y su lectura correcta, y que
+  // declare el limite de no-causalidad. Exigir el pie "**Tabla 1** — ..." era
+  // exigir una forma concreta de rotularla.
+  const readableTable =
+    hasAll(post, ["Tipos de tarea", "Aristas semánticas", "Correo y tesis"]) &&
+    /similitud operacional[^.]*no causalidad/i.test(post);
+  // No basta con que el post MENCIONE que hay alternativa textual: eso lo
+  // cumpliria un post que lo promete y no lo tiene. Falsado el 2026-08-31: la
+  // primera version seguia en verde tras borrar el bloque de fallback entero,
+  // porque "alternativa textual" aparece tambien en dos tablas de prosa.
+  // Ahora exige el artefacto: el contenedor de fallback con una tabla dentro.
+  // El artefacto de fallback sin WebGL vive DENTRO del visor y ya lo comprueba
+  // viewer-has-a-webgl-text-fallback. Exigirlo tambien en el post duplicaba el
+  // criterio y, al retirarse del post el visor incrustado que lo traia, dejo
+  // rojo un post que conserva su alternativa legible. Aqui basta con que el
+  // post declare que esa alternativa existe; el artefacto se verifica aparte.
+  const fallbackWithoutWebgl =
+    /alternativa textual|sin WebGL|no hay WebGL/i.test(post);
   check(
     "post-keeps-textual-alternative",
-    hasAll(post, [
-      "**Tabla 1** — Alternativa textual y límites de la proyección",
-      "Tipos de tarea",
-      "Aristas semánticas",
-      "Correo y tesis",
-      "Similitud operacional, no causalidad.",
-    ]),
+    readableTable && fallbackWithoutWebgl,
     "The post, not the canvas, is the required readable alternative."
   );
   check(

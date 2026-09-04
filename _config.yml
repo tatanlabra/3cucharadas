@@ -154,6 +154,12 @@ exclude:
   - "*.sublime-workspace"
   - vendor
   - public          # dir de salida de GitLab Pages; nunca tratarlo como fuente
+  # Una copia anidada del propio sitio no debe servirse jamas: Jekyll la compila
+  # como contenido y sus plantillas arrastran referencias a assets que no existen
+  # en esta raiz. Medido el 2026-08-31: activos/3cucharadas-nushell-release/
+  # metia 4 referencias rotas (assets/review.css y .js, en ES y en EN) y ponia
+  # rojo a verify_site_artifact.rb. La regla es del patron, no de ese directorio.
+  - activos
   - .redirect_build # salida temporal del redirector GitHub Pages
   - .asset-cache
   - .bundle

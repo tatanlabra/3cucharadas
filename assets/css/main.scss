@@ -2350,3 +2350,59 @@ html[data-theme="academic-night"] ::selection {
   background: var(--night-accent);
   color: var(--night-bg);
 }
+
+/* --- Visor del grafo RAG (post «Multiagentes III») ---------------------------
+ * Estas reglas vivian SOLO en assets/src/memoria_gobernada/styles.scss, que se
+ * compila al bundle de Vite y solo lo inyecta memoria-gobernada-loader.js
+ * cuando la pagina tiene un #memory-observatory. Al retirarse ese visor del
+ * post, la CSS dejaba de llegar y el iframe colapsaba a su alto por defecto:
+ * medido en navegador el 2026-08-31, 154 px en vez de 968 px, sin borde ni
+ * fondo. La seccion .rag-knowledge-graph es contenido del post, no del bundle,
+ * asi que su estilo va aqui, donde la sirve main.css sin depender de un loader.
+ * -------------------------------------------------------------------------- */
+.rag-knowledge-graph {
+  --rag-bg: #11121a;
+  --rag-panel: #191b28;
+  --rag-line: #333a5c;
+  --rag-ink: #edf1ff;
+  --rag-muted: #aeb8dc;
+  --rag-accent: #95a9ff;
+  margin: 2rem 0;
+  overflow: hidden;
+  border: 1px solid var(--rag-line);
+  border-radius: 18px;
+  background: var(--rag-bg);
+  color: var(--rag-ink);
+  box-shadow: 0 18px 42px rgba(13, 15, 26, .24);
+}
+
+.rag-knowledge-graph__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--rag-line);
+  background: linear-gradient(115deg, rgba(149, 169, 255, .12), transparent 48%), var(--rag-panel);
+}
+
+.rag-knowledge-graph__header h3 { margin: .05rem 0 .25rem; color: var(--rag-ink); }
+.rag-knowledge-graph__header p { margin: 0; color: var(--rag-muted); font-size: .9rem; }
+.rag-knowledge-graph__eyebrow { letter-spacing: .08em; font-size: .72rem !important; font-weight: 700; text-transform: uppercase; }
+.rag-knowledge-graph__open {
+  flex: 0 0 auto;
+  border: 1px solid var(--rag-accent);
+  border-radius: 999px;
+  padding: .48rem .82rem;
+  color: var(--rag-ink) !important;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.rag-knowledge-graph__open:hover,
+.rag-knowledge-graph__open:focus-visible { background: rgba(149, 169, 255, .18); outline: 3px solid #d5ddff; outline-offset: 2px; }
+.rag-knowledge-graph__frame { display: block; width: 100%; min-height: 44rem; border: 0; background: var(--rag-bg); }
+
+@media (max-width: 42em) {
+  .rag-knowledge-graph__header { align-items: flex-start; flex-direction: column; }
+  .rag-knowledge-graph__frame { min-height: 38rem; }
+}
