@@ -1,10 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1169" viewBox="0 0 1600 1169" role="img" aria-labelledby="title desc">
   <title id="title">Tres fuentes gobernadas para una memoria multiagente</title>
   <desc id="desc">Diagrama que distingue memoria de trabajo, correo personal y tesis o documentos de investigación. Cada fuente tiene una salida permitida distinta y ninguna autoriza publicar contenido sensible ni inferir identidad.</desc>
   <defs>
     <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#111a33"/>
-      <stop offset="1" stop-color="#080d1d"/>
+      <stop offset="0" stop-color="#111a33"/><stop offset="1" stop-color="#080d1d"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
       <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000615" flood-opacity=".35"/>
@@ -14,74 +13,72 @@
     </marker>
     <style>
       .bg { fill: url(#surface); }
-      .eyebrow { font: 700 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 3px; fill: #89a1c7; }
-      .heading { font: 700 52px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f3f7ff; }
-      .sub { font: 400 25px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #b8c6de; }
-      .label { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 2px; }
-      .cardtitle { font: 700 31px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f7faff; }
-      .body { font: 400 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #d4def0; }
-      .tiny { font: 500 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #a9b8d1; }
-      .out { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f5f8ff; }
-      .boundary { font: 650 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffd8d0; }
+      .eyebrow { font: 700 20px system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 3px; fill: #89a1c7; }
+      .heading { font: 700 46px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #f3f7ff; }
+      .sub { font: 400 24px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #b8c6de; }
+      .label { font: 700 18px system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 2px; }
+      .cardtitle { font: 700 29px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #f7faff; }
+      .body { font: 400 21px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #d4def0; }
+      .tiny { font: 500 17px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #a9b8d1; }
+      .out { font: 700 24px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #f5f8ff; }
+      .boundary { font: 650 23px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #ffd8d0; }
     </style>
   </defs>
-
-  <rect class="bg" width="1600" height="1040" rx="34"/>
+  <rect class="bg" width="1600" height="1169" rx="34"/>
   <circle cx="1460" cy="84" r="230" fill="#2675ff" opacity=".10"/>
-  <circle cx="101" cy="960" r="220" fill="#36d89a" opacity=".08"/>
-
+  <circle cx="101" cy="1089" r="220" fill="#36d89a" opacity=".08"/>
   <text x="88" y="94" class="eyebrow">MEMORIA GOBERNADA · CORTE LOCAL</text>
-  <text x="88" y="157" class="heading">Tres fuentes, tres permisos, una frontera pública</text>
+  <text x="88" y="157" class="heading">Tres fuentes, tres permisos, una frontera</text>
   <text x="88" y="202" class="sub">El valor no está en mezclarlo todo: está en preservar qué puede usarse, dónde y para qué.</text>
-
   <text x="88" y="280" class="label" fill="#7cb8ff">FUENTES AUTORIZADAS</text>
-  <text x="920" y="280" class="label" fill="#b8c6de">SALIDA QUE SÍ SE PERMITE</text>
-
+  <text x="912" y="280" class="label" fill="#b8c6de">SALIDA QUE SÍ SE PERMITE</text>
   <g filter="url(#shadow)">
-    <rect x="88" y="307" width="676" height="178" rx="22" fill="#142345" stroke="#377cf1" stroke-width="2"/>
-    <rect x="88" y="307" width="12" height="178" rx="6" fill="#57a4ff"/>
-    <text x="128" y="353" class="label" fill="#75b6ff">AHORA · RAG DE TRABAJO</text>
-    <text x="128" y="397" class="cardtitle">Handoffs, decisiones y resultados curados</text>
-    <text x="128" y="435" class="body">Fuente canónica local; Qdrant sólo es un índice regenerable.</text>
-    <text x="128" y="466" class="tiny">Pregunta útil: ¿qué evidencia respalda esta tarea o corrección?</text>
-
-    <rect x="88" y="532" width="676" height="178" rx="22" fill="#203025" stroke="#48c885" stroke-width="2"/>
-    <rect x="88" y="532" width="12" height="178" rx="6" fill="#57d995"/>
-    <text x="128" y="578" class="label" fill="#83edb4">PILOTO · CORREO PERSONAL</text>
-    <text x="128" y="622" class="cardtitle">Inventario local, no corpus compartido</text>
-    <text x="128" y="660" class="body">Cuerpos, adjuntos y direcciones permanecen fuera de Git.</text>
-    <text x="128" y="691" class="tiny">Pregunta útil: ¿existe una vía privada, reversible y con alcance explícito?</text>
-
-    <rect x="88" y="757" width="676" height="178" rx="22" fill="#302845" stroke="#a47af4" stroke-width="2"/>
-    <rect x="88" y="757" width="12" height="178" rx="6" fill="#bd95ff"/>
-    <text x="128" y="803" class="label" fill="#c8a9ff">INVESTIGACIÓN · TESIS Y DOCUMENTOS</text>
-    <text x="128" y="847" class="cardtitle">Metadatos, hashes, contratos y procedencia</text>
-    <text x="128" y="885" class="body">Entra trazabilidad; no microdatos ni resultados sin verificar.</text>
-    <text x="128" y="916" class="tiny">Pregunta útil: ¿de dónde proviene y bajo qué verificación vive una afirmación?</text>
+    <rect x="88" y="307" width="712" height="226" rx="22" fill="#142345" stroke="#377cf1" stroke-width="2"/>
+    <rect x="88" y="307" width="12" height="226" rx="6" fill="#57a4ff"/>
+    <text x="128" y="351" class="label" fill="#75b6ff">AHORA · RAG DE TRABAJO</text>
+    <text x="128" y="397" class="cardtitle">Handoffs, decisiones y resultados</text>
+    <text x="128" y="435" class="body">Fuente canónica local; Qdrant sólo es un índice</text>
+    <text x="128" y="461" class="body">regenerable.</text>
+    <text x="128" y="493" class="tiny">Pregunta útil: ¿qué evidencia respalda esta tarea</text>
+    <text x="128" y="514" class="tiny">o corrección?</text>
+    <rect x="88" y="557" width="712" height="226" rx="22" fill="#203025" stroke="#48c885" stroke-width="2"/>
+    <rect x="88" y="557" width="12" height="226" rx="6" fill="#57d995"/>
+    <text x="128" y="601" class="label" fill="#83edb4">PILOTO · CORREO PERSONAL</text>
+    <text x="128" y="647" class="cardtitle">Inventario local, no corpus</text>
+    <text x="128" y="685" class="body">Cuerpos, adjuntos y direcciones permanecen</text>
+    <text x="128" y="711" class="body">fuera de Git.</text>
+    <text x="128" y="743" class="tiny">Pregunta útil: ¿existe una vía privada, reversible</text>
+    <text x="128" y="764" class="tiny">y con alcance explícito?</text>
+    <rect x="88" y="807" width="712" height="226" rx="22" fill="#302845" stroke="#a47af4" stroke-width="2"/>
+    <rect x="88" y="807" width="12" height="226" rx="6" fill="#bd95ff"/>
+    <text x="128" y="851" class="label" fill="#c8a9ff">INVESTIGACIÓN · TESIS Y DOCUMENTOS</text>
+    <text x="128" y="897" class="cardtitle">Metadatos, hashes y contratos</text>
+    <text x="128" y="935" class="body">Entra trazabilidad; no microdatos ni resultados</text>
+    <text x="128" y="961" class="body">sin verificar.</text>
+    <text x="128" y="993" class="tiny">Pregunta útil: ¿de dónde proviene y bajo qué</text>
+    <text x="128" y="1014" class="tiny">verificación vive una afirmación?</text>
   </g>
-
-  <path d="M 790 396 C 842 396, 860 396, 900 396" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M 790 621 C 842 621, 860 621, 900 621" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M 790 846 C 842 846, 860 846, 900 846" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
-
+  <path d="M 812 420 C 852 420, 866 420, 898 420" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 812 670 C 852 670, 866 670, 898 670" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 812 920 C 852 920, 866 920, 898 920" fill="none" stroke="#93a4c4" stroke-width="4" marker-end="url(#arrow)"/>
   <g filter="url(#shadow)">
-    <rect x="926" y="307" width="578" height="178" rx="22" fill="#101c36" stroke="#377cf1" stroke-width="2"/>
-    <text x="966" y="366" class="out">Recuperación con procedencia</text>
-    <text x="966" y="404" class="body">Contexto para agentes y grafo público saneado.</text>
-    <text x="966" y="439" class="tiny">La visualización muestra trabajo; no prueba comprensión.</text>
-
-    <rect x="926" y="532" width="578" height="178" rx="22" fill="#16261c" stroke="#48c885" stroke-width="2"/>
-    <text x="966" y="591" class="out">Revisión privada y reversible</text>
-    <text x="966" y="629" class="body">Agregados autorizados, FTS local, purga y veto.</text>
-    <text x="966" y="664" class="tiny">No genera un perfil ni alimenta el RAG público.</text>
-
-    <rect x="926" y="757" width="578" height="178" rx="22" fill="#261d36" stroke="#a47af4" stroke-width="2"/>
-    <text x="966" y="816" class="out">Citas y estado de verificación</text>
-    <text x="966" y="854" class="body">Contratos y hashes para revisar una afirmación.</text>
-    <text x="966" y="889" class="tiny">No expone microdatos ni replica resultados históricos.</text>
+    <rect x="912" y="307" width="592" height="226" rx="22" fill="#101c36" stroke="#377cf1" stroke-width="2"/>
+    <text x="952" y="385" class="out">Recuperación con procedencia</text>
+    <text x="952" y="427" class="body">Contexto para agentes y grafo público saneado.</text>
+    <text x="952" y="471" class="tiny">La visualización muestra trabajo;</text>
+    <text x="952" y="495" class="tiny">no prueba comprensión.</text>
+    <rect x="912" y="557" width="592" height="226" rx="22" fill="#16261c" stroke="#48c885" stroke-width="2"/>
+    <text x="952" y="635" class="out">Revisión privada y reversible</text>
+    <text x="952" y="677" class="body">Agregados autorizados, FTS local, purga y veto.</text>
+    <text x="952" y="721" class="tiny">No genera un perfil</text>
+    <text x="952" y="745" class="tiny">ni alimenta el RAG público.</text>
+    <rect x="912" y="807" width="592" height="226" rx="22" fill="#261d36" stroke="#a47af4" stroke-width="2"/>
+    <text x="952" y="885" class="out">Citas y estado de verificación</text>
+    <text x="952" y="927" class="body">Contratos y hashes para revisar una afirmación.</text>
+    <text x="952" y="971" class="tiny">No expone microdatos</text>
+    <text x="952" y="995" class="tiny">ni replica resultados históricos.</text>
   </g>
-
-  <rect x="88" y="954" width="1416" height="66" rx="16" fill="#3b1820" stroke="#d66e78" stroke-width="1.5"/>
-  <text x="116" y="982" class="boundary">Frontera pública: no salen cuerpos de correo, adjuntos, direcciones, rutas absolutas ni microdatos.</text>
-  <text x="116" y="1009" class="boundary">Tampoco se infieren identidad, preferencias o estados de terceros.</text>
+  <rect x="88" y="1061" width="1416" height="80" rx="16" fill="#3b1820" stroke="#d66e78" stroke-width="1.5"/>
+  <text x="120" y="1096" class="boundary">Frontera pública: no salen cuerpos de correo, adjuntos, direcciones, rutas absolutas ni microdatos.</text>
+  <text x="120" y="1125" class="boundary">Tampoco se infieren identidad, preferencias o estados de terceros.</text>
 </svg>

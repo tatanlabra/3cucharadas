@@ -35,4 +35,17 @@
   ref_interno: multiagente-penta-agent-memoria
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-memoria/
   titulo_usado: 'Multiagentes en 3 cucharadas II: una memoria que se puede auditar'
-  publicaciones: []
+  publicaciones:
+  # Reconciliado el 2026-08-31 contra difusion/state/ledger.jsonl. La entrada
+  # llevaba `publicaciones: []` desde julio pese a que el ledger registra
+  # network_published para las dos redes el 2026-07-24.
+  - plataforma: mastodon
+    fecha: 2026-07-24
+    url_publicada: https://mastodon.social/@asiole/116975684210603500
+    url_publicada_en: https://mastodon.social/@asiole/116975684248510829
+    resultado_30d: null
+  - plataforma: bluesky
+    fecha: 2026-07-24
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mrfoiq6q6e2n
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mrfois2d4q2x
+    resultado_30d: null

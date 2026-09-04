@@ -1,0 +1,84 @@
+# Manifest de activos visuales del post.
+#
+# Se escribe A MANO. Nunca se deriva del post: si se dedujera de él heredaría sus
+# errores en vez de detectarlos, que es justo lo contrario de lo que se busca.
+# El post es lo que se verifica; este archivo es contra qué se verifica.
+#
+# Lo valida scripts/verify_visual_assets.rb (gate de CI).
+
+slug: multiagente-penta-agent-memoria-gobernada
+ref: multiagente-penta-agent-memoria-gobernada-poc
+posts:
+  - _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  - _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+
+piezas:
+  # --- Generadas con IA externa desde los prompts de source/readme.md ---
+  - id: hero
+    rol: hero
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/hero-memoria-gobernada-1600x900.webp
+    ancho: 1600
+    alto: 900
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Cuatro plataformas separadas —memoria de trabajo, correo personal sellado bajo una cúpula de cristal, índice de tesis y proyección pública— con una membrana translúcida que solo deja pasar tres salidas permitidas hacia la esfera central."
+    advertencias:
+      - "No usar como teaser: a tamaño tarjeta las cuatro etiquetas quedan ilegibles y la membrana se lee como un artefacto."
+      - "La escena es deliberadamente NO cerebral. El post argumenta que lo que hay es un registro de trabajo con procedencia, no cognición, y el teaser del Post II era un cerebro holográfico."
+      - "La esfera se ve hueca a propósito: la proyección pública es derivada, no la cosa misma."
+
+  - id: og
+    rol: og
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
+    ancho: 1200
+    alto: 630
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Cuatro fuentes gobernadas y la frontera que separa lo que puede salir de lo que no."
+    advertencias:
+      - "Reencuadre manual desde el hero, no recorte ciego: se recorta altura desde y=40 para conservar la esfera completa arriba y la fila de etiquetas abajo, que es lo único que explica la escena."
+
+  - id: teaser
+    rol: teaser
+    archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada.webp
+    ancho: 1280
+    alto: 720
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Una esfera de malla hueca sobre una plataforma, con tres hilos de luz que descienden y dejan huellas circulares que siguen brillando."
+    advertencias:
+      - "Sin texto a propósito: se muestra a 640x360 en la portada y cualquier tipografía dentro queda ilegible, además de duplicar el titular que ya va en HTML al lado."
+      - "Las huellas son el título del post: una memoria que deja huellas."
+
+  - id: teaser-640
+    rol: teaser
+    archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada-640.webp
+    ancho: 640
+    alto: 360
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Miniatura de la esfera de malla hueca y sus tres huellas luminosas."
+
+  # --- Diagramas generados por script, no por IA ---
+  - id: figura-1-es
+    rol: figura
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg
+    estado: publicable
+    origen: render-script
+    cifras: []
+    advertencias:
+      - "Versión informativa de la misma escena del hero: aquí sí se declaran las salidas permitidas y la frontera pública, con su texto legible."
+      - "Geometría medida en navegador, no estimada: tarjetas de 712x226 a la izquierda y 592x226 a la derecha, con 24 px de margen horizontal y 12 vertical. La versión anterior tenía siete textos fuera de su caja, hasta 88 px."
+
+  - id: figura-1-en
+    rol: figura
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg
+    estado: publicable
+    origen: render-script
+    cifras: []
+    advertencias:
+      - "Gemela inglesa de figura-1-es. El post EN debe apuntar a esta, no a la versión española."
