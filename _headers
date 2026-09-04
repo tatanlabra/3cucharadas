@@ -20,13 +20,24 @@
 # Publicar una CSP efectiva sin haber observado violaciones reales rompería el visor
 # en producción. Promover a Content-Security-Policy sólo tras una publicación
 # completa con la consola limpia.
+#
+# X-Frame-Options es SAMEORIGIN, no DENY. DENY prohibe el empotrado en CUALQUIER
+# iframe, incluido el del propio sitio, y con el los visores de los posts se
+# publican como una caja vacia con el icono de documento roto. Medido el
+# 2026-09-04 sobre el post «Multiagentes III» ya en produccion: el iframe daba
+# contentDocument nulo y la misma URL abierta directa cargaba entera. SAMEORIGIN
+# no relaja nada frente a terceros —seguir siendo imposible empotrar el sitio
+# desde otro dominio, que es de lo que protege esta cabecera—; solo deja de
+# bloquear al sitio contra si mismo. Por lo mismo, la CSP lleva frame-ancestors
+# 'self' y frame-src 'self': si se promoviera a efectiva con 'none' volveria a
+# romper los visores el dia que alguien la active.
 
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
-  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.disquscdn.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://*.disquscdn.com https://referrer.disqus.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://tiles.3cucharadas.cl https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.disqus.com; worker-src 'self' blob:; frame-src https://disqus.com; form-action 'self'
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.disquscdn.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://*.disquscdn.com https://referrer.disqus.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://tiles.3cucharadas.cl https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.disqus.com; worker-src 'self' blob:; frame-src 'self' https://disqus.com; form-action 'self'
 
 # Los PMTiles y el manifest se sirven desde R2, no desde Pages. Aquí sólo viajan los
 # datos agregados comunales, que son públicos por diseño.
