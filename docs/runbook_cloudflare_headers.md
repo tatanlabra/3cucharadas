@@ -128,6 +128,12 @@ predecible. **Usa `Set` en las cinco.**
 
 ### Regla 1 — `seguridad-global`
 
+> **Cambiado el 2026-09-04: `DENY` → `SAMEORIGIN`.** Con `DENY` ningun visor
+> empotrado del sitio se ve, ni siquiera siendo del mismo origen: el navegador
+> devuelve una caja vacia con el icono de documento roto. Se detecto con el post
+> «Multiagentes III» ya publicado. `SAMEORIGIN` sigue impidiendo que un tercero
+> empotre 3cucharadas.cl, que es de lo unico que protege esta cabecera.
+
 Expresión (pestaña *Edit expression*):
 ```
 (http.host eq "3cucharadas.cl" or http.host eq "www.3cucharadas.cl")
@@ -136,14 +142,14 @@ Expresión (pestaña *Edit expression*):
 | Header | Value |
 |---|---|
 | `X-Content-Type-Options` | `nosniff` |
-| `X-Frame-Options` | `DENY` |
+| `X-Frame-Options` | `SAMEORIGIN` |
 | `Referrer-Policy` | `strict-origin-when-cross-origin` |
 | `Permissions-Policy` | `geolocation=(), microphone=(), camera=(), interest-cohort=()` |
 
 Y `Content-Security-Policy-Report-Only` (una sola línea, 710 caracteres):
 
 ```
-default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.disquscdn.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://*.disquscdn.com https://referrer.disqus.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://tiles.3cucharadas.cl https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.disqus.com; worker-src 'self' blob:; frame-src https://disqus.com; form-action 'self'
+default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.disquscdn.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://*.disquscdn.com https://referrer.disqus.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://tiles.3cucharadas.cl https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.disqus.com; worker-src 'self' blob:; frame-src 'self' https://disqus.com; form-action 'self'
 ```
 
 ### Regla 2 — `cache-assets-dist`
