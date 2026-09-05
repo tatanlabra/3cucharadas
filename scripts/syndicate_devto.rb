@@ -1,12 +1,11 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Fase 4.3 (archivo/handoffs/difusion/HANDOFF-2026-07-25-distribucion-3cucharadas.md):
-# sindicación automatizada a dev.to, solo para posts marcados `sindicar: true`
-# con `valor_seo: bajo|medio` en el front matter EN. Publica siempre como
-# borrador (published: false) — nunca lo hace público. Guarda el id remoto
-# en _data/distribucion.yml (mismo esquema que usa Fase 3, reutilizado, no
-# duplicado) para permitir actualizaciones y evitar duplicados.
+# Sindicación automatizada a dev.to para posts EN que declaran
+# `distribution.republish: [dev]`; `sindicar: true` se acepta solo como alias
+# heredado. Los artículos nuevos se crean como borrador. Los ya registrados se
+# actualizan sin enviar `published`, por lo que conservan su estado remoto.
+# El id se guarda en _data/distribucion.yml para actualizar sin duplicar.
 #
 # Fusible: sin DEV_TO_API_KEY configurado, no hace nada. Así el workflow
 # puede existir y correr sin que nadie active la sindicación real hasta que
@@ -113,6 +112,9 @@ end
 # Dias desde la publicacion dentro de los cuales un post puede CREARSE en dev.to
 # sin intervencion explicita. Mas alla, hace falta --backlog.
 VENTANA_SINDICACION_DIAS = Integer(ENV.fetch("DEVTO_VENTANA_DIAS", "21"))
+# Segundos entre creaciones. Medido el 2026-09-05: cuatro creaciones seguidas
+# dieron 429 en tres de ellas.
+PAUSA_CREACION = Integer(ENV.fetch("DEVTO_PAUSA_CREACION", "35"))
 BACKLOG = ARGV.include?("--backlog") || ENV["DEVTO_BACKLOG"] == "1"
 
 def slug_from_permalink(permalink)
@@ -235,6 +237,8 @@ end
 comentarios = capturar_comentarios(distribucion_path)
 entries = File.file?(distribucion_path) ? (YAML.safe_load_file(distribucion_path, permitted_classes: [Date, Time]) || []) : []
 changed = false
+fallos = []
+creados = 0
 
 eligible.each do |post|
   entry = entries.find { |e| e["slug"] == post[:slug] }
@@ -288,12 +292,22 @@ eligible.each do |post|
   if existente
     code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{devto_pub['devto_article_id']}", payload)
   else
+    # dev.to limita la CREACION de articulos --no la actualizacion-- y con
+    # `--backlog` se crean varios seguidos. El 2026-09-05 tres de cuatro
+    # creaciones murieron con 429 en la misma corrida, y el workflow lo reporto
+    # como `success`. Se espacian; la primera no espera.
+    sleep(PAUSA_CREACION) unless creados.zero?
+    creados += 1
     code, body = devto_request(api_key, Net::HTTP::Post, "/articles", payload)
   end
 
   ok = code.between?(200, 299)
-  puts "#{post[:slug]}: #{devto_pub ? 'actualización' : 'creación'} dev.to #{ok ? 'OK' : "FALLÓ (#{code})"}"
-  next unless ok
+  detalle = ok ? "OK" : "FALLÓ (#{code}#{body.is_a?(Hash) && body['error'] ? ": #{body['error']}" : ''})"
+  puts "#{post[:slug]}: #{devto_pub ? 'actualización' : 'creación'} dev.to #{detalle}"
+  unless ok
+    fallos << "#{post[:slug]}: #{code}#{body.is_a?(Hash) && body['error'] ? " #{body['error']}" : ''}"
+    next
+  end
 
   devto_pub ||= { "plataforma" => "devto" }
   devto_pub["fecha"] ||= Date.today.to_s
@@ -311,4 +325,13 @@ if dry_run
 else
   File.write(distribucion_path, restaurar_comentarios(entries.to_yaml, comentarios)) if changed
   puts "Listo. #{eligible.length} post(s) elegibles procesados."
+end
+
+# Salir 0 con creaciones caidas es lo que dejo el workflow en verde mientras tres
+# de cuatro articulos no se creaban. Un fallo que no interrumpe a nadie no es un
+# fallo detectado.
+unless fallos.empty?
+  warn "\nFallaron #{fallos.length} llamada(s) a dev.to:"
+  fallos.each { |f| warn "  - #{f}" }
+  exit 1
 end
