@@ -83,6 +83,11 @@ __pycache__/
 /difusion/state/
 /difusion/linkedin/*.pdf
 /difusion/linkedin/*.png
+# Las laminas de X son la misma clase de artefacto que el PDF de LinkedIn: se
+# regeneran desde el HTML con un comando que documenta la propia pieza. El
+# fuente se versiona, el render no.
+/difusion/x/*.png
+/difusion/x/laminas/
 /difusion/**/__pycache__/
 /difusion/.venv/
 /difusion/*.egg-info/

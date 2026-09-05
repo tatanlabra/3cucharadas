@@ -20,6 +20,9 @@ Environment:
   LINKEDIN_CAROUSEL_PDF           Override PDF output path.
   LINKEDIN_CAROUSEL_PREVIEW       Override preview output path.
   LINKEDIN_CAROUSEL_PREVIEW_COLS  Preview columns. Default: 3 for <=6 slides, 4 otherwise.
+  CAROUSEL_SLIDES_DIR             Keep each slide as its own PNG in this directory.
+                                  LinkedIn consumes the PDF; X consumes one PNG
+                                  per post, and those died in the temp dir.
 USAGE
 }
 
@@ -109,6 +112,16 @@ partes += re.findall(r"<style>(.*?)</style>", html, re.S | re.I)
 if not partes:
     raise SystemExit("El HTML no trae CSS: ni <style> ni <link rel=stylesheet>.")
 
+# La clase del <body> original tenia que viajar a cada lamina. Sin esto, un
+# carrusel que declara `<body class="formato-x">` se renderizaba con la
+# tipografia vertical dentro de la caja apaisada: el titulo salia a 83px en vez
+# de 62, la cita ocupaba los 1600px enteros y se escribia encima del glifo de
+# fondo. Y no fallaba nada: las imagenes salian 1600x900 porque ese tamano lo
+# impone el override de abajo, no la hoja. Una comprobacion de geometria en
+# verde que no probaba nada.
+m_body = re.search(r'<body([^>]*)>', html, re.I)
+body_attrs = m_body.group(1) if m_body else ""
+
 sections = re.findall(r'<section class="slide">.*?</section>', html, re.S)
 if not sections:
     raise SystemExit('El HTML no contiene <section class="slide">.')
@@ -132,7 +145,7 @@ for index, section in enumerate(sections, 1):
 <style>{style}
 {override}</style>
 </head>
-<body>
+<body{body_attrs}>
 {section}
 </body>
 </html>
@@ -173,12 +186,27 @@ for n in $(seq 1 "$slide_count"); do
 done
 
 "${image_cmd[@]}" "${slides[@]}" "$pdf_path"
+# La miniatura estaba fijada a 500x625, que es la proporcion de la lamina
+# vertical. Con una apaisada de 1600x900 ImageMagick no la deforma --respeta el
+# aspecto-- pero deja cada celda con 200 px de banda muerta arriba y abajo, y el
+# contacto se vuelve ilegible. Se deriva del tamano real de la lamina.
+thumb_w=500
+thumb_h="$(( 500 * height / width ))"
 montage "${slides[@]}" \
-  -thumbnail 500x625 \
+  -thumbnail "${thumb_w}x${thumb_h}" \
   -tile "${preview_cols}x" \
-  -geometry 500x625+24+24 \
+  -geometry "${thumb_w}x${thumb_h}+24+24" \
   -background '#0c0d12' \
   "$preview_path"
+
+if [[ -n "${CAROUSEL_SLIDES_DIR:-}" ]]; then
+  mkdir -p "$CAROUSEL_SLIDES_DIR"
+  for n in $(seq 1 "$slide_count"); do
+    i="$(printf "%02d" "$n")"
+    command cp -f "$workdir/slide-$i.png" "$CAROUSEL_SLIDES_DIR/$(basename "$stem")-$i.png"
+  done
+  printf 'slides_dir=%s\n' "$CAROUSEL_SLIDES_DIR"
+fi
 
 printf 'slides=%s\n' "$slide_count"
 printf 'pdf=%s\n' "$pdf_path"

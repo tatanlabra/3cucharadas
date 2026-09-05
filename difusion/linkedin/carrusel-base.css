@@ -267,6 +267,12 @@ p{margin:0}
   font-size:31px;
   line-height:1.34;
 }
+/* Cada <span> del drift es un hecho distinto --corpus, indice, salida del
+ * gate-- y venian corridos en un solo parrafo: "corpus 796 -> 817 documentos
+ * indice no regenerado check-research-index sale 2". Se apilan. El selector
+ * lleva `>span` a proposito: el drift de ai-quota-hud usa <div>+<b> y no debe
+ * cambiar. */
+.drift>span{display:block}
 .drift b{color:var(--green)}
 .drift .warn{color:var(--amber)}
 .urlbox{
@@ -293,6 +299,60 @@ p{margin:0}
   letter-spacing:0;
   text-transform:uppercase;
 }
+/* --- Formato apaisado 1600x900, para X/Twitter -------------------------------
+ * X recorta a 16:9 en la vista de timeline: una lamina 1080x1350 llega ahi
+ * cortada por arriba y por abajo, y lo primero que pierde es el titulo. En vez
+ * de una hoja aparte --que es como nacieron las 909 lineas duplicadas que este
+ * fichero vino a borrar-- la variante se declara aqui: misma paleta, misma
+ * retícula, misma tipografia, solo la caja y la escala cambian. Se activa con
+ * `<body class="formato-x">`.
+ * La escala es ~0,88x sobre la portrait. El primer intento uso 0,72x razonando
+ * solo por altura util (1350 -> 900); al mirar las laminas rendereadas quedaban
+ * medio vacias, porque el ancho sube de 1080 a 1600 y el limite deja de ser
+ * vertical antes de agotarlo. En el timeline de X la lamina se ve pequena, asi
+ * que el texto pierde mas por quedarse corto que por apretar. Nota original:
+ * la altura
+ * util cae de 1350 a 900 px (0,667) y el ancho sube de 1080 a 1600 (1,48), asi
+ * que el limite es vertical y el texto tiene que encoger en esa proporcion mas
+ * el margen que deja el ancho extra.
+ */
+body.formato-x .hint{width:1600px}
+body.formato-x .slide{
+  width:1600px;
+  aspect-ratio:1600/900;
+}
+body.formato-x .pad{padding:40px 56px 40px 68px}
+body.formato-x .glyph{font-size:186px;right:38px;bottom:34px}
+body.formato-x .glyph.top{right:48px;top:56px;bottom:auto}
+/* En 1600x900 el glifo `.top` invadia el final de la cita: en la lamina 03 la
+ * palabra "mas" quedaba escrita encima del 02. La lamina vertical no lo sufre
+ * porque ahi la cita tiene 1080 px y el glifo cae mas abajo. Se acota la caja
+ * del texto en vez de encoger el glifo, que es lo que da la textura de fondo. */
+body.formato-x .quote{max-width:30ch}
+body.formato-x .eyebrow{font-size:23px}
+body.formato-x .rule{margin-top:13px}
+body.formato-x .body{gap:18px}
+body.formato-x h1{font-size:78px;max-width:17ch}
+body.formato-x h1.title{font-size:74px;max-width:18ch}
+body.formato-x h1.wide{max-width:20ch}
+body.formato-x h1.full{max-width:23ch}
+body.formato-x .lead{font-size:39px;max-width:38ch}
+body.formato-x .highlight{font-size:52px;max-width:29ch}
+body.formato-x .note{font-size:31px;max-width:60ch}
+body.formato-x .pill{font-size:25px;padding:10px 16px}
+body.formato-x .quote{font-size:40px;padding:22px 30px;border-left-width:9px}
+body.formato-x .metric{max-width:1340px}
+body.formato-x .metric div{padding:17px 21px}
+body.formato-x .metric strong{font-size:47px}
+body.formato-x .metric span{font-size:23px;margin-top:7px}
+body.formato-x .drift{font-size:29px;padding:22px 27px;max-width:1340px}
+body.formato-x .urlbox{font-size:29px;padding:19px 24px;max-width:1340px}
+body.formato-x .foot{font-size:20px}
+
+@media print{
+  body.formato-x .slide{width:1600px;height:900px}
+}
+
 @media print{
   @page{size:1080px 1350px;margin:0}
   html,body{background:#101116}
