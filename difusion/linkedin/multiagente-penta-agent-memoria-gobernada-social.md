@@ -14,7 +14,7 @@ Tercera parte: cuatro fuentes separadas por contrato, no fusionadas.
 
 Varias mejoras de recuperación probadas, una promovida. Y una compuerta que publico en rojo a propósito.
 
-#RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=es
+#RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=es
 
 ### EN reply
 
@@ -24,7 +24,7 @@ Part three: four sources kept apart by contract, not merged.
 
 Several retrieval improvements tested, one promoted. And a gate I am publishing red on purpose.
 
-#RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=en
+#RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=en
 
 ## Bluesky
 
@@ -34,7 +34,7 @@ Ya recuperaba bien. La pregunta pasó a ser qué persiste, qué caduca y qué nu
 
 Varias mejoras probadas, una promovida. El reordenador ordenaba mejor y aun así lo rechacé: el tiempo de respuesta subía demasiado.
 
-https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=es
+https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=es
 
 ### ES reply
 
@@ -48,7 +48,7 @@ Retrieval was already fine. The question became what should persist, what should
 
 Several improvements tested, one promoted. The reranker ranked better and I rejected it anyway: response time grew too much.
 
-https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=en
+https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=en
 
 ### EN reply
 
