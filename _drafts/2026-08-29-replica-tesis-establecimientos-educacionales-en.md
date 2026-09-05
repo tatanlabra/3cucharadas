@@ -48,6 +48,7 @@ If it is accurate, it serves me as credential and as bias at once. Daniel Hojman
 
 ## Reading contract
 
+
 | Concept | What it means here | What it does not mean |
 |---|---|---|
 | **Replication** | Producing my figures, tables and estimates again from the data, with new code. | Recovering the 2014 run: environment, temporary files and the real order of my commands **were not recovered**. |
@@ -63,6 +64,7 @@ If it is accurate, it serves me as credential and as bias at once. Daniel Hojman
 {: .small}
 
 ## Spoonful 1: what I rebuilt, and what the rebuilt things mean
+
 
 Chile funds schooling with a per-pupil subsidy that follows the student, so three types of provider coexist: municipal, publicly funded private, and fee-paying private.
 {: .text-justify}
@@ -105,9 +107,12 @@ The substance of the table is more uncomfortable than its arithmetic: **the scho
 That describes selection, not an effect: I do not observe what would have happened to those pupils without the closure.
 {: .text-justify}
 
-## Spoonful 2: an error of the past or an error of the present?
+## Spoonful 2: the machinery for not being able to rule in my own favour
 
 When a cell fails to match, what matters is whose error it is. Without an explicit criterion the discussion turns into a contest of opinions in which I always have the last word, which is exactly where an author auditing himself should not be.[^dewald]
+{: .text-justify}
+
+This spoonful is the machinery, and it has five pieces: an **oracle** comparing my Python against Stata, the **2014 artefacts** that turned up halfway through, a **third column** to decide in my place, a **taxonomy** telling four ways of not knowing apart, and **checks that can fail**. None of the five is interesting on its own; together they are what stops the answer from always being the one that suits me.
 {: .text-justify}
 
 My criterion was to build an oracle. I reimplemented, under control and from a versioned snapshot of the code, the route that produces the descriptive tables, and ran it on Stata 17 against my Python version: **44 cells, maximum absolute difference of 3.6·10⁻¹²**.
@@ -120,6 +125,7 @@ A month later that caveat was half lifted. The 2014 run is still lost —environ
 {: .text-justify}
 
 ### Twelve artefacts of mine, found
+
 
 Combing the source tree first surfaced five objects that produced the published numbers directly: the `outreg` output of the hierarchical model, two sheets of my working spreadsheet, a third with the SIMCE gap, and a chart embedded inside the manuscript with its series still in it. A second pass, this time crossing **every** document against **every** published figure, took the count to **twelve** artefacts serving as a third column —eleven certify some published figure and one turned out to measure something similar but different—. The search covered everything the tree keeps, and that matters as much as the find:
 {: .text-justify}
@@ -146,6 +152,7 @@ Take the mobility figure: the shares in my spreadsheet sit **3.05 points** from 
 
 ### The coefficient that did not come from my own output
 
+
 My hierarchical model table publishes **0.003** for the lagged SIMCE mathematics score. The 2014 Stata output that produced that table prints **0.001**.
 {: .text-justify}
 
@@ -162,6 +169,7 @@ And it is not alone. In that same table the intercept variance is published as *
 {: .text-justify}
 
 ### The table that publishes logarithms as variances
+
 
 Combing the tree turned up a third output, `xtmixed_modelo_final.doc`, which reproduces **20 of the 21 values** of one of my hierarchical model's specifications. The document holds 24 numbers in total: there is no room for coincidence.
 {: .text-justify}
@@ -185,6 +193,7 @@ In the same table, the publicly funded private coefficient was published as **1.
 
 ### The third column
 
+
 Up to here this post compares **two** things: what I published in 2014 and what my reconstruction measures. With two columns, «they match» and «it is right» are indistinguishable —a reconstruction that inherits the original's error produces a perfect green— and green is exactly what nobody looks at twice.
 {: .text-justify}
 
@@ -206,7 +215,11 @@ When my own artefacts appeared, a third column appeared with them, and with it a
 Twenty-five of the 34 have a third source. The deciding column comes from my own producer in 18 cases, from a Stata re-execution in 4, from an external disciplinary standard in 2, and from an internal contradiction in the text itself in 1.
 {: .small}
 
+The inherited match is what justifies the whole apparatus, and it is the concentration index: the published figure says 1,534 and my reconstruction measures 1,517.5, a 1.3 % difference. **They match, and both are wrong**, because my reconstruction adopted my 2014 self's scale without asking where it came from.
+{: .text-justify}
+
 ### Four ways of not knowing, and only one is laziness
+
 
 For months that last row read **thirteen unadjudicated**, and read that way they looked like thirteen identical holes. They were not, and confusing them was my error, not 2014's.
 {: .text-justify}
@@ -230,8 +243,7 @@ The distinction is not cosmetic. A limit with a ceiling says "searched across 14
 That last zero took three weeks and is the only thing in this post I let myself celebrate. It does not mean everything is settled: it means **nothing was left without saying why**.
 {: .text-justify}
 
-The inherited match is what justifies the whole apparatus, and it is the concentration index: the published figure says 1,534 and my reconstruction measures 1,517.5, a 1.3 % difference. **They match, and both are wrong**, because my reconstruction adopted my 2014 self's scale without asking where it came from.
-{: .text-justify}
+### The oracle: the coefficients match, the stars do not
 
 The duration model needed its own check, and that is where it got interesting. I model the probability that a school exits in year $$t$$ given that it was still open, with a complementary log-log link, the standard specification when the event is observed by periods rather than in continuous time:[^jenkins]
 {: .text-justify}
@@ -279,7 +291,31 @@ The co-payment table carries an exact example of that broken chain. Its footnote
 And a number I would rather not write: of the **30 revision proposals** this audit produced, only **12 today carry a traceable claim with its hash**. The other 18 are labelled proposal or unverified, and that is how they must be read. Anyone taking all 30 as findings has read this post backwards.
 {: .text-justify}
 
-## Spoonful 3: the findings that change a reading
+### The 2014 engine as judge
+
+The third column had a fourth provenance I was slow to see, because it stood too close. What settled the last judgements was not a new artefact: it was **running the original engine again**. Stata 17 MP, over the `.dta` files from 2013 and 2014 that survived, executing my `do-file`'s commands exactly as written —with the version prefix, because the `table` syntax of the time no longer exists—.
+{: .text-justify}
+
+That is a third column in its own right, and it settled four judgements. In two it confirmed what I published: the SIMCE gap for closing voucher schools comes out at 10.20 points with an interval excluding zero, and the seven communes are seven. In a third, the missing denominator. And in the fourth, what I least expected happened.
+{: .text-justify}
+
+### A check that has never been seen red is not a check
+
+
+None of the above is worth anything if the checks holding it up cannot fail. So the rule is to break them on purpose, verify they fail, restore them and verify they pass again, recording the concrete red case. There are **103 observed red cases** on record across 49 contracts; in this last round there were eleven.
+{: .text-justify}
+
+With a number I do not like and include anyway: of the project's **390 checks**, only **111 carry a recorded red case** —28 %—. The other 279 are declared as debt, not as green. A check without a red case is not a check: it is an intention.
+{: .text-justify}
+
+Two of those breaks taught more than the twenty-three that behaved. The first: **one check did not bite**. I added the Metropolitan Region —which under the same recipe gives 19.4 % where the six regions in the text give 78.3 %— to the region set of the mobility figure, and nothing went red. The check measured how much the result moved across definitions of the universe, but it did not pin down **which** the six regions were. A wrong set passed silently. I fixed it and broke it again; now it fails.
+{: .text-justify}
+
+The second came from earlier and is more uncomfortable: a check required that human review decisions remain pending. It went red exactly when the system was right —as the last one was resolved, a perfectly healthy queue failed—. A check being green does not say it is checking; sometimes it says it has never been given the chance to fail.
+{: .text-justify}
+
+## Spoonful 3: what the machinery found
+
 
 **1. My exit marker did not mark exits.** The variable `id_salida` correlates −0.977 with the calendar year: it falls from 1,676 flagged cases in 1992 to exactly 0 in 2012, while effective exits range between 42 and 290 with no trend (ρ = +0.382). It does not say «closed», it says «will close in some year within the window»: a school closing in 2011 is flagged in every prior year and in none after.
 {: .text-justify}
@@ -363,26 +399,10 @@ One minor discrepancy remains, which I declare rather than hide: the recipe yiel
 One debt left is not an error but an absence: the Schumpeterian frame organises my title, my abstract and my conclusion, but I never tested it. The reallocation decomposition separating improvement within incumbents from that coming from entry and exit —the standard in the very literature I was citing— is not in the document.[^griliches]
 {: .text-justify}
 
-## Where the audit landed
+### The verdicts where the error is mine, today
 
-Twenty-six objects between tables and figure panels. Ten reproduce what was published; eleven diverge with a measured mechanism —a label, a universe, a scale, a rounding convention—; **none is left diverging without an explanation**; five admit no numerical test, and none of those five for want of work: three assert a shape with no magnitude to be measured against, and two have as their only claim the provenance of their code, already verified by hash.
+The eight findings above are, almost all of them, things my 2014 self got wrong. This section is the opposite one, and it is what gives the machinery its point: if a judge who judges himself never rules against himself, he is not judging.
 {: .text-justify}
-
-Behind those verdicts sit **51 hypotheses put to the test**, of which 40 were refuted and 9 survived. I record the refuted ones alongside the survivors on purpose: an audit that only publishes what it confirmed is not an audit, it is a selection.
-{: .text-justify}
-
-That per-object count, however, reads for more than it is, and it is worth saying why. **Convergence does not mean the same thing everywhere.** Of the nine prose claims that converge, only **three** do so at the precision they are printed at —half a unit of the last digit—. Four converge within the 15 % relative margin the text itself claims by writing «approximately», and two are inequalities: the text says «reaches» and the reconstruction satisfies it as a bound. Counting all nine as greens reads for more than it is.
-{: .text-justify}
-
-### The 2014 engine as judge
-
-What settled the last judgements was not a new artefact: it was **running the original engine again**. Stata 17 MP, over the `.dta` files from 2013 and 2014 that survived, executing my `do-file`'s commands exactly as written —with the version prefix, because the `table` syntax of the time no longer exists—.
-{: .text-justify}
-
-That is a third column in its own right, and it settled four judgements. In two it confirmed what I published: the SIMCE gap for closing voucher schools comes out at 10.20 points with an interval excluding zero, and the seven communes are seven. In a third, the missing denominator. And in the fourth, what I least expected happened.
-{: .text-justify}
-
-### A judge that can also rule against me
 
 At the end I put the 34 judgements through a rubric fixed in advance —a real third source, multiple agreement, a tolerance declared beforehand, a counterexample, contrary evidence— with explicit permission to lower a verdict already issued. It corrected **two**, and both were mine.
 {: .text-justify}
@@ -396,21 +416,20 @@ And the fourth re-execution case is of the same kind, but worse, because no rubr
 Corrected, the distance between my reconstruction and what I published eleven years ago drops from 1.25 points to 0.40. **The correction favours the 2014 document.** That is the kind of result you do not go looking for when auditing yourself, and precisely for that reason it is the one that has to be published.
 {: .text-justify}
 
-### A check that has never been seen red is not a check
+## Closing: the balance sheet, and the second half to 2025
 
-None of the above is worth anything if the checks holding it up cannot fail. So the rule is to break them on purpose, verify they fail, restore them and verify they pass again, recording the concrete red case. There are **103 observed red cases** on record across 49 contracts; in this last round there were eleven.
+
+Twenty-six objects between tables and figure panels. Ten reproduce what was published; eleven diverge with a measured mechanism —a label, a universe, a scale, a rounding convention—; **none is left diverging without an explanation**; five admit no numerical test, and none of those five for want of work: three assert a shape with no magnitude to be measured against, and two have as their only claim the provenance of their code, already verified by hash.
 {: .text-justify}
 
-With a number I do not like and include anyway: of the project's **390 checks**, only **111 carry a recorded red case** —28 %—. The other 279 are declared as debt, not as green. A check without a red case is not a check: it is an intention.
+Behind those verdicts sit **51 hypotheses put to the test**, of which 40 were refuted and 9 survived. I record the refuted ones alongside the survivors on purpose: an audit that only publishes what it confirmed is not an audit, it is a selection.
 {: .text-justify}
 
-Two of those breaks taught more than the twenty-three that behaved. The first: **one check did not bite**. I added the Metropolitan Region —which under the same recipe gives 19.4 % where the six regions in the text give 78.3 %— to the region set of the mobility figure, and nothing went red. The check measured how much the result moved across definitions of the universe, but it did not pin down **which** the six regions were. A wrong set passed silently. I fixed it and broke it again; now it fails.
+That per-object count, however, reads for more than it is, and it is worth saying why. **Convergence does not mean the same thing everywhere.** Of the nine prose claims that converge, only **three** do so at the precision they are printed at —half a unit of the last digit—. Four converge within the 15 % relative margin the text itself claims by writing «approximately», and two are inequalities: the text says «reaches» and the reconstruction satisfies it as a bound. Counting all nine as greens reads for more than it is.
 {: .text-justify}
 
-The second came from earlier and is more uncomfortable: a check required that human review decisions remain pending. It went red exactly when the system was right —as the last one was resolved, a perfectly healthy queue failed—. A check being green does not say it is checking; sometimes it says it has never been given the chance to fail.
+That is the state of it, and it is what lets me move on: not because everything is right, but because for every cell I know which of the three it is.
 {: .text-justify}
-
-## Closing: the second half runs to 2025
 
 A second post will bring the recreation extended to 2025. The sources are already acquired —fourteen official MINEDUC collections, including the Official Directory 1992-2025— but I am not previewing figures: extending the window puts regime changes in the middle.
 {: .text-justify}
@@ -439,6 +458,7 @@ I would not have seen any of this arguing over numbers in prose: I saw it when I
 ---
 
 ## References
+
 
 [^tesis]: Labra Olivares, Cristián A. *Patrones de entrada y salida de establecimientos educacionales en Chile (1992-2012)*, master's thesis, Universidad de Chile, 2014. Advisor: Daniel Hojman T.
 

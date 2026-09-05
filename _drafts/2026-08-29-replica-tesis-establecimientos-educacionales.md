@@ -48,6 +48,7 @@ Si es efectivo, me sirve de credencial y de sesgo al mismo tiempo. Daniel Hojman
 
 ## Contrato de lectura
 
+
 | Concepto | Qué significa acá | Qué no significa |
 |---|---|---|
 | **Réplica** | Volver a producir mis figuras, cuadros y estimaciones desde los datos, con código nuevo. | Recuperar la ejecución de 2014: entorno, temporales y orden real de mis comandos **no se recuperaron**. |
@@ -63,6 +64,7 @@ Si es efectivo, me sirve de credencial y de sesgo al mismo tiempo. Daniel Hojman
 {: .small}
 
 ## Cucharada 1: qué recreé, y qué significa lo recreado
+
 
 Chile financia la educación escolar con una subvención por alumno que sigue al estudiante, y así conviven tres dependencias: municipal, particular subvencionada y particular pagada.
 {: .text-justify}
@@ -105,9 +107,12 @@ El fondo del cuadro es más incómodo que su aritmética: **los establecimientos
 Describe una selección, no un efecto: no observo qué habría pasado con esos alumnos sin el cierre.
 {: .text-justify}
 
-## Cucharada 2: ¿error del pasado o error del presente?
+## Cucharada 2: el aparato para no poder darme la razón
 
 Cuando una celda no calza, lo que importa es de quién es el error. Sin criterio explícito la discusión se vuelve una pelea de opiniones donde yo tengo la última palabra, que es justo donde un autor que se audita no debería estar.[^dewald]
+{: .text-justify}
+
+Esta cucharada es el aparato, y son cinco piezas: un **oráculo** que compare mi Python contra Stata, los **artefactos de 2014** que aparecieron a mitad de camino, una **tercera columna** que decida en mi lugar, una **taxonomía** que distinga cuatro maneras de no saber, y **comprobaciones que puedan fallar**. Ninguna de las cinco es interesante por sí sola; juntas son lo que impide que la respuesta sea siempre la que me conviene.
 {: .text-justify}
 
 Mi criterio fue construir un oráculo. Reimplementé de forma controlada, desde una foto versionada del código, la ruta que produce los cuadros descriptivos, y la corrí en Stata 17 contra mi versión en Python: **44 celdas, diferencia máxima absoluta de 3,6·10⁻¹²**.
@@ -120,6 +125,7 @@ Esa advertencia quedó a medias un mes después. La ejecución de 2014 sigue per
 {: .text-justify}
 
 ### Doce artefactos míos, encontrados
+
 
 Rastreando el árbol de fuentes aparecieron primero cinco objetos que produjeron directamente lo publicado: la salida de `outreg` del modelo jerárquico, dos hojas de mi planilla de trabajo, una tercera con la brecha SIMCE, y un gráfico incrustado dentro del manuscrito con su serie adentro. Una segunda pasada, esta vez cruzando **cada** documento contra **cada** cifra publicada, subió la cuenta a **doce** artefactos que sirven de tercera columna —once certifican alguna cifra publicada y uno resultó medir algo parecido pero distinto—. La búsqueda cubrió todo lo que el árbol conserva, y eso importa tanto como el hallazgo:
 {: .text-justify}
@@ -146,6 +152,7 @@ En la figura de movilidad, sin ir más lejos: las participaciones de mi planilla
 
 ### El coeficiente que no salió de mi salida
 
+
 Mi cuadro del modelo jerárquico publica **0,003** para el rezago del puntaje SIMCE de matemáticas. La salida de Stata de 2014 que produjo esa tabla imprime **0,001**.
 {: .text-justify}
 
@@ -162,6 +169,7 @@ Y no está solo. En ese mismo cuadro, la varianza del intercepto se publica como
 {: .text-justify}
 
 ### El cuadro que publica logaritmos como varianzas
+
 
 Buscando en el árbol apareció una tercera salida, `xtmixed_modelo_final.doc`, que reproduce **20 de los 21 valores** de una de las especificaciones de mi modelo jerárquico. El documento tiene 24 números en total: no hay margen para que sea coincidencia.
 {: .text-justify}
@@ -185,6 +193,7 @@ En la misma tabla, el coeficiente del particular subvencionado se publicó como 
 
 ### La tercera columna
 
+
 Hasta aquí este post compara **dos** cosas: lo que publiqué en 2014 y lo que mi reconstrucción mide. Con dos columnas, «calzan» y «es correcto» son indistinguibles —una reconstrucción que hereda el error del original produce un verde perfecto—, y el verde es justo lo que nadie vuelve a mirar.
 {: .text-justify}
 
@@ -206,7 +215,11 @@ Cuando aparecieron mis propios artefactos apareció una tercera columna, y con e
 Veinticinco de los 34 tienen una tercera fuente. La columna que decide viene de mi propio productor en 18 casos, de una reejecución con Stata en 4, de un estándar externo de la disciplina en 2 y de una contradicción interna del propio texto en 1.
 {: .small}
 
+El calce heredado es el que justifica todo el aparato, y es el índice de concentración: lo publicado dice 1.534 y mi reconstrucción mide 1.517,5, un 1,3 % de diferencia. **Calzan, y los dos están mal**, porque mi reconstrucción adoptó la escala de mi yo de 2014 sin preguntarse de dónde salía.
+{: .text-justify}
+
 ### Cuatro maneras de no saber, y solo una es pereza
+
 
 Durante meses ese último renglón decía **trece sin adjudicar**, y así leído parecían trece huecos iguales. No lo eran, y confundirlos era mi error, no el de 2014.
 {: .text-justify}
@@ -230,8 +243,7 @@ La distinción no es cosmética. Un límite con techo dice «se buscó en 142 do
 Ese último cero costó tres semanas y es lo único de este post que me permito celebrar. No significa que todo esté adjudicado: significa que **nada quedó sin decir por qué**.
 {: .text-justify}
 
-El calce heredado es el que justifica todo el aparato, y es el índice de concentración: lo publicado dice 1.534 y mi reconstrucción mide 1.517,5, un 1,3 % de diferencia. **Calzan, y los dos están mal**, porque mi reconstrucción adoptó la escala de mi yo de 2014 sin preguntarse de dónde salía.
-{: .text-justify}
+### El oráculo: los coeficientes calzan, las estrellas no
 
 El modelo de duración necesitó su propio contraste, y ahí apareció lo interesante. Modelo la probabilidad de que un establecimiento salga en el año $$t$$ dado que seguía abierto, con enlace log-log complementario, la especificación estándar cuando el evento se observa por períodos y no en tiempo continuo:[^jenkins]
 {: .text-justify}
@@ -279,7 +291,31 @@ El cuadro de copago trae un ejemplo exacto de esa cadena rota. Su nota al pie pu
 Y un número que preferiría no escribir: de las **30 propuestas de revisión** que produjo esta auditoría, solo **12 tienen hoy un claim trazable con su hash**. Las otras 18 están rotuladas como propuesta o no verificado, y así hay que leerlas. Quien se lleve las 30 como hallazgos habrá leído este post al revés.
 {: .text-justify}
 
-## Cucharada 3: los hallazgos que cambian una lectura
+### El motor de 2014 como juez
+
+La tercera columna tuvo una cuarta procedencia que tardé en ver, porque estaba demasiado cerca. Lo que cerró los últimos juicios no fue un artefacto nuevo: fue **volver a correr el motor original**. Stata 17 MP, sobre los `.dta` de 2013 y 2014 que sobrevivieron, ejecutando los comandos de mi `do-file` tal como están escritos —con el prefijo de versión, porque la sintaxis de `table` de entonces ya no existe—.
+{: .text-justify}
+
+Eso es una tercera columna de pleno derecho, y decidió cuatro juicios. En dos confirmó lo que publiqué: la brecha SIMCE del subvencionado que cierra da 10,20 puntos con intervalo que excluye el cero, y las siete comunas son siete. En un tercero, el denominador que faltaba. Y en el cuarto ocurrió lo que menos esperaba.
+{: .text-justify}
+
+### Un criterio que nunca se ha visto rojo no es un criterio
+
+
+Nada de lo anterior sirve si las comprobaciones que lo sostienen no pueden fallar. Así que la regla es romperlas a propósito, verificar que reprueben, restaurarlas y verificar que vuelvan a pasar, dejando escrito el caso rojo concreto. Hoy hay **103 casos rojos observados** repartidos en 49 contratos; en la última ronda de este trabajo fueron once.
+{: .text-justify}
+
+Con un número que no me gusta y va igual: de las **390 comprobaciones** del proyecto, solo **111 llevan un caso rojo registrado** —un 28 %—. Las otras 279 están declaradas como deuda, no como verdes. Una comprobación sin caso rojo no es una comprobación: es una intención.
+{: .text-justify}
+
+Dos de esas roturas enseñaron más que las veintitrés que se comportaron. La primera: **un criterio no mordió**. Metí la Región Metropolitana —que por la misma receta da 19,4 % donde las seis regiones del texto dan 78,3 %— al conjunto de regiones de la figura de movilidad, y no se puso rojo nada. El criterio medía cuánto se movía el resultado entre definiciones del universo, pero no fijaba **cuáles** eran las seis regiones. Un conjunto equivocado pasaba en silencio. Lo corregí y volví a romperlo; ahora reprueba.
+{: .text-justify}
+
+La segunda venía de antes y es más incómoda: una comprobación exigía que quedaran decisiones pendientes de revisión humana. Se ponía roja exactamente cuando el sistema acertaba —al resolverse la última, una cola perfectamente sana reprobaba—. Que una comprobación esté verde no dice que esté comprobando; a veces dice que nunca se le ha dado la oportunidad de fallar.
+{: .text-justify}
+
+## Cucharada 3: lo que el aparato encontró
+
 
 **1. Mi marcador de salida no marcaba salidas.** La variable `id_salida` correlaciona −0,977 con el año calendario: cae de 1.676 casos marcados en 1992 a exactamente 0 en 2012, mientras las salidas efectivas oscilan entre 42 y 290 sin tendencia (ρ = +0,382). No dice «cerró», dice «cerrará en algún año dentro de la ventana»: un establecimiento que cierra en 2011 queda marcado en todos los años anteriores y en ninguno posterior.
 {: .text-justify}
@@ -363,26 +399,10 @@ Queda una discrepancia menor que declaro en vez de esconder: la receta produce *
 Queda una deuda que no es un error sino una ausencia: el marco schumpeteriano organiza mi título, mi resumen y mi conclusión, pero nunca lo contrasté. La descomposición de reasignación que separa la mejora dentro de los incumbentes de la que viene de entradas y salidas —el estándar de la literatura que yo mismo citaba— no está en el documento.[^griliches]
 {: .text-justify}
 
-## Dónde quedó la auditoría
+### Los veredictos donde el error es mío, hoy
 
-Veintiséis objetos entre cuadros y paneles de figura. Diez reproducen lo publicado; once divergen con un mecanismo medido —una etiqueta, un universo, una escala, una convención de redondeo—; **ninguno queda divergiendo sin explicación**; cinco no admiten prueba numérica, y ninguno de esos cinco por falta de trabajo: tres afirman una forma que no tiene magnitud contra la cual medirse y dos tienen como único claim la procedencia de su código, ya verificada por hash.
+Los ocho hallazgos anteriores son, casi todos, cosas que mi yo de 2014 hizo mal. Esta sección es la contraria, y es la que le da sentido al aparato: si un juez que se juzga a sí mismo nunca falla en su contra, no está juzgando.
 {: .text-justify}
-
-Detrás de esos veredictos hay **51 hipótesis sometidas a contraste**, de las que 40 quedaron refutadas y 9 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
-{: .text-justify}
-
-Ese recuento por objeto, sin embargo, se lee de más, y conviene decir por qué. **Convergencia no quiere decir lo mismo en todas partes.** De las nueve afirmaciones en prosa que convergen, solo **tres** lo hacen a la precisión con que están impresas —media unidad del último dígito—. Cuatro convergen dentro del margen relativo del 15 % que el propio texto reclama al escribir «aproximadamente», y dos son desigualdades: el texto dice «llega a» y la reconstrucción lo satisface como cota. Contarlas juntas como nueve verdes dice de más.
-{: .text-justify}
-
-### El motor de 2014 como juez
-
-Lo que cerró los últimos juicios no fue un artefacto nuevo: fue **volver a correr el motor original**. Stata 17 MP, sobre los `.dta` de 2013 y 2014 que sobrevivieron, ejecutando los comandos de mi `do-file` tal como están escritos —con el prefijo de versión, porque la sintaxis de `table` de entonces ya no existe—.
-{: .text-justify}
-
-Eso es una tercera columna de pleno derecho, y decidió cuatro juicios. En dos confirmó lo que publiqué: la brecha SIMCE del subvencionado que cierra da 10,20 puntos con intervalo que excluye el cero, y las siete comunas son siete. En un tercero, el denominador que faltaba. Y en el cuarto ocurrió lo que menos esperaba.
-{: .text-justify}
-
-### Un juez que también puede fallar en mi contra
 
 Al final apliqué a los 34 juicios una rúbrica fijada de antemano —tercera fuente real, coincidencia múltiple, tolerancia declarada antes, contraejemplo, evidencia contraria— con permiso explícito para bajar un veredicto ya emitido. Corrigió **dos**, y los dos eran míos.
 {: .text-justify}
@@ -396,21 +416,19 @@ Y el cuarto caso de la reejecución es del mismo tipo, pero peor, porque no lo e
 Corregido, la distancia entre mi reconstrucción y lo que publiqué hace once años baja de 1,25 puntos a 0,40. **La corrección favorece al documento de 2014.** Ese es el tipo de resultado que uno no busca cuando se audita a sí mismo, y por eso mismo es el que hay que publicar.
 {: .text-justify}
 
-### Un criterio que nunca se ha visto rojo no es un criterio
+## Cierre: el balance, y la segunda mitad hasta 2025
 
-Nada de lo anterior sirve si las comprobaciones que lo sostienen no pueden fallar. Así que la regla es romperlas a propósito, verificar que reprueben, restaurarlas y verificar que vuelvan a pasar, dejando escrito el caso rojo concreto. Hoy hay **103 casos rojos observados** repartidos en 49 contratos; en la última ronda de este trabajo fueron once.
+Veintiséis objetos entre cuadros y paneles de figura. Diez reproducen lo publicado; once divergen con un mecanismo medido —una etiqueta, un universo, una escala, una convención de redondeo—; **ninguno queda divergiendo sin explicación**; cinco no admiten prueba numérica, y ninguno de esos cinco por falta de trabajo: tres afirman una forma que no tiene magnitud contra la cual medirse y dos tienen como único claim la procedencia de su código, ya verificada por hash.
 {: .text-justify}
 
-Con un número que no me gusta y va igual: de las **390 comprobaciones** del proyecto, solo **111 llevan un caso rojo registrado** —un 28 %—. Las otras 279 están declaradas como deuda, no como verdes. Una comprobación sin caso rojo no es una comprobación: es una intención.
+Detrás de esos veredictos hay **51 hipótesis sometidas a contraste**, de las que 40 quedaron refutadas y 9 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
 {: .text-justify}
 
-Dos de esas roturas enseñaron más que las veintitrés que se comportaron. La primera: **un criterio no mordió**. Metí la Región Metropolitana —que por la misma receta da 19,4 % donde las seis regiones del texto dan 78,3 %— al conjunto de regiones de la figura de movilidad, y no se puso rojo nada. El criterio medía cuánto se movía el resultado entre definiciones del universo, pero no fijaba **cuáles** eran las seis regiones. Un conjunto equivocado pasaba en silencio. Lo corregí y volví a romperlo; ahora reprueba.
+Ese recuento por objeto, sin embargo, se lee de más, y conviene decir por qué. **Convergencia no quiere decir lo mismo en todas partes.** De las nueve afirmaciones en prosa que convergen, solo **tres** lo hacen a la precisión con que están impresas —media unidad del último dígito—. Cuatro convergen dentro del margen relativo del 15 % que el propio texto reclama al escribir «aproximadamente», y dos son desigualdades: el texto dice «llega a» y la reconstrucción lo satisface como cota. Contarlas juntas como nueve verdes dice de más.
 {: .text-justify}
 
-La segunda venía de antes y es más incómoda: una comprobación exigía que quedaran decisiones pendientes de revisión humana. Se ponía roja exactamente cuando el sistema acertaba —al resolverse la última, una cola perfectamente sana reprobaba—. Que una comprobación esté verde no dice que esté comprobando; a veces dice que nunca se le ha dado la oportunidad de fallar.
+Ese es el estado, y es el que me deja tranquilo para seguir: no porque esté todo bien, sino porque de cada casilla sé cuál de las tres cosas es.
 {: .text-justify}
-
-## Cierre: la segunda mitad va hasta 2025
 
 Un segundo post traerá la recreación ampliada hasta 2025. Las fuentes ya están adquiridas —catorce colecciones oficiales del MINEDUC, incluido el Directorio Oficial 1992-2025—, pero no adelanto cifras: extender la ventana mete cambios de régimen en el medio.
 {: .text-justify}
@@ -439,6 +457,7 @@ Ninguno de estos lo habría visto discutiendo cifras en prosa: los vi cuando pus
 ---
 
 ## Referencias
+
 
 [^tesis]: Labra Olivares, Cristián A. *Patrones de entrada y salida de establecimientos educacionales en Chile (1992-2012)*, tesis de magíster, Universidad de Chile, 2014. Profesor guía: Daniel Hojman T.
 
