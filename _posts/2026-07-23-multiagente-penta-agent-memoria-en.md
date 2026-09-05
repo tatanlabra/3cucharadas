@@ -14,7 +14,7 @@ ref: multiagente-penta-agent-memoria
 permalink: /ia/productividad/desarrollo/multiagente-penta-agent-memoria/
 distribution:
   social: true
-  republish: []
+  republish: [dev]
 toc: true
 toc_sticky: true
 comments: true

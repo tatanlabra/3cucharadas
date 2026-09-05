@@ -10,6 +10,10 @@ author: clabra
 lang: en
 ref: multiagente-penta-agent-modelos
 permalink: /ia/productividad/desarrollo/multiagente-penta-agent-modelos/
+distribution:
+  # Sin `social`: este post nunca se publico en redes y declararlo aqui crearia
+  # una obligacion retroactiva que el gate de cadencia contaria como atraso.
+  republish: [dev]
 toc: true
 toc_sticky: true
 comments: true

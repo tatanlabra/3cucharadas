@@ -277,7 +277,11 @@ eligible.each do |post|
 
   if dry_run
     action = existente ? "actualizaría" : "crearía"
-    puts "[dry-run] #{post[:slug]}: #{action} borrador en dev.to (#{post[:url_canonica]})"
+    # El tamano del cuerpo va en la linea porque «actualizaria» no distingue un
+    # articulo completo de uno vacio, y un borrador que llega vacio a dev.to se ve
+    # igual de «OK» en el log del workflow que uno correcto.
+    puts "[dry-run] #{post[:slug]}: #{action} borrador en dev.to " \
+         "(#{post[:body_markdown].length} car de cuerpo, #{post[:url_canonica]})"
     next
   end
 

@@ -78,10 +78,20 @@ end
 # Un canal esta cumplido si dejo un artefacto identificable, no si alguien
 # escribio su nombre: se exige la URL publicada, que es lo unico que prueba que
 # el contenido existe fuera de este repositorio.
+#
+# CORRECCION 2026-09-05: bastaba con que existiera `devto_article_id`, y un
+# borrador tiene id. `syndicate_devto.rb:304` crea toda entrada de dev.to con
+# `estado: borrador` y NUNCA la cambia --publicar es una decision humana, alli--,
+# asi que el gate daba por cumplido un canal cuyo articulo no ha visto nadie. El
+# efecto era silencioso y creciente: cada borrador nuevo apagaba un pendiente
+# real. Un borrador ahora no cuenta, y la unica forma de cerrar `dev` es publicar
+# en dev.to y anotarlo aqui.
 def cumplido?(pubs, plataformas)
   pubs.any? do |p|
-    plataformas.include?(p["plataforma"].to_s) &&
-      (p["url_publicada"].to_s.strip != "" || p["devto_article_id"])
+    next false unless plataformas.include?(p["plataforma"].to_s)
+    next false if p["estado"].to_s == "borrador"
+
+    p["url_publicada"].to_s.strip != "" || p["devto_article_id"]
   end
 end
 
