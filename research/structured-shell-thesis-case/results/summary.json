@@ -1,0 +1,104 @@
+{
+  "by_task_arm": [
+    {
+      "arm": "policy_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        39288.0,
+        73701.0
+      ],
+      "median_elapsed_ms": 42038.0,
+      "median_output_tokens": 580.0,
+      "runs": 5,
+      "task": "R1_valid_aggregate",
+      "used_nushell": 5,
+      "valid_runs": 5
+    },
+    {
+      "arm": "without_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        27722.0,
+        38059.0
+      ],
+      "median_elapsed_ms": 30641.0,
+      "median_output_tokens": 445.0,
+      "runs": 5,
+      "task": "R1_valid_aggregate",
+      "used_nushell": 0,
+      "valid_runs": 5
+    },
+    {
+      "arm": "policy_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        30087.0,
+        46813.0
+      ],
+      "median_elapsed_ms": 31956.0,
+      "median_output_tokens": 410.0,
+      "runs": 5,
+      "task": "R2_corrupt_aggregate",
+      "used_nushell": 5,
+      "valid_runs": 5
+    },
+    {
+      "arm": "without_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        29430.0,
+        36516.0
+      ],
+      "median_elapsed_ms": 31432.0,
+      "median_output_tokens": 358.0,
+      "runs": 5,
+      "task": "R2_corrupt_aggregate",
+      "used_nushell": 0,
+      "valid_runs": 5
+    },
+    {
+      "arm": "policy_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        9127.0,
+        18518.0
+      ],
+      "median_elapsed_ms": 11355.0,
+      "median_output_tokens": 62.0,
+      "runs": 5,
+      "task": "R3_epistemic_boundary",
+      "used_nushell": 0,
+      "valid_runs": 5
+    },
+    {
+      "arm": "without_nushell",
+      "condition_conformant": 5,
+      "content_correct": 5,
+      "correct": 5,
+      "elapsed_range_ms": [
+        14665.0,
+        25242.0
+      ],
+      "median_elapsed_ms": 14976.0,
+      "median_output_tokens": 88.0,
+      "runs": 5,
+      "task": "R3_epistemic_boundary",
+      "used_nushell": 0,
+      "valid_runs": 5
+    }
+  ],
+  "errors": 0,
+  "interpretation": "descriptive_single_case_intervention_only",
+  "records": 30,
+  "schema_version": 1
+}

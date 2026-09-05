@@ -1,11 +1,10 @@
 name: Sindicación dev.to (borrador)
 
 # Fase 4.3 (archivo/handoffs/difusion/HANDOFF-2026-07-25-distribucion-3cucharadas.md).
-# Solo actúa sobre posts EN marcados `sindicar: true` + `valor_seo: bajo|medio`
-# en su front matter, y siempre publica como borrador en dev.to. Sin el
-# secreto DEV_TO_API_KEY configurado en este repo, scripts/syndicate_devto.rb
-# no hace nada (ver el script): el workflow puede vivir aquí sin activar
-# sindicación real hasta que alguien configure el secreto deliberadamente.
+# Procesa posts EN con `distribution.republish: [dev]`; `sindicar: true` queda
+# solo como alias heredado. Un artículo nuevo se crea como borrador y uno ya
+# registrado se actualiza sin cambiar su estado publicado. Sin el secreto
+# DEV_TO_API_KEY, scripts/syndicate_devto.rb no hace llamadas externas.
 
 on:
   push:

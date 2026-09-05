@@ -1,0 +1,202 @@
+version: 1
+contract_id: nushell_publication_20260905
+status: active
+updated_at: "2026-09-05"
+
+objectives:
+  - id: O1
+    statement: "Publicar el par ES/EN sin alterar cifras, límites ni procedencia."
+  - id: O2
+    statement: "Integrar el post sin degradar build, accesibilidad, peso ni publicaciones existentes."
+  - id: O3
+    statement: "Difundir por canales pertinentes con piezas específicas y evidencia de publicación."
+
+invariants:
+  - id: INV-001
+    rule: "Los claims numéricos derivan del corpus congelado de 380 ejecuciones."
+  - id: INV-002
+    rule: "Solo se publican agregados de tesis; cero microdatos, identificadores o rutas locales."
+  - id: INV-003
+    rule: "ES y EN conservan ref, permalink, fecha, cifras y límites equivalentes."
+  - id: INV-004
+    rule: "El artefacto Jekyll permanece por debajo de 60000000 bytes."
+  - id: INV-005
+    rule: "Push, merge, publicación y difusión requieren autorización humana explícita."
+
+quality_judge:
+  deductive: "Cada cierre exige una invariante y una salida reproducible que la demuestre."
+  inductive: "Cada gate nuevo o corregido debe observar un fallo pertinente y su recuperación verde."
+  hard_constraints:
+    - no_secret_or_private_data_exposure
+    - no_unsupported_claim
+    - no_regression_in_build_or_accessibility
+    - no_external_action_without_human_authorization
+  optimum: "Entre alternativas válidas, elegir menor superficie de cambio, mayor reversibilidad y evidencia más fuerte."
+  verdict: "Un hard constraint rojo bloquea la fase aunque las demás métricas sean verdes."
+
+todo_state:
+  legend:
+    done: "[x]"
+    partial: "[~]"
+    pending: "[ ]"
+    incident: "[!]"
+  items:
+    - "[x] F0 cierre editorial ES"
+    - "[x] F1 transcreación técnica EN"
+    - "[x] F2 D2 bilingüe, visor localizado y contrato ES/EN"
+    - "[x] F3 integración limpia y suite de regresión"
+    - "[x] F4 revisión humana final ES/EN"
+    - "[~] F5 release candidate, commit selectivo, push y CI"
+    - "[ ] F6 verificación de producción"
+    - "[ ] F7 paquete y ejecución de difusión"
+    - "[ ] F8 seguimiento D+1 y D+30"
+
+phases:
+  - id: F0
+    status: done
+    objective: "Cerrar el texto español canónico."
+    success:
+      source: "_drafts/2026-08-29-nushell-coprocesador-estructurado.md"
+      figures_in_body: 2
+      claims_total_runs: 380
+      editorial_comments_open: 0
+    evidence:
+      - "build_production_with_drafts_exit_0"
+      - "browser_desktop_mobile_pass"
+      - "axe_violations_0"
+    falsified_by: "claim sin fuente, deriva del corpus o problema visual reproducible"
+    rollback: "mantener el archivo en _drafts"
+
+  - id: F1
+    status: done
+    objective: "Transcrear el texto al inglés técnico desde el español vigente."
+    success:
+      source: "_drafts/2026-08-29-nushell-coprocesador-estructurado-en.md"
+      figures_in_body: 2
+      tables_keyboard_accessible: 6
+      holdout_claims: ["14/15", "10/15", "4/15", "5/10", "6/10"]
+      thesis_claims: ["306,768", "30 observations", "10/10", "presence=0"]
+    evidence:
+      - "ruby scripts/verify_structured_shell_publication.rb"
+      - "browser_EN_desktop_mobile_pass"
+      - "viewer_lang_en_pass"
+    falsified_by: "calco impropio, cifra divergente, límite omitido o activo español en EN"
+    rollback: "restaurar solo el borrador EN; no tocar el ES aprobado"
+
+  - id: F2
+    status: done
+    objective: "Localizar el D2 y mantener el artefacto bajo presupuesto."
+    success:
+      d2_variants: 4
+      d2_local_paths: 0
+      d2_accessible_title_desc: true
+      artifact_bytes: 59965216
+      artifact_max_bytes: 60000000
+    evidence:
+      - "scripts/render_structured_shell_d2_locales.py"
+      - "ruby scripts/verify_site_artifact.rb /tmp/3cucharadas-nushell-bilingual-2"
+    falsified_by: "SVG ausente, texto recortado, ruta local o artefacto mayor al máximo"
+    rollback: "retirar solo los derivados EN y devolver el post EN a draft"
+
+  - id: F3
+    status: done
+    objective: "Aislar el cambio del post y demostrar ausencia de regresiones."
+    success:
+      origin_main_behind_local: 0
+      required_test_failures: 0
+      unrelated_files_staged: 0
+      stale_publish_branches_merged: false
+    known_constraints:
+      - "publish/nushell-v2-20260905 está obsoleta; no fue fusionada."
+      - "publish/nushell-20260829 está obsoleta; no fue fusionada."
+      - "El worktree compartido conserva cambios previos del hook fuera del índice del release."
+    resolved_incidents:
+      - "[x] Snapshot previo al release: HEAD=origin/main=github/main=893a8b79; divergencia remota 0/0."
+      - "[x] Suite requerida verde y cero archivos ajenos en staging."
+    evidence_required:
+      - "git diff --check"
+      - "ruby scripts/verify_visual_assets.rb"
+      - "ruby scripts/verify_difusion_coherente.rb"
+      - "npm run check:catastro"
+      - "npm run test:catastro"
+      - "npm run test:memoria-gobernada"
+      - "npm run check:memoria-gobernada:assets"
+      - "TABLAS_RAIZ=/tmp/3cucharadas-nushell-bilingual-2 TABLAS_BASE=http://127.0.0.1:4004 node scripts/verify_tables_readable.mjs"
+    falsified_by: "test rojo, cambio ajeno staged o intento de fusionar una rama obsoleta"
+    rollback: "deshacer solo el índice de staging y conservar el árbol de trabajo"
+
+  - id: F4
+    status: done
+    human_checkpoint: true
+    objective: "Recibir aprobación humana explícita de las versiones finales ES/EN y sus superficies visuales validadas."
+    success:
+      reviewer: human_author
+      approval_received: true
+      approval_date: "2026-09-05"
+      approval_scope: ["texto ES", "texto EN"]
+      required_surfaces: ["EN desktop", "EN mobile", "D2 EN", "viewer EN"]
+      open_adjustments: 0
+    evidence:
+      - "mensaje humano: estoy conforme con la versión en español e ingles"
+    falsified_by: "ajuste editorial o visual pendiente"
+    rollback: "volver a F1 sin mover archivos a _posts"
+
+  - id: F5
+    status: partial
+    objective: "Crear un release candidate mínimo y publicarlo mediante CI."
+    requires_human_authorization: ["commit", "push", "merge", "automatic dev.to draft triggered by GitHub main"]
+    success:
+      post_pairs_in_posts: 1
+      post_pairs_in_drafts: 0
+      ci_status: success
+      origin_and_github_main_same_sha: true
+    falsified_by: "slug duplicado, CI rojo, remoto divergente o commit con archivos ajenos"
+    rollback: "no fusionar; corregir en la rama candidata"
+
+  - id: F6
+    status: pending
+    objective: "Verificar la publicación real, no solo el pipeline."
+    success:
+      http_status_ES: 200
+      http_status_EN: 200
+      canonical_ES_EN_valid: true
+      og_dimensions: "1200x630"
+      teaser_dimensions: "1280x720"
+      viewer_tabs: 5
+      axe_violations: 0
+      rss_and_language_links_valid: true
+    falsified_by: "página incompleta, asset degradado, enlace cruzado roto o diferencia con el RC"
+    rollback: "revertir el commit de publicación mediante una nueva revisión"
+
+  - id: F7
+    status: pending
+    objective: "Preparar y ejecutar una difusión específica por canal."
+    entry_gate: "F6 verde y URL canónica pública"
+    requires_human_authorization: ["cada envío externo", "carrusel LinkedIn"]
+    success:
+      package_files:
+        - "00-metadata.yaml"
+        - "01-en-source.md"
+        - "medium.md"
+        - "devto.md"
+        - "hn.txt"
+        - "reddit-target.md"
+        - "linkedin.md"
+        - "social-corto.md"
+        - "QA.md"
+      same_day_duplicate_platforms: 0
+      canonical_backlinks_valid: true
+      linkedin_hd_verified: true
+    falsified_by: "pieza genérica, claim divergente, canónico ausente o publicación sin autorización"
+    rollback: "detener canales restantes; corregir solo la pieza afectada"
+
+  - id: F8
+    status: pending
+    objective: "Cerrar con evidencia de alcance y fallos posteriores."
+    success:
+      checkpoints: ["D+1", "D+30"]
+      broken_links: 0
+      corrections_logged: true
+      outcome_metrics_recorded: true
+    falsified_by: "medición sin fuente, enlace roto no corregido o resultado de difusión no registrado"
+    rollback: "publicar corrección trazable; no reescribir métricas históricas"

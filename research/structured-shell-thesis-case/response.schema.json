@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "top_years", "failed_invariants", "limitation_acknowledged", "answer"],
+  "properties": {
+    "status": {"type": "string", "enum": ["PASS", "BLOCKED", "OUT_OF_SCOPE"]},
+    "top_years": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["year", "salida_one"],
+        "properties": {
+          "year": {"type": "integer"},
+          "salida_one": {"type": "integer"}
+        }
+      }
+    },
+    "failed_invariants": {"type": "array", "items": {"type": "string"}},
+    "limitation_acknowledged": {"type": "boolean"},
+    "answer": {"type": "string"}
+  }
+}

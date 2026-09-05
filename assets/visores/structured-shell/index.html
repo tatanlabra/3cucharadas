@@ -1,210 +1,114 @@
 <!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Structured Shell · Nushell — visor</title>
 <style>
-:root{--bg:#121521;--panel:#1b2032;--rej:#2a3041;--txt:#e8ecf5;--ten:#8b97ad;
-      --cian:#37e7ff;--mag:#ff4fd8;--lima:#b8ff3c;--ambar:#ffd166}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);
-     font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{padding:14px 16px 18px}
-h1{font-size:1.05rem;margin:0 0 2px}
-.sub{color:var(--ten);font-size:.82rem;margin-bottom:12px}
-nav{display:flex;gap:4px;border-bottom:1px solid var(--rej);margin-bottom:12px;flex-wrap:wrap}
-nav button{background:none;border:0;border-bottom:2px solid transparent;color:var(--ten);
-           padding:7px 12px;cursor:pointer;font:inherit;font-size:.85rem}
-nav button[aria-selected=true]{color:var(--cian);border-bottom-color:var(--cian)}
-.ctl{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.8rem}
-.ctl label{color:var(--ten);display:flex;gap:5px;align-items:center;cursor:pointer}
-select{background:var(--panel);color:var(--txt);border:1px solid var(--rej);
-       border-radius:4px;padding:4px 7px;font:inherit;font-size:.8rem}
-svg{display:block;width:100%;height:auto;overflow:visible}
-.cap{color:var(--ten);font-size:.72rem;margin-top:6px}
-table{border-collapse:collapse;width:100%;font-size:.82rem;margin-top:6px}
-th,td{padding:6px 9px;border-bottom:1px solid var(--rej);text-align:right}
-th:first-child,td:first-child,td.l{text-align:left}
-th{color:var(--ten);font-weight:600}
-.ok{color:var(--lima)}.no{color:var(--ambar)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:620px){.grid2{grid-template-columns:1fr}}
-p.nota{color:var(--ten);font-size:.8rem}
-</style></head>
-<body><div class="wrap">
-<h1>Structured Shell · Nushell</h1>
-<div class="sub" id="sub">cargando…</div>
-<nav id="tabs"></nav>
-<div id="vista"></div>
-</div>
+:root{--bg:#121521;--panel:#1b2032;--line:#2a3041;--text:#e8ecf5;--muted:#aeb8ca;--cyan:#37e7ff;--magenta:#ff4fd8;--lime:#b8ff3c;--amber:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}.wrap{padding:14px 16px 18px;max-width:940px;margin:auto}h1{font-size:1.05rem;margin:0 0 2px}.sub,.note,.cap{color:var(--muted)}.sub{font-size:.86rem;margin-bottom:12px}.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px;flex-wrap:wrap}.tabs button{background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:8px 12px;cursor:pointer;font:inherit;font-size:.9rem}.tabs button:hover,.tabs button:focus-visible{color:var(--text);outline:2px solid var(--cyan);outline-offset:2px}.tabs button[aria-selected=true]{color:var(--cyan);border-bottom-color:var(--cyan)}.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86rem}.controls label{color:var(--muted);display:flex;gap:5px;align-items:center;cursor:pointer}select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:4px;padding:5px 7px;font:inherit;font-size:.9rem}svg{display:block;width:100%;height:auto;overflow:visible}.cap{font-size:.78rem;margin-top:6px}table{border-collapse:collapse;width:100%;font-size:.84rem;margin-top:10px}th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child,td.left{text-align:left}th{color:var(--muted);font-weight:600}.ok{color:var(--lime)}.no{color:var(--amber)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fallback{border:1px solid var(--amber);background:var(--panel);padding:12px;border-radius:6px}.fallback img{display:block;width:100%;height:auto;margin-top:12px}@media(max-width:620px){.grid{grid-template-columns:1fr}.wrap{padding:12px}.tabs button{padding:8px}.controls{gap:8px}th,td{padding:6px 5px;font-size:.78rem}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1 id="title">Structured Shell · Nushell</h1>
+  <p class="sub" id="sub" aria-live="polite">cargando…</p>
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones del visor"></nav>
+  <section id="view" role="tabpanel" tabindex="0" aria-live="polite"></section>
+</main>
 <script>
-const NS="http://www.w3.org/2000/svg", C={cian:"#37e7ff",mag:"#ff4fd8",ten:"#8b97ad",
-  txt:"#e8ecf5",panel:"#1b2032",rej:"#2a3041",lima:"#b8ff3c",ambar:"#ffd166"};
-const col=g=>/Nushell|con la skill/.test(g)?C.cian:C.mag;
-const el=(t,a={},...k)=>{const e=document.createElementNS(NS,t);
-  for(const[n,v]of Object.entries(a))e.setAttribute(n,v);k.forEach(c=>e.append(c));return e};
-const h=(t,a={},...k)=>{const e=document.createElement(t);
-  for(const[n,v]of Object.entries(a))n==="html"?e.innerHTML=v:e.setAttribute(n,v);
-  k.forEach(c=>e.append(c));return e};
-const fmt=n=>n==null?"—":n.toLocaleString("es-CL",{maximumFractionDigits:n<10?1:0});
+const locale=new URLSearchParams(location.search).get("lang")==="en"?"en":"es";
+document.documentElement.lang=locale;
+const EN=locale==="en", NS="http://www.w3.org/2000/svg";
+const C={cyan:"#37e7ff",magenta:"#ff4fd8",muted:"#aeb8ca",text:"#e8ecf5",panel:"#1b2032",line:"#2a3041",lime:"#b8ff3c",amber:"#ffd166"};
+const I=EN?{
+  title:"Structured Shell · Nushell", loading:"loading frozen dataset…", summary:(a,b)=>`${a} frozen microbenchmark runs · ${b} tuned agent A/B runs · precomputed analysis`,
+  tabs:["Microbenchmark","Agent A/B","Verdict","Thesis case","Method"], task:"Task",metric:"Metric",subset:"Subset",time:"Time (ms)",bytes:"Output bytes",tokens:"Output tokens",positive:"Positive (should activate)",negative:"Negative (should not activate)",
+  points:"Each point is one run · diamond = median · bar = 95% percentile-bootstrap interval",accuracy:"Accuracy",activation:"Activated the skill",over:(n,d)=>`Over-activation in negative tasks: ${n}/${d}`,
+  effect:"Effect",estimate:"Estimate",interval:"95% CI / test",verdict:"Verdict",conclusive:"supported in tuned corpus",inconclusive:"not established",crosses:"A ratio whose interval crosses 1 does not establish a difference.",
+  method:`<p>The page draws a frozen, precomputed corpus. It does not query Nushell, Docker, or the reader’s machine.</p><ul><li><b>Percentile bootstrap</b> (B = 10,000) estimates median and ratio intervals.</li><li><b>Exact Clopper–Pearson</b> intervals accompany proportions.</li><li><b>Fisher’s exact test</b> describes the tuned 2×2 accuracy table.</li><li>A later held-out set reached <b>14/15 vs 10/15</b> correct, but activated the lane in only <b>4/15</b> positive tasks. It is documented in the article and is not folded into this distinct 300-run corpus.</li></ul>`,
+  caseIntro:(records)=>`${records} Codex read-only runs: 3 tasks × 2 arms × 5 repetitions. Control explicitly prohibited Nu; the frozen policy required it only in R1 and R2.`,caseArm:"Arm",caseCorrect:"Correct",caseNu:"Used Nu",caseMedian:"Median",caseControl:"No Nu",casePolicy:"Nu policy",caseSource:(shape)=>`Public aggregate fixture: ${shape.rows.toLocaleString("en-US")} source rows, ${shape.columns} columns and ${shape.annual_aggregate_rows} annual rows. The source hash is published in the article repository.`,
+  failed:"The interactive dataset could not be loaded.",fallback:"The article remains readable: the static figures below are the published alternative. The viewer normally uses frozen datasets and does not need access to local services.",fallbackAlt:"Static microbenchmark figure from the frozen Nushell corpus",
+  traditional:"native",withSkill:"with skill",withoutSkill:"without skill",positiveShort:"positive",negativeShort:"negative",yes:"yes",no:"no"
+}:{
+  title:"Structured Shell · Nushell",loading:"cargando el corpus congelado…",summary:(a,b)=>`${a} corridas de microbenchmark congeladas · ${b} del A/B afinado · cálculo precomputado`,
+  tabs:["Microbenchmark","A/B de agente","Veredicto","Caso de tesis","Método"],task:"Tarea",metric:"Métrica",subset:"Subconjunto",time:"Tiempo (ms)",bytes:"Bytes de salida",tokens:"Tokens de salida",positive:"Positivas (debería activarse)",negative:"Negativas (no debería)",
+  points:"Cada punto es una corrida · rombo = mediana · barra = IC 95 % por bootstrap de percentiles",accuracy:"Acierto",activation:"Activó la skill",over:(n,d)=>`Sobreactivación en negativas: ${n}/${d}`,
+  effect:"Efecto",estimate:"Estimación",interval:"IC 95 % / prueba",verdict:"Veredicto",conclusive:"sostenido en corpus afinado",inconclusive:"no establecido",crosses:"Un cociente cuyo intervalo cruza el 1 no permite afirmar una diferencia.",
+  method:`<p>La página dibuja un corpus congelado y precomputado. No consulta Nushell, Docker ni la máquina de quien lee.</p><ul><li><b>Bootstrap de percentiles</b> (B = 10.000) estima intervalos de medianas y cocientes.</li><li><b>Clopper–Pearson exacto</b> acompaña las proporciones.</li><li><b>Fisher exacto</b> describe la tabla 2×2 de acierto del corpus afinado.</li><li>Un holdout posterior logró <b>14/15 frente a 10/15</b> aciertos, pero activó la vía en solo <b>4/15</b> tareas positivas. Se documenta en el artículo y no se incorpora al corpus distinto de 300 corridas de este visor.</li></ul>`,
+  caseIntro:(records)=>`${records} corridas Codex read-only: 3 tareas × 2 brazos × 5 repeticiones. El control prohibió Nu explícitamente; la política congelada lo exigió solo en R1 y R2.`,caseArm:"Brazo",caseCorrect:"Acierto",caseNu:"Usó Nu",caseMedian:"Mediana",caseControl:"Sin Nu",casePolicy:"Política Nu",caseSource:(shape)=>`Fixture de agregados públicos: ${shape.rows.toLocaleString("es-CL")} filas fuente, ${shape.columns} columnas y ${shape.annual_aggregate_rows} filas anuales. El hash de fuente se publica en el repositorio del artículo.`,
+  failed:"No se pudo cargar el conjunto interactivo.",fallback:"El artículo sigue siendo legible: las figuras estáticas de abajo son la alternativa publicada. El visor normalmente usa conjuntos congelados y no necesita servicios locales.",fallbackAlt:"Figura estática del microbenchmark de Nushell",
+  traditional:"tradicional",withSkill:"con skill",withoutSkill:"sin skill",positiveShort:"positiva",negativeShort:"negativa",yes:"sí",no:"no"
+};
+document.title=I.title+" — viewer";document.getElementById("title").textContent=I.title;document.getElementById("sub").textContent=I.loading;
+const h=(tag,attrs={},...children)=>{const node=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k==="html")node.innerHTML=v;else node.setAttribute(k,v)}children.forEach(child=>node.append(child));return node};
+const svg=(tag,attrs={},...children)=>{const node=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))node.setAttribute(k,v);children.forEach(child=>node.append(child));return node};
+const fmt=n=>n==null?"—":n.toLocaleString(EN?"en-US":"es-CL",{maximumFractionDigits:n<10?1:0});
+const localLabel=value=>({"tradicional":I.traditional,"con la skill":I.withSkill,"sin la skill":I.withoutSkill,"positiva":I.positiveShort,"negativa":I.negativeShort,"T1 · archivos >1 MB, 30 días":EN?"T1 · files > 1 MB, 30 days":value,"T2 · top procesos por memoria":EN?"T2 · top processes by memory":value,"T3 · contenedores por imagen":EN?"T3 · containers by image":value,"T4 · cuánto contexto entra":EN?"T4 · context sent to the agent":value}[value]||value);
+const colour=group=>/Nushell|con la skill|with skill/.test(group)?C.cyan:C.magenta;
+let D=null,T=null,tab=0,state={};
 
-// Grafico canonico: puntos crudos + mediana + IC. La barra sola esconde la dispersion.
-function puntos(cont,{grupos,valores,res,ylab,log=true,alto=340}){
-  const W=760,H=alto,mL=68,mR=14,mT=14,mB=44,gs=[...new Set(grupos)];
-  const todos=valores.concat(res.inf,res.sup).filter(v=>v!=null&&(!log||v>0));
-  let lo=Math.min(...todos),hi=Math.max(...todos);
-  const T=log?Math.log10:(v=>v), inv=v=>(T(v)-T(lo))/(T(hi)-T(lo));
-  if(log){lo=Math.pow(10,Math.floor(Math.log10(lo)*4)/4);hi=Math.pow(10,Math.ceil(Math.log10(hi)*4)/4)}
-  else{const p=(hi-lo)*.08;lo=Math.max(0,lo-p);hi=hi+p}
-  const y=v=>mT+(1-inv(v))*(H-mT-mB), x=i=>mL+(i+.5)*((W-mL-mR)/gs.length);
-  const s=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
-  s.append(el("rect",{x:mL,y:mT,width:W-mL-mR,height:H-mT-mB,fill:C.panel}));
-  const ticks=[];const n=5;
-  for(let i=0;i<=n;i++){const t=T(lo)+(T(hi)-T(lo))*i/n;ticks.push(log?Math.pow(10,t):t)}
-  ticks.forEach(t=>{s.append(el("line",{x1:mL,x2:W-mR,y1:y(t),y2:y(t),stroke:C.rej}));
-    s.append(el("text",{x:mL-8,y:y(t)+4,fill:C.ten,"font-size":11,"text-anchor":"end"},fmt(t)))});
-  s.append(el("text",{x:16,y:H/2,fill:C.ten,"font-size":12,transform:`rotate(-90 16 ${H/2})`,
-    "text-anchor":"middle"},ylab));
-  grupos.forEach((g,i)=>{const j=gs.indexOf(g),v=valores[i];if(v==null||(log&&v<=0))return;
-    const jit=(((i*2654435761)%1000)/1000-.5)*((W-mL-mR)/gs.length)*.34;
-    s.append(el("circle",{cx:x(j)+jit,cy:y(v),r:3,fill:col(g),opacity:.5}))});
-  res.g.forEach((g,i)=>{const j=gs.indexOf(g);if(j<0)return;const c=col(g);
-    s.append(el("line",{x1:x(j),x2:x(j),y1:y(res.inf[i]),y2:y(res.sup[i]),stroke:c,"stroke-width":2.4}));
-    [res.inf[i],res.sup[i]].forEach(v=>s.append(el("line",{x1:x(j)-9,x2:x(j)+9,y1:y(v),y2:y(v),
-      stroke:c,"stroke-width":2.4})));
-    s.append(el("path",{d:`M${x(j)} ${y(res.est[i])-7}L${x(j)+7} ${y(res.est[i])}L${x(j)} ${y(res.est[i])+7}L${x(j)-7} ${y(res.est[i])}Z`,fill:c}));
-    s.append(el("text",{x:x(j),y:H-mB+20,fill:C.txt,"font-size":12,"text-anchor":"middle"},g));
-    s.append(el("text",{x:x(j),y:y(res.est[i])-13,fill:c,"font-size":11,"text-anchor":"middle"},
-      fmt(res.est[i])))});
-  cont.append(s);
-  cont.append(h("div",{class:"cap"},
-    "Cada punto es una corrida real · rombo = mediana · barra = IC 95 % por bootstrap de percentiles"));
+function chart(container,{groups,values,result,yLabel,log=true,height=340,label}){
+  const W=760,H=height,left=68,right=14,top=14,bottom=46,distinct=[...new Set(groups)];
+  const all=values.concat(result.inf,result.sup).filter(v=>v!=null&&(!log||v>0));let low=Math.min(...all),high=Math.max(...all);
+  const transform=log?Math.log10:v=>v,normal=v=>(transform(v)-transform(low))/(transform(high)-transform(low));
+  if(log){low=Math.pow(10,Math.floor(Math.log10(low)*4)/4);high=Math.pow(10,Math.ceil(Math.log10(high)*4)/4)}else{const pad=(high-low)*.08;low=Math.max(0,low-pad);high+=pad}
+  const y=value=>top+(1-normal(value))*(H-top-bottom),x=index=>left+(index+.5)*((W-left-right)/distinct.length);
+  const image=svg("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":label});
+  image.append(svg("title",{},label),svg("rect",{x:left,y:top,width:W-left-right,height:H-top-bottom,fill:C.panel}));
+  for(let i=0;i<=5;i++){const raw=transform(low)+(transform(high)-transform(low))*i/5,value=log?Math.pow(10,raw):raw;image.append(svg("line",{x1:left,x2:W-right,y1:y(value),y2:y(value),stroke:C.line}),svg("text",{x:left-8,y:y(value)+4,fill:C.muted,"font-size":11,"text-anchor":"end"},fmt(value)))}
+  image.append(svg("text",{x:16,y:H/2,fill:C.muted,"font-size":12,transform:`rotate(-90 16 ${H/2})`,"text-anchor":"middle"},yLabel));
+  groups.forEach((group,index)=>{const value=values[index];if(value==null||(log&&value<=0))return;const jitter=(((index*2654435761)%1000)/1000-.5)*((W-left-right)/distinct.length)*.34;image.append(svg("circle",{cx:x(distinct.indexOf(group))+jitter,cy:y(value),r:3,fill:colour(group),opacity:.5}))});
+  result.g.forEach((group,index)=>{const pos=distinct.indexOf(group);if(pos<0)return;const c=colour(group),mid=x(pos);image.append(svg("line",{x1:mid,x2:mid,y1:y(result.inf[index]),y2:y(result.sup[index]),stroke:c,"stroke-width":2.4}));[result.inf[index],result.sup[index]].forEach(value=>image.append(svg("line",{x1:mid-9,x2:mid+9,y1:y(value),y2:y(value),stroke:c,"stroke-width":2.4})));image.append(svg("path",{d:`M${mid} ${y(result.est[index])-7}L${mid+7} ${y(result.est[index])}L${mid} ${y(result.est[index])+7}L${mid-7} ${y(result.est[index])}Z`,fill:c}),svg("text",{x:mid,y:H-bottom+20,fill:C.text,"font-size":12,"text-anchor":"middle"},localLabel(group)),svg("text",{x:mid,y:y(result.est[index])-13,fill:c,"font-size":11,"text-anchor":"middle"},fmt(result.est[index])))});
+  container.append(image,h("p",{class:"cap"},I.points));
 }
 
-function proporcion(cont,d,ind,titulo,pie){
-  const W=360,H=250,mL=50,mB=42,mT=26;
-  const idx=d.prop.ind.map((v,i)=>v===ind?i:-1).filter(i=>i>=0);
-  const gs=idx.map(i=>d.prop.brazo[i]);
-  const y=v=>mT+(1-v/1.15)*(H-mT-mB), x=i=>mL+(i+.5)*((W-mL-14)/gs.length);
-  const s=el("svg",{viewBox:`0 0 ${W} ${H}`});
-  s.append(el("rect",{x:mL,y:mT,width:W-mL-14,height:H-mT-mB,fill:C.panel}));
-  [0,.25,.5,.75,1].forEach(t=>{s.append(el("line",{x1:mL,x2:W-14,y1:y(t),y2:y(t),stroke:C.rej}));
-    s.append(el("text",{x:mL-7,y:y(t)+4,fill:C.ten,"font-size":11,"text-anchor":"end"},(t*100)+" %")) });
-  s.append(el("text",{x:mL,y:16,fill:C.txt,"font-size":12.5,"font-weight":600},titulo));
-  idx.forEach((i,k)=>{const c=col(d.prop.brazo[i]);
-    s.append(el("line",{x1:x(k),x2:x(k),y1:y(d.prop.inf[i]),y2:y(d.prop.sup[i]),stroke:c,"stroke-width":2.4}));
-    s.append(el("circle",{cx:x(k),cy:y(d.prop.p[i]),r:5,fill:c}));
-    s.append(el("text",{x:x(k),y:y(d.prop.sup[i])-9,fill:c,"font-size":11,"text-anchor":"middle"},
-      `${d.prop.ex[i]}/${d.prop.n[i]}`));
-    s.append(el("text",{x:x(k),y:H-mB+20,fill:C.txt,"font-size":11.5,"text-anchor":"middle"},
-      d.prop.brazo[i]))});
-  cont.append(s); cont.append(h("div",{class:"cap"},pie));
+function proportions(container,data,indicator,title,caption){
+  const indexes=data.prop.ind.map((v,i)=>v===indicator?i:-1).filter(i=>i>=0),groups=indexes.map(i=>data.prop.brazo[i]);
+  const W=360,H=250,left=50,bottom=42,top=26,y=value=>top+(1-value/1.15)*(H-top-bottom),x=index=>left+(index+.5)*((W-left-14)/groups.length),image=svg("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":title});
+  image.append(svg("title",{},title),svg("rect",{x:left,y:top,width:W-left-14,height:H-top-bottom,fill:C.panel}));
+  [0,.25,.5,.75,1].forEach(tick=>image.append(svg("line",{x1:left,x2:W-14,y1:y(tick),y2:y(tick),stroke:C.line}),svg("text",{x:left-7,y:y(tick)+4,fill:C.muted,"font-size":11,"text-anchor":"end"},`${tick*100} %`)));
+  image.append(svg("text",{x:left,y:16,fill:C.text,"font-size":12.5,"font-weight":600},title));
+  indexes.forEach((index,position)=>{const c=colour(data.prop.brazo[index]);image.append(svg("line",{x1:x(position),x2:x(position),y1:y(data.prop.inf[index]),y2:y(data.prop.sup[index]),stroke:c,"stroke-width":2.4}),svg("circle",{cx:x(position),cy:y(data.prop.p[index]),r:5,fill:c}),svg("text",{x:x(position),y:y(data.prop.sup[index])-9,fill:c,"font-size":11,"text-anchor":"middle"},`${data.prop.ex[index]}/${data.prop.n[index]}`),svg("text",{x:x(position),y:H-bottom+20,fill:C.text,"font-size":11.5,"text-anchor":"middle"},localLabel(data.prop.brazo[index])))});
+  container.append(image,h("p",{class:"cap"},caption));
 }
 
-let D=null,tab=0;
-const TABS=["Microbenchmark","A/B de agente","Veredicto","Método"];
-
+function select(options,value,onChange){const node=h("select");options.forEach(([key,label])=>node.append(h("option",{value:key},label)));node.value=value;node.onchange=()=>onChange(node.value);return node}
 function render(){
-  const v=document.getElementById("vista"); v.textContent="";
-  const ctl=h("div",{class:"ctl"}); v.append(ctl);
-
-  if(tab===0){
-    const tareas=[...new Set(D.micro.puntos.g.map(g=>g.split("|")[0]))];
-    const sel=h("select"); tareas.forEach(t=>sel.append(h("option",{value:t},t)));
-    sel.value=render.t0||tareas[0];
-    const met=h("select"); [["ms","Tiempo (ms)"],["bytes","Bytes de salida"]]
-      .forEach(([k,l])=>met.append(h("option",{value:k},l)));
-    met.value=render.m0||"ms";
-    ctl.append(h("label",{},"Tarea ",sel),h("label",{},"Métrica ",met));
-    const box=h("div"); v.append(box);
-    const t=sel.value,m=met.value;
-    const P=D.micro.puntos,R=m==="ms"?D.micro.res_ms:D.micro.res_bytes;
-    const ii=P.g.map((g,i)=>g.startsWith(t+"|")?i:-1).filter(i=>i>=0);
-    const ri=R.g.map((g,i)=>g.startsWith(t+"|")?i:-1).filter(i=>i>=0);
-    puntos(box,{grupos:ii.map(i=>P.g[i].split("|")[1]),valores:ii.map(i=>P[m][i]),
-      res:{g:ri.map(i=>R.g[i].split("|")[1]),est:ri.map(i=>R.est[i]),
-           inf:ri.map(i=>R.inf[i]),sup:ri.map(i=>R.sup[i])},
-      ylab:m==="ms"?"Milisegundos":"Bytes de stdout"});
-    sel.onchange=()=>{render.t0=sel.value;render()};met.onchange=()=>{render.m0=met.value;render()};
-  }
-
-  if(tab===1){
-    const sub=h("select");[["positiva","Positivas (debería activarse)"],
-      ["negativa","Negativas (no debería)"]].forEach(([k,l])=>sub.append(h("option",{value:k},l)));
-    sub.value=render.s1||"positiva";
-    const met=h("select");[["ms","Tiempo (ms)"],["tokens","Tokens de salida"]]
-      .forEach(([k,l])=>met.append(h("option",{value:k},l)));
-    met.value=render.m1||"ms";
-    ctl.append(h("label",{},"Subconjunto ",sub),h("label",{},"Métrica ",met));
-    const box=h("div"); v.append(box);
-    const s=sub.value,m=met.value,P=D.ab.puntos,R=m==="ms"?D.ab.res_ms:D.ab.res_tokens;
-    const ii=P.g.map((g,i)=>g.startsWith(s+"|")?i:-1).filter(i=>i>=0);
-    const ri=R.g.map((g,i)=>g.startsWith(s+"|")?i:-1).filter(i=>i>=0);
-    puntos(box,{grupos:ii.map(i=>P.g[i].split("|")[1]),valores:ii.map(i=>P[m][i]),
-      res:{g:ri.map(i=>R.g[i].split("|")[1]),est:ri.map(i=>R.est[i]),
-           inf:ri.map(i=>R.inf[i]),sup:ri.map(i=>R.sup[i])},
-      ylab:m==="ms"?"Milisegundos":"Tokens de salida"});
-    const g2=h("div",{class:"grid2"}); v.append(g2);
-    const a=h("div"),b=h("div"); g2.append(a,b);
-    proporcion(a,D,"acierto","Acierto","Intervalo exacto de Clopper-Pearson · tareas positivas");
-    proporcion(b,D,"activo","Activó la skill",
-      `Sobreactivación en negativas: ${D.meta.sobreact} de ${D.meta.n_neg}`);
-    sub.onchange=()=>{render.s1=sub.value;render()};met.onchange=()=>{render.m1=met.value;render()};
-  }
-
+  const view=document.getElementById("view");view.textContent="";const controls=h("div",{class:"controls"});view.append(controls);
+  if(tab===0){const tasks=[...new Set(D.micro.puntos.g.map(g=>g.split("|")[0]))],task=state.task||tasks[0],metric=state.microMetric||"ms";controls.append(h("label",{},I.task,select(tasks.map(v=>[v,localLabel(v)]),task,v=>{state.task=v;render()})),h("label",{},I.metric,select([["ms",I.time],["bytes",I.bytes]],metric,v=>{state.microMetric=v;render()})));const points=D.micro.puntos,result=metric==="ms"?D.micro.res_ms:D.micro.res_bytes,indexes=points.g.map((g,i)=>g.startsWith(task+"|")?i:-1).filter(i=>i>=0),summaryIndexes=result.g.map((g,i)=>g.startsWith(task+"|")?i:-1).filter(i=>i>=0),box=h("div");view.append(box);chart(box,{groups:indexes.map(i=>points.g[i].split("|")[1]),values:indexes.map(i=>points[metric][i]),result:{g:summaryIndexes.map(i=>result.g[i].split("|")[1]),est:summaryIndexes.map(i=>result.est[i]),inf:summaryIndexes.map(i=>result.inf[i]),sup:summaryIndexes.map(i=>result.sup[i])},yLabel:metric==="ms"?I.time:I.bytes,label:`${localLabel(task)}: ${metric==="ms"?I.time:I.bytes}`})}
+  if(tab===1){const subset=state.subset||"positiva",metric=state.abMetric||"ms";controls.append(h("label",{},I.subset,select([["positiva",I.positive],["negativa",I.negative]],subset,v=>{state.subset=v;render()})),h("label",{},I.metric,select([["ms",I.time],["tokens",I.tokens]],metric,v=>{state.abMetric=v;render()})));const points=D.ab.puntos,result=metric==="ms"?D.ab.res_ms:D.ab.res_tokens,indexes=points.g.map((g,i)=>g.startsWith(subset+"|")?i:-1).filter(i=>i>=0),summaryIndexes=result.g.map((g,i)=>g.startsWith(subset+"|")?i:-1).filter(i=>i>=0),box=h("div");view.append(box);chart(box,{groups:indexes.map(i=>points.g[i].split("|")[1]),values:indexes.map(i=>points[metric][i]),result:{g:summaryIndexes.map(i=>result.g[i].split("|")[1]),est:summaryIndexes.map(i=>result.est[i]),inf:summaryIndexes.map(i=>result.inf[i]),sup:summaryIndexes.map(i=>result.sup[i])},yLabel:metric==="ms"?I.time:I.tokens,label:`${I.tabs[1]}: ${metric==="ms"?I.time:I.tokens}`});const grid=h("div",{class:"grid"}),accuracy=h("div"),activation=h("div");grid.append(accuracy,activation);view.append(grid);proportions(accuracy,D,"acierto",I.accuracy,I.positive);proportions(activation,D,"activo",I.activation,I.over(D.meta.sobreact,D.meta.n_neg))}
   if(tab===2){
-    const box=h("div"); v.append(box);
-    const gs=[...new Set(D.efi.brazo)];
-    const g2=h("div",{class:"grid2"}); box.append(g2);
-    ["tokens","ms"].forEach(ind=>{
-      const c=h("div"); g2.append(c);
-      const idx=D.efi.ind.map((x,i)=>x===ind?i:-1).filter(i=>i>=0);
-      puntos(c,{grupos:idx.map(i=>D.efi.brazo[i]),valores:[],
-        res:{g:idx.map(i=>D.efi.brazo[i]),est:idx.map(i=>D.efi.est[i]),
-             inf:idx.map(i=>D.efi.inf[i]),sup:idx.map(i=>D.efi.sup[i])},
-        ylab:ind==="tokens"?"Tokens por acierto":"Segundos por acierto",log:false,alto:260})});
-    const tb=h("table"); tb.append(h("thead",{},h("tr",{},
-      ...["Efecto","Estimación","IC 95 % / prueba","Veredicto"].map(t=>h("th",{},t)))));
-    const tb2=h("tbody");
-    D.ver.efecto.forEach((e,i)=>{
-      const cruza=D.ver.inf[i]!=null&&D.ver.inf[i]<=1&&D.ver.sup[i]>=1;
-      const conc=D.ver.p[i]!=null?D.ver.p[i]<.05:!cruza;
-      tb2.append(h("tr",{},h("td",{class:"l"},e),
-        h("td",{},D.ver.est[i]!=null?D.ver.est[i].toFixed(2)+"×":D.ver.detalle[i]),
-        h("td",{},D.ver.p[i]!=null?`Fisher p = ${D.ver.p[i].toFixed(4)}`
-          :`[${D.ver.inf[i].toFixed(2)}; ${D.ver.sup[i].toFixed(2)}]`),
-        h("td",{class:conc?"ok":"no"},conc?"concluyente":"no concluyente")))});
-    tb.append(tb2); box.append(tb);
-    box.append(h("p",{class:"nota"},
-      "Un cociente cuyo intervalo cruza el 1 no permite afirmar que haya diferencia."));
+    const table=h("table"),head=h("thead"),headerRow=h("tr"),body=h("tbody");
+    [I.effect,I.estimate,I.interval,I.verdict].forEach(value=>headerRow.append(h("th",{},value)));
+    head.append(headerRow);
+    D.ver.efecto.forEach((effect,index)=>{
+      const crosses=D.ver.inf[index]!=null&&D.ver.inf[index]<=1&&D.ver.sup[index]>=1;
+      const supported=D.ver.p[index]!=null?D.ver.p[index]<.05:!crosses;
+      const estimate=D.ver.est[index]!=null?D.ver.est[index].toFixed(2)+"×":D.ver.detalle[index];
+      const interval=D.ver.p[index]!=null?`Fisher p = ${D.ver.p[index].toFixed(4)}`:`[${D.ver.inf[index].toFixed(2)}; ${D.ver.sup[index].toFixed(2)}]`;
+      body.append(h("tr",{},h("td",{class:"left"},effect),h("td",{},estimate),h("td",{},interval),h("td",{class:supported?"ok":"no"},supported?I.conclusive:I.inconclusive)));
+    });
+    table.append(head,body);view.append(table,h("p",{class:"note"},I.crosses));
   }
-
   if(tab===3){
-    v.append(h("div",{class:"nota",html:`
-<p>El brazo con skill tiene media <b>${fmt(D.meta.media_con)} ms</b> y mediana
-<b>${fmt(D.meta.mediana_con)} ms</b>: una sola corrida de <b>${fmt(D.meta.max_con)} ms</b> infla la
-media. Por eso todo se lee en medianas. El atípico no se descarta: se muestra.</p>
-<ul>
-<li><b>Bootstrap de percentiles</b> (B = 10.000) para el intervalo de la mediana y del cociente.
-No se usan pruebas t: con n = 5 por celda la normalidad no se sostiene.</li>
-<li><b>Clopper-Pearson exacto</b> para proporciones: con 30 de 30 el método normal daría [1; 1].</li>
-<li><b>Fisher exacto</b> para la tabla 2×2 del acierto.</li>
-<li><b>Eficiencia</b> = coste por respuesta correcta, remuestreando corridas completas.</li>
-</ul>
-<p>Todo el cálculo está hecho en R (<code>/opt/entornos/r-geo</code>) y viaja precomputado: este
-visor sólo dibuja. Pesa unos pocos KB en vez de los <b>65,3 MB</b> que costaría llevar R al
-navegador con shinylive.</p>`}));
+    view.append(h("p",{class:"note"},I.caseIntro(T.design.records)));
+    const table=h("table"),head=h("thead"),headerRow=h("tr"),body=h("tbody");
+    [I.task,I.caseArm,I.caseCorrect,I.caseNu,I.caseMedian].forEach(value=>headerRow.append(h("th",{},value)));
+    head.append(headerRow);
+    T.tasks.forEach(task=>task.arms.forEach(arm=>{
+      const label=arm.arm==="policy_nushell"?I.casePolicy:I.caseControl;
+      const seconds=`${(arm.median_elapsed_ms/1000).toFixed(1)} s · ${arm.median_output_tokens.toFixed(0)} ${I.tokens.toLowerCase()}`;
+      body.append(h("tr",{},h("td",{class:"left"},task[locale]),h("td",{class:"left"},label),h("td",{class:"ok"},`${arm.correct}/${arm.runs}`),h("td",{class:arm.used_nushell?"ok":"no"},`${arm.used_nushell}/${arm.runs}`),h("td",{},seconds)))
+    }));
+    table.append(head,body);
+    view.append(table,h("p",{class:"note"},I.caseSource(T.source_shape)),h("p",{class:"note"},T.limits[locale]));
   }
+  if(tab===4)view.append(h("div",{class:"note",html:I.method}));
 }
-
-fetch("../../data/structured-shell/datos.json").then(r=>r.json()).then(d=>{
-  D=d;
-  document.getElementById("sub").textContent=
-    `${d.meta.n_micro} corridas de microbenchmark · ${d.meta.n_ab} del A/B de agente · cálculo precomputado en R`;
-  const nav=document.getElementById("tabs");
-  TABS.forEach((t,i)=>{const b=h("button",{},t);
-    b.setAttribute("aria-selected",i===0);
-    b.onclick=()=>{tab=i;[...nav.children].forEach((c,k)=>c.setAttribute("aria-selected",k===i));render()};
-    nav.append(b)});
-  render();
-}).catch(e=>{document.getElementById("sub").textContent="No se pudieron cargar los datos: "+e});
-</script></body></html>
+function initialise(data,thesis){D=data;T=thesis;document.getElementById("sub").textContent=I.summary(data.meta.n_micro,data.meta.n_ab);const tabs=document.getElementById("tabs");I.tabs.forEach((name,index)=>{const button=h("button",{role:"tab","aria-selected":index===0,"aria-controls":"view",id:`tab-${index}`},name);button.onclick=()=>{tab=index;[...tabs.children].forEach((item,i)=>item.setAttribute("aria-selected",i===index));render()};tabs.append(button)});render()}
+function fallback(error){const view=document.getElementById("view");document.getElementById("sub").textContent=I.failed;view.textContent="";view.append(h("section",{class:"fallback",role:"alert"},h("strong",{},I.failed),h("p",{},I.fallback),h("img",{src:"../../images/structured-shell/fig-microbenchmark.svg",alt:I.fallbackAlt})));console.error(error)}
+Promise.all(["../../data/structured-shell/datos.json","../../data/structured-shell/tesis-case.json"].map(url=>fetch(url).then(response=>{if(!response.ok)throw new Error(`${url}: HTTP ${response.status}`);return response.json()}))).then(([data,thesis])=>initialise(data,thesis)).catch(fallback);
+</script>
+</body>
+</html>
