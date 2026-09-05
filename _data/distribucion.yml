@@ -94,6 +94,11 @@
       respuestas: 1
       medido: 2026-09-05
       dias: 43
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4584571
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-ii-auditable-memory-54h1-temp-slug-3833057
+    estado: borrador
 - slug: avaluo-vulnerabilidad-unidad-vecinal
   ref_interno: avaluo-vulnerabilidad-uv
   url_canonica: https://3cucharadas.cl/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
@@ -145,4 +150,9 @@
   url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-penta-agent-modelos/
   titulo_usado: 'Multi-agent work in three spoonfuls: what worked for me and what
     did not'
-  publicaciones: []
+  publicaciones:
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4584570
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-what-worked-for-me-and-what-did-not-1ck7-temp-slug-7459401
+    estado: borrador
