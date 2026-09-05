@@ -14,7 +14,11 @@ ref: multiagente-penta-agent-memoria-gobernada-poc
 permalink: /ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
 distribution:
   social: true
-  republish: []
+  # Solo en la version EN: `_plugins/julia_feed.rb:60` exige `lang: en` ademas del
+  # canal, y `syndicate_devto.rb` lee esta misma clave. La transcreacion de hoy lo
+  # copio del ES --que lleva `[]` porque el espanol no se sindica-- y con eso el
+  # post salio del feed sin que nada avisara: paso de 4 items a 3.
+  republish: [dev, medium]
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "Arch Linux, KDE Plasma, local services (Qdrant and Sentence Transformers over loopback, systemd timers), Qdrant with the named `dense` vector"
 en_abstract: >
