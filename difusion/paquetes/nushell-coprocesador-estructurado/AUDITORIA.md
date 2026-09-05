@@ -6,7 +6,7 @@ Objeto: adaptaciones de `devto.md`, `medium.md`, `hn.txt`, `reddit-target.md`, `
 ## Tesis y decisión
 
 - Tesis: Nushell merece una ruta selectiva cuando coinciden datos estructurados, varias transformaciones y riesgo concreto de fallo silencioso; la evidencia no sostiene una superioridad general.
-- Decisión: aprobar el paquete para revisión humana por canal, no para publicación automática.
+- Decisión: ejecutar el paquete según la cadencia aprobada, con publicación manual y verificación posterior por canal.
 - Audiencia: profesionales de agentes de código, herramientas de línea de comandos y reproducibilidad.
 
 ## Inventario epistémico
@@ -41,6 +41,6 @@ Objeto: adaptaciones de `devto.md`, `medium.md`, `hn.txt`, `reddit-target.md`, `
 
 ## Veredicto
 
-- Aprobado con observaciones para revisión humana por canal.
+- Aprobado con observaciones para ejecución manual según cadencia.
 - Riesgo residual: medio antes de la carga en cada plataforma; bajo para la coherencia factual del paquete local.
-- Bloqueos: Reddit sin reglas verificadas y cualquier envío externo sin autorización explícita.
+- Bloqueos: Reddit sin reglas verificadas; los demás canales conservan sus comprobaciones manuales de plataforma.
