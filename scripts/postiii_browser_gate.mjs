@@ -74,8 +74,14 @@ async function checkStaticSources() {
     /(no contiene|excluye|no (se )?publica[n]?)[^.]*correo[^.]*(adjunto|direcci|ruta|token|credencial)/i.test(post);
   const declaresBoundaryState =
     /(proyecci[oó]n p[uú]blica|artefacto)[^.]{0,160}(sanead|saniti)/i.test(post);
+  // Segunda reescritura de este criterio, y por la misma razon que la primera:
+  // buscaba la forma de una fila de tabla, «Correo y tesis | No aparecen como
+  // nodos de contenido», y la reescritura editorial paso esa afirmacion a prosa
+  // —«El correo y los documentos privados tampoco aparecen como nodos de
+  // contenido»— sin perder la propiedad. El criterio marcaba en rojo un post
+  // correcto. Ahora acepta cualquier redaccion que diga lo mismo.
   const mailAndThesisAreNotContentNodes =
-    /correo y tesis[\s\S]{0,120}?no (aparecen|est[aá]n) como nodos de contenido/i.test(post);
+    /(correo|mail)[^.]{0,90}(no|not|tampoco|neither|nor)[^.]{0,40}(aparecen|est[aá]n|appear|are)[^.]{0,30}(como |as )?nodos? de contenido|content nodes/i.test(post);
   check(
     "draft-has-public-safety-boundary",
     declaresExclusion && declaresBoundaryState && mailAndThesisAreNotContentNodes,
@@ -85,9 +91,15 @@ async function checkStaticSources() {
   // nombre cada componente visible del visor y su lectura correcta, y que
   // declare el limite de no-causalidad. Exigir el pie "**Tabla 1** — ..." era
   // exigir una forma concreta de rotularla.
-  const readableTable =
-    hasAll(post, ["Tipos de tarea", "Aristas semánticas", "Correo y tesis"]) &&
-    /similitud operacional[^.]*no causalidad/i.test(post);
+  // Idem: la alternativa legible era una tabla y ahora es prosa. La propiedad
+  // que importa no es que exista una tabla, sino que el post EXPLIQUE que
+  // representa cada elemento del grafico y declare su limite. El visor dejo de
+  // estar empotrado: la imagen es una fotografia y el post carga el sentido.
+  const explicaElGrafico =
+    /\bnodo\b[^.]{0,120}estrategia/i.test(post) && /\barista\b[^.]{0,140}(similitud|relaci)/i.test(post);
+  const declaraElLimite =
+    /no demuestra[^.]{0,120}causalidad|no causalidad/i.test(post);
+  const readableTable = explicaElGrafico && declaraElLimite;
   // No basta con que el post MENCIONE que hay alternativa textual: eso lo
   // cumpliria un post que lo promete y no lo tiene. Falsado el 2026-08-31: la
   // primera version seguia en verde tras borrar el bloque de fallback entero,
@@ -105,10 +117,16 @@ async function checkStaticSources() {
     readableTable && fallbackWithoutWebgl,
     "The post, not the canvas, is the required readable alternative."
   );
+  // El post ya no empotra el visor: lo enlaza. Cambiar 3,4 MB de iframe por una
+  // captura que enlaza al visor completo es mejor para el lector, y el criterio
+  // de contencion del iframe deja de tener objeto. Lo que SI sobrevive como
+  // propiedad de seguridad es que ese enlace no exponga la ventana de origen.
+  const enlaceAlVisor = /assets\/visualizations\/penta-rag-knowledge-graph/.test(post);
+  const enlaceSeguro = !/<a[^>]+target="_blank"(?![^>]*rel="noopener")/.test(post);
   check(
-    "embed-is-labeled-and-contained",
-    /<iframe[^>]+title="Mapa 3D navegable de tipos de trabajo y estrategias de penta-agent"[^>]+sandbox="allow-scripts"[^>]+referrerpolicy="no-referrer"/.test(post),
-    "The embedded viewer needs a descriptive title and the current containment attributes."
+    "viewer-link-is-safe",
+    enlaceAlVisor && enlaceSeguro,
+    "Linking out to the full viewer must not expose the opener window."
   );
   check(
     "full-viewer-link-is-safe",
