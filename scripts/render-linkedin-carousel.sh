@@ -85,15 +85,35 @@ width = int(sys.argv[3])
 height = int(sys.argv[4])
 
 html = html_path.read_text(encoding="utf-8")
-style_match = re.search(r"<style>(.*?)</style>", html, re.S | re.I)
-if not style_match:
-    raise SystemExit("El HTML no contiene un bloque <style>.")
+
+# Cada lamina se rasteriza como HTML autonomo en un directorio temporal, asi que
+# el CSS tiene que viajar dentro: un <link> relativo apuntaria a un fichero que
+# ahi no existe. Se inlinea el contenido de cada hoja enlazada, en el orden en
+# que aparece, y despues los <style> propios del documento --que asi siguen
+# ganando como overrides--.
+#
+# Antes solo se admitia <style>: un carrusel con la hoja externa abortaba con
+# "El HTML no contiene un bloque <style>". Se aborto la lectura, no se ignoro en
+# silencio, pero igual bloqueaba deduplicar los 909 renglones de CSS repetido.
+partes = []
+for href in re.findall(r'<link[^>]+rel=["\']?stylesheet["\']?[^>]*>', html, re.I):
+    m = re.search(r'href=["\']([^"\']+)["\']', href, re.I)
+    if not m:
+        continue
+    ruta = (html_path.parent / m.group(1)).resolve()
+    if not ruta.is_file():
+        raise SystemExit(f"Hoja enlazada inexistente: {m.group(1)}")
+    partes.append(ruta.read_text(encoding="utf-8"))
+
+partes += re.findall(r"<style>(.*?)</style>", html, re.S | re.I)
+if not partes:
+    raise SystemExit("El HTML no trae CSS: ni <style> ni <link rel=stylesheet>.")
 
 sections = re.findall(r'<section class="slide">.*?</section>', html, re.S)
 if not sections:
     raise SystemExit('El HTML no contiene <section class="slide">.')
 
-style = style_match.group(1)
+style = "\n".join(partes)
 base_href = html_path.parent.as_uri() + "/"
 override = f"""
 html,body{{background:#101116;margin:0;padding:0;width:{width}px;height:{height}px;overflow:hidden}}
