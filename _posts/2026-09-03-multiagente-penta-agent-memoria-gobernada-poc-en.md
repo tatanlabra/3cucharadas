@@ -73,7 +73,7 @@ RAG mostly solves retrieval. The memory layer adds rules for keeping, updating, 
 
 | Open item from II                                              | What exists now                                                                                       | What is still open                                                                        |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Compare dense retrieval, lexical retrieval, and reranking.     | A frozen cut of 319 contexts and 40 queries evaluated at `k=5`.                                        | The best run gets 38 complete cases and 2 partials; the strict gate stays shut.            |
+| Compare dense retrieval, lexical retrieval, and reranking.     | A frozen cut of 319 contexts and 40 queries evaluated at `k=5`.                                        | The best configuration gets 38 complete cases and 2 partials; the strict gate stays shut.            |
 | Check that an answer uses its sources and knows how to abstain. | The `context-answer-v1` contract, with 12 positive and 6 negative cases, all sanitized.                | The end-to-end evaluation with a local model and the reserved human review are unfinished. |
 | Add currency without erasing history.                          | The proof of concept admits `supersedes` only toward later versions and rejects competing successors.  | There is still no temporal reasoner wired into live memory.                                |
 | Show growth without turning the graph into truth.              | A 3D viewer, regenerable from sanitized JSON and accompanied by a text alternative.                    | The viewer neither validates relations nor represents a mind.                              |
@@ -112,7 +112,7 @@ The architecture starts from a simple separation. The **canonical record** (the 
 
 ### An architecture of permissions, not a blender
 
-Mail, thesis material (from the master's degree), and operational memory may all be technically readable by the same system, but that does not make them interchangeable. In this PoC, only the previously curated context may feed cross-agent retrieval and the public projection. Mail stays in a private, reversible, vetoable circuit; the thesis contributes authorized process metadata and nothing else.
+Mail, thesis material (from the master's degree), and operational memory may all be technically readable by the same system, but that does not make them interchangeable. In this PoC, only the previously curated context may feed cross-agent retrieval and the public projection. Mail stays in a private, reversible, revocable circuit; the thesis contributes authorized process metadata and nothing else.
 
 The distinction matters: **having technical access to a piece of data does not settle whether reusing it for any purpose is legitimate**. Contextual integrity theory poses exactly this problem: privacy depends not only on the data, but also on the context, the actors, and the norms that govern its circulation [^nissenbaum-2004].
 

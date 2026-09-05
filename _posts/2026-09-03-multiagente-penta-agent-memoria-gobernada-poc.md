@@ -54,7 +54,7 @@ header:
 
 En la [segunda parte](/ia/productividad/desarrollo/multiagente-penta-agent-memoria/) intenté resolver un problema acotado: que la memoria de `penta-agent` recuperara evidencia y reconociera cuándo no la encontraba. La pregunta de esta tercera parte es más práctica y surge con el funcionamiento acumulado: **¿qué ocurre con la memoria cuando crece y se vuelve difusa o incluso contradictoria?**
 
-Un índice puede acumular fragmentos sin dificultad, y existen bastantes herramientas que ya lo satisfacen bien. Una memoria más útil, a mi juicio, debe conservar procedencia, vigencia, permisos, contradicciones y criterios de eliminación. También debe distinguir entre encontrar una fuente y usarla correctamente. La literatura reciente insiste en separar RAG, gestión de contexto y memoria de agentes, porque cumplen funciones diferentes y exigen evaluaciones distintas [^hu-2025].
+Un índice puede acumular fragmentos sin dificultad, y existen bastantes herramientas que ya lo resuelven bien. Una memoria más útil, a mi juicio, debe conservar procedencia, vigencia, permisos, contradicciones y criterios de eliminación. También debe distinguir entre encontrar una fuente y usarla correctamente. La literatura reciente insiste en separar RAG, gestión de contexto y memoria de agentes, porque cumplen funciones diferentes y exigen evaluaciones distintas [^hu-2025].
 
 La historia que sigue tiene tres movimientos: qué cambió desde la parte II; qué experimentos resistieron una evaluación más seria; y cómo mostrar la memoria sin hacerla pasar por una mente.
 
@@ -69,7 +69,7 @@ RAG resuelve principalmente la recuperación. La capa de memoria añade reglas p
 
 | Pendiente en II                                                | Qué existe ahora                                                                              | Qué sigue abierto                                                                            |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Comparar recuperación densa, léxica y reordenamiento.          | Un corte congelado de 319 contextos y 40 consultas evaluadas con `k=5`.                       | El mejor pase obtiene 38 casos completos y 2 parciales; la compuerta estricta sigue cerrada. |
+| Comparar recuperación densa, léxica y reordenamiento.          | Un corte congelado de 319 contextos y 40 consultas evaluadas con `k=5`.                       | La mejor configuración obtiene 38 casos completos y 2 parciales; la compuerta estricta sigue cerrada. |
 | Comprobar que una respuesta use las fuentes y sepa abstenerse. | El contrato `context-answer-v1`, con 12 casos positivos y 6 negativos saneados.               | Falta completar la evaluación integral con modelo local y revisión humana reservada.         |
 | Incorporar vigencia sin borrar la historia.                    | La PoC admite `supersedes` solo hacia versiones posteriores y rechaza sucesores competidores. | Todavía no existe un razonador temporal conectado a la memoria viva.                         |
 | Mostrar el crecimiento sin convertir el grafo en verdad.       | Un visor 3D regenerable desde JSON saneado y acompañado por una alternativa textual.          | El visor no valida relaciones ni representa una mente.                                       |
@@ -90,7 +90,7 @@ Esta separación evita una tentación frecuente: confundir **tener acceso técni
 
 ### Una falla útil
 
-La propia tubería dio un ejemplo de por qué la procedencia importa. El exportador histórico esperaba un vector simple, mientras el índice actual almacenaba el vector nombrado `dense`. La primera regeneración produjo un grafo degradado, sin aristas semánticas. Una prueba contra el índice real detectó la incompatibilidad y, después de corregir el exportador, reaparecieron 3.658 aristas.
+El propio pipeline dio un ejemplo de por qué la procedencia importa. El exportador histórico esperaba un vector simple, mientras el índice actual almacenaba el vector nombrado `dense`. La primera regeneración produjo un grafo degradado, sin aristas semánticas. Una prueba contra el índice real detectó la incompatibilidad y, después de corregir el exportador, reaparecieron 3.658 aristas.
 
 La lección es más importante que el número: **una visualización auditable debe poder mostrar cuándo su cadena de datos se degradó, por qué ocurrió y cómo se recompuso**. Es un caso de uso real.
 
@@ -106,9 +106,9 @@ Una estrategia podría pertenecer a varias categorías, pero hoy queda asignada 
 
 La arquitectura parte de una separación sencilla. El **registro canónico** (*ledger*) y los archivos fuente conservan la evidencia; Qdrant mantiene índices que pueden destruirse y regenerarse; el visor publica una proyección saneada; y los adaptadores privados permanecen fuera de Git. El índice sirve para encontrar. No tiene autoridad para convertir, por sí solo, una coincidencia vectorial en un hecho durable.
 
-### Una arquitectura de permisos, no una licuadora
+### Una arquitectura de permisos, no una juguera
 
-Correo, tesis (del magíster) y memoria de trabajo pueden ser técnicamente legibles por el mismo sistema, pero eso no los vuelve intercambiables. En esta PoC, solo el contexto previamente curado puede alimentar la recuperación entre agentes y la proyección pública. El correo permanece en un circuito privado, reversible y vetable; la tesis aporta únicamente metadatos de proceso autorizados.
+Correo, tesis (del magíster) y memoria de trabajo pueden ser técnicamente legibles por el mismo sistema, pero eso no los vuelve intercambiables. En esta PoC, solo el contexto previamente curado puede alimentar la recuperación entre agentes y la proyección pública. El correo permanece en un circuito privado, reversible y revocable; la tesis aporta únicamente metadatos de proceso autorizados.
 
 La distinción es importante: **tener acceso técnico a un dato no determina que sea legítimo reutilizarlo para cualquier propósito**. La teoría de la integridad contextual formula precisamente este problema: la privacidad depende no solo del dato, sino también del contexto, los actores y las normas que gobiernan su circulación [^nissenbaum-2004].
 
@@ -128,7 +128,7 @@ La tesis ofrece un buen ejemplo. Lo que entra al sistema público es una [instan
 
 Hay un detalle más interesante que las cifras. La instantánea publicada sigue siendo fiel al corte que declara: su huella coincide con el manifiesto de ese momento. Sin embargo, el corpus continuó creciendo y llegó a 817 documentos, veintiuno más. Como el índice no se regeneró, `check-research-index` devuelve `2`: `document_count` y `source_fingerprint` ya no coinciden con el estado actual.
 
-Eso no invalida la instantánea; **la fecha**. Su estado correcto es "válida para el corte del 29 de agosto, pero no vigente respecto del corpus actual". Una compuerta que hubiese permanecido verde después de crecer el corpus habría sido peor que una compuerta fallida: habría certificado una actualidad inexistente. Esto da cuenta formal del crecimiento y divergencia potencial de la memoria.
+Eso no invalida la instantánea; **la fecha**. Su estado correcto es "válida para el corte del 29 de agosto, pero no vigente respecto del corpus actual". Una compuerta que hubiera permanecido verde después de crecer el corpus habría sido peor que una compuerta fallida: habría certificado una actualidad inexistente. Esto da cuenta formal del crecimiento y divergencia potencial de la memoria.
 {: .notice--warning}
 
 ### Reutilizar antes que reinventar
@@ -137,7 +137,7 @@ Nada de esto exige construir desde cero cada componente de memoria. De hecho, un
 
 Para recuperar decisiones dispersas entre sesiones de programación, `deja-vu` ya indexa historiales locales de numerosos agentes y los expone mediante CLI y MCP. Es un candidato natural para contrastar con mis *handoffs* y eventos antes de desarrollar otra capa equivalente.
 
-Para memoria persistente más estructurada existen aproximaciones más ambiciosas. MemGPT introdujo la idea de administrar distintos niveles de memoria como una forma de extender el contexto efectivo de un agente [^packer-2023]; la línea actual de Letta lleva ese principio a bloques de memoria editables y memoria externa. Mem0 automatiza la extracción, consolidación y recuperación de información de conversaciones [^chhikara-2025], mientras Hindsight distingue operaciones de **retener, recuperar y reflexionar**, incorporando recuperación semántica, léxica, temporal y mediante grafos [^latimer-2025].
+Para memoria persistente más estructurada existen enfoques más ambiciosos. MemGPT introdujo la idea de administrar distintos niveles de memoria como una forma de extender el contexto efectivo de un agente [^packer-2023]; la línea actual de Letta lleva ese principio a bloques de memoria editables y memoria externa. Mem0 automatiza la extracción, consolidación y recuperación de información de conversaciones [^chhikara-2025], mientras Hindsight distingue operaciones de **retener, recuperar y reflexionar**, incorporando recuperación semántica, léxica, temporal y mediante grafos [^latimer-2025].
 
 El problema de la **vigencia** merece un experimento separado. Graphiti, componente abierto descrito en la arquitectura de Zep, modela explícitamente relaciones que cambian en el tiempo y conserva información histórica en lugar de reemplazarla silenciosamente [^rasmussen-2025]. Eso se aproxima mucho más al problema que intento resolver con `supersedes` que seguir agregando reglas temporales propias.
 
@@ -147,7 +147,7 @@ La visualización, finalmente, es un problema prácticamente resuelto: `3d-force
 
 La regla común es simple: **probar componentes, no coleccionarlos**. Que una biblioteca pueda recordar más no significa que deba recibir más datos.
 
-Hay además un conflicto de interés que conviene explicitar. Mem0, Hindsight, Zep/Graphiti y Letta están descritos en buena medida por sus propios equipos. Sus artículos y repositorios son fuentes apropiadas para conocer las arquitecturas que proponen, pero sus resultados comparativos no constituyen validación independiente de superioridad. Aquí los uso como diseños que merecen contraste, no como ganadores de una competencia, como tampoco mi stac es superior. Es más, problablemente lo mío es más bien experimental para mis propósitos.
+Hay además un conflicto de interés que conviene explicitar. Mem0, Hindsight, Zep/Graphiti y Letta están descritos en buena medida por sus propios equipos. Sus artículos y repositorios son fuentes apropiadas para conocer las arquitecturas que proponen, pero sus resultados comparativos no constituyen validación independiente de superioridad. Aquí los uso como diseños que merecen contraste, no como ganadores de una competencia, como tampoco mi stack es superior. Es más, probablemente lo mío es más bien experimental para mis propósitos.
 
 ### Un experimento de recuperación que podía fallar
 
