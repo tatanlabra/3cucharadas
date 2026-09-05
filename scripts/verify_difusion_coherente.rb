@@ -23,6 +23,18 @@
 # Se comparan cifras normalizadas —«16.955», «16,955» y «16955» son la misma— para
 # que la convención decimal de cada idioma no produzca falsos rojos.
 #
+# QUE NO COMPRUEBA
+#
+# Un punto ciego declarado, no descubierto: una cifra escrita dentro de un
+# encabezado Markdown de una pieza no se compara. Falsado el 2026-09-05 --se
+# metio `recall@5 0,9635` en un `###` del hilo de X y el gate siguio verde-- y
+# se acepta a cambio de que el recuento de caracteres de cada post pueda vivir
+# ahi. Si algun dia un encabezado lleva texto publicable, esta exclusion deja de
+# ser inocua y hay que revisarla.
+#
+# Tampoco comprueba afirmaciones que no sean numericas: una pieza puede prometer
+# una seccion que el post ya no tiene y este gate no lo vera.
+#
 # Uso:
 #   ruby scripts/verify_difusion_coherente.rb
 #   ruby scripts/verify_difusion_coherente.rb <ref>
@@ -108,6 +120,22 @@ piezas.each do |pieza|
   # En el HTML del carrusel, solo el contenido visible: el CSS está lleno de
   # números que no afirman nada.
   texto = texto.sub(/<style>.*?<\/style>/m, "") if pieza.end_with?(".html")
+  if pieza.end_with?(".md")
+    # Mismo criterio que el `<style>` de arriba y que los comentarios YAML del
+    # post: se compara lo que se publica, no el andamiaje.
+    #
+    # Un bloque cercado lleva el comando que regenera la pieza, y un encabezado
+    # lleva su etiqueta --«ES root», «Carrusel», «01 - imagen ... 245/280»--.
+    # Ninguno de los dos sale a ninguna red. Sin esta exclusion, el recuento de
+    # caracteres de un hilo de X se leia como una afirmacion sobre el post y
+    # daba ocho rojos que no significaban nada.
+    #
+    # No se excluye nada mas. Se descarto la regla tentadora de mirar solo lo que
+    # cuelga de un `###`: `copy-linkedin.md` y `targeting.md` no tienen ninguno,
+    # su texto publicable vive bajo `##`, y con esa regla el gate se habria
+    # quedado ciego justo en las dos piezas donde nadie lo habria notado.
+    texto = texto.gsub(/^```.*?^```/m, "").lines.reject { |l| l.start_with?("#") }.join
+  end
   huerfanas = cifras(texto).uniq.reject { |c| universo.include?(c) }
   next if huerfanas.empty?
 
