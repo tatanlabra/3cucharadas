@@ -63,6 +63,20 @@ piezas:
     alt:
       es: "Miniatura de la esfera de malla hueca y sus tres huellas luminosas."
 
+  - id: cerebro-20
+    rol: figura
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000.webp
+    ancho: 1600
+    alto: 1000
+    estado: publicable
+    origen: ia-externa
+    alt:
+      es: "Ilustración: media silueta de un cerebro formada por puntos y aristas que se deshace hacia la derecha en puntos sueltos, con una barra de carga detenida en 20 %."
+    advertencias:
+      - "ES UNA ILUSTRACIÓN, NO UNA CAPTURA. Sustituyó a un pantallazo real del visor, y por eso el texto y el pie tuvieron que cambiar: decían «fotografía de esa red» y «proyección pública de la memoria», que de una ilustración serían falsos. En un post que argumenta contra afirmar más de lo que la evidencia sostiene, ese detalle no es cosmético."
+      - "El cerebro a medias es deliberado y contradice solo en apariencia la regla de source/readme.md de no usar cerebros: aquella prohíbe el cerebro completo del Post II, que afirmaba lo contrario del texto. Uno cargado al 20 % ilustra el argumento en vez de contradecirlo."
+      - "La paleta sale del visor real (#61afef, #c678dd, #d19a66, #9ece6a), así que ilustración y herramienta hablan el mismo idioma visual."
+
   # --- Diagramas generados por script, no por IA ---
   - id: figura-1-es
     rol: figura
