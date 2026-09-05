@@ -4,6 +4,9 @@
   url_canonica: https://3cucharadas.cl/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/
   titulo_usado: CASEN 2024 en 3 cucharadas
   publicaciones:
+  # Reconciliado el 2026-08-31 contra difusion/state/ledger.jsonl. La entrada
+  # llevaba `publicaciones: []` desde julio pese a que el ledger registra
+  # network_published para las dos redes el 2026-07-24.
   - plataforma: mastodon
     fecha: 2026-07-15
     url_publicada: https://mastodon.social/@asiole/116922101828570614
@@ -36,9 +39,6 @@
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-memoria/
   titulo_usado: 'Multiagentes en 3 cucharadas II: una memoria que se puede auditar'
   publicaciones:
-  # Reconciliado el 2026-08-31 contra difusion/state/ledger.jsonl. La entrada
-  # llevaba `publicaciones: []` desde julio pese a que el ledger registra
-  # network_published para las dos redes el 2026-07-24.
   - plataforma: mastodon
     fecha: 2026-07-24
     url_publicada: https://mastodon.social/@asiole/116975684210603500
@@ -49,3 +49,19 @@
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mrfoiq6q6e2n
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mrfois2d4q2x
     resultado_30d:
+- slug: avaluo-vulnerabilidad-unidad-vecinal
+  ref_interno: avaluo-vulnerabilidad-uv
+  url_canonica: https://3cucharadas.cl/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
+  titulo_usado: 'Appraisal and vulnerability in 3 spoonfuls: change the denominator,
+    change the map'
+  publicaciones: []
+- slug: multiagente-memoria-gobernada-poc
+  ref_interno: multiagente-penta-agent-memoria-gobernada-poc
+  url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
+  titulo_usado: 'Multi-agent work in three spoonfuls III: a memory that leaves traces'
+  publicaciones:
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4582774
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-iii-a-memory-that-leaves-traces-2mjj-temp-slug-4301196
+    estado: borrador
