@@ -1,0 +1,19 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es un artículo técnico. El repositorio es reproducible, pero el objeto enviado es el post y las reglas de Show HN excluyen las entradas de blog.
+
+TÍTULO:
+When does a structured shell help a coding agent?
+
+URL:
+https://3cucharadas.cl/en/ia/productividad/desarrollo/nushell-coprocesador-estructurado/?utm_source=hackernews&utm_medium=referral&utm_campaign=nushell-coprocesador-estructurado
+
+PRIMER COMENTARIO DEL AUTOR:
+I expected the structured route to mainly reduce brittle parsing. The result was less tidy: it improved observed accuracy on some task families, cost time and output tokens, and made no accuracy difference in an aggregate case based on my master's thesis. The largest limitation is that the task families are few and some were used during tuning, so I added a holdout and report the tuned result separately. I would be interested in stronger baselines or counterexamples, especially from people who route between shell tools rather than replacing one shell with another.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “The runs are not independent.” → Agreed. Repetitions within a task family are not independent problem types; the Fisher result is explicitly exploratory and the holdout is reported separately.
+2. “Why not jq, Python, or DuckDB?” → The retained policy prefers those when they are simpler or more appropriate. Nushell is only the third lane, for multi-step structured transformations with a concrete parsing risk.
+3. “This only proves your skill was poorly designed.” → Partly. The study evaluates the tool and the routing policy together, and documents activation failures as part of the result rather than attributing every effect to Nushell.
+
+Recordatorios: no solicitar votos; responder en el hilo; no reenviar de inmediato si el enlace no despega.

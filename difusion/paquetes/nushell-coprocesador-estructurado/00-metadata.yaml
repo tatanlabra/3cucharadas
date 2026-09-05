@@ -1,0 +1,60 @@
+slug: nushell-coprocesador-estructurado
+canonical: https://3cucharadas.cl/ia/productividad/desarrollo/nushell-coprocesador-estructurado/
+canonical_en: https://3cucharadas.cl/en/ia/productividad/desarrollo/nushell-coprocesador-estructurado/
+titulo_es: "Nushell en 3 cucharadas: ¿cuándo una shell estructurada le saca jugo a un agente?"
+titulo_en: "Nushell in three spoonfuls: when does a structured shell actually help an agent?"
+tipo: bitacora-tecnica
+valor_seo: medio
+sindicacion_textual_permitida: true
+publicado_es: 2026-09-05
+publicado_en: 2026-09-05
+repositorio: https://github.com/tatanlabra/penta-agent
+evidencia:
+  ejecuciones_totales: 380
+  microbenchmark: 200
+  corpus_afinado: 100
+  holdout: 50
+  caso_tesis_agregado: 30
+destinos:
+  - plataforma: linkedin
+    fecha_propuesta: 2026-09-06
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: bluesky
+    fecha_propuesta: 2026-09-07
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: mastodon
+    fecha_propuesta: 2026-09-08
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-09-09
+    archivo: devto.md
+    estado: borrador-remoto
+    url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-3o3-temp-slug-4881292
+    article_id: 4584688
+  - plataforma: reddit
+    fecha_propuesta: 2026-09-10
+    archivo: reddit-target.md
+    estado: bloqueado-reglas
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-09-15
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-09-17
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - revisar y aprobar cada pieza antes de enviarla
+  - verificar las reglas visibles de r/nushell desde una sesión humana
+  - confirmar que el borrador dev.to conserva published=false y canonical_url
+  - importar o pegar la pieza Medium y verificar el canonical antes de publicar
+  - subir el PDF de LinkedIn y revisar la previsualización que genera la plataforma

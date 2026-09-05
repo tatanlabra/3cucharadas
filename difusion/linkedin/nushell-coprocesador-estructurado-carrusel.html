@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuándo Nushell ayuda a un agente - carrusel LinkedIn</title>
+<link rel="stylesheet" href="carrusel-base.css">
+</head>
+<body>
+  <div class="hint">
+    <strong>Carrusel LinkedIn - 6 láminas 1080×1350.</strong>
+    Exportar con <code>scripts/render-linkedin-carousel.sh</code>.
+    Esta nota no aparece en el PDF.
+  </div>
+
+  <section class="slide">
+    <span class="glyph">Nu</span>
+    <div class="pad">
+      <div class="eyebrow"><span>evidencia, no preferencia</span><span class="idx">01 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body">
+        <h1 class="title">¿Cuándo Nushell ayuda realmente a un agente?</h1>
+        <p class="lead">380 ejecuciones para separar mejora, coste e indiferencia.</p>
+        <div class="pillrow">
+          <span class="pill cyan">microbenchmark</span>
+          <span class="pill purple">A/B</span>
+          <span class="pill green">holdout</span>
+          <span class="pill pink">caso real</span>
+        </div>
+      </div>
+      <div class="foot"><span>3cucharadas.cl</span><span>Nushell 0.115.1 · R 4.5.3</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="glyph purple top">4</span>
+    <div class="pad">
+      <div class="eyebrow"><span>la decisión</span><span class="idx">02 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body wide">
+        <p class="quote cyan">No reemplacé zsh. Añadí una ruta selectiva.</p>
+        <div class="cards">
+          <div class="card"><h2>1 · Nativo</h2><p>git, systemctl, ssh</p></div>
+          <div class="card"><h2>2 · Especialista</h2><p>rg, jq, awk, fd</p></div>
+          <div class="card"><h2>3 · Nushell</h2><p>datos tipados y varias transformaciones</p></div>
+        </div>
+        <p class="note">DuckDB, Python, Polars o R quedan como cuarta ruta cuando el problema ya requiere un motor analítico.</p>
+      </div>
+      <div class="foot"><span>entra por una razón</span><span>también debe saber quedarse fuera</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="glyph green top">380</span>
+    <div class="pad">
+      <div class="eyebrow"><span>el diseño</span><span class="idx">03 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body wide">
+        <p class="quote">Cuatro pruebas. Una misma pregunta.</p>
+        <div class="metric">
+          <div><strong>200</strong><span>microbenchmark de pipelines</span></div>
+          <div><strong>100</strong><span>A/B sobre corpus afinado</span></div>
+          <div><strong>50</strong><span>corridas de holdout</span></div>
+        </div>
+        <div class="metric">
+          <div><strong>30</strong><span>observaciones del caso de tesis</span></div>
+          <div><strong>2</strong><span>agentes: Claude Code y Codex</span></div>
+          <div><strong>1</strong><span>máquina; evidencia acotada</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>muchas repeticiones</span><span>pocas familias de tareas</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="glyph">+</span>
+    <div class="pad">
+      <div class="eyebrow"><span>dónde mejoró</span><span class="idx">04 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body wide">
+        <div class="metric">
+          <div><strong>30/30</strong><span>con skill · corpus afinado</span></div>
+          <div><strong>23/30</strong><span>sin skill · corpus afinado</span></div>
+          <div><strong>28/30</strong><span>activaciones en ese corpus</span></div>
+        </div>
+        <div class="metric">
+          <div><strong>14/15</strong><span>con skill · holdout positivo</span></div>
+          <div><strong>10/15</strong><span>sin skill · holdout positivo</span></div>
+          <div><strong>4/15</strong><span>activaciones en el holdout</span></div>
+        </div>
+        <p class="note"><strong>La señal existe.</strong> No es una tasa generalizable: parte de la integración se afinó con las mismas familias del primer A/B.</p>
+      </div>
+      <div class="foot"><span>resultado favorable</span><span>límite declarado</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="glyph purple">±</span>
+    <div class="pad">
+      <div class="eyebrow"><span>el coste y la contraprueba</span><span class="idx">05 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body wide">
+        <p class="quote pink">Más estructura no significó menos coste.</p>
+        <div class="metric">
+          <div><strong>6,2 → 9,5 s</strong><span>mediana en tareas positivas afinadas</span></div>
+          <div><strong>152 → 368</strong><span>tokens medianos de salida</span></div>
+          <div><strong>4/4</strong><span>microbenchmarks: Nushell más lento</span></div>
+        </div>
+        <div class="drift">
+          <span class="warn">Caso agregado de tesis: 30 observaciones</span>
+          <span>ambos brazos acertaron todas las tareas</span>
+          <span>la ruta cambió; el resultado relevante, no</span>
+        </div>
+      </div>
+      <div class="foot"><span>empeoramiento en coste</span><span>indiferencia en acierto</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <span class="glyph green">?</span>
+    <div class="pad">
+      <div class="eyebrow"><span>la regla que sobrevivió</span><span class="idx">06 / 06</span></div>
+      <div class="rule"></div>
+      <div class="body full">
+        <p class="highlight">Probar Nushell cuando coinciden:</p>
+        <div class="cards">
+          <div class="card"><h2>Datos estructurados</h2><p>fechas, números, tamaños o tablas</p></div>
+          <div class="card"><h2>Varias transformaciones</h2><p>filtrar, agrupar, ordenar y reducir</p></div>
+          <div class="card"><h2>Riesgo silencioso</h2><p>un parseo frágil puede cambiar la respuesta</p></div>
+        </div>
+        <div class="urlbox">3cucharadas.cl/ia/productividad/desarrollo/nushell-coprocesador-estructurado/</div>
+        <p class="note">¿Qué estrategia usan, contra qué línea base y cómo comprobaron que mejora el flujo?</p>
+      </div>
+      <div class="foot"><span>visor en R · datos · código</span><span>#Nushell #AIAgents</span></div>
+    </div>
+  </section>
+</body>
+</html>

@@ -46,9 +46,9 @@ todo_state:
     - "[x] F2 D2 bilingüe, visor localizado y contrato ES/EN"
     - "[x] F3 integración limpia y suite de regresión"
     - "[x] F4 revisión humana final ES/EN"
-    - "[~] F5 release candidate, commit selectivo, push y CI"
-    - "[ ] F6 verificación de producción"
-    - "[ ] F7 paquete y ejecución de difusión"
+    - "[x] F5 release candidate, commit selectivo, push y CI"
+    - "[x] F6 verificación de producción"
+    - "[~] F7 paquete preparado; envíos externos pendientes de autorización por canal"
     - "[ ] F8 seguimiento D+1 y D+30"
 
 phases:
@@ -56,7 +56,7 @@ phases:
     status: done
     objective: "Cerrar el texto español canónico."
     success:
-      source: "_drafts/2026-08-29-nushell-coprocesador-estructurado.md"
+      source: "_posts/2026-08-29-nushell-coprocesador-estructurado.md"
       figures_in_body: 2
       claims_total_runs: 380
       editorial_comments_open: 0
@@ -71,7 +71,7 @@ phases:
     status: done
     objective: "Transcrear el texto al inglés técnico desde el español vigente."
     success:
-      source: "_drafts/2026-08-29-nushell-coprocesador-estructurado-en.md"
+      source: "_posts/2026-08-29-nushell-coprocesador-estructurado-en.md"
       figures_in_body: 2
       tables_keyboard_accessible: 6
       holdout_claims: ["14/15", "10/15", "4/15", "5/10", "6/10"]
@@ -90,7 +90,7 @@ phases:
       d2_variants: 4
       d2_local_paths: 0
       d2_accessible_title_desc: true
-      artifact_bytes: 59965216
+      artifact_bytes: 59284133
       artifact_max_bytes: 60000000
     evidence:
       - "scripts/render_structured_shell_d2_locales.py"
@@ -142,7 +142,7 @@ phases:
     rollback: "volver a F1 sin mover archivos a _posts"
 
   - id: F5
-    status: partial
+    status: done
     objective: "Crear un release candidate mínimo y publicarlo mediante CI."
     requires_human_authorization: ["commit", "push", "merge", "automatic dev.to draft triggered by GitHub main"]
     success:
@@ -150,11 +150,16 @@ phases:
       post_pairs_in_drafts: 0
       ci_status: success
       origin_and_github_main_same_sha: true
+    evidence:
+      - "release commit 5df980d1 en GitLab y GitHub"
+      - "registro dev.to d28fa2b4 replicado por fast-forward a GitLab"
+      - "GitLab pipelines 215 y 216 success"
+      - "GitHub workflow 33995688469 success; borrador dev.to 4584688"
     falsified_by: "slug duplicado, CI rojo, remoto divergente o commit con archivos ajenos"
     rollback: "no fusionar; corregir en la rama candidata"
 
   - id: F6
-    status: pending
+    status: done
     objective: "Verificar la publicación real, no solo el pipeline."
     success:
       http_status_ES: 200
@@ -165,11 +170,17 @@ phases:
       viewer_tabs: 5
       axe_violations: 0
       rss_and_language_links_valid: true
+    evidence:
+      - "ES y EN públicas responden HTTP 200"
+      - "canonical y hreflang ES/EN/x-default recíprocos"
+      - "OG y teaser en producción coinciden por SHA-256 con el release"
+      - "visor, tesis-case.json y feeds ES/EN/dev responden y contienen el post"
+      - "viewport móvil 390 px sin overflow; seis tablas y un iframe"
     falsified_by: "página incompleta, asset degradado, enlace cruzado roto o diferencia con el RC"
     rollback: "revertir el commit de publicación mediante una nueva revisión"
 
   - id: F7
-    status: pending
+    status: partial
     objective: "Preparar y ejecutar una difusión específica por canal."
     entry_gate: "F6 verde y URL canónica pública"
     requires_human_authorization: ["cada envío externo", "carrusel LinkedIn"]
@@ -184,9 +195,20 @@ phases:
         - "linkedin.md"
         - "social-corto.md"
         - "QA.md"
+        - "AUDITORIA.md"
       same_day_duplicate_platforms: 0
       canonical_backlinks_valid: true
       linkedin_hd_verified: true
+    preparation:
+      package_dir: "difusion/paquetes/nushell-coprocesador-estructurado"
+      carousel_source: "difusion/linkedin/nushell-coprocesador-estructurado-carrusel.html"
+      carousel_pdf_local: "difusion/linkedin/nushell-coprocesador-estructurado-carrusel.pdf"
+      carousel_pages: 6
+      carousel_pixels: "1080x1350"
+      external_posts_sent: 0
+      reddit_rules_verified: false
+      carousel_accessible_text_layer: false
+      critical_audit_verdict: "approved_with_observations"
     falsified_by: "pieza genérica, claim divergente, canónico ausente o publicación sin autorización"
     rollback: "detener canales restantes; corregir solo la pieza afectada"
 
