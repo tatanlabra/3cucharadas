@@ -53,9 +53,9 @@ header:
 
 En la [segunda parte](/ia/productividad/desarrollo/multiagente-penta-agent-memoria/) intenté resolver un problema acotado: que la memoria de `penta-agent` recuperara evidencia y reconociera cuándo no la encontraba. La pregunta de esta tercera parte es más práctica y surge con el funcionamiento acumulado: **¿qué ocurre con la memoria cuando crece y se vuelve difusa o incluso contradictoria?**
 
-Un índice puede acumular fragmentos sin dificultad, y existen bastantes herramientas que ya lo satisfacen bien. Una memoria +útil, a mi jucio, debe conservar procedencia, vigencia, permisos, contradicciones y criterios de eliminación. También debe distinguir entre encontrar una fuente y usarla correctamente. La literatura reciente insiste en separar RAG, gestión de contexto y memoria de agentes, porque cumplen funciones diferentes y exigen evaluaciones distintas [^hu-2025].
+Un índice puede acumular fragmentos sin dificultad, y existen bastantes herramientas que ya lo satisfacen bien. Una memoria más útil, a mi juicio, debe conservar procedencia, vigencia, permisos, contradicciones y criterios de eliminación. También debe distinguir entre encontrar una fuente y usarla correctamente. La literatura reciente insiste en separar RAG, gestión de contexto y memoria de agentes, porque cumplen funciones diferentes y exigen evaluaciones distintas [^hu-2025].
 
-La historia que sigue tiene tres movimientos: qué cambió desde la parte II; qué experimentos resistieron una evaluación +seria; y cómo mostrar la memoria sin hacerla pasar por una mente.
+La historia que sigue tiene tres movimientos: qué cambió desde la parte II; qué experimentos resistieron una evaluación más seria; y cómo mostrar la memoria sin hacerla pasar por una mente.
 
 ---
 ## Primera cucharada: de recuperar fragmentos a gobernar evidencia
@@ -107,7 +107,7 @@ La arquitectura parte de una separación sencilla. El **registro canónico** (*l
 
 ### Una arquitectura de permisos, no una licuadora
 
-Correo, tesis (del  magister) y memoria de trabajo pueden ser técnicamente legibles por el mismo sistema, pero eso no los vuelve intercambiables. En esta PoC, solo el contexto previamente curado puede alimentar la recuperación entre agentes y la proyección pública. El correo permanece en un circuito privado, reversible y vetable; la tesis aporta únicamente metadatos de proceso autorizados.
+Correo, tesis (del magíster) y memoria de trabajo pueden ser técnicamente legibles por el mismo sistema, pero eso no los vuelve intercambiables. En esta PoC, solo el contexto previamente curado puede alimentar la recuperación entre agentes y la proyección pública. El correo permanece en un circuito privado, reversible y vetable; la tesis aporta únicamente metadatos de proceso autorizados.
 
 La distinción es importante: **tener acceso técnico a un dato no determina que sea legítimo reutilizarlo para cualquier propósito**. La teoría de la integridad contextual formula precisamente este problema: la privacidad depende no solo del dato, sino también del contexto, los actores y las normas que gobiernan su circulación [^nissenbaum-2004].
 
@@ -115,9 +115,7 @@ La distinción es importante: **tener acceso técnico a un dato no determina que
 
   <a href="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg' | relative_url }}" target="_blank" rel="noopener">
 
-```
-<img src="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg' | relative_url }}" alt="Tres fuentes gobernadas: la memoria de trabajo permite recuperación con procedencia; el correo personal permite solo revisión privada y reversible; tesis del magister y documentos permiten citas y estados de verificación. Con una barrera que impide publicar cuerpos de correo, adjuntos, direcciones, rutas absolutas, microdatos e inferencias de identidad." loading="lazy" decoding="async">
-```
+<img src="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg' | relative_url }}" alt="Tres fuentes gobernadas: la memoria de trabajo permite recuperación con procedencia; el correo personal permite solo revisión privada y reversible; tesis del magíster y documentos permiten citas y estados de verificación. Con una barrera que impide publicar cuerpos de correo, adjuntos, direcciones, rutas absolutas, microdatos e inferencias de identidad." loading="lazy" decoding="async">
 
   </a>
 
@@ -130,7 +128,6 @@ La tesis ofrece un buen ejemplo. Lo que entra al sistema público es una [instan
 Hay un detalle más interesante que las cifras. La instantánea publicada sigue siendo fiel al corte que declara: su huella coincide con el manifiesto de ese momento. Sin embargo, el corpus continuó creciendo y llegó a 817 documentos, veintiuno más. Como el índice no se regeneró, `check-research-index` devuelve `2`: `document_count` y `source_fingerprint` ya no coinciden con el estado actual.
 
 Eso no invalida la instantánea; **la fecha**. Su estado correcto es "válida para el corte del 29 de agosto, pero no vigente respecto del corpus actual". Una compuerta que hubiese permanecido verde después de crecer el corpus habría sido peor que una compuerta fallida: habría certificado una actualidad inexistente. Esto da cuenta formal del crecimiento y divergencia potencial de la memoria.
-
 {: .notice--warning}
 
 ### Reutilizar antes que reinventar
@@ -198,7 +195,6 @@ La imagen siguiente **no es esa red**: es una ilustración, y el chiste es el po
 </figure>
 
 [**Abrir el visor interactivo en una pestaña nueva →**]({{ '/assets/visualizations/penta-rag-knowledge-graph/index.html' | relative_url }})
-
 {: .text-center}
 
 Conviene leerlo con algunas precauciones. Un **nodo** (un punto del gráfico) representa una estrategia registrada. Una **arista** (una línea entre dos nodos) representa alguna relación derivada: por ejemplo, similitud semántica, una herramienta compartida o una corrección. Una **comunidad** (un grupo de nodos que aparece especialmente conectado) sirve para orientarse dentro de la red.
@@ -227,7 +223,7 @@ Falta aún para el "clon digital", hoy es un horizonte lejano. Al menos falta, c
 
 En esta tercera parte `penta-agent` es un prototipo local de memoria gobernada: conserva experiencia, registra correcciones, expone una proyección pública limitada y permite que sus pruebas fallen sin alterar producción.
 
-El próximo avance no consiste en añadir más nodos. Consiste en cerrar la evaluación local de respuestas y comparar alternativas —Graphiti, GraphRAG o `deja-vu`— bajo el mismo corte, los mismos permisos y criterios de salida observables. Quedo muy atento a sus comentarios y experiencias de uso, creo que me serviría algun punto de comparación práctico más que seguir probando las muchas herramientas que salen día a día.
+El próximo avance no consiste en añadir más nodos. Consiste en cerrar la evaluación local de respuestas y comparar alternativas —Graphiti, GraphRAG o `deja-vu`— bajo el mismo corte, los mismos permisos y criterios de salida observables. Quedo muy atento a sus comentarios y experiencias de uso, creo que me serviría algún punto de comparación práctico más que seguir probando las muchas herramientas que salen día a día.
 
 ---
 

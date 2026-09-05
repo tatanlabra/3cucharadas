@@ -12,7 +12,7 @@ La memoria del sistema ya recuperaba bien. El problema pasó a ser otro: qué pe
 
 Tercera parte: cuatro fuentes separadas por contrato, no fusionadas.
 
-Cinco hipótesis de recuperación probadas, una promovida. Y una compuerta que publico en rojo a propósito.
+Varias mejoras de recuperación probadas, una promovida. Y una compuerta que publico en rojo a propósito.
 
 #RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=es
 
@@ -22,7 +22,7 @@ The system already retrieved well. The harder question came next: what should pe
 
 Part three: four sources kept apart by contract, not merged.
 
-Five retrieval hypotheses tested, one promoted. And a gate I am publishing red on purpose.
+Several retrieval improvements tested, one promoted. And a gate I am publishing red on purpose.
 
 #RAG #AIAgents #KnowledgeGraph https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=mastodon&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=en
 
@@ -32,7 +32,7 @@ Five retrieval hypotheses tested, one promoted. And a gate I am publishing red o
 
 Ya recuperaba bien. La pregunta pasó a ser qué persiste, qué caduca y qué nunca sale de su ámbito.
 
-Cinco hipótesis probadas, una promovida. El reordenador puntuaba mejor y aun así lo rechacé: 2,37 s → 15,83 s de mediana.
+Varias mejoras probadas, una promovida. El reordenador ordenaba mejor y aun así lo rechacé: el tiempo de respuesta subía demasiado.
 
 https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=es
 
@@ -46,7 +46,7 @@ La instantánea es fiel a su fecha. Lo que caducó es la vigencia, no el dato. U
 
 Retrieval was already fine. The question became what should persist, what should expire, and what must never leave its scope.
 
-Five hypotheses tested, one promoted. The reranker scored better and I rejected it anyway: median 2.37 s → 15.83 s.
+Several improvements tested, one promoted. The reranker ranked better and I rejected it anyway: response time grew too much.
 
 https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=bluesky&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=en
 
