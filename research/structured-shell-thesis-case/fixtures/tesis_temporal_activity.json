@@ -1,0 +1,202 @@
+{
+  "aggregate": {
+    "by_year": [
+      {
+        "entrada_one": 0,
+        "presence_one": 9666,
+        "presence_zero": 4942,
+        "rows": 14608,
+        "salida_one": 42,
+        "year": 1992
+      },
+      {
+        "entrada_one": 90,
+        "presence_one": 9714,
+        "presence_zero": 4894,
+        "rows": 14608,
+        "salida_one": 162,
+        "year": 1993
+      },
+      {
+        "entrada_one": 173,
+        "presence_one": 9725,
+        "presence_zero": 4883,
+        "rows": 14608,
+        "salida_one": 64,
+        "year": 1994
+      },
+      {
+        "entrada_one": 55,
+        "presence_one": 9716,
+        "presence_zero": 4892,
+        "rows": 14608,
+        "salida_one": 55,
+        "year": 1995
+      },
+      {
+        "entrada_one": 152,
+        "presence_one": 9813,
+        "presence_zero": 4795,
+        "rows": 14608,
+        "salida_one": 53,
+        "year": 1996
+      },
+      {
+        "entrada_one": 149,
+        "presence_one": 9909,
+        "presence_zero": 4699,
+        "rows": 14608,
+        "salida_one": 138,
+        "year": 1997
+      },
+      {
+        "entrada_one": 268,
+        "presence_one": 10039,
+        "presence_zero": 4569,
+        "rows": 14608,
+        "salida_one": 172,
+        "year": 1998
+      },
+      {
+        "entrada_one": 231,
+        "presence_one": 10098,
+        "presence_zero": 4510,
+        "rows": 14608,
+        "salida_one": 246,
+        "year": 1999
+      },
+      {
+        "entrada_one": 192,
+        "presence_one": 10044,
+        "presence_zero": 4564,
+        "rows": 14608,
+        "salida_one": 133,
+        "year": 2000
+      },
+      {
+        "entrada_one": 259,
+        "presence_one": 10170,
+        "presence_zero": 4438,
+        "rows": 14608,
+        "salida_one": 200,
+        "year": 2001
+      },
+      {
+        "entrada_one": 330,
+        "presence_one": 10300,
+        "presence_zero": 4308,
+        "rows": 14608,
+        "salida_one": 267,
+        "year": 2002
+      },
+      {
+        "entrada_one": 559,
+        "presence_one": 10592,
+        "presence_zero": 4016,
+        "rows": 14608,
+        "salida_one": 248,
+        "year": 2003
+      },
+      {
+        "entrada_one": 329,
+        "presence_one": 10673,
+        "presence_zero": 3935,
+        "rows": 14608,
+        "salida_one": 169,
+        "year": 2004
+      },
+      {
+        "entrada_one": 420,
+        "presence_one": 10924,
+        "presence_zero": 3684,
+        "rows": 14608,
+        "salida_one": 235,
+        "year": 2005
+      },
+      {
+        "entrada_one": 332,
+        "presence_one": 11021,
+        "presence_zero": 3587,
+        "rows": 14608,
+        "salida_one": 192,
+        "year": 2006
+      },
+      {
+        "entrada_one": 289,
+        "presence_one": 11118,
+        "presence_zero": 3490,
+        "rows": 14608,
+        "salida_one": 180,
+        "year": 2007
+      },
+      {
+        "entrada_one": 327,
+        "presence_one": 11265,
+        "presence_zero": 3343,
+        "rows": 14608,
+        "salida_one": 192,
+        "year": 2008
+      },
+      {
+        "entrada_one": 362,
+        "presence_one": 11435,
+        "presence_zero": 3173,
+        "rows": 14608,
+        "salida_one": 166,
+        "year": 2009
+      },
+      {
+        "entrada_one": 225,
+        "presence_one": 11494,
+        "presence_zero": 3114,
+        "rows": 14608,
+        "salida_one": 249,
+        "year": 2010
+      },
+      {
+        "entrada_one": 180,
+        "presence_one": 11425,
+        "presence_zero": 3183,
+        "rows": 14608,
+        "salida_one": 237,
+        "year": 2011
+      },
+      {
+        "entrada_one": 362,
+        "presence_one": 11550,
+        "presence_zero": 3058,
+        "rows": 14608,
+        "salida_one": 0,
+        "year": 2012
+      }
+    ],
+    "row_counts": {
+      "entrada_one": 5284,
+      "input_rows": 306768,
+      "presence_one": 220691,
+      "presence_zero": 86077,
+      "salida_one": 3400,
+      "valid_year_rows": 306768
+    }
+  },
+  "case_id": "tesis-temporal-activity-aggregate-v1",
+  "declared_invariants": {
+    "input_rows_equals_valid_year_rows": true,
+    "presence_counts_do_not_exceed_annual_rows": true,
+    "sum_by_year_rows_equals_valid_year_rows": true
+  },
+  "epistemic_limits": [
+    "presencia=0 no se interpreta por sí sola como cierre institucional",
+    "entrada y salida son variables históricas observadas, no una taxonomía de eventos",
+    "no se serializan identificadores RBD ni trayectorias individuales"
+  ],
+  "fixture_kind": "real_aggregated_audit",
+  "schema_version": 1,
+  "source": {
+    "audit_schema_version": 1,
+    "dataset_sha256": "854f47c641261cc0d92c21f18a11e12b26f9faaeec1b0d81bc4344e947157304",
+    "input_columns_count": 263,
+    "input_rows": 306768,
+    "interpretation_status": "DESCRIPTIVE_ONLY"
+  }
+}

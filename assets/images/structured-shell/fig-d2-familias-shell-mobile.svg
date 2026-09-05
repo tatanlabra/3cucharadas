@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="1355" viewBox="0 0 540 1355" role="img" aria-labelledby="title desc">
+  <title id="title">D2: Familias de shell y el lugar de Nushell</title>
+  <desc id="desc">Versión móvil del mapa conceptual. Las shells de texto sh, Bash y zsh transportan texto. Fish prioriza la interacción y no es POSIX. Nushell transporta valores tipados. PowerShell transporta objetos .NET. El post compara solamente zsh con una ruta selectiva de Nushell.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#121521"/>
+      <stop offset="1" stop-color="#171d2c"/>
+    </linearGradient>
+    <linearGradient id="nu" x1="0" x2="1">
+      <stop stop-color="#173446"/>
+      <stop offset="1" stop-color="#1d3b52"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .kicker { fill:#9da9bd; font:600 20px 'JetBrains Mono','DejaVu Sans Mono',monospace; letter-spacing:1.5px; }
+      .title { fill:#e8ecf5; font:700 36px 'JetBrains Mono','DejaVu Sans Mono',monospace; }
+      .subtitle { fill:#c4ccda; font:400 22px 'Inter','DejaVu Sans',sans-serif; }
+      .card-title { fill:#e8ecf5; font:700 32px 'JetBrains Mono','DejaVu Sans Mono',monospace; }
+      .card-body { fill:#d3d9e5; font:400 25px 'Inter','DejaVu Sans',sans-serif; }
+      .tag { fill:#9da9bd; font:600 20px 'JetBrains Mono','DejaVu Sans Mono',monospace; letter-spacing:1px; }
+      .note { fill:#e0e5ee; font:400 26px 'Inter','DejaVu Sans',sans-serif; }
+      .small { fill:#aeb9ca; font:400 21px 'Inter','DejaVu Sans',sans-serif; }
+      .footer { fill:#aeb9ca; font:400 19px 'Inter','DejaVu Sans',sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="540" height="1355" rx="18" fill="url(#bg)"/>
+  <text x="30" y="45" class="kicker">D2 · ORIENTACIÓN, NO RANKING</text>
+  <text x="30" y="91" class="title">No todas las shells</text>
+  <text x="30" y="133" class="title">transportan lo mismo</text>
+  <text x="30" y="170" class="subtitle">El nombre «shell» no basta para decidir</text>
+  <text x="30" y="198" class="subtitle">qué herramienta conviene usar.</text>
+
+  <g transform="translate(30 220)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#8b97ad"/>
+    <text x="20" y="38" class="tag">TUBERÍAS DE TEXTO</text>
+    <text x="20" y="79" class="card-title">sh · Bash · zsh</text>
+    <text x="20" y="118" class="card-body">Los programas se pasan texto</text>
+    <text x="20" y="147" class="card-body">entre sí.</text>
+    <text x="20" y="176" class="small">Orquestación habitual de comandos.</text>
+  </g>
+
+  <g transform="translate(30 426)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#b888d9"/>
+    <text x="20" y="38" class="tag">INTERACTIVA</text>
+    <text x="20" y="79" class="card-title">fish</text>
+    <text x="20" y="118" class="card-body">Prioriza la experiencia</text>
+    <text x="20" y="147" class="card-body">interactiva; no es POSIX.</text>
+    <text x="20" y="176" class="small">Recibe salida textual de CLI.</text>
+  </g>
+
+  <g transform="translate(30 632)">
+    <rect width="480" height="190" rx="14" fill="url(#nu)" stroke="#37e7ff" stroke-width="2"/>
+    <rect width="480" height="7" rx="4" fill="#37e7ff" filter="url(#glow)"/>
+    <text x="20" y="38" class="tag">SHELL ESTRUCTURADA</text>
+    <text x="20" y="79" class="card-title">Nushell</text>
+    <text x="20" y="118" class="card-body">Registros, columnas, números</text>
+    <text x="20" y="147" class="card-body">y fechas como valores tipados.</text>
+    <text x="20" y="176" class="small">La estructura cambia la operación.</text>
+  </g>
+
+  <g transform="translate(30 838)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#75a9ff"/>
+    <text x="20" y="38" class="tag">OBJETOS .NET</text>
+    <text x="20" y="79" class="card-title">PowerShell</text>
+    <text x="20" y="118" class="card-body">Encadena objetos tipados</text>
+    <text x="20" y="147" class="card-body">del ecosistema .NET.</text>
+    <text x="20" y="176" class="small">Fuera de esta prueba zsh → Nushell.</text>
+  </g>
+
+  <g transform="translate(30 1044)">
+    <rect width="480" height="181" rx="14" fill="#161b29" stroke="#2a3041"/>
+    <text x="20" y="38" class="tag">LA PREGUNTA OPERATIVA</text>
+    <text x="20" y="78" class="note">¿Hay registros, columnas o fechas</text>
+    <text x="20" y="109" class="note">que aprovechar?</text>
+    <text x="20" y="143" class="small">No: conserva la herramienta nativa.</text>
+    <text x="20" y="169" class="small">Si crece: DuckDB, Python, Polars o R.</text>
+  </g>
+
+  <text x="30" y="1264" class="footer">Alcance: ruta zsh → Nushell en Linux.</text>
+  <text x="30" y="1292" class="footer">No decide qué shell es «mejor» en general.</text>
+  <path d="M30 1314H510" stroke="#2a3041"/>
+  <text x="30" y="1340" class="footer">Utilidades y motores de datos ocupan otras capas.</text>
+</svg>

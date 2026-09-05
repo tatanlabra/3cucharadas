@@ -1,0 +1,100 @@
+{
+  "case_id": "tesis-temporal-activity-aggregate-v1",
+  "design": {
+    "arms": [
+      "without_nushell",
+      "policy_nushell"
+    ],
+    "intervention": "El control prohíbe Nu; la política congelada lo exige solo para R1 y R2.",
+    "reasoning_effort": "low",
+    "records": 30,
+    "repetitions_per_task_arm": 5,
+    "tasks": 3
+  },
+  "fixture_sha256": "705bd78da0614c36310cb41f9a74197d01d43743f8258ca8659a8479dce15b51",
+  "limits": {
+    "en": "Single case with public aggregates; no population inference, p-value, or general-superiority claim. presence=0 does not prove institutional closure.",
+    "es": "Caso único con agregados públicos; sin inferencia poblacional, p-valor ni afirmación de superioridad general. presencia=0 no prueba cierre institucional."
+  },
+  "schema_version": 1,
+  "source_dataset_sha256": "854f47c641261cc0d92c21f18a11e12b26f9faaeec1b0d81bc4344e947157304",
+  "source_shape": {
+    "annual_aggregate_rows": 21,
+    "columns": 263,
+    "rows": 306768
+  },
+  "tasks": [
+    {
+      "arms": [
+        {
+          "arm": "without_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 30641.0,
+          "median_output_tokens": 445.0,
+          "runs": 5,
+          "used_nushell": 0
+        },
+        {
+          "arm": "policy_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 42038.0,
+          "median_output_tokens": 580.0,
+          "runs": 5,
+          "used_nushell": 5
+        }
+      ],
+      "en": "R1 · ranking from valid aggregates",
+      "es": "R1 · ranking sobre agregados válidos",
+      "expected_policy_nushell": true,
+      "id": "R1_valid_aggregate"
+    },
+    {
+      "arms": [
+        {
+          "arm": "without_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 31432.0,
+          "median_output_tokens": 358.0,
+          "runs": 5,
+          "used_nushell": 0
+        },
+        {
+          "arm": "policy_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 31956.0,
+          "median_output_tokens": 410.0,
+          "runs": 5,
+          "used_nushell": 5
+        }
+      ],
+      "en": "R2 · corrupt fixture: block ranking",
+      "es": "R2 · fixture corrupto: bloquear ranking",
+      "expected_policy_nushell": true,
+      "id": "R2_corrupt_aggregate"
+    },
+    {
+      "arms": [
+        {
+          "arm": "without_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 14976.0,
+          "median_output_tokens": 88.0,
+          "runs": 5,
+          "used_nushell": 0
+        },
+        {
+          "arm": "policy_nushell",
+          "correct": 5,
+          "median_elapsed_ms": 11355.0,
+          "median_output_tokens": 62.0,
+          "runs": 5,
+          "used_nushell": 0
+        }
+      ],
+      "en": "R3 · epistemic boundary: do not infer closure",
+      "es": "R3 · límite conceptual: no inferir cierre",
+      "expected_policy_nushell": false,
+      "id": "R3_epistemic_boundary"
+    }
+  ]
+}

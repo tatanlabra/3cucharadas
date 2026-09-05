@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="1355" viewBox="0 0 540 1355" role="img" aria-labelledby="title desc">
+  <title id="title">D2: Shell families and where Nushell fits</title>
+  <desc id="desc">Mobile version of the conceptual map. Text shells sh, Bash, and zsh carry text. Fish prioritises interactive use and is not POSIX. Nushell carries typed values. PowerShell carries .NET objects. The post compares only zsh with a selective Nushell route.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#121521"/>
+      <stop offset="1" stop-color="#171d2c"/>
+    </linearGradient>
+    <linearGradient id="nu" x1="0" x2="1">
+      <stop stop-color="#173446"/>
+      <stop offset="1" stop-color="#1d3b52"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .kicker { fill:#9da9bd; font:600 20px 'JetBrains Mono','DejaVu Sans Mono',monospace; letter-spacing:1.5px; }
+      .title { fill:#e8ecf5; font:700 36px 'JetBrains Mono','DejaVu Sans Mono',monospace; }
+      .subtitle { fill:#c4ccda; font:400 22px 'Inter','DejaVu Sans',sans-serif; }
+      .card-title { fill:#e8ecf5; font:700 32px 'JetBrains Mono','DejaVu Sans Mono',monospace; }
+      .card-body { fill:#d3d9e5; font:400 25px 'Inter','DejaVu Sans',sans-serif; }
+      .tag { fill:#9da9bd; font:600 20px 'JetBrains Mono','DejaVu Sans Mono',monospace; letter-spacing:1px; }
+      .note { fill:#e0e5ee; font:400 26px 'Inter','DejaVu Sans',sans-serif; }
+      .small { fill:#aeb9ca; font:400 21px 'Inter','DejaVu Sans',sans-serif; }
+      .footer { fill:#aeb9ca; font:400 19px 'Inter','DejaVu Sans',sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="540" height="1355" rx="18" fill="url(#bg)"/>
+  <text x="30" y="45" class="kicker">D2 · ORIENTATION, NOT A RANKING</text>
+  <text x="30" y="91" class="title">Shells do not all carry</text>
+  <text x="30" y="133" class="title">the same data</text>
+  <text x="30" y="170" class="subtitle">The word ‘shell’ alone does not tell you</text>
+  <text x="30" y="198" class="subtitle">which tool fits.</text>
+
+  <g transform="translate(30 220)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#8b97ad"/>
+    <text x="20" y="38" class="tag">TEXT PIPELINES</text>
+    <text x="20" y="79" class="card-title">sh · Bash · zsh</text>
+    <text x="20" y="118" class="card-body">Programs exchange text</text>
+    <text x="20" y="147" class="card-body">with each other.</text>
+    <text x="20" y="176" class="small">Standard command orchestration.</text>
+  </g>
+
+  <g transform="translate(30 426)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#b888d9"/>
+    <text x="20" y="38" class="tag">INTERACTIVE</text>
+    <text x="20" y="79" class="card-title">fish</text>
+    <text x="20" y="118" class="card-body">Focuses on interactive use;</text>
+    <text x="20" y="147" class="card-body">it is not POSIX.</text>
+    <text x="20" y="176" class="small">Consumes CLI text output.</text>
+  </g>
+
+  <g transform="translate(30 632)">
+    <rect width="480" height="190" rx="14" fill="url(#nu)" stroke="#37e7ff" stroke-width="2"/>
+    <rect width="480" height="7" rx="4" fill="#37e7ff" filter="url(#glow)"/>
+    <text x="20" y="38" class="tag">STRUCTURED SHELL</text>
+    <text x="20" y="79" class="card-title">Nushell</text>
+    <text x="20" y="118" class="card-body">Records, columns, numbers,</text>
+    <text x="20" y="147" class="card-body">and dates as typed values.</text>
+    <text x="20" y="176" class="small">Structure changes the operation.</text>
+  </g>
+
+  <g transform="translate(30 838)">
+    <rect width="480" height="190" rx="14" fill="#1b2032" stroke="#364055"/>
+    <rect width="480" height="7" rx="4" fill="#75a9ff"/>
+    <text x="20" y="38" class="tag">.NET OBJECTS</text>
+    <text x="20" y="79" class="card-title">PowerShell</text>
+    <text x="20" y="118" class="card-body">Pipes typed objects</text>
+    <text x="20" y="147" class="card-body">from the .NET ecosystem.</text>
+    <text x="20" y="176" class="small">Outside this zsh → Nushell test.</text>
+  </g>
+
+  <g transform="translate(30 1044)">
+    <rect width="480" height="181" rx="14" fill="#161b29" stroke="#2a3041"/>
+    <text x="20" y="38" class="tag">THE OPERATING QUESTION</text>
+    <text x="20" y="78" class="note">Can the task exploit records, columns,</text>
+    <text x="20" y="109" class="note">dates, or grouping?</text>
+    <text x="20" y="143" class="small">No: keep the native tool.</text>
+    <text x="20" y="169" class="small">If it grows: DuckDB, Python, Polars, or R.</text>
+  </g>
+
+  <text x="30" y="1264" class="footer">Scope: zsh → Nushell routing on Linux.</text>
+  <text x="30" y="1292" class="footer">It does not rank shells overall.</text>
+  <path d="M30 1314H510" stroke="#2a3041"/>
+  <text x="30" y="1340" class="footer">Utilities and data engines sit at other layers.</text>
+</svg>

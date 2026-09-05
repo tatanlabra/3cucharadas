@@ -166,6 +166,14 @@ exclude:
   - .jekyll-assets-cache
   - .sass-cache
   - assets/img
+  # Figuras analíticas conservadas como fuentes reproducibles, pero retiradas del
+  # cuerpo del post Nushell: no engordar el artefacto público con SVG sin referencia.
+  - assets/images/structured-shell/fig-ab-proporciones.svg
+  - assets/images/structured-shell/fig-ab-tiempo.svg
+  - assets/images/structured-shell/fig-ab-tokens.svg
+  - assets/images/structured-shell/fig-eficiencia.svg
+  - assets/images/structured-shell/fig-tesis-caso-real.svg
+  - assets/images/structured-shell/fig-tesis-caso-real-en.svg
   - assets/images/ai-quota-hud/bar_gemini.png
   - assets/images/ai-quota-hud/popup.png
   # Másters de render y piezas para subir a mano a redes: se versionan como
@@ -173,6 +181,11 @@ exclude:
   # gate de tamaño de verify_site_artifact.rb sin que ninguna página los use.
   - assets/images/avaluo-vulnerabilidad-unidad-vecinal/source
   - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social
+  # Másters PNG entregados para la portada de Nushell. Las variantes WebP
+  # optimizadas son las únicas que consume el sitio.
+  - assets/images/nushell.png
+  - assets/images/nushell2.png
+  - assets/images/nushell3.png
   # La figura del pipeline no se publica: duplica el Sankey vectorial generado
   # desde los datos, que es la figura canónica del post. Se conserva como activo
   # de difusión. (La bivariada se eliminó: escala IGVUST invertida.)

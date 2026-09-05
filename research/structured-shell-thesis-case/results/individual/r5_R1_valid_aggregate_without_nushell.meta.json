@@ -1,0 +1,14 @@
+{
+  "arms": [
+    "without_nushell"
+  ],
+  "expected_records": 1,
+  "observed_records": 1,
+  "policy_packet_sha256": "f15712b1bcd86c77dea6a03faaf433bdaac2a49f9348ca61a2c8257f8a8f36e6",
+  "preflight": false,
+  "provider": "codex",
+  "provider_version": "codex-cli 0.153.4",
+  "reasoning_effort": "low",
+  "response_schema_sha256": "d7714749806ceedcd128b560f32d9dc2fd2eca7c197f797a449e5c2154bcf9dd",
+  "tasks_sha256": "fd8e2d061eb051b83f7c4bb90edefd798bfaffc7a8b08a4eac4620c51cdedc2e"
+}

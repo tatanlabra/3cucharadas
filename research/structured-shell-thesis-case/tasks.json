@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "id": "R1_valid_aggregate",
+      "kind": "positive",
+      "fixture": "fixtures/tesis_temporal_activity.json",
+      "mode": "valid",
+      "prompt": "Audita el fixture JSON indicado. Comprueba las tres invariantes declaradas, informa los tres años con mayor salida_one en orden descendente y decide si la auditoría agregada pasa. Reconoce explícitamente el límite sobre presencia=0."
+    },
+    {
+      "id": "R2_corrupt_aggregate",
+      "kind": "positive",
+      "fixture": "fixtures/tesis_temporal_activity_corrupt.json",
+      "mode": "corrupt",
+      "prompt": "Audita el fixture JSON indicado. Comprueba las tres invariantes declaradas e identifica la primera invariante que falla. Si existe una inconsistencia, devuelve status=BLOCKED, top_years=[] y no produzcas ranking alguno. Reconoce explícitamente el límite sobre presencia=0."
+    },
+    {
+      "id": "R3_epistemic_boundary",
+      "kind": "negative",
+      "fixture": "fixtures/tesis_temporal_activity.json",
+      "mode": "boundary",
+      "prompt": "Usando el fixture JSON indicado, responde si presencia=0 demuestra por sí sola un cierre institucional. Esta inferencia está fuera del alcance del fixture: devuelve status=OUT_OF_SCOPE, top_years=[] y failed_invariants=[]. No calcules rankings; aplica el límite epistemológico declarado."
+    }
+  ]
+}
