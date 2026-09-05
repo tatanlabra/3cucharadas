@@ -1,12 +1,12 @@
 ---
 layout: single
 title: "Replicar mi propia tesis en 3 cucharadas: ¿el error es de 2014 o es mío de hoy?"
-subtitle: "Volví a levantar la tesis de magíster que escribí sobre entrada y salida de colegios en el mercado escolar chileno, y puse cada cuadro y cada figura frente a su original"
+subtitle: "Volví a levantar la tesis de magíster que escribí sobre entrada y salida de colegios en el mercado escolar chileno, y monté el aparato que hacía falta para no poder darme la razón"
 date: 2026-08-29 09:30:00 -0400
 categories: [datos, educacion, politica-publica]
 tags: [replicabilidad, educacion, mercado-escolar, voucher, mineduc, analisis-de-duracion, vulnerabilidad, auditoria]
-description: "Reconstruí en 2026 mi tesis de magíster de 2014 sobre entrada y salida de establecimientos educacionales en Chile y comparé cada cuadro contra el publicado. Cuando aparecieron doce artefactos míos de 2014 apareció una tercera columna, y con ella la diferencia entre un acuerdo y una verdad: hay celdas donde el error es de 2014 y otras donde es mío hoy."
-excerpt: "Cuando un cuadro reconstruido no coincide con el impreso, la pregunta útil no es cuál de los dos está mal, sino de quién es el error. Y para responderla hay que poner los dos al lado —y, cuando aparece, el artefacto que los produjo."
+description: "Reconstruí en 2026 mi tesis de magíster de 2014 sobre entrada y salida de establecimientos educacionales en Chile y decidí, celda por celda, si cada diferencia era acierto, error o incierto. Con dos columnas eso no se puede: hizo falta una tercera —mis propios artefactos de 2014 y el motor de Stata reejecutado— y una taxonomía que distinguiera cuatro maneras distintas de no saber."
+excerpt: "Auditarse a uno mismo es fácil de decir y difícil de sostener: uno tiene la última palabra sobre cada celda. Este es el aparato que monté para quitármela, y los tres veredictos que terminaron fallando en mi contra."
 author: clabra
 lang: es
 ref: replica-tesis-establecimientos-educacionales
@@ -25,7 +25,13 @@ author_profile: true
 En abril de 2014 entregué una tesis de magíster sobre entrada y salida de establecimientos educacionales en Chile entre 1992 y 2012.[^tesis] Quería extender esa serie hasta 2025 y me topé con el orden natural del problema: antes de extender mi trabajo, tenía que poder reproducirlo.
 {: .text-justify}
 
-Lo que cuento acá es esa primera mitad. Reconstruí los ocho cuadros y las figuras, los puse frente a los publicados y fui decidiendo, celda por celda, de quién era cada diferencia. A mitad de camino aparecieron doce artefactos de 2014 —salidas de Stata, hojas de mi planilla, un gráfico incrustado en el manuscrito— y la comparación pasó a tener tres columnas en vez de dos. Esa tercera columna es lo que separa un acuerdo de una verdad.
+Lo que cuento acá es esa primera mitad, y el problema resultó ser menos técnico de lo que parecía. Reconstruir los ocho cuadros y las figuras fue trabajo; decidir **de quién era cada diferencia** fue el problema. Porque el juez era yo, sobre mi propio trabajo, con la última palabra en cada celda.
+{: .text-justify}
+
+Auditarse a uno mismo tiene una trampa que no se resuelve con buena voluntad: cuando la reconstrucción y el original discrepan, la explicación más cómoda siempre está disponible. Así que la mitad de este trabajo no fue medir, sino montar el aparato que me impidiera darme la razón: una tercera columna que decidiera por mí, una taxonomía que distinguiera **acierto, error e incierto** en vez de amontonarlos, y comprobaciones que yo mismo rompí a propósito para verificar que podían fallar.
+{: .text-justify}
+
+A mitad de camino aparecieron doce artefactos de 2014 —salidas de Stata, hojas de mi planilla, un gráfico incrustado en el manuscrito— y más tarde volví a correr el motor original sobre los datos originales. Esa tercera columna es lo que separa un acuerdo de una verdad.
 {: .text-justify}
 
 **La tesis es mía y la auditoría también**, así que esto no es una réplica independiente: estoy revisando decisiones que tomé yo y que en su momento me parecieron razonables.
@@ -49,6 +55,8 @@ Si es efectivo, me sirve de credencial y de sesgo al mismo tiempo. Daniel Hojman
 | **Entrada / salida** | Que un establecimiento aparezca o deje de aparecer en el registro oficial. | Apertura o quiebre como decisión: no observo el motivo, solo el flujo. |
 | **IVE** | Índice de vulnerabilidad escolar: porcentaje de la matrícula clasificada como vulnerable. | Pobreza medida en el hogar ni indicador individual del alumno. |
 | **Productor** | El artefacto de 2014 que generó una cifra: una salida de Stata, una hoja de mi planilla de trabajo, el gráfico incrustado en el manuscrito. | La ejecución que lo creó: esa sigue perdida. |
+| **Reejecución** | Volver a correr el `do-file` de 2014 con Stata 17 MP sobre los `.dta` originales, y comparar contra lo publicado. | La corrida de 2014: el orden real de mis comandos no se recuperó. |
+| **Techo medido** | Hasta dónde llegó una búsqueda que no encontró: «2 de 20 coeficientes en 142 documentos», no «no apareció». | Una excusa: es la cifra que separa *se buscó y no está* de *no se ha buscado*. |
 | **Claim trazable** | Afirmación amarrada a un artefacto verificable y a su hash. | Opinión mía. |
 
 **Alcance.** Trabajo con el PDF de 2014, su fuente LaTeX y mis `do-files`. Nada de lo que sigue es causal: son asociaciones condicionales dentro de un panel, sin estrategia de identificación detrás.
@@ -188,15 +196,39 @@ Cuando aparecieron mis propios artefactos apareció una tercera columna, y con e
 
 | ¿Calzan publicado y reconstrucción? | ¿Cuál es correcto? | Veredicto | Juicios |
 |---|---|---|---:|
-| sí | los dos | calce correcto | 7 |
-| sí | **ninguno** | **calce heredado** | 1 |
-| no | la reconstrucción | error del pasado | 9 |
+| no | la reconstrucción | error del pasado | 10 |
+| sí | los dos | calce correcto | 10 |
 | no | **lo publicado** | **error del presente** | 3 |
+| sí | **ninguno** | **calce heredado** | 1 |
 | no | ninguno | ambos mal | 1 |
-| — | indeterminado | sin adjudicar | 13 |
+| — | *no se pudo* | (ver Tabla 5) | 9 |
 
-Veintidós de los 34 tienen una tercera fuente; los otros doce esperan una.
+Veinticinco de los 34 tienen una tercera fuente. La columna que decide viene de mi propio productor en 18 casos, de una reejecución con Stata en 4, de un estándar externo de la disciplina en 2 y de una contradicción interna del propio texto en 1.
 {: .small}
+
+### Cuatro maneras de no saber, y solo una es pereza
+
+Durante meses ese último renglón decía **trece sin adjudicar**, y así leído parecían trece huecos iguales. No lo eran, y confundirlos era mi error, no el de 2014.
+{: .text-justify}
+
+Cuando por fin los separé, resultó que «no sé» quiere decir cuatro cosas distintas, y solo una de ellas es trabajo que falta:
+{: .text-justify}
+
+{: .table-caption}
+**Tabla 5** — Por qué no se adjudicó, que es distinto de cuántos no se adjudicaron
+
+| Motivo | Qué significa | Juicios |
+|---|---|---:|
+| **Límite con techo medido** | Se buscó, y está la cifra de hasta dónde llegó la búsqueda. | 4 |
+| **La afirmación no es numérica** | El texto afirma una forma —«sendas parcialmente opuestas»—, no una magnitud. | 3 |
+| **Procedencia verificada** | El único claim sobre ese panel es el código que lo generó, y su hash cuadra. | 2 |
+| **Ruta declarada y sin ejecutar** | Hay un camino escrito y nadie lo recorrió. Esto sí es pereza. | **0** |
+
+La distinción no es cosmética. Un límite con techo dice «se buscó en 142 documentos y el mejor candidato reproduce 2 de 20 coeficientes»; sin ese número, «no apareció» es indistinguible de «no busqué».
+{: .small}
+
+Ese último cero costó tres semanas y es lo único de este post que me permito celebrar. No significa que todo esté adjudicado: significa que **nada quedó sin decir por qué**.
+{: .text-justify}
 
 El calce heredado es el que justifica todo el aparato, y es el índice de concentración: lo publicado dice 1.534 y mi reconstrucción mide 1.517,5, un 1,3 % de diferencia. **Calzan, y los dos están mal**, porque mi reconstrucción adoptó la escala de mi yo de 2014 sin preguntarse de dónde salía.
 {: .text-justify}
@@ -222,7 +254,7 @@ $$
 $$
 
 {: .table-caption}
-**Tabla 5** — Las dos celdas cuyos asteriscos no cuadran
+**Tabla 6** — Las dos celdas cuyos asteriscos no cuadran
 
 | Cuadro y término | Publicado | Reconstruido | Error estándar publicado | \|z\| máximo | Asteriscos publicados | Corresponden |
 |---|---:|---:|---:|---:|:--:|:--:|
@@ -307,18 +339,47 @@ Con la salvedad del hallazgo 1: el eje mide años respecto del último año marc
 La que no llega es mi reconstrucción de 2026: diverge en **41 de las 48 celdas**, con 0,63 puntos de diferencia media y 3,49 en el peor caso. Durante meses conté esa discrepancia como una divergencia sin dueño; con la hoja al lado, el dueño soy yo, ahora.
 {: .text-justify}
 
+**7. La frase describe una partición que la figura no hace.** Una figura mía muestra la movilidad por región, y el texto afirma que las ciudades intermedias y menores —«menos de 15 mil habitantes»— concentran **el 80 %** de la movilidad de seis regiones. Las dos recetas que producen esa figura estaban en mi `do-file` esperando un cruce que nadie había hecho; ejecutadas, dan **78,3 %**.
+{: .text-justify}
+
+Un punto y medio de diferencia no era el hallazgo. El hallazgo apareció al aplicar literalmente el criterio que la frase enuncia: usando la población en edad escolar comunal que el propio panel importa, el umbral de quince mil habitantes deja la cuota en **11 %**, no en 80 %. Ni un umbral cinco veces más laxo llega: comunas del orden de setenta y cinco mil habitantes dan 68 %.
+{: .text-justify}
+
+La figura no parte por población: parte por **capital regional**, que es lo que dice su propio pie de foto. Con esa partición la cuota es 78,3 %, y aguanta: siete definiciones distintas del universo —con y sin marcadores de enseñanza, solo presencia, añadiendo relevancia, y las dos formas de decir «no capital»— caen todas entre 77,98 % y 78,34 %. Separar los flujos sí mueve el número, y hacia los dos lados: entradas 70,1 %, salidas 84,3 %. El 80 % que publiqué no es ninguno de los dos.
+{: .text-justify}
+
+Lo que escribí describía un criterio; lo que grafiqué usaba otro. Nadie lo habría notado leyendo el texto, porque el número está *casi* bien.
+{: .text-justify}
+
+**8. El denominador que nadie había nombrado.** Otra afirmación mía dice que, de 346 comunas, solo **siete** superan el 5 % de movilidad sobre su stock. Mi planilla de 2014 decía **diez**. Durante meses no supe cuál creer, porque «movilidad sobre stock» no dice qué cantidad divide.
+{: .text-justify}
+
+La respuesta estaba en el `do-file`, en cuatro líneas separadas por veinte: el denominador es el conteo de establecimientos **por comuna y año**, promediado después por comuna. Corrida en Stata sobre los `.dta` de 2013, la receta da **exactamente siete**, y con margen: la séptima comuna está en 5,10 % y la octava en 4,37 %. El siete no depende de dónde se ponga el corte.
+{: .text-justify}
+
+Queda una discrepancia menor que declaro en vez de esconder: la receta produce **345** comunas y mi texto cita 346.
+{: .text-justify}
+
 Queda una deuda que no es un error sino una ausencia: el marco schumpeteriano organiza mi título, mi resumen y mi conclusión, pero nunca lo contrasté. La descomposición de reasignación que separa la mejora dentro de los incumbentes de la que viene de entradas y salidas —el estándar de la literatura que yo mismo citaba— no está en el documento.[^griliches]
 {: .text-justify}
 
 ## Dónde quedó la auditoría
 
-Veintiséis objetos entre cuadros y paneles de figura. Diez reproducen lo publicado; diez divergen con un mecanismo medido —una etiqueta, un universo, una escala, una convención de redondeo—; **ninguno queda divergiendo sin explicación**; seis no admiten prueba numérica, porque son afirmaciones estructurales o les falta un dato que el panel no conserva.
+Veintiséis objetos entre cuadros y paneles de figura. Diez reproducen lo publicado; once divergen con un mecanismo medido —una etiqueta, un universo, una escala, una convención de redondeo—; **ninguno queda divergiendo sin explicación**; cinco no admiten prueba numérica, y ninguno de esos cinco por falta de trabajo: tres afirman una forma que no tiene magnitud contra la cual medirse y dos tienen como único claim la procedencia de su código, ya verificada por hash.
 {: .text-justify}
 
-Detrás de esos veredictos hay **47 hipótesis sometidas a contraste**, de las que 37 quedaron refutadas y 8 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
+Detrás de esos veredictos hay **51 hipótesis sometidas a contraste**, de las que 40 quedaron refutadas y 9 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
 {: .text-justify}
 
-Ese recuento por objeto, sin embargo, se lee de más. De los diez que «reproducen lo publicado», solo **tres** tienen una fuente independiente que lo certifique; los otros siete calzan entre dos columnas y nadie ha comprobado que ninguna de las dos esté mal. La Tabla 4 es la fotografía honesta: **trece de los treinta y cuatro juicios siguen sin adjudicar**, y eso no es una deuda de trabajo sino de evidencia.
+Ese recuento por objeto, sin embargo, se lee de más, y conviene decir por qué. **Convergencia no quiere decir lo mismo en todas partes.** De las nueve afirmaciones en prosa que convergen, solo **tres** lo hacen a la precisión con que están impresas —media unidad del último dígito—. Cuatro convergen dentro del margen relativo del 15 % que el propio texto reclama al escribir «aproximadamente», y dos son desigualdades: el texto dice «llega a» y la reconstrucción lo satisface como cota. Contarlas juntas como nueve verdes dice de más.
+{: .text-justify}
+
+### El motor de 2014 como juez
+
+Lo que cerró los últimos juicios no fue un artefacto nuevo: fue **volver a correr el motor original**. Stata 17 MP, sobre los `.dta` de 2013 y 2014 que sobrevivieron, ejecutando los comandos de mi `do-file` tal como están escritos —con el prefijo de versión, porque la sintaxis de `table` de entonces ya no existe—.
+{: .text-justify}
+
+Eso es una tercera columna de pleno derecho, y decidió cuatro juicios. En dos confirmó lo que publiqué: la brecha SIMCE del subvencionado que cierra da 10,20 puntos con intervalo que excluye el cero, y las siete comunas son siete. En un tercero, el denominador que faltaba. Y en el cuarto ocurrió lo que menos esperaba.
 {: .text-justify}
 
 ### Un juez que también puede fallar en mi contra
@@ -326,7 +387,27 @@ Ese recuento por objeto, sin embargo, se lee de más. De los diez que «reproduc
 Al final apliqué a los 34 juicios una rúbrica fijada de antemano —tercera fuente real, coincidencia múltiple, tolerancia declarada antes, contraejemplo, evidencia contraria— con permiso explícito para bajar un veredicto ya emitido. Corrigió **dos**, y los dos eran míos.
 {: .text-justify}
 
-El más incómodo: yo había declarado que ni el signo de mi modelo de 2014 ni la pendiente de mi reconstrucción de 2026 se sostenían, y lo había declarado apoyándome en una columna que **mi propio registro describe como un estimando distinto** unas páginas más allá. Rehecho con la definición que sí reproduce lo publicado, la dirección se invierte y la reconstrucción queda del lado correcto. Un juez que solo puede ascender no es un juez.
+El más incómodo de esos dos: yo había declarado que ni el signo de mi modelo de 2014 ni la pendiente de mi reconstrucción de 2026 se sostenían, y lo había declarado apoyándome en una columna que **mi propio registro describe como un estimando distinto** unas páginas más allá. Rehecho con la definición que sí reproduce lo publicado, la dirección se invierte y la reconstrucción queda del lado correcto. Un juez que solo puede ascender no es un juez.
+{: .text-justify}
+
+Y el cuarto caso de la reejecución es del mismo tipo, pero peor, porque no lo encontró una rúbrica sino la aritmética. Mi reconstrucción declaraba que la brecha PSU entre subvencionados que cierran y los que no era de **11,25 puntos**, contra los 10 que publiqué en 2014. La revisé porque el número me sonaba grande, y no lo reproduce **ninguna** receta: diez lecturas —diez paneles por cinco universos, la media de brechas anuales, la brecha de medianas, el valor absoluto de la rama saliente— caen todas entre 8,15 y 10,40. El valor correcto es **10,40**.
+{: .text-justify}
+
+Corregido, la distancia entre mi reconstrucción y lo que publiqué hace once años baja de 1,25 puntos a 0,40. **La corrección favorece al documento de 2014.** Ese es el tipo de resultado que uno no busca cuando se audita a sí mismo, y por eso mismo es el que hay que publicar.
+{: .text-justify}
+
+### Un criterio que nunca se ha visto rojo no es un criterio
+
+Nada de lo anterior sirve si las comprobaciones que lo sostienen no pueden fallar. Así que la regla es romperlas a propósito, verificar que reprueben, restaurarlas y verificar que vuelvan a pasar, dejando escrito el caso rojo concreto. Hoy hay **103 casos rojos observados** repartidos en 49 contratos; en la última ronda de este trabajo fueron once.
+{: .text-justify}
+
+Con un número que no me gusta y va igual: de las **390 comprobaciones** del proyecto, solo **111 llevan un caso rojo registrado** —un 28 %—. Las otras 279 están declaradas como deuda, no como verdes. Una comprobación sin caso rojo no es una comprobación: es una intención.
+{: .text-justify}
+
+Dos de esas roturas enseñaron más que las veintitrés que se comportaron. La primera: **un criterio no mordió**. Metí la Región Metropolitana —que por la misma receta da 19,4 % donde las seis regiones del texto dan 78,3 %— al conjunto de regiones de la figura de movilidad, y no se puso rojo nada. El criterio medía cuánto se movía el resultado entre definiciones del universo, pero no fijaba **cuáles** eran las seis regiones. Un conjunto equivocado pasaba en silencio. Lo corregí y volví a romperlo; ahora reprueba.
+{: .text-justify}
+
+La segunda venía de antes y es más incómoda: una comprobación exigía que quedaran decisiones pendientes de revisión humana. Se ponía roja exactamente cuando el sistema acertaba —al resolverse la última, una cola perfectamente sana reprobaba—. Que una comprobación esté verde no dice que esté comprobando; a veces dice que nunca se le ha dado la oportunidad de fallar.
 {: .text-justify}
 
 ## Cierre: la segunda mitad va hasta 2025
@@ -338,6 +419,12 @@ Lo que me llevo es menos técnico de lo que esperaba. Los errores confirmados so
 {: .text-justify}
 
 Y lo que más me sorprendió no fue encontrar errores, sino de qué lado aparecieron. Empecé asumiendo que la reconstrucción iba a ser el eslabón débil. Cuando aparecieron mis propios artefactos de 2014 —la salida de Stata, la planilla, el gráfico incrustado— resultó que la reconstrucción se parecía más a ellos que el documento que firmé. Salvo en tres casos, donde la débil es ella y ahora lo sé.
+{: .text-justify}
+
+Si tuviera que dejar una sola cosa de todo esto, no sería un hallazgo sino un hábito: **decidir el criterio antes de mirar el resultado, y dejar escrito qué observación lo tumbaría**. Es incómodo de sostener y es lo único que impide que auditarse a uno mismo termine siendo una forma elegante de darse la razón. Yo tenía la última palabra sobre cada celda de este documento; el aparato existe para quitármela.
+{: .text-justify}
+
+No cierro esto pensando que la tesis estaba bien o mal. Cierro sabiendo, celda por celda, **cuál de las dos cosas es cada una** —y dónde no se puede saber, con la cifra de hasta dónde llegué buscando. Eso es menos épico que un veredicto y mucho más útil.
 {: .text-justify}
 
 Hay una cuarta categoría de error que no esperaba: la del propio instrumento de medir. El barrido que cruza los documentos contra lo publicado se equivocó dos veces antes de servir. Primero preguntaba por las cifras a precisiones más gruesas que la impresa —buscar 20,7 redondeado a entero es buscar «21», que está en cualquier documento con fechas—, y con eso un libro de códigos de 54 números «reproducía» las 48 celdas de un cuadro. Después comparaba textos en vez de redondeos, y así la salida que sí produjo una tabla quedaba fuera de su propia tabla por imprimir 0,0087 donde el cuadro publica 0,01.
