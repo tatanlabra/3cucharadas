@@ -19,6 +19,15 @@ on:
         description: "Simular sin llamar a la API de dev.to"
         type: boolean
         default: false
+      backlog:
+        # El script omite todo post con mas de 21 dias, para no crear de golpe un
+        # articulo por cada entrada antigua la primera vez que alguien configura la
+        # clave. Esa guarda es correcta por defecto y no habia forma de levantarla:
+        # el disparo manual no exponia la bandera, asi que un post viejo que uno SI
+        # quiere sindicar quedaba fuera para siempre. Ahora se pide explicitamente.
+        description: "Sindicar tambien posts fuera de la ventana de 21 dias"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -45,7 +54,7 @@ jobs:
         env:
           DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
           DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
-        run: ruby scripts/syndicate_devto.rb
+        run: ruby scripts/syndicate_devto.rb ${{ inputs.backlog && '--backlog' || '' }}
 
       - name: Commit del registro de distribución si cambió
         if: ${{ !inputs.dry_run }}
