@@ -25,11 +25,21 @@
   - plataforma: mastodon
     fecha: 2026-07-15
     url_publicada: https://mastodon.social/@asiole/116922101828570614
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 52}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 52
   - plataforma: bluesky
     fecha: 2026-07-15
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqnv2cbbyc2d
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 52}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 52
 - slug: ai-quota-hud-kde
   ref_interno: ai-quota-hud-kde
   url_canonica: https://3cucharadas.cl/ia/productividad/ai-quota-hud-kde/
@@ -38,11 +48,21 @@
   - plataforma: mastodon
     fecha: 2026-07-17
     url_publicada: https://mastodon.social/@asiole/116933620780343771
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 50}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 50
   - plataforma: bluesky
     fecha: 2026-07-17
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mqszgrgnpy25
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 50}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 50
   - plataforma: devto
     fecha: '2026-07-26'
     devto_article_id: 4235233
@@ -58,12 +78,22 @@
     fecha: 2026-07-24
     url_publicada: https://mastodon.social/@asiole/116975684210603500
     url_publicada_en: https://mastodon.social/@asiole/116975684248510829
-    resultado_30d: {favoritos: 1, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 43}
+    resultado_30d:
+      favoritos: 1
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 43
   - plataforma: bluesky
     fecha: 2026-07-24
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mrfoiq6q6e2n
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mrfois2d4q2x
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 1, medido: 2026-09-05, dias: 43}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 1
+      medido: 2026-09-05
+      dias: 43
 - slug: avaluo-vulnerabilidad-unidad-vecinal
   ref_interno: avaluo-vulnerabilidad-uv
   url_canonica: https://3cucharadas.cl/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
@@ -74,12 +104,22 @@
     fecha: 2026-08-01
     url_publicada: https://mastodon.social/@asiole/117022465292034849
     url_publicada_en: https://mastodon.social/@asiole/117022465346663045
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 2, medido: 2026-09-05, dias: 35}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 2
+      medido: 2026-09-05
+      dias: 35
   - plataforma: bluesky
     fecha: 2026-08-01
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3ms2hcchhwr25
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3ms2hcf6ulm22
-    resultado_30d: {favoritos: 0, difusiones: 0, respuestas: 2, medido: 2026-09-05, dias: 35}
+    resultado_30d:
+      favoritos: 0
+      difusiones: 0
+      respuestas: 2
+      medido: 2026-09-05
+      dias: 35
 - slug: multiagente-memoria-gobernada-poc
   ref_interno: multiagente-penta-agent-memoria-gobernada-poc
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
@@ -100,3 +140,9 @@
     devto_article_id: 4582774
     url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-iii-a-memory-that-leaves-traces-2mjj-temp-slug-4301196
     estado: borrador
+- slug: multiagente-penta-agent-modelos
+  ref_interno: multiagente-penta-agent-modelos
+  url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-penta-agent-modelos/
+  titulo_usado: 'Multi-agent work in three spoonfuls: what worked for me and what
+    did not'
+  publicaciones: []
