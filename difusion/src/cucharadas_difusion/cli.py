@@ -33,7 +33,6 @@ from .posts import (
 )
 from .providers import generate_copies, penta_root
 from .storage import Storage, StorageError
-from .web import run_review
 from .verification import verify_publication
 
 
@@ -165,6 +164,13 @@ def cmd_prepare(args: argparse.Namespace) -> int:
     if saved.provider == "manual":
         print("Los proveedores no entregaron un payload valido; completa los textos en la GUI.", file=sys.stderr)
     if not args.no_review:
+        # Import diferido: web.py arrastra fastapi y uvicorn a nivel de modulo.
+        # Con el import arriba, CUALQUIER subcomando los exigia —incluido
+        # `destinations record`, que no toca HTTP— y por eso el hook
+        # post-commit-difusion moria con ModuleNotFoundError en el python3 del
+        # sistema. La GUI es opcional; el CLI no debe depender de ella.
+        from .web import run_review
+
         run_review(saved.ref, storage, open_browser=not args.no_open)
     return 0
 
@@ -172,6 +178,8 @@ def cmd_prepare(args: argparse.Namespace) -> int:
 def cmd_review(args: argparse.Namespace) -> int:
     storage = _storage(args)
     storage.load_draft(args.ref)
+    from .web import run_review  # diferido: ver cmd_prepare
+
     run_review(args.ref, storage, open_browser=not args.no_open)
     return 0
 

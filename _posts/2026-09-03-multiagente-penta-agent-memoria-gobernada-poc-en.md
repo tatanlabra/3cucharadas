@@ -14,7 +14,7 @@ ref: multiagente-penta-agent-memoria-gobernada-poc
 permalink: /ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
 distribution:
   social: true
-  republish: []
+  republish: [dev, medium]
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "Arch Linux, KDE Plasma, local services (Qdrant and Sentence Transformers over loopback, systemd --user timers), Qdrant with the named `dense` vector"
 en_abstract: >
