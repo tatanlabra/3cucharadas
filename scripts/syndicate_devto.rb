@@ -98,7 +98,12 @@ def sanitize_body_for_devto(body, site_url, canonical_url, youtube_id: nil)
     parts.join("\n\n")
   end
 
-  sanitized = sanitized.gsub(/\{%-?\s*include\s+([^\s%]+)[^%]*-?%\}/) do
+    # `[^%]*` cortaba el tag en el primer porcentaje de sus argumentos, asi que un
+    # `{% include gallery ... caption="... 95% CIs ..." %}` sobrevivia entero y
+    # dev.to lo rechazaba con «422 Liquid#include tag is disabled». Medido el
+    # 2026-09-05 sobre CASEN: la primera galeria se limpiaba y la segunda no, y la
+    # comprobacion que hice para descartarlo tenia el mismo fallo que el codigo.
+  sanitized = sanitized.gsub(/\{%-?\s*include\s+([^\s%]+).*?-?%\}/m) do
     warnings << Regexp.last_match(1)
     ""
   end
@@ -112,9 +117,9 @@ end
 # Dias desde la publicacion dentro de los cuales un post puede CREARSE en dev.to
 # sin intervencion explicita. Mas alla, hace falta --backlog.
 VENTANA_SINDICACION_DIAS = Integer(ENV.fetch("DEVTO_VENTANA_DIAS", "21"))
-# Segundos entre creaciones. Medido el 2026-09-05: cuatro creaciones seguidas
+# Segundos entre escrituras (crear o actualizar). Medido el 2026-09-05: cuatro creaciones seguidas
 # dieron 429 en tres de ellas.
-PAUSA_CREACION = Integer(ENV.fetch("DEVTO_PAUSA_CREACION", "35"))
+PAUSA_ESCRITURA = Integer(ENV.fetch("DEVTO_PAUSA_ESCRITURA", "35"))
 BACKLOG = ARGV.include?("--backlog") || ENV["DEVTO_BACKLOG"] == "1"
 
 def slug_from_permalink(permalink)
@@ -238,7 +243,7 @@ comentarios = capturar_comentarios(distribucion_path)
 entries = File.file?(distribucion_path) ? (YAML.safe_load_file(distribucion_path, permitted_classes: [Date, Time]) || []) : []
 changed = false
 fallos = []
-creados = 0
+llamadas = 0
 
 eligible.each do |post|
   entry = entries.find { |e| e["slug"] == post[:slug] }
@@ -290,14 +295,17 @@ eligible.each do |post|
   end
 
   if existente
+    sleep(PAUSA_ESCRITURA) unless llamadas.zero?
+    llamadas += 1
     code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{devto_pub['devto_article_id']}", payload)
   else
-    # dev.to limita la CREACION de articulos --no la actualizacion-- y con
+    # dev.to limita las escrituras, creacion y actualizacion por igual: el
+    # 2026-09-05 se midieron 429 tambien en updates, no solo al crear. Con
     # `--backlog` se crean varios seguidos. El 2026-09-05 tres de cuatro
     # creaciones murieron con 429 en la misma corrida, y el workflow lo reporto
     # como `success`. Se espacian; la primera no espera.
-    sleep(PAUSA_CREACION) unless creados.zero?
-    creados += 1
+    sleep(PAUSA_ESCRITURA) unless llamadas.zero?
+    llamadas += 1
     code, body = devto_request(api_key, Net::HTTP::Post, "/articles", payload)
   end
 
