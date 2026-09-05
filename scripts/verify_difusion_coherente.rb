@@ -48,8 +48,13 @@ def cuerpo_del_post(path)
   raw = File.read(path)
   partes = raw.split(/^---$/, 3)
   cuerpo = partes.length >= 3 ? partes[2] : raw
-  # El `en_abstract` del front matter también es texto publicado del post.
-  cuerpo + (partes[1] || "")
+  # El `en_abstract` del front matter también es texto publicado, así que cuenta.
+  # Los comentarios YAML no: son notas para quien edita, no llegan a la página.
+  # Sin esta exclusión, una referencia del tipo `julia_feed.rb:60` en un comentario
+  # se leía como una cifra afirmada por una version y no por la otra, y rompía la
+  # paridad. Observado el 2026-09-05 sobre un comentario propio.
+  front = (partes[1] || "").lines.reject { |l| l.strip.start_with?("#") }.join
+  cuerpo + front
 end
 
 ref = ARGV.first || "multiagente-penta-agent-memoria-gobernada"

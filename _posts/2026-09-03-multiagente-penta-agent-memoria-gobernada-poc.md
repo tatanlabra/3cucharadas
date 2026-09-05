@@ -19,21 +19,22 @@ repo: https://github.com/tatanlabra/penta-agent
 entorno: "Arch Linux, KDE Plasma, servicios locales (Qdrant y Sentence Transformers por loopback, timers systemd), Qdrant con vector nombrado `dense`"
 en_abstract: >
   Third log of a local multi-agent setup. The previous entry made its shared
-  memory measurable; this one asks a harder question: what should persist,
-  what should expire, and what must never leave its scope. Four sources are
-  kept apart by contract rather than merged — curated operational memory,
-  a private and reversible personal-mail pilot, authorized process metadata
-  from a thesis project, and the sanitized public projection built from them.
-  A frozen 319-context staging collection, embedded with Qwen3-Embedding-0.6B
-  on CPU, was used to test five retrieval changes against 40 queries with 8
-  negatives; only one was promoted (dropping the BM25 boost from 0.10 to 0.00,
-  38 complete / 2 partial / 0 failed, recall@5 0.9635, MRR 0.8396). A reranker
-  scored better on MRR (0.9010) and was still rejected: median latency went
-  from 2.37 s to 15.83 s, with a 91.10 s worst case. The 3D viewer is a static,
-  regenerable export with a text fallback — a map of recorded strategies, not
-  a mind. What this does not show is equally explicit: retrieval quality is not
-  answer fidelity, two multi-source cases remain partial, and none of this
-  amounts to a digital clone.
+  memory measurable; this one asks a harder question: what should persist, what
+  should expire, and what must never leave its scope. Four sources are kept apart
+  by contract rather than merged — curated operational memory, a private and
+  reversible personal-mail pilot, authorized process metadata from a thesis
+  project, and the sanitized public projection built from them. A frozen
+  319-context staging collection, embedded with Qwen3-Embedding-0.6B, was used to
+  test several retrieval changes against 40 queries, eight of them written to
+  check that the system also knows when *not* to retrieve. The best configuration
+  reached 38 complete cases, 2 partial and no outright failures. A reranker
+  ordered results slightly better and was rejected anyway, because response time
+  grew too much. The more useful finding was that the two remaining cases do not
+  need more power, they need better metadata. The viewer is a static, regenerable
+  export — a map of recorded work, not a mind — and the illustration beside it is
+  a brain loaded to 20%, which is roughly where this stands. What this does not
+  show is equally explicit: retrieval quality is not answer fidelity, and none of
+  it amounts to a digital clone.
 math: false
 published: true
 toc: true
