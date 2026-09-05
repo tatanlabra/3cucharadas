@@ -51,7 +51,7 @@ header:
   og_image_alt: "Four governed sources on separate platforms—operational memory, personal mail sealed under glass, thesis index, and the public projection—with a membrane that lets only three permitted outputs through."
 ---
 
-> **Status of the demo.** The viewer was regenerated on August 29, 2026 from a sanitized public projection (with the non-public bits stripped out :D ): the artifact contains no mail bodies, attachments, addresses, absolute paths, tokens, credentials, or microdata.
+> **Status of the demo.** The viewer was regenerated on August 29, 2026 from a sanitized public projection (with the non-public bits stripped out 😀): the artifact contains no mail bodies, attachments, addresses, absolute paths, tokens, credentials, or microdata.
 {: .notice--warning}
 
 ## Preamble: remembering is not enough
