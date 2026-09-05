@@ -5,7 +5,7 @@ subtitle: "I rebuilt the master's thesis I wrote on school entry and exit in Chi
 date: 2026-08-29 09:30:00 -0400
 categories: [datos, educacion, politica-publica]
 tags: [replication, education, school-markets, voucher, mineduc, duration-analysis, vulnerability, audit]
-description: "In 2026 I rebuilt my 2014 master's thesis on the entry and exit of schools in Chile, compared every table against the published one and, once my own 2014 artefacts turned up, against those too: 26 displays, 43 hypotheses tested and no divergence left unexplained."
+description: "In 2026 I rebuilt my 2014 master's thesis on the entry and exit of schools in Chile and compared every table against the published one. When twelve of my own 2014 artefacts turned up, a third column appeared, and with it the difference between an agreement and a truth: some cells carry a 2014 error and others carry mine, today."
 excerpt: "When a rebuilt table does not match the printed one, the useful question is not which of the two is wrong, but whose error it is. Answering it means putting both side by side —and, when it turns up, the artefact that produced them."
 author: clabra
 lang: en
@@ -25,7 +25,7 @@ author_profile: true
 In April 2014 I submitted a master's thesis on the entry and exit of schools in Chile between 1992 and 2012.[^tesis] I wanted to extend that series to 2025 and ran into the natural order of the problem: before extending my own work, I had to be able to reproduce it.
 {: .text-justify}
 
-What follows is that first half. I rebuilt the eight tables and the figures, put them next to the published ones, and decided, cell by cell, whose difference each one was. Halfway through, five 2014 artefacts turned up —the Stata output, sheets from my working spreadsheet, a chart embedded in the manuscript— and the comparison went from two columns to three.
+What follows is that first half. I rebuilt the eight tables and the figures, put them next to the published ones, and decided, cell by cell, whose difference each one was. Halfway through, twelve 2014 artefacts turned up —Stata outputs, sheets from my working spreadsheet, a chart embedded in the manuscript— and the comparison went from two columns to three. That third column is what separates an agreement from a truth.
 {: .text-justify}
 
 **The thesis is mine and so is the audit**, so this is not an independent replication: I am reviewing decisions I made myself and that seemed reasonable at the time.
@@ -111,9 +111,9 @@ With a caveat that forced me to lower my voice: **the historical `do-file` was n
 A month later that caveat was half lifted. The 2014 run is still lost —environment, temporaries and the actual order of my commands— but I did re-estimate the final specification on the original engine, Stata 17 MP under my own licence, and something better than an oracle turned up: **the producer**.
 {: .text-justify}
 
-### Five artefacts of mine, found
+### Twelve artefacts of mine, found
 
-Combing the source tree surfaced five objects that produced the published numbers directly: the `outreg` output of the hierarchical model, two sheets of my working spreadsheet, a third with the SIMCE gap, and a chart embedded inside the manuscript with its series still in it. The search covered everything the tree keeps, and that matters as much as the find:
+Combing the source tree first surfaced five objects that produced the published numbers directly: the `outreg` output of the hierarchical model, two sheets of my working spreadsheet, a third with the SIMCE gap, and a chart embedded inside the manuscript with its series still in it. A second pass, this time crossing **every** document against **every** published figure, took the count to **twelve** artefacts serving as a third column —eleven certify some published figure and one turned out to measure something similar but different—. The search covered everything the tree keeps, and that matters as much as the find:
 {: .text-justify}
 
 {: .table-caption}
@@ -125,8 +125,9 @@ Combing the source tree surfaced five objects that produced the published number
 | `.doc` / `.docx` documents | 140 | 140 |
 | `.xls` / `.xlsx` spreadsheets | 241 | 241 |
 | Charts embedded in `.docx` | 290 | 290 |
+| Sheets in the working workbook | 27 | 27 |
 
-Five binary spreadsheets opened in no library and had to be decoded record by record; ninety-two documents came in the old Word format. Declaring coverage is what lets a «not found» read as data rather than as fatigue.
+Five binary spreadsheets opened in no library and had to be decoded record by record; ninety-two documents came in the old Word format. Declaring coverage is what lets a «not found» read as data rather than as fatigue: there are two tables for which I **did** search the whole corpus and the producer **is not there**, and that is an answer, not a pending item.
 {: .small}
 
 That changes the question running through this post. Until here I was comparing **my reconstruction against the print**, and every discrepancy admitted the excuse that the reconstruction was the broken one. With the producer in view there is a third column —and in several cases my reconstruction looks more like my 2014 self's work than the text I published.
@@ -147,6 +148,57 @@ I put the 0.003 through seven hypotheses of origin —another SIMCE specificatio
 {: .text-justify}
 
 This is the finding that unsettles me most, because I cannot pin it on the translation to Python: the translation and the original agree, and the one that departs is the document.
+{: .text-justify}
+
+And it is not alone. In that same table the intercept variance is published as **0.001**; the output prints `lns1_1_2 = −3.160`, and $$e^{2\cdot(-3.160)}$$ gives **0.0018**, which rounds to 0.002. What makes this a finding rather than a suspicion are the **other two** variances in the same document, which do match: the residual gives 0.014010 against the published 0.01 and the slope 2.19·10⁻¹⁵ against 2.1·10⁻¹⁵. It is the two that agree that isolate the one that does not.
+{: .text-justify}
+
+### The table that publishes logarithms as variances
+
+Combing the tree turned up a third output, `xtmixed_modelo_final.doc`, which reproduces **20 of the 21 values** of one of my hierarchical model's specifications. The document holds 24 numbers in total: there is no room for coincidence.
+{: .text-justify}
+
+And there sits the most conspicuous error I have found. The two rows the table labels as variances **are not variances**: they are the parameters Stata prints as the log of the standard deviation, copied without exponentiating. And they are crossed.
+{: .text-justify}
+
+{: .table-caption}
+**Table 3** — The two variance rows of the hierarchical model, against the output that produced them
+
+| Published row | Value | Standard error | Where it actually comes from | Actual variance |
+|---|---:|---:|---|---:|
+| Intercept variance | 3.82 | 0.002 | `lnsig_e`, which is the **residual** | 2,079.7 |
+| Residual variance | 2.791 | 0.036 | `lns1_1_1`, which is the **intercept** | 265.6 |
+
+The standard errors leave no room for interpretation: 0.002 sits beside 3.820 in the output and 0.036 beside 2.791, and in the table they appear paired the same way but under the opposite label.
+{: .small}
+
+In the same table, the publicly funded private coefficient was published as **1.4142** where the output prints **0.4142**. One digit.
+{: .text-justify}
+
+### The third column
+
+Up to here this post compares **two** things: what I published in 2014 and what my reconstruction measures. With two columns, «they match» and «it is right» are indistinguishable —a reconstruction that inherits the original's error produces a perfect green— and green is exactly what nobody looks at twice.
+{: .text-justify}
+
+When my own artefacts appeared, a third column appeared with them, and with it a verdict that is **derived** rather than written:
+{: .text-justify}
+
+{: .table-caption}
+**Table 4** — The 34 judgements over the document's 26 objects
+
+| Do published and reconstruction match? | Which one is right? | Verdict | Judgements |
+|---|---|---|---:|
+| yes | both | correct match | 7 |
+| yes | **neither** | **inherited match** | 1 |
+| no | the reconstruction | error of the past | 9 |
+| no | **what was published** | **error of the present** | 3 |
+| no | neither | both wrong | 1 |
+| — | undetermined | unadjudicated | 13 |
+
+Twenty-two of the 34 have a third source; the other twelve are waiting for one.
+{: .small}
+
+The inherited match is what justifies the whole apparatus, and it is the concentration index: the published figure says 1,534 and my reconstruction measures 1,517.5, a 1.3 % difference. **They match, and both are wrong**, because my reconstruction adopted my 2014 self's scale without asking where it came from.
 {: .text-justify}
 
 The duration model needed its own check, and that is where it got interesting. I model the probability that a school exits in year $$t$$ given that it was still open, with a complementary log-log link, the standard specification when the event is observed by periods rather than in continuous time:[^jenkins]
@@ -170,7 +222,7 @@ $$
 $$
 
 {: .table-caption}
-**Table 3** — The two cells whose asterisks do not add up
+**Table 5** — The two cells whose asterisks do not add up
 
 | Table and term | Published | Rebuilt | Published standard error | max \|z\| | Asterisks printed | Warranted |
 |---|---:|---:|---:|---:|:--:|:--:|
@@ -195,7 +247,7 @@ The co-payment table carries an exact example of that broken chain. Its footnote
 And a number I would rather not write: of the **30 revision proposals** this audit produced, only **12 today carry a traceable claim with its hash**. The other 18 are labelled proposal or unverified, and that is how they must be read. Anyone taking all 30 as findings has read this post backwards.
 {: .text-justify}
 
-## Spoonful 3: the five findings that change a reading
+## Spoonful 3: the findings that change a reading
 
 **1. My exit marker did not mark exits.** The variable `id_salida` correlates −0.977 with the calendar year: it falls from 1,676 flagged cases in 1992 to exactly 0 in 2012, while effective exits range between 42 and 290 with no trend (ρ = +0.382). It does not say «closed», it says «will close in some year within the window»: a school closing in 2011 is flagged in every prior year and in none after.
 {: .text-justify}
@@ -217,13 +269,22 @@ The finding survives; the magnitude does not —and it is smaller than the one I
   <figcaption><strong>Figure 2</strong> — Municipal concentration and mobility. The same index appears on three scales: the original's axis stops at 100, the text cites levels from 1,180 to 1,534, and the canonical definition runs from 0 to 10,000 with 2,500 as the high-concentration threshold. The replication is measured with `hhi_n_alumnos`, the variable the `do-file` itself labels as the index: the slope stays negative, but over 337 municipalities it is not distinguishable from zero at 5 % (p = 0.084).</figcaption>
 </figure>
 
-**4. The concentration index runs on a scale ten times its own.** The Herfindahl index is defined between 0 and 10,000. The variable my own `do-file` labels «Herfindahl-Hirschman Index» reproduces the five levels I named explicitly with **1.34 % mean error** —Santiago gives 1,517.5 against the 1,534 published— but it does so multiplied by one hundred thousand: **ten times the canonical scale**. On the correct scale Santiago measures 151.7. This is not a decimal: read as I published it, **318 of 337 municipalities** would sit above the high-concentration threshold; on the canonical scale it is **66**. It changes which market gets called concentrated.
+**4. The concentration index runs on a scale ten times its own, and I know why.** The Herfindahl index is defined between 0 and 10,000. The variable my own `do-file` labels «Herfindahl-Hirschman Index» reproduces the five levels I named explicitly with **1.34 % mean error** —Santiago gives 1,517.5 against the 1,534 published— but it does so multiplied by one hundred thousand: **ten times the canonical scale**. On the correct scale Santiago measures 151.7. This is not a decimal: read as I published it, **318 of 337 municipalities** would sit above the high-concentration threshold; on the canonical scale it is **66**. It changes which market gets called concentrated.
+{: .text-justify}
+
+The mechanism was in my spreadsheet. The index column runs from 1.1756 to **exactly 100**, and that maximum is no accident: it is the municipality with a single school, where the raw index equals 1. The column is the raw index **times one hundred**. Writing the text, I read it as if it were in thousands, and that is where the five published levels come from: the sheet times a thousand.
+{: .text-justify}
+
+That reading did not stay in the text. On another sheet of the same workbook I left the high-concentration threshold written as `=C2>2.5`, which on the spreadsheet's scale is 250 canonical points and not 2,500. It selects **330 of the 346 municipalities**; the real threshold selects **84**. A filter that passes 95 % of the cases is not filtering anything.
 {: .text-justify}
 
 Here I correct myself twice, and the second one stings. First, I measured concentration with **another column** of the panel, not the one the `do-file` labels as the index; the error gives itself away, because its ratio against the published values was almost constant —10.3, dispersion 0.03— the signature of comparing against something proportional but different.
 {: .text-justify}
 
 Second: with that column the descriptive contrast gave a negative and significant slope (p = 0.009, 336 municipalities). **Redone with the `do-file`'s own variable, the sign stays negative but the slope is no longer distinguishable from zero at 5 % (p = 0.084, 337 municipalities).** What still stands is that my municipal exits model reported a positive coefficient and the descriptive cloud does not back it; what falls is the force with which I asserted it.
+{: .text-justify}
+
+The direction survives a second check that depends on no regression at all: splitting municipalities at the canonical threshold, the concentrated ones average **1.66 %** annual mobility and the rest **2.01 %**. More concentration, less mobility. The sign is my reconstruction's and not my 2014 model's; what there still is not, is significance.
 {: .text-justify}
 
 And that model stacks three identification problems: contemporaneous regressors my own text declares jointly determined, a lagged dependent variable under random effects,[^nickell] and inference over 15 clusters.[^cameron] With so few groups, the standard error stops being trustworthy before the coefficient does.
@@ -240,6 +301,12 @@ And that model stacks three identification problems: contemporaneous regressors 
 With the caveat from finding 1: the axis measures years relative to the last flagged year, and that marker turned out not to mean what I thought it did.
 {: .text-justify}
 
+**6. And one where the error is mine today, not in 2014.** Among my workbook's sheets one turned up called `rad` —pupil-teacher ratio— with **48 numbers**. The table I published has **48 cells**, and all of them are there: same year, same dependency, same closure status. What was published and its producer are identical.
+{: .text-justify}
+
+The one that falls short is my 2026 reconstruction: it diverges in **41 of the 48 cells**, by 0.63 points on average and 3.49 at worst. For months I counted that discrepancy as a divergence with no owner; with the sheet beside it, the owner is me, now.
+{: .text-justify}
+
 One debt left is not an error but an absence: the Schumpeterian frame organises my title, my abstract and my conclusion, but I never tested it. The reallocation decomposition separating improvement within incumbents from that coming from entry and exit —the standard in the very literature I was citing— is not in the document.[^griliches]
 {: .text-justify}
 
@@ -248,18 +315,18 @@ One debt left is not an error but an absence: the Schumpeterian frame organises 
 Twenty-six objects between tables and figure panels. Ten reproduce what was published; ten diverge with a measured mechanism —a label, a universe, a scale, a rounding convention—; **none is left diverging without an explanation**; six admit no numerical test, because they are structural statements or a datum the panel does not keep.
 {: .text-justify}
 
-{: .table-caption}
-**Table 4** — State of the twenty-six displays
+Behind those verdicts sit **47 hypotheses put to the test**, of which 37 were refuted and 8 survived. I record the refuted ones alongside the survivors on purpose: an audit that only publishes what it confirmed is not an audit, it is a selection.
+{: .text-justify}
 
-| Verdict | Displays |
-|---|---:|
-| Reproduce what was published | 10 |
-| Diverge with a measured mechanism | 10 |
-| Diverge without explanation | 0 |
-| No numerical test possible | 6 |
-| **Total** | **26** |
+That per-object count, however, reads for more than it is. Of the ten that «reproduce what was published», only **three** have an independent source certifying it; the other seven match between two columns and nobody has checked that neither is wrong. Table 4 is the honest picture: **thirteen of the thirty-four judgements are still unadjudicated**, and that is a debt of evidence, not of work.
+{: .text-justify}
 
-Behind those verdicts sit **43 hypotheses put to the test**, of which 34 were refuted and 7 survived. I record the refuted ones alongside the survivors on purpose: an audit that only publishes what it confirmed is not an audit, it is a selection.
+### A judge that can also rule against me
+
+At the end I put the 34 judgements through a rubric fixed in advance —a real third source, multiple agreement, a tolerance declared beforehand, a counterexample, contrary evidence— with explicit permission to lower a verdict already issued. It corrected **two**, and both were mine.
+{: .text-justify}
+
+The more uncomfortable one: I had declared that neither my 2014 model's sign nor my 2026 reconstruction's slope held up, and I had declared it leaning on a column that **my own registry describes as a different estimand** a few pages later. Redone with the definition that does reproduce what was published, the direction flips and the reconstruction lands on the right side. A judge that can only promote is not a judge.
 {: .text-justify}
 
 ## Closing: the second half runs to 2025
@@ -270,7 +337,13 @@ A second post will bring the recreation extended to 2025. The sources are alread
 What I take away is less technical than I expected. The confirmed errors are asterisks, scales and elementary arithmetic; the findings that move a conclusion came from looking at what my variables actually measured.
 {: .text-justify}
 
-And what surprised me most was not finding errors, but which side they turned up on. I started out assuming the reconstruction would be the weak link. Once my own 2014 artefacts appeared —the Stata output, the spreadsheet, the embedded chart— the reconstruction turned out to look more like them than the document I signed.
+And what surprised me most was not finding errors, but which side they turned up on. I started out assuming the reconstruction would be the weak link. Once my own 2014 artefacts appeared —the Stata output, the spreadsheet, the embedded chart— the reconstruction turned out to look more like them than the document I signed. Except in three cases, where the weak link is the reconstruction and now I know it.
+{: .text-justify}
+
+There is a fourth kind of error I did not expect: the measuring instrument's own. The sweep that crosses documents against published figures got it wrong twice before it worked. First it asked for figures at coarser precisions than the printed one —looking for 20.7 rounded to an integer is looking for «21», which sits in any document with dates— and with that a codebook of 54 numbers «reproduced» the 48 cells of a table. Then it compared text instead of rounding, so the output that did produce a table fell outside its own table for printing 0.0087 where the table publishes 0.01.
+{: .text-justify}
+
+I caught both the same way: **measuring against a case I already knew**. If the sweep cannot find the producer I had already identified, I cannot believe it when it finds a new one. It is the same rule that holds up everything else.
 {: .text-justify}
 
 I would not have seen any of this arguing over numbers in prose: I saw it when I put the 2014 figure next to the 2026 one and the axes did not line up.
