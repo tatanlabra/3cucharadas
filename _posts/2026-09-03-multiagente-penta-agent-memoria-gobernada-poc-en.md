@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Multi-agent work in three spoonfuls III: a memory that leaves traces"
-subtitle: "From auditable RAG to governed memory: why it still is not a digital clone"
+subtitle: "From auditable RAG to a more governed memory: it still is not a digital clone"
 date: 2026-09-03 00:00:00 -0400
 last_modified_at: 2026-09-03 00:00:00 -0400
 categories: [ai, productivity, development, multi-agent]
@@ -14,9 +14,9 @@ ref: multiagente-penta-agent-memoria-gobernada-poc
 permalink: /ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
 distribution:
   social: true
-  republish: [dev, medium]
+  republish: []
 repo: https://github.com/tatanlabra/penta-agent
-entorno: "Arch Linux, KDE Plasma, local services (Qdrant and Sentence Transformers over loopback, systemd --user timers), Qdrant with the named `dense` vector"
+entorno: "Arch Linux, KDE Plasma, local services (Qdrant and Sentence Transformers over loopback, systemd timers), Qdrant with the named `dense` vector"
 en_abstract: >
   Third log of a local multi-agent setup. The previous entry made its shared
   memory measurable; this one asks a harder question: what should persist,
@@ -46,216 +46,199 @@ header:
   og_image_alt: "Four governed sources on separate platforms—operational memory, personal mail sealed under glass, thesis index, and the public projection—with a membrane that lets only three permitted outputs through."
 ---
 
-> **Status of the demo.** The viewer was regenerated on August 29, 2026 from a sanitized public projection. The artifact contains no mail bodies, attachments, addresses, absolute paths, tokens, credentials, or microdata. The canonical index and the private sources stay off the site.
+> **Status of the demo.** The viewer was regenerated on August 29, 2026 from a sanitized public projection (with the non-public bits stripped out :D ): the artifact contains no mail bodies, attachments, addresses, absolute paths, tokens, credentials, or microdata.
 {: .notice--warning}
-
-> **Reading convention.** **LOCAL FACT** marks a dated measurement, reproducible from the project's own artifacts; **DESIGN INFERENCE**, a conclusion drawn from those measurements; and **UNVERIFIED**, a capability the system does not claim for itself. A count, an edge, or an infrastructure test proves neither understanding, nor identity, nor general answer fidelity.
-{: .notice--info}
 
 ## Preamble: remembering is not enough
 
-The [second part]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/" | relative_url }}) went after a narrow problem: getting `penta-agent`'s memory to retrieve evidence and to recognize when it had found none. That piece exists. The question in this third part is less comfortable: **what happens once that memory starts to grow?**
+In the [second part]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/" | relative_url }}) I went after a bounded problem: getting `penta-agent`'s memory to retrieve evidence and to recognize when it had found none. The question in this third part is more practical, and it comes out of the system having been in use for a while: **what happens to a memory as it grows and turns blurry, or even contradictory?**
 
-An index can pile up fragments without any trouble. A useful memory, by contrast, has to carry provenance, currency, permissions, contradictions, and deletion criteria. It also has to tell finding a source apart from answering correctly from it. Recent literature insists on separating RAG, context management, and agent memory, because they do different jobs and call for different evaluations (Hu et al. 2025).
+An index can pile up fragments without any trouble, and there are plenty of tools that already do that well. A more useful memory, in my judgment, has to carry provenance, currency, permissions, contradictions, and deletion criteria. It also has to tell finding a source apart from using it correctly. Recent literature insists on separating RAG — retrieval-augmented generation — context management, and agent memory, because they do different jobs and call for different evaluations [^hu-2025].
 
-This post also corrects two shortcuts from the first draft. The first reduced the system to a handful of decorative nodes: safe, but uninformative. The second confused fidelity with saturation — a graph can be derived from real data and still be an unreadable hairball. The fix is neither to invent an allegory nor to publish every trace, but to build a projection that is bounded, reproducible, and recognizably tied to the evidence.
-
-What follows has three movements: what changed since part II; which experiments survived an evaluation that was allowed to fail; and how to show a memory without passing it off as a mind.
+What follows has three movements: what changed since part II; which experiments survived a more serious evaluation; and how to show a memory without passing it off as a mind.
 
 ---
-
 ## Spoonful 1: from retrieving fragments to governing evidence
 
-In this architecture, RAG retrieves information; the memory layer adds rules for keeping it, updating it, discarding it, and using it again. None of those functions amounts, on its own, to identity. Every source has to travel with its origin, its transformation, its access scope, its currency, and its allowed output. PROV-O supplies an interoperable vocabulary for the provenance half — entities, activities, and agents; permissions and currency need rules of their own (Lebo, Sahoo, and McGuinness 2013).
+In part II the problem was **retrieving well**: finding the relevant context and recognizing when there was not enough evidence. A useful memory does not only retrieve information; it also has to know **where it came from, whether it still holds, where it can be used, and what is allowed to be done with it**.
+
+RAG mostly solves retrieval. The memory layer adds rules for keeping, updating, relating, or discarding evidence. None of those functions amounts, on its own, to identity. To describe provenance I use concepts compatible with PROV-O — entities, activities, and agents — while currency, sensitivity, and permissions need rules of their own [^lebo-2013].
 
 ### What changed since part II
 
-| Open commitment | Evidence added in this version | Limit that stays open |
-|---|---|---|
-| Compare dense retrieval, lexical retrieval, and reranking without disturbing production. | The `penta_context_qwen3_staging` collection, a frozen cut of 319 contexts, and 40 queries evaluated at `k=5`. | The best run still stands at 38 complete cases and 2 partials; the strict gate stays shut. |
-| Evaluate whether an answer uses the retrieved sources and knows when to abstain. | The `context-answer-v1` contract, with 12 positive and 6 negative cases, all sanitized. | The end-to-end test of a local model and the human review of the withheld cases are still unfinished. |
-| Add currency without erasing history. | A sandbox that admits `supersedes` only from a later date and rejects competing successors. | There is still no temporal reasoner wired into live memory. |
-| Make growth visible without mistaking topology for truth. | A static 3D viewer, regenerable from sanitized JSON, with a text alternative when WebGL is unavailable. | The viewer does not query Qdrant, does not validate edges, and does not represent a mind. |
+| Open item from II                                              | What exists now                                                                                       | What is still open                                                                        |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Compare dense retrieval, lexical retrieval, and reranking.     | A frozen cut of 319 contexts and 40 queries evaluated at `k=5`.                                        | The best run gets 38 complete cases and 2 partials; the strict gate stays shut.            |
+| Check that an answer uses its sources and knows how to abstain. | The `context-answer-v1` contract, with 12 positive and 6 negative cases, all sanitized.                | The end-to-end evaluation with a local model and the reserved human review are unfinished. |
+| Add currency without erasing history.                          | The proof of concept admits `supersedes` only toward later versions and rejects competing successors.  | There is still no temporal reasoner wired into live memory.                                |
+| Show growth without turning the graph into truth.              | A 3D viewer, regenerable from sanitized JSON and accompanied by a text alternative.                    | The viewer neither validates relations nor represents a mind.                              |
+
+The difference may look small, but it changes the question. Knowing **which fragment sits close to a query** is no longer enough; what matters as well is **what kind of evidence it is and under what conditions it can be reused**.
 
 ### What memory actually exists
 
-| Layer | Local cut as of August 29, 2026 | What it supports | What it does not support |
-|---|---|---|---|
-| `penta-agent` experience | 16,955 indexed points, 1,432 strategies, 3,949 relations, 12 communities, and 8 task families. | Operational traces, semantic neighborhoods, corrections, and failures exist and can be explored. | An edge is not, on its own, a causal relation or a true claim. |
-| Curated context | 319 canonical contexts in `penta_context_v2`; the local check returned `green`. | A curated handoff or decision can be retrieved with its provenance. | The index does not replace the canonical record, and it does not cover the whole history. |
-| Research process | Public snapshot with 796 derived artifacts, 533 links, and 7 open leads; FTS5 and TF-IDF search. | The thesis work chain can be inspected without publishing documents or microdata. | It proves neither historical execution, nor replication, nor substantive results. |
-| Personal mail | Private inventory of 12,072 unique messages, 8,559 duplicates, covering 2011–2026. | Inventory-only reading works within an authorized scope. | Mail is not a public corpus and not a personality model. |
-| Local personal memory | Separate prototype with `mbox`, SQLite/FTS, explicit scopes, purge, and synthetic evaluation. | A reversible technical route exists for retrieving private material. | No generative workflow over sensitive mail is authorized. |
+The PoC brings several layers together, but does not treat them as equivalent:
 
-Provenance has to record the pipeline's own failures too. The historical exporter expected a plain unnamed vector, while the current index uses the named `dense` vector. The first regeneration produced a degraded graph with no semantic edges. A run against the real index exposed the incompatibility; once the exporter was adapted, 3,658 semantic edges came back. The episode leaves a practical rule: **an auditable visualization has to show when its data chain degraded, why it happened, and how it was put back together**.
+* **`penta-agent` experience:** 16,955 indexed points and 1,432 strategies make it possible to explore actions, corrections, and failures. Semantic closeness proves neither causality nor truth.
+* **Curated context:** 319 canonical records make it possible to retrieve *handoffs* and decisions with their provenance. The index helps to find them, but does not replace the original record.
+* **Research process:** a projection with 796 derived artifacts and 533 links makes it possible to inspect the work trajectory without publishing documents or microdata.
+* **Personal mail:** the local inventory holds 12,072 unique messages between 2011 and 2026. It serves to test reading and deduplication within an authorized scope; it is not a public corpus and not a personality model.
+* **Experimental personal memory:** a separate prototype tests retrieval through `mbox`, SQLite/FTS, scopes, and purge. There is still no authorization to generate answers out of sensitive mail.
+
+This separation heads off a frequent temptation: confusing **having technical access to a source** with **being authorized to turn it into reusable memory**.
+
+### A useful failure
+
+The pipeline itself supplied an example of why provenance matters. The historical exporter expected a plain vector, while the current index stored the named `dense` vector. The first regeneration produced a degraded graph, with no semantic edges. A run against the real index caught the incompatibility and, once the exporter was fixed, 3,658 edges came back.
+
+The lesson matters more than the number: **an auditable visualization has to be able to show when its data chain degraded, why it happened, and how it was put back together**. It is a real use case.
 
 ### From command to task
 
-The index's atomic unit is still an observed strategy. Many strategies are command-shaped, because that is how the actions were recorded. To make them readable without inventing intent, I added a deterministic classification over strategy, tool, transport, and project.
+The 1,432 recorded strategies are still the basic unit of this memory. Many of them started life as commands, so I added a deterministic classification to make them more readable: coordinating agents (399), researching and analyzing (396), tracing evidence (385), executing or automating (118), versioning changes (76), verifying (28), operating infrastructure (18), and communicating results (12).
 
-| Derived task family | Strategies | Question it helps to ask |
-|---|---:|---|
-| Coordinate agents and decisions | 399 | What was learned while delegating a task or leaving a handoff? |
-| Research and analyze data | 396 | Which tactics recur while examining data, thesis material, and sources? |
-| Read and trace evidence | 385 | Which antecedents were inspected before deciding? |
-| Execute and automate | 118 | Which steps implemented a change that had already been reviewed? |
-| Version and compare changes | 76 | Which checks were applied before keeping a modification? |
-| Test and verify | 28 | What was actually checked instead of declared done? |
-| Operate tools and services | 18 | Which infrastructure enabled or blocked the workflow? |
-| Edit and communicate | 12 | What turned technical evidence into documentation or publication? |
-
-This layer is a teaching lens, not an ontology of the author. A strategy can belong to more than one family, but today it lands in the first matching rule. That makes it useful for getting oriented, not for measuring productivity or attributing human capacities to the system.
+A strategy could belong to several categories, but today it lands in the first matching rule. **It is a lens for walking through the memory, not a description of the person behind it.** There is plenty of room to improve this with other visualizations; if you know of one, I would be grateful for the tip.
 
 ---
 
-## Spoonful 2: experimenting without blending or promoting
+## Spoonful 2: governing sources before blending them
 
-The architecture has layers with different jobs: the ledger and the source files are canonical; Qdrant is a regenerable index; the viewer is a public projection; and the private adapters stay outside Git. That separation is what keeps a vector match from turning, unreviewed, into a durable fact.
+The architecture starts from a simple separation. The **canonical record** (the *ledger*) and the source files hold the evidence; Qdrant keeps indexes that can be destroyed and regenerated; the viewer publishes a sanitized projection; and the private adapters stay outside Git. The index is there to find things. It has no authority to turn a vector match, on its own, into a durable fact.
 
-### The proof of concept is not a source blender
+### An architecture of permissions, not a blender
 
-Mail, thesis material, and operational memory are not interchangeable nodes. At this stage, only the curated context feeds cross-agent retrieval and the public projection. Mail keeps a private, reversible, vetoable route; the thesis contributes authorized process metadata. The arrows in the diagram describe allowed outputs, not automatic transfers or inferences about people. The gap between technical access and a legitimate information flow is exactly the problem contextual integrity is meant to capture (Nissenbaum 2004).
+Mail, thesis material (from the master's degree), and operational memory may all be technically readable by the same system, but that does not make them interchangeable. In this PoC, only the previously curated context may feed cross-agent retrieval and the public projection. Mail stays in a private, reversible, vetoable circuit; the thesis contributes authorized process metadata and nothing else.
+
+The distinction matters: **having technical access to a piece of data does not settle whether reusing it for any purpose is legitimate**. Contextual integrity theory poses exactly this problem: privacy depends not only on the data, but also on the context, the actors, and the norms that govern its circulation [^nissenbaum-2004].
 
 <figure class="align-center">
+
   <a href="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg' | relative_url }}" target="_blank" rel="noopener">
-    <img src="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg' | relative_url }}" alt="Three governed sources: operational memory allows retrieval with provenance; personal mail allows only private, reversible review; thesis material and documents allow citations and verification status. A boundary blocks publishing mail bodies, attachments, addresses, absolute paths, microdata, and inferences about identity." loading="lazy" decoding="async">
+
+<img src="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg' | relative_url }}" alt="Three governed sources: operational memory allows retrieval with provenance; personal mail allows only private, reversible review; master's thesis material and documents allow citations and verification status. With a boundary that blocks publishing mail bodies, attachments, addresses, absolute paths, microdata, and inferences about identity." loading="lazy" decoding="async">
+
   </a>
-  <figcaption>Figure 1. The current integration is an architecture of permissions: the source determines its allowed output.</figcaption>
+
+  <figcaption>Figure 1. The current integration is an architecture of permissions: each source determines which outputs are permitted.</figcaption>
+
 </figure>
 
-The thesis enters this way: as a [public snapshot of the research index]({{ '/assets/data/memoria_gobernada/thesis-research-index-snapshot.json' | relative_url }}), not as an open corpus. The card exposes 796 derived textual artifacts — 316 audits, 244 reports, 133 contracts, 71 pseudocode files, and 32 inventory, replication, or documentation pieces — plus 533 links and 7 open leads. It excludes historical sources, DTA, Parquet, PDF, images, paths, text, and microdata. Its search is lexical; it claims no neural understanding.
+The thesis is a good example. What enters the public system is a [snapshot of the research index]({{ '/assets/data/memoria_gobernada/thesis-research-index-snapshot.json' | relative_url }}), not the corpus. The August 29 cut holds 796 derived textual artifacts — 316 audits, 244 reports, 133 contracts, 71 pseudocode files, and 32 inventory, replication, or documentation pieces — plus 533 links and 7 open leads. It leaves out the source documents, DTA, Parquet, PDF, images, paths, full texts, and microdata. The search is deliberately lexical: FTS5 and TF-IDF help to find artifacts, but they make no claim to understand the research.
 
-It is worth saying what state that snapshot is in, because it is the test case for the argument itself. Its figures belong to the index built on August 29 and are faithful to that cut: the manifest fingerprint matches the published one byte for byte. But the corpus kept growing — it holds 817 documents today, twenty-one more, all from later phases — and the index was not regenerated. The result is that the currency gate is red: `check-research-index` exits 2, with `document_count` and `source_fingerprint` at `false`, and the contract that groups it exits 2 as well.
+There is a detail more interesting than the figures. The published snapshot is still faithful to the cut it declares: its fingerprint matches the manifest of that moment. The corpus, however, kept growing and reached 817 documents, twenty-one more. Since the index was not regenerated, the currency gate is red: `check-research-index` returns `2`, because `document_count` and `source_fingerprint` no longer match the current state.
 
-That does not invalidate the snapshot; it dates it. And that is exactly what a governed memory has to do: not keep the world from changing, but refuse to claim it stayed the same. A gate that had stayed green while the corpus grew by 2.6% would have been worse than no gate at all, because it would have certified as current an artifact that no longer was. The publishable status of this piece is not "verified", it is "dated, with its gate open".
+That does not invalidate the snapshot; it **dates** it. Its correct status is "valid for the August 29 cut, but not current with respect to today's corpus". A gate that had stayed green after the corpus grew would have been worse than a failed gate: it would have certified a currency that does not exist. This is the formal record of the memory's growth and potential divergence.
 {: .notice--warning}
 
-### What is worth reusing — and under what contract
+### Reuse before reinventing
 
-| Need | Local asset | Project worth a contrast | Adoption rule |
-|---|---|---|---|
-| Recover decisions across coding sessions | Handoffs, events, and curated context. | [`deja-vu`](https://github.com/vshulcz/deja-vu), which indexes local agent sessions and offers retrieval through CLI and MCP. | It must improve real historical lookups without replacing curated notes with raw transcripts. |
-| Keep an agent's state explicit | Evaluated RAG and curated context; not a general execution runtime. | [Letta Code](https://github.com/letta-ai/letta-code), the current harness of the project that grew out of MemGPT (Packer et al. 2023). | Compare its memory blocks and rewrite mechanisms against the existing contracts before adding another runtime. |
-| Extract memories from conversations | Ingestion and human curation; private mail with a veto. | [Mem0](https://github.com/mem0ai/mem0) and [Hindsight](https://github.com/vectorize-io/hindsight). | Measure precision, false positives, revocation, and purge on synthetic data before touching real mail. |
-| Represent currency and contradiction | A sandbox with `supersedes`. | [Graphiti](https://github.com/getzep/graphiti), the open core of the temporal architecture described by Rasmussen et al. (2025). | Move dated decisions into a pilot without losing source, currency, or human review. |
-| Connect concepts, documents, and citations | Allowlisted FTS5/TF-IDF process index. | [Microsoft GraphRAG](https://github.com/microsoft/graphrag) over a bounded scientific corpus (Edge et al. 2024). | Compare cost, traceability, and retrieval against the lexical baseline; start small, because the project is in maintenance mode and its documentation warns about indexing cost. |
-| Visualize a reproducible projection | Local generator and sanitized JSON artifact. | [`3d-force-graph`](https://github.com/vasturiano/3d-force-graph), already vendored. | Keep the text alternative, and do not read visual distance as human affinity. |
+None of this requires building every memory component from scratch. In fact, a good sign of maturity would be being able to **delete my own code** when an existing tool solves the same problem better without degrading privacy, provenance, or reversibility.
 
-The priority is not to install everything. It is to try, under the same contract, whatever might cut friction without degrading provenance, privacy, or reversibility. Product descriptions tell you what each project promises; they do not establish that it is better on this corpus. An open core is not enough either: the models, external services, and data flows needed to run it have to be documented.
+To recover decisions scattered across coding sessions, `deja-vu` already indexes the local histories of many agents and exposes them through a CLI and MCP. It is a natural candidate to contrast against my own *handoffs* and events before writing yet another equivalent layer.
 
-### A retrieval experiment that was allowed to fail
+For more structured persistent memory there are more ambitious approaches. MemGPT introduced the idea of managing distinct memory tiers as a way of extending an agent's effective context [^packer-2023]; Letta's current line carries that principle into editable memory blocks and external memory. Mem0 automates the extraction, consolidation, and retrieval of information from conversations [^chhikara-2025], while Hindsight distinguishes the operations of **retaining, recalling, and reflecting**, taking in semantic, lexical, temporal, and graph-based retrieval [^latimer-2025].
 
-The `Qwen3-Embedding-0.6B` trial ran through Sentence Transformers on an isolated collection: 319 frozen contexts, 1,024-dimensional vectors, CPU, and 319/319 persisted. It did not touch `penta_context_v2`. The test set kept 40 queries, 8 negatives, and `k=5`; the notation **38/2/0** means 38 complete passes, 2 partials, and no outright miss.
+The **currency** problem deserves an experiment of its own. Graphiti, the open component described in Zep's architecture, explicitly models relations that change over time and keeps historical information instead of silently replacing it [^rasmussen-2025]. That comes far closer to the problem I am trying to solve with `supersedes` than piling on more temporal rules of my own.
 
-The model card recommends task-specific instructions, but a vendor recommendation is not a substitute for local evaluation. This is what came out (Zhang et al. 2025):
+For document collections, Microsoft GraphRAG offers another useful idea: build a graph derived from the corpus and summarize communities to answer global questions that a conventional RAG handles worse [^edge-2024]. I would not use it yet as a replacement for the thesis index. First it would have to show, over a bounded scientific subset, that the added complexity and cost improve something the lexical baseline cannot resolve.
 
-| Hypothesis | Isolated change | Local result | Decision |
-|---|---|---|---|
-| The lexical component displaces correct dense evidence. | BM25 boost from `0.10` to `0.00`, in `staging` only. | From 36/3/1 to **38/2/0**; all 8/8 negatives kept abstaining; recall@5 0.9635 and MRR 0.8396. | Kept as an experimental starting point; it does not prove an improvement over production. |
-| A generic instruction improves citability. | Explicit instruction to favor complete, citable sources. | **33/3/4**; negative abstentions 6/8. | Rejected: it degraded coverage and abstention alike. |
-| A reranker recovers complementary sources. | `Qwen3-Reranker-0.6B` over already-admitted candidates. | **38/2/0**; recall@5 0.9688 and MRR 0.9010; median 15.83 s and 91.10 s worst case, against 2.37 s for the base ordering. | Offline analysis only; the cost does not justify promoting it. |
-| The repository is a good proxy for the document family. | `repo_scope` diversification within a window of 20. | **38/2/0**; recall@5 0.9740; one partial was resolved and another appeared in a different task. | Rejected: provenance is not document intent. |
-| Agreement between two orderings keeps the error from moving. | Reciprocal rank fusion (RRF) of the base and reranked orderings (Cormack, Clarke, and Büttcher 2009). | **38/2/0**; recall@5 0.9635; median 20.06 s. | Rejected: it neither closed the gate nor paid for its cost. |
+Visualization, finally, is a practically solved problem: `3d-force-graph` already provides a three-dimensional layout built on Three.js and force algorithms. The relevant part of this PoC is not writing another graphics engine, but controlling **which graph the browser receives** and remembering that visual distance proves neither conceptual proximity, nor causality, nor human affinity.
 
-The two partials are always multi-source cases: the selection cannot cover distinct document families within five positions. Here I have to declare a limit instead of a measurement. The diagnostic that would have located what rank the missing documents landed at never ran: it required an evidence-taxonomy file that does not exist in the repository, and the single attempt was recorded as `failed`. I know the partials exist and which cases they are, because that much is in every run; I do not know how far off they landed, and I am not going to write down a number I cannot reproduce. Raising `k` until a case passes would change the evaluation question, so that is no way out either.
+The common rule is simple: **test components, do not collect them**. That a library can remember more does not mean it should receive more data.
 
-The next hypothesis is harder and less photogenic: human lineage or document-intent metadata, bound to the fingerprint of the cut and of the query, with no access to the gold set while it is being written. Until those labels exist and the strict test stops being red, the collection stays in `staging`.
+There is also a conflict of interest worth making explicit. Mem0, Hindsight, Zep/Graphiti, and Letta are described in large part by their own teams. Their papers and repositories are appropriate sources for learning the architectures they propose, but their comparative results are not independent validation of superiority. I use them here as designs that deserve a contrast, not as winners of a competition — and my own stack is not superior either. If anything, mine is rather experimental, built for my own purposes.
 
----
+### A retrieval experiment that could fail
+
+I tested `Qwen3-Embedding-0.6B` on an isolated copy of 319 contexts, without touching production. The evaluation used 40 queries, eight of them designed to check that the system also knew how **not to retrieve evidence when it should not**.
+
+The best configuration got **38 complete cases, 2 partials, and no outright miss** within the top five positions. From there I tried several possible improvements:
+
+* dropping the BM25 lexical boost held the best result;
+* adding a generic instruction to the *embedding* made both retrieval and abstention worse;
+* `Qwen3-Reranker-0.6B` ordered the results somewhat better, but pushed response time up too far;
+* diversifying by repository and fusing rankings did not resolve the two partial cases either.
+
+The experiment left a conclusion more useful than finding a new model: **the two open cases do not seem to need more power, but better metadata**. Both of them require retrieving documents from different families within only five results.
+
+So the next test will be to add explicit information about **lineage and document intent**, without using the correct answers to build those labels. Arbitrarily raising `k` or piling on more models would only have moved the problem elsewhere.
+
+Until those two cases are resolved reproducibly, the collection stays in `staging`. In this system, **remembering that an improvement has not been demonstrated yet is also part of the memory**.
 
 ## Spoonful 3: a map that does not pass itself off as a mind
 
-The visualization is generated from a sanitized cut of the experience memory. It queries neither Qdrant nor any external service when it opens: it receives a static, regenerable, auditable artifact. The [public JSON export]({{ '/assets/data/rag_knowledge_graph/public-graph.json' | relative_url }}) makes this run inspectable, and the HTML has to be reproducible from that file without rereading private sources.
+Once what may enter the memory is sorted out, another question remains: **how do you show it without mistaking a representation for reality?**
 
-> **Guided reading.** The viewer's interface is in Spanish. Open **Tareas** (tasks) first and pick a family — "Investigar y analizar datos", research and analyze data, for instance. Then use **Proy** (projects) to tell where the work happened. Only at the end open **Errores** (errors) or diagnostic mode to inspect a concrete point of friction. The viewer should start from a question, not from a cloud of points.
-{: .notice--primary}
+The viewer answers with a precaution: it queries neither Qdrant (the database where the vectors are indexed) nor any private source when someone opens the site — it **receives a sanitized JSON** (a data file from which the information that must not be published has been removed), generated from a specific cut of the memory.
 
-<section class="rag-knowledge-graph" aria-labelledby="rag-knowledge-graph-title">
-  <div class="rag-knowledge-graph__header">
-    <div>
-      <p class="rag-knowledge-graph__eyebrow">Public projection · 2026-08-29</p>
-      <h3 id="rag-knowledge-graph-title">Map of strategies recorded by penta-agent</h3>
-      <p>August 29 cut: 1,432 strategies · 3,949 relations · 8 task families · 16,955 indexed points</p>
-    </div>
-    <a class="rag-knowledge-graph__open" href="{{ '/assets/visualizations/penta-rag-knowledge-graph/index.html' | relative_url }}" target="_blank" rel="noopener">Open full viewer<span class="screen-reader-text"> in a new tab</span></a>
-  </div>
-  <iframe class="rag-knowledge-graph__frame" title="Navigable 3D map of penta-agent task families and strategies" src="{{ '/assets/visualizations/penta-rag-knowledge-graph/index.html' | relative_url }}" loading="lazy" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
-</section>
+That way the graph can be rebuilt and audited without touching the original sources again. The [public JSON export]({{ '/assets/data/rag_knowledge_graph/public-graph.json' | relative_url }}) even lets you inspect directly what information the browser receives.
 
-The numbers belong to that cut, not to a live counter. Updating the viewer means regenerating the projection, sanitizing it again, and reviewing the differences before the public artifact is replaced.
-{: .notice--info}
+### Seeing the network without attributing more to it than it says
 
-| Visible component | Derivation | Correct reading |
-|---|---|---|
-| Task families | Deterministic rules over strategy, tool, transport, and project. | They orient exploration; they do not classify the author's psychology. |
-| Strategy nodes | Experience lessons with observed evidence. | They stand for a recorded strategy, not a belief. |
-| Semantic edges | Neighborhood between vector representations in the derived index. | They indicate operational similarity, not causality. |
-| Structural and correction edges | Shared tools, repositories, transports, or sequences. | They are clues that require opening their provenance. |
-| Communities and panels | Deterministic aggregations over the export. | They help decide what to ask and where to verify. |
-| Mail and thesis | They do not appear as content nodes. | Only capabilities, scopes, and authorized metadata are published. |
+The August 29 cut holds **1,432 strategies, 3,949 relations, and eight task families**, derived from 16,955 indexed points.
 
-The composition does not try to show all 3,949 relations with equal weight. It starts from task families, lets projects and errors be isolated, and holds detail back for interaction. That is the trade-off between a real base — too large for an illustration — and a public reading — too important for an opaque hairball.
+The image below **is not that network**: it is an illustration, and the percentage is the joke. The real network is explored in the full viewer, which lets you select tasks, projects, and errors.
 
-### From a retrieved source to an attributed answer
+<figure class="align-center">
 
-Finding the right document does not guarantee a right answer. A model can leave out the decisive condition, cite a different source, or answer when it should abstain. LongMemEval separates extraction, cross-session reasoning, temporality, knowledge updating, and abstention; LongMemEval-V2 — still presented as work in progress — moves the focus toward agent trajectories, workflow knowledge, state changes, recurring failures, and invalid premises (Wu et al. 2024; Wu et al. 2026). My local set is far smaller and is not comparable with those results: its job is to check this project's contract.
+  <a href="{{ '/assets/visualizations/penta-rag-knowledge-graph/index.html' | relative_url }}" target="_blank" rel="noopener">
+    <img src="{{ '/assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000.webp' | relative_url }}"
+         alt="Illustration: half the silhouette of a brain, made of points and edges, coming apart toward the right into loose points, with a loading bar stopped at 20%."
+         loading="lazy"
+         decoding="async">
+  </a>
 
-`context-answer-v1` holds 18 sanitized cases: 12 positives, with required claims and sources, and 6 negatives. A deterministic fixture passed 18/18. That proves the evaluator tells a valid output from an invalid one; it does not prove that a generative model answers well.
+  <figcaption>
+    Figure 2. An illustration, not a projection of the data: the digital-clone metaphor loaded to 20%. The network hints at itself where there is density and comes apart where there is none, which is exactly what an index knows how to do. The real projection, with its nodes and edges, is in the viewer.
+  </figcaption>
 
-| Arm evaluated | Result | Correct interpretation |
-|---|---|---|
-| Deterministic fixture | 18/18 | The gate works over constructed cases; it does not measure a model. |
-| Generative Qwen through an external bridge | First batch rejected for carrying internal infrastructure; second batch returned no evaluable structured output. | **Inconclusive**; calling it an abstention or an answer failure would both be wrong. |
-| Gemini through Antigravity | The initial reading gave 11/18 because it mixed exportable and `local_only` cases. The legitimate slice — 5 positives and 6 negatives — passed 11/11 when the same artifact was re-evaluated. | It validates only the permitted subset; it does not resolve the 7 local positives and does not compare providers. |
-| Local provenance packet | 7/7 sources came out aligned after testing scope, fragment, manifest, and currency failures. | They are ready for human review; there is still no evaluated local answer. |
+</figure>
 
-Going from 11/18 to 11/11 does not inflate a score: it repairs the evaluation universe. A source marked `local_only` does not become exportable because a secret scanner found no matches. Governance starts exactly when the denominator respects the permissions too.
+[**Open the interactive viewer in a new tab →**]({{ '/assets/visualizations/penta-rag-knowledge-graph/index.html' | relative_url }})
+{: .text-center}
 
-The next rung is concrete: run an authorized local answer, keep the negatives, and have a person review every output. Until then, the evidence supports talking about an attribution gate; not about a reliable generative memory.
+It is worth reading with some precautions. A **node** (a point in the graph) stands for a recorded strategy. An **edge** (a line between two nodes) stands for some derived relation: semantic similarity, a shared tool, or a correction, for instance. A **community** (a group of nodes that appears especially well connected) helps you get your bearings inside the network.
+
+None of those relations proves, on its own, causality, truth, or a trait of the person who used the system. Mail and private documents do not appear as content nodes either.
+
+The numbers belong, moreover, to a dated cut. Updating the memory does not silently change the graph: the projection has to be regenerated, sanitized again, and its differences reviewed before it is published anew.
+
+**The viewer is not the memory. It is barely a map built from one of its projections.**
+
+### Retrieving a source is not enough either
+
+Finding the right document is only half the problem. The system also has to **use the right source, respect its scope, and abstain when the evidence falls short**.
+
+To test that layer I built `context-answer-v1`, a small set of 18 cases: 12 with sufficient evidence and 6 in which the right answer was to claim no more than what was available. The deterministic test passed all 18 cases and confirmed that the gate works; it still does not prove that a generative model answers well on its own.
+
+The tests with external models also left a practical rule. Only the sources authorized to leave the machine should be evaluated outside it. The exportable subset passed 11/11 cases; another seven sources stayed `local_only` and require an evaluation inside the local environment.
+
+The conclusion is simple: **retrieving is not enough; every answer has to carry provenance, permissions, and the ability to abstain**. Until that local evaluation and its human review are complete, I can talk about a governed and attributable memory, but not yet about a reliable generative memory.
 
 ---
 
 ## Closing: a useful memory before a digital clone
 
-In this project, "digital clone" is a rhetorical horizon, not a validated technical category. I will not use that name for a RAG with more documents in it, or for an avatar that answers with confidence. At a minimum I would reserve it for a system with temporal memory able to correct itself; revocable preferences and limits; evidence of authorship; behavior evaluated in new situations; and human control over what is kept, shared, or deleted. MemGPT and the generative agents of Park et al. offer influential architectures for handling context, memories, reflection, and planning, but they do not turn those functions into identity (Packer et al. 2023; Park et al. 2023).
+The "digital clone" is still some way off; today it is a distant horizon. What is missing, at a minimum: a temporal memory able to correct itself, revocable preferences and limits, evidence of authorship, behavior evaluated in new situations, and "human" or higher control over what is kept, shared, or deleted. MemGPT[^packer-2023] and the generative agents of Park et al.[^park-2023] offer influential architectures for handling context, memories, reflection, and planning, but they do not turn those functions into identity (Packer et al. 2023; Park et al. 2023).
 
-The defensible route comes down to five gates:
+In this third part, `penta-agent` is a local prototype of governed memory: it keeps experience, records corrections, exposes a bounded public projection, and lets its own tests fail without disturbing production.
 
-1. **Provenance and admission.** Every source enters with a role, a scope, a sensitivity, a consent, and an allowed output. Reading is not promoting.
-2. **Time and contradiction.** An update has to keep what came before, declare when it starts to apply, and fail closed against incompatible successors.
-3. **Retrieval and answer.** The system has to find sufficient evidence, cite what it actually received, and abstain when it is missing.
-4. **Authorship and agency.** No incoming mail authorizes inferences about style, values, or identity; those claims require self-authored material, an explicit opt-in, and review.
-5. **Control and reversibility.** Any sensitive memory needs a veto, a per-scope purge, traceability, and a revocation that actually works.
-
-The evidence in this third part supports describing `penta-agent` as a local prototype of governed memory: it keeps experience, records corrections, exposes a bounded public projection, and lets its own tests fail without disturbing production. That is more accurate — and more defensible — than calling it a digital clone.
-
-The next step forward is not adding more nodes. It is closing the local answer evaluation and comparing alternatives — Graphiti, GraphRAG, or `deja-vu` — under the same cut, the same permissions, and observable output criteria. A memory worth trusting is not the one that boasts about remembering everything, but the one that can explain **where each claim came from, since when it holds, who is allowed to see it, and when it has to answer "I don't know"**.
+The next step forward is not adding more nodes. It is closing the local answer evaluation and comparing alternatives — Graphiti, GraphRAG, or `deja-vu` — under the same cut, the same permissions, and observable output criteria. I am very much open to your comments and usage experience; I think one practical point of comparison would serve me better than going on testing the many tools that appear day after day.
 
 ---
 
 ## References
 
-### Bibliography
+### Further reading
+
+Works that guided this piece and that this version no longer cites in the body.
+They are kept because losing track of what was read is worse than declaring it.
 
 Cormack, Gordon V., Charles L. A. Clarke, and Stefan Büttcher. 2009. "Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods". In *Proceedings of the 32nd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval*, 758–59. New York: Association for Computing Machinery. <https://doi.org/10.1145/1571941.1572114>.
 
-Edge, Darren, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, Dasha Metropolitansky, Robert Osazuwa Ness, and Jonathan Larson. 2024. "From Local to Global: A GraphRAG Approach to Query-Focused Summarization". arXiv, April 24, 2024; revised February 19, 2025. <https://arxiv.org/abs/2404.16130>.
-
-Hu, Yuyang, Shichun Liu, Yanwei Yue, Guibin Zhang, Boyang Liu, Fangyi Zhu, Jiahang Lin, et al. 2025. "Memory in the Age of AI Agents". arXiv, December 15, 2025. <https://arxiv.org/abs/2512.13564>.
-
-Lebo, Timothy, Satya Sahoo, and Deborah McGuinness, eds. 2013. *PROV-O: The PROV Ontology*. W3C Recommendation, April 30, 2013. <https://www.w3.org/TR/prov-o/>.
-
-Nissenbaum, Helen. 2004. "Privacy as Contextual Integrity". *Washington Law Review* 79, no. 1: 119–58. <https://digitalcommons.law.uw.edu/wlr/vol79/iss1/10/>.
-
-Packer, Charles, Sarah Wooders, Kevin Lin, Vivian Fang, Shishir G. Patil, Ion Stoica, and Joseph E. Gonzalez. 2023. "MemGPT: Towards LLMs as Operating Systems". arXiv, October 12, 2023; revised February 12, 2024. <https://doi.org/10.48550/arXiv.2310.08560>.
-
-Park, Joon Sung, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. "Generative Agents: Interactive Simulacra of Human Behavior". In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, article 2, 1–22. New York: Association for Computing Machinery. <https://doi.org/10.1145/3586183.3606763>.
-
-Rasmussen, Preston, Pavlo Paliychuk, Travis Beauvais, Jack Ryan, and Daniel Chalef. 2025. "Zep: A Temporal Knowledge Graph Architecture for Agent Memory". arXiv, January 20, 2025. <https://arxiv.org/abs/2501.13956>.
-
 Wu, Di, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu. 2024. "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory". arXiv, October 14, 2024; revised March 4, 2025. Accepted at ICLR 2025. <https://arxiv.org/abs/2410.10813>.
 
-Wu, Di, Zixiang Ji, Asmi Kawatkar, Bryan Kwan, Jia-Chen Gu, Nanyun Peng, and Kai-Wei Chang. 2026. "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues". Work in progress, arXiv, May 12, 2026. <https://arxiv.org/abs/2605.12493>.
+Wu, Di, Zixiang Ji, Asmi Kawatkar, Bryan Kwan, Jia-Chen Gu, Nanyun Peng, and Kai-Wei Chang. 2026. "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues". Work in progress, arXiv, May 12, 2026. <https://arxiv.org/abs/2605.06304>.
 
 Zhang, Yanzhao, Mingxin Li, Dingkun Long, Xin Zhang, Huan Lin, Baosong Yang, Pengjun Xie, et al. 2025. "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models". arXiv, June 5, 2025. <https://arxiv.org/abs/2506.05176>.
 
@@ -281,5 +264,23 @@ Vasturiano. n.d. *3d-force-graph*. GitHub repository. Accessed August 31, 2026. 
 
 Vectorize. n.d. *Hindsight: Agent Memory That Learns*. GitHub repository. Accessed August 31, 2026. <https://github.com/vectorize-io/hindsight>.
 
-> **Conflicts of interest in the sources.** The model cards, the repositories, and several of the systems papers are written by their own developers or by organizations that sell related services; LongMemEval-V2, moreover, is still declared work in progress. They are used here to document architecture, declared functions, and maintenance status, not to accept claims of superiority. `penta-agent`'s own metrics are likewise evidence produced by the project itself, and they need reproducible artifacts and independent review before they can support general comparisons.
+> **Conflicts of interest in the sources.** The model cards, the repositories, and several of the systems papers are written by their own developers or by organizations that offer related services; LongMemEval-V2, moreover, is still declared work in progress. They are used here to document architecture, declared functions, and maintenance status, not to accept claims of superiority. `penta-agent`'s own metrics are likewise evidence produced by the project itself, and they require reproducible artifacts and independent review before they can support general comparisons.
 {: .notice--info}
+
+[^chhikara-2025]: Chhikara, Prateek, Dev Khant, Saket Aryan, Taranjeet Singh, and Deshraj Yadav. 2025. "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory". arXiv, April 28, 2025. <https://arxiv.org/abs/2504.19413>.
+
+[^edge-2024]: Edge, Darren, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, Dasha Metropolitansky, Robert Osazuwa Ness, and Jonathan Larson. 2024. "From Local to Global: A GraphRAG Approach to Query-Focused Summarization". arXiv, April 24, 2024; revised February 19, 2025. <https://arxiv.org/abs/2404.16130>.
+
+[^hu-2025]: Hu, Yuyang, Shichun Liu, Yanwei Yue, Guibin Zhang, Boyang Liu, Fangyi Zhu, Jiahang Lin, et al. 2025. "Memory in the Age of AI Agents". arXiv, December 15, 2025. <https://arxiv.org/abs/2512.13564>.
+
+[^latimer-2025]: Latimer, Chris, Nicoló Boschi, Andrew Neeser, Chris Bartholomew, Gaurav Srivastava, Xuan Wang, and Naren Ramakrishnan. 2025. "Hindsight Is 20/20: Building Agent Memory That Retains, Recalls, and Reflects". arXiv, December 16, 2025. <https://arxiv.org/abs/2512.12818>.
+
+[^lebo-2013]: Lebo, Timothy, Satya Sahoo, and Deborah McGuinness, eds. 2013. *PROV-O: The PROV Ontology*. W3C Recommendation, April 30, 2013. <https://www.w3.org/TR/prov-o/>.
+
+[^nissenbaum-2004]: Nissenbaum, Helen. 2004. "Privacy as Contextual Integrity". *Washington Law Review* 79, no. 1: 119–58. <https://digitalcommons.law.uw.edu/wlr/vol79/iss1/10/>.
+
+[^packer-2023]: Packer, Charles, Sarah Wooders, Kevin Lin, Vivian Fang, Shishir G. Patil, Ion Stoica, and Joseph E. Gonzalez. 2023. "MemGPT: Towards LLMs as Operating Systems". arXiv, October 12, 2023; revised February 12, 2024. <https://doi.org/10.48550/arXiv.2310.08560>.
+
+[^park-2023]: Park, Joon Sung, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. "Generative Agents: Interactive Simulacra of Human Behavior". In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, article 2, 1–22. New York: Association for Computing Machinery. <https://doi.org/10.1145/3586183.3606763>.
+
+[^rasmussen-2025]: Rasmussen, Preston, Pavlo Paliychuk, Travis Beauvais, Jack Ryan, and Daniel Chalef. 2025. "Zep: A Temporal Knowledge Graph Architecture for Agent Memory". arXiv, January 20, 2025. <https://arxiv.org/abs/2501.13956>.
