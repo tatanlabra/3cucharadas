@@ -110,15 +110,43 @@ def sanitize_body_for_devto(body, site_url, canonical_url, youtube_id: nil)
   [sanitized, warnings.uniq]
 end
 
+# Dias desde la publicacion dentro de los cuales un post puede CREARSE en dev.to
+# sin intervencion explicita. Mas alla, hace falta --backlog.
+VENTANA_SINDICACION_DIAS = Integer(ENV.fetch("DEVTO_VENTANA_DIAS", "21"))
+BACKLOG = ARGV.include?("--backlog") || ENV["DEVTO_BACKLOG"] == "1"
+
 def slug_from_permalink(permalink)
   permalink.to_s.chomp("/").split("/").last
 end
 
 eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
   front, body = parse_front_matter(path)
-  next unless front["sindicar"] == true
-  next unless %w[bajo medio].include?(front["valor_seo"])
+  # Contrato unico de sindicacion: `distribution.republish`. Es el mismo que ya
+  # gobiernan el feed (_plugins/julia_feed.rb:60) y el catalogo de destinos.
+  # Antes esta ruta usaba `sindicar` + `valor_seo`, un segundo vocabulario que
+  # nadie cruzaba con el primero: un post podia salir en el feed y no por la API,
+  # o quedar fuera de los dos sin que nada avisara. Paso exactamente eso con los
+  # posts II y III de la serie multiagente.
+  # `sindicar` se acepta como alias en desuso para no romper los posts que ya lo
+  # declaran; no se exige, y `valor_seo` deja de decidir nada.
+  republish = Array(front.dig("distribution", "republish")).map { |t| t.to_s.downcase }
+  next unless republish.include?("dev") || front["sindicar"] == true
   next unless front["permalink"]
+
+  # Compuerta de rezago. Unificar el contrato dejo elegibles a posts que llevaban
+  # meses declarando `republish: [dev]` sin haber pasado nunca por la API: al
+  # medirlo, `casen2024` (marzo) y `avaluo` (julio) aparecieron como "crearia".
+  # Sindicarlos hoy los publicaria con fecha de hoy y competirian con lo reciente.
+  # Se crean solo los posts dentro de la ventana; los viejos exigen --backlog,
+  # que es un acto deliberado. Actualizar un articulo YA existente no se frena:
+  # eso mantiene sincronizado lo que ya vive en dev.to.
+  fecha_post = begin
+    Date.parse(front["date"].to_s)
+  rescue ArgumentError, TypeError
+    nil
+  end
+  antiguedad = fecha_post ? (Date.today - fecha_post).to_i : nil
+  rezagado = antiguedad && antiguedad > VENTANA_SINDICACION_DIAS
 
   url_canonica = "https://3cucharadas.cl/en#{front['permalink']}"
   youtube_id = youtube_id_from_url(front["devto_video_url"])
@@ -130,6 +158,8 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
   og_image = front.dig("header", "og_image")
 
   {
+    rezagado: rezagado,
+    antiguedad: antiguedad,
     slug: slug_from_permalink(front["permalink"]),
     ref_interno: front["ref"] || slug_from_permalink(front["permalink"]),
     url_canonica: url_canonica,
@@ -142,7 +172,7 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
 end
 
 if eligible.empty?
-  puts "Sin posts marcados sindicar:true + valor_seo:bajo|medio. Nada que hacer."
+  puts "Ningun post declara `distribution.republish: [dev]`. Nada que hacer."
   exit 0
 end
 
@@ -163,6 +193,46 @@ def devto_request(api_key, method, path, payload = nil)
   [response.code.to_i, body]
 end
 
+# Psych no preserva comentarios en un round-trip load -> to_yaml, y este script
+# reescribe el fichero entero. Ya se llevo por delante tres lineas que explicaban
+# por que el Post II tenia publicaciones registradas a mano (c9dcdac7). El dato
+# sobrevivia; la razon no, y sin la razon nadie sabe si esas URLs son verificadas.
+#
+# Cada bloque de comentarios se ancla a la primera linea no vacia que lo sigue, y
+# se reinserta despues del volcado. Si el ancla desaparecio, el comentario no se
+# inventa un sitio: se avisa por stderr y se pierde de forma visible.
+def capturar_comentarios(path)
+  return [] unless File.file?(path)
+
+  bloques = []
+  actual = []
+  File.readlines(path, chomp: true).each do |linea|
+    if linea.strip.start_with?("#")
+      actual << linea
+    elsif actual.any?
+      bloques << { comentario: actual, ancla: linea } unless linea.strip.empty?
+      actual = [] unless linea.strip.empty?
+    end
+  end
+  bloques
+end
+
+def restaurar_comentarios(texto, bloques)
+  return texto if bloques.empty?
+
+  lineas = texto.split("\n", -1)
+  bloques.reverse_each do |bloque|
+    indice = lineas.index(bloque[:ancla])
+    if indice.nil?
+      warn "comentario perdido: su ancla ya no existe -> #{bloque[:ancla].strip}"
+      next
+    end
+    lineas.insert(indice, *bloque[:comentario])
+  end
+  lineas.join("\n")
+end
+
+comentarios = capturar_comentarios(distribucion_path)
 entries = File.file?(distribucion_path) ? (YAML.safe_load_file(distribucion_path, permitted_classes: [Date, Time]) || []) : []
 changed = false
 
@@ -181,25 +251,37 @@ eligible.each do |post|
   entry["publicaciones"] ||= []
   devto_pub = entry["publicaciones"].find { |p| p["plataforma"] == "devto" }
 
-  payload = {
-    article: {
-      title: post[:titulo_usado],
-      body_markdown: post[:body_markdown],
-      published: false,
-      canonical_url: post[:url_canonica],
-      description: post[:description],
-      main_image: post[:cover_image],
-      tags: post[:tags]
-    }.compact
+  existente = devto_pub && devto_pub["devto_article_id"]
+
+  # `published` viaja SOLO al crear. Enviarlo en el PUT despublicaba el articulo
+  # en cada corrida: como el workflow se dispara con cualquier push de un
+  # `-en.md`, un articulo ya publicado en dev.to volvia a borrador sin que nadie
+  # lo pidiera. Quedo registrado en 021fb543, que revirtio una correccion manual.
+  # Quien decide publicar en dev.to es la persona, alli; este script no opina.
+  article = {
+    title: post[:titulo_usado],
+    body_markdown: post[:body_markdown],
+    canonical_url: post[:url_canonica],
+    description: post[:description],
+    main_image: post[:cover_image],
+    tags: post[:tags]
   }
+  article[:published] = false unless existente
+  payload = { article: article.compact }
+
+  # Un post rezagado no se CREA sin --backlog; si ya existe, sí se actualiza.
+  if post[:rezagado] && !existente && !BACKLOG
+    puts "#{post[:slug]}: omitido, #{post[:antiguedad]} dias desde su publicacion (ventana: #{VENTANA_SINDICACION_DIAS}). Use --backlog para crearlo igual."
+    next
+  end
 
   if dry_run
-    action = devto_pub && devto_pub["devto_article_id"] ? "actualizaría" : "crearía"
+    action = existente ? "actualizaría" : "crearía"
     puts "[dry-run] #{post[:slug]}: #{action} borrador en dev.to (#{post[:url_canonica]})"
     next
   end
 
-  if devto_pub && devto_pub["devto_article_id"]
+  if existente
     code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{devto_pub['devto_article_id']}", payload)
   else
     code, body = devto_request(api_key, Net::HTTP::Post, "/articles", payload)
@@ -213,7 +295,9 @@ eligible.each do |post|
   devto_pub["fecha"] ||= Date.today.to_s
   devto_pub["devto_article_id"] = body["id"]
   devto_pub["url_publicada"] = body["url"]
-  devto_pub["estado"] = "borrador"
+  # `||=`, no `=`: si alguien marco el articulo como publicado, esta corrida no
+  # tiene forma de saberlo mejor que quien lo marco.
+  devto_pub["estado"] ||= "borrador"
   entry["publicaciones"] << devto_pub unless entry["publicaciones"].include?(devto_pub)
   changed = true
 end
@@ -221,6 +305,6 @@ end
 if dry_run
   puts "[dry-run] #{eligible.length} post(s) elegibles, ninguna llamada real realizada."
 else
-  File.write(distribucion_path, entries.to_yaml) if changed
+  File.write(distribucion_path, restaurar_comentarios(entries.to_yaml, comentarios)) if changed
   puts "Listo. #{eligible.length} post(s) elegibles procesados."
 end

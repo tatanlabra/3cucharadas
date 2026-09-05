@@ -73,10 +73,25 @@ def _evaluar(
         if str(republish).lower() not in declarados:
             faltas.append(f"falta republish: {republish}")
 
+    # `tags_min` expresa DOS condiciones, no una: que este post trate del tema, y
+    # que el blog tenga historial suficiente para que un agregador lo acepte.
+    # Antes solo se comprobaba la segunda, contando la etiqueta en todo el corpus
+    # sin mirar si el post evaluado la llevaba. Medido el 2026-09-05: un articulo
+    # sobre RAG y three.js salia «listo» para Planet Python, JuliaBloggers y
+    # comunidades OSM, porque otros posts del sitio traian python, julia y geo.
+    # Eso es exactamente la autopromocion fuera de tema que destinos.yml dice
+    # querer evitar, y la habria hecho un humano fiandose del checklist.
+    idioma = lang_post or "en"
     for tag, minimo in (requiere.get("tags_min") or {}).items():
-        n = _contar_tag(todos, tag, lang_post or "en")
+        post_tema = pareja.get(idioma)
+        etiquetas = {str(t).lower() for t in (getattr(post_tema, "tags", None) or [])}
+        if tag.lower() not in etiquetas:
+            faltas.append(f"este post no lleva el tag `{tag}`")
+            continue
+
+        n = _contar_tag(todos, tag, idioma)
         if n < int(minimo):
-            faltas.append(f"{n}/{minimo} posts {lang_post or 'en'} con tag `{tag}`")
+            faltas.append(f"{n}/{minimo} posts {idioma} con tag `{tag}`")
 
     if faltas:
         return BLOQUEADO, "; ".join(faltas)

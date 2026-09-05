@@ -130,7 +130,7 @@ def verify_publication(
     *,
     progress: ProgressCallback | None = None,
     fetch: JsonFetcher = _fetch_json,
-    attempts: int = 3,
+    attempts: int = 6,
     sleeper: Callable[[float], None] = time.sleep,
 ) -> dict[str, Any]:
     if progress:
@@ -149,7 +149,13 @@ def verify_publication(
         if not errors:
             break
         if attempt + 1 < attempts:
-            sleeper(2.0 * (attempt + 1))
+            # Backoff exponencial con techo. Antes eran 3 intentos de 2*(n+1)
+            # segundos: ~6 s en total. El crawler de tarjetas de Mastodon es
+            # asincrono y tarda mas, asi que la verificacion fallaba por reloj y
+            # no por criterio. El 2026-08-01 dejo `avaluo-vulnerabilidad-uv` en
+            # published_unverified con la publicacion perfecta: reejecutada
+            # despues da 13/13. Con 6 intentos el presupuesto sube a ~93 s.
+            sleeper(min(3.0 * (2 ** attempt), 32.0))
 
     verified = not errors
     status = "published_verified" if verified else "published_unverified"
