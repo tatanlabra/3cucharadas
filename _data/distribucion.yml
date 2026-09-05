@@ -164,5 +164,16 @@
   - plataforma: devto
     fecha: '2026-09-05'
     devto_article_id: 4584570
-    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-what-worked-for-me-and-what-did-not-1ck7-temp-slug-7459401
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-what-worked-for-me-and-what-did-not-44g9
+    estado: borrador
+- slug: nushell-coprocesador-estructurado
+  ref_interno: nushell-coprocesador-estructurado
+  url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/nushell-coprocesador-estructurado/
+  titulo_usado: 'Nushell in three spoonfuls: when does a structured shell actually
+    help an agent?'
+  publicaciones:
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4584688
+    url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-3o3-temp-slug-4881292
     estado: borrador
