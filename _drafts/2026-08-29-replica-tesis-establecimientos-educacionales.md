@@ -5,7 +5,7 @@ subtitle: "Volví a levantar la tesis de magíster que escribí sobre entrada y 
 date: 2026-08-29 09:30:00 -0400
 categories: [datos, educacion, politica-publica]
 tags: [replicabilidad, educacion, mercado-escolar, voucher, mineduc, analisis-de-duracion, vulnerabilidad, auditoria]
-description: "Reconstruí en 2026 mi tesis de magíster de 2014 sobre entrada y salida de establecimientos educacionales en Chile, comparé cada cuadro contra el publicado y, cuando aparecieron mis propios artefactos de 2014, contra ellos: 26 displays, 43 hipótesis contrastadas y ninguna divergencia sin explicar."
+description: "Reconstruí en 2026 mi tesis de magíster de 2014 sobre entrada y salida de establecimientos educacionales en Chile y comparé cada cuadro contra el publicado. Cuando aparecieron doce artefactos míos de 2014 apareció una tercera columna, y con ella la diferencia entre un acuerdo y una verdad: hay celdas donde el error es de 2014 y otras donde es mío hoy."
 excerpt: "Cuando un cuadro reconstruido no coincide con el impreso, la pregunta útil no es cuál de los dos está mal, sino de quién es el error. Y para responderla hay que poner los dos al lado —y, cuando aparece, el artefacto que los produjo."
 author: clabra
 lang: es
@@ -25,7 +25,7 @@ author_profile: true
 En abril de 2014 entregué una tesis de magíster sobre entrada y salida de establecimientos educacionales en Chile entre 1992 y 2012.[^tesis] Quería extender esa serie hasta 2025 y me topé con el orden natural del problema: antes de extender mi trabajo, tenía que poder reproducirlo.
 {: .text-justify}
 
-Lo que cuento acá es esa primera mitad. Reconstruí los ocho cuadros y las figuras, los puse frente a los publicados y fui decidiendo, celda por celda, de quién era cada diferencia. A mitad de camino aparecieron cinco artefactos de 2014 —la salida de Stata, hojas de mi planilla, un gráfico incrustado en el manuscrito— y la comparación pasó a tener tres columnas en vez de dos.
+Lo que cuento acá es esa primera mitad. Reconstruí los ocho cuadros y las figuras, los puse frente a los publicados y fui decidiendo, celda por celda, de quién era cada diferencia. A mitad de camino aparecieron doce artefactos de 2014 —salidas de Stata, hojas de mi planilla, un gráfico incrustado en el manuscrito— y la comparación pasó a tener tres columnas en vez de dos. Esa tercera columna es lo que separa un acuerdo de una verdad.
 {: .text-justify}
 
 **La tesis es mía y la auditoría también**, así que esto no es una réplica independiente: estoy revisando decisiones que tomé yo y que en su momento me parecieron razonables.
@@ -111,9 +111,9 @@ Con una advertencia que me obligaba a bajar el tono: **el `do-file` histórico n
 Esa advertencia quedó a medias un mes después. La ejecución de 2014 sigue perdida —entorno, temporales y orden real de mis comandos—, pero volví a estimar la especificación final con el motor original, Stata 17 MP sobre mi propia licencia, y apareció algo mejor que un oráculo: **el productor**.
 {: .text-justify}
 
-### Cinco artefactos míos, encontrados
+### Doce artefactos míos, encontrados
 
-Rastreando el árbol de fuentes aparecieron cinco objetos que produjeron directamente lo publicado: la salida de `outreg` del modelo jerárquico, dos hojas de mi planilla de trabajo, una tercera con la brecha SIMCE, y un gráfico incrustado dentro del manuscrito con su serie adentro. La búsqueda cubrió todo lo que el árbol conserva, y eso importa tanto como el hallazgo:
+Rastreando el árbol de fuentes aparecieron primero cinco objetos que produjeron directamente lo publicado: la salida de `outreg` del modelo jerárquico, dos hojas de mi planilla de trabajo, una tercera con la brecha SIMCE, y un gráfico incrustado dentro del manuscrito con su serie adentro. Una segunda pasada, esta vez cruzando **cada** documento contra **cada** cifra publicada, subió la cuenta a **doce** artefactos que sirven de tercera columna —once certifican alguna cifra publicada y uno resultó medir algo parecido pero distinto—. La búsqueda cubrió todo lo que el árbol conserva, y eso importa tanto como el hallazgo:
 {: .text-justify}
 
 {: .table-caption}
@@ -125,8 +125,9 @@ Rastreando el árbol de fuentes aparecieron cinco objetos que produjeron directa
 | Documentos `.doc` / `.docx` | 140 | 140 |
 | Planillas `.xls` / `.xlsx` | 241 | 241 |
 | Gráficos incrustados en `.docx` | 290 | 290 |
+| Hojas del libro de trabajo | 27 | 27 |
 
-Cinco planillas binarias no las abría ninguna librería y hubo que decodificarlas registro a registro; noventa y dos documentos venían en el formato viejo de Word. Declarar la cobertura es lo que permite leer un «no aparece» como dato y no como cansancio.
+Cinco planillas binarias no las abría ninguna librería y hubo que decodificarlas registro a registro; noventa y dos documentos venían en el formato viejo de Word. Declarar la cobertura es lo que permite leer un «no aparece» como dato y no como cansancio: hay dos cuadros para los que **sí** busqué productor en todo el corpus y **no está**, y eso es una respuesta, no un pendiente.
 {: .small}
 
 Eso cambia la pregunta de todo el post. Hasta acá comparaba **mi reconstrucción contra lo impreso**, y cada divergencia admitía la excusa de que la equivocada era la reconstrucción. Con el productor a la vista hay una tercera columna —y en varios casos mi reconstrucción se parece más al trabajo de mi yo de 2014 que el texto que publiqué.
@@ -147,6 +148,57 @@ Sometí el 0,003 a siete hipótesis de origen —otra especificación de SIMCE d
 {: .text-justify}
 
 Es el hallazgo que más me incomoda, porque no puedo atribuirlo a la traducción a Python: la traducción y el original coinciden, y el que se aparta es el documento.
+{: .text-justify}
+
+Y no está solo. En ese mismo cuadro, la varianza del intercepto se publica como **0,001**; la salida imprime `lns1_1_2 = −3,160`, y $$e^{2\cdot(-3{,}160)}$$ da **0,0018**, que redondea a 0,002. Lo que convierte eso en un hallazgo y no en una sospecha son las **otras dos** varianzas del mismo documento, que sí calzan: el residuo da 0,014010 contra el 0,01 publicado y la pendiente 2,19·10⁻¹⁵ contra 2,1·10⁻¹⁵. Son las dos que coinciden las que aíslan a la que no.
+{: .text-justify}
+
+### El cuadro que publica logaritmos como varianzas
+
+Buscando en el árbol apareció una tercera salida, `xtmixed_modelo_final.doc`, que reproduce **20 de los 21 valores** de una de las especificaciones de mi modelo jerárquico. El documento tiene 24 números en total: no hay margen para que sea coincidencia.
+{: .text-justify}
+
+Y ahí está el error más vistoso de todos los que he encontrado. Las dos filas que el cuadro rotula como varianzas **no son varianzas**: son los parámetros que Stata imprime en logaritmo de la desviación, copiados sin exponenciar. Y están cruzadas.
+{: .text-justify}
+
+{: .table-caption}
+**Tabla 3** — Las dos filas de varianza del modelo jerárquico, contra la salida que las produjo
+
+| Fila publicada | Valor | Error estándar | De dónde sale en realidad | Varianza de verdad |
+|---|---:|---:|---|---:|
+| Varianza intercepto | 3,82 | 0,002 | `lnsig_e`, que es el **residuo** | 2.079,7 |
+| Varianza residual | 2,791 | 0,036 | `lns1_1_1`, que es el **intercepto** | 265,6 |
+
+Los errores estándar no dejan lugar a la interpretación: 0,002 acompaña al 3,820 en la salida y 0,036 al 2,791, y en el cuadro aparecen emparejados igual pero bajo el rótulo contrario.
+{: .small}
+
+En la misma tabla, el coeficiente del particular subvencionado se publicó como **1,4142** donde la salida imprime **0,4142**. Un dígito.
+{: .text-justify}
+
+### La tercera columna
+
+Hasta aquí este post compara **dos** cosas: lo que publiqué en 2014 y lo que mi reconstrucción mide. Con dos columnas, «calzan» y «es correcto» son indistinguibles —una reconstrucción que hereda el error del original produce un verde perfecto—, y el verde es justo lo que nadie vuelve a mirar.
+{: .text-justify}
+
+Cuando aparecieron mis propios artefactos apareció una tercera columna, y con ella un veredicto que se **deriva** en vez de escribirse:
+{: .text-justify}
+
+{: .table-caption}
+**Tabla 4** — Los 34 juicios sobre los 26 objetos del documento
+
+| ¿Calzan publicado y reconstrucción? | ¿Cuál es correcto? | Veredicto | Juicios |
+|---|---|---|---:|
+| sí | los dos | calce correcto | 7 |
+| sí | **ninguno** | **calce heredado** | 1 |
+| no | la reconstrucción | error del pasado | 9 |
+| no | **lo publicado** | **error del presente** | 3 |
+| no | ninguno | ambos mal | 1 |
+| — | indeterminado | sin adjudicar | 13 |
+
+Veintidós de los 34 tienen una tercera fuente; los otros doce esperan una.
+{: .small}
+
+El calce heredado es el que justifica todo el aparato, y es el índice de concentración: lo publicado dice 1.534 y mi reconstrucción mide 1.517,5, un 1,3 % de diferencia. **Calzan, y los dos están mal**, porque mi reconstrucción adoptó la escala de mi yo de 2014 sin preguntarse de dónde salía.
 {: .text-justify}
 
 El modelo de duración necesitó su propio contraste, y ahí apareció lo interesante. Modelo la probabilidad de que un establecimiento salga en el año $$t$$ dado que seguía abierto, con enlace log-log complementario, la especificación estándar cuando el evento se observa por períodos y no en tiempo continuo:[^jenkins]
@@ -170,7 +222,7 @@ $$
 $$
 
 {: .table-caption}
-**Tabla 3** — Las dos celdas cuyos asteriscos no cuadran
+**Tabla 5** — Las dos celdas cuyos asteriscos no cuadran
 
 | Cuadro y término | Publicado | Reconstruido | Error estándar publicado | \|z\| máximo | Asteriscos publicados | Corresponden |
 |---|---:|---:|---:|---:|:--:|:--:|
@@ -195,7 +247,7 @@ El cuadro de copago trae un ejemplo exacto de esa cadena rota. Su nota al pie pu
 Y un número que preferiría no escribir: de las **30 propuestas de revisión** que produjo esta auditoría, solo **12 tienen hoy un claim trazable con su hash**. Las otras 18 están rotuladas como propuesta o no verificado, y así hay que leerlas. Quien se lleve las 30 como hallazgos habrá leído este post al revés.
 {: .text-justify}
 
-## Cucharada 3: los cinco hallazgos que cambian una lectura
+## Cucharada 3: los hallazgos que cambian una lectura
 
 **1. Mi marcador de salida no marcaba salidas.** La variable `id_salida` correlaciona −0,977 con el año calendario: cae de 1.676 casos marcados en 1992 a exactamente 0 en 2012, mientras las salidas efectivas oscilan entre 42 y 290 sin tendencia (ρ = +0,382). No dice «cerró», dice «cerrará en algún año dentro de la ventana»: un establecimiento que cierra en 2011 queda marcado en todos los años anteriores y en ninguno posterior.
 {: .text-justify}
@@ -217,13 +269,22 @@ El hallazgo sobrevive; la magnitud, no —y es más chica que la que yo mismo ha
   <figcaption><strong>Figura 2</strong> — Concentración comunal y movilidad. El mismo índice aparece en tres escalas: el eje del original llega a 100, el texto cita niveles de 1.180 a 1.534, y la definición canónica va de 0 a 10.000 con 2.500 como umbral de alta concentración. La réplica está medida con `hhi_n_alumnos`, la variable que el propio `do-file` rotula como el índice: la pendiente sigue siendo negativa, pero sobre 337 comunas no se distingue de cero al 5 % (p = 0,084).</figcaption>
 </figure>
 
-**4. El índice de concentración corre en una escala diez veces la suya.** El índice de Herfindahl se define entre 0 y 10.000. La variable que mi propio `do-file` rotula «Índice de Herfindahl-Hirschman» reproduce los cinco niveles que cité por nombre con **1,34 % de error medio** —Santiago da 1.517,5 contra el 1.534 publicado—, pero lo hace multiplicada por cien mil: **diez veces la escala canónica**. En la escala correcta Santiago mide 151,7. No es un decimal: leído como lo publiqué, **318 de 337 comunas** quedarían sobre el umbral de alta concentración; en la escala canónica son **66**. Cambia qué mercado se llama concentrado.
+**4. El índice de concentración corre en una escala diez veces la suya, y sé por qué.** El índice de Herfindahl se define entre 0 y 10.000. La variable que mi propio `do-file` rotula «Índice de Herfindahl-Hirschman» reproduce los cinco niveles que cité por nombre con **1,34 % de error medio** —Santiago da 1.517,5 contra el 1.534 publicado—, pero lo hace multiplicada por cien mil: **diez veces la escala canónica**. En la escala correcta Santiago mide 151,7. No es un decimal: leído como lo publiqué, **318 de 337 comunas** quedarían sobre el umbral de alta concentración; en la escala canónica son **66**. Cambia qué mercado se llama concentrado.
+{: .text-justify}
+
+El mecanismo estaba en mi planilla. La columna del índice va de 1,1756 a **100 exacto**, y ese máximo no es casual: es la comuna con un solo colegio, donde el índice crudo vale 1. Es decir, la columna es el índice **por cien**. Al escribir el texto la leí como si estuviera en miles, y de ahí salen los cinco niveles publicados: la hoja por mil.
+{: .text-justify}
+
+Esa lectura no se quedó en el texto. En otra hoja del mismo libro dejé escrita la fórmula del umbral de alta concentración, `=C2>2.5`, que en la escala de la planilla son 250 canónicos y no 2.500. Selecciona **330 de las 346 comunas**; el umbral real selecciona **84**. Un filtro que aprueba al 95 % de los casos no está filtrando nada.
 {: .text-justify}
 
 Acá me corrijo dos veces a mí mismo, y la segunda duele más. Primero medí la concentración con **otra columna** del panel, no con la que el `do-file` rotula como el índice; el error se delata solo, porque su razón contra lo publicado era casi constante —10,3, con dispersión 0,03—, señal de estar comparando contra algo proporcional pero distinto.
 {: .text-justify}
 
 Segundo: con esa columna el contraste descriptivo daba pendiente negativa y significativa (p = 0,009, 336 comunas). **Rehecho con la variable del `do-file`, el signo sigue siendo negativo pero la pendiente ya no se distingue de cero al 5 % (p = 0,084, 337 comunas).** Lo que queda en pie es que mi modelo de salidas comunales reportaba un coeficiente positivo y la nube descriptiva no lo acompaña; lo que se cae es la fuerza con que yo lo afirmaba.
+{: .text-justify}
+
+La dirección aguanta un segundo contraste que no depende de ninguna regresión: partiendo las comunas por el umbral canónico, las concentradas promedian **1,66 %** de movilidad anual y las demás **2,01 %**. Más concentración, menos movilidad. El signo es el de mi reconstrucción y no el de mi modelo de 2014; lo que sigue sin haber es significancia.
 {: .text-justify}
 
 Y ese modelo acumula tres problemas de identificación: regresores contemporáneos que mi propio texto declara determinados conjuntamente, dependiente rezagada bajo efectos aleatorios[^nickell] e inferencia sobre 15 conglomerados.[^cameron] Con tan pocos grupos, el error estándar deja de ser confiable antes que el coeficiente.
@@ -240,6 +301,12 @@ Y ese modelo acumula tres problemas de identificación: regresores contemporáne
 Con la salvedad del hallazgo 1: el eje mide años respecto del último año marcado, y ese marcador es el que resultó no significar lo que yo creía.
 {: .text-justify}
 
+**6. Y uno donde el error es mío hoy, no en 2014.** Entre las hojas de mi libro apareció una llamada `rad` —razón alumnos docente— con **48 números**. El cuadro que publiqué tiene **48 celdas**, y están todas: mismo año, misma dependencia, misma situación de cierre. Lo publicado y su productor son idénticos.
+{: .text-justify}
+
+La que no llega es mi reconstrucción de 2026: diverge en **41 de las 48 celdas**, con 0,63 puntos de diferencia media y 3,49 en el peor caso. Durante meses conté esa discrepancia como una divergencia sin dueño; con la hoja al lado, el dueño soy yo, ahora.
+{: .text-justify}
+
 Queda una deuda que no es un error sino una ausencia: el marco schumpeteriano organiza mi título, mi resumen y mi conclusión, pero nunca lo contrasté. La descomposición de reasignación que separa la mejora dentro de los incumbentes de la que viene de entradas y salidas —el estándar de la literatura que yo mismo citaba— no está en el documento.[^griliches]
 {: .text-justify}
 
@@ -248,18 +315,18 @@ Queda una deuda que no es un error sino una ausencia: el marco schumpeteriano or
 Veintiséis objetos entre cuadros y paneles de figura. Diez reproducen lo publicado; diez divergen con un mecanismo medido —una etiqueta, un universo, una escala, una convención de redondeo—; **ninguno queda divergiendo sin explicación**; seis no admiten prueba numérica, porque son afirmaciones estructurales o les falta un dato que el panel no conserva.
 {: .text-justify}
 
-{: .table-caption}
-**Tabla 4** — Estado de los veintiséis displays
+Detrás de esos veredictos hay **47 hipótesis sometidas a contraste**, de las que 37 quedaron refutadas y 8 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
+{: .text-justify}
 
-| Veredicto | Displays |
-|---|---:|
-| Reproducen lo publicado | 10 |
-| Divergen con mecanismo medido | 10 |
-| Divergen sin explicar | 0 |
-| Sin prueba numérica posible | 6 |
-| **Total** | **26** |
+Ese recuento por objeto, sin embargo, se lee de más. De los diez que «reproducen lo publicado», solo **tres** tienen una fuente independiente que lo certifique; los otros siete calzan entre dos columnas y nadie ha comprobado que ninguna de las dos esté mal. La Tabla 4 es la fotografía honesta: **trece de los treinta y cuatro juicios siguen sin adjudicar**, y eso no es una deuda de trabajo sino de evidencia.
+{: .text-justify}
 
-Detrás de esos veredictos hay **43 hipótesis sometidas a contraste**, de las que 34 quedaron refutadas y 7 sobrevivieron. Registro las refutadas junto a las que sobrevivieron a propósito: una auditoría que solo publica lo que confirmó no es una auditoría, es una selección.
+### Un juez que también puede fallar en mi contra
+
+Al final apliqué a los 34 juicios una rúbrica fijada de antemano —tercera fuente real, coincidencia múltiple, tolerancia declarada antes, contraejemplo, evidencia contraria— con permiso explícito para bajar un veredicto ya emitido. Corrigió **dos**, y los dos eran míos.
+{: .text-justify}
+
+El más incómodo: yo había declarado que ni el signo de mi modelo de 2014 ni la pendiente de mi reconstrucción de 2026 se sostenían, y lo había declarado apoyándome en una columna que **mi propio registro describe como un estimando distinto** unas páginas más allá. Rehecho con la definición que sí reproduce lo publicado, la dirección se invierte y la reconstrucción queda del lado correcto. Un juez que solo puede ascender no es un juez.
 {: .text-justify}
 
 ## Cierre: la segunda mitad va hasta 2025
@@ -270,7 +337,13 @@ Un segundo post traerá la recreación ampliada hasta 2025. Las fuentes ya está
 Lo que me llevo es menos técnico de lo que esperaba. Los errores confirmados son asteriscos, escalas y aritmética elemental; los hallazgos que mueven una conclusión salieron de mirar qué medían mis variables.
 {: .text-justify}
 
-Y lo que más me sorprendió no fue encontrar errores, sino de qué lado aparecieron. Empecé asumiendo que la reconstrucción iba a ser el eslabón débil. Cuando aparecieron mis propios artefactos de 2014 —la salida de Stata, la planilla, el gráfico incrustado— resultó que la reconstrucción se parecía más a ellos que el documento que firmé.
+Y lo que más me sorprendió no fue encontrar errores, sino de qué lado aparecieron. Empecé asumiendo que la reconstrucción iba a ser el eslabón débil. Cuando aparecieron mis propios artefactos de 2014 —la salida de Stata, la planilla, el gráfico incrustado— resultó que la reconstrucción se parecía más a ellos que el documento que firmé. Salvo en tres casos, donde la débil es ella y ahora lo sé.
+{: .text-justify}
+
+Hay una cuarta categoría de error que no esperaba: la del propio instrumento de medir. El barrido que cruza los documentos contra lo publicado se equivocó dos veces antes de servir. Primero preguntaba por las cifras a precisiones más gruesas que la impresa —buscar 20,7 redondeado a entero es buscar «21», que está en cualquier documento con fechas—, y con eso un libro de códigos de 54 números «reproducía» las 48 celdas de un cuadro. Después comparaba textos en vez de redondeos, y así la salida que sí produjo una tabla quedaba fuera de su propia tabla por imprimir 0,0087 donde el cuadro publica 0,01.
+{: .text-justify}
+
+Las dos las descubrí igual: **midiendo contra un caso que ya conocía**. Si el barrido no encuentra el productor que ya tenía identificado, no puedo creerle cuando encuentre uno nuevo. Es la misma regla que sostiene todo lo demás.
 {: .text-justify}
 
 Ninguno de estos lo habría visto discutiendo cifras en prosa: los vi cuando puse la figura de 2014 al lado de la de 2026 y los ejes no coincidían.
