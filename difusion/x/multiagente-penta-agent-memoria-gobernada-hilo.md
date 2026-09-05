@@ -51,7 +51,7 @@ Publico el post con una compuerta en rojo, y es lo mejor que tiene: el corpus cr
 
 Lo que caducó es la vigencia, no el dato. Una compuerta que siguiera verde ahí sería peor que no tenerla.
 
-https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=x&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=es
+https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=x&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=es
 
 ## Thread EN
 
@@ -83,5 +83,5 @@ I am publishing this post with a gate in red, and it is the best thing about it:
 
 What expired is currency, not the data. A gate still green there would be worse than no gate.
 
-https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=x&utm_medium=social&utm_campaign=multiagente-memoria-gobernada&utm_content=en
+https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=x&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=en
 

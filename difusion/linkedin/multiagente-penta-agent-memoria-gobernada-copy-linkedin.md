@@ -21,7 +21,7 @@ Me interesa leer otros criterios de gobernanza de memoria: qué dejan caducar, q
 
 La bitácora completa, con el visor y las mediciones:
 
-https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=linkedin&utm_medium=social&utm_campaign=multiagente_memoria_gobernada
+https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=linkedin&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc
 
 ## Carrusel
 
