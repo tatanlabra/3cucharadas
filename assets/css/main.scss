@@ -1483,6 +1483,162 @@ html[data-theme="academic-night"] p.table-caption {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   TABLAS DESPLAZABLES
+
+   Lo de arriba se queda como estaba para las tablas SIN envoltorio. Lo que
+   sigue gobierna las que `_plugins/tabla_desplazable.rb` sí envuelve, que son
+   las de los posts.
+
+   EL DEFECTO QUE ESTO CORRIGE, MEDIDO
+
+   `table` tenía `display: block` y `overflow-x: auto` y ningún `min-width`.
+   Con `display: block` la caja se dimensiona por `fit-content` acotado a
+   `max-width: 100%`; sin suelo, el algoritmo de tabla comprime cada columna
+   hacia su `min-content` hasta caber siempre. Resultado: el `overflow-x` era
+   letra muerta —nunca había desbordamiento que desplazar— y la tabla se
+   estrujaba. Medido en producción el 2026-09-05 con viewport real:
+
+     320px -> columna 288px, tabla más alta 3.414px, celda de prosa  69px
+     390px -> columna 358px, tabla más alta 2.237px, celda de prosa  67px
+     1280px-> columna 636px, tabla más alta 1.139px, celda de prosa 157px
+
+   Una fila a 390px daba cuatro celdas de 72/151/68/67px, las cuatro de 20
+   líneas. A 320px las siete tablas del post III sumaban 12.655px de una página
+   de 32.786: el 39% del alto.
+
+   Y el comportamiento era inconsistente: a 320px la tabla por fin desbordaba y
+   desplazaba; a 390px no. El mismo contenido, distinto según el ancho.
+
+   LA CORRECCIÓN
+
+   El desplazamiento pasa al envoltorio, la tabla recupera `display: table` y
+   recibe un suelo. Ninguna de las dos cosas sirve sola: envolver sin suelo deja
+   la compresión intacta, y el suelo sin envoltorio desborda el documento.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.tabla-desliza {
+  /* El componente se desplaza; el documento no. Misma doctrina que
+     `.katex-display` más abajo, y que `.lab-table-scroll` del microsite. */
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1.4em 0 0.4em;
+  overscroll-behavior-x: contain;
+
+  /* Indicación de que hay más tabla a los lados. Sombras pintadas con
+     `background-attachment: local` sobre `scroll`: las dos primeras capas
+     acompañan al contenido y las dos segundas quedan fijas al contenedor, de
+     modo que la sombra aparece solo del lado donde queda contenido oculto y se
+     desvanece al llegar al extremo. Es CSS puro —funciona sin JavaScript, que
+     el encargo exige— y no depende solo del color: quien no perciba el
+     degradado sigue viendo la tabla cortada en el borde. */
+  background:
+    linear-gradient(to right, var(--fondo, #fdfdfd) 30%, rgba(253, 253, 253, 0)),
+    linear-gradient(to right, rgba(253, 253, 253, 0), var(--fondo, #fdfdfd) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 2.6em 100%, 2.6em 100%, 0.9em 100%, 0.9em 100%;
+  background-attachment: local, local, scroll, scroll;
+
+  /* Foco visible: el contenedor es alcanzable con teclado (tabindex="0") y
+     tiene que verse cuando lo está. */
+  &:focus-visible {
+    outline: 3px solid var(--enlace, #b71c1c);
+    outline-offset: 3px;
+  }
+
+  table {
+    /* Recupera la caja tabular. Sin esto el `min-width` de abajo no gobierna
+       el reparto de columnas, que es justo lo que hay que arreglar. */
+    display: table;
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Perfil narrativo: alguna celda supera los 60 caracteres. El suelo se escala
+     con el número de columnas —lo emite el plugin en `--columnas`— porque un
+     valor fijo dejaría holgada una tabla de 3 columnas y estrecha una de 5.
+
+     17.5rem (280px) por columna sale de medir, no de estimar. Curva medida a
+     390px sobre la PEOR celda de las cinco tablas del post III:
+
+       suelo/columna   peor medida   desplazamiento
+         12,5rem          23 car        2,2× viewport
+         15rem            29 car        2,7×
+         17,5rem          35 car        3,1×   <- el elegido
+         20rem            41 car        3,6×
+
+     El criterio de 34 caracteres por línea se fijó ANTES de conocer esta curva,
+     y se respeta aunque el coste sea mayor que el de 15rem. Bajarlo a 28 para
+     que 15rem aprobara habría sido mover el listón después de ver los datos.
+
+     El desplazamiento se paga dentro del componente: el documento no se mueve.
+     Es lo que el encargo pide —«las anchas desplazan solo su contenedor»— y lo
+     contrario de comprimir la prosa hasta 18 caracteres, que es lo que había. */
+  &[data-perfil="narrativa"] table {
+    min-width: calc(var(--columnas, 4) * 17.5rem);
+  }
+
+  /* Prosa dentro de celda: alineada al inicio y sin partir palabras.
+     `.page__content` hereda `hyphens: auto` (~línea 2170) y partía «se-siones»,
+     «programa-ción», «Hind-sight» dentro de columnas ya estrujadas.
+
+     El selector lleva `table` a propósito: `.page__content table td` tiene
+     especificidad (0,1,2) y ganaba a un `.tabla-desliza td` (0,1,1), así que el
+     centrado sobrevivía. Medido en navegador antes de corregirlo. */
+  table td {
+    hyphens: manual;
+    text-align: start;
+    overflow-wrap: break-word;
+  }
+
+  table th {
+    hyphens: manual;
+  }
+}
+
+/* El degradado de la sombra parte del color de fondo real. En nocturno el
+   valor claro dejaría dos bandas blancas en los bordes. */
+html[data-theme="academic-night"] .tabla-desliza {
+  background:
+    linear-gradient(to right, var(--night-bg, #16171b) 30%, transparent),
+    linear-gradient(to right, transparent, var(--night-bg, #16171b) 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 2.6em 100%, 2.6em 100%, 0.9em 100%, 0.9em 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+/* Una tabla envuelta no debe heredar la regla responsive de arriba: si volviera
+   a `display: block` perdería el suelo y se estrujaría otra vez dentro de su
+   propio contenedor. */
+@media (max-width: 64em) {
+  .tabla-desliza table {
+    display: table;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    overflow-x: visible;
+  }
+}
+
+/* En impresión no hay desplazamiento posible: la tabla debe caber entera y no
+   quedar atrapada en un área recortada. */
+@media print {
+  .tabla-desliza {
+    overflow: visible;
+  }
+
+  .tabla-desliza table,
+  .tabla-desliza[data-perfil="narrativa"] table {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    BARRA DE NAVEGACIÓN
 
    Reemplaza al greedy-nav del tema. Aquel decidía qué enlaces caben midiendo
