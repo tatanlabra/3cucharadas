@@ -84,6 +84,12 @@ build_site:
     # Corre sobre el árbol fuente, antes de construir: si un post referencia una
     # imagen inexistente o una pieza no publicable, falla acá y no tras el build.
     - ruby scripts/verify_visual_assets.rb
+    # Tambien sobre el arbol fuente: comprueba que ninguna pieza de difusion cite
+    # una cifra que el post ya no contiene. Existe porque el 2026-09-05 el autor
+    # reescribio el post III y el carrusel, el copy y los mensajes de las dos
+    # redes siguieron citando metricas que el articulo enlazado habia perdido.
+    # Nadie lo habria notado: el paquete no se construye desde el post.
+    - ruby scripts/verify_difusion_coherente.rb
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
     - ruby scripts/verify_distribution_readiness.rb public
