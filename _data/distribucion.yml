@@ -40,6 +40,11 @@
       respuestas: 1
       medido: 2026-09-05
       dias: 52
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4584590
+    url_publicada: https://dev.to/tatanlabra/casen-2024-in-3-spoonfuls-without-a-fine-grained-territorial-reading-social-policy-moves-blind-2coj-temp-slug-7983166
+    estado: borrador
 - slug: ai-quota-hud-kde
   ref_interno: ai-quota-hud-kde
   url_canonica: https://3cucharadas.cl/ia/productividad/ai-quota-hud-kde/
@@ -125,6 +130,11 @@
       respuestas: 2
       medido: 2026-09-05
       dias: 35
+  - plataforma: devto
+    fecha: '2026-09-05'
+    devto_article_id: 4584596
+    url_publicada: https://dev.to/tatanlabra/appraisal-and-vulnerability-in-3-spoonfuls-change-the-denominator-change-the-map-hpi-temp-slug-453835
+    estado: borrador
 - slug: multiagente-memoria-gobernada-poc
   ref_interno: multiagente-penta-agent-memoria-gobernada-poc
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
