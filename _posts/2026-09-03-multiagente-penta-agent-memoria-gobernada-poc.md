@@ -47,7 +47,7 @@ header:
   og_image_alt: "Cuatro fuentes gobernadas sobre plataformas separadas —memoria de trabajo, correo personal sellado bajo cristal, índice de tesis y proyección pública— con una membrana que solo deja pasar tres salidas permitidas."
 ---
 
-> **Estado de la demostración.** El visor se regeneró el 29 de agosto de 2026 desde una proyección pública saneada (limpiando cosas no públicas :D ): el artefacto no contiene cuerpos de correo, adjuntos, direcciones, rutas absolutas, tokens, credenciales ni microdatos.
+> **Estado de la demostración.** El visor se regeneró el 29 de agosto de 2026 desde una proyección pública saneada (limpiando cosas no públicas 😀): el artefacto no contiene cuerpos de correo, adjuntos, direcciones, rutas absolutas, tokens, credenciales ni microdatos.
 {: .notice--warning}
 
 ## Preámbulo: recordar no basta
