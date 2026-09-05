@@ -64,12 +64,32 @@
   url_canonica: https://3cucharadas.cl/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
   titulo_usado: 'Appraisal and vulnerability in 3 spoonfuls: change the denominator,
     change the map'
-  publicaciones: []
+  publicaciones:
+  - plataforma: mastodon
+    fecha: 2026-08-01
+    url_publicada: https://mastodon.social/@asiole/117022465292034849
+    url_publicada_en: https://mastodon.social/@asiole/117022465346663045
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-08-01
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3ms2hcchhwr25
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3ms2hcf6ulm22
+    resultado_30d:
 - slug: multiagente-memoria-gobernada-poc
   ref_interno: multiagente-penta-agent-memoria-gobernada-poc
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
   titulo_usado: 'Multi-agent work in three spoonfuls III: a memory that leaves traces'
   publicaciones:
+  - plataforma: mastodon
+    fecha: 2026-09-05
+    url_publicada: https://mastodon.social/@asiole/117220411813816582
+    url_publicada_en: https://mastodon.social/@asiole/117220411897646308
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-09-05
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3musebzmvqi2v
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3musec37aao2k
+    resultado_30d:
   - plataforma: devto
     fecha: '2026-09-05'
     devto_article_id: 4582774

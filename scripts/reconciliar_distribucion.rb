@@ -36,7 +36,21 @@ require "date"
 
 ROOT = File.expand_path("..", __dir__)
 YML = File.join(ROOT, "_data", "distribucion.yml")
-LEDGER = File.join(ROOT, "difusion", "state", "ledger.jsonl")
+# El ledger NO vive en el repositorio, y darlo por hecho hacia inutil todo este
+# script: apuntaba a `difusion/state/ledger.jsonl`, que quedo congelado el
+# 2026-07-24 con 2 publicaciones, mientras el CLI escribia en
+# `~/.local/state/3cucharadas-difusion/ledger.jsonl`, que tenia 8. La
+# reconciliacion salia «OK, todas reflejadas» sin haber mirado nada. Se detecto
+# el 2026-09-05 al publicar el post III: el gate no se entero de la publicacion.
+#
+# Misma resolucion que `storage.py:20 default_state_dir()`: la variable de entorno
+# manda, si no el directorio de estado del usuario. El del repositorio queda como
+# ultimo recurso porque es lo que existe en CI, donde el otro no esta.
+LEDGER = [
+  ENV["CUCHARADAS_DIFUSION_STATE_DIR"] && File.join(ENV["CUCHARADAS_DIFUSION_STATE_DIR"], "ledger.jsonl"),
+  File.join(Dir.home, ".local", "state", "3cucharadas-difusion", "ledger.jsonl"),
+  File.join(ROOT, "difusion", "state", "ledger.jsonl"),
+].compact.find { |p| File.file?(p) } || File.join(ROOT, "difusion", "state", "ledger.jsonl")
 APLICAR = ARGV.include?("--aplicar")
 
 unless File.file?(LEDGER)
@@ -93,20 +107,8 @@ sin_entrada.each do |p|
   warn "- #{p[:ref]}/#{p[:red]}: publicado el #{p[:fecha]} y no hay entrada con ese `slug` ni `ref_interno` en _data/distribucion.yml"
 end
 
-avisos_en_previo = publicados.reject { |p| p[:reply_url].empty? }.reject do |p|
-  entrada = por_ref[p[:ref]] || por_slug[p[:ref]]
-  entrada && Array(entrada["publicaciones"]).any? do |x|
-    x.is_a?(Hash) && x["url_publicada"].to_s == p[:url] && x["url_publicada_en"].to_s != ""
-  end
-end
-
 if insertables.empty? && sin_entrada.empty?
-  avisos_en_previo.each do |p|
-    warn "- aviso: #{p[:ref]}/#{p[:red]} tiene respuestas en el hilo y la entrada no declara `url_publicada_en` " \
-         "(ultima respuesta: #{p[:reply_url]}); el ledger no dice de que idioma es cada post"
-  end
-  puts "Reconciliacion OK: #{publicados.length} publicacion(es) en el ledger, todas reflejadas en " \
-       "_data/distribucion.yml#{avisos_en_previo.empty? ? '' : ", #{avisos_en_previo.length} aviso(s)"}."
+  puts "Reconciliacion OK: #{publicados.length} publicacion(es) en el ledger, todas reflejadas en _data/distribucion.yml."
   exit 0
 end
 
@@ -114,27 +116,18 @@ insertables.each do |p|
   warn "- #{p[:ref]}/#{p[:red]}: publicado el #{p[:fecha]} y ausente de _data/distribucion.yml (#{p[:url]})"
 end
 
-# `url_publicada_en` NO se rellena sola, y no es un olvido.
+# `url_publicada_en` SI se rellena, y antes no.
 #
-# El ledger guarda `root_url` y `reply_url`, y nada mas: el `result` no dice de
-# que idioma es cada post del hilo. En el hilo del post II --raiz ES, respuesta
-# EN-- `reply_url` era efectivamente la version inglesa, y por eso la tentacion
-# de mapearlos. Pero el hilo del post III lleva cuatro posts en Bluesky (raiz ES,
-# respuesta ES, raiz EN, respuesta EN) y ahi `reply_url` es la ULTIMA respuesta,
-# que no es la raiz inglesa. Escribir esa URL como `url_publicada_en` seria
-# meter un dato falso en el registro que el gate usa como prueba.
-#
-# Se avisa y se deja a un humano.
-avisos_en = publicados.reject { |p| p[:reply_url].empty? }.reject do |p|
-  entrada = por_ref[p[:ref]] || por_slug[p[:ref]]
-  entrada && Array(entrada["publicaciones"]).any? do |x|
-    x.is_a?(Hash) && x["url_publicada"].to_s == p[:url] && x["url_publicada_en"].to_s != ""
-  end
-end
-avisos_en.each do |p|
-  warn "- aviso: #{p[:ref]}/#{p[:red]} tiene respuestas en el hilo y la entrada no declara `url_publicada_en`. " \
-       "El ledger no dice de que idioma es cada post: completalo a mano (ultima respuesta: #{p[:reply_url]})"
-end
+# La primera version de este script se nego a mapear `reply_url` a
+# `url_publicada_en` razonando que el ledger no dice de que idioma es cada post
+# del hilo, y suponiendo que el hilo podia llevar cuatro entradas. Se comprobo el
+# 2026-09-05 leyendo el publicador: `networks.py` emite exactamente dos por red,
+# `<red>_es` para la raiz y `<red>_en` para la respuesta --lineas 169-192 en
+# Mastodon y 381-403 en Bluesky--, y `base_copy` es por idioma, asi que no existe
+# el hilo de cuatro que motivo la cautela. `reply_url` es la version inglesa
+# siempre. Dejarlo en manos de un humano era pedir trabajo manual por una duda
+# que el codigo ya resolvia.
+
 
 unless APLICAR
   warn ""
@@ -157,10 +150,12 @@ insertables.group_by { |p| (por_ref[p[:ref]] || por_slug[p[:ref]])["slug"] }.eac
   raise "No se encontro `publicaciones:` dentro de #{slug}" if i_pub.nil? || lineas[i_pub].start_with?("- slug: ")
 
   bloque = grupo.flat_map do |p|
-    ["  - plataforma: #{p[:red]}\n",
-     "    fecha: #{p[:fecha]}\n",
-     "    url_publicada: #{p[:url]}\n",
-     "    resultado_30d:\n"]
+    linea = ["  - plataforma: #{p[:red]}\n",
+             "    fecha: #{p[:fecha]}\n",
+             "    url_publicada: #{p[:url]}\n"]
+    linea << "    url_publicada_en: #{p[:reply_url]}\n" unless p[:reply_url].empty?
+    linea << "    resultado_30d:\n"
+    linea
   end
   # `publicaciones: []` es una lista vacia en linea; hay que abrirla antes de
   # colgarle elementos, o el YAML resultante no parsea.
