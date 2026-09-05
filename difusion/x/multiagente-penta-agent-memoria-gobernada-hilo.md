@@ -23,33 +23,37 @@ comparación; el cuerpo del mensaje, no.
 
 ## Hilo ES
 
-### 01 — imagen `…-carrusel-01.png` · 245/280 · OK
+### 01 — imagen `…-carrusel-01.png` · 253/280 · OK
 
 Tercera bitácora del sistema multiagente que corre en mi máquina.
 
-La memoria ya recuperaba bien. La pregunta pasó a ser otra: qué persiste, qué caduca y qué nunca debe salir de su ámbito.
+La memoria ya recuperaba bien. La pregunta pasó a ser más incómoda: qué persiste, qué caduca y qué nunca debe salir de su ámbito.
 
 Cuatro fuentes separadas por contrato, no fusionadas. 🧵
 
-### 02 — imagen `…-carrusel-02.png` · 229/280 · OK
+### 02 — imagen `…-carrusel-02.png` · 266/280 · OK
 
-Lo que hay dentro: 16.955 puntos indexados, 1.432 estrategias, 3.949 relaciones y 319 contextos curados.
+Tener acceso técnico a un dato no decide si es legítimo reutilizarlo.
 
-Memoria de trabajo, correo personal, índice de tesis y la proyección pública derivada de ellas. Ninguna se mezcla con otra.
+Memoria de trabajo, correo personal, índice de tesis y la proyección pública derivada. Ninguna se mezcla: cada una define qué salidas permite.
 
-### 03 — imagen `…-carrusel-03.png` · 260/280 · OK
+16.955 puntos, 1.432 estrategias, 3.949 relaciones.
 
-La evaluación: 40 consultas sobre 319 contextos aislados. Ocho escritas para comprobar que el sistema sepa *no* recuperar.
+### 03 — imagen `…-carrusel-03.png` · 276/280 · OK
+
+40 consultas sobre 319 contextos aislados. Ocho escritas para comprobar que el sistema sepa *no* recuperar.
 
 38 completas, 2 parciales, 0 fallos.
 
-Probé un reordenador. Ordenaba mejor y aun así lo rechacé: el tiempo de respuesta subía demasiado.
+Probé un reordenador: ordenaba mejor y lo rechacé, porque el tiempo de respuesta subía demasiado. Mejor no siempre es promovible.
 
-### 04 — imagen `…-carrusel-04.png` · 268/280 · OK
+### 04 — imagen `…-carrusel-04.png` · 273/280 · OK
 
-Publico el post con una compuerta en rojo, y es lo mejor que tiene: el corpus creció de 796 a 817 documentos y el índice no se regeneró.
+Publico el post con una compuerta en rojo, y es lo mejor que tiene.
 
-Lo que caducó es la vigencia, no el dato. Una compuerta que siguiera verde ahí sería peor que no tenerla.
+El índice es del 29 de agosto; el corpus creció de 796 a 817 documentos y no se regeneró. Caducó la vigencia, no el dato.
+
+Una compuerta verde ahí habría sido peor que no tenerla.
 
 https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/?utm_source=x&utm_medium=social&utm_campaign=multiagente-penta-agent-memoria-gobernada-poc&utm_content=es
 
