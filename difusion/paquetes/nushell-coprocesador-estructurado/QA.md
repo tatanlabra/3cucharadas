@@ -1,7 +1,7 @@
 # QA — nushell-coprocesador-estructurado
 
 Generado: 2026-09-05
-Estado: preparado; el post canónico y un borrador privado de dev.to existen, pero ninguna pieza social de este paquete fue publicada.
+Estado: aprobado para ejecutar la cadencia; el post canónico y un borrador privado de dev.to existen, pero ninguna pieza social de este paquete fue publicada.
 
 ## Comprobado
 
@@ -37,9 +37,8 @@ Estado: preparado; el post canónico y un borrador privado de dev.to existen, pe
 
 ## Pasos manuales pendientes
 
-1. Aprobar por separado el copy y el activo de cada canal.
-2. Verificar r/nushell y decidir si enviar o descartar.
-3. Sustituir el cuerpo del borrador dev.to 4584688 por `devto.md`, revisar y publicar recién en su fecha.
-4. Importar o pegar `medium.md`, fijar el canónico y revisar el borrador.
-5. Subir el PDF de LinkedIn, agregar título y texto alternativo, revisar todas las láminas y publicar.
-6. Registrar URL, fecha y resultado de cada envío en `_data/distribucion.yml` y en el ledger local.
+1. Verificar r/nushell y decidir si enviar o descartar.
+2. Sustituir el cuerpo del borrador dev.to 4584688 por `devto.md`, revisar y publicar recién en su fecha.
+3. Importar o pegar `medium.md`, fijar el canónico y revisar el borrador.
+4. Subir el PDF de LinkedIn, agregar título y texto alternativo, revisar todas las láminas y publicar.
+5. Registrar URL, fecha y resultado de cada envío en `_data/distribucion.yml` y en el ledger local.

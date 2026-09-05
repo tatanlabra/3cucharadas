@@ -48,7 +48,7 @@ todo_state:
     - "[x] F4 revisión humana final ES/EN"
     - "[x] F5 release candidate, commit selectivo, push y CI"
     - "[x] F6 verificación de producción"
-    - "[~] F7 paquete preparado; envíos externos pendientes de autorización por canal"
+    - "[~] F7 paquete aprobado; ejecución externa pendiente según cadencia"
     - "[ ] F8 seguimiento D+1 y D+30"
 
 phases:
@@ -206,6 +206,8 @@ phases:
       carousel_pages: 6
       carousel_pixels: "1080x1350"
       external_posts_sent: 0
+      human_authorization_received: true
+      human_authorization_date: "2026-09-05"
       reddit_rules_verified: false
       carousel_accessible_text_layer: false
       critical_audit_verdict: "approved_with_observations"

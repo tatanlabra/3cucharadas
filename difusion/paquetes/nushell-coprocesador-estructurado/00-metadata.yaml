@@ -9,6 +9,11 @@ sindicacion_textual_permitida: true
 publicado_es: 2026-09-05
 publicado_en: 2026-09-05
 repositorio: https://github.com/tatanlabra/penta-agent
+aprobacion:
+  estado: aprobada
+  fecha: 2026-09-05
+  alcance: "paquete F7 y cadencia propuesta"
+  publicaciones_externas_completadas: 0
 evidencia:
   ejecuciones_totales: 380
   microbenchmark: 200
@@ -53,7 +58,6 @@ destinos:
     estado: preparado
     url_publicada: null
 verificaciones_pendientes:
-  - revisar y aprobar cada pieza antes de enviarla
   - verificar las reglas visibles de r/nushell desde una sesión humana
   - confirmar que el borrador dev.to conserva published=false y canonical_url
   - importar o pegar la pieza Medium y verificar el canonical antes de publicar
