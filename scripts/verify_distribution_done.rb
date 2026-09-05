@@ -21,18 +21,37 @@
 # Uso:
 #   ruby scripts/verify_distribution_done.rb            # falla si hay vencidos
 #   ruby scripts/verify_distribution_done.rb --strict   # ademas falla por avisos
+#   ruby scripts/verify_distribution_done.rb --ventana 30  # solo lo accionable hoy
+#
+# LA VENTANA, Y POR QUE NO ES UN INDULTO
+#
+# Sin `--ventana` el gate pregunta «de todo lo declarado, que falta»: hoy 7
+# canales vencidos, algunos de hace 174 dias. Esa es la pregunta correcta para
+# una auditoria y la INCORRECTA para un timer diario: un aviso que repite lo
+# mismo cada manana durante medio ano se silencia, y un gate silenciado no
+# interrumpe a nadie, que es el mismo fallo que no tenerlo.
+#
+# `--ventana N` acota los ERRORES a los posts de los ultimos N dias --lo que
+# todavia se puede hacer a tiempo-- y sigue imprimiendo el atraso historico como
+# aviso, con su cuenta. No lo esconde: lo baja de fatal a visible. El modo por
+# defecto no cambia, y es el que va a CI.
 
 require "date"
 require "yaml"
 
 ROOT = File.expand_path("..", __dir__)
 STRICT = ARGV.include?("--strict")
+VENTANA = begin
+  i = ARGV.index("--ventana")
+  i ? Integer(ARGV[i + 1]) : nil
+end
 HOY = (ENV["DISTRIBUCION_HOY"] ? Date.parse(ENV["DISTRIBUCION_HOY"]) : Date.today)
 
 PLAZOS = { "social" => 2, "dev" => 4, "medium" => 10 }.freeze
 
 errores = []
 avisos = []
+historicos = []
 
 registro = begin
   path = File.join(ROOT, "_data", "distribucion.yml")
@@ -109,13 +128,19 @@ posts.each do |path|
 
     plazo = PLAZOS.fetch(canal)
     if dias > plazo
-      errores << "#{relativo}: declara `#{canal}` y lleva #{dias} dias sin artefacto (plazo D#{plazo})"
+      linea = "#{relativo}: declara `#{canal}` y lleva #{dias} dias sin artefacto (plazo D#{plazo})"
+      if VENTANA && dias > VENTANA
+        historicos << linea
+      else
+        errores << linea
+      end
     else
       avisos << "#{relativo}: `#{canal}` pendiente, D#{dias} de D#{plazo}"
     end
   end
 end
 
+historicos.uniq.each { |h| warn "- atraso historico (fuera de la ventana de #{VENTANA} dias): #{h}" }
 avisos.uniq.each { |a| warn "- aviso: #{a}" }
 errores.uniq.each { |e| warn "- #{e}" }
 
@@ -125,5 +150,7 @@ elsif STRICT && !avisos.empty?
   abort "Gate de difusion cumplida fallo en modo --strict (#{avisos.uniq.length} aviso(s))"
 end
 
-puts "Gate de difusion cumplida OK: #{revisados} post(s) con canales declarados, " \
-     "#{avisos.uniq.length} aviso(s)."
+resumen = "Gate de difusion cumplida OK: #{revisados} post(s) con canales declarados, " \
+          "#{avisos.uniq.length} aviso(s)"
+resumen += ", #{historicos.uniq.length} atraso(s) historico(s) fuera de la ventana" unless historicos.empty?
+puts "#{resumen}."

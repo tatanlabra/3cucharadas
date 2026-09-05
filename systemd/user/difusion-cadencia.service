@@ -1,0 +1,22 @@
+[Unit]
+Description=Cadencia de difusion pendiente en 3cucharadas
+Documentation=file:///home/ende/Descargas/programaciones/activos/3cucharadas/scripts/verify_distribution_done.rb
+# El gate ya existia y llevaba dias en rojo sin que nadie se enterara: salia 1
+# cuando alguien lo corria a mano, y nadie lo corria. Este OnFailure es lo que
+# convierte una comprobacion en una compuerta.
+#
+# `%N` y no `%n`: `%n` ya trae el `.service` y el instanciado saldria
+# `user-unit-alert@difusion-cadencia.service.service`.
+OnFailure=user-unit-alert@%N.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/ende/Descargas/programaciones/activos/3cucharadas
+# --ventana 30: el aviso diario solo debe hablar de lo que aun se puede hacer a
+# tiempo. El atraso historico se imprime igual, con su cuenta, pero no dispara el
+# toast: repetir siete lineas de hace medio ano cada manana termina en que se
+# silencia el aviso entero. La auditoria completa es el mismo script sin la
+# bandera, y es la que va a CI.
+ExecStart=/usr/bin/ruby scripts/verify_distribution_done.rb --ventana 30
+StandardOutput=journal
+StandardError=journal

@@ -1,0 +1,12 @@
+[Unit]
+Description=Revisar a diario la cadencia de difusion pendiente
+
+[Timer]
+OnCalendar=*-*-* 09:30:00
+# Persistent recupera la corrida perdida si la maquina estaba apagada: un plazo
+# D2 que vence en fin de semana no debe pasar inadvertido hasta el lunes.
+Persistent=true
+Unit=difusion-cadencia.service
+
+[Install]
+WantedBy=timers.target
