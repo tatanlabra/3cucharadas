@@ -5,10 +5,11 @@
 | Fase | Estado | Evidencia / siguiente gate |
 |---|---|---|
 | F0 Custodia | [x] | 1.325 archivos, bundle completo, restore y tres negativos rechazados |
-| F1 Reconciliación | [~] | Base 75f80d72 + historia f91498b7; archivo externo verificado |
-| F2 Entorno | [ ] | Bundler local, Node CI y diagnóstico Polyglot |
+| F1 Reconciliación | [x] | Base 75f80d72 + historia f91498b7; archivo externo verificado; gobernanza verde |
+| F2 Entorno | [x] | Instalación aislada: 52 gems; doctor reparado; 3 tests/11 aserciones y runtime 2/9 |
 | F3 Dependencias/gates | [ ] | Locks, suite y artefactos |
 | F4 Interfaz/rendimiento | [ ] | Baseline, candidatos, accesibilidad |
+| F4.1 Paleta nocturna | [~] | Ampliación humana: subagente acotado a CSS, contraste leve y evidencia visual |
 | F5 Consumidores/DEV | [ ] | Sólo borradores existentes, sin Telegram |
 | F6 Producción | [ ] | Convergencia final, jobs y HTTP |
 
@@ -61,7 +62,9 @@ sus enlaces originales se resuelven restaurando el paquete completo del archivo.
 
 ## Límites
 
-Autorrevisión de Codex; no revisión entre proveedores. MCP selector evaluado, pero
+Autorrevisión de Codex; no revisión entre proveedores. El usuario añadió después
+un subagente para F4.1, con propiedad exclusiva de la hoja de estilos y sin
+autoridad de publicación. MCP selector evaluado, pero
 el registro automático informó `MCP observation unavailable`. Ningún canal externo
 se activa por esa selección. Deuda editorial y cobertura geoespacial se informan
 separadas de salud técnica; no se cambian sus criterios para obtener verde.
