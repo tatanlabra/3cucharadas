@@ -21,6 +21,7 @@ require "date"
 require "fileutils"
 require "optparse"
 require_relative "jekyll_to_devto"
+require_relative "lib/devto_draft_policy"
 
 options = {
   backlog: ENV["DEVTO_BACKLOG"] == "1",
@@ -163,13 +164,20 @@ end
 
 if !dry_run && (api_key.nil? || api_key.strip.empty?)
   puts "DEV_TO_API_KEY no configurado; nada que sindicar."
-  exit 0
+  exit(options[:existing_drafts_only] ? 2 : 0)
+end
+
+if dry_run && options[:existing_drafts_only]
+  warn "NO_CONCLUYENTE: dry-run no consulta DEV; no permite afirmar qué borradores existen. Use --export-dir para revisar contenido sin API."
+  exit 2
 end
 
 def devto_request(api_key, method, path, payload = nil)
   uri = URI("https://dev.to/api#{path}")
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
+  http.open_timeout = 10
+  http.read_timeout = 30
   request = method.new(uri)
   request["api-key"] = api_key
   request["accept"] = "application/vnd.forem.api-v1+json"
@@ -192,7 +200,7 @@ def devto_remote_articles(api_key)
       Net::HTTP::Get,
       "/articles/me/#{state}?per_page=1000"
     )
-    unless code.between?(200, 299) && body.is_a?(Array)
+    unless code.between?(200, 299) && body.is_a?(Array) && body.length < 1000
       error = body.is_a?(Hash) ? body["error"] : nil
       raise JekyllToDevto::TransformError,
             "no se pudo leer el estado remoto DEV.to (#{state}: #{code}#{error ? ": #{error}" : ''})"
@@ -260,8 +268,23 @@ remote_by_id = remote_articles.to_h { |article| [article.fetch("id").to_i, artic
 remote_by_canonical = remote_articles.group_by { |article| article["canonical_url"] }
 remote_drafts_by_canonical = remote_articles.reject { |article| article["published"] }
                                            .group_by { |article| article["canonical_url"] }
+if options[:existing_drafts_only]
+  begin
+    # Preflight the whole inventory before the first write; never partially
+    # update an ambiguous set or mistake an empty inventory for success.
+    selected = eligible.flat_map { |post| DevtoDraftPolicy.select(remote_articles, post[:url_canonica]) }
+    backup_dir = ENV.fetch("DEVTO_BACKUP_DIR") { raise DevtoDraftPolicy::Violation, 'DEVTO_BACKUP_DIR required for maintenance' }
+    DevtoDraftPolicy.backup!(selected, backup_dir, api_key)
+    puts "Custodia cifrada: #{selected.length} borrador(es); ids #{selected.map { |a| a.fetch('id') }.join(', ')}"
+  rescue DevtoDraftPolicy::Violation, SystemCallError => e
+    warn e.message
+    exit 1
+  end
+end
+halt_writes = false
 
 eligible.each do |post|
+  break if halt_writes
   entry = entries.find { |e| e["slug"] == post[:slug] }
   unless entry
     entry = {
@@ -351,9 +374,25 @@ eligible.each do |post|
     article[:published] = false unless target
     payload = { article: article.compact }
 
+    if options[:existing_drafts_only] && target && target['body_markdown'] == devto_document && target['title'] == post[:titulo_usado]
+      puts "#{post[:slug]}: borrador ##{target_id} ya coincide; sin PUT."
+      next
+    end
+
     sleep(PAUSA_ESCRITURA) unless llamadas.zero?
     llamadas += 1
-    if target
+    if options[:existing_drafts_only]
+      begin
+        code, body = DevtoDraftPolicy.update!(
+          target, current: devto_remote_articles(api_key), payload: payload,
+          writer: ->(id, guarded_payload) { devto_request(api_key, Net::HTTP::Put, "/articles/#{id}", guarded_payload) }
+        )
+      rescue DevtoDraftPolicy::Violation, JekyllToDevto::TransformError, Timeout::Error, IOError, SystemCallError => e
+        fallos << "#{post[:slug]}: #{e.message}"
+        halt_writes = true
+        break
+      end
+    elsif target
       code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{target_id}", payload)
     else
       # DEV limita creaciones y actualizaciones por igual; la pausa se aplica a
@@ -366,6 +405,7 @@ eligible.each do |post|
     puts "#{post[:slug]}: #{target ? "actualización ##{target_id}" : 'creación'} dev.to #{detalle}"
     unless ok
       fallos << "#{post[:slug]}: #{code}#{body.is_a?(Hash) && body['error'] ? " #{body['error']}" : ''}"
+      halt_writes = true if code == 429
       next
     end
 

@@ -14,6 +14,8 @@ on:
       - "_posts/*-en.md"
       - "scripts/jekyll_to_devto.rb"
       - "scripts/syndicate_devto.rb"
+      - "scripts/lib/devto_draft_policy.rb"
+      - "tests/test_devto_draft_policy.rb"
       - "tests/test_jekyll_to_devto.rb"
       - ".github/workflows/devto-syndication.yml"
   workflow_dispatch:
@@ -58,19 +60,34 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Validar transformación Jekyll a DEV.to
-        run: ruby tests/test_jekyll_to_devto.rb
+        run: |
+          ruby tests/test_jekyll_to_devto.rb
+          ruby tests/test_devto_draft_policy.rb
 
       - name: Ejecutar sindicación
         env:
           DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
           DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          # The approved maintenance release cannot create or touch published
+          # articles, even when triggered by push rather than dispatch.
+          DEVTO_EXISTING_DRAFTS_ONLY: ${{ (inputs.existing_drafts_only || contains(github.event.head_commit.message, '3c-maintenance: drafts-only')) && '1' || '' }}
+          DEVTO_BACKUP_DIR: ${{ runner.temp }}/devto-custody
         run: >-
           ruby scripts/syndicate_devto.rb
           ${{ inputs.backlog && '--backlog' || '' }}
           ${{ inputs.existing_drafts_only && '--existing-drafts-only' || '' }}
 
+      - name: Conservar custodia cifrada de borradores
+        if: ${{ always() && !inputs.dry_run }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: devto-draft-custody-${{ github.run_id }}
+          path: ${{ runner.temp }}/devto-custody/*.enc.json
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Commit del registro de distribución si cambió
-        if: ${{ !inputs.dry_run }}
+        if: ${{ always() && !inputs.dry_run }}
         run: |
           if ! git diff --quiet -- _data/distribucion.yml; then
             git config user.name "github-actions[bot]"
