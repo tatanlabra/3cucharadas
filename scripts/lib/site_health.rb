@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'yaml'
 require 'json'
+require 'cgi'
 
 module SiteHealth
   PROFILES = %w[source local release].freeze
@@ -45,5 +46,11 @@ module SiteHealth
       raise "invalid workflow: #{file}" unless workflow.is_a?(Hash) && workflow['jobs'].is_a?(Hash) && !workflow['jobs'].empty?
     end
     files.length
+  end
+
+  def self.public_css_url(html)
+    matches = html.scan(/href=["'](\/assets\/css\/main\.css(?:\?[^"'<>]*)?)["']/).flatten.uniq
+    raise 'missing or ambiguous public stylesheet' unless matches.one?
+    'https://3cucharadas.cl' + CGI.unescapeHTML(matches.first)
   end
 end

@@ -11,8 +11,8 @@
 | F4 Interfaz/rendimiento | [x] | 20 combinaciones sin violaciones axe A/AA detectadas; ninguna optimización de velocidad promovida |
 | F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
 | F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
-| F5 Consumidores/DEV | [~] | main y bundle operativo reconciliados; hooks idempotentes; DEV pendiente de ejecución autenticada |
-| F6 Producción | [~] | Gate pre-release rechazó ambos remotos atrasados y ausencia de pipeline para el SHA |
+| F5 Consumidores/DEV | [!] | Consumidores sanos; inventario DEV autenticado bloquea por canonical duplicado de Avalúo, cero escrituras; decisión humana pendiente |
+| F6 Producción | [~] | df3d67bd desplegado con build/Pages verdes y CSS idéntico; repetir informe para el commit final de evidencia |
 
 ## Custodia y reconciliación
 
@@ -75,7 +75,7 @@ Antes de actualizar el checkout operativo se repitió el cotejo de sus 1.325 has
 | Gems | concurrent-ruby 1.3.8, csv 3.3.6, execjs 2.10.2, google-protobuf 4.36.1, sass-embedded 1.104.0; un commit por actualización conservadora |
 | Presupuesto transitivo | 131.980/153.600 bytes gzip, dos archivos; import dinámico sobredimensionado, manifiesto vacío e import ausente rechazados |
 | Tipos | Nueva prueba detectó TS7016 por declaración ausente; d.mts añadido, TypeScript volvió a verde sin bajar exigencia |
-| Suite | 192 pruebas ejecutadas en pre-release, siete geoespaciales omitidas; dos pruebas adicionales de regiones pasan separadamente |
+| Suite | 194 pruebas únicas ejecutadas en el checkout operativo; siete geoespaciales omitidas; dos nuevas regresiones YAML/CSS pasan además |
 | Builds | Producción, future y drafts; comprobación de artefactos y readiness verdes |
 | Seguridad consultada | npm audit: cero vulnerabilidades; API Dependabot: cero alertas abiertas |
 | Git operativo | fsck y gobernanza verdes; count-objects garbage=0; checkout limpio, dependencias ignoradas permitidas |
@@ -124,11 +124,41 @@ del PUT, rechazo de estados cambiantes y parada ante 429. Cuatro pruebas y 23
 aserciones pasan; rechazan destino ausente/publicado/duplicado/modificado y verifican
 custodia cifrada recuperable. `--existing-drafts-only --dry-run` salió 2, porque
 una simulación sin API no demuestra estado remoto. Contrato y recuperación en
-`docs/contracts/devto-draft-maintenance.md`. La ejecución autenticada sigue pendiente.
+`docs/contracts/devto-draft-maintenance.md`.
+
+La ejecución autenticada se detuvo **antes de todo PUT/POST** por canonical
+duplicado `https://3cucharadas.cl/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/`.
+No se generó custodia remota porque el preflight global precede a cualquier escritura.
+Run bloqueado: https://github.com/tatanlabra/3cucharadas/actions/runs/34065651595 .
+No se elige ni elimina un duplicado sin decisión humana. Tampoco se actualizan
+silenciosamente los otros borradores después del fallo. Pregunta nativa emitida:
+pausar DEV, omitir Avalúo o elegir un ID tras revisión. Sin respuesta aún.
 
 El consumidor `--ventana 30` sigue rojo por cinco compromisos reales vencidos:
 Nushell Mastodon ES/EN, Bluesky ES/EN y DEV EN. La deuda histórica se informa aparte.
 No se modifican publicaciones ni fechas para conseguir verde y no se envía Telegram.
+
+## Producción e incidentes de implementación
+
+GitLab recibió por SSH los mismos commits que GitHub, sin force. El primer intento
+HTTPS de escritura GitLab no tenía credencial y no modificó el remoto; se utilizó
+después su URL SSH canónica sin cambiar configuración ni secretos.
+
+El workflow inicial de esta implementación fue rechazado por YAML: el `:` del
+trailer estaba dentro de una expresión sin comillas externas. Fue un fallo propio,
+no de DEV. Se reprodujo con Psych, se corrigió y se agregó un gate de todos los
+workflows con fixture rojo/verde. La corrida siguiente sí llegó al inventario
+autenticado y se detuvo correctamente por duplicados.
+
+El pipeline https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2824859252
+publicó df3d67bd; build_site y pages exitosos. El CSS que enlaza el HTML público
+(`/assets/css/main.css?v=1788735697`) coincide byte a byte con el build local:
+`daee7bc59122690338d3600367554b82c66404b3a102320b2566635a2b29627d`.
+La comprobación inicial consultaba la URL sin versión y dio falsa alarma por su
+caché de cuatro horas; el gate ahora resuelve la URL desde el HTML público y exige
+una sola referencia. Los fixtures rechazan referencia ausente o ambigua. No hubo
+purga ni cambios de Cloudflare. Falta ejecutar el informe final sobre el commit
+que incorpora esta propia evidencia.
 
 ## Alcance del juicio
 
