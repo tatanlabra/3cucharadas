@@ -124,6 +124,27 @@ class JekyllToDevtoTest < Minitest::Test
     refute front.key?("published")
   end
 
+  def test_renders_forem_front_matter_as_single_line_quoted_scalars
+    title = "Parser DEV: apostrophe's regression"
+    description = "A long description: #{'portable text ' * 12}".strip
+    document = JekyllToDevto.render_document(
+      body: "Body",
+      title: title,
+      description: description,
+      tags: %w[devto jekyll],
+      canonical_url: CANONICAL_URL
+    )
+    front_text = document.split(/^---\s*$/, 3)[1]
+    front = YAML.safe_load(front_text)
+
+    assert_includes front_text, %(title: #{JSON.generate(title)})
+    assert_includes front_text, %(description: #{JSON.generate(description)})
+    refute_match(/^\s+portable text/, front_text)
+    refute_match(/^[^:]+:\s*[>|]/, front_text)
+    assert_equal title, front["title"]
+    assert_equal description, front["description"]
+  end
+
   def test_multiagent_post_ii_regression
     path = File.expand_path("../_posts/2026-07-23-multiagente-penta-agent-memoria-en.md", __dir__)
     source = File.read(path)

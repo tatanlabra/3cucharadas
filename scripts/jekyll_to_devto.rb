@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "cgi"
+require "json"
 require "shellwords"
 require "uri"
 require "yaml"
@@ -62,8 +63,12 @@ module JekyllToDevto
       "canonical_url" => canonical_url,
       "cover_image" => cover_image
     }.compact
-    yaml = YAML.dump(metadata).sub(/\A---\s*\n/, "")
-    document = "---\n#{yaml}---\n\n#{body.rstrip}\n"
+    # Forem acepta front matter, pero su parser rechaza algunas formas válidas
+    # que Psych elige para textos largos (plegado `>-` y continuaciones). JSON
+    # produce escalares entre comillas que también son YAML válido y mantiene
+    # cada campo en una sola línea, sin heurísticas dependientes del contenido.
+    yaml = metadata.map { |key, value| "#{key}: #{JSON.generate(value.to_s)}" }.join("\n")
+    document = "---\n#{yaml}\n---\n\n#{body.rstrip}\n"
     validate!(document)
     document
   end
