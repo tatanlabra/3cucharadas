@@ -138,7 +138,8 @@ if Dir.exist?(microsite_dir)
   abort "Catastro SII Parquet dictionary field count drifted" unless dictionary.fetch("fields").length == 43
   microsite_bytes = 0
   Find.find(microsite_dir) { |entry| microsite_bytes += File.size(entry) if File.file?(entry) }
-  abort "Catastro SII Brecha exceeds 60 MB: #{microsite_bytes}" if microsite_bytes > 60_000_000
+  catastro_max_bytes = Integer(ENV.fetch("CATASTRO_SITE_MAX_BYTES", total_max_bytes.to_s))
+  abort "Catastro SII Brecha exceeds #{catastro_max_bytes} bytes: #{microsite_bytes}" if microsite_bytes > catastro_max_bytes
 end
 
 avaluo_math_documents = {

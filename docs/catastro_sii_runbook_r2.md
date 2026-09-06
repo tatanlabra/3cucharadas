@@ -12,9 +12,10 @@ GeoParquet/FlatGeobuf y no modifica geometrías.
 | `basemap_chile_20260718T212932Z.pmtiles` | `20260718T212932Z` | base Protomaps/OSM autoalojada |
 | `predios_region_03_20260718T212932Z.pmtiles` | `20260718T212932Z` | piloto Caldera y Diego de Almagro |
 
-Los cinco objetos públicos de la corrida ocupan aproximadamente 654 MB. El
-directorio `assets/data/catastro_sii/local/` está ignorado por Git: se usa como
-origen de publicación, pero nunca se incorpora al sitio ni a un commit.
+Los cinco objetos públicos de la corrida ocupan aproximadamente 654 MB. La copia
+local vive fuera del checkout en
+`${CATASTRO_SII_LOCAL_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/catastro_sii/local}`: se usa
+como origen de publicación, pero nunca se incorpora al sitio ni a un commit.
 
 ## 1. Provisión manual en Cloudflare
 
@@ -59,7 +60,8 @@ export PUBLIC_TILES_BASE='https://tiles.3cucharadas.cl/catastro-sii'
 export LEGAL_PUBLICATION_STATUS='AUTHORIZED_VECTOR'
 
 run='20260718T212932Z'
-assets="assets/data/catastro_sii/local/${run}"
+local_root="${CATASTRO_SII_LOCAL_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/catastro_sii/local}"
+assets="${local_root}/${run}"
 ```
 
 No incluir las exportaciones en `.zshrc`, archivos versionados, historial

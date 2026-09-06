@@ -52,12 +52,13 @@ class LocalPreviewVerificationTests(unittest.TestCase):
         return manifest_path
 
     def run_verifier(self, root: Path, manifest: Path) -> subprocess.CompletedProcess[str]:
+        local_root = root / "assets" / "data" / "catastro_sii" / "local"
         return subprocess.run(
             [
                 sys.executable,
                 str(SCRIPT),
-                "--repo-root",
-                str(root),
+                "--local-root",
+                str(local_root),
                 "--manifest",
                 str(manifest),
             ],

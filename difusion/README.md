@@ -134,7 +134,9 @@ scripts/render-linkedin-carousel.sh difusion/linkedin/<ref>-carrusel.html
 El script detecta cuantas laminas contiene el HTML, genera un PNG por lamina con
 Firefox headless y produce el PDF junto con un preview mosaico. Para el formato
 actual usa 1080x1350 px por pagina, adecuado para documentos-carrusel en
-LinkedIn.
+LinkedIn. Los renders quedan fuera del checkout en
+`${THREE_CUCHARADAS_RENDER_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders}/linkedin/`;
+los HTML y CSS versionados siguen siendo la fuente reproducible.
 
 ## Estado, depuracion y rollback
 

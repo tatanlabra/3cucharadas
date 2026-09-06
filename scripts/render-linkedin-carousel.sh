@@ -7,8 +7,8 @@ Usage:
   scripts/render-linkedin-carousel.sh path/to/post-carrusel.html
 
 Renders a LinkedIn carousel HTML into:
-  - path/to/post-carrusel.pdf
-  - path/to/post-preview-N-slides.png
+  - $XDG_STATE_HOME/3cucharadas/renders/<channel>/post-carrusel.pdf
+  - $XDG_STATE_HOME/3cucharadas/renders/<channel>/post-preview-N-slides.png
 
 The HTML must contain one <section class="slide"> per page.
 
@@ -17,6 +17,7 @@ Environment:
   LINKEDIN_CAROUSEL_HEIGHT        Slide height in pixels. Default: 1350
   LINKEDIN_CAROUSEL_FIREFOX       Firefox executable. Default: firefox
   LINKEDIN_CAROUSEL_TIMEOUT       Seconds per slide render. Default: 30
+  THREE_CUCHARADAS_RENDER_ROOT    Base directory for generated media.
   LINKEDIN_CAROUSEL_PDF           Override PDF output path.
   LINKEDIN_CAROUSEL_PREVIEW       Override preview output path.
   LINKEDIN_CAROUSEL_PREVIEW_COLS  Preview columns. Default: 3 for <=6 slides, 4 otherwise.
@@ -72,7 +73,7 @@ fi
 
 workdir="$(mktemp -d "${TMPDIR:-/tmp}/linkedin-carousel.XXXXXX")"
 cleanup() {
-  rm -rf "$workdir"
+  command rm -rf "$workdir"
 }
 trap cleanup EXIT
 
@@ -156,8 +157,13 @@ print(len(sections))
 PY
 )"
 
-pdf_path="${LINKEDIN_CAROUSEL_PDF:-$stem.pdf}"
-preview_path="${LINKEDIN_CAROUSEL_PREVIEW:-${base}-preview-${slide_count}-slides.png}"
+state_root="${XDG_STATE_HOME:-$HOME/.local/state}"
+render_base="${THREE_CUCHARADAS_RENDER_ROOT:-$state_root/3cucharadas/renders}"
+render_root="$render_base/$(basename "$(dirname "$html_abs")")"
+mkdir -p "$render_root"
+pdf_path="${LINKEDIN_CAROUSEL_PDF:-$render_root/$(basename "$stem").pdf}"
+preview_path="${LINKEDIN_CAROUSEL_PREVIEW:-$render_root/$(basename "$base")-preview-${slide_count}-slides.png}"
+mkdir -p "$(dirname "$pdf_path")" "$(dirname "$preview_path")"
 
 if [[ -n "${LINKEDIN_CAROUSEL_PREVIEW_COLS:-}" ]]; then
   preview_cols="$LINKEDIN_CAROUSEL_PREVIEW_COLS"

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -38,7 +39,15 @@ def require_file(path: Path, label: str) -> None:
         raise RuntimeError(f"{label} ausente: {path}")
 
 
-def validate(repo_root: Path, manifest_path: Path) -> None:
+def default_local_root() -> Path:
+    configured = os.environ.get("CATASTRO_SII_LOCAL_ROOT")
+    if configured:
+        return Path(configured).expanduser()
+    state_root = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local" / "state"))
+    return state_root / "3cucharadas" / "catastro_sii" / "local"
+
+
+def validate(local_root: Path, manifest_path: Path) -> None:
     manifest = read_json(manifest_path, "Manifest local")
     if manifest.get("deployment_scope") != "localhost-cartographic-review":
         raise RuntimeError("El manifest local no declara deployment_scope=localhost-cartographic-review")
@@ -47,7 +56,8 @@ def validate(repo_root: Path, manifest_path: Path) -> None:
     expected_prefix = "/assets/data/catastro_sii/local/"
     if not tiles_base.startswith(expected_prefix):
         raise RuntimeError(f"tiles_base debe permanecer bajo {expected_prefix}: {tiles_base}")
-    tile_root = repo_root / tiles_base.lstrip("/")
+    relative_tiles = tiles_base.removeprefix(expected_prefix)
+    tile_root = local_root / relative_tiles
     if not tile_root.is_dir():
         raise RuntimeError(f"Directorio de teselas local ausente: {tile_root}")
 
@@ -80,11 +90,12 @@ def validate(repo_root: Path, manifest_path: Path) -> None:
         "PMTiles comunal",
     )
     territories_url = safe_web_path(communes.get("territories_url"), "communes.territories_url")
-    territories_path = (
-        repo_root / territories_url.lstrip("/")
-        if territories_url.startswith("/")
-        else tile_root / territories_url
-    )
+    if territories_url.startswith(expected_prefix):
+        territories_path = local_root / territories_url.removeprefix(expected_prefix)
+    elif territories_url.startswith("/"):
+        raise RuntimeError(f"Índice territorial fuera del overlay local: {territories_url}")
+    else:
+        territories_path = tile_root / territories_url
     require_file(territories_path, "Índice territorial")
 
     parcel_regions = manifest.get("parcel_regions")
@@ -101,22 +112,21 @@ def validate(repo_root: Path, manifest_path: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument("--local-root", type=Path, default=default_local_root())
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=Path("assets/data/catastro_sii/local/manifest.json"),
+        default=None,
     )
     args = parser.parse_args()
-    repo_root = args.repo_root.resolve()
-    manifest_path = args.manifest
-    if not manifest_path.is_absolute():
-        manifest_path = repo_root / manifest_path
+    local_root = args.local_root.expanduser().resolve()
+    manifest_path = args.manifest or (local_root / "manifest.json")
+    manifest_path = manifest_path.expanduser().resolve()
     if not manifest_path.exists():
         print(f"Preview local omitido: no existe {manifest_path}")
         return 0
     try:
-        validate(repo_root, manifest_path)
+        validate(local_root, manifest_path)
     except RuntimeError as error:
         print(f"Preview local inválido: {error}")
         return 1
