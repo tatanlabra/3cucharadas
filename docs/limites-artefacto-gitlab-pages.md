@@ -28,6 +28,7 @@ SITE_ARTIFACT_MAX_BYTES=1048576000 SITE_ARTIFACT_MAX_ENTRIES=200000 \
 ```
 
 - `SITE_BASE_ARTIFACT_MAX_BYTES` conserva la posibilidad de fijar un presupuesto interno, pero queda desactivado por defecto.
+- Los presupuestos de releases históricos se conservan como evidencia y se marcan con alcance histórico; no reemplazan este límite operativo.
 - No se debe comparar `du -sh` con el límite: redondea y puede contar bloques asignados en vez de bytes lógicos.
 - El margen de Pages se calcula como `1 - bytes_public/1048576000`.
 - El margen de entradas se calcula como `1 - entradas_public/200000`.
