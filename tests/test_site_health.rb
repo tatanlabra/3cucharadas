@@ -29,4 +29,17 @@ class SiteHealthTest < Minitest::Test
       assert_empty SiteHealth.runtime_violations(dir, contract)
     end
   end
+
+  def test_workflow_yaml_rejects_empty_and_unquoted_colon_then_recovers
+    assert_operator SiteHealth.validate_workflows(ROOT), :>, 0
+    Dir.mktmpdir do |dir|
+      assert_raises(RuntimeError) { SiteHealth.validate_workflows(dir) }
+      FileUtils.mkdir_p(File.join(dir, '.github/workflows'))
+      path = File.join(dir, '.github/workflows/check.yml')
+      File.write(path, "jobs:\n  check:\n    env:\n      MODE: expression('maintenance: drafts-only')\n")
+      assert_raises(Psych::SyntaxError) { SiteHealth.validate_workflows(dir) }
+      File.write(path, "jobs:\n  check:\n    env:\n      MODE: \"expression('maintenance: drafts-only')\"\n")
+      assert_equal 1, SiteHealth.validate_workflows(dir)
+    end
+  end
 end

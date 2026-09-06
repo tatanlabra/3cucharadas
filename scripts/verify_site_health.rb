@@ -46,6 +46,12 @@ end
 begin
   contract = SiteHealth.validate_contract(YAML.safe_load_file(File.join(root, 'docs/contracts/site-health.yaml')))
   record.call('contract', 'PASS', 'Nonempty invariants and seven complete phase contracts')
+  begin
+    count = SiteHealth.validate_workflows(root)
+    record.call('workflow-yaml', 'PASS', "#{count} workflows parse and have jobs")
+  rescue Psych::Exception, RuntimeError => error
+    record.call('workflow-yaml', 'FAIL', error.message)
+  end
   errors = SiteHealth.runtime_violations(root, contract)
   record.call('runtime-declarations', errors.empty? ? 'PASS' : 'FAIL', errors.empty? ? 'Node/Bundler declarations agree' : errors.join('; '))
   run.call('git-integrity', %w[git fsck --full --no-dangling])

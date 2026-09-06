@@ -70,7 +70,7 @@ jobs:
           DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
           # The approved maintenance release cannot create or touch published
           # articles, even when triggered by push rather than dispatch.
-          DEVTO_EXISTING_DRAFTS_ONLY: ${{ (inputs.existing_drafts_only || contains(github.event.head_commit.message, '3c-maintenance: drafts-only')) && '1' || '' }}
+          DEVTO_EXISTING_DRAFTS_ONLY: "${{ (inputs.existing_drafts_only || contains(github.event.head_commit.message, '3c-maintenance: drafts-only')) && '1' || '' }}"
           DEVTO_BACKUP_DIR: ${{ runner.temp }}/devto-custody
         run: >-
           ruby scripts/syndicate_devto.rb
