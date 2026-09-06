@@ -31,6 +31,10 @@ on:
         description: "Sindicar tambien posts fuera de la ventana de 21 dias"
         type: boolean
         default: false
+      existing_drafts_only:
+        description: "Actualizar sólo borradores DEV.to ya existentes, sin crear ni tocar publicados"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -60,7 +64,10 @@ jobs:
         env:
           DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
           DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
-        run: ruby scripts/syndicate_devto.rb ${{ inputs.backlog && '--backlog' || '' }}
+        run: >-
+          ruby scripts/syndicate_devto.rb
+          ${{ inputs.backlog && '--backlog' || '' }}
+          ${{ inputs.existing_drafts_only && '--existing-drafts-only' || '' }}
 
       - name: Commit del registro de distribución si cambió
         if: ${{ !inputs.dry_run }}

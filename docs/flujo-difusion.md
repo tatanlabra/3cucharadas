@@ -40,6 +40,10 @@ vertical está en `docs/diagrams/flujo-difusion-mobile.d2`.
 - Conserva solo una allowlist explícita de tags Forem, incluidos `katex`, `embed`, `link` y `youtube`.
 - Convierte matemáticas `$$ ... $$` a bloques `{% katex %}` y elimina extensiones Kramdown.
 - Expande `include gallery` desde el front matter y conserva todas sus imágenes con URL absoluta.
-- Genera front matter DEV.to con `canonical_url` limpio y omite `published` para no alterar el estado remoto al actualizar.
+- Genera front matter DEV.to con `published: false`, `canonical_url`, portada, hasta cuatro tags y `ai_disclosure_level: some_ai`; en el editor Markdown básico la publicación humana cambia `published` a `true`.
 - Falla antes de la API si queda `relative_url`, `site.*`, `page.*`, una salida `{{ ... }}`, Kramdown o un tag Liquid no permitido fuera de código.
 - `ruby scripts/syndicate_devto.rb --export-dir DIR` escribe los siete Markdown derivados exactos sin requerir clave ni llamar a la API.
+- Antes de un `PUT`, consulta los artículos publicados y no publicados: el front matter refleja el estado remoto y el atributo JSON `published` se omite, por lo que una actualización no publica ni despublica por accidente.
+- `ruby scripts/syndicate_devto.rb --existing-drafts-only` actualiza todos los borradores que coinciden por `canonical_url`, no crea artículos y no toca los ya publicados.
+
+Contratos externos: [guía oficial del editor DEV](https://dev.to/p/editor_guide) y [API v1 de Forem](https://developers.forem.com/api/).

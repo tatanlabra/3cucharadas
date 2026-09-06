@@ -4,7 +4,8 @@
 # Sindicación automatizada a dev.to para posts EN que declaran
 # `distribution.republish: [dev]`; `sindicar: true` se acepta solo como alias
 # heredado. Los artículos nuevos se crean como borrador. Los ya registrados se
-# actualizan sin enviar `published`, por lo que conservan su estado remoto.
+# actualizan sin enviar `published` como atributo JSON y con el estado remoto
+# reflejado en el front matter, por lo que conservan ese estado.
 # El id se guarda en _data/distribucion.yml para actualizar sin duplicar.
 #
 # Fusible: sin DEV_TO_API_KEY configurado, no hace nada. Así el workflow
@@ -24,12 +25,16 @@ require_relative "jekyll_to_devto"
 options = {
   backlog: ENV["DEVTO_BACKLOG"] == "1",
   dry_run: ENV["DEVTO_DRY_RUN"] == "1",
+  existing_drafts_only: ENV["DEVTO_EXISTING_DRAFTS_ONLY"] == "1",
   export_dir: nil
 }
 OptionParser.new do |parser|
   parser.banner = "Uso: ruby scripts/syndicate_devto.rb [opciones]"
   parser.on("--backlog", "Permite crear borradores fuera de la ventana") { options[:backlog] = true }
   parser.on("--dry-run", "Simula sin escribir ni llamar a DEV.to") { options[:dry_run] = true }
+  parser.on("--existing-drafts-only", "Actualiza borradores remotos existentes; no crea ni toca publicados") do
+    options[:existing_drafts_only] = true
+  end
   parser.on("--export-dir DIR", "Exporta el Markdown DEV.to derivado y termina") do |dir|
     options[:export_dir] = dir
   end
@@ -110,13 +115,19 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
     youtube_id: JekyllToDevto.youtube_id_from_url(front["devto_video_url"])
   )
   transformed.warnings.each { |warning| warn "#{File.basename(path)}: #{warning}" }
+  ai_disclosure_level = front.fetch(
+    "devto_ai_disclosure_level",
+    JekyllToDevto::DEFAULT_AI_DISCLOSURE_LEVEL
+  )
   devto_document = JekyllToDevto.render_document(
     body: transformed.body,
     title: front.fetch("title"),
     description: front["description"],
     tags: tags,
     canonical_url: url_canonica,
-    cover_image: cover_image
+    cover_image: cover_image,
+    published: false,
+    ai_disclosure_level: ai_disclosure_level
   )
 
   {
@@ -127,9 +138,11 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
     url_canonica: url_canonica,
     titulo_usado: front.fetch("title"),
     body_markdown: devto_document,
+    transformed_body: transformed.body,
     description: front["description"],
     cover_image: cover_image,
-    tags: tags
+    tags: tags,
+    ai_disclosure_level: ai_disclosure_level
   }
 end
 
@@ -159,6 +172,8 @@ def devto_request(api_key, method, path, payload = nil)
   http.use_ssl = true
   request = method.new(uri)
   request["api-key"] = api_key
+  request["accept"] = "application/vnd.forem.api-v1+json"
+  request["user-agent"] = "3cucharadas-devto-syndication/1.0"
   request["content-type"] = "application/json"
   request.body = payload.to_json if payload
   response = http.request(request)
@@ -168,6 +183,23 @@ def devto_request(api_key, method, path, payload = nil)
     {}
   end
   [response.code.to_i, body]
+end
+
+def devto_remote_articles(api_key)
+  %w[published unpublished].flat_map do |state|
+    code, body = devto_request(
+      api_key,
+      Net::HTTP::Get,
+      "/articles/me/#{state}?per_page=1000"
+    )
+    unless code.between?(200, 299) && body.is_a?(Array)
+      error = body.is_a?(Hash) ? body["error"] : nil
+      raise JekyllToDevto::TransformError,
+            "no se pudo leer el estado remoto DEV.to (#{state}: #{code}#{error ? ": #{error}" : ''})"
+    end
+
+    body.map { |article| article.merge("published" => state == "published") }
+  end
 end
 
 # Psych no preserva comentarios en un round-trip load -> to_yaml, y este script
@@ -214,6 +246,20 @@ entries = File.file?(distribucion_path) ? (YAML.safe_load_file(distribucion_path
 changed = false
 fallos = []
 llamadas = 0
+remote_articles = if dry_run
+                    []
+                  else
+                    begin
+                      devto_remote_articles(api_key)
+                    rescue JekyllToDevto::TransformError => e
+                      warn e.message
+                      exit 1
+                    end
+                  end
+remote_by_id = remote_articles.to_h { |article| [article.fetch("id").to_i, article] }
+remote_by_canonical = remote_articles.group_by { |article| article["canonical_url"] }
+remote_drafts_by_canonical = remote_articles.reject { |article| article["published"] }
+                                           .group_by { |article| article["canonical_url"] }
 
 eligible.each do |post|
   entry = entries.find { |e| e["slug"] == post[:slug] }
@@ -232,28 +278,6 @@ eligible.each do |post|
 
   existente = devto_pub && devto_pub["devto_article_id"]
 
-  # `published` viaja SOLO al crear. Enviarlo en el PUT despublicaba el articulo
-  # en cada corrida: como el workflow se dispara con cualquier push de un
-  # `-en.md`, un articulo ya publicado en dev.to volvia a borrador sin que nadie
-  # lo pidiera. Quedo registrado en 021fb543, que revirtio una correccion manual.
-  # Quien decide publicar en dev.to es la persona, alli; este script no opina.
-  article = {
-    title: post[:titulo_usado],
-    body_markdown: post[:body_markdown],
-    canonical_url: post[:url_canonica],
-    description: post[:description],
-    main_image: post[:cover_image],
-    tags: post[:tags]
-  }
-  article[:published] = false unless existente
-  payload = { article: article.compact }
-
-  # Un post rezagado no se CREA sin --backlog; si ya existe, sí se actualiza.
-  if post[:rezagado] && !existente && !backlog
-    puts "#{post[:slug]}: omitido, #{post[:antiguedad]} dias desde su publicacion (ventana: #{VENTANA_SINDICACION_DIAS}). Use --backlog para crearlo igual."
-    next
-  end
-
   if dry_run
     action = existente ? "actualizaría" : "crearía"
     # El tamano del cuerpo va en la linea porque «actualizaria» no distingue un
@@ -264,38 +288,99 @@ eligible.each do |post|
     next
   end
 
-  if existente
-    sleep(PAUSA_ESCRITURA) unless llamadas.zero?
-    llamadas += 1
-    code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{devto_pub['devto_article_id']}", payload)
-  else
-    # dev.to limita las escrituras, creacion y actualizacion por igual: el
-    # 2026-09-05 se midieron 429 tambien en updates, no solo al crear. Con
-    # `--backlog` se crean varios seguidos. El 2026-09-05 tres de cuatro
-    # creaciones murieron con 429 en la misma corrida, y el workflow lo reporto
-    # como `success`. Se espacian; la primera no espera.
-    sleep(PAUSA_ESCRITURA) unless llamadas.zero?
-    llamadas += 1
-    code, body = devto_request(api_key, Net::HTTP::Post, "/articles", payload)
-  end
+  targets = if options[:existing_drafts_only]
+              remote_drafts_by_canonical.fetch(post[:url_canonica], [])
+            elsif existente
+              remote = remote_by_id[existente.to_i]
+              if remote.nil?
+                fallos << "#{post[:slug]}: id registrado #{existente} no existe en la cuenta DEV.to"
+                []
+              else
+                [remote]
+              end
+            elsif remote_by_canonical.key?(post[:url_canonica])
+              matches = remote_by_canonical.fetch(post[:url_canonica])
+              if matches.one?
+                [matches.first]
+              else
+                ids = matches.map { |article| article.fetch("id") }.join(", ")
+                fallos << "#{post[:slug]}: canonical duplicado en DEV.to (ids: #{ids})"
+                []
+              end
+            else
+              [nil]
+            end
 
-  ok = code.between?(200, 299)
-  detalle = ok ? "OK" : "FALLÓ (#{code}#{body.is_a?(Hash) && body['error'] ? ": #{body['error']}" : ''})"
-  puts "#{post[:slug]}: #{devto_pub ? 'actualización' : 'creación'} dev.to #{detalle}"
-  unless ok
-    fallos << "#{post[:slug]}: #{code}#{body.is_a?(Hash) && body['error'] ? " #{body['error']}" : ''}"
+  if options[:existing_drafts_only] && targets.empty?
+    puts "#{post[:slug]}: omitido, no tiene borrador remoto existente."
     next
   end
 
-  devto_pub ||= { "plataforma" => "devto" }
-  devto_pub["fecha"] ||= Date.today.to_s
-  devto_pub["devto_article_id"] = body["id"]
-  devto_pub["url_publicada"] = body["url"]
-  # `||=`, no `=`: si alguien marco el articulo como publicado, esta corrida no
-  # tiene forma de saberlo mejor que quien lo marco.
-  devto_pub["estado"] ||= "borrador"
-  entry["publicaciones"] << devto_pub unless entry["publicaciones"].include?(devto_pub)
-  changed = true
+  # Un post rezagado no se CREA sin --backlog; si ya existe, sí se actualiza.
+  if post[:rezagado] && targets == [nil] && !backlog
+    puts "#{post[:slug]}: omitido, #{post[:antiguedad]} dias desde su publicacion (ventana: #{VENTANA_SINDICACION_DIAS}). Use --backlog para crearlo igual."
+    next
+  end
+
+  targets.each do |target|
+    target_id = target && target.fetch("id").to_i
+    published = target ? target.fetch("published") : false
+    devto_document = JekyllToDevto.render_document(
+      body: post[:transformed_body],
+      title: post[:titulo_usado],
+      description: post[:description],
+      tags: post[:tags],
+      canonical_url: post[:url_canonica],
+      cover_image: post[:cover_image],
+      published: published,
+      ai_disclosure_level: post[:ai_disclosure_level]
+    )
+
+    # `published` viaja como atributo JSON solo al crear. En un PUT, el front
+    # matter refleja el estado leído en la misma corrida y el atributo se omite:
+    # la actualización no puede decidir publicar ni despublicar por su cuenta.
+    article = {
+      title: post[:titulo_usado],
+      body_markdown: devto_document,
+      canonical_url: post[:url_canonica],
+      description: post[:description],
+      main_image: post[:cover_image],
+      tags: post[:tags],
+      ai_disclosure_level: post[:ai_disclosure_level]
+    }
+    article[:published] = false unless target
+    payload = { article: article.compact }
+
+    sleep(PAUSA_ESCRITURA) unless llamadas.zero?
+    llamadas += 1
+    if target
+      code, body = devto_request(api_key, Net::HTTP::Put, "/articles/#{target_id}", payload)
+    else
+      # DEV limita creaciones y actualizaciones por igual; la pausa se aplica a
+      # toda escritura para que un 429 sea fallo visible y no pérdida silenciosa.
+      code, body = devto_request(api_key, Net::HTTP::Post, "/articles", payload)
+    end
+
+    ok = code.between?(200, 299)
+    detalle = ok ? "OK" : "FALLÓ (#{code}#{body.is_a?(Hash) && body['error'] ? ": #{body['error']}" : ''})"
+    puts "#{post[:slug]}: #{target ? "actualización ##{target_id}" : 'creación'} dev.to #{detalle}"
+    unless ok
+      fallos << "#{post[:slug]}: #{code}#{body.is_a?(Hash) && body['error'] ? " #{body['error']}" : ''}"
+      next
+    end
+
+    # Un duplicado remoto se actualiza para retirar contenido viejo, pero no
+    # reemplaza la identidad que ya gobierna _data/distribucion.yml.
+    if !target || existente.nil? || target_id == existente.to_i
+      devto_pub ||= { "plataforma" => "devto" }
+      devto_pub["fecha"] ||= Date.today.to_s
+      devto_pub["devto_article_id"] = body["id"]
+      devto_pub["url_publicada"] = body["url"]
+      devto_pub["estado"] = published ? "publicado" : "borrador"
+      entry["publicaciones"] << devto_pub unless entry["publicaciones"].include?(devto_pub)
+      changed = true
+    end
+  end
 end
 
 if dry_run
