@@ -1,0 +1,88 @@
+version: 1
+runtime:
+  node: "26.8.1"
+  bundler: "4.0.3"
+  ruby_matrix: ["3.3", "3.4"]
+invariants:
+  - Preserve original refs, working changes, approvals and canonical data.
+  - Gates fail closed; missing evidence or tooling is inconclusive, never pass.
+  - No new DEV articles, no published article updates, no Telegram.
+  - Do not weaken existing thresholds to obtain a green result.
+profiles:
+  source: Runtime declarations, source governance, visual assets and focused Ruby tests.
+  local: Source plus actual runtimes, installed locks, JavaScript/Python tests and all builds.
+  release: Local plus clean checkout, matching remote refs, successful Pages jobs and public HTTP.
+coverage_exceptions:
+  geospatial: Seven existing tests requiring GeoPandas or PMTiles; not covered by this maintenance release.
+  legacy_browsers: Build targets retained; Chromium does not certify Safari 16 or Firefox 104.
+performance:
+  pairs: 7
+  candidate_limit: 2
+  median_improvement_min: 0.10
+  improved_pairs_min: 5
+  secondary_regression_max: 0.05
+  inputs: Same machine, browser, viewport, RSS snapshot, controlled cache and build clock.
+phases:
+  - id: F0
+    objective: Recoverable custody before reconciliation.
+    invariants: No original file changed.
+    entry_gate: Inventory HEAD, refs, index, dirty and untracked paths.
+    exit_gate: Restore from bundle and file snapshot verifies all hashes.
+    evidence: Private backup site-health-20260906T221857Z; 1325 files; verification.json.
+    falsified_by: Empty manifest, altered hash and absent file were rejected; valid restore passed.
+    rollback: Original checkout plus previous backups remain available.
+  - id: F1
+    objective: Reconcile tested remote with preserved local history and archived videos.
+    invariants: Every pending path has custody; retain both approved videos outside build.
+    entry_gate: F0 passed.
+    exit_gate: Candidate governance passes and all path dispositions are recorded.
+    evidence: docs/evidence/site-health-20260906.md and external video manifest.
+    falsified_by: Governance rejected the two unowned MP4 before their verified archival removal.
+    rollback: Restore f91498b7 and the F0 working snapshot.
+  - id: F2
+    objective: Reproducible dependencies and working diagnostics.
+    invariants: Preserve anchors, multilingual URLs and host runtime.
+    entry_gate: F1 passed.
+    exit_gate: Runtime declarations, clean install, bundle check and doctor pass.
+    evidence: Runtime test suite and Polyglot doctor regression suite.
+    falsified_by: Original doctor fails on nil languages; CI Node 24 versus Node 26 is rejected by runtime fixtures.
+    rollback: Revert the scoped runtime/compatibility commit and restore local config.
+  - id: F3
+    objective: Compatible upgrades and falsifiable shared checks.
+    invariants: Lockfiles govern installations; generated assets cannot evade transfer budget.
+    entry_gate: F2 passed.
+    exit_gate: Source/local profiles pass with explicit coverage exceptions.
+    evidence: JSON report with source digest, commands, logs and exit codes.
+    falsified_by: Missing Vite manifest was rejected before rebuild; new graph budget fixtures reject hidden oversized imports.
+    rollback: Revert individual dependency or verifier commits.
+  - id: F4
+    objective: Functional, accessible interface and evidence-based performance choices.
+    invariants: No lost functionality, content, fallback or browser build target.
+    entry_gate: F3 passed.
+    exit_gate: Browser matrix passes; each retained optimization meets performance thresholds.
+    evidence: Browser snapshots, screenshots and seven-pair measurements recorded in final evidence.
+    falsified_by: Disable WebGL and block a required asset in isolated sessions; verify visible fallback and detected failure.
+    rollback: Retain baseline when candidate has regressions or inconclusive gain.
+    emergent_items:
+      - id: F4.1
+        authorization: Explicit user request for a subagent and subtle night palette contrast.
+        owner: night_palette subagent; assets/css/main.scss only, plus its own evidence report.
+        objective: Keep palette identity; add subtle readable table/header accents without changing light mode.
+        acceptance: Visual comparison at 390/1280px; text contrast 4.5 normal or 3 large; focus preserved.
+        rollback: Revert only the scoped CSS diff if contrast or readability regresses.
+  - id: F5
+    objective: Reconciled consumers and draft-only DEV maintenance.
+    invariants: No create, published update or unrelated external message.
+    entry_gate: Approved candidate and unchanged original snapshot.
+    exit_gate: Consumer paths match; DEV tests reject forbidden writes and state races.
+    evidence: Consumer diagnostics, draft snapshots and API request/result inventory.
+    falsified_by: Published, missing, duplicate, changed-state and HTTP 429 fixtures must stop unsafe writes.
+    rollback: Restore own consumer configuration; halt writes and restore only still-draft owned changes.
+  - id: F6
+    objective: Converged production release.
+    invariants: No forced pushes or rewritten history; read actual post-workflow refs.
+    entry_gate: Required technical gates pass; known coverage and editorial debt disclosed.
+    exit_gate: Both remotes and checkout agree; build and Pages succeed for final SHA; public smoke passes.
+    evidence: Final release report, CI job URLs, public HTTP and browser checks.
+    falsified_by: A mismatched remote SHA or failed Pages job blocks release verification.
+    rollback: New revert commit with the same draft-only maintenance policy, then revalidate production.

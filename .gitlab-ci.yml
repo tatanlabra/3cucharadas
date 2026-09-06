@@ -21,14 +21,14 @@ variables:
   BUNDLE_DEPLOYMENT: "true"
   GIT_DEPTH: "50"   # mitiga rate limits y acelera fetch
   # Debe seguir a `.nvmrc` y a `engines.node` de package.json. Los SHA256 son los
-  # publicados por nodejs.org en https://nodejs.org/dist/v24.18.0/SHASUMS256.txt
+  # publicados por nodejs.org en https://nodejs.org/dist/v26.8.1/SHASUMS256.txt
   # y se copian aquí a propósito: verificar contra el SHASUMS256.txt descargado en
   # el mismo momento no prueba nada, porque quien pueda alterar el tarball también
   # puede alterar la lista. El valor fijado en el repositorio es el que sí es
   # revisable en un diff.
-  NODE_VERSION: "24.18.0"
-  NODE_SHA256_X64: "55aa7153f9d88f28d765fcdad5ae6945b5c0f98a36881703817e4c450fa76742"
-  NODE_SHA256_ARM64: "58c9520501f6ae2b52d5b210444e24b9d0c029a58c5011b797bc1fe7105886f6"
+  NODE_VERSION: "26.8.1"
+  NODE_SHA256_X64: "3e301118d7df53d563b7e96c1617545f26e2f76f9724be668d6cab65c15dda5d"
+  NODE_SHA256_ARM64: "23c1b4d19e2f12a7d06fe8aa3d6e0e4923cf77a47e13c5ccdf32fadaa33960f2"
 
 cache:
   paths:
@@ -80,7 +80,7 @@ build_site:
     - python3 -m venv .venv
     - .venv/bin/pip install feedparser
     - .venv/bin/python scripts/fetch_news.py
-    - gem install bundler -N
+    - gem install bundler -v 4.0.3 -N
     - bundle install
     # Corre sobre el árbol fuente, antes de construir: si un post referencia una
     # imagen inexistente o una pieza no publicable, falla acá y no tras el build.
