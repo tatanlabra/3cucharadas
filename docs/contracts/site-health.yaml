@@ -80,6 +80,11 @@ phases:
         objective: Make display formulas horizontally scrollable with keyboard while preserving MathML and feeds.
         acceptance: Observed mobile scrollable-region-focusable failures recover; wrapper-only idempotent transformation.
         rollback: Revert math_keyboard plugin and its isolated test.
+      - id: F4.4
+        authorization: In-scope semantic correction discovered by Catastro browser audit.
+        objective: Named keyboard-scrollable containers expose a region role.
+        acceptance: Observed aria-prohibited-attr failures recover; HTMLParser fixtures reject missing role and validate actual template.
+        rollback: Revert role attributes only, with no data or map changes.
   - id: F5
     objective: Reconciled consumers and draft-only DEV maintenance.
     invariants: No create, published update or unrelated external message.
