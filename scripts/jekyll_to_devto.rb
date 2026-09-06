@@ -11,6 +11,26 @@ require "yaml"
 # acepta DEV.to. El fuente nunca se modifica: este módulo solo devuelve texto.
 module JekyllToDevto
   SITE_URL = "https://3cucharadas.cl"
+  ROOT = File.expand_path("..", __dir__)
+
+  # DEV.to hace pasar los <img> externos por su optimizador. Ese proxy declara
+  # WebP para un SVG de 3cucharadas.cl pero entrega los bytes SVG sin convertir,
+  # por lo que el navegador lo descarta. El mapeo es explícito y verificable:
+  # el post Jekyll conserva el vector y solo el artefacto DEV usa el ráster.
+  DEVTO_RASTERS = {
+    "/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.svg" =>
+      "/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.webp",
+    "/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores-en.svg" =>
+      "/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores-en.webp",
+    "/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg" =>
+      "/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png",
+    "/assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg" =>
+      "/assets/images/structured-shell/fig-d2-shell-families-mobile-en-devto-1080x2710.png",
+    "/assets/images/structured-shell/fig-d2-shell-families-en.svg" =>
+      "/assets/images/structured-shell/fig-d2-shell-families-en-devto-1600x1360.png",
+    "/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg" =>
+      "/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png"
+  }.freeze
 
   # Tags documentados por Forem y tags de bloque que DEV.to ya admite. La lista
   # es deliberadamente explícita: un tag Jekyll nuevo no debe cruzar por accidente.
@@ -83,6 +103,9 @@ module JekyllToDevto
       problems << "variable page.*" if segment.match?(/\{\{[-]?\s*page\./)
       problems << "salida Liquid {{ ... }}" if segment.include?("{{")
       problems << "extensión Kramdown" if segment.match?(KRAMDOWN_IAL)
+      if segment.match?(%r{(?:https?://[^\s"'<>)]*|/assets/[^\s"'<>)]*)\.svg(?:[?#][^\s"'<>)]*)?}i)
+        problems << "referencia SVG no portable"
+      end
 
       segment.scan(/\{%[-]?\s*([A-Za-z_][\w-]*)/) do |match|
         tag = match.first.downcase
@@ -202,7 +225,44 @@ module JekyllToDevto
     transformed = transform_liquid(text, site_url:, canonical_url:, page:, warnings:)
     transformed = transformed.gsub(KRAMDOWN_IAL, "")
     transformed = absolutize_html_attributes(transformed, site_url)
+    transformed = rewrite_internal_svg_urls(transformed, site_url)
     transformed
+  end
+
+  def rewrite_internal_svg_urls(text, site_url)
+    site_root = site_url.chomp("/")
+    pattern = %r{(?:#{Regexp.escape(site_root)})?(?<path>/assets/[^\s"'<>),]+\.svg)(?<suffix>[?#][^\s"'<>),]*)?}i
+    extensions = []
+    transformed = text.gsub(pattern) do
+      svg_path = Regexp.last_match(:path)
+      suffix = Regexp.last_match(:suffix).to_s
+      raster_path = DEVTO_RASTERS[svg_path]
+      unless raster_path
+        raise TransformError,
+              "falta mapeo ráster DEV.to para #{svg_path}; ejecute scripts/generate_devto_rasters.sh"
+      end
+
+      local_raster = File.expand_path(raster_path.delete_prefix("/"), ROOT)
+      unless local_raster.start_with?("#{File.join(ROOT, 'assets')}/") && File.file?(local_raster)
+        raise TransformError,
+              "falta ráster DEV.to #{raster_path}; ejecute scripts/generate_devto_rasters.sh"
+      end
+
+      extensions << File.extname(raster_path).downcase
+      "#{site_root}#{raster_path}#{suffix}"
+    end
+
+    return transformed if extensions.empty?
+
+    mime_types = extensions.uniq.map { |extension| extension == ".webp" ? "image/webp" : "image/png" }
+    if mime_types.one?
+      transformed.gsub(/\btype=(['"])image\/svg\+xml\1/i) do
+        quote = Regexp.last_match(1)
+        "type=#{quote}#{mime_types.first}#{quote}"
+      end
+    else
+      transformed
+    end
   end
 
   def transform_liquid(text, site_url:, canonical_url:, page:, warnings:)

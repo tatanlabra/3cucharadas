@@ -45,6 +45,22 @@ Console que no aparezcan como páginas separadas (ver
 - Cualquier envío manual (LinkedIn nativo, Bluesky/Mastodon vía
   `cucharadas-difusion`) debe seguir la misma tabla al construir el enlace.
 
+## Markdown derivado para DEV.to
+
+- Los Markdown de `_posts/` siguen siendo la fuente canónica y conservan sus SVG.
+- `scripts/jekyll_to_devto.rb` cambia solo el artefacto derivado: Liquid Jekyll se resuelve y cada SVG interno se reemplaza mediante una tabla explícita por PNG o WebP.
+- `scripts/generate_devto_rasters.sh` regenera los cuatro PNG que no tenían alternativa ráster; los dos gráficos de Avalúo reutilizan sus WebP existentes.
+- La exportación falla si falta un archivo mapeado, aparece un SVG nuevo sin mapeo o queda una URL `.svg` fuera de código literal.
+- El 2026-09-06 se reprodujo el defecto: el proxy de imágenes de DEV.to respondió `Content-Type: image/webp` para un SVG, pero entregó exactamente los bytes SVG; Chromium informó `naturalWidth: 0` y mostró una imagen rota.
+
+Comprobación local:
+
+```bash
+scripts/generate_devto_rasters.sh
+ruby tests/test_jekyll_to_devto.rb
+ruby scripts/syndicate_devto.rb --export-dir "$(mktemp -d)"
+```
+
 ## Registro: `_data/distribucion.yml`
 
 Fuente de verdad de qué se publicó, dónde, cuándo y con qué resultado.

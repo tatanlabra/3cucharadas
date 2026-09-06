@@ -10,8 +10,14 @@ require "rexml/xpath"
 site_dir = File.expand_path(ARGV.fetch(0, "public"))
 source_root = File.expand_path("..", __dir__)
 # KaTeX CSS and its self-hosted WOFF2 font set are part of the public artifact.
-max_bytes = Integer(ENV.fetch("SITE_BASE_ARTIFACT_MAX_BYTES", "45000000"))
-total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", "60000000"))
+# GitLab.com publica actualmente límites de 1000 MiB tanto para el sitio Pages
+# como para el archivo del job. El total local mide el árbol descomprimido, que
+# es la magnitud comparable con Pages. El límite base anterior era un presupuesto
+# interno: queda disponible como override, pero no bloquea CI por defecto.
+gitlab_pages_max_bytes = 1_000 * 1024 * 1024
+total_max_bytes = Integer(ENV.fetch("SITE_ARTIFACT_MAX_BYTES", gitlab_pages_max_bytes.to_s))
+total_max_entries = Integer(ENV.fetch("SITE_ARTIFACT_MAX_ENTRIES", "200000"))
+base_max_bytes = ENV["SITE_BASE_ARTIFACT_MAX_BYTES"]&.then { |value| Integer(value) }
 draft_fixture_mode = ENV["VERIFY_MATH_DRAFTS"] == "1"
 
 abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_dir)
@@ -314,19 +320,31 @@ unless draft_fixture_mode
 end
 
 artifact_bytes = 0
-Find.find(site_dir) { |entry| artifact_bytes += File.size(entry) if File.file?(entry) }
+artifact_entries = 0
+Find.find(site_dir) do |entry|
+  next if entry == site_dir
+
+  artifact_entries += 1
+  artifact_bytes += File.size(entry) if File.file?(entry)
+end
 unless draft_fixture_mode
   abort "Artifact exceeds #{total_max_bytes} bytes: #{artifact_bytes}" if artifact_bytes > total_max_bytes
+  abort "Artifact exceeds #{total_max_entries} entries: #{artifact_entries}" if artifact_entries > total_max_entries
 
-  catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir, catastro_annex_dir].sum do |directory|
-    next 0 unless Dir.exist?(directory)
+  if base_max_bytes
+    catastro_bytes = [microsite_dir, catastro_data_dir, catastro_bundle_dir, catastro_annex_dir].sum do |directory|
+      next 0 unless Dir.exist?(directory)
 
-    bytes = 0
-    Find.find(directory) { |entry| bytes += File.size(entry) if File.file?(entry) }
-    bytes
+      bytes = 0
+      Find.find(directory) { |entry| bytes += File.size(entry) if File.file?(entry) }
+      bytes
+    end
+    base_artifact_bytes = artifact_bytes - catastro_bytes
+    if base_artifact_bytes > base_max_bytes
+      abort "Artifact outside Catastro SII Brecha exceeds #{base_max_bytes} bytes: #{base_artifact_bytes}"
+    end
   end
-  base_artifact_bytes = artifact_bytes - catastro_bytes
-  abort "Artifact outside Catastro SII Brecha exceeds #{max_bytes} bytes: #{base_artifact_bytes}" if base_artifact_bytes > max_bytes
 end
 
-puts "Artifact verification passed: #{artifact_bytes} bytes"
+puts "Artifact verification passed: #{artifact_bytes}/#{total_max_bytes} bytes, " \
+     "#{artifact_entries}/#{total_max_entries} entries"

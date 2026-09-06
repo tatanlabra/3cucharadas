@@ -14,3 +14,5 @@ piezas:
   - {id: familias-es-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-familias-shell-mobile.svg, estado: publicable, origen: d2}
   - {id: familias-en, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-en.svg, estado: publicable, origen: d2}
   - {id: familias-en-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg, estado: publicable, origen: d2}
+  - {id: familias-en-devto, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-en-devto-1600x1360.png, ancho: 1600, alto: 1360, estado: publicable, origen: render-script, alt: {en: "Desktop diagram comparing the data carried by shell families."}}
+  - {id: familias-en-mobile-devto, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en-devto-1080x2710.png, ancho: 1080, alto: 2710, estado: publicable, origen: render-script, alt: {en: "Mobile diagram comparing the data carried by shell families."}}

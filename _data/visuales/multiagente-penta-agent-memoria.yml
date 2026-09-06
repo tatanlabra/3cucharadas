@@ -18,3 +18,11 @@ piezas:
     alt: {es: "Ilustración de memoria auditable para un sistema multiagente."}
   - {id: flujo-es, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg, estado: publicable, origen: d2}
   - {id: flujo-en, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg, estado: publicable, origen: d2}
+  - id: flujo-en-devto
+    rol: figura
+    archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png
+    ancho: 1200
+    alto: 2172
+    estado: publicable
+    origen: render-script
+    alt: {en: "Flow diagram of the auditable multi-agent memory pipeline."}
