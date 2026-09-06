@@ -35,10 +35,12 @@
    scripts/catastro_sii/sync_local_preview_from_stata01.sh 20260718T212932Z
    ```
 
-   El resultado queda ignorado por Git bajo `assets/data/catastro_sii/local/` y se
+   El resultado queda fuera del checkout bajo
+   `${CATASTRO_SII_LOCAL_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/catastro_sii/local}` y se
    abre en `http://127.0.0.1:4001/catastro_sii_brecha/`. Para fijar una corrida
    específica, usa `?catastroPreview=local&run=20260718T212932Z`.
-   Su manifest sólo funciona en localhost y no modifica el manifest versionado.
+   El servidor Range proyecta esa raíz sobre `/assets/data/catastro_sii/local/`:
+   su manifest sólo funciona en localhost y no modifica el manifest versionado.
 7. Preparar la base Protomaps/OSM desde una fuente con licencia compatible. El script
    llama al extractor oficial `pmtiles` en el contenedor Protomaps fijado por digest,
    con artefactos finales bajo el directorio de salida en `nas05` y caché/runroot

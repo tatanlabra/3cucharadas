@@ -1,11 +1,19 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
+import { homedir } from "node:os";
 import { extname, join, normalize, resolve } from "node:path";
 
 const root = resolve(process.argv[2] ?? process.cwd());
 const port = Number(process.argv[3] ?? 4014);
 const host = process.argv[4] ?? "127.0.0.1";
-const overlayRoot = process.argv[5] ? resolve(process.argv[5]) : null;
+const stateRoot = process.env.XDG_STATE_HOME
+  ? resolve(process.env.XDG_STATE_HOME)
+  : resolve(homedir(), ".local", "state");
+const overlayRoot = resolve(
+  process.argv[5]
+    ?? process.env.CATASTRO_SII_LOCAL_ROOT
+    ?? join(stateRoot, "3cucharadas", "catastro_sii", "local")
+);
 const localCatastroOverlay = "/assets/data/catastro_sii/local/";
 
 const types = new Map([
@@ -35,8 +43,8 @@ function pathFor(url) {
   const parsed = new URL(url, "http://localhost");
   const primary = pathInside(root, parsed.pathname);
   if (primary && existsSync(primary)) return primary;
-  if (overlayRoot && parsed.pathname.startsWith(localCatastroOverlay)) {
-    return pathInside(overlayRoot, parsed.pathname);
+  if (parsed.pathname.startsWith(localCatastroOverlay)) {
+    return pathInside(overlayRoot, parsed.pathname.slice(localCatastroOverlay.length));
   }
   return primary;
 }

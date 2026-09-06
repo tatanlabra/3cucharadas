@@ -37,9 +37,10 @@ describe("manifestUrlForLocation", () => {
   it("sirve el preview con Range sobre _site y overlay acotado de PMTiles locales", () => {
     for (const script of ["serve:catastro:range", "serve:catastro:mcp"]) {
       expect(packageJson.scripts[script]).toContain("serve_range_static.mjs _site ");
-      expect(packageJson.scripts[script]).toMatch(/ \.$/);
     }
     expect(rangeServer).toContain('const localCatastroOverlay = "/assets/data/catastro_sii/local/";');
     expect(rangeServer).toContain("parsed.pathname.startsWith(localCatastroOverlay)");
+    expect(rangeServer).toContain("process.env.CATASTRO_SII_LOCAL_ROOT");
+    expect(rangeServer).toContain("parsed.pathname.slice(localCatastroOverlay.length)");
   });
 });

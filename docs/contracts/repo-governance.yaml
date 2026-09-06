@@ -1,0 +1,79 @@
+version: 1
+measured_at: "2026-09-06"
+limits:
+  github_large_object_review_bytes: 1000000
+  github_single_object_enforced_bytes: 100000000
+  github_repository_ondisk_recommended_bytes: 10000000000
+  github_directory_entries_recommended: 3000
+  github_directory_depth_recommended: 50
+  github_push_enforced_bytes: 2000000000
+  gitlab_repository_bytes: 10000000000
+  gitlab_push_bytes: 5368709120
+  gitlab_pages_site_bytes: 1048576000
+forbidden_worktree_roots:
+  - activos
+tracked_forbidden_patterns:
+  - "_site/**"
+  - "_site_*/**"
+  - "public/**"
+  - "node_modules/**"
+  - "vendor/bundle/**"
+  - ".jekyll-cache/**"
+  - ".sass-cache/**"
+  - "assets/data/catastro_sii/local/**"
+  - "difusion/state/**"
+  - "difusion/**/*.pdf"
+local_residue_paths:
+  - _site
+  - "_site_*"
+  - public
+  - node_modules
+  - vendor/bundle
+  - .jekyll-cache
+  - .sass-cache
+  - _asset_bundler_cache
+  - assets/dist/catastro_sii
+  - assets/dist/memoria_gobernada
+  - assets/data/catastro_sii/local
+owned_large_files:
+  assets/videos/catastro-sii-visor.mp4:
+    owner: editorial-catastro-sii
+    role: video-publicado-referenciado-por-el-post
+    retention: mantener-hasta-migracion-validada-de-url-mime-y-range
+  assets/visualizations/penta-rag-knowledge-graph/index.html:
+    owner: editorial-multiagente
+    role: visor-publicado-autocontenido
+    retention: mantener-mientras-el-post-lo-enlace
+  assets/data/rag_knowledge_graph/public-graph.json:
+    owner: editorial-multiagente
+    role: datos-publicos-del-visor
+    retention: mantener-mientras-el-visor-los-consuma
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png:
+    owner: editorial-avaluo
+    role: pieza-publicable-de-difusion
+    retention: mantener-hasta-versionar-un-reemplazo
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png:
+    owner: editorial-avaluo
+    role: pieza-publicable-de-difusion
+    retention: mantener-hasta-versionar-un-reemplazo
+  scripts/penta_rag_graph/vendor/3d-force-graph.min.js:
+    owner: build-multiagente
+    role: dependencia-fijada-del-visor-autocontenido
+    retention: mantener-con-licencia-y-hash-versionados
+  assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf:
+    owner: editorial-documentos
+    role: fuente-publica-enlazada
+    retention: mantener-mientras-el-sitio-la-enlace
+  assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2:
+    owner: frontend
+    role: fuente-local-del-sitio
+    retention: mantener-mientras-css-la-consuma
+  assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/universo-espacial-1080x1350.png:
+    owner: editorial-avaluo
+    role: pieza-publicable-de-difusion
+    retention: mantener-hasta-versionar-un-reemplazo
+falsified_by:
+  - test: unowned_large_file
+    observation: "Observado rojo el 2026-09-06: orphan.bin de 12 bytes superó el umbral fixture de 10 sin dueño; el proceso salió 1. El fixture equivalente con owned.bin declarado salió 0."
+  - test: nested_worktree
+    observation: "Observado rojo el 2026-09-06: activos/prueba/.git produjo nested_git_metadata y forbidden_worktree_root con salida 1; el fixture limpio salió 0."

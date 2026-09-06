@@ -10,9 +10,10 @@ run_id="${1:?Uso: sync_local_preview_from_stata01.sh RUN_ID}"
 : "${REMOTE_STATA01_HOST:=stata01}"
 : "${REMOTE_TILES_ROOT:=/mnt/nas05/proyecto_catastral_sii/outputs/maps/catastro_sii_brechas_maps/tiles}"
 : "${PYTHON_BIN:=python3}"
+: "${CATASTRO_SII_LOCAL_ROOT:=${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/catastro_sii/local}"
 
 repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
-local_root="${repo_root}/assets/data/catastro_sii/local/${run_id}"
+local_root="${CATASTRO_SII_LOCAL_ROOT}/${run_id}"
 remote_root="${REMOTE_STATA01_HOST}:${REMOTE_TILES_ROOT}/${run_id}"
 mkdir -p "${local_root}"
 partial_dir="${local_root}/.rsync-partial"
@@ -40,9 +41,9 @@ sync_file "fonts/Noto Sans Regular/0-255.pbf"
 "${PYTHON_BIN}" "$(dirname "$0")/write_local_preview_manifest.py" \
   --tiles-manifest "${local_root}/tiles_manifest_${run_id}.json" \
   --output "${local_root}/manifest.json" \
-  --current-output "${repo_root}/assets/data/catastro_sii/local/manifest.json" \
+  --current-output "${CATASTRO_SII_LOCAL_ROOT}/manifest.json" \
   --tiles-base "/assets/data/catastro_sii/local/${run_id}" \
-  --territories-output "${repo_root}/assets/data/catastro_sii/local/territories.json" \
+  --territories-output "${CATASTRO_SII_LOCAL_ROOT}/territories.json" \
   --basemap-file "basemap_chile_${run_id}.pmtiles" \
   --basemap-style "basemap_chile_${run_id}.style.json" \
   --basemap-fonts-dir "${local_root}/fonts"
@@ -57,3 +58,4 @@ sha256sum \
   "${local_root}/tiles_manifest_${run_id}.json"
 printf '%s\n' "Preview local listo: /catastro_sii_brecha/ (última corrida)"
 printf '%s\n' "Corrida fijada: /catastro_sii_brecha/?catastroPreview=local&run=${run_id}"
+printf '%s\n' "Estado local: ${CATASTRO_SII_LOCAL_ROOT}"
