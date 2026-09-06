@@ -57,6 +57,7 @@ begin
     run.call("test-#{test}", ['ruby', "tests/test_#{test}.rb"])
   end
   run.call('test-notification', %w[python3 -m unittest tests/test_notify_telegram_publication.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('test-accessible-regions', %w[python3 -m unittest discover -s tests/catastro_sii -p test_accessible_regions.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
 
   unless options[:profile] == 'source'
     version, status = Open3.capture2e('node', '--version')
@@ -108,6 +109,12 @@ begin
     record.call('gitlab-release', valid ? 'PASS' : 'FAIL', success.map { |p| p['web_url'] }.join(', '))
     ['/', '/en/', '/feed.xml', '/feed-julia.xml', '/catastro_sii_brecha/'].each_with_index do |path, index|
       run.call("public-http-#{index}", ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', File.join(log_dir, "public-#{index}.html"), "https://3cucharadas.cl#{path}"])
+    end
+    css = File.join(log_dir, 'public-main.css')
+    if run.call('public-css-http', ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', css, 'https://3cucharadas.cl/assets/css/main.css'])
+      expected = File.join(File.dirname(report_path), 'site-production/assets/css/main.css')
+      equal = File.file?(expected) && Digest::SHA256.file(expected).hexdigest == Digest::SHA256.file(css).hexdigest
+      record.call('public-css-parity', equal ? 'PASS' : 'FAIL', Digest::SHA256.file(css).hexdigest)
     end
   end
 rescue StandardError => error

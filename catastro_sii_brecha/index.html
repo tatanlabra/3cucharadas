@@ -118,8 +118,8 @@
           <button class="lab-reset-filter" id="coverage-teaser-legend-none" type="button">Deseleccionar todas</button>
         </div>
       </div>
-      <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico introductorio de cobertura frente a avalúo"><div class="lab-chart lab-chart-wide" id="coverage-teaser-chart" aria-busy="true"></div></div>
-      <details class="lab-table-details"><summary>Ver datos de cobertura y avalúo por comuna</summary><div class="lab-table-scroll" id="coverage-teaser-table" tabindex="0" aria-label="Desplazar tabla de cobertura y avalúo por comuna"></div></details>
+      <div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico introductorio de cobertura frente a avalúo"><div class="lab-chart lab-chart-wide" id="coverage-teaser-chart" aria-busy="true"></div></div>
+      <details class="lab-table-details"><summary>Ver datos de cobertura y avalúo por comuna</summary><div role="region" class="lab-table-scroll" id="coverage-teaser-table" tabindex="0" aria-label="Desplazar tabla de cobertura y avalúo por comuna"></div></details>
     </section>
 
     <section class="card finder-card reveal" id="explorar" aria-labelledby="explorar-title">
@@ -152,7 +152,7 @@
         <p id="finding">Elige una comuna para cargar la lectura y el mapa.</p>
       </div>
       <div class="territory-detail-summary" id="territory-detail-summary" role="status">Elige una comuna para cargar su ficha territorial.</div>
-      <div class="lab-table-scroll territory-table-scroll" tabindex="0" aria-label="Desplazar tabla de indicadores territoriales de la comuna">
+      <div role="region" class="lab-table-scroll territory-table-scroll" tabindex="0" aria-label="Desplazar tabla de indicadores territoriales de la comuna">
         <table class="lab-data-table territory-detail-table" id="territory-detail-table">
           <caption>Indicadores territoriales agregados de la comuna seleccionada</caption>
           <tbody id="territory-detail-table-body">
@@ -247,8 +247,8 @@
       <div class="lab-panel" id="panel-flujo" role="tabpanel" data-lab-panel="flujo" aria-labelledby="tab-flujo" tabindex="0">
         <div class="lab-panel-copy"><h3>De registros a cobertura territorial</h3><p>El primer corte elimina duplicados; el segundo distingue los predios únicos que tocan al menos una unidad vecinal de los que no tocan ninguna. Ese residuo importa: es el catastro que la malla UV deja fuera.</p></div>
         <p class="lab-panel-message" aria-live="polite"></p>
-        <div class="lab-chart-scroll lab-chart-scroll--wide" tabindex="0" aria-label="Desplazar gráfico de flujo"><div class="lab-chart lab-chart-wide" id="lab-flow-chart" aria-busy="true"></div></div>
-        <details class="lab-table-details"><summary>Ver datos del flujo</summary><div class="lab-table-scroll" id="lab-flow-table" tabindex="0" aria-label="Desplazar tabla de flujo de predios"></div></details>
+        <div role="region" class="lab-chart-scroll lab-chart-scroll--wide" tabindex="0" aria-label="Desplazar gráfico de flujo"><div class="lab-chart lab-chart-wide" id="lab-flow-chart" aria-busy="true"></div></div>
+        <details class="lab-table-details"><summary>Ver datos del flujo</summary><div role="region" class="lab-table-scroll" id="lab-flow-table" tabindex="0" aria-label="Desplazar tabla de flujo de predios"></div></details>
       </div>
 
       <div class="lab-panel" id="panel-avaluos" role="tabpanel" data-lab-panel="avaluos" aria-labelledby="tab-avaluos" tabindex="0" hidden>
@@ -256,27 +256,27 @@
         <p class="lab-scale-note"><strong>Lectura log10.</strong> Los ejes de avalúo usan escala logarítmica base 10: avanzar una marca significa multiplicar por 10, no sumar el mismo monto. Las etiquetas, porcentajes y tooltips siguen mostrando pesos chilenos originales para no perder la magnitud.</p>
         <p class="lab-panel-message" aria-live="polite"></p>
         <div class="lab-appraisal-grid">
-          <article><h4>Avalúo asignado por región</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico regional de avalúos"><div class="lab-chart" id="lab-appraisal-regions-chart"></div></div></article>
-          <article><h4>Comunas de mayor avalúo total</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico comunal de avalúos"><div class="lab-chart" id="lab-appraisal-communes-chart"></div></div></article>
+          <article><h4>Avalúo asignado por región</h4><div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico regional de avalúos"><div class="lab-chart" id="lab-appraisal-regions-chart"></div></div></article>
+          <article><h4>Comunas de mayor avalúo total</h4><div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico comunal de avalúos"><div class="lab-chart" id="lab-appraisal-communes-chart"></div></div></article>
         </div>
-        <details class="lab-table-details"><summary>Ver principales regiones</summary><div class="lab-table-scroll" id="lab-appraisal-table" tabindex="0" aria-label="Desplazar tabla de avalúo por región"></div></details>
+        <details class="lab-table-details"><summary>Ver principales regiones</summary><div role="region" class="lab-table-scroll" id="lab-appraisal-table" tabindex="0" aria-label="Desplazar tabla de avalúo por región"></div></details>
       </div>
 
       <div class="lab-panel" id="panel-distribuciones" role="tabpanel" data-lab-panel="distribuciones" aria-labelledby="tab-distribuciones" tabindex="0" hidden>
         <div class="lab-panel-copy"><h3>Primero la mediana; después la forma</h3><p>La línea resume la mediana por cuartil IGVUST; los violines muestran la dispersión completa detrás de esa línea. Si la pendiente se mueve y la forma se abre, el denominador está cambiando algo más que una etiqueta.</p></div>
         <p class="lab-scale-note"><strong>Lectura log10.</strong> Las alturas están calculadas en log10 para que una cola extrema no aplaste el resto de la distribución. Un salto de 3 a 4 en la coordenada equivale a pasar de 1.000 a 10.000 pesos; compara razones y medianas, no diferencias absolutas en pesos.</p>
         <p class="lab-panel-message" aria-live="polite"></p>
-        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar resumen de medianas por cuartil"><div class="lab-chart lab-chart-wide" id="lab-violin-summary-chart"></div></div>
+        <div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar resumen de medianas por cuartil"><div class="lab-chart lab-chart-wide" id="lab-violin-summary-chart"></div></div>
         <div class="lab-violin-grid" id="lab-violin-charts"></div>
-        <details class="lab-table-details"><summary>Ver medianas e intervalos</summary><div class="lab-table-scroll" id="lab-distributions-table" tabindex="0" aria-label="Desplazar tabla de medianas por cuartil"></div></details>
+        <details class="lab-table-details"><summary>Ver medianas e intervalos</summary><div role="region" class="lab-table-scroll" id="lab-distributions-table" tabindex="0" aria-label="Desplazar tabla de medianas por cuartil"></div></details>
       </div>
 
       <div class="lab-panel" id="panel-sensibilidad" role="tabpanel" data-lab-panel="sensibilidad" aria-labelledby="tab-sensibilidad" tabindex="0" hidden>
         <div class="lab-panel-copy"><h3>Cuartiles y correlaciones bajo presión</h3><p>Sólo 19,9% de las UV conserva el mismo cuartil entre hogar y m²; 45,8% se desplaza dos o más. No cambiaron los predios: cambió la pregunta. Pearson y Spearman cuentan la misma advertencia — robustez descriptiva no es causalidad.</p></div>
         <p class="lab-panel-message" aria-live="polite"></p>
         <div class="lab-sensitivity-grid">
-          <article><h4>Transición hogar → m²</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar matriz de transición"><div class="lab-chart" id="lab-transition-chart"></div></div><details class="lab-table-details"><summary>Ver matriz 4×4</summary><div class="lab-table-scroll" id="lab-transition-table" tabindex="0" aria-label="Desplazar tabla de transición hogar a m²"></div></details></article>
-          <article><h4>Pearson frente a Spearman</h4><div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico de correlaciones"><div class="lab-chart" id="lab-sensitivity-chart"></div></div><details class="lab-table-details"><summary>Ver correlaciones</summary><div class="lab-table-scroll" id="lab-sensitivity-table" tabindex="0" aria-label="Desplazar tabla de correlaciones Pearson y Spearman"></div></details></article>
+          <article><h4>Transición hogar → m²</h4><div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar matriz de transición"><div class="lab-chart" id="lab-transition-chart"></div></div><details class="lab-table-details"><summary>Ver matriz 4×4</summary><div role="region" class="lab-table-scroll" id="lab-transition-table" tabindex="0" aria-label="Desplazar tabla de transición hogar a m²"></div></details></article>
+          <article><h4>Pearson frente a Spearman</h4><div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar gráfico de correlaciones"><div class="lab-chart" id="lab-sensitivity-chart"></div></div><details class="lab-table-details"><summary>Ver correlaciones</summary><div role="region" class="lab-table-scroll" id="lab-sensitivity-table" tabindex="0" aria-label="Desplazar tabla de correlaciones Pearson y Spearman"></div></details></article>
         </div>
       </div>
 
@@ -302,8 +302,8 @@
             <button class="lab-reset-filter" id="lab-communes-legend-none" type="button">Deseleccionar todas</button>
           </div>
         </div>
-        <div class="lab-chart-scroll" tabindex="0" aria-label="Desplazar burbujas de ranking nacional"><div class="lab-chart lab-chart-wide lab-bubble-chart" id="lab-communes-chart"></div></div>
-        <details class="lab-table-details"><summary>Ver tabla comunal filtrada</summary><div class="lab-table-scroll" id="lab-communes-table" tabindex="0" aria-label="Desplazar tabla comunal filtrada"></div></details>
+        <div role="region" class="lab-chart-scroll" tabindex="0" aria-label="Desplazar burbujas de ranking nacional"><div class="lab-chart lab-chart-wide lab-bubble-chart" id="lab-communes-chart"></div></div>
+        <details class="lab-table-details"><summary>Ver tabla comunal filtrada</summary><div role="region" class="lab-table-scroll" id="lab-communes-table" tabindex="0" aria-label="Desplazar tabla comunal filtrada"></div></details>
       </div>
 
       <div class="lab-footer"><p>Fuente agregada y método reproducible. El laboratorio rechaza esquemas desconocidos y sólo descarga indicadores territoriales agregados; la capa predial completa no se publica como descarga.</p><a class="inline-link" href="data/insights-v1.json" download>Descargar JSON nacional <span aria-hidden="true">↓</span></a><a class="inline-link" href="data/agregados_territoriales.json" download>Descargar agregados territoriales <span aria-hidden="true">↓</span></a></div>

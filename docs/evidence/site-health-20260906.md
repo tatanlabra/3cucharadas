@@ -7,11 +7,12 @@
 | F0 Custodia | [x] | 1.325 archivos, bundle completo, restore y tres negativos rechazados |
 | F1 Reconciliación | [x] | Base 75f80d72 + historia f91498b7; archivo externo verificado; gobernanza verde |
 | F2 Entorno | [x] | Instalación aislada: 52 gems; doctor reparado; 3 tests/11 aserciones y runtime 2/9 |
-| F3 Dependencias/gates | [ ] | Locks, suite y artefactos |
-| F4 Interfaz/rendimiento | [ ] | Baseline, candidatos, accesibilidad |
-| F4.1 Paleta nocturna | [~] | Ampliación humana: subagente acotado a CSS, contraste leve y evidencia visual |
-| F5 Consumidores/DEV | [ ] | Sólo borradores existentes, sin Telegram |
-| F6 Producción | [ ] | Convergencia final, jobs y HTTP |
+| F3 Dependencias/gates | [x] | Cinco actualizaciones conservadoras; contrato local y tres builds verdes |
+| F4 Interfaz/rendimiento | [x] | 20 combinaciones sin violaciones axe A/AA detectadas; ninguna optimización de velocidad promovida |
+| F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
+| F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
+| F5 Consumidores/DEV | [~] | main y bundle operativo reconciliados; hooks idempotentes; DEV pendiente de ejecución autenticada |
+| F6 Producción | [~] | Gate pre-release rechazó ambos remotos atrasados y ausencia de pipeline para el SHA |
 
 ## Custodia y reconciliación
 
@@ -60,7 +61,76 @@ verificar la copia. Se recuperan desde ese archivo, el respaldo F0 o el commit
 y restauración comprobada. Los documentos de captura permanecen como historia;
 sus enlaces originales se resuelven restaurando el paquete completo del archivo.
 
-## Límites
+## Validación local y contraejemplos
+
+La candidata integra el remoto 75f80d72 y conserva f91498b7 en su ascendencia.
+Antes de actualizar el checkout operativo se repitió el cotejo de sus 1.325 hashes:
+`PASS unchanged live snapshot`. Los 23 paths quedaron además en el stash
+`site-health-20260906: original pending work preserved; see F0 backup`.
+`main` avanzó por fast-forward; no se aplicó encima el contenido antiguo del stash.
+
+| Superficie | Evidencia observada |
+|---|---|
+| Entorno operativo | Instalación frozen en vendor/bundle; bundle check y doctor exit 0; Node 26.8.1, Bundler 4.0.3, Ruby 3.4.10 |
+| Gems | concurrent-ruby 1.3.8, csv 3.3.6, execjs 2.10.2, google-protobuf 4.36.1, sass-embedded 1.104.0; un commit por actualización conservadora |
+| Presupuesto transitivo | 131.980/153.600 bytes gzip, dos archivos; import dinámico sobredimensionado, manifiesto vacío e import ausente rechazados |
+| Tipos | Nueva prueba detectó TS7016 por declaración ausente; d.mts añadido, TypeScript volvió a verde sin bajar exigencia |
+| Suite | 192 pruebas ejecutadas en pre-release, siete geoespaciales omitidas; dos pruebas adicionales de regiones pasan separadamente |
+| Builds | Producción, future y drafts; comprobación de artefactos y readiness verdes |
+| Seguridad consultada | npm audit: cero vulnerabilidades; API Dependabot: cero alertas abiertas |
+| Git operativo | fsck y gobernanza verdes; count-objects garbage=0; checkout limpio, dependencias ignoradas permitidas |
+| Hooks | Cadena anterior respaldada; primera instalación actualiza, segunda informa already installed; commits no notifican Telegram |
+| systemd | Symlink al checkout operativo, WorkingDirectory correcto, ExecStart --ventana 30; daemon-reload sin iniciar publicación |
+
+Ejecución en `/tmp/3c-health-run-LCLqKQ`: `recovery/local.json` acredita la suite
+verde anterior a la última corrección ARIA; `pre-release/report.json` repitió
+pruebas y builds sobre 27069d2b, pero salió 1: ambos remotos seguían en 75f80d72
+y no había pipeline del candidato. Esto demuestra que HTTP 200 del sitio viejo
+no basta para aprobar producción. El informe final debe repetirse tras el push.
+
+## Interfaz: mejora acotada, no perfección
+
+`browser/matrix.json`: portada ES/EN, avalúo, Nushell y post III × 1280/390 px ×
+claro/nocturno. Las 20 combinaciones finales no detectaron violaciones axe
+WCAG A/AA. Hubo dos fallos reales corregidos: enlace deshabilitado sin nombre y
+fórmulas anchas sin acceso de teclado. La fórmula móvil se enfocó y ArrowRight
+produjo scrollLeft=40. El HTML MathML y los feeds no se reescriben.
+
+Catastro: selección Atacama/Caldera y vista agregada operativas, documento de
+390 px sin overflow. Axe detectó regiones nombradas sin rol; se corrigieron los
+14 contenedores con el mismo patrón, incluidos paneles inicialmente ocultos.
+`catastro-a11y-recovery.json` registra cero violaciones y dos revisiones pendientes
+del motor automático. No se certificó la descarga de geometría externa en esta
+sesión limitada a localhost. El grafo 3D separado dio cero violaciones automáticas;
+una sesión con WebGL desactivado mostró las ocho familias en su fallback.
+
+Bloquear `theme-toggle.js` hizo que toggleWorks=false; desbloquearlo y recargar
+restauró toggleWorks=true. Los recursos externos estuvieron bloqueados; su ausencia
+en capturas no se imputa a regresión de CSS. La revisión no equivale a WCAG integral
+ni a pruebas con lectores de pantalla. Ver el informe específico de paleta.
+
+Siete pares exploratorios, orden alternado: LCP mediano baseline 120 ms y candidata
+124 ms; CLS mediano 0,36 en ambas. No hubo mejora de 10% ni cinco pares favorables.
+Además, no se fijaron caché/red/reloj con rigor de promoción: estas mediciones NO
+acreditan rendimiento de producción. No se retuvo una optimización de velocidad;
+la paleta se acepta por contraste y continuidad visual, no por velocidad. El CLS
+observado tampoco permite afirmar que el rendimiento sea óptimo: queda como
+línea de investigación separada con ensayo controlado antes de cambiar arquitectura.
+
+## DEV y deuda editorial
+
+Modo de mantenimiento: sólo drafts existentes, canonical único, relectura antes
+del PUT, rechazo de estados cambiantes y parada ante 429. Cuatro pruebas y 23
+aserciones pasan; rechazan destino ausente/publicado/duplicado/modificado y verifican
+custodia cifrada recuperable. `--existing-drafts-only --dry-run` salió 2, porque
+una simulación sin API no demuestra estado remoto. Contrato y recuperación en
+`docs/contracts/devto-draft-maintenance.md`. La ejecución autenticada sigue pendiente.
+
+El consumidor `--ventana 30` sigue rojo por cinco compromisos reales vencidos:
+Nushell Mastodon ES/EN, Bluesky ES/EN y DEV EN. La deuda histórica se informa aparte.
+No se modifican publicaciones ni fechas para conseguir verde y no se envía Telegram.
+
+## Alcance del juicio
 
 Autorrevisión de Codex; no revisión entre proveedores. El usuario añadió después
 un subagente para F4.1, con propiedad exclusiva de la hoja de estilos y sin
