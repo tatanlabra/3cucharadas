@@ -60,6 +60,38 @@ Las ramas `publish/nushell-20260829` y `publish/nushell-v2-20260905` conservan t
 un commits únicos frente a `main`; por eso sus worktrees se reubicaron y no se
 retiraron. El bundle verificado contiene 262 heads y mide 125.179.276 bytes.
 
+## Checkout operativo y consumidores locales
+
+Un remoto verde no actualiza el checkout desde el que corren hooks o servicios de
+usuario. `difusion-cadencia.service` está enlazado al repositorio compartido y lee en
+cada ejecución el script y el ledger presentes allí. Si ese árbol queda atrás de
+`main`, el timer puede emitir una cuenta distinta a la del commit desplegado aunque
+systemd y el script funcionen correctamente.
+
+Antes de actualizar un checkout sucio se clasifican todas sus rutas contra el SHA que
+se quiere integrar:
+
+| Clase medida | Tratamiento |
+|---|---|
+| Modificado e idéntico al blob remoto | Absorber al actualizar la base después de respaldar el estado |
+| Modificado y distinto del blob remoto | Revisar el diff y conservarlo en commit, patch o worktree propio |
+| No versionado pero presente en el remoto | Comparar bytes; no asumir que es la misma versión por compartir nombre |
+| No versionado y ausente del remoto | Asignar dueño y decidir si es fuente, entregable o estado local |
+
+La intersección de nombres entre `git diff --name-only` local y remoto no basta: dos
+archivos pueden ocupar la misma ruta y contener implementaciones distintas. Tampoco
+se hace `pull`, `reset`, `clean` ni cambio de rama sobre un árbol con trabajo sin
+custodia.
+
+Procedimiento de reconciliación:
+
+1. Registrar SHA, estado completo y tamaño del checkout.
+2. Crear un worktree limpio desde el SHA remoto y ejecutar allí los gates.
+3. Comparar el contenido local contra los blobs del SHA, incluida cada ruta no versionada.
+4. Preservar lo divergente en una rama, patch o estado externo con manifiesto.
+5. Actualizar el checkout operativo y ejecutar `systemctl --user daemon-reload` si cambió una unit.
+6. Repetir manualmente el comando exacto de cada timer antes de esperar su próxima corrida.
+
 ## Rollback
 
 | Cambio | Reversión |

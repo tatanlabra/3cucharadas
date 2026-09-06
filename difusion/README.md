@@ -119,8 +119,15 @@ cucharadas-difusion destinations checklist casen2024-julia-waffles
   canónica limpia antes de publicarlo manualmente.
 - Medium se importa manualmente desde la URL inglesa limpia y se verifica el
   `canonical` resultante.
-- JuliaBloggers queda en monitoreo. Planet Python, R-bloggers, OSGeo/OSM y
-  EconAcademics se mantienen bloqueados hasta cumplir sus gates editoriales.
+- Un destino marcado `listo` por `destinations status` cumple condiciones editoriales;
+  todavía hay que demostrar que su feed existe y que el agregador lo incorporó.
+- JuliaBloggers usa `feed-julia.xml`: verificar HTTP 200, contenido y aparición externa;
+  la nota de envío por sí sola deja la incorporación en monitoreo.
+- Planet Python se evalúa por artículo. Cumplir el mínimo de posts Python no crea un
+  feed temático ni registra el sitio en el agregador.
+- R-bloggers sigue bloqueado hasta tener dos artículos EN reproducibles sobre R, un
+  feed de contenido completo limitado a R y el backlink exigido por el destino.
+- OSGeo/OSM y EconAcademics conservan sus gates declarados en `config/destinos.yml`.
 
 ## Carruseles LinkedIn
 
