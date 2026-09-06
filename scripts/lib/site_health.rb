@@ -36,4 +36,14 @@ module SiteHealth
     errors << 'bundler CI drift' unless install == "gem install bundler -v #{expected.fetch('bundler')} -N"
     errors
   end
+
+  def self.validate_workflows(root)
+    files = Dir.glob(File.join(root, '.github/workflows/*.{yml,yaml}'))
+    raise 'empty workflow inventory' if files.empty?
+    files.each do |file|
+      workflow = YAML.safe_load_file(file, aliases: true)
+      raise "invalid workflow: #{file}" unless workflow.is_a?(Hash) && workflow['jobs'].is_a?(Hash) && !workflow['jobs'].empty?
+    end
+    files.length
+  end
 end
