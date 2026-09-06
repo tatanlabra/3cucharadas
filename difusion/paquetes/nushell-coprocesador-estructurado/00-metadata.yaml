@@ -22,12 +22,12 @@ evidencia:
   caso_tesis_agregado: 30
 destinos:
   - plataforma: linkedin
-    fecha_propuesta: 2026-09-06
+    fecha_propuesta: null
     archivo: linkedin.md
     estado: preparado
     url_publicada: null
   - plataforma: bluesky
-    fecha_propuesta: 2026-09-07
+    fecha_propuesta: 2026-09-10
     archivo: social-corto.md
     estado: preparado
     url_publicada: null
@@ -37,27 +37,28 @@ destinos:
     estado: preparado
     url_publicada: null
   - plataforma: devto
-    fecha_propuesta: 2026-09-09
+    fecha_propuesta: 2026-09-07
     archivo: devto.md
     estado: borrador-remoto
     url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-3o3-temp-slug-4881292
     article_id: 4584688
   - plataforma: reddit
-    fecha_propuesta: 2026-09-10
+    fecha_propuesta: null
     archivo: reddit-target.md
     estado: bloqueado-reglas
     url_publicada: null
   - plataforma: hackernews
-    fecha_propuesta: 2026-09-15
+    fecha_propuesta: null
     archivo: hn.txt
     estado: preparado
     url_publicada: null
   - plataforma: medium
-    fecha_propuesta: 2026-09-17
+    fecha_propuesta: 2026-09-11
     archivo: medium.md
     estado: preparado
     url_publicada: null
 verificaciones_pendientes:
+  - LinkedIn, Reddit y Hacker News quedan fuera de esta cola hasta definir fechas sin colisión
   - verificar las reglas visibles de r/nushell desde una sesión humana
   - confirmar que el borrador dev.to conserva published=false y canonical_url
   - importar o pegar la pieza Medium y verificar el canonical antes de publicar

@@ -52,7 +52,7 @@ destinos:
   - id: linkedin-es
     lang: es
     audiencia: [politica-publica, datos]
-    modo: manual
+    modo: api-borrador
     requiere:
       lang_post: es
     activos:
@@ -80,11 +80,11 @@ destinos:
   - id: dev
     lang: en
     audiencia: [desarrollo]
-    modo: feed
+    modo: manual
     requiere:
       lang_post: en
       republish: dev
-    nota: "feed-dev-en.xml + revisión humana."
+    nota: "GitHub Actions prepara el borrador por API; publicación y verificación humanas."
 
   - id: medium
     lang: en

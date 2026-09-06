@@ -45,7 +45,7 @@ no solo en las de RAG.
 | r/LocalLLaMA | Reddit | Alto: stack local, CPU, medición de latencia real. Publicar el texto, no el enlace solo. |
 | r/MachineLearning | Reddit | Medio: exige rigor; el rechazo del reordenador con números es lo que le interesa. |
 | Hacker News | HN | Medio-alto: el ángulo «publico el gate en rojo» es el gancho, no el visor 3D. |
-| dev.to | dev.to | Automático vía `feed-dev-en.xml` al pushear el post EN. |
+| dev.to | dev.to | GitHub Actions prepara o actualiza el borrador por API al pushear el post EN; publicación manual. |
 
 ## Hashtags
 

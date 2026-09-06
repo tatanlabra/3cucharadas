@@ -25,8 +25,8 @@
 #
 # LA VENTANA, Y POR QUE NO ES UN INDULTO
 #
-# Sin `--ventana` el gate pregunta «de todo lo declarado, que falta»: hoy 7
-# canales vencidos, algunos de hace 174 dias. Esa es la pregunta correcta para
+# Sin `--ventana` el gate pregunta «de todo lo declarado, qué falta», incluidos
+# canales vencidos hace meses. Esa es la pregunta correcta para
 # una auditoria y la INCORRECTA para un timer diario: un aviso que repite lo
 # mismo cada manana durante medio ano se silencia, y un gate silenciado no
 # interrumpe a nadie, que es el mismo fallo que no tenerlo.
@@ -34,12 +34,12 @@
 # `--ventana N` acota los ERRORES a los posts de los ultimos N dias --lo que
 # todavia se puede hacer a tiempo-- y sigue imprimiendo el atraso historico como
 # aviso, con su cuenta. No lo esconde: lo baja de fatal a visible. El modo por
-# defecto no cambia, y es el que va a CI.
+# defecto no cambia y se usa para la auditoría manual completa; hoy CI no lo invoca.
 
 require "date"
 require "yaml"
 
-ROOT = File.expand_path("..", __dir__)
+ROOT = File.expand_path(ENV.fetch("DISTRIBUCION_ROOT", File.expand_path("..", __dir__)))
 STRICT = ARGV.include?("--strict")
 VENTANA = begin
   i = ARGV.index("--ventana")
@@ -86,12 +86,21 @@ end
 # efecto era silencioso y creciente: cada borrador nuevo apagaba un pendiente
 # real. Un borrador ahora no cuenta, y la unica forma de cerrar `dev` es publicar
 # en dev.to y anotarlo aqui.
-def cumplido?(pubs, plataformas)
-  pubs.any? do |p|
-    next false unless plataformas.include?(p["plataforma"].to_s)
-    next false if p["estado"].to_s == "borrador"
+def cumplido?(pubs, plataforma, idioma)
+  publicacion = pubs.find { |p| p["plataforma"].to_s == plataforma }
+  return false unless publicacion
 
-    p["url_publicada"].to_s.strip != "" || p["devto_article_id"]
+  case plataforma
+  when "mastodon", "bluesky"
+    campo = idioma == "en" ? "url_publicada_en" : "url_publicada"
+    !publicacion[campo].to_s.strip.empty?
+  when "devto"
+    publicacion["estado"].to_s == "publicado" &&
+      (!publicacion["url_publicada"].to_s.strip.empty? || publicacion["devto_article_id"])
+  when "medium"
+    !publicacion["url_publicada"].to_s.strip.empty?
+  else
+    false
   end
 end
 
@@ -113,12 +122,11 @@ posts.each do |path|
   dias = (HOY - fecha).to_i
   distribution = front["distribution"]
 
-  # Guarda contra el modo vacuo. Un post sin `distribution` no puede aprobar en
-  # silencio: la lista vacia de canales haria que el bucle no iterara y el gate
-  # saliera 0 sin comprobar nada. Los anteriores a que existiera la convencion
-  # quedan como aviso; los nuevos, como error.
+  # Guarda contra el modo vacuo. La ausencia del contrato es un error estructural
+  # a cualquier edad: los posts heredados deben declarar canales o una razón de
+  # omisión explícita, igual que los nuevos.
   unless distribution.is_a?(Hash)
-    (dias > 30 ? avisos : errores) << "#{relativo}: no declara `distribution`; no se puede saber que canales le corresponden"
+    errores << "#{relativo}: no declara `distribution`; no se puede saber qué canales le corresponden"
     next
   end
 
@@ -132,20 +140,30 @@ posts.each do |path|
     esperados << canal if PLAZOS.key?(canal)
   end
 
+  if esperados.empty?
+    razon = distribution["skip_reason"].to_s.strip
+    errores << "#{relativo}: no declara canales y tampoco `distribution.skip_reason`" if razon.empty?
+    next
+  end
+
   esperados.each do |canal|
     plataformas = canal == "social" ? %w[mastodon bluesky] : [canal == "dev" ? "devto" : canal]
-    next if cumplido?(pubs, plataformas)
+    plataformas.each do |plataforma|
+      idioma = front["lang"].to_s.downcase == "en" ? "en" : "es"
+      next if cumplido?(pubs, plataforma, idioma)
 
-    plazo = PLAZOS.fetch(canal)
-    if dias > plazo
-      linea = "#{relativo}: declara `#{canal}` y lleva #{dias} dias sin artefacto (plazo D#{plazo})"
-      if VENTANA && dias > VENTANA
-        historicos << linea
+      plazo = PLAZOS.fetch(canal)
+      etiqueta = "#{plataforma}/#{idioma}"
+      if dias > plazo
+        linea = "#{relativo}: falta `#{etiqueta}` tras #{dias} días (plazo D#{plazo})"
+        if VENTANA && dias > VENTANA
+          historicos << linea
+        else
+          errores << linea
+        end
       else
-        errores << linea
+        avisos << "#{relativo}: `#{etiqueta}` pendiente, D#{dias} de D#{plazo}"
       end
-    else
-      avisos << "#{relativo}: `#{canal}` pendiente, D#{dias} de D#{plazo}"
     end
   end
 end

@@ -37,6 +37,7 @@ cache:
 stages:
   - build
   - deploy
+  - audit
 
 build_site:
   stage: build
@@ -90,6 +91,11 @@ build_site:
     # redes siguieron citando metricas que el articulo enlazado habia perdido.
     # Nadie lo habria notado: el paquete no se construye desde el post.
     - ruby scripts/verify_difusion_coherente.rb
+    # El mismo transformador que usa GitHub debe aceptar el post II de la serie
+    # multiagente y rechazar Liquid Jekyll residual antes de tocar la API DEV.to.
+    - ruby tests/test_jekyll_to_devto.rb
+    - ruby tests/test_verify_distribution_done.rb
+    - python3 -m unittest tests/test_notify_telegram_publication.py
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
     - ruby scripts/verify_distribution_readiness.rb public
@@ -116,3 +122,17 @@ pages:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
     - if: '$CI_COMMIT_BRANCH == "main"'
+
+# La auditoría completa corre después de Pages. Hace visible la deuda histórica
+# en pipelines programados sin convertirla en una condición previa para servir
+# un sitio cuyo build ya quedó validado y desplegado.
+distribution_audit:
+  stage: audit
+  dependencies: []
+  script:
+    - ruby scripts/verify_distribution_done.rb --strict
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+    - when: never

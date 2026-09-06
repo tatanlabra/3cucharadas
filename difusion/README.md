@@ -114,8 +114,9 @@ cucharadas-difusion destinations status casen2024-julia-waffles
 cucharadas-difusion destinations checklist casen2024-julia-waffles
 ```
 
-- DEV consume `/feed-dev-en.xml` como borradores; revisar y fijar la URL
-  canonica de 3cucharadas antes de publicar.
+- GitHub Actions crea o actualiza el borrador DEV por API para posts EN que
+  declaran `distribution.republish: [dev]`; revisar el borrador y su URL
+  canónica limpia antes de publicarlo manualmente.
 - Medium se importa manualmente desde la URL inglesa limpia y se verifica el
   `canonical` resultante.
 - JuliaBloggers queda en monitoreo. Planet Python, R-bloggers, OSGeo/OSM y

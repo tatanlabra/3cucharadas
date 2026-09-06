@@ -22,8 +22,10 @@ anti-drift del RAG cuatro días en rojo sin que nada avisara.
 
 La bandera `--ventana 30` no indulta el atraso: lo baja de fatal a visible. El
 aviso diario habla solo de lo que aún se puede hacer a tiempo, y el resumen
-imprime igual cuántos atrasos históricos hay. La auditoría completa es el mismo
-script sin bandera, y es la que corresponde en CI.
+imprime igual cuántos atrasos históricos hay. La auditoría completa corre como
+`distribution_audit` en pipelines programados de GitLab, después de Pages; por
+eso una deuda de difusión vuelve rojo el pipeline sin impedir que el sitio ya
+validado quede servido.
 
 **Falsado el 2026-09-05.** Con un drop-in que fijaba `DISTRIBUCION_HOY=2026-09-08`
 el service salió 1, y `user-unit-alert@difusion-cadencia.service` arrancó y

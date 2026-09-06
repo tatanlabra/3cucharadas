@@ -10,6 +10,10 @@ author: clabra
 lang: es
 ref: bayes-hiperparametros
 permalink: /mlops/bayes-hiperparametros/
+distribution:
+  social: false
+  republish: []
+  skip_reason: "Post anterior al contrato de difusión; no se abrió campaña externa."
 toc: true
 toc_sticky: true
 math: true
