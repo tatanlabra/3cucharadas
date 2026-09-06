@@ -1,54 +1,9 @@
 #!/usr/bin/env bash
-
-set -u
-
-repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-env_file="${EPUB_CURATOR_ENV_FILE:-${HOME:-/home/ende}/.config/epub-curator.env}"
-script="$repo_root/scripts/notify_telegram_commit.py"
-dry_run="${TELEGRAM_HOOK_DRY_RUN:-}"
-
-if [ -n "${CODEX_SANDBOX_NETWORK_DISABLED:-}" ] && [ "$dry_run" != "1" ]; then
-  printf '%s\n' "telegram-skipped-network-sandbox"
-  exit 0
-fi
-
-if [ -f "$env_file" ]; then
-  set -a
-  # shellcheck disable=SC1090
-  . "$env_file" >/dev/null 2>&1 || true
-  set +a
-fi
-
-if [ ! -f "$script" ]; then
-  exit 0
-fi
-
-if command -v python3 >/dev/null 2>&1; then
-  python_bin="python3"
-elif command -v python >/dev/null 2>&1; then
-  python_bin="python"
-else
-  printf '%s\n' "telegram-send-failed"
-  exit 0
-fi
-
-args=(--repo-root "$repo_root")
-if [ "$dry_run" = "1" ]; then
-  args+=(--dry-run)
-fi
-
-output="$("$python_bin" "$script" "${args[@]}" 2>/dev/null)"
-status=$?
-
-case "$status" in
-  0|2)
-    if [ -n "$output" ]; then
-      printf '%s\n' "$output"
-    fi
-    ;;
-  *)
-    printf '%s\n' "telegram-send-failed"
-    ;;
-esac
+#
+# Los commits locales no prueban que la publicación esté disponible. Este hook
+# se conserva como punto de compatibilidad, pero termina en silencio. El aviso
+# Telegram se hace explícitamente con notify_telegram_publication.py, después
+# de sus gates de build, remoto, CI y página pública.
+set -euo pipefail
 
 exit 0

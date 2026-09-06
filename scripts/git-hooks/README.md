@@ -5,32 +5,27 @@ y se instalan con un symlink o una copia.
 
 | Hook | Qué hace | ¿Puede fallar el commit? |
 |---|---|---|
-| `post-commit` | Avisa por Telegram del commit | No |
+| `post-commit` | Termina en silencio: un commit no confirma publicación | No |
 | `post-commit-difusion` | Resuelve a qué destinos de difusión corresponde cada post tocado y deja la traza en `difusion/state/destinos/<ref>.json` | No |
 
 ## Instalar
 
-```bash
-ln -sf ../../scripts/git-hooks/post-commit .git/hooks/post-commit
-```
-
 `post-commit-difusion` no se instala como hook independiente: git sólo ejecuta un
-archivo por evento. Para tener los dos, encadénalos desde un `post-commit`
-propio:
+archivo por evento. Instala la cadena versionada con:
 
 ```bash
-cat > .git/hooks/post-commit <<'SH'
-#!/usr/bin/env bash
-root="$(git rev-parse --show-toplevel)"
-"$root/scripts/git-hooks/post-commit" || true
-"$root/scripts/git-hooks/post-commit-difusion" || true
-exit 0
-SH
-chmod +x .git/hooks/post-commit
+scripts/install_git_hooks.sh
 ```
 
 Ambos terminan en `exit 0` a propósito: un aviso o una traza que falla no debe
 tumbar un commit que ya está hecho.
+
+## Aviso de publicación verificada
+
+Telegram se invoca explícitamente, nunca desde el hook. El emisor
+`../notify_telegram_publication.py` exige build local del commit aislado, el
+mismo SHA en GitLab y GitHub, CI exitoso de GitLab y contenido esperado en la URL pública. Si
+un gate no pasa, sale con error y no envía ningún mensaje.
 
 ## Difusión: por qué resuelve y no publica
 
