@@ -142,7 +142,7 @@ class JekyllToDevtoTest < Minitest::Test
     assert JekyllToDevto.validate!("`https://example.com/diagram.svg`")
   end
 
-  def test_renders_devto_front_matter_with_canonical_url
+  def test_renders_devto_front_matter_as_an_explicit_publishable_draft
     document = JekyllToDevto.render_document(
       body: "Body",
       title: "Title",
@@ -154,9 +154,51 @@ class JekyllToDevtoTest < Minitest::Test
     front = YAML.safe_load(document.split(/^---\s*$/, 3)[1])
 
     assert_equal CANONICAL_URL, front["canonical_url"]
+    assert_equal false, front["published"]
+    assert_equal "some_ai", front["ai_disclosure_level"]
     assert_equal "ruby, jekyll", front["tags"]
     assert_equal "#{SITE_URL}/cover.png", front["cover_image"]
-    refute front.key?("published")
+  end
+
+  def test_renders_remote_published_state_without_reverting_it
+    document = JekyllToDevto.render_document(
+      body: "Body",
+      title: "Title",
+      description: "Description",
+      tags: %w[ruby jekyll],
+      canonical_url: CANONICAL_URL,
+      published: true,
+      ai_disclosure_level: "no_ai"
+    )
+    front = YAML.safe_load(document.split(/^---\s*$/, 3)[1])
+
+    assert_equal true, front["published"]
+    assert_equal "no_ai", front["ai_disclosure_level"]
+  end
+
+  def test_rejects_more_than_four_tags_and_unknown_ai_disclosure
+    error = assert_raises(JekyllToDevto::TransformError) do
+      JekyllToDevto.render_document(
+        body: "Body",
+        title: "Title",
+        description: "Description",
+        tags: %w[one two three four five],
+        canonical_url: CANONICAL_URL
+      )
+    end
+    assert_includes error.message, "máximo 4 tags"
+
+    error = assert_raises(JekyllToDevto::TransformError) do
+      JekyllToDevto.render_document(
+        body: "Body",
+        title: "Title",
+        description: "Description",
+        tags: %w[one],
+        canonical_url: CANONICAL_URL,
+        ai_disclosure_level: "invented"
+      )
+    end
+    assert_includes error.message, "ai_disclosure_level inválido"
   end
 
   def test_renders_forem_front_matter_as_single_line_quoted_scalars
@@ -240,7 +282,9 @@ class JekyllToDevtoTest < Minitest::Test
       description: front["description"],
       tags: tags,
       canonical_url: canonical_url,
-      cover_image: JekyllToDevto.absolute_url(front.dig("header", "og_image"), SITE_URL, force_relative: true)
+      cover_image: JekyllToDevto.absolute_url(front.dig("header", "og_image"), SITE_URL, force_relative: true),
+      published: false,
+      ai_disclosure_level: "some_ai"
     )
 
     Dir.mktmpdir("devto-export") do |dir|
@@ -251,7 +295,11 @@ class JekyllToDevtoTest < Minitest::Test
       assert_equal expected, File.read(File.join(dir, "#{slug}.md"))
       assert_equal 7, Dir.glob(File.join(dir, "*.md")).length
       Dir.glob(File.join(dir, "*.md")).each do |artifact|
-        refute_match(/https?:\/\/[^\s"'<>)]*\.svg\b/i, File.read(artifact), "SVG residual en #{File.basename(artifact)}")
+        contents = File.read(artifact)
+        front = YAML.safe_load(contents.split(/^---\s*$/, 3)[1])
+        assert_equal false, front["published"], "published no explícito en #{File.basename(artifact)}"
+        assert_equal "some_ai", front["ai_disclosure_level"], "AI disclosure ausente en #{File.basename(artifact)}"
+        refute_match(/https?:\/\/[^\s"'<>)]*\.svg\b/i, contents, "SVG residual en #{File.basename(artifact)}")
       end
     end
     assert_equal source_sha, Digest::SHA256.file(path).hexdigest

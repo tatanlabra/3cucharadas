@@ -12,6 +12,8 @@ require "yaml"
 module JekyllToDevto
   SITE_URL = "https://3cucharadas.cl"
   ROOT = File.expand_path("..", __dir__)
+  AI_DISCLOSURE_LEVELS = %w[not_disclosed no_ai some_ai fully_autonomous].freeze
+  DEFAULT_AI_DISCLOSURE_LEVEL = "some_ai"
 
   # DEV.to hace pasar los <img> externos por su optimizador. Ese proxy declara
   # WebP para un SVG de 3cucharadas.cl pero entrega los bytes SVG sin convertir,
@@ -72,22 +74,37 @@ module JekyllToDevto
     Result.new(body: transformed, warnings: warnings.uniq)
   end
 
-  # DEV.to acepta front matter en body_markdown. `published` se omite aquí a
-  # propósito: el JSON de creación fija false y las actualizaciones conservan el
-  # estado remoto, evitando volver a borrador un artículo ya publicado.
-  def render_document(body:, title:, description:, tags:, canonical_url:, cover_image: nil)
+  # El editor Markdown básico de DEV publica al cambiar `published: false` a
+  # `true`. La generación local siempre parte como borrador; al actualizar por
+  # API, el llamador debe pasar el estado remoto para no despublicar artículos.
+  def render_document(body:, title:, description:, tags:, canonical_url:, cover_image: nil,
+                      published: false, ai_disclosure_level: DEFAULT_AI_DISCLOSURE_LEVEL)
+    tags = Array(tags)
+    raise TransformError, "front matter DEV.to inválido: máximo 4 tags" if tags.length > 4
+    unless [true, false].include?(published)
+      raise TransformError, "front matter DEV.to inválido: published debe ser booleano"
+    end
+    unless AI_DISCLOSURE_LEVELS.include?(ai_disclosure_level)
+      raise TransformError, "front matter DEV.to inválido: ai_disclosure_level inválido"
+    end
+
     metadata = {
       "title" => title,
+      "published" => published,
       "description" => description,
-      "tags" => Array(tags).join(", "),
+      "tags" => tags.join(", "),
       "canonical_url" => canonical_url,
-      "cover_image" => cover_image
+      "cover_image" => cover_image,
+      "ai_disclosure_level" => ai_disclosure_level
     }.compact
     # Forem acepta front matter, pero su parser rechaza algunas formas válidas
     # que Psych elige para textos largos (plegado `>-` y continuaciones). JSON
     # produce escalares entre comillas que también son YAML válido y mantiene
     # cada campo en una sola línea, sin heurísticas dependientes del contenido.
-    yaml = metadata.map { |key, value| "#{key}: #{JSON.generate(value.to_s)}" }.join("\n")
+    yaml = metadata.map do |key, value|
+      serialized = [true, false].include?(value) ? value.to_s : JSON.generate(value.to_s)
+      "#{key}: #{serialized}"
+    end.join("\n")
     document = "---\n#{yaml}\n---\n\n#{body.rstrip}\n"
     validate!(document)
     document
