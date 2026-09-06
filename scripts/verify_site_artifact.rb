@@ -36,8 +36,8 @@ required_files = %w[
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores.webp
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/hero-avaluo-vulnerabilidad-1600x900.webp
   assets/images/avaluo-vulnerabilidad-unidad-vecinal/og-avaluo-vulnerabilidad-1200x630.webp
-  assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
-  assets/images/teasers/teaser-avaluo-vulnerabilidad-640.webp
+  assets/images/teasers/teaser-avaluo-vulnerabilidad-1280x720.webp
+  assets/images/teasers/teaser-avaluo-vulnerabilidad-640x360.webp
 ].freeze
 
 pruned_files = %w[
@@ -234,7 +234,7 @@ end
 unless draft_fixture_mode
   home = File.read(File.join(site_dir, "index.html"))
   abort "Home LCP card is not eager" unless home.include?('loading="eager"') && home.include?('fetchpriority="high"')
-  abort "Home responsive teaser sources are absent" unless home.match?(/srcset=["'][^"']*teaser-[^"']+-640\.webp/)
+  abort "Home responsive teaser sources are absent" unless home.match?(/srcset=["'][^"']*teaser-[^"']+-(?:640|640x360)\.webp/)
   abort "Spanish home brand description is stale" unless home.include?("Datos abiertos, estadísticas, MLOps, curiosidades, economía aplicada y políticas sociales, con código reproducible.")
 
   home_en_path = File.join(site_dir, "en", "index.html")

@@ -52,7 +52,7 @@ piezas:
 
   - id: teaser
     rol: teaser
-    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
+    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad-1280x720.webp
     ancho: 1280
     alto: 720
     estado: publicable
@@ -66,7 +66,7 @@ piezas:
 
   - id: teaser-640
     rol: teaser
-    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad-640.webp
+    archivo: assets/images/teasers/teaser-avaluo-vulnerabilidad-640x360.webp
     ancho: 640
     alto: 360
     estado: publicable

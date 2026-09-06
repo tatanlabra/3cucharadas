@@ -42,7 +42,7 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada.webp
+  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
   og_image: /assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
   og_image_alt: "Cuatro fuentes gobernadas sobre plataformas separadas —memoria de trabajo, correo personal sellado bajo cristal, índice de tesis y proyección pública— con una membrana que solo deja pasar tres salidas permitidas."
 ---

@@ -1,0 +1,10 @@
+# Catálogo manual de piezas derivadas de datos para el borrador de réplica.
+slug: replica-tesis-establecimientos
+piezas:
+  - {id: og-es, rol: og, archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630.webp, ancho: 1200, alto: 630, estado: publicable, origen: datos, alt: {es: "Réplica de resultados sobre establecimientos educacionales."}}
+  - {id: og-en, rol: og, archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630-en.webp, ancho: 1200, alto: 630, estado: publicable, origen: datos, alt: {en: "Replication of results on Chilean schools."}}
+  - {id: movilidad-es, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp, ancho: 2226, alto: 620, estado: publicable, origen: datos, alt: {es: "Comparación de movilidad escolar histórica y replicada."}}
+  - {id: movilidad-en, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en.webp, ancho: 2226, alto: 620, estado: publicable, origen: datos, alt: {en: "Comparison of historical and replicated school mobility."}}
+  - {id: ihh-es, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp, ancho: 2562, alto: 710, estado: publicable, origen: datos, alt: {es: "Comparación del índice de Herfindahl y movilidad."}}
+  - {id: ihh-en, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp, ancho: 2562, alto: 710, estado: publicable, origen: datos, alt: {en: "Comparison of the Herfindahl index and mobility."}}
+  - {id: sombra-muerte, rol: figura, archivo: assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp, ancho: 1779, alto: 879, estado: publicable, origen: datos, alt: {es: "Evolución previa al cierre de establecimientos educacionales."}}

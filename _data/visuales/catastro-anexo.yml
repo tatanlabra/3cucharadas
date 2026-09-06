@@ -1,0 +1,5 @@
+# Mapas auxiliares derivados del catastro; no están enlazados por un post vigente.
+slug: catastro-anexo
+piezas:
+  - {id: caldera, rol: figura, archivo: assets/images/catastro-anexo/caldera_03102_geom.png, ancho: 1800, alto: 1350, estado: publicable, origen: datos, alt: {es: "Geometría catastral de Caldera."}}
+  - {id: diego-de-almagro, rol: figura, archivo: assets/images/catastro-anexo/diego_de_almagro_03202_geom.png, ancho: 1800, alto: 1350, estado: publicable, origen: datos, alt: {es: "Geometría catastral de Diego de Almagro."}}

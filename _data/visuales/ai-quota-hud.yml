@@ -1,0 +1,68 @@
+# Catálogo manual de las piezas publicadas por el post AI Quota HUD.
+slug: ai-quota-hud
+ref: ai-quota-hud-kde
+posts:
+  - _posts/2026-07-15-ai-quota-hud-kde.md
+  - _posts/2026-07-15-ai-quota-hud-kde-en.md
+
+piezas:
+  - id: teaser
+    rol: teaser
+    archivo: assets/images/teasers/teaser-ai-quota-hud.webp
+    ancho: 1280
+    alto: 720
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "URL histórica ya servida; renombrarla rompería tarjetas y enlaces existentes."
+    alt: {es: "Indicadores circulares de cuota del panel AI Quota HUD."}
+  - id: og-popup
+    rol: og
+    archivo: assets/images/ai-quota-hud/popup-og-1200.webp
+    ancho: 1200
+    alto: 1076
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "URL histórica ya servida; el manifiesto fija sus dimensiones reales."
+    alt: {es: "Popup de AI Quota HUD con cuatro indicadores de cuota."}
+  - id: barra
+    rol: figura
+    archivo: assets/images/ai-quota-hud/bar.png
+    ancho: 210
+    alto: 49
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "Captura histórica referenciada por ambas versiones del post."
+    alt: {es: "Barra compacta de AI Quota HUD en KDE Plasma."}
+  - id: tooltip
+    rol: figura
+    archivo: assets/images/ai-quota-hud/tooltip.png
+    ancho: 309
+    alto: 101
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "Captura histórica referenciada por ambas versiones del post."
+    alt: {es: "Tooltip con cuota y reinicio por agente."}
+  - id: popup-video
+    rol: figura
+    archivo: assets/images/ai-quota-hud/popup-hidpi.png
+    ancho: 1083
+    alto: 971
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "Poster histórico referenciado por el video y piezas de difusión."
+    alt: {es: "Poster del video demostrativo de AI Quota HUD."}
+  - id: xkcd-303
+    rol: figura
+    archivo: assets/images/ai-quota-hud/xkcd-303-compiling.png
+    ancho: 413
+    alto: 360
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "Nombre de la obra conservado para mantener la atribución y la URL histórica."
+    alt: {es: "xkcd 303, Compiling, de Randall Munroe."}

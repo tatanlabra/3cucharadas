@@ -1,0 +1,16 @@
+# Catálogo manual de gráficos derivados de CASEN 2024.
+slug: casen2024-julia-waffles-politica-publica
+ref: casen2024-julia-waffles
+posts:
+  - _posts/2026-03-15-casen2024-julia-waffles-politica-publica.md
+  - _posts/2026-03-15-casen2024-julia-waffles-politica-publica-en.md
+
+piezas:
+  - {id: teaser, rol: teaser, archivo: assets/images/teasers/teaser-casen-2024.webp, ancho: 1280, alto: 720, estado: publicable, origen: datos, alt: {es: "Composición visual de resultados CASEN 2024."}}
+  - {id: og-pobreza, rol: og, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Waffle nacional de pobreza por ingresos, CASEN 2024."}}
+  - {id: waffle-educacion, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional del nivel educacional."}}
+  - {id: waffle-salud, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional del sistema de salud."}}
+  - {id: waffle-pobreza, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional de pobreza por ingresos."}}
+  - {id: regional-educacion, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp, ancho: 3000, alto: 2460, estado: publicable, origen: datos, alt: {es: "Brechas regionales en educación con intervalos de confianza."}}
+  - {id: regional-salud, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp, ancho: 3000, alto: 1740, estado: publicable, origen: datos, alt: {es: "Brechas regionales en salud con intervalos de confianza."}}
+  - {id: regional-pobreza, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp, ancho: 3000, alto: 1020, estado: publicable, origen: datos, alt: {es: "Brechas regionales en pobreza con intervalos de confianza."}}
