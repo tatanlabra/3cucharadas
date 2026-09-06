@@ -46,7 +46,7 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada.webp
+  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
   og_image: /assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
   og_image_alt: "Four governed sources on separate platforms—operational memory, personal mail sealed under glass, thesis index, and the public projection—with a membrane that lets only three permitted outputs through."
 ---

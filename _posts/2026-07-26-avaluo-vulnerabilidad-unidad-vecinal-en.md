@@ -12,7 +12,7 @@ lang: en
 ref: avaluo-vulnerabilidad-uv
 permalink: /datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
 header:
-  teaser: /assets/images/teasers/teaser-avaluo-vulnerabilidad.webp
+  teaser: /assets/images/teasers/teaser-avaluo-vulnerabilidad-1280x720.webp
   og_image: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630-en.webp
   og_image_alt: "Flow diagram from 10,343,893 original cadastral records to 9,401,277 unique parcels, of which 9,130,127 intersect at least one neighbourhood unit and 271,150 fall outside the mesh entirely."
 math: true

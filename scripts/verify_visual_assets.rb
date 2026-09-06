@@ -204,8 +204,11 @@ manifest_paths.each do |manifest_path|
     # colocados a mano: los generados desde los datos siguen el naming de su
     # pipeline (sankey-pipeline.webp, violin-denominadores.webp) y renombrarlos
     # en masa rompería los posts sin ganar nada.
-    if pieza["origen"] != "datos" && File.extname(archivo) != ".svg" &&
-       !File.basename(archivo).match?(/\d+x\d+\.\w+\z/)
+    nombre_legacy = pieza["nombre_legacy"] == true
+    if nombre_legacy && pieza["motivo_nombre"].to_s.strip.empty?
+      errors << "V4 #{etiqueta}: `nombre_legacy` exige `motivo_nombre`"
+    elsif pieza["origen"] != "datos" && File.extname(archivo) != ".svg" &&
+          !File.basename(archivo).match?(/\d+x\d+\.\w+\z/) && !nombre_legacy
       warnings << "V4 #{etiqueta}: #{File.basename(archivo)} no sigue la convención <nombre>-<ancho>x<alto>.<ext>"
     end
 

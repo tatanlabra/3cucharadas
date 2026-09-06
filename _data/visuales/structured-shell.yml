@@ -1,0 +1,16 @@
+# Catálogo manual de las piezas editoriales publicadas por el post Nushell.
+slug: structured-shell
+ref: nushell-coprocesador-estructurado
+posts:
+  - _posts/2026-08-29-nushell-coprocesador-estructurado.md
+  - _posts/2026-08-29-nushell-coprocesador-estructurado-en.md
+
+piezas:
+  - {id: teaser-es, rol: teaser, archivo: assets/images/teasers/teaser-structured-shell.webp, ancho: 1280, alto: 720, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {es: "Un flujo de datos se divide en tres rutas estructuradas."}}
+  - {id: teaser-en, rol: teaser, archivo: assets/images/teasers/teaser-structured-shell-en.webp, ancho: 1280, alto: 720, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {en: "A data stream splits into three structured routes."}}
+  - {id: og-es, rol: og, archivo: assets/images/structured-shell/og-1200.webp, ancho: 1200, alto: 630, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {es: "Rutas acotadas para usar una shell estructurada."}}
+  - {id: og-en, rol: og, archivo: assets/images/structured-shell/og-1200-en.webp, ancho: 1200, alto: 630, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {en: "Bounded routes for using a structured shell."}}
+  - {id: familias-es, rol: figura, archivo: assets/images/structured-shell/fig-d2-familias-shell.svg, estado: publicable, origen: d2}
+  - {id: familias-es-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-familias-shell-mobile.svg, estado: publicable, origen: d2}
+  - {id: familias-en, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-en.svg, estado: publicable, origen: d2}
+  - {id: familias-en-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg, estado: publicable, origen: d2}

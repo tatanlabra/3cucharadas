@@ -1,0 +1,20 @@
+# Catálogo manual del diagrama bilingüe de memoria multiagente.
+slug: multiagente-penta-agent-memoria
+ref: multiagente-penta-agent-memoria
+posts:
+  - _posts/2026-07-23-multiagente-penta-agent-memoria.md
+  - _posts/2026-07-23-multiagente-penta-agent-memoria-en.md
+
+piezas:
+  - id: teaser-og
+    rol: og
+    archivo: assets/images/teasers/teaser-multiagentes-memoria.webp
+    ancho: 1280
+    alto: 720
+    estado: publicable
+    origen: manual
+    nombre_legacy: true
+    motivo_nombre: "URL histórica usada como teaser y OG en ambas versiones del post."
+    alt: {es: "Ilustración de memoria auditable para un sistema multiagente."}
+  - {id: flujo-es, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg, estado: publicable, origen: d2}
+  - {id: flujo-en, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg, estado: publicable, origen: d2}
