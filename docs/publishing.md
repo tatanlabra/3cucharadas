@@ -51,8 +51,9 @@ git push --dry-run origin main
 
 ## Local Telegram notification
 
-The repository stores only the hook and sender script. It does not store Telegram
-tokens or chat IDs.
+Un commit local no acredita publicación: puede no haberse subido, no tener CI verde
+o no estar disponible en la página pública. Por eso `post-commit` termina en
+silencio y sólo conserva la traza de destinos de difusión.
 
 Install or refresh the local hook with:
 
@@ -60,26 +61,31 @@ Install or refresh the local hook with:
 scripts/install_git_hooks.sh
 ```
 
-The installed `post-commit` hook loads `EPUB_CURATOR_TG_TOKEN` and
-`EPUB_CURATOR_TG_CHAT_ID` from the current environment. If present, it also
-loads `${EPUB_CURATOR_ENV_FILE}`. When that variable is unset, the hook falls
-back to `$HOME/.config/epub-curator.env`.
+El aviso es explícito y local. Úsalo sólo después de que una persona haya
+autorizado el push y con la URL pública más un texto distintivo del post:
 
-The notification fires after a successful local commit. It does not mean that
-GitLab, GitHub, CI, or the public page have accepted the change.
+```bash
+python3 scripts/notify_telegram_publication.py \
+  --publication-url https://3cucharadas.cl/ruta-del-post/ \
+  --expect-text 'Título distintivo del post' \
+  --subject 'Título distintivo del post' \
+  --dry-run
+```
+
+El comando verifica el build del commit aislado, el mismo SHA en GitLab y
+GitHub, un pipeline exitoso de GitLab para ese SHA y el texto esperado en la página
+pública. Si cualquiera falla, no envía Telegram. Al pasar el `--dry-run`,
+repite el comando sin ese flag para enviar un único aviso con URL, commit y gates.
+Las credenciales siguen llegando sólo por `EPUB_CURATOR_TG_TOKEN` y
+`EPUB_CURATOR_TG_CHAT_ID` del entorno de ejecución; nunca se guardan en el repo.
 
 Before publishing, keep checking:
 
 ```bash
 bash -n scripts/git-hooks/post-commit scripts/install_git_hooks.sh
-python -m py_compile scripts/notify_telegram_commit.py
-TELEGRAM_HOOK_DRY_RUN=1 .git/hooks/post-commit
+python -m py_compile scripts/notify_telegram_commit.py scripts/notify_telegram_publication.py
+python -m unittest tests/test_notify_telegram_publication.py
 ```
-
-When commits are created from Codex with `CODEX_SANDBOX_NETWORK_DISABLED`
-present, the hook skips the Telegram API call and prints
-`telegram-skipped-network-sandbox`. Run the dry-run above to validate the local
-configuration without sending a message.
 
 Also scan `scripts`, `docs`, and `README.md` for concrete Telegram variable
 assignments, bot API tokens, bearer tokens, OpenAI-style API keys, and private
