@@ -12,6 +12,10 @@ on:
       - main
     paths:
       - "_posts/*-en.md"
+      - "scripts/jekyll_to_devto.rb"
+      - "scripts/syndicate_devto.rb"
+      - "tests/test_jekyll_to_devto.rb"
+      - ".github/workflows/devto-syndication.yml"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -48,6 +52,9 @@ jobs:
       # Dependabot (.github/dependabot.yml) es quien propone subirlo.
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+      - name: Validar transformación Jekyll a DEV.to
+        run: ruby tests/test_jekyll_to_devto.rb
 
       - name: Ejecutar sindicación
         env:

@@ -3,6 +3,10 @@ source "https://rubygems.org"
 
 # Core
 gem "jekyll", "~> 4.4"              # 4.4.1 a enero 2025
+# Kramdown 2.5 carga Stringex al generar ids con transliteración. Declararla
+# evita que un build limpio dependa de que la gema exista por accidente fuera
+# del bundle o de una caché Jekyll previa.
+gem "stringex", "~> 1.5"
 gem "webrick", "~> 1.9", group: :development  # necesario para `jekyll serve` en Ruby 3+
 
 # Tema

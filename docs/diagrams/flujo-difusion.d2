@@ -1,0 +1,195 @@
+direction: down
+
+local: {
+  label: "1 · Commit local"
+  direction: right
+  style.fill: "#172033"
+  style.stroke: "#6b7d9c"
+
+  commit: {
+    label: "git commit en main"
+    shape: oval
+    style.fill: "#26334d"
+    style.stroke: "#b8c4dc"
+  }
+  hook: {
+    label: "post-commit instalado\nsi toca _posts/*.md"
+    style.fill: "#203d4a"
+    style.stroke: "#57c5d4"
+  }
+  state: {
+    label: "destinos/<ref>.json\nlocal e ignorado por Git\nno publica · no bloquea"
+    shape: document
+    style.fill: "#203d4a"
+    style.stroke: "#57c5d4"
+  }
+
+  commit -> hook
+  hook -> state: "resuelve por idioma, tags y distribution"
+}
+
+push: {
+  label: "2 · git push origin main\nMismo SHA a dos push URLs · operación no atómica"
+  shape: hexagon
+  style.fill: "#44321c"
+  style.stroke: "#f2b84b"
+}
+
+remotes: {
+  label: "3 · Automatización remota"
+  grid-columns: 2
+  style.fill: "#111827"
+  style.stroke: "#6b7d9c"
+
+  gitlab: {
+    label: "GitLab · sitio canónico"
+    direction: down
+    style.fill: "#241f36"
+    style.stroke: "#a78bfa"
+
+    main: {
+      label: "Push a main\no pipeline programado"
+      style.fill: "#342b50"
+      style.stroke: "#c4b5fd"
+    }
+    ci: {
+      label: "build_site\nassets + coherencia de difusión\ntransformador DEV.to + Jekyll"
+      style.fill: "#342b50"
+      style.stroke: "#c4b5fd"
+    }
+    pages: {
+      label: "GitLab Pages\nhttps://3cucharadas.cl"
+      shape: cloud
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    audit: {
+      label: "Solo schedule · después de Pages\nauditoría completa de difusión\ndeuda → pipeline rojo; sitio ya servido"
+      style.fill: "#3b3030"
+      style.stroke: "#ef8b8b"
+    }
+
+    main -> ci: "main o schedule"
+    ci -> pages: "gates verdes"
+    pages -> audit: "solo schedule"
+  }
+
+  github: {
+    label: "GitHub · espejo y DEV.to"
+    direction: down
+    style.fill: "#172033"
+    style.stroke: "#6b7d9c"
+
+    main: {
+      label: "Push a main"
+      style.fill: "#26334d"
+      style.stroke: "#b8c4dc"
+    }
+    redirect: {
+      label: "Cada push: despliega solo\nel redirector de GitHub Pages"
+      style.fill: "#26334d"
+      style.stroke: "#b8c4dc"
+    }
+    dev: {
+      label: "Workflow DEV.to\npost EN o transformador cambió\ntests + DEV_TO_API_KEY"
+      style.fill: "#44321c"
+      style.stroke: "#f2b84b"
+    }
+    eligible: {
+      label: "republish: [dev] + permalink\nnuevo ≤21 días o --backlog"
+      shape: diamond
+      style.fill: "#44321c"
+      style.stroke: "#f2b84b"
+    }
+    transform: {
+      label: "Jekyll → DEV.to\nURLs + KaTeX + allowlist\nfront matter + validación final"
+      style.fill: "#203d4a"
+      style.stroke: "#57c5d4"
+    }
+    draft: {
+      label: "API DEV.to\ncrea borrador o actualiza\nsin cambiar estado publicado"
+      shape: cloud
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    registry: {
+      label: "_data/distribucion.yml\nid + URL; commit del bot\nsolo en GitHub"
+      shape: document
+      style.fill: "#3d2b40"
+      style.stroke: "#e393c2"
+    }
+    no_secret: {
+      label: "Sin secreto: sale 0\nsin tocar DEV.to"
+      style.fill: "#3b3030"
+      style.stroke: "#ef8b8b"
+    }
+
+    main -> redirect
+    main -> dev
+    dev -> eligible: "secreto presente"
+    dev -> no_secret: "sin secreto" {
+      style.stroke-dash: 4
+    }
+    eligible -> transform
+    transform -> draft: "validador verde"
+    draft -> registry: "respuesta 2xx"
+  }
+}
+
+closure: {
+  label: "4 · Cierre de difusión"
+  grid-columns: 2
+  style.fill: "#111827"
+  style.stroke: "#6b7d9c"
+
+  human: {
+    label: "Publicación humana"
+    direction: down
+    style.fill: "#172033"
+    style.stroke: "#6b7d9c"
+
+    review: {
+      label: "DEV.to / Medium / LinkedIn: manual\nMastodon + Bluesky: revisión\ny publish --live"
+      shape: person
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    telegram: {
+      label: "Telegram explícito después de\nbuild + remoto + CI + URL pública\ncommit separado; sin aviso de mantenimiento"
+      style.fill: "#3d2b40"
+      style.stroke: "#e393c2"
+    }
+    review -> telegram: "después de verificar" {
+      style.stroke-dash: 4
+    }
+  }
+
+  cadence: {
+    label: "Recordatorio local independiente"
+    direction: down
+    style.fill: "#241f36"
+    style.stroke: "#a78bfa"
+
+    timer: {
+      label: "Timer activo · 09:30 diario\nPersistent=true"
+      style.fill: "#342b50"
+      style.stroke: "#c4b5fd"
+    }
+    due: {
+      label: "Lee _data/distribucion.yml\nMastodon + Bluesky por idioma\nD4 DEV · D10 Medium · ventana 30 días"
+      style.fill: "#342b50"
+      style.stroke: "#c4b5fd"
+    }
+    toast: {
+      label: "Pendiente vencido → toast\nhistóricos → aviso"
+      style.fill: "#3b3030"
+      style.stroke: "#ef8b8b"
+    }
+    timer -> due
+    due -> toast
+  }
+}
+
+local.commit -> push: "acción humana"
+push -> remotes: "GitLab + GitHub"
+remotes -> closure: "sitio y borradores disponibles"

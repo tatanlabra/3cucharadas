@@ -39,8 +39,9 @@ Console que no aparezcan como páginas separadas (ver
 - La skill `publicacion-externa` la aplica al generar `00-metadata.yaml` y
   cada pieza del paquete (`distribucion/<slug>/`) para HN/Medium/dev.to/
   Reddit/LinkedIn/social corto.
-- `scripts/syndicate_devto.rb` la aplica al `canonical_url` que manda a la
-  API de dev.to (Fase 4.3).
+- `scripts/syndicate_devto.rb` manda a DEV.to un `canonical_url` limpio, sin
+  UTM; los parámetros de campaña pertenecen a enlaces promocionales, no al
+  canónico del artículo sindicado.
 - Cualquier envío manual (LinkedIn nativo, Bluesky/Mastodon vía
   `cucharadas-difusion`) debe seguir la misma tabla al construir el enlace.
 
@@ -58,6 +59,8 @@ Esquema:
     - plataforma: <mastodon|bluesky|devto|hackernews|medium|reddit|linkedin|...>
       fecha: <YYYY-MM-DD>
       url_publicada: <URL real de la pieza en esa plataforma>
+      url_publicada_en: <URL de la respuesta EN, obligatoria para social bilingüe>
+      estado: <borrador|publicado; obligatorio para DEV.to>
       resultado_30d: <null hasta cumplir 30 días desde el último envío>
 ```
 
@@ -71,6 +74,16 @@ mecanismos que si no se cruzan, fragmentan la información:
 
 Antes de dar por buena una medición, revisar los tres — no asumir que uno
 solo tiene la foto completa.
+
+El gate trata Mastodon y Bluesky como compromisos separados. Para un post EN
+exige `url_publicada_en` en ambas redes; para DEV.to exige `estado: publicado`
+y URL o id; un borrador no cierra la tarea. Todo post debe declarar canales o
+un `distribution.skip_reason` explícito.
+
+Las comprobaciones del sitio deben usar un destino vacío, por ejemplo
+`bundle exec jekyll build -d "$(mktemp -d)"`. Validar un `_site` reutilizado
+puede mezclar HTML de commits anteriores y fabricar enlaces rotos que no existen
+en el Markdown canónico.
 
 ## Qué medir (y qué no)
 

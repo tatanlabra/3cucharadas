@@ -10,6 +10,10 @@ author: clabra
 lang: es
 ref: multiagente-penta-agent-modelos
 permalink: /ia/productividad/desarrollo/multiagente-penta-agent-modelos/
+distribution:
+  social: false
+  republish: []
+  skip_reason: "Versión ES anterior al contrato de difusión; la republicación se declara en la versión EN."
 toc: true
 toc_sticky: true
 comments: true

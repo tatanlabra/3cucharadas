@@ -15,8 +15,8 @@ WorkingDirectory=/home/ende/Descargas/programaciones/activos/3cucharadas
 # --ventana 30: el aviso diario solo debe hablar de lo que aun se puede hacer a
 # tiempo. El atraso historico se imprime igual, con su cuenta, pero no dispara el
 # toast: repetir siete lineas de hace medio ano cada manana termina en que se
-# silencia el aviso entero. La auditoria completa es el mismo script sin la
-# bandera, y es la que va a CI.
+# silencia el aviso entero. La auditoría completa corre sin esta bandera en el
+# job programado `distribution_audit`, después del despliegue de Pages.
 ExecStart=/usr/bin/ruby scripts/verify_distribution_done.rb --ventana 30
 StandardOutput=journal
 StandardError=journal

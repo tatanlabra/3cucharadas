@@ -1,0 +1,124 @@
+direction: down
+
+commit: {
+  label: "1 · Commit local\npost-commit resuelve destinos\nsi toca _posts/*.md\n→ estado local; no publica"
+  style.fill: "#203d4a"
+  style.stroke: "#57c5d4"
+}
+
+push: {
+  label: "2 · git push origin main\nMismo SHA a GitLab y GitHub\nLos envíos no son atómicos"
+  shape: hexagon
+  style.fill: "#44321c"
+  style.stroke: "#f2b84b"
+}
+
+remotes: {
+  label: "3 · Dos ramas remotas"
+  grid-columns: 1
+  style.fill: "#111827"
+  style.stroke: "#6b7d9c"
+
+  gitlab: {
+    label: "GitLab · canónico"
+    direction: down
+    style.fill: "#241f36"
+    style.stroke: "#a78bfa"
+
+    ci: {
+      label: "main o schedule → build_site\nassets + coherencia + DEV.to + Jekyll"
+      style.fill: "#342b50"
+      style.stroke: "#c4b5fd"
+    }
+    pages: {
+      label: "gates verdes → GitLab Pages\nhttps://3cucharadas.cl"
+      shape: cloud
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    audit: {
+      label: "Solo schedule · después de Pages\nauditoría completa de difusión\ndeuda → rojo; sitio ya servido"
+      style.fill: "#3b3030"
+      style.stroke: "#ef8b8b"
+    }
+    ci -> pages
+    pages -> audit
+  }
+
+  github: {
+    label: "GitHub · espejo"
+    direction: down
+    grid-columns: 1
+    style.fill: "#172033"
+    style.stroke: "#6b7d9c"
+
+    redirect: {
+      label: "Cada push a main\n→ despliega solo el redirector"
+      style.fill: "#26334d"
+      style.stroke: "#b8c4dc"
+    }
+    dev: {
+      label: "Post EN o transformador cambió\n→ tests + DEV_TO_API_KEY\n→ republish: [dev] + permalink\n→ Jekyll a DEV.to + validación"
+      style.fill: "#203d4a"
+      style.stroke: "#57c5d4"
+    }
+    draft: {
+      label: "API DEV.to\ncrea borrador o actualiza existente\nsin cambiar su estado publicado"
+      shape: cloud
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    registry: {
+      label: "Bot actualiza _data/distribucion.yml\ny hace commit solo en GitHub"
+      shape: document
+      style.fill: "#3d2b40"
+      style.stroke: "#e393c2"
+    }
+    dev -> draft: "gates verdes"
+    draft -> registry
+  }
+}
+
+manual: {
+  label: "4 · Publicación y cadencia"
+  grid-columns: 1
+  style.fill: "#111827"
+  style.stroke: "#6b7d9c"
+
+  publishing: {
+    label: "Acciones humanas"
+    direction: down
+    style.fill: "#172033"
+    style.stroke: "#6b7d9c"
+
+    human: {
+      label: "Publicar DEV.to / Medium / LinkedIn\ny aprobar Mastodon + Bluesky con --live"
+      shape: person
+      style.fill: "#1e4638"
+      style.stroke: "#69d49b"
+    }
+    telegram: {
+      label: "Telegram explícito tras verificar\ncommit separado; sin aviso de mantenimiento"
+      style.fill: "#3d2b40"
+      style.stroke: "#e393c2"
+    }
+    human -> telegram: "después de los gates" {
+      style.stroke-dash: 4
+    }
+  }
+  cadence: {
+    label: "Recordatorio independiente"
+    style.fill: "#241f36"
+    style.stroke: "#a78bfa"
+
+    timer: {
+      label: "Timer activo · 09:30 diario\nMastodon + Bluesky por idioma\nD4 DEV · D10 Medium\nfallo → toast; históricos → aviso"
+      style.fill: "#3b3030"
+      style.stroke: "#ef8b8b"
+    }
+  }
+}
+
+commit -> push: "acción humana"
+push -> remotes: "dos push URLs"
+remotes -> manual: "sitio + borradores"
