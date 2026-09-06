@@ -117,7 +117,10 @@ begin
       run.call("public-http-#{index}", ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', File.join(log_dir, "public-#{index}.html"), "https://3cucharadas.cl#{path}"])
     end
     css = File.join(log_dir, 'public-main.css')
-    if run.call('public-css-http', ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', css, 'https://3cucharadas.cl/assets/css/main.css'])
+    # Check the resource the live HTML actually loads, including its build
+    # version. The unversioned CDN URL legitimately retains an older cache.
+    css_url = SiteHealth.public_css_url(File.read(File.join(log_dir, 'public-0.html')))
+    if run.call('public-css-http', ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', css, css_url])
       expected = File.join(File.dirname(report_path), 'site-production/assets/css/main.css')
       equal = File.file?(expected) && Digest::SHA256.file(expected).hexdigest == Digest::SHA256.file(css).hexdigest
       record.call('public-css-parity', equal ? 'PASS' : 'FAIL', Digest::SHA256.file(css).hexdigest)

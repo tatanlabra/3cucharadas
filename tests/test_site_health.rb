@@ -42,4 +42,10 @@ class SiteHealthTest < Minitest::Test
       assert_equal 1, SiteHealth.validate_workflows(dir)
     end
   end
+
+  def test_public_css_uses_the_live_version_and_rejects_missing_evidence
+    assert_raises(RuntimeError) { SiteHealth.public_css_url('<html></html>') }
+    assert_raises(RuntimeError) { SiteHealth.public_css_url('<link href="/assets/css/main.css?v=1"><link href="/assets/css/main.css?v=2">') }
+    assert_equal 'https://3cucharadas.cl/assets/css/main.css?v=42', SiteHealth.public_css_url('<link rel="stylesheet" href="/assets/css/main.css?v=42">')
+  end
 end
