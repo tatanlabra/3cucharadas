@@ -96,3 +96,13 @@ piezas:
     cifras: []
     advertencias:
       - "Gemela inglesa de figura-1-es. El post EN debe apuntar a esta, no a la versión española."
+
+  - id: figura-1-en-devto
+    rol: figura
+    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png
+    ancho: 1600
+    alto: 1169
+    estado: publicable
+    origen: render-script
+    alt:
+      en: "Three governed sources, their allowed outputs, and the public boundary."

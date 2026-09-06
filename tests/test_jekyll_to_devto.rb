@@ -107,6 +107,41 @@ class JekyllToDevtoTest < Minitest::Test
     assert JekyllToDevto.validate!("`{{ page.url | relative_url }}`")
   end
 
+  def test_rewrites_internal_svg_urls_to_explicit_devto_rasters
+    source = <<~MARKDOWN
+      <picture>
+        <source srcset="/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.svg" type="image/svg+xml">
+        <img src="/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg" alt="Flow">
+      </picture>
+      [Full size](/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg)
+    MARKDOWN
+
+    result = transform(source)
+
+    assert_includes result, "#{SITE_URL}/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.webp"
+    assert_includes result, "#{SITE_URL}/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png"
+    assert_includes result, "#{SITE_URL}/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png"
+    assert_includes result, 'type="image/webp"'
+    refute_match(/\.svg\b/i, result)
+  end
+
+  def test_fails_closed_when_an_internal_svg_has_no_raster_mapping
+    error = assert_raises(JekyllToDevto::TransformError) do
+      transform('<img src="/assets/images/missing-diagram.svg" alt="Missing">')
+    end
+
+    assert_includes error.message, "falta mapeo ráster DEV.to"
+  end
+
+  def test_final_validation_rejects_external_svg_references_outside_code
+    error = assert_raises(JekyllToDevto::TransformError) do
+      JekyllToDevto.validate!("![Diagram](https://example.com/diagram.svg)")
+    end
+
+    assert_includes error.message, "referencia SVG no portable"
+    assert JekyllToDevto.validate!("`https://example.com/diagram.svg`")
+  end
+
   def test_renders_devto_front_matter_with_canonical_url
     document = JekyllToDevto.render_document(
       body: "Body",
@@ -154,7 +189,8 @@ class JekyllToDevtoTest < Minitest::Test
     result = JekyllToDevto.transform(body, canonical_url: canonical_url, page: front).body
 
     assert_includes result, "[first post](#{SITE_URL}/ia/productividad/desarrollo/multiagente-penta-agent-modelos/)"
-    assert_includes result, %(src="#{SITE_URL}/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg")
+    assert_includes result, %(src="#{SITE_URL}/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png")
+    refute_match(/\.svg\b/i, result)
     refute_match(/\|\s*relative_url\b/, result)
     refute_match(/\{\{/, result)
     assert_includes result, "{% katex %}"
@@ -214,6 +250,9 @@ class JekyllToDevtoTest < Minitest::Test
       assert status.success?, "export falló: #{stdout}\n#{stderr}"
       assert_equal expected, File.read(File.join(dir, "#{slug}.md"))
       assert_equal 7, Dir.glob(File.join(dir, "*.md")).length
+      Dir.glob(File.join(dir, "*.md")).each do |artifact|
+        refute_match(/https?:\/\/[^\s"'<>)]*\.svg\b/i, File.read(artifact), "SVG residual en #{File.basename(artifact)}")
+      end
     end
     assert_equal source_sha, Digest::SHA256.file(path).hexdigest
   end
