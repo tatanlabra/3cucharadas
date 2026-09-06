@@ -3,6 +3,7 @@ search: false
 ---
 
 @charset "utf-8";
+@use "sass:color";
 
 /* 1) Webfonts: Fira Sans (texto) */
 
@@ -304,6 +305,10 @@ pre,
      sistema del que sale el resto de esta paleta, asi que es neon sin ser
      arbitrario. 10,63:1 sobre el fondo y 11,26:1 sobre la cabecera. */
   --night-accent: #3ddbd9;
+  /* Acentos editoriales tenues de la misma familia teal: reservados para
+     cabeceras de tabla y divisores; el texto conserva su color y contraste. */
+  --night-table-heading: #243b3b;
+  --night-section-border: #345d5d;
 }
 
 .lang-switcher {
@@ -460,6 +465,10 @@ html[data-theme="academic-night"] .page__title a:visited,
 html[data-theme="academic-night"] .author__name a,
 html[data-theme="academic-night"] .author__name a:visited {
   color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__content h2 {
+  border-bottom-color: var(--night-section-border);
 }
 
 html[data-theme="academic-night"] .page__title a:hover,
@@ -1414,7 +1423,7 @@ html[data-theme="academic-night"] .page__content table {
 
 html[data-theme="academic-night"] .page__content table thead th {
   border-color: var(--night-border);
-  background: var(--night-layer-strong);
+  background: var(--night-table-heading);
   color: var(--night-text);
 }
 
@@ -2455,8 +2464,8 @@ $rss-orange-solid: #b64c1a;
 .subscribe-rss__all:focus-visible {
   /* Oscurecido en lugar de aclarado: sobre fondo claro, aclarar el naranja baja
      el contraste del texto blanco por debajo de AA. */
-  border-color: mix(#000, $rss-orange-solid, 15%);
-  background: mix(#000, $rss-orange-solid, 15%);
+  border-color: color.mix(#000, $rss-orange-solid, 15%);
+  background: color.mix(#000, $rss-orange-solid, 15%);
   color: #fff;
 }
 
