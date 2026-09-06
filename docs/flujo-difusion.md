@@ -33,6 +33,32 @@ vertical está en `docs/diagrams/flujo-difusion-mobile.d2`.
 - Las comprobaciones locales de enlaces deben construir en un directorio temporal vacío; reutilizar `_site` mezcla páginas viejas con el commit actual y produce diagnósticos falsos.
 - Telegram no se dispara desde el commit: el aviso explícito exige build, ambos remotos, CI y URL pública, y vive en un commit separado del cambio funcional.
 
+## Cómo leer los gates sin mezclar estados
+
+| Evidencia | Qué demuestra | Qué no demuestra |
+|---|---|---|
+| Pipeline verde sobre un SHA | Ese árbol versionado construyó y pasó sus gates | Que el checkout enlazado al timer tenga el mismo SHA o contenido |
+| `verify_distribution_done.rb` | Deuda completa registrada por plataforma e idioma | Que una publicación externa sin registrar no exista |
+| `verify_distribution_done.rb --ventana 30` | Pendientes accionables recientes para el aviso diario | Que la deuda histórica esté saldada |
+| DEV `GET /api/articles/:id` con HTTP 200 | El artículo está publicado y accesible | El estado de otros IDs privados |
+| DEV `GET /api/articles/:id` con HTTP 404 | El ID no está disponible públicamente | Si sigue como borrador o fue eliminado |
+
+Un `404` de DEV exige una consulta autenticada a `articles/me/unpublished` antes de
+afirmar que el borrador todavía existe. El secreto del workflow no se extrae para
+hacer esa comprobación: se usa desde GitHub Actions o desde una sesión local que ya
+tenga `DEV_TO_API_KEY`, sin imprimirlo.
+
+El timer ejecuta los archivos del `WorkingDirectory` configurado en systemd, no el
+árbol que esté verde en el remoto. Antes de interpretar su salida se comparan
+`git rev-parse HEAD`, `git status --short` y el SHA remoto. Si el checkout está
+atrasado o contiene cambios divergentes, se reproduce el gate en un worktree limpio.
+
+El verificador del artefacto presupone que Vite ya produjo sus manifests. La secuencia
+local equivalente a CI es `npm ci`, checks/tests Node, ambos builds Vite, build Jekyll
+en destino vacío y, recién entonces, `verify_site_artifact.rb` y
+`verify_distribution_readiness.rb`. `Vite manifest is missing` después de ejecutar
+solo Jekyll prueba una precondición omitida, no un defecto del artefacto completo.
+
 ## Transformación Jekyll a DEV.to
 
 - Convierte `relative_url` y atributos HTML relativos a URLs absolutas bajo `https://3cucharadas.cl`.
