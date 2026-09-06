@@ -1,7 +1,7 @@
 version: 1
 contract_id: nushell_publication_20260905
 status: active
-updated_at: "2026-09-05"
+updated_at: "2026-09-06"
 
 objectives:
   - id: O1
@@ -19,7 +19,7 @@ invariants:
   - id: INV-003
     rule: "ES y EN conservan ref, permalink, fecha, cifras y límites equivalentes."
   - id: INV-004
-    rule: "El artefacto Jekyll permanece por debajo de 60000000 bytes."
+    rule: "El artefacto Jekyll respeta los límites efectivos documentados en docs/limites-artefacto-gitlab-pages.md; los 60000000 bytes de F2 conservan solo el presupuesto histórico de aquel release."
   - id: INV-005
     rule: "Push, merge, publicación y difusión requieren autorización humana explícita."
 
@@ -92,10 +92,11 @@ phases:
       d2_accessible_title_desc: true
       artifact_bytes: 59284133
       artifact_max_bytes: 60000000
+      artifact_budget_scope: "historical_release_snapshot"
     evidence:
       - "scripts/render_structured_shell_d2_locales.py"
       - "ruby scripts/verify_site_artifact.rb /tmp/3cucharadas-nushell-bilingual-2"
-    falsified_by: "SVG ausente, texto recortado, ruta local o artefacto mayor al máximo"
+    falsified_by: "SVG ausente, texto recortado, ruta local o artefacto mayor al presupuesto histórico de ese release"
     rollback: "retirar solo los derivados EN y devolver el post EN a draft"
 
   - id: F3
