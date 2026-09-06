@@ -27,12 +27,14 @@ options = {
   backlog: ENV["DEVTO_BACKLOG"] == "1",
   dry_run: ENV["DEVTO_DRY_RUN"] == "1",
   existing_drafts_only: ENV["DEVTO_EXISTING_DRAFTS_ONLY"] == "1",
+  inventory_only: ENV["DEVTO_INVENTORY_ONLY"] == "1",
   export_dir: nil
 }
 OptionParser.new do |parser|
   parser.banner = "Uso: ruby scripts/syndicate_devto.rb [opciones]"
   parser.on("--backlog", "Permite crear borradores fuera de la ventana") { options[:backlog] = true }
   parser.on("--dry-run", "Simula sin escribir ni llamar a DEV.to") { options[:dry_run] = true }
+  parser.on("--inventory-only", "Sólo GET: inventario remoto sin cuerpos ni escrituras") { options[:inventory_only] = true }
   parser.on("--existing-drafts-only", "Actualiza borradores remotos existentes; no crea ni toca publicados") do
     options[:existing_drafts_only] = true
   end
@@ -47,6 +49,10 @@ unless ARGV.empty?
 end
 
 api_key = ENV["DEV_TO_API_KEY"]
+if options[:inventory_only] && (options[:dry_run] || options[:export_dir])
+  warn "inventory-only consulta la API; no se combina con dry-run ni export-dir."
+  exit 2
+end
 site_root = File.expand_path("..", __dir__)
 posts_dir = File.join(site_root, "_posts")
 distribucion_path = File.join(site_root, "_data", "distribucion.yml")
@@ -149,7 +155,7 @@ end
 
 if eligible.empty?
   puts "Ningun post declara `distribution.republish: [dev]`. Nada que hacer."
-  exit 0
+  exit(options[:inventory_only] ? 2 : 0)
 end
 
 if options[:export_dir]
@@ -164,7 +170,7 @@ end
 
 if !dry_run && (api_key.nil? || api_key.strip.empty?)
   puts "DEV_TO_API_KEY no configurado; nada que sindicar."
-  exit(options[:existing_drafts_only] ? 2 : 0)
+  exit(options[:existing_drafts_only] || options[:inventory_only] ? 2 : 0)
 end
 
 if dry_run && options[:existing_drafts_only]
@@ -265,6 +271,17 @@ remote_articles = if dry_run
                     end
                   end
 remote_by_id = remote_articles.to_h { |article| [article.fetch("id").to_i, article] }
+if options[:inventory_only]
+  # Whitelist only identifiers/state for canonical URLs already public on our
+  # site. Never print draft bodies, titles, account metadata or API credentials.
+  inventory = eligible.map do |post|
+    { canonical_url: post[:url_canonica], articles: remote_articles
+      .select { |article| article['canonical_url'] == post[:url_canonica] }
+      .map { |article| { id: article.fetch('id'), published: article.fetch('published') } } }
+  end
+  puts JSON.pretty_generate({ mode: 'inventory-only', writes: 0, inventory: inventory })
+  exit 0
+end
 remote_by_canonical = remote_articles.group_by { |article| article["canonical_url"] }
 remote_drafts_by_canonical = remote_articles.reject { |article| article["published"] }
                                            .group_by { |article| article["canonical_url"] }

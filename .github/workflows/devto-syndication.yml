@@ -63,11 +63,14 @@ jobs:
         run: |
           ruby tests/test_jekyll_to_devto.rb
           ruby tests/test_devto_draft_policy.rb
+          ruby tests/test_devto_inventory.rb
 
       - name: Ejecutar sindicación
         env:
           DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
           DEVTO_DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
+          # Diagnostic branch only: every invocation must remain read-only.
+          DEVTO_INVENTORY_ONLY: '1'
           # The approved maintenance release cannot create or touch published
           # articles, even when triggered by push rather than dispatch.
           DEVTO_EXISTING_DRAFTS_ONLY: "${{ (inputs.existing_drafts_only || contains(github.event.head_commit.message, '3c-maintenance: drafts-only')) && '1' || '' }}"
