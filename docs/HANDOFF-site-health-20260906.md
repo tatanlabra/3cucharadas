@@ -1,11 +1,11 @@
 # Handoff: saneamiento y paleta nocturna
 
-**Estado documental:** `draft`
+**Estado documental:** `validado`
 **Fecha de estado:** 2026-09-06
-**Evidencia de estado:** DEV resuelto; cierre técnico pendiente sólo de verificar F6.1 en producción.
+**Evidencia de estado:** DEV resuelto; F6.1 comprobado en producción, release aa98dabf aprobada.
 
-**Estado de implementación:** `parcial`
-**Evidencia de implementación:** F0–F5 verificados; release 8ee974a7 aprobada, corrección posterior de caché F6.1 en comprobación.
+**Estado de implementación:** `implementado`
+**Evidencia de implementación:** F0–F6 verificados, incluida paridad real del CSS y JavaScript de Catastro en aa98dabf.
 
 ## Metadata
 
@@ -50,8 +50,12 @@ escrituras tras esa publicación. Evidencia: `docs/evidence/devto-publication-20
 
 El suplemento `docs/evidence/site-health-validation-20260906.md` corrige el cierre
 provisional: 22 combinaciones de navegador, incompletos revisados y ensayo controlado
-de rendimiento que descartó el candidato. F6.1 requiere hashes de los recursos
+de rendimiento que descartó el candidato. F6.1 verificó hashes de los recursos
 versionados que realmente solicita el HTML público. No introducir claves en el chat.
+El recibo del último commit documental y su bundle queda fuera del repo en
+`~/.local/state/3cucharadas/site-health/20260906/final-closure/receipt.json`.
+No quedan tareas obligatorias del contrato para el humano; su evaluación estética
+puede solicitar otro ajuste, sin convertir una preferencia no expresada en aprobación.
 
 ## Verificación y riesgos
 

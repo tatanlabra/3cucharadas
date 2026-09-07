@@ -7,7 +7,9 @@ sin reducirlo a las pruebas ya ejecutadas. F4 se reabrió porque un ensayo explo
 y un resultado axe con revisión pendiente no satisfacían el contrato completo.
 La implementación y esta revisión son propias; sólo la paleta nocturna original
 fue delegada al subagente expresamente autorizado. No se afirma perfección ni
-óptimo global. F6 requiere todavía evidencia de la nueva release en producción.
+óptimo global. F6 quedó verificado en la release funcional aa98dabf; el sello de
+la revisión documental final se conserva aparte, ligado a su SHA, sin bucle de
+commits para incrustar el hash del propio documento.
 
 ## F2: diagnóstico y anchors
 
@@ -139,7 +141,28 @@ correctos. F6.1 incorpora versiones SHA-256 en las dos referencias HTML y extien
 el perfil release: descarga las URLs que realmente pide ese HTML, no unas URL
 artificiales de diagnóstico. El test rechazó el index anterior y luego aprobó
 cinco tests/23 aserciones con negativos por ausencia, duplicidad, versión antigua
-y contenido alterado. La paridad real de este ajuste sigue siendo requisito de cierre.
+y contenido alterado. La paridad real aprobó en producción en aa98dabf:
+CSS `7c19b97d7ef6e7123324ac414edec5ba1390e3a89bce1473b6c2026aaad07325`,
+app `254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d`.
+GitLab pipeline 2825034485 y jobs 16336158647/16336158648: success;
+GitHub redirect 34072857373: success. Perfil release ampliado sin fallos.
+La captura pública clara confirmó `--muted: #52617a` y los recursos versionados;
+las 13 filas de Catastro siguen disponibles. El intento SSH a GitHub falló por
+llave no disponible y el mismo push se completó por el HTTPS ya configurado.
+
+Custodia de este cierre funcional:
+`~/.local/state/3cucharadas/site-health/20260906/validation-20260906-970024-1gxloe`,
+554 archivos, 55.529.051 bytes; manifiesto comprobado tras copia. Incluye los rojos
+y recuperaciones de release, además de capturas y resultados de producción.
+Los ocho servidores de preview propios quedaron cerrados. El recibo de la última
+revisión documental, su CI y bundle restaurado se conserva en
+`~/.local/state/3cucharadas/site-health/20260906/final-closure/receipt.json`.
+
+Dictamen: saneamiento técnico verificado dentro del contrato, mediante autorrevisión
+salvo la paleta delegada. El ensayo de preloads fue descartado, no una optimización
+promovida. CLS, navegadores no ejecutados, lectores de pantalla y las siete pruebas
+geoespaciales declaradas siguen siendo límites; no hay garantía de ausencia universal
+de errores. La deuda editorial ajena a DEV permanece visible.
 
 Bundle suplementario: `~/.local/state/3cucharadas/git-backups/site-health-validation-8ee974a7.bundle`,
 SHA-256 `c0216b5a7ee8af2a4e54cd922d76077ff174836cb8f59fdbc0287a8dd75e8420`.
