@@ -225,11 +225,43 @@
     flashMetrics();
   }
 
+  function renderBasicTerritoryDetail(row, region = null) {
+    // Esta ficha no depende de WebGL ni de que el mapa termine de cargar.
+    // El renderer TS la amplía después con medianas y resumen UV, si está listo.
+    set("#territory-detail-name", row ? row.comuna : "tu comuna");
+    set("#territory-detail-summary", row
+      ? `${row.comuna}, ${row.region}: ficha básica de registros agregados. Las medianas y el resumen UV se incorporan cuando termina de cargar el visor cartográfico.`
+      : region ? `${region}: elige una comuna para cargar su ficha territorial.` : "Elige una comuna para cargar su ficha territorial.");
+    if (!row) set("#finding", region
+      ? `${region}: indicadores regionales activos; elige una comuna para cargar su ficha.`
+      : "Elige una comuna para cargar la lectura y el mapa.");
+    const body = $("#territory-detail-table-body");
+    if (!body) return;
+    const integer = (value) => value == null ? "No disponible" : number.format(value);
+    const rows = row ? [
+      ["Selección", `${row.comuna}, ${row.region}`],
+      ["Predios H", integer(row.predios_habitacionales)],
+      ["Población Censo 2024", integer(row.poblacion_censo_2024)],
+      ["Superficie reportada", surfaceValue(row.superficie_total_m2)],
+      ["Avalúo fiscal total", money(row.avaluo_total_clp)]
+    ] : [["Selección", region ? `Región ${region}` : "Sin comuna seleccionada"]];
+    body.replaceChildren(...rows.map(([label, value]) => {
+      const tr = document.createElement("tr");
+      const th = document.createElement("th");
+      const td = document.createElement("td");
+      th.scope = "row";
+      th.textContent = label;
+      td.textContent = value;
+      tr.append(th, td);
+      return tr;
+    }));
+  }
+
   function updateMetrics(row) {
     // El bundle TS también escribe este título, pero sólo cuando el mapa bivariado
     // se monta al entrar en viewport. Escribirlo acá evita que la ficha diga
     // "Detalle de tu comuna" mientras el resto del visor ya cambió de territorio.
-    set("#territory-detail-name", row.comuna);
+    renderBasicTerritoryDetail(row);
     renderMetricScope(buildCommunePayload(row));
     set("#finding", row.hallazgo);
     set("#status", `${row.region} · ${row.fuente_sii_disponible ? "extracto SII disponible" : "sin extracto SII en el corte"}`);
@@ -278,6 +310,7 @@
     }
     state.selected = null;
     select.value = "";
+    renderBasicTerritoryDetail(null, region || null);
     if (region) {
       renderRegionalMetrics(region);
       set("#selection-context", `Región ${region} lista. Elige una comuna para cargar su UV.`);
