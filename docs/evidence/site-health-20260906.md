@@ -6,13 +6,13 @@
 |---|---|---|
 | F0 Custodia | [x] | 1.325 archivos, bundle completo, restore y tres negativos rechazados |
 | F1 Reconciliación | [x] | Base 75f80d72 + historia f91498b7; archivo externo verificado; gobernanza verde |
-| F2 Entorno | [x] | Instalación aislada: 52 gems; doctor reparado; 3 tests/11 aserciones y runtime 2/9 |
+| F2 Entorno | [x] | Instalación aislada: 52 gems; doctor reparado; 5 tests/38 aserciones, stringex rojo/verde y paridad HTML ES/EN; runtime 2/9 |
 | F3 Dependencias/gates | [x] | Cinco actualizaciones conservadoras; contrato local y tres builds verdes |
-| F4 Interfaz/rendimiento | [x] | 20 combinaciones sin violaciones axe A/AA detectadas; ninguna optimización de velocidad promovida |
+| F4 Interfaz/rendimiento | [x] | 22 combinaciones de la candidata, revisión completa de incompletos, interacción/fallback y ensayo controlado; ver suplemento de validación |
 | F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
 | F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
-| F5 Consumidores/DEV | [!] | Consumidores sanos; inventario DEV autenticado bloquea por canonical duplicado de Avalúo, cero escrituras; decisión humana pendiente |
-| F6 Producción | [~] | df3d67bd desplegado con build/Pages verdes y CSS idéntico; repetir informe para el commit final de evidencia |
+| F5 Consumidores/DEV | [~] | 7 publicados/0 borradores verificados; no-op probado con CLI real y negativos; falta corroborar ese no-op en el workflow de la release |
+| F6 Producción | [~] | Baseline 5052233b ya desplegado; suplemento local aprobado, pendiente convergencia y comprobación de la nueva release |
 
 ## Custodia y reconciliación
 
@@ -90,6 +90,11 @@ no basta para aprobar producción. El informe final debe repetirse tras el push.
 
 ## Interfaz: mejora acotada, no perfección
 
+**Suplemento que reemplaza el cierre provisional de F4:**
+[validación completa](site-health-validation-20260906.md). Las cifras y límites
+de las primeras pruebas se conservan debajo como historia, no como prueba suficiente
+del contrato completo.
+
 `browser/matrix.json`: portada ES/EN, avalúo, Nushell y post III × 1280/390 px ×
 claro/nocturno. Las 20 combinaciones finales no detectaron violaciones axe
 WCAG A/AA. Hubo dos fallos reales corregidos: enlace deshabilitado sin nombre y
@@ -118,6 +123,13 @@ observado tampoco permite afirmar que el rendimiento sea óptimo: queda como
 línea de investigación separada con ensayo controlado antes de cambiar arquitectura.
 
 ## DEV y deuda editorial
+
+**Actualización posterior:** la persona usuaria autorizó depurar y luego publicar.
+Se eliminó sólo el duplicado idéntico 4584581, se conservó el ID del ledger y se
+publicaron los cinco borradores restantes. Panel y API pública verificados:
+7 publicados, 0 borradores; cuerpos intactos. La decisión ya no está pendiente.
+Ver [evidencia y nuevas URLs](devto-publication-20260906.md). Los párrafos siguientes
+conservan el incidente anterior a esa autorización, no el estado actual.
 
 Modo de mantenimiento: sólo drafts existentes, canonical único, relectura antes
 del PUT, rechazo de estados cambiantes y parada ante 429. Cuatro pruebas y 23
@@ -161,6 +173,30 @@ purga ni cambios de Cloudflare. Falta ejecutar el informe final sobre el commit
 que incorpora esta propia evidencia.
 
 ## Alcance del juicio
+
+La transcripción del plan aprobado está en
+`docs/contracts/site-health-approved-plan.md`. La continuación detectó una
+declaración prematura de F4 completa: 49 checks técnicos PASS no acreditan por sí
+solos todas las obligaciones manuales del plan. Se conserva la evidencia anterior
+y se reabre la fase hasta completar ensayo controlado y revisión de incompletos.
+
+La nueva fixture F2 refutó inicialmente otra premisa: GFM genera
+`prueba-ágil` / `niño-y-acción`, no sus equivalentes ASCII, aun con
+`transliterated_header_ids: true`. El camino Kramdown sí usa `stringex`. Se prueba
+su ausencia mediante `Gem::LoadError` y recuperación con la gema disponible, y
+se congela por separado la igualdad del HTML GFM en ambas URLs ES/EN con y sin
+el hook. No se cambian anchors ni gems instaladas para satisfacer una expectativa
+equivocada. Ejecutar `ruby tests/test_polyglot_doctor.rb`; `bundle exec ruby` no
+es el runner de estas pruebas: `minitest` está en el entorno de test, no en Gemfile.
+
+Inventario DEV suplementario autenticado y **sólo lectura**:
+https://github.com/tatanlabra/3cucharadas/actions/runs/34066653342 . Confirmó dos
+borradores para Avalúo (`4584596` y `4584581`, ambos `published=false`). No fue un
+falso positivo causado por un publicado. La rama diagnóstica
+`maintenance/devto-inventory-20260906` fuerza `DEVTO_INVENTORY_ONLY=1` y **no debe
+fusionarse sin retirar esa configuración exclusivamente diagnóstica**. Pruebas:
+3 casos, 17 aserciones, sólo dos GET y rechazo de toda escritura, 429 y falta de
+credencial. Cero escrituras reales; la decisión humana sigue pendiente.
 
 Autorrevisión de Codex; no revisión entre proveedores. El usuario añadió después
 un subagente para F4.1, con propiedad exclusiva de la hoja de estilos y sin
