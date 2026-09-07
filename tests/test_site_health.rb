@@ -48,4 +48,23 @@ class SiteHealthTest < Minitest::Test
     assert_raises(RuntimeError) { SiteHealth.public_css_url('<link href="/assets/css/main.css?v=1"><link href="/assets/css/main.css?v=2">') }
     assert_equal 'https://3cucharadas.cl/assets/css/main.css?v=42', SiteHealth.public_css_url('<link rel="stylesheet" href="/assets/css/main.css?v=42">')
   end
+
+  def test_catastro_cache_versions_reject_missing_stale_and_duplicate_assets
+    html = File.read(File.join(ROOT, 'catastro_sii_brecha/index.html'))
+    assert_equal 2, SiteHealth.catastro_asset_urls(html, ROOT).length
+    assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls('', ROOT) }
+    assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls(html.gsub(/\?v=[a-f0-9]{64}/, ''), ROOT) }
+    assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls(html.sub(/\?v=[a-f0-9]{64}/, '?v=old'), ROOT) }
+    assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls(html + '<script src="app.js"></script>', ROOT) }
+    Dir.mktmpdir do |dir|
+      FileUtils.mkdir_p(File.join(dir, 'catastro_sii_brecha'))
+      %w[style.css app.js].each { |asset| FileUtils.cp(File.join(ROOT, 'catastro_sii_brecha', asset), File.join(dir, 'catastro_sii_brecha', asset)) }
+      asset = File.join(dir, 'catastro_sii_brecha/app.js')
+      original = File.binread(asset)
+      File.binwrite(asset, original + "\n// changed\n")
+      assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls(html, dir) }
+      File.binwrite(asset, original)
+      assert_equal 2, SiteHealth.catastro_asset_urls(html, dir).length
+    end
+  end
 end

@@ -123,3 +123,10 @@ phases:
     evidence: Final release report, CI job URLs, public HTTP and browser checks.
     falsified_by: A mismatched remote SHA or failed Pages job blocks release verification.
     rollback: New revert commit with the same draft-only maintenance policy, then revalidate production.
+    emergent_items:
+      - id: F6.1
+        objective: Prevent stale Catastro CSS and classic JavaScript after deployment.
+        invariant: The live HTML must request the exact content-versioned files validated locally.
+        gate: Source test validates both SHA-256 query versions; release downloads the actual live references and compares bytes.
+        falsified_by: Production unversioned URLs returned old hashes while content-versioned requests matched; the new test rejected the previous index, missing, duplicated, stale and changed-file fixtures before recovery.
+        rollback: Revert the cache-version commit and recheck served content; do not claim parity from cache-busting URLs absent from live HTML.

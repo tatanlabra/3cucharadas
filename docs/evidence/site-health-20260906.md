@@ -11,8 +11,8 @@
 | F4 Interfaz/rendimiento | [x] | 22 combinaciones de la candidata, revisión completa de incompletos, interacción/fallback y ensayo controlado; ver suplemento de validación |
 | F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
 | F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
-| F5 Consumidores/DEV | [~] | 7 publicados/0 borradores verificados; no-op probado con CLI real y negativos; falta corroborar ese no-op en el workflow de la release |
-| F6 Producción | [~] | Baseline 5052233b ya desplegado; suplemento local aprobado, pendiente convergencia y comprobación de la nueva release |
+| F5 Consumidores/DEV | [x] | 7 publicados/0 borradores; workflow 34071908861 confirma NO_OP, 0 escrituras, ledger intacto |
+| F6 Producción | [~] | Release 8ee974a7 y CI verdes; F6.1 corrige caché antigua real de Catastro y requiere comprobar sus URLs nuevas en producción |
 
 ## Custodia y reconciliación
 
