@@ -6,7 +6,7 @@ runtime:
 invariants:
   - Preserve original refs, working changes, approvals and canonical data.
   - Gates fail closed; missing evidence or tooling is inconclusive, never pass.
-  - No new DEV articles, no published article updates, no Telegram.
+  - No new DEV articles, no pre-existing published article updates, no Telegram. The later explicit authorization in F5.1 permits publishing five existing drafts and deleting one verified duplicate.
   - Do not weaken existing thresholds to obtain a green result.
 profiles:
   source: Runtime declarations, source governance, visual assets and focused Ruby tests.
@@ -45,7 +45,7 @@ phases:
     entry_gate: F1 passed.
     exit_gate: Runtime declarations, clean install, bundle check and doctor pass.
     evidence: Runtime test suite and Polyglot doctor regression suite.
-    falsified_by: Original doctor fails on nil languages; CI Node 24 versus Node 26 is rejected by runtime fixtures.
+    falsified_by: Original doctor fails on nil languages; mismatched Node is rejected; missing stringex breaks Kramdown transliteration and its restored fixture passes. GFM Unicode anchors and ES/EN HTML remain identical with and without the doctor hook.
     rollback: Revert the scoped runtime/compatibility commit and restore local config.
   - id: F3
     objective: Compatible upgrades and falsifiable shared checks.
@@ -85,6 +85,16 @@ phases:
         objective: Named keyboard-scrollable containers expose a region role.
         acceptance: Observed aria-prohibited-attr failures recover; HTMLParser fixtures reject missing role and validate actual template.
         rollback: Revert role attributes only, with no data or map changes.
+      - id: F4.5
+        authorization: In-scope corrections from full automatic and manual accessibility review.
+        objective: Readable graph labels, Catastro hero hints, light labels and gradient headings; valid named groups and distinct attribution links.
+        acceptance: Observed contrast and role failures recover; full axe findings retained; manual background bounds cover every incomplete color group without treating incomplete as pass.
+        rollback: Revert only scoped CSS/ARIA changes and regenerate graph HTML from the unchanged public JSON/template.
+      - id: F4.6
+        authorization: In-scope fallback failure found with WebGL deliberately disabled.
+        objective: Keep a current basic territorial table before the map loads; hide the graph-only insights panel in text fallback.
+        acceptance: Selection, change and clearing work without WebGL at 390/1280px; full map still upgrades to 13 rows; graph fallback has eight families and four metrics without overlap.
+        rollback: Revert the small classic-JS fallback and template CSS; canonical data remains unchanged.
   - id: F5
     objective: Reconciled consumers and draft-only DEV maintenance.
     invariants: No create, published update or unrelated external message.
@@ -93,6 +103,18 @@ phases:
     evidence: Consumer diagnostics, draft snapshots and API request/result inventory.
     falsified_by: Published, missing, duplicate, changed-state and HTTP 429 fixtures must stop unsafe writes.
     rollback: Restore own consumer configuration; halt writes and restore only still-draft owned changes.
+    emergent_items:
+      - id: F5.1
+        authorization: User explicitly authorized duplicate deletion, then publication of all five remaining drafts in this session on 2026-09-06 America/Santiago.
+        objective: Keep one copy per article and publish the five existing drafts; preserve the two already published articles.
+        acceptance: Compare duplicate editor contents exactly, preserve private backups, change only publication front matter, verify five public API responses and final dashboard with seven published and zero drafts.
+        evidence: docs/evidence/devto-publication-20260906.md; private devto-cleanup custody and publication-result.json.
+        rollback: Recover deleted content from private custody; unpublishing a now-public article requires explicit user direction because publication effects cannot be fully reversed.
+      - id: F5.2
+        authorization: In-scope maintenance adaptation after all drafts were explicitly published.
+        objective: A complete authenticated all-published inventory produces zero writes and a verified no-op.
+        acceptance: Real CLI fixture rejects empty/duplicate/429 inventories and passes two repeated all-published executions without ledger or custody writes.
+        rollback: Revert the isolated no-op branch; never change publication state automatically.
   - id: F6
     objective: Converged production release.
     invariants: No forced pushes or rewritten history; read actual post-workflow refs.

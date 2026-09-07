@@ -59,11 +59,13 @@ begin
   run.call('governance', %w[ruby scripts/verify_repo_governance.rb --strict])
   run.call('visual-assets', %w[ruby scripts/verify_visual_assets.rb --strict])
   run.call('diffusion-coherence', %w[ruby scripts/verify_difusion_coherente.rb])
-  %w[site_health polyglot_doctor math_keyboard jekyll_to_devto verify_distribution_done verify_repo_governance devto_draft_policy].each do |test|
+  %w[site_health polyglot_doctor math_keyboard jekyll_to_devto verify_distribution_done verify_repo_governance devto_draft_policy devto_noop].each do |test|
     run.call("test-#{test}", ['ruby', "tests/test_#{test}.rb"])
   end
   run.call('test-notification', %w[python3 -m unittest tests/test_notify_telegram_publication.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
   run.call('test-accessible-regions', %w[python3 -m unittest discover -s tests/catastro_sii -p test_accessible_regions.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('test-static-contrast', %w[python3 -m unittest discover -s tests/catastro_sii -p test_static_contrast.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('test-graph-contrast', %w[python3 -m unittest tests/test_graph_contrast.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
 
   unless options[:profile] == 'source'
     version, status = Open3.capture2e('node', '--version')
