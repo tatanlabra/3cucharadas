@@ -12,7 +12,7 @@
 | F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
 | F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
 | F5 Consumidores/DEV | [x] | 7 publicados/0 borradores; workflow 34071908861 confirma NO_OP, 0 escrituras, ledger intacto |
-| F6 Producción | [~] | Release 8ee974a7 y CI verdes; F6.1 corrige caché antigua real de Catastro y requiere comprobar sus URLs nuevas en producción |
+| F6 Producción | [x] | Release aa98dabf, ambos remotos, CI/Pages y perfil release ampliado verdes; paridad real CSS/JS de Catastro comprobada |
 
 ## Custodia y reconciliación
 
