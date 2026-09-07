@@ -273,6 +273,20 @@ if options[:existing_drafts_only]
     # Preflight the whole inventory before the first write; never partially
     # update an ambiguous set or mistake an empty inventory for success.
     selected = eligible.flat_map { |post| DevtoDraftPolicy.select(remote_articles, post[:url_canonica]) }
+    if selected.empty?
+      # An authenticated, complete published inventory is a verified no-op,
+      # not a successful empty lookup. Preserve fail-closed behavior for any
+      # missing, duplicate, malformed or unknown-state canonical.
+      all_published = eligible.all? do |post|
+        matches = remote_articles.select { |article| article['canonical_url'] == post[:url_canonica] }
+        matches.one? && matches.first['published'] == true &&
+          matches.first['id'].is_a?(Integer) && matches.first['id'].positive?
+      end
+      raise DevtoDraftPolicy::Violation, 'no drafts and incomplete published inventory' unless all_published
+
+      puts "NO_OP: #{eligible.length} canonical(es) verificados publicados; 0 borradores, 0 escrituras"
+      exit 0
+    end
     backup_dir = ENV.fetch("DEVTO_BACKUP_DIR") { raise DevtoDraftPolicy::Violation, 'DEVTO_BACKUP_DIR required for maintenance' }
     DevtoDraftPolicy.backup!(selected, backup_dir, api_key)
     puts "Custodia cifrada: #{selected.length} borrador(es); ids #{selected.map { |a| a.fetch('id') }.join(', ')}"
