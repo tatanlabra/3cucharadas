@@ -119,6 +119,14 @@ begin
       run.call("public-http-#{index}", ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', File.join(log_dir, "public-#{index}.html"), "https://3cucharadas.cl#{path}"])
     end
     css = File.join(log_dir, 'public-main.css')
+    SiteHealth.catastro_asset_urls(File.read(File.join(log_dir, 'public-4.html')), root).each do |asset, url|
+      downloaded = File.join(log_dir, "public-catastro-#{asset}")
+      if run.call("public-catastro-#{asset}-http", ['curl', '--fail', '--silent', '--show-error', '--max-time', '25', '--output', downloaded, url])
+        expected = Digest::SHA256.file(File.join(root, 'catastro_sii_brecha', asset)).hexdigest
+        actual = Digest::SHA256.file(downloaded).hexdigest
+        record.call("public-catastro-#{asset}-parity", actual == expected ? 'PASS' : 'FAIL', actual)
+      end
+    end
     # Check the resource the live HTML actually loads, including its build
     # version. The unversioned CDN URL legitimately retains an older cache.
     css_url = SiteHealth.public_css_url(File.read(File.join(log_dir, 'public-0.html')))

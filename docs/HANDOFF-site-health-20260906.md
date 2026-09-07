@@ -2,10 +2,10 @@
 
 **Estado documental:** `draft`
 **Fecha de estado:** 2026-09-06
-**Evidencia de estado:** Codex emite resultados medidos y una decisión DEV pendiente.
+**Evidencia de estado:** DEV resuelto; cierre técnico pendiente sólo de verificar F6.1 en producción.
 
-**Estado de implementación:** `no-implementado`
-**Evidencia de implementación:** la tarea del receptor es resolver la revisión de duplicados; el saneamiento técnico ya fue implementado según el informe enlazado.
+**Estado de implementación:** `parcial`
+**Evidencia de implementación:** F0–F5 verificados; release 8ee974a7 aprobada, corrección posterior de caché F6.1 en comprobación.
 
 ## Metadata
 
@@ -17,17 +17,17 @@
 - Skill: handoff-protocol.
 - Fecha: 2026-09-06, America/Santiago.
 
-HANDOFF-TRACE: Codex entrega a humano la validación pendiente de DEV (model: no aplica) vía sesión Codex.
+HANDOFF-TRACE: Codex entrega a humano el estado verificable del saneamiento (model: no aplica) vía sesión Codex.
 
 MODEL-REPORT: {"agent":"Codex","provider":"OpenAI","model":"unknown","source":"unknown"}
 
-DECISION: human_validation
+DECISION: technical_closeout
 
 ## Decisiones inmutables
 
 - Preservar historia y cambios previos; nada de force push ni reaplicar versiones antiguas del stash sobre main saneado.
 - Ambos videos aprobados quedan archivados fuera del sitio, recuperables por hash.
-- DEV sólo permite borradores existentes: no crear, publicar, despublicar ni tocar publicados.
+- La autorización posterior permitió publicar cinco borradores y eliminar un duplicado exacto; cumplida. El mantenimiento automático continúa sin crear ni modificar publicados.
 - No Telegram ni difusión en otras redes; los compromisos editoriales vencidos siguen visibles.
 - Paleta conservada con dos acentos teal leves; no rediseño ni cambio del tema claro.
 
@@ -43,21 +43,21 @@ DECISION: human_validation
 
 ## Contexto y tarea del receptor
 
-DEV devolvió más de un artículo para el canonical EN de Avalúo. El preflight global
-detuvo la corrida antes de escribir. Resolver la pregunta nativa pendiente: mantener
-DEV pausado (menor riesgo), excluir Avalúo y procesar sólo los demás inequívocos,
-o revisar IDs y escoger uno explícitamente. No hay autorización implícita para
-eliminar duplicados ni para actualizar todos indiscriminadamente.
+La decisión DEV ya fue resuelta por el usuario y ejecutada: siete artículos públicos,
+cero borradores; cuerpos preservados y duplicado exacto bajo custodia privada.
+No queda ninguna decisión editorial DEV pendiente. El workflow real comprobó cero
+escrituras tras esa publicación. Evidencia: `docs/evidence/devto-publication-20260906.md`.
 
-Hecho para esta revisión: decisión explícita registrada; si se continúa, inventario
-autenticado actual, selección inequívoca, custodia cifrada y comprobación del estado
-posterior. No introducir claves API en el chat ni en argumentos de comandos.
+El suplemento `docs/evidence/site-health-validation-20260906.md` corrige el cierre
+provisional: 22 combinaciones de navegador, incompletos revisados y ensayo controlado
+de rendimiento que descartó el candidato. F6.1 requiere hashes de los recursos
+versionados que realmente solicita el HTML público. No introducir claves en el chat.
 
 ## Verificación y riesgos
 
 - `ruby scripts/verify_site_health.rb --profile release --report /tmp/site-health-resume/report.json` desde el checkout operativo; exige herramientas instaladas, remotos, CI y CSS público real.
 - Los informes incluyen SHA, digest fuente, comandos, logs y cobertura; un FAIL no se convierte en PASS por proximidad al cierre.
 - Siete pruebas geoespaciales y navegadores heredados quedan fuera de cobertura ejecutada; axe no sustituye lectores de pantalla.
-- No se acreditó mejora de velocidad: siete pares exploratorios no cumplieron la condición de promoción; CLS de laboratorio alto en ambas variantes, requiere experimento controlado.
+- No se acreditó mejora de velocidad: siete pares controlados del post Avalúo rechazaron preloads; CLS del baseline 0,353835 permanece como limitación.
 - La API DEV no ofrece atomicidad entre relectura y PUT; no editar simultáneamente los borradores durante una eventual corrida autorizada.
-- Riesgo residual técnico bajo para los cambios probados; pendiente operativo DEV y validación perceptual humana de la preferencia estética.
+- La preferencia estética final corresponde al humano; no se afirma perfección, compatibilidad universal ni rendimiento óptimo.

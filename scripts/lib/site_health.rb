@@ -2,6 +2,7 @@
 require 'yaml'
 require 'json'
 require 'cgi'
+require 'digest'
 
 module SiteHealth
   PROFILES = %w[source local release].freeze
@@ -52,5 +53,14 @@ module SiteHealth
     matches = html.scan(/href=["'](\/assets\/css\/main\.css(?:\?[^"'<>]*)?)["']/).flatten.uniq
     raise 'missing or ambiguous public stylesheet' unless matches.one?
     'https://3cucharadas.cl' + CGI.unescapeHTML(matches.first)
+  end
+
+  def self.catastro_asset_urls(html, root)
+    %w[style.css app.js].to_h do |asset|
+      matches = html.scan(/(?:href|src)=["'](#{Regexp.escape(asset)}(?:\?[^"'<>]*)?)["']/).flatten
+      digest = Digest::SHA256.file(File.join(root, 'catastro_sii_brecha', asset)).hexdigest
+      raise "missing, ambiguous or stale Catastro asset: #{asset}" unless matches == ["#{asset}?v=#{digest}"]
+      [asset, 'https://3cucharadas.cl/catastro_sii_brecha/' + matches.first]
+    end
   end
 end

@@ -83,6 +83,7 @@ controles negativos; el grafo se regeneró sólo desde su JSON público sin camb
 
 ## Rendimiento: candidato descartado
 
+Ruta medida: `/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/` (no portada).
 Una candidata: precargar Fira Sans Regular y Bold. Siete pares alternados y un par
 de calentamiento excluido; mismo HTML inmutable, RSS, assets y reloj de build.
 Caché desactivada y vaciada por muestra, almacenamiento de origen limpiado, viewport
@@ -108,9 +109,38 @@ de actualizaciones conserva sus cuatro tests y 23 aserciones.
 
 ## Evidencia y límites
 
-Scratch de ejecución: `/tmp/3c-health-validation-20260906/`; informes completos de
-navegador en `/tmp/playwright-local-mcp.q6GZZa/`. Deben copiarse a la custodia durable
-de esta sesión antes del cierre F6, con manifiesto de hashes y sin secretos.
+Custodia suplementaria verificada: `~/.local/state/3cucharadas/site-health/20260906/validation-20260906-920236-88cuny`:
+320 archivos, 52.467.391 bytes, hashes comprobados tras copia, permisos privados.
+Los nuevos registros de release se incorporan a una custodia final separada sin
+sobrescribir ese manifiesto ni el cierre provisional histórico.
 Las pruebas no certifican lectores de pantalla, Safari 16 ni Firefox 104; se conservan
 sus targets de build. Siete tests geoespaciales siguen siendo la excepción acordada,
 no cobertura ejecutada. Ningún dato canónico ni post se reescribió en este suplemento.
+
+## F6 y hallazgo F6.1 de caché
+
+El perfil release de 8ee974a7 terminó verde una vez que GitLab confirmó estado
+terminal success (pipeline 2825007853, build 16336009979, Pages 16336009980).
+Dos intentos anteriores rechazaron correctamente el estado agregado running,
+incluso cuando los jobs ya aparecían verdes. GitHub DEV 34071908861 confirmó
+`NO_OP`: siete canonicals publicados, cero borradores, cero escrituras y ledger intacto.
+El redirect 34071908894 también terminó correctamente.
+
+Seis rutas públicas devolvieron 200 sin errores JavaScript, recursos propios rotos
+ni overflow móvil. Los temas de portadas ES/EN y ambos posts respondieron a Enter;
+grafo: filtro, reinicio y Proy a 390/1280; Catastro: 13 filas, ArrowRight y tema.
+El primer intento de pestaña Catastro se adelantó a la inicialización diferida;
+esperar el estado ready recuperó la interacción, sin cambio de código.
+
+La comparación suplementaria de bytes detectó que las URLs sin versión de Catastro
+todavía servían CSS `1fb83b3a…` y app `ca9cc8c2…`, no los archivos locales
+`7c19b97d…` y `254489af…`. Los mismos recursos con versión devolvieron los hashes
+correctos. F6.1 incorpora versiones SHA-256 en las dos referencias HTML y extiende
+el perfil release: descarga las URLs que realmente pide ese HTML, no unas URL
+artificiales de diagnóstico. El test rechazó el index anterior y luego aprobó
+cinco tests/23 aserciones con negativos por ausencia, duplicidad, versión antigua
+y contenido alterado. La paridad real de este ajuste sigue siendo requisito de cierre.
+
+Bundle suplementario: `~/.local/state/3cucharadas/git-backups/site-health-validation-8ee974a7.bundle`,
+SHA-256 `c0216b5a7ee8af2a4e54cd922d76077ff174836cb8f59fdbc0287a8dd75e8420`.
+Clone mirror y fsck completos: main 8ee974a7 y stash original 34bdb48c conservados.
