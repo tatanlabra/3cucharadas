@@ -37,7 +37,7 @@
 :root[data-theme="light"] {
   --ink: #132033;
   --ink-soft: #32435d;
-  --muted: #61718a;
+  --muted: #52617a;
   --bg: #e9edf4;
   --surface: #ffffff;
   --surface-2: #f6f8fc;
@@ -299,6 +299,12 @@ h1 {
   color: transparent;
 }
 
+/* The hero keeps its bright gradient on a permanently dark background.
+   Section accents need the existing text tokens on light cards. */
+:root[data-theme="light"] .lead-accent {
+  background-image: linear-gradient(98deg, var(--acid-text), var(--cyan-text) 49%, var(--ink-soft));
+}
+
 .sub {
   max-width: 64ch;
   margin: 20px 0 0;
@@ -379,6 +385,11 @@ main.wrap {
 
 .big { max-width: 74ch; margin: 15px 0 0; color: var(--ink-soft); font-size: clamp(1.02rem, 1.8vw, 1.17rem); }
 .hint { margin: 13px 0 0; color: var(--muted); font-size: 0.92rem; }
+/* La portada conserva fondo oscuro también en modo claro. */
+.hero .hint { color: var(--hero-sub); }
+
+/* La atribución sigue siendo identificable como enlace sin depender del color. */
+.bivariate-map-shell .maplibregl-ctrl-attrib a { text-decoration: underline; }
 
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 620ms cubic-bezier(.2, .7, .2, 1), transform 620ms cubic-bezier(.2, .7, .2, 1); }
 .reveal.in { opacity: 1; transform: none; }
@@ -1084,6 +1095,15 @@ main.wrap {
   font-size: .78rem;
   line-height: 1.45;
 }
+
+/* El texto pequeño sobre la tarjeta clara daba 4,49:1 con --muted.
+   Mantener el tema oscuro; reutilizar el token legible ya existente. */
+:root[data-theme="light"] .dictionary-grid p {
+  color: var(--ink-soft);
+}
+
+/* Las pestañas no seleccionadas siguen siendo controles activos (4,32:1 antes). */
+:root[data-theme="light"] .lab-tabs button { color: var(--ink-soft); }
 
 .metric-section { margin: 22px 0; }
 .metric-head { margin-bottom: 14px; }

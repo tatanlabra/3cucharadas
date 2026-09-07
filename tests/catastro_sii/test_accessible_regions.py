@@ -12,9 +12,10 @@ class Regions(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        if tag == "div" and attrs.get("tabindex") == "0" and attrs.get("aria-label"):
+        if tag == "div" and attrs.get("aria-label"):
             self.named += 1
-            self.invalid += attrs.get("role") != "region"
+            allowed = {"region"} if attrs.get("tabindex") == "0" else {"region", "group", "tablist", "img"}
+            self.invalid += attrs.get("role") not in allowed
 
 
 class AccessibleRegionsTest(unittest.TestCase):
@@ -30,3 +31,9 @@ class AccessibleRegionsTest(unittest.TestCase):
         parser.feed(source.read_text())
         self.assertGreaterEqual(parser.named, 14)
         self.assertEqual(parser.invalid, 0)
+
+    def test_noninteractive_named_group_negative_then_recovery(self):
+        for role, expected in [("", 1), (' role="group"', 0)]:
+            parser = Regions()
+            parser.feed(f'<div{role} aria-label="Column dictionary"></div>')
+            self.assertEqual(parser.invalid, expected)

@@ -7,13 +7,15 @@
 <style>
   :root{
     --bg:#16161e; --panel:rgba(26,27,38,.9); --border:#2f3350;
-    --fg:#c0caf5; --muted:#7982a9; --accent:#7aa2f7;
+    --fg:#c0caf5; --muted:#919abd; --accent:#7aa2f7;
     --green:#9ece6a; --amber:#e0af68; --red:#f7768e;
   }
   *{box-sizing:border-box}
   html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);
     font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
   #graph{position:fixed;inset:0;z-index:0}
+  /* Keep the small navigation hint readable over moving canvas content. */
+  .scene-container .scene-nav-info{color:var(--muted);background:var(--bg);padding:2px 6px}
   .panel{position:fixed;background:var(--panel);border:1px solid var(--border);
     border-radius:14px;backdrop-filter:blur(10px);box-shadow:0 10px 34px rgba(0,0,0,.5);z-index:2}
   h1{margin:0 0 2px;font-size:15px;font-weight:700;letter-spacing:.2px}
@@ -100,7 +102,7 @@
      lectura útil hecha sólo de metadatos públicos ya embebidos en esta vista. */
   html.graph-fallback-active,body.graph-fallback-active{height:auto;min-height:100%;overflow:auto}
   html.graph-fallback-active #graph{position:relative;inset:auto;min-height:100vh;padding:42px 24px;z-index:3}
-  html.graph-fallback-active .panel,html.graph-fallback-active #hint{display:none}
+  html.graph-fallback-active .panel,html.graph-fallback-active #insights,html.graph-fallback-active #hint{display:none}
   .graph-fallback{max-width:920px;margin:0 auto;color:var(--fg)}
   .graph-fallback__eyebrow{margin:0 0 8px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .graph-fallback h2{margin:0 0 10px;font-size:clamp(22px,4vw,34px);line-height:1.12}
