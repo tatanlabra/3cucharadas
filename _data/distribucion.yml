@@ -76,7 +76,7 @@
     fecha: '2026-07-26'
     devto_article_id: 4235233
     url_publicada: https://dev.to/tatanlabra/ai-quotas-in-three-spoonfuls-a-hud-for-the-kde-panel-2db1
-    estado: borrador
+    estado: publicado
     resultado_30d:
 - slug: multiagente-penta-agent-memoria
   ref_interno: multiagente-penta-agent-memoria
@@ -104,10 +104,10 @@
       medido: 2026-09-05
       dias: 43
   - plataforma: devto
-    fecha: '2026-09-05'
+    fecha: '2026-09-06'
     devto_article_id: 4584571
-    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-ii-auditable-memory-54h1-temp-slug-3833057
-    estado: borrador
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-ii-auditable-memory-127a
+    estado: publicado
 - slug: avaluo-vulnerabilidad-unidad-vecinal
   ref_interno: avaluo-vulnerabilidad-uv
   url_canonica: https://3cucharadas.cl/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
@@ -135,10 +135,10 @@
       medido: 2026-09-05
       dias: 35
   - plataforma: devto
-    fecha: '2026-09-05'
+    fecha: '2026-09-06'
     devto_article_id: 4584596
-    url_publicada: https://dev.to/tatanlabra/appraisal-and-vulnerability-in-3-spoonfuls-change-the-denominator-change-the-map-hpi-temp-slug-453835
-    estado: borrador
+    url_publicada: https://dev.to/tatanlabra/appraisal-and-vulnerability-in-3-spoonfuls-change-the-denominator-change-the-map-4j3e
+    estado: publicado
 - slug: multiagente-memoria-gobernada-poc
   ref_interno: multiagente-penta-agent-memoria-gobernada-poc
   url_canonica: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/
@@ -155,10 +155,10 @@
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3musec37aao2k
     resultado_30d:
   - plataforma: devto
-    fecha: '2026-09-05'
+    fecha: '2026-09-06'
     devto_article_id: 4582774
-    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-iii-a-memory-that-leaves-traces-2mjj-temp-slug-4301196
-    estado: borrador
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-iii-a-memory-that-leaves-traces-3hfn
+    estado: publicado
 - slug: multiagente-penta-agent-modelos
   ref_interno: multiagente-penta-agent-modelos
   url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-penta-agent-modelos/
@@ -177,7 +177,7 @@
     help an agent?'
   publicaciones:
   - plataforma: devto
-    fecha: '2026-09-05'
+    fecha: '2026-09-06'
     devto_article_id: 4584688
-    url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-3o3-temp-slug-4881292
-    estado: borrador
+    url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-520a
+    estado: publicado
