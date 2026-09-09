@@ -53,7 +53,7 @@ En el panel lo reduje a cinco anillos o donas. Uno casi lleno significa que el a
 Al pasar el cursor sobre una dona aparece el detalle de ese agente: sus ventanas y sus horas de reinicio.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip.png" alt="Visor emergente de AI Quota HUD mostrando las cuatro ventanas de cuota de Antigravity y Gemini, cada una con su porcentaje libre y su hora de reinicio." caption="**Figura 2** — El visor emergente despliega las ventanas del agente señalado sin abandonar la tarea activa. Antigravity lleva dos cuotas semanales independientes, con relojes distintos: una para los modelos de Google y otra para los de terceros. La insignia dice de dónde viene cada cifra: `OFICIAL` si la reporta el proveedor, `LOCAL` si es un conteo propio. Fuente: captura propia con datos ficticios." %}
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip.png" alt="Visor emergente de AI Quota HUD mostrando las cuatro ventanas de cuota de Antigravity y Gemini, cada una con su porcentaje libre y su hora de reinicio." caption="**Figura 2** — El visor emergente despliega las ventanas del agente señalado sin abandonar la tarea activa. Antigravity lleva dos cuotas semanales independientes, con relojes distintos: una para los modelos de Google y otra para los de terceros. La insignia dice de dónde viene cada cifra: OFICIAL si la reporta el proveedor, LOCAL si es un conteo propio. Fuente: captura propia con datos ficticios." %}
 
 Al hacer clic se abre la vista detallada, con los cinco agentes arriba y las ventanas del que se elija debajo.
 {: .text-justify}
