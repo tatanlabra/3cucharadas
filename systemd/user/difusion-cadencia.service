@@ -8,6 +8,9 @@ Documentation=file:///home/ende/Descargas/programaciones/activos/3cucharadas/scr
 # `%N` y no `%n`: `%n` ya trae el `.service` y el instanciado saldria
 # `user-unit-alert@difusion-cadencia.service.service`.
 OnFailure=user-unit-alert@%N.service
+# OnSuccess cierra el episodio que OnFailure abrio: sin el, kde_toast descarta el
+# siguiente fallo como duplicate_open y la unidad puede fallar en silencio.
+OnSuccess=user-unit-recover@%N.service
 
 [Service]
 Type=oneshot
