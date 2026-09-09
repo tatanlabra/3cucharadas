@@ -25,7 +25,7 @@ comments: true
 author_profile: true
 header:
   teaser: /assets/images/teasers/teaser-ai-quota-hud.webp
-  og_image: /assets/images/ai-quota-hud/popup-og-1200-en.webp
+  og_image: /assets/images/ai-quota-hud/popup-og-en-1200x938.webp
   og_image_alt: "AI Quota HUD detailed view with five quota donuts"
 ---
 
@@ -57,15 +57,15 @@ On the panel I reduced it to five rings, or donuts. A nearly full one means the 
 Hovering over one donut shows that agent in detail: its windows and their reset times.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="AI Quota HUD hover panel showing the four Antigravity and Gemini quota windows, each with its free percentage and reset time." caption="**Figure 2** — The hover panel shows the windows of the agent under the cursor without leaving the active task. Antigravity carries two independent weekly quotas on separate clocks: one for Google models and one for third-party ones. The badge says where each figure comes from: `OFFICIAL` if the provider reports it, `LOCAL` if it is a local count. Source: own screenshot with synthetic data." %}
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en-1260x930.png" alt="AI Quota HUD hover panel showing the four Antigravity and Gemini quota windows, each with its free percentage and reset time." caption="**Figure 2** — The hover panel shows the windows of the agent under the cursor without leaving the active task. Antigravity carries two independent weekly quotas on separate clocks: one for Google models and one for third-party ones. The badge says where each figure comes from: OFFICIAL if the provider reports it, LOCAL if it is a local count. Source: own screenshot with synthetic data." %}
 
 Clicking opens the detailed view, with the five agents on top and the windows of whichever one is selected below.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-hidpi-en.png" alt="AI Quota HUD detailed view: a row of five selectors with each agent's free percentage and, below, Claude's four windows with percentage, provenance and reset time." caption="**Figure 3** — The detailed view. On top, the five agents with their tightest margin; below, the windows of whichever one is selected. Each line says how much is left, when it renews, and where the figure comes from. Source: own screenshot with synthetic data." %}
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-en-1920x1500.png" alt="AI Quota HUD detailed view: a row of five selectors with each agent's free percentage and, below, Claude's four windows with percentage, provenance and reset time." caption="**Figure 3** — The detailed view. On top, the five agents with their tightest margin; below, the windows of whichever one is selected. Each line says how much is left, when it renews, and where the figure comes from. Source: own screenshot with synthetic data." %}
 
 <figure class="ai-quota-hud__video">
-  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi-en.png" aria-label="AI Quota HUD demonstration: KDE panel, hover panel, and detailed view.">
+  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-en-1920x1500.png" aria-label="AI Quota HUD demonstration: KDE panel, hover panel, and detailed view.">
     <source src="/assets/videos/ai-quota-hud-kde.webm" type="video/webm">
     Your browser does not support WebM video. You can <a href="/assets/videos/ai-quota-hud-kde.webm">open the demonstration directly</a>.
   </video>

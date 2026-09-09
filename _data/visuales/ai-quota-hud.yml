@@ -20,42 +20,66 @@ piezas:
     rol: og
     archivo: assets/images/ai-quota-hud/popup-og-1200.webp
     ancho: 1200
-    alto: 1076
+    alto: 938
     estado: publicable
     origen: manual
     nombre_legacy: true
     motivo_nombre: "URL histórica ya servida; el manifiesto fija sus dimensiones reales."
-    alt: {es: "Popup de AI Quota HUD con cuatro indicadores de cuota."}
+    alt: {es: "Vista detallada de AI Quota HUD con cinco indicadores de cuota."}
   - id: barra
     rol: figura
     archivo: assets/images/ai-quota-hud/bar.png
-    ancho: 210
-    alto: 49
+    ancho: 648
+    alto: 120
     estado: publicable
     origen: manual
     nombre_legacy: true
-    motivo_nombre: "Captura histórica referenciada por ambas versiones del post."
-    alt: {es: "Barra compacta de AI Quota HUD en KDE Plasma."}
+    motivo_nombre: "Captura referenciada por ambas versiones del post; no lleva texto, así que se comparte."
+    alt: {es: "Barra compacta de AI Quota HUD en KDE Plasma, con cinco indicadores circulares."}
   - id: tooltip
     rol: figura
     archivo: assets/images/ai-quota-hud/tooltip.png
-    ancho: 309
-    alto: 101
+    ancho: 1260
+    alto: 930
     estado: publicable
     origen: manual
     nombre_legacy: true
     motivo_nombre: "Captura histórica referenciada por ambas versiones del post."
-    alt: {es: "Tooltip con cuota y reinicio por agente."}
+    alt: {es: "Visor emergente con las ventanas de cuota del agente señalado."}
   - id: popup-video
     rol: figura
     archivo: assets/images/ai-quota-hud/popup-hidpi.png
-    ancho: 1083
-    alto: 971
+    ancho: 1920
+    alto: 1500
     estado: publicable
     origen: manual
     nombre_legacy: true
     motivo_nombre: "Poster histórico referenciado por el video y piezas de difusión."
     alt: {es: "Poster del video demostrativo de AI Quota HUD."}
+  - id: og-popup-en
+    rol: og
+    archivo: assets/images/ai-quota-hud/popup-og-en-1200x938.webp
+    ancho: 1200
+    alto: 938
+    estado: publicable
+    origen: script
+    alt: {en: "AI Quota HUD detailed view with five quota donuts."}
+  - id: tooltip-en
+    rol: figura
+    archivo: assets/images/ai-quota-hud/tooltip-en-1260x930.png
+    ancho: 1260
+    alto: 930
+    estado: publicable
+    origen: script
+    alt: {en: "AI Quota HUD hover panel with the windows of the highlighted agent."}
+  - id: popup-en
+    rol: figura
+    archivo: assets/images/ai-quota-hud/popup-en-1920x1500.png
+    ancho: 1920
+    alto: 1500
+    estado: publicable
+    origen: script
+    alt: {en: "AI Quota HUD detailed view: five selectors and the windows of the selected agent."}
   - id: xkcd-303
     rol: figura
     archivo: assets/images/ai-quota-hud/xkcd-303-compiling.png
