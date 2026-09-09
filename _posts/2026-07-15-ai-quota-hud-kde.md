@@ -7,7 +7,7 @@ date: 2026-07-15 00:00:00 +0000
 categories: [ia, productividad, desarrollo, kde]
 tags: [kde, plasma, plasmoid, qml, python, systemd, mcp, claude-code, codex, gemini, deepseek, arch-linux, cuota, rate-limit, local-first]
 description: "Un plasmoide local para KDE Plasma 6 que muestra la cuota disponible de Claude, Codex, Gemini y DeepSeek. Cómo funciona y qué ocurrió cuando Codex cambió sus ventanas de uso."
-excerpt: "Cuatro agentes, cuatro formas de medir la cuota y un plasmoide para saber cuál todavía puede terminar el trabajo."
+excerpt: "Cinco agentes, cinco formas de medir la cuota y un plasmoide para saber cuál todavía puede terminar el trabajo."
 author: clabra
 lang: es
 ref: ai-quota-hud-kde
@@ -22,13 +22,13 @@ author_profile: true
 header:
   teaser: /assets/images/teasers/teaser-ai-quota-hud.webp
   og_image: /assets/images/ai-quota-hud/popup-og-1200.webp
-  og_image_alt: "Popup del plasmoide AI Quota HUD con cuatro indicadores circulares de cuota"
+  og_image_alt: "Vista detallada del plasmoide AI Quota HUD con cinco indicadores circulares de cuota"
 ---
 
 Actualmente ocupo Claude Code, Codex, Gemini (vía agy en CLI) y DeepSeek desde Arch Linux con KDE Plasma 6. Y como a muchos el problema está siendo saber cuál tiene cuota disponible, sobre todo en una tarea que ya tiene harto contexto, archivos revisados y hora de iteración.
 {: .text-justify}
 
-Así terminé armando un visor o HUD en el panel/barra de KDE: cuatro indicadores que muestran cuánto margen le queda a cada agente y cuándo debería reiniciarse. Sin otra pestaña, sin otro tablero y, sobre todo, sin sorprenderme que se acabó en medio del remate de una tarea o un `git rebase` 😱.
+Así terminé armando un visor o HUD en el panel/barra de KDE: cinco indicadores que muestran cuánto margen le queda a cada agente y cuándo debería reiniciarse. Sin otra pestaña, sin otro tablero y, sobre todo, sin sorprenderme que se acabó en medio del remate de una tarea o un `git rebase` 😱.
 {: .text-justify}
 
 ## Primera cucharada: la semana-token
@@ -36,34 +36,36 @@ Así terminé armando un visor o HUD en el panel/barra de KDE: cuatro indicadore
 Cada proveedor inventó su propia forma de medir cuánto podemos usarlo.
 {: .text-justify}
 
-Claude habla en ventanas de horas y días. Codex presenta las ventanas disponibles para el plan. Gemini requiere una estimación local de solicitudes. DeepSeek, en cambio, habla en saldo monetario.
+Claude habla en ventanas de horas y días. Codex presenta las ventanas disponibles para el plan. Gemini requiere una estimación local de solicitudes. Copilot cuenta solicitudes premium con corte de calendario. DeepSeek, en cambio, habla en saldo monetario.
 {: .text-justify}
 
-Cuatro agentes, cuatro relojes y ninguna unidad común.
+Cinco agentes, cinco relojes y ninguna unidad común.
 {: .text-justify}
 
 La industria consiguió así algo bastante particular: convertir las **horas-token** y las **semanas-token** en unidades reales de planificación. Ya no basta con preguntarse cuánto demora una tarea. También hay que calcular si el agente alcanza a terminarla antes de quedar a la antigua :).
 {: .text-justify}
 
-En el panel lo reduje a cuatro anillos o donas. Uno casi lleno significa que el agente todavía tiene margen. Uno casi vacío significa que conviene agradecerle los servicios prestados y probar con el siguiente.
+En el panel lo reduje a cinco anillos o donas. Uno casi lleno significa que el agente todavía tiene margen. Uno casi vacío significa que conviene agradecerle los servicios prestados y probar con el siguiente.
 {: .text-justify}
 
-{% include figure class="ai-quota-hud__donuts" popup=true image_path="/assets/images/ai-quota-hud/bar.png" alt="Barra compacta de AI Quota HUD en el panel de KDE Plasma, con cuatro indicadores circulares." caption="**Figura 1** — Vista compacta de AI Quota HUD en el panel de KDE Plasma. Los cuatro anillos resumen el margen disponible por agente. Fuente: captura propia con datos demostrativos." %}
+{% include figure class="ai-quota-hud__donuts" popup=true image_path="/assets/images/ai-quota-hud/bar.png" alt="Barra compacta de AI Quota HUD en el panel de KDE Plasma, con cinco indicadores circulares." caption="**Figura 1** — Vista compacta de AI Quota HUD en el panel de KDE Plasma. Los cinco anillos resumen el margen disponible por agente. El arco de color es lo que queda libre y las marcas blancas exteriores cuentan los días hasta el reinicio. Fuente: captura propia con datos ficticios." %}
 
-Al pasar el cursor aparece el detalle de las ventanas y sus horas de reinicio:
+Al pasar el cursor sobre una dona aparece el detalle de ese agente: sus ventanas y sus horas de reinicio.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip.png" alt="Tooltip de AI Quota HUD con el resumen de cuota y reinicio por agente." caption="**Figura 2** — El tooltip despliega las ventanas y horas de reinicio sin abandonar la tarea activa. Fuente: captura propia con datos demostrativos." %}
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip.png" alt="Visor emergente de AI Quota HUD mostrando las cuatro ventanas de cuota de Antigravity y Gemini, cada una con su porcentaje libre y su hora de reinicio." caption="**Figura 2** — El visor emergente despliega las ventanas del agente señalado sin abandonar la tarea activa. Antigravity lleva dos cuotas semanales independientes, con relojes distintos: una para los modelos de Google y otra para los de terceros. La insignia dice de dónde viene cada cifra: `OFICIAL` si la reporta el proveedor, `LOCAL` si es un conteo propio. Fuente: captura propia con datos ficticios." %}
 
-Al abrir el plasmoide aparece el detalle completo de los cuatro agentes:
+Al hacer clic se abre la vista detallada, con los cinco agentes arriba y las ventanas del que se elija debajo.
 {: .text-justify}
+
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-hidpi.png" alt="Vista detallada de AI Quota HUD: fila de cinco selectores con el porcentaje libre de cada agente y, debajo, las cuatro ventanas de Claude con su porcentaje, procedencia y hora de reinicio." caption="**Figura 3** — Vista detallada. Arriba, los cinco agentes con su margen más ajustado; abajo, las ventanas del que se elija. Cada línea dice cuánto queda, cuándo renueva y de dónde sale la cifra. Fuente: captura propia con datos ficticios." %}
 
 <figure class="ai-quota-hud__video">
-  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi.png" aria-label="Demostración de AI Quota HUD: barra de KDE, tooltip y popup con cuatro indicadores de cuota.">
+  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi.png" aria-label="Demostración de AI Quota HUD: barra de KDE, visor emergente y vista detallada.">
     <source src="/assets/videos/ai-quota-hud-kde.webm" type="video/webm">
     Tu navegador no admite video WebM. Puedes <a href="/assets/videos/ai-quota-hud-kde.webm">abrir la demostración directamente</a>.
   </video>
-  <figcaption><strong>Figura 3</strong> — Demostración de AI Quota HUD desde la barra de KDE hasta la vista detallada. Panel, tooltip y popup leen una única fuente local; los valores mostrados son demostrativos y no representan cuotas personales. Fuente: captura propia.</figcaption>
+  <figcaption><strong>Figura 4</strong> — Recorrido desde la barra de KDE hasta la vista detallada. El video es de julio y muestra el diseño anterior, con cuatro agentes y sin la fila de selectores; las figuras 1 a 3 son del estado actual. Los valores son ficticios y no representan cuotas personales. Fuente: captura propia.</figcaption>
 </figure>
 
 ## Segunda cucharada: el dato manda, no el orden
@@ -181,4 +183,44 @@ No crea más cuota, no negocia mejores planes y no elimina la semana-token. Solo
 Es una cucharada pequeña de soberanía sobre mi propio flujo: saber cuánto queda, cuándo reinicia y a quién conviene pasarle el trabajo.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: dos programadores juegan mientras esperan que termine la compilación." caption="**Figura 4** — *Compiling*, [xkcd n.º 303](https://xkcd.com/303/), de Randall Munroe. Antes la coartada era que el código estaba compilando; ahora puedo alegar que la cuota reinicia la próxima semana. Licencia [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}
+## Actualización del 8 de septiembre de 2026
+
+El HUD cambió lo suficiente como para que las capturas de julio ya no lo
+representaran. Lo que se ve arriba en las figuras 1 a 3 es el estado de hoy; el
+video de la figura 4 sigue siendo de julio y se conserva porque el recorrido
+—panel, visor emergente, vista detallada— no ha cambiado, aunque el diseño sí.
+{: .text-justify}
+
+Qué es distinto:
+{: .text-justify}
+
+- **Cinco agentes en vez de cuatro.** Se sumó Copilot, que cuenta solicitudes premium con corte de calendario. El texto del post decía «cuatro» en siete lugares y quedó corregido.
+- **Otro visor emergente.** Antes resumía los cinco agentes en una lista apretada. Ahora muestra el detalle del agente sobre el que está el cursor, con una insignia por línea que dice si la cifra la reporta el proveedor (`OFICIAL`) o es un conteo local (`LOCAL`).
+- **Otra vista al hacer clic.** Los cinco agentes pasaron a una fila de selectores con su margen más ajustado, y debajo van las ventanas del que se elija. Antes eran cinco columnas simultáneas que no cabían.
+- **Trazo y logotipos un punto más grandes.** El arco de cuota pasó de 0,055 a 0,060 del diámetro y los logotipos crecieron un 3 %, medido en ejecución. La apertura central se recuperó apretando la separación entre anillos, porque ensanchar el trazo la encogía.
+- **La interfaz está traducida.** Las cadenas fuente pasaron a inglés y el español vive en un catálogo `gettext`, así que el widget habla el idioma del escritorio.
+
+Y dos cosas que aparecieron justo al preparar estas capturas, que valen más que
+las capturas mismas:
+{: .text-justify}
+
+- Las fechas salían en inglés en un escritorio en español. `Qt.formatDate` con un formato escrito a mano usa el locale C, no el del sistema: con todo lo demás ya traducido, seguía diciendo «Sat 12 Sep» donde correspondía «sáb 12 sept». Medido con `QLocale("es_CL")` sobre la misma fecha.
+- Cuatro etiquetas las escribía el recolector en español y llegaban a pantalla sin pasar por el catálogo, así que en un escritorio en inglés se leían en español entre cadenas traducidas.
+
+Las capturas se generan con un script del repositorio, no a mano, y de ahí
+salen las tres figuras nuevas:
+{: .text-justify}
+
+```bash
+scripts/capture_previews.sh build/previews es 3
+```
+
+Renderiza las tres vistas fuera de pantalla, con el mismo componente que
+verifican las pruebas, y a la escala que se le pida —3× para estas—. Los datos
+salen de `ai-quota-monitor sample`, que escribe un informe ficticio en un
+directorio temporal: la caché real no se lee ni se toca, y cada línea del render
+queda rotulada como dato ficticio. Por eso las cifras de las figuras no son mis
+cuotas, y por eso se pueden volver a generar idénticas.
+{: .text-justify}
+
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: dos programadores juegan mientras esperan que termine la compilación." caption="**Figura 5** — *Compiling*, [xkcd n.º 303](https://xkcd.com/303/), de Randall Munroe. Antes la coartada era que el código estaba compilando; ahora puedo alegar que la cuota reinicia la próxima semana. Licencia [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}

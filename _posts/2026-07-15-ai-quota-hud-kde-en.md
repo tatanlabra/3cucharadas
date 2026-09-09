@@ -7,7 +7,7 @@ date: 2026-07-15 00:00:00 +0000
 categories: [ai, productivity, development, kde]
 tags: [kde, plasma, plasmoid, qml, python, systemd, mcp, claude-code, codex, gemini, deepseek, arch-linux, quota, rate-limit, local-first]
 description: "A local KDE Plasma 6 widget that shows the available quota for Claude, Codex, Gemini, and DeepSeek. How it works and what happened when Codex changed its usage windows."
-excerpt: "Four agents, four ways of measuring quota, and one widget to know which of them can still finish the job."
+excerpt: "Five agents, five ways of measuring quota, and one widget to know which of them can still finish the job."
 author: clabra
 lang: en
 ref: ai-quota-hud-kde
@@ -25,14 +25,14 @@ comments: true
 author_profile: true
 header:
   teaser: /assets/images/teasers/teaser-ai-quota-hud.webp
-  og_image: /assets/images/ai-quota-hud/popup-og-1200.webp
-  og_image_alt: "AI Quota HUD popup with four quota donuts"
+  og_image: /assets/images/ai-quota-hud/popup-og-1200-en.webp
+  og_image_alt: "AI Quota HUD detailed view with five quota donuts"
 ---
 
 I currently use Claude Code, Codex, Gemini (through `agy` on the command line), and DeepSeek on Arch Linux with KDE Plasma 6. For me, as for many others, the problem has become knowing which one still has quota—especially when a task already carries a lot of context, reviewed files, and an hour of iteration.
 {: .text-justify}
 
-That is how I ended up building a viewer, or HUD, for the KDE panel: four indicators showing how much room each agent has left and when its quota should reset. No extra tab, no separate dashboard, and—most importantly—no surprise when the quota runs out while I am wrapping up a task or a `git rebase` 😱.
+That is how I ended up building a viewer, or HUD, for the KDE panel: five indicators showing how much room each agent has left and when its quota should reset. No extra tab, no separate dashboard, and—most importantly—no surprise when the quota runs out while I am wrapping up a task or a `git rebase` 😱.
 {: .text-justify}
 
 ## First spoonful: the token-week
@@ -40,34 +40,36 @@ That is how I ended up building a viewer, or HUD, for the KDE panel: four indica
 Each provider invented its own way of measuring how much we can use it.
 {: .text-justify}
 
-Claude speaks in windows of hours and days. Codex reports the windows available for the plan. Gemini requires a local estimate of requests. DeepSeek, by contrast, speaks in monetary balance.
+Claude speaks in windows of hours and days. Codex reports the windows available for the plan. Gemini requires a local estimate of requests. Copilot counts premium requests against a calendar cutoff. DeepSeek, by contrast, speaks in monetary balance.
 {: .text-justify}
 
-Four agents, four clocks, and no shared unit.
+Five agents, five clocks, and no shared unit.
 {: .text-justify}
 
 The industry has achieved something rather peculiar: turning **token-hours** and **token-weeks** into real planning units. It is no longer enough to ask how long a task will take. I also have to calculate whether the agent can finish it before leaving me to do things the old-fashioned way :).
 {: .text-justify}
 
-On the panel I reduced it to four rings, or donuts. A nearly full one means the agent still has room. A nearly empty one means it is probably time to thank it for its service and try the next one.
+On the panel I reduced it to five rings, or donuts. A nearly full one means the agent still has room. A nearly empty one means it is probably time to thank it for its service and try the next one.
 {: .text-justify}
 
-{% include figure class="ai-quota-hud__donuts" popup=true image_path="/assets/images/ai-quota-hud/bar.png" alt="Compact AI Quota HUD bar on the KDE Plasma panel, with four circular indicators." caption="**Figure 1** — Compact AI Quota HUD view on the KDE Plasma panel. The four rings summarize the available margin by agent. Source: own screenshot with demonstration data." %}
+{% include figure class="ai-quota-hud__donuts" popup=true image_path="/assets/images/ai-quota-hud/bar.png" alt="Compact AI Quota HUD bar on the KDE Plasma panel, with five circular indicators." caption="**Figure 1** — Compact AI Quota HUD view on the KDE Plasma panel. The five rings summarize the available margin by agent. The coloured arc is what remains free, and the outer white marks count the days until reset. Source: own screenshot with synthetic data." %}
 
-Hovering over it shows the details of each window and its reset time:
+Hovering over one donut shows that agent in detail: its windows and their reset times.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip.png" alt="AI Quota HUD tooltip with quota and reset information by agent." caption="**Figure 2** — The tooltip shows windows and reset times without leaving the active task. Source: own screenshot with demonstration data." %}
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="AI Quota HUD hover panel showing the four Antigravity and Gemini quota windows, each with its free percentage and reset time." caption="**Figure 2** — The hover panel shows the windows of the agent under the cursor without leaving the active task. Antigravity carries two independent weekly quotas on separate clocks: one for Google models and one for third-party ones. The badge says where each figure comes from: `OFFICIAL` if the provider reports it, `LOCAL` if it is a local count. Source: own screenshot with synthetic data." %}
 
-Opening the widget shows the complete detail for all four agents:
+Clicking opens the detailed view, with the five agents on top and the windows of whichever one is selected below.
 {: .text-justify}
+
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-hidpi-en.png" alt="AI Quota HUD detailed view: a row of five selectors with each agent's free percentage and, below, Claude's four windows with percentage, provenance and reset time." caption="**Figure 3** — The detailed view. On top, the five agents with their tightest margin; below, the windows of whichever one is selected. Each line says how much is left, when it renews, and where the figure comes from. Source: own screenshot with synthetic data." %}
 
 <figure class="ai-quota-hud__video">
-  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi.png" aria-label="AI Quota HUD demonstration: KDE panel, tooltip, and popup with four quota indicators.">
+  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi-en.png" aria-label="AI Quota HUD demonstration: KDE panel, hover panel, and detailed view.">
     <source src="/assets/videos/ai-quota-hud-kde.webm" type="video/webm">
     Your browser does not support WebM video. You can <a href="/assets/videos/ai-quota-hud-kde.webm">open the demonstration directly</a>.
   </video>
-  <figcaption><strong>Figure 3</strong> — AI Quota HUD demonstration from the KDE panel to the detailed view. Panel, tooltip, and popup read one local source; the values shown are demonstration data and do not represent personal quotas. Source: own screen recording.</figcaption>
+  <figcaption><strong>Figure 4</strong> — The walkthrough from the KDE panel to the detailed view. The recording is from July and shows the earlier design, with four agents and no selector row; figures 1 to 3 show the current state. The values are synthetic and do not represent personal quotas. Source: own screen recording.</figcaption>
 </figure>
 
 ## Second spoonful: the data decides, not the order
@@ -185,4 +187,44 @@ It does not create more quota, negotiate better plans, or eliminate the token-we
 It is a small spoonful of sovereignty over my own workflow: knowing how much remains, when it resets, and who should get the next handoff.
 {: .text-justify}
 
-{% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: two programmers play while waiting for compilation to finish." caption="**Figure 4** — *Compiling*, [xkcd no. 303](https://xkcd.com/303/), by Randall Munroe. The old excuse was that the code was compiling; now I can say the quota resets next week. Licensed under [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}
+## Update, 8 September 2026
+
+The HUD changed enough that the July screenshots no longer represented it.
+Figures 1 to 3 above show the current state; the recording in figure 4 is still
+from July and is kept because the walkthrough —panel, hover panel, detailed
+view— has not changed, even though the design has.
+{: .text-justify}
+
+What is different:
+{: .text-justify}
+
+- **Five agents instead of four.** Copilot was added; it counts premium requests against a calendar cutoff. The post said "four" in seven places and has been corrected.
+- **A different hover panel.** It used to squeeze all five agents into one cramped list. It now shows the detail of the agent under the cursor, with a badge per line saying whether the figure is reported by the provider (`OFFICIAL`) or counted locally (`LOCAL`).
+- **A different click view.** The five agents moved into a row of selectors showing their tightest margin, with the windows of the selected one below. Previously it was five simultaneous columns that did not fit.
+- **Slightly thicker strokes and larger logos.** The quota arc went from 0.055 to 0.060 of the diameter and the logos grew by 3 %, measured at runtime. The central aperture was recovered by tightening the gap between rings, because widening the stroke was shrinking it.
+- **The interface is translated.** Source strings moved to English and Spanish lives in a `gettext` catalogue, so the widget speaks the language of the desktop.
+
+And two things that surfaced precisely while preparing these screenshots, which
+matter more than the screenshots themselves:
+{: .text-justify}
+
+- Dates rendered in English on a Spanish desktop. `Qt.formatDate` with a hand-written format uses the C locale, not the system one: with everything else already translated, it still said "Sat 12 Sep" where "sáb 12 sept" belonged. Measured with `QLocale("es_CL")` on the same date.
+- Four labels were written in Spanish by the collector and reached the screen without passing through the catalogue, so on an English desktop they read in Spanish among translated strings.
+
+The screenshots are generated by a script in the repository, not by hand, and
+that is where the three new figures come from:
+{: .text-justify}
+
+```bash
+scripts/capture_previews.sh build/previews en 3
+```
+
+It renders the three views offscreen, with the same component the tests verify,
+at whatever scale is asked for —3× for these. The data comes from
+`ai-quota-monitor sample`, which writes a synthetic report into a temporary
+directory: the real cache is neither read nor touched, and every line of the
+render is labelled as synthetic. That is why the figures do not show my quotas,
+and why they can be regenerated identically.
+{: .text-justify}
+
+{% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: two programmers play while waiting for compilation to finish." caption="**Figure 5** — *Compiling*, [xkcd no. 303](https://xkcd.com/303/), by Randall Munroe. The old excuse was that the code was compiling; now I can say the quota resets next week. Licensed under [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}
