@@ -215,12 +215,63 @@ salen las tres figuras nuevas:
 scripts/capture_previews.sh build/previews es 3
 ```
 
-Renderiza las tres vistas fuera de pantalla, con el mismo componente que
+Renderiza las tres vistas sin abrir ventana, con el mismo componente que
 verifican las pruebas, y a la escala que se le pida —3× para estas—. Los datos
 salen de `ai-quota-monitor sample`, que escribe un informe ficticio en un
 directorio temporal: la caché real no se lee ni se toca, y cada línea del render
 queda rotulada como dato ficticio. Por eso las cifras de las figuras no son mis
-cuotas, y por eso se pueden volver a generar idénticas.
+cuotas, y por eso se pueden volver a generar idénticas. Eso sí, necesita GPU, y
+la actualización de más abajo cuenta por qué.
+{: .text-justify}
+
+## Actualización del 9 de septiembre de 2026
+
+Las figuras 1 a 3 se volvieron a generar por una razón concreta: **los logotipos
+salían en negro**. El widget en el panel siempre estuvo bien; lo que estaba mal era
+el script de capturas.
+{: .text-justify}
+
+El componente de Kirigami que recolorea un SVG monocromo lo hace con un material de
+GPU, y el renderizador por software no tiene equivalente para ese material: dibuja
+la silueta y se salta el color. El script renderizaba por software, así que cuatro
+de los cinco logotipos aparecían negros —el de Codex, blanco— y en el popup
+quedaban casi invisibles, oscuro sobre oscuro. El quinto, Gemini, se veía bien
+porque nunca se pretendió teñirlo: conserva el azul de su propio archivo.
+{: .text-justify}
+
+Lo que más me interesa de este fallo es por qué las 93 pruebas seguían verdes. Una
+silueta negra tiene exactamente la misma anchura, la misma altura y la misma
+apertura que una teñida, así que ningún invariante de geometría podía verlo: la
+ausencia de una comprobación de color *era* la razón de que pasara inadvertido. Y
+estaba anotado desde el 6 de septiembre en el propio repositorio —«el renderizado
+por software no muestra fielmente los colores de máscara»—, dos días antes de que un
+commit cambiara el flujo a offscreen y publicara el defecto.
+{: .text-justify}
+
+Medido: la barra tenía 1452 píxeles opacos exactamente negros y 299 exactamente
+blancos; el popup, 2597 y 6. Ahora tiene cero de cada uno y los cuatro logotipos
+enmascarados aparecen en su acento. Hay una prueba nueva que mira el color del píxel
+dentro del disco central de cada dona y exige que el color dominante sea el acento de
+ese proveedor, con Gemini como control negativo: si Gemini casara con los dos, la
+medición estaría mirando el anillo y no el logotipo. Se salta explícitamente si la
+máquina no tiene GPU, y nunca aprueba por no medir nada.
+{: .text-justify}
+
+Una vuelta de tuerca que no esperaba: de las tres formas de renderizar por GPU, las
+dos obvias exigen mapear una ventana, y **una pantalla bloqueada deja de
+presentarla**. Los mismos comandos que funcionaron por la tarde se colgaban una hora
+después con la sesión bloqueada, esperando un fotograma que nadie iba a pintar. La
+vía que sí sirve no abre ventana en absoluto. Y al cambiar de plataforma apareció otra
+sorpresa: la nueva deducía el DPI del monitor real en vez de usar 96, y con eso el
+tooltip crecía 24 píxeles sin que cambiara una línea de código. Ahora el DPI va fijo,
+así que la geometría no depende del monitor de la máquina que capture.
+{: .text-justify}
+
+Y los logotipos crecieron un 5,3 %, que es todo el margen que queda: la esquina de su
+recuadro toca ya la circunferencia del hueco central. La comprobación que garantizaba
+esa contención estaba anulada por un techo silencioso que recortaba cualquier valor
+mayor que 1 sin avisar —un valor de 1,10 salía verde—; quitarlo la devolvió al
+servicio.
 {: .text-justify}
 
 {% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: dos programadores juegan mientras esperan que termine la compilación." caption="**Figura 5** — *Compiling*, [xkcd n.º 303](https://xkcd.com/303/), de Randall Munroe. Antes la coartada era que el código estaba compilando; ahora puedo alegar que la cuota reinicia la próxima semana. Licencia [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}
