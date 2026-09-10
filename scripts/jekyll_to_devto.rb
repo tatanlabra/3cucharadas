@@ -213,15 +213,67 @@ module JekyllToDevto
   end
 
   def literal_block_start(line)
-    match = line.match(/\{%[-]?\s*(katex|raw)\b[^%]*[-]?%\}/i)
-    match && match[1].downcase
+    # NO se usa una clase negada [^%]* para los argumentos del tag: termina el tag
+    # en el primer `%` de sus propios argumentos, asi que un `{% katex ... 95% ... %}`
+    # no casa y el bloque literal no se detecta. Es el fallo de septiembre de 2026,
+    # que quedo anotado como pariente y sin arreglar. find_liquid_close respeta las
+    # comillas y devuelve el cierre real, sin suponer nada del contenido.
+    match = line.match(/\{%[-]?\s*(katex|raw)\b/i)
+    return nil unless match
+    return nil unless find_liquid_close(line, match.end(0), "%}")
+
+    match[1].downcase
+  end
+
+  # Rangos que ocupan las etiquetas Liquid ({{ ... }} y {% ... %}) en una linea.
+  # Se recorre con el MISMO escaner que usa transform_liquid, para que los tramos
+  # que aqui se protegen sean exactamente los que alli se consumen.
+  def liquid_spans(text)
+    spans = []
+    cursor = 0
+
+    while cursor < text.length
+      output_start = text.index("{{", cursor)
+      tag_start = text.index("{%", cursor)
+      start = [output_start, tag_start].compact.min
+      break unless start
+
+      closer = start == output_start ? "}}" : "%}"
+      finish = find_liquid_close(text, start + 2, closer)
+      break unless finish
+
+      spans << (start...(finish + closer.length))
+      cursor = finish + closer.length
+    end
+
+    spans
+  end
+
+  # Primera comilla invertida en `from` o despues que NO caiga dentro de un tag Liquid.
+  def next_inline_code_tick(text, from, spans)
+    cursor = from
+
+    while (tick = text.index("`", cursor))
+      span = spans.find { |range| range.cover?(tick) }
+      return tick unless span
+
+      cursor = span.end
+    end
+
+    nil
   end
 
   def map_inline_code(text)
     output = +""
     cursor = 0
+    # Una comilla invertida DENTRO de un tag Liquid no abre codigo en linea: el tag
+    # es una unidad y hay que entregarlo entero a transform_liquid. Si se parte por
+    # las comillas primero, a transform_liquid le llega `{% include figure ...` sin
+    # su `%}` y revienta con "Liquid sin cierre". Medido el 2026-09-09 sobre
+    # _posts/2026-07-15-ai-quota-hud-kde-en.md, con un caption que citaba `OFICIAL`.
+    spans = liquid_spans(text)
 
-    while (opening = text.index("`", cursor))
+    while (opening = next_inline_code_tick(text, cursor, spans))
       output << yield(text[cursor...opening])
       run = text[opening..].match(/\A`+/)[0]
       closing = text.index(run, opening + run.length)
