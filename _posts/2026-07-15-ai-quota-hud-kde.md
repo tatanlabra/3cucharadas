@@ -61,11 +61,11 @@ Al hacer clic se abre la vista detallada, con los cinco agentes arriba y las ven
 {% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-hidpi.png" alt="Vista detallada de AI Quota HUD: fila de cinco selectores con el porcentaje libre de cada agente y, debajo, las cuatro ventanas de Claude con su porcentaje, procedencia y hora de reinicio." caption="**Figura 3** — Vista detallada. Arriba, los cinco agentes con su margen más ajustado; abajo, las ventanas del que se elija. Cada línea dice cuánto queda, cuándo renueva y de dónde sale la cifra. Fuente: captura propia con datos ficticios." %}
 
 <figure class="ai-quota-hud__video">
-  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-hidpi.png" aria-label="Demostración de AI Quota HUD: barra de KDE, visor emergente y vista detallada.">
-    <source src="/assets/videos/ai-quota-hud-kde.webm" type="video/webm">
-    Tu navegador no admite video WebM. Puedes <a href="/assets/videos/ai-quota-hud-kde.webm">abrir la demostración directamente</a>.
+  <video width="1472" height="1152" autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/demo-poster-1472x1152.webp" aria-label="Demostración de AI Quota HUD: la barra en el panel de KDE, el visor emergente al señalar un agente, y la vista detallada con la fila de selectores cambiando de agente.">
+    <source src="/assets/videos/ai-quota-hud-demo-1472x1152.webm" type="video/webm">
+    Tu navegador no admite video WebM. Puedes <a href="/assets/videos/ai-quota-hud-demo-1472x1152.webm">abrir la demostración directamente</a>.
   </video>
-  <figcaption><strong>Figura 4</strong> — Recorrido desde la barra de KDE hasta la vista detallada. El video es de julio y muestra el diseño anterior, con cuatro agentes y sin la fila de selectores; las figuras 1 a 3 son del estado actual. Los valores son ficticios y no representan cuotas personales. Fuente: captura propia.</figcaption>
+  <figcaption><strong>Figura 4</strong> — Recorrido desde la barra del panel hasta la vista detallada, con la fila de selectores pasando por Codex, Antigravity y DeepSeek. Los valores son ficticios y no representan cuotas personales. Fuente: secuencia renderizada con la misma sonda que verifica las pruebas, fotograma a fotograma y con el reloj fijo, así que se puede volver a generar idéntica.</figcaption>
 </figure>
 
 ## Segunda cucharada: el dato manda, no el orden

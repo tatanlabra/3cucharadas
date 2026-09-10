@@ -18,7 +18,14 @@ distribution:
 sindicar: true
 valor_seo: bajo
 devto_tags: [ai, claude, deepseek, kde]
-devto_video_url: https://youtu.be/OuRMIQEURes
+# devto_video_url: pendiente de recablear al video nuevo.
+# YouTube NO permite sustituir el archivo de video de una entrada existente --solo
+# metadatos y miniatura--, asi que el clip de julio y el nuevo son necesariamente dos
+# URL distintas. Se retira en vez de dejarlo apuntando al de julio: la version de dev.to
+# mostraria el diseno anterior como si fuera el actual, y el lector no tendria forma de
+# saberlo. Al subir el nuevo, reponer la linea con su URL y resindicar.
+# Anterior (diseno de julio, cuatro agentes, sin fila de selectores):
+#   devto_video_url: https://youtu.be/OuRMIQEURes
 toc: true
 toc_sticky: true
 comments: true
@@ -65,11 +72,11 @@ Clicking opens the detailed view, with the five agents on top and the windows of
 {% include figure popup=true image_path="/assets/images/ai-quota-hud/popup-en-1920x1500.png" alt="AI Quota HUD detailed view: a row of five selectors with each agent's free percentage and, below, Claude's four windows with percentage, provenance and reset time." caption="**Figure 3** — The detailed view. On top, the five agents with their tightest margin; below, the windows of whichever one is selected. Each line says how much is left, when it renews, and where the figure comes from. Source: own screenshot with synthetic data." %}
 
 <figure class="ai-quota-hud__video">
-  <video autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/popup-en-1920x1500.png" aria-label="AI Quota HUD demonstration: KDE panel, hover panel, and detailed view.">
-    <source src="/assets/videos/ai-quota-hud-kde.webm" type="video/webm">
-    Your browser does not support WebM video. You can <a href="/assets/videos/ai-quota-hud-kde.webm">open the demonstration directly</a>.
+  <video width="1472" height="1152" autoplay loop muted playsinline controls preload="metadata" poster="/assets/images/ai-quota-hud/demo-poster-1472x1152.webp" aria-label="AI Quota HUD demonstration: the bar on the KDE panel, the hover panel over an agent, and the detailed view with the selector row switching agents.">
+    <source src="/assets/videos/ai-quota-hud-demo-1472x1152.webm" type="video/webm">
+    Your browser does not support WebM video. You can <a href="/assets/videos/ai-quota-hud-demo-1472x1152.webm">open the demonstration directly</a>.
   </video>
-  <figcaption><strong>Figure 4</strong> — The walkthrough from the KDE panel to the detailed view. The recording is from July and shows the earlier design, with four agents and no selector row; figures 1 to 3 show the current state. The values are synthetic and do not represent personal quotas. Source: own screen recording.</figcaption>
+  <figcaption><strong>Figure 4</strong> — The walkthrough from the panel bar to the detailed view, with the selector row moving through Codex, Antigravity and DeepSeek. The values are synthetic and do not represent personal quotas. Source: a sequence rendered with the same probe the tests use, frame by frame and with the clock pinned, so it can be regenerated identically.</figcaption>
 </figure>
 
 ## Second spoonful: the data decides, not the order
