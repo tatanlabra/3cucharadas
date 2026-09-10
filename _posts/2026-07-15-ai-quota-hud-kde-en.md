@@ -219,12 +219,63 @@ that is where the three new figures come from:
 scripts/capture_previews.sh build/previews en 3
 ```
 
-It renders the three views offscreen, with the same component the tests verify,
-at whatever scale is asked for —3× for these. The data comes from
+It renders the three views without opening a window, with the same component the
+tests verify, at whatever scale is asked for —3× for these. The data comes from
 `ai-quota-monitor sample`, which writes a synthetic report into a temporary
 directory: the real cache is neither read nor touched, and every line of the
 render is labelled as synthetic. That is why the figures do not show my quotas,
-and why they can be regenerated identically.
+and why they can be regenerated identically. It does need a GPU, though, and the
+update below explains why.
+{: .text-justify}
+
+## Update, 9 September 2026
+
+Figures 1 to 3 were regenerated for a specific reason: **the logos came out
+black**. The widget on the panel was always fine; what was wrong was the
+screenshot script.
+{: .text-justify}
+
+The Kirigami component that recolours a monochrome SVG does it with a GPU
+material, and the software renderer has no equivalent for that material: it draws
+the silhouette and skips the colour. The script rendered in software, so four of
+the five logos showed up black —Codex, white— and in the popup they were nearly
+invisible, dark on dark. The fifth, Gemini, looked right because it was never
+meant to be tinted: it keeps the blue of its own file.
+{: .text-justify}
+
+What interests me most about this failure is why all 93 tests stayed green. A black
+silhouette has exactly the same width, the same height and the same aperture as a
+tinted one, so no geometric invariant could see it: the absence of a colour check
+*was* the reason it went unnoticed. And it had been written down in the repository
+since 6 September —«software rendering alone did not show SVG mask colours
+faithfully»— two days before a commit switched the flow to offscreen and shipped the
+defect.
+{: .text-justify}
+
+Measured: the bar had 1452 opaque pixels of pure black and 299 of pure white; the
+popup, 2597 and 6. It now has zero of each, and the four masked logos appear in their
+accent colour. There is a new test that looks at the pixel colour inside the central
+disc of every donut and requires the dominant colour to be that provider's accent,
+with Gemini as the negative control: if Gemini matched both, the measurement would be
+looking at the ring rather than the logo. It skips explicitly when the machine has no
+GPU, and it never passes by measuring nothing.
+{: .text-justify}
+
+A twist I did not expect: of the three ways to render on the GPU, the two obvious ones
+require mapping a window, and **a locked screen stops presenting it**. The same
+commands that worked in the afternoon hung an hour later with the session locked,
+waiting for a frame nobody was going to paint. The one that works opens no window at
+all. And switching platforms brought another surprise: the new one derived the DPI
+from the real monitor instead of using 96, and with that the tooltip grew 24 pixels
+without a single line of code changing. The DPI is now pinned, so the geometry does not
+depend on the monitor of whichever machine takes the screenshot.
+{: .text-justify}
+
+The logos also grew by 5.3 %, which is all the margin left: the corner of their box now
+touches the circumference of the central hole. The check that guaranteed that
+containment had been disabled by a silent ceiling that clamped any value above 1
+without warning —a value of 1.10 came out green—; removing it put the check back in
+service.
 {: .text-justify}
 
 {% include figure popup=true image_path="/assets/images/ai-quota-hud/xkcd-303-compiling.png" alt="xkcd 303, Compiling: two programmers play while waiting for compilation to finish." caption="**Figure 5** — *Compiling*, [xkcd no. 303](https://xkcd.com/303/), by Randall Munroe. The old excuse was that the code was compiling; now I can say the quota resets next week. Licensed under [CC BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/)." %}
