@@ -35,6 +35,43 @@ class JekyllToDevtoTest < Minitest::Test
     refute_includes result, "relative_url"
   end
 
+  # falsified_by: 2026-09-09. Con el codigo de HEAD (`git show HEAD:scripts/jekyll_to_devto.rb`)
+  # este mismo cuerpo levanta `JekyllToDevto::TransformError: Liquid sin cierre cerca de:
+  # "{% include figure popup=true image_path=..."`, porque `map_inline_code` partia la linea
+  # por las comillas invertidas ANTES de que `transform_liquid` viera el tag, y le llegaba sin
+  # su `%}`. Es lo que tumbo el job build_site del pipeline 2831523259 (2026-09-09 02:10) y el
+  # workflow de dev.to 34302166528, sobre _posts/2026-07-15-ai-quota-hud-kde-en.md.
+  def test_keeps_a_liquid_tag_whole_when_its_arguments_contain_inline_code
+    source = <<~MARKDOWN
+      {% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="Tooltip" caption="**Figure 2** — the `OFICIAL` badge next to the `LOCAL` one." %}
+    MARKDOWN
+
+    result = transform(source)
+
+    assert_includes result, "![Tooltip](#{SITE_URL}/assets/images/ai-quota-hud/tooltip-en.png)"
+    assert_includes result, "the `OFICIAL` badge next to the `LOCAL` one."
+    refute_includes result, "{%"
+    refute_includes result, "%}"
+  end
+
+  # falsified_by: 2026-09-09. Con el codigo de HEAD, `literal_block_start` usaba
+  # /\{%[-]?\s*(katex|raw)\b[^%]*[-]?%\}/ y esa clase negada termina el tag en el primer `%`
+  # de sus propios argumentos: el bloque no se detectaba y `{{ site.url }}` se expandia DENTRO
+  # de un `raw`, que existe justo para impedirlo. Medido: antiguo -> "texto con
+  # https://3cucharadas.cl literal"; nuevo -> "texto con {{ site.url }} literal".
+  def test_detects_a_literal_block_whose_arguments_contain_a_percent_sign
+    source = <<~MARKDOWN
+      {% raw label="95% CI" %}
+      texto con {{ site.url }} literal
+      {% endraw %}
+    MARKDOWN
+
+    result = transform(source)
+
+    assert_includes result, "texto con {{ site.url }} literal"
+    refute_includes result, "texto con #{SITE_URL} literal"
+  end
+
   def test_resolves_known_jekyll_variables_and_removes_unknown_outputs
     source = "{{ site.url }}{{ page.url }} {{ page.title }} {{ site.unknown }} {{ custom.value }}"
     result = transform(source, page: { "title" => "Example" })
