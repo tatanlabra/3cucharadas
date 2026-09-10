@@ -30,6 +30,24 @@
     document.body.append(script);
   }
 
+  // The residential diagnostic has no geometry prerequisite.
+  const fiscalHost = document.getElementById("brecha-contribuciones");
+  if (fiscalHost) {
+    const loadDiagnostic = () => load().catch(() => {
+      loaded = false; // Static figure/table remain readable; a later event may retry.
+    });
+    if (window.location.hash === "#brecha-contribuciones" || !("IntersectionObserver" in window)) {
+      loadDiagnostic();
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        loadDiagnostic();
+      }, { rootMargin: "420px" });
+      observer.observe(fiscalHost);
+    }
+  }
+
   window.addEventListener("catastro:map-eligibility", (event) => {
     if (!event.detail?.eligible) return;
     load().catch(() => {
