@@ -1,0 +1,2613 @@
+{
+  "role_rows": 6054808,
+  "unique_keys": 6054808,
+  "incomplete_keys": 0,
+  "mixed_semester_clp": 508919215492,
+  "official_semester_including_surtaxes_clp": 455500163000,
+  "difference_mixed_vs_official_clp": 53419052492,
+  "mixed_field_zero_count": 4659047,
+  "historical_2024s2_roles": 5856068,
+  "api_labels": [
+    {
+      "conara": 1101,
+      "label": "ARICA",
+      "residential_roles": 64692
+    },
+    {
+      "conara": 1101,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 1106,
+      "label": "CAMARONES",
+      "residential_roles": 365
+    },
+    {
+      "conara": 1201,
+      "label": "IQUIQUE",
+      "residential_roles": 55510
+    },
+    {
+      "conara": 1201,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 1203,
+      "label": "PICA",
+      "residential_roles": 1789
+    },
+    {
+      "conara": 1203,
+      "label": null,
+      "residential_roles": 123
+    },
+    {
+      "conara": 1204,
+      "label": "POZO ALMONTE",
+      "residential_roles": 5085
+    },
+    {
+      "conara": 1204,
+      "label": null,
+      "residential_roles": 294
+    },
+    {
+      "conara": 1206,
+      "label": "HUARA",
+      "residential_roles": 1133
+    },
+    {
+      "conara": 1206,
+      "label": null,
+      "residential_roles": 543
+    },
+    {
+      "conara": 1208,
+      "label": "CAMIÑA",
+      "residential_roles": 448
+    },
+    {
+      "conara": 1208,
+      "label": null,
+      "residential_roles": 46
+    },
+    {
+      "conara": 1210,
+      "label": "COLCHANE",
+      "residential_roles": 239
+    },
+    {
+      "conara": 1211,
+      "label": "ALTO HOSPICIO",
+      "residential_roles": 31188
+    },
+    {
+      "conara": 1211,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 1301,
+      "label": "PUTRE",
+      "residential_roles": 657
+    },
+    {
+      "conara": 1301,
+      "label": null,
+      "residential_roles": 41
+    },
+    {
+      "conara": 1302,
+      "label": "GENERAL LAGOS",
+      "residential_roles": 121
+    },
+    {
+      "conara": 2101,
+      "label": "TOCOPILLA",
+      "residential_roles": 8974
+    },
+    {
+      "conara": 2103,
+      "label": "MARÍA ELENA",
+      "residential_roles": 94
+    },
+    {
+      "conara": 2201,
+      "label": "ANTOFAGASTA",
+      "residential_roles": 117960
+    },
+    {
+      "conara": 2201,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 2202,
+      "label": "TALTAL",
+      "residential_roles": 3670
+    },
+    {
+      "conara": 2203,
+      "label": "MEJILLONES",
+      "residential_roles": 4325
+    },
+    {
+      "conara": 2203,
+      "label": null,
+      "residential_roles": 31
+    },
+    {
+      "conara": 2206,
+      "label": "SIERRA GORDA",
+      "residential_roles": 428
+    },
+    {
+      "conara": 2301,
+      "label": "CALAMA",
+      "residential_roles": 44097
+    },
+    {
+      "conara": 2301,
+      "label": null,
+      "residential_roles": 1237
+    },
+    {
+      "conara": 2302,
+      "label": "OLLAGÜE",
+      "residential_roles": 57
+    },
+    {
+      "conara": 2302,
+      "label": null,
+      "residential_roles": 13
+    },
+    {
+      "conara": 2303,
+      "label": "SAN PEDRO DE ATACAMA",
+      "residential_roles": 910
+    },
+    {
+      "conara": 2303,
+      "label": null,
+      "residential_roles": 765
+    },
+    {
+      "conara": 3101,
+      "label": "CHAÑARAL",
+      "residential_roles": 4764
+    },
+    {
+      "conara": 3102,
+      "label": "DIEGO DE ALMAGRO",
+      "residential_roles": 2420
+    },
+    {
+      "conara": 3102,
+      "label": null,
+      "residential_roles": 457
+    },
+    {
+      "conara": 3201,
+      "label": "COPIAPÓ",
+      "residential_roles": 51377
+    },
+    {
+      "conara": 3201,
+      "label": null,
+      "residential_roles": 2029
+    },
+    {
+      "conara": 3202,
+      "label": "CALDERA",
+      "residential_roles": 8503
+    },
+    {
+      "conara": 3202,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 3203,
+      "label": "TIERRA AMARILLA",
+      "residential_roles": 2921
+    },
+    {
+      "conara": 3203,
+      "label": null,
+      "residential_roles": 211
+    },
+    {
+      "conara": 3301,
+      "label": "VALLENAR",
+      "residential_roles": 17536
+    },
+    {
+      "conara": 3301,
+      "label": null,
+      "residential_roles": 608
+    },
+    {
+      "conara": 3302,
+      "label": "FREIRINA",
+      "residential_roles": 2327
+    },
+    {
+      "conara": 3303,
+      "label": "HUASCO",
+      "residential_roles": 4160
+    },
+    {
+      "conara": 3304,
+      "label": "ALTO DEL CARMEN",
+      "residential_roles": 988
+    },
+    {
+      "conara": 3304,
+      "label": null,
+      "residential_roles": 122
+    },
+    {
+      "conara": 4101,
+      "label": "LA SERENA",
+      "residential_roles": 101350
+    },
+    {
+      "conara": 4102,
+      "label": "LA HIGUERA",
+      "residential_roles": 2230
+    },
+    {
+      "conara": 4103,
+      "label": "COQUIMBO",
+      "residential_roles": 97690
+    },
+    {
+      "conara": 4104,
+      "label": "ANDACOLLO",
+      "residential_roles": 3976
+    },
+    {
+      "conara": 4104,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 4105,
+      "label": "VICUÑA",
+      "residential_roles": 9765
+    },
+    {
+      "conara": 4105,
+      "label": null,
+      "residential_roles": 216
+    },
+    {
+      "conara": 4106,
+      "label": "PAIHUANO",
+      "residential_roles": 1896
+    },
+    {
+      "conara": 4201,
+      "label": "OVALLE",
+      "residential_roles": 39741
+    },
+    {
+      "conara": 4201,
+      "label": null,
+      "residential_roles": 13
+    },
+    {
+      "conara": 4203,
+      "label": "MONTE PATRIA",
+      "residential_roles": 10290
+    },
+    {
+      "conara": 4203,
+      "label": null,
+      "residential_roles": 371
+    },
+    {
+      "conara": 4204,
+      "label": "PUNITAQUI",
+      "residential_roles": 3305
+    },
+    {
+      "conara": 4204,
+      "label": null,
+      "residential_roles": 102
+    },
+    {
+      "conara": 4205,
+      "label": "COMBARBALÁ",
+      "residential_roles": 5901
+    },
+    {
+      "conara": 4205,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 4206,
+      "label": "RÍO HURTADO",
+      "residential_roles": 1790
+    },
+    {
+      "conara": 4301,
+      "label": "ILLAPEL",
+      "residential_roles": 6715
+    },
+    {
+      "conara": 4301,
+      "label": null,
+      "residential_roles": 2881
+    },
+    {
+      "conara": 4302,
+      "label": "SALAMANCA",
+      "residential_roles": 8533
+    },
+    {
+      "conara": 4302,
+      "label": null,
+      "residential_roles": 134
+    },
+    {
+      "conara": 4303,
+      "label": "LOS VILOS",
+      "residential_roles": 10294
+    },
+    {
+      "conara": 4303,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 4304,
+      "label": "CANELA",
+      "residential_roles": 3280
+    },
+    {
+      "conara": 4304,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5101,
+      "label": "ISLA DE PASCUA",
+      "residential_roles": 292
+    },
+    {
+      "conara": 5101,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5201,
+      "label": "LA LIGUA",
+      "residential_roles": 11913
+    },
+    {
+      "conara": 5201,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5202,
+      "label": "PETORCA",
+      "residential_roles": 3296
+    },
+    {
+      "conara": 5203,
+      "label": "CABILDO",
+      "residential_roles": 5185
+    },
+    {
+      "conara": 5203,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5204,
+      "label": "ZAPALLAR",
+      "residential_roles": 6147
+    },
+    {
+      "conara": 5204,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5205,
+      "label": "PAPUDO",
+      "residential_roles": 6804
+    },
+    {
+      "conara": 5205,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 5301,
+      "label": "VALPARAISO",
+      "residential_roles": 98696
+    },
+    {
+      "conara": 5301,
+      "label": "VALPARAÍSO",
+      "residential_roles": 755
+    },
+    {
+      "conara": 5301,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 5302,
+      "label": "VIÑA DEL MAR",
+      "residential_roles": 139333
+    },
+    {
+      "conara": 5302,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 5303,
+      "label": "VILLA ALEMANA",
+      "residential_roles": 50450
+    },
+    {
+      "conara": 5304,
+      "label": "QUILPUÉ",
+      "residential_roles": 56407
+    },
+    {
+      "conara": 5304,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 5305,
+      "label": "CASABLANCA",
+      "residential_roles": 9464
+    },
+    {
+      "conara": 5305,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5306,
+      "label": "QUINTERO",
+      "residential_roles": 13734
+    },
+    {
+      "conara": 5306,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 5307,
+      "label": "PUCHUNCAVÍ",
+      "residential_roles": 11923
+    },
+    {
+      "conara": 5307,
+      "label": null,
+      "residential_roles": 14
+    },
+    {
+      "conara": 5308,
+      "label": "JUAN FERNANDEZ",
+      "residential_roles": 1
+    },
+    {
+      "conara": 5308,
+      "label": "JUAN FERNÁNDEZ",
+      "residential_roles": 247
+    },
+    {
+      "conara": 5309,
+      "label": "CONCÓN",
+      "residential_roles": 24937
+    },
+    {
+      "conara": 5401,
+      "label": "SAN ANTONIO",
+      "residential_roles": 29702
+    },
+    {
+      "conara": 5402,
+      "label": "SANTO DOMINGO",
+      "residential_roles": 6127
+    },
+    {
+      "conara": 5402,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5403,
+      "label": "CARTAGENA",
+      "residential_roles": 10642
+    },
+    {
+      "conara": 5403,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5404,
+      "label": "EL TABO",
+      "residential_roles": 13780
+    },
+    {
+      "conara": 5404,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5405,
+      "label": "EL QUISCO",
+      "residential_roles": 13669
+    },
+    {
+      "conara": 5405,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5406,
+      "label": "ALGARROBO",
+      "residential_roles": 18115
+    },
+    {
+      "conara": 5406,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5501,
+      "label": "QUILLOTA",
+      "residential_roles": 33671
+    },
+    {
+      "conara": 5501,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5502,
+      "label": "NOGALES",
+      "residential_roles": 5708
+    },
+    {
+      "conara": 5502,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5503,
+      "label": "HIJUELAS",
+      "residential_roles": 3892
+    },
+    {
+      "conara": 5504,
+      "label": "LA CALERA",
+      "residential_roles": 16727
+    },
+    {
+      "conara": 5505,
+      "label": "LA CRUZ",
+      "residential_roles": 8477
+    },
+    {
+      "conara": 5506,
+      "label": "LIMACHE",
+      "residential_roles": 16475
+    },
+    {
+      "conara": 5507,
+      "label": "OLMUÉ",
+      "residential_roles": 6429
+    },
+    {
+      "conara": 5601,
+      "label": "SAN FELIPE",
+      "residential_roles": 27433
+    },
+    {
+      "conara": 5602,
+      "label": "PANQUEHUE",
+      "residential_roles": 1878
+    },
+    {
+      "conara": 5603,
+      "label": "CATEMU",
+      "residential_roles": 4055
+    },
+    {
+      "conara": 5603,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5604,
+      "label": "PUTAENDO",
+      "residential_roles": 4947
+    },
+    {
+      "conara": 5605,
+      "label": "SANTA MARÍA",
+      "residential_roles": 5000
+    },
+    {
+      "conara": 5606,
+      "label": "LLAILLAY",
+      "residential_roles": 27
+    },
+    {
+      "conara": 5606,
+      "label": "LLAY-LLAY",
+      "residential_roles": 7476
+    },
+    {
+      "conara": 5701,
+      "label": "LOS ANDES",
+      "residential_roles": 24803
+    },
+    {
+      "conara": 5701,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 5702,
+      "label": "CALLE LARGA",
+      "residential_roles": 5164
+    },
+    {
+      "conara": 5703,
+      "label": "SAN ESTEBAN",
+      "residential_roles": 6482
+    },
+    {
+      "conara": 5704,
+      "label": "RINCONADA",
+      "residential_roles": 3943
+    },
+    {
+      "conara": 6101,
+      "label": "RANCAGUA",
+      "residential_roles": 95993
+    },
+    {
+      "conara": 6101,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 6102,
+      "label": "MACHALÍ",
+      "residential_roles": 21140
+    },
+    {
+      "conara": 6102,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6103,
+      "label": "GRANEROS",
+      "residential_roles": 10992
+    },
+    {
+      "conara": 6104,
+      "label": "MOSTAZAL",
+      "residential_roles": 11
+    },
+    {
+      "conara": 6104,
+      "label": "SAN FRANCISCO DE MOSTAZAL",
+      "residential_roles": 6894
+    },
+    {
+      "conara": 6105,
+      "label": "DOÑIHUE",
+      "residential_roles": 6014
+    },
+    {
+      "conara": 6105,
+      "label": "LO MIRANDA",
+      "residential_roles": 9
+    },
+    {
+      "conara": 6106,
+      "label": "COLTAUCO",
+      "residential_roles": 6034
+    },
+    {
+      "conara": 6107,
+      "label": "CODEGUA",
+      "residential_roles": 3111
+    },
+    {
+      "conara": 6108,
+      "label": "PEUMO",
+      "residential_roles": 4035
+    },
+    {
+      "conara": 6109,
+      "label": "LAS CABRAS",
+      "residential_roles": 8233
+    },
+    {
+      "conara": 6110,
+      "label": "SAN VICENTE",
+      "residential_roles": 14058
+    },
+    {
+      "conara": 6110,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6111,
+      "label": "PICHIDEGUA",
+      "residential_roles": 5318
+    },
+    {
+      "conara": 6112,
+      "label": "RENGO",
+      "residential_roles": 21756
+    },
+    {
+      "conara": 6112,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6113,
+      "label": "REQUÍNOA",
+      "residential_roles": 7761
+    },
+    {
+      "conara": 6114,
+      "label": "OLIVAR",
+      "residential_roles": 3120
+    },
+    {
+      "conara": 6115,
+      "label": "MALLOA",
+      "residential_roles": 3394
+    },
+    {
+      "conara": 6116,
+      "label": "COINCO",
+      "residential_roles": 1639
+    },
+    {
+      "conara": 6117,
+      "label": "QUINTA DE TILCOCO",
+      "residential_roles": 4011
+    },
+    {
+      "conara": 6201,
+      "label": "SAN FERNANDO",
+      "residential_roles": 28288
+    },
+    {
+      "conara": 6201,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6202,
+      "label": "CHIMBARONGO",
+      "residential_roles": 9879
+    },
+    {
+      "conara": 6203,
+      "label": "NANCAGUA",
+      "residential_roles": 5593
+    },
+    {
+      "conara": 6204,
+      "label": "PLACILLA",
+      "residential_roles": 2102
+    },
+    {
+      "conara": 6204,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6205,
+      "label": "SANTA CRUZ",
+      "residential_roles": 13560
+    },
+    {
+      "conara": 6205,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 6206,
+      "label": "LOLOL",
+      "residential_roles": 1855
+    },
+    {
+      "conara": 6207,
+      "label": "PALMILLA",
+      "residential_roles": 3202
+    },
+    {
+      "conara": 6208,
+      "label": "PERALILLO",
+      "residential_roles": 3346
+    },
+    {
+      "conara": 6209,
+      "label": "CHÉPICA",
+      "residential_roles": 4697
+    },
+    {
+      "conara": 6209,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 6214,
+      "label": "PUMANQUE",
+      "residential_roles": 891
+    },
+    {
+      "conara": 6301,
+      "label": "PICHILEMU",
+      "residential_roles": 9697
+    },
+    {
+      "conara": 6301,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 6302,
+      "label": "NAVIDAD",
+      "residential_roles": 2064
+    },
+    {
+      "conara": 6303,
+      "label": "LITUECHE",
+      "residential_roles": 1980
+    },
+    {
+      "conara": 6304,
+      "label": "LA ESTRELLA",
+      "residential_roles": 1107
+    },
+    {
+      "conara": 6305,
+      "label": "MARCHIGÜE",
+      "residential_roles": 1984
+    },
+    {
+      "conara": 6305,
+      "label": "MARCHIHUE",
+      "residential_roles": 20
+    },
+    {
+      "conara": 6306,
+      "label": "PAREDONES",
+      "residential_roles": 1904
+    },
+    {
+      "conara": 7101,
+      "label": "CURICÓ",
+      "residential_roles": 57409
+    },
+    {
+      "conara": 7102,
+      "label": "TENO",
+      "residential_roles": 7088
+    },
+    {
+      "conara": 7103,
+      "label": "ROMERAL",
+      "residential_roles": 4574
+    },
+    {
+      "conara": 7103,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 7104,
+      "label": "RAUCO",
+      "residential_roles": 3164
+    },
+    {
+      "conara": 7105,
+      "label": "LICANTÉN",
+      "residential_roles": 2590
+    },
+    {
+      "conara": 7106,
+      "label": "VICHUQUÉN",
+      "residential_roles": 2367
+    },
+    {
+      "conara": 7107,
+      "label": "HUALAÑÉ",
+      "residential_roles": 3272
+    },
+    {
+      "conara": 7108,
+      "label": "MOLINA",
+      "residential_roles": 16504
+    },
+    {
+      "conara": 7109,
+      "label": "SAGRADA FAMILIA",
+      "residential_roles": 4883
+    },
+    {
+      "conara": 7109,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 7201,
+      "label": "TALCA",
+      "residential_roles": 95449
+    },
+    {
+      "conara": 7202,
+      "label": "SAN CLEMENTE",
+      "residential_roles": 12829
+    },
+    {
+      "conara": 7202,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 7203,
+      "label": "PELARCO",
+      "residential_roles": 1940
+    },
+    {
+      "conara": 7204,
+      "label": "RÍO CLARO",
+      "residential_roles": 3569
+    },
+    {
+      "conara": 7204,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 7205,
+      "label": "PENCAHUE",
+      "residential_roles": 2572
+    },
+    {
+      "conara": 7205,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 7206,
+      "label": "MAULE",
+      "residential_roles": 20159
+    },
+    {
+      "conara": 7207,
+      "label": "CUREPTO",
+      "residential_roles": 2671
+    },
+    {
+      "conara": 7208,
+      "label": "CONSTITUCIÓN",
+      "residential_roles": 15978
+    },
+    {
+      "conara": 7208,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 7209,
+      "label": "EMPEDRADO",
+      "residential_roles": 1035
+    },
+    {
+      "conara": 7210,
+      "label": "SAN RAFAEL",
+      "residential_roles": 2689
+    },
+    {
+      "conara": 7301,
+      "label": "LINARES",
+      "residential_roles": 34418
+    },
+    {
+      "conara": 7301,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 7302,
+      "label": "YERBAS BUENAS",
+      "residential_roles": 4006
+    },
+    {
+      "conara": 7303,
+      "label": "COLBÚN",
+      "residential_roles": 5825
+    },
+    {
+      "conara": 7304,
+      "label": "LONGAVÍ",
+      "residential_roles": 5599
+    },
+    {
+      "conara": 7305,
+      "label": "PARRAL",
+      "residential_roles": 15021
+    },
+    {
+      "conara": 7306,
+      "label": "RETIRO",
+      "residential_roles": 4521
+    },
+    {
+      "conara": 7309,
+      "label": "VILLA ALEGRE",
+      "residential_roles": 5936
+    },
+    {
+      "conara": 7310,
+      "label": "SAN JAVIER",
+      "residential_roles": 17483
+    },
+    {
+      "conara": 7310,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 7401,
+      "label": "CAUQUENES",
+      "residential_roles": 16469
+    },
+    {
+      "conara": 7401,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 7402,
+      "label": "PELLUHUE",
+      "residential_roles": 3824
+    },
+    {
+      "conara": 7402,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 7403,
+      "label": "CHANCO",
+      "residential_roles": 1955
+    },
+    {
+      "conara": 8101,
+      "label": "CHILLÁN",
+      "residential_roles": 72953
+    },
+    {
+      "conara": 8101,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 8102,
+      "label": "PINTO",
+      "residential_roles": 3762
+    },
+    {
+      "conara": 8103,
+      "label": "COIHUECO",
+      "residential_roles": 5626
+    },
+    {
+      "conara": 8104,
+      "label": "QUIRIHUE",
+      "residential_roles": 3925
+    },
+    {
+      "conara": 8104,
+      "label": null,
+      "residential_roles": 25
+    },
+    {
+      "conara": 8105,
+      "label": "NINHUE",
+      "residential_roles": 993
+    },
+    {
+      "conara": 8105,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 8106,
+      "label": "PORTEZUELO",
+      "residential_roles": 982
+    },
+    {
+      "conara": 8106,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8107,
+      "label": "COBQUECURA",
+      "residential_roles": 1728
+    },
+    {
+      "conara": 8107,
+      "label": null,
+      "residential_roles": 22
+    },
+    {
+      "conara": 8109,
+      "label": "SAN CARLOS",
+      "residential_roles": 15941
+    },
+    {
+      "conara": 8109,
+      "label": null,
+      "residential_roles": 10
+    },
+    {
+      "conara": 8110,
+      "label": "ÑIQUÉN",
+      "residential_roles": 1214
+    },
+    {
+      "conara": 8110,
+      "label": null,
+      "residential_roles": 8
+    },
+    {
+      "conara": 8111,
+      "label": "SAN FABIÁN",
+      "residential_roles": 1080
+    },
+    {
+      "conara": 8111,
+      "label": null,
+      "residential_roles": 12
+    },
+    {
+      "conara": 8112,
+      "label": "SAN NICOLÁS",
+      "residential_roles": 2381
+    },
+    {
+      "conara": 8112,
+      "label": null,
+      "residential_roles": 30
+    },
+    {
+      "conara": 8113,
+      "label": "BULNES",
+      "residential_roles": 7051
+    },
+    {
+      "conara": 8113,
+      "label": null,
+      "residential_roles": 12
+    },
+    {
+      "conara": 8114,
+      "label": "SAN IGNACIO",
+      "residential_roles": 3729
+    },
+    {
+      "conara": 8114,
+      "label": null,
+      "residential_roles": 6
+    },
+    {
+      "conara": 8115,
+      "label": "QUILLÓN",
+      "residential_roles": 6510
+    },
+    {
+      "conara": 8115,
+      "label": null,
+      "residential_roles": 80
+    },
+    {
+      "conara": 8116,
+      "label": "YUNGAY",
+      "residential_roles": 4996
+    },
+    {
+      "conara": 8116,
+      "label": null,
+      "residential_roles": 100
+    },
+    {
+      "conara": 8117,
+      "label": "PEMUCO",
+      "residential_roles": 2131
+    },
+    {
+      "conara": 8117,
+      "label": null,
+      "residential_roles": 80
+    },
+    {
+      "conara": 8118,
+      "label": "EL CARMEN",
+      "residential_roles": 2337
+    },
+    {
+      "conara": 8118,
+      "label": null,
+      "residential_roles": 33
+    },
+    {
+      "conara": 8119,
+      "label": "RÁNQUIL",
+      "residential_roles": 1566
+    },
+    {
+      "conara": 8119,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 8120,
+      "label": "COELEMU",
+      "residential_roles": 3580
+    },
+    {
+      "conara": 8120,
+      "label": null,
+      "residential_roles": 80
+    },
+    {
+      "conara": 8121,
+      "label": "CHILLÁN VIEJO",
+      "residential_roles": 10780
+    },
+    {
+      "conara": 8121,
+      "label": null,
+      "residential_roles": 64
+    },
+    {
+      "conara": 8201,
+      "label": "CONCEPCIÓN",
+      "residential_roles": 91138
+    },
+    {
+      "conara": 8201,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 8202,
+      "label": "PENCO",
+      "residential_roles": 14410
+    },
+    {
+      "conara": 8202,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 8203,
+      "label": "HUALQUI",
+      "residential_roles": 7475
+    },
+    {
+      "conara": 8203,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8204,
+      "label": "FLORIDA",
+      "residential_roles": 2668
+    },
+    {
+      "conara": 8205,
+      "label": "TOMÉ",
+      "residential_roles": 19266
+    },
+    {
+      "conara": 8205,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 8206,
+      "label": "TALCAHUANO",
+      "residential_roles": 46119
+    },
+    {
+      "conara": 8206,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8207,
+      "label": "CORONEL",
+      "residential_roles": 44516
+    },
+    {
+      "conara": 8207,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 8208,
+      "label": "LOTA",
+      "residential_roles": 13113
+    },
+    {
+      "conara": 8209,
+      "label": "SANTA JUANA",
+      "residential_roles": 4321
+    },
+    {
+      "conara": 8210,
+      "label": "SAN PEDRO DE LA PAZ",
+      "residential_roles": 55363
+    },
+    {
+      "conara": 8210,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 8211,
+      "label": "CHIGUAYANTE",
+      "residential_roles": 28100
+    },
+    {
+      "conara": 8211,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 8212,
+      "label": "HUALPÉN",
+      "residential_roles": 31299
+    },
+    {
+      "conara": 8212,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8301,
+      "label": "ARAUCO",
+      "residential_roles": 10830
+    },
+    {
+      "conara": 8301,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8302,
+      "label": "CURANILAHUE",
+      "residential_roles": 9271
+    },
+    {
+      "conara": 8302,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8303,
+      "label": "LEBU",
+      "residential_roles": 7865
+    },
+    {
+      "conara": 8303,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8304,
+      "label": "LOS ALAMOS",
+      "residential_roles": 5977
+    },
+    {
+      "conara": 8304,
+      "label": "LOS ÁLAMOS",
+      "residential_roles": 126
+    },
+    {
+      "conara": 8305,
+      "label": "CAÑETE",
+      "residential_roles": 7345
+    },
+    {
+      "conara": 8306,
+      "label": "CONTULMO",
+      "residential_roles": 1189
+    },
+    {
+      "conara": 8307,
+      "label": "TIRÚA",
+      "residential_roles": 1437
+    },
+    {
+      "conara": 8401,
+      "label": "LOS ANGELES",
+      "residential_roles": 64560
+    },
+    {
+      "conara": 8401,
+      "label": "LOS ÁNGELES",
+      "residential_roles": 1021
+    },
+    {
+      "conara": 8402,
+      "label": "SANTA BÁRBARA",
+      "residential_roles": 3323
+    },
+    {
+      "conara": 8403,
+      "label": "LAJA",
+      "residential_roles": 6267
+    },
+    {
+      "conara": 8404,
+      "label": "QUILLECO",
+      "residential_roles": 2020
+    },
+    {
+      "conara": 8405,
+      "label": "NACIMIENTO",
+      "residential_roles": 8095
+    },
+    {
+      "conara": 8406,
+      "label": "NEGRETE",
+      "residential_roles": 2478
+    },
+    {
+      "conara": 8407,
+      "label": "MULCHÉN",
+      "residential_roles": 7472
+    },
+    {
+      "conara": 8407,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 8408,
+      "label": "QUILACO",
+      "residential_roles": 992
+    },
+    {
+      "conara": 8409,
+      "label": "YUMBEL",
+      "residential_roles": 6290
+    },
+    {
+      "conara": 8410,
+      "label": "CABRERO",
+      "residential_roles": 8433
+    },
+    {
+      "conara": 8411,
+      "label": "SAN ROSENDO",
+      "residential_roles": 938
+    },
+    {
+      "conara": 8412,
+      "label": "TUCAPEL",
+      "residential_roles": 6147
+    },
+    {
+      "conara": 8413,
+      "label": "ANTUCO",
+      "residential_roles": 1314
+    },
+    {
+      "conara": 8414,
+      "label": "ALTO BIOBÍO",
+      "residential_roles": 255
+    },
+    {
+      "conara": 9101,
+      "label": "ANGOL",
+      "residential_roles": 19298
+    },
+    {
+      "conara": 9101,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9102,
+      "label": "PURÉN",
+      "residential_roles": 3119
+    },
+    {
+      "conara": 9103,
+      "label": "LOS SAUCES",
+      "residential_roles": 1880
+    },
+    {
+      "conara": 9104,
+      "label": "RENAICO",
+      "residential_roles": 3354
+    },
+    {
+      "conara": 9105,
+      "label": "COLLIPULLI",
+      "residential_roles": 6634
+    },
+    {
+      "conara": 9106,
+      "label": "ERCILLA",
+      "residential_roles": 1606
+    },
+    {
+      "conara": 9107,
+      "label": "TRAIGUÉN",
+      "residential_roles": 5784
+    },
+    {
+      "conara": 9107,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9108,
+      "label": "LUMACO",
+      "residential_roles": 1583
+    },
+    {
+      "conara": 9109,
+      "label": "VICTORIA",
+      "residential_roles": 10011
+    },
+    {
+      "conara": 9110,
+      "label": "CURACAUTÍN",
+      "residential_roles": 6246
+    },
+    {
+      "conara": 9111,
+      "label": "LONQUIMAY",
+      "residential_roles": 1613
+    },
+    {
+      "conara": 9111,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9201,
+      "label": "TEMUCO",
+      "residential_roles": 110568
+    },
+    {
+      "conara": 9201,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 9202,
+      "label": "VILCÚN",
+      "residential_roles": 7491
+    },
+    {
+      "conara": 9203,
+      "label": "FREIRE",
+      "residential_roles": 3459
+    },
+    {
+      "conara": 9203,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9204,
+      "label": "CUNCO",
+      "residential_roles": 5091
+    },
+    {
+      "conara": 9205,
+      "label": "LAUTARO",
+      "residential_roles": 11946
+    },
+    {
+      "conara": 9205,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 9206,
+      "label": "PERQUENCO",
+      "residential_roles": 1458
+    },
+    {
+      "conara": 9207,
+      "label": "GALVARINO",
+      "residential_roles": 1646
+    },
+    {
+      "conara": 9208,
+      "label": "NUEVA IMPERIAL",
+      "residential_roles": 6471
+    },
+    {
+      "conara": 9208,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 9209,
+      "label": "CARAHUE",
+      "residential_roles": 5114
+    },
+    {
+      "conara": 9210,
+      "label": "SAAVEDRA",
+      "residential_roles": 1408
+    },
+    {
+      "conara": 9211,
+      "label": "PITRUFQUÉN",
+      "residential_roles": 7542
+    },
+    {
+      "conara": 9212,
+      "label": "GORBEA",
+      "residential_roles": 4201
+    },
+    {
+      "conara": 9213,
+      "label": "TOLTÉN",
+      "residential_roles": 1864
+    },
+    {
+      "conara": 9214,
+      "label": "LONCOCHE",
+      "residential_roles": 7087
+    },
+    {
+      "conara": 9215,
+      "label": "VILLARRICA",
+      "residential_roles": 23140
+    },
+    {
+      "conara": 9215,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9216,
+      "label": "PUCÓN",
+      "residential_roles": 15040
+    },
+    {
+      "conara": 9216,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9217,
+      "label": "MELIPEUCO",
+      "residential_roles": 1080
+    },
+    {
+      "conara": 9217,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 9218,
+      "label": "CURARREHUE",
+      "residential_roles": 896
+    },
+    {
+      "conara": 9219,
+      "label": "TEODORO SCHMIDT",
+      "residential_roles": 2547
+    },
+    {
+      "conara": 9220,
+      "label": "PADRE LAS CASAS",
+      "residential_roles": 17763
+    },
+    {
+      "conara": 9221,
+      "label": "CHOLCHOL",
+      "residential_roles": 1727
+    },
+    {
+      "conara": 10101,
+      "label": "VALDIVIA",
+      "residential_roles": 51794
+    },
+    {
+      "conara": 10101,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 10102,
+      "label": "MARIQUINA",
+      "residential_roles": 5447
+    },
+    {
+      "conara": 10103,
+      "label": "LANCO",
+      "residential_roles": 4838
+    },
+    {
+      "conara": 10104,
+      "label": "LOS LAGOS",
+      "residential_roles": 4429
+    },
+    {
+      "conara": 10104,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10105,
+      "label": "FUTRONO",
+      "residential_roles": 3862
+    },
+    {
+      "conara": 10105,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10106,
+      "label": "CORRAL",
+      "residential_roles": 1712
+    },
+    {
+      "conara": 10107,
+      "label": "MÁFIL",
+      "residential_roles": 1745
+    },
+    {
+      "conara": 10108,
+      "label": "PANGUIPULLI",
+      "residential_roles": 7943
+    },
+    {
+      "conara": 10108,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 10109,
+      "label": "LA UNIÓN",
+      "residential_roles": 10949
+    },
+    {
+      "conara": 10109,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10110,
+      "label": "PAILLACO",
+      "residential_roles": 4486
+    },
+    {
+      "conara": 10111,
+      "label": "RÍO BUENO",
+      "residential_roles": 8927
+    },
+    {
+      "conara": 10111,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10112,
+      "label": "LAGO RANCO",
+      "residential_roles": 2215
+    },
+    {
+      "conara": 10201,
+      "label": "OSORNO",
+      "residential_roles": 55832
+    },
+    {
+      "conara": 10201,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 10202,
+      "label": "SAN PABLO",
+      "residential_roles": 2375
+    },
+    {
+      "conara": 10203,
+      "label": "PUERTO OCTAY",
+      "residential_roles": 1674
+    },
+    {
+      "conara": 10204,
+      "label": "PUYEHUE",
+      "residential_roles": 2582
+    },
+    {
+      "conara": 10205,
+      "label": "RÍO NEGRO",
+      "residential_roles": 3261
+    },
+    {
+      "conara": 10206,
+      "label": "PURRANQUE",
+      "residential_roles": 5305
+    },
+    {
+      "conara": 10207,
+      "label": "SAN JUAN DE LA COSTA",
+      "residential_roles": 1186
+    },
+    {
+      "conara": 10207,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10301,
+      "label": "PUERTO MONTT",
+      "residential_roles": 86967
+    },
+    {
+      "conara": 10302,
+      "label": "COCHAMÓ",
+      "residential_roles": 441
+    },
+    {
+      "conara": 10303,
+      "label": "PUERTO VARAS",
+      "residential_roles": 16454
+    },
+    {
+      "conara": 10304,
+      "label": "FRESIA",
+      "residential_roles": 3274
+    },
+    {
+      "conara": 10305,
+      "label": "FRUTILLAR",
+      "residential_roles": 7007
+    },
+    {
+      "conara": 10306,
+      "label": "LLANQUIHUE",
+      "residential_roles": 4983
+    },
+    {
+      "conara": 10307,
+      "label": "MAULLÍN",
+      "residential_roles": 3010
+    },
+    {
+      "conara": 10307,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 10308,
+      "label": "LOS MUERMOS",
+      "residential_roles": 3205
+    },
+    {
+      "conara": 10309,
+      "label": "CALBUCO",
+      "residential_roles": 4693
+    },
+    {
+      "conara": 10309,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10401,
+      "label": "CASTRO",
+      "residential_roles": 13266
+    },
+    {
+      "conara": 10401,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 10402,
+      "label": "CHONCHI",
+      "residential_roles": 2709
+    },
+    {
+      "conara": 10403,
+      "label": "QUEILÉN",
+      "residential_roles": 1256
+    },
+    {
+      "conara": 10404,
+      "label": "QUELLÓN",
+      "residential_roles": 5267
+    },
+    {
+      "conara": 10404,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10405,
+      "label": "PUQUELDÓN",
+      "residential_roles": 459
+    },
+    {
+      "conara": 10406,
+      "label": "ANCUD",
+      "residential_roles": 11711
+    },
+    {
+      "conara": 10406,
+      "label": null,
+      "residential_roles": 57
+    },
+    {
+      "conara": 10407,
+      "label": "QUEMCHI",
+      "residential_roles": 985
+    },
+    {
+      "conara": 10408,
+      "label": "DALCAHUE",
+      "residential_roles": 2777
+    },
+    {
+      "conara": 10410,
+      "label": "CURACO DE VÉLEZ",
+      "residential_roles": 669
+    },
+    {
+      "conara": 10415,
+      "label": "QUINCHAO",
+      "residential_roles": 1272
+    },
+    {
+      "conara": 10501,
+      "label": "CHAITÉN",
+      "residential_roles": 944
+    },
+    {
+      "conara": 10501,
+      "label": null,
+      "residential_roles": 275
+    },
+    {
+      "conara": 10502,
+      "label": "FUTALEUFÚ",
+      "residential_roles": 9
+    },
+    {
+      "conara": 10502,
+      "label": "HUALAIHUÉ",
+      "residential_roles": 1377
+    },
+    {
+      "conara": 10502,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 10503,
+      "label": "FUTALEUFÚ",
+      "residential_roles": 636
+    },
+    {
+      "conara": 10503,
+      "label": "HUALAIHUÉ",
+      "residential_roles": 35
+    },
+    {
+      "conara": 10504,
+      "label": "PALENA",
+      "residential_roles": 455
+    },
+    {
+      "conara": 11101,
+      "label": "AYSÉN",
+      "residential_roles": 1380
+    },
+    {
+      "conara": 11101,
+      "label": "COYHAIQUE",
+      "residential_roles": 13
+    },
+    {
+      "conara": 11101,
+      "label": null,
+      "residential_roles": 6740
+    },
+    {
+      "conara": 11102,
+      "label": "CISNES",
+      "residential_roles": 1190
+    },
+    {
+      "conara": 11102,
+      "label": null,
+      "residential_roles": 627
+    },
+    {
+      "conara": 11104,
+      "label": "GUAITECAS",
+      "residential_roles": 318
+    },
+    {
+      "conara": 11104,
+      "label": null,
+      "residential_roles": 9
+    },
+    {
+      "conara": 11201,
+      "label": "AYSÉN",
+      "residential_roles": 4
+    },
+    {
+      "conara": 11201,
+      "label": "CHILE CHICO",
+      "residential_roles": 1728
+    },
+    {
+      "conara": 11201,
+      "label": null,
+      "residential_roles": 87
+    },
+    {
+      "conara": 11203,
+      "label": "RÍO IBÁÑEZ",
+      "residential_roles": 492
+    },
+    {
+      "conara": 11203,
+      "label": null,
+      "residential_roles": 488
+    },
+    {
+      "conara": 11301,
+      "label": "COCHRANE",
+      "residential_roles": 1008
+    },
+    {
+      "conara": 11301,
+      "label": null,
+      "residential_roles": 183
+    },
+    {
+      "conara": 11302,
+      "label": "O'HIGGINS",
+      "residential_roles": 191
+    },
+    {
+      "conara": 11302,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 11303,
+      "label": null,
+      "residential_roles": 133
+    },
+    {
+      "conara": 11401,
+      "label": "CHILE CHICO",
+      "residential_roles": 46
+    },
+    {
+      "conara": 11401,
+      "label": "COYHAIQUE",
+      "residential_roles": 19177
+    },
+    {
+      "conara": 11401,
+      "label": null,
+      "residential_roles": 481
+    },
+    {
+      "conara": 11402,
+      "label": "LAGO VERDE",
+      "residential_roles": 244
+    },
+    {
+      "conara": 11402,
+      "label": null,
+      "residential_roles": 41
+    },
+    {
+      "conara": 12101,
+      "label": "NATALES",
+      "residential_roles": 1959
+    },
+    {
+      "conara": 12101,
+      "label": "PUERTO NATALES",
+      "residential_roles": 9
+    },
+    {
+      "conara": 12101,
+      "label": null,
+      "residential_roles": 6828
+    },
+    {
+      "conara": 12103,
+      "label": "TORRES DEL PAINE",
+      "residential_roles": 17
+    },
+    {
+      "conara": 12103,
+      "label": null,
+      "residential_roles": 6
+    },
+    {
+      "conara": 12202,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 12204,
+      "label": null,
+      "residential_roles": 118
+    },
+    {
+      "conara": 12205,
+      "label": "PUNTA ARENAS",
+      "residential_roles": 42280
+    },
+    {
+      "conara": 12205,
+      "label": null,
+      "residential_roles": 5110
+    },
+    {
+      "conara": 12206,
+      "label": null,
+      "residential_roles": 50
+    },
+    {
+      "conara": 12301,
+      "label": "PORVENIR",
+      "residential_roles": 1840
+    },
+    {
+      "conara": 12301,
+      "label": null,
+      "residential_roles": 177
+    },
+    {
+      "conara": 12302,
+      "label": "PRIMAVERA",
+      "residential_roles": 5
+    },
+    {
+      "conara": 12302,
+      "label": null,
+      "residential_roles": 60
+    },
+    {
+      "conara": 12304,
+      "label": null,
+      "residential_roles": 13
+    },
+    {
+      "conara": 12401,
+      "label": "CABO DE HORNOS",
+      "residential_roles": 401
+    },
+    {
+      "conara": 12401,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 13101,
+      "label": "SANTIAGO",
+      "residential_roles": 135553
+    },
+    {
+      "conara": 13101,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 13134,
+      "label": "SANTIAGO",
+      "residential_roles": 325
+    },
+    {
+      "conara": 13134,
+      "label": "SANTIAGO OESTE",
+      "residential_roles": 37406
+    },
+    {
+      "conara": 13135,
+      "label": "SANTIAGO",
+      "residential_roles": 382
+    },
+    {
+      "conara": 13135,
+      "label": "SANTIAGO SUR",
+      "residential_roles": 46038
+    },
+    {
+      "conara": 13159,
+      "label": "RECOLETA",
+      "residential_roles": 40339
+    },
+    {
+      "conara": 13159,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 13167,
+      "label": "INDEPENDENCIA",
+      "residential_roles": 43739
+    },
+    {
+      "conara": 13167,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 14107,
+      "label": "QUINTA NORMAL",
+      "residential_roles": 38305
+    },
+    {
+      "conara": 14107,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 14109,
+      "label": "MAIPÚ",
+      "residential_roles": 161167
+    },
+    {
+      "conara": 14111,
+      "label": "PUDAHUEL",
+      "residential_roles": 64790
+    },
+    {
+      "conara": 14113,
+      "label": "RENCA",
+      "residential_roles": 41879
+    },
+    {
+      "conara": 14113,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 14114,
+      "label": "QUILICURA",
+      "residential_roles": 65153
+    },
+    {
+      "conara": 14114,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 14127,
+      "label": "CONCHALÍ",
+      "residential_roles": 32218
+    },
+    {
+      "conara": 14127,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 14155,
+      "label": "LO PRADO",
+      "residential_roles": 24089
+    },
+    {
+      "conara": 14156,
+      "label": "CERRO NAVIA",
+      "residential_roles": 30699
+    },
+    {
+      "conara": 14157,
+      "label": "ESTACIÓN CENTRAL",
+      "residential_roles": 70314
+    },
+    {
+      "conara": 14158,
+      "label": "HUECHURABA",
+      "residential_roles": 28411
+    },
+    {
+      "conara": 14166,
+      "label": "CERRILLOS",
+      "residential_roles": 28135
+    },
+    {
+      "conara": 14201,
+      "label": "COLINA",
+      "residential_roles": 48335
+    },
+    {
+      "conara": 14202,
+      "label": "LAMPA",
+      "residential_roles": 35082
+    },
+    {
+      "conara": 14203,
+      "label": "TIL-TIL",
+      "residential_roles": 4394
+    },
+    {
+      "conara": 14203,
+      "label": "TILTIL",
+      "residential_roles": 28
+    },
+    {
+      "conara": 14501,
+      "label": "TALAGANTE",
+      "residential_roles": 20708
+    },
+    {
+      "conara": 14501,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 14502,
+      "label": "ISLA DE MAIPO",
+      "residential_roles": 10572
+    },
+    {
+      "conara": 14502,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 14503,
+      "label": "EL MONTE",
+      "residential_roles": 10092
+    },
+    {
+      "conara": 14504,
+      "label": "PEÑAFLOR",
+      "residential_roles": 28317
+    },
+    {
+      "conara": 14504,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 14505,
+      "label": "PADRE HURTADO",
+      "residential_roles": 26040
+    },
+    {
+      "conara": 14601,
+      "label": "MELIPILLA",
+      "residential_roles": 35639
+    },
+    {
+      "conara": 14601,
+      "label": null,
+      "residential_roles": 4
+    },
+    {
+      "conara": 14602,
+      "label": "MARÍA PINTO",
+      "residential_roles": 2705
+    },
+    {
+      "conara": 14603,
+      "label": "CURACAVÍ",
+      "residential_roles": 8691
+    },
+    {
+      "conara": 14604,
+      "label": "SAN PEDRO",
+      "residential_roles": 915
+    },
+    {
+      "conara": 14605,
+      "label": "ALHUÉ",
+      "residential_roles": 1235
+    },
+    {
+      "conara": 15103,
+      "label": "PROVIDENCIA",
+      "residential_roles": 75457
+    },
+    {
+      "conara": 15103,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 15105,
+      "label": "ÑUÑOA",
+      "residential_roles": 127740
+    },
+    {
+      "conara": 15108,
+      "label": "LAS CONDES",
+      "residential_roles": 128395
+    },
+    {
+      "conara": 15128,
+      "label": "LA FLORIDA",
+      "residential_roles": 140183
+    },
+    {
+      "conara": 15128,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 15132,
+      "label": "LA REINA",
+      "residential_roles": 30062
+    },
+    {
+      "conara": 15132,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 15151,
+      "label": "MACUL",
+      "residential_roles": 49149
+    },
+    {
+      "conara": 15151,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 15152,
+      "label": "PEÑALOLÉN",
+      "residential_roles": 62545
+    },
+    {
+      "conara": 15160,
+      "label": "VITACURA",
+      "residential_roles": 35280
+    },
+    {
+      "conara": 15161,
+      "label": "LO BARNECHEA",
+      "residential_roles": 33955
+    },
+    {
+      "conara": 15161,
+      "label": null,
+      "residential_roles": 2
+    },
+    {
+      "conara": 16106,
+      "label": "SAN MIGUEL",
+      "residential_roles": 63793
+    },
+    {
+      "conara": 16110,
+      "label": "LA CISTERNA",
+      "residential_roles": 42308
+    },
+    {
+      "conara": 16131,
+      "label": "LA GRANJA",
+      "residential_roles": 29929
+    },
+    {
+      "conara": 16153,
+      "label": "SAN RAMÓN",
+      "residential_roles": 19227
+    },
+    {
+      "conara": 16154,
+      "label": "LA PINTANA",
+      "residential_roles": 48826
+    },
+    {
+      "conara": 16162,
+      "label": "PEDRO AGUIRRE CERDA",
+      "residential_roles": 26581
+    },
+    {
+      "conara": 16163,
+      "label": "SAN JOAQUÍN",
+      "residential_roles": 31123
+    },
+    {
+      "conara": 16164,
+      "label": "LO ESPEJO",
+      "residential_roles": 23026
+    },
+    {
+      "conara": 16165,
+      "label": "EL BOSQUE",
+      "residential_roles": 42543
+    },
+    {
+      "conara": 16301,
+      "label": "PUENTE ALTO",
+      "residential_roles": 181048
+    },
+    {
+      "conara": 16302,
+      "label": "PIRQUE",
+      "residential_roles": 5282
+    },
+    {
+      "conara": 16303,
+      "label": "SAN JOSÉ DE MAIPO",
+      "residential_roles": 4570
+    },
+    {
+      "conara": 16401,
+      "label": "SAN BERNARDO",
+      "residential_roles": 92669
+    },
+    {
+      "conara": 16401,
+      "label": null,
+      "residential_roles": 3
+    },
+    {
+      "conara": 16402,
+      "label": "CALERA DE TANGO",
+      "residential_roles": 5492
+    },
+    {
+      "conara": 16403,
+      "label": "BUIN",
+      "residential_roles": 34674
+    },
+    {
+      "conara": 16403,
+      "label": null,
+      "residential_roles": 1
+    },
+    {
+      "conara": 16404,
+      "label": "PAINE",
+      "residential_roles": 17500
+    }
+  ],
+  "component_status": "unresolved: no refuse/net/surtax separation; difference is not a correction factor"
+}

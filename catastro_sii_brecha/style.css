@@ -1349,3 +1349,8 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
 :root[data-theme="light"] .uv-matrix .c32 { background: #4a3a9e; }
 :root[data-theme="light"] .uv-matrix .c41 { background: #7ad4f7; }
 :root[data-theme="light"] .uv-matrix .c42 { background: #0b7ab5; }
+
+/* Avalúos II: fondo uniforme para lectura y contraste verificable. */
+#brecha-contribuciones { background: var(--surface); scroll-margin-top: 80px; }
+#brecha-contribuciones code { white-space: normal; overflow-wrap: anywhere; }
+#fiscal-gap-chart { scroll-margin-top: 80px; }

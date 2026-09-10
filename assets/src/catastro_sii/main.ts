@@ -74,3 +74,17 @@ function beginLaboratory(): void {
 beginMap();
 beginCoverageTeaser();
 beginLaboratory();
+
+function beginFiscalGap(): void {
+  const host = document.getElementById("brecha-contribuciones");
+  if (!host) return;
+  const start = () => import("./fiscal-gap").then(m => m.mountFiscalGap()).catch(() => {
+    const status = document.getElementById("fiscal-gap-selection");
+    if (status) status.textContent = "Vista interactiva no disponible; el gráfico estático y la tabla conservan el diagnóstico nacional.";
+    const chart = document.getElementById("fiscal-gap-chart");
+    if (chart) chart.hidden = true;
+  });
+  if (window.location.hash === "#brecha-contribuciones") void start();
+  else onceNearViewport(host, () => { void start(); }, "420px");
+}
+beginFiscalGap();

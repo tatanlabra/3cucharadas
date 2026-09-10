@@ -1,1 +1,40 @@
-{"version":"v5","generated_at":"2026-07-17T19:51:15.722085+00:00","communes":346,"sources":{"catastro_period":"Primer semestre de 2026","censo":"Censo de Población y Vivienda 2024, agregado comunal","ine_projection":"Estimaciones y proyecciones 2002-2035, base Censo 2017","casen":"CASEN 2024: sensibilidad comunal no representativa"},"method":{"primary":"predios H × (personas Censo 2024 / viviendas particulares ocupadas)","interpretation":"Cobertura residencial equivalente; no mide residentes ni demuestra causas.","casen":"Sensibilidad comunal no representativa; excluida de rankings y hallazgos."},"publication":"El visor usa agregados comunales y celdas de densidad. V5 no veta formatos ni campos públicos por defecto; las descargas se evalúan por utilidad, procedencia y presupuesto.","density_bytes":89796,"files":{"comunas":"comunas.json","regiones":"regiones.json","quality":"quality.json","metricas_parquet":"metricas_comunales.parquet"}}
+{
+  "version": "v5",
+  "generated_at": "2026-07-17T19:51:15.722085+00:00",
+  "communes": 346,
+  "sources": {
+    "catastro_period": "Primer semestre de 2026",
+    "censo": "Censo de Población y Vivienda 2024, agregado comunal",
+    "ine_projection": "Estimaciones y proyecciones 2002-2035, base Censo 2017",
+    "casen": "CASEN 2024: sensibilidad comunal no representativa"
+  },
+  "method": {
+    "primary": "100 × predios H / viviendas particulares totales Censo 2024 (ocupadas y desocupadas)",
+    "interpretation": "Razón entre unidades distintas; no prueba omisiones, residentes ni recaudación perdida.",
+    "casen": "Sensibilidad comunal no representativa; excluida de rankings y hallazgos.",
+    "historical_population_equivalent": "predios H × (personas Censo 2024 / viviendas particulares ocupadas)"
+  },
+  "publication": "El visor usa agregados comunales y celdas de densidad. V5 no veta formatos ni campos públicos por defecto; las descargas se evalúan por utilidad, procedencia y presupuesto.",
+  "density_bytes": 89796,
+  "files": {
+    "comunas": "comunas.json",
+    "regiones": "regiones.json",
+    "quality": "quality.json",
+    "metricas_parquet": "metricas_comunales.parquet"
+  },
+  "identity_correction": {
+    "date": "2026-09-09",
+    "cut_to_conara": {
+      "11101": "11401",
+      "11201": "11101",
+      "11401": "11201"
+    },
+    "snapshot": "v46_20260627; periodo 2026S1",
+    "method": "fiscal-gap/method.md"
+  },
+  "fiscal_diagnostic": {
+    "path": "fiscal-gap/communes.json",
+    "snapshot": "v2026s1_20260724",
+    "status": "blocked_components"
+  }
+}

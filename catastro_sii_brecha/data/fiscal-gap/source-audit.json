@@ -1,0 +1,3020 @@
+{
+  "checked_date": "2026-09-10",
+  "period": "2026S1",
+  "purpose": "independent source control; no net-H adapter",
+  "canonical_json_sha256": "c70897aae3bd7612430892ce36d2b2b34da0e3fb3b5c9eebf33771de11a7c9f4",
+  "sources": [
+    {
+      "file": "minvu_destino_2026s1.xlsx",
+      "url": "https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=7c2239831c3d034258ce5a3990fa4488",
+      "bytes": 86845,
+      "sha256": "997e1753433f0e62832c63eb1051552833c6a2187adc05ffd729a8dc1fcf749d",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "minvu_avaluo_2026s1.xlsx",
+      "url": "https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=ef32f41ed4f187edd61cf1003b4a95a5",
+      "bytes": 155083,
+      "sha256": "f289bb4e86d600395328551f458234ed2730cd388168607acc5cced209665af8",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_01.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_1.csv",
+      "bytes": 5506,
+      "sha256": "b36729b248e456480879edd5b784bbe09892c90806b66f9775acf450e28ed13b",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_02.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_2.csv",
+      "bytes": 6474,
+      "sha256": "5d2ee91718e96d9b121ac4ebe45c7a1d679b74633658d4a4a08819a0628d8397",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_03.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_3.csv",
+      "bytes": 6258,
+      "sha256": "1a4527fc0ff4d0ce98cef962f7dfe5a6079afcbd764dd11ebe736bf9a11e8e1a",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_04.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_4.csv",
+      "bytes": 7243,
+      "sha256": "acfe63ec205831ef2afc8c6b305dcf32e1e6aa7a6d6e63769e0024e8d5e013c6",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_05.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_5.csv",
+      "bytes": 9302,
+      "sha256": "b0975bed96c1eec6f552025fcbc15129a22aadf8cb5513dd3ed3d539b210df27",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_06.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_6.csv",
+      "bytes": 14943,
+      "sha256": "74e70d93b31df19e5201cae10cc05e55e61475346b8227a77e82ffe306204d7b",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_07.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_7.csv",
+      "bytes": 13473,
+      "sha256": "2a4e594971c7871944fbe4dd250bb58d816795b7a3c08db892d4466df1e6b2f0",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_08.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_8.csv",
+      "bytes": 12477,
+      "sha256": "4da9537d3e96404e3c8dda2e0f3dd7143cedc759fbe8037548af6f98e3bd9b30",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_09.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_9.csv",
+      "bytes": 11234,
+      "sha256": "2a4b5a0975b361ab9f43f8a8eb0a0ae18013ade43947f44899e239ec936eb5a8",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_10.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_10.csv",
+      "bytes": 13325,
+      "sha256": "858ea1ef4e78304b7d25ea0bb016574d96edef4a6d48d0f66e3c6d8c0400d240",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_11.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_11.csv",
+      "bytes": 14997,
+      "sha256": "2ab016cfc40f4d02b77746b96676fe7b263722147b4e328a4377e9c5595d74da",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_12.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_12.csv",
+      "bytes": 8302,
+      "sha256": "95be8bfb7f7e2ca3811d77b81e75cecd5e4f5ea54f08889b5107ae8341f7096d",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_13.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_13.csv",
+      "bytes": 14286,
+      "sha256": "a9336dacbc35c2060583d674ea0a66bf5e1ac9cb1982a67ac74ad77c398aa320",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_14.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_14.csv",
+      "bytes": 7598,
+      "sha256": "bc44ec0ab0449064dbcf2e90c69636b79dc54e87df9342c901b51d02fc68a3ba",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_15.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_15.csv",
+      "bytes": 7367,
+      "sha256": "91293734d3c39a9603fc1f9181f882db079aa600b3c004b820ea86fbbb132bb7",
+      "retrieved_date": "2026-09-10"
+    },
+    {
+      "file": "sii_comunal_16.csv",
+      "url": "https://www.sii.cl/sobre_el_sii/estadisticas/csv/ebbrrc_16.csv",
+      "bytes": 19127,
+      "sha256": "51a2c2b19d3469b1db59a546a750f29d84e37a39794bec17d860df518d5927bf",
+      "retrieved_date": "2026-09-10"
+    }
+  ],
+  "minvu_residential_roles": 6057949,
+  "sii_residential_roles": 6056150,
+  "mirror_residential_roles": 6054808,
+  "minvu_minus_sii": 1799,
+  "matched_commune_count_differences": 208,
+  "matched_commune_total_difference": 1799,
+  "missing_mirror_communes": [
+    {
+      "codigo_comuna": "16207",
+      "comuna": "Trehuaco",
+      "minvu_name": "Treguaco",
+      "minvu_h": 1342,
+      "mirror_h": null,
+      "minvu_minus_mirror": null
+    },
+    {
+      "codigo_comuna": "12202",
+      "comuna": "Antártica",
+      "minvu_name": "Antártica",
+      "minvu_h": 0,
+      "mirror_h": null,
+      "minvu_minus_mirror": null
+    }
+  ],
+  "national_nonagricultural_control": {
+    "nonagricultural_roles": 8512452,
+    "net_nonagricultural_semester_clp": 1293666863000,
+    "fiscal_surtax_semester_clp": 23341947000,
+    "unbuilt_surtax_semester_clp": 57200885000,
+    "gross_nonagricultural_semester_clp": 1374209695000,
+    "refuse_semester_clp": 59910165000
+  },
+  "regional_controls": [
+    {
+      "selector_id": 1,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE ARICA Y PARINACOTA",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 2,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE TARAPACÁ",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 3,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE ANTOFAGASTA",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 4,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE ATACAMA",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 5,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE COQUIMBO",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 6,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE VALPARAÍSO",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 7,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DEL LIBERTADOR GRAL. BERNANDO O'HIGGINS",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 8,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DEL MAULE",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 9,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE ÑUBLE",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 10,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DEL BIOBÍO",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 11,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE LA ARAUCANÍA",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 12,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE LOS RIOS",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 13,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE LOS LAGOS",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 14,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE AYSÉN DEL GRAL. CARLOS IBAÑEZ DEL CAMPO",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 15,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN DE MAGALLANES Y ANTÁRTICA CHILENA",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    },
+    {
+      "selector_id": 16,
+      "title": "ESTADÍSTICAS DE BIENES RAÍCES POR COMUNA DE LA REGIÓN METROPOLITANA DE SANTIAGO",
+      "tax_universe": "all nonagricultural destinations, not H alone"
+    }
+  ],
+  "fiscal_status": "blocked_components",
+  "warning": "Same semester is not proof of same extraction or universe. Counts do not identify tax obligations; nonagricultural net tax is not residential net tax.",
+  "comparisons": [
+    {
+      "codigo_comuna": "1101",
+      "comuna": "Iquique",
+      "minvu_name": "Iquique",
+      "minvu_h": 55513,
+      "mirror_h": 55511,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "1107",
+      "comuna": "Alto Hospicio",
+      "minvu_name": "Alto Hospicio",
+      "minvu_h": 31192,
+      "mirror_h": 31190,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "1401",
+      "comuna": "Pozo Almonte",
+      "minvu_name": "Pozo Almonte",
+      "minvu_h": 5379,
+      "mirror_h": 5379,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "1402",
+      "comuna": "Camiña",
+      "minvu_name": "Camiña",
+      "minvu_h": 494,
+      "mirror_h": 494,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "1403",
+      "comuna": "Colchane",
+      "minvu_name": "Colchane",
+      "minvu_h": 239,
+      "mirror_h": 239,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "1404",
+      "comuna": "Huara",
+      "minvu_name": "Huara",
+      "minvu_h": 1676,
+      "mirror_h": 1676,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "1405",
+      "comuna": "Pica",
+      "minvu_name": "Pica",
+      "minvu_h": 1913,
+      "mirror_h": 1912,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "2101",
+      "comuna": "Antofagasta",
+      "minvu_name": "Antofagasta",
+      "minvu_h": 117973,
+      "mirror_h": 117961,
+      "minvu_minus_mirror": 12
+    },
+    {
+      "codigo_comuna": "2102",
+      "comuna": "Mejillones",
+      "minvu_name": "Mejillones",
+      "minvu_h": 4356,
+      "mirror_h": 4356,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "2103",
+      "comuna": "Sierra Gorda",
+      "minvu_name": "Sierra Gorda",
+      "minvu_h": 428,
+      "mirror_h": 428,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "2104",
+      "comuna": "Taltal",
+      "minvu_name": "Taltal",
+      "minvu_h": 3670,
+      "mirror_h": 3670,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "2201",
+      "comuna": "Calama",
+      "minvu_name": "Calama",
+      "minvu_h": 45754,
+      "mirror_h": 45334,
+      "minvu_minus_mirror": 420
+    },
+    {
+      "codigo_comuna": "2202",
+      "comuna": "Ollagüe",
+      "minvu_name": "Ollagüe",
+      "minvu_h": 70,
+      "mirror_h": 70,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "2203",
+      "comuna": "San Pedro de Atacama",
+      "minvu_name": "San Pedro de Atacama",
+      "minvu_h": 1675,
+      "mirror_h": 1675,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "2301",
+      "comuna": "Tocopilla",
+      "minvu_name": "Tocopilla",
+      "minvu_h": 8975,
+      "mirror_h": 8974,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "2302",
+      "comuna": "María Elena",
+      "minvu_name": "María Elena",
+      "minvu_h": 94,
+      "mirror_h": 94,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "3101",
+      "comuna": "Copiapó",
+      "minvu_name": "Copiapó",
+      "minvu_h": 53414,
+      "mirror_h": 53406,
+      "minvu_minus_mirror": 8
+    },
+    {
+      "codigo_comuna": "3102",
+      "comuna": "Caldera",
+      "minvu_name": "Caldera",
+      "minvu_h": 8505,
+      "mirror_h": 8504,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "3103",
+      "comuna": "Tierra Amarilla",
+      "minvu_name": "Tierra Amarilla",
+      "minvu_h": 3132,
+      "mirror_h": 3132,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "3201",
+      "comuna": "Chañaral",
+      "minvu_name": "Chañaral",
+      "minvu_h": 4766,
+      "mirror_h": 4764,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "3202",
+      "comuna": "Diego de Almagro",
+      "minvu_name": "Diego de Almagro",
+      "minvu_h": 2931,
+      "mirror_h": 2877,
+      "minvu_minus_mirror": 54
+    },
+    {
+      "codigo_comuna": "3301",
+      "comuna": "Vallenar",
+      "minvu_name": "Vallenar",
+      "minvu_h": 18150,
+      "mirror_h": 18144,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "3302",
+      "comuna": "Alto del Carmen",
+      "minvu_name": "Alto del Carmen",
+      "minvu_h": 1110,
+      "mirror_h": 1110,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "3303",
+      "comuna": "Freirina",
+      "minvu_name": "Freirina",
+      "minvu_h": 2327,
+      "mirror_h": 2327,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "3304",
+      "comuna": "Huasco",
+      "minvu_name": "Huasco",
+      "minvu_h": 4160,
+      "mirror_h": 4160,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "4101",
+      "comuna": "La Serena",
+      "minvu_name": "La Serena",
+      "minvu_h": 101384,
+      "mirror_h": 101350,
+      "minvu_minus_mirror": 34
+    },
+    {
+      "codigo_comuna": "4102",
+      "comuna": "Coquimbo",
+      "minvu_name": "Coquimbo",
+      "minvu_h": 97714,
+      "mirror_h": 97690,
+      "minvu_minus_mirror": 24
+    },
+    {
+      "codigo_comuna": "4103",
+      "comuna": "Andacollo",
+      "minvu_name": "Andacollo",
+      "minvu_h": 3980,
+      "mirror_h": 3977,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "4104",
+      "comuna": "La Higuera",
+      "minvu_name": "La Higuera",
+      "minvu_h": 2230,
+      "mirror_h": 2230,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "4105",
+      "comuna": "Paihuano",
+      "minvu_name": "Paiguano",
+      "minvu_h": 1898,
+      "mirror_h": 1896,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "4106",
+      "comuna": "Vicuña",
+      "minvu_name": "Vicuña",
+      "minvu_h": 9983,
+      "mirror_h": 9981,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "4201",
+      "comuna": "Illapel",
+      "minvu_name": "Illapel",
+      "minvu_h": 9596,
+      "mirror_h": 9596,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "4202",
+      "comuna": "Canela",
+      "minvu_name": "Canela",
+      "minvu_h": 3281,
+      "mirror_h": 3281,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "4203",
+      "comuna": "Los Vilos",
+      "minvu_name": "Los Vilos",
+      "minvu_h": 10302,
+      "mirror_h": 10295,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "4204",
+      "comuna": "Salamanca",
+      "minvu_name": "Salamanca",
+      "minvu_h": 8672,
+      "mirror_h": 8667,
+      "minvu_minus_mirror": 5
+    },
+    {
+      "codigo_comuna": "4301",
+      "comuna": "Ovalle",
+      "minvu_name": "Ovalle",
+      "minvu_h": 39763,
+      "mirror_h": 39754,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "4302",
+      "comuna": "Combarbalá",
+      "minvu_name": "Combarbalá",
+      "minvu_h": 5910,
+      "mirror_h": 5903,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "4303",
+      "comuna": "Monte Patria",
+      "minvu_name": "Monte Patria",
+      "minvu_h": 10667,
+      "mirror_h": 10661,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "4304",
+      "comuna": "Punitaqui",
+      "minvu_name": "Punitaqui",
+      "minvu_h": 3411,
+      "mirror_h": 3407,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "4305",
+      "comuna": "Río Hurtado",
+      "minvu_name": "Río Hurtado",
+      "minvu_h": 1791,
+      "mirror_h": 1790,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5101",
+      "comuna": "Valparaíso",
+      "minvu_name": "Valparaíso",
+      "minvu_h": 99462,
+      "mirror_h": 99453,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "5102",
+      "comuna": "Casablanca",
+      "minvu_name": "Casablanca",
+      "minvu_h": 9466,
+      "mirror_h": 9465,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5103",
+      "comuna": "Concón",
+      "minvu_name": "Concón",
+      "minvu_h": 24937,
+      "mirror_h": 24937,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5104",
+      "comuna": "Juan Fernández",
+      "minvu_name": "Juan Fernández",
+      "minvu_h": 248,
+      "mirror_h": 248,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5105",
+      "comuna": "Puchuncaví",
+      "minvu_name": "Puchuncaví",
+      "minvu_h": 11939,
+      "mirror_h": 11937,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "5107",
+      "comuna": "Quintero",
+      "minvu_name": "Quintero",
+      "minvu_h": 13736,
+      "mirror_h": 13736,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5109",
+      "comuna": "Viña del Mar",
+      "minvu_name": "Viña del Mar",
+      "minvu_h": 139361,
+      "mirror_h": 139335,
+      "minvu_minus_mirror": 26
+    },
+    {
+      "codigo_comuna": "5201",
+      "comuna": "Isla de Pascua",
+      "minvu_name": "Isla de Pascua",
+      "minvu_h": 293,
+      "mirror_h": 293,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5301",
+      "comuna": "Los Andes",
+      "minvu_name": "Los Andes",
+      "minvu_h": 24804,
+      "mirror_h": 24804,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5302",
+      "comuna": "Calle Larga",
+      "minvu_name": "Calle Larga",
+      "minvu_h": 5164,
+      "mirror_h": 5164,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5303",
+      "comuna": "Rinconada",
+      "minvu_name": "Rinconada",
+      "minvu_h": 3943,
+      "mirror_h": 3943,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5304",
+      "comuna": "San Esteban",
+      "minvu_name": "San Esteban",
+      "minvu_h": 6482,
+      "mirror_h": 6482,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5401",
+      "comuna": "La Ligua",
+      "minvu_name": "La Ligua",
+      "minvu_h": 11915,
+      "mirror_h": 11914,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5402",
+      "comuna": "Cabildo",
+      "minvu_name": "Cabildo",
+      "minvu_h": 5187,
+      "mirror_h": 5186,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5403",
+      "comuna": "Papudo",
+      "minvu_name": "Papudo",
+      "minvu_h": 6808,
+      "mirror_h": 6807,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5404",
+      "comuna": "Petorca",
+      "minvu_name": "Petorca",
+      "minvu_h": 3296,
+      "mirror_h": 3296,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5405",
+      "comuna": "Zapallar",
+      "minvu_name": "Zapallar",
+      "minvu_h": 6151,
+      "mirror_h": 6148,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "5501",
+      "comuna": "Quillota",
+      "minvu_name": "Quillota",
+      "minvu_h": 33673,
+      "mirror_h": 33672,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5502",
+      "comuna": "Calera",
+      "minvu_name": "Calera",
+      "minvu_h": 16730,
+      "mirror_h": 16727,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "5503",
+      "comuna": "Hijuelas",
+      "minvu_name": "Hijuelas",
+      "minvu_h": 3892,
+      "mirror_h": 3892,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5504",
+      "comuna": "La Cruz",
+      "minvu_name": "La Cruz",
+      "minvu_h": 8477,
+      "mirror_h": 8477,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5506",
+      "comuna": "Nogales",
+      "minvu_name": "Nogales",
+      "minvu_h": 5709,
+      "mirror_h": 5709,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5601",
+      "comuna": "San Antonio",
+      "minvu_name": "San Antonio",
+      "minvu_h": 29703,
+      "mirror_h": 29702,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5602",
+      "comuna": "Algarrobo",
+      "minvu_name": "Algarrobo",
+      "minvu_h": 18120,
+      "mirror_h": 18116,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "5603",
+      "comuna": "Cartagena",
+      "minvu_name": "Cartagena",
+      "minvu_h": 10648,
+      "mirror_h": 10643,
+      "minvu_minus_mirror": 5
+    },
+    {
+      "codigo_comuna": "5604",
+      "comuna": "El Quisco",
+      "minvu_name": "El Quisco",
+      "minvu_h": 13676,
+      "mirror_h": 13670,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "5605",
+      "comuna": "El Tabo",
+      "minvu_name": "El Tabo",
+      "minvu_h": 13786,
+      "mirror_h": 13781,
+      "minvu_minus_mirror": 5
+    },
+    {
+      "codigo_comuna": "5606",
+      "comuna": "Santo Domingo",
+      "minvu_name": "Santo Domingo",
+      "minvu_h": 6130,
+      "mirror_h": 6128,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "5701",
+      "comuna": "San Felipe",
+      "minvu_name": "San Felipe",
+      "minvu_h": 27433,
+      "mirror_h": 27433,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5702",
+      "comuna": "Catemu",
+      "minvu_name": "Catemu",
+      "minvu_h": 4057,
+      "mirror_h": 4056,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "5703",
+      "comuna": "Llaillay",
+      "minvu_name": "Llaillay",
+      "minvu_h": 7507,
+      "mirror_h": 7503,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "5704",
+      "comuna": "Panquehue",
+      "minvu_name": "Panquehue",
+      "minvu_h": 1878,
+      "mirror_h": 1878,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5705",
+      "comuna": "Putaendo",
+      "minvu_name": "Putaendo",
+      "minvu_h": 4950,
+      "mirror_h": 4947,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "5706",
+      "comuna": "Santa María",
+      "minvu_name": "Santa María",
+      "minvu_h": 5000,
+      "mirror_h": 5000,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5801",
+      "comuna": "Quilpué",
+      "minvu_name": "Quilpué",
+      "minvu_h": 56413,
+      "mirror_h": 56409,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "5802",
+      "comuna": "Limache",
+      "minvu_name": "Limache",
+      "minvu_h": 16479,
+      "mirror_h": 16475,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "5803",
+      "comuna": "Olmué",
+      "minvu_name": "Olmué",
+      "minvu_h": 6429,
+      "mirror_h": 6429,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "5804",
+      "comuna": "Villa Alemana",
+      "minvu_name": "Villa Alemana",
+      "minvu_h": 50451,
+      "mirror_h": 50450,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6101",
+      "comuna": "Rancagua",
+      "minvu_name": "Rancagua",
+      "minvu_h": 96011,
+      "mirror_h": 95995,
+      "minvu_minus_mirror": 16
+    },
+    {
+      "codigo_comuna": "6102",
+      "comuna": "Codegua",
+      "minvu_name": "Codegua",
+      "minvu_h": 3140,
+      "mirror_h": 3111,
+      "minvu_minus_mirror": 29
+    },
+    {
+      "codigo_comuna": "6103",
+      "comuna": "Coinco",
+      "minvu_name": "Coinco",
+      "minvu_h": 1639,
+      "mirror_h": 1639,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6104",
+      "comuna": "Coltauco",
+      "minvu_name": "Coltauco",
+      "minvu_h": 6038,
+      "mirror_h": 6034,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "6105",
+      "comuna": "Doñihue",
+      "minvu_name": "Doñihue",
+      "minvu_h": 6026,
+      "mirror_h": 6023,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "6106",
+      "comuna": "Graneros",
+      "minvu_name": "Graneros",
+      "minvu_h": 10993,
+      "mirror_h": 10992,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6107",
+      "comuna": "Las Cabras",
+      "minvu_name": "Las Cabras",
+      "minvu_h": 8238,
+      "mirror_h": 8233,
+      "minvu_minus_mirror": 5
+    },
+    {
+      "codigo_comuna": "6108",
+      "comuna": "Machalí",
+      "minvu_name": "Machalí",
+      "minvu_h": 21153,
+      "mirror_h": 21141,
+      "minvu_minus_mirror": 12
+    },
+    {
+      "codigo_comuna": "6109",
+      "comuna": "Malloa",
+      "minvu_name": "Malloa",
+      "minvu_h": 3395,
+      "mirror_h": 3394,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6110",
+      "comuna": "Mostazal",
+      "minvu_name": "Mostazal",
+      "minvu_h": 6916,
+      "mirror_h": 6905,
+      "minvu_minus_mirror": 11
+    },
+    {
+      "codigo_comuna": "6111",
+      "comuna": "Olivar",
+      "minvu_name": "Olivar",
+      "minvu_h": 3121,
+      "mirror_h": 3120,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6112",
+      "comuna": "Peumo",
+      "minvu_name": "Peumo",
+      "minvu_h": 4035,
+      "mirror_h": 4035,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6113",
+      "comuna": "Pichidegua",
+      "minvu_name": "Pichidegua",
+      "minvu_h": 5319,
+      "mirror_h": 5318,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6114",
+      "comuna": "Quinta de Tilcoco",
+      "minvu_name": "Quinta de Tilcoco",
+      "minvu_h": 4014,
+      "mirror_h": 4011,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "6115",
+      "comuna": "Rengo",
+      "minvu_name": "Rengo",
+      "minvu_h": 21758,
+      "mirror_h": 21757,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6116",
+      "comuna": "Requínoa",
+      "minvu_name": "Requínoa",
+      "minvu_h": 7761,
+      "mirror_h": 7761,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6117",
+      "comuna": "San Vicente",
+      "minvu_name": "San Vicente",
+      "minvu_h": 14065,
+      "mirror_h": 14059,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "6201",
+      "comuna": "Pichilemu",
+      "minvu_name": "Pichilemu",
+      "minvu_h": 9702,
+      "mirror_h": 9699,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "6202",
+      "comuna": "La Estrella",
+      "minvu_name": "La Estrella",
+      "minvu_h": 1108,
+      "mirror_h": 1107,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6203",
+      "comuna": "Litueche",
+      "minvu_name": "Litueche",
+      "minvu_h": 1980,
+      "mirror_h": 1980,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6204",
+      "comuna": "Marchihue",
+      "minvu_name": "Marchihue",
+      "minvu_h": 2005,
+      "mirror_h": 2004,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6205",
+      "comuna": "Navidad",
+      "minvu_name": "Navidad",
+      "minvu_h": 2064,
+      "mirror_h": 2064,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6206",
+      "comuna": "Paredones",
+      "minvu_name": "Paredones",
+      "minvu_h": 1904,
+      "mirror_h": 1904,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6301",
+      "comuna": "San Fernando",
+      "minvu_name": "San Fernando",
+      "minvu_h": 28290,
+      "mirror_h": 28289,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6302",
+      "comuna": "Chépica",
+      "minvu_name": "Chépica",
+      "minvu_h": 4699,
+      "mirror_h": 4698,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6303",
+      "comuna": "Chimbarongo",
+      "minvu_name": "Chimbarongo",
+      "minvu_h": 9884,
+      "mirror_h": 9879,
+      "minvu_minus_mirror": 5
+    },
+    {
+      "codigo_comuna": "6304",
+      "comuna": "Lolol",
+      "minvu_name": "Lolol",
+      "minvu_h": 1856,
+      "mirror_h": 1855,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "6305",
+      "comuna": "Nancagua",
+      "minvu_name": "Nancagua",
+      "minvu_h": 5603,
+      "mirror_h": 5593,
+      "minvu_minus_mirror": 10
+    },
+    {
+      "codigo_comuna": "6306",
+      "comuna": "Palmilla",
+      "minvu_name": "Palmilla",
+      "minvu_h": 3202,
+      "mirror_h": 3202,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6307",
+      "comuna": "Peralillo",
+      "minvu_name": "Peralillo",
+      "minvu_h": 3346,
+      "mirror_h": 3346,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6308",
+      "comuna": "Placilla",
+      "minvu_name": "Placilla",
+      "minvu_h": 2105,
+      "mirror_h": 2103,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "6309",
+      "comuna": "Pumanque",
+      "minvu_name": "Pumanque",
+      "minvu_h": 891,
+      "mirror_h": 891,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "6310",
+      "comuna": "Santa Cruz",
+      "minvu_name": "Santa Cruz",
+      "minvu_h": 13564,
+      "mirror_h": 13562,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7101",
+      "comuna": "Talca",
+      "minvu_name": "Talca",
+      "minvu_h": 95472,
+      "mirror_h": 95449,
+      "minvu_minus_mirror": 23
+    },
+    {
+      "codigo_comuna": "7102",
+      "comuna": "Constitución",
+      "minvu_name": "Constitución",
+      "minvu_h": 15980,
+      "mirror_h": 15980,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7103",
+      "comuna": "Curepto",
+      "minvu_name": "Curepto",
+      "minvu_h": 2673,
+      "mirror_h": 2671,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7104",
+      "comuna": "Empedrado",
+      "minvu_name": "Empedrado",
+      "minvu_h": 1035,
+      "mirror_h": 1035,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7105",
+      "comuna": "Maule",
+      "minvu_name": "Maule",
+      "minvu_h": 20182,
+      "mirror_h": 20159,
+      "minvu_minus_mirror": 23
+    },
+    {
+      "codigo_comuna": "7106",
+      "comuna": "Pelarco",
+      "minvu_name": "Pelarco",
+      "minvu_h": 1940,
+      "mirror_h": 1940,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7107",
+      "comuna": "Pencahue",
+      "minvu_name": "Pencahue",
+      "minvu_h": 2573,
+      "mirror_h": 2573,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7108",
+      "comuna": "Río Claro",
+      "minvu_name": "Río Claro",
+      "minvu_h": 3571,
+      "mirror_h": 3570,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7109",
+      "comuna": "San Clemente",
+      "minvu_name": "San Clemente",
+      "minvu_h": 12836,
+      "mirror_h": 12832,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "7110",
+      "comuna": "San Rafael",
+      "minvu_name": "San Rafael",
+      "minvu_h": 2689,
+      "mirror_h": 2689,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7201",
+      "comuna": "Cauquenes",
+      "minvu_name": "Cauquenes",
+      "minvu_h": 16475,
+      "mirror_h": 16473,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7202",
+      "comuna": "Chanco",
+      "minvu_name": "Chanco",
+      "minvu_h": 1959,
+      "mirror_h": 1955,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "7203",
+      "comuna": "Pelluhue",
+      "minvu_name": "Pelluhue",
+      "minvu_h": 3838,
+      "mirror_h": 3826,
+      "minvu_minus_mirror": 12
+    },
+    {
+      "codigo_comuna": "7301",
+      "comuna": "Curicó",
+      "minvu_name": "Curicó",
+      "minvu_h": 57410,
+      "mirror_h": 57409,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7302",
+      "comuna": "Hualañé",
+      "minvu_name": "Hualañé",
+      "minvu_h": 3272,
+      "mirror_h": 3272,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7303",
+      "comuna": "Licantén",
+      "minvu_name": "Licantén",
+      "minvu_h": 2592,
+      "mirror_h": 2590,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7304",
+      "comuna": "Molina",
+      "minvu_name": "Molina",
+      "minvu_h": 16505,
+      "mirror_h": 16504,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7305",
+      "comuna": "Rauco",
+      "minvu_name": "Rauco",
+      "minvu_h": 3164,
+      "mirror_h": 3164,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7306",
+      "comuna": "Romeral",
+      "minvu_name": "Romeral",
+      "minvu_h": 4576,
+      "mirror_h": 4575,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7307",
+      "comuna": "Sagrada Familia",
+      "minvu_name": "Sagrada Familia",
+      "minvu_h": 4887,
+      "mirror_h": 4885,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7308",
+      "comuna": "Teno",
+      "minvu_name": "Teno",
+      "minvu_h": 7089,
+      "mirror_h": 7088,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7309",
+      "comuna": "Vichuquén",
+      "minvu_name": "Vichuquén",
+      "minvu_h": 2369,
+      "mirror_h": 2367,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7401",
+      "comuna": "Linares",
+      "minvu_name": "Linares",
+      "minvu_h": 34421,
+      "mirror_h": 34420,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "7402",
+      "comuna": "Colbún",
+      "minvu_name": "Colbún",
+      "minvu_h": 5832,
+      "mirror_h": 5825,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "7403",
+      "comuna": "Longaví",
+      "minvu_name": "Longaví",
+      "minvu_h": 5612,
+      "mirror_h": 5599,
+      "minvu_minus_mirror": 13
+    },
+    {
+      "codigo_comuna": "7404",
+      "comuna": "Parral",
+      "minvu_name": "Parral",
+      "minvu_h": 15023,
+      "mirror_h": 15021,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7405",
+      "comuna": "Retiro",
+      "minvu_name": "Retiro",
+      "minvu_h": 4523,
+      "mirror_h": 4521,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "7406",
+      "comuna": "San Javier",
+      "minvu_name": "San Javier",
+      "minvu_h": 17487,
+      "mirror_h": 17484,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "7407",
+      "comuna": "Villa Alegre",
+      "minvu_name": "Villa Alegre",
+      "minvu_h": 5936,
+      "mirror_h": 5936,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "7408",
+      "comuna": "Yerbas Buenas",
+      "minvu_name": "Yerbas Buenas",
+      "minvu_h": 4009,
+      "mirror_h": 4006,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "8101",
+      "comuna": "Concepción",
+      "minvu_name": "Concepción",
+      "minvu_h": 91251,
+      "mirror_h": 91142,
+      "minvu_minus_mirror": 109
+    },
+    {
+      "codigo_comuna": "8102",
+      "comuna": "Coronel",
+      "minvu_name": "Coronel",
+      "minvu_h": 44529,
+      "mirror_h": 44518,
+      "minvu_minus_mirror": 11
+    },
+    {
+      "codigo_comuna": "8103",
+      "comuna": "Chiguayante",
+      "minvu_name": "Chiguayante",
+      "minvu_h": 28109,
+      "mirror_h": 28102,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "8104",
+      "comuna": "Florida",
+      "minvu_name": "Florida",
+      "minvu_h": 2677,
+      "mirror_h": 2668,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "8105",
+      "comuna": "Hualqui",
+      "minvu_name": "Hualqui",
+      "minvu_h": 7479,
+      "mirror_h": 7476,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "8106",
+      "comuna": "Lota",
+      "minvu_name": "Lota",
+      "minvu_h": 13113,
+      "mirror_h": 13113,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8107",
+      "comuna": "Penco",
+      "minvu_name": "Penco",
+      "minvu_h": 14416,
+      "mirror_h": 14413,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "8108",
+      "comuna": "San Pedro de La paz",
+      "minvu_name": "San Pedro de la Paz",
+      "minvu_h": 55385,
+      "mirror_h": 55366,
+      "minvu_minus_mirror": 19
+    },
+    {
+      "codigo_comuna": "8109",
+      "comuna": "Santa Juana",
+      "minvu_name": "Santa Juana",
+      "minvu_h": 4321,
+      "mirror_h": 4321,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8110",
+      "comuna": "Talcahuano",
+      "minvu_name": "Talcahuano",
+      "minvu_h": 46120,
+      "mirror_h": 46120,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8111",
+      "comuna": "Tomé",
+      "minvu_name": "Tomé",
+      "minvu_h": 19273,
+      "mirror_h": 19270,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "8112",
+      "comuna": "Hualpén",
+      "minvu_name": "Hualpén",
+      "minvu_h": 31300,
+      "mirror_h": 31300,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8201",
+      "comuna": "Lebu",
+      "minvu_name": "Lebu",
+      "minvu_h": 7866,
+      "mirror_h": 7866,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8202",
+      "comuna": "Arauco",
+      "minvu_name": "Arauco",
+      "minvu_h": 10832,
+      "mirror_h": 10831,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "8203",
+      "comuna": "Cañete",
+      "minvu_name": "Cañete",
+      "minvu_h": 7351,
+      "mirror_h": 7345,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "8204",
+      "comuna": "Contulmo",
+      "minvu_name": "Contulmo",
+      "minvu_h": 1190,
+      "mirror_h": 1189,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "8205",
+      "comuna": "Curanilahue",
+      "minvu_name": "Curanilahue",
+      "minvu_h": 9272,
+      "mirror_h": 9272,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8206",
+      "comuna": "Los Álamos",
+      "minvu_name": "Los Álamos",
+      "minvu_h": 6105,
+      "mirror_h": 6103,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "8207",
+      "comuna": "Tirúa",
+      "minvu_name": "Tirúa",
+      "minvu_h": 1437,
+      "mirror_h": 1437,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8301",
+      "comuna": "Los Ángeles",
+      "minvu_name": "Los Ángeles",
+      "minvu_h": 65587,
+      "mirror_h": 65581,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "8302",
+      "comuna": "Antuco",
+      "minvu_name": "Antuco",
+      "minvu_h": 1314,
+      "mirror_h": 1314,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8303",
+      "comuna": "Cabrero",
+      "minvu_name": "Cabrero",
+      "minvu_h": 8433,
+      "mirror_h": 8433,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8304",
+      "comuna": "Laja",
+      "minvu_name": "Laja",
+      "minvu_h": 6267,
+      "mirror_h": 6267,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8305",
+      "comuna": "Mulchén",
+      "minvu_name": "Mulchén",
+      "minvu_h": 7474,
+      "mirror_h": 7473,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "8306",
+      "comuna": "Nacimiento",
+      "minvu_name": "Nacimiento",
+      "minvu_h": 8095,
+      "mirror_h": 8095,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8307",
+      "comuna": "Negrete",
+      "minvu_name": "Negrete",
+      "minvu_h": 2478,
+      "mirror_h": 2478,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8308",
+      "comuna": "Quilaco",
+      "minvu_name": "Quilaco",
+      "minvu_h": 992,
+      "mirror_h": 992,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8309",
+      "comuna": "Quilleco",
+      "minvu_name": "Quilleco",
+      "minvu_h": 2020,
+      "mirror_h": 2020,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8310",
+      "comuna": "San Rosendo",
+      "minvu_name": "San Rosendo",
+      "minvu_h": 938,
+      "mirror_h": 938,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8311",
+      "comuna": "Santa Bárbara",
+      "minvu_name": "Santa Bárbara",
+      "minvu_h": 3323,
+      "mirror_h": 3323,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8312",
+      "comuna": "Tucapel",
+      "minvu_name": "Tucapel",
+      "minvu_h": 6147,
+      "mirror_h": 6147,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "8313",
+      "comuna": "Yumbel",
+      "minvu_name": "Yumbel",
+      "minvu_h": 6291,
+      "mirror_h": 6290,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "8314",
+      "comuna": "Alto Biobío",
+      "minvu_name": "Alto Biobío",
+      "minvu_h": 255,
+      "mirror_h": 255,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9101",
+      "comuna": "Temuco",
+      "minvu_name": "Temuco",
+      "minvu_h": 110578,
+      "mirror_h": 110572,
+      "minvu_minus_mirror": 6
+    },
+    {
+      "codigo_comuna": "9102",
+      "comuna": "Carahue",
+      "minvu_name": "Carahue",
+      "minvu_h": 5115,
+      "mirror_h": 5114,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9103",
+      "comuna": "Cunco",
+      "minvu_name": "Cunco",
+      "minvu_h": 5091,
+      "mirror_h": 5091,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9104",
+      "comuna": "Curarrehue",
+      "minvu_name": "Curarrehue",
+      "minvu_h": 897,
+      "mirror_h": 896,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9105",
+      "comuna": "Freire",
+      "minvu_name": "Freire",
+      "minvu_h": 3461,
+      "mirror_h": 3460,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9106",
+      "comuna": "Galvarino",
+      "minvu_name": "Galvarino",
+      "minvu_h": 1646,
+      "mirror_h": 1646,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9107",
+      "comuna": "Gorbea",
+      "minvu_name": "Gorbea",
+      "minvu_h": 4201,
+      "mirror_h": 4201,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9108",
+      "comuna": "Lautaro",
+      "minvu_name": "Lautaro",
+      "minvu_h": 11948,
+      "mirror_h": 11948,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9109",
+      "comuna": "Loncoche",
+      "minvu_name": "Loncoche",
+      "minvu_h": 7087,
+      "mirror_h": 7087,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9110",
+      "comuna": "Melipeuco",
+      "minvu_name": "Melipeuco",
+      "minvu_h": 1081,
+      "mirror_h": 1081,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9111",
+      "comuna": "Nueva Imperial",
+      "minvu_name": "Nueva Imperial",
+      "minvu_h": 6473,
+      "mirror_h": 6473,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9112",
+      "comuna": "Padre Las Casas",
+      "minvu_name": "Padre Las Casas",
+      "minvu_h": 17767,
+      "mirror_h": 17763,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "9113",
+      "comuna": "Perquenco",
+      "minvu_name": "Perquenco",
+      "minvu_h": 1458,
+      "mirror_h": 1458,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9114",
+      "comuna": "Pitrufquén",
+      "minvu_name": "Pitrufquén",
+      "minvu_h": 7542,
+      "mirror_h": 7542,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9115",
+      "comuna": "Pucón",
+      "minvu_name": "Pucón",
+      "minvu_h": 15043,
+      "mirror_h": 15041,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "9116",
+      "comuna": "Saavedra",
+      "minvu_name": "Saavedra",
+      "minvu_h": 1408,
+      "mirror_h": 1408,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9117",
+      "comuna": "Teodoro Schmidt",
+      "minvu_name": "Teodoro Schmidt",
+      "minvu_h": 2547,
+      "mirror_h": 2547,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9118",
+      "comuna": "Toltén",
+      "minvu_name": "Toltén",
+      "minvu_h": 1864,
+      "mirror_h": 1864,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9119",
+      "comuna": "Vilcún",
+      "minvu_name": "Vilcún",
+      "minvu_h": 7491,
+      "mirror_h": 7491,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9120",
+      "comuna": "Villarrica",
+      "minvu_name": "Villarrica",
+      "minvu_h": 23145,
+      "mirror_h": 23141,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "9121",
+      "comuna": "Cholchol",
+      "minvu_name": "Cholchol",
+      "minvu_h": 1731,
+      "mirror_h": 1727,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "9201",
+      "comuna": "Angol",
+      "minvu_name": "Angol",
+      "minvu_h": 19299,
+      "mirror_h": 19299,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9202",
+      "comuna": "Collipulli",
+      "minvu_name": "Collipulli",
+      "minvu_h": 6635,
+      "mirror_h": 6634,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9203",
+      "comuna": "Curacautín",
+      "minvu_name": "Curacautín",
+      "minvu_h": 6247,
+      "mirror_h": 6246,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9204",
+      "comuna": "Ercilla",
+      "minvu_name": "Ercilla",
+      "minvu_h": 1608,
+      "mirror_h": 1606,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "9205",
+      "comuna": "Lonquimay",
+      "minvu_name": "Lonquimay",
+      "minvu_h": 1614,
+      "mirror_h": 1614,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9206",
+      "comuna": "Los Sauces",
+      "minvu_name": "Los Sauces",
+      "minvu_h": 1880,
+      "mirror_h": 1880,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "9207",
+      "comuna": "Lumaco",
+      "minvu_name": "Lumaco",
+      "minvu_h": 1586,
+      "mirror_h": 1583,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "9208",
+      "comuna": "Purén",
+      "minvu_name": "Purén",
+      "minvu_h": 3120,
+      "mirror_h": 3119,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9209",
+      "comuna": "Renaico",
+      "minvu_name": "Renaico",
+      "minvu_h": 3358,
+      "mirror_h": 3354,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "9210",
+      "comuna": "Traiguén",
+      "minvu_name": "Traiguén",
+      "minvu_h": 5786,
+      "mirror_h": 5785,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "9211",
+      "comuna": "Victoria",
+      "minvu_name": "Victoria",
+      "minvu_h": 10012,
+      "mirror_h": 10011,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "10101",
+      "comuna": "Puerto Montt",
+      "minvu_name": "Puerto Montt",
+      "minvu_h": 87002,
+      "mirror_h": 86967,
+      "minvu_minus_mirror": 35
+    },
+    {
+      "codigo_comuna": "10102",
+      "comuna": "Calbuco",
+      "minvu_name": "Calbuco",
+      "minvu_h": 4696,
+      "mirror_h": 4694,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "10103",
+      "comuna": "Cochamó",
+      "minvu_name": "Cochamó",
+      "minvu_h": 441,
+      "mirror_h": 441,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10104",
+      "comuna": "Fresia",
+      "minvu_name": "Fresia",
+      "minvu_h": 3274,
+      "mirror_h": 3274,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10105",
+      "comuna": "Frutillar",
+      "minvu_name": "Frutillar",
+      "minvu_h": 7007,
+      "mirror_h": 7007,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10106",
+      "comuna": "Los Muermos",
+      "minvu_name": "Los Muermos",
+      "minvu_h": 3205,
+      "mirror_h": 3205,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10107",
+      "comuna": "Llanquihue",
+      "minvu_name": "Llanquihue",
+      "minvu_h": 4984,
+      "mirror_h": 4983,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "10108",
+      "comuna": "Maullín",
+      "minvu_name": "Maullín",
+      "minvu_h": 3013,
+      "mirror_h": 3013,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10109",
+      "comuna": "Puerto Varas",
+      "minvu_name": "Puerto Varas",
+      "minvu_h": 16457,
+      "mirror_h": 16454,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "10201",
+      "comuna": "Castro",
+      "minvu_name": "Castro",
+      "minvu_h": 13284,
+      "mirror_h": 13268,
+      "minvu_minus_mirror": 16
+    },
+    {
+      "codigo_comuna": "10202",
+      "comuna": "Ancud",
+      "minvu_name": "Ancud",
+      "minvu_h": 11770,
+      "mirror_h": 11768,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "10203",
+      "comuna": "Chonchi",
+      "minvu_name": "Chonchi",
+      "minvu_h": 2709,
+      "mirror_h": 2709,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10204",
+      "comuna": "Curaco de Vélez",
+      "minvu_name": "Curaco de Vélez",
+      "minvu_h": 669,
+      "mirror_h": 669,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10205",
+      "comuna": "Dalcahue",
+      "minvu_name": "Dalcahue",
+      "minvu_h": 2780,
+      "mirror_h": 2777,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "10206",
+      "comuna": "Puqueldón",
+      "minvu_name": "Puqueldón",
+      "minvu_h": 459,
+      "mirror_h": 459,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10207",
+      "comuna": "Queilén",
+      "minvu_name": "Queilén",
+      "minvu_h": 1258,
+      "mirror_h": 1256,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "10208",
+      "comuna": "Quellón",
+      "minvu_name": "Quellón",
+      "minvu_h": 5270,
+      "mirror_h": 5268,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "10209",
+      "comuna": "Quemchi",
+      "minvu_name": "Quemchi",
+      "minvu_h": 985,
+      "mirror_h": 985,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10210",
+      "comuna": "Quinchao",
+      "minvu_name": "Quinchao",
+      "minvu_h": 1276,
+      "mirror_h": 1272,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "10301",
+      "comuna": "Osorno",
+      "minvu_name": "Osorno",
+      "minvu_h": 55838,
+      "mirror_h": 55834,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "10302",
+      "comuna": "Puerto Octay",
+      "minvu_name": "Puerto Octay",
+      "minvu_h": 1675,
+      "mirror_h": 1674,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "10303",
+      "comuna": "Purranque",
+      "minvu_name": "Purranque",
+      "minvu_h": 5305,
+      "mirror_h": 5305,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10304",
+      "comuna": "Puyehue",
+      "minvu_name": "Puyehue",
+      "minvu_h": 2583,
+      "mirror_h": 2582,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "10305",
+      "comuna": "Río Negro",
+      "minvu_name": "Río Negro",
+      "minvu_h": 3262,
+      "mirror_h": 3261,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "10306",
+      "comuna": "San Juan de la Costa",
+      "minvu_name": "San Juan de la Costa",
+      "minvu_h": 1189,
+      "mirror_h": 1187,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "10307",
+      "comuna": "San Pablo",
+      "minvu_name": "San Pablo",
+      "minvu_h": 2375,
+      "mirror_h": 2375,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10401",
+      "comuna": "Chaitén",
+      "minvu_name": "Chaitén",
+      "minvu_h": 1219,
+      "mirror_h": 1219,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10402",
+      "comuna": "Futaleufú",
+      "minvu_name": "Futaleufú",
+      "minvu_h": 671,
+      "mirror_h": 671,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10403",
+      "comuna": "Hualaihué",
+      "minvu_name": "Hualaihué",
+      "minvu_h": 1387,
+      "mirror_h": 1387,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "10404",
+      "comuna": "Palena",
+      "minvu_name": "Palena",
+      "minvu_h": 455,
+      "mirror_h": 455,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11101",
+      "comuna": "Coyhaique",
+      "minvu_name": "Coyhaique",
+      "minvu_h": 19711,
+      "mirror_h": 19704,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "11102",
+      "comuna": "Lago Verde",
+      "minvu_name": "Lago Verde",
+      "minvu_h": 285,
+      "mirror_h": 285,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11201",
+      "comuna": "Aysén",
+      "minvu_name": "Aysén",
+      "minvu_h": 8133,
+      "mirror_h": 8133,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11202",
+      "comuna": "Cisnes",
+      "minvu_name": "Cisnes",
+      "minvu_h": 1818,
+      "mirror_h": 1817,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "11203",
+      "comuna": "Guaitecas",
+      "minvu_name": "Guaitecas",
+      "minvu_h": 327,
+      "mirror_h": 327,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11301",
+      "comuna": "Cochrane",
+      "minvu_name": "Cochrane",
+      "minvu_h": 1192,
+      "mirror_h": 1191,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "11302",
+      "comuna": "O'Higgins",
+      "minvu_name": "O´Higgins",
+      "minvu_h": 195,
+      "mirror_h": 195,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11303",
+      "comuna": "Tortel",
+      "minvu_name": "Tortel",
+      "minvu_h": 133,
+      "mirror_h": 133,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "11401",
+      "comuna": "Chile Chico",
+      "minvu_name": "Chile Chico",
+      "minvu_h": 1822,
+      "mirror_h": 1819,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "11402",
+      "comuna": "Río Ibáñez",
+      "minvu_name": "Río Ibáñez",
+      "minvu_h": 980,
+      "mirror_h": 980,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12101",
+      "comuna": "Punta Arenas",
+      "minvu_name": "Punta Arenas",
+      "minvu_h": 47407,
+      "mirror_h": 47390,
+      "minvu_minus_mirror": 17
+    },
+    {
+      "codigo_comuna": "12102",
+      "comuna": "Laguna Blanca",
+      "minvu_name": "Laguna Blanca",
+      "minvu_h": 50,
+      "mirror_h": 50,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12103",
+      "comuna": "Río Verde",
+      "minvu_name": "Río Verde",
+      "minvu_h": 1,
+      "mirror_h": 1,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12104",
+      "comuna": "San Gregorio",
+      "minvu_name": "San Gregorio",
+      "minvu_h": 118,
+      "mirror_h": 118,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12201",
+      "comuna": "Cabo de Hornos",
+      "minvu_name": "Cabo de Hornos (Ex - Navarino)",
+      "minvu_h": 404,
+      "mirror_h": 404,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12202",
+      "comuna": "Antártica",
+      "minvu_name": "Antártica",
+      "minvu_h": 0,
+      "mirror_h": null,
+      "minvu_minus_mirror": null
+    },
+    {
+      "codigo_comuna": "12301",
+      "comuna": "Porvenir",
+      "minvu_name": "Porvenir",
+      "minvu_h": 2017,
+      "mirror_h": 2017,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12302",
+      "comuna": "Primavera",
+      "minvu_name": "Primavera",
+      "minvu_h": 65,
+      "mirror_h": 65,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12303",
+      "comuna": "Timaukel",
+      "minvu_name": "Timaukel",
+      "minvu_h": 13,
+      "mirror_h": 13,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12401",
+      "comuna": "Natales",
+      "minvu_name": "Natales",
+      "minvu_h": 8796,
+      "mirror_h": 8796,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "12402",
+      "comuna": "Torres del Paine",
+      "minvu_name": "Torres del Paine",
+      "minvu_h": 23,
+      "mirror_h": 23,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13101",
+      "comuna": "Santiago",
+      "minvu_name": "Santiago",
+      "minvu_h": 219735,
+      "mirror_h": 219706,
+      "minvu_minus_mirror": 29
+    },
+    {
+      "codigo_comuna": "13102",
+      "comuna": "Cerrillos",
+      "minvu_name": "Cerrillos",
+      "minvu_h": 28136,
+      "mirror_h": 28135,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13103",
+      "comuna": "Cerro Navia",
+      "minvu_name": "Cerro Navia",
+      "minvu_h": 30699,
+      "mirror_h": 30699,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13104",
+      "comuna": "Conchalí",
+      "minvu_name": "Conchalí",
+      "minvu_h": 32223,
+      "mirror_h": 32219,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13105",
+      "comuna": "El Bosque",
+      "minvu_name": "El Bosque",
+      "minvu_h": 42545,
+      "mirror_h": 42543,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "13106",
+      "comuna": "Estación Central",
+      "minvu_name": "Estación Central",
+      "minvu_h": 70314,
+      "mirror_h": 70314,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13107",
+      "comuna": "Huechuraba",
+      "minvu_name": "Huechuraba",
+      "minvu_h": 28415,
+      "mirror_h": 28411,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13108",
+      "comuna": "Independencia",
+      "minvu_name": "Independencia",
+      "minvu_h": 43746,
+      "mirror_h": 43742,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13109",
+      "comuna": "La Cisterna",
+      "minvu_name": "La Cisterna",
+      "minvu_h": 42309,
+      "mirror_h": 42308,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13110",
+      "comuna": "La Florida",
+      "minvu_name": "La Florida",
+      "minvu_h": 140209,
+      "mirror_h": 140184,
+      "minvu_minus_mirror": 25
+    },
+    {
+      "codigo_comuna": "13111",
+      "comuna": "La Granja",
+      "minvu_name": "La Granja",
+      "minvu_h": 29929,
+      "mirror_h": 29929,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13112",
+      "comuna": "La Pintana",
+      "minvu_name": "La Pintana",
+      "minvu_h": 48827,
+      "mirror_h": 48826,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13113",
+      "comuna": "La Reina",
+      "minvu_name": "La Reina",
+      "minvu_h": 30094,
+      "mirror_h": 30064,
+      "minvu_minus_mirror": 30
+    },
+    {
+      "codigo_comuna": "13114",
+      "comuna": "Las Condes",
+      "minvu_name": "Las Condes",
+      "minvu_h": 128417,
+      "mirror_h": 128395,
+      "minvu_minus_mirror": 22
+    },
+    {
+      "codigo_comuna": "13115",
+      "comuna": "Lo Barnechea",
+      "minvu_name": "Lo Barnechea",
+      "minvu_h": 34071,
+      "mirror_h": 33957,
+      "minvu_minus_mirror": 114
+    },
+    {
+      "codigo_comuna": "13116",
+      "comuna": "Lo Espejo",
+      "minvu_name": "Lo Espejo",
+      "minvu_h": 23027,
+      "mirror_h": 23026,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13117",
+      "comuna": "Lo Prado",
+      "minvu_name": "Lo Prado",
+      "minvu_h": 24090,
+      "mirror_h": 24089,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13118",
+      "comuna": "Macul",
+      "minvu_name": "Macul",
+      "minvu_h": 49159,
+      "mirror_h": 49150,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "13119",
+      "comuna": "Maipú",
+      "minvu_name": "Maipú",
+      "minvu_h": 161180,
+      "mirror_h": 161167,
+      "minvu_minus_mirror": 13
+    },
+    {
+      "codigo_comuna": "13120",
+      "comuna": "Ñuñoa",
+      "minvu_name": "Ñuñoa",
+      "minvu_h": 127744,
+      "mirror_h": 127740,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13121",
+      "comuna": "Pedro Aguirre Cerda",
+      "minvu_name": "Pedro Aguirre Cerda",
+      "minvu_h": 26581,
+      "mirror_h": 26581,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13122",
+      "comuna": "Peñalolén",
+      "minvu_name": "Peñalolén",
+      "minvu_h": 62568,
+      "mirror_h": 62545,
+      "minvu_minus_mirror": 23
+    },
+    {
+      "codigo_comuna": "13123",
+      "comuna": "Providencia",
+      "minvu_name": "Providencia",
+      "minvu_h": 75480,
+      "mirror_h": 75458,
+      "minvu_minus_mirror": 22
+    },
+    {
+      "codigo_comuna": "13124",
+      "comuna": "Pudahuel",
+      "minvu_name": "Pudahuel",
+      "minvu_h": 64792,
+      "mirror_h": 64790,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "13125",
+      "comuna": "Quilicura",
+      "minvu_name": "Quilicura",
+      "minvu_h": 65158,
+      "mirror_h": 65154,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13126",
+      "comuna": "Quinta Normal",
+      "minvu_name": "Quinta Normal",
+      "minvu_h": 38317,
+      "mirror_h": 38307,
+      "minvu_minus_mirror": 10
+    },
+    {
+      "codigo_comuna": "13127",
+      "comuna": "Recoleta",
+      "minvu_name": "Recoleta",
+      "minvu_h": 40347,
+      "mirror_h": 40340,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "13128",
+      "comuna": "Renca",
+      "minvu_name": "Renca",
+      "minvu_h": 41884,
+      "mirror_h": 41881,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "13129",
+      "comuna": "San Joaquín",
+      "minvu_name": "San Joaquín",
+      "minvu_h": 31123,
+      "mirror_h": 31123,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13130",
+      "comuna": "San Miguel",
+      "minvu_name": "San Miguel",
+      "minvu_h": 63794,
+      "mirror_h": 63793,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13131",
+      "comuna": "San Ramón",
+      "minvu_name": "San Ramón",
+      "minvu_h": 19230,
+      "mirror_h": 19227,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "13132",
+      "comuna": "Vitacura",
+      "minvu_name": "Vitacura",
+      "minvu_h": 35280,
+      "mirror_h": 35280,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13201",
+      "comuna": "Puente Alto",
+      "minvu_name": "Puente Alto",
+      "minvu_h": 181059,
+      "mirror_h": 181048,
+      "minvu_minus_mirror": 11
+    },
+    {
+      "codigo_comuna": "13202",
+      "comuna": "Pirque",
+      "minvu_name": "Pirque",
+      "minvu_h": 5286,
+      "mirror_h": 5282,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13203",
+      "comuna": "San José de Maipo",
+      "minvu_name": "San José de Maipo",
+      "minvu_h": 4577,
+      "mirror_h": 4570,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "13301",
+      "comuna": "Colina",
+      "minvu_name": "Colina",
+      "minvu_h": 48360,
+      "mirror_h": 48335,
+      "minvu_minus_mirror": 25
+    },
+    {
+      "codigo_comuna": "13302",
+      "comuna": "Lampa",
+      "minvu_name": "Lampa",
+      "minvu_h": 35091,
+      "mirror_h": 35082,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "13303",
+      "comuna": "Tiltil",
+      "minvu_name": "Tiltil",
+      "minvu_h": 4426,
+      "mirror_h": 4422,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13401",
+      "comuna": "San Bernardo",
+      "minvu_name": "San Bernardo",
+      "minvu_h": 92679,
+      "mirror_h": 92672,
+      "minvu_minus_mirror": 7
+    },
+    {
+      "codigo_comuna": "13402",
+      "comuna": "Buin",
+      "minvu_name": "Buin",
+      "minvu_h": 34676,
+      "mirror_h": 34675,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13403",
+      "comuna": "Calera de Tango",
+      "minvu_name": "Calera de Tango",
+      "minvu_h": 5493,
+      "mirror_h": 5492,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13404",
+      "comuna": "Paine",
+      "minvu_name": "Paine",
+      "minvu_h": 17501,
+      "mirror_h": 17500,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "13501",
+      "comuna": "Melipilla",
+      "minvu_name": "Melipilla",
+      "minvu_h": 35662,
+      "mirror_h": 35643,
+      "minvu_minus_mirror": 19
+    },
+    {
+      "codigo_comuna": "13502",
+      "comuna": "Alhué",
+      "minvu_name": "Alhué",
+      "minvu_h": 1238,
+      "mirror_h": 1235,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "13503",
+      "comuna": "Curacaví",
+      "minvu_name": "Curacaví",
+      "minvu_h": 8705,
+      "mirror_h": 8691,
+      "minvu_minus_mirror": 14
+    },
+    {
+      "codigo_comuna": "13504",
+      "comuna": "María Pinto",
+      "minvu_name": "María Pinto",
+      "minvu_h": 2714,
+      "mirror_h": 2705,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "13505",
+      "comuna": "San Pedro",
+      "minvu_name": "San Pedro",
+      "minvu_h": 915,
+      "mirror_h": 915,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13601",
+      "comuna": "Talagante",
+      "minvu_name": "Talagante",
+      "minvu_h": 20711,
+      "mirror_h": 20709,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "13602",
+      "comuna": "El Monte",
+      "minvu_name": "El Monte",
+      "minvu_h": 10092,
+      "mirror_h": 10092,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13603",
+      "comuna": "Isla de Maipo",
+      "minvu_name": "Isla de Maipo",
+      "minvu_h": 10577,
+      "mirror_h": 10573,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "13604",
+      "comuna": "Padre Hurtado",
+      "minvu_name": "Padre Hurtado",
+      "minvu_h": 26040,
+      "mirror_h": 26040,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "13605",
+      "comuna": "Peñaflor",
+      "minvu_name": "Peñaflor",
+      "minvu_h": 28320,
+      "mirror_h": 28318,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "14101",
+      "comuna": "Valdivia",
+      "minvu_name": "Valdivia",
+      "minvu_h": 51809,
+      "mirror_h": 51798,
+      "minvu_minus_mirror": 11
+    },
+    {
+      "codigo_comuna": "14102",
+      "comuna": "Corral",
+      "minvu_name": "Corral",
+      "minvu_h": 1712,
+      "mirror_h": 1712,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "14103",
+      "comuna": "Lanco",
+      "minvu_name": "Lanco",
+      "minvu_h": 4839,
+      "mirror_h": 4838,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "14104",
+      "comuna": "Los Lagos",
+      "minvu_name": "Los Lagos",
+      "minvu_h": 4430,
+      "mirror_h": 4430,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "14105",
+      "comuna": "Máfil",
+      "minvu_name": "Máfil",
+      "minvu_h": 1746,
+      "mirror_h": 1745,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "14106",
+      "comuna": "Mariquina",
+      "minvu_name": "Mariquina",
+      "minvu_h": 5450,
+      "mirror_h": 5447,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "14107",
+      "comuna": "Paillaco",
+      "minvu_name": "Paillaco",
+      "minvu_h": 4486,
+      "mirror_h": 4486,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "14108",
+      "comuna": "Panguipulli",
+      "minvu_name": "Panguipulli",
+      "minvu_h": 7949,
+      "mirror_h": 7947,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "14201",
+      "comuna": "La Unión",
+      "minvu_name": "La Unión",
+      "minvu_h": 10952,
+      "mirror_h": 10950,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "14202",
+      "comuna": "Futrono",
+      "minvu_name": "Futrono",
+      "minvu_h": 3865,
+      "mirror_h": 3863,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "14203",
+      "comuna": "Lago Ranco",
+      "minvu_name": "Lago Ranco",
+      "minvu_h": 2216,
+      "mirror_h": 2215,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "14204",
+      "comuna": "Río Bueno",
+      "minvu_name": "Río Bueno",
+      "minvu_h": 8928,
+      "mirror_h": 8928,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "15101",
+      "comuna": "Arica",
+      "minvu_name": "Arica",
+      "minvu_h": 64703,
+      "mirror_h": 64694,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "15102",
+      "comuna": "Camarones",
+      "minvu_name": "Camarones",
+      "minvu_h": 365,
+      "mirror_h": 365,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "15201",
+      "comuna": "Putre",
+      "minvu_name": "Putre",
+      "minvu_h": 698,
+      "mirror_h": 698,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "15202",
+      "comuna": "General Lagos",
+      "minvu_name": "General Lagos",
+      "minvu_h": 121,
+      "mirror_h": 121,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16101",
+      "comuna": "Chillán",
+      "minvu_name": "Chillán",
+      "minvu_h": 72964,
+      "mirror_h": 72955,
+      "minvu_minus_mirror": 9
+    },
+    {
+      "codigo_comuna": "16102",
+      "comuna": "Bulnes",
+      "minvu_name": "Bulnes",
+      "minvu_h": 7063,
+      "mirror_h": 7063,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16103",
+      "comuna": "Chillán Viejo",
+      "minvu_name": "Chillán Viejo",
+      "minvu_h": 10846,
+      "mirror_h": 10844,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "16104",
+      "comuna": "El Carmen",
+      "minvu_name": "El Carmen",
+      "minvu_h": 2371,
+      "mirror_h": 2370,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16105",
+      "comuna": "Pemuco",
+      "minvu_name": "Pemuco",
+      "minvu_h": 2212,
+      "mirror_h": 2211,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16106",
+      "comuna": "Pinto",
+      "minvu_name": "Pinto",
+      "minvu_h": 3763,
+      "mirror_h": 3762,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16107",
+      "comuna": "Quillón",
+      "minvu_name": "Quillón",
+      "minvu_h": 6591,
+      "mirror_h": 6590,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16108",
+      "comuna": "San Ignacio",
+      "minvu_name": "San Ignacio",
+      "minvu_h": 3746,
+      "mirror_h": 3735,
+      "minvu_minus_mirror": 11
+    },
+    {
+      "codigo_comuna": "16109",
+      "comuna": "Yungay",
+      "minvu_name": "Yungay",
+      "minvu_h": 5099,
+      "mirror_h": 5096,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "16201",
+      "comuna": "Quirihue",
+      "minvu_name": "Quirihue",
+      "minvu_h": 3953,
+      "mirror_h": 3950,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "16202",
+      "comuna": "Cobquecura",
+      "minvu_name": "Cobquecura",
+      "minvu_h": 1752,
+      "mirror_h": 1750,
+      "minvu_minus_mirror": 2
+    },
+    {
+      "codigo_comuna": "16203",
+      "comuna": "Coelemu",
+      "minvu_name": "Coelemu",
+      "minvu_h": 3663,
+      "mirror_h": 3660,
+      "minvu_minus_mirror": 3
+    },
+    {
+      "codigo_comuna": "16204",
+      "comuna": "Ninhue",
+      "minvu_name": "Ninhue",
+      "minvu_h": 998,
+      "mirror_h": 997,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16205",
+      "comuna": "Portezuelo",
+      "minvu_name": "Portezuelo",
+      "minvu_h": 983,
+      "mirror_h": 983,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16206",
+      "comuna": "Ránquil",
+      "minvu_name": "Ránquil",
+      "minvu_h": 1569,
+      "mirror_h": 1569,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16207",
+      "comuna": "Trehuaco",
+      "minvu_name": "Treguaco",
+      "minvu_h": 1342,
+      "mirror_h": null,
+      "minvu_minus_mirror": null
+    },
+    {
+      "codigo_comuna": "16301",
+      "comuna": "San Carlos",
+      "minvu_name": "San Carlos",
+      "minvu_h": 15955,
+      "mirror_h": 15951,
+      "minvu_minus_mirror": 4
+    },
+    {
+      "codigo_comuna": "16302",
+      "comuna": "Coihueco",
+      "minvu_name": "Coihueco",
+      "minvu_h": 5626,
+      "mirror_h": 5626,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16303",
+      "comuna": "Ñiquén",
+      "minvu_name": "Ñiquén",
+      "minvu_h": 1223,
+      "mirror_h": 1222,
+      "minvu_minus_mirror": 1
+    },
+    {
+      "codigo_comuna": "16304",
+      "comuna": "San Fabián",
+      "minvu_name": "San Fabián",
+      "minvu_h": 1092,
+      "mirror_h": 1092,
+      "minvu_minus_mirror": 0
+    },
+    {
+      "codigo_comuna": "16305",
+      "comuna": "San Nicolás",
+      "minvu_name": "San Nicolás",
+      "minvu_h": 2411,
+      "mirror_h": 2411,
+      "minvu_minus_mirror": 0
+    }
+  ]
+}

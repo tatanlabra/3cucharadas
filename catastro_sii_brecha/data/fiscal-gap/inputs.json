@@ -1,0 +1,1764 @@
+{
+  "files": [
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01101_arica_15101.parquet",
+      "bytes": 20321878,
+      "sha256": "8a017561b7c12430d7ee024672a92cc01cd4bcd0560e21c8b76202616556ebc9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01106_camarones_15102.parquet",
+      "bytes": 857006,
+      "sha256": "45602af261ede065732b5772d07ae48b15f4e60654ceaf142f4ffe4517ef4779"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01201_iquique_01101.parquet",
+      "bytes": 31083653,
+      "sha256": "e74f2579e86e566263f1b93e4726c9ad5d120ab8977aadf0d0f1906975a4a6a3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01203_pica_01405.parquet",
+      "bytes": 1307586,
+      "sha256": "577bc2bc4e6c986eac9148071b69192feb6e5dedc9363bebe3826446ee168fdb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01204_pozo_almonte_01401.parquet",
+      "bytes": 5096593,
+      "sha256": "adf798b4dbe9f225de237a2f96ff8668b64c1a3f9f95bc07ed2012d909c7475a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01206_huara_01404.parquet",
+      "bytes": 1613214,
+      "sha256": "b51142aa91cd4a7bf191d52195b496a7b22344325b205d9e79e253968f09c121"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01208_camina_01402.parquet",
+      "bytes": 537008,
+      "sha256": "96a17042affb091bee09d911d3120dcee6fc83d9515cc75c2a7ad4ed067b463f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01210_colchane_01403.parquet",
+      "bytes": 792012,
+      "sha256": "2a8374eb6e977fae672bd8c1e7aa2c6de9f6ff9ff9d618ec2f9f29257cfff39e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01211_alto_hospicio_01107.parquet",
+      "bytes": 4844054,
+      "sha256": "975b246cfe6783e8e6774b1709bba7b1447b60b17abfc4cfb8ff5cf9f6c3392b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01301_putre_15201.parquet",
+      "bytes": 1881507,
+      "sha256": "df6eab835804e5b83a5c8f494cdcc4b0555b0f00b2b7abe80ef70263cb1a130e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_01302_general_lagos_15202.parquet",
+      "bytes": 212568,
+      "sha256": "f598ed0d086f94ca2e550f3ddf775c265f8bbb87fd08ec7b3533f55610c5e0a6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02101_tocopilla_02301.parquet",
+      "bytes": 3727131,
+      "sha256": "4708ef252bb854d0c80e38eea8715b1c8e1338a56c86b71123cfe6ebe5a1feb6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02103_maria_elena_02302.parquet",
+      "bytes": 485492,
+      "sha256": "217a81e9eddf369866736db1b09229562a6e8528f8da098cbee47b1fc165ae85"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02201_antofagasta_02101.parquet",
+      "bytes": 22980804,
+      "sha256": "a5a4fa63b11d9faf96d72365fecba0801b8a7b82f4a5c0ccd9966b9f9d36acab"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02202_taltal_02104.parquet",
+      "bytes": 1324810,
+      "sha256": "be032d66192f4d41fa90d18d6a5f11816b9d06d11c8423d66e35134209386e3f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02203_mejillones_02102.parquet",
+      "bytes": 1056110,
+      "sha256": "e811ea80e600c27d8627e4124613e3a8b47a740a0327e01bf5aabf388d4e4a91"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02206_sierra_gorda_02103.parquet",
+      "bytes": 404962,
+      "sha256": "2a5305af89fecb27baccc4a576adf96aec12871c2f285aaa24332f7c66cb26e6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02301_calama_02201.parquet",
+      "bytes": 13172020,
+      "sha256": "6d2e42e26a74fa97a76d1866d744e1ffae147b4d7ce7fc17b1ad9b2c803ec6c3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02302_ollague_02202.parquet",
+      "bytes": 87582,
+      "sha256": "aeb1507a8388eeb7c358681ed765b50d8268914b2dd2a42537f436182d683cc2"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_02303_san_pedro_de_atacama_02203.parquet",
+      "bytes": 879151,
+      "sha256": "8be58891826acb766279ea1de4159cdbab8e452ee5fead1f9cb68d8d251c65af"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03101_chanaral_03201.parquet",
+      "bytes": 1492104,
+      "sha256": "824a3b63d1e4ab9f990cb2469a7573bbfa59a77c0ee0c1bad08c455fe67e5423"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03102_diego_de_almagro_03202.parquet",
+      "bytes": 1199140,
+      "sha256": "47fe75ce76f51e6e8c5a52d952f74914641701a39535fc1f778eb1cc79757819"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03201_copiapo_03101.parquet",
+      "bytes": 35408304,
+      "sha256": "5570942a7eca07fd0a7a62fa0b1748118de9ff0c944dc8c26aa1e3ef0e1b6f02"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03202_caldera_03102.parquet",
+      "bytes": 6524853,
+      "sha256": "c077b9b21af95f7855c33464c380ce12c66c18f966ca22806c641a5c787c4494"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03203_tierra_amarilla_03103.parquet",
+      "bytes": 13887692,
+      "sha256": "b745bae2d5852bfd03c9671907f6881fe1f653fdf2723d003bd59ebc67513802"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03301_vallenar_03301.parquet",
+      "bytes": 8722095,
+      "sha256": "92a6f0198d35f14d13c495b573eb8c09ad9644221272b97a82a1bdce9a7e8ac8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03302_freirina_03303.parquet",
+      "bytes": 1213076,
+      "sha256": "45a73c7afa08c64e7a603a2af3cd11e95f487e5b019d27cd5852cc104a016ebe"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03303_huasco_03304.parquet",
+      "bytes": 1603607,
+      "sha256": "6990156358d8ac07b392af341929cc77579f0d75bb4935963def30a1e6879970"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_03304_alto_del_carmen_03302.parquet",
+      "bytes": 2074909,
+      "sha256": "920f72b813a902497dba10052d21a092d247c3bb59749204ec0d701032a009c5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04101_la_serena_04101.parquet",
+      "bytes": 22288375,
+      "sha256": "0dbc2f1a817276b2188ca32ed4b93b2b59755f19cd3a8d654c0639dd9ebad927"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04102_la_higuera_04104.parquet",
+      "bytes": 2042120,
+      "sha256": "281fc62a7881f9e2dc12a3dda5ed0cff0a9b8599c7275068d016193397ede345"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04103_coquimbo_04102.parquet",
+      "bytes": 22050705,
+      "sha256": "af25f34d5b74b073145688fcbd54c70262aad5540af39fc76113a9796632ed07"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04104_andacollo_04103.parquet",
+      "bytes": 1198395,
+      "sha256": "1bea0ce63c53dc936262af92d429f19364d3bad625e1b42bd05508a5762ff5a1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04105_vicuna_04106.parquet",
+      "bytes": 63600569,
+      "sha256": "b7d47bfd8e48dfd248b5b7d5de3bde7aaff3059fa3ff9939f5ae915190709db1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04106_paihuano_04105.parquet",
+      "bytes": 1012038,
+      "sha256": "bf5d60949b8934fce8175098596a3992753f2831ebb9745ba2720b0153d138a8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04201_ovalle_04301.parquet",
+      "bytes": 13416957,
+      "sha256": "b8ec1e0f28a5555ffd1ea3ed5ae657dcb4371cf05850ba79a1299137692e397e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04203_monte_patria_04303.parquet",
+      "bytes": 5136718,
+      "sha256": "0c682d43e8ec7bda26e4d7e7345545598fa3b09f0c453858f6a9aaee3e6d71ec"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04204_punitaqui_04304.parquet",
+      "bytes": 2675291,
+      "sha256": "5922d449d74c3140fcabce4d8ca9a79452d4c843a8217a4c3131581dc3322b42"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04205_combarbala_04302.parquet",
+      "bytes": 2913167,
+      "sha256": "b4d6337d439db8ec8f306a618c8fce88de844db2d9cc40fdea7d7382dd638a82"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04206_rio_hurtado_04305.parquet",
+      "bytes": 1348148,
+      "sha256": "529d6d96ef822becbaf3427686a2a707c3b2c294050002fd6069b63aa340e480"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04301_illapel_04201.parquet",
+      "bytes": 3377406,
+      "sha256": "419497e01f4526c9aeee118f20c2cc8d174f3d869da9848d28731b75938a2cb8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04302_salamanca_04204.parquet",
+      "bytes": 3662565,
+      "sha256": "b772663a5eaf26f43647598f8204cd7236fd73630a8b65ac6aa741f363f320ec"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04303_los_vilos_04203.parquet",
+      "bytes": 4211960,
+      "sha256": "860910f98836a8221e9d7498f650144c61948d98a49938eccc839ffa7b639bc3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_04304_canela_04202.parquet",
+      "bytes": 1921790,
+      "sha256": "75f351fcff3f0e65ea59db0ac550a045d31860d7e6528136d25eeda04dc63245"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05101_isla_de_pascua_05201.parquet",
+      "bytes": 363636,
+      "sha256": "bc5a9918175e3cc35272efc4d2ec6598f99302220d84487483ce3e723248d20c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05201_la_ligua_05401.parquet",
+      "bytes": 4846455,
+      "sha256": "52a07f86911c3f4ce2d04cc15bf5ef146e09a2a4fd8c38733edef3f51ccbb525"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05202_petorca_05404.parquet",
+      "bytes": 1639368,
+      "sha256": "a02efae57826edae3f76462776b5bd55014c451ca792b8c5fff3db72d4635139"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05203_cabildo_05402.parquet",
+      "bytes": 2450219,
+      "sha256": "5747d396b3786e2d17a67f14445a865acc20fb79448872a250e4673eef291ee7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05204_zapallar_05405.parquet",
+      "bytes": 2512779,
+      "sha256": "cca93fc660a4845e3f8af185641c02ca2fc1542dea28b5e6f4efbdcc642aa9f5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05205_papudo_05403.parquet",
+      "bytes": 1597745,
+      "sha256": "b75d5c67cb3166453840210f3dff711a3166754c7977d9541badd6d475038690"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05301_valparaiso_05101.parquet",
+      "bytes": 15896995,
+      "sha256": "66623d8bffc6b38ecc4bfe8eed7e01e3c75a0827f72e566ee91ae588f14726f0"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05302_vina_del_mar_05109.parquet",
+      "bytes": 19411555,
+      "sha256": "16036a5d815524c53fbae6a2f216ac9b3e385f8ea946df22051bd7d31cab5a86"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05303_villa_alemana_05804.parquet",
+      "bytes": 9584971,
+      "sha256": "7dcc7d90a705df4a7b10de6eb8870621ecbe654627921a12d00b1c3d82221fb4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05304_quilpue_05801.parquet",
+      "bytes": 10816685,
+      "sha256": "1ed37343a0c842e550bf9c80353799c31ab5171d18a2f33b551a6f93e714e47c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05305_casablanca_05102.parquet",
+      "bytes": 4772044,
+      "sha256": "792a97170e1c937a7bdf0054c3964fc315a725c891a7270db0311f0d5a7eb446"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05306_quintero_05107.parquet",
+      "bytes": 3048000,
+      "sha256": "afb2fbb1680c82a1564ab87f4041897a0ced7fa18935650ab5f413bd576e1f0d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05307_puchuncavi_05105.parquet",
+      "bytes": 4840845,
+      "sha256": "9b6f2ff64eea18d7cb6337132cccdee842df86671a37160c1d0dad461a775bb5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05308_juan_fernandez_05104.parquet",
+      "bytes": 155268,
+      "sha256": "1be76b84ed1f5a9bc5366dca48c18bf6ce5c0fad7ac2d97dce4a3a83343ed456"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05309_concon_05103.parquet",
+      "bytes": 3452982,
+      "sha256": "4f23fb1561bc3ecba594c8d5ed3ce71d70eeb49825b47665661a4caf7d718987"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05401_san_antonio_05601.parquet",
+      "bytes": 6675898,
+      "sha256": "8b8acf23411f141b53799bb68187c3b2cbb6ff72ed1416bd503ec509851855de"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05402_santo_domingo_05606.parquet",
+      "bytes": 4029393,
+      "sha256": "8d4decce45f058662e8582eb3c6c0187c30db7692e6f28d67990558de0ff7571"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05403_cartagena_05603.parquet",
+      "bytes": 3346069,
+      "sha256": "5e07342fd7251f196cc84dfa04bf1455b43d7ecce66a5f77a8c744765eec5fb7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05404_el_tabo_05605.parquet",
+      "bytes": 2648818,
+      "sha256": "1b9b1ea76e5b2300734d6c095bb3e72b5e7669a75f5a505f127e4020f5f8ebe7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05405_el_quisco_05604.parquet",
+      "bytes": 3642836,
+      "sha256": "22029128f9436637303b7a4264c01ea0add3d54fadaccb4157a92ba9472e296d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05406_algarrobo_05602.parquet",
+      "bytes": 4745292,
+      "sha256": "97194c908aff740fadbc6b2036721652d79f4a6ddff9f106daae0728e0755f7b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05501_quillota_05501.parquet",
+      "bytes": 8016401,
+      "sha256": "33a609642c2488856c671824d87aa950b50bda0df8ccead84a6d75906669a1ff"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05502_nogales_05506.parquet",
+      "bytes": 2155454,
+      "sha256": "eaa0368899f3a522c4aa9c8ce0df5d83f5f75853d81c93a29e733b52b8f6169a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05503_hijuelas_05503.parquet",
+      "bytes": 2156043,
+      "sha256": "f1b32bfd750e528ad7d895773bc971fc413f7943a4d65ed773619262451f05ad"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05504_la_calera_05502.parquet",
+      "bytes": 6584657,
+      "sha256": "68b28240b0f549b305b1b1eb53066e0a2f1c4d99db290cddeac3fbc0b97fe512"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05505_la_cruz_05504.parquet",
+      "bytes": 2083768,
+      "sha256": "e1276d3bce60602dfcee6c20337e1a83de0b0b4f06f0d2e75746ffc655b8996e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05506_limache_05802.parquet",
+      "bytes": 5554286,
+      "sha256": "da5b49454f0a61c95f0b29bb608ebdc6d50a263b3357af90703bfadef311c9e2"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05507_olmue_05803.parquet",
+      "bytes": 3203094,
+      "sha256": "c080b139e148211673c72eb361ca3a44d5965d8e8c58ddd629f28ca262e15066"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05601_san_felipe_05701.parquet",
+      "bytes": 5553638,
+      "sha256": "0bad2062a0980c102f7bb2da7a50f663a69b3e11639d42ef0bfad377d5c544a4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05602_panquehue_05704.parquet",
+      "bytes": 857382,
+      "sha256": "2fc03cedb84d86c73c190009110373f31e36f9be2606986dd730d7d35c39a127"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05603_catemu_05702.parquet",
+      "bytes": 1586919,
+      "sha256": "ae25eec7dc1929af1c27957cc7cd170927f4c929f96a887eed85c10b6a4db244"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05604_putaendo_05705.parquet",
+      "bytes": 2277963,
+      "sha256": "a1799e637c93ca36c8b7f644c43ba397aab77d13bd196f021f25723f3af8b657"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05605_santa_maria_05706.parquet",
+      "bytes": 1588721,
+      "sha256": "0f9ddad8738f1f4fc044d71eae4aa5d1a6ef8659cb45833d0aaf1ecec8cb316b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05606_llay_llay_05703.parquet",
+      "bytes": 1875471,
+      "sha256": "e2de1d526a8bf93a936871b88fda4b3385cad650e91fa210a212bc22f55e8acf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05701_los_andes_05301.parquet",
+      "bytes": 5343368,
+      "sha256": "775f3cf8b04a32668b5c4a235eeaf8ec02d83ebf6475e818f01f932ddf7754d9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05702_calle_larga_05302.parquet",
+      "bytes": 1421051,
+      "sha256": "635995b0b2703d7f02706ed4f39cbc11793fc62eebb3ec38942e5de2c4d2a8d7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05703_san_esteban_05304.parquet",
+      "bytes": 2241491,
+      "sha256": "f5bfe2e387a28336f117c7f32c96aa2cf4ad852cf4e2b58a19d8936c79f3f044"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05704_rinconada_05303.parquet",
+      "bytes": 1459516,
+      "sha256": "b1cd209e16eb80b2c5d0745046e7def4421aa63a57585dc2c9a568efb719f38e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06101_rancagua_06101.parquet",
+      "bytes": 15530494,
+      "sha256": "b4062602c9ded9fcab741c89dff64e9f4e5fa15e525a922f0e006e716fd51d10"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06102_machali_06108.parquet",
+      "bytes": 8739901,
+      "sha256": "c08db5cb8a244dc26e79f02ef06b3c3a8792203b4d5a671abd4f02d232a644a3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06103_graneros_06106.parquet",
+      "bytes": 2554767,
+      "sha256": "f4af972e2caa4e70c36b381cc2684f3ee2d2f11897b4e7d8b0beb3e262ace612"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06104_san_francisco_de_mostazal_06110.parquet",
+      "bytes": 2277655,
+      "sha256": "d4162e6013856ee17ba885fde3f80b78610d0cd6932038041e4a77aabcc3a01f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06105_donihue_06105.parquet",
+      "bytes": 1699160,
+      "sha256": "0e71b143abfc427eabca4b24e49773af17b2b41acaa774c784b94583c411ea58"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06106_coltauco_06104.parquet",
+      "bytes": 1991981,
+      "sha256": "ba3a68c9d70fe04d5aa53482873d76b5917cf82691ea40ec2ff2d6edea3ec55b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06107_codegua_06102.parquet",
+      "bytes": 1290964,
+      "sha256": "5de24f5b1e43740b019b914ae14cdb8b837ce70c185725ac8512f0713ea54590"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06108_peumo_06112.parquet",
+      "bytes": 1184124,
+      "sha256": "6d6063483c5b66809e9bcd9d501061379e96f587b45666e1d55944706a4114ac"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06109_las_cabras_06107.parquet",
+      "bytes": 4475308,
+      "sha256": "3da801d4bf6eeea40db260ab8129b658eba35f9b532c85982352144c17101b45"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06110_san_vicente_06117.parquet",
+      "bytes": 5478358,
+      "sha256": "a01cf526a0afbb7dbd686ca567b03a5896ec926a8d1fdc95dd9b0fc24c9acb6a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06111_pichidegua_06113.parquet",
+      "bytes": 2478065,
+      "sha256": "35890de1ed617861987f2d00810c72be98b4976893de4c350d878c963cc06724"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06112_rengo_06115.parquet",
+      "bytes": 7213619,
+      "sha256": "6f896bfff37aee570d3456687c9e39f06e2882084032f23d934e0b4c2b185772"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06113_requinoa_06116.parquet",
+      "bytes": 4159775,
+      "sha256": "d671c744a48a69c4be7ceedda04154e0bdf3039e8b0776ad4303a2f8f0752570"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06114_olivar_06111.parquet",
+      "bytes": 1093757,
+      "sha256": "224d1518cd34e3e5914190741b6a9cab69f5c37d6f8b975a35f6b64ff573c836"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06115_malloa_06109.parquet",
+      "bytes": 1479633,
+      "sha256": "704dbf91ad0a37cee0603a489d5c725e02333fcbc85cb126d1ad24607a63c32d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06116_coinco_06103.parquet",
+      "bytes": 1076612,
+      "sha256": "a83f9726688abcece204c0e5c5afa4f26e6b3f36fc3268394026eb2803f48452"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06117_quinta_de_tilcoco_06114.parquet",
+      "bytes": 1497939,
+      "sha256": "d6b09e0159ead05e32318af54e8695e1758b73b974b31be73ad22b46568c669e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06201_san_fernando_06301.parquet",
+      "bytes": 14646265,
+      "sha256": "6d97f7f8eb35d632727121de6a35323bffd8f7e5263770880f04737c2daf66d7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06202_chimbarongo_06303.parquet",
+      "bytes": 3555998,
+      "sha256": "6a231ba2bd0f5aa591e05db45a4a374fcf56990fec89670a1b30a4bd31386845"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06203_nancagua_06305.parquet",
+      "bytes": 1595670,
+      "sha256": "36381f7bee47eb8c7f3043d2f7ad7a5fca7134810e3ec30984e050f885bb59e5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06204_placilla_06308.parquet",
+      "bytes": 1197630,
+      "sha256": "f94aca22a624ec861e0fa2d91271b815868d6d294a376e3f46c2135ad3c5bdeb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06205_santa_cruz_06310.parquet",
+      "bytes": 4769525,
+      "sha256": "d63e8966c41a6b4c49f3069a0cffdc12d04652a104d897754d62796b86356969"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06206_lolol_06304.parquet",
+      "bytes": 1596928,
+      "sha256": "beb1bb0b3e1690626e1acee98a1b6a12c3bc2420ad50d51f946549b8cf58f1df"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06207_palmilla_06306.parquet",
+      "bytes": 1502955,
+      "sha256": "145a5733917e13f1ac4f50b3ae6e5335747e3014bae540460641d2652409fa50"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06208_peralillo_06307.parquet",
+      "bytes": 1734177,
+      "sha256": "f693dbf582a27bd872191c1a780abad3d822e7512f8a41b7431a49e79b966d28"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06209_chepica_06302.parquet",
+      "bytes": 2455275,
+      "sha256": "420e11c96a5d19ad53bf2788e2a209be9288e82ae2141012f3a005ab416f8328"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06214_pumanque_06309.parquet",
+      "bytes": 1424110,
+      "sha256": "34666d63955bbe2dd992ad444ace39ce028d631bed029c1629eeb232fcc1cde4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06301_pichilemu_06201.parquet",
+      "bytes": 10086893,
+      "sha256": "96cd83eba6b34929e35e3202fd423bf662547f2e7b69e03e14647f748c085a53"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06302_navidad_06205.parquet",
+      "bytes": 2695342,
+      "sha256": "623d6cd7389a7759aee42ea0978eaef32e3b225c4a13ad4475f839c1d00f5976"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06303_litueche_06203.parquet",
+      "bytes": 2896655,
+      "sha256": "a16980645be22f5b4ad6cac27b1b6bcf1d97bf12fa110202d50218c5e7f23d18"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06304_la_estrella_06202.parquet",
+      "bytes": 2138301,
+      "sha256": "f7db0d0086b5fdc700fab55d5f7ba786c0d39dfd492f7bc362d3c3592b249b44"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06305_marchigue_06204.parquet",
+      "bytes": 2426989,
+      "sha256": "627af3de06defb25dc68761b4e0eaa786411d2861f294fd330c7281ec3124060"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_06306_paredones_06206.parquet",
+      "bytes": 2843263,
+      "sha256": "8704cbf6f7d401fcb3832394707bddb3d4abc0b6129206e387bece413b80715b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07101_curico_07301.parquet",
+      "bytes": 13153706,
+      "sha256": "719625fb7646daef22f4668d4aa7e4c155b7288fdfe11fd07f0c7d4391cadfb4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07102_teno_07308.parquet",
+      "bytes": 4386709,
+      "sha256": "01524fb3a0fffa256035c9dfd37926852161602ff4bf6bd701274519c16f64d5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07103_romeral_07306.parquet",
+      "bytes": 2651187,
+      "sha256": "1a1c52dc93574635ade74f4d737f94eafb773aac77b4466eb580c26c2a1407eb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07104_rauco_07305.parquet",
+      "bytes": 1594065,
+      "sha256": "e506bd1098db1a44cd43d2226ce0520c7c291aa3dff500b7f02b67b4b7438ddb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07105_licanten_07303.parquet",
+      "bytes": 1694380,
+      "sha256": "f139a66bc82a5c320b40dd145859da9d72c2503e3e251eefbc82ba5541624b99"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07106_vichuquen_07309.parquet",
+      "bytes": 2676043,
+      "sha256": "180499b66755dbb482caa751afac46e43ac205dc9c87540f3aebd9600e19ccba"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07107_hualane_07302.parquet",
+      "bytes": 2748540,
+      "sha256": "003a105fbc41aaa5a6e1d0bd84c8ad2edd3a476d05e205c942d6afe77c277a75"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07108_molina_07304.parquet",
+      "bytes": 8481052,
+      "sha256": "3a13bc6b0c2a37d88b5295d2c1d3d9faf32099b6029eb7915437feaf079de396"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07109_sagrada_familia_07307.parquet",
+      "bytes": 2472954,
+      "sha256": "f88f85ed8042a1f18c2809e4dcc99561e00c537516989d624a418b78e432284a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07201_talca_07101.parquet",
+      "bytes": 20786797,
+      "sha256": "ae7cefe14f784a383a2232a8f74fb0d9ceaf0fb3ef3cfdc20d253ec5a0198e0d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07202_san_clemente_07109.parquet",
+      "bytes": 11413277,
+      "sha256": "320d657161dd6e8dce9ba750390867a9ada33bdeb060c9d265dc2aa8bed2bf0c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07203_pelarco_07106.parquet",
+      "bytes": 1890224,
+      "sha256": "1746af45dc62026a6ef60dbaed8b448eb7fb2db3006eb6dc0ac981c76646aa7f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07204_rio_claro_07108.parquet",
+      "bytes": 2587312,
+      "sha256": "c3598543447fef6080c8ac066c755f0375d8ccf1b2d356b462d368df49c40389"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07205_pencahue_07107.parquet",
+      "bytes": 2682381,
+      "sha256": "b805c4ae3a62810a995a1639ed8dcb610ac2ce52f18455e00962a61d72f54c43"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07206_maule_07105.parquet",
+      "bytes": 5444469,
+      "sha256": "c81ecc23df52194285b57874d6914dc8dd917a45c9e8cd139ac327adfe76de8a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07207_curepto_07103.parquet",
+      "bytes": 3982039,
+      "sha256": "91709209f4c25d855645e487e5ff8005e73ecc87a9ca062dd36f4571c0f1a06b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07208_constitucion_07102.parquet",
+      "bytes": 6153468,
+      "sha256": "14c0fdfa1536f495a57765c4c13c969c0b3bd4862a9bcb4e70377770db5b428e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07209_empedrado_07104.parquet",
+      "bytes": 1795892,
+      "sha256": "5b062c12988b116e981039bad5dbff43719c5da943c27cf2d21f11e71032faf8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07210_san_rafael_07110.parquet",
+      "bytes": 1895885,
+      "sha256": "8bbb29c9eb1e027c935ecdd134e800d6ed33d7415e361b6dcb42d7bdb3ecf712"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07301_linares_07401.parquet",
+      "bytes": 11521157,
+      "sha256": "961ebb17d7b7e67e1ef7bb33aa17b50c0a2ff4ca8656017e4aa642a2f8ecb899"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07302_yerbas_buenas_07408.parquet",
+      "bytes": 2415584,
+      "sha256": "4f830d4e05606feabf8469c996bbef69d7514b8be6f02cd5f9bdc80ec883af44"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07303_colbun_07402.parquet",
+      "bytes": 6591486,
+      "sha256": "0c4c9702688c3729e8dfa7e8e2c1cb98b040fa8b7e5f00adb91ed87ab018e467"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07304_longavi_07403.parquet",
+      "bytes": 14641077,
+      "sha256": "b2f050e950b6ba1e55677eac5652c61e3d88f55210912574b2190027f17b387a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07305_parral_07404.parquet",
+      "bytes": 6144983,
+      "sha256": "5f5f80585a8ee6babfb8e7d6bc3fbc8f5e8fc01195301b7d1faf95382c52ab11"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07306_retiro_07405.parquet",
+      "bytes": 4863913,
+      "sha256": "7dfdecd06b0f3a85a039e506fc64e1647b0207dd1539f8fdbc2861898b87bff9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07309_villa_alegre_07407.parquet",
+      "bytes": 2147393,
+      "sha256": "ce0a5d7d70747337cb78706ede28758e6829eec86c305fd073720e2667739b57"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07310_san_javier_07406.parquet",
+      "bytes": 7730322,
+      "sha256": "ea9debc53322fc17f4930844fadb63a350c24a6bb4692e421e479238456d5822"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07401_cauquenes_07201.parquet",
+      "bytes": 9126409,
+      "sha256": "8b500c079ae56d763d0269ab5db5ff300128b7edad653d5a3b5cb7106c5ced00"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07402_pelluhue_07203.parquet",
+      "bytes": 2887864,
+      "sha256": "d17c12a1ed99352a090686bdc0ff94c7b69e07427d64d55da374ae3172fb3adf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_07403_chanco_07202.parquet",
+      "bytes": 2175324,
+      "sha256": "da4056912cc7bd7e7920049758601b55dd2ff5c2848d57ba08a3e6dd08d68e0e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08101_chillan_16101.parquet",
+      "bytes": 15636440,
+      "sha256": "8803ec6dfe9f2f5daaf22a997cd238f3ad15a2076d0f0164e0d4ab7e9a6489f3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08102_pinto_16106.parquet",
+      "bytes": 4737384,
+      "sha256": "87e1a94c1d4a2b4bea1091b9d6c12d37b5efca7d45b72e19463028ea00910451"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08103_coihueco_16302.parquet",
+      "bytes": 6157480,
+      "sha256": "37655faf0586838a7762f14a9dbe3277b17e196bbdfd57a2c73b7047c1b657a9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08104_quirihue_16201.parquet",
+      "bytes": 2208360,
+      "sha256": "0b1b2f7b8bf9b4f6fcf75412fa2e767530a5a94e259eda001d85da70d1b9671b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08105_ninhue_16204.parquet",
+      "bytes": 1746097,
+      "sha256": "25460daf0a52a80b961b20e8721cf3710fefc7d56cd1eb6d4c9504fd8b4baae7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08106_portezuelo_16205.parquet",
+      "bytes": 1335516,
+      "sha256": "b4e337ca555ace678a6c45d0623ba3578b36d9f9253f843b0997582a121d2d0f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08107_cobquecura_16202.parquet",
+      "bytes": 2641355,
+      "sha256": "90e1758160be757497fc664f93bbd2acb7f2ca01bf762327373c925cc5e4c456"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08109_san_carlos_16301.parquet",
+      "bytes": 6995429,
+      "sha256": "eafaec3fd84599e1eacdb46d79d5c91c1df0abfbc22e4abbca3afa71d82a2739"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08110_niquen_16303.parquet",
+      "bytes": 2495111,
+      "sha256": "6c4c833f7cfb2860fd1f3af2f5b3e5632fa100056c084690b1eca236a896a312"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08111_san_fabian_16304.parquet",
+      "bytes": 1692923,
+      "sha256": "f52f8cd23d499394afd9df14f42a5634f468882f72654c226110b5464ee6ef52"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08112_san_nicolas_16305.parquet",
+      "bytes": 4309531,
+      "sha256": "246bf100698d657ba41e24be2236bcb93659fee9f759f6724cfa7f5b16d4825e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08113_bulnes_16102.parquet",
+      "bytes": 3650774,
+      "sha256": "6043bb11a994f620a8f4c5dd53a76a762d940065f5aaf8d9e8dce529f3f19311"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08114_san_ignacio_16108.parquet",
+      "bytes": 3116263,
+      "sha256": "461485d9f6845b3c7e1cb941319152edd9639874e9755a87e5926862b32f67ed"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08115_quillon_16107.parquet",
+      "bytes": 4219605,
+      "sha256": "6eaeb4eaf1042e9c33561b472f610c4842356ff56fa519708212a9769b448388"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08116_yungay_16109.parquet",
+      "bytes": 3308186,
+      "sha256": "5eacad637d348d1bd30596b4ceec6c4e417b795c0e5fe46c1703e38074a1ee3d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08117_pemuco_16105.parquet",
+      "bytes": 1777359,
+      "sha256": "f6681455dd67d6b43818157a2c4167c50833e4c020ddd810ab0418e7d6322177"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08118_el_carmen_16104.parquet",
+      "bytes": 2877974,
+      "sha256": "656e6df7223a22abcf04a48f7cbf92b1da1b7955fc6103dd4cd5c6b7c2b9649a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08119_ranquil_16206.parquet",
+      "bytes": 1242464,
+      "sha256": "7cc7669e01d8363b2c58dff791fff4dc791890350cd16278a2306e1ef95e1a84"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08120_coelemu_16203.parquet",
+      "bytes": 1956783,
+      "sha256": "c5a77b7eb55522402f73832eea718a7aad3549545b91179c721f557d249b4ee8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08121_chillan_viejo_16103.parquet",
+      "bytes": 2970342,
+      "sha256": "72979397b525c80a262ec0078d16d893ffacc3fd9f723049a2a3fee3ab11d9f1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08201_concepcion_08101.parquet",
+      "bytes": 13457048,
+      "sha256": "1106bb4505a3797d548a429c96b7648220387aff924ba6618cddcfe732485f59"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08202_penco_08107.parquet",
+      "bytes": 2910677,
+      "sha256": "d180b97b5a7885f0c955710150087485edc035d0a51fa56e85e300b28257ec25"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08203_hualqui_08105.parquet",
+      "bytes": 3649773,
+      "sha256": "f16e31d4c46743e58b70f07a0d4626dbbdaa4317bba4f21967f431b8d60ee90a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08204_florida_08104.parquet",
+      "bytes": 3626778,
+      "sha256": "a5f2176a97ba43f0f48e540fef2239ae2699297d0c3b4d112b21d3f2ffb54476"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08205_tome_08111.parquet",
+      "bytes": 6843548,
+      "sha256": "c90ce071220d3cd1c24c03d7a623b4447fe003e4f245ea387cd76b9688d54120"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08206_talcahuano_08110.parquet",
+      "bytes": 8091028,
+      "sha256": "4d8ed3ea089d23059c3cadc3e7a1a0676996132f230a2462f084a647796ad388"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08207_coronel_08102.parquet",
+      "bytes": 9245599,
+      "sha256": "adc9ff5d322a02b8899380d194f149660dd6bc9cc57d56284e8878bdc4aaef1e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08208_lota_08106.parquet",
+      "bytes": 2999638,
+      "sha256": "ce23216ea39600eca66fccb4f8c25d657e68e80e6159e72f9d73312f8eddad9d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08209_santa_juana_08109.parquet",
+      "bytes": 4415283,
+      "sha256": "b4f89b5889cb3f920fbc999bb83207979f60cd02695b56d41752a35c99d57252"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08210_san_pedro_de_la_paz_08108.parquet",
+      "bytes": 8181662,
+      "sha256": "81616bec0b664a0a30f7c65190a12c5206453d6a22ac305e0a866a864a7de6cb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08211_chiguayante_08103.parquet",
+      "bytes": 4534751,
+      "sha256": "dae2d90bc9dfee7b769a1dd71f6fce454e2e6bab00171fd004f4196325991cbf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08212_hualpen_08112.parquet",
+      "bytes": 4487359,
+      "sha256": "19a39e917f979d71ade80bbeb82e3f82065b3a93126e8cb386978186948fb2f8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08301_arauco_08202.parquet",
+      "bytes": 4953202,
+      "sha256": "afd2b47488a77015ec1537c923361190545f46db81cb3a1ce5d1e7d6d2cfbf94"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08302_curanilahue_08205.parquet",
+      "bytes": 3154473,
+      "sha256": "f140b282b9d177c5879b244c4269a0fd6767ffd8d96af8413f8121df9455c9a3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08303_lebu_08201.parquet",
+      "bytes": 2889342,
+      "sha256": "6404a8300d5fe14fc56f3b2ae2294e99d2b746af9d5dade7292c7c2430ff365a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08304_los_alamos_08206.parquet",
+      "bytes": 4695537,
+      "sha256": "1c4c76a9bb2b436cc25adb63613c17096a653693146337806378f214f963e437"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08305_canete_08203.parquet",
+      "bytes": 4766531,
+      "sha256": "eca160113fb9089ae1a80f0c66dc05191569ef53245a56319256e59a89085bb3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08306_contulmo_08204.parquet",
+      "bytes": 1934631,
+      "sha256": "72735bb59597115a796d5c075dcc7b248d532d138638bb9d1b0d83115e84aa14"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08307_tirua_08207.parquet",
+      "bytes": 2217854,
+      "sha256": "c792cf222e6d5470770f9fc8c25c6c1da6bb6d541e82929447b6a192436d629c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08401_los_angeles_08301.parquet",
+      "bytes": 19674450,
+      "sha256": "8cee773b84da6ed0140c3b0ea89d02ad415442ab01ff86f4b3d2ae2022d24a0d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08402_santa_barbara_08311.parquet",
+      "bytes": 2411130,
+      "sha256": "9a6d83efa4bc82403d994b9baa62ef9f382fcd3cc4423089fb3021d7d1a84c4e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08403_laja_08304.parquet",
+      "bytes": 2445368,
+      "sha256": "a48e30e536f26895428ef875576fdc2d88a1d27be7fd0fad9992ae8277c1fa29"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08404_quilleco_08309.parquet",
+      "bytes": 1794484,
+      "sha256": "c758011e308c8238ce65e3dbddec82b3cb7742c78e942869b0421747d9dbced4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08405_nacimiento_08306.parquet",
+      "bytes": 4381419,
+      "sha256": "b7944145bf2981ffb27847283a5632366124f9ec6473adc1249a79e60cbc1f1b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08406_negrete_08307.parquet",
+      "bytes": 1244592,
+      "sha256": "0b19e7e23ccc28afaa33c3ba0f13d91de58b8db14266badf482bc123a651d022"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08407_mulchen_08305.parquet",
+      "bytes": 4210947,
+      "sha256": "0c4af359f8290f0982f59a96a6acfbe94c354d6f02a31217b5f989f1b6fcfe3d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08408_quilaco_08308.parquet",
+      "bytes": 1463754,
+      "sha256": "3e077646aa2fccd688d5072ea6f3d6e561f8cb68cab7c9afd3d8248ba3c22897"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08409_yumbel_08313.parquet",
+      "bytes": 5079906,
+      "sha256": "364dd8272dc379c0c7fb9b907509037eaf5a798cc9fd357ed2d8e842851d0d55"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08410_cabrero_08303.parquet",
+      "bytes": 3501568,
+      "sha256": "8bdc12128abc25db74b920cf3c10d7386553258e7aeb5a971d266465e4fc1e84"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08411_san_rosendo_08310.parquet",
+      "bytes": 584991,
+      "sha256": "223ce0312e932cd2ff0facb2243dec6ec8123c5b120f100e216e08b34a94dbcf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08412_tucapel_08312.parquet",
+      "bytes": 2351663,
+      "sha256": "95aa247ce3463d80b8472e6b672bee0349458c2ef24abcf6db902561d2721148"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08413_antuco_08302.parquet",
+      "bytes": 1256990,
+      "sha256": "517d798228c120b5dda1d95b09d211a61607b257395de9ff3a41b39bd43ea82a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_08414_alto_biobio_08314.parquet",
+      "bytes": 1525639,
+      "sha256": "942da598b044a7ef9bc4c8b87f96a0dd0c741303c97247b3de53b7e311085c8c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09101_angol_09201.parquet",
+      "bytes": 8428048,
+      "sha256": "41b02783cbfb7930ff5eae01683ab53bef85a23c257e47df15992147d216ccaf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09102_puren_09208.parquet",
+      "bytes": 2168388,
+      "sha256": "9cc18e833d2c501fa5da60bed28206202a585696f76ace47fd6be8d31000679b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09103_los_sauces_09206.parquet",
+      "bytes": 1975767,
+      "sha256": "d72ac583fddc5c8e619f16c2712383d634b79e07387c1847e87d178615cd571b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09104_renaico_09209.parquet",
+      "bytes": 1366093,
+      "sha256": "64afeb0c5c3f4e500483989ec0982f7c7b523a18ea8826765bbb4741e07218da"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09105_collipulli_09202.parquet",
+      "bytes": 3101584,
+      "sha256": "362869d4365e1aa88ddae72781af699449c2d5c45d325c2f3e24ea13293ebafb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09106_ercilla_09204.parquet",
+      "bytes": 1375698,
+      "sha256": "3abc38caf9be2ae923d981b7087f80128ae5a4545ff1586be9aa0ed0b544a0d2"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09107_traiguen_09210.parquet",
+      "bytes": 2668840,
+      "sha256": "b4c45b6c85ea6ada65863bf28ac126865beb45d4c6fb2dc042cd79b03ac8f5ce"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09108_lumaco_09207.parquet",
+      "bytes": 2896787,
+      "sha256": "f440b9b903657ab55cd9997593012dd79de547f1af5c669ced53931e362bd261"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09109_victoria_09211.parquet",
+      "bytes": 4168621,
+      "sha256": "3981dff66562d7ff459d7fcf8f03eb99c57fd8dfa665584b089c5f13c3aa8ba6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09110_curacautin_09203.parquet",
+      "bytes": 4035501,
+      "sha256": "817738464106b3997227b806486ca931a3f14b3ff89019e34fd3f48ad36c324b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09111_lonquimay_09205.parquet",
+      "bytes": 3547257,
+      "sha256": "316506896df167d297a5cb7b9e245089f0efbf7d2fdce7b6400ec75fd20a9d16"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09201_temuco_09101.parquet",
+      "bytes": 20865948,
+      "sha256": "9060db3bb698f5ce7d3ee7cd6be85e6023f0463ea403b51a5b5d49f75b8dbfee"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09202_vilcun_09119.parquet",
+      "bytes": 4920353,
+      "sha256": "a9b078d5265f23bd6fc945c3de7a601d5b7b97dc1f70324ece16e7ae38983702"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09203_freire_09105.parquet",
+      "bytes": 4180920,
+      "sha256": "658cd923401fba9c6841bc6ff563927454c9d561ba9bb1963bc6e2e2cb5d1668"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09204_cunco_09103.parquet",
+      "bytes": 4478292,
+      "sha256": "2ba9d0431f2820472fa18c00e5d6cb2848ccbb516ef7b5d34f262f234b481a80"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09205_lautaro_09108.parquet",
+      "bytes": 5033459,
+      "sha256": "7ab61465930a1d5f9fab1bd064b4cfda3becaeaa97c61108a5b0be58790d1bcc"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09206_perquenco_09113.parquet",
+      "bytes": 1223444,
+      "sha256": "6ae7e998dbec08d2dbe8cae4d7cdcac50ba1df6cda66d7a33ec744a80d513d47"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09207_galvarino_09106.parquet",
+      "bytes": 2657836,
+      "sha256": "575e946c5fd3fbd7bae93c8978b2994fb576facf4dc4bf89bd2fc77848eb34d3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09208_nueva_imperial_09111.parquet",
+      "bytes": 5103741,
+      "sha256": "0146ed20657f2c8972ab90ab91213d7ea17840ec4923c43de8f100f89af0da84"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09209_carahue_09102.parquet",
+      "bytes": 4964989,
+      "sha256": "db674fe602bd9193ecd5f2d5e17a42b6790f83e4813f227b67539743bd3d0433"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09210_saavedra_09116.parquet",
+      "bytes": 2680443,
+      "sha256": "65246a6b7cdf85e03f47a5903b9c299ab5cb306033ef57631451fe6f2163a927"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09211_pitrufquen_09114.parquet",
+      "bytes": 4044579,
+      "sha256": "d1da1f5454bec4a4babd10789e7a823d0a3352c9e05c40f4e434781d9e0d48da"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09212_gorbea_09107.parquet",
+      "bytes": 2461678,
+      "sha256": "64ccb7bb3bb511bf4a4cd02c5baf40a0a5b937b8a0390da6bf22920d8be26110"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09213_tolten_09118.parquet",
+      "bytes": 2096060,
+      "sha256": "509a79345ffd410d10bacd41af021f478a8def39e3e1413318f78c3842904858"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09214_loncoche_09109.parquet",
+      "bytes": 5439043,
+      "sha256": "e5a9d4696c744c300d729b1731a330a55cc5d463d029998939d71cff0bac1844"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09215_villarrica_09120.parquet",
+      "bytes": 10884779,
+      "sha256": "4d169d7d001d916a268c95dc1ff05e374b31236733a251d08e3b6ce2a7c23a71"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09216_pucon_09115.parquet",
+      "bytes": 7424798,
+      "sha256": "9d68abd14ed03d6dd0591198447f6a3fdd685c08da18639d06111cf5d503c58e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09217_melipeuco_09110.parquet",
+      "bytes": 1571231,
+      "sha256": "9a41f9d618c9759e7331d570485023ca737e866327c1d22405f03257616bb277"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09218_curarrehue_09104.parquet",
+      "bytes": 2716192,
+      "sha256": "30483d19753b730a1585fd5aa8f8acda5049360c94656113185468bf7134690b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09219_teodoro_schmidt_09117.parquet",
+      "bytes": 3125558,
+      "sha256": "774d022ad99c0549253c185e3cca4ccd751007fbdb5b7e1bc2373e60c277131c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09220_padre_las_casas_09112.parquet",
+      "bytes": 7408280,
+      "sha256": "83ad015a7857ffa4bdbdc7813031653698e57084fb6b1a7c478245b0e2fc1b90"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_09221_cholchol_09121.parquet",
+      "bytes": 2430278,
+      "sha256": "bb850d3927b51f2cc14817235be26cc0f2f3cbcb6cf5a12fbfe72a7365dc846a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10101_valdivia_14101.parquet",
+      "bytes": 13846363,
+      "sha256": "196460d2ff28ec3e8030e90e216a2d66736975cf0ccc6778e1c001259b5d596e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10102_mariquina_14106.parquet",
+      "bytes": 3949449,
+      "sha256": "3130b8b8f16d0ce1ae5dfdccb1f086b38b7808b99df72f55fa3e5bbbc665173f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10103_lanco_14103.parquet",
+      "bytes": 2583257,
+      "sha256": "0dd0eb9c73e1846431251807f7ddc6b4f3e7016dd4ac0825074a495c346adfea"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10104_los_lagos_14104.parquet",
+      "bytes": 4617513,
+      "sha256": "baab8d29a70f243c171f181954209e5a8bb37768f2b5d4814a360546d3ae87d6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10105_futrono_14202.parquet",
+      "bytes": 2895871,
+      "sha256": "39326e4e06019c6142ae3efceefbe285bf4f402f606fd5df29b63ac4c23d947d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10106_corral_14102.parquet",
+      "bytes": 1206542,
+      "sha256": "d185e01dafc7fb69a7f612f502dd7853acf070face2ec071a695b622e0fc60be"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10107_mafil_14105.parquet",
+      "bytes": 1363208,
+      "sha256": "1fefd15e0b9af8c5339e61adf2636cd31dd37b417f383923f91312420645d7d1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10108_panguipulli_14108.parquet",
+      "bytes": 7116215,
+      "sha256": "84914e032c842f2eca28f84992ab500aa8bf9a7ba0203e088ada17f2fd0f552c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10109_la_union_14201.parquet",
+      "bytes": 6834775,
+      "sha256": "8827159bf2585c532e4d8310c836f048cad745a77439d3ab4832d073fdcbd8dc"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10110_paillaco_14107.parquet",
+      "bytes": 3199080,
+      "sha256": "65591cff0698733db0ab37a32b2be685df4d8b84df7a8e8b037b5d82de5bb15a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10111_rio_bueno_14204.parquet",
+      "bytes": 5863306,
+      "sha256": "5b086051d4bbb7e2382c1d8db2ecf9369ab82b7c546c3676463c2ddb4fa3f461"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10112_lago_ranco_14203.parquet",
+      "bytes": 2904823,
+      "sha256": "743bc15b3e2e7928fa5c27f4060255abe8602e2ae00a1bc23986c6375c2c7c1c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10201_osorno_10301.parquet",
+      "bytes": 13548551,
+      "sha256": "7374086c1ea0c07ee62889be9a2f31bee2670232c9d50f587107be98a669c5b8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10202_san_pablo_10307.parquet",
+      "bytes": 2476253,
+      "sha256": "ab8ca34964ebfa2012c0823e81e6ae47f8cc24fe50a8a807a83719120c007b22"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10203_puerto_octay_10302.parquet",
+      "bytes": 2582418,
+      "sha256": "02046264401b83a9e14e26f5d182f531aa607971a170589d649985cf3c3421c1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10204_puyehue_10304.parquet",
+      "bytes": 5908145,
+      "sha256": "34a2705ced71089543d75c31bfbfeece734f9afb1963ab6c97b0ce839e11cb40"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10205_rio_negro_10305.parquet",
+      "bytes": 3263841,
+      "sha256": "6b0127c458355961db9dd415d71640db92a11c45df670faf2cb9f026730d1355"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10206_purranque_10303.parquet",
+      "bytes": 3103443,
+      "sha256": "daad92779f306bf0060780daa8a5732d3394b0ae2ee4fda008c2c70a746dba71"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10207_san_juan_de_la_costa_10306.parquet",
+      "bytes": 1201135,
+      "sha256": "6b5230ee2e8625e835f46096d22a1856467b363a235954396cbe06b0b813c11d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10301_puerto_montt_10101.parquet",
+      "bytes": 25395253,
+      "sha256": "969f33e6c8427a10e06ce21d62e399170f756b5d7f86bbddd513ad16d0e4aad9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10302_cochamo_10103.parquet",
+      "bytes": 2019203,
+      "sha256": "d6895fbdaa82bf7271b028431c4a10a69bdbcc24fd6fd9667796c6720398d6d4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10303_puerto_varas_10109.parquet",
+      "bytes": 21916982,
+      "sha256": "fceea8a2c46e3556823b567d6913cffeef9434239979ec7af408dde804b55403"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10304_fresia_10104.parquet",
+      "bytes": 2388823,
+      "sha256": "835546be9f0d3fc50664b9c5f95492090615289e0409d34bb12247f4befa82b6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10305_frutillar_10105.parquet",
+      "bytes": 3885591,
+      "sha256": "6c1e85f2c5b30fb728082e256aee472dea53ec36fb150f431e177358f0e61e0d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10306_llanquihue_10107.parquet",
+      "bytes": 2006174,
+      "sha256": "65745b1e1053919b8d83932c101b980fb4f0d91ea0fa19a0c682d4d02b19e1ad"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10307_maullin_10108.parquet",
+      "bytes": 3800822,
+      "sha256": "8580892812ef29e73ac4e8c245a9c661553f544de0ea722465b42334ca0d3b1f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10308_los_muermos_10106.parquet",
+      "bytes": 4563222,
+      "sha256": "84c1f8a4f1b2faaf374a028cb4e32886d845df5da0c40a85564d900e9d1c3737"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10309_calbuco_10102.parquet",
+      "bytes": 4299102,
+      "sha256": "2f6267d6f698bdb3ec35b6d082c01e6b3bc3ff188fc299c536e6ae30409deeb2"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10401_castro_10201.parquet",
+      "bytes": 5636647,
+      "sha256": "a30fec6b362b72f55d84cd1aaa87c21b42a1ad258645713f1d8744e946c8ebc0"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10402_chonchi_10203.parquet",
+      "bytes": 4231332,
+      "sha256": "b98f45de84eee5f241121535f7d14e0ede1be0b88ddf4c1b4e149d51d5f92efe"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10403_queilen_10207.parquet",
+      "bytes": 1673073,
+      "sha256": "09fc914782b7d8fa45e962f2fcffe9cee06c4e204063731a1e2e0ba23b68cabd"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10404_quellon_10208.parquet",
+      "bytes": 5726602,
+      "sha256": "a0e14c1fcb3e7a3ebfd41950685917e2d9cf9174b7586c753bdb92b17576da7f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10405_puqueldon_10206.parquet",
+      "bytes": 1004558,
+      "sha256": "7868ee6de54c3c7d9eb6160ec8d8ed8a179bce8448b47b1c76de698ccbd415d4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10406_ancud_10202.parquet",
+      "bytes": 9024841,
+      "sha256": "65e68523986dde1477035110e8ee8e7768b6a1bb84aa1db9538f9bfba1d54bdf"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10407_quemchi_10209.parquet",
+      "bytes": 2363148,
+      "sha256": "1cabe0e38434d7b92c0e23ce578ae6d3354611ad9457d792f17729d4537dbb2c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10408_dalcahue_10205.parquet",
+      "bytes": 3173781,
+      "sha256": "e9f9fcf17739a1eac1085e1e686330c53fff711951e93e33f986bc07aad970f8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10410_curaco_de_velez_10204.parquet",
+      "bytes": 905545,
+      "sha256": "514ab8fc526f5b8746694ba427e55378723eb9da7e724fd7600d57849c995b3d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10415_quinchao_10210.parquet",
+      "bytes": 1208135,
+      "sha256": "b168a05b2b5ca43c91fb385188976f5a7df75a7ebf4155f7508c9a4e2eac46ee"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10501_chaiten_10401.parquet",
+      "bytes": 6364042,
+      "sha256": "90934df9d2d80edeb59a146b256be3c2649535d1a60f5110d15390c20b077f28"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10502_hualaihue_10402.parquet",
+      "bytes": 3057535,
+      "sha256": "3cebbb4044399ddd63f5ef08a6f9e220e44fb5cda894a5a6bdb58b7e2284815a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10503_futaleufu_10403.parquet",
+      "bytes": 1111654,
+      "sha256": "7a8499d8f961ad4fefa45927b36ec739941ca6002d08a7eb91d19618ffe3a345"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10504_palena_10404.parquet",
+      "bytes": 962532,
+      "sha256": "d60bbd430a40c4f5b806b1855529189d1354371b276904eaf39f82eb277a9dcb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11101_aysen_11101.parquet",
+      "bytes": 7315811,
+      "sha256": "66e316f8d657075e443e95bf4644f2f169db5eec18f6931232bb2e46ea44c69a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11102_cisnes_11202.parquet",
+      "bytes": 5417110,
+      "sha256": "1fff9fc2eda3866b244af09d7c4f12ed0f92a4374757274cbc6557a024c3e399"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11104_guaitecas_11203.parquet",
+      "bytes": 633833,
+      "sha256": "f04decba5753b73d7b395532f342eb497ad2e16b962ab216c51c4813b5cb886b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11201_chile_chico_11201.parquet",
+      "bytes": 2481748,
+      "sha256": "934d74f5136a60f6f64a00e495a89577eeb65dc8e4db91f8356e7be50f030619"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11203_rio_ibanez_11402.parquet",
+      "bytes": 2413327,
+      "sha256": "b78c667a94777b2efedf5fefb96fd207b64bc8cf584437aa4abf3e92b32c3d0d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11301_cochrane_11301.parquet",
+      "bytes": 2348113,
+      "sha256": "0bf3351e8c9cda219f3dbe4b669b54fbd97fdc9d0cf102b0dc98e762d4a2def4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11302_ohiggins_11302.parquet",
+      "bytes": 185738,
+      "sha256": "d6b3623df1b783709259061f5c3b77a9f400246c2f4cff49a084c7bfc57f93ce"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11303_tortel_11303.parquet",
+      "bytes": 5053231,
+      "sha256": "3ddd7a2061eda9b13b70d0aa7b81d35b16793fe8d6465ebe614695ebb97f50ff"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11401_coyhaique_11401.parquet",
+      "bytes": 9698944,
+      "sha256": "541a5f5b85ce04e029326cf6712be0c3079cf78354603fd6af28b7fc1d995c01"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_11402_lago_verde_11102.parquet",
+      "bytes": 1579694,
+      "sha256": "617108b1c3d49557be16078ab9f40d8c535235f9b1fd8d80c3c1c5fac4bcf436"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12101_natales_12401.parquet",
+      "bytes": 3725829,
+      "sha256": "08f5c400a7f46af2b1a9658b83c3d2a6a2d14ecd915313970119a1e8dbb9533f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12103_torres_del_paine_12402.parquet",
+      "bytes": 1112406,
+      "sha256": "428e13d2368f59394c8baf6793886424ca27f40fe6567124911dbaf2dfb599b8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12202_rio_verde_12103.parquet",
+      "bytes": 1113980,
+      "sha256": "4ee583a27cbb2a3d0e466f4fbd83d7b096005a8d91f703d793856150281d4d95"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12204_san_gregorio_12104.parquet",
+      "bytes": 768720,
+      "sha256": "516e20f20097a1f3c776f48405b608a0887d6cbf4b7cdf4c1ec6c9225f52ecbc"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12205_punta_arenas_12101.parquet",
+      "bytes": 12704365,
+      "sha256": "af9afea2edc07677f9071943211f61f86381a1aeed7be97cf1393854fe85869f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12206_laguna_blanca_12102.parquet",
+      "bytes": 413973,
+      "sha256": "8e35f21f12b815d255bfc50da55e5efcd33d69c1065aa2df83002fb304bc8ea4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12301_porvenir_12301.parquet",
+      "bytes": 1801933,
+      "sha256": "3a6669501e0ba0b736d1369a9461665e15f6842db4e7b8183badd465dfc3b011"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12302_primavera_12302.parquet",
+      "bytes": 384475,
+      "sha256": "87e9c6ab90f7bdbcc65706c9830124284e79ff967ddb36dc5217103c7d03fd4d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12304_timaukel_12303.parquet",
+      "bytes": 1408143,
+      "sha256": "bbc8f9077bf63250694873c7eddc46eaf0c8c973d7e1930dd2751d091fc63d2f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_12401_cabo_de_hornos_12201.parquet",
+      "bytes": 1549846,
+      "sha256": "9944b65269c460adc8f609cb919571d4c621c683c5fbafe3f51a06c88c71a56c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_13101_santiago_13101.parquet",
+      "bytes": 9099546,
+      "sha256": "96b421a6710720c49b7ef22697785133678dc9de93b648b972501c4d1f97e4d7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_13134_santiago_oeste_13101.parquet",
+      "bytes": 4310870,
+      "sha256": "4bb1c676d38993f4ad054b5af77b886c1c1fe0731b5d5f4de95f2b4b09b7c9fa"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_13135_santiago_sur_13101.parquet",
+      "bytes": 5171516,
+      "sha256": "0f1d617542a8006aeed428124b669ed98e3e95b62bff52b2c2b7bc4e277920a1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_13159_recoleta_13127.parquet",
+      "bytes": 6292574,
+      "sha256": "3e5a91b6df2ce6e6a2ce9e65fd57c7e72fecd7317775b449e2b19edc4bbb46ab"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_13167_independencia_13108.parquet",
+      "bytes": 4155005,
+      "sha256": "0e7bf17ae2c47b146675c9d7c37cffac6114e33c8d5f0e2df2fc3994d5d3958b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14107_quinta_normal_13126.parquet",
+      "bytes": 5067415,
+      "sha256": "45fc48281005244b9aca60109520bdbffd416f6de9c0ca5fb41ec72a3889b632"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14109_maipu_13119.parquet",
+      "bytes": 22061386,
+      "sha256": "1cbc1f1e52063cf4e7fbe7c1fa33e306a5143537e823521a6d76a707c6016f17"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14111_pudahuel_13124.parquet",
+      "bytes": 9179514,
+      "sha256": "9d3a665db89b8553d4363dbe1dd2070cc426cbfe6ec6fdef37f196ec85b4471d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14113_renca_13128.parquet",
+      "bytes": 5981503,
+      "sha256": "5fba05a39e16c93f84f86859b6fce7cb1b9ab6657183fbcba71f6f427cc29b5d"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14114_quilicura_13125.parquet",
+      "bytes": 8349609,
+      "sha256": "097c4d0f1ddf12cce7e1a565a7c7b8420412e7a33987bde9403413adc0aa9356"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14127_conchali_13104.parquet",
+      "bytes": 5028312,
+      "sha256": "80ccdbbd9e44d257e957fcd423e08f674328e852acab5c1349caebf469e0cb4e"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14155_lo_prado_13117.parquet",
+      "bytes": 3118806,
+      "sha256": "99c2065958450502f7438b0fb04bb56d0f9909587cafbbb59ada4aeea18b4fd0"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14156_cerro_navia_13103.parquet",
+      "bytes": 4591254,
+      "sha256": "fc92e7f2848110a16ae13dfc28b95e69ae113034195f7ebf2e1fd3d7c622974b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14157_estacion_central_13106.parquet",
+      "bytes": 6471021,
+      "sha256": "b1206a41cc50f4aeba11690ae00ca9536fc186c5e9ec747f21a31bed9397bad8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14158_huechuraba_13107.parquet",
+      "bytes": 4819318,
+      "sha256": "d0276f3c51edb26051e4e047c322c224dc665f7a495d2f094188764fdadecf44"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14166_cerrillos_13102.parquet",
+      "bytes": 3722616,
+      "sha256": "d59bc3708a47aa34000fb8fe61ce13c1138d791bb0ff6cbe5ee25a6de0d2a67c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14201_colina_13301.parquet",
+      "bytes": 11204466,
+      "sha256": "f8a6cb1a39fb3c2e48f788b7e7b23febea27c67cb1afa5cb78edb21acdbb69e3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14202_lampa_13302.parquet",
+      "bytes": 8062936,
+      "sha256": "f60e4b08238a15323ba9fdb358cee91737bc459149038c9bdce095bfdd46a608"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14203_til_til_13303.parquet",
+      "bytes": 1589271,
+      "sha256": "941e09ddbc5c95097b337ad22601257cd82fa399bc70bc0ad503bc383e265860"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14501_talagante_13601.parquet",
+      "bytes": 4651101,
+      "sha256": "baf5fe7df0c4944948710a9c8b22c45bc29896c946810a02b15ab44d0e6b62e5"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14502_isla_de_maipo_13603.parquet",
+      "bytes": 2865353,
+      "sha256": "151f7a66d5233269f12886bb390b744e7164f3e9997b148b825f3a506e80f728"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14503_el_monte_13602.parquet",
+      "bytes": 2135342,
+      "sha256": "55da0870b9e294b1dc546940dcd8614b73247a78cfb231f83af3af31f72b66c9"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14504_penaflor_13605.parquet",
+      "bytes": 5214238,
+      "sha256": "5e382daf558131c2463c4c3acce72a6382c1357262898dea3b69ba9fe2ca60e3"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14505_padre_hurtado_13604.parquet",
+      "bytes": 4834152,
+      "sha256": "1829f2bcce875dddca4cf031cf2417f11f4beb4f891c05e5b47cd483a7e3f61b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14601_melipilla_13501.parquet",
+      "bytes": 10376142,
+      "sha256": "e8cd4196a51a42398d47c1ae9737a4e884bc3a256832be2fe161bf5f31b447e7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14602_maria_pinto_13504.parquet",
+      "bytes": 1661646,
+      "sha256": "809b77c0889dc3cdc83084713679b064d29cccd70501edf19380341d010ddc12"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14603_curacavi_13503.parquet",
+      "bytes": 4727103,
+      "sha256": "34f00f0ce3725bd1b1a53bffea060fe6c35da0f5361232db1303c784405b4e08"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14604_san_pedro_13505.parquet",
+      "bytes": 1664168,
+      "sha256": "4efcc34dc7039dbfe8880d4f556436619922bc5d921f37219d9779f217978514"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_14605_alhue_13502.parquet",
+      "bytes": 882145,
+      "sha256": "fd864690767ccb3bdaa9b29374ffbed576e1dffd9a9201c7c466d693499509f6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15103_providencia_13123.parquet",
+      "bytes": 9735998,
+      "sha256": "e91fdde4f033647b091f1aa97a21b6b9a263c11f8ee27d834ea48848fc0961f4"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15105_nunoa_13120.parquet",
+      "bytes": 25175907,
+      "sha256": "6d3385a767c52e7ecb502fbc99fb165e26989f46f6110aecf70b7eea838039f0"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15108_las_condes_13114.parquet",
+      "bytes": 18994791,
+      "sha256": "e97d9292aecb0dcd5024bed446fed87b20603f978dcf13d5693ca71760e0039a"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15128_la_florida_13110.parquet",
+      "bytes": 17626738,
+      "sha256": "7a1d32c008acf7ac2d0bc9309e1a323b11a6f382e811135dcb899ac6834b260f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15132_la_reina_13113.parquet",
+      "bytes": 4745089,
+      "sha256": "61b84fef4ff91f6f3179d1f320e702ef65ca8db2da140d71f515406435ba87c1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15151_macul_13118.parquet",
+      "bytes": 5707910,
+      "sha256": "61c0920831c41a98339d1a2c2c26fad56619d6ced064aa864d5594e9476b2b28"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15152_penalolen_13122.parquet",
+      "bytes": 11130577,
+      "sha256": "f32712e44ba803ffcfc4d0e56f39062e53dfbc465f9a799dc44cb000474ea2d8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15160_vitacura_13132.parquet",
+      "bytes": 6590550,
+      "sha256": "6bea928a0c39a60c568774204e9aba4906258867a1a5583e28f302a47ad5ddc1"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_15161_lo_barnechea_13115.parquet",
+      "bytes": 19216428,
+      "sha256": "b54b3e6ad27e5033c665de7491cab0fc1c5778c24a114c4fd1a957349e346638"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16106_san_miguel_13130.parquet",
+      "bytes": 6074087,
+      "sha256": "47e8017af1ac319f1ca1ac13c3ec05e2dfcf08f32ec8a542401155937b2a75a8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16110_la_cisterna_13109.parquet",
+      "bytes": 4884309,
+      "sha256": "5bf9c21cba1c9183e785381753d8e55a1a24311c7436287d942c16687d6562c8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16131_la_granja_13111.parquet",
+      "bytes": 4511452,
+      "sha256": "26c08904007a9ede816c4302403d25b4af97f5541622b842a8a75b1a99fa31ac"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16153_san_ramon_13131.parquet",
+      "bytes": 3092622,
+      "sha256": "0e53d18d2bb3527b7845d6307696987d75e1b354d9d4db89470812482235a279"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16154_la_pintana_13112.parquet",
+      "bytes": 7165928,
+      "sha256": "ca4ea30d9d504621aa182ce1dbe96cf2866625656abd7ff86f9e45577328483c"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16162_pedro_aguirre_cerda_13121.parquet",
+      "bytes": 4393617,
+      "sha256": "e42c63d4f9ae30b5b34b6ce916cbb4cc8c7b5e7e59840bf3e9a667aab36241f8"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16163_san_joaquin_13129.parquet",
+      "bytes": 4340211,
+      "sha256": "53e3a597b6f2e811009c631d71ca5a88f312ca60b42f9a332cd782dee38158b6"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16164_lo_espejo_13116.parquet",
+      "bytes": 3653597,
+      "sha256": "e54bf89ee2848fe20e08e705f71e0627258e21348822893c4eb38b0a4c3aa3c2"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16165_el_bosque_13105.parquet",
+      "bytes": 6261658,
+      "sha256": "66dd5575f3bb23ef82005f89dd6febcbc771c2019de96229b20c67fe078cad4b"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16301_puente_alto_13201.parquet",
+      "bytes": 24949118,
+      "sha256": "827fefcfcf654de63f9a168bde18857e6e6e4eba6122590c5f7e1296b850f7f7"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16302_pirque_13202.parquet",
+      "bytes": 2378453,
+      "sha256": "49b84db0deb4fdc3e9a4602dcd601347bea9a7d38b99b9fb7f53f9c9f8d1107f"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16303_san_jose_de_maipo_13203.parquet",
+      "bytes": 1669455,
+      "sha256": "e84e20341ceedc27baf487bc6a561c27c08515e40f8aa41fd3b355e80c694cae"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16401_san_bernardo_13401.parquet",
+      "bytes": 13710705,
+      "sha256": "e2fdac44016681919638c7239913146667d83f051a1de5de429f7e95e4a5fd91"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16402_calera_de_tango_13403.parquet",
+      "bytes": 1755648,
+      "sha256": "78c5a0bcd9013dd6e461256de76881c7b66d3593c1f4f53050432f09fdd50feb"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16403_buin_13402.parquet",
+      "bytes": 7102905,
+      "sha256": "6d15f9db1fd25cd780e19d5b83810e22af002cf1563ad4cda99c3e94e323a7de"
+    },
+    {
+      "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_16404_paine_13404.parquet",
+      "bytes": 6511996,
+      "sha256": "b7964f35d14c9c982b9e66992762c36952c22d0cb358d517ba5f0d07ee7e6c20"
+    },
+    {
+      "path": "viviendas_censo2024.csv",
+      "bytes": 446460559,
+      "sha256": "afb61b38a84662feb0e3326d77b665991952d14b8464a8ccda5779d5c7225656"
+    },
+    {
+      "path": "v5_brecha/data/external/censo_2024_comunas.parquet",
+      "bytes": 12392,
+      "sha256": "707480c30b8e1d36d65ac56ae5c81972a644f1925897ba0a730a6387897f5560"
+    },
+    {
+      "path": "storage/source_safe/parquet/catastro_historico/catastro_2024_2.parquet",
+      "bytes": 249718650,
+      "sha256": "635a538b01c216fa26d429c566b3759bf47acf576e5f665f6bd30a1e29fc8dd0"
+    },
+    {
+      "path": "uv_avaluo/config/conara_sii_comunas.csv",
+      "bytes": 7668,
+      "sha256": "8012cb6c6ffd786882abb2d6f9e37c28ab46a0e3cc33e72b284412fa5dd44f7d"
+    },
+    {
+      "path": "v5_brecha/config/crosswalk_sii_to_censo_2024.json",
+      "bytes": 1509,
+      "sha256": "921bb5200f4ffbe5989b7f4ac98e61d28fc1b6e16b5af9e752be0e263d4e08ee"
+    },
+    {
+      "path": "v5_brecha/config/fiscal_sources/sii_destino_2026s1.csv",
+      "bytes": 1782,
+      "sha256": "503ac600805e597bb6ac46a80b8a1fb0317b2dd260386e6fbc2066239500eb92"
+    }
+  ]
+}
