@@ -80,6 +80,31 @@ piezas:
     estado: publicable
     origen: script
     alt: {en: "AI Quota HUD detailed view: five selectors and the windows of the selected agent."}
+  - id: teaser-movil
+    rol: teaser
+    archivo: assets/images/teasers/teaser-ai-quota-hud-640.webp
+    ancho: 640
+    alto: 360
+    estado: publicable
+    origen: script
+    nombre_legacy: true
+    motivo_nombre: "El tema deriva el sufijo -640 en _includes/archive-single.html y scripts/verify_site_artifact.rb lo exige literal en required_files."
+    alt: {es: "Barra compacta de AI Quota HUD con los cinco indicadores de cuota."}
+  - id: demo-video
+    rol: video
+    archivo: assets/videos/ai-quota-hud-demo-1472x1152.webm
+    estado: publicable
+    origen: script
+    poster: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
+    nota: "Sin ancho/alto declarados a proposito: image_dimensions() no lee cabeceras EBML, asi que declararlos produciria un aviso V2 de dimension no verificable, que en --strict reprueba. Las dimensiones reales (1472x1152) van en el nombre y en los atributos width/height del <video>."
+  - id: demo-poster
+    rol: figura
+    archivo: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
+    ancho: 1472
+    alto: 1152
+    estado: publicable
+    origen: script
+    alt: {es: "Vista detallada de AI Quota HUD con Antigravity seleccionado y sus dos cuotas semanales.", en: "AI Quota HUD detailed view with Antigravity selected and its two weekly quotas."}
   - id: xkcd-303
     rol: figura
     archivo: assets/images/ai-quota-hud/xkcd-303-compiling.png
