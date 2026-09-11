@@ -1,0 +1,142 @@
+contract: avaluos-ii-polish-20260910
+authorization: 'Usuario: implementar ajustes de relato, carga, diseño y análisis con subagentes; preparación local previa a público.'
+baseline:
+  blog_commit: e986f238
+  analysis_commit: 32c6fa3
+  desktop_metric_grid_1440px_height: 495.28125
+  mobile_metric_grid_390px_height: 1241.5
+  map_measurement: Chile frío 2342 ms; recarga 1099 ms; comunas.json dos peticiones.
+skills:
+  active:
+  - estadistica
+  - data-science-rsh
+  - codigo-multilenguaje
+  - auditoria-critica
+  - jekyll-post
+  - 3cucharadas-site
+  - agent-browser
+  - normativa-chile
+  - investigacion-bibliografia
+  - validable-plan-contracts
+  - quota-guard
+  recall: Memoria breve consultada; experience-memory se abstuvo, sin contexto adicional.
+  discarded: 'imagegen: gráfico estadístico SVG nativo; React: no se requiere migración del visor; publicacion-externa: fuera de alcance.'
+provider_plan: Codex principal y tres tareas acotadas de datos, rendimiento y relato; sin afirmar independencia entre proveedores.
+hard_constraints:
+- No push, publicación, microdatos públicos ni modificación de fuentes crudas.
+- Hogar, vivienda, rol y contribución no son unidades intercambiables.
+- La composición del residuo es un escenario transferido desde viviendas observadas; no prueba calidad de las ausentes.
+- Avalúos registrados altos no identifican probabilidad de tributar ni impuesto omitido de predios no enlazados.
+- Caché acotada y con invalidación; fallos reintentables; sin precarga nacional de shards ni nuevos servicios globales.
+- Animación finita, valor final accesible inmediato, sin movimiento con reduced-motion.
+- Los mapas nuevos distribuyen imágenes raster; no archivos vectoriales, roles, direcciones ni identificadores de campamentos.
+objective_judge:
+  ideal: Lectura inmediata, gráficos legibles y mapas listos antes de uso, con enlace censal-predial observado.
+  feasible: Mejorar carga y claridad en arquitectura actual; inferencia sólo como sensibilidad por falta de enlace.
+  criteria:
+  - latencia_medida
+  - solicitudes_deduplicadas
+  - menor_altura_sin_perder_legibilidad
+  - contraste_AA
+  - paridad_ES_EN
+  - aritmetica_reproducible
+  tie_break:
+  - menor_superficie
+  - reversibilidad
+  - trazabilidad
+  - accesibilidad
+  - costo_operativo
+tasks:
+  F9_1:
+    requirement: Escenario de materialidad y contexto de avalúo H
+    owner: materiality_analysis
+    output: catastros_sii/v5_brecha/artifacts/fiscal_gap y método
+    acceptance: PYTHONPATH=v5_brecha/src python -m pytest v5_brecha/tests -q; build y auditoría de fuentes concilian 346 comunas.
+    evidence: 53 pruebas analíticas verdes; build y source audit reconstruidos; escenario aceptable 1.318.681,81; 346 comunas. Véase docs/avaluos-ii-polish-evidence.md.
+    falsified_by: Tres casos de no respuesta reprodujeron en rojo la clasificación anterior; recuperación corrige 73.338 a 72.642 sin cambiar
+      brecha ni campamentos.
+    rollback: Retirar campos nuevos y reconstruir snapshot anterior; conservar sensibilidad de campamentos.
+  F9_2:
+    requirement: Carga visible y eficiente de mapas
+    owner: viewer_performance
+    output: Módulos TS de carga/caché y mediciones cold/warm
+    acceptance: Tests de fallos/reintento/evicción; mediciones comparables de descarga y tiempo de selector/mapa.
+    evidence: 'docs/catastro-viewer-loading-20260910.md: Chile frío 900 ms, recarga 592 ms; una petición comunal. El mapa completo frío 10.175
+      ms no demuestra mejora global.'
+    falsified_by: 'Motor abortado: selector sobrevive; import fallido exige recarga. Dos fixtures de accesibilidad fallaron en integral; corregidos
+      con eventos reales y 11 pruebas verdes.'
+    rollback: Restaurar módulos de carga al baseline sin tocar datos.
+  F9_3:
+    requirement: Relato didáctico y bibliografía
+    owner: editorial_inference
+    output: Borradores ES/EN y referencias verificadas
+    acceptance: Build drafts verde; cifras coinciden con artefacto; cada inferencia declara supuesto y refutación.
+    evidence: Borradores ES/EN construidos con --drafts --unpublished y verificados; cifras, tablas, fuentes y enlaces al visor concilian. docs/avaluos-ii-editorial-evidence.md.
+    falsified_by: Composición transferida se descarta si el parque residual difiere del observado; avalúos altos no demuestran obligación exigible
+      sin enlace predial.
+    rollback: Restaurar borradores al baseline.
+  F9_4:
+    requirement: Diagramación compacta; animación algo más lenta y secuencial cerca del viewport; paleta clara con tonos próximos al nocturno.
+    owner: root
+    output: Proyección, barra triple, CSS, animación de cifras
+    acceptance: TS/CSS/tests/build verdes; QA 390/1440 px claro/oscuro, reduced-motion y sin JS; tabla equivalente completa.
+    evidence: 132 pruebas TS verdes en validación integral; casino 9/9 y máximo una cifra animada observado, 850–1090 ms; claro/oscuro 390/1440
+      px; anexo axe cero infracciones e inconclusos en claro; tablas estáticas con 346 filas; 320 px sin overflow. docs/avaluos-ii-polish-evidence.md.
+    falsified_by: 'Baseline carecía API de cifras: cuatro pruebas rojas. Paleta clara luminosa requiere contorno contrastante: no se conserva
+      la afirmación anterior de contraste del relleno.'
+    rollback: Restaurar UI al baseline y regenerar proyección.
+  F9_5:
+    requirement: Integración y preparación local
+    owner: root
+    dependencies:
+    - F9_1
+    - F9_2
+    - F9_3
+    - F9_4
+    - F9_6
+    - F9_7
+    - F9_8
+    acceptance: verify_fiscal_gap.py y validate_build.sh verdes; commits locales revisados; preview 4004 comprobado en host.
+    evidence: verify_fiscal_gap, validación integral, build drafts y artefacto verdes; registro visual 0 avisos; preview 4004 comprobado en host.
+      Resta registrar commits locales.
+    falsified_by: 'SHA esperado de PNG alterado en copia temporal: verificador rechaza; artefactos reales recuperan verde. Dos fixtures deficientes
+      fallaron antes de corregirse.'
+    rollback: Revertir commits locales propios, conservar fuentes y evidencias.
+  F9_6:
+    requirement: Hover de Chile sin cambios aleatorios de altura.
+    owner: viewer_performance
+    output: 'app.ts: texto territorial separado de acción; CSS con reserva flexible.'
+    acceptance: Comparar altura de las 343 etiquetas a 1280 y 390 px; conservar nombres completos y acción de teclado; sin overflow.
+    evidence: Baseline Teno 187,78 vs Quinta de Tilcoco 203,50 px. Final las 343 etiquetas conservan 223,656 px a 1280 y 404,156 px a 390; nombre
+      y región completos.
+    falsified_by: Un nombre que desborde la reserva o una acción que vuelva a la primera fila reabre el criterio.
+    rollback: Restaurar únicamente copy y estilos del status.
+  F9_7:
+    requirement: Definir código H una vez; después usar predios o roles habitacionales.
+    owner: root_and_editorial_inference
+    output: Visor, gráficos estáticos/dinámicos y borradores ES/EN.
+    acceptance: 'Inspección de texto renderizado: una definición del código por página; cifras y claves técnicas preservadas.'
+    evidence: Visor renderizado con una sola mención del código H; artículos con una definición por idioma; componentes, gráficos y método prefieren
+      habitacionales. Cifras y claves técnicas preservadas.
+    falsified_by: Repeticiones públicas de roles/predios H después de la definición o alteraciones de campos técnicos.
+    rollback: Revertir sólo cambios de terminología.
+  F9_8:
+    requirement: Dos mapas con predios habitacionales, unidades vecinales y campamentos para las mayores brechas restantes.
+    owner: materiality_analysis
+    output: Renderer reproducible y PNG de Valparaíso y Puerto Montt; incorporación al anexo del visor.
+    acceptance: Plantilla histórica identificada; fuentes/cortes/hashes documentados; tres capas visibles, escala y ubicación del recorte; sin
+      identificadores.
+    evidence: 'Dos mapas en PNG claro/oscuro, 1800×1350, capas y hashes comprobados. Previews WebP 900/1800 px: móvil ~98 KB frente a PNG 1–1,2
+      MB; carga diferida y sólo variante visible. maps-audit.json y método conservan recortes, faltantes y procedencia.'
+    falsified_by: CUT ajeno al top2 sólo en memoria causa ValueError antes de crear salida; SHA de PNG alterado en copia temporal también rechazado;
+      renderer real y verificador final verdes.
+    rollback: Retirar los dos PNG y su bloque HTML; conservar anexo anterior y fuentes locales.
+TODO_STATE:
+  F9_1: '[x]'
+  F9_2: '[x]'
+  F9_3: '[x]'
+  F9_4: '[x]'
+  F9_5: '[~]'
+  F9_6: '[x]'
+  F9_7: '[x]'
+  F9_8: '[x]'

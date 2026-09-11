@@ -1,5 +1,4 @@
 import "./styles.scss";
-import { showMapCapabilityFallback, supportsWebGL2 } from "./map-capability";
 import { isLocalPreviewLocation } from "./preview";
 
 function onceNearViewport(element: Element, start: () => void, rootMargin: string): void {
@@ -19,16 +18,25 @@ function beginMap(): void {
   const container = document.getElementById("bivariate-map");
   if (!container) return;
   const start = () => {
+    let moduleLoaded = false;
     const status = document.getElementById("bivariate-map-status") ?? document.getElementById("status");
-    if (!supportsWebGL2()) {
-      showMapCapabilityFallback(container, status);
-      return;
-    }
+    container.setAttribute("aria-busy", "true");
+    document.getElementById("bivariate-chile-selector")?.setAttribute("aria-busy", "true");
+    if (status) status.textContent = "Preparando el selector de Chile y los datos comunales…";
     import("./app")
-      .then(({ CatastroMapApplication }) => CatastroMapApplication.start())
+      .then(({ CatastroMapApplication }) => { moduleLoaded = true; return CatastroMapApplication.start(); })
       .then((application) => application.mount())
       .catch(() => {
-        if (status) status.textContent = "La vista agregada sigue disponible; no fue posible iniciar el mapa UV vectorial.";
+        container.setAttribute("aria-busy", "false");
+        document.getElementById("bivariate-chile-selector")?.setAttribute("aria-busy", "false");
+        if (status) {
+          status.replaceChildren(document.createTextNode("No fue posible cargar los datos del mapa. "));
+          const retry = document.createElement("button");
+          retry.type = "button";
+          retry.textContent = moduleLoaded ? "Reintentar" : "Recargar visor";
+          retry.addEventListener("click", () => { if (moduleLoaded) start(); else window.location.reload(); }, { once: true });
+          status.append(retry);
+        }
       });
   };
   const requested = new URLSearchParams(window.location.search);
@@ -37,7 +45,9 @@ function beginMap(): void {
     start();
     return;
   }
-  onceNearViewport(container, start, "320px");
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+  // Start at the selector/card, not the map situated several paragraphs below.
+  onceNearViewport(document.getElementById("bivariate-card") ?? container, start, saveData ? "0px" : "640px");
 }
 
 function beginCoverageTeaser(): void {

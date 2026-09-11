@@ -1,0 +1,170 @@
+{
+  "renderer": "render_camp_annex_maps.py",
+  "canonical_sha256": "e10a9158d19314356998b4d89432451b2756aab74d1460756c98f59f381054e6",
+  "uv_sha256": "083d0aba4584b30dd721a215bc6479d17839081770fde33c28643eb59fe2f017",
+  "cnc_sha256": "5f37e9124e5a84317da2b7469b44dea35b651d372b062d81abf2ae449a49b378",
+  "osm_sha256": "25e164a8d3568cd20233ab71d30216006c44c21ed24d90ea29b23c054472328b",
+  "selection": "top 2 camp_sensitivity_positive_gap; commune totals only",
+  "geometry_provenance": "Supplied mirror polygons associated by coordinates/proximity; not a certified cadastral boundary or a matched census layer.",
+  "raster_size": [
+    1800,
+    1350
+  ],
+  "maps": [
+    {
+      "codigo_comuna": "05101",
+      "comuna": "Valparaíso",
+      "administrative_source": "2026s1_05301_valparaiso_05101.parquet",
+      "source_sha256": "66623d8bffc6b38ecc4bfe8eed7e01e3c75a0827f72e566ee91ae588f14726f0",
+      "residential_roles": 99453,
+      "roles_with_supplied_geometry": 96560,
+      "roles_without_geometry": 2893,
+      "unique_supplied_geometries": 53714,
+      "geometry_association_methods": {
+        "point_in_polygon": 86413,
+        "nearest_10m": 9392,
+        "pse3_geometria": 755
+      },
+      "commune_uv_polygons": 211,
+      "commune_cnc_polygons": 93,
+      "focus_wgs84": [
+        -71.67,
+        -33.095,
+        -71.535,
+        -33.015
+      ],
+      "focus_description": "Ciudad de Valparaíso y cerros",
+      "focus_unique_predial_geometries": 44653,
+      "focus_uv_intersections": 200,
+      "focus_cnc_intersections": 85,
+      "focus_osm_road_features": 11958,
+      "residual_commune": 29961,
+      "no_response_cnc_polygons_commune": 11,
+      "raster_only": true,
+      "invented_geometry": false,
+      "individual_identifiers_exported": false,
+      "spatial_matching_to_census": false,
+      "outputs": [
+        {
+          "file": "annex-valparaiso-05101.png",
+          "sha256": "bf8e9d5e7aab23419d98e8cd155afa53b5c0916a7bbaf6d12037960a228a4081",
+          "bytes": 1232425
+        },
+        {
+          "file": "annex-valparaiso-05101-dark.png",
+          "sha256": "5b5ec2cc80cb2d34a26c9d84139f9b397bf3770a24611356f6825e97d5fbaf73",
+          "bytes": 1219620
+        }
+      ],
+      "previews": [
+        {
+          "file": "annex-valparaiso-05101-900.webp",
+          "width": 900,
+          "height": 675,
+          "bytes": 98104,
+          "sha256": "6f70d46d97f45205bf4741b4bbcbf07560ed28c8bd81deb928b2a01a0320cfb6"
+        },
+        {
+          "file": "annex-valparaiso-05101-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 300882,
+          "sha256": "b6f06b0f2f09cdba7c8fc0c5a46d86cedebfee8c354340a72dd9ad68839d7497"
+        },
+        {
+          "file": "annex-valparaiso-05101-dark-900.webp",
+          "width": 900,
+          "height": 675,
+          "bytes": 98376,
+          "sha256": "c7864600359dff8e8ca7dcd52a4c7a866d5549972e5b94048399a0f8e2464a85"
+        },
+        {
+          "file": "annex-valparaiso-05101-dark-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 296430,
+          "sha256": "cf9a23b6b0fbd788605cb43090c72c376db29d7020953760e93b00b3428d8b53"
+        }
+      ]
+    },
+    {
+      "codigo_comuna": "10101",
+      "comuna": "Puerto Montt",
+      "administrative_source": "2026s1_10301_puerto_montt_10101.parquet",
+      "source_sha256": "969f33e6c8427a10e06ce21d62e399170f756b5d7f86bbddd513ad16d0e4aad9",
+      "residential_roles": 86967,
+      "roles_with_supplied_geometry": 82909,
+      "roles_without_geometry": 4058,
+      "unique_supplied_geometries": 70385,
+      "geometry_association_methods": {
+        "point_in_polygon": 71690,
+        "nearest_10m": 5861,
+        "ah_utm_pip": 2597,
+        "pse3_geometria": 2256,
+        "ah_utm_nearest": 392,
+        "address_inheritance": 113
+      },
+      "commune_uv_polygons": 52,
+      "commune_cnc_polygons": 19,
+      "focus_wgs84": [
+        -73.045,
+        -41.515,
+        -72.84,
+        -41.42
+      ],
+      "focus_description": "Ciudad de Puerto Montt y periferia",
+      "focus_unique_predial_geometries": 52997,
+      "focus_uv_intersections": 34,
+      "focus_cnc_intersections": 18,
+      "focus_osm_road_features": 12065,
+      "residual_commune": 28404,
+      "no_response_cnc_polygons_commune": 2,
+      "raster_only": true,
+      "invented_geometry": false,
+      "individual_identifiers_exported": false,
+      "spatial_matching_to_census": false,
+      "outputs": [
+        {
+          "file": "annex-puerto-montt-10101.png",
+          "sha256": "8737c167e92a5cdcfedb12521aa4285eb76bb29d1973dd6788b41077bb476c4a",
+          "bytes": 1062368
+        },
+        {
+          "file": "annex-puerto-montt-10101-dark.png",
+          "sha256": "edc07b41c75be5e996bbf738af5b98d5ee86853ed851758feba39a3f48bda480",
+          "bytes": 1036364
+        }
+      ],
+      "previews": [
+        {
+          "file": "annex-puerto-montt-10101-900.webp",
+          "width": 900,
+          "height": 675,
+          "bytes": 98448,
+          "sha256": "d4f69b4ac93d7933801882752bb7fe7fd6558cf5870e3aaae06fd136477f8954"
+        },
+        {
+          "file": "annex-puerto-montt-10101-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 282626,
+          "sha256": "b84c96c74ee7a0a1fa00b5d08b2071000b3985673f09e12404c80f5132d8daaf"
+        },
+        {
+          "file": "annex-puerto-montt-10101-dark-900.webp",
+          "width": 900,
+          "height": 675,
+          "bytes": 96784,
+          "sha256": "453aa3eff48fbe655738378184afca2d3c92662b5bd6a7991761b8569e5ad58c"
+        },
+        {
+          "file": "annex-puerto-montt-10101-dark-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 264536,
+          "sha256": "6da3ec54c2df1263aa18d340538112c2d1e33fb3f9b55def7d213cee466d0c95"
+        }
+      ]
+    }
+  ]
+}

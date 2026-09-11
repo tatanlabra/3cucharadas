@@ -35,7 +35,10 @@
   };
   const set = (selector, value) => {
     const element = $(selector);
-    if (element) element.textContent = value;
+    if (!element) return;
+    if (window.CatastroNumbers && element.closest(".metric-chip") && element.tagName === "STRONG") {
+      window.CatastroNumbers.set(element, value);
+    } else element.textContent = value;
   };
   const sharedCode = (code) => String(code).padStart(5, "0");
   /** Código de región (2 dígitos) derivado de cualquier comuna suya, sin duplicar la
@@ -118,11 +121,7 @@
   }
 
   function flashMetrics() {
-    const grid = $(".metric-grid");
-    if (!grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    grid.classList.remove("refresh");
-    void grid.offsetWidth;
-    grid.classList.add("refresh");
+    // Numbers animate independently when visible; avoid flashing the whole grid.
   }
 
   const SCOPE_HINTS = {
@@ -240,7 +239,7 @@
     const integer = (value) => value == null ? "No disponible" : number.format(value);
     const rows = row ? [
       ["Selección", `${row.comuna}, ${row.region}`],
-      ["Predios H", integer(row.predios_habitacionales)],
+      ["Predios habitacionales", integer(row.predios_habitacionales)],
       ["Población Censo 2024", integer(row.poblacion_censo_2024)],
       ["Superficie reportada", surfaceValue(row.superficie_total_m2)],
       ["Avalúo fiscal total", money(row.avaluo_total_clp)]
@@ -352,14 +351,21 @@
   async function boot() {
     try {
       const publishedManifestUrl = window.CATASTRO_MAP_CONFIG?.publishedManifestUrl || "/assets/data/catastro_sii/manifest.json";
+      // Share this page's public commune rows with the optional map bundle.
+      // The bridge lives only until navigation; it never persists source data.
+      const communeRows = fetch("data/comunas.json", { cache: "no-cache" }).then((response) => {
+        if (!response.ok) throw new Error("datos comunales incompletos");
+        return response.json();
+      });
+      window.catastroCommuneRows = communeRows;
       const [manifest, communes, regions, publishedManifest] = await Promise.all([
         fetch("data/manifest.json"),
-        fetch("data/comunas.json"),
+        communeRows,
         fetch("data/regiones.json"),
         fetch(publishedManifestUrl).then((response) => response.ok ? response.json() : null).catch(() => null)
       ]);
-      if (![manifest, communes, regions].every((response) => response.ok)) throw new Error("datos incompletos");
-      state.communes = await communes.json();
+      if (![manifest, regions].every((response) => response.ok)) throw new Error("datos incompletos");
+      state.communes = communes;
       state.regions = await regions.json();
       configurePublishedMaps(publishedManifest);
 

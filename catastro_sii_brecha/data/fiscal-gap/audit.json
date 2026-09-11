@@ -20,9 +20,29 @@
   "census_irrecoverable": {
     "occupied_private": 6408172,
     "type": 46517,
-    "materiality": 32427,
-    "union": 73338,
+    "materiality": 31953,
+    "union": 72642,
+    "previous_union_before_missing_precedence": 73338,
+    "correction": 696,
     "used_in_camp_adjustment": false
+  },
+  "materiality_composition": {
+    "complete": 6403784,
+    "missing": 4388,
+    "material_only_acceptable": 5799969,
+    "acceptable_type_and_materials": 5774146,
+    "non_irrecoverable_complete": 6331142,
+    "linked_to_roles": false,
+    "transferred_composition_validated": false
+  },
+  "assessment": {
+    "valid_roles": 6054808,
+    "missing_roles": 0,
+    "total_clp": 331675400421251,
+    "above_exemption_roles": 1558841,
+    "exemption_2026s1_clp": 60030710,
+    "official_residential_total_clp": 331697870962000,
+    "fiscal_omission_estimated": false
   },
   "api_labels": [
     {
