@@ -176,6 +176,20 @@
   titulo_usado: 'Nushell in three spoonfuls: when does a structured shell actually
     help an agent?'
   publicaciones:
+  - plataforma: mastodon
+    fecha: '2026-09-10'
+    url_publicada: https://mastodon.social/@asiole/117249573006292013
+    url_publicada_en: https://mastodon.social/@asiole/117249573036885120
+    estado: publicado
+    nota: Hilo con raiz en espanol y respuesta en ingles, publicado y verificado por
+      cucharadas-difusion (status published_verified, todas las comprobaciones de texto,
+      idioma, posicion, tarjeta e imagen en verde).
+  - plataforma: bluesky
+    fecha: '2026-09-10'
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mv7cowo6ee2f
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mv7coyvlje2f
+    estado: publicado
+    nota: Mismo hilo; Bluesky usa tarjeta externa, asi que el texto no lleva la URL.
   - plataforma: devto
     fecha: '2026-09-06'
     devto_article_id: 4584688
