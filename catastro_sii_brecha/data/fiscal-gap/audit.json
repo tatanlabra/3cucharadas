@@ -7,6 +7,23 @@
   "difference_mixed_vs_official_clp": 53419052492,
   "mixed_field_zero_count": 4659047,
   "historical_2024s2_roles": 5856068,
+  "camp": {
+    "polygons": 1345,
+    "raw_commune_labels": 192,
+    "canonical_communes": 191,
+    "catalog_households": 82576,
+    "census_households_observed": 71760,
+    "census_count_missing_polygons": 222,
+    "public_geometry_exported": false,
+    "historical_person_survey_used_in_adjustment": false
+  },
+  "census_irrecoverable": {
+    "occupied_private": 6408172,
+    "type": 46517,
+    "materiality": 32427,
+    "union": 73338,
+    "used_in_camp_adjustment": false
+  },
   "api_labels": [
     {
       "conara": 1101,

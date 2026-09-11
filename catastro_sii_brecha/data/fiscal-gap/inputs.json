@@ -1759,6 +1759,19 @@
       "path": "v5_brecha/config/fiscal_sources/sii_destino_2026s1.csv",
       "bytes": 1782,
       "sha256": "503ac600805e597bb6ac46a80b8a1fb0317b2dd260386e6fbc2066239500eb92"
+    },
+    {
+      "path": "CNC_2026.zip",
+      "bytes": 586363,
+      "sha256": "5f37e9124e5a84317da2b7469b44dea35b651d372b062d81abf2ae449a49b378"
+    },
+    {
+      "path": "BBDD_CNC_innominada-.zip",
+      "bytes": 8216400,
+      "sha256": "a174bc942d4a6faa8fa2d8e8d5545c8d0ba8394cd6a8fce8be4a900ee6ecadf6"
     }
-  ]
+  ],
+  "excluded_source_use": {
+    "BBDD_CNC_innominada-.zip": "Registro histórico persona/hogar 2011-2021; auditado por estructura y hash, excluido del ajuste 2026 y de todo producto público."
+  }
 }
