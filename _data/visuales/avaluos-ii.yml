@@ -1,0 +1,17 @@
+# Gráficos del diagnóstico residencial de Avalúos II, derivados de los datos del
+# visor `catastro_sii_brecha/`; todavía no los enlaza ningún post vigente. Sigue el
+# patrón de `catastro-anexo.yml`: un manifiesto sin `posts:` para una carpeta de
+# activos que existe antes que su artículo.
+#
+# Se declara aquí porque V13 exige manifiesto para toda carpeta bajo assets/images/,
+# y sin él `verify_visual_assets.rb --strict` deja `build_site` en rojo y `pages` sin
+# desplegar. El texto alternativo es el `aria-label` que el propio visor ya usa para
+# el gráfico, no una descripción inventada.
+slug: avaluos-ii
+piezas:
+  - {id: gap-top15-es, rol: figura, archivo: assets/images/avaluos-ii/gap-top15-es.png, ancho: 1980, alto: 1530, estado: publicable, origen: datos, alt: {es: "Quince mayores diferencias positivas entre viviendas censadas y roles habitacionales."}}
+  - {id: gap-top15-en, rol: figura, archivo: assets/images/avaluos-ii/gap-top15-en.png, ancho: 1980, alto: 1530, estado: publicable, origen: datos, alt: {en: "Fifteen largest positive gaps between censused dwellings and residential tax roles."}}
+  # Los SVG van sin dimensiones a propósito: `image_dimensions` no lee cabeceras SVG,
+  # así que declararlas produce un aviso V2 de dimensión no verificable.
+  - {id: gap-top15-es-svg, rol: figura, archivo: assets/images/avaluos-ii/gap-top15-es.svg, estado: publicable, origen: datos, alt: {es: "Quince mayores diferencias positivas entre viviendas censadas y roles habitacionales, en vectorial."}}
+  - {id: gap-top15-en-svg, rol: figura, archivo: assets/images/avaluos-ii/gap-top15-en.svg, estado: publicable, origen: datos, alt: {en: "Fifteen largest positive gaps between censused dwellings and residential tax roles, vector version."}}
