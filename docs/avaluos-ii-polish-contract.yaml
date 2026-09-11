@@ -97,8 +97,9 @@ tasks:
     - F9_7
     - F9_8
     acceptance: verify_fiscal_gap.py y validate_build.sh verdes; commits locales revisados; preview 4004 comprobado en host.
-    evidence: verify_fiscal_gap, validación integral, build drafts y artefacto verdes; registro visual 0 avisos; preview 4004 comprobado en host.
-      Resta registrar commits locales.
+    evidence: 'Código local registrado: blog 6986f7dc y análisis b8eeb59; ambos árboles limpios tras commit. Preview HTTP 200 y hashes reales
+      de CSS/app/site-ui coinciden con referencias del HTML. Verificador cruzado, 132 TS, 45 Python con 7 omitidas, 53 analíticas, builds y registro
+      visual verdes.'
     falsified_by: 'SHA esperado de PNG alterado en copia temporal: verificador rechaza; artefactos reales recuperan verde. Dos fixtures deficientes
       fallaron antes de corregirse.'
     rollback: Revertir commits locales propios, conservar fuentes y evidencias.
@@ -136,7 +137,14 @@ TODO_STATE:
   F9_2: '[x]'
   F9_3: '[x]'
   F9_4: '[x]'
-  F9_5: '[~]'
+  F9_5: '[x]'
   F9_6: '[x]'
   F9_7: '[x]'
   F9_8: '[x]'
+closure:
+  date: '2026-09-11'
+  scope: Ajustes locales completos; push y publicación excluidos.
+  remaining_limits:
+  - Neto tributario habitacional sin conciliación; no cuantificar deuda omitida.
+  - Latencia global del mapa base en frío no mejorada de forma demostrada.
+  - Siete pruebas geoespaciales preexistentes omitidas por dependencias del entorno; renderer nuevo sí ejecutado localmente.
