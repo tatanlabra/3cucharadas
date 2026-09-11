@@ -19,7 +19,9 @@ def verify(data: Path):
     if json.loads(frame.to_json(orient='records',force_ascii=False,double_precision=12))!=rows:
         raise ValueError('Parquet/JSON disagreement')
     csv=pd.read_csv(data/'communes.csv',dtype={'codigo_comuna':str,'conara_sources':str})
-    for key in ['dwellings_2024','residential_roles_2026s1','signed_gap','scenario_q1_clp']:
+    for key in ['dwellings_2024','residential_roles_2026s1','signed_gap',
+                'camp_census_households_observed_2024','camp_sensitivity_positive_gap',
+                'irrecoverable_dwellings_2024','scenario_q1_clp']:
         pd.testing.assert_series_equal(frame[key].astype(float),csv[key].astype(float),check_names=False)
     if meta['fiscal_status']!='blocked_components' or meta['monetary_ranking']:
         raise ValueError('No reviewed monetary adapter exists for this release')
@@ -32,11 +34,18 @@ def verify(data: Path):
         if r['source_available']:
             if r['signed_gap']!=r['dwellings_2024']-r['residential_roles_2026s1']:
                 raise ValueError('Arithmetic disagreement')
+            if r['camp_sensitivity_signed_gap'] != r['signed_gap']-r['camp_census_households_observed_2024']:
+                raise ValueError('Camp sensitivity arithmetic disagreement')
+            if r['camp_sensitivity_positive_gap'] != max(r['camp_sensitivity_signed_gap'],0):
+                raise ValueError('Camp sensitivity truncation disagreement')
         elif r['signed_gap'] is not None or r['residential_roles_2026s1'] is not None:
             raise ValueError('Missing source converted to a numeric result')
         if any(r[k] is not None for k in r if k.startswith(('net_','scenario_'))):
             raise ValueError('Unresolved monetary field must remain null')
-    top=sorted([r for r in rows if r['source_available'] and r['signed_gap']>0],key=lambda r:(-r['signed_gap'],r['codigo_comuna'].zfill(5)))[:15]
+    if (meta['camp_polygons_2026'],meta['camp_census_households_observed_2024'],
+        meta['camp_census_count_missing_polygons'],meta['irrecoverable_dwellings_2024']) != (1345,71760,222,73338):
+        raise ValueError('Camp/Census totals drift')
+    top=sorted([r for r in rows if r['source_available'] and r['camp_sensitivity_positive_gap']>0],key=lambda r:(-r['camp_sensitivity_positive_gap'],r['codigo_comuna'].zfill(5)))[:15]
     for lang in ['es','en']:
         markup=(ROOT/'_includes'/f'avaluos-ii-top-{lang}.html').read_text()
         svg=(ROOT/'assets/images/avaluos-ii'/f'gap-top15-{lang}.svg').read_text()
@@ -45,7 +54,7 @@ def verify(data: Path):
             index=markup.index(r['comuna'])
             if index<=previous: raise ValueError('Translated table rank differs')
             previous=index
-            value_label=format(int(r['signed_gap']),',').replace(',','.') if lang=='es' else format(int(r['signed_gap']),',')
+            value_label=format(int(r['camp_sensitivity_positive_gap']),',').replace(',','.') if lang=='es' else format(int(r['camp_sensitivity_positive_gap']),',')
             if r['comuna'] not in svg or value_label not in svg:
                 raise ValueError('Figure missing canonical label/value')
     page=(ROOT/'catastro_sii_brecha/index.html').read_text()
@@ -53,7 +62,7 @@ def verify(data: Path):
         raise ValueError('Viewer missing unique section or complete fallback table')
     dictionary=json.loads((data/'dictionary.json').read_text())
     if set(dictionary['columns'])!=set(frame.columns): raise ValueError('Dictionary drift')
-    print('PASS: 346 rows; Parquet/JSON/CSV; blocked fiscal fields; ES/EN figures and tables; one viewer')
+    print('PASS: 346 rows; camp sensitivity/materiality; Parquet/JSON/CSV; blocked fiscal fields; ES/EN figures and tables; one viewer')
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--data',type=Path,default=ROOT/'catastro_sii_brecha/data/fiscal-gap')

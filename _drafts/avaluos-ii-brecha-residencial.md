@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Avalúos II: ¿cuánto podría representar la brecha residencial en contribuciones?"
-subtitle: "Las comunas con mayor diferencia entre viviendas censadas y roles habitacionales, y la evidencia que falta para ponerle pesos"
+subtitle: "Qué parte cambia al descontar hogares censados en campamentos y qué evidencia falta para ponerle pesos"
 date: 2026-09-09 20:00:00 -0400
 categories: [datos, territorio]
 tags: [catastro-sii, censo-2024, contribuciones, datos-abiertos, desigualdad]
@@ -11,8 +11,8 @@ ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
 published: false
 editorial_status: pendiente-conciliacion-fiscal
-description: "Diagnóstico comunal Censo 2024–SII 2026S1 y diseño de escenarios de contribuciones. La diferencia física no identifica impuestos omitidos."
-excerpt: "Una diferencia de registros puede señalar un problema. Para convertirla en pesos hay que demostrar qué representa y qué impuesto corresponde."
+description: "Diagnóstico comunal Censo 2024–SII 2026S1 con sensibilidad por campamentos. La diferencia física no identifica impuestos omitidos."
+excerpt: "Los campamentos explican una parte desigual de la brecha residencial; aun después del ajuste quedan diferencias que requieren investigación."
 header:
   teaser: /assets/images/avaluos-ii/gap-top15-es.png
 math: true
@@ -21,7 +21,7 @@ toc_sticky: true
 comments: true
 ---
 
-**Borrador de investigación: el ranking monetario sigue pendiente de conciliación.** El gráfico disponible ordena diferencias físicas. No muestra recaudación perdida ni identifica negligencia del SII.
+**Borrador de investigación: el ranking monetario sigue pendiente de conciliación.** El gráfico compara la brecha original con una sensibilidad que descuenta hogares censados en campamentos. Ninguna barra muestra recaudación perdida ni identifica negligencia del SII.
 {: .notice--warning}
 
 En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/) cambiábamos el denominador para examinar cómo cambia la lectura territorial. Aquí la pregunta es más incómoda: cuando una comuna tiene más viviendas censadas que roles habitacionales, ¿qué parte de esa diferencia podría tener consecuencias tributarias?
@@ -34,11 +34,31 @@ Comparo todas las viviendas particulares del **Censo 2024**, ocupadas y desocupa
 
 Una vivienda es una unidad del censo. Un rol es una identificación catastral de un bien raíz. Un hogar es un grupo de personas. Un edificio puede contener muchas viviendas; un predio rural de destino agrícola puede contener viviendas que no aparecen al filtrar exclusivamente destino H. Las subdivisiones y los roles matrices agregan otras diferencias. Por eso **viviendas menos roles H** es un diagnóstico de compatibilidad entre registros, no un conteo de viviendas sin rol.
 
-![Quince comunas con mayor diferencia positiva entre viviendas particulares censadas y roles H; diagnóstico físico, no fiscal.](/assets/images/avaluos-ii/gap-top15-es.svg)
+![Quince comunas con mayor brecha residual; cada comuna compara la diferencia original con el resultado de descontar hogares censados en campamentos.](/assets/images/avaluos-ii/gap-top15-es.svg)
 
 {% include avaluos-ii-top-es.html %}
 
-Orden descendente de diferencias positivas, desempate por CUT. Las barras comienzan en cero. Antártica y Trehuaco carecen de extracto en este conjunto y quedan fuera del ranking; permanecen como faltantes en la tabla completa. Una brecha negativa también se conserva: no prueba que todos los inmuebles estén correctamente registrados.
+Orden descendente del residuo positivo después de la sensibilidad, desempate por CUT. Las barras comienzan en cero. Antártica y Trehuaco carecen de extracto en este conjunto y quedan fuera del ranking; permanecen como faltantes en la tabla completa. Una brecha negativa también se conserva: no prueba que todos los inmuebles estén correctamente registrados.
+
+## Campamentos: cuánto cambia y cuánto no
+
+El [MINVU cruzó geográficamente su catastro con el Censo 2024](https://centrodeestudios.minvu.gob.cl/repositorio/categoria/vivienda-y-deficit/). En la foto de 2024 identificó 1.373 campamentos con viviendas ocupadas, 81.993 viviendas y 77.399 hogares. La capa CNC 2026 que acompaña este análisis contiene 1.345 polígonos vigentes y un campo `HOGARESCEN`: suma 71.760 hogares en los polígonos con dato; 222 polígonos permanecen como `S/I` o vacíos.
+
+La sensibilidad resta esos hogares observados a la brecha comunal bajo una hipótesis fuerte: **un hogar censado en campamento explica una vivienda que no requiere un rol H separado**. No es un enlace vivienda–predio–rol ni una corrección observada. En las comunas con polígonos sin conteo, descuenta sólo lo conocido y marca el resultado como parcial.
+
+| Comuna | Brecha original | Hogares Censo en campamentos observados | Residuo de sensibilidad | Parte absorbida |
+|---|---:|---:|---:|---:|
+| Alto Hospicio | 15.368 | 9.136 | 6.232 | 59,4% |
+| Antofagasta | 21.755 | 7.537 | 14.218 | 34,6% |
+| Viña del Mar | 24.030 | 8.014 | 16.016 | 33,3% |
+| Valparaíso | 32.533 | 2.572 | 29.961 | 7,9% |
+| Puerto Montt | 29.036 | 632 | 28.404 | 2,2% |
+
+A escala nacional, la suma de brechas positivas baja de 1.588.449 a 1.516.689: una reducción de 71.760 unidades, o 4,52%. El contraste es informativo precisamente porque no produce el mismo relato en todas partes: los campamentos alteran mucho algunas posiciones, pero explican poco de varias brechas líderes.
+
+El Censo también permite identificar viviendas irrecuperables por tipo o materialidad. Aplicando el algoritmo oficial a viviendas particulares ocupadas con moradores presentes aparecen 73.338. No las resto: materialidad precaria no prueba tenencia irregular ni ausencia de rol, y parte de esas viviendas ya puede estar dentro de los polígonos de campamentos. Sumarlas duplicaría casos sin conocer su superposición.
+
+La base innominada histórica de campamentos tampoco entra al descuento. Contiene observaciones de personas y hogares asociadas a levantamientos 2011–2021, incluidos hogares que pueden haber salido del registro vigente. Usarla como stock 2026 mezclaría períodos y unidades; sus filas individuales no se publican.
 
 El [INE define el universo censal](https://censo2024.ine.gob.cl/resultados/) y el [SII clasifica los bienes raíces por destino](https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html). Entre ambas fechas pueden existir nuevas construcciones, cambios de destino y actualizaciones administrativas. Este contraste no mide crecimiento entre 2024 y 2026: sus unidades tampoco son iguales.
 
@@ -75,6 +95,8 @@ No basta cambiar el nombre de la columna, aplicar una tasa al avalúo promedio o
 | Error censal o cartográfico | Evidencia independiente que contradiga conteo, localización o clasificación censal |
 
 Estas hipótesis tienen condiciones de descarte. La explicación de rezago pierde fuerza si el rol ya existía o si no había una obligación exigible. La explicación de error del espejo se debilita si un extracto íntegro concilia con el SII. La diferencia de unidades se debilita cuando un enlace individual valida una correspondencia uno a uno. Ninguna de esas verificaciones está contenida en la resta comunal.
+
+«Campamento» tampoco significa «predio que el SII jamás tendrá». La [Ley 17.235](https://www.bcn.cl/leychile/navegar?i=128563) aplica el impuesto a bienes raíces y el rol identifica un predio; una ocupación puede estar dentro de un rol matriz. Además, el [artículo 16 de la Ley 20.234](https://www.bcn.cl/leychile/Navegar/imprimir?idNorma=268116&idParte=0) ordena asignar rol y avalúo separado a cada sitio de ciertos loteos irregulares una vez regularizados, recibidas las obras y otorgadas las escrituras. La informalidad actual no permite deducir ausencia catastral permanente ni obligación tributaria actual.
 
 La revisión encontró un ejemplo concreto de error de homologación: el espejo intercambiaba nombres asociados a los códigos de Coyhaique, Aysén y Chile Chico. Se corrigieron el cruce y sus indicadores; la [errata conserva los valores anteriores y corregidos](/catastro_sii_brecha/data/fiscal-gap/method.md). Corregir ese error cambia la lectura territorial sin descubrir una sola deuda tributaria.
 

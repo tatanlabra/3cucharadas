@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Property assessments II: what could the residential gap represent in property taxes?"
-subtitle: "Chile's largest differences between census dwellings and residential cadastral records, and the evidence needed to price them"
+subtitle: "How much changes after discounting households counted in informal settlements, and the evidence needed to price the remainder"
 date: 2026-09-09 20:00:00 -0400
 categories: [datos, territorio]
 tags: [catastro-sii, census-2024, property-tax, open-data, inequality]
@@ -11,8 +11,8 @@ ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
 published: false
 editorial_status: pending-tax-reconciliation
-description: "A commune-level comparison of Chile's 2024 Census and 2026 first-half cadastral data. Physical differences do not identify unpaid taxes."
-excerpt: "A difference between registers can flag a problem. Converting it into money requires evidence about the units and the tax obligation."
+description: "A commune-level comparison of Chile's 2024 Census and 2026 first-half cadastral data, with an informal-settlement sensitivity."
+excerpt: "Informal settlements explain an uneven part of the residential gap; substantial differences remain and require investigation."
 header:
   teaser: /assets/images/avaluos-ii/gap-top15-en.png
 math: true
@@ -21,7 +21,7 @@ toc_sticky: true
 comments: true
 ---
 
-**Research draft: the monetary ranking remains pending reconciliation.** The available chart ranks physical differences. It does not show lost revenue or establish negligence by Chile's tax authority.
+**Research draft: the monetary ranking remains pending reconciliation.** The chart compares the original gap with a sensitivity that subtracts census households in informal settlements. Neither bar shows lost revenue or establishes negligence by Chile's tax authority.
 {: .notice--warning}
 
 The [first property-assessment post](/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/) examined how changing a denominator changes the territorial story. This follow-up asks a harder question: when a commune has more census dwellings than residential cadastral records, how much of that difference might matter for property taxation?
@@ -36,11 +36,31 @@ SII is Chile's tax authority. A *rol* is a cadastral identifier for a property; 
 
 Thus, **dwellings minus H records** diagnoses compatibility between two registers. It does not count homes without a cadastral identifier.
 
-![Fifteen communes with the largest positive difference between private census dwellings and H records; physical diagnostic, not a tax ranking.](/assets/images/avaluos-ii/gap-top15-en.svg)
+![Fifteen communes with the largest residual gap; each commune compares the original difference with the result after subtracting census households in informal settlements.](/assets/images/avaluos-ii/gap-top15-en.svg)
 
 {% include avaluos-ii-top-en.html %}
 
-Positive differences are sorted descending, with CUT as the tie-break. Bars start at zero. Antártica and Trehuaco have no source extract in this dataset and are excluded from this ranking; they remain explicitly missing in the complete table. Negative differences are retained too: they do not demonstrate that every property is correctly recorded.
+Positive residuals after the sensitivity are sorted descending, with CUT as the tie-break. Bars start at zero. Antártica and Trehuaco have no source extract in this dataset and are excluded from this ranking; they remain explicitly missing in the complete table. Negative differences are retained too: they do not demonstrate that every property is correctly recorded.
+
+## Informal settlements: what changes and what does not
+
+[MINVU spatially linked its registry to the 2024 Census](https://centrodeestudios.minvu.gob.cl/repositorio/categoria/vivienda-y-deficit/). In the 2024 snapshot it identified 1,373 settlements containing occupied dwellings, 81,993 dwellings and 77,399 households. The CNC 2026 layer used here contains 1,345 current polygons and a `HOGARESCEN` field: its numeric observations sum to 71,760 households, while 222 polygons are marked `S/I` or blank.
+
+The sensitivity subtracts those observed households from each commune's gap under a strong assumption: **one census household in a settlement explains one dwelling that need not have a separate H record**. This is neither a dwelling-to-property linkage nor an observed correction. Where polygons lack a count, the calculation subtracts only known observations and labels the result partial.
+
+| Commune | Original gap | Observed census households in settlements | Sensitivity residual | Share absorbed |
+|---|---:|---:|---:|---:|
+| Alto Hospicio | 15,368 | 9,136 | 6,232 | 59.4% |
+| Antofagasta | 21,755 | 7,537 | 14,218 | 34.6% |
+| Viña del Mar | 24,030 | 8,014 | 16,016 | 33.3% |
+| Valparaíso | 32,533 | 2,572 | 29,961 | 7.9% |
+| Puerto Montt | 29,036 | 632 | 28,404 | 2.2% |
+
+Nationally, the sum of positive gaps falls from 1,588,449 to 1,516,689: 71,760 units, or 4.52%. The uneven effect is the central finding: settlements materially change some ranks but explain little of several leading gaps.
+
+The Census also identifies dwellings considered irrecoverable because of type or materials. Applying the official algorithm to occupied private dwellings with residents yields 73,338. I do not subtract them: precarious materials do not establish irregular land tenure or absence of a cadastral record, and some dwellings may already fall inside the settlement polygons. Adding them would double-count an unknown overlap.
+
+The historical anonymised settlement database is excluded too. It contains person and household observations associated with 2011–2021 surveys, including households that may have left the current registry. Treating it as a 2026 stock would mix periods and units; no individual row is published.
 
 The [INE defines the census universe](https://censo2024.ine.gob.cl/resultados/), while the [SII classifies properties by destination](https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html). Construction, classification and administrative updates may change between the two dates. This is not a measure of growth from 2024 to 2026, because the units also differ.
 
@@ -77,6 +97,8 @@ Renaming the column, taxing an average assessment or scaling the values to match
 | Census or mapping error | Independent evidence contradicting the census count, location or classification |
 
 Each explanation has a possible rejection condition. The delay hypothesis weakens if the record already existed or no tax was due. The mirror-error hypothesis weakens if an independently reconciled official extract confirms the observation. Unit mismatch weakens when an individual linkage establishes a one-to-one correspondence. None of those checks is accomplished by the commune-level subtraction.
+
+“Informal settlement” also does not mean “property the SII will never record.” [Law 17,235](https://www.bcn.cl/leychile/navegar?i=128563) taxes real property, and a cadastral identifier refers to a property rather than each dwelling; an occupation may lie within an existing parent property. Moreover, [article 16 of Law 20,234](https://www.bcn.cl/leychile/Navegar/imprimir?idNorma=268116&idParte=0) requires separate identifiers and assessments for sites in certain irregular subdivisions once they are regularised, works are accepted and deeds granted. Current informality does not establish permanent cadastral absence or a current tax obligation.
 
 The audit found a concrete crosswalk error: the mirror's names were interchanged for codes belonging to Coyhaique, Aysén and Chile Chico. The corrected mapping updates dependent indicators; the [erratum preserves the previous and corrected values](/catastro_sii_brecha/data/fiscal-gap/method.md). Fixing that error changes the territorial story without identifying a single unpaid tax bill.
 

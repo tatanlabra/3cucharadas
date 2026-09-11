@@ -1,347 +1,347 @@
-codigo_comuna,comuna,region,conara_sources,source_available,dwellings_2024,vacant_2024,households_2024,residential_roles_2026s1,signed_gap,coverage_pct,historical_conara_sources,historical_source_available,residential_roles_2024s2,gap_2024s2,roles_without_coordinates,parent_references,net_mean_annual_clp,net_median_annual_clp,net_positive_share,net_positive_mean_annual_clp,net_positive_median_annual_clp,scenario_q0_clp,scenario_q025_clp,scenario_q05_clp,scenario_q1_clp,fiscal_status
-10101,Puerto Montt,Los Lagos,10301,True,116003,12431,100163,86967,29036,74.96961285483997,10301,True,82438,33565,7040,0,,,,,,,,,,blocked_components
-10102,Calbuco,Los Lagos,10309,True,15935,2121,13410,4694,11241,29.45716975211798,10309,True,4316,11619,990,0,,,,,,,,,,blocked_components
-10103,Cochamó,Los Lagos,10302,True,3059,1151,1887,441,2618,14.416475972540045,10302,True,413,2646,201,0,,,,,,,,,,blocked_components
-10104,Fresia,Los Lagos,10304,True,6285,1035,4853,3274,3011,52.09228321400159,10304,True,3219,3066,1064,0,,,,,,,,,,blocked_components
-10105,Frutillar,Los Lagos,10305,True,10299,1575,8159,7007,3292,68.03573162442956,10305,True,6078,4221,1324,0,,,,,,,,,,blocked_components
-10106,Los Muermos,Los Lagos,10308,True,8696,1571,6657,3205,5491,36.85602575896964,10308,True,3115,5581,694,0,,,,,,,,,,blocked_components
-10107,Llanquihue,Los Lagos,10306,True,6957,552,6206,4983,1974,71.6257007330746,10306,True,4708,2249,626,0,,,,,,,,,,blocked_components
-10108,Maullín,Los Lagos,10307,True,7554,1348,5960,3013,4541,39.88615303150649,10307,True,2910,4644,535,0,,,,,,,,,,blocked_components
-10109,Puerto Varas,Los Lagos,10303,True,25190,3928,19108,16454,8736,65.31957125843589,10303,True,15165,10025,1142,0,,,,,,,,,,blocked_components
-10201,Castro,Los Lagos,10401,True,21172,2066,17911,13268,7904,62.667674286793876,10401,True,12488,8684,1207,0,,,,,,,,,,blocked_components
-10202,Ancud,Los Lagos,10406,True,19842,2937,15668,11768,8074,59.30853744582199,10406,True,11388,8454,2166,0,,,,,,,,,,blocked_components
-10203,Chonchi,Los Lagos,10402,True,8286,1610,6355,2709,5577,32.69370021723389,10402,True,2480,5806,539,0,,,,,,,,,,blocked_components
-10204,Curaco de Vélez,Los Lagos,10410,True,1915,417,1423,669,1246,34.93472584856397,10410,True,641,1274,258,0,,,,,,,,,,blocked_components
-10205,Dalcahue,Los Lagos,10408,True,7222,1354,5610,2777,4445,38.45195236776516,10408,True,2674,4548,1372,0,,,,,,,,,,blocked_components
-10206,Puqueldón,Los Lagos,10405,True,2091,510,1556,459,1632,21.951219512195124,10405,True,436,1655,16,0,,,,,,,,,,blocked_components
-10207,Queilén,Los Lagos,10403,True,3139,837,2237,1256,1883,40.01274291175534,10403,True,1052,2087,310,0,,,,,,,,,,blocked_components
-10208,Quellón,Los Lagos,10404,True,13470,1991,10859,5268,8202,39.10913140311804,10404,True,5111,8359,1511,0,,,,,,,,,,blocked_components
-10209,Quemchi,Los Lagos,10407,True,4650,1193,3373,985,3665,21.182795698924732,10407,True,934,3716,247,0,,,,,,,,,,blocked_components
-10210,Quinchao,Los Lagos,10415,True,4148,995,3011,1272,2876,30.665380906460946,10415,True,1236,2912,658,0,,,,,,,,,,blocked_components
-10301,Osorno,Los Lagos,10201,True,68725,3898,62545,55834,12891,81.24263368497635,10201,True,53722,15003,4298,0,,,,,,,,,,blocked_components
-10302,Puerto Octay,Los Lagos,10203,True,5289,1751,3349,1674,3615,31.650595575723198,10203,True,1435,3854,668,0,,,,,,,,,,blocked_components
-10303,Purranque,Los Lagos,10206,True,8704,950,7304,5305,3399,60.94898897058823,10206,True,5073,3631,725,0,,,,,,,,,,blocked_components
-10304,Puyehue,Los Lagos,10204,True,5982,1306,4404,2582,3400,43.162821798729524,10204,True,2440,3542,630,0,,,,,,,,,,blocked_components
-10305,Río Negro,Los Lagos,10205,True,6488,829,5269,3261,3227,50.262022194821206,10205,True,3191,3297,1380,0,,,,,,,,,,blocked_components
-10306,San Juan de la Costa,Los Lagos,10207,True,6794,3269,3340,1187,5607,17.47129820429791,10207,True,1148,5646,381,0,,,,,,,,,,blocked_components
-10307,San Pablo,Los Lagos,10202,True,5130,889,4192,2375,2755,46.2962962962963,10202,True,2324,2806,875,0,,,,,,,,,,blocked_components
-10401,Chaitén,Los Lagos,10501,True,2557,753,1676,1219,1338,47.6730543605788,10501,True,1183,1374,500,0,,,,,,,,,,blocked_components
-10402,Futaleufú,Los Lagos,10503,True,1790,452,1333,671,1119,37.486033519553075,10503,True,610,1180,99,0,,,,,,,,,,blocked_components
-10403,Hualaihué,Los Lagos,10502,True,5214,1113,3709,1387,3827,26.60145761411584,10502,True,1293,3921,212,0,,,,,,,,,,blocked_components
-10404,Palena,Los Lagos,10504,True,1308,421,868,455,853,34.78593272171254,10504,True,437,871,39,0,,,,,,,,,,blocked_components
-1101,Iquique,Tarapacá,01201,True,75326,6563,69800,55511,19815,73.69434192709025,01201,True,54367,20959,1049,0,,,,,,,,,,blocked_components
-1107,Alto Hospicio,Tarapacá,01211,True,46558,2827,42150,31190,15368,66.99170926586194,01211,True,30149,16409,813,0,,,,,,,,,,blocked_components
-11101,Coyhaique,Aysén del General Carlos Ibáñez del Campo,11401,True,27953,4447,22423,19704,8249,70.48975065288163,11401,True,18970,8983,573,0,,,,,,,,,,blocked_components
-11102,Lago Verde,Aysén del General Carlos Ibáñez del Campo,11402,True,721,310,373,285,436,39.528432732316226,11402,True,263,458,42,0,,,,,,,,,,blocked_components
-11201,Aysén,Aysén del General Carlos Ibáñez del Campo,11101,True,11036,1209,9057,8133,2903,73.69517941283074,11101,True,7769,3267,6753,0,,,,,,,,,,blocked_components
-11202,Cisnes,Aysén del General Carlos Ibáñez del Campo,11102,True,3434,900,2180,1817,1617,52.9120559114735,11102,True,1797,1637,672,0,,,,,,,,,,blocked_components
-11203,Guaitecas,Aysén del General Carlos Ibáñez del Campo,11104,True,813,208,606,327,486,40.22140221402214,11104,True,319,494,19,0,,,,,,,,,,blocked_components
-11301,Cochrane,Aysén del General Carlos Ibáñez del Campo,11301,True,2119,598,1462,1191,928,56.2057574327513,11301,True,1130,989,160,0,,,,,,,,,,blocked_components
-11302,O'Higgins,Aysén del General Carlos Ibáñez del Campo,11302,True,403,107,292,195,208,48.38709677419355,11302,True,197,206,4,0,,,,,,,,,,blocked_components
-11303,Tortel,Aysén del General Carlos Ibáñez del Campo,11303,True,392,148,231,133,259,33.92857142857143,11303,True,132,260,130,0,,,,,,,,,,blocked_components
-11401,Chile Chico,Aysén del General Carlos Ibáñez del Campo,11201,True,3103,739,2109,1819,1284,58.62068965517241,11201,True,1783,1320,195,0,,,,,,,,,,blocked_components
-11402,Río Ibáñez,Aysén del General Carlos Ibáñez del Campo,11203,True,2234,932,1231,980,1254,43.86750223813787,11203,True,933,1301,508,0,,,,,,,,,,blocked_components
-12101,Punta Arenas,Magallanes y de la Antártica Chilena,12205,True,59126,6135,49571,47390,11736,80.15086425599567,12205,True,46223,12903,5235,0,,,,,,,,,,blocked_components
-12102,Laguna Blanca,Magallanes y de la Antártica Chilena,12206,True,287,185,98,50,237,17.421602787456447,12206,True,49,238,50,0,,,,,,,,,,blocked_components
-12103,Río Verde,Magallanes y de la Antártica Chilena,12202,True,188,124,63,1,187,0.5319148936170213,12202,True,1,187,1,0,,,,,,,,,,blocked_components
-12104,San Gregorio,Magallanes y de la Antártica Chilena,12204,True,441,327,110,118,323,26.75736961451247,12204,True,117,324,118,0,,,,,,,,,,blocked_components
-12201,Cabo de Hornos,Magallanes y de la Antártica Chilena,12401,True,775,156,617,404,371,52.12903225806452,12401,True,404,371,11,0,,,,,,,,,,blocked_components
-12202,Antártica,Magallanes y de la Antártica Chilena,,False,0,0,0,,,,,False,,,,,,,,,,,,,,missing_source
-12301,Porvenir,Magallanes y de la Antártica Chilena,12301,True,3540,717,2770,2017,1523,56.9774011299435,12301,True,1869,1671,185,0,,,,,,,,,,blocked_components
-12302,Primavera,Magallanes y de la Antártica Chilena,12302,True,414,235,181,65,349,15.70048309178744,12302,True,65,349,60,0,,,,,,,,,,blocked_components
-12303,Timaukel,Magallanes y de la Antártica Chilena,12304,True,213,148,62,13,200,6.103286384976526,12304,True,13,200,13,0,,,,,,,,,,blocked_components
-12401,Natales,Magallanes y de la Antártica Chilena,12101,True,11205,1132,9490,8796,2409,78.50066934404283,12101,True,8522,2683,6758,0,,,,,,,,,,blocked_components
-12402,Torres del Paine,Magallanes y de la Antártica Chilena,12103,True,303,203,100,23,280,7.590759075907591,12103,True,24,279,6,0,,,,,,,,,,blocked_components
-13101,Santiago,Metropolitana de Santiago,"13101,13134,13135",True,239172,25131,206458,219706,19466,91.86108741825966,"13101,13134,13135",True,209651,29521,37,0,,,,,,,,,,blocked_components
-13102,Cerrillos,Metropolitana de Santiago,14166,True,31635,2059,28186,28135,3500,88.93630472577841,14166,True,25767,5868,1000,0,,,,,,,,,,blocked_components
-13103,Cerro Navia,Metropolitana de Santiago,14156,True,40081,561,41864,30699,9382,76.59240038921185,14156,True,29957,10124,0,0,,,,,,,,,,blocked_components
-13104,Conchalí,Metropolitana de Santiago,14127,True,38815,1101,40727,32219,6596,83.00656962514492,14127,True,32025,6790,812,0,,,,,,,,,,blocked_components
-13105,El Bosque,Metropolitana de Santiago,16165,True,50329,1193,50233,42543,7786,84.52979395577103,16165,True,42364,7965,1287,0,,,,,,,,,,blocked_components
-13106,Estación Central,Metropolitana de Santiago,14157,True,75992,7003,67722,70314,5678,92.5281608590378,14157,True,68036,7956,2407,0,,,,,,,,,,blocked_components
-13107,Huechuraba,Metropolitana de Santiago,14158,True,31097,782,31965,28411,2686,91.36251085313695,14158,True,27617,3480,0,0,,,,,,,,,,blocked_components
-13108,Independencia,Metropolitana de Santiago,13167,True,50308,4426,45411,43742,6566,86.94839786912618,13167,True,40758,9550,553,0,,,,,,,,,,blocked_components
-13109,La Cisterna,Metropolitana de Santiago,16110,True,41580,3138,38042,42308,-728,101.75084175084174,16110,True,39802,1778,237,0,,,,,,,,,,blocked_components
-13110,La Florida,Metropolitana de Santiago,15128,True,143584,8927,133631,140184,3400,97.63204813906842,15128,True,133848,9736,332,0,,,,,,,,,,blocked_components
-13111,La Granja,Metropolitana de Santiago,16131,True,36686,607,37118,29929,6757,81.58152973886496,16131,True,29653,7033,2507,0,,,,,,,,,,blocked_components
-13112,La Pintana,Metropolitana de Santiago,16154,True,53011,922,53951,48826,4185,92.1054120842844,16154,True,48459,4552,1376,0,,,,,,,,,,blocked_components
-13113,La Reina,Metropolitana de Santiago,15132,True,31596,1044,30574,30064,1532,95.15128497278137,15132,True,30004,1592,2,0,,,,,,,,,,blocked_components
-13114,Las Condes,Metropolitana de Santiago,15108,True,128937,7674,116176,128395,542,99.57963966898564,15108,True,126885,2052,80,0,,,,,,,,,,blocked_components
-13115,Lo Barnechea,Metropolitana de Santiago,15161,True,36370,2835,32458,33957,2413,93.36541105306571,15161,True,33488,2882,9,0,,,,,,,,,,blocked_components
-13116,Lo Espejo,Metropolitana de Santiago,16164,True,27346,697,27387,23026,4320,84.20244277042346,16164,True,23026,4320,408,0,,,,,,,,,,blocked_components
-13117,Lo Prado,Metropolitana de Santiago,14155,True,31002,788,31862,24089,6913,77.70143861686343,14155,True,23963,7039,2237,0,,,,,,,,,,blocked_components
-13118,Macul,Metropolitana de Santiago,15151,True,50694,2063,47555,49150,1544,96.95427466761352,15151,True,46213,4481,791,0,,,,,,,,,,blocked_components
-13119,Maipú,Metropolitana de Santiago,14109,True,169332,3485,167383,161167,8165,95.17811163867432,14109,True,160689,8643,366,0,,,,,,,,,,blocked_components
-13120,Ñuñoa,Metropolitana de Santiago,15105,True,121424,8046,108555,127740,-6316,105.20160758993279,15105,True,118607,2817,3693,0,,,,,,,,,,blocked_components
-13121,Pedro Aguirre Cerda,Metropolitana de Santiago,16162,True,31027,674,32328,26581,4446,85.67054500918555,16162,True,26582,4445,495,0,,,,,,,,,,blocked_components
-13122,Peñalolén,Metropolitana de Santiago,15152,True,75487,1397,76078,62545,12942,82.85532608263675,15152,True,61577,13910,56,0,,,,,,,,,,blocked_components
-13123,Providencia,Metropolitana de Santiago,15103,True,76376,6269,69157,75458,918,98.79805174400335,15103,True,74668,1708,2,0,,,,,,,,,,blocked_components
-13124,Pudahuel,Metropolitana de Santiago,14111,True,73700,1432,74144,64790,8910,87.91044776119404,14111,True,64293,9407,2396,0,,,,,,,,,,blocked_components
-13125,Quilicura,Metropolitana de Santiago,14114,True,66986,2021,65059,65154,1832,97.26510017018481,14114,True,64375,2611,196,0,,,,,,,,,,blocked_components
-13126,Quinta Normal,Metropolitana de Santiago,14107,True,46784,1776,45700,38307,8477,81.88055745554036,14107,True,37269,9515,139,0,,,,,,,,,,blocked_components
-13127,Recoleta,Metropolitana de Santiago,13159,True,55851,2465,55579,40340,15511,72.22789206997189,13159,True,40037,15814,10,0,,,,,,,,,,blocked_components
-13128,Renca,Metropolitana de Santiago,14113,True,46449,1257,46397,41881,4568,90.16555792374432,14113,True,41407,5042,117,0,,,,,,,,,,blocked_components
-13129,San Joaquín,Metropolitana de Santiago,16163,True,33840,1273,33461,31123,2717,91.97104018912529,16163,True,29939,3901,2632,0,,,,,,,,,,blocked_components
-13130,San Miguel,Metropolitana de Santiago,16106,True,65777,3511,60243,63793,1984,96.98374811864329,16106,True,62565,3212,1289,0,,,,,,,,,,blocked_components
-13131,San Ramón,Metropolitana de Santiago,16153,True,23812,608,24963,19227,4585,80.74500251973795,16153,True,19137,4675,1688,0,,,,,,,,,,blocked_components
-13132,Vitacura,Metropolitana de Santiago,15160,True,34523,1865,31114,35280,-757,102.19274107116995,15160,True,34479,44,0,0,,,,,,,,,,blocked_components
-13201,Puente Alto,Metropolitana de Santiago,16301,True,190304,4440,182855,181048,9256,95.13620312762737,16301,True,178436,11868,696,0,,,,,,,,,,blocked_components
-13202,Pirque,Metropolitana de Santiago,16302,True,10181,504,9183,5282,4899,51.88095471957568,16302,True,5090,5091,250,0,,,,,,,,,,blocked_components
-13203,San José de Maipo,Metropolitana de Santiago,16303,True,8017,1251,6368,4570,3447,57.00386678308594,16303,True,4071,3946,324,0,,,,,,,,,,blocked_components
-13301,Colina,Metropolitana de Santiago,14201,True,54763,2485,50926,48335,6428,88.26214780052226,14201,True,45390,9373,328,0,,,,,,,,,,blocked_components
-13302,Lampa,Metropolitana de Santiago,14202,True,50270,3118,45445,35082,15188,69.78714939327631,14202,True,32516,17754,431,0,,,,,,,,,,blocked_components
-13303,Tiltil,Metropolitana de Santiago,14203,True,8229,1219,6585,4422,3807,53.736784542471746,14203,True,4224,4005,308,0,,,,,,,,,,blocked_components
-13401,San Bernardo,Metropolitana de Santiago,16401,True,102205,2918,98580,92672,9533,90.67266767770657,16401,True,90668,11537,2046,0,,,,,,,,,,blocked_components
-13402,Buin,Metropolitana de Santiago,16403,True,42438,2661,37620,34675,7763,81.70743201847401,16403,True,33851,8587,125,0,,,,,,,,,,blocked_components
-13403,Calera de Tango,Metropolitana de Santiago,16402,True,8399,259,7852,5492,2907,65.38873675437551,16402,True,5337,3062,9,0,,,,,,,,,,blocked_components
-13404,Paine,Metropolitana de Santiago,16404,True,30796,3162,25871,17500,13296,56.8255617612677,16404,True,16771,14025,115,0,,,,,,,,,,blocked_components
-13501,Melipilla,Metropolitana de Santiago,14601,True,52214,4616,46457,35643,16571,68.26330103037499,14601,True,33975,18239,3548,0,,,,,,,,,,blocked_components
-13502,Alhué,Metropolitana de Santiago,14605,True,3311,524,2770,1235,2076,37.29990939293265,14605,True,1212,2099,325,0,,,,,,,,,,blocked_components
-13503,Curacaví,Metropolitana de Santiago,14603,True,14218,1526,12001,8691,5527,61.126740751160504,14603,True,8486,5732,60,0,,,,,,,,,,blocked_components
-13504,María Pinto,Metropolitana de Santiago,14602,True,5880,569,5247,2705,3175,46.00340136054422,14602,True,2648,3232,931,0,,,,,,,,,,blocked_components
-13505,San Pedro,Metropolitana de Santiago,14604,True,5358,1097,3973,915,4443,17.07726763717805,14604,True,878,4480,234,0,,,,,,,,,,blocked_components
-13601,Talagante,Metropolitana de Santiago,14501,True,27522,1645,24425,20709,6813,75.24525833878351,14501,True,20215,7307,330,0,,,,,,,,,,blocked_components
-13602,El Monte,Metropolitana de Santiago,14503,True,13357,729,12141,10092,3265,75.55588829827057,14503,True,9831,3526,394,0,,,,,,,,,,blocked_components
-13603,Isla de Maipo,Metropolitana de Santiago,14502,True,14518,1094,12989,10573,3945,72.82683565229371,14502,True,10030,4488,122,0,,,,,,,,,,blocked_components
-13604,Padre Hurtado,Metropolitana de Santiago,14505,True,28781,1326,26139,26040,2741,90.47635592925889,14505,True,24190,4591,84,0,,,,,,,,,,blocked_components
-13605,Peñaflor,Metropolitana de Santiago,14504,True,33023,1651,30713,28318,4705,85.7523544196469,14504,True,27594,5429,499,0,,,,,,,,,,blocked_components
-1401,Pozo Almonte,Tarapacá,01204,True,11593,6087,5609,5379,6214,46.39868886396964,01204,True,5047,6546,573,0,,,,,,,,,,blocked_components
-1402,Camiña,Tarapacá,01208,True,1178,696,489,494,684,41.935483870967744,01208,True,477,701,240,0,,,,,,,,,,blocked_components
-1403,Colchane,Tarapacá,01210,True,2112,1849,247,239,1873,11.316287878787879,01210,True,236,1876,30,0,,,,,,,,,,blocked_components
-1404,Huara,Tarapacá,01206,True,3212,2094,1036,1676,1536,52.179327521793276,01206,True,1524,1688,950,0,,,,,,,,,,blocked_components
-1405,Pica,Tarapacá,01203,True,3196,987,2180,1912,1284,59.824780976220275,01203,True,1659,1537,139,0,,,,,,,,,,blocked_components
-14101,Valdivia,Los Ríos,10101,True,72810,8541,63026,51798,21012,71.1413267408323,10101,True,50045,22765,1286,0,,,,,,,,,,blocked_components
-14102,Corral,Los Ríos,10106,True,3358,1015,2131,1712,1646,50.98272781417511,10106,True,1664,1694,328,0,,,,,,,,,,blocked_components
-14103,Lanco,Los Ríos,10103,True,7781,737,6432,4838,2943,62.1770980593754,10103,True,4442,3339,156,0,,,,,,,,,,blocked_components
-14104,Los Lagos,Los Ríos,10104,True,9572,1452,7908,4430,5142,46.280819055578775,10104,True,4180,5392,391,0,,,,,,,,,,blocked_components
-14105,Máfil,Los Ríos,10107,True,3436,442,2949,1745,1691,50.78579743888242,10107,True,1601,1835,65,0,,,,,,,,,,blocked_components
-14106,Mariquina,Los Ríos,10102,True,10267,1510,8223,5447,4820,53.05347228986072,10102,True,5285,4982,437,0,,,,,,,,,,blocked_components
-14107,Paillaco,Los Ríos,10110,True,8437,864,7294,4486,3951,53.170558255304016,10110,True,4372,4065,192,0,,,,,,,,,,blocked_components
-14108,Panguipulli,Los Ríos,10108,True,20013,5362,13315,7947,12066,39.70918902713236,10108,True,7426,12587,343,0,,,,,,,,,,blocked_components
-14201,La Unión,Los Ríos,10109,True,17144,1786,14579,10950,6194,63.87074195053663,10109,True,10553,6591,606,0,,,,,,,,,,blocked_components
-14202,Futrono,Los Ríos,10105,True,7930,2054,5761,3863,4067,48.71374527112232,10105,True,3607,4323,123,0,,,,,,,,,,blocked_components
-14203,Lago Ranco,Los Ríos,10112,True,6248,1715,4090,2215,4033,35.45134443021767,10112,True,2022,4226,13,0,,,,,,,,,,blocked_components
-14204,Río Bueno,Los Ríos,10111,True,16362,2708,12935,8928,7434,54.56545654565456,10111,True,8015,8347,320,0,,,,,,,,,,blocked_components
-15101,Arica,Arica y Parinacota,01101,True,84853,6935,79338,64694,20159,76.2424428128646,01101,True,63970,20883,570,0,,,,,,,,,,blocked_components
-15102,Camarones,Arica y Parinacota,01106,True,1035,602,437,365,670,35.265700483091784,01106,True,365,670,163,0,,,,,,,,,,blocked_components
-15201,Putre,Arica y Parinacota,01301,True,1851,1150,619,698,1153,37.70934629929768,01301,True,688,1163,99,0,,,,,,,,,,blocked_components
-15202,General Lagos,Arica y Parinacota,01302,True,623,399,226,121,502,19.42215088282504,01302,True,121,502,9,0,,,,,,,,,,blocked_components
-16101,Chillán,Ñuble,08101,True,80984,9308,70003,72955,8029,90.08569593993876,08101,True,69674,11310,1897,0,,,,,,,,,,blocked_components
-16102,Bulnes,Ñuble,08113,True,10527,1574,8771,7063,3464,67.09413888097274,08113,True,6605,3922,1226,0,,,,,,,,,,blocked_components
-16103,Chillán Viejo,Ñuble,08121,True,13017,927,11738,10844,2173,83.30644541753092,08121,True,10042,2975,774,0,,,,,,,,,,blocked_components
-16104,El Carmen,Ñuble,08118,True,6206,1111,5008,2370,3836,38.1888495004834,08118,True,1854,4352,463,0,,,,,,,,,,blocked_components
-16105,Pemuco,Ñuble,08117,True,4202,876,3243,2211,1991,52.617801047120416,08117,True,2120,2082,1223,0,,,,,,,,,,blocked_components
-16106,Pinto,Ñuble,08102,True,7655,2866,4774,3762,3893,49.14435009797518,08102,True,3542,4113,965,0,,,,,,,,,,blocked_components
-16107,Quillón,Ñuble,08115,True,13483,5240,7523,6590,6893,48.87636282726396,08115,True,6159,7324,1961,0,,,,,,,,,,blocked_components
-16108,San Ignacio,Ñuble,08114,True,7989,1113,6620,3735,4254,46.75178370259106,08114,True,3411,4578,1079,0,,,,,,,,,,blocked_components
-16109,Yungay,Ñuble,08116,True,10335,2431,7309,5096,5239,49.308176100628934,08116,True,4854,5481,1319,0,,,,,,,,,,blocked_components
-16201,Quirihue,Ñuble,08104,True,5622,984,4642,3950,1672,70.25969405905371,08104,True,3839,1783,1353,0,,,,,,,,,,blocked_components
-16202,Cobquecura,Ñuble,08107,True,3891,1552,2305,1750,2141,44.975584682600875,08107,True,1647,2244,521,0,,,,,,,,,,blocked_components
-16203,Coelemu,Ñuble,08120,True,7085,1181,5638,3660,3425,51.65843330980945,08120,True,3517,3568,2067,0,,,,,,,,,,blocked_components
-16204,Ninhue,Ñuble,08105,True,2907,594,2308,997,1910,34.29652562779498,08105,True,943,1964,207,0,,,,,,,,,,blocked_components
-16205,Portezuelo,Ñuble,08106,True,2698,641,2045,983,1715,36.43439584877687,08106,True,931,1767,198,0,,,,,,,,,,blocked_components
-16206,Ránquil,Ñuble,08119,True,3560,773,2615,1569,1991,44.07303370786517,08119,True,1498,2062,792,0,,,,,,,,,,blocked_components
-16207,Trehuaco,Ñuble,,False,3053,658,2336,,,,08108,True,1276,1777,,,,,,,,,,,,missing_source
-16301,San Carlos,Ñuble,08109,True,23894,2409,20672,15951,7943,66.75734494015234,08109,True,15459,8435,1243,0,,,,,,,,,,blocked_components
-16302,Coihueco,Ñuble,08103,True,12129,1336,10468,5626,6503,46.384697831643166,08103,True,5249,6880,1168,0,,,,,,,,,,blocked_components
-16303,Ñiquén,Ñuble,08110,True,6007,984,4920,1222,4785,20.34293324454803,08110,True,1089,4918,587,0,,,,,,,,,,blocked_components
-16304,San Fabián,Ñuble,08111,True,3136,1071,2022,1092,2044,34.82142857142857,08111,True,975,2161,235,0,,,,,,,,,,blocked_components
-16305,San Nicolás,Ñuble,08112,True,6326,865,5442,2411,3915,38.11255137527664,08112,True,2079,4247,652,0,,,,,,,,,,blocked_components
-2101,Antofagasta,Antofagasta,02201,True,139716,7806,134059,117961,21755,84.42912765896533,02201,True,112719,26997,1624,0,,,,,,,,,,blocked_components
-2102,Mejillones,Antofagasta,02203,True,5789,659,4740,4356,1433,75.24615650371393,02203,True,4112,1677,60,0,,,,,,,,,,blocked_components
-2103,Sierra Gorda,Antofagasta,02206,True,728,221,481,428,300,58.79120879120879,02206,True,430,298,0,0,,,,,,,,,,blocked_components
-2104,Taltal,Antofagasta,02202,True,5310,960,4100,3670,1640,69.11487758945385,02202,True,3659,1651,131,0,,,,,,,,,,blocked_components
-2201,Calama,Antofagasta,02301,True,60794,5241,56045,45334,15460,74.56985886765142,02301,True,44063,16731,1309,0,,,,,,,,,,blocked_components
-2202,Ollagüe,Antofagasta,02302,True,438,346,102,70,368,15.981735159817351,02302,True,70,368,13,0,,,,,,,,,,blocked_components
-2203,San Pedro de Atacama,Antofagasta,02303,True,5048,858,3895,1675,3373,33.181458003169574,02303,True,1645,3403,734,0,,,,,,,,,,blocked_components
-2301,Tocopilla,Antofagasta,02101,True,11870,2716,8690,8974,2896,75.60235888795282,02101,True,8961,2909,52,0,,,,,,,,,,blocked_components
-2302,María Elena,Antofagasta,02103,True,1925,248,1635,94,1831,4.883116883116883,02103,True,93,1832,0,0,,,,,,,,,,blocked_components
-3101,Copiapó,Atacama,03201,True,64368,6796,56984,53406,10962,82.96979865771812,03201,True,51439,12929,2711,0,,,,,,,,,,blocked_components
-3102,Caldera,Atacama,03202,True,18099,10741,6922,8504,9595,46.986021327145146,03202,True,8407,9692,19,0,,,,,,,,,,blocked_components
-3103,Tierra Amarilla,Atacama,03203,True,4627,717,3857,3132,1495,67.68964771990491,03203,True,3124,1503,264,0,,,,,,,,,,blocked_components
-3201,Chañaral,Atacama,03101,True,7229,2366,4383,4764,2465,65.90123115230323,03101,True,4744,2485,9,0,,,,,,,,,,blocked_components
-3202,Diego de Almagro,Atacama,03102,True,6798,2453,4157,2877,3921,42.32127096204766,03102,True,2881,3917,455,0,,,,,,,,,,blocked_components
-3301,Vallenar,Atacama,03301,True,23392,4515,18630,18144,5248,77.56497948016415,03301,True,17553,5839,810,0,,,,,,,,,,blocked_components
-3302,Alto del Carmen,Atacama,03304,True,3161,1218,1919,1110,2051,35.11546978804176,03304,True,1091,2070,338,0,,,,,,,,,,blocked_components
-3303,Freirina,Atacama,03302,True,4395,1497,2733,2327,2068,52.94653014789534,03302,True,2199,2196,67,0,,,,,,,,,,blocked_components
-3304,Huasco,Atacama,03303,True,7358,3086,3472,4160,3198,56.53710247349823,03303,True,3864,3494,63,0,,,,,,,,,,blocked_components
-4101,La Serena,Coquimbo,04101,True,109413,21715,86442,101350,8063,92.63067459991044,04101,True,96909,12504,1194,0,,,,,,,,,,blocked_components
-4102,Coquimbo,Coquimbo,04103,True,113054,22570,89924,97690,15364,86.41003414297592,04103,True,92874,20180,6211,0,,,,,,,,,,blocked_components
-4103,Andacollo,Coquimbo,04104,True,5126,818,4064,3977,1149,77.58486149044089,04104,True,3908,1218,831,0,,,,,,,,,,blocked_components
-4104,La Higuera,Coquimbo,04102,True,3214,1384,1626,2230,984,69.38394523957685,04102,True,2187,1027,723,0,,,,,,,,,,blocked_components
-4105,Paihuano,Coquimbo,04106,True,2888,812,1862,1896,992,65.65096952908587,04106,True,1828,1060,713,0,,,,,,,,,,blocked_components
-4106,Vicuña,Coquimbo,04105,True,12035,1698,9817,9981,2054,82.93311175737432,04105,True,9634,2401,1857,0,,,,,,,,,,blocked_components
-4201,Illapel,Coquimbo,04301,True,14196,2087,11573,9596,4600,67.59650605804453,04301,True,9259,4937,4610,0,,,,,,,,,,blocked_components
-4202,Canela,Coquimbo,04304,True,5778,1605,3778,3281,2497,56.78435444790585,04304,True,3196,2582,1504,0,,,,,,,,,,blocked_components
-4203,Los Vilos,Coquimbo,04303,True,14207,5061,8514,10295,3912,72.46427817273175,04303,True,10078,4129,771,0,,,,,,,,,,blocked_components
-4204,Salamanca,Coquimbo,04302,True,12135,1891,10035,8667,3468,71.42150803461062,04302,True,8459,3676,3071,0,,,,,,,,,,blocked_components
-4301,Ovalle,Coquimbo,04201,True,49637,6710,42131,39754,9883,80.08944940266333,04201,True,38854,10783,1433,0,,,,,,,,,,blocked_components
-4302,Combarbalá,Coquimbo,04205,True,7644,2036,5250,5903,1741,77.22396650968079,04205,True,5826,1818,708,0,,,,,,,,,,blocked_components
-4303,Monte Patria,Coquimbo,04203,True,14465,3039,11210,10661,3804,73.70203940546146,04203,True,10553,3912,1763,0,,,,,,,,,,blocked_components
-4304,Punitaqui,Coquimbo,04204,True,5889,1244,4461,3407,2482,57.85362540329428,04204,True,3353,2536,435,0,,,,,,,,,,blocked_components
-4305,Río Hurtado,Coquimbo,04206,True,2911,1031,1880,1790,1121,61.49089659910683,04206,True,1766,1145,133,0,,,,,,,,,,blocked_components
-5101,Valparaíso,Valparaíso,05301,True,131986,16794,108777,99453,32533,75.3511736093222,05301,True,96845,35141,2038,0,,,,,,,,,,blocked_components
-5102,Casablanca,Valparaíso,05305,True,13969,2872,10564,9465,4504,67.75717660534039,05305,True,8961,5008,50,0,,,,,,,,,,blocked_components
-5103,Concón,Valparaíso,05309,True,26942,7670,18217,24937,2005,92.55808774404277,05309,True,23965,2977,2,0,,,,,,,,,,blocked_components
-5104,Juan Fernández,Valparaíso,05308,True,470,74,374,248,222,52.765957446808514,05308,True,244,226,77,0,,,,,,,,,,blocked_components
-5105,Puchuncaví,Valparaíso,05307,True,21137,12088,8480,11937,9200,56.47442872687704,05307,True,11432,9705,306,0,,,,,,,,,,blocked_components
-5107,Quintero,Valparaíso,05306,True,19653,5950,13028,13736,5917,69.89263725639852,05306,True,13475,6178,419,0,,,,,,,,,,blocked_components
-5109,Viña del Mar,Valparaíso,05302,True,163365,29833,131821,139335,24030,85.29060692314755,05302,True,137882,25483,1945,0,,,,,,,,,,blocked_components
-5201,Isla de Pascua,Valparaíso,05101,True,3107,747,2069,293,2814,9.430318635339557,05101,True,293,2814,106,0,,,,,,,,,,blocked_components
-5301,Los Andes,Valparaíso,05701,True,26010,1763,23060,24804,1206,95.36332179930795,05701,True,24734,1276,739,0,,,,,,,,,,blocked_components
-5302,Calle Larga,Valparaíso,05702,True,6201,362,5766,5164,1037,83.27689082406063,05702,True,4953,1248,977,0,,,,,,,,,,blocked_components
-5303,Rinconada,Valparaíso,05704,True,4725,605,4043,3943,782,83.44973544973546,05704,True,3549,1176,206,0,,,,,,,,,,blocked_components
-5304,San Esteban,Valparaíso,05703,True,8213,1026,7127,6482,1731,78.92365761597468,05703,True,6227,1986,1146,0,,,,,,,,,,blocked_components
-5401,La Ligua,Valparaíso,05201,True,24062,9379,14286,11914,12148,49.5137561299975,05201,True,11712,12350,2712,0,,,,,,,,,,blocked_components
-5402,Cabildo,Valparaíso,05203,True,7337,604,6777,5186,2151,70.68284039798283,05203,True,5119,2218,555,0,,,,,,,,,,blocked_components
-5403,Papudo,Valparaíso,05205,True,8020,5263,2713,6807,1213,84.87531172069825,05205,True,6503,1517,36,0,,,,,,,,,,blocked_components
-5404,Petorca,Valparaíso,05202,True,5034,1016,3817,3296,1738,65.47477155343663,05202,True,3234,1800,599,0,,,,,,,,,,blocked_components
-5405,Zapallar,Valparaíso,05204,True,8096,5157,2811,6148,1948,75.93873517786561,05204,True,5988,2108,18,0,,,,,,,,,,blocked_components
-5501,Quillota,Valparaíso,05501,True,37199,2212,33740,33672,3527,90.51856232694428,05501,True,32542,4657,507,0,,,,,,,,,,blocked_components
-5502,Calera,Valparaíso,05504,True,19627,1155,17419,16727,2900,85.22443572629541,05504,True,16170,3457,3595,0,,,,,,,,,,blocked_components
-5503,Hijuelas,Valparaíso,05503,True,7374,592,6680,3892,3482,52.78003797125034,05503,True,3761,3613,214,0,,,,,,,,,,blocked_components
-5504,La Cruz,Valparaíso,05505,True,9858,927,8580,8477,1381,85.99107324000812,05505,True,7954,1904,42,0,,,,,,,,,,blocked_components
-5506,Nogales,Valparaíso,05502,True,8394,516,7525,5709,2685,68.01286633309506,05502,True,5578,2816,533,0,,,,,,,,,,blocked_components
-5601,San Antonio,Valparaíso,05401,True,40831,4457,34743,29702,11129,72.74374862237026,05401,True,28965,11866,782,0,,,,,,,,,,blocked_components
-5602,Algarrobo,Valparaíso,05406,True,21317,14273,6430,18116,3201,84.98381573392129,05406,True,17459,3858,981,0,,,,,,,,,,blocked_components
-5603,Cartagena,Valparaíso,05403,True,18205,8576,9267,10643,7562,58.46196099972535,05403,True,10134,8071,405,0,,,,,,,,,,blocked_components
-5604,El Quisco,Valparaíso,05405,True,18694,10241,7696,13670,5024,73.12506686637424,05405,True,13367,5327,1855,0,,,,,,,,,,blocked_components
-5605,El Tabo,Valparaíso,05404,True,25126,17546,6765,13781,11345,54.84756825598981,05404,True,13074,12052,6441,0,,,,,,,,,,blocked_components
-5606,Santo Domingo,Valparaíso,05402,True,8893,3807,4661,6128,2765,68.90812998987968,05402,True,5795,3098,58,0,,,,,,,,,,blocked_components
-5701,San Felipe,Valparaíso,05601,True,31606,1733,29530,27433,4173,86.79681073213946,05601,True,27215,4391,253,0,,,,,,,,,,blocked_components
-5702,Catemu,Valparaíso,05603,True,5603,542,4923,4056,1547,72.38979118329466,05603,True,3975,1628,641,0,,,,,,,,,,blocked_components
-5703,Llaillay,Valparaíso,05606,True,10434,1090,8913,7503,2931,71.90914318573893,05606,True,7272,3162,513,0,,,,,,,,,,blocked_components
-5704,Panquehue,Valparaíso,05602,True,2862,326,2441,1878,984,65.61844863731656,05602,True,1833,1029,7,0,,,,,,,,,,blocked_components
-5705,Putaendo,Valparaíso,05604,True,6734,613,6037,4947,1787,73.46302346302346,05604,True,4880,1854,318,0,,,,,,,,,,blocked_components
-5706,Santa María,Valparaíso,05605,True,6088,613,5360,5000,1088,82.1287779237845,05605,True,4885,1203,287,0,,,,,,,,,,blocked_components
-5801,Quilpué,Valparaíso,05304,True,65971,3737,59451,56409,9562,85.50575252762577,05304,True,55667,10304,1239,0,,,,,,,,,,blocked_components
-5802,Limache,Valparaíso,05506,True,24661,3852,19778,16475,8186,66.80588783909818,05506,True,15869,8792,1767,0,,,,,,,,,,blocked_components
-5803,Olmué,Valparaíso,05507,True,10529,2645,7449,6429,4100,61.05992971792193,05507,True,5860,4669,554,0,,,,,,,,,,blocked_components
-5804,Villa Alemana,Valparaíso,05303,True,55191,3675,49954,50450,4741,91.40983131307641,05303,True,48914,6277,758,0,,,,,,,,,,blocked_components
-6101,Rancagua,Libertador General Bernardo O'Higgins,06101,True,100376,6471,92398,95995,4381,95.6354108551845,06101,True,92476,7900,1626,0,,,,,,,,,,blocked_components
-6102,Codegua,Libertador General Bernardo O'Higgins,06107,True,5176,403,4654,3111,2065,60.10432766615147,06107,True,3001,2175,569,0,,,,,,,,,,blocked_components
-6103,Coinco,Libertador General Bernardo O'Higgins,06116,True,3385,471,2795,1639,1746,48.41949778434269,06116,True,1554,1831,309,0,,,,,,,,,,blocked_components
-6104,Coltauco,Libertador General Bernardo O'Higgins,06106,True,8582,910,7549,6034,2548,70.30995106035888,06106,True,5914,2668,1482,0,,,,,,,,,,blocked_components
-6105,Doñihue,Libertador General Bernardo O'Higgins,06105,True,8375,537,7699,6023,2352,71.91641791044776,06105,True,5947,2428,1043,0,,,,,,,,,,blocked_components
-6106,Graneros,Libertador General Bernardo O'Higgins,06103,True,12959,686,12105,10992,1967,84.82135967281425,06103,True,10642,2317,112,0,,,,,,,,,,blocked_components
-6107,Las Cabras,Libertador General Bernardo O'Higgins,06109,True,14752,4702,9823,8233,6519,55.809381778741866,06109,True,7780,6972,456,0,,,,,,,,,,blocked_components
-6108,Machalí,Libertador General Bernardo O'Higgins,06102,True,22672,1679,20475,21141,1531,93.24717713479181,06102,True,20430,2242,21,0,,,,,,,,,,blocked_components
-6109,Malloa,Libertador General Bernardo O'Higgins,06115,True,5736,761,4932,3394,2342,59.17015341701534,06115,True,3321,2415,782,0,,,,,,,,,,blocked_components
-6110,Mostazal,Libertador General Bernardo O'Higgins,06104,True,10133,836,9111,6905,3228,68.14368893713609,06104,True,6748,3385,256,0,,,,,,,,,,blocked_components
-6111,Olivar,Libertador General Bernardo O'Higgins,06114,True,5245,371,4708,3120,2125,59.48522402287893,06114,True,2796,2449,468,0,,,,,,,,,,blocked_components
-6112,Peumo,Libertador General Bernardo O'Higgins,06108,True,5302,370,4864,4035,1267,76.10335722368917,06108,True,3927,1375,644,0,,,,,,,,,,blocked_components
-6113,Pichidegua,Libertador General Bernardo O'Higgins,06111,True,7989,688,7248,5318,2671,66.56652897734385,06111,True,5177,2812,1492,0,,,,,,,,,,blocked_components
-6114,Quinta de Tilcoco,Libertador General Bernardo O'Higgins,06117,True,5254,447,4856,4011,1243,76.34183479253902,06117,True,3733,1521,389,0,,,,,,,,,,blocked_components
-6115,Rengo,Libertador General Bernardo O'Higgins,06112,True,25124,1568,22338,21757,3367,86.59847158095845,06112,True,20803,4321,160,0,,,,,,,,,,blocked_components
-6116,Requínoa,Libertador General Bernardo O'Higgins,06113,True,10490,558,9833,7761,2729,73.98474737845567,06113,True,7313,3177,375,0,,,,,,,,,,blocked_components
-6117,San Vicente,Libertador General Bernardo O'Higgins,06110,True,19274,1504,17837,14059,5215,72.94282453045554,06110,True,13542,5732,467,0,,,,,,,,,,blocked_components
-6201,Pichilemu,Libertador General Bernardo O'Higgins,06301,True,15001,6773,7738,9699,5302,64.65568962069196,06301,True,8771,6230,306,0,,,,,,,,,,blocked_components
-6202,La Estrella,Libertador General Bernardo O'Higgins,06304,True,3676,1861,1812,1107,2569,30.114254624591947,06304,True,943,2733,243,0,,,,,,,,,,blocked_components
-6203,Litueche,Libertador General Bernardo O'Higgins,06303,True,5459,1863,3408,1980,3479,36.2703791903279,06303,True,1747,3712,289,0,,,,,,,,,,blocked_components
-6204,Marchihue,Libertador General Bernardo O'Higgins,06305,True,5068,1691,3304,2004,3064,39.54222573007103,06305,True,1872,3196,579,0,,,,,,,,,,blocked_components
-6205,Navidad,Libertador General Bernardo O'Higgins,06302,True,6597,2922,3674,2064,4533,31.28694861300591,06302,True,1783,4814,358,0,,,,,,,,,,blocked_components
-6206,Paredones,Libertador General Bernardo O'Higgins,06306,True,5686,2718,2857,1904,3782,33.485754484699264,06306,True,1730,3956,919,0,,,,,,,,,,blocked_components
-6301,San Fernando,Libertador General Bernardo O'Higgins,06201,True,31410,2946,27300,28289,3121,90.06367398917543,06201,True,27307,4103,198,0,,,,,,,,,,blocked_components
-6302,Chépica,Libertador General Bernardo O'Higgins,06209,True,5961,493,5531,4698,1263,78.81227981882235,06209,True,4607,1354,1577,0,,,,,,,,,,blocked_components
-6303,Chimbarongo,Libertador General Bernardo O'Higgins,06202,True,14247,873,13277,9879,4368,69.3409138766056,06202,True,9621,4626,3379,0,,,,,,,,,,blocked_components
-6304,Lolol,Libertador General Bernardo O'Higgins,06206,True,3718,822,2897,1855,1863,49.892415277030665,06206,True,1755,1963,930,0,,,,,,,,,,blocked_components
-6305,Nancagua,Libertador General Bernardo O'Higgins,06203,True,7106,595,6517,5593,1513,78.70813397129187,06203,True,5508,1598,1381,0,,,,,,,,,,blocked_components
-6306,Palmilla,Libertador General Bernardo O'Higgins,06207,True,5130,583,4453,3202,1928,62.41715399610136,06207,True,3116,2014,1545,0,,,,,,,,,,blocked_components
-6307,Peralillo,Libertador General Bernardo O'Higgins,06208,True,5158,677,4485,3346,1812,64.87010469174099,06208,True,3201,1957,1117,0,,,,,,,,,,blocked_components
-6308,Placilla,Libertador General Bernardo O'Higgins,06204,True,3758,334,3287,2103,1655,55.96061734965407,06204,True,1998,1760,342,0,,,,,,,,,,blocked_components
-6309,Pumanque,Libertador General Bernardo O'Higgins,06214,True,2567,703,1777,891,1676,34.709777950915466,06214,True,834,1733,554,0,,,,,,,,,,blocked_components
-6310,Santa Cruz,Libertador General Bernardo O'Higgins,06205,True,16443,1416,14830,13562,2881,82.47886638691236,06205,True,13368,3075,648,0,,,,,,,,,,blocked_components
-7101,Talca,Maule,07201,True,95336,9791,84927,95449,-113,100.11852815305866,07201,True,91492,3844,174,0,,,,,,,,,,blocked_components
-7102,Constitución,Maule,07208,True,23400,5008,17554,15980,7420,68.2905982905983,07208,True,15791,7609,193,0,,,,,,,,,,blocked_components
-7103,Curepto,Maule,07207,True,5196,1384,3788,2671,2525,51.40492686682063,07207,True,2596,2600,322,0,,,,,,,,,,blocked_components
-7104,Empedrado,Maule,07209,True,1891,407,1463,1035,856,54.732945531464836,07209,True,982,909,74,0,,,,,,,,,,blocked_components
-7105,Maule,Maule,07206,True,23288,2070,20399,20159,3129,86.56389556853316,07206,True,19068,4220,306,0,,,,,,,,,,blocked_components
-7106,Pelarco,Maule,07203,True,4073,671,3247,1940,2133,47.63073901301252,07203,True,1846,2227,31,0,,,,,,,,,,blocked_components
-7107,Pencahue,Maule,07205,True,4680,1131,3421,2573,2107,54.97863247863248,07205,True,1927,2753,250,0,,,,,,,,,,blocked_components
-7108,Río Claro,Maule,07204,True,6277,852,5130,3570,2707,56.87430301099251,07204,True,3486,2791,102,0,,,,,,,,,,blocked_components
-7109,San Clemente,Maule,07202,True,22304,5258,16654,12832,9472,57.53228120516499,07202,True,12292,10012,173,0,,,,,,,,,,blocked_components
-7110,San Rafael,Maule,07210,True,4786,786,3923,2689,2097,56.18470539072294,07210,True,2620,2166,41,0,,,,,,,,,,blocked_components
-7201,Cauquenes,Maule,07401,True,20228,3158,16190,16473,3755,81.43662250346055,07401,True,15605,4623,831,0,,,,,,,,,,blocked_components
-7202,Chanco,Maule,07403,True,4441,951,3485,1955,2486,44.02161675298356,07403,True,1849,2592,388,0,,,,,,,,,,blocked_components
-7203,Pelluhue,Maule,07402,True,7739,3839,3484,3826,3913,49.43791187491924,07402,True,3661,4078,971,0,,,,,,,,,,blocked_components
-7301,Curicó,Maule,07101,True,62193,4818,57321,57409,4784,92.30781599215345,07101,True,56406,5787,73,0,,,,,,,,,,blocked_components
-7302,Hualañé,Maule,07107,True,5196,950,4066,3272,1924,62.971516551193226,07107,True,3185,2011,168,0,,,,,,,,,,blocked_components
-7303,Licantén,Maule,07105,True,4498,1828,2666,2590,1908,57.5811471765229,07105,True,2520,1978,210,0,,,,,,,,,,blocked_components
-7304,Molina,Maule,07108,True,18966,1427,17300,16504,2462,87.01887588315934,07108,True,15851,3115,14,0,,,,,,,,,,blocked_components
-7305,Rauco,Maule,07104,True,4783,619,4072,3164,1619,66.15095128580388,07104,True,2980,1803,204,0,,,,,,,,,,blocked_components
-7306,Romeral,Maule,07103,True,7230,932,6113,4575,2655,63.27800829875519,07103,True,4420,2810,75,0,,,,,,,,,,blocked_components
-7307,Sagrada Familia,Maule,07109,True,7528,554,6730,4885,2643,64.89107332624867,07109,True,4784,2744,86,0,,,,,,,,,,blocked_components
-7308,Teno,Maule,07102,True,12499,1537,10735,7088,5411,56.708536682934636,07102,True,6865,5634,245,0,,,,,,,,,,blocked_components
-7309,Vichuquén,Maule,07106,True,4420,2463,1892,2367,2053,53.55203619909502,07106,True,2233,2187,162,0,,,,,,,,,,blocked_components
-7401,Linares,Maule,07301,True,41354,4869,35110,34420,6934,83.23257725975722,07301,True,31984,9370,527,0,,,,,,,,,,blocked_components
-7402,Colbún,Maule,07303,True,10579,1859,8220,5825,4754,55.06191511485017,07303,True,5545,5034,1635,0,,,,,,,,,,blocked_components
-7403,Longaví,Maule,07304,True,14131,1861,11995,5599,8532,39.62210742339537,07304,True,5193,8938,702,0,,,,,,,,,,blocked_components
-7404,Parral,Maule,07305,True,20781,3202,17034,15021,5760,72.28237332178432,07305,True,14408,6373,1566,0,,,,,,,,,,blocked_components
-7405,Retiro,Maule,07306,True,10148,1641,8218,4521,5627,44.55065037445802,07306,True,4310,5838,443,0,,,,,,,,,,blocked_components
-7406,San Javier,Maule,07310,True,22226,3335,18058,17484,4742,78.66462701340772,07310,True,16736,5490,809,0,,,,,,,,,,blocked_components
-7407,Villa Alegre,Maule,07309,True,8164,1124,6674,5936,2228,72.7094561489466,07309,True,5603,2561,683,0,,,,,,,,,,blocked_components
-7408,Yerbas Buenas,Maule,07302,True,8086,753,7095,4006,4080,49.5424189957952,07302,True,3592,4494,804,0,,,,,,,,,,blocked_components
-8101,Concepción,Biobío,08201,True,101138,10555,91718,91142,9996,90.11647451996282,08201,True,87373,13765,858,0,,,,,,,,,,blocked_components
-8102,Coronel,Biobío,08207,True,45727,3673,41885,44518,1209,97.35604784919194,08207,True,43403,2324,3065,0,,,,,,,,,,blocked_components
-8103,Chiguayante,Biobío,08211,True,30649,1127,29370,28102,2547,91.68977780677999,08211,True,27552,3097,195,0,,,,,,,,,,blocked_components
-8104,Florida,Biobío,08204,True,6744,1792,4952,2668,4076,39.56109134045077,08204,True,2465,4279,106,0,,,,,,,,,,blocked_components
-8105,Hualqui,Biobío,08203,True,10872,1705,8815,7476,3396,68.76379690949227,08203,True,7288,3584,420,0,,,,,,,,,,blocked_components
-8106,Lota,Biobío,08208,True,15964,2120,13805,13113,2851,82.14106740165371,08208,True,12423,3541,1249,0,,,,,,,,,,blocked_components
-8107,Penco,Biobío,08202,True,17558,638,16829,14413,3145,82.08793712267912,08202,True,14135,3423,121,0,,,,,,,,,,blocked_components
-8108,San Pedro de La paz,Biobío,08210,True,56843,2141,52274,55366,1477,97.4016149745791,08210,True,54063,2780,21,0,,,,,,,,,,blocked_components
-8109,Santa Juana,Biobío,08209,True,7531,1847,5602,4321,3210,57.3761784623556,08209,True,4161,3370,113,0,,,,,,,,,,blocked_components
-8110,Talcahuano,Biobío,08206,True,53783,3018,50931,46120,7663,85.75200342115538,08206,True,45511,8272,177,0,,,,,,,,,,blocked_components
-8111,Tomé,Biobío,08205,True,25096,4152,20717,19270,5826,76.78514504303475,08205,True,18723,6373,1327,0,,,,,,,,,,blocked_components
-8112,Hualpén,Biobío,08212,True,32270,1267,30590,31300,970,96.99411217849396,08212,True,31109,1161,782,0,,,,,,,,,,blocked_components
-8201,Lebu,Biobío,08303,True,10229,1427,8777,7866,2363,76.89901261120345,08303,True,7760,2469,966,0,,,,,,,,,,blocked_components
-8202,Arauco,Biobío,08301,True,15163,1972,13185,10831,4332,71.43045571456835,08301,True,10728,4435,1666,0,,,,,,,,,,blocked_components
-8203,Cañete,Biobío,08305,True,14497,1937,12530,7345,7152,50.66565496309581,08305,True,7221,7276,924,0,,,,,,,,,,blocked_components
-8204,Contulmo,Biobío,08306,True,2990,678,2288,1189,1801,39.76588628762542,08306,True,1129,1861,10,0,,,,,,,,,,blocked_components
-8205,Curanilahue,Biobío,08302,True,13197,1844,11095,9272,3925,70.25839205880125,08302,True,9161,4036,1323,0,,,,,,,,,,blocked_components
-8206,Los Álamos,Biobío,08304,True,9305,1128,7985,6103,3202,65.58839333691564,08304,True,5815,3490,750,0,,,,,,,,,,blocked_components
-8207,Tirúa,Biobío,08307,True,4894,1277,3607,1437,3457,29.362484675112384,08307,True,1413,3481,78,0,,,,,,,,,,blocked_components
-8301,Los Ángeles,Biobío,08401,True,93016,12551,78445,65581,27435,70.50507439580288,08401,True,62698,30318,754,0,,,,,,,,,,blocked_components
-8302,Antuco,Biobío,08413,True,2671,936,1722,1314,1357,49.19505803070011,08413,True,1269,1402,360,0,,,,,,,,,,blocked_components
-8303,Cabrero,Biobío,08410,True,13268,1860,11389,8433,4835,63.55893880012059,08410,True,8239,5029,867,0,,,,,,,,,,blocked_components
-8304,Laja,Biobío,08403,True,10088,1519,8562,6267,3821,62.123314829500394,08403,True,6140,3948,832,0,,,,,,,,,,blocked_components
-8305,Mulchén,Biobío,08407,True,11587,1500,10163,7473,4114,64.49469232760853,08407,True,7352,4235,537,0,,,,,,,,,,blocked_components
-8306,Nacimiento,Biobío,08405,True,11086,1752,9231,8095,2991,73.020025257081,08405,True,7359,3727,590,0,,,,,,,,,,blocked_components
-8307,Negrete,Biobío,08406,True,4421,614,3762,2478,1943,56.050667269848454,08406,True,2268,2153,233,0,,,,,,,,,,blocked_components
-8308,Quilaco,Biobío,08408,True,2448,705,1727,992,1456,40.52287581699346,08408,True,930,1518,283,0,,,,,,,,,,blocked_components
-8309,Quilleco,Biobío,08404,True,4500,851,3582,2020,2480,44.888888888888886,08404,True,1992,2508,524,0,,,,,,,,,,blocked_components
-8310,San Rosendo,Biobío,08411,True,1866,553,1322,938,928,50.267952840300104,08411,True,940,926,65,0,,,,,,,,,,blocked_components
-8311,Santa Bárbara,Biobío,08402,True,6392,1013,5215,3323,3069,51.98685857321652,08402,True,2982,3410,133,0,,,,,,,,,,blocked_components
-8312,Tucapel,Biobío,08412,True,7789,1383,6176,6147,1642,78.91898831685711,08412,True,5922,1867,1311,0,,,,,,,,,,blocked_components
-8313,Yumbel,Biobío,08409,True,14108,5052,8890,6290,7818,44.584632832435496,08409,True,5898,8210,369,0,,,,,,,,,,blocked_components
-8314,Alto Biobío,Biobío,08414,True,2775,691,2029,255,2520,9.18918918918919,08414,True,241,2534,65,0,,,,,,,,,,blocked_components
-9101,Temuco,La Araucanía,09201,True,128995,16172,110496,110572,18423,85.71805108725144,09201,True,106645,22350,514,0,,,,,,,,,,blocked_components
-9102,Carahue,La Araucanía,09209,True,11653,2180,9090,5114,6539,43.8856946709002,09209,True,5061,6592,67,0,,,,,,,,,,blocked_components
-9103,Cunco,La Araucanía,09204,True,10533,2604,7324,5091,5442,48.33380803189974,09204,True,4669,5864,97,0,,,,,,,,,,blocked_components
-9104,Curarrehue,La Araucanía,09218,True,4431,1118,2906,896,3535,20.221169036334913,09218,True,837,3594,10,0,,,,,,,,,,blocked_components
-9105,Freire,La Araucanía,09203,True,12594,2215,9721,3460,9134,27.473400031761155,09203,True,3337,9257,43,0,,,,,,,,,,blocked_components
-9106,Galvarino,La Araucanía,09207,True,5475,702,4515,1646,3829,30.06392694063927,09207,True,1618,3857,20,0,,,,,,,,,,blocked_components
-9107,Gorbea,La Araucanía,09212,True,6698,914,5583,4201,2497,62.72021498954912,09212,True,4097,2601,43,0,,,,,,,,,,blocked_components
-9108,Lautaro,La Araucanía,09205,True,18213,2045,14817,11948,6265,65.60149343875254,09205,True,11375,6838,40,0,,,,,,,,,,blocked_components
-9109,Loncoche,La Araucanía,09214,True,12370,2077,9568,7087,5283,57.291835084882784,09214,True,6734,5636,48,0,,,,,,,,,,blocked_components
-9110,Melipeuco,La Araucanía,09217,True,3606,820,2624,1081,2525,29.97781475318913,09217,True,1039,2567,48,0,,,,,,,,,,blocked_components
-9111,Nueva Imperial,La Araucanía,09208,True,14834,2093,12109,6473,8361,43.636241067817174,09208,True,6364,8470,87,0,,,,,,,,,,blocked_components
-9112,Padre Las Casas,La Araucanía,09220,True,32146,3238,27708,17763,14383,55.25726373421266,09220,True,17330,14816,39,0,,,,,,,,,,blocked_components
-9113,Perquenco,La Araucanía,09206,True,3345,492,2742,1458,1887,43.587443946188344,09206,True,1413,1932,14,0,,,,,,,,,,blocked_components
-9114,Pitrufquén,La Araucanía,09211,True,13094,1964,10252,7542,5552,57.598900259660915,09211,True,7159,5935,54,0,,,,,,,,,,blocked_components
-9115,Pucón,La Araucanía,09216,True,28756,15279,12548,15041,13715,52.30560578661844,09216,True,14268,14488,231,0,,,,,,,,,,blocked_components
-9116,Saavedra,La Araucanía,09210,True,6753,1625,4926,1408,5345,20.84999259588331,09210,True,1375,5378,36,0,,,,,,,,,,blocked_components
-9117,Teodoro Schmidt,La Araucanía,09219,True,8005,1672,6048,2547,5458,31.817613991255467,09219,True,2472,5533,45,0,,,,,,,,,,blocked_components
-9118,Toltén,La Araucanía,09213,True,4951,1040,3857,1864,3087,37.648959806099775,09213,True,1775,3176,86,0,,,,,,,,,,blocked_components
-9119,Vilcún,La Araucanía,09202,True,13920,2139,11229,7491,6429,53.814655172413794,09202,True,7213,6707,27,0,,,,,,,,,,blocked_components
-9120,Villarrica,La Araucanía,09215,True,43213,15085,25155,23141,20072,53.55101474093444,09215,True,20980,22233,40,0,,,,,,,,,,blocked_components
-9121,Cholchol,La Araucanía,09221,True,5268,598,4549,1727,3541,32.782839787395595,09221,True,1526,3742,44,0,,,,,,,,,,blocked_components
-9201,Angol,La Araucanía,09101,True,22085,1623,19220,19299,2786,87.3851030110935,09101,True,17917,4168,450,0,,,,,,,,,,blocked_components
-9202,Collipulli,La Araucanía,09105,True,10454,1066,8764,6634,3820,63.45896307633442,09105,True,6563,3891,275,0,,,,,,,,,,blocked_components
-9203,Curacautín,La Araucanía,09110,True,9916,2389,7102,6246,3670,62.989108511496575,09110,True,5873,4043,422,0,,,,,,,,,,blocked_components
-9204,Ercilla,La Araucanía,09106,True,3782,599,2787,1606,2176,42.46430460074035,09106,True,1582,2200,95,0,,,,,,,,,,blocked_components
-9205,Lonquimay,La Araucanía,09111,True,5651,1660,3763,1614,4037,28.561316581136083,09111,True,1552,4099,433,0,,,,,,,,,,blocked_components
-9206,Los Sauces,La Araucanía,09103,True,3369,581,2716,1880,1489,55.802908875037105,09103,True,1841,1528,65,0,,,,,,,,,,blocked_components
-9207,Lumaco,La Araucanía,09108,True,4214,649,3401,1583,2631,37.565258661604176,09108,True,1554,2660,159,0,,,,,,,,,,blocked_components
-9208,Purén,La Araucanía,09102,True,5298,673,4515,3119,2179,58.87127217818045,09102,True,3099,2199,227,0,,,,,,,,,,blocked_components
-9209,Renaico,La Araucanía,09104,True,4516,453,3834,3354,1162,74.26926483613818,09104,True,3219,1297,155,0,,,,,,,,,,blocked_components
-9210,Traiguén,La Araucanía,09107,True,8371,861,7026,5785,2586,69.10763349659538,09107,True,5731,2640,403,0,,,,,,,,,,blocked_components
-9211,Victoria,La Araucanía,09109,True,14449,1337,12465,10011,4438,69.28507163125475,09109,True,9700,4749,474,0,,,,,,,,,,blocked_components
+codigo_comuna,comuna,region,conara_sources,source_available,dwellings_2024,vacant_2024,households_2024,occupied_private_dwellings_2024,irrecoverable_type_dwellings_2024,irrecoverable_materiality_dwellings_2024,irrecoverable_dwellings_2024,residential_roles_2026s1,signed_gap,coverage_pct,camp_polygons_2026,camp_census_households_observed_2024,camp_census_count_missing_polygons,camp_catalog_households_2026,camp_sensitivity_signed_gap,camp_sensitivity_positive_gap,camp_absorbed_positive_gap,camp_absorbed_positive_gap_pct,camp_adjustment_status,historical_conara_sources,historical_source_available,residential_roles_2024s2,gap_2024s2,roles_without_coordinates,parent_references,net_mean_annual_clp,net_median_annual_clp,net_positive_share,net_positive_mean_annual_clp,net_positive_median_annual_clp,scenario_q0_clp,scenario_q025_clp,scenario_q05_clp,scenario_q1_clp,fiscal_status
+10101,Puerto Montt,Los Lagos,10301,True,116003,12431,100163,98794,560,453,949,86967,29036,74.96961285483997,19,632,2,1045,28404,28404,632,2.1766083482573357,partial_census_count,10301,True,82438,33565,7040,0,,,,,,,,,,blocked_components
+10102,Calbuco,Los Lagos,10309,True,15935,2121,13410,13345,270,28,292,4694,11241,29.45716975211798,5,188,0,221,11053,11053,188,1.672449070367405,complete_census_count,10309,True,4316,11619,990,0,,,,,,,,,,blocked_components
+10103,Cochamó,Los Lagos,10302,True,3059,1151,1887,1881,57,5,60,441,2618,14.416475972540045,0,0,0,0,2618,2618,0,0.0,no_current_camp_polygon,10302,True,413,2646,201,0,,,,,,,,,,blocked_components
+10104,Fresia,Los Lagos,10304,True,6285,1035,4853,4836,342,16,357,3274,3011,52.09228321400159,0,0,0,0,3011,3011,0,0.0,no_current_camp_polygon,10304,True,3219,3066,1064,0,,,,,,,,,,blocked_components
+10105,Frutillar,Los Lagos,10305,True,10299,1575,8159,8081,97,23,117,7007,3292,68.03573162442956,2,62,0,21,3230,3230,62,1.8833535844471445,complete_census_count,10305,True,6078,4221,1324,0,,,,,,,,,,blocked_components
+10106,Los Muermos,Los Lagos,10308,True,8696,1571,6657,6627,107,13,119,3205,5491,36.85602575896964,2,32,0,37,5459,5459,32,0.582771808413768,complete_census_count,10308,True,3115,5581,694,0,,,,,,,,,,blocked_components
+10107,Llanquihue,Los Lagos,10306,True,6957,552,6206,6095,55,9,64,4983,1974,71.6257007330746,1,52,0,51,1922,1922,52,2.634245187436677,complete_census_count,10306,True,4708,2249,626,0,,,,,,,,,,blocked_components
+10108,Maullín,Los Lagos,10307,True,7554,1348,5960,5940,19,10,29,3013,4541,39.88615303150649,0,0,0,0,4541,4541,0,0.0,no_current_camp_polygon,10307,True,2910,4644,535,0,,,,,,,,,,blocked_components
+10109,Puerto Varas,Los Lagos,10303,True,25190,3928,19108,18779,129,161,288,16454,8736,65.31957125843589,1,43,0,54,8693,8693,43,0.49221611721611724,complete_census_count,10303,True,15165,10025,1142,0,,,,,,,,,,blocked_components
+10201,Castro,Los Lagos,10401,True,21172,2066,17911,17730,138,109,237,13268,7904,62.667674286793876,2,39,0,65,7865,7865,39,0.4934210526315789,complete_census_count,10401,True,12488,8684,1207,0,,,,,,,,,,blocked_components
+10202,Ancud,Los Lagos,10406,True,19842,2937,15668,15566,50,33,82,11768,8074,59.30853744582199,1,26,0,39,8048,8048,26,0.32202130294773346,complete_census_count,10406,True,11388,8454,2166,0,,,,,,,,,,blocked_components
+10203,Chonchi,Los Lagos,10402,True,8286,1610,6355,6308,71,28,99,2709,5577,32.69370021723389,0,0,0,0,5577,5577,0,0.0,no_current_camp_polygon,10402,True,2480,5806,539,0,,,,,,,,,,blocked_components
+10204,Curaco de Vélez,Los Lagos,10410,True,1915,417,1423,1418,11,1,11,669,1246,34.93472584856397,0,0,0,0,1246,1246,0,0.0,no_current_camp_polygon,10410,True,641,1274,258,0,,,,,,,,,,blocked_components
+10205,Dalcahue,Los Lagos,10408,True,7222,1354,5610,5590,21,17,38,2777,4445,38.45195236776516,0,0,0,0,4445,4445,0,0.0,no_current_camp_polygon,10408,True,2674,4548,1372,0,,,,,,,,,,blocked_components
+10206,Puqueldón,Los Lagos,10405,True,2091,510,1556,1546,3,7,10,459,1632,21.951219512195124,0,0,0,0,1632,1632,0,0.0,no_current_camp_polygon,10405,True,436,1655,16,0,,,,,,,,,,blocked_components
+10207,Queilén,Los Lagos,10403,True,3139,837,2237,2226,4,3,7,1256,1883,40.01274291175534,0,0,0,0,1883,1883,0,0.0,no_current_camp_polygon,10403,True,1052,2087,310,0,,,,,,,,,,blocked_components
+10208,Quellón,Los Lagos,10404,True,13470,1991,10859,10757,197,43,234,5268,8202,39.10913140311804,5,34,2,114,8168,8168,34,0.41453304072177516,partial_census_count,10404,True,5111,8359,1511,0,,,,,,,,,,blocked_components
+10209,Quemchi,Los Lagos,10407,True,4650,1193,3373,3361,60,12,71,985,3665,21.182795698924732,1,8,0,10,3657,3657,8,0.21828103683492497,complete_census_count,10407,True,934,3716,247,0,,,,,,,,,,blocked_components
+10210,Quinchao,Los Lagos,10415,True,4148,995,3011,3004,222,8,227,1272,2876,30.665380906460946,0,0,0,0,2876,2876,0,0.0,no_current_camp_polygon,10415,True,1236,2912,658,0,,,,,,,,,,blocked_components
+10301,Osorno,Los Lagos,10201,True,68725,3898,62545,61741,776,452,1143,55834,12891,81.24263368497635,21,849,2,1275,12042,12042,849,6.585990225738888,partial_census_count,10201,True,53722,15003,4298,0,,,,,,,,,,blocked_components
+10302,Puerto Octay,Los Lagos,10203,True,5289,1751,3349,3310,22,13,34,1674,3615,31.650595575723198,2,34,0,50,3581,3581,34,0.9405255878284924,complete_census_count,10203,True,1435,3854,668,0,,,,,,,,,,blocked_components
+10303,Purranque,Los Lagos,10206,True,8704,950,7304,7190,20,30,50,5305,3399,60.94898897058823,0,0,0,0,3399,3399,0,0.0,no_current_camp_polygon,10206,True,5073,3631,725,0,,,,,,,,,,blocked_components
+10304,Puyehue,Los Lagos,10204,True,5982,1306,4404,4373,25,21,46,2582,3400,43.162821798729524,0,0,0,0,3400,3400,0,0.0,no_current_camp_polygon,10204,True,2440,3542,630,0,,,,,,,,,,blocked_components
+10305,Río Negro,Los Lagos,10205,True,6488,829,5269,5221,76,54,125,3261,3227,50.262022194821206,1,21,0,8,3206,3206,21,0.6507592190889371,complete_census_count,10205,True,3191,3297,1380,0,,,,,,,,,,blocked_components
+10306,San Juan de la Costa,Los Lagos,10207,True,6794,3269,3340,3329,98,29,123,1187,5607,17.47129820429791,0,0,0,0,5607,5607,0,0.0,no_current_camp_polygon,10207,True,1148,5646,381,0,,,,,,,,,,blocked_components
+10307,San Pablo,Los Lagos,10202,True,5130,889,4192,4155,20,18,38,2375,2755,46.2962962962963,0,0,0,0,2755,2755,0,0.0,no_current_camp_polygon,10202,True,2324,2806,875,0,,,,,,,,,,blocked_components
+10401,Chaitén,Los Lagos,10501,True,2557,753,1676,1664,25,3,28,1219,1338,47.6730543605788,0,0,0,0,1338,1338,0,0.0,no_current_camp_polygon,10501,True,1183,1374,500,0,,,,,,,,,,blocked_components
+10402,Futaleufú,Los Lagos,10503,True,1790,452,1333,1326,43,4,46,671,1119,37.486033519553075,0,0,0,0,1119,1119,0,0.0,no_current_camp_polygon,10503,True,610,1180,99,0,,,,,,,,,,blocked_components
+10403,Hualaihué,Los Lagos,10502,True,5214,1113,3709,3692,24,10,34,1387,3827,26.60145761411584,0,0,0,0,3827,3827,0,0.0,no_current_camp_polygon,10502,True,1293,3921,212,0,,,,,,,,,,blocked_components
+10404,Palena,Los Lagos,10504,True,1308,421,868,862,168,0,168,455,853,34.78593272171254,0,0,0,0,853,853,0,0.0,no_current_camp_polygon,10504,True,437,871,39,0,,,,,,,,,,blocked_components
+1101,Iquique,Tarapacá,01201,True,75326,6563,69800,66444,1198,629,1633,55511,19815,73.69434192709025,8,866,0,626,18949,18949,866,4.370426444612667,complete_census_count,01201,True,54367,20959,1049,0,,,,,,,,,,blocked_components
+1107,Alto Hospicio,Tarapacá,01211,True,46558,2827,42150,40506,1239,1989,3001,31190,15368,66.99170926586194,48,9136,5,8461,6232,6232,9136,59.448204060385216,partial_census_count,01211,True,30149,16409,813,0,,,,,,,,,,blocked_components
+11101,Coyhaique,Aysén del General Carlos Ibáñez del Campo,11401,True,27953,4447,22423,22198,179,115,281,19704,8249,70.48975065288163,4,114,0,127,8135,8135,114,1.381985695235786,complete_census_count,11401,True,18970,8983,573,0,,,,,,,,,,blocked_components
+11102,Lago Verde,Aysén del General Carlos Ibáñez del Campo,11402,True,721,310,373,370,37,31,65,285,436,39.528432732316226,0,0,0,0,436,436,0,0.0,no_current_camp_polygon,11402,True,263,458,42,0,,,,,,,,,,blocked_components
+11201,Aysén,Aysén del General Carlos Ibáñez del Campo,11101,True,11036,1209,9057,8994,61,23,79,8133,2903,73.69517941283074,3,26,2,91,2877,2877,26,0.8956252152945229,partial_census_count,11101,True,7769,3267,6753,0,,,,,,,,,,blocked_components
+11202,Cisnes,Aysén del General Carlos Ibáñez del Campo,11102,True,3434,900,2180,2171,54,12,62,1817,1617,52.9120559114735,1,17,0,10,1600,1600,17,1.051329622758194,complete_census_count,11102,True,1797,1637,672,0,,,,,,,,,,blocked_components
+11203,Guaitecas,Aysén del General Carlos Ibáñez del Campo,11104,True,813,208,606,603,1,1,2,327,486,40.22140221402214,0,0,0,0,486,486,0,0.0,no_current_camp_polygon,11104,True,319,494,19,0,,,,,,,,,,blocked_components
+11301,Cochrane,Aysén del General Carlos Ibáñez del Campo,11301,True,2119,598,1462,1449,59,3,62,1191,928,56.2057574327513,0,0,0,0,928,928,0,0.0,no_current_camp_polygon,11301,True,1130,989,160,0,,,,,,,,,,blocked_components
+11302,O'Higgins,Aysén del General Carlos Ibáñez del Campo,11302,True,403,107,292,291,1,0,1,195,208,48.38709677419355,0,0,0,0,208,208,0,0.0,no_current_camp_polygon,11302,True,197,206,4,0,,,,,,,,,,blocked_components
+11303,Tortel,Aysén del General Carlos Ibáñez del Campo,11303,True,392,148,231,231,11,1,11,133,259,33.92857142857143,0,0,0,0,259,259,0,0.0,no_current_camp_polygon,11303,True,132,260,130,0,,,,,,,,,,blocked_components
+11401,Chile Chico,Aysén del General Carlos Ibáñez del Campo,11201,True,3103,739,2109,2097,30,7,34,1819,1284,58.62068965517241,0,0,0,0,1284,1284,0,0.0,no_current_camp_polygon,11201,True,1783,1320,195,0,,,,,,,,,,blocked_components
+11402,Río Ibáñez,Aysén del General Carlos Ibáñez del Campo,11203,True,2234,932,1231,1227,14,5,17,980,1254,43.86750223813787,0,0,0,0,1254,1254,0,0.0,no_current_camp_polygon,11203,True,933,1301,508,0,,,,,,,,,,blocked_components
+12101,Punta Arenas,Magallanes y de la Antártica Chilena,12205,True,59126,6135,49571,48834,171,120,278,47390,11736,80.15086425599567,3,158,0,216,11578,11578,158,1.3462849352419906,complete_census_count,12205,True,46223,12903,5235,0,,,,,,,,,,blocked_components
+12102,Laguna Blanca,Magallanes y de la Antártica Chilena,12206,True,287,185,98,95,0,0,0,50,237,17.421602787456447,0,0,0,0,237,237,0,0.0,no_current_camp_polygon,12206,True,49,238,50,0,,,,,,,,,,blocked_components
+12103,Río Verde,Magallanes y de la Antártica Chilena,12202,True,188,124,63,63,1,5,6,1,187,0.5319148936170213,0,0,0,0,187,187,0,0.0,no_current_camp_polygon,12202,True,1,187,1,0,,,,,,,,,,blocked_components
+12104,San Gregorio,Magallanes y de la Antártica Chilena,12204,True,441,327,110,108,0,0,0,118,323,26.75736961451247,0,0,0,0,323,323,0,0.0,no_current_camp_polygon,12204,True,117,324,118,0,,,,,,,,,,blocked_components
+12201,Cabo de Hornos,Magallanes y de la Antártica Chilena,12401,True,775,156,617,611,6,1,7,404,371,52.12903225806452,0,0,0,0,371,371,0,0.0,no_current_camp_polygon,12401,True,404,371,11,0,,,,,,,,,,blocked_components
+12202,Antártica,Magallanes y de la Antártica Chilena,,False,0,0,0,0,0,0,0,,,,0,0,0,0,,,,,missing_role_source,,False,,,,,,,,,,,,,,missing_source
+12301,Porvenir,Magallanes y de la Antártica Chilena,12301,True,3540,717,2770,2729,33,16,49,2017,1523,56.9774011299435,0,0,0,0,1523,1523,0,0.0,no_current_camp_polygon,12301,True,1869,1671,185,0,,,,,,,,,,blocked_components
+12302,Primavera,Magallanes y de la Antártica Chilena,12302,True,414,235,181,177,3,4,5,65,349,15.70048309178744,0,0,0,0,349,349,0,0.0,no_current_camp_polygon,12302,True,65,349,60,0,,,,,,,,,,blocked_components
+12303,Timaukel,Magallanes y de la Antártica Chilena,12304,True,213,148,62,60,3,0,3,13,200,6.103286384976526,0,0,0,0,200,200,0,0.0,no_current_camp_polygon,12304,True,13,200,13,0,,,,,,,,,,blocked_components
+12401,Natales,Magallanes y de la Antártica Chilena,12101,True,11205,1132,9490,9352,43,22,59,8796,2409,78.50066934404283,0,0,0,0,2409,2409,0,0.0,no_current_camp_polygon,12101,True,8522,2683,6758,0,,,,,,,,,,blocked_components
+12402,Torres del Paine,Magallanes y de la Antártica Chilena,12103,True,303,203,100,98,5,0,5,23,280,7.590759075907591,0,0,0,0,280,280,0,0.0,no_current_camp_polygon,12103,True,24,279,6,0,,,,,,,,,,blocked_components
+13101,Santiago,Metropolitana de Santiago,"13101,13134,13135",True,239172,25131,206458,199786,654,166,727,219706,19466,91.86108741825966,0,0,0,0,19466,19466,0,0.0,no_current_camp_polygon,"13101,13134,13135",True,209651,29521,37,0,,,,,,,,,,blocked_components
+13102,Cerrillos,Metropolitana de Santiago,14166,True,31635,2059,28186,27195,247,118,344,28135,3500,88.93630472577841,6,1336,1,2002,2164,2164,1336,38.17142857142857,partial_census_count,14166,True,25767,5868,1000,0,,,,,,,,,,blocked_components
+13103,Cerro Navia,Metropolitana de Santiago,14156,True,40081,561,41864,38532,223,132,326,30699,9382,76.59240038921185,9,124,7,845,9258,9258,124,1.3216798124067364,partial_census_count,14156,True,29957,10124,0,0,,,,,,,,,,blocked_components
+13104,Conchalí,Metropolitana de Santiago,14127,True,38815,1101,40727,36971,156,81,232,32219,6596,83.00656962514492,3,19,2,41,6577,6577,19,0.28805336567616735,partial_census_count,14127,True,32025,6790,812,0,,,,,,,,,,blocked_components
+13105,El Bosque,Metropolitana de Santiago,16165,True,50329,1193,50233,47417,250,162,348,42543,7786,84.52979395577103,0,0,0,0,7786,7786,0,0.0,no_current_camp_polygon,16165,True,42364,7965,1287,0,,,,,,,,,,blocked_components
+13106,Estación Central,Metropolitana de Santiago,14157,True,75992,7003,67722,65017,215,93,288,70314,5678,92.5281608590378,6,39,3,177,5639,5639,39,0.6868615709756957,partial_census_count,14157,True,68036,7956,2407,0,,,,,,,,,,blocked_components
+13107,Huechuraba,Metropolitana de Santiago,14158,True,31097,782,31965,29710,283,88,339,28411,2686,91.36251085313695,10,389,1,245,2297,2297,389,14.482501861504096,partial_census_count,14158,True,27617,3480,0,0,,,,,,,,,,blocked_components
+13108,Independencia,Metropolitana de Santiago,13167,True,50308,4426,45411,43811,131,48,167,43742,6566,86.94839786912618,0,0,0,0,6566,6566,0,0.0,no_current_camp_polygon,13167,True,40758,9550,553,0,,,,,,,,,,blocked_components
+13109,La Cisterna,Metropolitana de Santiago,16110,True,41580,3138,38042,36799,115,64,164,42308,-728,101.75084175084174,0,0,0,0,-728,0,0,0.0,no_current_camp_polygon,16110,True,39802,1778,237,0,,,,,,,,,,blocked_components
+13110,La Florida,Metropolitana de Santiago,15128,True,143584,8927,133631,128554,680,264,825,140184,3400,97.63204813906842,10,510,3,701,2890,2890,510,15.0,partial_census_count,15128,True,133848,9736,332,0,,,,,,,,,,blocked_components
+13111,La Granja,Metropolitana de Santiago,16131,True,36686,607,37118,35431,78,66,139,29929,6757,81.58152973886496,0,0,0,0,6757,6757,0,0.0,no_current_camp_polygon,16131,True,29653,7033,2507,0,,,,,,,,,,blocked_components
+13112,La Pintana,Metropolitana de Santiago,16154,True,53011,922,53951,50730,209,140,296,48826,4185,92.1054120842844,3,17,2,74,4168,4168,17,0.4062126642771804,partial_census_count,16154,True,48459,4552,1376,0,,,,,,,,,,blocked_components
+13113,La Reina,Metropolitana de Santiago,15132,True,31596,1044,30574,29714,85,20,102,30064,1532,95.15128497278137,0,0,0,0,1532,1532,0,0.0,no_current_camp_polygon,15132,True,30004,1592,2,0,,,,,,,,,,blocked_components
+13114,Las Condes,Metropolitana de Santiago,15108,True,128937,7674,116176,113948,128,24,145,128395,542,99.57963966898564,0,0,0,0,542,542,0,0.0,no_current_camp_polygon,15108,True,126885,2052,80,0,,,,,,,,,,blocked_components
+13115,Lo Barnechea,Metropolitana de Santiago,15161,True,36370,2835,32458,31682,157,53,195,33957,2413,93.36541105306571,6,113,4,783,2300,2300,113,4.682967260671363,partial_census_count,15161,True,33488,2882,9,0,,,,,,,,,,blocked_components
+13116,Lo Espejo,Metropolitana de Santiago,16164,True,27346,697,27387,25016,79,49,120,23026,4320,84.20244277042346,3,0,3,95,4320,4320,0,0.0,partial_census_count,16164,True,23026,4320,408,0,,,,,,,,,,blocked_components
+13117,Lo Prado,Metropolitana de Santiago,14155,True,31002,788,31862,29844,135,67,189,24089,6913,77.70143861686343,0,0,0,0,6913,6913,0,0.0,no_current_camp_polygon,14155,True,23963,7039,2237,0,,,,,,,,,,blocked_components
+13118,Macul,Metropolitana de Santiago,15151,True,50694,2063,47555,45703,144,56,191,49150,1544,96.95427466761352,0,0,0,0,1544,1544,0,0.0,no_current_camp_polygon,15151,True,46213,4481,791,0,,,,,,,,,,blocked_components
+13119,Maipú,Metropolitana de Santiago,14109,True,169332,3485,167383,162286,907,322,1110,161167,8165,95.17811163867432,11,962,4,1077,7203,7203,962,11.78199632578077,partial_census_count,14109,True,160689,8643,366,0,,,,,,,,,,blocked_components
+13120,Ñuñoa,Metropolitana de Santiago,15105,True,121424,8046,108555,105990,124,32,151,127740,-6316,105.20160758993279,0,0,0,0,-6316,0,0,0.0,no_current_camp_polygon,15105,True,118607,2817,3693,0,,,,,,,,,,blocked_components
+13121,Pedro Aguirre Cerda,Metropolitana de Santiago,16162,True,31027,674,32328,29716,88,87,151,26581,4446,85.67054500918555,0,0,0,0,4446,4446,0,0.0,no_current_camp_polygon,16162,True,26582,4445,495,0,,,,,,,,,,blocked_components
+13122,Peñalolén,Metropolitana de Santiago,15152,True,75487,1397,76078,72642,283,178,432,62545,12942,82.85532608263675,2,0,2,433,12942,12942,0,0.0,partial_census_count,15152,True,61577,13910,56,0,,,,,,,,,,blocked_components
+13123,Providencia,Metropolitana de Santiago,15103,True,76376,6269,69157,67240,77,19,82,75458,918,98.79805174400335,0,0,0,0,918,918,0,0.0,no_current_camp_polygon,15103,True,74668,1708,2,0,,,,,,,,,,blocked_components
+13124,Pudahuel,Metropolitana de Santiago,14111,True,73700,1432,74144,70285,277,177,413,64790,8910,87.91044776119404,2,0,2,33,8910,8910,0,0.0,partial_census_count,14111,True,64293,9407,2396,0,,,,,,,,,,blocked_components
+13125,Quilicura,Metropolitana de Santiago,14114,True,66986,2021,65059,63031,375,104,427,65154,1832,97.26510017018481,4,79,1,143,1753,1753,79,4.312227074235808,partial_census_count,14114,True,64375,2611,196,0,,,,,,,,,,blocked_components
+13126,Quinta Normal,Metropolitana de Santiago,14107,True,46784,1776,45700,43141,293,104,375,38307,8477,81.88055745554036,5,42,3,172,8435,8435,42,0.495458298926507,partial_census_count,14107,True,37269,9515,139,0,,,,,,,,,,blocked_components
+13127,Recoleta,Metropolitana de Santiago,13159,True,55851,2465,55579,52071,384,150,510,40340,15511,72.22789206997189,1,9,0,13,15502,15502,9,0.058023338276062146,complete_census_count,13159,True,40037,15814,10,0,,,,,,,,,,blocked_components
+13128,Renca,Metropolitana de Santiago,14113,True,46449,1257,46397,43835,160,106,252,41881,4568,90.16555792374432,3,84,1,98,4484,4484,84,1.838879159369527,partial_census_count,14113,True,41407,5042,117,0,,,,,,,,,,blocked_components
+13129,San Joaquín,Metropolitana de Santiago,16163,True,33840,1273,33461,31562,122,55,167,31123,2717,91.97104018912529,0,0,0,0,2717,2717,0,0.0,no_current_camp_polygon,16163,True,29939,3901,2632,0,,,,,,,,,,blocked_components
+13130,San Miguel,Metropolitana de Santiago,16106,True,65777,3511,60243,58485,74,40,107,63793,1984,96.98374811864329,0,0,0,0,1984,1984,0,0.0,no_current_camp_polygon,16106,True,62565,3212,1289,0,,,,,,,,,,blocked_components
+13131,San Ramón,Metropolitana de Santiago,16153,True,23812,608,24963,21797,255,92,321,19227,4585,80.74500251973795,0,0,0,0,4585,4585,0,0.0,no_current_camp_polygon,16153,True,19137,4675,1688,0,,,,,,,,,,blocked_components
+13132,Vitacura,Metropolitana de Santiago,15160,True,34523,1865,31114,30770,18,0,18,35280,-757,102.19274107116995,0,0,0,0,-757,0,0,0.0,no_current_camp_polygon,15160,True,34479,44,0,0,,,,,,,,,,blocked_components
+13201,Puente Alto,Metropolitana de Santiago,16301,True,190304,4440,182855,178007,931,507,1271,181048,9256,95.13620312762737,12,1769,0,2000,7487,7487,1769,19.11192739844425,complete_census_count,16301,True,178436,11868,696,0,,,,,,,,,,blocked_components
+13202,Pirque,Metropolitana de Santiago,16302,True,10181,504,9183,8918,100,37,127,5282,4899,51.88095471957568,1,16,0,30,4883,4883,16,0.32659726474790773,complete_census_count,16302,True,5090,5091,250,0,,,,,,,,,,blocked_components
+13203,San José de Maipo,Metropolitana de Santiago,16303,True,8017,1251,6368,6212,60,75,124,4570,3447,57.00386678308594,9,190,0,249,3257,3257,190,5.512039454598201,complete_census_count,16303,True,4071,3946,324,0,,,,,,,,,,blocked_components
+13301,Colina,Metropolitana de Santiago,14201,True,54763,2485,50926,49951,340,145,468,48335,6428,88.26214780052226,10,2066,0,2004,4362,4362,2066,32.1406347230865,complete_census_count,14201,True,45390,9373,328,0,,,,,,,,,,blocked_components
+13302,Lampa,Metropolitana de Santiago,14202,True,50270,3118,45445,44627,461,222,655,35082,15188,69.78714939327631,21,2774,1,2886,12414,12414,2774,18.264419278377666,partial_census_count,14202,True,32516,17754,431,0,,,,,,,,,,blocked_components
+13303,Tiltil,Metropolitana de Santiago,14203,True,8229,1219,6585,6431,46,37,79,4422,3807,53.736784542471746,6,209,0,185,3598,3598,209,5.489887050170738,complete_census_count,14203,True,4224,4005,308,0,,,,,,,,,,blocked_components
+13401,San Bernardo,Metropolitana de Santiago,16401,True,102205,2918,98580,95042,726,277,885,92672,9533,90.67266767770657,17,109,11,1095,9424,9424,109,1.1433966222595195,partial_census_count,16401,True,90668,11537,2046,0,,,,,,,,,,blocked_components
+13402,Buin,Metropolitana de Santiago,16403,True,42438,2661,37620,36671,217,151,338,34675,7763,81.70743201847401,6,214,1,319,7549,7549,214,2.7566662372794024,partial_census_count,16403,True,33851,8587,125,0,,,,,,,,,,blocked_components
+13403,Calera de Tango,Metropolitana de Santiago,16402,True,8399,259,7852,7683,49,26,75,5492,2907,65.38873675437551,3,37,1,36,2870,2870,37,1.2727898176814585,partial_census_count,16402,True,5337,3062,9,0,,,,,,,,,,blocked_components
+13404,Paine,Metropolitana de Santiago,16404,True,30796,3162,25871,25047,421,59,469,17500,13296,56.8255617612677,4,6,3,66,13290,13290,6,0.04512635379061372,partial_census_count,16404,True,16771,14025,115,0,,,,,,,,,,blocked_components
+13501,Melipilla,Metropolitana de Santiago,14601,True,52214,4616,46457,45253,369,134,478,35643,16571,68.26330103037499,4,70,1,121,16501,16501,70,0.42242471788063485,partial_census_count,14601,True,33975,18239,3548,0,,,,,,,,,,blocked_components
+13502,Alhué,Metropolitana de Santiago,14605,True,3311,524,2770,2704,5,8,13,1235,2076,37.29990939293265,0,0,0,0,2076,2076,0,0.0,no_current_camp_polygon,14605,True,1212,2099,325,0,,,,,,,,,,blocked_components
+13503,Curacaví,Metropolitana de Santiago,14603,True,14218,1526,12001,11755,90,37,124,8691,5527,61.126740751160504,1,8,0,69,5519,5519,8,0.14474398407816175,complete_census_count,14603,True,8486,5732,60,0,,,,,,,,,,blocked_components
+13504,María Pinto,Metropolitana de Santiago,14602,True,5880,569,5247,5169,70,15,85,2705,3175,46.00340136054422,0,0,0,0,3175,3175,0,0.0,no_current_camp_polygon,14602,True,2648,3232,931,0,,,,,,,,,,blocked_components
+13505,San Pedro,Metropolitana de Santiago,14604,True,5358,1097,3973,3899,20,40,60,915,4443,17.07726763717805,1,25,0,42,4418,4418,25,0.5626828719333784,complete_census_count,14604,True,878,4480,234,0,,,,,,,,,,blocked_components
+13601,Talagante,Metropolitana de Santiago,14501,True,27522,1645,24425,23762,269,118,362,20709,6813,75.24525833878351,8,543,1,296,6270,6270,543,7.970057243505064,partial_census_count,14501,True,20215,7307,330,0,,,,,,,,,,blocked_components
+13602,El Monte,Metropolitana de Santiago,14503,True,13357,729,12141,11911,62,35,89,10092,3265,75.55588829827057,4,95,1,68,3170,3170,95,2.909647779479326,partial_census_count,14503,True,9831,3526,394,0,,,,,,,,,,blocked_components
+13603,Isla de Maipo,Metropolitana de Santiago,14502,True,14518,1094,12989,12666,76,26,98,10573,3945,72.82683565229371,2,27,0,36,3918,3918,27,0.6844106463878327,complete_census_count,14502,True,10030,4488,122,0,,,,,,,,,,blocked_components
+13604,Padre Hurtado,Metropolitana de Santiago,14505,True,28781,1326,26139,25319,88,55,136,26040,2741,90.47635592925889,2,0,2,194,2741,2741,0,0.0,partial_census_count,14505,True,24190,4591,84,0,,,,,,,,,,blocked_components
+13605,Peñaflor,Metropolitana de Santiago,14504,True,33023,1651,30713,29792,197,107,278,28318,4705,85.7523544196469,2,84,1,171,4621,4621,84,1.785334750265675,partial_census_count,14504,True,27594,5429,499,0,,,,,,,,,,blocked_components
+1401,Pozo Almonte,Tarapacá,01204,True,11593,6087,5609,5398,79,272,334,5379,6214,46.39868886396964,8,233,1,206,5981,5981,233,3.749597682652076,partial_census_count,01204,True,5047,6546,573,0,,,,,,,,,,blocked_components
+1402,Camiña,Tarapacá,01208,True,1178,696,489,479,63,8,69,494,684,41.935483870967744,0,0,0,0,684,684,0,0.0,no_current_camp_polygon,01208,True,477,701,240,0,,,,,,,,,,blocked_components
+1403,Colchane,Tarapacá,01210,True,2112,1849,247,241,5,34,39,239,1873,11.316287878787879,0,0,0,0,1873,1873,0,0.0,no_current_camp_polygon,01210,True,236,1876,30,0,,,,,,,,,,blocked_components
+1404,Huara,Tarapacá,01206,True,3212,2094,1036,1009,89,89,157,1676,1536,52.179327521793276,0,0,0,0,1536,1536,0,0.0,no_current_camp_polygon,01206,True,1524,1688,950,0,,,,,,,,,,blocked_components
+1405,Pica,Tarapacá,01203,True,3196,987,2180,2025,22,32,54,1912,1284,59.824780976220275,0,0,0,0,1284,1284,0,0.0,no_current_camp_polygon,01203,True,1659,1537,139,0,,,,,,,,,,blocked_components
+14101,Valdivia,Los Ríos,10101,True,72810,8541,63026,61524,417,217,593,51798,21012,71.1413267408323,12,381,2,802,20631,20631,381,1.8132495716733295,partial_census_count,10101,True,50045,22765,1286,0,,,,,,,,,,blocked_components
+14102,Corral,Los Ríos,10106,True,3358,1015,2131,2112,12,6,18,1712,1646,50.98272781417511,1,8,0,9,1638,1638,8,0.48602673147023084,complete_census_count,10106,True,1664,1694,328,0,,,,,,,,,,blocked_components
+14103,Lanco,Los Ríos,10103,True,7781,737,6432,6364,30,49,72,4838,2943,62.1770980593754,3,45,1,23,2898,2898,45,1.529051987767584,partial_census_count,10103,True,4442,3339,156,0,,,,,,,,,,blocked_components
+14104,Los Lagos,Los Ríos,10104,True,9572,1452,7908,7841,47,21,63,4430,5142,46.280819055578775,2,197,0,173,4945,4945,197,3.8311940879035395,complete_census_count,10104,True,4180,5392,391,0,,,,,,,,,,blocked_components
+14105,Máfil,Los Ríos,10107,True,3436,442,2949,2925,10,10,20,1745,1691,50.78579743888242,0,0,0,0,1691,1691,0,0.0,no_current_camp_polygon,10107,True,1601,1835,65,0,,,,,,,,,,blocked_components
+14106,Mariquina,Los Ríos,10102,True,10267,1510,8223,8134,175,71,242,5447,4820,53.05347228986072,5,116,0,162,4704,4704,116,2.4066390041493775,complete_census_count,10102,True,5285,4982,437,0,,,,,,,,,,blocked_components
+14107,Paillaco,Los Ríos,10110,True,8437,864,7294,7225,21,12,31,4486,3951,53.170558255304016,1,11,0,13,3940,3940,11,0.27841052898000507,complete_census_count,10110,True,4372,4065,192,0,,,,,,,,,,blocked_components
+14108,Panguipulli,Los Ríos,10108,True,20013,5362,13315,13181,157,65,210,7947,12066,39.70918902713236,5,70,3,120,11996,11996,70,0.5801425493121167,partial_census_count,10108,True,7426,12587,343,0,,,,,,,,,,blocked_components
+14201,La Unión,Los Ríos,10109,True,17144,1786,14579,14460,77,56,126,10950,6194,63.87074195053663,3,15,2,51,6179,6179,15,0.24216984178237003,partial_census_count,10109,True,10553,6591,606,0,,,,,,,,,,blocked_components
+14202,Futrono,Los Ríos,10105,True,7930,2054,5761,5728,32,20,52,3863,4067,48.71374527112232,0,0,0,0,4067,4067,0,0.0,no_current_camp_polygon,10105,True,3607,4323,123,0,,,,,,,,,,blocked_components
+14203,Lago Ranco,Los Ríos,10112,True,6248,1715,4090,4065,56,112,165,2215,4033,35.45134443021767,0,0,0,0,4033,4033,0,0.0,no_current_camp_polygon,10112,True,2022,4226,13,0,,,,,,,,,,blocked_components
+14204,Río Bueno,Los Ríos,10111,True,16362,2708,12935,12833,100,39,134,8928,7434,54.56545654565456,6,82,1,94,7352,7352,82,1.1030400860909335,partial_census_count,10111,True,8015,8347,320,0,,,,,,,,,,blocked_components
+15101,Arica,Arica y Parinacota,01101,True,84853,6935,79338,74708,1540,2663,3710,64694,20159,76.2424428128646,9,1137,2,976,19022,19022,1137,5.640160722258049,partial_census_count,01101,True,63970,20883,570,0,,,,,,,,,,blocked_components
+15102,Camarones,Arica y Parinacota,01106,True,1035,602,437,427,49,68,102,365,670,35.265700483091784,0,0,0,0,670,670,0,0.0,no_current_camp_polygon,01106,True,365,670,163,0,,,,,,,,,,blocked_components
+15201,Putre,Arica y Parinacota,01301,True,1851,1150,619,583,28,144,161,698,1153,37.70934629929768,0,0,0,0,1153,1153,0,0.0,no_current_camp_polygon,01301,True,688,1163,99,0,,,,,,,,,,blocked_components
+15202,General Lagos,Arica y Parinacota,01302,True,623,399,226,217,9,138,139,121,502,19.42215088282504,0,0,0,0,502,502,0,0.0,no_current_camp_polygon,01302,True,121,502,9,0,,,,,,,,,,blocked_components
+16101,Chillán,Ñuble,08101,True,80984,9308,70003,68623,227,138,355,72955,8029,90.08569593993876,3,104,0,83,7925,7925,104,1.2953045211109728,complete_census_count,08101,True,69674,11310,1897,0,,,,,,,,,,blocked_components
+16102,Bulnes,Ñuble,08113,True,10527,1574,8771,8668,100,58,143,7063,3464,67.09413888097274,4,37,1,36,3427,3427,37,1.0681293302540416,partial_census_count,08113,True,6605,3922,1226,0,,,,,,,,,,blocked_components
+16103,Chillán Viejo,Ñuble,08121,True,13017,927,11738,11522,60,37,91,10844,2173,83.30644541753092,1,0,1,11,2173,2173,0,0.0,partial_census_count,08121,True,10042,2975,774,0,,,,,,,,,,blocked_components
+16104,El Carmen,Ñuble,08118,True,6206,1111,5008,4966,8,32,40,2370,3836,38.1888495004834,0,0,0,0,3836,3836,0,0.0,no_current_camp_polygon,08118,True,1854,4352,463,0,,,,,,,,,,blocked_components
+16105,Pemuco,Ñuble,08117,True,4202,876,3243,3207,91,15,103,2211,1991,52.617801047120416,0,0,0,0,1991,1991,0,0.0,no_current_camp_polygon,08117,True,2120,2082,1223,0,,,,,,,,,,blocked_components
+16106,Pinto,Ñuble,08102,True,7655,2866,4774,4714,9,23,31,3762,3893,49.14435009797518,0,0,0,0,3893,3893,0,0.0,no_current_camp_polygon,08102,True,3542,4113,965,0,,,,,,,,,,blocked_components
+16107,Quillón,Ñuble,08115,True,13483,5240,7523,7432,49,42,89,6590,6893,48.87636282726396,0,0,0,0,6893,6893,0,0.0,no_current_camp_polygon,08115,True,6159,7324,1961,0,,,,,,,,,,blocked_components
+16108,San Ignacio,Ñuble,08114,True,7989,1113,6620,6533,19,52,69,3735,4254,46.75178370259106,0,0,0,0,4254,4254,0,0.0,no_current_camp_polygon,08114,True,3411,4578,1079,0,,,,,,,,,,blocked_components
+16109,Yungay,Ñuble,08116,True,10335,2431,7309,7238,31,36,63,5096,5239,49.308176100628934,0,0,0,0,5239,5239,0,0.0,no_current_camp_polygon,08116,True,4854,5481,1319,0,,,,,,,,,,blocked_components
+16201,Quirihue,Ñuble,08104,True,5622,984,4642,4586,35,40,70,3950,1672,70.25969405905371,1,143,0,39,1529,1529,143,8.552631578947368,complete_census_count,08104,True,3839,1783,1353,0,,,,,,,,,,blocked_components
+16202,Cobquecura,Ñuble,08107,True,3891,1552,2305,2276,10,15,25,1750,2141,44.975584682600875,0,0,0,0,2141,2141,0,0.0,no_current_camp_polygon,08107,True,1647,2244,521,0,,,,,,,,,,blocked_components
+16203,Coelemu,Ñuble,08120,True,7085,1181,5638,5555,23,27,50,3660,3425,51.65843330980945,4,55,1,49,3370,3370,55,1.6058394160583942,partial_census_count,08120,True,3517,3568,2067,0,,,,,,,,,,blocked_components
+16204,Ninhue,Ñuble,08105,True,2907,594,2308,2296,4,27,31,997,1910,34.29652562779498,1,9,0,9,1901,1901,9,0.4712041884816754,complete_census_count,08105,True,943,1964,207,0,,,,,,,,,,blocked_components
+16205,Portezuelo,Ñuble,08106,True,2698,641,2045,2019,11,12,23,983,1715,36.43439584877687,0,0,0,0,1715,1715,0,0.0,no_current_camp_polygon,08106,True,931,1767,198,0,,,,,,,,,,blocked_components
+16206,Ránquil,Ñuble,08119,True,3560,773,2615,2586,33,21,50,1569,1991,44.07303370786517,0,0,0,0,1991,1991,0,0.0,no_current_camp_polygon,08119,True,1498,2062,792,0,,,,,,,,,,blocked_components
+16207,Trehuaco,Ñuble,,False,3053,658,2336,2317,17,16,30,,,,0,0,0,0,,,,,missing_role_source,08108,True,1276,1777,,,,,,,,,,,,missing_source
+16301,San Carlos,Ñuble,08109,True,23894,2409,20672,20385,363,152,491,15951,7943,66.75734494015234,1,7,0,21,7936,7936,7,0.08812791136850057,complete_census_count,08109,True,15459,8435,1243,0,,,,,,,,,,blocked_components
+16302,Coihueco,Ñuble,08103,True,12129,1336,10468,10350,232,35,258,5626,6503,46.384697831643166,0,0,0,0,6503,6503,0,0.0,no_current_camp_polygon,08103,True,5249,6880,1168,0,,,,,,,,,,blocked_components
+16303,Ñiquén,Ñuble,08110,True,6007,984,4920,4869,25,57,78,1222,4785,20.34293324454803,0,0,0,0,4785,4785,0,0.0,no_current_camp_polygon,08110,True,1089,4918,587,0,,,,,,,,,,blocked_components
+16304,San Fabián,Ñuble,08111,True,3136,1071,2022,2007,11,24,34,1092,2044,34.82142857142857,0,0,0,0,2044,2044,0,0.0,no_current_camp_polygon,08111,True,975,2161,235,0,,,,,,,,,,blocked_components
+16305,San Nicolás,Ñuble,08112,True,6326,865,5442,5364,34,47,78,2411,3915,38.11255137527664,3,16,2,44,3899,3899,16,0.4086845466155811,partial_census_count,08112,True,2079,4247,652,0,,,,,,,,,,blocked_components
+2101,Antofagasta,Antofagasta,02201,True,139716,7806,134059,126861,2143,1617,3329,117961,21755,84.42912765896533,92,7537,12,7461,14218,14218,7537,34.64490921627212,partial_census_count,02201,True,112719,26997,1624,0,,,,,,,,,,blocked_components
+2102,Mejillones,Antofagasta,02203,True,5789,659,4740,4358,133,68,175,4356,1433,75.24615650371393,0,0,0,0,1433,1433,0,0.0,no_current_camp_polygon,02203,True,4112,1677,60,0,,,,,,,,,,blocked_components
+2103,Sierra Gorda,Antofagasta,02206,True,728,221,481,446,15,11,21,428,300,58.79120879120879,0,0,0,0,300,300,0,0.0,no_current_camp_polygon,02206,True,430,298,0,0,,,,,,,,,,blocked_components
+2104,Taltal,Antofagasta,02202,True,5310,960,4100,3987,118,136,192,3670,1640,69.11487758945385,11,423,0,367,1217,1217,423,25.79268292682927,complete_census_count,02202,True,3659,1651,131,0,,,,,,,,,,blocked_components
+2201,Calama,Antofagasta,02301,True,60794,5241,56045,52533,467,577,1009,45334,15460,74.56985886765142,6,249,2,774,15211,15211,249,1.610608020698577,partial_census_count,02301,True,44063,16731,1309,0,,,,,,,,,,blocked_components
+2202,Ollagüe,Antofagasta,02302,True,438,346,102,89,1,3,4,70,368,15.981735159817351,0,0,0,0,368,368,0,0.0,no_current_camp_polygon,02302,True,70,368,13,0,,,,,,,,,,blocked_components
+2203,San Pedro de Atacama,Antofagasta,02303,True,5048,858,3895,3690,120,145,246,1675,3373,33.181458003169574,2,437,0,217,2936,2936,437,12.955825674473763,complete_census_count,02303,True,1645,3403,734,0,,,,,,,,,,blocked_components
+2301,Tocopilla,Antofagasta,02101,True,11870,2716,8690,8517,272,141,393,8974,2896,75.60235888795282,3,271,0,78,2625,2625,271,9.357734806629834,complete_census_count,02101,True,8961,2909,52,0,,,,,,,,,,blocked_components
+2302,María Elena,Antofagasta,02103,True,1925,248,1635,1584,38,10,47,94,1831,4.883116883116883,0,0,0,0,1831,1831,0,0.0,no_current_camp_polygon,02103,True,93,1832,0,0,,,,,,,,,,blocked_components
+3101,Copiapó,Atacama,03201,True,64368,6796,56984,54970,464,782,1152,53406,10962,82.96979865771812,75,3625,5,4105,7337,7337,3625,33.06878306878307,partial_census_count,03201,True,51439,12929,2711,0,,,,,,,,,,blocked_components
+3102,Caldera,Atacama,03202,True,18099,10741,6922,6775,52,139,182,8504,9595,46.986021327145146,0,0,0,0,9595,9595,0,0.0,no_current_camp_polygon,03202,True,8407,9692,19,0,,,,,,,,,,blocked_components
+3103,Tierra Amarilla,Atacama,03203,True,4627,717,3857,3717,53,73,120,3132,1495,67.68964771990491,9,284,1,603,1211,1211,284,18.99665551839465,partial_census_count,03203,True,3124,1503,264,0,,,,,,,,,,blocked_components
+3201,Chañaral,Atacama,03101,True,7229,2366,4383,4299,46,52,92,4764,2465,65.90123115230323,5,81,0,73,2384,2384,81,3.286004056795132,complete_census_count,03101,True,4744,2485,9,0,,,,,,,,,,blocked_components
+3202,Diego de Almagro,Atacama,03102,True,6798,2453,4157,4089,76,63,136,2877,3921,42.32127096204766,6,247,0,250,3674,3674,247,6.2994134149451675,complete_census_count,03102,True,2881,3917,455,0,,,,,,,,,,blocked_components
+3301,Vallenar,Atacama,03301,True,23392,4515,18630,18050,198,345,505,18144,5248,77.56497948016415,4,220,0,243,5028,5028,220,4.192073170731708,complete_census_count,03301,True,17553,5839,810,0,,,,,,,,,,blocked_components
+3302,Alto del Carmen,Atacama,03304,True,3161,1218,1919,1885,32,112,131,1110,2051,35.11546978804176,1,16,0,31,2035,2035,16,0.780107264748903,complete_census_count,03304,True,1091,2070,338,0,,,,,,,,,,blocked_components
+3303,Freirina,Atacama,03302,True,4395,1497,2733,2679,44,94,129,2327,2068,52.94653014789534,0,0,0,0,2068,2068,0,0.0,no_current_camp_polygon,03302,True,2199,2196,67,0,,,,,,,,,,blocked_components
+3304,Huasco,Atacama,03303,True,7358,3086,3472,3397,38,91,116,4160,3198,56.53710247349823,5,240,0,305,2958,2958,240,7.5046904315197,complete_census_count,03303,True,3864,3494,63,0,,,,,,,,,,blocked_components
+4101,La Serena,Coquimbo,04101,True,109413,21715,86442,84117,459,383,766,101350,8063,92.63067459991044,6,585,0,380,7478,7478,585,7.2553640084335855,complete_census_count,04101,True,96909,12504,1194,0,,,,,,,,,,blocked_components
+4102,Coquimbo,Coquimbo,04103,True,113054,22570,89924,87438,461,415,777,97690,15364,86.41003414297592,17,943,1,734,14421,14421,943,6.137724550898204,partial_census_count,04103,True,92874,20180,6211,0,,,,,,,,,,blocked_components
+4103,Andacollo,Coquimbo,04104,True,5126,818,4064,3999,415,96,464,3977,1149,77.58486149044089,3,75,0,61,1074,1074,75,6.527415143603133,complete_census_count,04104,True,3908,1218,831,0,,,,,,,,,,blocked_components
+4104,La Higuera,Coquimbo,04102,True,3214,1384,1626,1605,12,60,67,2230,984,69.38394523957685,0,0,0,0,984,984,0,0.0,no_current_camp_polygon,04102,True,2187,1027,723,0,,,,,,,,,,blocked_components
+4105,Paihuano,Coquimbo,04106,True,2888,812,1862,1827,10,39,45,1896,992,65.65096952908587,0,0,0,0,992,992,0,0.0,no_current_camp_polygon,04106,True,1828,1060,713,0,,,,,,,,,,blocked_components
+4106,Vicuña,Coquimbo,04105,True,12035,1698,9817,9592,69,107,167,9981,2054,82.93311175737432,1,45,0,36,2009,2009,45,2.190847127555988,complete_census_count,04105,True,9634,2401,1857,0,,,,,,,,,,blocked_components
+4201,Illapel,Coquimbo,04301,True,14196,2087,11573,11337,79,96,167,9596,4600,67.59650605804453,3,83,1,65,4517,4517,83,1.8043478260869565,partial_census_count,04301,True,9259,4937,4610,0,,,,,,,,,,blocked_components
+4202,Canela,Coquimbo,04304,True,5778,1605,3778,3748,34,136,167,3281,2497,56.78435444790585,1,10,0,33,2487,2487,10,0.4004805766920304,complete_census_count,04304,True,3196,2582,1504,0,,,,,,,,,,blocked_components
+4203,Los Vilos,Coquimbo,04303,True,14207,5061,8514,8297,49,65,108,10295,3912,72.46427817273175,1,153,0,315,3759,3759,153,3.911042944785276,complete_census_count,04303,True,10078,4129,771,0,,,,,,,,,,blocked_components
+4204,Salamanca,Coquimbo,04302,True,12135,1891,10035,9810,66,95,147,8667,3468,71.42150803461062,10,252,2,296,3216,3216,252,7.26643598615917,partial_census_count,04302,True,8459,3676,3071,0,,,,,,,,,,blocked_components
+4301,Ovalle,Coquimbo,04201,True,49637,6710,42131,41151,299,429,683,39754,9883,80.08944940266333,3,165,0,171,9718,9718,165,1.6695335424466256,complete_census_count,04201,True,38854,10783,1433,0,,,,,,,,,,blocked_components
+4302,Combarbalá,Coquimbo,04205,True,7644,2036,5250,5201,129,186,297,5903,1741,77.22396650968079,0,0,0,0,1741,1741,0,0.0,no_current_camp_polygon,04205,True,5826,1818,708,0,,,,,,,,,,blocked_components
+4303,Monte Patria,Coquimbo,04203,True,14465,3039,11210,10814,121,254,363,10661,3804,73.70203940546146,2,31,0,8,3773,3773,31,0.814931650893796,complete_census_count,04203,True,10553,3912,1763,0,,,,,,,,,,blocked_components
+4304,Punitaqui,Coquimbo,04204,True,5889,1244,4461,4361,80,192,267,3407,2482,57.85362540329428,0,0,0,0,2482,2482,0,0.0,no_current_camp_polygon,04204,True,3353,2536,435,0,,,,,,,,,,blocked_components
+4305,Río Hurtado,Coquimbo,04206,True,2911,1031,1880,1850,9,90,96,1790,1121,61.49089659910683,0,0,0,0,1121,1121,0,0.0,no_current_camp_polygon,04206,True,1766,1145,133,0,,,,,,,,,,blocked_components
+5101,Valparaíso,Valparaíso,05301,True,131986,16794,108777,105699,1116,784,1792,99453,32533,75.3511736093222,93,2572,11,3716,29961,29961,2572,7.905818707158885,partial_census_count,05301,True,96845,35141,2038,0,,,,,,,,,,blocked_components
+5102,Casablanca,Valparaíso,05305,True,13969,2872,10564,10393,66,39,99,9465,4504,67.75717660534039,1,22,0,38,4482,4482,22,0.48845470692717585,complete_census_count,05305,True,8961,5008,50,0,,,,,,,,,,blocked_components
+5103,Concón,Valparaíso,05309,True,26942,7670,18217,17886,127,40,161,24937,2005,92.55808774404277,2,0,2,76,2005,2005,0,0.0,partial_census_count,05309,True,23965,2977,2,0,,,,,,,,,,blocked_components
+5104,Juan Fernández,Valparaíso,05308,True,470,74,374,371,5,0,5,248,222,52.765957446808514,0,0,0,0,222,222,0,0.0,no_current_camp_polygon,05308,True,244,226,77,0,,,,,,,,,,blocked_components
+5105,Puchuncaví,Valparaíso,05307,True,21137,12088,8480,8346,53,46,94,11937,9200,56.47442872687704,2,14,0,14,9186,9186,14,0.15217391304347827,complete_census_count,05307,True,11432,9705,306,0,,,,,,,,,,blocked_components
+5107,Quintero,Valparaíso,05306,True,19653,5950,13028,12668,93,75,153,13736,5917,69.89263725639852,7,517,0,538,5400,5400,517,8.737535913469664,complete_census_count,05306,True,13475,6178,419,0,,,,,,,,,,blocked_components
+5109,Viña del Mar,Valparaíso,05302,True,163365,29833,131821,128389,1903,814,2518,139335,24030,85.29060692314755,106,8014,6,8531,16016,16016,8014,33.349979192675825,partial_census_count,05302,True,137882,25483,1945,0,,,,,,,,,,blocked_components
+5201,Isla de Pascua,Valparaíso,05101,True,3107,747,2069,2067,9,25,33,293,2814,9.430318635339557,0,0,0,0,2814,2814,0,0.0,no_current_camp_polygon,05101,True,293,2814,106,0,,,,,,,,,,blocked_components
+5301,Los Andes,Valparaíso,05701,True,26010,1763,23060,22682,77,55,118,24804,1206,95.36332179930795,3,27,1,57,1179,1179,27,2.2388059701492535,partial_census_count,05701,True,24734,1276,739,0,,,,,,,,,,blocked_components
+5302,Calle Larga,Valparaíso,05702,True,6201,362,5766,5633,15,27,42,5164,1037,83.27689082406063,0,0,0,0,1037,1037,0,0.0,no_current_camp_polygon,05702,True,4953,1248,977,0,,,,,,,,,,blocked_components
+5303,Rinconada,Valparaíso,05704,True,4725,605,4043,3948,29,20,43,3943,782,83.44973544973546,0,0,0,0,782,782,0,0.0,no_current_camp_polygon,05704,True,3549,1176,206,0,,,,,,,,,,blocked_components
+5304,San Esteban,Valparaíso,05703,True,8213,1026,7127,7007,22,49,68,6482,1731,78.92365761597468,0,0,0,0,1731,1731,0,0.0,no_current_camp_polygon,05703,True,6227,1986,1146,0,,,,,,,,,,blocked_components
+5401,La Ligua,Valparaíso,05201,True,24062,9379,14286,13984,90,59,140,11914,12148,49.5137561299975,1,13,0,25,12135,12135,13,0.10701350016463615,complete_census_count,05201,True,11712,12350,2712,0,,,,,,,,,,blocked_components
+5402,Cabildo,Valparaíso,05203,True,7337,604,6777,6619,39,30,67,5186,2151,70.68284039798283,2,31,0,46,2120,2120,31,1.4411901441190145,complete_census_count,05203,True,5119,2218,555,0,,,,,,,,,,blocked_components
+5403,Papudo,Valparaíso,05205,True,8020,5263,2713,2652,6,7,12,6807,1213,84.87531172069825,0,0,0,0,1213,1213,0,0.0,no_current_camp_polygon,05205,True,6503,1517,36,0,,,,,,,,,,blocked_components
+5404,Petorca,Valparaíso,05202,True,5034,1016,3817,3782,7,25,30,3296,1738,65.47477155343663,2,26,0,29,1712,1712,26,1.4959723820483315,complete_census_count,05202,True,3234,1800,599,0,,,,,,,,,,blocked_components
+5405,Zapallar,Valparaíso,05204,True,8096,5157,2811,2765,8,7,15,6148,1948,75.93873517786561,0,0,0,0,1948,1948,0,0.0,no_current_camp_polygon,05204,True,5988,2108,18,0,,,,,,,,,,blocked_components
+5501,Quillota,Valparaíso,05501,True,37199,2212,33740,32896,114,112,221,33672,3527,90.51856232694428,3,27,1,74,3500,3500,27,0.7655231074567621,partial_census_count,05501,True,32542,4657,507,0,,,,,,,,,,blocked_components
+5502,Calera,Valparaíso,05504,True,19627,1155,17419,17023,87,50,127,16727,2900,85.22443572629541,3,99,0,38,2801,2801,99,3.413793103448276,complete_census_count,05504,True,16170,3457,3595,0,,,,,,,,,,blocked_components
+5503,Hijuelas,Valparaíso,05503,True,7374,592,6680,6534,46,27,71,3892,3482,52.78003797125034,1,10,0,33,3472,3472,10,0.2871912693854107,complete_census_count,05503,True,3761,3613,214,0,,,,,,,,,,blocked_components
+5504,La Cruz,Valparaíso,05505,True,9858,927,8580,8443,41,23,63,8477,1381,85.99107324000812,0,0,0,0,1381,1381,0,0.0,no_current_camp_polygon,05505,True,7954,1904,42,0,,,,,,,,,,blocked_components
+5506,Nogales,Valparaíso,05502,True,8394,516,7525,7343,52,27,69,5709,2685,68.01286633309506,2,17,1,44,2668,2668,17,0.633147113594041,partial_census_count,05502,True,5578,2816,533,0,,,,,,,,,,blocked_components
+5601,San Antonio,Valparaíso,05401,True,40831,4457,34743,33806,207,146,335,29702,11129,72.74374862237026,31,3823,3,4437,7306,7306,3823,34.35169377302543,partial_census_count,05401,True,28965,11866,782,0,,,,,,,,,,blocked_components
+5602,Algarrobo,Valparaíso,05406,True,21317,14273,6430,6307,37,23,55,18116,3201,84.98381573392129,0,0,0,0,3201,3201,0,0.0,no_current_camp_polygon,05406,True,17459,3858,981,0,,,,,,,,,,blocked_components
+5603,Cartagena,Valparaíso,05403,True,18205,8576,9267,9014,65,50,109,10643,7562,58.46196099972535,12,518,1,1022,7044,7044,518,6.850039672044432,partial_census_count,05403,True,10134,8071,405,0,,,,,,,,,,blocked_components
+5604,El Quisco,Valparaíso,05405,True,18694,10241,7696,7489,44,18,58,13670,5024,73.12506686637424,1,17,0,40,5007,5007,17,0.33837579617834396,complete_census_count,05405,True,13367,5327,1855,0,,,,,,,,,,blocked_components
+5605,El Tabo,Valparaíso,05404,True,25126,17546,6765,6622,55,23,76,13781,11345,54.84756825598981,3,24,0,23,11321,11321,24,0.2115469369766417,complete_census_count,05404,True,13074,12052,6441,0,,,,,,,,,,blocked_components
+5606,Santo Domingo,Valparaíso,05402,True,8893,3807,4661,4588,34,10,42,6128,2765,68.90812998987968,0,0,0,0,2765,2765,0,0.0,no_current_camp_polygon,05402,True,5795,3098,58,0,,,,,,,,,,blocked_components
+5701,San Felipe,Valparaíso,05601,True,31606,1733,29530,28723,415,223,552,27433,4173,86.79681073213946,7,559,1,498,3614,3614,559,13.39563862928349,partial_census_count,05601,True,27215,4391,253,0,,,,,,,,,,blocked_components
+5702,Catemu,Valparaíso,05603,True,5603,542,4923,4860,28,23,49,4056,1547,72.38979118329466,0,0,0,0,1547,1547,0,0.0,no_current_camp_polygon,05603,True,3975,1628,641,0,,,,,,,,,,blocked_components
+5703,Llaillay,Valparaíso,05606,True,10434,1090,8913,8721,42,40,78,7503,2931,71.90914318573893,1,9,0,17,2922,2922,9,0.3070624360286592,complete_census_count,05606,True,7272,3162,513,0,,,,,,,,,,blocked_components
+5704,Panquehue,Valparaíso,05602,True,2862,326,2441,2401,55,4,57,1878,984,65.61844863731656,0,0,0,0,984,984,0,0.0,no_current_camp_polygon,05602,True,1833,1029,7,0,,,,,,,,,,blocked_components
+5705,Putaendo,Valparaíso,05604,True,6734,613,6037,5868,99,56,147,4947,1787,73.46302346302346,3,88,0,0,1699,1699,88,4.924454392837157,complete_census_count,05604,True,4880,1854,318,0,,,,,,,,,,blocked_components
+5706,Santa María,Valparaíso,05605,True,6088,613,5360,5286,39,26,64,5000,1088,82.1287779237845,0,0,0,0,1088,1088,0,0.0,no_current_camp_polygon,05605,True,4885,1203,287,0,,,,,,,,,,blocked_components
+5801,Quilpué,Valparaíso,05304,True,65971,3737,59451,58341,855,450,1149,56409,9562,85.50575252762577,30,1494,3,1034,8068,8068,1494,15.62434637105208,partial_census_count,05304,True,55667,10304,1239,0,,,,,,,,,,blocked_components
+5802,Limache,Valparaíso,05506,True,24661,3852,19778,19405,218,94,289,16475,8186,66.80588783909818,4,268,0,352,7918,7918,268,3.273882237967261,complete_census_count,05506,True,15869,8792,1767,0,,,,,,,,,,blocked_components
+5803,Olmué,Valparaíso,05507,True,10529,2645,7449,7349,80,70,143,6429,4100,61.05992971792193,0,0,0,0,4100,4100,0,0.0,no_current_camp_polygon,05507,True,5860,4669,554,0,,,,,,,,,,blocked_components
+5804,Villa Alemana,Valparaíso,05303,True,55191,3675,49954,49325,164,136,288,50450,4741,91.40983131307641,16,799,3,661,3942,3942,799,16.852984602404558,partial_census_count,05303,True,48914,6277,758,0,,,,,,,,,,blocked_components
+6101,Rancagua,Libertador General Bernardo O'Higgins,06101,True,100376,6471,92398,90497,416,231,550,95995,4381,95.6354108551845,8,277,0,177,4104,4104,277,6.322757361333029,complete_census_count,06101,True,92476,7900,1626,0,,,,,,,,,,blocked_components
+6102,Codegua,Libertador General Bernardo O'Higgins,06107,True,5176,403,4654,4572,23,13,34,3111,2065,60.10432766615147,1,4,0,0,2061,2061,4,0.1937046004842615,complete_census_count,06107,True,3001,2175,569,0,,,,,,,,,,blocked_components
+6103,Coinco,Libertador General Bernardo O'Higgins,06116,True,3385,471,2795,2755,18,21,38,1639,1746,48.41949778434269,1,26,0,13,1720,1720,26,1.4891179839633448,complete_census_count,06116,True,1554,1831,309,0,,,,,,,,,,blocked_components
+6104,Coltauco,Libertador General Bernardo O'Higgins,06106,True,8582,910,7549,7406,42,35,73,6034,2548,70.30995106035888,0,0,0,0,2548,2548,0,0.0,no_current_camp_polygon,06106,True,5914,2668,1482,0,,,,,,,,,,blocked_components
+6105,Doñihue,Libertador General Bernardo O'Higgins,06105,True,8375,537,7699,7601,34,41,72,6023,2352,71.91641791044776,1,53,0,0,2299,2299,53,2.253401360544218,complete_census_count,06105,True,5947,2428,1043,0,,,,,,,,,,blocked_components
+6106,Graneros,Libertador General Bernardo O'Higgins,06103,True,12959,686,12105,11700,39,18,53,10992,1967,84.82135967281425,1,11,0,0,1956,1956,11,0.5592272496187087,complete_census_count,06103,True,10642,2317,112,0,,,,,,,,,,blocked_components
+6107,Las Cabras,Libertador General Bernardo O'Higgins,06109,True,14752,4702,9823,9625,41,37,75,8233,6519,55.809381778741866,0,0,0,0,6519,6519,0,0.0,no_current_camp_polygon,06109,True,7780,6972,456,0,,,,,,,,,,blocked_components
+6108,Machalí,Libertador General Bernardo O'Higgins,06102,True,22672,1679,20475,20193,103,71,157,21141,1531,93.24717713479181,3,163,0,143,1368,1368,163,10.646636185499673,complete_census_count,06102,True,20430,2242,21,0,,,,,,,,,,blocked_components
+6109,Malloa,Libertador General Bernardo O'Higgins,06115,True,5736,761,4932,4824,25,37,62,3394,2342,59.17015341701534,4,6,3,24,2336,2336,6,0.2561912894961571,partial_census_count,06115,True,3321,2415,782,0,,,,,,,,,,blocked_components
+6110,Mostazal,Libertador General Bernardo O'Higgins,06104,True,10133,836,9111,8756,37,56,91,6905,3228,68.14368893713609,3,87,1,75,3141,3141,87,2.6951672862453533,partial_census_count,06104,True,6748,3385,256,0,,,,,,,,,,blocked_components
+6111,Olivar,Libertador General Bernardo O'Higgins,06114,True,5245,371,4708,4634,52,23,74,3120,2125,59.48522402287893,3,6,2,64,2119,2119,6,0.2823529411764706,partial_census_count,06114,True,2796,2449,468,0,,,,,,,,,,blocked_components
+6112,Peumo,Libertador General Bernardo O'Higgins,06108,True,5302,370,4864,4767,13,20,30,4035,1267,76.10335722368917,0,0,0,0,1267,1267,0,0.0,no_current_camp_polygon,06108,True,3927,1375,644,0,,,,,,,,,,blocked_components
+6113,Pichidegua,Libertador General Bernardo O'Higgins,06111,True,7989,688,7248,7063,29,22,49,5318,2671,66.56652897734385,0,0,0,0,2671,2671,0,0.0,no_current_camp_polygon,06111,True,5177,2812,1492,0,,,,,,,,,,blocked_components
+6114,Quinta de Tilcoco,Libertador General Bernardo O'Higgins,06117,True,5254,447,4856,4698,19,25,42,4011,1243,76.34183479253902,0,0,0,0,1243,1243,0,0.0,no_current_camp_polygon,06117,True,3733,1521,389,0,,,,,,,,,,blocked_components
+6115,Rengo,Libertador General Bernardo O'Higgins,06112,True,25124,1568,22338,21814,173,136,266,21757,3367,86.59847158095845,5,139,2,115,3228,3228,139,4.128304128304128,partial_census_count,06112,True,20803,4321,160,0,,,,,,,,,,blocked_components
+6116,Requínoa,Libertador General Bernardo O'Higgins,06113,True,10490,558,9833,9631,53,33,81,7761,2729,73.98474737845567,3,18,1,41,2711,2711,18,0.659582264565775,partial_census_count,06113,True,7313,3177,375,0,,,,,,,,,,blocked_components
+6117,San Vicente,Libertador General Bernardo O'Higgins,06110,True,19274,1504,17837,17267,226,86,302,14059,5215,72.94282453045554,3,50,0,48,5165,5165,50,0.9587727708533078,complete_census_count,06110,True,13542,5732,467,0,,,,,,,,,,blocked_components
+6201,Pichilemu,Libertador General Bernardo O'Higgins,06301,True,15001,6773,7738,7642,69,35,99,9699,5302,64.65568962069196,1,9,0,18,5293,5293,9,0.16974726518294983,complete_census_count,06301,True,8771,6230,306,0,,,,,,,,,,blocked_components
+6202,La Estrella,Libertador General Bernardo O'Higgins,06304,True,3676,1861,1812,1784,8,13,20,1107,2569,30.114254624591947,0,0,0,0,2569,2569,0,0.0,no_current_camp_polygon,06304,True,943,2733,243,0,,,,,,,,,,blocked_components
+6203,Litueche,Libertador General Bernardo O'Higgins,06303,True,5459,1863,3408,3349,18,16,32,1980,3479,36.2703791903279,0,0,0,0,3479,3479,0,0.0,no_current_camp_polygon,06303,True,1747,3712,289,0,,,,,,,,,,blocked_components
+6204,Marchihue,Libertador General Bernardo O'Higgins,06305,True,5068,1691,3304,3249,164,18,178,2004,3064,39.54222573007103,0,0,0,0,3064,3064,0,0.0,no_current_camp_polygon,06305,True,1872,3196,579,0,,,,,,,,,,blocked_components
+6205,Navidad,Libertador General Bernardo O'Higgins,06302,True,6597,2922,3674,3628,15,29,44,2064,4533,31.28694861300591,1,7,0,9,4526,4526,7,0.1544231193470108,complete_census_count,06302,True,1783,4814,358,0,,,,,,,,,,blocked_components
+6206,Paredones,Libertador General Bernardo O'Higgins,06306,True,5686,2718,2857,2829,7,44,49,1904,3782,33.485754484699264,0,0,0,0,3782,3782,0,0.0,no_current_camp_polygon,06306,True,1730,3956,919,0,,,,,,,,,,blocked_components
+6301,San Fernando,Libertador General Bernardo O'Higgins,06201,True,31410,2946,27300,26879,172,132,264,28289,3121,90.06367398917543,7,257,0,251,2864,2864,257,8.234540211470682,complete_census_count,06201,True,27307,4103,198,0,,,,,,,,,,blocked_components
+6302,Chépica,Libertador General Bernardo O'Higgins,06209,True,5961,493,5531,5393,23,28,50,4698,1263,78.81227981882235,0,0,0,0,1263,1263,0,0.0,no_current_camp_polygon,06209,True,4607,1354,1577,0,,,,,,,,,,blocked_components
+6303,Chimbarongo,Libertador General Bernardo O'Higgins,06202,True,14247,873,13277,13000,46,61,103,9879,4368,69.3409138766056,5,82,0,85,4286,4286,82,1.8772893772893773,complete_census_count,06202,True,9621,4626,3379,0,,,,,,,,,,blocked_components
+6304,Lolol,Libertador General Bernardo O'Higgins,06206,True,3718,822,2897,2838,8,22,29,1855,1863,49.892415277030665,0,0,0,0,1863,1863,0,0.0,no_current_camp_polygon,06206,True,1755,1963,930,0,,,,,,,,,,blocked_components
+6305,Nancagua,Libertador General Bernardo O'Higgins,06203,True,7106,595,6517,6274,16,23,35,5593,1513,78.70813397129187,2,55,0,81,1458,1458,55,3.6351619299405153,complete_census_count,06203,True,5508,1598,1381,0,,,,,,,,,,blocked_components
+6306,Palmilla,Libertador General Bernardo O'Higgins,06207,True,5130,583,4453,4341,15,8,22,3202,1928,62.41715399610136,0,0,0,0,1928,1928,0,0.0,no_current_camp_polygon,06207,True,3116,2014,1545,0,,,,,,,,,,blocked_components
+6307,Peralillo,Libertador General Bernardo O'Higgins,06208,True,5158,677,4485,4408,15,8,23,3346,1812,64.87010469174099,1,24,0,16,1788,1788,24,1.3245033112582782,complete_census_count,06208,True,3201,1957,1117,0,,,,,,,,,,blocked_components
+6308,Placilla,Libertador General Bernardo O'Higgins,06204,True,3758,334,3287,3231,38,20,56,2103,1655,55.96061734965407,5,68,2,103,1587,1587,68,4.108761329305136,partial_census_count,06204,True,1998,1760,342,0,,,,,,,,,,blocked_components
+6309,Pumanque,Libertador General Bernardo O'Higgins,06214,True,2567,703,1777,1752,67,18,81,891,1676,34.709777950915466,0,0,0,0,1676,1676,0,0.0,no_current_camp_polygon,06214,True,834,1733,554,0,,,,,,,,,,blocked_components
+6310,Santa Cruz,Libertador General Bernardo O'Higgins,06205,True,16443,1416,14830,14412,45,56,96,13562,2881,82.47886638691236,1,12,0,10,2869,2869,12,0.4165220409580007,complete_census_count,06205,True,13368,3075,648,0,,,,,,,,,,blocked_components
+7101,Talca,Maule,07201,True,95336,9791,84927,82742,124,132,238,95449,-113,100.11852815305866,2,0,2,23,-113,0,0,0.0,partial_census_count,07201,True,91492,3844,174,0,,,,,,,,,,blocked_components
+7102,Constitución,Maule,07208,True,23400,5008,17554,17374,109,58,160,15980,7420,68.2905982905983,15,109,6,236,7311,7311,109,1.4690026954177897,partial_census_count,07208,True,15791,7609,193,0,,,,,,,,,,blocked_components
+7103,Curepto,Maule,07207,True,5196,1384,3788,3749,46,120,160,2671,2525,51.40492686682063,0,0,0,0,2525,2525,0,0.0,no_current_camp_polygon,07207,True,2596,2600,322,0,,,,,,,,,,blocked_components
+7104,Empedrado,Maule,07209,True,1891,407,1463,1458,3,11,14,1035,856,54.732945531464836,1,6,0,18,850,850,6,0.7009345794392523,complete_census_count,07209,True,982,909,74,0,,,,,,,,,,blocked_components
+7105,Maule,Maule,07206,True,23288,2070,20399,20162,42,56,92,20159,3129,86.56389556853316,0,0,0,0,3129,3129,0,0.0,no_current_camp_polygon,07206,True,19068,4220,306,0,,,,,,,,,,blocked_components
+7106,Pelarco,Maule,07203,True,4073,671,3247,3191,22,24,44,1940,2133,47.63073901301252,0,0,0,0,2133,2133,0,0.0,no_current_camp_polygon,07203,True,1846,2227,31,0,,,,,,,,,,blocked_components
+7107,Pencahue,Maule,07205,True,4680,1131,3421,3387,11,39,49,2573,2107,54.97863247863248,0,0,0,0,2107,2107,0,0.0,no_current_camp_polygon,07205,True,1927,2753,250,0,,,,,,,,,,blocked_components
+7108,Río Claro,Maule,07204,True,6277,852,5130,5054,28,35,62,3570,2707,56.87430301099251,0,0,0,0,2707,2707,0,0.0,no_current_camp_polygon,07204,True,3486,2791,102,0,,,,,,,,,,blocked_components
+7109,San Clemente,Maule,07202,True,22304,5258,16654,16376,87,108,190,12832,9472,57.53228120516499,0,0,0,0,9472,9472,0,0.0,no_current_camp_polygon,07202,True,12292,10012,173,0,,,,,,,,,,blocked_components
+7110,San Rafael,Maule,07210,True,4786,786,3923,3884,29,29,53,2689,2097,56.18470539072294,0,0,0,0,2097,2097,0,0.0,no_current_camp_polygon,07210,True,2620,2166,41,0,,,,,,,,,,blocked_components
+7201,Cauquenes,Maule,07401,True,20228,3158,16190,16032,57,158,213,16473,3755,81.43662250346055,1,5,0,9,3750,3750,5,0.13315579227696406,complete_census_count,07401,True,15605,4623,831,0,,,,,,,,,,blocked_components
+7202,Chanco,Maule,07403,True,4441,951,3485,3434,95,28,123,1955,2486,44.02161675298356,0,0,0,0,2486,2486,0,0.0,no_current_camp_polygon,07403,True,1849,2592,388,0,,,,,,,,,,blocked_components
+7203,Pelluhue,Maule,07402,True,7739,3839,3484,3450,18,21,38,3826,3913,49.43791187491924,0,0,0,0,3913,3913,0,0.0,no_current_camp_polygon,07402,True,3661,4078,971,0,,,,,,,,,,blocked_components
+7301,Curicó,Maule,07101,True,62193,4818,57321,55895,230,115,326,57409,4784,92.30781599215345,2,152,0,214,4632,4632,152,3.177257525083612,complete_census_count,07101,True,56406,5787,73,0,,,,,,,,,,blocked_components
+7302,Hualañé,Maule,07107,True,5196,950,4066,4002,23,32,51,3272,1924,62.971516551193226,0,0,0,0,1924,1924,0,0.0,no_current_camp_polygon,07107,True,3185,2011,168,0,,,,,,,,,,blocked_components
+7303,Licantén,Maule,07105,True,4498,1828,2666,2615,50,11,59,2590,1908,57.5811471765229,0,0,0,0,1908,1908,0,0.0,no_current_camp_polygon,07105,True,2520,1978,210,0,,,,,,,,,,blocked_components
+7304,Molina,Maule,07108,True,18966,1427,17300,16943,86,55,127,16504,2462,87.01887588315934,1,8,0,15,2454,2454,8,0.3249390739236393,complete_census_count,07108,True,15851,3115,14,0,,,,,,,,,,blocked_components
+7305,Rauco,Maule,07104,True,4783,619,4072,3999,22,42,59,3164,1619,66.15095128580388,1,9,0,10,1610,1610,9,0.5558987029030266,complete_census_count,07104,True,2980,1803,204,0,,,,,,,,,,blocked_components
+7306,Romeral,Maule,07103,True,7230,932,6113,5997,96,22,116,4575,2655,63.27800829875519,0,0,0,0,2655,2655,0,0.0,no_current_camp_polygon,07103,True,4420,2810,75,0,,,,,,,,,,blocked_components
+7307,Sagrada Familia,Maule,07109,True,7528,554,6730,6653,54,15,66,4885,2643,64.89107332624867,0,0,0,0,2643,2643,0,0.0,no_current_camp_polygon,07109,True,4784,2744,86,0,,,,,,,,,,blocked_components
+7308,Teno,Maule,07102,True,12499,1537,10735,10548,51,60,104,7088,5411,56.708536682934636,1,20,0,50,5391,5391,20,0.36961744594344853,complete_census_count,07102,True,6865,5634,245,0,,,,,,,,,,blocked_components
+7309,Vichuquén,Maule,07106,True,4420,2463,1892,1875,16,22,37,2367,2053,53.55203619909502,0,0,0,0,2053,2053,0,0.0,no_current_camp_polygon,07106,True,2233,2187,162,0,,,,,,,,,,blocked_components
+7401,Linares,Maule,07301,True,41354,4869,35110,34636,181,175,336,34420,6934,83.23257725975722,0,0,0,0,6934,6934,0,0.0,no_current_camp_polygon,07301,True,31984,9370,527,0,,,,,,,,,,blocked_components
+7402,Colbún,Maule,07303,True,10579,1859,8220,8137,36,52,86,5825,4754,55.06191511485017,0,0,0,0,4754,4754,0,0.0,no_current_camp_polygon,07303,True,5545,5034,1635,0,,,,,,,,,,blocked_components
+7403,Longaví,Maule,07304,True,14131,1861,11995,11818,51,98,149,5599,8532,39.62210742339537,0,0,0,0,8532,8532,0,0.0,no_current_camp_polygon,07304,True,5193,8938,702,0,,,,,,,,,,blocked_components
+7404,Parral,Maule,07305,True,20781,3202,17034,16856,68,76,136,15021,5760,72.28237332178432,0,0,0,0,5760,5760,0,0.0,no_current_camp_polygon,07305,True,14408,6373,1566,0,,,,,,,,,,blocked_components
+7405,Retiro,Maule,07306,True,10148,1641,8218,8153,30,43,68,4521,5627,44.55065037445802,3,46,0,47,5581,5581,46,0.8174871156921983,complete_census_count,07306,True,4310,5838,443,0,,,,,,,,,,blocked_components
+7406,San Javier,Maule,07310,True,22226,3335,18058,17851,97,77,172,17484,4742,78.66462701340772,0,0,0,0,4742,4742,0,0.0,no_current_camp_polygon,07310,True,16736,5490,809,0,,,,,,,,,,blocked_components
+7407,Villa Alegre,Maule,07309,True,8164,1124,6674,6611,25,44,65,5936,2228,72.7094561489466,0,0,0,0,2228,2228,0,0.0,no_current_camp_polygon,07309,True,5603,2561,683,0,,,,,,,,,,blocked_components
+7408,Yerbas Buenas,Maule,07302,True,8086,753,7095,6998,28,36,60,4006,4080,49.5424189957952,2,0,2,10,4080,4080,0,0.0,partial_census_count,07302,True,3592,4494,804,0,,,,,,,,,,blocked_components
+8101,Concepción,Biobío,08201,True,101138,10555,91718,87967,578,222,753,91142,9996,90.11647451996282,11,453,1,456,9543,9543,453,4.531812725090036,partial_census_count,08201,True,87373,13765,858,0,,,,,,,,,,blocked_components
+8102,Coronel,Biobío,08207,True,45727,3673,41885,41296,145,102,227,44518,1209,97.35604784919194,14,634,3,843,575,575,634,52.44003308519437,partial_census_count,08207,True,43403,2324,3065,0,,,,,,,,,,blocked_components
+8103,Chiguayante,Biobío,08211,True,30649,1127,29370,28849,101,55,151,28102,2547,91.68977780677999,0,0,0,0,2547,2547,0,0.0,no_current_camp_polygon,08211,True,27552,3097,195,0,,,,,,,,,,blocked_components
+8104,Florida,Biobío,08204,True,6744,1792,4952,4920,33,30,59,2668,4076,39.56109134045077,0,0,0,0,4076,4076,0,0.0,no_current_camp_polygon,08204,True,2465,4279,106,0,,,,,,,,,,blocked_components
+8105,Hualqui,Biobío,08203,True,10872,1705,8815,8712,60,69,125,7476,3396,68.76379690949227,2,35,0,62,3361,3361,35,1.0306242638398115,complete_census_count,08203,True,7288,3584,420,0,,,,,,,,,,blocked_components
+8106,Lota,Biobío,08208,True,15964,2120,13805,13579,87,44,122,13113,2851,82.14106740165371,30,1601,3,1922,1250,1250,1601,56.15573482988425,partial_census_count,08208,True,12423,3541,1249,0,,,,,,,,,,blocked_components
+8107,Penco,Biobío,08202,True,17558,638,16829,16513,246,65,304,14413,3145,82.08793712267912,2,12,1,58,3133,3133,12,0.3815580286168522,partial_census_count,08202,True,14135,3423,121,0,,,,,,,,,,blocked_components
+8108,San Pedro de La paz,Biobío,08210,True,56843,2141,52274,51652,295,129,381,55366,1477,97.4016149745791,7,335,0,416,1142,1142,335,22.68111035883548,complete_census_count,08210,True,54063,2780,21,0,,,,,,,,,,blocked_components
+8109,Santa Juana,Biobío,08209,True,7531,1847,5602,5547,22,36,58,4321,3210,57.3761784623556,0,0,0,0,3210,3210,0,0.0,no_current_camp_polygon,08209,True,4161,3370,113,0,,,,,,,,,,blocked_components
+8110,Talcahuano,Biobío,08206,True,53783,3018,50931,49475,597,168,713,46120,7663,85.75200342115538,29,1422,5,1340,6241,6241,1422,18.556701030927837,partial_census_count,08206,True,45511,8272,177,0,,,,,,,,,,blocked_components
+8111,Tomé,Biobío,08205,True,25096,4152,20717,20311,95,71,161,19270,5826,76.78514504303475,13,218,2,312,5608,5608,218,3.7418468932372124,partial_census_count,08205,True,18723,6373,1327,0,,,,,,,,,,blocked_components
+8112,Hualpén,Biobío,08212,True,32270,1267,30590,29763,82,39,117,31300,970,96.99411217849396,1,17,0,21,953,953,17,1.7525773195876289,complete_census_count,08212,True,31109,1161,782,0,,,,,,,,,,blocked_components
+8201,Lebu,Biobío,08303,True,10229,1427,8777,8678,64,30,92,7866,2363,76.89901261120345,6,210,0,222,2153,2153,210,8.887008040626322,complete_census_count,08303,True,7760,2469,966,0,,,,,,,,,,blocked_components
+8202,Arauco,Biobío,08301,True,15163,1972,13185,12983,41,20,57,10831,4332,71.43045571456835,9,230,2,309,4102,4102,230,5.30932594644506,partial_census_count,08301,True,10728,4435,1666,0,,,,,,,,,,blocked_components
+8203,Cañete,Biobío,08305,True,14497,1937,12530,12430,65,34,96,7345,7152,50.66565496309581,2,114,0,125,7038,7038,114,1.5939597315436242,complete_census_count,08305,True,7221,7276,924,0,,,,,,,,,,blocked_components
+8204,Contulmo,Biobío,08306,True,2990,678,2288,2271,166,13,177,1189,1801,39.76588628762542,1,0,1,15,1801,1801,0,0.0,partial_census_count,08306,True,1129,1861,10,0,,,,,,,,,,blocked_components
+8205,Curanilahue,Biobío,08302,True,13197,1844,11095,10989,123,54,168,9272,3925,70.25839205880125,20,672,2,977,3253,3253,672,17.121019108280255,partial_census_count,08302,True,9161,4036,1323,0,,,,,,,,,,blocked_components
+8206,Los Álamos,Biobío,08304,True,9305,1128,7985,7926,42,24,61,6103,3202,65.58839333691564,7,305,0,324,2897,2897,305,9.52529668956902,complete_census_count,08304,True,5815,3490,750,0,,,,,,,,,,blocked_components
+8207,Tirúa,Biobío,08307,True,4894,1277,3607,3579,13,10,22,1437,3457,29.362484675112384,0,0,0,0,3457,3457,0,0.0,no_current_camp_polygon,08307,True,1413,3481,78,0,,,,,,,,,,blocked_components
+8301,Los Ángeles,Biobío,08401,True,93016,12551,78445,77467,323,218,531,65581,27435,70.50507439580288,8,260,1,304,27175,27175,260,0.9476945507563331,partial_census_count,08401,True,62698,30318,754,0,,,,,,,,,,blocked_components
+8302,Antuco,Biobío,08413,True,2671,936,1722,1701,12,4,16,1314,1357,49.19505803070011,0,0,0,0,1357,1357,0,0.0,no_current_camp_polygon,08413,True,1269,1402,360,0,,,,,,,,,,blocked_components
+8303,Cabrero,Biobío,08410,True,13268,1860,11389,11261,57,23,79,8433,4835,63.55893880012059,0,0,0,0,4835,4835,0,0.0,no_current_camp_polygon,08410,True,8239,5029,867,0,,,,,,,,,,blocked_components
+8304,Laja,Biobío,08403,True,10088,1519,8562,8459,73,62,131,6267,3821,62.123314829500394,3,102,1,152,3719,3719,102,2.669458257000785,partial_census_count,08403,True,6140,3948,832,0,,,,,,,,,,blocked_components
+8305,Mulchén,Biobío,08407,True,11587,1500,10163,9970,24,20,42,7473,4114,64.49469232760853,3,114,2,121,4000,4000,114,2.7710257656781723,partial_census_count,08407,True,7352,4235,537,0,,,,,,,,,,blocked_components
+8306,Nacimiento,Biobío,08405,True,11086,1752,9231,9107,67,55,120,8095,2991,73.020025257081,0,0,0,0,2991,2991,0,0.0,no_current_camp_polygon,08405,True,7359,3727,590,0,,,,,,,,,,blocked_components
+8307,Negrete,Biobío,08406,True,4421,614,3762,3721,45,12,57,2478,1943,56.050667269848454,3,45,1,99,1898,1898,45,2.316006176016469,partial_census_count,08406,True,2268,2153,233,0,,,,,,,,,,blocked_components
+8308,Quilaco,Biobío,08408,True,2448,705,1727,1707,10,19,28,992,1456,40.52287581699346,0,0,0,0,1456,1456,0,0.0,no_current_camp_polygon,08408,True,930,1518,283,0,,,,,,,,,,blocked_components
+8309,Quilleco,Biobío,08404,True,4500,851,3582,3537,36,11,45,2020,2480,44.888888888888886,1,15,0,23,2465,2465,15,0.6048387096774194,complete_census_count,08404,True,1992,2508,524,0,,,,,,,,,,blocked_components
+8310,San Rosendo,Biobío,08411,True,1866,553,1322,1307,11,12,18,938,928,50.267952840300104,1,97,0,30,831,831,97,10.452586206896552,complete_census_count,08411,True,940,926,65,0,,,,,,,,,,blocked_components
+8311,Santa Bárbara,Biobío,08402,True,6392,1013,5215,5143,30,28,57,3323,3069,51.98685857321652,0,0,0,0,3069,3069,0,0.0,no_current_camp_polygon,08402,True,2982,3410,133,0,,,,,,,,,,blocked_components
+8312,Tucapel,Biobío,08412,True,7789,1383,6176,6142,15,18,32,6147,1642,78.91898831685711,0,0,0,0,1642,1642,0,0.0,no_current_camp_polygon,08412,True,5922,1867,1311,0,,,,,,,,,,blocked_components
+8313,Yumbel,Biobío,08409,True,14108,5052,8890,8827,52,64,116,6290,7818,44.584632832435496,0,0,0,0,7818,7818,0,0.0,no_current_camp_polygon,08409,True,5898,8210,369,0,,,,,,,,,,blocked_components
+8314,Alto Biobío,Biobío,08414,True,2775,691,2029,2006,164,108,261,255,2520,9.18918918918919,4,13,2,55,2507,2507,13,0.5158730158730159,partial_census_count,08414,True,241,2534,65,0,,,,,,,,,,blocked_components
+9101,Temuco,La Araucanía,09201,True,128995,16172,110496,108912,760,422,1081,110572,18423,85.71805108725144,45,860,10,1523,17563,17563,860,4.668077946045703,partial_census_count,09201,True,106645,22350,514,0,,,,,,,,,,blocked_components
+9102,Carahue,La Araucanía,09209,True,11653,2180,9090,9030,67,39,104,5114,6539,43.8856946709002,0,0,0,0,6539,6539,0,0.0,no_current_camp_polygon,09209,True,5061,6592,67,0,,,,,,,,,,blocked_components
+9103,Cunco,La Araucanía,09204,True,10533,2604,7324,7281,109,21,129,5091,5442,48.33380803189974,0,0,0,0,5442,5442,0,0.0,no_current_camp_polygon,09204,True,4669,5864,97,0,,,,,,,,,,blocked_components
+9104,Curarrehue,La Araucanía,09218,True,4431,1118,2906,2888,18,21,36,896,3535,20.221169036334913,2,10,1,27,3525,3525,10,0.2828854314002829,partial_census_count,09218,True,837,3594,10,0,,,,,,,,,,blocked_components
+9105,Freire,La Araucanía,09203,True,12594,2215,9721,9637,61,90,147,3460,9134,27.473400031761155,1,0,1,24,9134,9134,0,0.0,partial_census_count,09203,True,3337,9257,43,0,,,,,,,,,,blocked_components
+9106,Galvarino,La Araucanía,09207,True,5475,702,4515,4478,26,17,43,1646,3829,30.06392694063927,1,13,0,25,3816,3816,13,0.3395142334813267,complete_census_count,09207,True,1618,3857,20,0,,,,,,,,,,blocked_components
+9107,Gorbea,La Araucanía,09212,True,6698,914,5583,5528,17,16,33,4201,2497,62.72021498954912,1,0,1,37,2497,2497,0,0.0,partial_census_count,09212,True,4097,2601,43,0,,,,,,,,,,blocked_components
+9108,Lautaro,La Araucanía,09205,True,18213,2045,14817,14705,42,40,79,11948,6265,65.60149343875254,0,0,0,0,6265,6265,0,0.0,no_current_camp_polygon,09205,True,11375,6838,40,0,,,,,,,,,,blocked_components
+9109,Loncoche,La Araucanía,09214,True,12370,2077,9568,9512,68,42,105,7087,5283,57.291835084882784,1,31,0,130,5252,5252,31,0.5867878099564642,complete_census_count,09214,True,6734,5636,48,0,,,,,,,,,,blocked_components
+9110,Melipeuco,La Araucanía,09217,True,3606,820,2624,2609,23,10,33,1081,2525,29.97781475318913,0,0,0,0,2525,2525,0,0.0,no_current_camp_polygon,09217,True,1039,2567,48,0,,,,,,,,,,blocked_components
+9111,Nueva Imperial,La Araucanía,09208,True,14834,2093,12109,12012,136,64,198,6473,8361,43.636241067817174,1,0,1,14,8361,8361,0,0.0,partial_census_count,09208,True,6364,8470,87,0,,,,,,,,,,blocked_components
+9112,Padre Las Casas,La Araucanía,09220,True,32146,3238,27708,27469,105,83,185,17763,14383,55.25726373421266,3,22,2,41,14361,14361,22,0.15295835361190294,partial_census_count,09220,True,17330,14816,39,0,,,,,,,,,,blocked_components
+9113,Perquenco,La Araucanía,09206,True,3345,492,2742,2734,21,13,34,1458,1887,43.587443946188344,0,0,0,0,1887,1887,0,0.0,no_current_camp_polygon,09206,True,1413,1932,14,0,,,,,,,,,,blocked_components
+9114,Pitrufquén,La Araucanía,09211,True,13094,1964,10252,10139,42,29,70,7542,5552,57.598900259660915,0,0,0,0,5552,5552,0,0.0,no_current_camp_polygon,09211,True,7159,5935,54,0,,,,,,,,,,blocked_components
+9115,Pucón,La Araucanía,09216,True,28756,15279,12548,12372,62,54,114,15041,13715,52.30560578661844,2,8,1,34,13707,13707,8,0.058330295297119944,partial_census_count,09216,True,14268,14488,231,0,,,,,,,,,,blocked_components
+9116,Saavedra,La Araucanía,09210,True,6753,1625,4926,4889,59,33,89,1408,5345,20.84999259588331,1,0,1,6,5345,5345,0,0.0,partial_census_count,09210,True,1375,5378,36,0,,,,,,,,,,blocked_components
+9117,Teodoro Schmidt,La Araucanía,09219,True,8005,1672,6048,6019,19,31,47,2547,5458,31.817613991255467,0,0,0,0,5458,5458,0,0.0,no_current_camp_polygon,09219,True,2472,5533,45,0,,,,,,,,,,blocked_components
+9118,Toltén,La Araucanía,09213,True,4951,1040,3857,3827,28,24,52,1864,3087,37.648959806099775,1,0,1,13,3087,3087,0,0.0,partial_census_count,09213,True,1775,3176,86,0,,,,,,,,,,blocked_components
+9119,Vilcún,La Araucanía,09202,True,13920,2139,11229,11166,31,40,68,7491,6429,53.814655172413794,0,0,0,0,6429,6429,0,0.0,no_current_camp_polygon,09202,True,7213,6707,27,0,,,,,,,,,,blocked_components
+9120,Villarrica,La Araucanía,09215,True,43213,15085,25155,24839,140,126,248,23141,20072,53.55101474093444,2,95,0,69,19977,19977,95,0.4732961339178956,complete_census_count,09215,True,20980,22233,40,0,,,,,,,,,,blocked_components
+9121,Cholchol,La Araucanía,09221,True,5268,598,4549,4519,29,36,63,1727,3541,32.782839787395595,0,0,0,0,3541,3541,0,0.0,no_current_camp_polygon,09221,True,1526,3742,44,0,,,,,,,,,,blocked_components
+9201,Angol,La Araucanía,09101,True,22085,1623,19220,18950,150,100,234,19299,2786,87.3851030110935,1,5,0,25,2781,2781,5,0.17946877243359655,complete_census_count,09101,True,17917,4168,450,0,,,,,,,,,,blocked_components
+9202,Collipulli,La Araucanía,09105,True,10454,1066,8764,8654,69,29,94,6634,3820,63.45896307633442,4,70,0,123,3750,3750,70,1.8324607329842932,complete_census_count,09105,True,6563,3891,275,0,,,,,,,,,,blocked_components
+9203,Curacautín,La Araucanía,09110,True,9916,2389,7102,7073,17,9,25,6246,3670,62.989108511496575,1,6,0,10,3664,3664,6,0.16348773841961853,complete_census_count,09110,True,5873,4043,422,0,,,,,,,,,,blocked_components
+9204,Ercilla,La Araucanía,09106,True,3782,599,2787,2764,53,23,69,1606,2176,42.46430460074035,1,0,1,7,2176,2176,0,0.0,partial_census_count,09106,True,1582,2200,95,0,,,,,,,,,,blocked_components
+9205,Lonquimay,La Araucanía,09111,True,5651,1660,3763,3739,24,20,43,1614,4037,28.561316581136083,1,0,1,7,4037,4037,0,0.0,partial_census_count,09111,True,1552,4099,433,0,,,,,,,,,,blocked_components
+9206,Los Sauces,La Araucanía,09103,True,3369,581,2716,2690,69,18,84,1880,1489,55.802908875037105,0,0,0,0,1489,1489,0,0.0,no_current_camp_polygon,09103,True,1841,1528,65,0,,,,,,,,,,blocked_components
+9207,Lumaco,La Araucanía,09108,True,4214,649,3401,3387,19,23,42,1583,2631,37.565258661604176,0,0,0,0,2631,2631,0,0.0,no_current_camp_polygon,09108,True,1554,2660,159,0,,,,,,,,,,blocked_components
+9208,Purén,La Araucanía,09102,True,5298,673,4515,4482,15,41,55,3119,2179,58.87127217818045,4,90,0,105,2089,2089,90,4.130335016062414,complete_census_count,09102,True,3099,2199,227,0,,,,,,,,,,blocked_components
+9209,Renaico,La Araucanía,09104,True,4516,453,3834,3776,20,11,31,3354,1162,74.26926483613818,1,9,0,8,1153,1153,9,0.774526678141136,complete_census_count,09104,True,3219,1297,155,0,,,,,,,,,,blocked_components
+9210,Traiguén,La Araucanía,09107,True,8371,861,7026,6958,50,26,72,5785,2586,69.10763349659538,2,0,2,59,2586,2586,0,0.0,partial_census_count,09107,True,5731,2640,403,0,,,,,,,,,,blocked_components
+9211,Victoria,La Araucanía,09109,True,14449,1337,12465,12362,194,45,233,10011,4438,69.28507163125475,2,0,2,8,4438,4438,0,0.0,partial_census_count,09109,True,9700,4749,474,0,,,,,,,,,,blocked_components
