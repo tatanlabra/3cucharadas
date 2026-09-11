@@ -1,0 +1,186 @@
+[
+  {
+    "event": "request",
+    "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/manifest.json",
+    "timestamp": 98792.735826
+  },
+  {
+    "event": "response",
+    "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/manifest.json",
+    "timestamp": 98792.758171,
+    "status": 404,
+    "mimeType": "text/html",
+    "fromDiskCache": false
+  },
+  {
+    "event": "request",
+    "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json",
+    "timestamp": 98793.037713
+  },
+  {
+    "event": "failed",
+    "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json",
+    "timestamp": 98793.510214,
+    "errorText": "net::ERR_FAILED",
+    "corsErrorStatus": {
+      "corsError": "MissingAllowOriginHeader",
+      "failedParameter": ""
+    }
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/9/19.png",
+    "timestamp": 98793.701782
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/10/19.png",
+    "timestamp": 98793.702545
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/9/20.png",
+    "timestamp": 98793.702902
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/9/18.png",
+    "timestamp": 98793.703324
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/8/19.png",
+    "timestamp": 98793.703742
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/10/20.png",
+    "timestamp": 98793.704238
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/10/18.png",
+    "timestamp": 98793.704709
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/8/20.png",
+    "timestamp": 98793.705216
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/10/20.png",
+    "timestamp": 98793.860114,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/9/19.png",
+    "timestamp": 98793.869242,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/9/20.png",
+    "timestamp": 98793.870137,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/8/18.png",
+    "timestamp": 98793.878041
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/8/20.png",
+    "timestamp": 98793.884757,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/10/18.png",
+    "timestamp": 98793.885463,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/8/19.png",
+    "timestamp": 98793.886181,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/11/19.png",
+    "timestamp": 98793.891635
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/11/20.png",
+    "timestamp": 98793.896328
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/9/18.png",
+    "timestamp": 98793.901233,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/10/19.png",
+    "timestamp": 98793.902214,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "request",
+    "url": "https://tile.openstreetmap.org/5/11/18.png",
+    "timestamp": 98793.909979
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/8/18.png",
+    "timestamp": 98793.931138,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/11/20.png",
+    "timestamp": 98793.933365,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/11/19.png",
+    "timestamp": 98793.933855,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  },
+  {
+    "event": "response",
+    "url": "https://tile.openstreetmap.org/5/11/18.png",
+    "timestamp": 98793.934457,
+    "status": 200,
+    "mimeType": "image/png",
+    "fromDiskCache": false
+  }
+]

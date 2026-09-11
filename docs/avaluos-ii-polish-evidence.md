@@ -128,3 +128,53 @@ y los scripts de medición quedan versionados. Código registrado localmente en
 El preview respondió HTTP 200 y los hashes de CSS, app.js y site-ui.js servidos
 coincidieron con los citados por su HTML. Este cierre documental no cambia código.
 No se realizó push ni publicación; Jekyll 4004 permanece activo.
+
+## Revisión integral y eliminación de omisiones, 11 de septiembre
+
+La revisión del alcance completo reabre F9_2 y su dependiente F9_5 como parciales:
+la caché y el selector tienen resultados favorables, pero no acreditan una mejora
+global del mapa. El tablero `avaluos-ii-todo.md` incluye también F3/F4 fiscales,
+launcher, servidor y protocolo CCU. Los cortes de pruebas anteriores permanecen
+arriba como historia, no como resultados vigentes de esta continuación.
+
+Se ejecutaron localmente las seis pruebas de geometría y luego la suite Python
+completa: **52 aprobadas, cero fallos y cero omisiones, 2,453 s**. Log íntegro:
+`avaluos-ii-python-complete-20260911.txt`. Incluye la extracción PMTiles con archivo
+sintético, dos payloads seleccionados y hash de la fuente sin cambios. No se
+alteraron pruebas para evitar omisiones ni se reconstruyeron PMTiles nacionales.
+
+Entorno mantenido: `/opt/entornos/catastros-sii-predial/bin/python`, Python 3.12.13,
+GeoPandas 1.1.4, Shapely 2.1.2, pandas 3.0.5 y PyArrow 25.0.0. PMTiles 3.7.0 se
+descargó de PyPI como rueda pura, sin dependencias ni instalación, a `/tmp`.
+SHA-256: `d1a7a7a166ce3c5c8756cc2c8e4b0aa55e3d854fbd4517c963de16c39b631b14`.
+La descarga inicial dentro del sandbox falló por DNS; la descarga de red autorizada
+funcionó. No se modificó el entorno global ni el entorno predial.
+
+Reproducción desde la raíz del blog; el primer comando requiere acceso a PyPI:
+
+```sh
+python -m pip download --no-cache-dir --no-deps --only-binary=:all: --dest /tmp/avaluos-pmtiles-qa-20260911 pmtiles==3.7.0
+PROJ_DATA=/usr/share/proj PYTHONPATH=/tmp/avaluos-pmtiles-qa-20260911/pmtiles-3.7.0-py3-none-any.whl /opt/entornos/catastros-sii-predial/bin/python -m unittest discover -s tests/catastro_sii -v
+```
+
+`validate_build.sh` conserva su selección normal de `python3`; ese intérprete
+puede volver a omitir pruebas si carece de las dependencias. La ejecución anterior
+es la comprobación complementaria completa, no un cambio del entorno de CI.
+Las 132 TS y 53 analíticas aprobadas corresponden al código integrado de la
+sección anterior; una actualización documental no justifica repetirlas.
+
+## Petición posterior: duración final de medio segundo
+
+El usuario pidió el 11-09 reducir la animación a la mitad. Se conservó la cola,
+activación próxima al viewport, orden, accesibilidad y cancelación; los rodillos
+pasaron de 850–1.090 ms a **425–545 ms**. La prueba existente con un máximo de
+550 ms falló primero con 970 ms en el ejemplo de cinco dígitos. Tras el cambio,
+las nueve pruebas de la animación aprobaron; `node --check` también.
+La ejecución Vitest completa posterior aprobó 135 pruebas en 19 archivos,
+incluidos los 17 archivos de Catastro y dos de memoria gobernada.
+
+Se actualizó la huella de `site-ui.js` en el HTML. Una lectura real del servidor
+4004 confirmó HTTP 200, duración nueva y coincidencia entre huella anunciada y
+bytes servidos: `1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3`.
+La reconstrucción automática retiró el overlay efímero del mapa, tal como se
+había documentado; se repone después de los cambios de archivos de esta tanda.

@@ -1,0 +1,1441 @@
+{
+  "schema_version": 1,
+  "measured_at_utc": "2026-09-11T03:15:00Z",
+  "source_commit": "b293b365",
+  "url": "http://127.0.0.1:4004/catastro_sii_brecha/?vista=mapa#bivariate-card",
+  "browser": "HeadlessChrome/151.0.0.0 Linux x86_64",
+  "cold_definition": "New browser process, about:blank then fixed viewport before navigation; OS cache and external infrastructure not reset.",
+  "warm_definition": "Same process reused after cold3; HTTP cache available, requests may revalidate or transfer again.",
+  "profiler_categories": "devtools.timeline,v8.execute,blink.user_timing,loading,gpu,disabled-by-default-devtools.timeline",
+  "control577": "New process, same probe, no profiler, Network CDP diagnostics only.",
+  "limitations": [
+    "Original baseline was a single unmatched observation; these results do not establish a before/after code speedup.",
+    "All these runs use OSM fallback because 127.0.0.1:4004 is not an allowed remote-style Origin; not representative of production vector-map performance.",
+    "Worker ResourceTiming duration can be negative in this Chromium capture; use constructor/message events, not those duration fields.",
+    "ResourceTiming transferSize=0 on cross-origin OSM is not evidence of cache; CDP confirmed network status200/fromDiskCachefalse in control.",
+    "Milestones measure DOM/class/attribute changes after underlying events, not pixel completeness."
+  ],
+  "runs": [
+    {
+      "id": "cold1",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 46.1000000089407,
+          "start": 1140.199999988079,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 24.400000005960464,
+          "start": 1432.8999999910593,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 961.5,
+          "start": 1778.0999999940395,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -43,
+          "start": 2866.699999988079,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 1140.5,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 1141.199999988079,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 125.20000000298025,
+            "ms": 1265.5999999940395,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "duration": 125.80000001192091,
+            "ms": 1267,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1312.199999988079,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 8.400000005960464,
+            "ms": 1320.5999999940395,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1432,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1432.7999999970198,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 1434,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 15,
+            "ms": 1449,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 23.099999994039536,
+            "ms": 1455.8999999910593,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 26.399999991059303,
+            "ms": 1458.3999999910593,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1458.7999999970198,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 17,
+            "ms": 1475.7999999970198,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1777.199999988079,
+            "type": "selector"
+          },
+          {
+            "ms": 1777.5999999940395,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 964.4000000059604,
+            "message": "Failed to fetch",
+            "ms": 2742,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 2770.3999999910593,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 16.5,
+            "ms": 2786.8999999910593,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 2807,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 2807.199999988079,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 2830.29999999702,
+            "type": "canvas"
+          },
+          {
+            "ms": 2855.0999999940395,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2939.5999999940395,
+            "type": "worker-message"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2942.8999999910593,
+            "type": "worker-message"
+          },
+          {
+            "ms": 3187.5999999940395,
+            "type": "basemap-load"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 90,
+            "start": 73.09999999403954
+          },
+          {
+            "duration": 157,
+            "start": 2291
+          },
+          {
+            "duration": 91,
+            "start": 2740.699999988079
+          },
+          {
+            "duration": 58,
+            "start": 2877.29999999702
+          }
+        ],
+        "milestones": {
+          "basemap-load": 3187.5999999940395,
+          "canvas": 2830.29999999702,
+          "selector": 1777.199999988079,
+          "style-controller": 2855.0999999940395
+        }
+      },
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "id": "cold2",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 39.5,
+          "start": 790.2000000029802,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 35.8999999910593,
+          "start": 952.3000000119208,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 447,
+          "start": 1313.300000011921,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -66.70000000298023,
+          "start": 1894.4000000059605,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 790.4000000059605,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 791.3000000119209,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 22.799999997019768,
+            "ms": 813.1000000089407,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "duration": 37.5,
+            "ms": 828.8000000119209,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 878,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 8.400000005960464,
+            "ms": 886.4000000059605,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 950.7000000029802,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 951.9000000059604,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 954.4000000059604,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 17.599999994039536,
+            "ms": 972,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 24.299999997019768,
+            "ms": 976.2000000029802,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 29.899999991059303,
+            "ms": 980.5,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 981,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 37.599999994039536,
+            "ms": 1018.5,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1311.800000011921,
+            "type": "selector"
+          },
+          {
+            "ms": 1312.5,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 449.5,
+            "message": "Failed to fetch",
+            "ms": 1762,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 1781.5,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 9.5,
+            "ms": 1791,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 1817,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 1817.800000011921,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 1850.800000011921,
+            "type": "canvas"
+          },
+          {
+            "ms": 1878.9000000059605,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 1933,
+            "type": "worker-message"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 1936.5,
+            "type": "worker-message"
+          },
+          {
+            "ms": 2376.20000000298,
+            "type": "basemap-load"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 67,
+            "start": 64.20000000298023
+          },
+          {
+            "duration": 138,
+            "start": 1403.9000000059605
+          },
+          {
+            "duration": 91,
+            "start": 1760.6000000089407
+          },
+          {
+            "duration": 55,
+            "start": 1951.6000000089407
+          }
+        ],
+        "milestones": {
+          "basemap-load": 2376.20000000298,
+          "canvas": 1850.800000011921,
+          "selector": 1311.800000011921,
+          "style-controller": 1878.9000000059605
+        }
+      },
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "id": "cold3",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 15.5,
+          "start": 657.8000000119209,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 34.6000000089407,
+          "start": 1587.7000000029802,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 476.29999999701977,
+          "start": 1785.6000000089407,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -41.80000001192093,
+          "start": 2369.800000011921,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 658.1000000089407,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 658.9000000059605,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 298.3999999910593,
+            "ms": 957.3000000119208,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 303,
+            "ms": 960.9000000059604,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 1014.8000000119208,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 267.6000000089407,
+            "ms": 1282.300000011921,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1585,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1586.9000000059605,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 1592.5,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 29.900000005960464,
+            "ms": 1622.5,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 47.5,
+            "ms": 1632.5,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1633.300000011921,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 47.70000000298023,
+            "ms": 1634.6000000089407,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 36.599999994039536,
+            "ms": 1669.9000000059605,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1784.6000000089407,
+            "type": "selector"
+          },
+          {
+            "ms": 1785.1000000089407,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 478.70000000298023,
+            "message": "Failed to fetch",
+            "ms": 2263.800000011921,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 2285.9000000059605,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 12.5,
+            "ms": 2298.300000011921,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 2319.20000000298,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 2319.4000000059605,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 2340.1000000089407,
+            "type": "canvas"
+          },
+          {
+            "ms": 2359.1000000089407,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2402.1000000089407,
+            "type": "worker-message"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2404.5,
+            "type": "worker-message"
+          },
+          {
+            "ms": 2846.1000000089407,
+            "type": "basemap-load"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 52,
+            "start": 77.70000000298023
+          },
+          {
+            "duration": 50,
+            "start": 608.9000000059605
+          },
+          {
+            "duration": 181,
+            "start": 1320.800000011921
+          },
+          {
+            "duration": 50,
+            "start": 1580.5
+          },
+          {
+            "duration": 79,
+            "start": 2262.300000011921
+          },
+          {
+            "duration": 59,
+            "start": 2457.5
+          }
+        ],
+        "milestones": {
+          "basemap-load": 2846,
+          "canvas": 2340.1000000089407,
+          "selector": 1784.6000000089407,
+          "style-controller": 2359
+        }
+      },
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "id": "warm1",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 16.399999991059303,
+          "start": 110.20000000298025,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 30.900000005960464,
+          "start": 287.29999999701977,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 238.3999999910593,
+          "start": 410.5,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -5.5999999940395355,
+          "start": 678.5999999940395,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 110.20000000298025,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 110.70000000298025,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 31.399999991059303,
+            "ms": 141.70000000298023,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "duration": 31.299999997019768,
+            "ms": 142,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 171.20000000298023,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 5.899999991059303,
+            "ms": 177.09999999403954,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 286.09999999403954,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 287,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 288.09999999403954,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 15.600000008940697,
+            "ms": 303.70000000298023,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 21.599999994039536,
+            "ms": 308.59999999403954,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 28.100000008940697,
+            "ms": 314.20000000298023,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 314.5,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 30.799999997019768,
+            "ms": 345.29999999701977,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 410,
+            "type": "selector"
+          },
+          {
+            "ms": 410.29999999701977,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 239.29999999701977,
+            "message": "Failed to fetch",
+            "ms": 649.5999999940395,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 650.8999999910593,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 7.700000002980232,
+            "ms": 658.5999999940395,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 665.8999999910593,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 666.0999999940395,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 672.0999999940395,
+            "type": "canvas"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 718.5,
+            "type": "worker-message"
+          },
+          {
+            "ms": 727.0999999940395,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 729.5999999940395,
+            "type": "worker-message"
+          },
+          {
+            "ms": 881.0999999940395,
+            "type": "basemap-load"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 136,
+            "start": 1394.5
+          }
+        ],
+        "milestones": {
+          "basemap-load": 881.0999999940395,
+          "canvas": 672.0999999940395,
+          "selector": 410,
+          "style-controller": 727.0999999940395
+        }
+      },
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "id": "warm2",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 12.799999997019768,
+          "start": 153.5,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 22.5,
+          "start": 341.8999999910593,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 248.70000000298023,
+          "start": 518,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -6.199999988079071,
+          "start": 803.3999999910593,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 153.59999999403954,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 154.09999999403954,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 28.299999997019768,
+            "ms": 181.79999999701977,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "duration": 28,
+            "ms": 182.20000000298023,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 212.20000000298023,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 4.899999991059303,
+            "ms": 217.0999999940395,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 340.29999999701977,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 341.5,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 344.70000000298023,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 36.69999998807907,
+            "ms": 381.3999999910593,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 44.69999998807907,
+            "ms": 384.8999999910593,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 385.09999999403954,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 45.599999994039536,
+            "ms": 387.09999999403954,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 27.200000002980232,
+            "ms": 412.20000000298023,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 481.3999999910593,
+            "type": "selector"
+          },
+          {
+            "ms": 517.0999999940395,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 250.5,
+            "message": "Failed to fetch",
+            "ms": 767.5,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 769.7000000029802,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 10.5,
+            "ms": 780.2000000029802,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 789.2999999970198,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 789.7000000029802,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 796.5,
+            "type": "canvas"
+          },
+          {
+            "ms": 831.3999999910593,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 837.8999999910593,
+            "type": "worker-message"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 840.7999999970198,
+            "type": "worker-message"
+          },
+          {
+            "ms": 1005.5,
+            "type": "basemap-load"
+          },
+          {
+            "duration": 269.1000000089407,
+            "ms": 1659.5999999940395,
+            "type": "frame-wait"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 197,
+            "start": 1447.3999999910593
+          }
+        ],
+        "milestones": {
+          "basemap-load": 1005.5,
+          "canvas": 796.5,
+          "selector": 481.3999999910593,
+          "style-controller": 831.3999999910593
+        }
+      },
+      "viewport": [
+        1280,
+        900
+      ]
+    },
+    {
+      "id": "control577",
+      "paths": 343,
+      "resources": [
+        {
+          "duration": 12.099999994039536,
+          "start": 648.3000000119209,
+          "status": 200,
+          "transfer": 643734,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json"
+        },
+        {
+          "duration": 20.5,
+          "start": 1176.300000011921,
+          "status": 200,
+          "transfer": 759595,
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json"
+        },
+        {
+          "duration": 471.199999988079,
+          "start": 1477.800000011921,
+          "status": 0,
+          "transfer": 0,
+          "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+        },
+        {
+          "duration": -40,
+          "start": 2032.800000011921,
+          "status": 200,
+          "transfer": 478032,
+          "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+        },
+        {
+          "duration": 166.80000001192093,
+          "start": 2142,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/9/19.png"
+        },
+        {
+          "duration": 194,
+          "start": 2142.5,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/10/19.png"
+        },
+        {
+          "duration": 167.1000000089407,
+          "start": 2143,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/9/20.png"
+        },
+        {
+          "duration": 192.4000000059605,
+          "start": 2143.4000000059605,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/9/18.png"
+        },
+        {
+          "duration": 185.29999999701977,
+          "start": 2143.800000011921,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/8/19.png"
+        },
+        {
+          "duration": 157.69999998807907,
+          "start": 2144.300000011921,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/10/20.png"
+        },
+        {
+          "duration": 183.5,
+          "start": 2144.800000011921,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/10/18.png"
+        },
+        {
+          "duration": 172.90000000596046,
+          "start": 2145.4000000059605,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/8/20.png"
+        },
+        {
+          "duration": 29.100000008940697,
+          "start": 2318.20000000298,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/8/18.png"
+        },
+        {
+          "duration": 28.69999998807907,
+          "start": 2331.800000011921,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/11/19.png"
+        },
+        {
+          "duration": 22.400000005960464,
+          "start": 2336.4000000059605,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/11/20.png"
+        },
+        {
+          "duration": 22.099999994039536,
+          "start": 2350.1000000089407,
+          "status": 200,
+          "transfer": 0,
+          "url": "https://tile.openstreetmap.org/5/11/18.png"
+        }
+      ],
+      "trace": {
+        "events": [
+          {
+            "ms": 648.5,
+            "type": "fetch-start",
+            "url": "data/manifest.json"
+          },
+          {
+            "ms": 649.1000000089407,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 248.70000000298023,
+            "ms": 897.1000000089407,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "data/manifest.json"
+          },
+          {
+            "duration": 252.5,
+            "ms": 901.6000000089408,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 965.4000000059604,
+            "type": "fetch-start",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 20.099999994039536,
+            "ms": 985.6000000089408,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "http://127.0.0.1:4004/assets/dist/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1175.2000000029802,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1176.1000000089407,
+            "type": "fetch-start",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "canvas": "",
+            "ms": 1177.300000011921,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "",
+            "duration": 15.299999997019768,
+            "ms": 1192.6000000089407,
+            "type": "webgl-end"
+          },
+          {
+            "duration": 23,
+            "ms": 1198.2000000029802,
+            "status": 404,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/local/manifest.json"
+          },
+          {
+            "ms": 1198.800000011921,
+            "type": "fetch-start",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "duration": 23.599999994039536,
+            "ms": 1199.7000000029802,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/catastro_sii_brecha/data/chile-selector.json"
+          },
+          {
+            "duration": 36.29999999701977,
+            "ms": 1235.1000000089407,
+            "status": 200,
+            "type": "fetch-end",
+            "url": "/assets/data/catastro_sii/manifest.json"
+          },
+          {
+            "ms": 1476.2000000029802,
+            "type": "selector"
+          },
+          {
+            "ms": 1477,
+            "type": "fetch-start",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "duration": 473.20000000298023,
+            "message": "Failed to fetch",
+            "ms": 1950.20000000298,
+            "type": "fetch-error",
+            "url": "https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "ms": 1965.6000000089407,
+            "type": "webgl-start"
+          },
+          {
+            "canvas": "maplibregl-canvas",
+            "duration": 6,
+            "ms": 1971.6000000089407,
+            "type": "webgl-end"
+          },
+          {
+            "ms": 1987.4000000059605,
+            "type": "worker-create-start",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 1987.6000000089407,
+            "type": "worker-create-end",
+            "url": "/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js"
+          },
+          {
+            "ms": 2004.70000000298,
+            "type": "canvas"
+          },
+          {
+            "ms": 2025.20000000298,
+            "type": "style-controller"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2061.800000011921,
+            "type": "worker-message"
+          },
+          {
+            "keys": [
+              "id",
+              "type",
+              "sourceMapId",
+              "origin",
+              "error",
+              "data"
+            ],
+            "messageType": "<response>",
+            "ms": 2065.4000000059605,
+            "type": "worker-message"
+          },
+          {
+            "ms": 2420.6000000089407,
+            "type": "basemap-load"
+          }
+        ],
+        "longTasks": [
+          {
+            "duration": 73,
+            "start": 35.900000005960464
+          },
+          {
+            "duration": 137,
+            "start": 1236.2000000029802
+          },
+          {
+            "duration": 59,
+            "start": 1387.300000011921
+          },
+          {
+            "duration": 56,
+            "start": 1949.20000000298
+          },
+          {
+            "duration": 78,
+            "start": 2070.300000011921
+          }
+        ],
+        "milestones": {
+          "basemap-load": 2420.6000000089407,
+          "canvas": 2004.70000000298,
+          "selector": 1476.2000000029802,
+          "style-controller": 2025.20000000298
+        }
+      },
+      "viewport": [
+        1280,
+        577
+      ]
+    }
+  ]
+}

@@ -181,3 +181,138 @@ callbacks de IntersectionObserver y WAAPI. Esa repetición confirmó cero efecto
 fuera del área visible y el ingreso secuencial al observar las siete cifras. El
 efecto es descartable al salir y no se promete repetición para un valor idéntico.
 La comprobación del navegador se cerró sin modificar datos fuente.
+
+## Auditoría adicional del 11-09-2026: tiempos, CORS y planificación de frames
+
+Se repitió la medición sobre los mismos assets locales del commit `b293b365`,
+Chromium headless 151, mediante tres procesos nuevos y dos navegaciones con el
+tercer proceso reutilizado. Viewport fijo 1.280 × 900, misma URL y sonda. La caché
+del sistema operativo, la carga del host y los servicios externos no se reiniciaron.
+Frío designa un proceso nuevo; tibio no garantiza que cada recurso salga de caché:
+`comunas.json` se transfirió una vez por navegación también en las recargas.
+
+| Navegación | Selector SVG | Canvas | Controlador/estilo | Fondo `load` |
+|---|---:|---:|---:|---:|
+| Fría 1 | 1.777 ms | 2.830 ms | 2.855 ms | 3.188 ms |
+| Fría 2 | 1.312 ms | 1.851 ms | 1.879 ms | 2.376 ms |
+| Fría 3 | 1.785 ms | 2.340 ms | 2.359 ms | 2.846 ms |
+| Tibia 1 | 410 ms | 672 ms | 727 ms | 881 ms |
+| Tibia 2 | 481 ms | 797 ms | 831 ms | 1.006 ms |
+| Control frío 1.280 × 577, sin profiler | 1.476 ms | 2.005 ms | 2.025 ms | 2.421 ms |
+
+Las seis navegaciones conservaron 343 paths y una petición de `comunas.json`.
+La mediana fría del fondo fue 2.846 ms. El máximo evento completo de las trazas
+frías fue un `RunTask` de 508,6 ms; no apareció el tramo de ocho segundos en esta
+serie. Esto contradice una regresión sostenida de diez segundos, pero no demuestra
+aceleración frente al baseline original: aquel fue una observación aislada, sin
+control equivalente de viewport, foco, origen y estado de caché.
+
+### Fallo de estilo identificado, sin atribución especulativa a la red
+
+La petición a
+`https://tiles.3cucharadas.cl/catastro-sii/basemap_chile_20260719T124804Z.style.json`
+falló en el navegador local con `net::ERR_FAILED`; CDP precisó
+`corsErrorStatus.corsError = MissingAllowOriginHeader`. Su espera fue de 250 a
+964 ms, insuficiente para explicar el tramo histórico de ocho segundos.
+
+El manifest local respondía 404; el visor usaba entonces el manifest público.
+La política versionada `scripts/catastro_sii/r2-cors.json` permite producción y
+`localhost:4001/5173`, pero no `127.0.0.1:4004`. Un GET real del mismo activo con
+`Origin: https://3cucharadas.cl` respondió 200 y `Access-Control-Allow-Origin`
+correcto; con el origen del preview respondió 200 sin esa cabecera. La evidencia
+corresponde a una incompatibilidad del preview con CORS, no a un activo público
+caído ni a un fallo demostrado del recorrido de producción.
+
+Se activó el respaldo raster OSM. En el control CDP las doce teselas respondieron
+200, `fromDiskCache: false`; el mapa visible mostró base y etiquetas completas.
+`transferSize = 0` en Resource Timing para esos recursos externos no prueba caché.
+La serie anterior mide este respaldo, no la cartografía vectorial de producción.
+
+### Overlay local existente y control discriminante
+
+`verify_local_preview_manifest.py` validó los activos ya presentes en
+`~/.local/state/3cucharadas/catastro_sii/local`. Se proyectaron **sólo siete
+archivos requeridos**, mediante symlinks bajo
+`/tmp/3cucharadas-jekyll-4004/assets/data/catastro_sii/local`: manifest, índice
+territorial, tres PMTiles, estilo y fuente Noto Sans. Referencian 653.730.830 bytes
+existentes; no se duplicó ese contenido ni se descargaron datos. El destino es
+efímero, separado del artefacto público. No se editó el manifest versionado, el
+estado canónico, CORS remoto ni código de MapLibre.
+
+Jekyll 4004 sirvió el PMTiles con `206 Partial Content`,
+`Content-Range: bytes 0-15/600873308` y 16 bytes con cabecera `PMTiles`. El estilo y
+la fuente locales respondieron 200. No se abrió otro servidor ni se reinició éste.
+
+| Control vectorial, 1.280 × 577 | Selector | Canvas | Estilo | Fondo | Primera pintura |
+|---|---:|---:|---:|---:|---:|
+| Proceso nuevo, foco no preparado | 823 ms | 947 ms | 9.573 ms | 9.984 ms | 9.712 ms |
+| Proceso nuevo, target en primer plano y diez frames previos | 1.062 ms | 1.213 ms | 1.246 ms | 1.874 ms | 560 ms |
+
+La primera corrida reprodujo la espera larga y la aisló: el estilo había terminado
+su fetch a 827 ms y el worker respondió a 1.005 ms, pero un callback de
+`requestAnimationFrame` esperó **8.617 ms**. El primer request PMTiles llegó después,
+a 9.568 ms. El mayor long task observado fue 78 ms; no hubo llamada WebGL
+instrumentada de más de 50 ms. MapLibre `Style.loadJSON` difiere `_load` mediante
+`browser.frameAsync`; el controlador depende de ese frame antes de `style.load`.
+
+En el segundo proceso se ejecutó `Page.bringToFront` antes de navegar y se
+observaron diez frames separados por unos 16,7 ms. `hasFocus()` fue verdadero
+antes y después de esa navegación; era falso al medir la primera. El retardo
+desapareció. **Hipótesis favorecida:** la planificación/foco del navegador de
+pruebas interfiere con el primer frame. Es una explicación provisional: una sola
+pareja y dos preparaciones conjuntas no prueban que `bringToFront` sea la única
+causa. Se descarta como explicación suficiente si el retardo reaparece con target
+visible, enfocado y frames regulares durante todo el intervalo. El listener CDP
+de estados de foco no sobrevivió a la navegación de la CLI; no se afirma que
+se observó continuamente esa condición. No se aplicó ningún parche especulativo.
+
+El overlay vectorial y OSM tienen estilo, encuadre y capas diferentes; comparar
+sus tiempos como una mejora del código sería inválido. La captura final del
+overlay muestra cartografía vectorial legible, con base y topónimos. El criterio
+de cierre global permanece pendiente: mismo estilo, capas, viewport, foco y
+estado HTTP; al menos tres navegaciones por versión; mediana de `load` menor y
+sin regresión del selector. No hay evidencia de optimalidad global.
+
+### Reproducibilidad, archivos y reversión
+
+Los resultados completos están en `catastro-map-loading-20260911.json` y
+`catastro-map-loading-20260911-overlay.json`; los errores CDP acotados, en
+`catastro-map-loading-20260911-network.json`. El índice `...-traces.json` conserva
+conteos, hashes y máximos; las trazas completas son temporales en `/tmp`.
+Las sondas `...-probe.js`, `...-network.mjs` y `...-foreground.mjs` son diagnósticos
+fuera del bundle. Worker Resource Timing produjo duraciones negativas en algunas
+capturas: se conservaron como anomalía y no se usaron para atribuir tiempos.
+
+Desde la raíz del repositorio, para una navegación fría reproducible:
+
+```sh
+agent-browser --session perf-polish --init-script "$PWD/docs/catastro-map-loading-20260911-probe.js" open about:blank
+agent-browser --session perf-polish set viewport 1280 900
+agent-browser --session perf-polish profiler start --categories 'devtools.timeline,v8.execute,blink.user_timing,loading,gpu,disabled-by-default-devtools.timeline'
+agent-browser --session perf-polish open 'http://127.0.0.1:4004/catastro_sii_brecha/?vista=mapa#bivariate-card'
+agent-browser --session perf-polish eval 'window.__mapTrace'
+agent-browser --session perf-polish profiler stop /tmp/catastro-reproduction.trace.json
+agent-browser --session perf-polish close
+```
+
+Leer los hitos cuando aparezca `basemap-load`; para tibio conservar el proceso.
+Para el control de foco, obtener `agent-browser ... get cdp-url` en `about:blank`
+y pasar ese endpoint local a `node docs/catastro-map-loading-20260911-foreground.mjs`
+antes de navegar. La sonda introduce coste de observación y no mide percentiles
+de usuarios reales.
+
+El comando efectivo del servidor observado fue:
+
+```sh
+vendor/bundle/ruby/3.4.0/bin/jekyll serve --drafts --unpublished --host 127.0.0.1 --port 4004 --destination /tmp/3cucharadas-jekyll-4004
+```
+
+El overlay se conserva para la revisión solicitada. Un rebuild puede retirarlo:
+la configuración canónica sólo conserva `.git` y `.svn`. Para una futura sesión
+persistente basta un archivo YAML **local, fuera del repositorio**, por ejemplo
+`/tmp/3cucharadas-preview-4004.yml`, con `keep_files` que incluya esas dos rutas y
+`assets/data/catastro_sii/local`, y pasar ambos archivos a `--config`. No se creó
+ese archivo ni se reinició ahora. La proyección puede recrearse enlazando sólo
+los siete archivos declarados; quitar sus symlinks y directorios vacíos revierte
+el preview sin tocar los originales. Nunca trasladar el overlay a un build de
+publicación. Se cerró únicamente la sesión `perf-polish`; Jekyll 4004 permanece.

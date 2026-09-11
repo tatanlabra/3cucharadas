@@ -105,7 +105,7 @@
         }
         window.append(track);
         visual.append(window);
-        animations.push({ track, target, duration: 850 + Math.min(index++, 8) * 30 });
+        animations.push({ track, target, duration: 425 + Math.min(index++, 8) * 15 });
       }
       element.replaceChildren(exact, visual);
       element.classList.add("number-rolling");

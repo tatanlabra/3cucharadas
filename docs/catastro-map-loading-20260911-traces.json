@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cold-1",
+    "path": "/tmp/catastro-cold-1.trace.json",
+    "sha256": "a5f5554e3e9ded37a67d86c06bc785e7633c2a233d91a0145715ce245596297a",
+    "events": 28357,
+    "complete_events_over_500ms": [
+      {
+        "name": "RunTask",
+        "duration_ms": 508.612
+      }
+    ]
+  },
+  {
+    "id": "cold-2",
+    "path": "/tmp/catastro-cold-2.trace.json",
+    "sha256": "4f8b7b4bda0321bd58302389ed6df5eb89edb6824d57f98e92a8742df859f538",
+    "events": 31510,
+    "complete_events_over_500ms": []
+  },
+  {
+    "id": "cold-3",
+    "path": "/tmp/catastro-cold-3.trace.json",
+    "sha256": "e0027930603cd944ea2f632b40086ed78ef31ef9b98f4ce8023ecf855578e35c",
+    "events": 42691,
+    "complete_events_over_500ms": []
+  },
+  {
+    "id": "warm-1",
+    "path": "/tmp/catastro-warm-1.trace.json",
+    "sha256": "085bb841cfd74c049bb817e4a6186be898b7ee365df101eaeec375c201167009",
+    "events": 32247,
+    "complete_events_over_500ms": []
+  },
+  {
+    "id": "warm-2",
+    "path": "/tmp/catastro-warm-2.trace.json",
+    "sha256": "92eda0e1945ba0c08eb453dcd1a1a2bcdc003fca70e7ec9691a0813405245173",
+    "events": 88765,
+    "complete_events_over_500ms": []
+  }
+]
