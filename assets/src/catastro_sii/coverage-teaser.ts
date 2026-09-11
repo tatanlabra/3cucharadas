@@ -29,6 +29,7 @@ import {
 } from "./chart-theme";
 import { toDataCommuneCode } from "./state";
 import type { CommuneRecord } from "./types";
+import { communeRows } from "./data";
 
 const communesUrl = "/catastro_sii_brecha/data/comunas.json";
 
@@ -93,9 +94,7 @@ export function mostTruncatedPoint(points: CoveragePoint[]): CoveragePoint | nul
 }
 
 async function json<T>(url: string): Promise<T> {
-  const response = await fetch(url, { cache: "force-cache" });
-  if (!response.ok) throw new Error(`${url} respondió ${response.status}`);
-  return response.json() as Promise<T>;
+  return communeRows<T>(url);
 }
 
 /** Estado de resalte del chart. Espeja lo que el resto del visor ya entiende por

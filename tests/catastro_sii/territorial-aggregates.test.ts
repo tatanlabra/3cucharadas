@@ -44,6 +44,6 @@ describe("agregados territoriales del visor", () => {
     vi.stubGlobal("fetch", fetch);
     const parsed = await loadTerritorialAggregates("/catastro_sii_brecha/data/agregados_territoriales.json");
     expect(parsed.national.n_comunas).toBe(346);
-    expect(fetch).toHaveBeenCalledWith("/catastro_sii_brecha/data/agregados_territoriales.json", { cache: "force-cache" });
+    expect(fetch).toHaveBeenCalledWith("/catastro_sii_brecha/data/agregados_territoriales.json", expect.objectContaining({ cache: "no-cache" }));
   });
 });

@@ -1,7 +1,9 @@
 import * as maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { PMTiles, Protocol } from "pmtiles";
 import { authorizedParcelSource, parcelLayerRequested } from "./availability";
+import { jsonResource } from "./data";
 import {
   addCommuneLayers,
   addParcelLayers,
@@ -250,9 +252,7 @@ function rewritePmtilesStyle(style: maplibregl.StyleSpecification, manifest: Til
 
 async function getBaseStyle(manifest: TilesManifest): Promise<maplibregl.StyleSpecification> {
   if (!manifest.basemap.available) return FALLBACK_STYLE;
-  const response = await fetch(tileUrl(manifest, manifest.basemap.style_url), { cache: "force-cache" });
-  if (!response.ok) throw new Error(`estilo base no disponible (${response.status})`);
-  return rewritePmtilesStyle(await response.json() as maplibregl.StyleSpecification, manifest);
+  return rewritePmtilesStyle(await jsonResource<maplibregl.StyleSpecification>(tileUrl(manifest, manifest.basemap.style_url)), manifest);
 }
 
 export class MapController {
@@ -306,7 +306,17 @@ export class MapController {
     map.addControl(new maplibregl.GeolocateControl({ trackUserLocation: false }), "top-right");
     if ("FullscreenControl" in maplibregl) map.addControl(new maplibregl.FullscreenControl(), "top-right");
     map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: "metric" }), "bottom-left");
-    await new Promise<void>((resolve) => map.once("load", () => resolve()));
+    container.dataset.basemapState = "loading";
+    map.once("load", () => { container.dataset.basemapState = "ready"; });
+    await new Promise<void>((resolve, reject) => {
+      const timeout = window.setTimeout(() => {
+        map.remove();
+        reject(new Error("El estilo cartográfico no terminó de cargar"));
+      }, 20_000);
+      // UV data and controls need the style, not every external basemap tile.
+      // A slow raster fallback must not hold the selected commune hostage.
+      map.once("style.load", () => { window.clearTimeout(timeout); resolve(); });
+    });
     const controller = new MapController(map, manifest);
     const viewportWidth = container.clientWidth
       || (typeof window !== "undefined" ? window.innerWidth : 1024)
@@ -547,9 +557,7 @@ export class MapController {
     }
     let payload: unknown;
     try {
-      const response = await fetch(url, { cache: "force-cache" });
-      if (!response.ok) throw new Error(`${url} respondió ${response.status}`);
-      payload = await response.json();
+      payload = await jsonResource(url);
     } catch {
       if (requestId !== this.uvLayerRequestId) return false;
       // Una comuna sin capa UV degrada a mapa sin capa, no a mapa roto.

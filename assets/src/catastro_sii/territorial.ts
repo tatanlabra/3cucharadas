@@ -1,4 +1,5 @@
 import type { CommuneAggregate, TerritorialAggregates } from "./types";
+import { jsonResource } from "./data";
 
 export const territorialAggregatesUrl = "/catastro_sii_brecha/data/agregados_territoriales.json";
 
@@ -63,9 +64,7 @@ export function parseTerritorialAggregates(payload: unknown): TerritorialAggrega
 }
 
 export async function loadTerritorialAggregates(url = territorialAggregatesUrl): Promise<TerritorialAggregates> {
-  const response = await fetch(url, { cache: "force-cache" });
-  if (!response.ok) throw new Error(`${url} respondio ${response.status}`);
-  return parseTerritorialAggregates(await response.json());
+  return parseTerritorialAggregates(await jsonResource(url));
 }
 
 export function communeAggregateFor(

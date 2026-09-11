@@ -1,7 +1,8 @@
-import "maplibre-gl/dist/maplibre-gl.css";
 import { uvLayerAvailable, uvShardUrl } from "./availability";
 import type { UvIndex } from "./availability";
-import { MapController } from "./map";
+import type { MapController } from "./map";
+import { communeRows, jsonResource } from "./data";
+import { showMapCapabilityFallback, supportsWebGL2 } from "./map-capability";
 import { manifestUrlsForLocation } from "./preview";
 import { communeCityDefaultView, communeViewBounds, reconcileMapAvailability, regionCodeForName, replaceUrl, setCapitalComunalViews, stateFromUrl, toDataCommuneCode } from "./state";
 import { communeAggregateFor, loadTerritorialAggregates } from "./territorial";
@@ -16,6 +17,15 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 type TerritoryIndex = { communes?: Record<string, { bounds?: [number, number, number, number] }> };
 type ChileSelectorFeature = { code: string; comuna: string; region: string; d: string };
 type ChileSelectorData = { viewBox: string; features: ChileSelectorFeature[] };
+type MapModule = typeof import("./map");
+
+function prepareMapModule(): Promise<MapModule | null> {
+  // Requested map code and data travel concurrently. A rejected import remains
+  // retryable without making the already rendered selector depend on it.
+  const promise = Promise.resolve().then(() => supportsWebGL2() ? import("./map") : null);
+  void promise.catch(() => undefined);
+  return promise;
+}
 
 function setStatus(message: string): void {
   const element = document.getElementById("status");
@@ -27,9 +37,16 @@ function setBivariateStatus(message: string): void {
   if (element) element.textContent = message;
 }
 
-function setBivariateSelectorStatus(message: string): void {
+function setBivariateSelectorStatus(message: string, instruction = "Haz clic para elegir una comuna."): void {
   const element = document.getElementById("bivariate-selector-status");
-  if (element) element.textContent = message;
+  if (!element) return;
+  const name = document.createElement("span");
+  name.className = "chile-selector-status-name";
+  name.textContent = message;
+  const action = document.createElement("span");
+  action.className = "chile-selector-status-action";
+  action.textContent = instruction;
+  element.replaceChildren(name, document.createTextNode("\n"), action);
 }
 
 const UV_LEGEND_COPY: {
@@ -68,9 +85,7 @@ function setAttribution(credit: string | undefined): void {
 }
 
 async function json<T>(url: string): Promise<T> {
-  const response = await fetch(url, { cache: "force-cache" });
-  if (!response.ok) throw new Error(`${url} respondió ${response.status}`);
-  return response.json() as Promise<T>;
+  return jsonResource<T>(url);
 }
 
 async function firstJson<T>(urls: string[]): Promise<T> {
@@ -270,7 +285,8 @@ export class CatastroMapApplication {
     private readonly rows: CommuneRecord[],
     private readonly territorial: TerritorialAggregates,
     uvIndex: UvIndex | null = null,
-    private readonly chileSelector: ChileSelectorData | null = null
+    private chileSelector: ChileSelectorData | null = null,
+    private renderer: Promise<MapModule | null> = prepareMapModule()
   ) {
     this.state = stateFromUrl(rows);
     this.uvIndex = uvIndex;
@@ -278,31 +294,37 @@ export class CatastroMapApplication {
 
   static async start(): Promise<CatastroMapApplication> {
     const manifestUrls = manifestUrlsForLocation(window.location.hostname, window.location.search);
-    const [manifest, rows, chileSelector, territorial, capitalComunalViews] = await Promise.all([
-      firstJson<TilesManifest>(manifestUrls),
-      json<CommuneRecord[]>(communesUrl),
+    const manifestPromise = firstJson<TilesManifest>(manifestUrls);
+    const territoriesPromise: Promise<TerritoryIndex> = manifestPromise.then((manifest) => manifest.communes.territories_url
+      ? json<TerritoryIndex>(manifest.communes.territories_url).catch(() => ({ communes: {} }))
+      : { communes: {} });
+    const data = Promise.all([
+      manifestPromise,
+      communeRows<CommuneRecord[]>(communesUrl),
       json<ChileSelectorData>(chileSelectorUrl).catch(() => null),
       loadTerritorialAggregates(),
-      json<Record<string, CommuneDefaultView>>(capitalComunalViewsUrl).catch(() => ({}))
+      json<Record<string, CommuneDefaultView>>(capitalComunalViewsUrl).catch(() => ({})),
+      json<UvIndex>(uvIndexUrl).catch(() => null),
+      territoriesPromise
     ]);
+    const renderer = prepareMapModule();
+    const [manifest, rows, chileSelector, territorial, capitalComunalViews, uvIndex, territories] = await data;
     setCapitalComunalViews(capitalComunalViews);
-    const territories: TerritoryIndex = manifest.communes.territories_url
-      ? await json<TerritoryIndex>(manifest.communes.territories_url).catch(() => ({ communes: {} }))
-      : { communes: {} };
     const boundsByCommune = territories.communes ?? {};
     const enriched = rows.map((row) => ({ ...row, bounds: boundsByCommune[row.codigo_comuna.padStart(5, "0")]?.bounds ?? null }));
     // El indice puede no existir todavia: la capa UV degrada a ausente, no a error.
-    const uvIndex = await json<UvIndex>(uvIndexUrl).catch(() => null);
-    return new CatastroMapApplication(manifest, enriched, territorial, uvIndex, chileSelector);
+    return new CatastroMapApplication(manifest, enriched, territorial, uvIndex, chileSelector, renderer);
   }
 
   async mount(): Promise<void> {
     const container = document.getElementById("bivariate-map");
     if (!container) return;
     setAttribution(this.manifest.basemap?.attribution);
-    await this.mountBivariateMap();
+    // The light SVG selector is useful before MapLibre or the external basemap
+    // arrives, including browsers without WebGL. Do not put it behind map.load.
+    this.renderChileSelector();
+    this.bindBivariateTools();
     this.bindMapTools();
-    setStatus("Visor UV listo. Elige una región y comuna para leer el bivariado.");
 
     window.addEventListener("catastro:selection", (event) => {
       const row = (event as CustomEvent<{ row?: CommuneRecord }>).detail?.row;
@@ -324,18 +346,52 @@ export class CatastroMapApplication {
     });
     window.addEventListener("resize", () => this.bivariateMap?.resize());
     this.applyInitialSelection();
+    await this.mountBivariateMap();
   }
 
   private async mountBivariateMap(): Promise<void> {
     const container = document.getElementById("bivariate-map");
     if (!container) return;
+    const note = document.getElementById("bivariate-map-note");
+    container.setAttribute("aria-busy", "true");
+    if (note) note.textContent = "Cargando el fondo del mapa… El selector de Chile ya está disponible.";
+    setBivariateStatus("Cargando cartografía. Puedes elegir una comuna mientras aparece el mapa.");
     container.classList.add("catastro-maplibre");
-    this.bivariateMap = await MapController.create(this.manifest, container, "bivariate-map-status");
+    let rendererLoaded = false;
+    try {
+      const renderer = await this.renderer;
+      rendererLoaded = true;
+      if (!renderer) {
+        showMapCapabilityFallback(container, document.getElementById("bivariate-map-status"));
+        container.setAttribute("aria-busy", "false");
+        return;
+      }
+      const { MapController } = renderer;
+      this.bivariateMap = await MapController.create(this.manifest, container, "bivariate-map-status");
+    } catch {
+      container.setAttribute("aria-busy", "false");
+      if (note) {
+        note.replaceChildren(document.createTextNode("El mapa no pudo cargarse. "));
+        const retry = document.createElement("button");
+        retry.type = "button";
+        retry.textContent = rendererLoaded ? "Reintentar mapa" : "Recargar visor";
+        retry.addEventListener("click", () => {
+          // Browsers can retain a failed ES module import until navigation.
+          // Current territory is already encoded in the URL and survives reload.
+          if (!rendererLoaded) { window.location.reload(); return; }
+          this.renderer = prepareMapModule();
+          void this.mountBivariateMap();
+        }, { once: true });
+        note.append(retry);
+      }
+      setBivariateStatus("El mapa no pudo cargarse; el selector y las tablas siguen disponibles.");
+      return;
+    }
+    container.setAttribute("aria-busy", "false");
     this.bivariateMap.bindUvHover((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()));
     this.bivariateMap.bindUvClick((properties) => uvHoverContent(properties, this.currentRegionalMedianAvm2()));
     container.closest(".map-shell")?.classList.add("map-ready");
-    this.bindBivariateTools();
-    this.renderChileSelector();
+    this.applyInitialSelection();
     requestAnimationFrame(() => this.bivariateMap?.resize());
   }
 
@@ -477,6 +533,7 @@ export class CatastroMapApplication {
     const normalizedRegion = regionName && regionName.trim() ? regionName.trim() : null;
     const shouldReplaceUrl = Boolean(this.selectedRow || this.state.communeCode || normalizedRegion);
     this.bivariateRefreshToken += 1;
+    document.getElementById("bivariate-map")?.setAttribute("aria-busy", "false");
     this.selectedRow = null;
     this.selectedRegionName = normalizedRegion;
     this.state.regionCode = normalizedRegion ? regionCodeForName(normalizedRegion) : null;
@@ -492,7 +549,7 @@ export class CatastroMapApplication {
     this.renderTerritoryDetail(null, null, normalizedRegion);
     this.renderChileSelector();
     if (shouldReplaceUrl) replaceUrl(this.state, "mapa");
-    setBivariateSelectorStatus(normalizedRegion ? `${normalizedRegion}: selector filtrado; elige una comuna para fijar ambos mapas.` : "Selector nacional listo; elige una comuna.");
+    setBivariateSelectorStatus(normalizedRegion ?? "Selector de Chile listo.");
     setBivariateStatus(normalizedRegion ? `Región ${normalizedRegion} lista; elige una comuna para cargar el mapa UV.` : "Bivariado en espera de comuna.");
     setStatus(normalizedRegion ? `${normalizedRegion}: contexto regional listo. Elige una comuna para cargar su capa UV.` : "Contexto comunal nacional listo. Elige una comuna para cargar su capa UV.");
   }
@@ -500,15 +557,38 @@ export class CatastroMapApplication {
   private renderChileSelector(): void {
     const svg = document.getElementById("bivariate-chile-selector");
     if (!(svg instanceof SVGSVGElement)) return;
-    svg.replaceChildren();
     if (!this.chileSelector?.features.length) {
+      svg.setAttribute("aria-busy", "false");
       svg.setAttribute("aria-label", "Selector gráfico no disponible");
-      setBivariateSelectorStatus("Selector gráfico no disponible; usa Región y Comuna.");
+      setBivariateSelectorStatus("Selector de Chile no disponible.", "Usa el buscador de región y comuna.");
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.textContent = "Reintentar selector";
+      retry.addEventListener("click", () => {
+        svg.setAttribute("aria-busy", "true");
+        retry.disabled = true;
+        void json<ChileSelectorData>(chileSelectorUrl).then((data) => {
+          this.chileSelector = data;
+        }).catch(() => { this.chileSelector = null; }).finally(() => this.renderChileSelector());
+      }, { once: true });
+      document.getElementById("bivariate-selector-status")?.append(document.createTextNode(" "), retry);
       return;
     }
     const rowByCode = new Map(this.rows.map((row) => [row.codigo_comuna, row]));
     const selectedCode = this.selectedRow?.codigo_comuna ?? null;
     const activeRegion = this.selectedRegionName ?? this.selectedRow?.region ?? "";
+    if (svg.dataset.selectorReady === "true") {
+      // Preserve paths and keyboard focus; selection does not change geometry.
+      for (const path of svg.querySelectorAll<SVGPathElement>("path")) {
+        const sameRegion = Boolean(activeRegion && path.dataset.region === activeRegion);
+        path.classList.toggle("selected-region", sameRegion);
+        path.classList.toggle("selected-commune", Boolean(selectedCode && path.dataset.code === selectedCode && (!activeRegion || sameRegion)));
+        path.classList.toggle("dimmed", Boolean(activeRegion && !sameRegion));
+      }
+      this.announceChileSelector(Number(svg.dataset.selectable), Number(svg.dataset.withUv), activeRegion);
+      return;
+    }
+    svg.replaceChildren();
     let selectable = 0;
     let withUv = 0;
 
@@ -548,14 +628,15 @@ export class CatastroMapApplication {
         });
         const describeInteraction = (action: "clic" | "Enter") => {
           const current = this.selectedRow?.codigo_comuna === row.codigo_comuna;
-          if (current) return `${row.comuna}, ${row.region}: selección activa para mapas, tablas y ranking comunal.`;
-          return `${row.comuna}, ${row.region}${hasUv ? `: UV publicado; ${action} para cargar.` : `: sin shard UV publicado; ${action} actualiza la ficha.`}`;
+          setBivariateSelectorStatus(`${row.comuna}, ${row.region}`, current
+            ? "Comuna seleccionada."
+            : action === "clic" ? "Haz clic para ver esta comuna." : "Pulsa Enter para ver esta comuna.");
         };
         path.addEventListener("pointerenter", () => {
-          setBivariateSelectorStatus(describeInteraction("clic"));
+          describeInteraction("clic");
         });
         path.addEventListener("focus", () => {
-          setBivariateSelectorStatus(describeInteraction("Enter"));
+          describeInteraction("Enter");
         });
       } else {
         path.classList.add("chile-feature", "unavailable");
@@ -566,19 +647,27 @@ export class CatastroMapApplication {
       path.classList.toggle("dimmed", Boolean(activeRegion && !sameRegion));
       const label = document.createElementNS(SVG_NS, "title");
       label.textContent = row
-        ? `${row.comuna}, ${row.region}${hasUv ? " · UV publicado" : " · sin shard UV publicado"}`
+        ? `${row.comuna}, ${row.region}`
         : `${feature.comuna}, ${feature.region}`;
       path.append(label);
       group.append(path);
     }
 
     svg.append(title, group);
+    svg.dataset.selectorReady = "true";
+    svg.dataset.selectable = String(selectable);
+    svg.dataset.withUv = String(withUv);
+    svg.setAttribute("aria-busy", "false");
+    this.announceChileSelector(selectable, withUv, activeRegion);
+  }
+
+  private announceChileSelector(selectable: number, withUv: number, activeRegion: string): void {
     if (this.selectedRow && (!activeRegion || this.selectedRow.region === activeRegion)) {
-      setBivariateSelectorStatus(`${this.selectedRow.comuna}, ${this.selectedRow.region}: selección activa para mapas, tablas y ranking comunal.`);
+      setBivariateSelectorStatus(`${this.selectedRow.comuna}, ${this.selectedRow.region}`, "Comuna seleccionada.");
     } else if (activeRegion) {
-      setBivariateSelectorStatus(`${activeRegion}: filtro regional activo; elige comuna para cargar los mapas UV.`);
+      setBivariateSelectorStatus(activeRegion);
     } else {
-      setBivariateSelectorStatus(`Selector nacional listo: ${integerFormatter.format(selectable)} comunas en el SVG, ${integerFormatter.format(withUv)} con shard UV publicado.`);
+      setBivariateSelectorStatus(`Chile · ${integerFormatter.format(selectable)} comunas en el selector.`);
     }
   }
 
@@ -591,7 +680,9 @@ export class CatastroMapApplication {
     const available = uvLayerAvailable(this.uvIndex, code);
     const shardUrl = uvShardUrl(this.uvIndex, this.state);
     const regionalMedianAvm2 = this.currentRegionalMedianAvm2();
+    if (!this.bivariateMap) return;
     if (!row || !available || !shardUrl) {
+      document.getElementById("bivariate-map")?.setAttribute("aria-busy", "false");
       await this.bivariateMap?.setUvLayer(null);
       if (token !== this.bivariateRefreshToken) return;
       if (legend) legend.hidden = true;
@@ -601,13 +692,22 @@ export class CatastroMapApplication {
       return;
     }
     updateUvLegend();
+    setBivariateStatus(`Cargando las unidades vecinales de ${row.comuna}…`);
+    const mapContainer = document.getElementById("bivariate-map");
+    mapContainer?.setAttribute("aria-busy", "true");
     const loaded = await this.bivariateMap?.setUvLayer(shardUrl, this.currentTheme(), regionalMedianAvm2, focusLocal, "bivariate");
     if (token !== this.bivariateRefreshToken) return;
+    mapContainer?.setAttribute("aria-busy", "false");
     if (legend) legend.hidden = !loaded;
     if (!loaded) {
       if (finding) finding.textContent = `${row.comuna}: no hay capa UV publicada para el bivariado.`;
       this.renderTerritoryDetail(row, null);
       setBivariateStatus("La capa bivariada no pudo cargarse.");
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.textContent = "Reintentar capa";
+      retry.addEventListener("click", () => { void this.refreshBivariateLayer(focusLocal); }, { once: true });
+      document.getElementById("bivariate-map-status")?.append(document.createTextNode(" "), retry);
       return;
     }
     const summary = await uvSummaryFromUrl(shardUrl, regionalMedianAvm2);
@@ -677,8 +777,8 @@ export class CatastroMapApplication {
     const quartile = aggregate?.cuartil_nacional_avm2 ? `q${aggregate.cuartil_nacional_avm2}` : "No disponible";
     const rows: Array<[string, string, string]> = [
       ["Selección", `${row.comuna}, ${row.region}`, `Código compartible ${row.codigo_comuna.padStart(5, "0")}`],
-      ["Catastro SII", row.fuente_sii_disponible ? row.periodo_catastro ?? "Disponible" : "Sin extracto SII en el corte", "Predios de destino H; geometría referencial cuando existe."],
-      ["Predios H", formatInteger(row.predios_habitacionales), `${formatInteger(row.predios_habitacionales_mapeados)} con geometría; ${formatPercent(row.cobertura_coordenadas_pct)} con coordenadas válidas.`],
+      ["Catastro SII", row.fuente_sii_disponible ? row.periodo_catastro ?? "Disponible" : "Sin extracto SII en el corte", "Predios habitacionales; geometría referencial cuando existe."],
+      ["Predios habitacionales", formatInteger(row.predios_habitacionales), `${formatInteger(row.predios_habitacionales_mapeados)} con geometría; ${formatPercent(row.cobertura_coordenadas_pct)} con coordenadas válidas.`],
       ["Población Censo 2024", formatInteger(row.poblacion_censo_2024), `${formatInteger(row.hogares_censo_2024)} hogares; ${formatInteger(row.viviendas_ocupadas_censo_2024)} viviendas ocupadas.`],
       ["Población equivalente SII", formatInteger(row.poblacion_equivalente_censo), `Brecha equivalente: ${formatInteger(row.brecha_equivalente_censo)} personas frente al Censo.`],
       ["Superficie reportada", formatSquareMeters(row.superficie_total_m2), `Cobertura de superficie válida: ${formatPercent(row.cobertura_superficie_pct)}.`],

@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { readFileSync } from "node:fs";
 import type { TilesManifest } from "../../assets/src/catastro_sii/types";
 
@@ -16,6 +16,8 @@ const runtime = vi.hoisted(() => {
     readonly canvas = new FakeCanvas();
     readonly controls: unknown[] = [];
     readonly fittedBounds: Array<{ bounds: unknown; options: Record<string, unknown> }> = [];
+    readonly events = new Map<string, Array<() => void>>();
+    removed = false;
 
     constructor(readonly options: Record<string, unknown>) {
       FakeMap.instances.push(this);
@@ -23,7 +25,15 @@ const runtime = vi.hoisted(() => {
 
     getCanvas(): FakeCanvas { return this.canvas; }
     addControl(control: unknown): void { this.controls.push(control); }
-    once(_event: string, callback: () => void): void { callback(); }
+    once(event: string, callback: () => void): void {
+      this.events.set(event, [...(this.events.get(event) ?? []), callback]);
+    }
+    emit(event: string): void {
+      const callbacks = this.events.get(event) ?? [];
+      this.events.delete(event);
+      for (const callback of callbacks) callback();
+    }
+    remove(): void { this.removed = true; this.events.clear(); }
     fitBounds(bounds: unknown, options: Record<string, unknown>): void { this.fittedBounds.push({ bounds, options }); }
     easeTo(_options: Record<string, unknown>): void {}
     getStyle(): { layers: [] } { return { layers: [] }; }
@@ -71,6 +81,38 @@ const manifest: TilesManifest = {
   parcel_regions: {}
 };
 
+function mapContainer(): HTMLElement {
+  // Model the DOM properties used by create; an empty object is not a real div.
+  return { dataset: {}, clientWidth: 1024 } as HTMLElement;
+}
+
+beforeEach(() => {
+  runtime.FakeMap.instances.length = 0;
+  vi.stubGlobal("window", {
+    location: { origin: "https://3cucharadas.cl" },
+    innerWidth: 1024,
+    setTimeout: (callback: () => void, delay: number) => globalThis.setTimeout(callback, delay),
+    clearTimeout: (timer: ReturnType<typeof globalThis.setTimeout>) => globalThis.clearTimeout(timer)
+  });
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+async function initializedMap(): Promise<InstanceType<typeof runtime.FakeMap>> {
+  // The async style request precedes the constructor. Flush that work without
+  // pretending a registration immediately fires a MapLibre event.
+  for (let attempt = 0; attempt < 30; attempt += 1) {
+    const map = runtime.FakeMap.instances.at(-1);
+    if (map) return map;
+    await Promise.resolve();
+  }
+  throw new Error("MapLibre no se inicializó en la prueba");
+}
+
 describe("accesibilidad del visor cartográfico", () => {
   it("configura el worker ESM empaquetado para MapLibre 6", () => {
     expect(runtime.setWorkerUrl).toHaveBeenCalledWith("/assets/dist/maplibre-worker-test.mjs");
@@ -84,8 +126,10 @@ describe("accesibilidad del visor cartográfico", () => {
   });
 
   it("localiza las etiquetas expuestas por los controles de MapLibre", async () => {
-    await MapController.create(manifest, {} as HTMLElement);
-    const map = runtime.FakeMap.instances.at(-1);
+    const creation = MapController.create(manifest, mapContainer());
+    const map = await initializedMap();
+    map.emit("style.load");
+    await creation;
 
     expect(map?.options.locale).toEqual(expect.objectContaining({
       "Map.Title": "Mapa interactivo de brechas catastrales",
@@ -110,13 +154,14 @@ describe("accesibilidad del visor cartográfico", () => {
   });
 
   it("mantiene un estilo de respaldo legible si falla el origen base", async () => {
-    vi.stubGlobal("window", { location: { origin: "https://3cucharadas.cl" } });
     const fetchSpy = vi.spyOn(globalThis, "fetch").mockRejectedValue(new Error("R2 no disponible"));
-    await MapController.create({
+    const creation = MapController.create({
       ...manifest,
       basemap: { available: true, url: "base.pmtiles", style_url: "style.json", attribution: "© OpenStreetMap contributors" }
-    }, {} as HTMLElement);
-    const map = runtime.FakeMap.instances.at(-1);
+    }, mapContainer());
+    const map = await initializedMap();
+    map.emit("style.load");
+    await creation;
     expect(map?.options.style).toEqual(expect.objectContaining({
       version: 8,
       sources: expect.objectContaining({
@@ -132,6 +177,35 @@ describe("accesibilidad del visor cartográfico", () => {
     }));
     fetchSpy.mockRestore();
     vi.unstubAllGlobals();
+  });
+
+  it("habilita el controlador con el estilo sin anunciar todavía el fondo completo", async () => {
+    const container = mapContainer();
+    let ready = false;
+    const creation = MapController.create(manifest, container).then(() => { ready = true; });
+    const map = await initializedMap();
+    expect(container.dataset.basemapState).toBe("loading");
+    expect(ready).toBe(false);
+    map.emit("sourcedata");
+    await Promise.resolve();
+    expect(ready).toBe(false);
+    map.emit("style.load");
+    await creation;
+    expect(ready).toBe(true);
+    expect(container.dataset.basemapState).toBe("loading");
+    map.emit("load");
+    expect(container.dataset.basemapState).toBe("ready");
+  });
+
+  it("libera el mapa y rechaza una inicialización cuyo estilo nunca llega", async () => {
+    vi.useFakeTimers();
+    const creation = MapController.create(manifest, mapContainer());
+    const rejected = expect(creation).rejects.toThrow("El estilo cartográfico no terminó de cargar");
+    const map = await initializedMap();
+    await vi.advanceTimersByTimeAsync(20_000);
+    await rejected;
+    expect(map.removed).toBe(true);
+    expect(vi.getTimerCount()).toBe(0);
   });
 
   it("elimina transiciones cartográficas si el sistema reduce movimiento", () => {
