@@ -60,7 +60,12 @@ tasks:
     requirement: Carga visible y eficiente de mapas
     owner: viewer_performance
     output: Módulos TS de carga/caché y mediciones cold/warm
-    acceptance: Tests de fallos/reintento/evicción; mediciones comparables de descarga y tiempo de selector/mapa.
+    acceptance: >-
+      Tests de fallos/reintento/evicción verdes y 343 comunas disponibles. Para cerrar rapidez global:
+      medir navegación a MapLibre load, con igual estilo/capas, viewport, caché, red y perfil de navegador;
+      al menos tres cargas nuevas y dos recargas por versión. La mediana fría debe bajar al menos 10%
+      frente al baseline emparejado, sin empeorar más de 10% selector o recarga y sin fallos ocultos.
+      El margen es un criterio operativo acotado; no demuestra significación estadística ni optimalidad global.
     evidence: 'docs/catastro-viewer-loading-20260910.md: Chile frío 900 ms, recarga 592 ms; una petición comunal. El mapa completo frío 10.175
       ms no demuestra mejora global.'
     falsified_by: 'Motor abortado: selector sobrevive; import fallido exige recarga. Dos fixtures de accesibilidad fallaron en integral; corregidos
@@ -76,11 +81,11 @@ tasks:
       sin enlace predial.
     rollback: Restaurar borradores al baseline.
   F9_4:
-    requirement: Diagramación compacta; animación algo más lenta y secuencial cerca del viewport; paleta clara con tonos próximos al nocturno.
+    requirement: Diagramación compacta; animación secuencial cerca del viewport, reducida a medio segundo por petición del 11-09; paleta clara con tonos próximos al nocturno.
     owner: root
     output: Proyección, barra triple, CSS, animación de cifras
     acceptance: TS/CSS/tests/build verdes; QA 390/1440 px claro/oscuro, reduced-motion y sin JS; tabla equivalente completa.
-    evidence: 132 pruebas TS verdes en validación integral; casino 9/9 y máximo una cifra animada observado, 850–1090 ms; claro/oscuro 390/1440
+    evidence: 132 pruebas TS verdes en validación integral; casino 9/9 y máximo una cifra animada observado; petición posterior del 11-09 reduce 850–1090 a 425–545 ms, con prueba roja previa y nueve verdes después. Claro/oscuro 390/1440
       px; anexo axe cero infracciones e inconclusos en claro; tablas estáticas con 346 filas; 320 px sin overflow. docs/avaluos-ii-polish-evidence.md.
     falsified_by: 'Baseline carecía API de cifras: cuatro pruebas rojas. Paleta clara luminosa requiere contorno contrastante: no se conserva
       la afirmación anterior de contraste del relleno.'
@@ -98,8 +103,8 @@ tasks:
     - F9_8
     acceptance: verify_fiscal_gap.py y validate_build.sh verdes; commits locales revisados; preview 4004 comprobado en host.
     evidence: 'Código local registrado: blog 6986f7dc y análisis b8eeb59; ambos árboles limpios tras commit. Preview HTTP 200 y hashes reales
-      de CSS/app/site-ui coinciden con referencias del HTML. Verificador cruzado, 132 TS, 45 Python con 7 omitidas, 53 analíticas, builds y registro
-      visual verdes.'
+      de CSS/app/site-ui coinciden con referencias del HTML. Verificador cruzado, 132 TS, 53 analíticas, builds y registro
+      visual verdes. Seguimiento del 11-09: suite Python completa 52/52 sin omisiones; la integración global sigue parcial por F9_2.'
     falsified_by: 'SHA esperado de PNG alterado en copia temporal: verificador rechaza; artefactos reales recuperan verde. Dos fixtures deficientes
       fallaron antes de corregirse.'
     rollback: Revertir commits locales propios, conservar fuentes y evidencias.
@@ -134,17 +139,18 @@ tasks:
     rollback: Retirar los dos PNG y su bloque HTML; conservar anexo anterior y fuentes locales.
 TODO_STATE:
   F9_1: '[x]'
-  F9_2: '[x]'
+  F9_2: '[~]'
   F9_3: '[x]'
   F9_4: '[x]'
-  F9_5: '[x]'
+  F9_5: '[~]'
   F9_6: '[x]'
   F9_7: '[x]'
   F9_8: '[x]'
 closure:
   date: '2026-09-11'
-  scope: Ajustes locales completos; push y publicación excluidos.
+  scope: Ajustes visuales locales comprobados; carga global e integración dependiente parciales. Push y publicación excluidos.
+  continuation: docs/avaluos-ii-todo.md consolida el alcance completo; F3/F4 fiscales siguen parciales.
   remaining_limits:
   - Neto tributario habitacional sin conciliación; no cuantificar deuda omitida.
   - Latencia global del mapa base en frío no mejorada de forma demostrada.
-  - Siete pruebas geoespaciales preexistentes omitidas por dependencias del entorno; renderer nuevo sí ejecutado localmente.
+  verification_followup: Las siete omisiones anteriores se resolvieron el 11-09-2026; suite Python del visor 52/52 verde, sin omisiones, con entorno predial local y rueda PMTiles temporal. Véase evidencia F9.

@@ -72,8 +72,8 @@ describe("decorative sequential digit reels", () => {
     expect(element.children[0].textContent).toBe("1.234,5%");
     expect(element.children[1].attributes["aria-hidden"]).toBe("true");
     expect(animations).toHaveLength(5);
-    expect(Math.min(...animations.map(a => a.duration))).toBeGreaterThanOrEqual(850);
-    expect(Math.max(...animations.map(a => a.duration))).toBeLessThanOrEqual(1100);
+    expect(Math.min(...animations.map(a => a.duration))).toBeGreaterThanOrEqual(425);
+    expect(Math.max(...animations.map(a => a.duration))).toBeLessThanOrEqual(550);
     animations.forEach(a => a.resolve()); await flush();
     expect(element.textContent).toBe("1.234,5%");
     expect(element.children).toHaveLength(0);
