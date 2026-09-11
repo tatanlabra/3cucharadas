@@ -123,5 +123,8 @@ Comandos de reproducción: `scripts/catastro_sii/validate_build.sh` con Node de
 `python3 scripts/catastro_sii/verify_fiscal_gap.py`,
 `ruby scripts/verify_visual_assets.rb --strict` y build Jekyll con borradores.
 Las capturas de esta revisión están en `/tmp/polish-*`; los resultados resumidos
-y los scripts de medición quedan versionados. Falta únicamente registrar los
-commits locales de esta integración; no hay autorización de push ni publicación.
+y los scripts de medición quedan versionados. Código registrado localmente en
+`6986f7dc` (blog) y `b8eeb59` (análisis), con árboles limpios después de esos commits.
+El preview respondió HTTP 200 y los hashes de CSS, app.js y site-ui.js servidos
+coincidieron con los citados por su HTML. Este cierre documental no cambia código.
+No se realizó push ni publicación; Jekyll 4004 permanece activo.
