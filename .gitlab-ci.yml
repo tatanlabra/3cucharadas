@@ -119,16 +119,49 @@ pages:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
     - if: '$CI_COMMIT_BRANCH == "main"'
 
-# La auditoría completa corre después de Pages. Hace visible la deuda histórica
-# en pipelines programados sin convertirla en una condición previa para servir
-# un sitio cuyo build ya quedó validado y desplegado.
+# La auditoría corre después de Pages. Hace visible la deuda histórica en
+# pipelines programados sin convertirla en una condición previa para servir un
+# sitio cuyo build ya quedó validado y desplegado.
+#
+# DOS PREGUNTAS DISTINTAS, DOS CORRIDAS DISTINTAS
+#
+# `--ventana 30` acota los ERRORES a lo que todavía se puede hacer a tiempo y
+# sigue imprimiendo el atraso histórico con su conteo. No lo esconde: lo baja de
+# fatal a visible. Es la mecánica que el propio script diseñó y documentó en
+# scripts/verify_distribution_done.rb:26-37, y cuya última línea decía «hoy CI no
+# lo invoca». Ahora lo invoca.
+#
+# Y se quita `--strict` de la corrida diaria a propósito: convierte en fatal
+# cualquier aviso, y los avisos incluyen «pendiente, D7 de D10», o sea un post que
+# TODAVÍA ESTÁ EN PLAZO. Con --strict, cada post nuevo pintaba de rojo el pipeline
+# diario durante sus primeros diez días. Medido el 2026-09-10: sin ventana, 4
+# canales vencidos y exit 1; con ventana, 1. Los cuatro schedules de la ventana
+# (234, 235, 239, 242) estaban rojos, y un rojo que se repite cada mañana durante
+# medio año se silencia, que es el mismo fallo que no tener gate.
+#
+# La pregunta completa NO se pierde: vive en distribution_audit_full, que corre
+# semanalmente con --strict y sin ventana. Auditar y vigilar son cosas distintas.
 distribution_audit:
+  stage: audit
+  dependencies: []
+  script:
+    - ruby scripts/verify_distribution_done.rb --ventana 30
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $AUDITORIA_COMPLETA != "1"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
+    - when: never
+
+# La auditoría completa: todo lo declarado, sin ventana y en estricto. Es la
+# pregunta correcta para una revisión periódica y la incorrecta para un timer
+# diario. Se dispara con una schedule propia que fije AUDITORIA_COMPLETA=1.
+distribution_audit_full:
   stage: audit
   dependencies: []
   script:
     - ruby scripts/verify_distribution_done.rb --strict
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $AUDITORIA_COMPLETA == "1"'
     - if: '$CI_PIPELINE_SOURCE == "web"'
       when: manual
     - when: never
