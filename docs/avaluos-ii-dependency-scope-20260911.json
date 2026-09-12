@@ -1,0 +1,41 @@
+{
+  "lock_changed_entries": [
+    "",
+    "node_modules/@vitest/expect",
+    "node_modules/@vitest/mocker",
+    "node_modules/@vitest/pretty-format",
+    "node_modules/@vitest/runner",
+    "node_modules/@vitest/snapshot",
+    "node_modules/@vitest/spy",
+    "node_modules/@vitest/utils",
+    "node_modules/vitest"
+  ],
+  "production_bundle_unchanged": true,
+  "bundle_sha256": {
+    "assets/maplibre-gl-worker-Bz4HezZp.js": "c66b398e786071e378e82406bf98accc870650407cfbd9ff62946c46115d0a01",
+    "chunks/analytics-qVge_TG5.js": "087be07c6ddbae6a61ba274666b46ded3291169a31edb3dd3641080901aeaac5",
+    "chunks/app-BebHiS80.js": "67f5b544623c9816e1ccb78e9064f0dcdf18561b08099cd37f8510bd6194296d",
+    "chunks/chart-theme-D-_MF794.js": "5439cd03a69fe617c754e4a7d3f87ac9c57e6de754ba85cf7baefcdc9042aa11",
+    "chunks/coverage-teaser-CkSlM3Oj.js": "0fdc71a660c3e950c52fc252f625782b521a306e7adf1b96ca1939bc7334ee0a",
+    "chunks/data-nQG8qOHv.js": "7728e4e589a46f65da3d54fe0bd8cad7da0d360c08c36c5d3beb7575b0e60523",
+    "chunks/fiscal-gap-atHkKVYa.js": "6ce8be2808fee98b5539afbee234c2fc085085aa9a707ee193eb8bca7f490ade",
+    "chunks/install-00HxtDxE.js": "ce0e7c76d21f8cee6c23ee353569e259c9cba4cdf6747c34c92c15e1f61438c4",
+    "chunks/install-B8e9nKf4.js": "55fb255a9fd057940ca002db210a1d285519c490609e92a143ebe0c56636b773",
+    "chunks/map-G_r9ak7u.js": "4ba4484ac50084ecd2e4da9c44d63bbc2690d1061d8bbfec6de6554c17c29702",
+    "chunks/rolldown-runtime-DK3Fl9T5.js": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff",
+    "chunks/state-CXsuapt9.js": "21ec9f96aad506d5a4b1ee5d81149bb616d58f5e09604d1ee406d8a4bcfbfdbf",
+    "main-BlW7oOGO.css": "2407a347d97676b7135fc32a2ccf7b0e3bdcbb2a5e4227766e7b878dabfed431",
+    "main-DIm7iE4W.js": "ad9b4c5741f0364d5ccc9c48d9549c6f1c125ddfd82e5b5d24e18a7b37de7545",
+    "manifest.json": "cd503fc3a84a6566d7601bb64fe7e6fb78161f5a261e08cb8d5da1507166de21",
+    "map-CzlKAm3w.css": "265a1b054adf92875b3740c2c858ef7d31c166933238a40dbb973eac023ab441"
+  },
+  "audit_final": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "node": "26.8.1"
+}
