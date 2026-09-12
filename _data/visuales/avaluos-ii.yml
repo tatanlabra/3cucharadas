@@ -1,6 +1,39 @@
 # Activos reproducibles del visor y borradores de Avalúos II; sin autorización de publicación.
 slug: avaluos-ii
 piezas:
+- id: hero-editorial
+  rol: hero
+  archivo: assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1942
+  alto: 809
+  alt:
+    es: Ilustración conceptual de viviendas y una capa de registros prediales por conciliar.
+    en: Conceptual illustration of homes and a layer of property records to reconcile.
+  advertencias:
+    - No representa un mapa real, inmuebles omitidos identificados ni contribuciones adeudadas.
+    - PNG maestro conservado; WebP sin pérdida de píxeles, ver informe de generación.
+- id: teaser-editorial
+  rol: teaser
+  archivo: assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1672
+  alto: 941
+  alt:
+    es: Viviendas bajo una capa conceptual de registros prediales incompletos.
+    en: Homes beneath a conceptual layer of incomplete property records.
+- id: og-editorial
+  rol: og
+  archivo: assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1672
+  alto: 941
+  alt:
+    es: Ilustración conceptual de viviendas bajo una capa de registros prediales incompletos.
+    en: Conceptual illustration of homes beneath a layer of incomplete property records.
 - id: annex-puerto-montt-10101-1800-webp
   rol: figura
   archivo: assets/images/avaluos-ii/annex-puerto-montt-10101-1800.webp

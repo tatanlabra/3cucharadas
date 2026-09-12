@@ -1,0 +1,39 @@
+contract: avaluos-ii-visual-editorial-20260911
+phase: F11
+objective: Entregar hero y teaser reales, coherentes con el artículo y diagnosticados por un subagente.
+authorization: Petición explícita de generación directa y diagnóstico delegado de imagegen; preparación local sin
+  push.
+invariants:
+- Las ilustraciones conceptuales no sustituyen mapas ni cifras reproducibles.
+- Sin texto incrustado; título y descripción accesibles en HTML por idioma.
+- Generación y reencuadre mediante image_gen integrado; sin fallback API.
+- Conservar PNG originales; recodificación WebP sin cambios de píxeles RGB.
+- No modificar la skill global ni publicar.
+tasks:
+  F11_1:
+    owner: root
+    requirement: Hero y teaser generados directamente, preservados y reutilizables.
+    acceptance: Dos outputs inspeccionados, dimensiones reales, prompts y referencias registrados.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md; docs/avaluos-ii-imagegen-diagnosis-20260911.md
+    status: verified
+  F11_2:
+    owner: root
+    requirement: Integración local bilingüe y entrega eficiente sin degradar el arte.
+    acceptance: Píxeles equivalentes PNG/WebP; assets presentes; HTML con título, caption y alt social; build y
+      verificación visual estricta verdes; render móvil y escritorio sin desbordamiento.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md; docs/avaluos-ii-imagegen-diagnosis-20260911.md
+    status: verified
+  F11_3:
+    owner: imagegen_diagnosis
+    requirement: Diagnóstico operativo y de adecuación por un subagente.
+    acceptance: Hallazgos priorizados contrastados con herramienta y outputs; alternativas, límites y correcciones
+      concretas; no afirmar optimalidad global.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md; docs/avaluos-ii-imagegen-diagnosis-20260911.md
+    status: verified
+falsification: Asset ausente, dimensiones falsas, píxeles alterados en conversión, título ilegible o arte que aparente
+  evidencia predial reabren el punto.
+rollback: Restaurar front matter y CSS propios, retirar solo referencias nuevas y conservar masters, prompts y evidencia.
+TODO_STATE:
+  F11_1: '[x]'
+  F11_2: '[x]'
+  F11_3: '[x]'
