@@ -1,6 +1,16 @@
 # Avalúos II — avance consolidado
 
-Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío de solicitudes excluidos. Este tablero deriva del [contrato principal](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md), [F8](../../catastros_sii/v5_brecha/docs/avaluos-ii-campamentos-contract.yaml), [F9](avaluos-ii-polish-contract.yaml), [F10 editorial](avaluos-ii-editorial-consolidation-contract.yaml) y [F11 visual](avaluos-ii-visual-editorial-contract.yaml). La revisión integral reabre expresamente la carga global del mapa: una mejora del selector no acredita que todo el mapa cargue más rápido.
+Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío de solicitudes excluidos. Este tablero deriva del [contrato principal](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md), [F8](../../catastros_sii/v5_brecha/docs/avaluos-ii-campamentos-contract.yaml), [F9](avaluos-ii-polish-contract.yaml), [F10 editorial](avaluos-ii-editorial-consolidation-contract.yaml) y [F11 visual](avaluos-ii-visual-editorial-contract.yaml). La serie emparejada completa cierra la comprobación local del mapa útil; el ranking monetario sigue dependiendo de datos tributarios compatibles.
+
+## Resumen
+
+| Estado | Resultado |
+|---|---|
+| Implementado | Visor y ajustes visuales; campamentos/materialidad; post diagnóstico ES/EN con fecha y portadas; mapa útil frío −20,43% en ensayo local; pruebas y auditoría finales aprobadas. |
+| Parcial | Ranking en pesos y cierre fiscal del post: falta contribución neta habitacional comunal compatible con 2026S1. |
+| No implementado | Push, publicación y envío de solicitud institucional, excluidos de la autorización; ejecución futura del post III CCU. |
+
+## Detalle por requisito
 
 `[x]` comprobado; `[~]` parcial; `[ghost]` depende del insumo indicado; `[ ]` no ejecutado. No se calcula porcentaje de progreso: los requisitos tienen pesos y dependencias diferentes.
 
@@ -18,7 +28,7 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F8: campamentos y otras condiciones habitacionales | [x] | Sensibilidad CNC y clasificación censal reproducibles; 222 polígonos sin conteo conservan ese estado | Sin enlace vivienda–rol ni descuento observado de todos los asentamientos informales |
 | F9_1: barra de composición habitacional | [x] | Escenario estricto 1.318.681,81 equivalentes aceptables; suma de componentes conserva el residuo; tres casos adversariales corrigieron materialidad | Transferencia de composición asumida, no calidad observada de inmuebles omitidos |
 | F9_2a: caché, carga visible y selector | [x] | Peticiones comunales 2→1; caché acotada, reintento y pruebas de fallos; selector disponible sin WebGL | Conservar recuperación y límites de memoria |
-| F9_2b: rapidez del mapa completo | [~] | Medición original aislada 10,175 s; serie controlada posterior y diagnóstico documentados en la evidencia de carga | No se ha demostrado mejora global frente al baseline comparable |
+| F9_2b: rapidez del mapa completo | [x] | [Serie emparejada](catastro-paired-loading-20260911-focus.md): mapa útil frío 2.002,20→1.593,10 ms, recarga 1.668,10→1.077,45 ms; mismo encuadre/capas; diez mediciones válidas | Ensayo local acotado; dos exclusiones por foco conservadas; primer load frío mejora sólo 6,72% |
 | F9_3: relato, bibliografía y contraste de hipótesis | [x] | Fuentes primarias y contraevidencia ES/EN; altas tasaciones motivan revisión, sin identificar obligación de los casos ausentes | Cierre fiscal del artículo continúa en F4 |
 | F9_4a: diagramación, contraste y temas | [x] | Indicadores a 390 px: 1.241,5→663 px; a 1440 px: 495,28→382 px; 320 px sin desborde | QA acotada, no certificación global |
 | F9_4b: casino en cascada, duración final medio segundo | [x] | Última petición del 11-09: 425–545 ms, exactamente la mitad del ajuste previo; una cifra a la vez, activación cerca del viewport; nueve pruebas verdes | Valor exacto accesible inmediato; reduced-motion estático |
@@ -26,7 +36,8 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F9_6: hover Chile estable | [x] | 343 etiquetas sin variar altura a 1280 y 390 px; instrucción separada, sin texto UV redundante | Nombres completos y teclado conservados |
 | F9_7: terminología didáctica | [x] | Una definición del código H por página; después roles/predios habitacionales | Claves técnicas permanecen intactas |
 | F9_8: dos mapas con campamentos | [x] | Valparaíso y Puerto Montt; plantilla histórica, tres capas, PNG claro/oscuro y WebP; hashes y rechazos adversariales | Recortes y faltantes declarados; imágenes no prueban omisiones prediales |
-| F9_5: integración y preparación local | [~] | Commits locales, HTML y hashes servidos comprobados; visor operativo | Depende del cierre de F9_2; no llamar completa a toda F9 |
+| F9_5: integración y preparación local | [x] | [Cierre final](avaluos-ii-final-closeout-20260911.md): gate con Node fijado, 135 TS entre dos suites, 52 Python sin omisiones, 53 analíticas; verificación de datos/assets y mapa útil aprobados | Cierre local F9; no cierra F3/F4 ni certifica producción |
+| F9_E1: alerta de desarrollo Vitest | [x] | 4.1.10→4.1.11; auditoría npm 2 alertas→0; producción conserva los hashes de sus 16 archivos Catastro | Sólo familia Vitest; avisos conocidos de Sass y tamaño MapLibre permanecen |
 | Launcher de desarrollo: sólo pacman | [x] | `~/.config/kitty/sessions/desarrollo.session:9`; autostart apunta a esa sesión | Otro launcher independiente conserva sus aplicaciones |
 | Servidor solicitado en 4004 | [x] | Se confirmó su término desde el host y se restauró; ES/EN y portada visibles; siete enlaces cartográficos conservados al regenerar | Configuración efímera fuera del repo; no se publica el overlay local |
 | F10: nueva base, traducción y fecha | [x] | [Evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md); original intacto, 20 filas y 80 valores ES/EN equivalentes, 12 referencias, fecha 11-09-2026; builds y QA móvil/escritorio | El escenario monetario original sigue dependiendo de F3 |
@@ -38,7 +49,8 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 ## Evidencia y reproducción
 
 - [Pruebas, comportamiento y límites F9](avaluos-ii-polish-evidence.md), incluidos comandos del entorno geoespacial local.
-- [Ensayo cartográfico emparejado incompleto](catastro-paired-loading-20260911.md): cinco observaciones conservadas; 11 pruebas del evaluador; F9_2 permanece parcial.
+- [Ensayo cartográfico emparejado completo](catastro-paired-loading-20260911-focus.md): diez observaciones válidas, dos cebados y dos exclusiones; once pruebas del evaluador. [Primer intento incompleto](catastro-paired-loading-20260911.md) conservado como antecedente.
+- [Cierre integral y seguridad de dependencias](avaluos-ii-final-closeout-20260911.md): pruebas, comandos, errores previos, recuperación y límites vigentes.
 - [Consolidación y arte editorial](avaluos-ii-editorial-consolidation-evidence.md), [prompts reutilizables](avaluos-ii-imagegen-prompts-20260911.md) y [diagnóstico de imagegen](avaluos-ii-imagegen-diagnosis-20260911.md).
 - [Carga: mediciones y diagnóstico](catastro-viewer-loading-20260910.md): serie posterior, fallo CORS del preview, overlay local y espera de frames; conservar también el resultado histórico.
 - [Investigación tributaria complementaria](../../catastros_sii/v5_brecha/docs/avaluos-ii-fiscal-source-followup-20260911.md) y [solicitud preparada](../../catastros_sii/v5_brecha/docs/avaluos-ii-solicitud-datos.md).

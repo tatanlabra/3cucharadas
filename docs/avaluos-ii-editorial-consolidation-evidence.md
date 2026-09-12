@@ -1,6 +1,6 @@
 # Avalúos II — consolidación editorial y arte de portada
 
-Corte: 11-09-2026, America/Santiago. Cumplimiento editorial F10 y producción visual F11; preparación local. Las dependencias fiscales F3/F4 y el benchmark cartográfico F9_2 permanecen abiertos.
+Corte editorial: 11-09-2026, America/Santiago. Cumplimiento F10 y producción visual F11; preparación local. En este corte las dependencias fiscales F3/F4 y el benchmark F9_2 permanecían abiertos; la continuación al final registra el cierre posterior del ensayo.
 
 ## Resultado editorial comprobado
 
@@ -48,3 +48,9 @@ Los WebP siguen alrededor de 1,5 MB: hay una reducción medida, pero no evidenci
 En esta continuación el servidor 4004 había terminado: comprobación host de puerto, proceso y HTTP negativa; no se reinició por un simple timeout. Se restauró Jekyll con el mismo destino y un complemento temporal `/tmp/avaluos-jekyll-4004-local.yml` que conserva `assets/data/catastro_sii/local` al regenerar. Se proyectaron siete enlaces a datos locales preexistentes; no se duplicaron los datos ni se incluyeron en el build normal.
 
 El benchmark emparejado previo conserva sus cinco observaciones y exclusiones en sus propios documentos; no se reanudó ni se atribuyó la interferencia de foco a una versión del visor. F9_2 sigue parcial. El ranking monetario sigue pendiente de contribuciones netas habitacionales compatibles. No hubo push, publicación ni solicitud institucional enviada.
+
+## Continuación del 11-09: ensayo completo y gate final
+
+Una serie nueva, con los criterios fijados antes de medir, completó F9_2: mapa útil frío −20,43% y recarga −35,41% frente al baseline, diez observaciones válidas y dos exclusiones por foco conservadas. El evento inicial `load` sólo mejoró 6,72% en frío y no es el estado final comparable. [Informe y límites](catastro-paired-loading-20260911-focus.md).
+
+F9_5 queda comprobado con el gate integral final y la corrección de Vitest 4.1.11: 135 pruebas TS entre ambas suites, 52 Python sin omisiones, 53 analíticas y auditoría npm sin vulnerabilidades reportadas. Los 16 archivos del bundle Catastro conservaron sus hashes. [Evidencia final](avaluos-ii-final-closeout-20260911.md). F3/F4 continúan parciales por la misma dependencia de datos; no se realizó ninguna acción externa.

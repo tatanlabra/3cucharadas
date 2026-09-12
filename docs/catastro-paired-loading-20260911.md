@@ -109,5 +109,4 @@ y el veredicto inicial se conservan; todos se reevaluaron uniformemente con la
 corrección. El resultado sigue siendo **no cumple**, por serie incompleta; no se
 presenta como una regresión establecida ni como una mejora demostrada.
 
-F9_2 permanece parcial; falta una serie completa con la precondición efectiva
-de foco preservada durante la navegación.
+Ese corte dejó F9_2 parcial. La [continuación con serie completa](catastro-paired-loading-20260911-focus.md) conserva este intento, registra dos fallos operativos, completa la comparación bajo las reglas previas y distingue el mapa útil del primer evento `load`.

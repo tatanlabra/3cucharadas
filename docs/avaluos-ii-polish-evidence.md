@@ -178,3 +178,11 @@ Se actualizó la huella de `site-ui.js` en el HTML. Una lectura real del servido
 bytes servidos: `1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3`.
 La reconstrucción automática retiró el overlay efímero del mapa, tal como se
 había documentado; se repone después de los cambios de archivos de esta tanda.
+
+## Cierre del ensayo y validación final, 11 de septiembre
+
+El [ensayo emparejado completo](catastro-paired-loading-20260911-focus.md) aporta la prueba que faltaba para F9_2: mapa útil frío 2.002,20→1.593,10 ms y recarga 1.668,10→1.077,45 ms, con cámaras y capas equivalentes. Conserva dos exclusiones por foco dentro del límite previo, además de los intentos abortados. Fijar headless no eliminó el incidente de foco. El primer evento `load` mejora sólo 6,72% en frío; la mejora del 20,43% corresponde al estado útil definido como principal antes del ensayo.
+
+El [cierre integral final](avaluos-ii-final-closeout-20260911.md) acredita tipos, CSS, 135 pruebas Vitest entre Catastro y Memoria Gobernada, 52 Python sin omisiones, 53 analíticas, builds y verificación de datos/assets. La alerta moderada de Vitest observada durante el gate se corrigió con 4.1.11; auditoría npm final cero vulnerabilidades reportadas y hashes idénticos de los 16 archivos del bundle Catastro.
+
+F9_2 y su dependiente F9_5 pasan a comprobados para este alcance local. F3/F4 fiscales siguen parciales. El preview 4004 conserva los siete enlaces mediante configuración efímera; el enlace y sesiones exclusivos del ensayo se retiraron. No hay push, publicación ni solicitud enviada.

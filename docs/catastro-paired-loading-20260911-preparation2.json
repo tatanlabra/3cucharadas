@@ -1,0 +1,72 @@
+{
+  "variants": [
+    {
+      "revision": "e986f2385c4e80a604738306e88e2427bec97467",
+      "source_map_sha256": "c294758f42eee1e5631b4f7ebcc70c84f7225e64bf7cf8dce6244f1286a7a5db",
+      "instrumented_map_sha256": "7d8afb20dbb6c70a55f85a939c51372f1e27a87bcd58e062a4804e5b2500d912",
+      "package_lock_sha256": "b3578f2823c5d1695d639f260ab75bcf51af396d6fdb836cdda4132d667d7470",
+      "bundle_base": "/__catastro_benchmark/e986f238/assets/dist/catastro_sii/",
+      "artifacts": {
+        "app.js": "254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+        "assets/dist/catastro_sii/app-CzlKAm3w.css": "265a1b054adf92875b3740c2c858ef7d31c166933238a40dbb973eac023ab441",
+        "assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js": "c66b398e786071e378e82406bf98accc870650407cfbd9ff62946c46115d0a01",
+        "assets/dist/catastro_sii/chunks/analytics-CUhCHbeq.js": "2a5cdedab7e9e4f2228177876e7cc52b0a2a80139b62417905746b7d812cac9a",
+        "assets/dist/catastro_sii/chunks/app-BAp0uObk.js": "bcb87c6372f75509a58c11342b966bfe28f821376b964856cd41716ec9896986",
+        "assets/dist/catastro_sii/chunks/chart-theme-B3ZcSvn2.js": "496e98b866c5c3b83cad267c3495e0ff3a9adac981084c13a7496ad39959fe07",
+        "assets/dist/catastro_sii/chunks/coverage-teaser-DpoTov1o.js": "14464b8d7b2a191719a7dcbb7e4bb8a6bc01b2d2931b7a9039e51690588fcb8e",
+        "assets/dist/catastro_sii/chunks/fiscal-gap-Bw2832Te.js": "e66304a10c5a366270db1f4e8d9f6bf0591e374a7eafaf946446527729bdeae5",
+        "assets/dist/catastro_sii/chunks/install-CmXA3-70.js": "63a9a453d123bd0728edeed67d0308f4449905ca8bd050b775d3d2538f2a3aad",
+        "assets/dist/catastro_sii/chunks/install-WXw55n8M.js": "7d82907f42963dc71b41ab5d932f43e14f0811a05120ee1b53e233e90d88a36e",
+        "assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff",
+        "assets/dist/catastro_sii/chunks/state-CXsuapt9.js": "21ec9f96aad506d5a4b1ee5d81149bb616d58f5e09604d1ee406d8a4bcfbfdbf",
+        "assets/dist/catastro_sii/main-BlW7oOGO.css": "2407a347d97676b7135fc32a2ccf7b0e3bdcbb2a5e4227766e7b878dabfed431",
+        "assets/dist/catastro_sii/main-C-IzAo2O.js": "9d076b079e8e164ed2fec556f4a621365f5c13d261cfac1b49e667a3def6d320",
+        "assets/dist/catastro_sii/manifest.json": "51179476e61c2a142e975c1f3861d4405615788727a933937b2f02abd10a7ff5",
+        "assets/explorer.css": "009af53b6a2d925fc45c3864f29fda58b09f3a6e9fad59d584fbdc3410d91eae",
+        "assets/explorer.js": "3a253b5591863078089ca0b1a94ce9a17513974f02b0f21d8411eaa9aa094891",
+        "assets/map-app-loader.js": "b3e4c61c73e718fd8061ad5bd4e28bba47dc8b64f002740f52f03f57226c1896",
+        "assets/map-config.js": "1d2e683ff9f1ae5c9cbcf1a109cb0ca020363e84b0bdfa4b4e44f7cb6f8d13e4",
+        "assets/og-brecha.svg": "7f77a13332daec6b5d39b38018fd073a0c4dfc5f05d10ae7af63fda1e86ce21f",
+        "assets/site-ui.js": "ea7272ac45b831a8d3007a4c3255bd5b97491113892e3fcda426ad9539972aab",
+        "assets/vendor/MAPLIBRE-VENDOR.md": "2ed9911000a30ce86288b5fd9426f5f57bf037b06fb663fa16bc14a162c6e037",
+        "index.html": "b5f29d1fafeff6a9adb55aa5924d073aedc3ab20387167a39d6e94caf076dd9f",
+        "style.css": "7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a"
+      }
+    },
+    {
+      "revision": "6b46731ed607b4fefaa1fb5ce9dce32e8be630d0",
+      "source_map_sha256": "f0d3e4408cfa0fc55289168037a25b45e70fa68a0a6b3699677cb0c201b81fd5",
+      "instrumented_map_sha256": "45ae2f7d451c9a98c50f8a3ef46d89b8bda331d12e426881311308eb8f883ad4",
+      "package_lock_sha256": "b3578f2823c5d1695d639f260ab75bcf51af396d6fdb836cdda4132d667d7470",
+      "bundle_base": "/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/",
+      "artifacts": {
+        "app.js": "1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+        "assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js": "c66b398e786071e378e82406bf98accc870650407cfbd9ff62946c46115d0a01",
+        "assets/dist/catastro_sii/chunks/analytics-qVge_TG5.js": "087be07c6ddbae6a61ba274666b46ded3291169a31edb3dd3641080901aeaac5",
+        "assets/dist/catastro_sii/chunks/app-o1ESgcOi.js": "0aedc36258f1182f34504b80644fe300cd47255bb479bad25c120d7ae63cc400",
+        "assets/dist/catastro_sii/chunks/chart-theme-D-_MF794.js": "5439cd03a69fe617c754e4a7d3f87ac9c57e6de754ba85cf7baefcdc9042aa11",
+        "assets/dist/catastro_sii/chunks/coverage-teaser-CkSlM3Oj.js": "0fdc71a660c3e950c52fc252f625782b521a306e7adf1b96ca1939bc7334ee0a",
+        "assets/dist/catastro_sii/chunks/data-nQG8qOHv.js": "7728e4e589a46f65da3d54fe0bd8cad7da0d360c08c36c5d3beb7575b0e60523",
+        "assets/dist/catastro_sii/chunks/fiscal-gap-atHkKVYa.js": "6ce8be2808fee98b5539afbee234c2fc085085aa9a707ee193eb8bca7f490ade",
+        "assets/dist/catastro_sii/chunks/install-00HxtDxE.js": "ce0e7c76d21f8cee6c23ee353569e259c9cba4cdf6747c34c92c15e1f61438c4",
+        "assets/dist/catastro_sii/chunks/install-B8e9nKf4.js": "55fb255a9fd057940ca002db210a1d285519c490609e92a143ebe0c56636b773",
+        "assets/dist/catastro_sii/chunks/map-DEg2aPEU.js": "c245c70b0ea5775e686d6ee5d13f8d9a14c387b6cf71df8f76d2471662d031f7",
+        "assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff",
+        "assets/dist/catastro_sii/chunks/state-CXsuapt9.js": "21ec9f96aad506d5a4b1ee5d81149bb616d58f5e09604d1ee406d8a4bcfbfdbf",
+        "assets/dist/catastro_sii/main-BlW7oOGO.css": "2407a347d97676b7135fc32a2ccf7b0e3bdcbb2a5e4227766e7b878dabfed431",
+        "assets/dist/catastro_sii/main-C5TYS6iA.js": "d385d4332987b2d409d050ae5f3d58478b9df46d92ba764c3220905fa9458a79",
+        "assets/dist/catastro_sii/manifest.json": "27715018f23fa79b98608328b6782561d1a2e1fed87f9d4be7ba877acdd4ea80",
+        "assets/dist/catastro_sii/map-CzlKAm3w.css": "265a1b054adf92875b3740c2c858ef7d31c166933238a40dbb973eac023ab441",
+        "assets/explorer.css": "009af53b6a2d925fc45c3864f29fda58b09f3a6e9fad59d584fbdc3410d91eae",
+        "assets/explorer.js": "3a253b5591863078089ca0b1a94ce9a17513974f02b0f21d8411eaa9aa094891",
+        "assets/map-app-loader.js": "b0ed6576c1ccaf16f210e65535504a36952e826bbf3e1a22b0719b3f0829eb78",
+        "assets/map-config.js": "1d2e683ff9f1ae5c9cbcf1a109cb0ca020363e84b0bdfa4b4e44f7cb6f8d13e4",
+        "assets/og-brecha.svg": "7f77a13332daec6b5d39b38018fd073a0c4dfc5f05d10ae7af63fda1e86ce21f",
+        "assets/site-ui.js": "1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+        "assets/vendor/MAPLIBRE-VENDOR.md": "2ed9911000a30ce86288b5fd9426f5f57bf037b06fb663fa16bc14a162c6e037",
+        "index.html": "8cb228e41419ae96c4fc509654de288fdc7ed4fd1b2e72ca58bf35c877c94930",
+        "style.css": "5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b"
+      }
+    }
+  ]
+}
