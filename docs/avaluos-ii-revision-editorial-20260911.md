@@ -1,6 +1,6 @@
 # Revisión de la nueva base editorial — 11-09-2026
 
-Base aportada por el usuario: [`_drafts/avaluos-ii-revisado.md`](../_drafts/avaluos-ii-revisado.md), revisión realizada con ChatGPT web según su indicación. SHA-256 leído: `e1c1a376390a44d5f08ae521668ea05fbc7a2f09af58f782c04682cbb6edce2c`. Se conserva sin modificaciones. Este documento entrega la revisión solicitada; no traduce, promueve ni publica el artículo.
+Base aportada por el usuario: [`avaluos-ii-revisado-20260911.md`](editorial-sources/avaluos-ii-revisado-20260911.md), revisión realizada con ChatGPT web según su indicación. SHA-256 leído: `e1c1a376390a44d5f08ae521668ea05fbc7a2f09af58f782c04682cbb6edce2c`. Se conserva sin modificaciones. Este documento entrega la revisión solicitada; no traduce, promueve ni publica el artículo.
 
 La nueva versión distingue expresamente los dos grupos de quince comunas, explica la composición hipotética de materialidad y separa vivienda de rol. Se contrastaron las veinte filas comunales de sus dos tablas con `communes.json`: coincidencia en conteos, porcentajes y medianas, al redondeo mostrado. La elección editorial recomendada es trabajar desde esta versión.
 
@@ -32,3 +32,7 @@ La distinción de campamentos está respaldada por los [documentos requeridos po
 4. Mantener la preparación local separada del push. La intención de publicar próximamente no se interpreta como instrucción de envío inmediato.
 
 Estos ajustes preparan un post diagnóstico. El objetivo original de cuantificar escenarios monetarios continúa parcial por la fuente neta faltante; la revisión editorial no cierra ese requisito ni lo sustituye por otro estimando.
+
+## Aplicación posterior — 11-09-2026
+
+Los ajustes del listado ya están incorporados en el español canónico, traducidos al inglés y fechados hoy. El manuscrito recibido sigue intacto en el archivo de procedencia. Las dos versiones incluyen hero y teaser conceptuales generados mediante imagegen, con revisión delegada y pruebas de integración. [Contrato F10](avaluos-ii-editorial-consolidation-contract.yaml), [F11](avaluos-ii-visual-editorial-contract.yaml) y [evidencia de cierre local](avaluos-ii-editorial-consolidation-evidence.md).

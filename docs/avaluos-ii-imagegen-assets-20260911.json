@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-11",
+  "mode": "built-in image_gen",
+  "encoding": "WebP lossless; unchanged decoded RGB/RGBA",
+  "assets": [
+    {
+      "path": "assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.png",
+      "bytes": 2042870,
+      "sha256": "57d2e84e1eb1eb4f8e4632faaaf086683b4504958146c013729268043564ae5f"
+    },
+    {
+      "path": "assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp",
+      "bytes": 1449082,
+      "sha256": "624fe9e7b380236a04844eb1aa2defc4b129c8d9e98ecbead7dbcb7fd59d85bd"
+    },
+    {
+      "path": "assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png",
+      "bytes": 2049992,
+      "sha256": "3aa42647ea65f6e79ba7bed3cdeb98fce302a62fe998ad22c28fd8f34f43948f"
+    },
+    {
+      "path": "assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp",
+      "bytes": 1495992,
+      "sha256": "62a479ca41cd2410ab295bfef2f1e37748ec14b699ca80d9ad7e80d039ce69f0"
+    }
+  ]
+}

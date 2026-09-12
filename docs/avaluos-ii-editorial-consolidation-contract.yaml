@@ -1,0 +1,71 @@
+contract: avaluos-ii-editorial-consolidation-20260911
+authorization: Nueva base aportada por el usuario; revisión entregada; continuación del goal de implementación íntegra,
+  traducción y fecha de hoy. Sin push.
+phase:
+  id: F10
+  objective: Consolidar el nuevo español y su inglés equivalente, fechados hoy y sin destinos duplicados.
+  dependencies:
+  - F9_3
+  - revision_editorial_20260911
+  input: docs/editorial-sources/avaluos-ii-revisado-20260911.md
+  output: Dos borradores canónicos ES/EN y evidencia de renderizado.
+  invariants:
+  - Preservar los bytes del manuscrito recibido fuera de las entradas compiladas.
+  - No cambiar cifras, universo, fechas de datos ni estimando para cerrar el bloqueo fiscal.
+  - Un ref con exactamente un documento por idioma; permalink compartido para Polyglot.
+  - Fecha editorial 2026-09-11 en America/Santiago; published false en ambos idiomas.
+  - Sin push, publicación ni envío de solicitudes.
+  falsification: Un original alterado, idioma duplicado, tabla divergente o fecha incorrecta impide el cierre.
+  rollback: Restaurar los dos borradores desde 6b46731e y el recibido desde su archivo intacto; conservar evidencia
+    y cambios ajenos.
+tasks:
+  F10_1:
+    owner: root
+    requirement: Adoptar la nueva base y eliminar la colisión de borradores.
+    scope: Archivo recibido, archivo de procedencia y borrador ES.
+    acceptance: SHA-256 original e1c1a376390a44d5f08ae521668ea05fbc7a2f09af58f782c04682cbb6edce2c; docs excluido
+      por Jekyll; sólo un ref/lang español compilable.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md
+    status: verified
+  F10_2:
+    owner: root
+    requirement: Aplicar los ajustes del listado editorial.
+    scope: Español canónico; relato, fuentes y metadatos.
+    acceptance: Distinción escenario/deuda, campamento/exención y riesgo condicional de selección; motivación tributaria
+      explícita; veinte filas coinciden con JSON.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md
+    status: verified
+  F10_3:
+    owner: editorial_inference
+    requirement: Traducir íntegramente la versión consolidada.
+    scope: Borrador EN exclusivamente.
+    acceptance: Misma estructura, tablas, referencias, condiciones y fechas; números con formato inglés; assets
+      EN y visor único.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md
+    status: verified
+  F10_4:
+    owner: root
+    requirement: Fecha actual y build sin duplicados.
+    scope: Metadatos ES/EN y artefactos de QA.
+    acceptance: Jekyll --drafts --unpublished y verify_site_artifact verdes; fecha 2026-09-11T00:00:00-03:00, canonicals/hreflang
+      correctos, original ausente del artefacto.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md
+    status: verified
+  F10_5:
+    owner: root
+    requirement: Revisar lectura y preparación local.
+    scope: Artículos renderizados y preview 4004.
+    acceptance: HTTP 200 ES/EN; tablas y gráficos accesibles en móvil/escritorio; enlaces reales y valores conciliados;
+      commits selectivos; servidor conservado.
+    evidence: docs/avaluos-ii-editorial-consolidation-evidence.md
+    status: verified
+TODO_STATE:
+  F10_1: '[x]'
+  F10_2: '[x]'
+  F10_3: '[x]'
+  F10_4: '[x]'
+  F10_5: '[x]'
+remaining_scope:
+  fiscal: F3/F4 siguen parciales hasta obtener contribución neta habitacional compatible; este hito cierra sólo
+    la preparación editorial diagnóstica.
+  performance: F9_2 requiere comparación emparejada del fondo cartográfico útil.

@@ -1,6 +1,6 @@
 # Avalúos II — avance consolidado
 
-Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío de solicitudes excluidos. Este tablero deriva del [contrato principal](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md), [F8](../../catastros_sii/v5_brecha/docs/avaluos-ii-campamentos-contract.yaml) y [F9](avaluos-ii-polish-contract.yaml). La revisión integral reabre expresamente la carga global del mapa: una mejora del selector no acredita que todo el mapa cargue más rápido.
+Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío de solicitudes excluidos. Este tablero deriva del [contrato principal](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md), [F8](../../catastros_sii/v5_brecha/docs/avaluos-ii-campamentos-contract.yaml), [F9](avaluos-ii-polish-contract.yaml), [F10 editorial](avaluos-ii-editorial-consolidation-contract.yaml) y [F11 visual](avaluos-ii-visual-editorial-contract.yaml). La revisión integral reabre expresamente la carga global del mapa: una mejora del selector no acredita que todo el mapa cargue más rápido.
 
 `[x]` comprobado; `[~]` parcial; `[ghost]` depende del insumo indicado; `[ ]` no ejecutado. No se calcula porcentaje de progreso: los requisitos tienen pesos y dependencias diferentes.
 
@@ -28,14 +28,18 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F9_8: dos mapas con campamentos | [x] | Valparaíso y Puerto Montt; plantilla histórica, tres capas, PNG claro/oscuro y WebP; hashes y rechazos adversariales | Recortes y faltantes declarados; imágenes no prueban omisiones prediales |
 | F9_5: integración y preparación local | [~] | Commits locales, HTML y hashes servidos comprobados; visor operativo | Depende del cierre de F9_2; no llamar completa a toda F9 |
 | Launcher de desarrollo: sólo pacman | [x] | `~/.config/kitty/sessions/desarrollo.session:9`; autostart apunta a esa sesión | Otro launcher independiente conserva sus aplicaciones |
-| Servidor solicitado en 4004 | [x] | HTTP 200 comprobado desde el host el 11-09-2026 | Mantenerlo activo; una lectura sandbox fallida no acredita caída |
-| Revisión de la nueva base aportada por el usuario | [x] | [Listado editorial](avaluos-ii-revision-editorial-20260911.md); veinte filas comunales contrastadas, metadatos y fuentes revisados; manuscrito recibido intacto | Consolidar ES, traducir desde esa versión y actualizar fecha en el paso posterior solicitado |
+| Servidor solicitado en 4004 | [x] | Se confirmó su término desde el host y se restauró; ES/EN y portada visibles; siete enlaces cartográficos conservados al regenerar | Configuración efímera fuera del repo; no se publica el overlay local |
+| F10: nueva base, traducción y fecha | [x] | [Evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md); original intacto, 20 filas y 80 valores ES/EN equivalentes, 12 referencias, fecha 11-09-2026; builds y QA móvil/escritorio | El escenario monetario original sigue dependiendo de F3 |
+| F11: hero y teaser generados directamente | [x] | Dos outputs inspeccionados; WebP conserva píxeles y reduce 29,07 % / 27,02 % de bytes; integración ES/EN, descripciones sociales y caption legible | 1,45–1,50 MB por WebP; no representa entrega móvil óptima |
+| F11: diagnóstico delegado de imagegen | [x] | [Auditoría](avaluos-ii-imagegen-diagnosis-20260911.md): generación y edición local comprobadas, rúbrica previa y tarjeta real revisada | La corrección de la skill global no formaba parte de la auditoría; sin ranking experimental entre proveedores |
 | Solicitud institucional | [ ] | Texto concreto preparado, no enviado | El envío requiere autorización explícita; no hay respuesta institucional pendiente |
 | Push y publicación | [ ] | Borradores `published: false`; sin push realizado | Excluidos expresamente |
 
 ## Evidencia y reproducción
 
 - [Pruebas, comportamiento y límites F9](avaluos-ii-polish-evidence.md), incluidos comandos del entorno geoespacial local.
+- [Ensayo cartográfico emparejado incompleto](catastro-paired-loading-20260911.md): cinco observaciones conservadas; 11 pruebas del evaluador; F9_2 permanece parcial.
+- [Consolidación y arte editorial](avaluos-ii-editorial-consolidation-evidence.md), [prompts reutilizables](avaluos-ii-imagegen-prompts-20260911.md) y [diagnóstico de imagegen](avaluos-ii-imagegen-diagnosis-20260911.md).
 - [Carga: mediciones y diagnóstico](catastro-viewer-loading-20260910.md): serie posterior, fallo CORS del preview, overlay local y espera de frames; conservar también el resultado histórico.
 - [Investigación tributaria complementaria](../../catastros_sii/v5_brecha/docs/avaluos-ii-fiscal-source-followup-20260911.md) y [solicitud preparada](../../catastros_sii/v5_brecha/docs/avaluos-ii-solicitud-datos.md).
 - [Protocolo CCU C0–C7](../../catastros_sii/v5_brecha/docs/avaluos-iii-ccu-protocol.md): diseño completo, ejecución futura.
