@@ -58,9 +58,9 @@ begin
   run.call('whitespace', %w[git diff --check])
   run.call('governance', %w[ruby scripts/verify_repo_governance.rb --strict])
   run.call('visual-assets', %w[ruby scripts/verify_visual_assets.rb --strict])
-  run.call('diffusion-coherence', %w[ruby scripts/verify_difusion_coherente.rb])
+  run.call('diffusion-coherence', %w[ruby scripts/verify_difusion_coherente.rb --all-declared] + ['--root', root])
   run.call('distribution-policy', %w[ruby scripts/verify_distribution_done.rb --policy-only])
-  %w[site_health polyglot_doctor math_keyboard jekyll_to_devto verify_distribution_done reconciliar_distribucion verify_repo_governance devto_draft_policy devto_noop].each do |test|
+  %w[verify_difusion_coherente verify_visual_assets_mobile site_health polyglot_doctor math_keyboard jekyll_to_devto verify_distribution_done reconciliar_distribucion verify_repo_governance devto_draft_policy devto_noop].each do |test|
     run.call("test-#{test}", ['ruby', "tests/test_#{test}.rb"])
   end
   run.call('test-notification', %w[python3 -m unittest tests/test_notify_telegram_publication.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
