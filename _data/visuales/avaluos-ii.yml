@@ -1,39 +1,52 @@
 # Activos reproducibles del visor y borradores de Avalúos II; publicación autorizada tras validación el 11-09-2026.
 slug: avaluos-ii
+posts:
+- _posts/2026-09-11-avaluos-ii-brecha-residencial.md
+- _posts/2026-09-11-avaluos-ii-brecha-residencial-en.md
 piezas:
 - id: hero-editorial
   rol: hero
-  archivo: assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
+  archivo: assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp
   estado: publicable
   origen: ia-integrada
-  ancho: 1942
-  alto: 809
+  ancho: 1600
+  alto: 900
   alt:
-    es: Ilustración conceptual de viviendas y una capa de registros prediales por conciliar.
-    en: Conceptual illustration of homes and a layer of property records to reconcile.
+    es: Ciudad residencial nocturna atravesada por una capa conceptual de polígonos catastrales por conciliar.
+    en: Residential city at night crossed by a conceptual layer of cadastral polygons to reconcile.
   advertencias:
     - No representa un mapa real, inmuebles omitidos identificados ni contribuciones adeudadas.
-    - PNG maestro conservado; WebP sin pérdida de píxeles, ver informe de generación.
+    - Dirección Tokyo Night recuperada del precedente visual de Avalúos I; sin datos incrustados.
 - id: teaser-editorial
   rol: teaser
-  archivo: assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp
+  archivo: assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
   estado: publicable
   origen: ia-integrada
-  ancho: 1672
-  alto: 941
+  ancho: 1280
+  alto: 720
   alt:
-    es: Viviendas bajo una capa conceptual de registros prediales incompletos.
-    en: Homes beneath a conceptual layer of incomplete property records.
+    es: Viviendas nocturnas y polígonos catastrales luminosos que no coinciden por completo.
+    en: Homes at night and luminous cadastral polygons that do not fully align.
+- id: teaser-editorial-mobile
+  rol: teaser
+  archivo: assets/images/teasers/teaser-avaluos-ii-brecha-residencial-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  alt:
+    es: Versión móvil de viviendas nocturnas y polígonos catastrales luminosos.
+    en: Mobile version of homes at night and luminous cadastral polygons.
 - id: og-editorial
   rol: og
-  archivo: assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png
+  archivo: assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp
   estado: publicable
   origen: ia-integrada
-  ancho: 1672
-  alto: 941
+  ancho: 1200
+  alto: 630
   alt:
-    es: Ilustración conceptual de viviendas bajo una capa de registros prediales incompletos.
-    en: Conceptual illustration of homes beneath a layer of incomplete property records.
+    es: Ciudad residencial y una capa conceptual de polígonos catastrales por revisar.
+    en: Residential city and a conceptual cadastral polygon layer to review.
 - id: annex-puerto-montt-10101-1800-webp
   rol: figura
   archivo: assets/images/avaluos-ii/annex-puerto-montt-10101-1800.webp

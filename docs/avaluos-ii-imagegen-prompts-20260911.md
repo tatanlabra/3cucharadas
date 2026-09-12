@@ -1,5 +1,7 @@
 # Avalúos II — hero y teaser
 
+> **Sustituido el 12-09-2026.** La revisión humana determinó que esta primera dirección gris/teal no seguía la identidad Tokyo Night de las piezas IA ni los formatos editoriales del sitio. El par vigente, sus prompts y la evidencia están en [la corrección de título y sistema visual](avaluos-ii-title-visual-correction-20260912.md). Este documento se conserva como antecedente y no debe usarse como baseline.
+
 Modo utilizado: herramienta integrada `image_gen`, una llamada por pieza. Ilustraciones conceptuales sin datos ni geografía real; las cifras y mapas del artículo mantienen sus fuentes independientes.
 
 ## Entregables y reproducción

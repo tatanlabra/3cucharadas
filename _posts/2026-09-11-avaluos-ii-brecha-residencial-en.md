@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [avaluos-ii-editorial]
-title: "Property assessments II: where the residential gap warrants a tax review"
+title: "Property assessments in 3 spoonfuls II: where to review the residential gap"
 subtitle: "Informal settlements, construction materials and assessed values: from differences by commune to a property-level review"
 date: 2026-09-11 00:00:00 -0300
 categories: [datos, territorio]
@@ -15,13 +15,13 @@ editorial_status: hypothetical-property-tax-scenario
 description: "The Census–SII gap, informal settlements and residential assessments: theoretical tax scenarios in Chilean pesos to guide property-level review, with explicit assumptions."
 excerpt: "A persistent discrepancy alongside high assessed values in registered properties warrants a cadastral review. Establishing omissions and their tax implications requires identifying the properties."
 header:
-  overlay_image: /assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
-  overlay_filter: "linear-gradient(90deg, rgba(16,18,29,0.88), rgba(16,18,29,0.38))"
+  overlay_image: /assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp
+  overlay_filter: "linear-gradient(90deg, rgba(9,11,24,0.96) 0%, rgba(9,11,24,0.72) 42%, rgba(9,11,24,0.10) 72%, rgba(9,11,24,0.08) 100%)"
   show_overlay_excerpt: false
-  caption: "AI-generated conceptual illustration; not an actual cadastral map."
-  teaser: /assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp
-  og_image: /assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png
-  og_image_alt: "Conceptual illustration of homes beneath a layer of incomplete property records."
+  caption: "AI concept art · not a real cadastral map."
+  teaser: /assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
+  og_image: /assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp
+  og_image_alt: "Residential city at night crossed by a conceptual cadastral polygon layer to review."
 math: true
 toc: true
 toc_sticky: true
