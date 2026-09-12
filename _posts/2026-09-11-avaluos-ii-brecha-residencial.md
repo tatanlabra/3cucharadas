@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [avaluos-ii-editorial]
-title: "Avalúos II: dónde la brecha residencial merece una revisión tributaria"
+title: "Avalúos en 3 cucharadas II: dónde revisar la brecha residencial"
 subtitle: "Campamentos, materialidad y avalúos para pasar de una diferencia comunal a una revisión predial"
 date: 2026-09-11 00:00:00 -0300
 categories: [datos, territorio]
@@ -15,13 +15,13 @@ editorial_status: escenario-tributario-hipotetico
 description: "Brecha Censo–SII, campamentos y avalúos habitacionales: escenarios de impuesto teórico en pesos para orientar una revisión predial, con supuestos explícitos."
 excerpt: "Una diferencia persistente junto a avalúos altos en los predios registrados justifica revisar el catastro. Comprobar omisiones y sus efectos tributarios requiere identificar los inmuebles."
 header:
-  overlay_image: /assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
-  overlay_filter: "linear-gradient(90deg, rgba(16,18,29,0.88), rgba(16,18,29,0.38))"
+  overlay_image: /assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp
+  overlay_filter: "linear-gradient(90deg, rgba(9,11,24,0.96) 0%, rgba(9,11,24,0.72) 42%, rgba(9,11,24,0.10) 72%, rgba(9,11,24,0.08) 100%)"
   show_overlay_excerpt: false
-  caption: "Ilustración conceptual generada con IA; no representa un catastro real."
-  teaser: /assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp
-  og_image: /assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png
-  og_image_alt: "Ilustración conceptual de viviendas bajo una capa de registros prediales incompletos."
+  caption: "Ilustración conceptual con IA · no es un mapa real."
+  teaser: /assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
+  og_image: /assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp
+  og_image_alt: "Ciudad residencial nocturna atravesada por una capa conceptual de polígonos catastrales por revisar."
 math: true
 toc: true
 toc_sticky: true

@@ -1,5 +1,7 @@
 # Diagnóstico de imagegen para Avalúos II
 
+> **Adenda del 12-09-2026.** La herramienta funcionó, pero la revisión humana posterior rechazó la dirección artística. Por tanto, la aceptación visual Q2 de este diagnóstico queda refutada para el par inicial. La [corrección vigente](avaluos-ii-title-visual-correction-20260912.md) recupera Tokyo Night, los tamaños editoriales y la convención del título; este informe sólo conserva evidencia operacional de la primera ejecución.
+
 Fecha local: 2026-09-11. Responsable: subagente `imagegen_diagnosis`; integración y generación a cargo del agente principal. Alcance: hero editorial y teaser bilingües para el borrador de Avalúos II; sin publicación, llamadas API adicionales ni modificación de la skill global.
 
 ## Dictamen

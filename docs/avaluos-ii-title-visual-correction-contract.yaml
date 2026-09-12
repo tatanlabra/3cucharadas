@@ -1,0 +1,36 @@
+id: avaluos-ii-title-visual-correction
+version: 1
+date: '2026-09-12'
+authorization: El usuario señaló que el título, hero y teaser publicados no seguían las convenciones y pidió recuperar el contexto para corregirlos.
+scope: Título ES/EN, hero, teaser responsivo, OG, manifiesto visual, QA y actualización productiva del mismo post.
+hard_constraints:
+- El título sigue la forma de serie tema + en 3 cucharadas + numeral + tesis breve.
+- El arte generado por IA usa la identidad Tokyo Night editorial ya aceptada para Avalúos I.
+- La imagen sigue siendo conceptual; no presenta inmuebles omitidos ni deuda como hechos.
+- Hero, teaser y OG cumplen 1600x900, 1280x720 con 640x360, y 1200x630.
+- El título permanece como HTML bilingüe; las imágenes no incrustan texto ni cifras.
+tasks:
+- id: C1
+  requirement: Recuperar y contrastar las convenciones vigentes.
+  state: complete
+  criterion: Recall semántico más comparación del primer Avalúo, títulos de serie y handoff editorial.
+  evidence: docs/avaluos-ii-title-visual-correction-20260912.md
+- id: C2
+  requirement: Corregir títulos y reemplazar la familia visual.
+  state: complete
+  criterion: Front matter ES/EN y manifiesto apuntan a cuatro activos con dimensiones exactas.
+  evidence: docs/avaluos-ii-title-visual-correction-20260912.md
+- id: C3
+  requirement: Validar build, integridad visual y composición responsive.
+  state: complete
+  criterion: Gates fuente/producto verdes y revisión visual en 1440 y 390 px sin recorte o ilegibilidad.
+  evidence: docs/avaluos-ii-title-visual-correction-20260912.md
+- id: C4
+  requirement: Actualizar producción y comprobar los recursos efectivos.
+  state: pending
+  criterion: CI verde, ES/EN HTTP 200, título nuevo y hashes públicos de hero, teaser, teaser móvil y OG iguales al build aprobado.
+  evidence: null
+falsified_by:
+- El manifiesto nuevo frente al front matter anterior produjo cuatro errores V10; tras actualizar las referencias, el gate volvió a verde con 108 activos y cero avisos.
+- Un título sin la frase en 3 cucharadas, una pieza gris corporativa o un recorte que invada el texto reabre el contrato.
+rollback: Revertir selectivamente el commit de corrección y desplegar el commit productivo anterior; conservar ambas generaciones y la evidencia histórica.
