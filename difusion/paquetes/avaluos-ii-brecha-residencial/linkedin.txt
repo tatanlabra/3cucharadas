@@ -1,0 +1,21 @@
+Más viviendas censadas que roles habitacionales: ¿dónde conviene revisar primero?
+
+En «Avalúos en 3 cucharadas II» cruzo Censo, catastro del SII, campamentos y características de las viviendas. Me interesa distinguir una diferencia grande de una diferencia que, si se confirmaran predios omitidos, pudiera tener mayor interés tributario.
+
+Lo Barnechea ilustra ese contraste: tiene un residuo de 2.300 unidades bajo el supuesto de descuento por campamentos. Si cada unidad correspondiera a un nuevo predio comparable a los registrados, los escenarios con el impuesto teórico mediano y medio serían de $4.983 y $6.669 millones anuales equivalentes.
+
+Iquique tiene un residuo mucho mayor, de 18.949 unidades, pero sus escenarios son $36 y $4.309 millones. La diferencia entre media y mediana importa: los avalúos altos pueden mover mucho el promedio.
+
+Estos montos no son deuda descubierta ni recaudación que pueda darse por perdida. Son referencias hipotéticas de escala, con parámetros del primer semestre de 2026; no forman un intervalo estadístico.
+
+Hay otra explicación que merece atención: varias viviendas pueden compartir un sitio y un rol. CASEN permite observar una señal entre hogares, pero no contar cuántas viviendas hay por sitio. Por eso no resto ese porcentaje de la brecha.
+
+El paso decisivo es conciliar vivienda, sitio y rol. Si la diferencia se explica con registros existentes o fechas distintas, la hipótesis de omisión pierde fuerza. Si persiste, corresponde verificar cada inmueble y sus efectos tributarios.
+
+Dejo el método, los datos y un visor para explorar las comunas. Los gráficos están hechos con Python y Matplotlib; el análisis conecta datos sociales y geomática.
+
+https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/?utm_source=linkedin&utm_medium=social&utm_campaign=avaluos-ii-brecha-residencial
+
+Preparé este texto con ayuda de IA. Explico cómo la uso en la política enlazada desde el artículo.
+
+#DatosAbiertos #PoliticaPublica #Geomática

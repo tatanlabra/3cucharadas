@@ -47,7 +47,7 @@
     }
   ],
   "analysis_commit": "d3576aa",
-  "blog_commit": null,
+  "blog_commit": "9b6d4eae1398f6f96d3663843921663f1c7776ea",
   "performance": "40 complete observations; three relative LCP regressions over10%, all candidate group medians below2500ms; CLS maximum0.053783. Host CPU varied, so product-only causation is not established.",
   "discarded_optimization": "Deferring Lunr indexing removed longtasks but failed to improve LCP in eight diagnostic navigations; not adopted.",
   "next_step": "Establish a controlled low-load profiling interval and isolate font/layout/composition cost before further product changes; do not repeat samples until PASS or relax thresholds silently.",
@@ -58,5 +58,7 @@
     "No physical iPhone/Safari or native browser zoom certification."
   ],
   "external_actions": [],
-  "local_checkpoint_authorized": "2026-09-12 explicit user request; preserves performance debt"
+  "local_checkpoint_authorized": "2026-09-12 explicit user request; preserves performance debt",
+  "social_package": "difusion/paquetes/avaluos-ii-brecha-residencial",
+  "social_state": "Prepared locally, not sent, no remote drafts"
 }
