@@ -31,10 +31,32 @@ Los logs versionados normalizan espacios finales sin ocultar fallos. Los avisos 
 
 ## Despliegue
 
-Pendiente de comprobar remotos, pipeline y contenido servido. El cierre R4 requiere evidencia HTTP y hashes de los activos referenciados por el HTML público, además del estado de CI. No se envían solicitudes institucionales ni se habilita sindicación para el post.
+Al terminar la validación local quedaba pendiente comprobar remotos, pipeline y contenido servido. Ese estado histórico queda resuelto por la comprobación productiva registrada abajo. No se envían solicitudes institucionales ni se habilita sindicación para el post.
 
 ## Cierre local final
 
 Recibo `avaluos-ii-release-local-receipt-20260911.json`: artículo ES claro y EN nocturno, cero violaciones axe y 28 comprobaciones aprobadas por versión; panel monetario cero violaciones y 24 aprobadas. Contraste SVG/gradientes conserva comprobaciones incompletas. El tema nocturno se confirmó después de la auditoría, con texto rgb(229,234,241) y fondo rgb(32,40,56). Se corrigió un rojo real de 139 nodos a contraste 3,88:1 en tablas nocturnas. `role=group` elimina el nombre ARIA en contenedor genérico.
 
 La revisión delegada probó q=0,25/0,5/0 y cambios de región, incluyendo Iquique al 25% ($9,1 y $1.077,2 millones), ausencia de elegibles y fallo intencional de JSON. No dejó sesiones ni rutas simuladas abiertas. El preview 4004 sigue disponible por solicitud del usuario. El control público previo devolvió 404 para el post nuevo.
+
+## Producción comprobada
+
+El 11-09-2026 a las 23:43:30 de Santiago, el [recibo productivo](avaluos-ii-release-production-receipt-20260911.json) registra tres páginas HTTP 200, contenido esperado y 58 recursos descargados desde las referencias del HTML efectivo, el manifiesto del visor y sus datos/figuras. Los 58 SHA-256 coinciden con el build revisado; cero errores y cero discrepancias. El HTML se valida por canonical, fórmulas y marcadores de contenido; sus hashes quedan registrados, sin exigir igualdad byte a byte entre builds con timestamps diferentes.
+
+| Evidencia | Resultado |
+|---|---|
+| Artículo ES | https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/ — 404 previo → 200 con contenido esperado. |
+| Artículo EN | https://3cucharadas.cl/en/datos/territorio/avaluos-ii-brecha-residencial/ — 200, canonical y ocho expresiones KaTeX. |
+| Visor | https://3cucharadas.cl/catastro_sii_brecha/ — 200, panel monetario y SHA del dataset final. |
+| GitLab Pages | [Pipeline 2842505278](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842505278), success para `9b5ddf83048e02397875c55eab4e9b33528675ca`; terminó a las 02:42:28 UTC del 12-09. |
+| GitHub | [Redirector](https://github.com/tatanlabra/3cucharadas/actions/runs/34668294141) y [automatización de sindicación existente](https://github.com/tatanlabra/3cucharadas/actions/runs/34668294132), success. Avalúos II carece de opt-in de sindicación. |
+| Seguridad de dependencias | `npm audit`: cero vulnerabilidades; API de alertas abiertas de GitHub: lista vacía. El aviso de tres moderadas durante el push correspondía al estado anterior. |
+| Fuente y publicación | El commit analítico `93e3dba` permanece local; el blog publica exclusivamente los derivados agregados y activos revisados. |
+
+El primer intento de push fue rechazado por la revisión automática por falta de evidencia del destino y del contenido saliente. Se verificó mediante API que el proyecto público GitLab `tatanlabra/3cucharadas` (57339918) tiene el dominio `3cucharadas.cl` verificado, que GitHub es el espejo configurado y que el envío era fast-forward. La inspección acotada de 140 archivos no detectó patrones privados ni fuentes individuales. Con esa evidencia adicional, la revisión automática aprobó el mismo push. No queda permiso pendiente ni se eludió el rechazo.
+
+GitHub añadió después `d8184c7c`, un ajuste automático de saltos de línea en `_data/distribucion.yml`. La comparación YAML de ambas versiones dio igualdad semántica; se integró por fast-forward para conservar su autoría e historia. El commit de cierre sólo añade documentación excluida del build y usa `[skip ci]`; la evidencia productiva sigue vinculada al commit de implementación `9b5ddf83`, no a un supuesto segundo despliegue.
+
+Reproducción del recibo: `python docs/avaluos-ii-release-public-check-20260911.py.txt /tmp/avaluos-production-recheck.json`, conservando o reconstruyendo el build aprobado en `/tmp/avaluos-release-production`. El script es una copia del comprobador usado, fijada a esta entrega; no constituye un verificador universal del sitio. Cambios posteriores en producción pueden invalidar la paridad y requieren otro recibo.
+
+R1–R4 quedan completos para esta publicación. El neto observado, un enlace vivienda–rol que identifique omisiones y la ejecución futura del post III siguen fuera del resultado demostrado. La revisión móvil se realizó en viewport de 390 px; no se observó Safari/iPhone real. El URL público permite abrir el artículo desde el teléfono sin depender del preview local.

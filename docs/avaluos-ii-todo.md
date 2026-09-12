@@ -6,8 +6,8 @@ Corte: 11-09-2026. El usuario autorizó publicar al terminar los pasos y revisio
 
 | Estado | Resultado |
 |---|---|
-| Implementado | Visor y ajustes visuales; campamentos/materialidad; post diagnóstico ES/EN con fecha y portadas; mapa útil frío −20,43% en ensayo local; pruebas y auditoría finales aprobadas. |
-| Parcial | Revisión final y despliegue del escenario monetario en curso; acceso local desde iPhone no observado directamente. |
+| Implementado | Publicación ES/EN y visor con escenarios monetarios: CI aprobado, tres páginas HTTP 200 y 58 recursos públicos con hashes coincidentes; contrato R1–R4 completo. |
+| Parcial | Acceso al preview desde iPhone no observado directamente; el post y visor ya tienen URL público. El neto observado sigue sin fuente compatible. |
 | No implementado | Solicitud institucional y ejecución futura del post III CCU, fuera de esta publicación. |
 
 ## Detalle por requisito
@@ -18,36 +18,38 @@ Corte: 11-09-2026. El usuario autorizó publicar al terminar los pasos y revisio
 |---|---|---|---|
 | F0–F1: recuperar contexto, fijar alcance y procedencia | [x] | Contrato principal, manifiestos y corrección territorial con rechazo observado | Conservar fuentes y decisiones |
 | F2: comparación censal con destino habitacional | [x] | 346 comunas, 344 cubiertas; 6.054.808 roles administrativos, incluidos los carentes de geometría; 53 pruebas analíticas | No convertir faltantes en cero |
-| F3a: motor de escenarios y controles | [x] | Pruebas de unidades, componentes, ceros y rechazo de neto no certificado; artefactos monetarios permanecen nulos | Activarlo sólo con datos compatibles |
+| F3a: motor de escenarios y controles | [x] | Pruebas de unidades, componentes, ceros y rechazo de neto no certificado; campos históricos de neto observado permanecen nulos | Activar esa rama sólo con datos compatibles; modelo normativo independiente en F3c |
 | F3b: neto habitacional comunal 2026S1 | [ghost] | Cero valores disponibles en las 346 comunas; solicitud y vías investigadas documentadas | Obtener suma neta y cantidad del mismo universo, período y componentes; medianas requieren distribución o estadístico oficial |
 | F3c: ranking en pesos y sensibilidad monetaria | [x] | Modelo general por predio, media/mediana con ceros, q=0/0,25/0,5/1; 15 comunas priorizadas; controles independientes contra 6.054.808 registros | Son escenarios normativos, no giro neto observado ni deuda |
-| F4: post II ES/EN | [x] | Escenarios y contraste Iquique–Lo Barnechea integrados; artículos en _posts con fecha 11-09-2026; 13 referencias equivalentes | Verificación productiva en R4 |
-| F5: visor único y tabla accesible | [x] | Diagnóstico integrado, selección comunal y tabla completa; 132 pruebas TS y QA móvil/escritorio | La rama monetaria depende de F3 |
-| F6: validación local | [x] | 132 TS, 53 analíticas y 52 Python del visor aprobadas; cero omisiones en la ejecución Python complementaria; builds y verificadores verdes | Evidencia y comandos en F9; no equivale a certificar todo navegador o producción |
+| F4: post II ES/EN | [x] | Escenarios y contraste Iquique–Lo Barnechea integrados; artículos en _posts con fecha 11-09-2026; 13 referencias equivalentes | R4 completo; URLs públicos comprobados |
+| F5: visor único y tabla accesible | [x] | Diagnóstico integrado, selección comunal y tabla completa; 136 pruebas TS y QA móvil/escritorio; tabla monetaria acompaña q y región | Mantener separado el neto observado del escenario normativo |
+| F6: validación local | [x] | 136 TS, 78 analíticas y 56 Python del visor aprobadas; 25 del modelo repetidas tras aclarar metadatos; builds y verificadores verdes | Evidencia final en el recibo de salida; no certifica todo navegador |
 | F7: diseño de post III CCU | [x] | Protocolo C0–C7 de expansión, densificación, tiempos y falsación | Ejecución del cruce y post III fuera del alcance aprobado |
 | F8: campamentos y otras condiciones habitacionales | [x] | Sensibilidad CNC y clasificación censal reproducibles; 222 polígonos sin conteo conservan ese estado | Sin enlace vivienda–rol ni descuento observado de todos los asentamientos informales |
 | F9_1: barra de composición habitacional | [x] | Escenario estricto 1.318.681,81 equivalentes aceptables; suma de componentes conserva el residuo; tres casos adversariales corrigieron materialidad | Transferencia de composición asumida, no calidad observada de inmuebles omitidos |
 | F9_2a: caché, carga visible y selector | [x] | Peticiones comunales 2→1; caché acotada, reintento y pruebas de fallos; selector disponible sin WebGL | Conservar recuperación y límites de memoria |
 | F9_2b: rapidez del mapa completo | [x] | [Serie emparejada](catastro-paired-loading-20260911-focus.md): mapa útil frío 2.002,20→1.593,10 ms, recarga 1.668,10→1.077,45 ms; mismo encuadre/capas; diez mediciones válidas | Ensayo local acotado; dos exclusiones por foco conservadas; primer load frío mejora sólo 6,72% |
-| F9_3: relato, bibliografía y contraste de hipótesis | [x] | Fuentes primarias y contraevidencia ES/EN; altas tasaciones motivan revisión, sin identificar obligación de los casos ausentes | Cierre fiscal del artículo continúa en F4 |
+| F9_3: relato, bibliografía y contraste de hipótesis | [x] | Fuentes primarias y contraevidencia ES/EN; altas tasaciones motivan revisión, sin identificar obligación de los casos ausentes | Relato monetario final integrado en F4 y publicado en R4 |
 | F9_4a: diagramación, contraste y temas | [x] | Indicadores a 390 px: 1.241,5→663 px; a 1440 px: 495,28→382 px; 320 px sin desborde | QA acotada, no certificación global |
 | F9_4b: casino en cascada, duración final medio segundo | [x] | Última petición del 11-09: 425–545 ms, exactamente la mitad del ajuste previo; una cifra a la vez, activación cerca del viewport; nueve pruebas verdes | Valor exacto accesible inmediato; reduced-motion estático |
 | F9_4c: nueva paleta próxima al modo nocturno | [x] | Turquesa, azul grisáceo y ámbar luminosos; contornos, etiquetas y patrones; QA claro/oscuro | Preferencia implementada, sin afirmar optimalidad estética universal |
 | F9_6: hover Chile estable | [x] | 343 etiquetas sin variar altura a 1280 y 390 px; instrucción separada, sin texto UV redundante | Nombres completos y teclado conservados |
 | F9_7: terminología didáctica | [x] | Una definición del código H por página; después roles/predios habitacionales | Claves técnicas permanecen intactas |
 | F9_8: dos mapas con campamentos | [x] | Valparaíso y Puerto Montt; plantilla histórica, tres capas, PNG claro/oscuro y WebP; hashes y rechazos adversariales | Recortes y faltantes declarados; imágenes no prueban omisiones prediales |
-| F9_5: integración y preparación local | [x] | [Cierre final](avaluos-ii-final-closeout-20260911.md): gate con Node fijado, 135 TS entre dos suites, 52 Python sin omisiones, 53 analíticas; verificación de datos/assets y mapa útil aprobados | Cierre local F9; no cierra F3/F4 ni certifica producción |
+| F9_5: integración y preparación local | [x] | [Cierre final](avaluos-ii-final-closeout-20260911.md): gate con Node fijado, 135 TS entre dos suites, 52 Python sin omisiones, 53 analíticas; verificación de datos/assets y mapa útil aprobados | Evidencia histórica F9; F3c/F4/R4 se cierran en el contrato de salida |
 | F9_E1: alerta de desarrollo Vitest | [x] | 4.1.10→4.1.11; auditoría npm 2 alertas→0; producción conserva los hashes de sus 16 archivos Catastro | Sólo familia Vitest; avisos conocidos de Sass y tamaño MapLibre permanecen |
 | Launcher de desarrollo: sólo pacman | [x] | `~/.config/kitty/sessions/desarrollo.session:9`; autostart apunta a esa sesión | Otro launcher independiente conserva sus aplicaciones |
 | Servidor solicitado en 4004 | [x] | Se confirmó su término desde el host y se restauró; ES/EN y portada visibles; siete enlaces cartográficos conservados al regenerar | Configuración efímera fuera del repo; no se publica el overlay local |
 | Preview desde iPhone mediante Termius | [~] | Servidor y páginas HTTP 200 comprobados desde el PC; instrucciones y enlaces del túnel local entregados; [alcance y evidencia](avaluos-ii-final-closeout-20260911.md#continuación-acceso-desde-iphone) | Activar el reenvío local en el iPhone y comprobar que abre post y visor; conexión SSH por sí sola no prueba ese acceso |
-| F10: nueva base, traducción y fecha | [x] | [Evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md); original intacto, 20 filas y 80 valores ES/EN equivalentes, 12 referencias, fecha 11-09-2026; builds y QA móvil/escritorio | El escenario monetario original sigue dependiendo de F3 |
+| F10: nueva base, traducción y fecha | [x] | [Evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md); original intacto, 20 filas y 80 valores ES/EN equivalentes, 12 referencias en esa revisión, fecha 11-09-2026; builds y QA móvil/escritorio | Revisión monetaria posterior conserva valores y añade la referencia oficial número 13 |
 | F11: hero y teaser generados directamente | [x] | Dos outputs inspeccionados; WebP conserva píxeles y reduce 29,07 % / 27,02 % de bytes; integración ES/EN, descripciones sociales y caption legible | 1,45–1,50 MB por WebP; no representa entrega móvil óptima |
 | F11: diagnóstico delegado de imagegen | [x] | [Auditoría](avaluos-ii-imagegen-diagnosis-20260911.md): generación y edición local comprobadas, rúbrica previa y tarjeta real revisada | La corrección de la skill global no formaba parte de la auditoría; sin ranking experimental entre proveedores |
 | Solicitud institucional | [ ] | Texto concreto preparado, no enviado | El envío requiere autorización explícita; no hay respuesta institucional pendiente |
-| Push y publicación | [~] | Autorización explícita del 11-09-2026; contrato R1–R4, pruebas y revisión antes de desplegar | Cerrar con remotos, CI y hashes públicos |
+| Push y publicación | [x] | Commit de implementación 9b5ddf83 enviado a GitLab y GitHub; pipeline 2842505278 aprobado; tres páginas y 58 recursos verificados | Recibo productivo y contrato R4 completos; conservar el ajuste automático posterior del espejo |
 
 ## Evidencia y reproducción
+
+- [Cierre productivo R1–R4](avaluos-ii-release-evidence-20260911.md) y [recibo público](avaluos-ii-release-production-receipt-20260911.json): CI, URLs, hashes y límites de la publicación.
 
 - [Pruebas, comportamiento y límites F9](avaluos-ii-polish-evidence.md), incluidos comandos del entorno geoespacial local.
 - [Ensayo cartográfico emparejado completo](catastro-paired-loading-20260911-focus.md): diez observaciones válidas, dos cebados y dos exclusiones; once pruebas del evaluador. [Primer intento incompleto](catastro-paired-loading-20260911.md) conservado como antecedente.

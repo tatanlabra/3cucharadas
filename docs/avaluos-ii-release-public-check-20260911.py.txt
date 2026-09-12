@@ -1,0 +1,64 @@
+import concurrent.futures,hashlib,json,re,sys,time
+from datetime import datetime,timezone
+from pathlib import Path
+from urllib.request import Request,urlopen
+from urllib.parse import urljoin,urlsplit,unquote
+from html.parser import HTMLParser
+BASE='https://3cucharadas.cl'
+BUILT=Path('/tmp/avaluos-release-production')
+REPORT=Path(sys.argv[1])
+class Assets(HTMLParser):
+ def __init__(self):super().__init__();self.urls=[];self.canonical=[]
+ def handle_starttag(self,tag,attrs):
+  a=dict(attrs)
+  if tag=='link' and a.get('rel')=='canonical':self.canonical.append(a.get('href'))
+  if tag=='link' and a.get('rel')=='stylesheet':self.urls.append(a.get('href'))
+  if tag in ('img','script') and a.get('src'):self.urls.append(a['src'])
+
+def fetch(url):
+ with urlopen(Request(url,headers={'User-Agent':'3cucharadas-release-verification/1.0','Cache-Control':'no-cache'}),timeout=25) as r:
+  if r.status!=200:raise ValueError(f'HTTP {r.status}')
+  return r.read()
+
+def sha(b):return hashlib.sha256(b).hexdigest()
+report={'checked_at':datetime.now(timezone.utc).isoformat(),'implementation_commit':'9b5ddf83048e02397875c55eab4e9b33528675ca','pages':[],'assets':[],'errors':[]}
+assets={}
+for path in ['/datos/territorio/avaluos-ii-brecha-residencial/','/en/datos/territorio/avaluos-ii-brecha-residencial/','/catastro_sii_brecha/']:
+ try:
+  content=fetch(BASE+path).decode(); parser=Assets();parser.feed(content)
+  expected=(BUILT/path.lstrip('/')/'index.html').read_text()
+  if path.endswith('/catastro_sii_brecha/'):
+   marker=re.search(r'data-source-sha="([a-f0-9]+)"',expected)[0]
+   assert marker in content and 'id="modeled-tax-chart"' in content
+  else:
+   assert parser.canonical==[BASE+path]
+   assert 'monetary-top15-' in content and content.count('class="katex"')==expected.count('class="katex"')==8
+   assert re.findall(r'itemprop="datePublished"[^>]*',content)
+  report['pages'].append({'url':BASE+path,'http':200,'html_sha256':sha(content.encode()),'content_verified':True})
+  for item in parser.urls:
+   url=urljoin(BASE+path,item)
+   parts=urlsplit(url)
+   if parts.netloc!='3cucharadas.cl':continue
+   rel=unquote(parts.path).lstrip('/')
+   file=BUILT/rel
+   if file.is_file():assets[url]=file
+ except Exception as e:report['errors'].append({'url':BASE+path,'error':str(e)})
+for file in (BUILT/'assets/dist/catastro_sii').rglob('*'):
+ if file.is_file() and file.suffix!='.map':assets[BASE+'/'+file.relative_to(BUILT).as_posix()]=file
+for pattern in ['assets/images/avaluos-ii/annex-*-900.webp','assets/images/avaluos-ii/annex-*-1800.webp']:
+ for file in BUILT.glob(pattern):assets[BASE+'/'+file.relative_to(BUILT).as_posix()]=file
+for relative in ['catastro_sii_brecha/data/fiscal-gap/communes.json','catastro_sii_brecha/data/fiscal-gap/communes.csv','catastro_sii_brecha/data/fiscal-gap/communes.parquet','catastro_sii_brecha/data/fiscal-gap/maps-audit.json']:
+ file=BUILT/relative;assets[BASE+'/'+relative+'?v='+sha(file.read_bytes())]=file
+
+def check(pair):
+ url,file=pair
+ try:
+  body=fetch(url);want=sha(file.read_bytes());actual=sha(body)
+  return {'url':url,'bytes':len(body),'expected_sha256':want,'actual_sha256':actual,'match':want==actual}
+ except Exception as e:return {'url':url,'match':False,'error':str(e)}
+with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+ report['assets']=list(pool.map(check,sorted(assets.items(),key=lambda x:x[0])))
+report['status']='PASS' if len(report['pages'])==3 and not report['errors'] and len(report['assets'])>=30 and all(r['match'] for r in report['assets']) else 'FAIL'
+REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'status':report['status'],'pages':len(report['pages']),'assets':len(report['assets']),'errors':report['errors'],'mismatches':[r for r in report['assets'] if not r['match']]},ensure_ascii=False,indent=2))
+sys.exit(0 if report['status']=='PASS' else 1)
