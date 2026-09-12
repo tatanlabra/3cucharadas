@@ -1,0 +1,27 @@
+Run options: --seed 40416
+
+# Running:
+
+F.F..FF..
+
+Finished in 0.636047s, 14.1499 runs/s, 47.1663 assertions/s.
+
+  1) Failure:
+VerifyDistributionDoneTest#test_linkedin_and_x_are_individual_required_channels [tests/test_verify_distribution_done.rb:137]:
+Expected "- _posts/2026-08-20-fixture.md: no declara canales y tampoco `distribution.skip_reason`\nGate de difusion cumplida fallo (1 canal(es) vencido(s) sin artefacto)\n" to include "x/es".
+
+  2) Failure:
+VerifyDistributionDoneTest#test_scheduled_x_is_pending_until_it_has_a_public_url [tests/test_verify_distribution_done.rb:146]:
+Expected "- _posts/2026-08-20-fixture.md: no declara canales y tampoco `distribution.skip_reason`\nGate de difusion cumplida fallo (1 canal(es) vencido(s) sin artefacto)\n" to include "x/es".
+
+  3) Failure:
+VerifyDistributionDoneTest#test_unknown_explicit_channel_is_not_silently_ignored [tests/test_verify_distribution_done.rb:160]:
+Expected true to not be truthy.
+
+  4) Failure:
+VerifyDistributionDoneTest#test_explicit_channels_close_only_with_each_language_url [tests/test_verify_distribution_done.rb:153]:
+- _posts/2026-08-20-fixture.md: no declara canales y tampoco `distribution.skip_reason`
+Gate de difusion cumplida fallo (1 canal(es) vencido(s) sin artefacto)
+
+
+9 runs, 30 assertions, 4 failures, 0 errors, 0 skips

@@ -9,7 +9,7 @@ class DevtoNoopTest < Minitest::Test
   def run_fixture(mode)
     Dir.mktmpdir('devto-noop-') do |root|
       %w[scripts/lib _posts _data].each { |dir| FileUtils.mkdir_p(File.join(root, dir)) }
-      %w[scripts/syndicate_devto.rb scripts/jekyll_to_devto.rb scripts/lib/devto_draft_policy.rb].each do |path|
+      %w[scripts/syndicate_devto.rb scripts/jekyll_to_devto.rb scripts/lib/devto_draft_policy.rb scripts/lib/ai_disclosure.rb].each do |path|
         FileUtils.cp(File.expand_path("../#{path}", __dir__), File.join(root, path))
       end
       File.write(File.join(root, '_posts/example-en.md'), "---\ntitle: Example\npermalink: /example/\ndistribution:\n  republish: [dev]\n---\nExisting public text.\n")

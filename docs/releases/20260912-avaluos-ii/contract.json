@@ -1,0 +1,74 @@
+{
+  "id": "release-20260912-avaluos-ii",
+  "authorized_request": "dale con el push, envío a redes y programación de la difusión pendiente; luego fix de pipelines en gitlab",
+  "scope": [
+    "blog GitLab main and GitHub main",
+    "Avalúos II LinkedIn ES publication",
+    "Avalúos II X ES next-day scheduling",
+    "diagnose and repair actual CI failures"
+  ],
+  "constraints": [
+    "No force push",
+    "Do not claim scheduled content has been published",
+    "No invented URLs or waived distribution deadlines",
+    "Preserve performance regression evidence and unrelated work"
+  ],
+  "historical_review_binding": "20260912-heroes-casen review covers previous bytes; only distribution front matter amended in ES/EN, article bodies verified identical. Historical full-file hashes are not renewed review approval.",
+  "body_checks": [
+    {
+      "path": "_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
+      "body_unchanged_from": "9b6d4eae",
+      "sha256": "6d91e9819886643386cf831c970b4453632afe413c952e75e86f55a70674db38"
+    },
+    {
+      "path": "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md",
+      "body_unchanged_from": "9b6d4eae",
+      "sha256": "f87268443b6a9fee64f76c30bc055afde591a0a8d13ac065c984e912997b7a6c"
+    }
+  ],
+  "phases": [
+    {
+      "id": "R1",
+      "requirement": "Safe reviewed source release",
+      "criterion": "source health, production build, artifact and distribution readiness pass",
+      "status": "implemented",
+      "evidence": [
+        "source-green.json",
+        "checks.json"
+      ]
+    },
+    {
+      "id": "R2",
+      "requirement": "Both production remotes and actual public assets match release",
+      "criterion": "fetch exact remote SHA, successful exact-SHA pipeline, compare public referenced asset SHA256 against build",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "R3",
+      "requirement": "Publish LinkedIn and schedule X",
+      "criterion": "Verify public LinkedIn URL and native X scheduling record with timezone",
+      "status": "blocked_on_platform_authentication",
+      "evidence": []
+    },
+    {
+      "id": "R4",
+      "requirement": "Repair pipeline defects without hiding missing publications",
+      "criterion": "devto isolated fixture and new explicit-channel negative/positive tests; inspect exact-SHA GitLab jobs",
+      "status": "partial",
+      "evidence": [
+        "source-red.json",
+        "source-green.json",
+        "distribution-channels-red.log",
+        "distribution-channels-green.log",
+        "distribution-live.log"
+      ]
+    }
+  ],
+  "residual_debt": [
+    "AC-Q6 remains RED: three relative LCP regressions; publication authorized despite documented debt",
+    "Nushell EN Medium overdue: genuine distribution gap, not solved by changing verifier",
+    "LinkedIn/X login required; no external social write has occurred"
+  ],
+  "rollback": "Use selective git revert of release commits and normal push after determining required restoration; never reset remote history."
+}

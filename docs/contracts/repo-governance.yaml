@@ -108,6 +108,90 @@ owned_large_files:
     owner: editorial-avaluos-ii
     role: mapa-agregado-maestro
     retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-light.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-dark.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/runs.json:
+    owner: editorial-heroes-casen
+    role: observaciones-crudas-de-rendimiento-incluidos-fallos
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-dark.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-light.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright/runs.json:
+    owner: editorial-heroes-casen
+    role: observaciones-crudas-de-rendimiento-incluidos-fallos
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/avaluo-vulnerabilidad-uv.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/rss-gobierna-como-lees.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-dark.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-light.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/casen2024-julia-waffles.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/commands.jsonl:
+    owner: editorial-heroes-casen
+    role: observaciones-crudas-de-rendimiento-incluidos-fallos
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria-gobernada-poc.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/bayes-hiperparametros.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/nushell-coprocesador-estructurado.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/ai-quota-hud-kde.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-modelos.png:
+    owner: editorial-heroes-casen
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/G1/sources/questionnaire.pdf:
+    owner: editorial-heroes-casen
+    role: cuestionario-publico-oficial-referencia-casen
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-dark.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-light.png:
+    owner: editorial-heroes-casen
+    role: evidencia-visual-de-matriz-de-aceptacion
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
 falsified_by:
   - test: unowned_large_file
     observation: "Observado rojo el 2026-09-06: orphan.bin de 12 bytes superó el umbral fixture de 10 sin dueño; el proceso salió 1. El fixture equivalente con owned.bin declarado salió 0."

@@ -1,0 +1,38 @@
+{
+  "devto-fixture-green.log": {
+    "exit_code": 0,
+    "command": [
+      "ruby",
+      "tests/test_devto_noop.rb"
+    ]
+  },
+  "distribution-channels-green.log": {
+    "exit_code": 0,
+    "command": [
+      "ruby",
+      "tests/test_verify_distribution_done.rb"
+    ]
+  },
+  "distribution-live.log": {
+    "exit_code": 1,
+    "command": [
+      "ruby",
+      "scripts/verify_distribution_done.rb",
+      "--ventana",
+      "30"
+    ]
+  },
+  "production_build": {
+    "exit_code": 0,
+    "command": "JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --destination /tmp/3c-release-site"
+  },
+  "artifact": {
+    "exit_code": 0,
+    "bytes": 86108291,
+    "entries": 1396
+  },
+  "distribution_readiness": {
+    "exit_code": 0,
+    "posts": 20
+  }
+}

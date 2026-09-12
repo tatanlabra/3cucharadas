@@ -128,4 +128,36 @@ class VerifyDistributionDoneTest < Minitest::Test
     _stdout, _stderr, full_status = run_gate
     refute full_status.success?
   end
+
+  def test_linkedin_and_x_are_individual_required_channels
+    write_post(distribution: { "channels" => %w[linkedin x] })
+    write_publications([{ "plataforma" => "linkedin", "url_publicada" => "https://www.linkedin.com/feed/update/example" }])
+    _stdout, stderr, status = run_gate
+    refute status.success?
+    assert_includes stderr, "x/es"
+    refute_includes stderr, "linkedin/es"
+  end
+
+  def test_scheduled_x_is_pending_until_it_has_a_public_url
+    write_post(distribution: { "channels" => ["x"] })
+    write_publications([{ "plataforma" => "x", "estado" => "programado", "scheduled_at" => "2026-09-07" }])
+    _stdout, stderr, status = run_gate
+    refute status.success?
+    assert_includes stderr, "x/es"
+  end
+
+  def test_explicit_channels_close_only_with_each_language_url
+    write_post(distribution: { "channels" => %w[linkedin x] }, lang: "en")
+    write_publications(%w[linkedin x].map { |p| { "plataforma" => p, "url_publicada_en" => "https://example.org/#{p}/en" } })
+    stdout, stderr, status = run_gate("--strict")
+    assert status.success?, stderr
+    assert_includes stdout, "Gate de difusion cumplida OK"
+  end
+
+  def test_unknown_explicit_channel_is_not_silently_ignored
+    write_post(distribution: { "channels" => %w[linkedin typo], "skip_reason" => "cannot hide an unknown channel" })
+    _stdout, stderr, status = run_gate
+    refute status.success?
+    assert_includes stderr, "canal desconocido"
+  end
 end
