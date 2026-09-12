@@ -1,0 +1,1351 @@
+{
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/151.0.7922.77",
+    "revision": "@ff37cfca210138f2a40b843b4a8195ab7e4fc7ff",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "jsVersion": "15.1.206.10"
+  },
+  "command_line_unavailable": "Command line not returned because --enable-automation not set.",
+  "launch_args": [],
+  "samples": [
+    {
+      "href": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+      "focus": [
+        {
+          "ms": 16.90000000037253,
+          "focus": false,
+          "visibility": "visible"
+        },
+        {
+          "ms": 17.700000000186265,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 587.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 693.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 900.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 975.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1019.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1167.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1255.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1351.9000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1467.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1617.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1729.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1870.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1967.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2017.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2093.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2121.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2167.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2218.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2317.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2468.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2517.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2567.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2668.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2717.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3167.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3217.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3317.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3367.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3467.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3667.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3717.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4117.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4167.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4217.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4267.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4317.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4367.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4417.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4467.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4517.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4567.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4617.299999999814,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4667.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4717.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4767.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4817.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4867.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4917.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4967.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 5017.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        }
+      ],
+      "paths": 343
+    },
+    {
+      "href": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+      "focus": [
+        {
+          "ms": 16.90000000037253,
+          "focus": false,
+          "visibility": "visible"
+        },
+        {
+          "ms": 17.700000000186265,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 587.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 693.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 900.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 975.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1019.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1167.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1255.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1351.9000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1467.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1617.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1729.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1870.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1967.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2017.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2093.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2121.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2167.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2218.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2317.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2468.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2517.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2567.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2668.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2717.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3167.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3217.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3317.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3367.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3467.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3667.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3717.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4117.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4167.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4217.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4267.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4317.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4367.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4417.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4467.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4517.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4567.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4617.299999999814,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4667.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4717.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4767.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4817.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4867.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4917.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4967.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 5017.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        }
+      ],
+      "paths": 343
+    },
+    {
+      "href": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+      "focus": [
+        {
+          "ms": 16.90000000037253,
+          "focus": false,
+          "visibility": "visible"
+        },
+        {
+          "ms": 17.700000000186265,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 587.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 637.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 693.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 900.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 975.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1019.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1167.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1255.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1351.9000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1467.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1617.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1729.4000000003725,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1870.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 1967.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2017.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2093.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2121.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2167.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2218.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2317.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2367.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2468.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2517.7999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2567.7000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2668.5999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2717.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 2967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3117.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3167.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3217.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3267.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3317.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3367.2999999998137,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3417.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3467.5,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3517.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3567.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3617.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3667.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3717.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3767.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3817.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3867.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3917.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 3967.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4017.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4067.2000000001863,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4117.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4167.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4217.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4267.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4317.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4367.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4417.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4467.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4517.0999999996275,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4567.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4617.299999999814,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4667.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4717.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4767.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4817.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4867.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4917.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 4967.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        },
+        {
+          "ms": 5017.200000000186,
+          "focus": true,
+          "visibility": "visible"
+        }
+      ],
+      "paths": 343
+    }
+  ]
+}

@@ -12,14 +12,17 @@ Estado: implementación diagnóstica validada; objetivo fiscal parcial por falta
 | Conciliación oficial adicional | [source-audit.json](../catastro_sii_brecha/data/fiscal-gap/source-audit.json), 18 fuentes SII/MINVU congeladas en el repositorio analítico |
 | Método público y errata | [method.md](../catastro_sii_brecha/data/fiscal-gap/method.md) |
 | Contrato / TODO_STATE | [avaluos-ii-contract.md](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md) |
-| Avance consolidado de la sesión | [avaluos-ii-todo.md](avaluos-ii-todo.md), derivado de los contratos principal, F8 y F9 |
+| Resumen y avance de la sesión | [avaluos-ii-todo.md](avaluos-ii-todo.md), derivado de los contratos principal y F8–F11 |
 | Ajustes del visor y evidencia vigente | [Contrato F9](avaluos-ii-polish-contract.yaml), [evidencia](avaluos-ii-polish-evidence.md) |
+| Base revisada, ES/EN y fecha | [Contrato F10](avaluos-ii-editorial-consolidation-contract.yaml), [evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md) |
+| Hero, teaser y diagnóstico imagegen | [Contrato F11](avaluos-ii-visual-editorial-contract.yaml), [diagnóstico](avaluos-ii-imagegen-diagnosis-20260911.md) |
+| Cierre integral y rendimiento | [Pruebas finales](avaluos-ii-final-closeout-20260911.md), [ensayo emparejado](catastro-paired-loading-20260911-focus.md) |
 | Auditoría deductiva, inductiva y abductiva | [avaluos-ii-audit.md](../../catastros_sii/v5_brecha/docs/avaluos-ii-audit.md) |
 | Evidencia y limitaciones de QA | [avaluos-ii-validation.md](../../catastros_sii/v5_brecha/docs/avaluos-ii-validation.md) |
 | Solicitud de datos preparada, no enviada | [avaluos-ii-solicitud-datos.md](../../catastros_sii/v5_brecha/docs/avaluos-ii-solicitud-datos.md) |
 | Diseño de post III CCU, sin ejecución | [avaluos-iii-ccu-protocol.md](../../catastros_sii/v5_brecha/docs/avaluos-iii-ccu-protocol.md) |
 
-La tabla registra 346 comunas, 344 con fuente 2026S1 y 6.054.808 roles habitacionales únicos. La verificación vigente combina 132 pruebas TS, 53 analíticas y 52 Python del visor aprobadas, estas últimas sin omisiones el 11-09-2026. No se reconstruyeron PMTiles nacionales. Hay builds locales de preview y producción; ambos borradores quedan fuera de la producción normal. El detalle de entornos, comandos y límites está en la evidencia F9; los resultados anteriores se conservan como historia.
+La tabla registra 346 comunas, 344 con fuente 2026S1 y 6.054.808 roles habitacionales únicos. La verificación final combina 132 pruebas TS Catastro y tres de Memoria Gobernada, 53 analíticas y 52 Python del visor, sin omisiones. Vitest se corrigió a 4.1.11 y npm audit terminó sin vulnerabilidades reportadas. El mapa útil frío mejoró 20,43% en el ensayo local emparejado; no se extrapola a percentiles de producción. No se reconstruyeron PMTiles nacionales. Ambos borradores quedan fuera de la producción normal. El detalle de entornos, comandos y límites está en el cierre final; los resultados anteriores se conservan como historia.
 
 El preview solicitado permanece en <http://127.0.0.1:4004/catastro_sii_brecha/>. Se comprobó HTTP 200 desde el host; un fallo de acceso desde el sandbox no prueba que el servidor haya caído. No iniciar otro servidor si 4004 ya responde. Para reconstruir los borradores con Node 26.8.1 y el bundle Ruby del proyecto:
 

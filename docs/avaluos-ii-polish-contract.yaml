@@ -62,12 +62,23 @@ tasks:
     output: Módulos TS de carga/caché y mediciones cold/warm
     acceptance: >-
       Tests de fallos/reintento/evicción verdes y 343 comunas disponibles. Para cerrar rapidez global:
-      medir navegación a MapLibre load, con igual estilo/capas, viewport, caché, red y perfil de navegador;
+      medir navegación al primer estado útil MapLibre idle con loaded, teselas listas, cámara inmóvil
+      y 343 comunas, con igual estilo/capas, encuadre final, viewport, caché, red y perfil de navegador;
       al menos tres cargas nuevas y dos recargas por versión. La mediana fría debe bajar al menos 10%
       frente al baseline emparejado, sin empeorar más de 10% selector o recarga y sin fallos ocultos.
+      Evaluar con el protocolo fijado antes de medir en docs/catastro-paired-loading-20260911-protocol.json
+      (ecc5800a). El evento load inicial se conserva como secundario: las cámaras en ese punto difieren.
       El margen es un criterio operativo acotado; no demuestra significación estadística ni optimalidad global.
-    evidence: 'docs/catastro-viewer-loading-20260910.md: Chile frío 900 ms, recarga 592 ms; una petición comunal. El mapa completo frío 10.175
-      ms no demuestra mejora global.'
+    evidence: >-
+      docs/catastro-paired-loading-20260911-focus.md y attempt3.json: diez observaciones válidas,
+      dos cebados y dos exclusiones por foco conservadas. Mapa útil frío 2002,20 a 1593,10 ms (-20,43%);
+      recarga 1668,10 a 1077,45 ms (-35,41%); selector mejora en ambas condiciones, cámaras/capas equivalentes.
+      Primer load frío mejora sólo 6,72%, insuficiente por sí solo para el umbral del 10%.
+      Once pruebas del evaluador verdes; código cartográfico actual idéntico al candidato 6b46731e.
+    criterion_clarification: >-
+      El resumen anterior decía MapLibre load; se sincroniza con la definición de mapa útil que el protocolo
+      original ya fijaba antes de obtener datos. Se conservan umbrales y resultados adversos, incluida la
+      menor mejora de load. No se elige una métrica nueva después de observar el resultado.
     falsified_by: 'Motor abortado: selector sobrevive; import fallido exige recarga. Dos fixtures de accesibilidad fallaron en integral; corregidos
       con eventos reales y 11 pruebas verdes.'
     rollback: Restaurar módulos de carga al baseline sin tocar datos.
@@ -102,9 +113,13 @@ tasks:
     - F9_7
     - F9_8
     acceptance: verify_fiscal_gap.py y validate_build.sh verdes; commits locales revisados; preview 4004 comprobado en host.
-    evidence: 'Código local registrado: blog 6986f7dc y análisis b8eeb59; ambos árboles limpios tras commit. Preview HTTP 200 y hashes reales
-      de CSS/app/site-ui coinciden con referencias del HTML. Verificador cruzado, 132 TS, 53 analíticas, builds y registro
-      visual verdes. Seguimiento del 11-09: suite Python completa 52/52 sin omisiones; la integración global sigue parcial por F9_2.'
+    evidence: >-
+      docs/avaluos-ii-final-closeout-20260911.md y log final: validate_build.sh con Node 26.8.1,
+      tipos/CSS, 132 pruebas Catastro, 52 Python sin omisiones, Vite/Jekyll y artefacto verdes;
+      tres pruebas de Memoria Gobernada y 53 analíticas aprobadas. Verificación fiscal y 99 assets verdes.
+      F9_2 cumple el protocolo emparejado del mapa útil. Vitest 4.1.11 corrige la alerta de desarrollo;
+      auditoría npm final cero vulnerabilidades, los 16 archivos del bundle Catastro conservan sus hashes.
+      Preview 4004 comprobado desde el host; evidencia y commits locales, sin push.
     falsified_by: 'SHA esperado de PNG alterado en copia temporal: verificador rechaza; artefactos reales recuperan verde. Dos fixtures deficientes
       fallaron antes de corregirse.'
     rollback: Revertir commits locales propios, conservar fuentes y evidencias.
@@ -137,20 +152,36 @@ tasks:
     falsified_by: CUT ajeno al top2 sólo en memoria causa ValueError antes de crear salida; SHA de PNG alterado en copia temporal también rechazado;
       renderer real y verificador final verdes.
     rollback: Retirar los dos PNG y su bloque HTML; conservar anexo anterior y fuentes locales.
+  F9_E1:
+    requirement: Resolver la alerta moderada de Vitest observada durante el cierre integral.
+    owner: root
+    scope: package.json y package-lock.json; sólo familia Vitest 4.1.10 a 4.1.11.
+    acceptance: npm audit sin la alerta; suites que comparten Vitest y gate integral verdes; bundle de producción sin cambios.
+    evidence: >-
+      docs/avaluos-ii-dependency-audit-20260911.json registra dos paquetes afectados por GHSA-82fw-gwwq-j7x9;
+      docs/avaluos-ii-dependency-audit-20260911-after.json registra cero vulnerabilidades.
+      Log final acredita 135 pruebas Vitest y build; docs/avaluos-ii-dependency-scope-20260911.json
+      registra el alcance y hashes idénticos de los 16 archivos Catastro.
+    falsified_by: >-
+      La auditoría inicial observó dos alertas. El primer install cambió además sourcemap-codec;
+      la comprobación del alcance lo rechazó. Se restauró 1.5.5 y se repitió el gate sobre el lockfile final.
+    rollback: Revertir sólo los dos manifiestos y ejecutar npm ci; reabre explícitamente la alerta de desarrollo.
 TODO_STATE:
   F9_1: '[x]'
-  F9_2: '[~]'
+  F9_2: '[x]'
   F9_3: '[x]'
   F9_4: '[x]'
-  F9_5: '[~]'
+  F9_5: '[x]'
   F9_6: '[x]'
   F9_7: '[x]'
   F9_8: '[x]'
+  F9_E1: '[x]'
 closure:
   date: '2026-09-11'
-  scope: Ajustes visuales locales comprobados; carga global e integración dependiente parciales. Push y publicación excluidos.
+  scope: Ajustes, mapa útil e integración local comprobados dentro del protocolo declarado. Push y publicación excluidos.
   continuation: docs/avaluos-ii-todo.md consolida el alcance completo; F3/F4 fiscales siguen parciales.
   remaining_limits:
   - Neto tributario habitacional sin conciliación; no cuantificar deuda omitida.
-  - Latencia global del mapa base en frío no mejorada de forma demostrada.
+  - Rendimiento medido sólo en ensayo local controlado; sin percentiles de producción ni cobertura de todas las redes y dispositivos.
+  - La pérdida de foco reaparece incluso en headless; se aplicó la regla previa de exclusión, sin atribuir una causa resuelta.
   verification_followup: Las siete omisiones anteriores se resolvieron el 11-09-2026; suite Python del visor 52/52 verde, sin omisiones, con entorno predial local y rueda PMTiles temporal. Véase evidencia F9.

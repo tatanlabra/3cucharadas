@@ -1,0 +1,53 @@
+{
+  "checked_at_utc": "2026-09-12T01:36:12.237523+00:00",
+  "scope": "localhost only",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 32952
+    },
+    {
+      "path": "/catastro_sii_brecha/",
+      "status": 200,
+      "bytes": 163102
+    },
+    {
+      "path": "/datos/territorio/avaluos-ii-brecha-residencial/",
+      "status": 200,
+      "bytes": 60461
+    },
+    {
+      "path": "/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "status": 200,
+      "bytes": 61463
+    }
+  ],
+  "viewer_assets": [
+    {
+      "path": "/catastro_sii_brecha/style.css",
+      "sha256": "5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+      "announced_and_source_match": true
+    },
+    {
+      "path": "/catastro_sii_brecha/assets/site-ui.js",
+      "sha256": "1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+      "announced_and_source_match": true
+    },
+    {
+      "path": "/catastro_sii_brecha/app.js",
+      "sha256": "1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+      "announced_and_source_match": true
+    },
+    {
+      "path": "/catastro_sii_brecha/assets/map-app-loader.js",
+      "sha256": "9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+      "announced_and_source_match": true
+    }
+  ],
+  "pmtiles": {
+    "status": 206,
+    "content_range": "bytes 0-126/600873308",
+    "bytes": 127
+  }
+}

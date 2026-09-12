@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "prepared_before_attempt2",
+  "baseline": "e986f238",
+  "candidate": "6b46731e",
+  "server": "http://127.0.0.1:4004",
+  "route": "/__catastro_benchmark/{revision}/?vista=mapa#bivariate-card",
+  "viewport_px": [
+    1280,
+    577
+  ],
+  "standardized_map_canvas_px": [
+    750,
+    558
+  ],
+  "theme": "light",
+  "motion": "no-preference",
+  "cold": "New isolated browser process and context for every observation; OS cache is not reset.",
+  "warm": "One unmeasured priming navigation of the same version in a new context, then two measured reloads. No cross-version priming.",
+  "order": [
+    "baseline-cold1",
+    "candidate-cold1",
+    "candidate-cold2",
+    "baseline-cold2",
+    "baseline-cold3",
+    "candidate-cold3",
+    "baseline-prime",
+    "candidate-prime",
+    "baseline-warm1",
+    "candidate-warm1",
+    "baseline-warm2",
+    "candidate-warm2"
+  ],
+  "cache": "Browser HTTP cache enabled in every run; preserve and report actual response statuses and fromDiskCache. PMTiles localhost transport keeps its existing no-store policy.",
+  "foreground": "Page.bringToFront and ten regular requestAnimationFrame callbacks in about:blank before every cold navigation; focus and visibility recorded every50ms and on transitions in the measured document.",
+  "primary_metric": "navigation-to-first MapLibre idle where selector has343paths, map.loaded=true, areTilesLoaded=true, isMoving=false; compare only if final camera and style/layer identity checks pass.",
+  "secondary_metrics": [
+    "navigation-to-first MapLibre load",
+    "navigation-to343SVGpaths",
+    "navigation-to-style.load",
+    "canvas insertion",
+    "first contentful paint"
+  ],
+  "camera_equivalence_tolerance": {
+    "center_degrees": 0.0001,
+    "zoom": 0.0001,
+    "bearing_degrees": 0.1,
+    "pitch_degrees": 0.1,
+    "canvas_px": 1
+  },
+  "required": {
+    "selector_paths": 343,
+    "same_initial_style_hash": true,
+    "same_final_layer_ids_and_sources": true,
+    "same_manifest_hash": true,
+    "no_fallback": true,
+    "no_map_or_script_errors": true
+  },
+  "acceptance": {
+    "cold_primary_median_candidate_over_baseline_max": 0.9,
+    "cold_selector_median_candidate_over_baseline_max": 1.1,
+    "warm_primary_median_candidate_over_baseline_max": 1.1,
+    "warm_selector_median_candidate_over_baseline_max": 1.1
+  },
+  "invalid_focus_rule": "Record but exclude when document is hidden after DOMContentLoaded, any milestone is unfocused/hidden, or focus remains false for>100ms after DOMContentLoaded. Never exclude based on duration alone.",
+  "invalid_focus_replacement_limit_per_version_mode": 2,
+  "timeout_seconds": 30,
+  "timeout_rule": "No useful map by30s is an observed failure, not a slow-run exclusion; retain evidence and fail acceptance.",
+  "failure_rule": "Missing assets, mismatched camera/style/layers, map errors or selector count failures block closure; do not change thresholds after reading results.",
+  "scope_limit": "Controlled local fixture with equal750x558map area, not mobile or production percentiles;10%is an operational threshold, not statistical significance or global optimality.",
+  "measure_only_after_parent_freeze": true,
+  "parent_protocol": "docs/catastro-paired-loading-20260911-protocol.json",
+  "browser_mode": "Explicit --headed false; HeadlessChrome userAgent confirmed and Browser.getVersion stored per observation; no focus emulation."
+}

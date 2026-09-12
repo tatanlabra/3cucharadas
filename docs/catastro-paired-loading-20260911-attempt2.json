@@ -1,0 +1,1466 @@
+{
+  "protocol_sha256": "982f42cb59063045edb64b3b34932bec3a62513768f00f15d676d0e39193a9aa",
+  "runner_sha256": "8b3822bf022f14a15c2d00674e9521df514095f56c8b80f88bfe1b43b2dbf85a",
+  "run_error": "Command failed: agent-browser --session perf-paired-cold open about:blank --headed false\n✗ Could not configure browser: Failed to connect: No such file or directory (os error 2)\n",
+  "freeze": "FREEZE root 2026-09-11: fuentes del sitio sin cambios durante la serie; protocolo2 fijado antes de medir. Compromiso operativo del agente, no aprobación humana.\n",
+  "samples": [
+    {
+      "id": "baseline-cold1-attempt1",
+      "probe": {
+        "events": [
+          {
+            "event": "map-created",
+            "ms": 1114.8999999994412,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "canvas",
+            "ms": 1140.3999999994412,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "style-load",
+            "ms": 1158.7999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "load",
+            "ms": 1547.2999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "selector",
+            "ms": 1561.3999999994412,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "useful",
+            "ms": 2027.3999999994412,
+            "visible": true,
+            "focused": true
+          }
+        ],
+        "focus": [
+          {
+            "ms": 23.09999999962747,
+            "visible": true,
+            "focused": false
+          },
+          {
+            "event": "focus",
+            "ms": 24.5,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 507.59999999962747,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 551.2000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "event": "dom-ready",
+            "ms": 552.7999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 583.5,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 723.2000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 773.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 854.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 890.7000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 929.7999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 974.5,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1023.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1169.2999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1175.8999999994412,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1236.0999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1273.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1323.7000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1373.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1423.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1473.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1580.0999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1632.7999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1673.7000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1723.7000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1773.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1823.5999999996275,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1936,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 1973.7000000001863,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 2032.3999999994412,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 2074.5,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 2131.7999999998137,
+            "visible": true,
+            "focused": true
+          },
+          {
+            "ms": 2173.7000000001863,
+            "visible": true,
+            "focused": true
+          }
+        ],
+        "failures": [],
+        "milestones": {
+          "map-created": 1114.8999999994412,
+          "canvas": 1140.3999999994412,
+          "style-load": 1158.7999999998137,
+          "load": 1547.2999999998137,
+          "selector": 1561.3999999994412,
+          "useful": 2027.3999999994412
+        },
+        "idleCandidates": [
+          {
+            "ms": 2026.7999999998137,
+            "visible": true,
+            "focused": true,
+            "paths": 343,
+            "loaded": true,
+            "tilesLoaded": true,
+            "moving": false,
+            "camera": {
+              "center": [
+                -71.09999999999997,
+                -39.38558098137152
+              ],
+              "zoom": 2.680030782531039,
+              "bearing": 0,
+              "pitch": 0,
+              "bounds": [
+                [
+                  -112.24282918938809,
+                  -59.01936371415215
+                ],
+                [
+                  -29.957170810612354,
+                  -12.209279783326465
+                ]
+              ],
+              "size": [
+                750,
+                558
+              ]
+            }
+          }
+        ],
+        "viewport": [
+          1280,
+          577
+        ],
+        "timeOrigin": 1789175664511.4,
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+        "registerMap": {},
+        "domReady": 552.7999999998137,
+        "initialStyle": {
+          "version": 8,
+          "name": "3 Cucharadas · Protomaps Chile",
+          "glyphs": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/fonts/{fontstack}/{range}.pbf",
+          "sources": {
+            "protomaps": {
+              "type": "vector",
+              "url": "pmtiles://http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+              "attribution": "© OpenStreetMap contributors"
+            }
+          },
+          "layers": [
+            {
+              "id": "background",
+              "type": "background",
+              "paint": {
+                "background-color": "#eef2f3"
+              }
+            },
+            {
+              "id": "earth",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "earth",
+              "paint": {
+                "fill-color": "#eef2f3"
+              }
+            },
+            {
+              "id": "landcover",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "landcover",
+              "paint": {
+                "fill-color": "#d8e5d7",
+                "fill-opacity": 0.72
+              }
+            },
+            {
+              "id": "landuse",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "landuse",
+              "paint": {
+                "fill-color": "#e2e9df",
+                "fill-opacity": 0.78
+              }
+            },
+            {
+              "id": "water",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "water",
+              "paint": {
+                "fill-color": "#b8d9e7",
+                "fill-opacity": 0.94
+              }
+            },
+            {
+              "id": "roads-glow",
+              "type": "line",
+              "source": "protomaps",
+              "source-layer": "roads",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind"
+                ],
+                [
+                  "literal",
+                  [
+                    "highway",
+                    "major_road",
+                    "minor_road"
+                  ]
+                ]
+              ],
+              "paint": {
+                "line-color": "#aebfc7",
+                "line-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.14,
+                  10,
+                  0.38,
+                  16,
+                  0.8
+                ],
+                "line-blur": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0,
+                  13,
+                  0.25,
+                  16,
+                  0.45
+                ],
+                "line-width": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.6,
+                  10,
+                  2,
+                  16,
+                  5.4
+                ]
+              }
+            },
+            {
+              "id": "roads-neon-core",
+              "type": "line",
+              "source": "protomaps",
+              "source-layer": "roads",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind"
+                ],
+                [
+                  "literal",
+                  [
+                    "highway",
+                    "major_road",
+                    "minor_road"
+                  ]
+                ]
+              ],
+              "paint": {
+                "line-color": "#ffffff",
+                "line-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.35,
+                  10,
+                  0.88,
+                  16,
+                  0.98
+                ],
+                "line-width": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.22,
+                  10,
+                  0.72,
+                  16,
+                  2
+                ]
+              }
+            },
+            {
+              "id": "places-cities",
+              "type": "symbol",
+              "source": "protomaps",
+              "source-layer": "places",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind_detail"
+                ],
+                [
+                  "literal",
+                  [
+                    "city",
+                    "town",
+                    "village"
+                  ]
+                ]
+              ],
+              "layout": {
+                "text-field": [
+                  "get",
+                  "name"
+                ],
+                "text-font": [
+                  "Noto Sans Regular"
+                ],
+                "text-size": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  10,
+                  8,
+                  12,
+                  13,
+                  15
+                ],
+                "text-max-width": 9,
+                "text-letter-spacing": 0.025,
+                "text-allow-overlap": false
+              },
+              "paint": {
+                "text-color": "#2a4352",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 1.25,
+                "text-halo-blur": 0.45
+              }
+            }
+          ]
+        },
+        "manifest": {
+          "schema_version": 1,
+          "deployment_scope": "localhost-cartographic-review",
+          "source_legal_publication_status": "PENDING",
+          "legal_publication_status": "AUTHORIZED_VECTOR",
+          "tiles_base": "/assets/data/catastro_sii/local/20260718T212932Z",
+          "basemap": {
+            "available": true,
+            "url": "basemap_chile_20260718T212932Z.pmtiles",
+            "style_url": "basemap_chile_20260718T212932Z.style.json",
+            "attribution": "© OpenStreetMap contributors"
+          },
+          "communes": {
+            "available": true,
+            "url": "chile_comunas_brechas_20260718T212932Z.pmtiles",
+            "source_layer": "comunas",
+            "minzoom": 3,
+            "maxzoom": 12,
+            "territories_url": "/assets/data/catastro_sii/local/territories.json",
+            "excluded_communes": [
+              "12202"
+            ]
+          },
+          "parcel_regions": {
+            "03": {
+              "available": true,
+              "url": "predios_region_03_20260718T212932Z.pmtiles",
+              "source_layer": "predios",
+              "minzoom": 13,
+              "maxzoom": 18,
+              "commune_focus_bounds": {
+                "03102": [
+                  -70.8398438,
+                  -27.0982539,
+                  -70.7958984,
+                  -27.0591258
+                ],
+                "03202": [
+                  -70.0488281,
+                  -26.3918697,
+                  -70.0048828,
+                  -26.3524979
+                ]
+              },
+              "commune_default_views": {
+                "03102": {
+                  "center": [
+                    -70.8267,
+                    -27.0674
+                  ],
+                  "zoom": 15.4
+                },
+                "03202": {
+                  "center": [
+                    -70.0494,
+                    -26.367
+                  ],
+                  "zoom": 15.3
+                }
+              },
+              "pilot": true,
+              "scope": "Caldera (03102) y Diego de Almagro (03202)",
+              "communes": [
+                "03102",
+                "03202"
+              ],
+              "attribution": "Fuente predial: Servicio de Impuestos Internos. Cartografía referencial."
+            }
+          }
+        },
+        "loadCamera": {
+          "center": [
+            -71.1,
+            -36.7
+          ],
+          "zoom": 3.1,
+          "bearing": 0,
+          "pitch": 0,
+          "bounds": [
+            [
+              -101.85181978942086,
+              -52.790234102600444
+            ],
+            [
+              -40.34818021057919,
+              -16.394509642077878
+            ]
+          ],
+          "size": [
+            750,
+            558
+          ]
+        },
+        "finalCamera": {
+          "center": [
+            -71.09999999999997,
+            -39.38558098137152
+          ],
+          "zoom": 2.680030782531039,
+          "bearing": 0,
+          "pitch": 0,
+          "bounds": [
+            [
+              -112.24282918938809,
+              -59.01936371415215
+            ],
+            [
+              -29.957170810612354,
+              -12.209279783326465
+            ]
+          ],
+          "size": [
+            750,
+            558
+          ]
+        },
+        "finalStyle": {
+          "version": 8,
+          "name": "3 Cucharadas · Protomaps Chile",
+          "glyphs": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/fonts/{fontstack}/{range}.pbf",
+          "sources": {
+            "protomaps": {
+              "type": "vector",
+              "url": "pmtiles://http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+              "attribution": "© OpenStreetMap contributors"
+            }
+          },
+          "layers": [
+            {
+              "id": "background",
+              "type": "background",
+              "paint": {
+                "background-color": "#eef2f3"
+              }
+            },
+            {
+              "id": "earth",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "earth",
+              "paint": {
+                "fill-color": "#eef2f3"
+              }
+            },
+            {
+              "id": "landcover",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "landcover",
+              "paint": {
+                "fill-color": "#d8e5d7",
+                "fill-opacity": 0.72
+              }
+            },
+            {
+              "id": "landuse",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "landuse",
+              "paint": {
+                "fill-color": "#e2e9df",
+                "fill-opacity": 0.78
+              }
+            },
+            {
+              "id": "water",
+              "type": "fill",
+              "source": "protomaps",
+              "source-layer": "water",
+              "paint": {
+                "fill-color": "#b8d9e7",
+                "fill-opacity": 0.94
+              }
+            },
+            {
+              "id": "roads-glow",
+              "type": "line",
+              "source": "protomaps",
+              "source-layer": "roads",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind"
+                ],
+                [
+                  "literal",
+                  [
+                    "highway",
+                    "major_road",
+                    "minor_road"
+                  ]
+                ]
+              ],
+              "paint": {
+                "line-color": "#aebfc7",
+                "line-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.14,
+                  10,
+                  0.38,
+                  16,
+                  0.8
+                ],
+                "line-blur": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0,
+                  13,
+                  0.25,
+                  16,
+                  0.45
+                ],
+                "line-width": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.6,
+                  10,
+                  2,
+                  16,
+                  5.4
+                ]
+              }
+            },
+            {
+              "id": "roads-neon-core",
+              "type": "line",
+              "source": "protomaps",
+              "source-layer": "roads",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind"
+                ],
+                [
+                  "literal",
+                  [
+                    "highway",
+                    "major_road",
+                    "minor_road"
+                  ]
+                ]
+              ],
+              "paint": {
+                "line-color": "#ffffff",
+                "line-opacity": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.35,
+                  10,
+                  0.88,
+                  16,
+                  0.98
+                ],
+                "line-width": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  0.22,
+                  10,
+                  0.72,
+                  16,
+                  2
+                ]
+              }
+            },
+            {
+              "id": "places-cities",
+              "type": "symbol",
+              "source": "protomaps",
+              "source-layer": "places",
+              "filter": [
+                "in",
+                [
+                  "get",
+                  "kind_detail"
+                ],
+                [
+                  "literal",
+                  [
+                    "city",
+                    "town",
+                    "village"
+                  ]
+                ]
+              ],
+              "layout": {
+                "text-field": [
+                  "get",
+                  "name"
+                ],
+                "text-font": [
+                  "Noto Sans Regular"
+                ],
+                "text-size": [
+                  "interpolate",
+                  [
+                    "linear"
+                  ],
+                  [
+                    "zoom"
+                  ],
+                  4,
+                  10,
+                  8,
+                  12,
+                  13,
+                  15
+                ],
+                "text-max-width": 9,
+                "text-letter-spacing": 0.025,
+                "text-allow-overlap": false
+              },
+              "paint": {
+                "text-color": "#2a4352",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 1.25,
+                "text-halo-blur": 0.45
+              }
+            }
+          ]
+        }
+      },
+      "paths": 343,
+      "now": 2195.399999999441,
+      "paints": [
+        {
+          "name": "first-paint",
+          "ms": 620
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 620
+        }
+      ],
+      "resources": [
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "ms": 18.399999999441206,
+          "duration": 23.600000000558794,
+          "transfer": 53429,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/assets/images/favicons/favicon-96x96.png",
+          "ms": 18.700000000186265,
+          "duration": 34.09999999962747,
+          "transfer": 11910,
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/images/avaluos-ii/gap-top15-es.svg",
+          "ms": 19,
+          "duration": 35.59999999962747,
+          "transfer": 36670,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "ms": 19.200000000186265,
+          "duration": 35.69999999925494,
+          "transfer": 526,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "ms": 19.5,
+          "duration": 35.59999999962747,
+          "transfer": 2047,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "ms": 19.59999999962747,
+          "duration": 35.799999999813735,
+          "transfer": 21340,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "ms": 19.799999999813735,
+          "duration": 70.79999999981374,
+          "transfer": 2547,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "ms": 537,
+          "duration": 15.399999999441206,
+          "transfer": 643734,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "ms": 537.2000000001863,
+          "duration": 13.899999999441206,
+          "transfer": 2488,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/manifest.json",
+          "ms": 537.3999999994412,
+          "duration": 13.900000000372529,
+          "transfer": 1888,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "ms": 582.7000000001863,
+          "duration": 44.69999999925494,
+          "transfer": 2730,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/favicon.ico",
+          "ms": 583.0999999996275,
+          "duration": 5.400000000372529,
+          "transfer": 11910,
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/assets/images/favicons/favicon-96x96.png",
+          "ms": 609.7999999998137,
+          "duration": 3.099999999627471,
+          "transfer": 11910,
+          "status": 404
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "ms": 723.8999999994412,
+          "duration": 10.300000000745058,
+          "transfer": 3567,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "ms": 724.5,
+          "duration": 11.799999999813735,
+          "transfer": 5990,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "ms": 764.7999999998137,
+          "duration": 36,
+          "transfer": 1046820,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "ms": 765.2999999998137,
+          "duration": 62.40000000037253,
+          "transfer": 458,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "ms": 765.7999999998137,
+          "duration": 25,
+          "transfer": 2506,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "ms": 767.2999999998137,
+          "duration": 27.40000000037253,
+          "transfer": 83228,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/manifest.json",
+          "ms": 889.5,
+          "duration": 8.599999999627471,
+          "transfer": 1950,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json",
+          "ms": 889.7000000001863,
+          "duration": 16.199999999254942,
+          "transfer": 643734,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json",
+          "ms": 889.7999999998137,
+          "duration": 16.59999999962747,
+          "transfer": 759595,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/agregados_territoriales.json",
+          "ms": 890,
+          "duration": 15.099999999627471,
+          "transfer": 275486,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/capital_comunal_views.json",
+          "ms": 890.0999999996275,
+          "duration": 14.5,
+          "transfer": 32412,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/territories.json",
+          "ms": 929.5999999996275,
+          "duration": 43,
+          "transfer": 44649,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/uv/index.json",
+          "ms": 975.3999999994412,
+          "duration": 43.200000000186265,
+          "transfer": 2948,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.style.json",
+          "ms": 1021.5,
+          "duration": 43.09999999962747,
+          "transfer": 3092,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1160.5,
+          "duration": 3.3999999994412065,
+          "transfer": 16684,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "ms": 1178.0999999996275,
+          "duration": -59.700000000186265,
+          "transfer": 478032,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1252.2000000001863,
+          "duration": 3.2999999998137355,
+          "transfer": 9859,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1259.5999999996275,
+          "duration": 9.900000000372529,
+          "transfer": 70692,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1259.8999999994412,
+          "duration": 46.700000000186265,
+          "transfer": 21747,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1260.0999999996275,
+          "duration": 9.600000000558794,
+          "transfer": 3259,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/fonts/Noto%20Sans%20Regular/0-255.pbf",
+          "ms": 1386.3999999994412,
+          "duration": 4.2000000001862645,
+          "transfer": 76344,
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1684.5999999996275,
+          "duration": 3.6000000005587935,
+          "transfer": 43234,
+          "status": 206
+        },
+        {
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "ms": 1685.0999999996275,
+          "duration": 4.400000000372529,
+          "transfer": 7525,
+          "status": 206
+        }
+      ],
+      "before": {
+        "visible": true,
+        "focused": true,
+        "frames": [
+          244.2,
+          260.9,
+          277.5,
+          294.2,
+          310.9,
+          327.5,
+          344.1,
+          360.9,
+          377.5,
+          394.2
+        ]
+      },
+      "browserVersion": {
+        "protocolVersion": "1.3",
+        "product": "Chrome/151.0.7922.77",
+        "revision": "@ff37cfca210138f2a40b843b4a8195ab7e4fc7ff",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "jsVersion": "15.1.206.10"
+      },
+      "network": [
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.023068
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.062917
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/images/avaluos-ii/gap-top15-es.svg",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.065945
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/assets/images/favicons/favicon-96x96.png",
+          "status": 404,
+          "fromDiskCache": false,
+          "timestamp": 5224.066332
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.519605
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.520086
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.520362
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.52087
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/manifest.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.565069
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.56552
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/manifest.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.565757
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.566266
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.601219
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/favicon.ico",
+          "status": 404,
+          "fromDiskCache": false,
+          "timestamp": 5224.602156
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/assets/images/favicons/favicon-96x96.png",
+          "status": 404,
+          "fromDiskCache": false,
+          "timestamp": 5224.626662
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.74991
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.753329
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.862606
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.864038
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.867376
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.872299
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/manifest.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.908318
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/comunas.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.910793
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/chile-selector.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.912085
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/agregados_territoriales.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.915384
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/capital_comunal_views.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.917817
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/territories.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.947442
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/catastro_sii_brecha/data/uv/index.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5224.993715
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.style.json",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5225.040268
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.186185
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.269429
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.280847
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.282209
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.283457
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/fonts/Noto%20Sans%20Regular/0-255.pbf",
+          "status": 200,
+          "fromDiskCache": false,
+          "timestamp": 5225.40443
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.702098
+        },
+        {
+          "event": "response",
+          "url": "http://127.0.0.1:4004/assets/data/catastro_sii/local/20260718T212932Z/basemap_chile_20260718T212932Z.pmtiles",
+          "status": 206,
+          "fromDiskCache": false,
+          "timestamp": 5225.704827
+        }
+      ],
+      "timeout": false,
+      "focus_valid": true,
+      "signatures": {
+        "initial_style": "d56a9e9ec58d2a5f2f09da55a0f5cedaf240d028ed2773068f74e4eb9197caab",
+        "manifest": "43f062f1e4760770793fa6df35c4fbca3c0ec6381c9c5dcfe1532dcb3531f55d",
+        "final_layers": "92b361356147c369bbe88f797953acfb12d188ab75e881577358ff42c16ab585"
+      },
+      "variant": "baseline",
+      "mode": "cold",
+      "ordinal": "cold1",
+      "revision": "e986f238"
+    }
+  ],
+  "evaluation": {
+    "pass": false,
+    "failures": [
+      "baseline/cold:expected3,got1",
+      "baseline/warm:expected2,got0",
+      "candidate/cold:expected3,got0",
+      "candidate/warm:expected2,got0",
+      "warm_primary:ratioNaN>1.1",
+      "warm_selector:ratioNaN>1.1"
+    ],
+    "medians": {
+      "baseline": {
+        "cold": {
+          "useful": 2027.3999999994412,
+          "selector": 1561.3999999994412,
+          "load": 1547.2999999998137
+        },
+        "warm": {
+          "useful": null,
+          "selector": null,
+          "load": null
+        }
+      },
+      "candidate": {
+        "cold": {
+          "useful": null,
+          "selector": null,
+          "load": null
+        },
+        "warm": {
+          "useful": null,
+          "selector": null,
+          "load": null
+        }
+      }
+    },
+    "ratios": {
+      "cold_primary": 0,
+      "cold_selector": 0,
+      "warm_primary": null,
+      "warm_selector": null
+    },
+    "excluded_focus": []
+  }
+}

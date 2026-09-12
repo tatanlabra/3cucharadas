@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,7 +89,8 @@ export function evaluate(samples, protocol) {
 
 async function browser(session, probeSource) {
   const cli = (...args) => execFileSync('agent-browser', ['--session', session, ...args], { encoding: 'utf8', timeout: 20000 });
-  cli('open', 'about:blank');
+  // Pin the launch mode: desktop/window-manager focus must not vary by config.
+  cli('open', 'about:blank', '--headed', 'false');
   cli('set', 'viewport', '1280', '577');
   const endpoint = cli('get', 'cdp-url').trim();
   const socket = new WebSocket(endpoint);
@@ -118,6 +119,8 @@ async function browser(session, probeSource) {
     if (e.method === 'Network.responseReceived') network.push({ event: 'response', url, status: p.response.status, fromDiskCache: Boolean(p.response.fromDiskCache), timestamp: p.timestamp });
     if (e.method === 'Network.loadingFailed') network.push({ event: 'failed', url, error: p.errorText, canceled: Boolean(p.canceled), cors: p.corsErrorStatus, timestamp: p.timestamp });
   });
+  const browserVersion = await send('Browser.getVersion', {}, null);
+  if (!browserVersion.userAgent.includes('HeadlessChrome/')) throw new Error('Benchmark requires confirmed headless Chromium');
   const { targetInfos } = await send('Target.getTargets', {}, null);
   const target = targetInfos.find(t => t.type === 'page' && t.url === 'about:blank');
   if (!target) throw new Error('No unique about:blank benchmark target');
@@ -148,7 +151,7 @@ async function browser(session, probeSource) {
       }
       if (!snapshot || snapshot.probe.timeOrigin === previousTimeOrigin) throw new Error('Navigation produced no new document probe');
       const style = snapshot.probe.finalStyle;
-      const result = { id, ...snapshot, before, network: [...network], timeout: !Number.isFinite(snapshot.probe.milestones.useful), focus_valid: focusValid(snapshot.probe), signatures: {
+      const result = { id, ...snapshot, before, browserVersion, network: [...network], timeout: !Number.isFinite(snapshot.probe.milestones.useful), focus_valid: focusValid(snapshot.probe), signatures: {
         initial_style: hash(snapshot.probe.initialStyle ?? null), manifest: hash(snapshot.probe.manifest ?? null),
         final_layers: hash(style ? { sources: style.sources, layers: style.layers.map(l => ({ id: l.id, type: l.type, source: l.source, sourceLayer: l['source-layer'] })) } : null),
       } };
@@ -158,14 +161,15 @@ async function browser(session, probeSource) {
   };
 }
 
-async function run(root, freezeFile) {
-  const protocolPath = join(repo, 'docs/catastro-paired-loading-20260911-protocol.json');
+async function run(root, freezeFile, protocolPath = join(repo, 'docs/catastro-paired-loading-20260911-protocol.json')) {
+  if (existsSync(join(root, 'results.json'))) throw new Error('Refusing to overwrite prior benchmark observations; choose a new result directory');
   const protocolText = readFileSync(protocolPath, 'utf8'), protocol = JSON.parse(protocolText);
   const freeze = readFileSync(freezeFile, 'utf8');
   if (!freeze.includes('FREEZE')) throw new Error('Parent FREEZE receipt required before navigation');
   const probeSource = readFileSync(join(repo, 'scripts/catastro_sii/benchmark_loading_probe.js'), 'utf8');
   const samples = [], warm = new Map(), exclusions = new Map();
-  const persist = () => writeFileSync(join(root, 'results.json'), JSON.stringify({ protocol_sha256: hash(protocolText), freeze, samples, evaluation: evaluate(samples, protocol) }, null, 2) + '\n');
+  let runError = null;
+  const persist = () => writeFileSync(join(root, 'results.json'), JSON.stringify({ protocol_sha256: hash(protocolText), runner_sha256: hash(readFileSync(fileURLToPath(import.meta.url), 'utf8')), run_error: runError, freeze, samples, evaluation: evaluate(samples, protocol) }, null, 2) + '\n');
   try {
     for (const id of protocol.order) {
       const [variant, suffix] = id.split('-'), mode = suffix.startsWith('cold') ? 'cold' : suffix.startsWith('warm') ? 'warm' : 'prime';
@@ -173,9 +177,11 @@ async function run(root, freezeFile) {
       while (true) {
         attempt++;
         let instance;
-        if (mode === 'cold') instance = await browser('perf-paired-cold', probeSource);
+        // Closing the CLI daemon and reopening its socket under the same name
+        // can race. Each cold observation requires a new process regardless.
+        if (mode === 'cold') instance = await browser(`perf-paired-${process.pid}-${id}-${attempt}`, probeSource);
         else {
-          if (!warm.has(variant)) warm.set(variant, await browser(`perf-paired-${variant}`, probeSource));
+          if (!warm.has(variant)) warm.set(variant, await browser(`perf-paired-${process.pid}-${variant}`, probeSource));
           instance = warm.get(variant);
         }
         let observation;
@@ -192,11 +198,13 @@ async function run(root, freezeFile) {
     persist();
     const verdict = evaluate(samples, protocol); console.log(JSON.stringify(verdict));
     if (!verdict.pass) process.exitCode = 1;
+  } catch (error) {
+    runError = String(error.message ?? error); persist(); throw error;
   } finally { for (const instance of warm.values()) instance.close(); }
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const [mode, root, freeze] = process.argv.slice(2);
-  if (mode !== '--run' || !root || !freeze) throw new Error('Usage: benchmark_loading.mjs --run ROOT FREEZE_RECEIPT');
-  await run(resolve(root), resolve(freeze));
+  const [mode, root, freeze, protocol] = process.argv.slice(2);
+  if (mode !== '--run' || !root || !freeze) throw new Error('Usage: benchmark_loading.mjs --run ROOT FREEZE_RECEIPT [PROTOCOL_JSON]');
+  await run(resolve(root), resolve(freeze), protocol ? resolve(protocol) : undefined);
 }
