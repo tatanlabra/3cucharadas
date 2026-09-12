@@ -92,7 +92,7 @@ post_paths.each do |path|
     end
   end
 
-  # Front matter: teaser y og_image.
+  # Front matter: imágenes editoriales, incluidas sus variantes móviles.
   next unless body.start_with?("---")
 
   fm_raw = body.split(/^---\s*$/, 3)[1]
@@ -106,7 +106,7 @@ post_paths.each do |path|
   header = fm.is_a?(Hash) ? fm["header"] : nil
   next unless header.is_a?(Hash)
 
-  %w[teaser og_image overlay_image overlay_image_mobile image].each do |key|
+  %w[teaser teaser_mobile og_image overlay_image overlay_image_mobile image].each do |key|
     value = header[key]
     next unless value.is_a?(String) && value.start_with?("/assets/")
 
@@ -268,7 +268,7 @@ manifest_paths.each do |manifest_path|
     end
   end
 
-  # V10: teaser y og_image del front matter apuntan a piezas publicables.
+  # V10: imágenes editoriales del front matter apuntan a piezas publicables.
   publicables = manifest["piezas"]
                 .select { |p| p["estado"] == "publicable" && p["archivo"] }
                 .map { |p| p["archivo"] }
@@ -288,7 +288,7 @@ manifest_paths.each do |manifest_path|
     header = fm.is_a?(Hash) ? fm["header"] : nil
     next unless header.is_a?(Hash)
 
-    %w[teaser og_image overlay_image overlay_image_mobile].each do |key|
+    %w[teaser teaser_mobile og_image overlay_image overlay_image_mobile].each do |key|
       value = header[key]
       next unless value.is_a?(String) && value.start_with?("/assets/")
 

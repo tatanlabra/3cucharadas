@@ -1,150 +1,203 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Gate de coherencia entre el paquete de difusión y el post que difunde.
-#
-# POR QUÉ EXISTE
-#
-# El 2026-09-05 el autor reescribió el post III y se llevó por delante la tabla de
-# métricas del experimento. El carrusel de LinkedIn, el copy y los mensajes de
-# Mastodon y Bluesky seguían citando `38/2/0`, `recall@5 0,9635`, `MRR 0,9010` y
-# latencias de `15,83 s` y `91,10 s`. Publicarlos habría afirmado en cinco redes
-# cifras que el artículo enlazado ya no contiene: el lector que hiciera clic no
-# habría encontrado ninguna.
-#
-# Nadie lo habría notado. El paquete de difusión no se construye desde el post: se
-# escribe a mano una vez y se queda quieto mientras el post cambia debajo.
-#
-# QUÉ COMPRUEBA
-#
-# Que toda cifra que una pieza de difusión afirme aparezca también en el cuerpo del
-# post. No al revés: el post puede tener cifras que la difusión no destaque.
-#
-# Se comparan cifras normalizadas —«16.955», «16,955» y «16955» son la misma— para
-# que la convención decimal de cada idioma no produzca falsos rojos.
-#
-# QUE NO COMPRUEBA
-#
-# Un punto ciego declarado, no descubierto: una cifra escrita dentro de un
-# encabezado Markdown de una pieza no se compara. Falsado el 2026-09-05 --se
-# metio `recall@5 0,9635` en un `###` del hilo de X y el gate siguio verde-- y
-# se acepta a cambio de que el recuento de caracteres de cada post pueda vivir
-# ahi. Si algun dia un encabezado lleva texto publicable, esta exclusion deja de
-# ser inocua y hay que revisarla.
-#
-# Tampoco comprueba afirmaciones que no sean numericas: una pieza puede prometer
-# una seccion que el post ya no tiene y este gate no lo vera.
-#
-# Uso:
-#   ruby scripts/verify_difusion_coherente.rb
-#   ruby scripts/verify_difusion_coherente.rb <ref>
-
+# Numeric consistency only, not semantic equivalence or publication verification.
+# Explicit scope is required: REF or --all-declared (metadata-backed packages).
+# Legacy ref-prefixed MD/HTML remain supported. Headings and fenced code in
+# social Markdown are editorial scaffolding, excluded as in the historical gate.
 require "set"
 require "yaml"
+require "json"
+require "date"
+require "bigdecimal"
+require "optparse"
 
-ROOT = File.expand_path("..", __dir__)
+module DiffusionCoherence
+  # Historical exclusions: dates, single-digit counts and common media sizes.
+  # These limits are reported; this gate never proves every numeric claim.
+  IGNORE = /\A(?:19|20)\d\d\z|\A0?\d\z|\A(?:1080|1350|1200|630|1600|900|640|360|280|300|500)\z/
+  ADMIN = /\A(?:00-metadata|README|QA|AUDITORIA)(?:\.|\z)/i
+  # Explicit historical filename alias; post lookup always uses its exact ref.
+  LEGACY_PIECE_NAMES = { "multiagente-penta-agent-memoria-gobernada-poc" => "multiagente-penta-agent-memoria-gobernada" }.freeze
+  EXTENSIONS = %w[.md .html .txt .json].freeze
 
-# Cifras que no son afirmaciones sobre el contenido: fechas, tamaños de lámina,
-# años de una cita, versiones. Comprobarlas daría rojos que no significan nada.
-IGNORAR = /\A(19|20)\d\d\z|\A0?\d\z|\A(1080|1350|1200|630|1600|900|640|360|280|300|500)\z/
+  def self.front_and_body(path)
+    raw = File.read(path)
+    match = raw.match(/\A---\s*\n(.*?)^---\s*$\n?/m)
+    return [{}, raw] unless match
+    front = YAML.safe_load(match[1], permitted_classes: [Date, Time], aliases: false) || {}
+    raise "front matter inválido: #{path}" unless front.is_a?(Hash)
+    [front, raw[match.end(0)..]]
+  end
 
-def normaliza(cifra)
-  cifra.gsub(/[.,\s]/, "")
-end
+  def self.number(token, lang = nil)
+    token = token.gsub(/[\u00a0\u202f ]/, "")
+    # Version-like tokens remain literal: 4.5.3 is not decimal 453.
+    return "literal:#{token}" if token.count(".") > 1 && !token.include?(",") && !token.match?(/\A\d{1,3}(?:\.\d{3})+\z/)
+    return "literal:#{token}" if token.count(",") > 1 && !token.include?(".") && !token.match?(/\A\d{1,3}(?:,\d{3})+\z/)
+    decimal = lang.to_s.start_with?("es") ? "," : lang.to_s.start_with?("en") ? "." : nil
+    if token.match?(/\A0[.,]\d+\z/)
+      separator = token[1]
+      puts "NORMALIZE decimal #{token} (#{lang})" if decimal && separator != decimal
+      decimal = separator
+    end
+    if token.include?(".") && token.include?(",")
+      decimal ||= token.rindex(".") > token.rindex(",") ? "." : ","
+    elsif token.match?(/[.,]/)
+      separator = token.include?(",") ? "," : "."
+      # Locale-free bilingual Markdown: 0.xxx is decimal; repeated groups of
+      # three are thousands. Explicit language disambiguates 1.234 vs 1,234.
+      decimal ||= if token.match?(/\A0[.,]/) || !token.match?(/\A\d{1,3}(?:[.,]\d{3})+\z/)
+                    separator
+                  end
+    end
+    if decimal && token.include?(decimal == "." ? "," : ".")
+      grouping = decimal == "." ? "," : "."
+      integer = token.split(decimal).first
+      if integer.include?(grouping) && !integer.match?(/\A\d{1,3}(?:#{Regexp.escape(grouping)}\d{3})+\z/)
+        raise "separador incompatible con idioma #{lang}: #{token}"
+      end
+    end
+    clean = token.gsub(/[.,]/) { |s| s == decimal ? "." : "" }
+    BigDecimal(clean).to_s("F").sub(/\.0+\z/, "").sub(/(\.\d*?)0+\z/, '\\1')
+  end
 
-def cifras(texto)
-  texto.scan(/\d+(?:[.,]\d+)*/).map { |c| normaliza(c) }.reject { |c| c.match?(IGNORAR) }
-end
+  def self.numbers(text, lang = nil)
+    # TeX decimal braces are punctuation, not distinct numeric tokens.
+    text = text.gsub(/\{([.,])\}/, '\\1').gsub(%r{https?://[^\s<>]+}, "")
+    text.scan(/\d+(?:[.,]\d+)*(?:[\u00a0\u202f]\d{3})*/).map { |n| number(n, lang) }
+        .reject { |n| n.match?(IGNORE) }.to_set
+  end
 
-def cuerpo_del_post(path)
-  raw = File.read(path)
-  partes = raw.split(/^---$/, 3)
-  cuerpo = partes.length >= 3 ? partes[2] : raw
-  # El `en_abstract` del front matter también es texto publicado, así que cuenta.
-  # Los comentarios YAML no: son notas para quien edita, no llegan a la página.
-  # Sin esta exclusión, una referencia del tipo `julia_feed.rb:60` en un comentario
-  # se leía como una cifra afirmada por una version y no por la otra, y rompía la
-  # paridad. Observado el 2026-09-05 sobre un comentario propio.
-  front = (partes[1] || "").lines.reject { |l| l.strip.start_with?("#") }.join
-  cuerpo + front
-end
+  def self.copy_parts(path, lang)
+    text = File.read(path)
+    raise "copy vacío: #{path}" if text.strip.empty?
+    if File.basename(path) == "reddit-target.md"
+      labels = ["TÍTULO PROVISIONAL", "URL PROPUESTA", "PRIMER COMENTARIO PROPUESTO"]
+      sections = labels.map do |label|
+        match = text.match(/^#{Regexp.escape(label)}:\s*\n(.*?)(?=^[A-ZÁÉÍÓÚÑ ][A-ZÁÉÍÓÚÑ ]+:\s*$|\z)/m)
+        raise "sección publicable ausente: #{label} en #{path}" unless match
+        raise "sección publicable vacía: #{label} en #{path}" if match[1].strip.empty?
+        match[1]
+      end
+      puts "EXTRACTION #{path}: título, URL y primer comentario; reglas y recordatorios son notas operativas"
+      return [[sections.join("\n"), nil]]
+    end
+    if path.end_with?(".json")
+      data = JSON.parse(text)
+      # Current social.json contract: localized public copy, not metadata values.
+      unless data.is_a?(Hash) && !data.empty? && data.keys.all? { |k| %w[es en].include?(k) } && data.values.all? { |v| v.is_a?(String) && !v.strip.empty? }
+        raise "JSON de copy no reconocido: #{path}; declarar extracción antes de afirmar cobertura"
+      end
+      return data.map { |locale, copy| [copy, locale] }
+    end
+    if path.end_with?(".html")
+      text = text.gsub(/<(style|script)\b[^>]*>.*?<\/\1>/m, "").gsub(/<[^>]+>/, " ")
+    elsif path.end_with?(".md")
+      _, text = front_and_body(path)
+      text = text.gsub(/^```.*?^```[^\n]*$/m, "").lines.reject { |line| line.start_with?("#") }.join
+    end
+    raise "copy extraído vacío: #{path}" if text.strip.empty?
+    [[text, path.end_with?(".txt") ? lang : nil]]
+  end
 
-ref = ARGV.first || "multiagente-penta-agent-memoria-gobernada"
+  # Only explicit time expressions qualify for ms -> seconds rounding. No
+  # tolerance is applied to arbitrary numbers, taxes or decimal rates. Matching
+  # numeric sets does not assign values to claims, subjects or causal mechanisms.
+  def self.milliseconds(text, lang)
+    text.gsub("*", "").scan(/(\d+(?:[.,]\d+)*)\s*ms\b/).map { |item| BigDecimal(number(item.first, lang)) }
+  end
 
-posts = Dir.glob(File.join(ROOT, "_posts", "*.md")).select do |p|
-  File.read(p).include?(ref.sub(/-poc\z/, "")) || File.basename(p).include?(ref)
-end
-if posts.empty?
-  puts "SKIP: ningún post coincide con `#{ref}`."
-  exit 0
-end
-# El universo es la union de las dos versiones del post, y por si sola esa union
-# tiene un agujero: si una version queda obsoleta respecto de la otra, sus cifras
-# viejas dan cobertura a una pieza de difusion que ya no deberia citarlas.
-#
-# Medido el 2026-09-05 falsando este mismo gate: se devolvio `0,9635` al carrusel
-# --una cifra que el autor habia retirado del espanol-- y el gate siguio verde,
-# porque la traduccion inglesa aun no se habia rehecho y todavia la contenia.
-#
-# Por eso se comprueba tambien la PARIDAD entre idiomas. Las dos condiciones
-# juntas no son vacuas: una version obsoleta se detecta aqui, y solo con las dos
-# alineadas tiene sentido el universo comun.
-por_post = posts.to_h { |p| [File.basename(p), cifras(cuerpo_del_post(p)).uniq.to_set] }
-universo = por_post.values.reduce(:|) || Set.new
+  def self.rounded_seconds(text, lang, source_ms)
+    text.gsub("*", "").scan(/(\d+(?:[.,]\d+)?)(?:\s*(?:a|to|→|and|y|–|-)\s*(\d+(?:[.,]\d+)?))?\s*(?:s|seconds?|segundos?)\b/).flatten.compact.filter_map do |token|
+      value = number(token, lang)
+      # Precision belongs to the written token: 6,20 asks for two decimal
+      # places even though its canonical numeric value is 6.2.
+      precision = token[/[.,](\d+)\z/, 1]&.length
+      next unless precision
+      origin = source_ms.find { |ms| (ms / 1000).round(precision) == BigDecimal(value) }
+      if origin
+        puts "EQUIVALENCE #{origin.to_s('F')} ms -> #{value} s (#{precision} decimales)"
+        value
+      end
+    end.to_set
+  end
 
-if por_post.length == 2
-  a, b = por_post.keys
-  solo_a = por_post[a] - por_post[b]
-  solo_b = por_post[b] - por_post[a]
-  unless solo_a.empty? && solo_b.empty?
-    errores_paridad = []
-    errores_paridad << "solo en #{a}: #{solo_a.to_a.sort.first(8).join(', ')}" unless solo_a.empty?
-    errores_paridad << "solo en #{b}: #{solo_b.to_a.sort.first(8).join(', ')}" unless solo_b.empty?
-    warn "- paridad ES/EN rota: una version cita cifras que la otra no"
-    errores_paridad.each { |e| warn "    #{e}" }
-    abort "Gate de coherencia de difusion fallo (las dos versiones del post no coinciden en cifras)"
+  def self.check(root, ref)
+    raise "ref inválida" unless ref.match?(/\A[a-zA-Z0-9_-]+\z/)
+    posts = Dir.glob(File.join(root, "_posts", "*.md")).filter_map do |path|
+      front, body = front_and_body(path)
+      [path, front, body] if front["ref"] == ref
+    end
+    raise "sin cobertura: ningún post con ref exacta #{ref}" if posts.empty?
+    puts "REF #{ref}"
+    values = posts.map do |path, front, body|
+      puts "SOURCE #{path.delete_prefix(root + '/')} lang=#{front['lang']}"
+      public_front = %w[title subtitle excerpt description entorno].filter_map { |key| front[key] }.join("\n")
+      numbers(body + "\n" + public_front, front["lang"]) | numbers(front.fetch("en_abstract", "").to_s, "en")
+    end
+    package = File.join(root, "difusion", "paquetes", ref)
+    lang = "es"
+    metadata = Dir.glob(File.join(package, "00-metadata.{json,yaml,yml}"))
+    raise "metadata duplicada para #{ref}" if metadata.size > 1
+    unless metadata.empty?
+      data = metadata.first.end_with?(".json") ? JSON.parse(File.read(metadata.first)) : YAML.safe_load_file(metadata.first, permitted_classes: [Date, Time], aliases: false)
+      raise "metadata inválida para #{ref}" unless data.is_a?(Hash)
+      lang = data.fetch("language", "es")
+    end
+    basename = LEGACY_PIECE_NAMES.fetch(ref, ref)
+    legacy = Dir.glob(File.join(root, "difusion", "**", "#{basename}-*")) + Dir.glob(File.join(root, "difusion", "**", "#{basename}.*"))
+    # Historical artifacts are MD/HTML; state JSON is a ledger, never public copy.
+    legacy.select! { |path| %w[.md .html].include?(File.extname(path)) }
+    pieces = Dir.glob(File.join(package, "*")) + legacy
+    pieces = pieces.uniq.select { |path| File.file?(path) && EXTENSIONS.include?(File.extname(path)) && !File.basename(path).match?(ADMIN) }.sort
+    raise "sin cobertura: no hay piezas para #{ref}" if pieces.empty?
+    errors = []
+    values.drop(1).each_with_index do |set, index|
+      difference = (values[0] - set) | (set - values[0])
+      errors << "paridad entre #{File.basename(posts[0][0])} y #{File.basename(posts[index + 1][0])}: #{difference.to_a.sort.first(12).join(', ')}" unless difference.empty?
+    end
+    universe = values.reduce(:|)
+    source_ms = posts.flat_map { |_path, front, body| milliseconds(body, front["lang"]) }
+    pieces.each do |path|
+      puts "COPY #{path.delete_prefix(root + '/')}"
+      orphaned = copy_parts(path, lang).flat_map do |copy, locale|
+        (numbers(copy, locale) - universe - rounded_seconds(copy, locale, source_ms)).to_a
+      end.uniq
+      errors << "#{path.delete_prefix(root + '/')}: cifras ausentes del post: #{orphaned.first(12).join(', ')}" unless orphaned.empty?
+    end
+    errors.each { |error| warn "- #{error}" }
+    puts "COVERAGE #{ref}: #{posts.size} posts, #{pieces.size} piezas, #{universe.size} cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown"
+    errors.empty?
+  end
+
+  def self.run(args)
+    options = { root: File.expand_path("..", __dir__) }
+    OptionParser.new do |parser|
+      parser.on("--root PATH") { |value| options[:root] = File.expand_path(value) }
+      parser.on("--all-declared") { options[:all] = true }
+    end.parse!(args)
+    raise "indicar REF o --all-declared, no ambos" unless (options[:all] && args.empty?) || (!options[:all] && args.length == 1)
+    refs = if options[:all]
+             Dir.glob(File.join(options[:root], "difusion", "paquetes", "*", "00-metadata.{json,yaml,yml}")).map { |path| File.basename(File.dirname(path)) }.uniq.sort
+           else
+             args
+           end
+    raise "sin cobertura: no hay paquetes declarados" if refs.empty?
+    results = refs.map do |ref|
+      begin
+        check(options[:root], ref)
+      rescue StandardError => error
+        warn "FAIL #{ref}: #{error.message}"
+        false
+      end
+    end
+    puts "#{results.all? ? 'PASS' : 'FAIL'}: coherencia numérica; #{refs.size} ref(s) explícitas"
+    results.all? ? 0 : 1
+  rescue StandardError => error
+    warn "FAIL: #{error.message}"
+    1
   end
 end
 
-piezas = Dir.glob(File.join(ROOT, "difusion", "**", "#{ref}*")).select do |p|
-  File.file?(p) && %w[.md .html].include?(File.extname(p))
-end
-if piezas.empty?
-  puts "SKIP: no hay piezas de difusión para `#{ref}`."
-  exit 0
-end
-
-errores = []
-piezas.each do |pieza|
-  texto = File.read(pieza)
-  # En el HTML del carrusel, solo el contenido visible: el CSS está lleno de
-  # números que no afirman nada.
-  texto = texto.sub(/<style>.*?<\/style>/m, "") if pieza.end_with?(".html")
-  if pieza.end_with?(".md")
-    # Mismo criterio que el `<style>` de arriba y que los comentarios YAML del
-    # post: se compara lo que se publica, no el andamiaje.
-    #
-    # Un bloque cercado lleva el comando que regenera la pieza, y un encabezado
-    # lleva su etiqueta --«ES root», «Carrusel», «01 - imagen ... 245/280»--.
-    # Ninguno de los dos sale a ninguna red. Sin esta exclusion, el recuento de
-    # caracteres de un hilo de X se leia como una afirmacion sobre el post y
-    # daba ocho rojos que no significaban nada.
-    #
-    # No se excluye nada mas. Se descarto la regla tentadora de mirar solo lo que
-    # cuelga de un `###`: `copy-linkedin.md` y `targeting.md` no tienen ninguno,
-    # su texto publicable vive bajo `##`, y con esa regla el gate se habria
-    # quedado ciego justo en las dos piezas donde nadie lo habria notado.
-    texto = texto.gsub(/^```.*?^```/m, "").lines.reject { |l| l.start_with?("#") }.join
-  end
-  huerfanas = cifras(texto).uniq.reject { |c| universo.include?(c) }
-  next if huerfanas.empty?
-
-  errores << "#{pieza.sub("#{ROOT}/", '')}: afirma #{huerfanas.length} cifra(s) que el post no contiene: #{huerfanas.first(8).join(', ')}"
-end
-
-errores.each { |e| warn "- #{e}" }
-if errores.any?
-  abort "Gate de coherencia de difusión falló (#{errores.length} pieza(s) desalineada(s))"
-end
-puts "Gate de coherencia de difusión OK: #{piezas.length} pieza(s) contra #{posts.length} post(s), " \
-     "#{universo.length} cifra(s) en el universo."
+exit DiffusionCoherence.run(ARGV) if $PROGRAM_NAME == __FILE__
