@@ -11,6 +11,10 @@ lang: es
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
 published: true
+distribution:
+  social: false
+  republish: []
+  channels: [linkedin, x]
 editorial_status: escenario-tributario-hipotetico
 description: "Brecha Censo–SII, campamentos y avalúos habitacionales: escenarios de impuesto teórico en pesos para orientar una revisión predial, con supuestos explícitos."
 excerpt: "Una diferencia persistente junto a avalúos altos en los predios registrados justifica revisar el catastro. Comprobar omisiones y sus efectos tributarios requiere identificar los inmuebles."

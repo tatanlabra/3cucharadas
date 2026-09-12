@@ -11,6 +11,10 @@ lang: en
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
 published: true
+distribution:
+  social: false
+  republish: []
+  skip_reason: "The authorized LinkedIn and X package is in Spanish; no English syndication is planned for this release."
 editorial_status: hypothetical-property-tax-scenario
 description: "The Census–SII gap, informal settlements and residential assessments: theoretical tax scenarios in Chilean pesos to guide property-level review, with explicit assumptions."
 excerpt: "A persistent discrepancy alongside high assessed values in registered properties warrants a cadastral review. Establishing omissions and their tax implications requires identifying the properties."

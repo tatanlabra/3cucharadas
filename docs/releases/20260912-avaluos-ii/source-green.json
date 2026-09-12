@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "timestamp": "2026-09-12T13:15:52Z",
+  "profile": "source",
+  "sha": "6db4f196d37b89dc3a6fcacfc2a46c2db72c52b5",
+  "source_digest": "b4099d7d31c8b00cf84ed92f574b7e25774b48f30958c70ccfa54eca15e1e743",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "contract",
+      "status": "PASS",
+      "detail": "Nonempty invariants and seven complete phase contracts"
+    },
+    {
+      "id": "workflow-yaml",
+      "status": "PASS",
+      "detail": "3 workflows parse and have jobs"
+    },
+    {
+      "id": "runtime-declarations",
+      "status": "PASS",
+      "detail": "Node/Bundler declarations agree"
+    },
+    {
+      "id": "git-integrity",
+      "status": "PASS",
+      "command": [
+        "git",
+        "fsck",
+        "--full",
+        "--no-dangling"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/git-integrity.log"
+    },
+    {
+      "id": "whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/whitespace.log"
+    },
+    {
+      "id": "governance",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "scripts/verify_repo_governance.rb",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/governance.log"
+    },
+    {
+      "id": "visual-assets",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "scripts/verify_visual_assets.rb",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/visual-assets.log"
+    },
+    {
+      "id": "diffusion-coherence",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "scripts/verify_difusion_coherente.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/diffusion-coherence.log"
+    },
+    {
+      "id": "test-site_health",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_site_health.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-site_health.log"
+    },
+    {
+      "id": "test-polyglot_doctor",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_polyglot_doctor.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-polyglot_doctor.log"
+    },
+    {
+      "id": "test-math_keyboard",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_math_keyboard.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-math_keyboard.log"
+    },
+    {
+      "id": "test-jekyll_to_devto",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_jekyll_to_devto.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-jekyll_to_devto.log"
+    },
+    {
+      "id": "test-verify_distribution_done",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_verify_distribution_done.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-verify_distribution_done.log"
+    },
+    {
+      "id": "test-verify_repo_governance",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_verify_repo_governance.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-verify_repo_governance.log"
+    },
+    {
+      "id": "test-devto_draft_policy",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_devto_draft_policy.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-devto_draft_policy.log"
+    },
+    {
+      "id": "test-devto_noop",
+      "status": "PASS",
+      "command": [
+        "ruby",
+        "tests/test_devto_noop.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-devto_noop.log"
+    },
+    {
+      "id": "test-notification",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test_notify_telegram_publication.py"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-notification.log"
+    },
+    {
+      "id": "test-accessible-regions",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/catastro_sii",
+        "-p",
+        "test_accessible_regions.py"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-accessible-regions.log"
+    },
+    {
+      "id": "test-static-contrast",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/catastro_sii",
+        "-p",
+        "test_static_contrast.py"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-static-contrast.log"
+    },
+    {
+      "id": "test-graph-contrast",
+      "status": "PASS",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests/test_graph_contrast.py"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-release-source-green/logs/test-graph-contrast.log"
+    }
+  ],
+  "coverage_exceptions": {
+    "geospatial": "Seven existing tests requiring GeoPandas or PMTiles; not covered by this maintenance release.",
+    "legacy_browsers": "Build targets retained; Chromium does not certify Safari 16 or Firefox 104."
+  }
+}

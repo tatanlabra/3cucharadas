@@ -47,7 +47,8 @@ VENTANA = begin
 end
 HOY = (ENV["DISTRIBUCION_HOY"] ? Date.parse(ENV["DISTRIBUCION_HOY"]) : Date.today)
 
-PLAZOS = { "social" => 2, "dev" => 4, "medium" => 10 }.freeze
+PLAZOS = { "social" => 2, "dev" => 4, "medium" => 10, "linkedin" => 2, "x" => 2 }.freeze
+EXPLICIT_CHANNELS = %w[linkedin x].freeze
 
 errores = []
 avisos = []
@@ -91,7 +92,7 @@ def cumplido?(pubs, plataforma, idioma)
   return false unless publicacion
 
   case plataforma
-  when "mastodon", "bluesky"
+  when "mastodon", "bluesky", "linkedin", "x"
     campo = idioma == "en" ? "url_publicada_en" : "url_publicada"
     !publicacion[campo].to_s.strip.empty?
   when "devto"
@@ -139,6 +140,15 @@ posts.each do |path|
   Array(distribution["republish"]).map { |t| t.to_s.downcase }.each do |canal|
     esperados << canal if PLAZOS.key?(canal)
   end
+  # LinkedIn/X se declaran por separado: no implican enviar también a Mastodon
+  # y Bluesky. Una programación sin URL pública sigue pendiente, como un borrador.
+  explicit_channels = Array(distribution["channels"]).map { |t| t.to_s.downcase }
+  unknown_channels = explicit_channels - EXPLICIT_CHANNELS
+  unless unknown_channels.empty?
+    errores << "#{relativo}: canal desconocido en `distribution.channels`: #{unknown_channels.join(', ')}"
+    next
+  end
+  esperados.concat(explicit_channels).uniq!
 
   if esperados.empty?
     razon = distribution["skip_reason"].to_s.strip
