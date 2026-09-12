@@ -7,7 +7,7 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | Estado | Resultado |
 |---|---|
 | Implementado | Visor y ajustes visuales; campamentos/materialidad; post diagnóstico ES/EN con fecha y portadas; mapa útil frío −20,43% en ensayo local; pruebas y auditoría finales aprobadas. |
-| Parcial | Ranking en pesos y cierre fiscal del post: falta contribución neta habitacional comunal compatible con 2026S1. |
+| Parcial | Ranking en pesos y cierre fiscal del post: falta neto habitacional comunal compatible con 2026S1; acceso desde iPhone pendiente de activar y comprobar el túnel de Termius. |
 | No implementado | Push, publicación y envío de solicitud institucional, excluidos de la autorización; ejecución futura del post III CCU. |
 
 ## Detalle por requisito
@@ -40,6 +40,7 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F9_E1: alerta de desarrollo Vitest | [x] | 4.1.10→4.1.11; auditoría npm 2 alertas→0; producción conserva los hashes de sus 16 archivos Catastro | Sólo familia Vitest; avisos conocidos de Sass y tamaño MapLibre permanecen |
 | Launcher de desarrollo: sólo pacman | [x] | `~/.config/kitty/sessions/desarrollo.session:9`; autostart apunta a esa sesión | Otro launcher independiente conserva sus aplicaciones |
 | Servidor solicitado en 4004 | [x] | Se confirmó su término desde el host y se restauró; ES/EN y portada visibles; siete enlaces cartográficos conservados al regenerar | Configuración efímera fuera del repo; no se publica el overlay local |
+| Preview desde iPhone mediante Termius | [~] | Servidor y páginas HTTP 200 comprobados desde el PC; instrucciones y enlaces del túnel local entregados; [alcance y evidencia](avaluos-ii-final-closeout-20260911.md#continuación-acceso-desde-iphone) | Activar el reenvío local en el iPhone y comprobar que abre post y visor; conexión SSH por sí sola no prueba ese acceso |
 | F10: nueva base, traducción y fecha | [x] | [Evidencia editorial](avaluos-ii-editorial-consolidation-evidence.md); original intacto, 20 filas y 80 valores ES/EN equivalentes, 12 referencias, fecha 11-09-2026; builds y QA móvil/escritorio | El escenario monetario original sigue dependiendo de F3 |
 | F11: hero y teaser generados directamente | [x] | Dos outputs inspeccionados; WebP conserva píxeles y reduce 29,07 % / 27,02 % de bytes; integración ES/EN, descripciones sociales y caption legible | 1,45–1,50 MB por WebP; no representa entrega móvil óptima |
 | F11: diagnóstico delegado de imagegen | [x] | [Auditoría](avaluos-ii-imagegen-diagnosis-20260911.md): generación y edición local comprobadas, rúbrica previa y tarjeta real revisada | La corrección de la skill global no formaba parte de la auditoría; sin ranking experimental entre proveedores |
@@ -55,5 +56,7 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 - [Carga: mediciones y diagnóstico](catastro-viewer-loading-20260910.md): serie posterior, fallo CORS del preview, overlay local y espera de frames; conservar también el resultado histórico.
 - [Investigación tributaria complementaria](../../catastros_sii/v5_brecha/docs/avaluos-ii-fiscal-source-followup-20260911.md) y [solicitud preparada](../../catastros_sii/v5_brecha/docs/avaluos-ii-solicitud-datos.md).
 - [Protocolo CCU C0–C7](../../catastros_sii/v5_brecha/docs/avaluos-iii-ccu-protocol.md): diseño completo, ejecución futura.
+
+La comprobación posterior al pedido de acceso móvil mantiene cero valores netos y cero escenarios monetarios no nulos en las 346 comunas: 344 estados `blocked_components` y dos `missing_source`. Se pidió una ruta local o URL del insumo compatible; no se pidió ni se autorizó cambiar el estimando. La solicitud institucional continúa sin enviar y no hay un proceso de obtención de datos confirmado en ejecución.
 
 Un estado se reabre si una prueba falla, cambia el artefacto sin validar o una observación contradice el criterio. La falta de neto fiscal no se resuelve cambiando el estimando ni las etiquetas de los gráficos. Rollback: revertir sólo cambios propios y regenerar derivados; conservar fuentes, evidencia y trabajo concurrente.

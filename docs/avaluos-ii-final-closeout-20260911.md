@@ -49,3 +49,21 @@ La comprobación previa al commit detectó espacios finales y líneas vacías al
 F9 se cierra para la implementación y validación local delimitadas. Los artículos ES/EN, imágenes y visor están preparados; F3/F4 monetarios siguen parciales. Falta suma neta y cantidad de roles habitacionales comunales 2026S1 compatibles, o un extracto con componentes separables y conciliación. No se cambia el estimando ni se sustituye el impuesto efectivo por una aplicación incompleta de tasas.
 
 La solicitud está redactada, pero no enviada; no existe una respuesta institucional pendiente. El diseño de post III CCU está completo dentro del alcance aprobado y su ejecución es futura. Se conserva el servidor Jekyll 4004; se retiran solamente sesiones y ruta temporal del ensayo.
+
+## Continuación: acceso desde iPhone
+
+Petición posterior: abrir el preview 4004 desde un iPhone conectado mediante Termius y tailnet. Esta extensión no reabre las pruebas del visor ni convierte una lectura del PC en una comprobación desde el teléfono.
+
+| Tarea | Responsable / alcance | Criterio de aceptación | Evidencia y estado |
+|---|---|---|---|
+| M1: verificar disponibilidad local | Agente; lectura del host, sin reiniciar Jekyll | Listener 127.0.0.1:4004 y HTTP 200 para post y visor | Comprobados; el sandbox inicialmente no pudo consultar netlink ni el socket de Tailscale, la consulta autorizada del host sí funcionó |
+| M2: acceso desde el iPhone | Usuario en Termius; agente mantiene el servidor | Activar reenvío local 127.0.0.1:4004 → 127.0.0.1:4004 por el host SSH existente y abrir ambas rutas en Safari | Instrucciones entregadas; activación y navegación en el iPhone no observadas, estado parcial |
+| M3: ampliar a toda la tailnet | Fuera del alcance autorizado para el iPhone | Autorización explícita para ese alcance antes de configurar Tailscale Serve | La revisión automática rechazó la apertura persistente; `tailscale serve status` confirmó `No serve config`. No se aplicó una vía alternativa para ampliar el acceso |
+
+El intento rechazado fue `tailscale serve --bg --http=4004 http://127.0.0.1:4004`. La razón fue que habría abierto el preview a toda la tailnet, un alcance mayor que el pedido para el iPhone. No se expuso el servicio ni se alteró su enlace local. La recuperación propuesta usa únicamente la conexión SSH del teléfono y está pendiente de activación en ese dispositivo.
+
+Tras activar la regla en Termius, las rutas del teléfono son `http://127.0.0.1:4004/datos/territorio/avaluos-ii-brecha-residencial/` y `http://127.0.0.1:4004/catastro_sii_brecha/`. La [guía oficial de Termius del 11-05-2026](https://termius.com/blog/8-tips-for-using-ai-agents-on-mobile-in-termius) describe el reenvío local para previews y Live Activities para mantener sesiones en iOS. No se comprobó la configuración efectiva de esas funciones en el iPhone.
+
+Invariante: sin publicación pública ni ampliación del acceso privado sin autorización. Un HTTP 200 obtenido desde el PC no cierra M2. Si Safari no alcanza el túnel, M2 continúa parcial; el servidor local no se reinicia por ese síntoma. Rollback del acceso propuesto: detener la regla en Termius; el Jekyll solicitado permanece activo.
+
+La revisión fiscal de esta continuación leyó el artefacto vigente, SHA-256 `e10a9158d19314356998b4d89432451b2756aab74d1460756c98f59f381054e6`: 346 comunas, cero valores netos y escenarios monetarios no nulos, 344 `blocked_components` y dos `missing_source`. El catálogo de fuentes local conserva los mismos 18 insumos auditados y el cuadro por destino; no apareció una fuente neta compatible. Se pidió una ruta o URL para recibir ese insumo. No hay una solicitud enviada ni un trabajo de descarga confirmado vivo; el pendiente no se presenta como una espera de proceso.
