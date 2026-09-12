@@ -1,0 +1,103 @@
+{
+  "source_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+  "selected_codes": [
+    "5101",
+    "10101",
+    "8301",
+    "14101",
+    "9120",
+    "13101",
+    "15101",
+    "1101",
+    "9101",
+    "13501",
+    "5109",
+    "13127",
+    "2201",
+    "4102",
+    "9112"
+  ],
+  "minimum_display_width_css_px": 1000,
+  "artifacts": [
+    {
+      "file": "gap-top15-es.svg",
+      "sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+      "bytes": 76205
+    },
+    {
+      "file": "gap-top15-es.png",
+      "sha256": "ad75af1a165a52ec6b615135c3a1f0b8e7adc451bce121546d82a51ae80999ac",
+      "bytes": 306888
+    },
+    {
+      "file": "gap-top15-es-dark.svg",
+      "sha256": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e",
+      "bytes": 76205
+    },
+    {
+      "file": "gap-top15-es-dark.png",
+      "sha256": "3354171dc80f79cd42fbd164673ed9f4ee27c75844e7b20c1bf136b51a89de4a",
+      "bytes": 298551
+    },
+    {
+      "file": "gap-top15-en.svg",
+      "sha256": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d",
+      "bytes": 76310
+    },
+    {
+      "file": "gap-top15-en.png",
+      "sha256": "b668f681f4d13cd97b077c235ff778c465d85f299d883d6397b72d35830126aa",
+      "bytes": 313543
+    },
+    {
+      "file": "gap-top15-en-dark.svg",
+      "sha256": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef",
+      "bytes": 76310
+    },
+    {
+      "file": "gap-top15-en-dark.png",
+      "sha256": "7beb95a6e2662ab4f74d61a0eca0a318e41a23ef788f2bfe1ff3fe943d0b868e",
+      "bytes": 304415
+    },
+    {
+      "file": "monetary-top15-es.svg",
+      "sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+      "bytes": 67174
+    },
+    {
+      "file": "monetary-top15-es.png",
+      "sha256": "cd7a1538f9879561a4f895c06f682496f3ec4978578af3ac7e2b5130564929aa",
+      "bytes": 267328
+    },
+    {
+      "file": "monetary-top15-es-dark.svg",
+      "sha256": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461",
+      "bytes": 67174
+    },
+    {
+      "file": "monetary-top15-es-dark.png",
+      "sha256": "f3f52ee25797989430d9f4b9f52d46f32fbbdc1971836a13759955f4ba666fda",
+      "bytes": 259094
+    },
+    {
+      "file": "monetary-top15-en.svg",
+      "sha256": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402",
+      "bytes": 67674
+    },
+    {
+      "file": "monetary-top15-en.png",
+      "sha256": "f2ae6abbdf69f89bed6f833953b39337f8321376639f984bee2efd547edb8a14",
+      "bytes": 261438
+    },
+    {
+      "file": "monetary-top15-en-dark.svg",
+      "sha256": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060",
+      "bytes": 67674
+    },
+    {
+      "file": "monetary-top15-en-dark.png",
+      "sha256": "fd1e48a4c9f0e6b683700d80adadc6a8049dfc41fe6f5eef8c8a2842277b1cad",
+      "bytes": 253477
+    }
+  ]
+}

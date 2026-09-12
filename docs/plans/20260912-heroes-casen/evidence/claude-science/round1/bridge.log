@@ -1,0 +1,3 @@
+HANDOFF-TRACE: codex -> claude depositado en /home/ende/Descargas/programaciones/_handoff/codex-to-claude-20260912T105555Z.md (via cli)
+HANDOFF-TRACE: invocando claude CLI (model: sonnet, timeout: 0s) con briefing /home/ende/Descargas/programaciones/_handoff/codex-to-claude-20260912T105555Z.md
+API Error: Can't reach the API server — check your internet or DNS (EAI_AGAIN)

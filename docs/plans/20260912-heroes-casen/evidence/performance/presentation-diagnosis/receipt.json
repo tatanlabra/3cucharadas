@@ -1,0 +1,51 @@
+{
+  "time": "2026-09-12T12:27:52.831996+00:00",
+  "scope": "diagnostic only; product acceptance pending",
+  "browser_navigations": 24,
+  "agent_browser_navigations": 16,
+  "playwright_navigations": 8,
+  "formal_inputs_unchanged": true,
+  "own_sessions_closed": true,
+  "own_server4044_closed": true,
+  "server4004_untouched": true,
+  "red_green": [
+    {
+      "fixture": "late",
+      "exit_code": 1,
+      "stdout": "{\"fixture\": \"late\", \"standard_lcp_ms\": [3032, 3028, 3040, 3032], \"threshold_ms\": 2500, \"pass\": false}\n"
+    },
+    {
+      "fixture": "fast",
+      "exit_code": 0,
+      "stdout": "{\"fixture\": \"fast\", \"standard_lcp_ms\": [56, 36, 60, 48], \"threshold_ms\": 2500, \"pass\": true}\n"
+    }
+  ],
+  "sha256": {
+    "late.html": "019e3d8032064c268471cab276fa9177b0ebae2ffe1f5d54eb6de5d30928ccb2",
+    "repeat-runs.json": "800428ca6fc3aa553b90194f2f683d0e3df7b6144a7326200ef38d4a2118ffa5",
+    "playwright_canary.mjs": "2706cc7377c3c4c102861be09062a04f86b52c00a9eee4c2d550a691ef0571ab",
+    "diagnostic-warm.png": "a42422c4131c723f692da6bce366239e72c16ef1770e7063155a022b153938cb",
+    "intervention-commands.jsonl": "42b9cf797242130f7776863b5fda13bdddb90c51882c7824b393ca8d40e83ddc",
+    "presentation-canary-headed-fast-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "repeat_canary.py": "12e4f353199de36bd809eec2aacd0ab9e2145d218cc00606c915cadc817e1582",
+    "run_interventions.py": "adeac510e99c14f78da0082a9a8c71e911229e7a8ee5859368648895c966b3fb",
+    "presentation-canary-headless-fast-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "passive-actual-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fast.html": "1dd6f3c00c86fd6c7914279648be24e652748dd7de098831197ebafb8492c354",
+    "actual-browser-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "screenshot-actual-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "report.md": "cb52f741f368654da10161d16d7b7c8ba962ebf1d71173cd3cddcfdbdb41180f",
+    "diagnostic-cold.png": "a42422c4131c723f692da6bce366239e72c16ef1770e7063155a022b153938cb",
+    "canary-runs.json": "9d37a8234634f7b6be03afbb711c2685444cfb3495b426a9730aa15d78393832",
+    "red-green.json": "2a7bb526139544f8a30145d371032f45dc949ac73eb45557e06381ef155961f5",
+    "live-chrome-launch.json": "c35d4f837da4e79ccb85478e5d847069c71ed7eb2dc16cd170249f7c6877e44f",
+    "intervention-runs.json": "e6730ee6f4e0e9bab30914581eef472c788b3acceb2ba71e1134e6ba362b6f0b",
+    "run_canary.py": "77dad0188d86391b9daac08b74574c1e0da14cfa121fa5dc402446db47109940",
+    "commands.jsonl": "0309e7cdba33158cd56ca279645dbcdb8e14b06d27d83ae25ad6a3d7fccee445",
+    "check_canary.py": "b999297cb1e4beafac28cbd7d73f75f951793d33729fcd4cb1eaa104aa1e4c50",
+    "input-hashes.json": "41be681a31ecead0a37bc5ba11d3b1da7b533bd755ad9630e2e6c55db17f95af",
+    "presentation-canary-headed-late-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "presentation-canary-headless-late-flags.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "playwright-runs.json": "32799f56cfeb7f1d8cc0db011cf19b6d4e1cfd19e974adb67e98fea438afabd9"
+  }
+}

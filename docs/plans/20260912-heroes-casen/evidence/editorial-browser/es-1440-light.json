@@ -1,0 +1,349 @@
+{
+  "bodyWidth": 1440,
+  "disclosureOpen": true,
+  "figures": [
+    {
+      "alt": "Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto.",
+      "currentSrc": "http://127.0.0.1:4004/assets/images/avaluos-ii/gap-top15-es.svg",
+      "embeddedFonts": 2,
+      "focused": true,
+      "height": 891.65625,
+      "loaded": true,
+      "naturalWidth": 1152,
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "scrollWorks": true,
+      "selectableTextNodes": 80,
+      "sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+      "src": "/assets/images/avaluos-ii/gap-top15-es.svg",
+      "tabindex": 0,
+      "width": 1000,
+      "wrapperScrollWidth": 1000,
+      "wrapperWidth": 729
+    },
+    {
+      "alt": "Proporción de hogares que declaran sitio propio compartido: Chile y 16 regiones con intervalos aproximados; Valparaíso y Viña del Mar como casos exploratorios sin IC.",
+      "currentSrc": "http://127.0.0.1:4004/assets/images/avaluos-ii/casen-shared-site-es.svg",
+      "embeddedFonts": 2,
+      "focused": true,
+      "height": 1116.65625,
+      "loaded": true,
+      "naturalWidth": 1152,
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "scrollWorks": true,
+      "selectableTextNodes": 126,
+      "sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+      "src": "/assets/images/avaluos-ii/casen-shared-site-es.svg",
+      "tabindex": 0,
+      "width": 1000,
+      "wrapperScrollWidth": 1000,
+      "wrapperWidth": 729
+    },
+    {
+      "alt": "Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana.",
+      "currentSrc": "http://127.0.0.1:4004/assets/images/avaluos-ii/monetary-top15-es.svg",
+      "embeddedFonts": 2,
+      "focused": true,
+      "height": 891.65625,
+      "loaded": true,
+      "naturalWidth": 1152,
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "scrollWorks": true,
+      "selectableTextNodes": 63,
+      "sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+      "src": "/assets/images/avaluos-ii/monetary-top15-es.svg",
+      "tabindex": 0,
+      "width": 1000,
+      "wrapperScrollWidth": 1000,
+      "wrapperWidth": 729
+    }
+  ],
+  "rootWidth": 1440,
+  "tables": [
+    {
+      "cells": [
+        "Chile",
+        "78.654",
+        "0",
+        "1,09 %",
+        "0,97 %–1,21 %"
+      ],
+      "code": "CL",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Tarapacá",
+        "3.093",
+        "0",
+        "0,24 %",
+        "0,06 %–0,42 %"
+      ],
+      "code": "1",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Antofagasta",
+        "3.505",
+        "0",
+        "0,67 %",
+        "0,38 %–0,97 %"
+      ],
+      "code": "2",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Atacama",
+        "3.257",
+        "0",
+        "0,18 %",
+        "0,02 %–0,35 %"
+      ],
+      "code": "3",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Coquimbo",
+        "3.638",
+        "0",
+        "0,57 %",
+        "0,11 %–1,03 %"
+      ],
+      "code": "4",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Valparaíso",
+        "8.415",
+        "0",
+        "4,59 %",
+        "3,73 %–5,44 %"
+      ],
+      "code": "5",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región del Libertador Gral. Bernardo O'Higgins",
+        "5.324",
+        "0",
+        "0,60 %",
+        "0,32 %–0,89 %"
+      ],
+      "code": "6",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región del Maule",
+        "5.578",
+        "0",
+        "0,27 %",
+        "0,07 %–0,47 %"
+      ],
+      "code": "7",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región del Biobío",
+        "8.124",
+        "0",
+        "0,70 %",
+        "0,48 %–0,91 %"
+      ],
+      "code": "8",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de La Araucanía",
+        "5.458",
+        "0",
+        "1,07 %",
+        "0,77 %–1,38 %"
+      ],
+      "code": "9",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Los Lagos",
+        "4.280",
+        "0",
+        "0,68 %",
+        "0,43 %–0,94 %"
+      ],
+      "code": "10",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Aysén del Gral. Carlos Ibáñez del Campo",
+        "1.753",
+        "0",
+        "0,16 %",
+        "0,00 %–0,34 %"
+      ],
+      "code": "11",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Magallanes y de la Antártica Chilena",
+        "2.354",
+        "0",
+        "0,16 %",
+        "0,00 %–0,33 %"
+      ],
+      "code": "12",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región Metropolitana de Santiago",
+        "14.151",
+        "0",
+        "0,78 %",
+        "0,63 %–0,94 %"
+      ],
+      "code": "13",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Los Ríos",
+        "3.433",
+        "0",
+        "0,79 %",
+        "0,48 %–1,10 %"
+      ],
+      "code": "14",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Arica y Parinacota",
+        "2.795",
+        "0",
+        "0,38 %",
+        "0,15 %–0,60 %"
+      ],
+      "code": "15",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Región de Ñuble",
+        "3.496",
+        "0",
+        "0,64 %",
+        "0,37 %–0,91 %"
+      ],
+      "code": "16",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Valparaíso",
+        "1.329",
+        "0",
+        "9,27 %",
+        "No corresponde"
+      ],
+      "code": "5101",
+      "containerTabIndex": 0,
+      "scope": "row"
+    },
+    {
+      "cells": [
+        "Viña del Mar",
+        "1.608",
+        "0",
+        "8,60 %",
+        "No corresponde"
+      ],
+      "code": "5109",
+      "containerTabIndex": 0,
+      "scope": "row"
+    }
+  ],
+  "theme": "light",
+  "url": "http://127.0.0.1:4004/datos/territorio/avaluos-ii-brecha-residencial/",
+  "viewport": 1440,
+  "case": "es-1440-light",
+  "checks": {
+    "exact_url": true,
+    "correct_theme": true,
+    "no_body_overflow": true,
+    "three_visible_figures": true,
+    "gap-top15-es.svg-theme": true,
+    "gap-top15-es.svg-width": true,
+    "gap-top15-es.svg-loaded": true,
+    "gap-top15-es.svg-keyboard-focus": true,
+    "gap-top15-es.svg-scroll": true,
+    "gap-top15-es.svg-embedded-fonts": true,
+    "gap-top15-es.svg-source-hash": true,
+    "casen-shared-site-es.svg-theme": true,
+    "casen-shared-site-es.svg-width": true,
+    "casen-shared-site-es.svg-loaded": true,
+    "casen-shared-site-es.svg-keyboard-focus": true,
+    "casen-shared-site-es.svg-scroll": true,
+    "casen-shared-site-es.svg-embedded-fonts": true,
+    "casen-shared-site-es.svg-source-hash": true,
+    "monetary-top15-es.svg-theme": true,
+    "monetary-top15-es.svg-width": true,
+    "monetary-top15-es.svg-loaded": true,
+    "monetary-top15-es.svg-keyboard-focus": true,
+    "monetary-top15-es.svg-scroll": true,
+    "monetary-top15-es.svg-embedded-fonts": true,
+    "monetary-top15-es.svg-source-hash": true,
+    "19_casen_rows": true,
+    "all_expected_territories": true,
+    "table-CL": true,
+    "table-1": true,
+    "table-2": true,
+    "table-3": true,
+    "table-4": true,
+    "table-5": true,
+    "table-6": true,
+    "table-7": true,
+    "table-8": true,
+    "table-9": true,
+    "table-10": true,
+    "table-11": true,
+    "table-12": true,
+    "table-13": true,
+    "table-14": true,
+    "table-15": true,
+    "table-16": true,
+    "table-5101": true,
+    "table-5109": true
+  },
+  "defects": [],
+  "axe_result_keys": [
+    "success",
+    "data",
+    "error"
+  ]
+}

@@ -23,6 +23,7 @@
 require "date"
 require "yaml"
 require_relative "lib/image_dimensions"
+require_relative "verify_hero_disclosure"
 
 ROOT = File.expand_path("..", __dir__)
 STRICT = ARGV.include?("--strict")
@@ -105,7 +106,7 @@ post_paths.each do |path|
   header = fm.is_a?(Hash) ? fm["header"] : nil
   next unless header.is_a?(Hash)
 
-  %w[teaser og_image overlay_image image].each do |key|
+  %w[teaser og_image overlay_image overlay_image_mobile image].each do |key|
     value = header[key]
     next unless value.is_a?(String) && value.start_with?("/assets/")
 
@@ -126,6 +127,7 @@ end
 # --- Manifests -------------------------------------------------------------
 
 manifest_paths = Dir.glob(File.join(ROOT, "_data", "visuales", "*.yml")).sort
+declared_assets = []
 slugs_con_manifest = manifest_paths.map { |p| File.basename(p, ".yml") }
 
 manifest_paths.each do |manifest_path|
@@ -162,6 +164,8 @@ manifest_paths.each do |manifest_path|
       next
     end
 
+    declared_assets << archivo
+    errors.concat(HeroDisclosureCheck.variant_errors(pieza, ROOT))
     ruta = File.join(ROOT, archivo)
     existe = File.file?(ruta)
 
@@ -284,7 +288,7 @@ manifest_paths.each do |manifest_path|
     header = fm.is_a?(Hash) ? fm["header"] : nil
     next unless header.is_a?(Hash)
 
-    %w[teaser og_image].each do |key|
+    %w[teaser og_image overlay_image overlay_image_mobile].each do |key|
       value = header[key]
       next unless value.is_a?(String) && value.start_with?("/assets/")
 
@@ -305,6 +309,10 @@ Dir.glob(File.join(ROOT, "assets", "images", "*")).each do |dir|
   # Carpetas de infraestructura del sitio, no activos de un post.
   next if %w[teasers home favicons 404].include?(slug)
   next if slugs_con_manifest.include?(slug)
+  # A shared directory can be covered by multiple topic catalogs, without a
+  # duplicate directory-level catalog becoming a second source of truth.
+  files = Dir.glob(File.join(dir, "**", "*")).select { |f| File.file?(f) }.map { |f| rel(f) }
+  next if !files.empty? && (files - declared_assets).empty?
 
   warnings << "V13 assets/images/#{slug}/ no tiene manifest en _data/visuales/"
 end

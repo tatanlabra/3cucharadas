@@ -15,17 +15,24 @@ editorial_status: hypothetical-property-tax-scenario
 description: "The Census–SII gap, informal settlements and residential assessments: theoretical tax scenarios in Chilean pesos to guide property-level review, with explicit assumptions."
 excerpt: "A persistent discrepancy alongside high assessed values in registered properties warrants a cadastral review. Establishing omissions and their tax implications requires identifying the properties."
 header:
-  overlay_image: /assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp
-  overlay_filter: "linear-gradient(90deg, rgba(9,11,24,0.96) 0%, rgba(9,11,24,0.72) 42%, rgba(9,11,24,0.10) 72%, rgba(9,11,24,0.08) 100%)"
+  overlay_image: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
   show_overlay_excerpt: false
-  caption: "AI concept art · not a real cadastral map."
-  teaser: /assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
-  og_image: /assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp
-  og_image_alt: "Residential city at night crossed by a conceptual cadastral polygon layer to review."
+  teaser: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/og-1200x630.webp
+  og_image_alt: Residential city at night and conceptual cadastral polygons to reconcile.
+  overlay_image_mobile: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-mobile-800x450.webp
+  teaser_mobile: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp
 math: true
 toc: true
 toc_sticky: true
 comments: true
+visual_id: avaluos-ii
+ai_disclosure:
+  level: some_ai
+  components:
+    text: assisted
+    hero: generated
 ---
 
 In the [first property-assessment post](/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), changing the denominator changed the map. Now I am interested in a question that comes before calculating tax: **if the Census counts more dwellings than the SII's residential cadastral records, where should a review begin?**
@@ -81,13 +88,51 @@ The extrapolation has two limitations. Construction materials are observed in oc
 
 I do not add another deduction for irrecoverable dwellings, because their overlap with informal settlements is unknown. Nor do I multiply this scenario by the share of records above the exemption threshold: we do not know the joint distribution of the two characteristics.
 
-![Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder.](/assets/images/avaluos-ii/gap-top15-en.svg)
+<figure style="width:100%">
+  <div role="region" aria-label="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-en.svg" alt="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-en-dark.svg" alt="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." loading="lazy">
+  </div>
+  <figcaption>Scenarios for the composition of the difference; these are not identified omitted dwellings. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/gap-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-en-dark.svg">SVG dark</a>.</figcaption>
+</figure>
 
 {% include avaluos-ii-top-en.html %}
 
 **How to read the chart.** The total length preserves the initial difference; its segments distinguish the assumed settlement deduction and the hypothetical composition of the residual. The fifteen communes are ranked by that residual, not by construction materials or assessed values. The tax-related selection in the second spoonful uses a different filter.
 
 The [viewer lets you explore each commune and consult the complete table](/catastro_sii_brecha/#brecha-contribuciones). The [Valparaíso and Puerto Montt annex](/catastro_sii_brecha/#catastro-anexo) overlays properties, neighbourhood units and informal settlements: it helps reveal spatial relationships, but does not by itself identify omitted dwellings.
+
+### Several dwellings on one site: another explanation worth testing
+
+Two dwellings can share a plot and be covered by one property-tax record. The Census would then count two dwellings without a property necessarily being absent from the tax register. This mechanism may contribute to the difference; measuring its contribution requires linking **dwellings, sites and property records**. The public dictionary examined and the [Census microdata manual, pp. 17–20][ine-manual], link dwellings, households and people, but do not provide a shared site or property-record identifier for this reconciliation. Several households within one dwelling are not the same as several dwellings on one site.
+
+CASEN 2024 provides a narrower signal. Categories 3 and 4 of its tenure question identify households reporting **an owned site shared with other dwellings**, either fully paid or being paid for. They do not ask how many dwellings occupy the site. I calculate their share among **all households with valid answers**, including renters and other tenure arrangements, using one household head per household. The principal-household question is conditional; applying it as a filter to the entire dataset would incorrectly remove households in single-household dwellings. See the [official questionnaire, pp. 79 and 83][casen-cuestionario].
+
+The national result is **1.09% of households**, with an approximate 95% interval of **0.97% to 1.21%**. It comes from 78,654 sampled households, with no missing answers to this question. National and regional estimates use `expr` and Taylor linearization with strata and clusters; the interval expresses sampling uncertainty, rather than every possible measurement error. The [official CASEN data-use note][casen-nota] distinguishes these domains from descriptive use at commune level.
+
+<figure style="width:100%">
+  <div role="region" aria-label="Share of households reporting an owned shared site: Chile and 16 regions with approximate intervals; Valparaíso and Viña del Mar as exploratory cases without confidence intervals." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1286" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/casen-shared-site-en.svg" alt="Share of households reporting an owned shared site: Chile and 16 regions with approximate intervals; Valparaíso and Viña del Mar as exploratory cases without confidence intervals." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1286" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/casen-shared-site-en-dark.svg" alt="Share of households reporting an owned shared site: Chile and 16 regions with approximate intervals; Valparaíso and Viña del Mar as exploratory cases without confidence intervals." loading="lazy">
+  </div>
+  <figcaption>CASEN 2024. Percentages describe households, not dwellings per site. The two commune cases are not representative. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/casen-shared-site-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/casen-shared-site-en-dark.svg">SVG dark</a>.</figcaption>
+</figure>
+
+{% include casen-shared-site-table.html lang='en' %}
+
+Valparaíso and Viña del Mar show **9.27% and 8.60%**, respectively, in the commune calculation weighted by `expc`. These are exploratory signals: I selected the two communes after observing their discrepancy, and these results **are not representative estimates for each commune**. A commune weight does not confer that property. The table retains sample sizes and missingness; the eleven communes outside the sample are recorded as missing data, never zero.
+
+The deduction is limited but useful: dwelling and property-record counts may differ even with an accurate register. The observed pattern in these two communes makes shared sites worth investigating. The hypothesis is that they explain part of the discrepancy, alongside informal settlements, agricultural land uses, timing and possible omissions. A representative sample linking dwellings to sites and property records would discriminate between these explanations; the hypothesis would weaken as a material explanation if this linkage showed a small contribution against a criterion set before measurement.
+
+**I do not subtract this percentage from the bars or monetary scenarios.** It describes household tenure, not the share of excess dwellings in a count. It also misses other ways of sharing sites and may overlap with informal settlements. Subtracting it now would introduce apparent precision and could count the same explanation twice.
+{: .notice--info}
+
+<details markdown="1">
+<summary>Why the CASEN percentage cannot directly become dwellings per site</summary>
+
+In a purely hypothetical example, if a share $$p_v$$ of **dwellings** belonged to sites with exactly two dwellings and all remaining dwellings occupied individual sites, there would be $$V(1-p_v/2)$$ sites. The property-records/sites ratio would be $$R_2=R_1/(1-p_v/2)$$, where $$R_1=\text{property records}/V$$. For example, an assumed $$p_v=0.20$$ would mean 90 sites for every 100 dwellings. The CASEN **household** share is not that parameter: the formula illustrates the mechanism but does not estimate a fiscal adjustment.
+
+</details>
 
 ## Second spoonful: distinguish a large gap from a review with tax implications
 
@@ -144,10 +189,12 @@ I then multiply the residual under the informal-settlement assumption by each st
 
 **These are two references for scale, not a confidence interval or guaranteed lower and upper bounds.** The median is not a minimum tax: if more than half the properties fall below the exemption threshold, it can be zero while the mean is positive. The same fifteen communes selected above are retained here and ranked by the scenario using the mean.
 
-<figure>
-  <img class="avaluos-ii-monetary-light" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-en.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
-  <img class="avaluos-ii-monetary-dark" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-en-dark.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
-  <figcaption>Million Chilean pesos, assuming that each residual unit corresponded to a new comparable property. Amounts are hypothetical; they are neither established tax debt nor revenue retained by municipalities.</figcaption>
+<figure style="width:100%">
+  <div role="region" aria-label="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-en.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-en-dark.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
+  </div>
+  <figcaption>Million Chilean pesos, assuming that each residual unit corresponded to a new comparable property. Amounts are hypothetical; they are neither established tax debt nor revenue retained by municipalities. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/monetary-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-en-dark.svg">SVG dark</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-monetary-en.html %}
@@ -180,6 +227,14 @@ The [SII cadastral dictionary][sii-estructura] defines the available half-yearly
 Determining a tax liability, issuing a tax bill and collecting payment are different stages. The SII determines assessed values and issues property-tax bills; the [General Treasury of the Republic collects payment][tgr-impuestos]. Distribution through the [Municipal Common Fund][sii-fcm] also means that tax associated with a commune cannot be equated with revenue retained entirely by its municipality.
 
 The [guide by Grote and Wen (2024, pp. 16–18)][fmi-guia] helps organise the problem: it distinguishes coverage, valuation and collection, and proposes cross-checking maps, field observations and records. It informs the design of a verification exercise; it does not supply a revenue coefficient that can be transferred to these communes.
+
+<aside class="notice--info" markdown="1">
+**Behind the analysis: Python and reproducible geomatics**
+
+Python connects cadastral, census and territorial aggregates; Parquet stores columnar tables, and Matplotlib produces these figures in SVG and PNG with typography and palettes for both reading modes. Each chart comes from a verifiable table: the image helps readers see the pattern, while the table exposes the values. The viewer retains ECharts for interactive exploration and map layers for examining territory.
+
+For CASEN, R opens the original dataset and passes the required columns to Python through an in-memory pipe. Python computes estimates and design variance; algebraic fixtures and a bounded comparison with Julia check the implementation. Separating extraction, computation, presentation and checks makes similar work easier to carry into larger computing workflows. **This execution is local: it is neither a benchmark nor a demonstrated HPC-cluster run.** The [method and provenance](/catastro_sii_brecha/data/casen-shared-site/method.md) document what was actually done.
+</aside>
 
 ## Closing: the difference needs an explanation
 
@@ -219,6 +274,8 @@ Results are aggregated by commune, including zeros, before multiplying each stat
 
 ## Sources and references
 
+Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: questionnaire and data-use note*. Tenure and principal household, pp. 79 and 83 of the [questionnaire][casen-cuestionario]; expansion factors and domains in the [data-use note][casen-nota]. Accessed September 12, 2026.
+
 Grote, Martin, and Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. International Monetary Fund, September. [Full text][fmi-guia].
 
 Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicators viv04–viv06, pp. 103–106. [Manual][ine-manual].
@@ -246,3 +303,6 @@ Tesorería General de la República (TGR). N.d. “Impuestos y tipos de impuesto
 [sii-destino]: https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html
 [tgr-impuestos]: https://ayuda.tgr.gob.cl/ayuda/impuestos/impuestos-y-tipos-de-impuestos
 [fmi-guia]: https://www.imf.org/-/media/files/publications/howtonotes/2024/english/htnea2024006.pdf
+
+[casen-cuestionario]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf
+[casen-nota]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf

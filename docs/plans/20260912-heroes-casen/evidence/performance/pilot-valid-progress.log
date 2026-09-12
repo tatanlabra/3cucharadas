@@ -1,0 +1,74 @@
+1 avaluos-ii baseline cold: {'lcp_ms': None, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': None}
+1 avaluos-ii baseline warm: {'lcp_ms': 3928, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 3928}
+1 avaluos-ii candidate cold: {'lcp_ms': None, 'cls_raw_sum': 0.0020620659722222225, 'cls_session_window': 0.0020620659722222225, 'fcp_ms': None}
+1 avaluos-ii candidate warm: {'lcp_ms': 3636, 'cls_raw_sum': 0.0020620659722222225, 'cls_session_window': 0.0020620659722222225, 'fcp_ms': 3636}
+1 casen-long candidate cold: {'lcp_ms': 2024, 'cls_raw_sum': 0.023050489366319447, 'cls_session_window': 0.023050489366319447, 'fcp_ms': 2024}
+1 casen-long candidate warm: {'lcp_ms': 716, 'cls_raw_sum': 0.023050489366319447, 'cls_session_window': 0.023050489366319447, 'fcp_ms': 716}
+1 casen-long baseline cold: {'lcp_ms': 984, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 984}
+1 casen-long baseline warm: {'lcp_ms': 364, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 364}
+[
+  {
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "n_expected_each": 1,
+    "median_lcp_ms": {
+      "baseline": null,
+      "candidate": null
+    },
+    "regression_percent": null,
+    "lcp_threshold_diagnostic": "missing",
+    "baseline_lcp_absolute_pass": null,
+    "max_cls": {
+      "baseline": null,
+      "candidate": null
+    }
+  },
+  {
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "n_expected_each": 1,
+    "median_lcp_ms": {
+      "baseline": 3928,
+      "candidate": 3636
+    },
+    "regression_percent": -7.433808553971488,
+    "lcp_threshold_diagnostic": "fail",
+    "baseline_lcp_absolute_pass": false,
+    "max_cls": {
+      "baseline": 0.002246388888888889,
+      "candidate": 0.0020620659722222225
+    }
+  },
+  {
+    "page": "casen-long",
+    "temperature": "cold",
+    "n_expected_each": 1,
+    "median_lcp_ms": {
+      "baseline": 984,
+      "candidate": 2024
+    },
+    "regression_percent": 105.69105691056913,
+    "lcp_threshold_diagnostic": "fail",
+    "baseline_lcp_absolute_pass": true,
+    "max_cls": {
+      "baseline": 0.014537181712962964,
+      "candidate": 0.023050489366319447
+    }
+  },
+  {
+    "page": "casen-long",
+    "temperature": "warm",
+    "n_expected_each": 1,
+    "median_lcp_ms": {
+      "baseline": 364,
+      "candidate": 716
+    },
+    "regression_percent": 96.70329670329669,
+    "lcp_threshold_diagnostic": "fail",
+    "baseline_lcp_absolute_pass": true,
+    "max_cls": {
+      "baseline": 0.014537181712962964,
+      "candidate": 0.023050489366319447
+    }
+  }
+]

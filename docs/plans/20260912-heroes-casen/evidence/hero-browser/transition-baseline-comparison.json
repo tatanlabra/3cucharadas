@@ -1,0 +1,10 @@
+{
+  "baseline": "bf1ff5ac",
+  "night_metadata_css_rule_identical": true,
+  "night_metadata_css_rule": "html[data-theme=\"academic-night\"] .page__meta,\nhtml[data-theme=\"academic-night\"] .page__date,\nhtml[data-theme=\"academic-night\"] .archive__item-excerpt,\nhtml[data-theme=\"academic-night\"] .author__bio,\nhtml[data-theme=\"academic-night\"] .breadcrumbs,\nhtml[data-theme=\"academic-night\"] figcaption,\nhtml[data-theme=\"academic-night\"] .taxonomy__count {\n  color: var(--night-muted);\n}",
+  "rule_sha256": "80f5ad274b76a9bc44990dcac6956218a24656054b6a956cce23428e19a62187",
+  "theme_toggle_source_identical": true,
+  "theme_toggle_sha256": "d40324de8eb77a5b54a6c67a82c827e2fd40d98ada5bd9c845c827ff15b2c3a9",
+  "baseline_runtime_reproduced": false,
+  "attribution": "Relevant night metadata and theme-toggle source rules predate this task unchanged; transition failure was reproduced only on candidate, so runtime baseline equivalence remains unmeasured."
+}

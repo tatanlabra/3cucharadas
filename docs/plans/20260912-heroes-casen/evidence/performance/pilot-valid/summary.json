@@ -1,0 +1,72 @@
+{
+  "label": "pilot-v2",
+  "formal_acceptance": false,
+  "groups": [
+    {
+      "page": "avaluos-ii",
+      "temperature": "cold",
+      "n_expected_each": 1,
+      "median_lcp_ms": {
+        "baseline": null,
+        "candidate": null
+      },
+      "regression_percent": null,
+      "lcp_threshold_diagnostic": "missing",
+      "baseline_lcp_absolute_pass": null,
+      "max_cls": {
+        "baseline": null,
+        "candidate": null
+      }
+    },
+    {
+      "page": "avaluos-ii",
+      "temperature": "warm",
+      "n_expected_each": 1,
+      "median_lcp_ms": {
+        "baseline": 3928,
+        "candidate": 3636
+      },
+      "regression_percent": -7.433808553971488,
+      "lcp_threshold_diagnostic": "fail",
+      "baseline_lcp_absolute_pass": false,
+      "max_cls": {
+        "baseline": 0.002246388888888889,
+        "candidate": 0.0020620659722222225
+      }
+    },
+    {
+      "page": "casen-long",
+      "temperature": "cold",
+      "n_expected_each": 1,
+      "median_lcp_ms": {
+        "baseline": 984,
+        "candidate": 2024
+      },
+      "regression_percent": 105.69105691056913,
+      "lcp_threshold_diagnostic": "fail",
+      "baseline_lcp_absolute_pass": true,
+      "max_cls": {
+        "baseline": 0.014537181712962964,
+        "candidate": 0.023050489366319447
+      }
+    },
+    {
+      "page": "casen-long",
+      "temperature": "warm",
+      "n_expected_each": 1,
+      "median_lcp_ms": {
+        "baseline": 364,
+        "candidate": 716
+      },
+      "regression_percent": 96.70329670329669,
+      "lcp_threshold_diagnostic": "fail",
+      "baseline_lcp_absolute_pass": true,
+      "max_cls": {
+        "baseline": 0.014537181712962964,
+        "candidate": 0.023050489366319447
+      }
+    }
+  ],
+  "missing_runs": 2,
+  "n_runs": 8
+}

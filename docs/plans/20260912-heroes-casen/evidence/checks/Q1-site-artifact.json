@@ -1,0 +1,15 @@
+{
+  "id": "Q1-site-artifact",
+  "task_id": "Q1",
+  "command": [
+    "ruby",
+    "scripts/verify_site_artifact.rb",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:46:01.011737+00:00",
+  "seconds": 1.1868156410000665,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-site-artifact.log",
+  "log_sha256": "9a023a7ae18e0704737fc4da458bc5decc709b7251fb96355973c48aac7ea5ab"
+}

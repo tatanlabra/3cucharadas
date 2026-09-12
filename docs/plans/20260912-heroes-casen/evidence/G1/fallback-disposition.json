@@ -1,0 +1,69 @@
+{
+  "task_id": "G1",
+  "status": "partial_optional",
+  "reviewer": "Qwen Code sidecar; local Codex disposition",
+  "provider": "DeepSeek configured route",
+  "requested_model": "deepseek-v4-pro",
+  "effective_identity_evidence": {
+    "configured_route": "qwen-configured-provider.json",
+    "init_event_model": "deepseek-v4-pro",
+    "self_report": "deepseek-v4-pro",
+    "limitation": "Requested/configured/init/self-report identities are distinct observations, not authentication of model weights."
+  },
+  "source_digest": "e6a146a1b9d6a44132e09dc72b58259da1442f1d4c67b5e467da380e42f9ed84",
+  "transport_status": "failed",
+  "transport_exit_code": 1,
+  "qwen_exit_code": 0,
+  "recovered_response_status": "partial",
+  "count_as_approved_external_review": false,
+  "findings": [
+    {
+      "id": "G1-QWEN-1",
+      "severity": "P1",
+      "status": "not_verified_by_provider",
+      "claim": "CASEN instrument and weights",
+      "evidence": "web_fetch retrieved both PDFs with200 responses; read_file failed because pdftotext absent in container; attempted shell capability query was denied. Provider explicitly labels questionnaire/use-note supplied-only.",
+      "disposition": "Do not count as independent documentary verification. Local official PDF checks are separate evidence."
+    },
+    {
+      "id": "G1-QWEN-2",
+      "severity": "P2",
+      "status": "bounded_support",
+      "claim": "Forem global disclosure enum",
+      "evidence": "Provider tool traces show raw Article.rb retrieved and enum queried; local raw snapshot independently matches four values.",
+      "disposition": "Supports enum compatibility only. Component-level design is local; no claim about current remote DEV state."
+    },
+    {
+      "id": "G1-QWEN-3",
+      "severity": "P2",
+      "status": "unsupported_detail",
+      "claim": "not_disclosed is guaranteed via enum default",
+      "evidence": "Recovered report attributes a storage default to enum ordering; Article.rb enum listing alone does not demonstrate the database default.",
+      "disposition": "Do not adopt that inferred remote-default proof. Local converter explicitly defaults not_disclosed, independently tested in U1."
+    },
+    {
+      "id": "G1-QWEN-4",
+      "severity": "P2",
+      "status": "qualified_support",
+      "claim": "SVG img selectability and semantic tables",
+      "evidence": "Provider correctly notes MDN explains image restrictions but does not directly state the claimed selectability behavior; Matplotlib text_props is not evidence for this claim.",
+      "disposition": "Keep source limitation; do not turn MDN indirect support or object embedding into proof of table semantics."
+    },
+    {
+      "id": "G1-QWEN-5",
+      "severity": "P2",
+      "status": "transport_failure",
+      "claim": "Normal review completion",
+      "evidence": "Raw JSON file has65536bytes and an unterminated final result string.27complete objects include final assistant report, but the bridge cannot parse result and returns1.",
+      "disposition": "Recovered report is supplementary partial content, not bridge success or an approved external review."
+    }
+  ],
+  "limitations": [
+    "No independent provider verification of CASEN PDF text was achieved.",
+    "No scientific code/data audit was performed by G1.",
+    "No bibliographic gap or mathematical conclusion is resolved by agreement among models.",
+    "No third attempt; optional G1 does not block D2.",
+    "Qwen web_fetch saved public PDFs in its tool cache, despite report saying no files written; this is distinct from editing source files.",
+    "Escalated canonical bridge automatically pulled Docker runtime image ghcr.io/qwenlm/qwen-code:0.21.6; retained as an environment side effect, no packages/configuration manually edited."
+  ]
+}

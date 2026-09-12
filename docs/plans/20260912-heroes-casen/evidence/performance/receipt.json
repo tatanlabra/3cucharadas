@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task": "Q1-performance-evidence-index",
+  "status": "partial",
+  "timestamp": "2026-09-12T12:23:02.747216+00:00",
+  "formal_acceptance": false,
+  "current_formal_receipt": "formal-first-person/receipt.json",
+  "current_formal_receipt_sha256": "6fd4797a652435975c89cfef82ca388a9d880b357024429202a37b0d35b15e70",
+  "current_UI_receipt": "../hero-browser-first-person/receipt.json",
+  "current_UI_receipt_sha256": "758e6db5817a37c55182a2ab09336dfd6b2a1273200fc95ae0d8e8d855382848",
+  "historical_receipts": [
+    "pilot-receipt.json",
+    "pre-first-person-receipt.json"
+  ],
+  "historical_notice": "Earlier receipts describe earlier diagnostic states; prepared formal-tools later evolved. Current formal measurement files are bound by current_formal_receipt.",
+  "mandatory_pending": "LCP missing and Avalúos warm threshold failure; root-owned presentation canary separate, no threshold relaxation.",
+  "cleanup": {
+    "own_sessions_closed": true,
+    "servers4041_4042_closed": true,
+    "server4004_untouched": true
+  }
+}

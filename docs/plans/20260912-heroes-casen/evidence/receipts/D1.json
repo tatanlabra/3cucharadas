@@ -1,0 +1,261 @@
+{
+  "task_id": "D1",
+  "checks": [
+    {
+      "id": "D1-root-r-boundary-tests",
+      "task_id": "D1",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "v5_brecha/tests",
+        "-p",
+        "test_casen_shared_site.py",
+        "-v"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/catastros_sii",
+      "started_at": "2026-09-12T11:24:51.651690+00:00",
+      "seconds": 5.10430857999927,
+      "exit_code": 0,
+      "log": "evidence/checks/D1-root-r-boundary-tests.log",
+      "log_sha256": "885d16865afd3a9d6aca63f95725e3aa509520f729598f416e81ca5f5dbae309",
+      "acceptance_ids": [
+        "AC-D1"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/audit.json",
+      "sha256": "89c0516199a7bda371cdfd42572917ff92b5551084fb69ee86093a2baafbfd31"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/estimates.csv",
+      "sha256": "c6c7e9ca08f0b12325ed3f8144df00dd27e6906b7e1ecad4f3ba7b8b8b41e1e3"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/estimates.json",
+      "sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/estimates.parquet",
+      "sha256": "5802ad1a03c929ad68b617849c842e65c119add571be5c7e82da8cc549479b02"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-boundary-replay.json",
+      "sha256": "38b071908dff1243a9819bdb9d481ba701a1c7b8937c1b722b41f2876400317e"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-disposition.json",
+      "sha256": "da8b549069b160c52416fbc8c92cccece7e1089ced6b9e0524ef16b69f93ac19"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-pipeline-run.json",
+      "sha256": "69d5497153060ca7583cbc26a176a54229df6bb180c94a3367f3ab97831c2813"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-privacy-false-positive.log",
+      "sha256": "4476bd532d543a4f0a6b51bf71f5de4ec4cd054bb36e52b958f006a35a3a9425"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-r-tests-green.log",
+      "sha256": "51539b097a37c01f9714cb64c29d73dcb4e3e427d1479cc3fc7f305e07697531"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-r-tests-initial-failure.log",
+      "sha256": "fd7dea63c5bd1ab9f473984656238459224ce192e10ab39fa13215f8ec3e735d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-real-column-metadata.json",
+      "sha256": "7cf26366d8e0d82d83e4858bb41e4fd3571e9833cd9aecaa901083f60e9b7db7"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-red-factor.json",
+      "sha256": "45f863fdb3f5f0b31ae5d47ec91ca5d5ecfc9e29094f86f32473df826e50505d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/audit.json",
+      "sha256": "761c81b4e5c06dfb8b97109855f0b485e7abfce1d41bc6e15581d8ca68e25ade"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/estimates.csv",
+      "sha256": "c6c7e9ca08f0b12325ed3f8144df00dd27e6906b7e1ecad4f3ba7b8b8b41e1e3"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/estimates.json",
+      "sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/estimates.parquet",
+      "sha256": "5802ad1a03c929ad68b617849c842e65c119add571be5c7e82da8cc549479b02"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/julia-parity.log",
+      "sha256": "9457aeb7f313bfaf48cc9589c2076441796bcd719d774308fd898aed18dbfbcb"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/pipeline-receipt.json",
+      "sha256": "a02ec04d247f0d8908bd7041a980c37d34a8a20eeceed0baac27e1abc331593e"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/pipeline.log",
+      "sha256": "8b2101e8255e1326bad85bfe0406fbd980bf8105bd056c953cc75c4f4df7f81d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/red-drop-outside-domain-psu.log",
+      "sha256": "5e1423c9faeb54c59f74512e01c68081c78724b7d5186776fb8508f7788c21a3"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/red-false-exact-boundary-ci.log",
+      "sha256": "4c077cad96a59cf80ab7a800adf543ef20b1e7354935a180e146e0a63d2b21ba"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/red-households-counted-as-persons.log",
+      "sha256": "9d293484b6494baa67096743446e0cd767acab951333eaf05636e7213a0ed6f0"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/red-singleton-silently-skipped.log",
+      "sha256": "aab777941b98109b1f0ab90c6a9e75e16a50dd855fc2a3b418207bb6f3027970"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/red-wrong-ownership-denominator.log",
+      "sha256": "5ad45a3c6dfa4545675e927454f4af34c679e93bf2d87a70a4d2c70b1738defe"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/reproduce_checks.py",
+      "sha256": "75dd82b753ca0ba02f8906463431335f5396d7faef1f2fc7a580e4cb69168070"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/tests-green-recovery.log",
+      "sha256": "37e97c5285c28b4fe09a90202f36664180bf84bb8fb50dded558435419829ab8"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/tests-green.log",
+      "sha256": "c45633d8d4c15afc7254391eeab3b268759a13a5454d4df75a5f45d411d90c01"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/evidence/verification.json",
+      "sha256": "ee10bb98d566583212e8742d7715a86696abb2f17470c26113c30c8656d0bb98"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/artifacts/casen_shared_site/provenance.json",
+      "sha256": "e5cd8797d3109d1f8d2b68aba532fbaff953b4982f13b57ac2965deb508fb2f1"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/docs/casen-shared-site-method.md",
+      "sha256": "11a4133b7ea23fde03c318be856942aa06442b0f4bc2ccadaaf75c46642881b2"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/freeze.json",
+      "sha256": "f295d9f0d1e49a38b9ee69e8245b0c9d0aef4815bd2cda1bac3aa963229dbfeb"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/scripts/casen_shared_site.py",
+      "sha256": "9ca99936da8ca8054a834fe5d00dbbcf09ef2e1a86e3896d7f9be0d7b013cdca"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/src/casen_shared_site/__init__.py",
+      "sha256": "5fd5525ded8ec6dd2e20997fdcdc61a9b76b7b415ee635ca043541aaf206fc2d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/src/casen_shared_site/core.py",
+      "sha256": "d9d530f911eb9ad3e5986b48167d8965a2e3e4c188295f4af56b76eddec3122f"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/history/pre-d2-f1-e40cae6a5f77/tests/test_casen_shared_site.py",
+      "sha256": "5f9b0c27cf426f216dff98f3415f998de7946c2b915f5f3ed8c86c447dce4794"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/julia-parity.log",
+      "sha256": "9457aeb7f313bfaf48cc9589c2076441796bcd719d774308fd898aed18dbfbcb"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/pipeline-receipt.json",
+      "sha256": "ef62fe7a841b0293b98642a2cc6fa640af331cae6863a28caf5b57d2908efbc1"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/pipeline.log",
+      "sha256": "8b2101e8255e1326bad85bfe0406fbd980bf8105bd056c953cc75c4f4df7f81d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-drop-outside-domain-psu.log",
+      "sha256": "b745416258c2a495b3e0ab30eabc26200924dc8887317ff4ae108670394aa0c9"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-false-exact-boundary-ci.log",
+      "sha256": "e50b626fbdb1a52c812aa856abb129caa7bd549f7a50993f6f36c16d29366047"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-households-counted-as-persons.log",
+      "sha256": "f71bdf1ba1d5c3efd0ca50c15c9ea09ae6ebc0d3a46051def18d8a376e7be81e"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-r-numeric-type-guard.log",
+      "sha256": "39e21b38a6cb36795f42629f412e84cf93c9a047f1cc0f0791c375fe34462831"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-singleton-silently-skipped.log",
+      "sha256": "8381956357d7b6b41d0d46c5b2fd6ad06d2312570bff479f1c6ca5964bc0ed77"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/red-wrong-ownership-denominator.log",
+      "sha256": "586a5b9a20fb14a701f8904bd7836b84ed971ec7c10955b520a95ba2c64644f7"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/reproduce_checks.py",
+      "sha256": "e3d54e98af9c1143550ae6500ddb9061f97fe56cf96c709d65974427683bf416"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/reproduce_f1_boundary.py",
+      "sha256": "ee9a9792c3ecb15385ed92956d4dcc6a96b8687cf4f8b5ed778beb6aea17e4fa"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/tests-green-recovery.log",
+      "sha256": "fed30d0c06ae903aae2b0e31eb672806a76accd7bce8e4cdc39662f224e4583a"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/tests-green.log",
+      "sha256": "824cb42e248a593343d4c2d0274ffc6a769c20931a46d7c0ca1f65095647543a"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/verification.json",
+      "sha256": "8b8d24e93aad99a4970c1dd2c5c8e21059a6b0347e2a2e635eb2704a0d14991a"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/provenance.json",
+      "sha256": "12286c253b021a9b9a83381e8d5ad1cb46964f312e396f7474582501b61c2df0"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/docs/casen-shared-site-method.md",
+      "sha256": "a347a9dc4e392eb6d7cc468d13658fbe4614b9a30bc349006b3b7e9f97a1d7d6"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/scripts/casen_shared_site.py",
+      "sha256": "76004be255f3b29cb95832f7790b4d5222d19c0b11d49d7d5e6a356274986e09"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/src/casen_shared_site/__init__.py",
+      "sha256": "5fd5525ded8ec6dd2e20997fdcdc61a9b76b7b415ee635ca043541aaf206fc2d"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/src/casen_shared_site/core.py",
+      "sha256": "ecd7139d63849d3969785ed22980e166b19b59e0cf78cd99a454a3385f9215a5"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/src/casen_shared_site/rdata.py",
+      "sha256": "3ceea3d56f27b5f066f0541a606d783ee1d06bcfad6b66f9d9798f8f5ccee9b7"
+    },
+    {
+      "path": "activos/catastros_sii/v5_brecha/tests/test_casen_shared_site.py",
+      "sha256": "6fb6b1159a01efe2ef0352204c8a71fd1a4a9c3094c88fe41ffd4f8807217f92"
+    }
+  ],
+  "source_digest": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "negative_evidence": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/verification.json",
+  "correction_evidence": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/D2-F1-disposition.json",
+  "limitations": [
+    "Scientific review D2 round2 still pending"
+  ]
+}

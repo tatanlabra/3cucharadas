@@ -1,0 +1,5 @@
+{
+  "execution_exit_code": 130,
+  "reason": "Repeated QWEN_SANDBOX backend errors under restricted execution; stopped via tool control-C before retry with escalated execution. Bridge status/result were not generated; do not infer model response.",
+  "model_response_observed": false
+}

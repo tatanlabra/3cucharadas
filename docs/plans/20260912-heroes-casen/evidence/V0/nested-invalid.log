@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/catastro_sii/render_gap_figures.py", line 193, in <module>
+    main()
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/catastro_sii/render_gap_figures.py", line 182, in main
+    source = load_source(args.source, args.expected_sha256)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/catastro_sii/render_gap_figures.py", line 74, in load_source
+    validate_rows(source['communes'])
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/catastro_sii/render_gap_figures.py", line 65, in validate_rows
+    raise ValueError(f'Invalid nested materiality: {code}')
+ValueError: Invalid nested materiality: 05101

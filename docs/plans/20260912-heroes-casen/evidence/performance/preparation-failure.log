@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/3c-heroes-performance/run_performance.py", line 52, in <module>
+    cmd(session,'addinitscript',(HERE/'embedded-vitals-init.js').read_text())
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/3c-heroes-performance/run_performance.py", line 23, in cmd
+    if (r.returncode or not payload.get('success')) and not allow_failure:raise RuntimeError(str(payload))
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: {'error': 'Unknown command: addinitscript', 'success': False, 'type': 'unknown_command'}

@@ -15,17 +15,24 @@ editorial_status: escenario-tributario-hipotetico
 description: "Brecha Censo–SII, campamentos y avalúos habitacionales: escenarios de impuesto teórico en pesos para orientar una revisión predial, con supuestos explícitos."
 excerpt: "Una diferencia persistente junto a avalúos altos en los predios registrados justifica revisar el catastro. Comprobar omisiones y sus efectos tributarios requiere identificar los inmuebles."
 header:
-  overlay_image: /assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp
-  overlay_filter: "linear-gradient(90deg, rgba(9,11,24,0.96) 0%, rgba(9,11,24,0.72) 42%, rgba(9,11,24,0.10) 72%, rgba(9,11,24,0.08) 100%)"
+  overlay_image: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
   show_overlay_excerpt: false
-  caption: "Ilustración conceptual con IA · no es un mapa real."
-  teaser: /assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
-  og_image: /assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp
-  og_image_alt: "Ciudad residencial nocturna atravesada por una capa conceptual de polígonos catastrales por revisar."
+  teaser: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/og-1200x630.webp
+  og_image_alt: Ciudad residencial nocturna y polígonos catastrales conceptuales por conciliar.
+  overlay_image_mobile: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-mobile-800x450.webp
+  teaser_mobile: /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp
 math: true
 toc: true
 toc_sticky: true
 comments: true
+visual_id: avaluos-ii
+ai_disclosure:
+  level: some_ai
+  components:
+    text: assisted
+    hero: generated
 ---
 
 En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), cambiar el denominador cambiaba el mapa. Ahora me interesa una pregunta anterior al impuesto: **si el Censo cuenta más viviendas que los roles habitacionales del SII, ¿por dónde conviene empezar a revisar?**
@@ -81,13 +88,51 @@ La extrapolación tiene dos límites. La materialidad se observa en viviendas oc
 
 No agrego otro descuento por viviendas irrecuperables, porque desconozco su superposición con campamentos. Tampoco multiplico este escenario por la proporción de roles sobre el monto exento: no conocemos la distribución conjunta de ambas características.
 
-![Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto.](/assets/images/avaluos-ii/gap-top15-es.svg)
+<figure style="width:100%">
+  <div role="region" aria-label="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-es.svg" alt="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-es-dark.svg" alt="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." loading="lazy">
+  </div>
+  <figcaption>Escenarios de composición de la diferencia; no son viviendas omitidas identificadas. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/gap-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
+</figure>
 
 {% include avaluos-ii-top-es.html %}
 
 **Cómo leer el gráfico.** El largo total conserva la diferencia inicial; sus segmentos distinguen el descuento supuesto por campamentos y la composición hipotética del residuo. Las quince comunas se ordenan por ese residuo, no por materialidad ni por avalúos. La selección tributaria de la segunda cucharada aplica un filtro diferente.
 
 El [visor permite explorar cada comuna y consultar la tabla completa](/catastro_sii_brecha/#brecha-contribuciones). El [anexo de Valparaíso y Puerto Montt](/catastro_sii_brecha/#catastro-anexo) superpone predios, unidades vecinales y campamentos: ayuda a observar relaciones espaciales, pero no identifica por sí solo viviendas omitidas.
+
+### Varias viviendas en un sitio: una explicación adicional que sí merece contrastarse
+
+Dos viviendas pueden compartir un terreno y estar consideradas en un mismo rol. En ese caso, el Censo cuenta dos viviendas sin que necesariamente falte un predio en el registro tributario. Este mecanismo puede contribuir a la diferencia; demostrar cuánto aporta exige vincular **vivienda, sitio y rol**. El diccionario público examinado y el [manual de microdatos del Censo, pp. 17–20][ine-manual], permiten enlazar vivienda, hogar y persona, pero no proporcionan un identificador común de sitio o rol para esta conciliación. Varios hogares dentro de una vivienda tampoco equivalen a varias viviendas dentro de un sitio.
+
+CASEN 2024 permite observar una señal más acotada. En su pregunta de tenencia, las categorías 3 y 4 identifican hogares que declaran **sitio propio compartido con otras viviendas**, pagado o pagándose. No preguntan cuántas viviendas hay en el sitio. Calculo su proporción entre **todos los hogares con respuesta válida**, incluidos arrendatarios y otras tenencias, usando una jefatura por hogar. La pregunta sobre hogar principal es condicional; filtrarla en toda la base eliminaría indebidamente hogares de viviendas unihogar. Véase el [cuestionario oficial, pp. 79 y 83][casen-cuestionario].
+
+El resultado nacional es **1,09 % de los hogares**, con un intervalo aproximado del 95 % de **0,97 % a 1,21 %**. Procede de 78.654 hogares muestrales, sin respuestas faltantes en esa pregunta. La estimación nacional y las regionales usan `expr` y linealización de Taylor con estratos y conglomerados; el intervalo expresa incertidumbre muestral, no todos los posibles errores de medición. La [nota oficial de uso de CASEN][casen-nota] distingue estos dominios del uso descriptivo comunal.
+
+<figure style="width:100%">
+  <div role="region" aria-label="Proporción de hogares que declaran sitio propio compartido: Chile y 16 regiones con intervalos aproximados; Valparaíso y Viña del Mar como casos exploratorios sin IC." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1286" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/casen-shared-site-es.svg" alt="Proporción de hogares que declaran sitio propio compartido: Chile y 16 regiones con intervalos aproximados; Valparaíso y Viña del Mar como casos exploratorios sin IC." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1286" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/casen-shared-site-es-dark.svg" alt="Proporción de hogares que declaran sitio propio compartido: Chile y 16 regiones con intervalos aproximados; Valparaíso y Viña del Mar como casos exploratorios sin IC." loading="lazy">
+  </div>
+  <figcaption>CASEN 2024. Los porcentajes describen hogares, no viviendas por sitio. Los dos casos comunales no son representativos. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/casen-shared-site-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/casen-shared-site-es-dark.svg">SVG oscuro</a>.</figcaption>
+</figure>
+
+{% include casen-shared-site-table.html lang='es' %}
+
+Valparaíso y Viña del Mar muestran **9,27 % y 8,60 %**, respectivamente, en el cálculo comunal ponderado con `expc`. Son señales exploratorias: las elegí después de observar su discrepancia y estos resultados **no son estimaciones representativas de cada comuna**. La presencia de un factor comunal no les confiere esa propiedad. La tabla conserva tamaños muestrales y faltantes; las once comunas sin muestra se registran como dato ausente, nunca como cero.
+
+La deducción es limitada pero útil: contar viviendas y contar roles puede producir diferencias aun con un registro correcto. El patrón observado en estas dos comunas vuelve pertinente examinar los sitios compartidos. La hipótesis es que expliquen una parte de su discrepancia, junto con campamentos, destinos agrícolas, fechas y eventuales omisiones. La evidencia que permitiría distinguir estas explicaciones es una muestra representativa que enlace viviendas con sitios y roles; la hipótesis perdería fuerza como explicación material si ese cruce mostrara que su aporte es pequeño bajo un criterio fijado antes de medirlo.
+
+**No descuento este porcentaje de las barras ni de los escenarios en pesos.** Describe una tenencia de hogares, no la proporción de viviendas que sobran en el recuento. Además, no cubre todas las formas de compartir sitio y podría superponerse con campamentos. Restarlo ahora produciría una precisión aparente y podría contar dos veces la misma explicación.
+{: .notice--info}
+
+<details markdown="1">
+<summary>Por qué no convertir directamente el porcentaje CASEN en viviendas por sitio</summary>
+
+En un ejemplo puramente hipotético, si una proporción $$p_v$$ de las **viviendas** perteneciera a sitios con exactamente dos viviendas y las restantes ocuparan sitios individuales, habría $$V(1-p_v/2)$$ sitios. La razón roles/sitios sería $$R_2=R_1/(1-p_v/2)$$, con $$R_1=\text{roles}/V$$. Por ejemplo, un $$p_v=0{,}20$$ supuesto equivaldría a 90 sitios por cada 100 viviendas. La proporción CASEN de **hogares** no es ese parámetro: la fórmula ilustra el mecanismo, pero no estima un ajuste fiscal.
+
+</details>
 
 ## Segunda cucharada: distinguir una brecha grande de una revisión con interés tributario
 
@@ -144,10 +189,12 @@ Luego multiplico el residuo bajo el supuesto de campamentos por cada estadístic
 
 **Son dos referencias de escala, no un intervalo de confianza ni límites inferior y superior garantizados.** La mediana no es un impuesto mínimo: si más de la mitad de los predios queda bajo el monto exento, puede ser cero aunque la media sea positiva. Aquí se conservan las quince comunas del filtro anterior y se ordenan por el escenario con la media.
 
-<figure>
-  <img class="avaluos-ii-monetary-light" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-es.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
-  <img class="avaluos-ii-monetary-dark" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-es-dark.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
-  <figcaption>Millones de pesos bajo el supuesto de que cada unidad del residuo correspondiera a un nuevo predio comparable. Los montos son hipotéticos; no son deuda constatada ni ingresos municipales retenidos.</figcaption>
+<figure style="width:100%">
+  <div role="region" aria-label="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
+    <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-es.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
+    <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-es-dark.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
+  </div>
+  <figcaption>Millones de pesos bajo el supuesto de que cada unidad del residuo correspondiera a un nuevo predio comparable. Los montos son hipotéticos; no son deuda constatada ni ingresos municipales retenidos. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/monetary-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-monetary-es.html %}
@@ -180,6 +227,14 @@ El [diccionario catastral del SII][sii-estructura] define el campo semestral dis
 Determinar un impuesto, girarlo y recaudarlo son etapas distintas. El SII determina los avalúos y giros; la [Tesorería General de la República recauda][tgr-impuestos]. Además, la distribución mediante el [Fondo Común Municipal][sii-fcm] impide equiparar el impuesto asociado a una comuna con ingresos retenidos íntegramente por su municipio.
 
 La [guía de Grote y Wen (2024, pp. 16–18)][fmi-guia] ayuda a ordenar el problema: distingue cobertura, valoración y cobro, y propone contrastar cartografía, terreno y registros. Sirve para diseñar una verificación, no para importar un coeficiente de recaudación a estas comunas.
+
+<aside class="notice--info" markdown="1">
+**Detrás del análisis: Python y geomática reproducible**
+
+Python conecta los agregados catastrales, censales y territoriales; Parquet conserva las tablas en formato columnar y Matplotlib produce estas figuras en SVG y PNG, con tipografía y paletas para ambos modos de lectura. Cada gráfico parte de una tabla verificable: la imagen sirve para leer el patrón y la tabla para examinar los valores. El visor mantiene ECharts para la exploración interactiva y las capas cartográficas para revisar el territorio.
+
+Para CASEN, R abre la base original y entrega a Python las columnas necesarias mediante una tubería en memoria. Python calcula las estimaciones y la varianza de diseño; fixtures algebraicos y una comparación acotada con Julia contrastan la implementación. Separar extracción, cálculo, representación y controles facilita llevar trabajo semejante a flujos de cómputo de mayor escala. **Esta ejecución es local: no constituye un benchmark ni una ejecución demostrada en un clúster HPC.** El [método y la procedencia](/catastro_sii_brecha/data/casen-shared-site/method.md) permiten revisar qué se hizo efectivamente.
+</aside>
 
 ## Cierre: que la diferencia tenga una explicación
 
@@ -219,6 +274,8 @@ Se agregan los resultados por comuna, incluidos los ceros, antes de multiplicar 
 
 ## Fuentes y referencias
 
+Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: cuestionario y nota de uso de bases de datos*. Tenencia y hogar principal, pp. 79 y 83 del [cuestionario][casen-cuestionario]; factores de expansión y dominios en la [nota de uso][casen-nota]. Consultados el 12 de septiembre de 2026.
+
 Grote, Martin, y Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. Fondo Monetario Internacional, septiembre. [Texto completo][fmi-guia].
 
 Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicadores viv04–viv06, 103–106. [Manual][ine-manual].
@@ -246,3 +303,6 @@ Tesorería General de la República (TGR). S. f. «Impuestos y tipos de impuesto
 [sii-destino]: https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html
 [tgr-impuestos]: https://ayuda.tgr.gob.cl/ayuda/impuestos/impuestos-y-tipos-de-impuestos
 [fmi-guia]: https://www.imf.org/-/media/files/publications/howtonotes/2024/english/htnea2024006.pdf
+
+[casen-cuestionario]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf
+[casen-nota]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf

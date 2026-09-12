@@ -1,0 +1,72 @@
+{
+  "label": "formal-first-person",
+  "formal_acceptance": "requires root review and frozen final inputs",
+  "groups": [
+    {
+      "page": "avaluos-ii",
+      "temperature": "cold",
+      "n_expected_each": 5,
+      "median_lcp_ms": {
+        "baseline": null,
+        "candidate": null
+      },
+      "regression_percent": null,
+      "lcp_threshold_diagnostic": "missing",
+      "baseline_lcp_absolute_pass": null,
+      "max_cls": {
+        "baseline": null,
+        "candidate": null
+      }
+    },
+    {
+      "page": "avaluos-ii",
+      "temperature": "warm",
+      "n_expected_each": 5,
+      "median_lcp_ms": {
+        "baseline": 520,
+        "candidate": 3832
+      },
+      "regression_percent": 636.9230769230769,
+      "lcp_threshold_diagnostic": "fail",
+      "baseline_lcp_absolute_pass": true,
+      "max_cls": {
+        "baseline": 0.002246388888888889,
+        "candidate": 0.002190243055555556
+      }
+    },
+    {
+      "page": "casen-long",
+      "temperature": "cold",
+      "n_expected_each": 5,
+      "median_lcp_ms": {
+        "baseline": null,
+        "candidate": null
+      },
+      "regression_percent": null,
+      "lcp_threshold_diagnostic": "missing",
+      "baseline_lcp_absolute_pass": null,
+      "max_cls": {
+        "baseline": null,
+        "candidate": null
+      }
+    },
+    {
+      "page": "casen-long",
+      "temperature": "warm",
+      "n_expected_each": 5,
+      "median_lcp_ms": {
+        "baseline": 632,
+        "candidate": 364
+      },
+      "regression_percent": -42.40506329113924,
+      "lcp_threshold_diagnostic": "pass",
+      "baseline_lcp_absolute_pass": true,
+      "max_cls": {
+        "baseline": 0.014537181712962964,
+        "candidate": 0.027625658576871145
+      }
+    }
+  ],
+  "missing_runs": 8,
+  "n_runs": 40
+}

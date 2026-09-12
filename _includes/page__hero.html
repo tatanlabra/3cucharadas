@@ -1,6 +1,8 @@
 {% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
 {% assign brand = site.data.brand[active_lang] | default: site.data.brand[site.default_lang] %}
+{% assign editorial_hero = false %}
+{% if page.id and page.header.overlay_image %}{% assign editorial_hero = true %}{% endif %}
 {% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
 
 {% if page.header.overlay_filter contains "gradient" %}
@@ -21,9 +23,15 @@
 
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
-<div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+<div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}{% if editorial_hero %} page__hero--editorial{% endif %}"
+  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if page.header.overlay_image and editorial_hero == false %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
 >
+  {% if editorial_hero %}
+    <picture class="page__hero-media" aria-hidden="true">
+      <img src="{{ page.header.overlay_image | relative_url }}"{% if page.header.overlay_image_mobile %} srcset="{{ page.header.overlay_image_mobile | relative_url }} 800w, {{ page.header.overlay_image | relative_url }} 1600w" sizes="100vw"{% endif %} width="1600" height="900" alt="" fetchpriority="high" loading="eager" style="object-position: {{ page.header.focal_point | default: '65% center' | escape }};">
+    </picture>
+    <span class="page__hero-shade" aria-hidden="true"{% if overlay_filter %} style="background-image: {{ overlay_filter | escape }};"{% endif %}></span>
+  {% endif %}
   {% if page.header.overlay_color or page.header.overlay_image %}
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
@@ -58,7 +66,9 @@
   {% else %}
     <img src="{{ page.header.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">
   {% endif %}
-  {% if page.header.caption %}
+  {% if editorial_hero %}
+    <span class="page__hero-caption"><a href="{{ '/ai-transparency/' | relative_url }}#{{ page.ref | escape }}">{% if page.ai_disclosure.components.hero == 'generated' %}{% if active_lang == 'en' %}I created this cover with AI{% else %}Creé esta portada con IA{% endif %}{% elsif page.ai_disclosure.components.hero == 'human' %}{% if active_lang == 'en' %}I use a human-created cover{% else %}Uso una portada de autoría humana{% endif %}{% else %}{% if active_lang == 'en' %}I have not documented this cover’s origin{% else %}No tengo documentado el origen de esta portada{% endif %}{% endif %}</a></span>
+  {% elsif page.header.caption %}
     <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
   {% endif %}
 </div>

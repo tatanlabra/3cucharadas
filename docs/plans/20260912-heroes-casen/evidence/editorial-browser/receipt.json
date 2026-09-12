@@ -1,0 +1,312 @@
+{
+  "task_id": "E1-editorial-browser",
+  "status": "scoped_checks_pass_with_documented_limits",
+  "surface": "local preview http://127.0.0.1:4004; fresh E1 build completed at 2026-09-12T11:45Z",
+  "scope": "Avalúos II ES/EN gap/CASEN/monetary figures plus two CASEN tables and two fiscal/monetary tables; excludes attribution UI.",
+  "matrix": {
+    "cases": 8,
+    "checks": 368,
+    "passed": 368,
+    "failed": 0,
+    "widths": [
+      390,
+      1440
+    ],
+    "themes": [
+      "light",
+      "academic-night"
+    ]
+  },
+  "source_estimates_sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+  "fetched_svg_sha256": {
+    "/assets/images/avaluos-ii/gap-top15-es.svg": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+    "/assets/images/avaluos-ii/casen-shared-site-es.svg": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+    "/assets/images/avaluos-ii/monetary-top15-es.svg": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+    "/assets/images/avaluos-ii/gap-top15-es-dark.svg": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e",
+    "/assets/images/avaluos-ii/casen-shared-site-es-dark.svg": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387",
+    "/assets/images/avaluos-ii/monetary-top15-es-dark.svg": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461",
+    "/assets/images/avaluos-ii/gap-top15-en.svg": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d",
+    "/assets/images/avaluos-ii/casen-shared-site-en.svg": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c",
+    "/assets/images/avaluos-ii/monetary-top15-en.svg": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402",
+    "/assets/images/avaluos-ii/gap-top15-en-dark.svg": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef",
+    "/assets/images/avaluos-ii/casen-shared-site-en-dark.svg": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09",
+    "/assets/images/avaluos-ii/monetary-top15-en-dark.svg": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060"
+  },
+  "source_fragments_sha256": {
+    "_includes/casen-shared-site-table.html": "fb724a62271361b91e2fca95d396779f1e6ff4ea92d4bf36cad81bb456592bb4"
+  },
+  "axe": {
+    "en-1440-academic-night": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 2
+      }
+    },
+    "es-390-light": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 52
+      }
+    },
+    "en-1440-light": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 52
+      }
+    },
+    "en-390-light": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 52
+      }
+    },
+    "es-1440-light": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 52
+      }
+    },
+    "es-1440-academic-night": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 2
+      }
+    },
+    "es-390-academic-night": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 2
+      }
+    },
+    "en-390-academic-night": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete_node_counts": {
+        "color-contrast": 2
+      }
+    }
+  },
+  "axe_interpretation": "Zero detected violations; color-contrast incomplete retained. Scoped computed-color bounds are independently above4.5, not an axe pass or global WCAG certification.",
+  "contrast_resolution": {
+    "method": "WCAG relative luminance on observed computed colors, bounding all CSS gradient alpha compositions; not a pixel-level audit.",
+    "light": {
+      "text": "#000000",
+      "base": "#faf7f0",
+      "white_overlay": "#fdfdfd",
+      "max_black_shadow_alpha_each": 0.16,
+      "shadow_layers": 2,
+      "conservative_darkest_background": "#b0aea9",
+      "minimum_ratio": 9.473356565663606
+    },
+    "dark_caption": {
+      "text": "#f4f4f4",
+      "lightest_background": "#161616",
+      "minimum_ratio": 16.45309617193269
+    },
+    "dark_cells": {
+      "text": "#e5eaf1",
+      "background": "#202838",
+      "ratio": 12.215510841329912
+    },
+    "caveats": [
+      "Captured stable theme colors; immediate post-toggle light measurement was transitional and excluded.",
+      "Applies to the scoped table text/gradients only; image text contrast separately verified by V0/V1.",
+      "Axe incomplete results preserved, not rewritten as passes."
+    ]
+  },
+  "keyboard": {
+    "before": {
+      "before": 0,
+      "focused": true,
+      "outline": "rgb(16, 16, 16) auto 1px"
+    },
+    "after": {
+      "after": 40,
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "tag": "DIV"
+    },
+    "method": "Actual agent-browser press ArrowRight after focusing figure scroll region"
+  },
+  "screenshots_inspected": [
+    "es-390-light-casen-shared-site.png",
+    "es-390-academic-night-casen-right-bottom.png",
+    "es-1440-light-monetary-top15.png",
+    "en-390-light-casen-table.png",
+    "es-1440-academic-night-casen-shared-site.png",
+    "en-390-light-monetary-top15.png",
+    "en-390-academic-night-casen-right-bottom.png",
+    "en-1440-light-casen-shared-site.png",
+    "en-1440-academic-night-monetary-top15.png"
+  ],
+  "limitations": [
+    "At390px the1000px figure is intentionally clipped inside its scroll container, keeping labels legible; right-hand numeric columns require horizontal scroll or SVG opening.",
+    "At1440px the article column is roughly730px because sidebars remain visible; horizontal figure scroll still needed. Allowed by current embedding contract, residual UX cost.",
+    "The table uses14.4px text in the390px case; long official territory names wrap into multiple lines.",
+    "No physical Safari/iPhone validation; local Chromium151.",
+    "No performance metrics; another agent owns them.",
+    "Upcoming first-person AI attribution UI change is excluded; no global final-site approval asserted."
+  ],
+  "findings": [],
+  "browser_session_closed": true,
+  "server4004_untouched": true,
+  "evidence_manifest": {
+    "en-390-light-casen-shared-site.png": "027833893726a8075671c02d0f2b90bbb6c05f3aebdde00819775071a36956bf",
+    "editorial-keyboard-before.json": "d5901d6e7420d19774d8b334c7a6107f39d2161f2565d4201c463b71904f78bf",
+    "en-390-academic-night-monetary-top15.png": "2232c3189671268752d10306cce5e0d110737238ec1cc3afacadd1d2f7e779b8",
+    "en-1440-academic-night-fiscal-tables-axe.json": "1e2ed847ff1c44a6e1a08c2e66231b502135f8176800b6a184becc6b4e447cd5",
+    "editorial-table-mobile.json": "310cfe2bdf04656fd51ccc355af9131c9a70bc04b9ee1c38c55dda80f1addd11",
+    "es-390-academic-night-casen-right-bottom.png": "2150a9db4e046e4d7778fdd0b62463537aa597cde0a0d9a956dee9437801f111",
+    "en-1440-academic-night-axe.json": "92209af87581d64efac191481455bc6608470957e3f44eb80f4e9b1ecb651a83",
+    "run-qa.py": "6f6fdf5b473d3b6cc4f012dabba55081025aa25d5d48f810fb6bc8ce91c597fc",
+    "en-390-academic-night-fiscal-tables-axe.json": "1e2ed847ff1c44a6e1a08c2e66231b502135f8176800b6a184becc6b4e447cd5",
+    "en-1440-light.json": "fdfc713383d43f48c4b3729cb14d82c22cc305f7b849e15697e0b66b7e322bb5",
+    "matrix.json": "0a6e6b8a404cd003b3d777900fada9358ea796f12aba8c26d459495f59c5e85b",
+    "es-1440-light-fiscal-tables-axe.json": "ea35138f9c939d272d64c1fb0b77f6814fe7b024ef9cc9f7d43eadf3640322b2",
+    "es-390-academic-night-fiscal-tables-axe.json": "956439c796012c3b6a5e152199ba814df54108b5b27c3e6bc03887ec12765128",
+    "en-390-light-casen-table.png": "93e252e0dab5b9e2d30b4ef2b5b779712e272be0fbaf33067a55eb45176c265e",
+    "es-390-light-axe.json": "d7a54f1f837f6bfffb6e9e5535a54ce2a1e92e828466ab0f683b042ef2919c72",
+    "es-1440-light-monetary-top15.png": "3382b92541441848cba37f23f788303c075024876b2ed5f2c8bc6d510583b603",
+    "editorial-contrast-light-stable.json": "e155af69dcdea7b5cad4ab45e2b4727a825db9e05666088471912b3089365a44",
+    "es-390-light-casen-shared-site.png": "84b37d79e60866623318fa6229e160edf295737e70c376e72d40b21f79cd14d2",
+    "editorial-contrast-night.json": "7c8f80a9055940b632773a3707bc49f6788ee1485fb967bfcdc8bc3d4b8e0f7a",
+    "en-1440-light-axe.json": "e318bb06fe7d37fbf63a6234195572c68736726cd8304f08c88d79b9de691d9f",
+    "es-1440-academic-night.json": "cd59e4d5a4c783dab6e469ff5096eda8419d9677512ac93e31dd6ca0fabf43a7",
+    "en-1440-light-monetary-top15.png": "2d28d1815be7dab00c9efce3f37bc542f90313de7c8aaca18d3d5050a839e796",
+    "en-390-light-axe.json": "e318bb06fe7d37fbf63a6234195572c68736726cd8304f08c88d79b9de691d9f",
+    "es-1440-light-axe.json": "d7a54f1f837f6bfffb6e9e5535a54ce2a1e92e828466ab0f683b042ef2919c72",
+    "editorial-keyboard-after.json": "fd590965239958ebcdaccbbb86e514e0c135225e4c75f201d45d067d43039900",
+    "en-1440-light-casen-shared-site.png": "5dd09d8d294e1c2f7c2ddfa0d8965d5cd82154ea76e105aee54dded4731ff859",
+    "es-390-light-fiscal-tables-axe.json": "ea35138f9c939d272d64c1fb0b77f6814fe7b024ef9cc9f7d43eadf3640322b2",
+    "es-1440-light-casen-shared-site.png": "716a4afa419da0eac51b54e3beb0f1ed0a39c27cfedd41adc1780ac56ed318dd",
+    "es-390-light-casen-right-bottom.png": "67b80471c56c7cca314e397cf79b042c3b34ba1b66a44e60d7a8d69538d741e8",
+    "en-390-academic-night-casen-shared-site.png": "0c73730b35b6f287f41ac99d884cdfba030b8018b2cf1a049b4ace2153c8dcfa",
+    "es-1440-academic-night-monetary-top15.png": "a0deeadc66781607591176267ff27094e8feec8b0a4d7bc790aff34d954e8417",
+    "contrast-bounds.json": "d75e92fe0af9310446f6723c467b6308b7f924320f4037eee516c68b0dc12503",
+    "es-390-academic-night-casen-shared-site.png": "0007bc81a7edaf66c6faf882d24068629bd5ce297fbc369ae02e571837e47e6e",
+    "es-1440-academic-night-axe.json": "8cb96fc634e2c8cee1a2b4306a31c84d9cd83720a36e7c8d22fdb065852de63c",
+    "es-390-academic-night.json": "a733976fe330d7aee75284c693ee8046e10de826306954e901258022b3a5d87f",
+    "es-390-academic-night-monetary-top15.png": "8f549117a8b45f5a1761e90264148d7e95d6c9cf5219829edc5641aed59af823",
+    "en-390-academic-night.json": "9531a4c372141cba96c5464bdac8a56d7727c4354bbe75add0081e8ab7a72afa",
+    "fiscal-tables-matrix.json": "d179ca757584ab340fa75baf27fd360f8f0aabf036a694b90e084550ba5cd7ed",
+    "es-390-light-monetary-top15.png": "3525b12201bd2f410d1c3f8b25cfa2aa9a263cb07db94566844db3eb4ae2f612",
+    "run-fiscal-tables-qa.py": "865599c58b5fbd9b3ad826bcfad0eb2999507a344a84d2e7777c3bb64e982f91",
+    "es-390-academic-night-axe.json": "8cb96fc634e2c8cee1a2b4306a31c84d9cd83720a36e7c8d22fdb065852de63c",
+    "en-1440-light-fiscal-tables-axe.json": "d7474a73da16f2abaddca56c00d2da867defe22dcaf3dcd2d1ff36bc1e2b97c6",
+    "en-390-academic-night-axe.json": "92209af87581d64efac191481455bc6608470957e3f44eb80f4e9b1ecb651a83",
+    "en-390-light.json": "e37c678aeb6aa21c45c254121582f11134771ab60cab31b49ba5ebd4c7f9a7d7",
+    "en-1440-academic-night-monetary-top15.png": "6043438b4a210eee511b87ddbdb56014581d3de70b141a43899e94b39d0d6af5",
+    "en-390-light-monetary-top15.png": "fcba944926a2af6d3a4f6e2c5b6109cd20fd85d14cf1e8eda57bd19e8adb43f0",
+    "en-390-light-fiscal-tables-axe.json": "d7474a73da16f2abaddca56c00d2da867defe22dcaf3dcd2d1ff36bc1e2b97c6",
+    "es-1440-light.json": "9e025b58543f10919b1763d5d3c867af9642f8ece34ae8641c87d18017933ae4",
+    "es-1440-academic-night-fiscal-tables-axe.json": "956439c796012c3b6a5e152199ba814df54108b5b27c3e6bc03887ec12765128",
+    "en-1440-academic-night.json": "0a3eab816beafc28bbb941fcfc1489cbc39dbd39d362a9907effd86bc8023647",
+    "en-390-light-casen-right-bottom.png": "43348d036581d24c5b28a505872c76b030fbfe1e2bb3fecbe82f994e40d48832",
+    "es-390-light.json": "024d40c2ed3a33f6718b6205ed6bb48fe6797fe6459ad282efd82cec212e2152",
+    "es-1440-academic-night-casen-shared-site.png": "166066ed6cd7d74136c1a0e0bcb5ba068adc56b6ef8a5a988d0c25dc122a551c",
+    "en-1440-academic-night-casen-shared-site.png": "d416293c0e1ea8a16eacee7d02c7bda440dac4b61e5e52310ca9f2b317580396",
+    "en-390-academic-night-casen-right-bottom.png": "3ef3141980db9c3ff792ac848040588429e0af9e44e2ef1ff8744fdfa277ddcd"
+  },
+  "fiscal_tables_additional_scope": {
+    "cases": 8,
+    "tables_per_case": 2,
+    "rows_per_table": 15,
+    "tabindex": 0,
+    "body_overflow": false,
+    "matrix": "fiscal-tables-matrix.json",
+    "axe_counts": {
+      "es-390-light": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "es-390-academic-night": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "es-1440-light": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "es-1440-academic-night": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "en-390-light": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "en-390-academic-night": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "en-1440-light": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      },
+      "en-1440-academic-night": {
+        "inapplicable": 69,
+        "incomplete": 1,
+        "passes": 19,
+        "violations": 0
+      }
+    }
+  },
+  "axe_audit_total": 16,
+  "science_label_check": {
+    "status": "pass",
+    "method": "Rendered HTML CASEN alt/caption/table and explanatory paragraphs inspected in ES/EN",
+    "observed": "Explicit household denominator and own-site-sharing declaration; explicit distinction from dwelling/site proportion; communal cases marked exploratory without CI."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "task": "Q1-performance-pilot",
+  "timestamp": "2026-09-12T11:35:12.303835+00:00",
+  "status": "partial_diagnostic",
+  "formal_acceptance": false,
+  "candidate": "/tmp/3c-heroes-cardfix-site",
+  "valid_protocol_navigations": 8,
+  "lcp_observed": 6,
+  "lcp_missing": 2,
+  "cls_observed": 8,
+  "retained_failures": [
+    "unknown addinitscript before navigation",
+    "native vitals reload invalidates measurements",
+    "Avalúos cold LCP missing",
+    "Avalúos warm absolute threshold failure both builds",
+    "CASEN >10 percent regression in single paired pilot"
+  ],
+  "awaiting": "root frozen final candidate before five formal pairs",
+  "cleanup": {
+    "own_browser_sessions_closed": true,
+    "ports_4041_4042_servers_closed": true
+  },
+  "files": {
+    "doctor-after-init-command.json": "f181afff9d72e69933fe9254a77c23792f295b154b18a512a4e30acc24bdfe9c",
+    "embedded-vitals-init.js": "51a642ebb48dcfa6dc9fce031146ea1419f6e99e0069f37b39cd5f3a0f7b4068",
+    "measurement-init.js": "5733002b629e9a0f4720d423f23c7567f8393e3fc15ff5191a65ead83767ecc3",
+    "pilot/commands.jsonl": "eb8dc3f260518c36ea9a76a56569822692f4662c512d84c4ad157d4734a43f00",
+    "pilot/measurement-controls.json": "a5257dbe315c42220ee6f959010067ec64160947f0ce099280e3c52a590910d4",
+    "pilot/runs.json": "cf82d19b29db2d302ed313a84eec0f061ad20699ab31809ddb3aaa2772bb3202",
+    "pilot/settings.json": "b54ac3fae1ccca4741a274a93da0c7725b095b66dc815e841cc52d237c45c25e",
+    "pilot-progress.log": "b06c2ed55beac99d2db96b4a2f34d3898ce5fab526e93843b99030ccc7600182",
+    "pilot-report.md": "6b07946dc1938af47f4dc7657cfde9ee0e4bd2644fc50970ccbfcc2adc179c45",
+    "pilot-valid/cls-availability.json": "0465e0d8bd97702c472b0b8105b107e331e9eec0f9c17d27b331915176f04c4d",
+    "pilot-valid/commands.jsonl": "1ea3054e0b6c63a09737f35eb8afdb1542c5bdbe3e93c003d1d1c3543662cc72",
+    "pilot-valid/harness-used.py": "e2975bbe8048c4d930452ed1681b7ecfcdc34ea9a3b3b895c28a195bc0971602",
+    "pilot-valid/measurement-controls.json": "a5257dbe315c42220ee6f959010067ec64160947f0ce099280e3c52a590910d4",
+    "pilot-valid/runs.json": "de1a3da6c6685cd01219bf2059c749ebf7b50e94073e7c0bcc202d2c191959b2",
+    "pilot-valid/settings.json": "dc452a13ea361510798cb713bba7ec02d062536911349f9a96aa026cdd492297",
+    "pilot-valid/summary.json": "eb439258c8c9b025fb9e7871d7c484801e8cb99501a26a13cd196634dc7ba3e7",
+    "pilot-valid-progress.log": "4094355bdb04d157e0d5fc11d70822123582f9e61fde0398a4484a7656ea1a1d",
+    "preparation-failure.log": "5119f825689ea252928e2986f1bbe37558e56543395537c90fbaa5da14d79cd9",
+    "run_performance.py": "e2975bbe8048c4d930452ed1681b7ecfcdc34ea9a3b3b895c28a195bc0971602"
+  }
+}

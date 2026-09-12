@@ -1,0 +1,16 @@
+[
+  {
+    "file": "assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+    "current_sha256": "31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808",
+    "baseline_sha256": "31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808",
+    "unchanged_from_baseline": true,
+    "bytes": 156080
+  },
+  {
+    "file": "scripts/lib/image_dimensions.rb",
+    "current_sha256": "c94fb013aaa3f691eb791b3a5112a0583b220f1d3b7a59af353f2034f887c584",
+    "baseline_sha256": "c94fb013aaa3f691eb791b3a5112a0583b220f1d3b7a59af353f2034f887c584",
+    "unchanged_from_baseline": true,
+    "bytes": 2577
+  }
+]

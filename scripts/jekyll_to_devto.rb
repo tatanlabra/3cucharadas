@@ -6,14 +6,15 @@ require "json"
 require "shellwords"
 require "uri"
 require "yaml"
+require_relative "lib/ai_disclosure"
 
 # Transformación determinista del Markdown canónico de Jekyll al dialecto que
 # acepta DEV.to. El fuente nunca se modifica: este módulo solo devuelve texto.
 module JekyllToDevto
   SITE_URL = "https://3cucharadas.cl"
   ROOT = File.expand_path("..", __dir__)
-  AI_DISCLOSURE_LEVELS = %w[not_disclosed no_ai some_ai fully_autonomous].freeze
-  DEFAULT_AI_DISCLOSURE_LEVEL = "some_ai"
+  AI_DISCLOSURE_LEVELS = AiDisclosure::LEVELS
+  DEFAULT_AI_DISCLOSURE_LEVEL = "not_disclosed"
 
   # DEV.to hace pasar los <img> externos por su optimizador. Ese proxy declara
   # WebP para un SVG de 3cucharadas.cl pero entrega los bytes SVG sin convertir,

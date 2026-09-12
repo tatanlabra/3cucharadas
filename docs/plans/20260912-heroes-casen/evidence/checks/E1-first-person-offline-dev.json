@@ -1,0 +1,15 @@
+{
+  "id": "E1-first-person-offline-dev",
+  "task_id": "E1",
+  "command": [
+    "ruby",
+    "scripts/syndicate_devto.rb",
+    "--dry-run"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:56:50.569232+00:00",
+  "seconds": 0.6961933880011202,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-first-person-offline-dev.log",
+  "log_sha256": "65270f7acd557ed7f3ec6277c85905d0f332f0083f638d8eef9b6ce9b7fa22d5"
+}

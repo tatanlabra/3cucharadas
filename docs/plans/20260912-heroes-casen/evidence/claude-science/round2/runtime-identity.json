@@ -1,0 +1,116 @@
+{
+  "provider": "Anthropic",
+  "transport": "canonical Claude CLI",
+  "requested_alias": "sonnet",
+  "runtime_message_model": [
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 23,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:20.986Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 24,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:22.185Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 32,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:27.413Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 33,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:27.972Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 37,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:32.039Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 38,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:32.725Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 42,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:40.386Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 43,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:41.541Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 47,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:42.950Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 54,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:25:51.584Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 55,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:26:06.686Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 59,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:26:08.903Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 60,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:26:22.273Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 64,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:27:29.313Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 65,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:27:29.524Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 72,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:27:36.964Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 73,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:27:37.238Z"
+    },
+    {
+      "session": "db63f6c9-69dd-4117-a707-efd690f80373",
+      "line": 77,
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:28:07.396Z"
+    }
+  ],
+  "limitation": "local CLI metadata, not provider-signed attestation; raw sessions not exported"
+}

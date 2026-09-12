@@ -1,0 +1,2 @@
+tests/test_ai_disclosure.rb:3:in 'Kernel#require_relative': cannot load such file -- /home/ende/Descargas/programaciones/activos/3cucharadas/scripts/lib/ai_disclosure (LoadError)
+	from tests/test_ai_disclosure.rb:3:in '<main>'

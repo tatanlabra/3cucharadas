@@ -1,0 +1,27 @@
+Run options: --seed 26661
+
+# Running:
+
+F.F.F......./home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+.
+
+Finished in 0.640146s, 20.3079 runs/s, 221.8245 assertions/s.
+
+  1) Failure:
+HeroDisclosureCheckTest#test_preload_disclosure_duplicate_title_and_date_mutations_reject [tests/test_ai_disclosure.rb:172]:
+Expected ["missing/incorrect disclosure level", "incorrect rendered text provenance", "incorrect rendered hero provenance"] to be empty.
+
+  2) Failure:
+HeroDisclosureCheckTest#test_explicit_timestamp_is_compared_as_an_instant_across_timezones [tests/test_ai_disclosure.rb:117]:
+Expected ["missing/incorrect disclosure level", "incorrect rendered text provenance", "incorrect rendered hero provenance"] to be empty.
+
+  3) Failure:
+HeroDisclosureCheckTest#test_valid_source_and_artifact_recover_green [tests/test_ai_disclosure.rb:111]:
+Expected ["missing/incorrect disclosure level", "incorrect rendered text provenance", "incorrect rendered hero provenance"] to be empty.
+
+13 runs, 142 assertions, 3 failures, 0 errors, 0 skips

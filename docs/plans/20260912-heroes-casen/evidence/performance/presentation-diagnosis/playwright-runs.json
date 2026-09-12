@@ -1,0 +1,542 @@
+[
+  {
+    "driver": "playwright",
+    "browser": "canonical",
+    "version": "152.0.7977.8",
+    "executablePath": "/home/ende/.cache/ms-playwright/chromium-1237/chrome-linux64/chrome",
+    "fixture": "fast",
+    "nav": "cold",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 56,
+          "duration": 0,
+          "navigationId": 9584,
+          "paintTime": 43,
+          "presentationTime": 56,
+          "size": 138262,
+          "renderTime": 56,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 56.70000000111759
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 56,
+          "duration": 0,
+          "navigationId": 9584,
+          "paintTime": 43,
+          "presentationTime": 56,
+          "callbackAt": 56.600000001490116
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 56,
+          "duration": 0,
+          "navigationId": 9584,
+          "paintTime": 43,
+          "presentationTime": 56,
+          "callbackAt": 56.600000001490116
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 19.300000000745058,
+      "at": 5020,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/fast.html",
+      "timeOrigin": 1789215896613.3,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "canonical",
+    "version": "152.0.7977.8",
+    "executablePath": "/home/ende/.cache/ms-playwright/chromium-1237/chrome-linux64/chrome",
+    "fixture": "fast",
+    "nav": "warm",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 9457,
+          "paintTime": 23.299999998882413,
+          "presentationTime": 36,
+          "size": 138262,
+          "renderTime": 36,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 37.5
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 9457,
+          "paintTime": 23.299999998882413,
+          "presentationTime": 36,
+          "callbackAt": 37.29999999888241
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 9457,
+          "paintTime": 23.299999998882413,
+          "presentationTime": 36,
+          "callbackAt": 37.40000000037253
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 17.199999999254942,
+      "at": 5017.5,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/fast.html",
+      "timeOrigin": 1789215901777.1,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "canonical",
+    "version": "152.0.7977.8",
+    "executablePath": "/home/ende/.cache/ms-playwright/chromium-1237/chrome-linux64/chrome",
+    "fixture": "late",
+    "nav": "cold",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 40,
+          "duration": 0,
+          "navigationId": 9869,
+          "paintTime": 31.600000001490116,
+          "presentationTime": 40,
+          "size": 12892,
+          "renderTime": 40,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 50.40000000037253
+        },
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 3032,
+          "duration": 0,
+          "navigationId": 9869,
+          "paintTime": 3024.9000000003725,
+          "presentationTime": 3032,
+          "size": 142884,
+          "renderTime": 3032,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 3032.800000000745
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 40,
+          "duration": 0,
+          "navigationId": 9869,
+          "paintTime": 31.600000001490116,
+          "presentationTime": 40,
+          "callbackAt": 50.30000000074506
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 40,
+          "duration": 0,
+          "navigationId": 9869,
+          "paintTime": 31.600000001490116,
+          "presentationTime": 40,
+          "callbackAt": 50.30000000074506
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 20.300000000745058,
+      "at": 5020.9000000003725,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/late.html",
+      "timeOrigin": 1789215907080.9,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "canonical",
+    "version": "152.0.7977.8",
+    "executablePath": "/home/ende/.cache/ms-playwright/chromium-1237/chrome-linux64/chrome",
+    "fixture": "late",
+    "nav": "warm",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 32,
+          "duration": 0,
+          "navigationId": 2427,
+          "paintTime": 23.700000001117587,
+          "presentationTime": 32,
+          "size": 12892,
+          "renderTime": 32,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 39.20000000111759
+        },
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 3028,
+          "duration": 0,
+          "navigationId": 2427,
+          "paintTime": 3023,
+          "presentationTime": 3028,
+          "size": 142884,
+          "renderTime": 3028,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 3038.7000000011176
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 32,
+          "duration": 0,
+          "navigationId": 2427,
+          "paintTime": 23.700000001117587,
+          "presentationTime": 32,
+          "callbackAt": 39.100000001490116
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 32,
+          "duration": 0,
+          "navigationId": 2427,
+          "paintTime": 23.700000001117587,
+          "presentationTime": 32,
+          "callbackAt": 39.100000001490116
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 19.800000000745058,
+      "at": 5020.200000001118,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/late.html",
+      "timeOrigin": 1789215912224.8,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "same-chrome151",
+    "version": "151.0.7922.77",
+    "executablePath": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "fixture": "fast",
+    "nav": "cold",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 60,
+          "duration": 0,
+          "navigationId": 1831,
+          "paintTime": 47.899999998509884,
+          "presentationTime": 60,
+          "size": 138262,
+          "renderTime": 60,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 67
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 60,
+          "duration": 0,
+          "navigationId": 1831,
+          "paintTime": 47.899999998509884,
+          "presentationTime": 60,
+          "callbackAt": 66.89999999850988
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 60,
+          "duration": 0,
+          "navigationId": 1831,
+          "paintTime": 47.899999998509884,
+          "presentationTime": 60,
+          "callbackAt": 67
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 27.09999999962747,
+      "at": 5027.5,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/fast.html",
+      "timeOrigin": 1789215918030.6,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "same-chrome151",
+    "version": "151.0.7922.77",
+    "executablePath": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "fixture": "fast",
+    "nav": "warm",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 48,
+          "duration": 0,
+          "navigationId": 2884,
+          "paintTime": 26.100000001490116,
+          "presentationTime": 48,
+          "size": 138262,
+          "renderTime": 48,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 59.5
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 48,
+          "duration": 0,
+          "navigationId": 2884,
+          "paintTime": 26.100000001490116,
+          "presentationTime": 48,
+          "callbackAt": 59.5
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 48,
+          "duration": 0,
+          "navigationId": 2884,
+          "paintTime": 26.100000001490116,
+          "presentationTime": 48,
+          "callbackAt": 59.5
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 19.800000000745058,
+      "at": 5020.10000000149,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/fast.html",
+      "timeOrigin": 1789215923187.9,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "same-chrome151",
+    "version": "151.0.7922.77",
+    "executablePath": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "fixture": "late",
+    "nav": "cold",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 2925,
+          "paintTime": 27.59999999962747,
+          "presentationTime": 36,
+          "size": 12892,
+          "renderTime": 36,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 36.40000000037253
+        },
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 3040,
+          "duration": 0,
+          "navigationId": 2925,
+          "paintTime": 3027.699999999255,
+          "presentationTime": 3040,
+          "size": 142884,
+          "renderTime": 3040,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 3052.699999999255
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 2925,
+          "paintTime": 27.59999999962747,
+          "presentationTime": 36,
+          "callbackAt": 36.29999999888241
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 36,
+          "duration": 0,
+          "navigationId": 2925,
+          "paintTime": 27.59999999962747,
+          "presentationTime": 36,
+          "callbackAt": 36.40000000037253
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 16.90000000037253,
+      "at": 5017.199999999255,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/late.html",
+      "timeOrigin": 1789215928478,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  },
+  {
+    "driver": "playwright",
+    "browser": "same-chrome151",
+    "version": "151.0.7922.77",
+    "executablePath": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "fixture": "late",
+    "nav": "warm",
+    "sample": {
+      "lcp": [
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 44,
+          "duration": 0,
+          "navigationId": 290,
+          "paintTime": 27.200000001117587,
+          "presentationTime": 44,
+          "size": 12892,
+          "renderTime": 44,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 58.70000000111759
+        },
+        {
+          "name": "",
+          "entryType": "largest-contentful-paint",
+          "startTime": 3032,
+          "duration": 0,
+          "navigationId": 290,
+          "paintTime": 3026.300000000745,
+          "presentationTime": 3032,
+          "size": 142884,
+          "renderTime": 3032,
+          "loadTime": 0,
+          "id": "",
+          "url": "",
+          "callbackAt": 3041.300000000745
+        }
+      ],
+      "paint": [
+        {
+          "name": "first-paint",
+          "entryType": "paint",
+          "startTime": 44,
+          "duration": 0,
+          "navigationId": 290,
+          "paintTime": 27.200000001117587,
+          "presentationTime": 44,
+          "callbackAt": 58.59999999962747
+        },
+        {
+          "name": "first-contentful-paint",
+          "entryType": "paint",
+          "startTime": 44,
+          "duration": 0,
+          "navigationId": 290,
+          "paintTime": 27.200000001117587,
+          "presentationTime": 44,
+          "callbackAt": 58.59999999962747
+        }
+      ],
+      "input": [],
+      "lifecycle": [],
+      "registeredAt": 23.09999999962747,
+      "at": 5023.5999999996275,
+      "visibility": "visible",
+      "focused": true,
+      "url": "http://127.0.0.1:4044/late.html",
+      "timeOrigin": 1789215933621.3,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+      "width": 1440,
+      "height": 1000
+    }
+  }
+]

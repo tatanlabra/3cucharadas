@@ -1,0 +1,100 @@
+slug: multiagente-penta-agent-modelos
+ref: multiagente-penta-agent-modelos
+posts:
+- _posts/2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+- _posts/2026-06-27-multiagente-penta-agent-modelos-v2.md
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 58078
+  sha256: b5e2c2e0a2195ea24206129a3da29c279fe7513884210a55d49bd20fec59c602
+  alt: &id001
+    es: Red geométrica de agentes conectados, como ilustración conceptual del trabajo coordinado.
+    en: A geometric network of connected agents illustrating coordinated work.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 63583a5971665538b869fc3fe139d39ec4aba569bb1186535b71a2a923828d86
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 24246
+  sha256: bd0a7d8c58ff79aba360ce83ac16bd9bdbbcc8950a118ebfe83463cef6c5f3c3
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 63583a5971665538b869fc3fe139d39ec4aba569bb1186535b71a2a923828d86
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 47306
+  sha256: 253b97e1a2b50b18a45660489db67f5e01b2bf0c3f24a966bdc2d64ca36bbab1
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 63583a5971665538b869fc3fe139d39ec4aba569bb1186535b71a2a923828d86
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 19662
+  sha256: 37e6791fef9ade33f48ccd33161ccf386e2209c762bd5142d141038b9fc1bf73
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 63583a5971665538b869fc3fe139d39ec4aba569bb1186535b71a2a923828d86
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-modelos/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 43502
+  sha256: 189418558fc30eeefc16ec725250f4e5ab1773ad4079fefb07992cfaf116ab00
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 63583a5971665538b869fc3fe139d39ec4aba569bb1186535b71a2a923828d86
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

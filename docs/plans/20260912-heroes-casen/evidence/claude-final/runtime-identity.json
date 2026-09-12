@@ -1,0 +1,11 @@
+{
+  "requested_model": "sonnet",
+  "transport": "canonical Claude CLI handoff bridge",
+  "observed_models": [
+    "claude-sonnet-5"
+  ],
+  "evidence_type": "local CLI assistant-message model metadata; not provider-signed attestation",
+  "first_observed_at": "2026-09-12T12:07:29.771Z",
+  "last_observed_at": "2026-09-12T12:19:57.475Z",
+  "raw_sessions_exported": false
+}

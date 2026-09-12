@@ -1,0 +1,21 @@
+{
+  "id": "V0-portable-root-tests",
+  "task_id": "V0",
+  "command": [
+    "/opt/entornos/mamba312/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/catastro_sii",
+    "-p",
+    "test_editorial_figures.py",
+    "-v"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:22:07.763306+00:00",
+  "seconds": 3.3210136530015006,
+  "exit_code": 0,
+  "log": "evidence/checks/V0-portable-root-tests.log",
+  "log_sha256": "cb311f0f7b55d41f33c4f76d30dd17ff966590ffdcce547f9222e4807f62dc94"
+}

@@ -1,0 +1,46 @@
+{
+  "task_id": "R1",
+  "source_digest": "918f6c4edda5d6ed0bef4075dbd63816c9cce8bb6af4dd41812f40160998dded",
+  "provider": "anthropic",
+  "requested_model": "sonnet",
+  "effective_identity_evidence": {
+    "self_report": "claude-sonnet-5 (Sonnet 5), Anthropic — per this session's harness system-reminder",
+    "runtime_evidence": "none independent of the harness string; no API/header introspection available in this sandbox",
+    "note": "identical caveat as the D2 report consumed here; this round adds no independent attestation"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1",
+      "status": "open, unverified hypothesis",
+      "claim": "tests/test_ai_disclosure.rb (test_real_webp_derivative_requires_digest_role_and_byte_budget) does `FileUtils.cp(File.expand_path('../assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp', __dir__), target)`, but that exact path is absent from source-freeze.json's manifest, even though every other file under assets/images/avaluos-ii/ (all casen-shared-site-*, gap-top15-*, monetary-top15-* variants, 24 entries) is listed there.",
+      "evidence": "source-freeze.json manifest keys under 'assets/images/avaluos-ii/' enumerate only casen-shared-site-*, gap-top15-*, monetary-top15-* files; 'hero-brecha-residencial-tokyo-night-1600x900.webp' does not appear in that block or anywhere else in the manifest.",
+      "remedy": "Confirm the fixture's presence and hash at digest 918f6c4e... before trusting this suite as green (e.g. re-derive the manifest with this path included, or check the file directly against the frozen tree). If absent, FileUtils.cp raises before any assertion runs, so this specific test cannot currently pass, and the suite is not verifiably green against this candidate's frozen source."
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "status": "open, design-gap hypothesis",
+      "claim": "scripts/catastro_sii/project_casen_shared_site.py copies estimates.json/csv/parquet/audit.json/provenance.json verbatim into the public output directory and writes `'raw_records_exported': False` into its own receipt, but the only row-level checks it performs are scope counts, `unit == 'household'`, and null CI for commune rows — there is no allowlist check on row keys, so an upstream aggregate accidentally carrying an extra per-record field would be copied and published while the receipt still asserts no raw records were exported.",
+      "evidence": "project_casen_shared_site.py:801-835 — `main()` validates `len(national)`, `len(regional)`, `r['unit']`, and commune `ci_low`/`ci_high`, then unconditionally `shutil.copyfile`s the five source files and writes `raw_records_exported: False` without inspecting `row.keys()`.",
+      "remedy": "Add an explicit allowlist assertion on row schema (e.g. `set(row) <= {expected fields}`) before copy, so the 'no raw records' claim in the receipt is enforced rather than asserted."
+    },
+    {
+      "id": "F3",
+      "severity": "P3",
+      "status": "open, scope-coverage gap",
+      "claim": "scripts/verify_hero_disclosure.rb#source_errors only validates `header.overlay_image` and `header.overlay_image_mobile` against the visual catalog (dimensions, byte budget, sha256, AI-origin match); `header.teaser`, `header.teaser_mobile`, and `header.og_image` — all present in this post's front matter — are never checked by this script.",
+      "evidence": "source_errors iterates a literal two-key hash (`'overlay_image'`, `'overlay_image_mobile'`); no analogous loop exists for teaser/og fields in the supplied file.",
+      "remedy": "Either extend this checker's coverage or confirm (not asserted anywhere in this packet) that scripts/verify_visual_assets.rb, referenced only by hash in source-freeze.json and not included here, owns that gate — otherwise those three variants ship with no automated dimension/hash/disclosure check."
+    }
+  ],
+  "open_p0_p1": true,
+  "verdict": "Editorial/scientific content passes adversarial spot-checks: the p_v algebra, the g(A) tax formula (cross-checked numerically against the Iquique and Lo Barnechea worked examples), the CASEN regional sample sizes (sum exactly to the reported national n=78,654), the residuo/escenario-aceptable ordering in both tables, and the causality/representativeness/geographic-evidence guardrails from the brief are all respected in both the ES and EN posts, which read as faithful translations of each other. Acceptance is nonetheless blocked: F1 is an open, unverified P1 (a test fixture the suite depends on is not visible in this round's own frozen manifest, so the 'tests pass' claim for that file cannot be taken as reproducible from what was supplied). F2 is a real but unconfirmed P2 residual-risk gap in the CASEN publish path. Per the brief, I am not certifying the pending Q1 checks (80-case AI-UI browser matrix, 5 paired performance runs) — those remain explicitly outside this packet's approval boundary regardless of F1/F2.",
+  "limitations": [
+    "No command execution was available in this sandbox (Bash calls required approval that did not resolve), so no sha256/test re-run was actually performed; all findings above are derived from static reading and cross-arithmetic, not from executing the referenced scripts or hashing the referenced assets myself.",
+    "D1/D2 (source_digest 14eaab8598...) was consumed as accepted per the brief and not re-verified; rdata.py/core.py referenced in the D2 findings are not present in this round's source-freeze.json manifest, consistent with D1 being out of this round's diff scope.",
+    "Axe/keyboard/performance evidence in editorial-browser/receipt.json is reported, not independently reproduced by me; I read it for internal consistency only (case/check counts reconcile: 8 cases x 46 = 368; 8+8=16 axe audits).",
+    "image_dimensions.rb (required by verify_hero_disclosure.rb) was not supplied in this packet, so its correctness could not be reviewed.",
+    "P2 residual limitation staying visible per the brief: F2 (unenforced raw-export guarantee) remains an open, unconfirmed risk even if F1 resolves cleanly."
+  ]
+}

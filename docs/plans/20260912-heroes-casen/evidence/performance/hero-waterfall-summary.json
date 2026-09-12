@@ -1,0 +1,80 @@
+[
+  {
+    "page": "avaluos-ii",
+    "side": "baseline",
+    "temperature": "cold",
+    "hero_url": "http://127.0.0.1:4041/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+    "request_start_ms": 98.40000000037251,
+    "response_end_ms": 107.19999999925494,
+    "encoded_bytes": 156080,
+    "lcp_ms": null,
+    "hero_response_to_lcp_ms": null,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  },
+  {
+    "page": "avaluos-ii",
+    "side": "baseline",
+    "temperature": "warm",
+    "hero_url": "http://127.0.0.1:4041/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+    "request_start_ms": 138.5,
+    "response_end_ms": 171.90000000037253,
+    "encoded_bytes": 156080,
+    "lcp_ms": 3928,
+    "hero_response_to_lcp_ms": 3756.0999999996275,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  },
+  {
+    "page": "avaluos-ii",
+    "side": "candidate",
+    "temperature": "cold",
+    "hero_url": "http://127.0.0.1:4042/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+    "request_start_ms": 136.19999999925494,
+    "response_end_ms": 175.59999999962747,
+    "encoded_bytes": 161742,
+    "lcp_ms": null,
+    "hero_response_to_lcp_ms": null,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  },
+  {
+    "page": "avaluos-ii",
+    "side": "candidate",
+    "temperature": "warm",
+    "hero_url": "http://127.0.0.1:4042/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+    "request_start_ms": 121.59999999962749,
+    "response_end_ms": 160.5,
+    "encoded_bytes": 161742,
+    "lcp_ms": 3636,
+    "hero_response_to_lcp_ms": 3475.5,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  },
+  {
+    "page": "casen-long",
+    "side": "candidate",
+    "temperature": "cold",
+    "hero_url": "http://127.0.0.1:4042/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+    "request_start_ms": 244.5,
+    "response_end_ms": 280.5,
+    "encoded_bytes": 74248,
+    "lcp_ms": 2024,
+    "hero_response_to_lcp_ms": 1743.5,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  },
+  {
+    "page": "casen-long",
+    "side": "candidate",
+    "temperature": "warm",
+    "hero_url": "http://127.0.0.1:4042/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+    "request_start_ms": 168.40000000037253,
+    "response_end_ms": 251.7000000011176,
+    "encoded_bytes": 74248,
+    "lcp_ms": 716,
+    "hero_response_to_lcp_ms": 464.2999999988824,
+    "original_decode_duration_ms": null,
+    "decode_note": "Resource Timing does not expose original image decode duration; load-to-LCP interval includes scheduling/rendering and is not decode time."
+  }
+]

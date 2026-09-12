@@ -1,0 +1,20 @@
+[
+  {
+    "case": "bad-ci",
+    "exit_code": 1,
+    "no_outputs": true,
+    "error": "ValueError: Invalid confidence interval: ('national', 'CL')"
+  },
+  {
+    "case": "missing-is-zero",
+    "exit_code": 1,
+    "no_outputs": true,
+    "error": "ValueError: Invalid estimate/denominator: ('commune', '5101')"
+  },
+  {
+    "case": "forged-communal-ci",
+    "exit_code": 1,
+    "no_outputs": true,
+    "error": "ValueError: Unavailable CI must remain null: ('commune', '5101')"
+  }
+]

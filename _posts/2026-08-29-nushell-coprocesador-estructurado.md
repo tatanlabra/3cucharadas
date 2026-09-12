@@ -22,9 +22,14 @@ author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 y Claude Code + Codex sobre el mismo workspace"
 header:
-  teaser: /assets/images/teasers/teaser-structured-shell.webp
-  og_image: /assets/images/structured-shell/og-1200.webp
-  og_image_alt: "Un flujo de datos entra a un núcleo de procesamiento y se divide en tres rutas estructuradas representadas en azul, magenta y gris"
+  teaser: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp
+  og_image_alt: Un procesador geométrico organiza un flujo en tres canales estructurados.
+  overlay_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp
 en_abstract: >
   I tested whether a selective Nushell route makes sense for coding agents instead
   of assuming that a typed shell must be better. The evidence comprises 380 runs:
@@ -34,6 +39,12 @@ en_abstract: >
   latency and output tokens, and produced no accuracy advantage in the real
   aggregate case. The defensible result is therefore a bounded routing rule, not
   a claim that Nushell is generally superior.
+visual_id: structured-shell
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 ## Preámbulo — ¿La estructura realmente ayuda?

@@ -1,0 +1,100 @@
+slug: rss-gobierna-como-lees
+ref: rss-gobierna-como-lees
+posts:
+- _posts/2026-06-28-rss-en.md
+- _posts/2026-06-28-rss.md
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/rss-gobierna-como-lees/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 124192
+  sha256: 9a0d7c2d22f622fb02c744ecf6cbccc100e186657064ff1c5b87501e8606462f
+  alt: &id001
+    es: Una persona elige lecturas entre flujos de tarjetas luminosas.
+    en: A reader chooses articles among flows of luminous cards.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 7fc5c5dfa1f33f2a3b48714ef8d68fc0133097d0e9834f18f63b98e19ad4c3ad
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/rss-gobierna-como-lees/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 45262
+  sha256: 6229c5e2aa3b1f174235014cf200d163b667156d33cbfdd21bb38573159036fd
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 7fc5c5dfa1f33f2a3b48714ef8d68fc0133097d0e9834f18f63b98e19ad4c3ad
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 98674
+  sha256: 7ac6c842258415dd5151ee6018c941e6b5246343221c72a76ee8874dba5edee6
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 7fc5c5dfa1f33f2a3b48714ef8d68fc0133097d0e9834f18f63b98e19ad4c3ad
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 34818
+  sha256: 7c765cc7d48e198a918c0a3035648c488e45d02a72c4c2653c5c0da8f979a3b8
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 7fc5c5dfa1f33f2a3b48714ef8d68fc0133097d0e9834f18f63b98e19ad4c3ad
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/rss-gobierna-como-lees/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 86222
+  sha256: 567d2f31dc365af52b32c5e44df26bb1534d222d61f2a71b7c399256c457c7ad
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 7fc5c5dfa1f33f2a3b48714ef8d68fc0133097d0e9834f18f63b98e19ad4c3ad
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

@@ -1,0 +1,383 @@
+{
+  "task_id": "H1",
+  "checks": [
+    {
+      "id": "H1-first-person-strict",
+      "task_id": "H1",
+      "command": [
+        "ruby",
+        "scripts/verify_visual_assets.rb",
+        "--strict"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:56:50.390765+00:00",
+      "seconds": 0.5010663270004443,
+      "exit_code": 0,
+      "log": "evidence/checks/H1-first-person-strict.log",
+      "log_sha256": "95d5248e4ecafcb431301b8e6c7c88a61b1ab711488c2c22ff3265c4e5878de5",
+      "acceptance_ids": [
+        "AC-H1"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+      "sha256": "f9f3d69423613545afd5edbcc101156b6340903e204d54414f4822021a4fb2dc"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp",
+      "sha256": "c6ee1e5448455e185eb6b61556c8afdabeb68669f5b57e3a4d47514f3fbb53c4"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/casen2024-julia-waffles/teaser-1280x720.webp",
+      "sha256": "28fc7fb5874e59f589a63a64ed3d778fe1a9c55fb4dacd30a318f0bd310278fb"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/casen2024-julia-waffles/teaser-mobile-640x360.webp",
+      "sha256": "330ec6563898ad86d18a68b547b52f67099f5c4c1b1db8095e5dbc7e447227c1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/casen2024-julia-waffles/og-1200x630.webp",
+      "sha256": "a22f93e6e1dca70a5fd7f3e3e74796f4cd1d10f64015a1f2e896479d9e0c7268"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/bayes-hiperparametros/hero-1600x900.webp",
+      "sha256": "9fbc71af82dac77f6f8dbadd624e9e0eee59ffdb87b29a22dd752dc416035640"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/bayes-hiperparametros/hero-mobile-800x450.webp",
+      "sha256": "ef1730f21428679a82776a01d75351838fcf99a3746ce665e2c52263691f37a7"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/bayes-hiperparametros/teaser-1280x720.webp",
+      "sha256": "da85d76729dd4f84eaf2901af46d8e77f1e8638f6a7cac39fb66f1200173b48d"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/bayes-hiperparametros/teaser-mobile-640x360.webp",
+      "sha256": "9df7571f999b4c3a3c1ad60e20c433ef8ad3ddbb32c690527739e648d5f861ff"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/bayes-hiperparametros/og-1200x630.webp",
+      "sha256": "17c7b385a95041444f11b58963c2b76425e45d97cff376970075ed7de8149fca"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-1600x900.webp",
+      "sha256": "b5e2c2e0a2195ea24206129a3da29c279fe7513884210a55d49bd20fec59c602"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-mobile-800x450.webp",
+      "sha256": "bd0a7d8c58ff79aba360ce83ac16bd9bdbbcc8950a118ebfe83463cef6c5f3c3"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+      "sha256": "253b97e1a2b50b18a45660489db67f5e01b2bf0c3f24a966bdc2d64ca36bbab1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+      "sha256": "37e6791fef9ade33f48ccd33161ccf386e2209c762bd5142d141038b9fc1bf73"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-modelos/og-1200x630.webp",
+      "sha256": "189418558fc30eeefc16ec725250f4e5ab1773ad4079fefb07992cfaf116ab00"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/rss-gobierna-como-lees/hero-1600x900.webp",
+      "sha256": "9a0d7c2d22f622fb02c744ecf6cbccc100e186657064ff1c5b87501e8606462f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/rss-gobierna-como-lees/hero-mobile-800x450.webp",
+      "sha256": "6229c5e2aa3b1f174235014cf200d163b667156d33cbfdd21bb38573159036fd"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+      "sha256": "7ac6c842258415dd5151ee6018c941e6b5246343221c72a76ee8874dba5edee6"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+      "sha256": "7c765cc7d48e198a918c0a3035648c488e45d02a72c4c2653c5c0da8f979a3b8"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/rss-gobierna-como-lees/og-1200x630.webp",
+      "sha256": "567d2f31dc365af52b32c5e44df26bb1534d222d61f2a71b7c399256c457c7ad"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/ai-quota-hud-kde/hero-1600x900.webp",
+      "sha256": "a63263fb4c00bdb13bba249e8dd1dd32f0a9faad324e3dcc60cd2c642b05231b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/ai-quota-hud-kde/hero-mobile-800x450.webp",
+      "sha256": "eb1f7071474f220ea58928f5cb57609098fa7abf5a068cea687f54676f24ae7e"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+      "sha256": "f93ec1ae10044428fb93a542c369ee95efc75369c74184fde972613657d4f691"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+      "sha256": "c2f3e0eae0cc4f840db04f62f699a4696e501c6913befd46f75bbb6c69329d8d"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/ai-quota-hud-kde/og-1200x630.webp",
+      "sha256": "36185c874aea027ad980898e2f01d59a6a9ce8da9ec6f0a67946e2279cccbb31"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-1600x900.webp",
+      "sha256": "d3d4de0feaec5b579efc4d7083837834164f15910026735de376605e9fcf84fa"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-mobile-800x450.webp",
+      "sha256": "8a826e195d2b7a332421dde583ef82cff4c3d11b84702c8f997da0ed66769534"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+      "sha256": "c98fbce25e8a360683050c045d38684aa1c63222b66d702f719e672699837765"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+      "sha256": "e7936c776bfc1b19569a57608e584a64dd89cf999f5cfcbe99ac9bc9d2eb6479"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria/og-1200x630.webp",
+      "sha256": "270b91345719a50b16a3e388c9696e57ce85a332e755f31d188471fb97175423"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-1600x900.webp",
+      "sha256": "bee529d5c2e30760b1d6d8f4cd86808f9fdcb7e96ae611d4c3dda81db7041f0a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-mobile-800x450.webp",
+      "sha256": "f206e8f6fcc51a55f3c211c6e53dfe7c9d47b9bf59865dc10589679aab1ea10d"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+      "sha256": "f212a6a260913e197a3f5dfa28b89b3e1022530caeae61fbbf53709b861ab4e5"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+      "sha256": "d1c84bd02f514c80629dead5e8ee3ed97276cf5a7bac6d0d6199ea4970281e6c"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp",
+      "sha256": "20f7be723e573d14cf796999e95f50f2e88affcc002ed347b8ad72288d39eef1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+      "sha256": "7e5ae4f7a81c9389b703e5602e297f14caca6ad0a60bfc3ea42ce08869ba037c"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-mobile-800x450.webp",
+      "sha256": "969489cd2cb03c2a6a540367819845e8f741116e0cbbce573d77acd98a0c2824"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+      "sha256": "e9cd7cffeac4be6d83f9c0cd81f860d97ea6166829c60e12a0ab0a559d571661"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+      "sha256": "a27250bbe60eafa970de438bdada9ffcaf4599ebc2ed0640d14900b4e48b9ba5"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluos-ii-brecha-residencial/og-1200x630.webp",
+      "sha256": "579adfd6863b5c6afe06d1e95fb62038688720279a54c27dee1ccd95a433bddb"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-1600x900.webp",
+      "sha256": "e56c215485dac9df390194ffd1c2cbe057ab949f230aec53b5dfe90a9c5fc38d"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-mobile-800x450.webp",
+      "sha256": "784b07891c7dba97702f23183033c35cb7e9f933d0395a435c4fcabcf53f0bbd"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+      "sha256": "5c14373da0891950bb88fc2aa5ffefbb234c103efd3959adf0b0c14e65742a23"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+      "sha256": "0947231962c4b970950e08d5b8eca14e159671c278dc82ad95175af1f9563e32"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/og-1200x630.webp",
+      "sha256": "8f92edfb93bd96007cd5f3736a0085e2a7d78a56ddcf8a8493590896a41602dc"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-1600x900.webp",
+      "sha256": "e43fdbf7b6112394e4266f5e211c14a07494b731fb6bc0c8f83c92860671b12f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-mobile-800x450.webp",
+      "sha256": "0ede0d9129e28221706f8b79d19acdad90275ce2ca3c2f58b5388f518efd272a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+      "sha256": "2a6b718d0ef4f3a94e88fa5e0e73c9af14d1e784dbe5e6fff9891712d90e0a0f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+      "sha256": "ebaab65f2bdf8c8f0926239a25c8c8ab91dd090097cbd51f563c2e2b21b7ee33"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/og-1200x630.webp",
+      "sha256": "d60d18076e9fe3cd240c850fdbc6abcc87f3a2fae03d24f90e3f735d416e9705"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/casen2024-julia-waffles-politica-publica.yml",
+      "sha256": "517c1efe27f1b54c059eb651f90872cb9ac50dfa98181c4c3d0b2549132c9210"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/bayes-hiperparametros.yml",
+      "sha256": "2ffa78ca54c162048274c42e77d5d4a7a87e5137841b25616db55ad941296cd7"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/multiagente-penta-agent-modelos.yml",
+      "sha256": "997dc99a0e941d3fcc10a16157746ede6ccc4f36735f112ec16f218e6a8d8673"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/rss-gobierna-como-lees.yml",
+      "sha256": "d38475dfc7eeeb28479823ce46fda0a9f3499dccfaaa0dd5573098c1f74eec94"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/ai-quota-hud.yml",
+      "sha256": "915685c174ea75a9a6f5dd5f53f6ba618d3f6e01f35c0e8702e5d9496c39dc64"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/multiagente-penta-agent-memoria.yml",
+      "sha256": "0b9b61d8b5be32e86f93c29d5ce2a89750f11bd1971c3fe8dda49d5ccfff908e"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/structured-shell.yml",
+      "sha256": "acbddce89de649d7fd7b01cbc5cd0925c24a381f4525b0a4a50f6146541bd78a"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/avaluos-ii.yml",
+      "sha256": "515f9a5c0af6cb914f208913186ed6662ea2179ef1b56cad631c4ca5c2ff218f"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/avaluo-vulnerabilidad-unidad-vecinal.yml",
+      "sha256": "854b01f34e9ae2bf0c79425816d8b95bf5b2cf519e99693d1b0c3ebe34a83f8a"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/multiagente-penta-agent-memoria-gobernada.yml",
+      "sha256": "a43ea87f7862f5a6fe17d080b1204770a712c4f8c129d353bc9372ca789c63f4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/build_editorial_image_variants.py",
+      "sha256": "fb461da2f325ddea0710ce832ce8a0e4666416e0c099f91b56ec1b45a4ab3c1f"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/images/selected-sources.json",
+      "sha256": "92980c023140e0a47d2c8066f0dc56cbb7af734f11aa3921175d0e63dd97fab4"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/images/derivatives.json",
+      "sha256": "44b1f48c970412de3bd816a8c3f4f3afd2b5c51f51e52ae54931feeca11a41e9"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/images/visual-review.json",
+      "sha256": "403b6367050285c145cd3d090de5587fd255dedc3b9d492b0828cc20f447e9a7"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/images/variants-contact.jpg",
+      "sha256": "c43b8613beda71cce8bef41046d0a9c9814d54cc63d33dcd84d235d53113b94e"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-03-15-casen2024-julia-waffles-politica-publica-en.md",
+      "sha256": "1f63d3f41195dcf1ad7714dae551a6216da8efca1b1f74af6e2f204f762bb089"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-03-15-casen2024-julia-waffles-politica-publica.md",
+      "sha256": "103036d0a3872799e4a703db795a4ac0b7754dcd79ef9b1d33a06f75e6f59e62"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-20-bayes_hiperparametros-en.md",
+      "sha256": "bb14728672e5195a95daccd3820a66eb511f317d5b28a126561545169fe09a97"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-20-bayes_hiperparametros.md",
+      "sha256": "7f930090080983afd1e574ccf889b95ec7393e2cc6720a3343a89c4ee821f47c"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-27-multiagente-penta-agent-modelos-v2-en.md",
+      "sha256": "d05b99259bfbecb8247d3bff908217199e4c4af8c4bf65545f28960dec848bf3"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-27-multiagente-penta-agent-modelos-v2.md",
+      "sha256": "e6a08c43a974bf0a3bae2a839590f3df6e68667e429d9653cfa986a3ade5343d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-28-rss-en.md",
+      "sha256": "db26c64a53b7d2babf00122d653213cfeff06c581690b0f2a0b7a3cb51901b0c"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-06-28-rss.md",
+      "sha256": "b5752f4fea41838267bcad6ce6b0c317743522a67d1a10b0124bcd17909b5616"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-15-ai-quota-hud-kde-en.md",
+      "sha256": "fbe031a1d9c6f984d6e1914beb0aeb49d2d2b33bcb71fe64d47a03e7ee311eb5"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-15-ai-quota-hud-kde.md",
+      "sha256": "95289949f8a352413fb142c74730c4a0a81b0c13807cc669e6e7dbb0f4d38290"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-23-multiagente-penta-agent-memoria-en.md",
+      "sha256": "d44bdf47384183813373c32b595851899eebc95c61c67903c52340b8d68d2737"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-23-multiagente-penta-agent-memoria.md",
+      "sha256": "e2857a89f601d0a6821526b0fc1813685aadf3f9def243a16667d87544986774"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md",
+      "sha256": "a06e1bc0ad235b82bc719229025b2879bef6d6767fa7110d6d69e23ce6f98048"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md",
+      "sha256": "afd530907d82257638006a5b5fa8c82ff25502da87555c04a9529424b7d216b6"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-08-29-nushell-coprocesador-estructurado-en.md",
+      "sha256": "b4be8aa304e3149774352894f2f83799c15b995c8147b5612cc1d6434eb29811"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-08-29-nushell-coprocesador-estructurado.md",
+      "sha256": "7ed2e4d92c0d831063c3666b946c546e01bc0419610b7b0020d6806e92b8ecd3"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md",
+      "sha256": "798e063c8f5540059ea0a6c02fe81e09d623bb64adb080175ab8a5ea55df3443"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md",
+      "sha256": "700dd000b84dda0679799b83a66ff86de4d127e35d3f06bc655a8cc6e23191ad"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md",
+      "sha256": "a9fbf3e8f060bb758a3702dc70629fad4d7ffaf3fb886d597a70314b8857aa6a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
+      "sha256": "f7c076f661173441b99ad7bfec5d6a6aecbc69220f20e518f714bc512b9403f1"
+    },
+    {
+      "path": "activos/3cucharadas/_includes/archive-single.html",
+      "sha256": "22a9fe2cff9bc41e21e262d1099727bebfbb1b71e44b8f7dff3f1840efccf5b5"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/hero-browser/receipt.json",
+      "sha256": "11c968507dd426889a0abe10a9af86610432d53bef6909645ff38e8ba1003a78"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/hero-browser/report.md",
+      "sha256": "edd38a863e66bb7f5f84aec0d3eecc3d6b71dc46f0960e4505305dc7c2db3c9e"
+    }
+  ],
+  "visual_review": "evidence/images/visual-review.json",
+  "negative_evidence": [
+    "evidence/checks/H1-visual-assets.log",
+    "evidence/checks/H1-visual-assets-recovery.log"
+  ],
+  "browser_review": "Original image-content and archive QA evidence retained; new first-person UI matrix is a separate pending Q1 acceptance. Image files unchanged."
+}

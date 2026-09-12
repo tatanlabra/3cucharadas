@@ -1,0 +1,21 @@
+{
+  "source_estimates_sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+  "unit": "household",
+  "rows": 363,
+  "national_regional_table_rows": 17,
+  "exploratory_cases": [
+    "5101",
+    "5109"
+  ],
+  "projection_script_sha256": "d38b3a9da28e9e57a04e9e1824d01ff9d101aaed920fb06d1ba1e687e3e867f9",
+  "outputs_sha256": {
+    "estimates.parquet": "5802ad1a03c929ad68b617849c842e65c119add571be5c7e82da8cc549479b02",
+    "estimates.json": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+    "provenance.json": "12286c253b021a9b9a83381e8d5ad1cb46964f312e396f7474582501b61c2df0",
+    "estimates.csv": "c6c7e9ca08f0b12325ed3f8144df00dd27e6906b7e1ecad4f3ba7b8b8b41e1e3",
+    "audit.json": "89c0516199a7bda371cdfd42572917ff92b5551084fb69ee86093a2baafbfd31",
+    "method.md": "91d24069b72064ba7f65667cccd23573e1bdc8eb064be7b863058bcd72b78976"
+  },
+  "table_sha256": "fb724a62271361b91e2fca95d396779f1e6ff4ea92d4bf36cad81bb456592bb4",
+  "raw_records_exported": false
+}

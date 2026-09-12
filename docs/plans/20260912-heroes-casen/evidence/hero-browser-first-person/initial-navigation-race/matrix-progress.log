@@ -1,0 +1,26 @@
+{"completed": 1, "id": "casen2024-julia-waffles-en-390-academic-day", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+{"completed": 2, "id": "casen2024-julia-waffles-en-390-academic-night", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+{"completed": 3, "id": "casen2024-julia-waffles-es-390-academic-day", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+{"completed": 4, "id": "casen2024-julia-waffles-es-390-academic-night", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+{"completed": 5, "id": "bayes-hiperparametros-en-390-academic-day", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+{"completed": 6, "id": "bayes-hiperparametros-en-390-academic-night", "failures": [], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 7, "id": "bayes-hiperparametros-es-390-academic-day", "failures": [], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 8, "id": "bayes-hiperparametros-es-390-academic-night", "failures": [], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 9, "id": "multiagente-penta-agent-modelos-en-390-academic-day", "failures": [], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 10, "id": "multiagente-penta-agent-modelos-en-390-academic-night", "failures": ["policy detail keyboard open/focus"], "axe": {"inapplicable": 81, "incomplete": 0, "passes": 7, "violations": 0}, "policy_axe": {"inapplicable": 85, "incomplete": 0, "passes": 3, "violations": 0}}
+Traceback (most recent call last):
+  File "/tmp/3c-hero-browser-first-person/run_matrix.py", line 69, in <module>
+    policy_axe=ab('a11y','--selector',sel)
+  File "/tmp/3c-hero-browser-first-person/run_matrix.py", line 7, in ab
+    p=subprocess.run(argv,text=True,capture_output=True,timeout=80)
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2153, in _communicate
+    ready = selector.select(timeout)
+  File "/usr/lib/python3.14/selectors.py", line 398, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt

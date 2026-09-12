@@ -1,0 +1,4584 @@
+[
+  {
+    "id": "home-es-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -2162.578125,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -2202.234375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -2202.234375
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1757.234375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1796.890625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1796.890625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1371.84375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1411.5,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1411.5
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -966.5,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1006.15625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1006.15625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -581.109375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -620.765625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -620.765625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -175.765625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -215.421875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -215.421875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 209.625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 169.96875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 169.96875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 595.015625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 555.359375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 555.359375
+          },
+          "title_scroll": 334
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/",
+      "width": 390,
+      "fragment_sha256": "da35ad0c2da46c3588f9598bae859655ead06f88e0073ee71d13e84b27112415"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "5edd34f72a06f7a2ab418ce63dc93212782e0e40356cbc90d9fb32329769a96e",
+    "screenshot": "screenshots/home-es-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "home-es-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -2162.578125,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -2202.234375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -2202.234375
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1757.234375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1796.890625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1796.890625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1371.84375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1411.5,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1411.5
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -966.5,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1006.15625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1006.15625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -581.109375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -620.765625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -620.765625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -175.765625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -215.421875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -215.421875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 209.625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 169.96875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 169.96875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 595.015625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 555.359375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 555.359375
+          },
+          "title_scroll": 334
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/",
+      "width": 390,
+      "fragment_sha256": "da35ad0c2da46c3588f9598bae859655ead06f88e0073ee71d13e84b27112415"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "5edd34f72a06f7a2ab418ce63dc93212782e0e40356cbc90d9fb32329769a96e",
+    "screenshot": "screenshots/home-es-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "home-en-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -2143.578125,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -2183.234375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -2183.234375
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1738.234375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1777.890625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1777.890625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1352.84375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1392.5,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1392.5
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -947.5,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -987.15625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -987.15625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -562.109375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -601.765625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -601.765625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -156.765625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -196.421875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -196.421875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 208.796875,
+            "height": 19.828125,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 188.96875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 188.96875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 594.1875,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 554.53125,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 554.53125
+          },
+          "title_scroll": 334
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/",
+      "width": 390,
+      "fragment_sha256": "49db4decf663f68bc36887b7aef465f843080855b9a160440f3ecf54b3dc6699"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "2626d316623f1e6c7748914d39455a4187b507fac6c294ea5d898e482af91eb8",
+    "screenshot": "screenshots/home-en-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "home-en-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -2143.578125,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -2183.234375,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -2183.234375
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1738.234375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1777.890625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1777.890625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -1352.84375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -1392.5,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -1392.5
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -947.5,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -987.15625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -987.15625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -562.109375,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -601.765625,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -601.765625
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": -156.765625,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": -196.421875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": -196.421875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 208.796875,
+            "height": 19.828125,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 188.96875,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 188.96875
+          },
+          "title_scroll": 334
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 334,
+          "title_rect": {
+            "bottom": 594.1875,
+            "height": 39.65625,
+            "left": 28.1875,
+            "right": 361.8125,
+            "top": 554.53125,
+            "width": 333.625,
+            "x": 28.1875,
+            "y": 554.53125
+          },
+          "title_scroll": 334
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/",
+      "width": 390,
+      "fragment_sha256": "49db4decf663f68bc36887b7aef465f843080855b9a160440f3ecf54b3dc6699"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "2626d316623f1e6c7748914d39455a4187b507fac6c294ea5d898e482af91eb8",
+    "screenshot": "screenshots/home-en-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "related-es-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": -239.875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": -277.875,
+            "width": 358,
+            "x": 16,
+            "y": -277.875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 57.890625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 19.890625,
+            "width": 358,
+            "x": 16,
+            "y": 19.890625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 355.65625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 317.65625,
+            "width": 358,
+            "x": 16,
+            "y": 317.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 653.421875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 615.421875,
+            "width": 358,
+            "x": 16,
+            "y": 615.421875
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 390,
+      "fragment_sha256": "abee3ad70594ec2bd656cae3f82bf6c93cf9df0d21fc37462c0e9f07cfaa33fb"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "65e741446ff7fdb2aa37c1a2a2bf920eaaa95d61e6c02292b3d1200a1242accb",
+    "screenshot": "screenshots/related-es-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "related-es-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": -240.875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": -278.875,
+            "width": 358,
+            "x": 16,
+            "y": -278.875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 56.890625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 18.890625,
+            "width": 358,
+            "x": 16,
+            "y": 18.890625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 354.65625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 316.65625,
+            "width": 358,
+            "x": 16,
+            "y": 316.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 652.421875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 614.421875,
+            "width": 358,
+            "x": 16,
+            "y": 614.421875
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 390,
+      "fragment_sha256": "abee3ad70594ec2bd656cae3f82bf6c93cf9df0d21fc37462c0e9f07cfaa33fb"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "65e741446ff7fdb2aa37c1a2a2bf920eaaa95d61e6c02292b3d1200a1242accb",
+    "screenshot": "screenshots/related-es-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "related-en-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": -239.890625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": -277.890625,
+            "width": 358,
+            "x": 16,
+            "y": -277.890625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 57.875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 19.875,
+            "width": 358,
+            "x": 16,
+            "y": 19.875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 355.640625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 317.640625,
+            "width": 358,
+            "x": 16,
+            "y": 317.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 653.40625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 615.40625,
+            "width": 358,
+            "x": 16,
+            "y": 615.40625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 390,
+      "fragment_sha256": "e4a1b0f5e7764fedc470be36d93badb6dab6fdc9b775078ca40e2e8bfc2ceae3"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "098ad0f42c6f4f56a6cb309f0a58625852497242cdfb06d190ea5db213d8f9fa",
+    "screenshot": "screenshots/related-en-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "related-en-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": -240.890625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": -278.890625,
+            "width": 358,
+            "x": 16,
+            "y": -278.890625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 56.875,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 18.875,
+            "width": 358,
+            "x": 16,
+            "y": 18.875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 354.640625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 316.640625,
+            "width": 358,
+            "x": 16,
+            "y": 316.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "16px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 342,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 652.40625,
+            "height": 38,
+            "left": 16,
+            "right": 374,
+            "top": 614.40625,
+            "width": 358,
+            "x": 16,
+            "y": 614.40625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 390,
+      "fragment_sha256": "e4a1b0f5e7764fedc470be36d93badb6dab6fdc9b775078ca40e2e8bfc2ceae3"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "098ad0f42c6f4f56a6cb309f0a58625852497242cdfb06d190ea5db213d8f9fa",
+    "screenshot": "screenshots/related-en-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "archive-es-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 259.765625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 211.765625,
+            "width": 358,
+            "x": 16,
+            "y": 211.765625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 400.75,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 352.75,
+            "width": 358,
+            "x": 16,
+            "y": 352.75
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 565.734375,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 493.734375,
+            "width": 358,
+            "x": 16,
+            "y": 493.734375
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 730.71875,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 658.71875,
+            "width": 358,
+            "x": 16,
+            "y": 658.71875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 853.703125,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 805.703125,
+            "width": 358,
+            "x": 16,
+            "y": 805.703125
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 994.6875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 946.6875,
+            "width": 358,
+            "x": 16,
+            "y": 946.6875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1117.671875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1069.671875,
+            "width": 358,
+            "x": 16,
+            "y": 1069.671875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1240.65625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1192.65625,
+            "width": 358,
+            "x": 16,
+            "y": 1192.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "Hiperpar\u00e1metros con Bayes en 3 cucharadas: menos grilla, m\u00e1s memoria estad\u00edstica",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1405.640625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1333.640625,
+            "width": 358,
+            "x": 16,
+            "y": 1333.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(122, 122, 122)",
+          "title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la pol\u00edtica social avanza a ciegas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1570.625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1498.625,
+            "width": 358,
+            "x": 16,
+            "y": 1498.625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/year-archive/",
+      "width": 390,
+      "fragment_sha256": "693d327df16131089b364cd6e70b30472440b5fb59a660354417c2d669c44f6a"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "01284be693a889b1f1d7862dc68def56052b60f84408a1e2c41daea6139126b6",
+    "screenshot": "screenshots/archive-es-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "archive-es-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 259.765625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 211.765625,
+            "width": 358,
+            "x": 16,
+            "y": 211.765625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 400.75,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 352.75,
+            "width": 358,
+            "x": 16,
+            "y": 352.75
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 565.734375,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 493.734375,
+            "width": 358,
+            "x": 16,
+            "y": 493.734375
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 730.71875,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 658.71875,
+            "width": 358,
+            "x": 16,
+            "y": 658.71875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 853.703125,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 805.703125,
+            "width": 358,
+            "x": 16,
+            "y": 805.703125
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 994.6875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 946.6875,
+            "width": 358,
+            "x": 16,
+            "y": 946.6875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1117.671875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1069.671875,
+            "width": 358,
+            "x": 16,
+            "y": 1069.671875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1240.65625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1192.65625,
+            "width": 358,
+            "x": 16,
+            "y": 1192.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Hiperpar\u00e1metros con Bayes en 3 cucharadas: menos grilla, m\u00e1s memoria estad\u00edstica",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1405.640625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1333.640625,
+            "width": 358,
+            "x": 16,
+            "y": 1333.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la pol\u00edtica social avanza a ciegas",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1570.625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1498.625,
+            "width": 358,
+            "x": 16,
+            "y": 1498.625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/year-archive/",
+      "width": 390,
+      "fragment_sha256": "693d327df16131089b364cd6e70b30472440b5fb59a660354417c2d669c44f6a"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "01284be693a889b1f1d7862dc68def56052b60f84408a1e2c41daea6139126b6",
+    "screenshot": "screenshots/archive-es-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "archive-en-390-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 259.765625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 211.765625,
+            "width": 358,
+            "x": 16,
+            "y": 211.765625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 400.75,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 352.75,
+            "width": 358,
+            "x": 16,
+            "y": 352.75
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 565.734375,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 493.734375,
+            "width": 358,
+            "x": 16,
+            "y": 493.734375
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 730.71875,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 658.71875,
+            "width": 358,
+            "x": 16,
+            "y": 658.71875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 871.703125,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 823.703125,
+            "width": 358,
+            "x": 16,
+            "y": 823.703125
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1012.6875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 964.6875,
+            "width": 358,
+            "x": 16,
+            "y": 964.6875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1135.671875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1087.671875,
+            "width": 358,
+            "x": 16,
+            "y": 1087.671875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1258.65625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1210.65625,
+            "width": 358,
+            "x": 16,
+            "y": 1210.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "Bayesian hyperparameters in 3 spoonfuls: less grid, more statistical memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1423.640625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1351.640625,
+            "width": 358,
+            "x": 16,
+            "y": 1351.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(88, 88, 88)",
+          "title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1588.625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1516.625,
+            "width": 358,
+            "x": 16,
+            "y": 1516.625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/year-archive/",
+      "width": 390,
+      "fragment_sha256": "42b3d0488dbe7c2b541457320f35c75f8262998e6a4984dbdbcb2ed1b0a74808"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "1b6dff27fda4729feca0f9aa5b6f4094b813d4148b6ba83fb3770ea0cc94be0e",
+    "screenshot": "screenshots/archive-en-390-light.png",
+    "failures": []
+  },
+  {
+    "id": "archive-en-390-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 259.765625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 211.765625,
+            "width": 358,
+            "x": 16,
+            "y": 211.765625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 400.75,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 352.75,
+            "width": 358,
+            "x": 16,
+            "y": 352.75
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 565.734375,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 493.734375,
+            "width": 358,
+            "x": 16,
+            "y": 493.734375
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 730.71875,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 658.71875,
+            "width": 358,
+            "x": 16,
+            "y": 658.71875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 871.703125,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 823.703125,
+            "width": 358,
+            "x": 16,
+            "y": 823.703125
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1012.6875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 964.6875,
+            "width": 358,
+            "x": 16,
+            "y": 964.6875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1135.671875,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1087.671875,
+            "width": 358,
+            "x": 16,
+            "y": 1087.671875
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1258.65625,
+            "height": 48,
+            "left": 16,
+            "right": 374,
+            "top": 1210.65625,
+            "width": 358,
+            "x": 16,
+            "y": 1210.65625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "Bayesian hyperparameters in 3 spoonfuls: less grid, more statistical memory",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1423.640625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1351.640625,
+            "width": 358,
+            "x": 16,
+            "y": 1351.640625
+          },
+          "title_scroll": 358
+        },
+        {
+          "font_size": "20px",
+          "img": null,
+          "text_color": "rgb(19, 19, 19)",
+          "title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+          "title_client": 358,
+          "title_rect": {
+            "bottom": 1588.625,
+            "height": 72,
+            "left": 16,
+            "right": 374,
+            "top": 1516.625,
+            "width": 358,
+            "x": 16,
+            "y": 1516.625
+          },
+          "title_scroll": 358
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/year-archive/",
+      "width": 390,
+      "fragment_sha256": "42b3d0488dbe7c2b541457320f35c75f8262998e6a4984dbdbcb2ed1b0a74808"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "1b6dff27fda4729feca0f9aa5b6f4094b813d4148b6ba83fb3770ea0cc94be0e",
+    "screenshot": "screenshots/archive-en-390-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "home-es-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -768.203125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -768.203125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -337.0625,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -337.0625,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 94.078125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 94.078125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 552.484375,
+            "height": 27.265625,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 525.21875,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 579.75,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 525.21875,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/",
+      "width": 1440,
+      "fragment_sha256": "da35ad0c2da46c3588f9598bae859655ead06f88e0073ee71d13e84b27112415"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "5edd34f72a06f7a2ab418ce63dc93212782e0e40356cbc90d9fb32329769a96e",
+    "screenshot": "screenshots/home-es-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "home-es-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -768.203125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -768.203125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -337.0625,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -337.0625,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 94.078125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 94.078125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 552.484375,
+            "height": 27.265625,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 525.21875,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 579.75,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 525.21875,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/",
+      "width": 1440,
+      "fragment_sha256": "da35ad0c2da46c3588f9598bae859655ead06f88e0073ee71d13e84b27112415"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "5edd34f72a06f7a2ab418ce63dc93212782e0e40356cbc90d9fb32329769a96e",
+    "screenshot": "screenshots/home-es-1440-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "home-en-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -768.203125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -768.203125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -337.0625,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -337.0625,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 94.078125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 94.078125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 552.484375,
+            "height": 27.265625,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 525.21875,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 579.75,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 525.21875,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/",
+      "width": 1440,
+      "fragment_sha256": "49db4decf663f68bc36887b7aef465f843080855b9a160440f3ecf54b3dc6699"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "2626d316623f1e6c7748914d39455a4187b507fac6c294ea5d898e482af91eb8",
+    "screenshot": "screenshots/home-en-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "home-en-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -768.203125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -713.671875,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -768.203125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -768.203125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": -337.0625,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": -282.53125,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": -337.0625,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": -337.0625
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 94.078125,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 148.609375,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 94.078125,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 94.078125
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/rss-gobierna-como-lees/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/rss-gobierna-como-lees/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 552.484375,
+            "height": 27.265625,
+            "left": 373.09375,
+            "right": 835.5625,
+            "top": 525.21875,
+            "width": 462.46875,
+            "x": 373.09375,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 462,
+          "title_rect": {
+            "bottom": 579.75,
+            "height": 54.53125,
+            "left": 904.421875,
+            "right": 1366.90625,
+            "top": 525.21875,
+            "width": 462.484375,
+            "x": 904.421875,
+            "y": 525.21875
+          },
+          "title_scroll": 462
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/",
+      "width": 1440,
+      "fragment_sha256": "49db4decf663f68bc36887b7aef465f843080855b9a160440f3ecf54b3dc6699"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "2626d316623f1e6c7748914d39455a4187b507fac6c294ea5d898e482af91eb8",
+    "screenshot": "screenshots/home-en-1440-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "related-es-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 354.5,
+            "right": 599.140625,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 354.5,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 656.484375,
+            "height": 135,
+            "left": 616.609375,
+            "right": 861.25,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 616.609375,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 878.71875,
+            "right": 1123.359375,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 878.71875,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 1140.828125,
+            "right": 1385.46875,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 1140.828125,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 1440,
+      "fragment_sha256": "abee3ad70594ec2bd656cae3f82bf6c93cf9df0d21fc37462c0e9f07cfaa33fb"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "65e741446ff7fdb2aa37c1a2a2bf920eaaa95d61e6c02292b3d1200a1242accb",
+    "screenshot": "screenshots/related-es-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "related-es-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 354.5,
+            "right": 599.140625,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 354.5,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 656.484375,
+            "height": 135,
+            "left": 616.609375,
+            "right": 861.25,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 616.609375,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 878.71875,
+            "right": 1123.359375,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 878.71875,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.484375,
+            "height": 108,
+            "left": 1140.828125,
+            "right": 1385.46875,
+            "top": 521.484375,
+            "width": 244.640625,
+            "x": 1140.828125,
+            "y": 521.484375
+          },
+          "title_scroll": 245
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 1440,
+      "fragment_sha256": "abee3ad70594ec2bd656cae3f82bf6c93cf9df0d21fc37462c0e9f07cfaa33fb"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "65e741446ff7fdb2aa37c1a2a2bf920eaaa95d61e6c02292b3d1200a1242accb",
+    "screenshot": "screenshots/related-es-1440-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "related-en-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.03125,
+            "height": 108,
+            "left": 354.5,
+            "right": 599.140625,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 354.5,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.03125,
+            "height": 108,
+            "left": 616.609375,
+            "right": 861.25,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 616.609375,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 656.03125,
+            "height": 135,
+            "left": 878.71875,
+            "right": 1123.359375,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 878.71875,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(0, 0, 0)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 602.03125,
+            "height": 81,
+            "left": 1140.828125,
+            "right": 1385.46875,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 1140.828125,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 1440,
+      "fragment_sha256": "e4a1b0f5e7764fedc470be36d93badb6dab6fdc9b775078ca40e2e8bfc2ceae3"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "098ad0f42c6f4f56a6cb309f0a58625852497242cdfb06d190ea5db213d8f9fa",
+    "screenshot": "screenshots/related-en-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "related-en-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.03125,
+            "height": 108,
+            "left": 354.5,
+            "right": 599.140625,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 354.5,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 629.03125,
+            "height": 108,
+            "left": 616.609375,
+            "right": 861.25,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 616.609375,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 656.03125,
+            "height": 135,
+            "left": 878.71875,
+            "right": 1123.359375,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 878.71875,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        },
+        {
+          "font_size": "22px",
+          "img": {
+            "complete": true,
+            "current": "http://127.0.0.1:4038/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+            "natural_width": 384,
+            "sizes": "(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px",
+            "src": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+            "srcset": "/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp 640w, /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp 1280w"
+          },
+          "text_color": "rgb(244, 244, 244)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 245,
+          "title_rect": {
+            "bottom": 602.03125,
+            "height": 81,
+            "left": 1140.828125,
+            "right": 1385.46875,
+            "top": 521.03125,
+            "width": 244.640625,
+            "x": 1140.828125,
+            "y": 521.03125
+          },
+          "title_scroll": 245
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "width": 1440,
+      "fragment_sha256": "e4a1b0f5e7764fedc470be36d93badb6dab6fdc9b775078ca40e2e8bfc2ceae3"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 79,
+        "incomplete": 0,
+        "passes": 9,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "098ad0f42c6f4f56a6cb309f0a58625852497242cdfb06d190ea5db213d8f9fa",
+    "screenshot": "screenshots/related-en-1440-academic-night.png",
+    "failures": []
+  },
+  {
+    "id": "archive-es-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 356.453125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 290.453125,
+            "width": 731,
+            "x": 354.5,
+            "y": 290.453125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 524.0625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 458.0625,
+            "width": 731,
+            "x": 354.5,
+            "y": 458.0625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 691.671875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 625.671875,
+            "width": 731,
+            "x": 354.5,
+            "y": 625.671875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 859.28125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 793.28125,
+            "width": 731,
+            "x": 354.5,
+            "y": 793.28125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1026.890625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 960.890625,
+            "width": 731,
+            "x": 354.5,
+            "y": 960.890625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1194.5,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1128.5,
+            "width": 731,
+            "x": 354.5,
+            "y": 1128.5
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1329.109375,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1296.109375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1296.109375
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1496.71875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1430.71875,
+            "width": 731,
+            "x": 354.5,
+            "y": 1430.71875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "Hiperpar\u00e1metros con Bayes en 3 cucharadas: menos grilla, m\u00e1s memoria estad\u00edstica",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1664.328125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1598.328125,
+            "width": 731,
+            "x": 354.5,
+            "y": 1598.328125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(14, 14, 14)",
+          "title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la pol\u00edtica social avanza a ciegas",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1831.9375,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1765.9375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1765.9375
+          },
+          "title_scroll": 731
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/year-archive/",
+      "width": 1440,
+      "fragment_sha256": "693d327df16131089b364cd6e70b30472440b5fb59a660354417c2d669c44f6a"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "01284be693a889b1f1d7862dc68def56052b60f84408a1e2c41daea6139126b6",
+    "screenshot": "screenshots/archive-es-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "archive-es-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Aval\u00faos en 3 cucharadas II: d\u00f3nde revisar la brecha residencial",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 356.453125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 290.453125,
+            "width": 731,
+            "x": 354.5,
+            "y": 290.453125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Multiagentes en 3 cucharadas III: una memoria que deja huellas",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 524.0625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 458.0625,
+            "width": 731,
+            "x": 354.5,
+            "y": 458.0625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Nushell en 3 cucharadas: \u00bfcu\u00e1ndo una shell estructurada le saca jugo a un agente?",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 691.671875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 625.671875,
+            "width": 731,
+            "x": 354.5,
+            "y": 625.671875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Aval\u00fao y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 859.28125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 793.28125,
+            "width": 731,
+            "x": 354.5,
+            "y": 793.28125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Multiagentes en 3 cucharadas II: una memoria que se puede auditar",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1026.890625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 960.890625,
+            "width": 731,
+            "x": 354.5,
+            "y": 960.890625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1194.5,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1128.5,
+            "width": 731,
+            "x": 354.5,
+            "y": 1128.5
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "RSS en 3 cucharadas: volver a elegir qu\u00e9 lees",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1329.109375,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1296.109375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1296.109375
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Multiagentes en 3 cucharadas: lo que me funcion\u00f3 y lo que no",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1496.71875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1430.71875,
+            "width": 731,
+            "x": 354.5,
+            "y": 1430.71875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "Hiperpar\u00e1metros con Bayes en 3 cucharadas: menos grilla, m\u00e1s memoria estad\u00edstica",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1664.328125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1598.328125,
+            "width": 731,
+            "x": 354.5,
+            "y": 1598.328125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(23, 23, 23)",
+          "title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la pol\u00edtica social avanza a ciegas",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1831.9375,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1765.9375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1765.9375
+          },
+          "title_scroll": 731
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/year-archive/",
+      "width": 1440,
+      "fragment_sha256": "693d327df16131089b364cd6e70b30472440b5fb59a660354417c2d669c44f6a"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 1
+      },
+      "violations": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 10,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          16 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(1) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          16 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(2) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          11 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(3) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          20 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(4) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          9 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(5) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          10 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(6) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          12 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(7) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          12 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(8) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          21 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(9) > article > .page__meta > .page__meta-readtime"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.38 (foreground color: #545454, background color: #161616, font size: 9.9pt (13.2px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "html": "<span class=\"page__meta-readtime\">\n        <i class=\"far fa-clock\" aria-hidden=\"true\"></i>\n        \n          7 minuto(s) de lectura\n        \n      </span>",
+              "target": [
+                ".list__item:nth-child(10) > article > .page__meta > .page__meta-readtime"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "incomplete": []
+    },
+    "html_file_sha256": "01284be693a889b1f1d7862dc68def56052b60f84408a1e2c41daea6139126b6",
+    "screenshot": "screenshots/archive-es-1440-academic-night.png",
+    "failures": [
+      "axe card violations"
+    ]
+  },
+  {
+    "id": "archive-en-1440-light",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 356.453125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 290.453125,
+            "width": 731,
+            "x": 354.5,
+            "y": 290.453125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 524.0625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 458.0625,
+            "width": 731,
+            "x": 354.5,
+            "y": 458.0625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 691.671875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 625.671875,
+            "width": 731,
+            "x": 354.5,
+            "y": 625.671875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 859.28125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 793.28125,
+            "width": 731,
+            "x": 354.5,
+            "y": 793.28125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 993.890625,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 960.890625,
+            "width": 731,
+            "x": 354.5,
+            "y": 960.890625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1128.5,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1095.5,
+            "width": 731,
+            "x": 354.5,
+            "y": 1095.5
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1263.109375,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1230.109375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1230.109375
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1430.71875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1364.71875,
+            "width": 731,
+            "x": 354.5,
+            "y": 1364.71875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "Bayesian hyperparameters in 3 spoonfuls: less grid, more statistical memory",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1598.328125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1532.328125,
+            "width": 731,
+            "x": 354.5,
+            "y": 1532.328125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(156, 156, 156)",
+          "title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1765.9375,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1699.9375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1699.9375
+          },
+          "title_scroll": 731
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4038/en/year-archive/",
+      "width": 1440,
+      "fragment_sha256": "42b3d0488dbe7c2b541457320f35c75f8262998e6a4984dbdbcb2ed1b0a74808"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "1b6dff27fda4729feca0f9aa5b6f4094b813d4148b6ba83fb3770ea0cc94be0e",
+    "screenshot": "screenshots/archive-en-1440-light.png",
+    "failures": []
+  },
+  {
+    "id": "archive-en-1440-academic-night",
+    "observed": {
+      "cards": [
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Property assessments in 3 spoonfuls II: where to review the residential gap",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 356.453125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 290.453125,
+            "width": 731,
+            "x": 354.5,
+            "y": 290.453125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Multi-agent work in three spoonfuls III: a memory that leaves traces",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 524.0625,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 458.0625,
+            "width": 731,
+            "x": 354.5,
+            "y": 458.0625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Nushell in three spoonfuls: when does a structured shell actually help an agent?",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 691.671875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 625.671875,
+            "width": 731,
+            "x": 354.5,
+            "y": 625.671875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 859.28125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 793.28125,
+            "width": 731,
+            "x": 354.5,
+            "y": 793.28125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Multi-agent work in three spoonfuls II: auditable memory",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 993.890625,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 960.890625,
+            "width": 731,
+            "x": 354.5,
+            "y": 960.890625
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "AI quotas in three spoonfuls: a HUD for the KDE panel",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1128.5,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1095.5,
+            "width": 731,
+            "x": 354.5,
+            "y": 1095.5
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "RSS in 3 spoonfuls: choosing what you read",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1263.109375,
+            "height": 33,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1230.109375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1230.109375
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Multi-agent work in three spoonfuls: what worked for me and what did not",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1430.71875,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1364.71875,
+            "width": 731,
+            "x": 354.5,
+            "y": 1364.71875
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "Bayesian hyperparameters in 3 spoonfuls: less grid, more statistical memory",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1598.328125,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1532.328125,
+            "width": 731,
+            "x": 354.5,
+            "y": 1532.328125
+          },
+          "title_scroll": 731
+        },
+        {
+          "font_size": "27.5px",
+          "img": null,
+          "text_color": "rgb(26, 26, 26)",
+          "title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+          "title_client": 731,
+          "title_rect": {
+            "bottom": 1765.9375,
+            "height": 66,
+            "left": 354.5,
+            "right": 1085.5,
+            "top": 1699.9375,
+            "width": 731,
+            "x": 354.5,
+            "y": 1699.9375
+          },
+          "title_scroll": 731
+        }
+      ],
+      "dpr": 1,
+      "overflow": 0,
+      "theme": "academic-night",
+      "url": "http://127.0.0.1:4038/en/year-archive/",
+      "width": 1440,
+      "fragment_sha256": "42b3d0488dbe7c2b541457320f35c75f8262998e6a4984dbdbcb2ed1b0a74808"
+    },
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 82,
+        "incomplete": 0,
+        "passes": 6,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "html_file_sha256": "1b6dff27fda4729feca0f9aa5b6f4094b813d4148b6ba83fb3770ea0cc94be0e",
+    "screenshot": "screenshots/archive-en-1440-academic-night.png",
+    "failures": []
+  }
+]

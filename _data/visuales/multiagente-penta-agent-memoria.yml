@@ -1,28 +1,130 @@
-# Catálogo manual del diagrama bilingüe de memoria multiagente.
 slug: multiagente-penta-agent-memoria
 ref: multiagente-penta-agent-memoria
 posts:
-  - _posts/2026-07-23-multiagente-penta-agent-memoria.md
-  - _posts/2026-07-23-multiagente-penta-agent-memoria-en.md
-
+- _posts/2026-07-23-multiagente-penta-agent-memoria-en.md
+- _posts/2026-07-23-multiagente-penta-agent-memoria.md
 piezas:
-  - id: teaser-og
-    rol: og
-    archivo: assets/images/teasers/teaser-multiagentes-memoria.webp
-    ancho: 1280
-    alto: 720
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "URL histórica usada como teaser y OG en ambas versiones del post."
-    alt: {es: "Ilustración de memoria auditable para un sistema multiagente."}
-  - {id: flujo-es, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg, estado: publicable, origen: d2}
-  - {id: flujo-en, rol: figura, archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg, estado: publicable, origen: d2}
-  - id: flujo-en-devto
-    rol: figura
-    archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png
-    ancho: 1200
-    alto: 2172
-    estado: publicable
-    origen: render-script
-    alt: {en: "Flow diagram of the auditable multi-agent memory pipeline."}
+- id: teaser-og
+  rol: og
+  archivo: assets/images/teasers/teaser-multiagentes-memoria.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: URL histórica usada como teaser y OG en ambas versiones del post.
+  alt:
+    es: Ilustración de memoria auditable para un sistema multiagente.
+- id: flujo-es
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent.svg
+  estado: publicable
+  origen: d2
+- id: flujo-en
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg
+  estado: publicable
+  origen: d2
+- id: flujo-en-devto
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png
+  ancho: 1200
+  alto: 2172
+  estado: publicable
+  origen: render-script
+  alt:
+    en: Flow diagram of the auditable multi-agent memory pipeline.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 119714
+  sha256: d3d4de0feaec5b579efc4d7083837834164f15910026735de376605e9fcf84fa
+  alt: &id001
+    es: Archivo luminoso conectado a una red esférica de memoria compartida.
+    en: A luminous archive connected to a spherical shared-memory network.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 0102c6b3a36dc3c69d87a688b064ee12235572bc56a59fa82a573274be7766fd
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 42302
+  sha256: 8a826e195d2b7a332421dde583ef82cff4c3d11b84702c8f997da0ed66769534
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 0102c6b3a36dc3c69d87a688b064ee12235572bc56a59fa82a573274be7766fd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 97606
+  sha256: c98fbce25e8a360683050c045d38684aa1c63222b66d702f719e672699837765
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 0102c6b3a36dc3c69d87a688b064ee12235572bc56a59fa82a573274be7766fd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 33640
+  sha256: e7936c776bfc1b19569a57608e584a64dd89cf999f5cfcbe99ac9bc9d2eb6479
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 0102c6b3a36dc3c69d87a688b064ee12235572bc56a59fa82a573274be7766fd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 88780
+  sha256: 270b91345719a50b16a3e388c9696e57ce85a332e755f31d188471fb97175423
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 0102c6b3a36dc3c69d87a688b064ee12235572bc56a59fa82a573274be7766fd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

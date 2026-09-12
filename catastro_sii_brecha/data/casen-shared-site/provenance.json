@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-12T11:17:09.707406+00:00",
+  "sources": [
+    {
+      "id": "rdata",
+      "filename": "casen_2024.rdata",
+      "sha256": "638c6aef38a930ccfbf3153fe9374fe97b9d30338aa492d12f8d19b0d0cb37e4"
+    },
+    {
+      "id": "communes",
+      "filename": "casen_2024_provincia_comuna.dta",
+      "sha256": "16ac315fee386edef02a38507c9af4fe5cbb8cf3b083a5898ad7791fb18a0cae"
+    },
+    {
+      "id": "codebook",
+      "filename": "libro_de_codigos_casen_2024.xlsx",
+      "sha256": "c78453bb68ca55cd0201d5421c14a6fee80028e40b6ece639e6a5c6c8b7d4f74"
+    },
+    {
+      "id": "communal-codebook",
+      "filename": "libro_de_codigos_casen_2024_prov_comuna.xlsx",
+      "sha256": "0ea1387ac4eb70e4e8d5e7968880c480a99d4730e5fdd9861a5d39deeb20738c"
+    },
+    {
+      "id": "use-note",
+      "filename": "nota-uso-bases-de-datos-casen-2024.pdf",
+      "sha256": "44ca117ffedd29f3ac9e8cc415bc6924dede91a220505e2b518b02ff1ac57e90"
+    },
+    {
+      "id": "commune-universe",
+      "filename": "V1_Viviendas-y-hogares-censados.xlsx",
+      "sha256": "19d5a5bb5b199c1b72714bfeade361e3493a76a350586d675d479a0564fe2b94"
+    }
+  ],
+  "official_source": "https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024",
+  "use_note": "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf",
+  "code_sha256": {
+    "scripts/casen_shared_site.py": "76004be255f3b29cb95832f7790b4d5222d19c0b11d49d7d5e6a356274986e09",
+    "src/casen_shared_site/core.py": "ecd7139d63849d3969785ed22980e166b19b59e0cf78cd99a454a3385f9215a5",
+    "src/casen_shared_site/__init__.py": "5fd5525ded8ec6dd2e20997fdcdc61a9b76b7b415ee635ca043541aaf206fc2d",
+    "src/casen_shared_site/rdata.py": "3ceea3d56f27b5f066f0541a606d783ee1d06bcfad6b66f9d9798f8f5ccee9b7"
+  },
+  "outputs_sha256": {
+    "estimates.csv": "c6c7e9ca08f0b12325ed3f8144df00dd27e6906b7e1ecad4f3ba7b8b8b41e1e3",
+    "estimates.parquet": "5802ad1a03c929ad68b617849c842e65c119add571be5c7e82da8cc549479b02",
+    "estimates.json": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+    "audit.json": "89c0516199a7bda371cdfd42572917ff92b5551084fb69ee86093a2baafbfd31"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "R": "Rscript (R) version 4.6.1 (2026-06-24)"
+  },
+  "unit": "household",
+  "raw_data_exported": false,
+  "sources_unchanged_after_run": true,
+  "limitations": [
+    "Not a dwelling or site count",
+    "Not a fiscal-gap adjustment",
+    "Communes nonrepresentative and exploratory",
+    "Normal approximation; no singleton correction",
+    "No global optimality claim"
+  ]
+}

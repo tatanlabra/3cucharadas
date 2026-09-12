@@ -1,0 +1,2441 @@
+{
+  "exit_code": 2,
+  "findings": [
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 1,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 2,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 3,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 4,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 5,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 6,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 7,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 9,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 10,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 11,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 12,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 13,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 14,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 15,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 16,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 17,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 18,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 19,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "line": 20,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/agy-20260912T104837Z-241965/stdout.md",
+      "line": 35,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/forem-article.rb",
+      "line": 1095,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/forem-article.rb",
+      "line": 1986,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 7,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 17,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 49,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 51,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 84,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 102,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 130,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 148,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 165,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 167,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 168,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 179,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 181,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 182,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 188,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 190,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 191,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 197,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 199,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 200,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 206,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 220,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 222,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 223,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 229,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 231,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 232,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 238,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 240,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 241,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 247,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 261,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 263,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 264,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 270,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 272,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 273,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 279,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 281,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 282,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 294,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 311,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 313,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 314,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 325,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 327,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 328,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 334,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 336,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 337,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 343,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 345,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 346,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 352,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 354,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 355,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 361,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 375,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 377,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 378,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 384,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 386,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 387,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 393,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 395,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 396,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 402,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 404,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 405,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 411,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 425,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 427,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 428,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 434,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 436,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 437,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 443,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 445,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 446,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 452,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 454,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 455,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 467,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 486,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 488,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 489,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 500,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 502,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 503,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 509,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 511,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 512,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 518,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 520,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 521,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 527,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 529,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 530,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 536,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 550,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 552,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 553,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 559,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 561,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 562,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 568,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 570,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 571,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 577,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 579,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 580,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 586,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 601,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 618,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 620,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 621,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 632,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 634,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 635,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 641,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 643,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 644,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 650,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 652,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 653,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 659,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 661,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 662,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 668,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 670,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 671,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 677,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 679,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 680,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 686,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 700,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 702,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 703,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 709,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 711,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 712,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 718,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 720,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 721,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 727,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 729,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 730,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 736,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 738,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 739,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 751,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 768,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 770,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 771,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 782,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 784,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 785,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 791,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 793,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 794,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 800,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 802,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 803,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 809,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 811,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 812,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 818,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 820,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 821,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 827,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 829,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 830,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 836,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 850,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 852,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 853,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 859,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 861,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 862,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 868,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 870,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 871,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 877,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 879,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 880,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 886,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 888,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 889,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 901,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 918,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 920,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 921,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 932,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 934,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 935,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 941,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 943,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 944,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 951,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 953,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 954,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 961,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 963,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 964,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 975,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 977,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 978,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 989,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 991,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 992,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 998,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1000,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1001,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1012,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1014,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1015,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1027,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1052,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1053,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1062,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1063,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1071,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1073,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1074,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1080,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1082,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1083,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1089,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1091,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1092,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1098,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1100,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1101,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1107,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1109,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1110,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1116,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1118,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1119,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1130,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1155,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1156,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1165,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1166,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1177,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1178,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1187,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1188,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1211,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1221,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1224,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1225,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1226,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1227,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1228,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1233,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1234,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1235,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1236,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1238,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1249,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1255,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1266,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1277,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1288,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1299,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1301,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1333,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1341,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1343,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1351,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1353,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1363,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1364,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1365,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1366,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1367,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1389,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1390,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1395,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1396,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1397,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1403,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1404,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1405,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1406,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1407,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1408,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1414,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1416,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1417,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1419,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1436,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1437,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1448,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1458,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1459,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1469,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1470,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1480,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1481,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1491,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1492,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1504,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1510,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1511,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1516,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1518,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1595,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1611,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1612,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1613,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1614,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1615,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1620,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1621,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1622,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1623,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1638,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1639,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1640,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1641,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1642,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1647,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1648,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1649,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1650,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1691,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1710,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1711,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1715,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1716,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1717,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1718,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1719,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1724,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1725,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1726,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1727,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1729,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1764,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1775,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1786,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1797,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1808,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1819,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1822,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1827,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1839,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1851,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1863,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1875,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1887,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1899,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1903,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1908,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1920,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1932,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1944,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1956,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1968,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1972,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1977,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 1989,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2001,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2013,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2025,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2037,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2049,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2053,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2064,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2073,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2082,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2091,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2100,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2109,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2111,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/G1/sources/mdn-svg-image.html",
+      "line": 2111,
+      "issue": "new blank line at EOF."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/U1/3c-u1-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/checks/E1-bound-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/checks/E1-candidate-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/checks/E1-first-person-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 23,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 27,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 28,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 34,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 35,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 46,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 47,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 124,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 135,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 139,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 140,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 144,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 145,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 211,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 212,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 215,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 250,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 251,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 304,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 308,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 309,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 320,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 321,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 331,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 335,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 339,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 343,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 347,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 351,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 355,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 360,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 372,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 379,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 389,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 397,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 398,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 408,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 416,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 423,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 431,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 435,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 440,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 445,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 446,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 452,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 464,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 480,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 497,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 498,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 505,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 507,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 509,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 511,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 513,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 515,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 523,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 525,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 527,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 529,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 531,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 533,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 535,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 537,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 539,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 541,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 552,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 554,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 556,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 558,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 560,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 562,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 564,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 575,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 577,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/claude-science/round1/brief.md",
+      "line": 579,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/hero-browser/cardfix-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/hero-browser/matrix-build.log",
+      "line": 8,
+      "issue": "trailing whitespace."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/performance/embedded-vitals-init.js",
+      "line": 77,
+      "issue": "new blank line at EOF."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/embedded-vitals-init.js",
+      "line": 77,
+      "issue": "new blank line at EOF."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/performance/formal-tools/embedded-vitals-init.js",
+      "line": 77,
+      "issue": "new blank line at EOF."
+    },
+    {
+      "file": "docs/plans/20260912-heroes-casen/evidence/performance/presentation-diagnosis/lunr-en-deferred-canary.js",
+      "line": 65,
+      "issue": "space before tab in indent."
+    }
+  ],
+  "disposition": "Preserve frozen CRLF CSV exports, renderer SVG metadata and raw evidence bytes. These whitespace findings do not indicate a functional pass or change the failed performance gate."
+}

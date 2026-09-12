@@ -1,0 +1,21 @@
+WARN: --sandbox se pasa pero no hay backend configurado (sin clave sandbox en ~/.qwen/settings.json, sin $SANDBOX). La contencion efectiva es el workspace aislado, no el flag.
+# QWEN_RESULT
+
+status: failed
+caller: codex
+mode: review
+summary: qwen no entrego un bloque QWEN_RESULT parseable.
+files_read:
+files_changed:
+commands_run:
+risks: salida no normalizada
+validation: consultar sanitized-review-evidence.json, recovery.json y stderr.log en qwen-20260912T105710Z-263862; los streams originales quedan fuera del paquete versionable, con SHA-256 conservado.
+next_action: corregir prompt o diagnosticar qwen
+
+## Wrapper override
+
+status: failed
+reason: missing_qwen_result
+
+## Package sanitization note
+La referencia original a stdout se sustituyó por evidencia pública allowlist. Se preservan status: failed, reason: missing_qwen_result y los códigos de salida originales; esto no convierte la revisión en aprobada.

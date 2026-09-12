@@ -1,0 +1,17 @@
+test_accepted_digest_and_independent_values (test_casen_shared_site_figure.CasenFigureTest.test_accepted_digest_and_independent_values) ... ok
+test_actual_marks_distinguish_zero_from_missing (test_casen_shared_site_figure.CasenFigureTest.test_actual_marks_distinguish_zero_from_missing) ... ok
+test_communal_ci_wrong_units_weights_and_raw_fields_rejected (test_casen_shared_site_figure.CasenFigureTest.test_communal_ci_wrong_units_weights_and_raw_fields_rejected) ... ok
+test_exported_rows_equal_source_and_geographic_order (test_casen_shared_site_figure.CasenFigureTest.test_exported_rows_equal_source_and_geographic_order) ... ok
+test_fiscal_sources_untouched_and_public_provenance (test_casen_shared_site_figure.CasenFigureTest.test_fiscal_sources_untouched_and_public_provenance) ... ok
+test_hash_and_review_binding_fail_closed (test_casen_shared_site_figure.CasenFigureTest.test_hash_and_review_binding_fail_closed) ... ok
+test_invalid_ci_bounds_and_nonfinite_values_rejected (test_casen_shared_site_figure.CasenFigureTest.test_invalid_ci_bounds_and_nonfinite_values_rejected) ... ok
+test_missing_region_duplicate_and_count_identity_rejected (test_casen_shared_site_figure.CasenFigureTest.test_missing_region_duplicate_and_count_identity_rejected) ... ok
+test_missing_sample_and_empty_domain_are_not_zero (test_casen_shared_site_figure.CasenFigureTest.test_missing_sample_and_empty_domain_are_not_zero) ... ok
+test_observed_zero_and_one_without_ci_remain_observed (test_casen_shared_site_figure.CasenFigureTest.test_observed_zero_and_one_without_ci_remain_observed) ... ok
+test_rendered_labels_and_portable_fonts (test_casen_shared_site_figure.CasenFigureTest.test_rendered_labels_and_portable_fonts) ... ok
+test_singleton_keeps_estimate_without_interval (test_casen_shared_site_figure.CasenFigureTest.test_singleton_keeps_estimate_without_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.676s
+
+OK

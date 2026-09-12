@@ -1,0 +1,457 @@
+{
+  "targets": [
+    {
+      "ancestors": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "CAPTION"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TABLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "tabla-desliza",
+          "color": "rgb(0, 0, 0)",
+          "image": "linear-gradient(to right, rgb(253, 253, 253) 30%, rgba(253, 253, 253, 0)), linear-gradient(to right, rgba(253, 253, 253, 0), rgb(253, 253, 253) 70%), radial-gradient(farthest-side at 0px 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0))",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DETAILS"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "SECTION"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__inner-wrap",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "ARTICLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "initial-content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "layout--single avaluos-ii-editorial",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "BODY"
+        },
+        {
+          "background": "rgb(250, 247, 240)",
+          "cls": " js ",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "HTML"
+        }
+      ],
+      "text": "Households reporting an owned shared site; expr; approximate normal 95% confidence intervals."
+    },
+    {
+      "ancestors": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TH"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TR"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TBODY"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TABLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "tabla-desliza",
+          "color": "rgb(0, 0, 0)",
+          "image": "linear-gradient(to right, rgb(253, 253, 253) 30%, rgba(253, 253, 253, 0)), linear-gradient(to right, rgba(253, 253, 253, 0), rgb(253, 253, 253) 70%), radial-gradient(farthest-side at 0px 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0))",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DETAILS"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "SECTION"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__inner-wrap",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "ARTICLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "initial-content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "layout--single avaluos-ii-editorial",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "BODY"
+        },
+        {
+          "background": "rgb(250, 247, 240)",
+          "cls": " js ",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "HTML"
+        }
+      ],
+      "text": "Chile"
+    },
+    {
+      "ancestors": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TD"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TR"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TBODY"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TABLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "tabla-desliza",
+          "color": "rgb(0, 0, 0)",
+          "image": "linear-gradient(to right, rgb(253, 253, 253) 30%, rgba(253, 253, 253, 0)), linear-gradient(to right, rgba(253, 253, 253, 0), rgb(253, 253, 253) 70%), radial-gradient(farthest-side at 0px 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0))",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DETAILS"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "SECTION"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__inner-wrap",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "ARTICLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "initial-content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "layout--single avaluos-ii-editorial",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "BODY"
+        },
+        {
+          "background": "rgb(250, 247, 240)",
+          "cls": " js ",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "HTML"
+        }
+      ],
+      "text": "78,654"
+    },
+    {
+      "ancestors": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TD"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TR"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TBODY"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "TABLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "tabla-desliza",
+          "color": "rgb(0, 0, 0)",
+          "image": "linear-gradient(to right, rgb(253, 253, 253) 30%, rgba(253, 253, 253, 0)), linear-gradient(to right, rgba(253, 253, 253, 0), rgb(253, 253, 253) 70%), radial-gradient(farthest-side at 0px 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0))",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DETAILS"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "SECTION"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page__inner-wrap",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "page",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "ARTICLE"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "initial-content",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "DIV"
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "cls": "layout--single avaluos-ii-editorial",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "BODY"
+        },
+        {
+          "background": "rgb(250, 247, 240)",
+          "cls": " js ",
+          "color": "rgb(0, 0, 0)",
+          "image": "none",
+          "opacity": "1",
+          "tag": "HTML"
+        }
+      ],
+      "text": "0"
+    }
+  ],
+  "theme": "light"
+}

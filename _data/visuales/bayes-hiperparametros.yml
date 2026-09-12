@@ -1,0 +1,100 @@
+slug: bayes-hiperparametros
+ref: bayes-hiperparametros
+posts:
+- _posts/2026-06-20-bayes_hiperparametros-en.md
+- _posts/2026-06-20-bayes_hiperparametros.md
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/bayes-hiperparametros/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 57892
+  sha256: 9fbc71af82dac77f6f8dbadd624e9e0eee59ffdb87b29a22dd752dc416035640
+  alt: &id001
+    es: Paisaje de curvas abstractas como metáfora de la búsqueda de hiperparámetros.
+    en: An abstract contour landscape as a metaphor for hyperparameter search.
+  provenance:
+    status: generated_this_revision
+    source_sha256: e6be9f052732ca5c863213d468966232d95d03706f795788d8d25cd3aa00aaa2
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/bayes-hiperparametros/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 20824
+  sha256: ef1730f21428679a82776a01d75351838fcf99a3746ce665e2c52263691f37a7
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e6be9f052732ca5c863213d468966232d95d03706f795788d8d25cd3aa00aaa2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/bayes-hiperparametros/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 47216
+  sha256: da85d76729dd4f84eaf2901af46d8e77f1e8638f6a7cac39fb66f1200173b48d
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e6be9f052732ca5c863213d468966232d95d03706f795788d8d25cd3aa00aaa2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/bayes-hiperparametros/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 16392
+  sha256: 9df7571f999b4c3a3c1ad60e20c433ef8ad3ddbb32c690527739e648d5f861ff
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e6be9f052732ca5c863213d468966232d95d03706f795788d8d25cd3aa00aaa2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/bayes-hiperparametros/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 42254
+  sha256: 17c7b385a95041444f11b58963c2b76425e45d97cff376970075ed7de8149fca
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e6be9f052732ca5c863213d468966232d95d03706f795788d8d25cd3aa00aaa2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

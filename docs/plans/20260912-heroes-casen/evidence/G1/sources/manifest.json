@@ -1,0 +1,41 @@
+{
+  "retrieved_at": "2026-09-12T10:58:41.831310+00:00",
+  "sources": [
+    {
+      "file": "questionnaire.pdf",
+      "url": "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf",
+      "pages": 96,
+      "checked_printed_pages": [
+        79,
+        83
+      ],
+      "checked_pdf_indices": [
+        78,
+        82
+      ],
+      "sha256": "dc3c3afbdc9e90c368b0fe2bdaaf8420257c0f144ce444165b161e58521891dd"
+    },
+    {
+      "file": "use-note.pdf",
+      "url": "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf",
+      "pages": 6,
+      "checked_printed_pages": [
+        2,
+        3
+      ],
+      "sha256": "44ca117ffedd29f3ac9e8cc415bc6924dede91a220505e2b518b02ff1ac57e90"
+    },
+    {
+      "file": "forem-article.rb",
+      "url": "https://raw.githubusercontent.com/forem/forem/main/app/models/article.rb",
+      "sha256": "7126646b0be98ceeab6529fbe760bba4984bc42de54a429c9727eba388ba0d4a",
+      "retrieved_at": "2026-09-12T10:59:43.362391+00:00"
+    },
+    {
+      "file": "mdn-svg-image.html",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_as_an_image",
+      "sha256": "bd56cb3021ff99bc59c703655e8312e4403539bca83a2527c32b99b356d32d88",
+      "retrieved_at": "2026-09-12T10:59:43.363789+00:00"
+    }
+  ]
+}

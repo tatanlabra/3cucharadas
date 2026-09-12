@@ -1,0 +1,706 @@
+[
+  {
+    "id": "es-320-academic-day",
+    "observed": {
+      "badge_count": 0,
+      "caption": "Creé esta portada con IA",
+      "caption_href": "/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "Preparé este artículo con ayuda de IA.\n  Cómo uso la IA.",
+      "document_title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas - 3 Cucharadas",
+      "dpr": 1,
+      "h1_count": 1,
+      "hero_client_width": 320,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 367.328125,
+        "height": 304.09375,
+        "left": 0,
+        "right": 320,
+        "top": 63.234375,
+        "width": 320,
+        "x": 0,
+        "y": 63.234375
+      },
+      "hero_scroll_width": 320,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp",
+        "natural_width": 320,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "es",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "light",
+      "title_rect": {
+        "bottom": 238.171875,
+        "height": 150.9375,
+        "left": 16,
+        "right": 304,
+        "top": 87.234375,
+        "width": 288,
+        "x": 16,
+        "y": 87.234375
+      },
+      "title_text": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas",
+      "url": "http://127.0.0.1:4038/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 320,
+      "hero_html_sha256": "243db23935617bc6c24003f693449e96c02108bea50b144385ece858c8100571",
+      "disclosure_html_sha256": "a389b7124c10901126c6f01490f65cb0bb4b5ec00e2b9248e968e742f9b25711"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "320CSS"
+  },
+  {
+    "id": "es-320-academic-night",
+    "observed": {
+      "badge_count": 0,
+      "caption": "Creé esta portada con IA",
+      "caption_href": "/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "Preparé este artículo con ayuda de IA.\n  Cómo uso la IA.",
+      "document_title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas - 3 Cucharadas",
+      "dpr": 1,
+      "h1_count": 1,
+      "hero_client_width": 320,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 367.328125,
+        "height": 304.09375,
+        "left": 0,
+        "right": 320,
+        "top": 63.234375,
+        "width": 320,
+        "x": 0,
+        "y": 63.234375
+      },
+      "hero_scroll_width": 320,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp",
+        "natural_width": 320,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "es",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "academic-night",
+      "title_rect": {
+        "bottom": 238.171875,
+        "height": 150.9375,
+        "left": 16,
+        "right": 304,
+        "top": 87.234375,
+        "width": 288,
+        "x": 16,
+        "y": 87.234375
+      },
+      "title_text": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas",
+      "url": "http://127.0.0.1:4038/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 320,
+      "hero_html_sha256": "243db23935617bc6c24003f693449e96c02108bea50b144385ece858c8100571",
+      "disclosure_html_sha256": "a389b7124c10901126c6f01490f65cb0bb4b5ec00e2b9248e968e742f9b25711"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "320CSS"
+  },
+  {
+    "id": "en-320-academic-day",
+    "observed": {
+      "badge_count": 0,
+      "caption": "I created this cover with AI",
+      "caption_href": "/en/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/en/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "I used AI to help prepare this article.\n  How I use AI.",
+      "document_title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind - 3 Cucharadas",
+      "dpr": 1,
+      "h1_count": 1,
+      "hero_client_width": 320,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 367.328125,
+        "height": 304.09375,
+        "left": 0,
+        "right": 320,
+        "top": 63.234375,
+        "width": 320,
+        "x": 0,
+        "y": 63.234375
+      },
+      "hero_scroll_width": 320,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp",
+        "natural_width": 320,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "en",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "light",
+      "title_rect": {
+        "bottom": 238.171875,
+        "height": 150.9375,
+        "left": 16,
+        "right": 304,
+        "top": 87.234375,
+        "width": 288,
+        "x": 16,
+        "y": 87.234375
+      },
+      "title_text": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+      "url": "http://127.0.0.1:4038/en/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 320,
+      "hero_html_sha256": "cd5566e723871f69db1fd416e5f8fe011ee1618cd300f594d7a80abb4f51294c",
+      "disclosure_html_sha256": "026f4a28c176bc757a1f532152f6f70f7427aa10b8022d5073704058bea90358"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "320CSS"
+  },
+  {
+    "id": "en-320-academic-night",
+    "observed": {
+      "badge_count": 0,
+      "caption": "I created this cover with AI",
+      "caption_href": "/en/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/en/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "I used AI to help prepare this article.\n  How I use AI.",
+      "document_title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind - 3 Cucharadas",
+      "dpr": 1,
+      "h1_count": 1,
+      "hero_client_width": 320,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 367.328125,
+        "height": 304.09375,
+        "left": 0,
+        "right": 320,
+        "top": 63.234375,
+        "width": 320,
+        "x": 0,
+        "y": 63.234375
+      },
+      "hero_scroll_width": 320,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp",
+        "natural_width": 320,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "en",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "academic-night",
+      "title_rect": {
+        "bottom": 238.171875,
+        "height": 150.9375,
+        "left": 16,
+        "right": 304,
+        "top": 87.234375,
+        "width": 288,
+        "x": 16,
+        "y": 87.234375
+      },
+      "title_text": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+      "url": "http://127.0.0.1:4038/en/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 320,
+      "hero_html_sha256": "cd5566e723871f69db1fd416e5f8fe011ee1618cd300f594d7a80abb4f51294c",
+      "disclosure_html_sha256": "026f4a28c176bc757a1f532152f6f70f7427aa10b8022d5073704058bea90358"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "320CSS"
+  },
+  {
+    "id": "es-200percent-equivalent-reflow-academic-day",
+    "observed": {
+      "badge_count": 0,
+      "caption": "Creé esta portada con IA",
+      "caption_href": "/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "Preparé este artículo con ayuda de IA.\n  Cómo uso la IA.",
+      "document_title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas - 3 Cucharadas",
+      "dpr": 2,
+      "h1_count": 1,
+      "hero_client_width": 720,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 278.53125,
+        "height": 213.53125,
+        "left": 0,
+        "right": 720,
+        "top": 65,
+        "width": 720,
+        "x": 0,
+        "y": 65
+      },
+      "hero_scroll_width": 720,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "natural_width": 720,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "es",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "light",
+      "title_rect": {
+        "bottom": 149.375,
+        "height": 60.375,
+        "left": 16,
+        "right": 704,
+        "top": 89,
+        "width": 688,
+        "x": 16,
+        "y": 89
+      },
+      "title_text": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas",
+      "url": "http://127.0.0.1:4038/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 720,
+      "hero_html_sha256": "243db23935617bc6c24003f693449e96c02108bea50b144385ece858c8100571",
+      "disclosure_html_sha256": "a389b7124c10901126c6f01490f65cb0bb4b5ec00e2b9248e968e742f9b25711"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "reflow equivalent, no native browser UI zoom claim"
+  },
+  {
+    "id": "es-200percent-equivalent-reflow-academic-night",
+    "observed": {
+      "badge_count": 0,
+      "caption": "Creé esta portada con IA",
+      "caption_href": "/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "Preparé este artículo con ayuda de IA.\n  Cómo uso la IA.",
+      "document_title": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas - 3 Cucharadas",
+      "dpr": 2,
+      "h1_count": 1,
+      "hero_client_width": 720,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 278.53125,
+        "height": 213.53125,
+        "left": 0,
+        "right": 720,
+        "top": 65,
+        "width": 720,
+        "x": 0,
+        "y": 65
+      },
+      "hero_scroll_width": 720,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "natural_width": 720,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "es",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "academic-night",
+      "title_rect": {
+        "bottom": 149.375,
+        "height": 60.375,
+        "left": 16,
+        "right": 704,
+        "top": 89,
+        "width": 688,
+        "x": 16,
+        "y": 89
+      },
+      "title_text": "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas",
+      "url": "http://127.0.0.1:4038/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 720,
+      "hero_html_sha256": "243db23935617bc6c24003f693449e96c02108bea50b144385ece858c8100571",
+      "disclosure_html_sha256": "a389b7124c10901126c6f01490f65cb0bb4b5ec00e2b9248e968e742f9b25711"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "reflow equivalent, no native browser UI zoom claim"
+  },
+  {
+    "id": "en-200percent-equivalent-reflow-academic-day",
+    "observed": {
+      "badge_count": 0,
+      "caption": "I created this cover with AI",
+      "caption_href": "/en/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/en/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "I used AI to help prepare this article.\n  How I use AI.",
+      "document_title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind - 3 Cucharadas",
+      "dpr": 2,
+      "h1_count": 1,
+      "hero_client_width": 720,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 278.53125,
+        "height": 213.53125,
+        "left": 0,
+        "right": 720,
+        "top": 65,
+        "width": 720,
+        "x": 0,
+        "y": 65
+      },
+      "hero_scroll_width": 720,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "natural_width": 720,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "en",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "light",
+      "title_rect": {
+        "bottom": 149.375,
+        "height": 60.375,
+        "left": 16,
+        "right": 704,
+        "top": 89,
+        "width": 688,
+        "x": 16,
+        "y": 89
+      },
+      "title_text": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+      "url": "http://127.0.0.1:4038/en/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 720,
+      "hero_html_sha256": "cd5566e723871f69db1fd416e5f8fe011ee1618cd300f594d7a80abb4f51294c",
+      "disclosure_html_sha256": "026f4a28c176bc757a1f532152f6f70f7427aa10b8022d5073704058bea90358"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "reflow equivalent, no native browser UI zoom claim"
+  },
+  {
+    "id": "en-200percent-equivalent-reflow-academic-night",
+    "observed": {
+      "badge_count": 0,
+      "caption": "I created this cover with AI",
+      "caption_href": "/en/ai-transparency/#casen2024-julia-waffles",
+      "components": [
+        {
+          "component": "text",
+          "origin": "assisted"
+        },
+        {
+          "component": "hero",
+          "origin": "generated"
+        }
+      ],
+      "disclosure_count": 1,
+      "disclosure_href": "/en/ai-transparency/",
+      "disclosure_level": "some_ai",
+      "disclosure_tag": "P",
+      "disclosure_text": "I used AI to help prepare this article.\n  How I use AI.",
+      "document_title": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind - 3 Cucharadas",
+      "dpr": 2,
+      "h1_count": 1,
+      "hero_client_width": 720,
+      "hero_count": 1,
+      "hero_overflow_nodes": [],
+      "hero_rect": {
+        "bottom": 278.53125,
+        "height": 213.53125,
+        "left": 0,
+        "right": 720,
+        "top": 65,
+        "width": 720,
+        "x": 0,
+        "y": 65
+      },
+      "hero_scroll_width": 720,
+      "image": {
+        "alt": "",
+        "aria_hidden": "true",
+        "complete": true,
+        "current": "http://127.0.0.1:4038/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "natural_width": 720,
+        "sizes": "100vw",
+        "src": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+      },
+      "lang": "en",
+      "page_overflow": 0,
+      "preloads": [
+        {
+          "href": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+          "sizes": "100vw",
+          "srcset": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp 800w, /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp 1600w"
+        }
+      ],
+      "theme": "academic-night",
+      "title_rect": {
+        "bottom": 149.375,
+        "height": 60.375,
+        "left": 16,
+        "right": 704,
+        "top": 89,
+        "width": 688,
+        "x": 16,
+        "y": 89
+      },
+      "title_text": "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind",
+      "url": "http://127.0.0.1:4038/en/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/",
+      "width": 720,
+      "hero_html_sha256": "cd5566e723871f69db1fd416e5f8fe011ee1618cd300f594d7a80abb4f51294c",
+      "disclosure_html_sha256": "026f4a28c176bc757a1f532152f6f70f7427aa10b8022d5073704058bea90358"
+    },
+    "failures": [],
+    "axe": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 81,
+        "incomplete": 0,
+        "passes": 7,
+        "violations": 0
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    "scope": "reflow equivalent, no native browser UI zoom claim"
+  }
+]

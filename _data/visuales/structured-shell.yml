@@ -1,18 +1,182 @@
-# Catálogo manual de las piezas editoriales publicadas por el post Nushell.
 slug: structured-shell
 ref: nushell-coprocesador-estructurado
 posts:
-  - _posts/2026-08-29-nushell-coprocesador-estructurado.md
-  - _posts/2026-08-29-nushell-coprocesador-estructurado-en.md
-
+- _posts/2026-08-29-nushell-coprocesador-estructurado-en.md
+- _posts/2026-08-29-nushell-coprocesador-estructurado.md
 piezas:
-  - {id: teaser-es, rol: teaser, archivo: assets/images/teasers/teaser-structured-shell.webp, ancho: 1280, alto: 720, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {es: "Un flujo de datos se divide en tres rutas estructuradas."}}
-  - {id: teaser-en, rol: teaser, archivo: assets/images/teasers/teaser-structured-shell-en.webp, ancho: 1280, alto: 720, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {en: "A data stream splits into three structured routes."}}
-  - {id: og-es, rol: og, archivo: assets/images/structured-shell/og-1200.webp, ancho: 1200, alto: 630, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {es: "Rutas acotadas para usar una shell estructurada."}}
-  - {id: og-en, rol: og, archivo: assets/images/structured-shell/og-1200-en.webp, ancho: 1200, alto: 630, estado: publicable, origen: render-script, nombre_legacy: true, motivo_nombre: "URL fijada por el release Nushell previo.", alt: {en: "Bounded routes for using a structured shell."}}
-  - {id: familias-es, rol: figura, archivo: assets/images/structured-shell/fig-d2-familias-shell.svg, estado: publicable, origen: d2}
-  - {id: familias-es-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-familias-shell-mobile.svg, estado: publicable, origen: d2}
-  - {id: familias-en, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-en.svg, estado: publicable, origen: d2}
-  - {id: familias-en-mobile, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg, estado: publicable, origen: d2}
-  - {id: familias-en-devto, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-en-devto-1600x1360.png, ancho: 1600, alto: 1360, estado: publicable, origen: render-script, alt: {en: "Desktop diagram comparing the data carried by shell families."}}
-  - {id: familias-en-mobile-devto, rol: figura, archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en-devto-1080x2710.png, ancho: 1080, alto: 2710, estado: publicable, origen: render-script, alt: {en: "Mobile diagram comparing the data carried by shell families."}}
+- id: teaser-es
+  rol: teaser
+  archivo: assets/images/teasers/teaser-structured-shell.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: render-script
+  nombre_legacy: true
+  motivo_nombre: URL fijada por el release Nushell previo.
+  alt:
+    es: Un flujo de datos se divide en tres rutas estructuradas.
+- id: teaser-en
+  rol: teaser
+  archivo: assets/images/teasers/teaser-structured-shell-en.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: render-script
+  nombre_legacy: true
+  motivo_nombre: URL fijada por el release Nushell previo.
+  alt:
+    en: A data stream splits into three structured routes.
+- id: og-es
+  rol: og
+  archivo: assets/images/structured-shell/og-1200.webp
+  ancho: 1200
+  alto: 630
+  estado: publicable
+  origen: render-script
+  nombre_legacy: true
+  motivo_nombre: URL fijada por el release Nushell previo.
+  alt:
+    es: Rutas acotadas para usar una shell estructurada.
+- id: og-en
+  rol: og
+  archivo: assets/images/structured-shell/og-1200-en.webp
+  ancho: 1200
+  alto: 630
+  estado: publicable
+  origen: render-script
+  nombre_legacy: true
+  motivo_nombre: URL fijada por el release Nushell previo.
+  alt:
+    en: Bounded routes for using a structured shell.
+- id: familias-es
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-familias-shell.svg
+  estado: publicable
+  origen: d2
+- id: familias-es-mobile
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-familias-shell-mobile.svg
+  estado: publicable
+  origen: d2
+- id: familias-en
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-shell-families-en.svg
+  estado: publicable
+  origen: d2
+- id: familias-en-mobile
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg
+  estado: publicable
+  origen: d2
+- id: familias-en-devto
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-shell-families-en-devto-1600x1360.png
+  ancho: 1600
+  alto: 1360
+  estado: publicable
+  origen: render-script
+  alt:
+    en: Desktop diagram comparing the data carried by shell families.
+- id: familias-en-mobile-devto
+  rol: figura
+  archivo: assets/images/structured-shell/fig-d2-shell-families-mobile-en-devto-1080x2710.png
+  ancho: 1080
+  alto: 2710
+  estado: publicable
+  origen: render-script
+  alt:
+    en: Mobile diagram comparing the data carried by shell families.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 68794
+  sha256: bee529d5c2e30760b1d6d8f4cd86808f9fdcb7e96ae611d4c3dda81db7041f0a
+  alt: &id001
+    es: Un procesador geométrico organiza un flujo en tres canales estructurados.
+    en: A geometric processor organizes a stream into three structured channels.
+  provenance:
+    status: generated_this_revision
+    source_sha256: a94bdcfa0bdaa99ff9985e474d9f4b8e96974b67de8af1e63acafca7aea84e3f
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/nushell-coprocesador-estructurado/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 25008
+  sha256: f206e8f6fcc51a55f3c211c6e53dfe7c9d47b9bf59865dc10589679aab1ea10d
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: a94bdcfa0bdaa99ff9985e474d9f4b8e96974b67de8af1e63acafca7aea84e3f
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 55516
+  sha256: f212a6a260913e197a3f5dfa28b89b3e1022530caeae61fbbf53709b861ab4e5
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: a94bdcfa0bdaa99ff9985e474d9f4b8e96974b67de8af1e63acafca7aea84e3f
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 20412
+  sha256: d1c84bd02f514c80629dead5e8ee3ed97276cf5a7bac6d0d6199ea4970281e6c
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: a94bdcfa0bdaa99ff9985e474d9f4b8e96974b67de8af1e63acafca7aea84e3f
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 50702
+  sha256: 20f7be723e573d14cf796999e95f50f2e88affcc002ed347b8ad72288d39eef1
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: a94bdcfa0bdaa99ff9985e474d9f4b8e96974b67de8af1e63acafca7aea84e3f
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

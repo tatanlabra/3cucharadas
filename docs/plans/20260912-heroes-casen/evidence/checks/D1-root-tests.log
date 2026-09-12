@@ -1,0 +1,27 @@
+test_coverage_partition_and_weighted_identity (test_casen_shared_site.AggregateArtifacts.test_coverage_partition_and_weighted_identity) ... ok
+test_formats_and_hashes_match (test_casen_shared_site.AggregateArtifacts.test_formats_and_hashes_match) ... ok
+test_schema_privacy_and_no_fiscal_plug_in (test_casen_shared_site.AggregateArtifacts.test_schema_privacy_and_no_fiscal_plug_in) ... ok
+test_absent_commune_is_null_not_zero (test_casen_shared_site.HouseholdContract.test_absent_commune_is_null_not_zero) ... ok
+test_communal_no_ci_no_ranking (test_casen_shared_site.HouseholdContract.test_communal_no_ci_no_ranking) ... ok
+test_duplicate_head_rejected (test_casen_shared_site.HouseholdContract.test_duplicate_head_rejected) ... ok
+test_duplicate_join_key_rejected (test_casen_shared_site.HouseholdContract.test_duplicate_join_key_rejected) ... ok
+test_household_not_person_or_owner_denominator (test_casen_shared_site.HouseholdContract.test_household_not_person_or_owner_denominator) ... ok
+test_incomplete_join_rejected (test_casen_shared_site.HouseholdContract.test_incomplete_join_rejected) ... ok
+test_inconsistent_household_rejected (test_casen_shared_site.HouseholdContract.test_inconsistent_household_rejected) ... ok
+test_missing_head_rejected (test_casen_shared_site.HouseholdContract.test_missing_head_rejected) ... ok
+test_missing_is_not_negative_and_bounds (test_casen_shared_site.HouseholdContract.test_missing_is_not_negative_and_bounds) ... ok
+test_multihousehold_ambiguous_principal_diagnostic_only (test_casen_shared_site.HouseholdContract.test_multihousehold_ambiguous_principal_diagnostic_only) ... ok
+test_nonpositive_weight_rejected (test_casen_shared_site.HouseholdContract.test_nonpositive_weight_rejected) ... ok
+test_unknown_code_rejected (test_casen_shared_site.HouseholdContract.test_unknown_code_rejected) ... ok
+test_boundary_and_degenerate_no_false_exact_ci (test_casen_shared_site.TaylorContract.test_boundary_and_degenerate_no_false_exact_ci) ... ok
+test_empty_domain_not_zero (test_casen_shared_site.TaylorContract.test_empty_domain_not_zero) ... ok
+test_invalid_weights_rejected (test_casen_shared_site.TaylorContract.test_invalid_weights_rejected) ... ok
+test_manual_outside_domain_psu_oracle (test_casen_shared_site.TaylorContract.test_manual_outside_domain_psu_oracle) ... ok
+test_manual_two_strata_oracle (test_casen_shared_site.TaylorContract.test_manual_two_strata_oracle) ... ok
+test_psu_nested_by_stratum (test_casen_shared_site.TaylorContract.test_psu_nested_by_stratum) ... ok
+test_singleton_inside_and_outside_domain_null (test_casen_shared_site.TaylorContract.test_singleton_inside_and_outside_domain_null) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.304s
+
+OK

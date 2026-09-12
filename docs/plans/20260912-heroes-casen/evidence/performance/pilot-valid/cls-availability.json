@@ -1,0 +1,61 @@
+{
+  "note": "CLS availability is independent of missing LCP. Original summary.max_cls conservatively nulls incomplete LCP groups; these observed CLS values remain valid in raw samples.",
+  "observations": [
+    {
+      "page": "avaluos-ii",
+      "side": "baseline",
+      "temperature": "cold",
+      "cls": 0.002246388888888889,
+      "pass": true
+    },
+    {
+      "page": "avaluos-ii",
+      "side": "baseline",
+      "temperature": "warm",
+      "cls": 0.002246388888888889,
+      "pass": true
+    },
+    {
+      "page": "avaluos-ii",
+      "side": "candidate",
+      "temperature": "cold",
+      "cls": 0.0020620659722222225,
+      "pass": true
+    },
+    {
+      "page": "avaluos-ii",
+      "side": "candidate",
+      "temperature": "warm",
+      "cls": 0.0020620659722222225,
+      "pass": true
+    },
+    {
+      "page": "casen-long",
+      "side": "candidate",
+      "temperature": "cold",
+      "cls": 0.023050489366319447,
+      "pass": true
+    },
+    {
+      "page": "casen-long",
+      "side": "candidate",
+      "temperature": "warm",
+      "cls": 0.023050489366319447,
+      "pass": true
+    },
+    {
+      "page": "casen-long",
+      "side": "baseline",
+      "temperature": "cold",
+      "cls": 0.014537181712962964,
+      "pass": true
+    },
+    {
+      "page": "casen-long",
+      "side": "baseline",
+      "temperature": "warm",
+      "cls": 0.014537181712962964,
+      "pass": true
+    }
+  ]
+}

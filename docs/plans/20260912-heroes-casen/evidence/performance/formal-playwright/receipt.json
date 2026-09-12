@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "task": "Q1-formal-performance-playwright",
+  "timestamp": "2026-09-12T12:40:15.792Z",
+  "status": "partial",
+  "formal_acceptance": false,
+  "counts": {
+    "runs_total": 40,
+    "expected_total": 40,
+    "pairs_per_page": 5,
+    "lcp_observed": 40,
+    "lcp_missing": 0,
+    "cls_observed": 40,
+    "cpu_windows": 10,
+    "sessions_closed": 20
+  },
+  "inputs": {
+    "source_manifest": "evidence/editorial/source-first-person-before-build.json",
+    "source_manifest_sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783",
+    "source_digest": "238221099b11ca45bc387d65fe90450397084927173ef75e808dfa36bc848b2a",
+    "build_root": "/tmp/3c-heroes-first-person-site",
+    "build_manifest": "../formal-candidate-first-person-freeze.json",
+    "build_manifest_sha256": "afc097833f8e8a55699926c37f609e1afa4e7ce50ece914158c41e42be94cac7",
+    "build_bytes_unchanged_after_collection": true
+  },
+  "cleanup": {
+    "all_own_sessions_closed": true,
+    "servers4041_4042_closed": true,
+    "server4004_untouched": true
+  },
+  "files": {
+    "summary.json": "a4a3970117f009e5de089f875618386538bf3b10a44a387b0e521f1a2660f37a",
+    "cpu-before-pairs.json": "4c1d45a22a37d447a663aac36f5553de302fd04b21e001bb8e3e31e74148c194",
+    "server-candidate.log": "d6768e46f3ff06771f55f7d6e7797b45a2d008366f9738286e32132865da5d2f",
+    "settings.json": "525c947bf9e3ad0c555279bab0cac897b7f6bcd2983ecbb693004886641edb9d",
+    "server-baseline.log": "194a7de9a8ddecde2d386058ecea266db66e581bb9fa06524381175327cc65af",
+    "report.md": "a27f081c002c35c2252b40ecd2082cf69695e8c6f36ec0a38a3c0678189fcc6f",
+    "resource-diagnosis.json": "5f7847b52f9506c85eb47499d198e5d64b4a7cebee84eed0407b753d01d53ba4",
+    "runs.json": "c63f26e0f0e6c36e56f6d2efd46e29a86ed45c0af9dc2abab3bf2013a3c7b275",
+    "runtime-gate.log": "40312ccc73297dcf7ba03b46ff15dad8786b1296b8d34fe5a120edc2f04fbacc",
+    "run.mjs": "01ce957fd54bcea16ec8b345025dd557f1df840be199f4629cc6a34b0697a627"
+  },
+  "collection_exit_code": 0,
+  "runtime_gate_exit_code": 1,
+  "runtime_gate_command": [
+    "python3",
+    "docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py",
+    "performance",
+    "--directory",
+    "docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright",
+    "--built-site",
+    "/tmp/3c-heroes-first-person-site"
+  ],
+  "max_cls": 0.0537829753206983,
+  "disposition": "RED: relative LCP regression in Aval\u00faos warm, CASEN cold and CASEN warm; all40 observed. No exclusions, metric substitution or threshold relaxation.",
+  "results": [
+    {
+      "page": "avaluos-ii",
+      "temperature": "cold",
+      "median_lcp_ms": {
+        "baseline": 1068,
+        "candidate": 964
+      },
+      "regression_percent": -9.737827715355806,
+      "lcp_threshold_diagnostic": "pass"
+    },
+    {
+      "page": "avaluos-ii",
+      "temperature": "warm",
+      "median_lcp_ms": {
+        "baseline": 244,
+        "candidate": 344
+      },
+      "regression_percent": 40.98360655737705,
+      "lcp_threshold_diagnostic": "fail"
+    },
+    {
+      "page": "casen-long",
+      "temperature": "cold",
+      "median_lcp_ms": {
+        "baseline": 984,
+        "candidate": 1140
+      },
+      "regression_percent": 15.853658536585357,
+      "lcp_threshold_diagnostic": "fail"
+    },
+    {
+      "page": "casen-long",
+      "temperature": "warm",
+      "median_lcp_ms": {
+        "baseline": 200,
+        "candidate": 236
+      },
+      "regression_percent": 17.999999999999993,
+      "lcp_threshold_diagnostic": "fail"
+    }
+  ]
+}

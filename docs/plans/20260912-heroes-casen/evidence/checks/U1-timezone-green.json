@@ -1,0 +1,14 @@
+{
+  "id": "U1-timezone-green",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_ai_disclosure.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:48:15.614631+00:00",
+  "seconds": 0.9647988689994236,
+  "exit_code": 0,
+  "log": "evidence/checks/U1-timezone-green.log",
+  "log_sha256": "c058f9733cbbb421a99879a9d3ef30c1a651697ebdcf9e30e580971f083d9ac9"
+}

@@ -1,0 +1,71 @@
+{
+  "scope": "one second follow-up after diagnostic browser close; not simultaneous with measured page load",
+  "elapsed_s": 1.1327292330006458,
+  "loadavg": [
+    13.73046875,
+    11.4443359375,
+    10.06298828125
+  ],
+  "top_processes": [
+    {
+      "pid": 347492,
+      "comm": "llama-server",
+      "cpu_core_equivalents": 2.551359950642637
+    },
+    {
+      "pid": 381466,
+      "comm": "awk",
+      "cpu_core_equivalents": 0.7592282206064596
+    },
+    {
+      "pid": 17755,
+      "comm": "brave",
+      "cpu_core_equivalents": 0.7239152801131358
+    },
+    {
+      "pid": 381376,
+      "comm": "awk",
+      "cpu_core_equivalents": 0.5561788127698483
+    },
+    {
+      "pid": 400516,
+      "comm": "bundle",
+      "cpu_core_equivalents": 0.5385223425231864
+    },
+    {
+      "pid": 400238,
+      "comm": "awk",
+      "cpu_core_equivalents": 0.33547293468657513
+    },
+    {
+      "pid": 400294,
+      "comm": "python",
+      "cpu_core_equivalents": 0.16773646734328757
+    },
+    {
+      "pid": 2646,
+      "comm": "ollama",
+      "cpu_core_equivalents": 0.13242352684996386
+    },
+    {
+      "pid": 1852,
+      "comm": "kwin_wayland",
+      "cpu_core_equivalents": 0.1059388214799711
+    },
+    {
+      "pid": 400510,
+      "comm": "bundle",
+      "cpu_core_equivalents": 0.09711058635664017
+    },
+    {
+      "pid": 30363,
+      "comm": "claude",
+      "cpu_core_equivalents": 0.0706258809866474
+    },
+    {
+      "pid": 17632,
+      "comm": "brave",
+      "cpu_core_equivalents": 0.06179764586331648
+    }
+  ]
+}

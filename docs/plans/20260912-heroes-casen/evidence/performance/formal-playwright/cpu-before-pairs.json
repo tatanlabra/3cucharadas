@@ -1,0 +1,792 @@
+[
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "duration_s": 10.022219712,
+    "cpu_busy_percent": 23.90413510492984,
+    "loadavg_start": [
+      2.41,
+      3.48,
+      5.29
+    ],
+    "loadavg_end": [
+      2.57,
+      3.48,
+      5.27
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 978
+      },
+      {
+        "pid": 456016,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 315
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 64
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 60
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 25
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 19
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_ticks_delta": 16
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 16
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_ticks_delta": 15
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 13
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 10
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_ticks_delta": 10
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "duration_s": 10.014856226999997,
+    "cpu_busy_percent": 35.85280954748881,
+    "loadavg_start": [
+      2.55,
+      3.39,
+      5.2
+    ],
+    "loadavg_end": [
+      2.68,
+      3.4,
+      5.18
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1014
+      },
+      {
+        "pid": 15759,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 212
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 175
+      },
+      {
+        "pid": 456016,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 159
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 131
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 99
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 90
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 80
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_ticks_delta": 55
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_ticks_delta": 42
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_ticks_delta": 34
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 21
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 2,
+    "page": "avaluos-ii",
+    "duration_s": 10.017655841,
+    "cpu_busy_percent": 23.460009935419773,
+    "loadavg_start": [
+      3.07,
+      3.42,
+      5.13
+    ],
+    "loadavg_end": [
+      2.82,
+      3.36,
+      5.09
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 964
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 266
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 84
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 73
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 55
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 48
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 48
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 37
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 16
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 13
+      },
+      {
+        "pid": 28482,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 11
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 2,
+    "page": "casen-long",
+    "duration_s": 10.015373162000003,
+    "cpu_busy_percent": 26.262751928340382,
+    "loadavg_start": [
+      3.88,
+      3.57,
+      5.11
+    ],
+    "loadavg_end": [
+      3.67,
+      3.54,
+      5.08
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 983
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 164
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 142
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 64
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 26
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 19
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 18
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 11
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_ticks_delta": 10
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 9
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 3,
+    "page": "avaluos-ii",
+    "duration_s": 10.017160287000006,
+    "cpu_busy_percent": 22.493157501866136,
+    "loadavg_start": [
+      2.96,
+      3.38,
+      4.99
+    ],
+    "loadavg_end": [
+      2.66,
+      3.3,
+      4.95
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1007
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 158
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 134
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 67
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 26
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 21
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 18
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 15
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_ticks_delta": 14
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_ticks_delta": 13
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 11
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_ticks_delta": 11
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 3,
+    "page": "casen-long",
+    "duration_s": 10.022203926000017,
+    "cpu_busy_percent": 36.156999130542786,
+    "loadavg_start": [
+      2.83,
+      3.28,
+      4.89
+    ],
+    "loadavg_end": [
+      2.95,
+      3.28,
+      4.88
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1008
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 536
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 320
+      },
+      {
+        "pid": 15759,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 149
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 128
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 100
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 85
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 70
+      },
+      {
+        "pid": 15707,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 66
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 31
+      },
+      {
+        "pid": 27791,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 29
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_ticks_delta": 24
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 4,
+    "page": "avaluos-ii",
+    "duration_s": 10.016217021000019,
+    "cpu_busy_percent": 32.58301206317622,
+    "loadavg_start": [
+      4.58,
+      3.67,
+      4.97
+    ],
+    "loadavg_end": [
+      4.25,
+      3.63,
+      4.94
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1011
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 132
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 120
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 75
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 69
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_ticks_delta": 44
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 28
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 28
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 27
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 13
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 11
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 4,
+    "page": "casen-long",
+    "duration_s": 10.024286529000005,
+    "cpu_busy_percent": 26.869565217391305,
+    "loadavg_start": [
+      3.7,
+      3.56,
+      4.88
+    ],
+    "loadavg_end": [
+      3.68,
+      3.56,
+      4.87
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 980
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 181
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_ticks_delta": 166
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 79
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 60
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 27
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 21
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 20
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_ticks_delta": 20
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 17
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 17
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 16
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 5,
+    "page": "avaluos-ii",
+    "duration_s": 10.01801342100004,
+    "cpu_busy_percent": 29.6420581655481,
+    "loadavg_start": [
+      4.49,
+      3.78,
+      4.9
+    ],
+    "loadavg_end": [
+      4.26,
+      3.75,
+      4.88
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1012
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 133
+      },
+      {
+        "pid": 542579,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 89
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 67
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 58
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 57
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 45
+      },
+      {
+        "pid": 15759,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 32
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 30
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_ticks_delta": 20
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 19
+      },
+      {
+        "pid": 27791,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 13
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 5,
+    "page": "casen-long",
+    "duration_s": 10.025584658999986,
+    "cpu_busy_percent": 54.564650353993294,
+    "loadavg_start": [
+      3.86,
+      3.68,
+      4.82
+    ],
+    "loadavg_end": [
+      4.23,
+      3.77,
+      4.84
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1011
+      },
+      {
+        "pid": 551882,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 622
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 594
+      },
+      {
+        "pid": 15759,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 295
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 233
+      },
+      {
+        "pid": 553086,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 226
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 181
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_ticks_delta": 117
+      },
+      {
+        "pid": 15707,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 115
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 77
+      },
+      {
+        "pid": 27791,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 56
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_ticks_delta": 48
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  }
+]

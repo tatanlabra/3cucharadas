@@ -1,0 +1,15 @@
+{
+  "id": "E1-hero-timezone-green",
+  "task_id": "E1",
+  "command": [
+    "ruby",
+    "scripts/verify_hero_disclosure.rb",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:48:16.936514+00:00",
+  "seconds": 0.512887609000245,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-hero-timezone-green.log",
+  "log_sha256": "3cd52fb4ada89ab01c21f0707d1bbac67eabaf9875c8889f446ed64a7d46f25d"
+}

@@ -1,0 +1,698 @@
+[
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "side": "baseline",
+    "temperature": "cold",
+    "started_at": "2026-09-12T12:31:06.590Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 7.243551479,
+      "cpu_busy_percent": 41.98420871953313,
+      "loadavg_start": [
+        3.76,
+        4.19,
+        5.88
+      ],
+      "loadavg_end": [
+        3.48,
+        4.12,
+        5.83
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 731
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 317
+        },
+        {
+          "pid": 534131,
+          "comm": "chrome",
+          "cpu_ticks_delta": 165
+        },
+        {
+          "pid": 534255,
+          "comm": "chrome",
+          "cpu_ticks_delta": 158
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 138
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 129
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 83
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 69
+        },
+        {
+          "pid": 534189,
+          "comm": "chrome",
+          "cpu_ticks_delta": 49
+        },
+        {
+          "pid": 25171,
+          "comm": "kitty",
+          "cpu_ticks_delta": 45
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 41
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 28
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "side": "baseline",
+    "temperature": "warm",
+    "started_at": "2026-09-12T12:31:13.850Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 5.641686520000003,
+      "cpu_busy_percent": 35.90026478375993,
+      "loadavg_start": [
+        3.48,
+        4.12,
+        5.83
+      ],
+      "loadavg_end": [
+        3.36,
+        4.08,
+        5.81
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 571
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 207
+        },
+        {
+          "pid": 534255,
+          "comm": "chrome",
+          "cpu_ticks_delta": 113
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 83
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 45
+        },
+        {
+          "pid": 534189,
+          "comm": "chrome",
+          "cpu_ticks_delta": 42
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 37
+        },
+        {
+          "pid": 533856,
+          "comm": "node-MainThread",
+          "cpu_ticks_delta": 30
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 28
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 27
+        },
+        {
+          "pid": 534131,
+          "comm": "chrome",
+          "cpu_ticks_delta": 22
+        },
+        {
+          "pid": 25875,
+          "comm": "codex",
+          "cpu_ticks_delta": 21
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "side": "candidate",
+    "temperature": "cold",
+    "started_at": "2026-09-12T12:31:20.527Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 7.328699936999998,
+      "cpu_busy_percent": 64.60071513706794,
+      "loadavg_start": [
+        3.36,
+        4.08,
+        5.81
+      ],
+      "loadavg_end": [
+        4.04,
+        4.21,
+        5.84
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 733
+        },
+        {
+          "pid": 534660,
+          "comm": "camoufox-bin",
+          "cpu_ticks_delta": 636
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 333
+        },
+        {
+          "pid": 534710,
+          "comm": "chrome",
+          "cpu_ticks_delta": 176
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 165
+        },
+        {
+          "pid": 534575,
+          "comm": "chrome",
+          "cpu_ticks_delta": 147
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 63
+        },
+        {
+          "pid": 534603,
+          "comm": "chrome",
+          "cpu_ticks_delta": 56
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 47
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 40
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 32
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 28
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "side": "candidate",
+    "temperature": "warm",
+    "started_at": "2026-09-12T12:31:27.878Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 5.643876872000001,
+      "cpu_busy_percent": 39.501543890604324,
+      "loadavg_start": [
+        4.04,
+        4.21,
+        5.84
+      ],
+      "loadavg_end": [
+        3.87,
+        4.17,
+        5.82
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 569
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 209
+        },
+        {
+          "pid": 534710,
+          "comm": "chrome",
+          "cpu_ticks_delta": 113
+        },
+        {
+          "pid": 534603,
+          "comm": "chrome",
+          "cpu_ticks_delta": 49
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 40
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 38
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 27
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 23
+        },
+        {
+          "pid": 534575,
+          "comm": "chrome",
+          "cpu_ticks_delta": 22
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 18
+        },
+        {
+          "pid": 28531,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 14
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 14
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "side": "candidate",
+    "temperature": "cold",
+    "started_at": "2026-09-12T12:31:44.326Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 6.874243002999996,
+      "cpu_busy_percent": 34.71895897343214,
+      "loadavg_start": [
+        3.58,
+        4.1,
+        5.77
+      ],
+      "loadavg_end": [
+        3.38,
+        4.05,
+        5.75
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 695
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 251
+        },
+        {
+          "pid": 535501,
+          "comm": "chrome",
+          "cpu_ticks_delta": 149
+        },
+        {
+          "pid": 535409,
+          "comm": "chrome",
+          "cpu_ticks_delta": 138
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 53
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 51
+        },
+        {
+          "pid": 535437,
+          "comm": "chrome",
+          "cpu_ticks_delta": 46
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 38
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 34
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 29
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 22
+        },
+        {
+          "pid": 25171,
+          "comm": "kitty",
+          "cpu_ticks_delta": 20
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "side": "candidate",
+    "temperature": "warm",
+    "started_at": "2026-09-12T12:31:51.217Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 5.677386838999999,
+      "cpu_busy_percent": 34.51754385964912,
+      "loadavg_start": [
+        3.38,
+        4.05,
+        5.75
+      ],
+      "loadavg_end": [
+        3.24,
+        4,
+        5.71
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 574
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 233
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 130
+        },
+        {
+          "pid": 535501,
+          "comm": "chrome",
+          "cpu_ticks_delta": 118
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 47
+        },
+        {
+          "pid": 535437,
+          "comm": "chrome",
+          "cpu_ticks_delta": 47
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 45
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 31
+        },
+        {
+          "pid": 535409,
+          "comm": "chrome",
+          "cpu_ticks_delta": 24
+        },
+        {
+          "pid": 30363,
+          "comm": "claude",
+          "cpu_ticks_delta": 21
+        },
+        {
+          "pid": 25171,
+          "comm": "kitty",
+          "cpu_ticks_delta": 19
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 18
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "side": "baseline",
+    "temperature": "cold",
+    "started_at": "2026-09-12T12:31:57.677Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 6.8392680079999995,
+      "cpu_busy_percent": 35.3753862934012,
+      "loadavg_start": [
+        3.24,
+        4,
+        5.71
+      ],
+      "loadavg_end": [
+        3.22,
+        3.98,
+        5.7
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 690
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 240
+        },
+        {
+          "pid": 535826,
+          "comm": "chrome",
+          "cpu_ticks_delta": 135
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 133
+        },
+        {
+          "pid": 535748,
+          "comm": "chrome",
+          "cpu_ticks_delta": 126
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 49
+        },
+        {
+          "pid": 535777,
+          "comm": "chrome",
+          "cpu_ticks_delta": 47
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 42
+        },
+        {
+          "pid": 15638,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 38
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 28
+        },
+        {
+          "pid": 28531,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 27
+        },
+        {
+          "pid": 15703,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 23
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "side": "baseline",
+    "temperature": "warm",
+    "started_at": "2026-09-12T12:32:04.533Z",
+    "missing": true,
+    "collector": "playwright canonical library; sameChrome151; preserved formal PerformanceObserver init",
+    "error": "Error: Invalid navigation state",
+    "cpu_during_navigation": {
+      "duration_s": 5.598201941999999,
+      "cpu_busy_percent": 39.37235699977743,
+      "loadavg_start": [
+        3.22,
+        3.98,
+        5.7
+      ],
+      "loadavg_end": [
+        4.09,
+        4.15,
+        5.74
+      ],
+      "top_processes": [
+        {
+          "pid": 17755,
+          "comm": "brave",
+          "cpu_ticks_delta": 565
+        },
+        {
+          "pid": 456016,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 222
+        },
+        {
+          "pid": 3793,
+          "comm": "cadvisor",
+          "cpu_ticks_delta": 127
+        },
+        {
+          "pid": 535826,
+          "comm": "chrome",
+          "cpu_ticks_delta": 101
+        },
+        {
+          "pid": 1852,
+          "comm": "kwin_wayland",
+          "cpu_ticks_delta": 58
+        },
+        {
+          "pid": 17632,
+          "comm": "brave",
+          "cpu_ticks_delta": 57
+        },
+        {
+          "pid": 2185,
+          "comm": "Telegram",
+          "cpu_ticks_delta": 43
+        },
+        {
+          "pid": 535777,
+          "comm": "chrome",
+          "cpu_ticks_delta": 43
+        },
+        {
+          "pid": 46815,
+          "comm": "brave",
+          "cpu_ticks_delta": 38
+        },
+        {
+          "pid": 1970,
+          "comm": "plasmashell",
+          "cpu_ticks_delta": 35
+        },
+        {
+          "pid": 19848,
+          "comm": "vivaldi-bin",
+          "cpu_ticks_delta": 31
+        },
+        {
+          "pid": 535748,
+          "comm": "chrome",
+          "cpu_ticks_delta": 21
+        }
+      ],
+      "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+    }
+  }
+]

@@ -74,44 +74,8 @@ def project():
             table_lines.append('<tr><th scope="row">'+html.escape(r['comuna'])+'</th>'+''.join('<td>'+v+'</td>' for v in values)+'</tr>')
         table_lines.append('</tbody></table></div>')
         (ROOT/'_includes'/f'avaluos-ii-top-{lang}.html').write_text('\n'.join(table_lines)+'\n')
-        for dark in [False, True]:
-            surface, ink, muted, line = ('#10121d','#f3f5f8','#a9afbd','#2a3041') if dark else ('#ffffff','#132033','#445570','#d6dfea')
-            colors = ['#55c4c0','#98a8bd','#f0b35b'] if dark else ['#56bdb9','#99abc2','#efb35f']
-            boundary = '#61758f' if dark else '#40566e'
-            fig, ax = plt.subplots(figsize=(11,8.5))
-            fig.patch.set_facecolor(surface); ax.set_facecolor(surface)
-            labels = [r['comuna'] for r in top]
-            original = [r['signed_gap'] for r in top]
-            residual = [r['camp_sensitivity_positive_gap'] for r in top]
-            acceptable = [r['materiality_acceptable_scenario'] for r in top]
-            other = [r['materiality_other_scenario'] for r in top]
-            absorbed = [r['camp_absorbed_positive_gap'] for r in top]
-            ax.barh(labels, acceptable, height=.54, color=colors[0], edgecolor=boundary, linewidth=.65, label='Tipo y materiales aceptables (escenario)' if lang=='es' else 'Acceptable type and materials (scenario)')
-            ax.barh(labels, other, left=acceptable, height=.54, color=colors[1], edgecolor=boundary, linewidth=.65, label='Resto del escenario' if lang=='es' else 'Rest of scenario')
-            ax.barh(labels, absorbed, left=residual, height=.54, color=colors[2], edgecolor=boundary, linewidth=.65, label='Campamentos (descuento supuesto)' if lang=='es' else 'Settlements (assumed deduction)')
-            ax.invert_yaxis(); ax.set_xlim(0,max(original)*1.38)
-            for i, v in enumerate(residual):
-                value = format(int(v),',').replace(',','.') if lang=='es' else format(int(v),',')
-                ax.text(original[i]+max(original)*.016,i,value+(' restan' if lang=='es' else ' remain'),va='center',fontsize=9,color=ink,weight='bold')
-            ax.spines[['top','right','left']].set_visible(False); ax.spines['bottom'].set_color(line)
-            ax.tick_params(axis='y',length=0,labelcolor=ink); ax.tick_params(axis='x',colors=muted)
-            ax.grid(axis='x',color=line,alpha=.72); ax.set_axisbelow(True)
-            handles, legend_labels = ax.get_legend_handles_labels()
-            fig.legend(handles,legend_labels,loc='upper left',bbox_to_anchor=(.03,.93),frameon=False,ncol=1,fontsize=9,labelcolor=ink)
-            title = 'Avalúos II · ¿Cuánto queda por explicar?' if lang=='es' else 'Property assessments II · What remains unexplained?'
-            fig.text(.04,.95,title,fontsize=17,weight='bold',color=ink)
-            ax.set_xlabel('La barra completa es la brecha inicial · orden por brecha restante' if lang=='es' else 'Full bar = initial gap · sorted by remaining gap',color=muted,fontsize=10)
-            caption = ('Censo 2024 − roles habitacionales 2026S1. Descontamos hogares observados en campamentos bajo supuesto uno a uno.\nRepartimos lo restante con la proporción comunal de tipo y materiales aceptables observada en el Censo.\nLas partes son escenarios: no identifican viviendas sin rol ni contribuciones impagas. 222 polígonos CNC sin conteo.\nDatos y método: 3cucharadas.cl/catastro_sii_brecha/#brecha-contribuciones' if lang=='es' else
-                       '2024 Census − 2026H1 residential records. Observed settlement households are deducted under a one-to-one assumption.\nThe remainder uses the observed commune share of dwellings with acceptable type and materials.\nSegments are scenarios: they identify neither unregistered homes nor unpaid tax. 222 CNC polygons lack counts.\nData and method: 3cucharadas.cl/catastro_sii_brecha/#brecha-contribuciones')
-            fig.text(.04,.025,caption,fontsize=9,linespacing=1.5,color=muted)
-            fig.subplots_adjust(left=.22,right=.97,top=.79,bottom=.20)
-            suffix = '-dark' if dark else ''
-            with matplotlib.rc_context({'svg.fonttype':'none','svg.hashsalt':'avaluos-ii'}):
-                fig.savefig(IMAGES/f'gap-top15-{lang}{suffix}.svg',metadata={'Date':None})
-            svg_path = IMAGES/f'gap-top15-{lang}{suffix}.svg'
-            svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text().splitlines())+'\n')
-            fig.savefig(IMAGES/f'gap-top15-{lang}{suffix}.png',dpi=180,metadata={'Description':caption})
-            plt.close(fig)
+    from render_gap_figures import render as render_gap
+    render_gap(source, IMAGES)
     def number(x): return 'Sin fuente' if x is None else format(round(x),',').replace(',','.')
     def percentage(x): return 'Sin dato' if x is None else f'{100*x:.1f}%'.replace('.',',')
     def quality(r):

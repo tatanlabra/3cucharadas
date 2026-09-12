@@ -1,0 +1,156 @@
+{
+  "task_id": "V0",
+  "checks": [
+    {
+      "id": "V0-portable-root-tests",
+      "task_id": "V0",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/catastro_sii",
+        "-p",
+        "test_editorial_figures.py",
+        "-v"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:22:07.763306+00:00",
+      "seconds": 3.3210136530015006,
+      "exit_code": 0,
+      "log": "evidence/checks/V0-portable-root-tests.log",
+      "log_sha256": "cb311f0f7b55d41f33c4f76d30dd17ff966590ffdcce547f9222e4807f62dc94",
+      "acceptance_ids": [
+        "AC-V0"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/project_fiscal_gap.py",
+      "sha256": "125bffa3a12140d320a80c5b60fae53cee708d69520cf664f00e96b7c723665e"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/modeled_fiscal_projection.py",
+      "sha256": "7ac0f9ecf7287cb2d988c210eae0a483bd5bfb8331d01e5a2e73b0d8f9b2ed5b"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/editorial_style.py",
+      "sha256": "0f415f9675ec51ce2716a0225560754064b176020df2a7030300c1fb2328d35e"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/render_gap_figures.py",
+      "sha256": "1aa579cb8c59e5d7dc21cb17b1f48ca30fd44b6a9a0cd8bf0b4a690aad8aa4ff"
+    },
+    {
+      "path": "activos/3cucharadas/tests/catastro_sii/test_editorial_figures.py",
+      "sha256": "d3b3cf93e4f5d360625834d92094ca86c5c942f9ceb7bbf6a7854f2adf003407"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-es.svg",
+      "sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-es.png",
+      "sha256": "ad75af1a165a52ec6b615135c3a1f0b8e7adc451bce121546d82a51ae80999ac"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-es-dark.svg",
+      "sha256": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-es-dark.png",
+      "sha256": "3354171dc80f79cd42fbd164673ed9f4ee27c75844e7b20c1bf136b51a89de4a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-en.svg",
+      "sha256": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-en.png",
+      "sha256": "b668f681f4d13cd97b077c235ff778c465d85f299d883d6397b72d35830126aa"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-en-dark.svg",
+      "sha256": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/gap-top15-en-dark.png",
+      "sha256": "7beb95a6e2662ab4f74d61a0eca0a318e41a23ef788f2bfe1ff3fe943d0b868e"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-es.svg",
+      "sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-es.png",
+      "sha256": "cd7a1538f9879561a4f895c06f682496f3ec4978578af3ac7e2b5130564929aa"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-es-dark.svg",
+      "sha256": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-es-dark.png",
+      "sha256": "f3f52ee25797989430d9f4b9f52d46f32fbbdc1971836a13759955f4ba666fda"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-en.svg",
+      "sha256": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-en.png",
+      "sha256": "f2ae6abbdf69f89bed6f833953b39337f8321376639f984bee2efd547edb8a14"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-en-dark.svg",
+      "sha256": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/monetary-top15-en-dark.png",
+      "sha256": "fd1e48a4c9f0e6b683700d80adadc6a8049dfc41fe6f5eef8c8a2842277b1cad"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0/receipt.json",
+      "sha256": "fc7c5a62839ee9a9b7b08940e893fb6edb38456a4c9d9d10967561f8a7098a96"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0/red-controls.json",
+      "sha256": "c973fa966c947c69fd4bf3650bc00de1d61b1cbfc64d660ff1a7a7a8f63632f1"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0/render-recovery.json",
+      "sha256": "3d055641fb449e551aa588ac5f4a9736db4a3313155321bbf45bbd7db6d64d68"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0-portability/receipt.json",
+      "sha256": "d2e3116eee182efbd8d57abc2b2146952798521fd4a9cc39b2a19bf69022c88b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0-portability/browser-img.json",
+      "sha256": "e53892fe471bea90fb35c843bd9d7baef9e10eb479f0ac7dbce607cbc6058927"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0-portability/browser-standalone.json",
+      "sha256": "10a5a2be8843a93f988d44aeccdc22b4c00e5e8658c6a85c0ebc3980aa641819"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0-portability/old-svg-red.log",
+      "sha256": "97423a4bd2cf0a36d38e02db00a51b3f314fe6cef826e5322cd969ddf82f1022"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V0-portability/tests.log",
+      "sha256": "721126ed62a5eeeeef5af6df2cefd5f6dd151b0a492858a421736e3fcd426ca6"
+    }
+  ],
+  "falsification_evidence": "evidence/V0/red-controls.json",
+  "limits": [
+    "Intrinsic 1152 CSS px; embed at >=1000 px with explicit scroll/zoom and equivalent HTML table (E1).",
+    "No observed fiscal debt or identified unregistered homes inferred.",
+    "No CASEN figures until D2 acceptance.",
+    "No global projection executed; no data/site tables modified.",
+    "Source SVG text preserved; PNG font rasterized from existing self-hosted Fira Sans."
+  ],
+  "portability_review": "evidence/V0-portability/receipt.json"
+}

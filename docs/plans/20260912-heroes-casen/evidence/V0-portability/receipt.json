@@ -1,0 +1,170 @@
+{
+  "task_id": "V0-portability",
+  "status": "implemented_and_verified",
+  "source_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+  "code_sha256": {
+    "scripts/catastro_sii/editorial_style.py": "0f415f9675ec51ce2716a0225560754064b176020df2a7030300c1fb2328d35e",
+    "scripts/catastro_sii/render_gap_figures.py": "1aa579cb8c59e5d7dc21cb17b1f48ca30fd44b6a9a0cd8bf0b4a690aad8aa4ff",
+    "scripts/catastro_sii/modeled_fiscal_projection.py": "7ac0f9ecf7287cb2d988c210eae0a483bd5bfb8331d01e5a2e73b0d8f9b2ed5b",
+    "tests/catastro_sii/test_editorial_figures.py": "d3b3cf93e4f5d360625834d92094ca86c5c942f9ceb7bbf6a7854f2adf003407"
+  },
+  "artifacts": [
+    {
+      "file": "gap-top15-es.svg",
+      "sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+      "bytes": 76205
+    },
+    {
+      "file": "gap-top15-es.png",
+      "sha256": "ad75af1a165a52ec6b615135c3a1f0b8e7adc451bce121546d82a51ae80999ac",
+      "bytes": 306888
+    },
+    {
+      "file": "gap-top15-es-dark.svg",
+      "sha256": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e",
+      "bytes": 76205
+    },
+    {
+      "file": "gap-top15-es-dark.png",
+      "sha256": "3354171dc80f79cd42fbd164673ed9f4ee27c75844e7b20c1bf136b51a89de4a",
+      "bytes": 298551
+    },
+    {
+      "file": "gap-top15-en.svg",
+      "sha256": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d",
+      "bytes": 76310
+    },
+    {
+      "file": "gap-top15-en.png",
+      "sha256": "b668f681f4d13cd97b077c235ff778c465d85f299d883d6397b72d35830126aa",
+      "bytes": 313543
+    },
+    {
+      "file": "gap-top15-en-dark.svg",
+      "sha256": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef",
+      "bytes": 76310
+    },
+    {
+      "file": "gap-top15-en-dark.png",
+      "sha256": "7beb95a6e2662ab4f74d61a0eca0a318e41a23ef788f2bfe1ff3fe943d0b868e",
+      "bytes": 304415
+    },
+    {
+      "file": "monetary-top15-es.svg",
+      "sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+      "bytes": 67174
+    },
+    {
+      "file": "monetary-top15-es.png",
+      "sha256": "cd7a1538f9879561a4f895c06f682496f3ec4978578af3ac7e2b5130564929aa",
+      "bytes": 267328
+    },
+    {
+      "file": "monetary-top15-es-dark.svg",
+      "sha256": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461",
+      "bytes": 67174
+    },
+    {
+      "file": "monetary-top15-es-dark.png",
+      "sha256": "f3f52ee25797989430d9f4b9f52d46f32fbbdc1971836a13759955f4ba666fda",
+      "bytes": 259094
+    },
+    {
+      "file": "monetary-top15-en.svg",
+      "sha256": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402",
+      "bytes": 67674
+    },
+    {
+      "file": "monetary-top15-en.png",
+      "sha256": "f2ae6abbdf69f89bed6f833953b39337f8321376639f984bee2efd547edb8a14",
+      "bytes": 261438
+    },
+    {
+      "file": "monetary-top15-en-dark.svg",
+      "sha256": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060",
+      "bytes": 67674
+    },
+    {
+      "file": "monetary-top15-en-dark.png",
+      "sha256": "fd1e48a4c9f0e6b683700d80adadc6a8049dfc41fe6f5eef8c8a2842277b1cad",
+      "bytes": 253477
+    }
+  ],
+  "commands": [
+    {
+      "command": "/opt/entornos/mamba312/bin/python -m unittest discover -s tests/catastro_sii -p test_editorial_figures.py -v",
+      "exit_code": 0,
+      "tests": 15
+    },
+    {
+      "command": "/opt/entornos/mamba312/bin/python scripts/catastro_sii/render_gap_figures.py --expected-sha256 c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+      "exit_code": 0,
+      "runs": 2
+    }
+  ],
+  "falsified_by": [
+    {
+      "fixture": "before/gap-top15-es.svg",
+      "criterion": "assert_embedded_font_contract",
+      "exit_code": 1,
+      "evidence": "old-svg-red.log"
+    },
+    {
+      "fixture": "valid embedded SVG with subset reduced to character A",
+      "criterion": "glyph coverage",
+      "result": "AssertionError caught by test_font_gate_rejects_missing_embedding_and_missing_glyphs"
+    }
+  ],
+  "font_subset": {
+    "family": "Cucharadas Figure",
+    "weights": [
+      400,
+      700
+    ],
+    "source": "existing FiraSans Regular/Bold WOFF2",
+    "preserved": "copyright, OFL license, source links, selectable text",
+    "renamed": "internal family and PostScript names avoid reserved Fira name",
+    "no_external_font_request": true
+  },
+  "observed_browser": {
+    "img": {
+      "all_pixels": 1183104,
+      "embedded_vs_fallback_changed_pixels": 56848,
+      "file_vs_data_uri_changed_pixels": 0,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36"
+    },
+    "standalone": {
+      "loadedFonts": [
+        {
+          "family": "Cucharadas Figure",
+          "status": "loaded",
+          "weight": "400"
+        },
+        {
+          "family": "Cucharadas Figure",
+          "status": "loaded",
+          "weight": "700"
+        }
+      ],
+      "resources": [],
+      "selectableTextNodes": 80,
+      "url": "http://127.0.0.1:4087/gap-top15-es.svg"
+    },
+    "screenshot": "browser-standalone-full.png"
+  },
+  "repeated_render_identical_16": true,
+  "all_png_unchanged_8": true,
+  "fiscal_source_hashes_unchanged_9": true,
+  "max_svg_bytes": 76310,
+  "documents": [
+    "https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_as_an_image",
+    "https://openfontlicense.org/webfonts-and-reserved-font-names/"
+  ],
+  "limits": [
+    "Chromium151 Linux measured; no physical iPhone/Safari verification.",
+    "Existing fonts and glyph outlines reused; PNGs unchanged.",
+    "SVG-as-img selectable text requires opening standalone SVG; image embedding still requires equivalent HTML table.",
+    "Previous evidence preserved in /tmp/avaluos-v0-evidence and before/.",
+    "Temporary HTTP server and isolated browser closed."
+  ]
+}

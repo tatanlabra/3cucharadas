@@ -1,0 +1,20 @@
+test_all_exported_svg_fonts_self_contained_under_100kb (test_editorial_figures.EditorialFiguresTest.test_all_exported_svg_fonts_self_contained_under_100kb) ... ok
+test_duplicate_empty_and_no_positive_sources_rejected (test_editorial_figures.EditorialFiguresTest.test_duplicate_empty_and_no_positive_sources_rejected) ... ok
+test_english_and_spanish_number_format (test_editorial_figures.EditorialFiguresTest.test_english_and_spanish_number_format) ... ok
+test_font_gate_rejects_missing_embedding_and_missing_glyphs (test_editorial_figures.EditorialFiguresTest.test_font_gate_rejects_missing_embedding_and_missing_glyphs) ... ok
+test_frozen_hash_mismatch_fails (test_editorial_figures.EditorialFiguresTest.test_frozen_hash_mismatch_fails) ... ok
+test_frozen_source_binding (test_editorial_figures.EditorialFiguresTest.test_frozen_source_binding) ... ok
+test_invalid_nesting_rejected (test_editorial_figures.EditorialFiguresTest.test_invalid_nesting_rejected) ... ok
+test_legible_text_and_nontext_colors (test_editorial_figures.EditorialFiguresTest.test_legible_text_and_nontext_colors) ... ok
+test_missing_materiality_remains_unknown (test_editorial_figures.EditorialFiguresTest.test_missing_materiality_remains_unknown) ... ok
+test_missing_nonfinite_residual_never_becomes_zero (test_editorial_figures.EditorialFiguresTest.test_missing_nonfinite_residual_never_becomes_zero) ... ok
+test_monetary_source_oracle_and_rejections (test_editorial_figures.EditorialFiguresTest.test_monetary_source_oracle_and_rejections) ... ok
+test_negative_gap_preserved_and_only_positive_residual_ranked (test_editorial_figures.EditorialFiguresTest.test_negative_gap_preserved_and_only_positive_residual_ranked) ... ok
+test_rendered_svg_has_source_labels_and_values (test_editorial_figures.EditorialFiguresTest.test_rendered_svg_has_source_labels_and_values) ... ok
+test_selected_source_values_independent_oracle (test_editorial_figures.EditorialFiguresTest.test_selected_source_values_independent_oracle) ... ok
+test_subsetting_is_deterministic_and_missing_glyph_rejected (test_editorial_figures.EditorialFiguresTest.test_subsetting_is_deterministic_and_missing_glyph_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.400s
+
+OK

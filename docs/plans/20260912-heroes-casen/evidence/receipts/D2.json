@@ -1,0 +1,70 @@
+{
+  "task_id": "D2",
+  "kind": "manual_review",
+  "review_provider": "Anthropic",
+  "identity_evidence": "evidence/claude-science/round2/runtime-identity.json",
+  "source_digest": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "source_manifest": "activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+  "source_root": "activos/catastros_sii/v5_brecha",
+  "open_p0_p1": false,
+  "checks": [
+    {
+      "id": "D2-binding-final",
+      "task_id": "D2",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "docs/plans/20260912-heroes-casen/evidence/claude-science/round2/science-findings.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:31:41.483610+00:00",
+      "seconds": 0.29753149099997245,
+      "exit_code": 0,
+      "log": "evidence/checks/D2-binding-final.log",
+      "log_sha256": "b5b60d06c18f2207185db174f900fedaa81835413e3d6651e5fd1b62d6713ce9",
+      "acceptance_ids": [
+        "AC-D2"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/brief.md",
+      "sha256": "67cda6bcc1aa43117ffba38c9a0603d3ce3fc4a721e085167279a1f6bb7fad75"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/source-freeze.json",
+      "sha256": "107cd2d601a3225ed9db555cf58988c19be350d0005360f3916cb38d0f4c4810"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/bridge.log",
+      "sha256": "b0e9ff62f76e811b08c23df295f02da34ceeb8a7f966a55310ee26b61c52017a"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/science-findings.json",
+      "sha256": "ff3f9929dd7cfe8a7a8944c9fa5f5ff4db0c1803d7dc07346deb7ef857f1b3ce"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/runtime-identity.json",
+      "sha256": "f746c785e494bc1daae7687ec32e679d68053355d4bfff09133b17674bcbe299"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py",
+      "sha256": "d06c1af913c48c299d3db953cebb2d59cfaa9eb16a19e46bca186919086e363e"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-science/round2/binding-negative-recovery.json",
+      "sha256": "a48435f9645af139bb5c2173319ce0084cdaee3d05c890289b7ff6fb7ed72846"
+    }
+  ],
+  "limitations": [
+    "No raw microdata access, as in round 1; the 'real source has no factor columns' claim rests on the pipeline's own self-reported inspection output, not a second independent reader.",
+    "Did not byte-verify the pasted code/test blocks against the frozen manifest hashes in round2/source-freeze.json \u2014 Write was denied and a heredoc was blocked by a quoting filter; verified instead by reading source-freeze.json directly and cross-checking its rdata.py/core.py hashes against verification.json, and by manually counting the 31 tests in the pasted suite (7+12+7+5), which matched the disposition.json claim.",
+    "R execution, Julia parity, and aggregate-hash reproduction are taken from the pasted receipts, not re-run in this session (task was scoped read-only)."
+  ]
+}

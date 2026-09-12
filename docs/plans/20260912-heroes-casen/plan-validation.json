@@ -1,0 +1,98 @@
+{
+  "scope": "plan structure only; not implementation, security isolation, survey validity or optimality",
+  "limitations": [
+    "path-glob overlap check covers declared patterns, not arbitrary future paths",
+    "manual review criteria require human or agent judgment",
+    "pending-only checker is for this planning snapshot; execution must update state validation"
+  ],
+  "positive": {
+    "task_count": 11,
+    "phase_count": 4,
+    "ordered_overlapping_scopes": [
+      [
+        "P0",
+        "H1"
+      ],
+      [
+        "P0",
+        "G1"
+      ],
+      [
+        "P0",
+        "D2"
+      ],
+      [
+        "P0",
+        "E1"
+      ],
+      [
+        "P0",
+        "R1"
+      ],
+      [
+        "P0",
+        "Q1"
+      ],
+      [
+        "D1",
+        "Q1"
+      ]
+    ]
+  },
+  "negative_controls": [
+    {
+      "case": "dependency_cycle",
+      "observed": "rejected",
+      "reason": "dependency_cycle"
+    },
+    {
+      "case": "missing_owner",
+      "observed": "rejected",
+      "reason": "missing_owner"
+    },
+    {
+      "case": "unordered_writer_collision",
+      "observed": "rejected",
+      "reason": "unordered_writer_collision"
+    },
+    {
+      "case": "prose_as_shell",
+      "observed": "rejected",
+      "reason": "prose_as_shell"
+    },
+    {
+      "case": "stale_build_risk",
+      "observed": "rejected",
+      "reason": "stale_build_risk"
+    },
+    {
+      "case": "mutable_checker_race",
+      "observed": "rejected",
+      "reason": "mutable_checker_race"
+    }
+  ],
+  "artifact_hashes": {
+    "adversarial-review.md": "248356d30de0d09f707e5cfe13542b59d34229b2fe40adb9c438f7b529b91b56",
+    "briefings/D1.md": "8a1140843f0a1200c9098cee332d17cfe0b01fc33b80c1fe5ab51f0e5c052993",
+    "briefings/D2.md": "a606fb021e21a6fb6c82f9cd0e7839144e02c121c0bce7f6bffe666e64e9fbd3",
+    "briefings/E1.md": "bdc1a93e6da84515a04054aacd327584f1ea1c98328e53071ff9bc7c7de3ff2c",
+    "briefings/G1-public.md": "40d7532402664fbcbbdef062f0bb3f46c208c9a604e8e6d1aaaef9b914d0947b",
+    "briefings/G1.md": "44069548dd812cdbe5b1d6ac5b71a31ac103523af140f9e48e0017f4209de7ed",
+    "briefings/H1.md": "2573130ec40ae88704a065d8f5deeb83b8547a536c92424fd2936d127567bd28",
+    "briefings/P0.md": "64e86b565320f5c704c99629529b4d913aa1143d65eaadaaa1848cb0627c363b",
+    "briefings/Q1.md": "65ae44013275b0d792e407b8e508e0f5db05f87b5b996676b29e92b8c56dbb77",
+    "briefings/R1.md": "895ac15befee9b5170c3ad855ef60816fb5129ea262bd66e1871c6a862bbaff6",
+    "briefings/U1.md": "4bb1ed51e2b53b4e1db98966c71d45c7cc9269ab3167c62e46d53ca1029fb838",
+    "briefings/V0.md": "453703aafb7e017a6c218d698fe251b3a97e4a7f7a66196fc8f83936a8599223",
+    "briefings/V1.md": "d478a89466a7387a0739a301d138d27e96c89b284f33bb48f201902ee7491c5f",
+    "contract.json": "b9f0687851b19db196a07bb79bbccc92e1f85787c6d859cdfad89a135e07e80d",
+    "plan.md": "a8f72d3ba87648c0b02f0d9df1a42f7d190b40ecdbc91f24b6bda03ecc036b96",
+    "validate_plan.py": "a9f6d19f21ab15912ac9c01d9fbb7e60951c0cf07bb3d9471333fc6d241ff98c"
+  },
+  "product_checks": "not_run",
+  "provider_reviews": {
+    "astra": "completed",
+    "claude": "not_run",
+    "gemini": "not_run"
+  }
+}

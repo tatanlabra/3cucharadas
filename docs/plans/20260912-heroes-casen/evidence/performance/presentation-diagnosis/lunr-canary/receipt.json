@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task": "Q1-product-canary-playwright",
+  "timestamp": "2026-09-12T12:46:14.499Z",
+  "status": "diagnostic-no-lcp-improvement",
+  "formal_acceptance": false,
+  "counts": {
+    "runs_total": 8,
+    "expected_total": 8,
+    "pairs_per_page": 1,
+    "lcp_observed": 8,
+    "lcp_missing": 0,
+    "cls_observed": 8,
+    "cpu_windows": 2,
+    "sessions_closed": 4
+  },
+  "inputs": {
+    "source_manifest": "evidence/editorial/source-first-person-before-build.json",
+    "source_manifest_sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783",
+    "source_digest": "238221099b11ca45bc387d65fe90450397084927173ef75e808dfa36bc848b2a",
+    "build_root": "/tmp/3c-heroes-first-person-site",
+    "build_manifest": "../../formal-candidate-first-person-freeze.json",
+    "build_manifest_sha256": "afc097833f8e8a55699926c37f609e1afa4e7ce50ece914158c41e42be94cac7",
+    "build_bytes_unchanged_after_collection": true
+  },
+  "cleanup": {
+    "all_own_sessions_closed": true,
+    "servers4041_4042_closed": true,
+    "server4004_untouched": true
+  },
+  "files": {
+    "summary.json": "6cb16e9c6f6d2c170c52333b9e4e55b068ad19b9e719631aaef6d2190ff9ac8e",
+    "cpu-before-pairs.json": "a1ff60f72b3e17d3f4ad320fea5051f741a4f03d5c1429dbf1149af92a13aabb",
+    "server-candidate.log": "d6768e46f3ff06771f55f7d6e7797b45a2d008366f9738286e32132865da5d2f",
+    "settings.json": "618dbadecd46d691a9f55252ce0ddeb27e8f7ee47303385787856a509817df53",
+    "server-baseline.log": "056e8403931970dd2cc5491331df88e40ea4e3031c5c65899f77fb1195550b42",
+    "report.md": "6281fce85ac61100b1279f28c44e7c08423c12da8f82efc11e91baa8f8fb3b00",
+    "runs.json": "4c2f4bbadc13207a5d68750b6822834a6e38a589735091e9098df9e3045b61ff",
+    "search-checks.json": "453f7ce189e6b9827c7144966507252311a2c830c887fff7adff095009043b5f"
+  },
+  "interpretation": "Intervention removed indexing longtasks but did not improve LCP in this unreplicated comparison; CPUconfounded; no product adoption justified",
+  "search_checks_passed": true
+}

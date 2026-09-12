@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 129, in <module>
+    result=performance(read(args.directory/'runs.json')) if args.kind=='performance' else ui(read(args.directory/'matrix.json'),read(args.directory/'extras.json'))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 75, in performance
+    require(row.get('missing') is False, 'Missing measurement')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 22, in require
+    raise ValueError(message)
+ValueError: Missing measurement

@@ -1,0 +1,8 @@
+{%- assign ai_lang = site.active_lang | default: page.lang | default: 'es' -%}
+{%- assign ai_level = page.ai_disclosure.level | default: page.devto_ai_disclosure_level | default: 'not_disclosed' -%}
+{%- assign ai_text = page.ai_disclosure.components.text | default: 'unknown' -%}
+{%- assign ai_hero_origin = page.ai_disclosure.components.hero | default: 'unknown' -%}
+<p id="ai-disclosure" class="ai-disclosure" data-ai-level="{{ ai_level | escape }}" data-ai-text-origin="{{ ai_text | escape }}" data-ai-hero-origin="{{ ai_hero_origin | escape }}">
+  {% case ai_level %}{% when 'no_ai' %}{% if ai_lang == 'en' %}I made this article without AI.{% else %}Preparé este artículo sin IA.{% endif %}{% when 'some_ai' %}{% if ai_lang == 'en' %}I used AI to help prepare this article.{% else %}Preparé este artículo con ayuda de IA.{% endif %}{% when 'fully_autonomous' %}{% if ai_lang == 'en' %}I generated this article entirely with AI.{% else %}Generé este artículo íntegramente con IA.{% endif %}{% else %}{% if ai_lang == 'en' %}I have not declared my AI use here yet.{% else %}Aún no he declarado aquí mi uso de IA.{% endif %}{% endcase %}
+  <a href="{{ '/ai-transparency/' | relative_url }}">{% if ai_lang == 'en' %}How I use AI{% else %}Cómo uso la IA{% endif %}</a>.
+</p>

@@ -1,0 +1,15 @@
+{
+  "id": "Q1-distribution",
+  "task_id": "Q1",
+  "command": [
+    "ruby",
+    "scripts/verify_distribution_readiness.rb",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:46:01.199495+00:00",
+  "seconds": 0.3744024019997596,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-distribution.log",
+  "log_sha256": "d6c17ec16e6ba76d45e9f045e833f0ca95a9120ef6df3f6f1496e9abb8904723"
+}

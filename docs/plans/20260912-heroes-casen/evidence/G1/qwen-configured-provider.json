@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-09-12T10:59:43.361274+00:00",
+  "harness": "Qwen Code",
+  "requested_model": "deepseek-v4-pro",
+  "provider_from_configured_route": "DeepSeek",
+  "public_base_url": "https://api.deepseek.com",
+  "provenance": "Allowlisted id/name/baseUrl fields extracted from installed settings; no credential or environment fields retained.",
+  "self_report_is_separate": true,
+  "transport_model_identity_not_cryptographically_verified": true
+}

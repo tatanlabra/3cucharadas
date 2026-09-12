@@ -1,0 +1,330 @@
+[
+  {
+    "case": "es-390-light",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Diagn\u00f3stico residencial",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 761,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Escenarios en millones de pesos anuales equivalentes, reglas generales 2026S1. Mediana y promedio incluyen los ceros. No es deuda observada.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 678,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "es-390-academic-night",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Diagn\u00f3stico residencial",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 761,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Escenarios en millones de pesos anuales equivalentes, reglas generales 2026S1. Mediana y promedio incluyen los ceros. No es deuda observada.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 678,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "es-1440-light",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Diagn\u00f3stico residencial",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 855,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Escenarios en millones de pesos anuales equivalentes, reglas generales 2026S1. Mediana y promedio incluyen los ceros. No es deuda observada.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 762,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "es-1440-academic-night",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Diagn\u00f3stico residencial",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 855,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Escenarios en millones de pesos anuales equivalentes, reglas generales 2026S1. Mediana y promedio incluyen los ceros. No es deuda observada.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 762,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "en-390-light",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Residential diagnostic",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 771,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Scenarios in million CLP annual equivalents, 2026H1 general rules. Median and mean include zeros. Not observed tax debt.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 610,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "en-390-academic-night",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Residential diagnostic",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 771,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Scenarios in million CLP annual equivalents, 2026H1 general rules. Median and mean include zeros. Not observed tax debt.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 610,
+            "tabindex": 0,
+            "width": 358
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "en-1440-light",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Residential diagnostic",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 851,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Scenarios in million CLP annual equivalents, 2026H1 general rules. Median and mean include zeros. Not observed tax debt.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 731,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  },
+  {
+    "case": "en-1440-academic-night",
+    "tables": [
+      {
+        "bodyOverflow": false,
+        "headers": 8,
+        "name": "Residential diagnostic",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 851,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      },
+      {
+        "bodyOverflow": false,
+        "headers": 7,
+        "name": "Scenarios in million CLP annual equivalents, 2026H1 general rules. Median and mean include zeros. Not observed tax debt.",
+        "role": "region",
+        "rows": 15,
+        "tabindex": 0,
+        "wrappers": [
+          {
+            "scrollWidth": 731,
+            "tabindex": 0,
+            "width": 731
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    }
+  }
+]

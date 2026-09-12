@@ -1,0 +1,85 @@
+{
+  "cases": [
+    {
+      "case": "wrong_digest",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "/tmp/3c-review-fixture-wrong_digest.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 40, in <module>\n    print(json.dumps(verify(json.loads(args.review.read_text()), json.loads(args.manifest.read_text()), args.source_root)))\n                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 17, in verify\n    raise ValueError('review source digest mismatch')\nValueError: review source digest mismatch\n"
+    },
+    {
+      "case": "open_critical",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "/tmp/3c-review-fixture-open_critical.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 40, in <module>\n    print(json.dumps(verify(json.loads(args.review.read_text()), json.loads(args.manifest.read_text()), args.source_root)))\n                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 20, in verify\n    raise ValueError('review has unresolved or undeclared critical findings')\nValueError: review has unresolved or undeclared critical findings\n"
+    },
+    {
+      "case": "missing_critical",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "/tmp/3c-review-fixture-missing_critical.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 40, in <module>\n    print(json.dumps(verify(json.loads(args.review.read_text()), json.loads(args.manifest.read_text()), args.source_root)))\n                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 20, in verify\n    raise ValueError('review has unresolved or undeclared critical findings')\nValueError: review has unresolved or undeclared critical findings\n"
+    },
+    {
+      "case": "integer_zero",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "/tmp/3c-review-fixture-integer_zero.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 40, in <module>\n    print(json.dumps(verify(json.loads(args.review.read_text()), json.loads(args.manifest.read_text()), args.source_root)))\n                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py\", line 20, in verify\n    raise ValueError('review has unresolved or undeclared critical findings')\nValueError: review has unresolved or undeclared critical findings\n"
+    },
+    {
+      "case": "valid_recovery",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "/tmp/3c-review-fixture-valid_recovery.json",
+        "--manifest",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+        "--source-root",
+        "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_REVIEW_BINDING\", \"task_id\": \"D2\", \"source_digest\": \"14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80\", \"files_verified\": 56, \"limitation\": \"Digest integrity does not establish reviewer independence or substantive quality.\"}\n",
+      "stderr": ""
+    }
+  ],
+  "verifier_sha256": "d06c1af913c48c299d3db953cebb2d59cfaa9eb16a19e46bca186919086e363e"
+}

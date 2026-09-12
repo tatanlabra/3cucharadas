@@ -20,7 +20,20 @@ comments: true
 author_profile: true
 math: true
 header:
-  teaser: /assets/images/teasers/teaser-bayes-hiperparametros.webp
+  teaser: /assets/images/heroes-v2/bayes-hiperparametros/teaser-1280x720.webp
+  overlay_image: /assets/images/heroes-v2/bayes-hiperparametros/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/bayes-hiperparametros/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/bayes-hiperparametros/teaser-mobile-640x360.webp
+  og_image: /assets/images/heroes-v2/bayes-hiperparametros/og-1200x630.webp
+  og_image_alt: An abstract contour landscape as a metaphor for hyperparameter search.
+visual_id: bayes-hiperparametros
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 Imagine a tabular model with 10 values of <span class="text-nowrap">learn_rate</span>, 8 of <span class="text-nowrap">max_depth</span>, 5 of <span class="text-nowrap">sample_rate</span> and 5 of <span class="text-nowrap">col_sample_rate</span>. A Cartesian grid would train **2,000 models**. With 5-fold cross-validation, the operational count rises to **10,000 internal fits**. On a machine with limited RAM, VRAM or CPU, that is not necessarily more rigor: it can be just an expensive way of ignoring what was learned in previous evaluations.

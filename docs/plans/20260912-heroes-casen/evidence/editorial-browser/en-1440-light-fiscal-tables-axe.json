@@ -1,0 +1,121 @@
+{
+  "success": true,
+  "data": {
+    "axeVersion": "4.12.1",
+    "counts": {
+      "inapplicable": 69,
+      "incomplete": 1,
+      "passes": 19,
+      "violations": 0
+    },
+    "incomplete": [
+      {
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodeCount": 121,
+        "nodes": [
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<th scope=\"row\">Valpara\u00edso</th>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > th[scope=\"row\"]"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>05101</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>32,533</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(3)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>2,572</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(4)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>29,961</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(5)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>25,551</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(6)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>28,060,396</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(1) > td:nth-child(7)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>Partial</td>",
+            "target": [
+              "tr:nth-child(1) > td:nth-child(8)"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<th scope=\"row\">Los \u00c1ngeles</th>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(3) > th[scope=\"row\"]"
+            ]
+          },
+          {
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+            "html": "<td>08301</td>",
+            "target": [
+              "div[data-columnas=\"8\"] > table > tbody > tr:nth-child(3) > td:nth-child(2)"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ]
+      }
+    ],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 12798390076057945372
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    },
+    "url": "http://127.0.0.1:4004/en/datos/territorio/avaluos-ii-brecha-residencial/",
+    "violations": []
+  },
+  "error": null
+}

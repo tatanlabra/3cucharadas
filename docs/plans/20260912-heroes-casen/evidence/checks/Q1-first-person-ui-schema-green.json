@@ -1,0 +1,17 @@
+{
+  "id": "Q1-first-person-ui-schema-green",
+  "task_id": "Q1",
+  "command": [
+    "python3",
+    "docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py",
+    "ui",
+    "--directory",
+    "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T12:25:25.540999+00:00",
+  "seconds": 0.8542820450002182,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-first-person-ui-schema-green.log",
+  "log_sha256": "9548755cfa3cd7e9dc4eadc0ab437e444a54e9926bb8f20cf32f84e6b40bd876"
+}

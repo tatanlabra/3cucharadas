@@ -1,0 +1,15 @@
+{
+  "id": "E1-first-person-hero",
+  "task_id": "E1",
+  "command": [
+    "ruby",
+    "scripts/verify_hero_disclosure.rb",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:56:50.544660+00:00",
+  "seconds": 0.6591055249991769,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-first-person-hero.log",
+  "log_sha256": "3cd52fb4ada89ab01c21f0707d1bbac67eabaf9875c8889f446ed64a7d46f25d"
+}

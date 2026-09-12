@@ -42,9 +42,20 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
-  og_image: /assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
-  og_image_alt: "Cuatro fuentes gobernadas sobre plataformas separadas —memoria de trabajo, correo personal sellado bajo cristal, índice de tesis y proyección pública— con una membrana que solo deja pasar tres salidas permitidas."
+  teaser: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/og-1200x630.webp
+  og_image_alt: Red esférica luminosa y tres recorridos controlados como metáfora de la memoria gobernada.
+  overlay_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp
+visual_id: multiagente-penta-agent-memoria-gobernada
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 > **Estado de la demostración.** El visor se regeneró el 29 de agosto de 2026 desde una proyección pública saneada (limpiando cosas no públicas 😀): el artefacto no contiene cuerpos de correo, adjuntos, direcciones, rutas absolutas, tokens, credenciales ni microdatos.

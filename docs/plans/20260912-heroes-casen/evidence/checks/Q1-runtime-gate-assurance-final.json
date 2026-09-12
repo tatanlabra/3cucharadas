@@ -1,0 +1,17 @@
+{
+  "id": "Q1-runtime-gate-assurance-final",
+  "task_id": "Q1",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_runtime_acceptance",
+    "-v"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen",
+  "started_at": "2026-09-12T12:29:47.615356+00:00",
+  "seconds": 0.365688466001302,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-runtime-gate-assurance-final.log",
+  "log_sha256": "b2c0f6ceb9c55f71ddf09e1731a84eec6267e84d844f3c58114475bdad161ede"
+}

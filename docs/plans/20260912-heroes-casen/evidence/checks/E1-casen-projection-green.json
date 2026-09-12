@@ -1,0 +1,18 @@
+{
+  "id": "E1-casen-projection-green",
+  "task_id": "E1",
+  "command": [
+    "python3",
+    "scripts/catastro_sii/project_casen_shared_site.py",
+    "--source-dir",
+    "../catastros_sii/v5_brecha/artifacts/casen_shared_site",
+    "--expected-sha256",
+    "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:42:40.652818+00:00",
+  "seconds": 0.15504355499979283,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-casen-projection-green.log",
+  "log_sha256": "eb5cde4e9f8ebb9f70703c2199906b1fa85496e96d749d39c7b8663593156bde"
+}

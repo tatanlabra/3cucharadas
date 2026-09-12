@@ -12,8 +12,14 @@ lang: es
 ref: avaluo-vulnerabilidad-uv
 permalink: /datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
 header:
-  teaser: /assets/images/teasers/teaser-avaluo-vulnerabilidad-1280x720.webp
-  og_image: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/og-avaluo-vulnerabilidad-1200x630.webp
+  teaser: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/og-1200x630.webp
+  overlay_image: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp
+  og_image_alt: Retrato geométrico y barrio nocturno como metáfora de la dimensión humana del territorio.
 math: true
 distribution:
   social: true
@@ -23,6 +29,12 @@ toc_sticky: true
 comments: true
 author_profile: true
 classes: [avaluo-vulnerabilidad-post]
+visual_id: avaluo-vulnerabilidad-unidad-vecinal
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 Chile mantiene un catastro capaz de seguir millones de predios y, aun así, suele reducir toda la conversación a una cuota trimestral. El dato no nació del entusiasmo estatal por dibujar polígonos: existe porque el impuesto territorial necesita saber **qué hay, dónde está, para qué se usa y cuánto vale fiscalmente**.

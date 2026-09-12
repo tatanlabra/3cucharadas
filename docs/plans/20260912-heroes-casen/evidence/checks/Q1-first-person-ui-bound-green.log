@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 128, in <module>
+    bind(args.directory,args.source_manifest,args.built_site)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 48, in bind
+    require(build.get('source_digest') == digest, 'Build/source mismatch')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py", line 22, in require
+    raise ValueError(message)
+ValueError: Build/source mismatch

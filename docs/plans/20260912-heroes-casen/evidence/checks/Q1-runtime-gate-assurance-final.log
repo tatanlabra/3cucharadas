@@ -1,0 +1,14 @@
+test_cls_session_window_not_raw_sum (test_runtime_acceptance.RuntimeContractTest.test_cls_session_window_not_raw_sum) ... ok
+test_current_hash_and_path_guards (test_runtime_acceptance.RuntimeContractTest.test_current_hash_and_path_guards) ... ok
+test_observed_red_pilot_cannot_close_formal_contract (test_runtime_acceptance.RuntimeContractTest.test_observed_red_pilot_cannot_close_formal_contract) ... ok
+test_observed_ui_and_counterexamples (test_runtime_acceptance.RuntimeContractTest.test_observed_ui_and_counterexamples) ... ok
+test_raw_cls_and_device_mismatch (test_runtime_acceptance.RuntimeContractTest.test_raw_cls_and_device_mismatch) ... ok
+test_reject_missing_duplicate_bad_pair_or_hidden (test_runtime_acceptance.RuntimeContractTest.test_reject_missing_duplicate_bad_pair_or_hidden) ... ok
+test_reject_null_nan_boolean_and_forged_metric (test_runtime_acceptance.RuntimeContractTest.test_reject_null_nan_boolean_and_forged_metric) ... ok
+test_synthetic_green_is_not_empirical_acceptance (test_runtime_acceptance.RuntimeContractTest.test_synthetic_green_is_not_empirical_acceptance) ... ok
+test_threshold_and_regression_each_bind_independently (test_runtime_acceptance.RuntimeContractTest.test_threshold_and_regression_each_bind_independently) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.098s
+
+OK

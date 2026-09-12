@@ -1,0 +1,19 @@
+Run options: --seed 8227
+
+# Running:
+
+../home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+.......F...
+
+Finished in 0.338111s, 38.4489 runs/s, 301.6763 assertions/s.
+
+  1) Failure:
+HeroDisclosureCheckTest#test_explicit_timestamp_is_compared_as_an_instant_across_timezones [tests/test_ai_disclosure.rb:114]:
+Expected ["publication date differs from source"] to be empty.
+
+13 runs, 102 assertions, 1 failures, 0 errors, 0 skips

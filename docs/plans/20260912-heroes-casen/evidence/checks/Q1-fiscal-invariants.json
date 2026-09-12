@@ -1,0 +1,14 @@
+{
+  "id": "Q1-fiscal-invariants",
+  "task_id": "Q1",
+  "command": [
+    "/opt/entornos/mamba312/bin/python",
+    "scripts/catastro_sii/verify_fiscal_gap.py"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:46:31.207746+00:00",
+  "seconds": 16.687083795000945,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-fiscal-invariants.log",
+  "log_sha256": "db9a1b8a0889aedf5e5566d7889e413eec60acd0e2639a82629121a2bef64525"
+}

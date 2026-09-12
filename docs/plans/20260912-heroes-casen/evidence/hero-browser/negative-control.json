@@ -1,0 +1,8 @@
+{
+  "mutation": "duplicate h1 in live isolated browser DOM only",
+  "red_h1_count": 2,
+  "green_h1_count": 1,
+  "restored_identical_sha256": true,
+  "before_sha256": "393bb572c4c9e03572cb2ea3f47579340f46e0d1640daebc24ac962f1bed5076",
+  "after_sha256": "393bb572c4c9e03572cb2ea3f47579340f46e0d1640daebc24ac962f1bed5076"
+}

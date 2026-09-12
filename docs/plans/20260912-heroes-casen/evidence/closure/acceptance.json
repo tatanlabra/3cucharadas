@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-09-12T12:48:33.396232+00:00",
+  "status": "partial_runtime_regression_unresolved",
+  "accepted_for_publication": false,
+  "checks": [
+    {
+      "acceptance_id": "AC-Q1",
+      "check": "Q1-build-reuse-binding",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-build-reuse-binding.log"
+    },
+    {
+      "acceptance_id": "AC-Q2",
+      "check": "Q1-first-person-artifact",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-first-person-artifact.log"
+    },
+    {
+      "acceptance_id": "AC-Q3",
+      "check": "Q1-first-person-distribution",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-first-person-distribution.log"
+    },
+    {
+      "acceptance_id": "AC-Q4",
+      "check": "Q1-catastro-types",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-catastro-types.log"
+    },
+    {
+      "acceptance_id": "AC-Q5",
+      "check": "Q1-fiscal-invariants",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-fiscal-invariants.log"
+    },
+    {
+      "acceptance_id": "AC-Q6",
+      "check": "Q1-playwright-performance-red",
+      "exit_code": 1,
+      "log": "evidence/checks/Q1-playwright-performance-red.log"
+    },
+    {
+      "acceptance_id": "AC-Q7",
+      "check": "Q1-first-person-ui-schema-green",
+      "exit_code": 0,
+      "log": "evidence/checks/Q1-first-person-ui-schema-green.log"
+    }
+  ],
+  "analysis_commit": "d3576aa",
+  "blog_commit": null,
+  "performance": "40 complete observations; three relative LCP regressions over10%, all candidate group medians below2500ms; CLS maximum0.053783. Host CPU varied, so product-only causation is not established.",
+  "discarded_optimization": "Deferring Lunr indexing removed longtasks but failed to improve LCP in eight diagnostic navigations; not adopted.",
+  "next_step": "Establish a controlled low-load profiling interval and isolate font/layout/composition cost before further product changes; do not repeat samples until PASS or relax thresholds silently.",
+  "optional_review": "G1 remains partial and is not an accepted external review.",
+  "residuals": [
+    "R1 P2: future export formats need schema allowlisting; current reviewed aggregate files match.",
+    "R1 P3: future teaser_mobile pointer mutations need explicit verifier coverage; current variants validated.",
+    "No physical iPhone/Safari or native browser zoom certification."
+  ],
+  "external_actions": [],
+  "local_checkpoint_authorized": "2026-09-12 explicit user request; preserves performance debt"
+}

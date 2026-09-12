@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="770.4pt" viewBox="0 0 864 770.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>Impuesto general por predio, luego mediana y promedio incluidos los ceros; multiplicados por el residuo.
+Sin aseo, sobretasas ni beneficios particulares. No son intervalos de confianza ni giros de contribuciones.
+15 mayores escenarios promedio dentro del filtro declarado; campamentos bajo supuesto uno a uno.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 770.4
+L 864 770.4
+L 864 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 177.12 612.468
+L 626.4 612.468
+L 626.4 165.636
+L 177.12 165.636
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 177.12 612.468
+L 177.12 165.636
+" clip-path="url(#pc72a6fd44c)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="177.12" y="629.818" transform="rotate(-0 177.12 629.818)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 273.357392 612.468
+L 273.357392 165.636
+" clip-path="url(#pc72a6fd44c)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="273.357392" y="629.818" transform="rotate(-0 273.357392 629.818)">1.500</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 369.594784 612.468
+L 369.594784 165.636
+" clip-path="url(#pc72a6fd44c)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="369.594784" y="629.818" transform="rotate(-0 369.594784 629.818)">3.000</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 465.832176 612.468
+L 465.832176 165.636
+" clip-path="url(#pc72a6fd44c)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="465.832176" y="629.818" transform="rotate(-0 465.832176 629.818)">4.500</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 562.069568 612.468
+L 562.069568 165.636
+" clip-path="url(#pc72a6fd44c)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="562.069568" y="629.818" transform="rotate(-0 562.069568 629.818)">6.000</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="401.76" y="653.818" transform="rotate(-0 401.76 653.818)">Millones de pesos anuales equivalentes · reglas 2026S1</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="196.640159" transform="rotate(-0 165.12 196.640159)">Lo Barnechea</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="225.375336" transform="rotate(-0 165.12 225.375336)">Pucón</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_13"/>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="254.110513" transform="rotate(-0 165.12 254.110513)">Zapallar</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_14"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="282.84569" transform="rotate(-0 165.12 282.84569)">Iquique</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_15"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="311.580867" transform="rotate(-0 165.12 311.580867)">Puerto Varas</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_16"/>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="340.316043" transform="rotate(-0 165.12 340.316043)">Pirque</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_17"/>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="369.05122" transform="rotate(-0 165.12 369.05122)">Santo Domingo</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_18"/>
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="397.786397" transform="rotate(-0 165.12 397.786397)">La Reina</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_19"/>
+     <g id="text_15">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="426.521574" transform="rotate(-0 165.12 426.521574)">Algarrobo</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_20"/>
+     <g id="text_16">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="455.256751" transform="rotate(-0 165.12 455.256751)">Concón</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_21"/>
+     <g id="text_17">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="483.991928" transform="rotate(-0 165.12 483.991928)">Huechuraba</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_22"/>
+     <g id="text_18">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="512.727105" transform="rotate(-0 165.12 512.727105)">Las Condes</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_23"/>
+     <g id="text_19">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="541.462281" transform="rotate(-0 165.12 541.462281)">Providencia</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_24"/>
+     <g id="text_20">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="570.197458" transform="rotate(-0 165.12 570.197458)">Papudo</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_25"/>
+     <g id="text_21">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="598.932635" transform="rotate(-0 165.12 598.932635)">San Miguel</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 177.12 183.45181
+L 496.82462 183.45181
+L 496.82462 190.348252
+L 177.12 190.348252
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 177.12 212.186986
+L 206.030082 212.186986
+L 206.030082 219.083429
+L 177.12 219.083429
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 177.12 240.922163
+L 314.342236 240.922163
+L 314.342236 247.818606
+L 177.12 247.818606
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 177.12 269.65734
+L 179.444911 269.65734
+L 179.444911 276.553783
+L 177.12 276.553783
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 177.12 298.392517
+L 184.967001 298.392517
+L 184.967001 305.288959
+L 177.12 305.288959
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 177.12 327.127694
+L 266.145274 327.127694
+L 266.145274 334.024136
+L 177.12 334.024136
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 177.12 355.862871
+L 259.446634 355.862871
+L 259.446634 362.759313
+L 177.12 362.759313
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 177.12 384.598048
+L 232.004935 384.598048
+L 232.004935 391.49449
+L 177.12 391.49449
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 177.12 413.333224
+L 213.235337 413.333224
+L 213.235337 420.229667
+L 177.12 420.229667
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 177.12 442.068401
+L 213.637439 442.068401
+L 213.637439 448.964844
+L 177.12 448.964844
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 177.12 470.803578
+L 189.886902 470.803578
+L 189.886902 477.700021
+L 177.12 477.700021
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 177.12 499.538755
+L 201.697498 499.538755
+L 201.697498 506.435197
+L 177.12 506.435197
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 177.12 528.273932
+L 198.351834 528.273932
+L 198.351834 535.170374
+L 177.12 535.170374
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 177.12 557.009109
+L 183.391228 557.009109
+L 183.391228 563.905551
+L 177.12 563.905551
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 177.12 585.744286
+L 181.194763 585.744286
+L 181.194763 592.640728
+L 177.12 592.640728
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #7f91a8"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 177.12 192.647066
+L 605.005714 192.647066
+L 605.005714 199.543509
+L 177.12 199.543509
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 177.12 221.382243
+L 518.56313 221.382243
+L 518.56313 228.278686
+L 177.12 228.278686
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 177.12 250.11742
+L 501.842852 250.11742
+L 501.842852 257.013862
+L 177.12 257.013862
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 177.12 278.852597
+L 453.562869 278.852597
+L 453.562869 285.749039
+L 177.12 285.749039
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 177.12 307.587774
+L 399.552926 307.587774
+L 399.552926 314.484216
+L 177.12 314.484216
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 177.12 336.32295
+L 384.478268 336.32295
+L 384.478268 343.219393
+L 177.12 343.219393
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 177.12 365.058127
+L 306.952441 365.058127
+L 306.952441 371.95457
+L 177.12 371.95457
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 177.12 393.793304
+L 271.451218 393.793304
+L 271.451218 400.689747
+L 177.12 400.689747
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 177.12 422.528481
+L 244.593255 422.528481
+L 244.593255 429.424923
+L 177.12 429.424923
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 177.12 451.263658
+L 244.278422 451.263658
+L 244.278422 458.1601
+L 177.12 458.1601
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 177.12 479.998835
+L 236.08778 479.998835
+L 236.08778 486.895277
+L 177.12 486.895277
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 177.12 508.734012
+L 217.63328 508.734012
+L 217.63328 515.630454
+L 177.12 515.630454
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 177.12 537.469188
+L 209.817514 537.469188
+L 209.817514 544.365631
+L 177.12 544.365631
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 177.12 566.204365
+L 200.786079 566.204365
+L 200.786079 573.100808
+L 177.12 573.100808
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 177.12 594.939542
+L 196.842278 594.939542
+L 196.842278 601.835985
+L 177.12 601.835985
+z
+" clip-path="url(#pc72a6fd44c)" style="fill: #00778a"/>
+   </g>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="195.015159" transform="rotate(-0 714.528 195.015159)">4.983,1</text>
+  </g>
+  <g id="text_23">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="195.015159" transform="rotate(-0 822.528 195.015159)">6.669,2</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="223.750336" transform="rotate(-0 714.528 223.750336)">450,6</text>
+  </g>
+  <g id="text_25">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="223.750336" transform="rotate(-0 822.528 223.750336)">5.321,9</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="252.485513" transform="rotate(-0 714.528 252.485513)">2.138,8</text>
+  </g>
+  <g id="text_27">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="252.485513" transform="rotate(-0 822.528 252.485513)">5.061,3</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="281.22069" transform="rotate(-0 714.528 281.22069)">36,2</text>
+  </g>
+  <g id="text_29">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="281.22069" transform="rotate(-0 822.528 281.22069)">4.308,8</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="309.955867" transform="rotate(-0 714.528 309.955867)">122,3</text>
+  </g>
+  <g id="text_31">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="309.955867" transform="rotate(-0 822.528 309.955867)">3.466,9</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="338.691043" transform="rotate(-0 714.528 338.691043)">1.387,6</text>
+  </g>
+  <g id="text_33">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="338.691043" transform="rotate(-0 822.528 338.691043)">3.232,0</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="367.42622" transform="rotate(-0 714.528 367.42622)">1.283,2</text>
+  </g>
+  <g id="text_35">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="367.42622" transform="rotate(-0 822.528 367.42622)">2.023,6</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="396.161397" transform="rotate(-0 714.528 396.161397)">855,5</text>
+  </g>
+  <g id="text_37">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="396.161397" transform="rotate(-0 822.528 396.161397)">1.470,3</text>
+  </g>
+  <g id="text_38">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="424.896574" transform="rotate(-0 714.528 424.896574)">562,9</text>
+  </g>
+  <g id="text_39">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="424.896574" transform="rotate(-0 822.528 424.896574)">1.051,7</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="453.631751" transform="rotate(-0 714.528 453.631751)">569,2</text>
+  </g>
+  <g id="text_41">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="453.631751" transform="rotate(-0 822.528 453.631751)">1.046,8</text>
+  </g>
+  <g id="text_42">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="482.366928" transform="rotate(-0 714.528 482.366928)">199,0</text>
+  </g>
+  <g id="text_43">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="482.366928" transform="rotate(-0 822.528 482.366928)">919,1</text>
+  </g>
+  <g id="text_44">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="511.102105" transform="rotate(-0 714.528 511.102105)">383,1</text>
+  </g>
+  <g id="text_45">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="511.102105" transform="rotate(-0 822.528 511.102105)">631,5</text>
+  </g>
+  <g id="text_46">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="539.837281" transform="rotate(-0 714.528 539.837281)">330,9</text>
+  </g>
+  <g id="text_47">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="539.837281" transform="rotate(-0 822.528 539.837281)">509,6</text>
+  </g>
+  <g id="text_48">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="568.572458" transform="rotate(-0 714.528 568.572458)">97,7</text>
+  </g>
+  <g id="text_49">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="568.572458" transform="rotate(-0 822.528 568.572458)">368,9</text>
+  </g>
+  <g id="text_50">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="714.528" y="597.307635" transform="rotate(-0 714.528 597.307635)">63,5</text>
+  </g>
+  <g id="text_51">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="822.528" y="597.307635" transform="rotate(-0 822.528 597.307635)">307,4</text>
+  </g>
+  <g id="text_52">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="32.3568" transform="rotate(-0 30.24 32.3568)">AVALÚOS II  /  ESCENARIO TRIBUTARIO</text>
+  </g>
+  <g id="text_53">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="30.24" y="65.484" transform="rotate(-0 30.24 65.484)">La dimensión tributaria del escenario</text>
+  </g>
+  <g id="text_54">
+   <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="94.7592" transform="rotate(-0 30.24 94.7592)">Residuo positivo y avalúo mediano sobre el monto exento · perfil aplicado al 100%</text>
+  </g>
+  <g id="text_55">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="714.528" y="158.7024" transform="rotate(-0 714.528 158.7024)">Mediana</text>
+  </g>
+  <g id="text_56">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="158.7024" transform="rotate(-0 822.528 158.7024)">Promedio</text>
+  </g>
+  <g id="text_57">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="30.24" y="671.0184" transform="rotate(-0 30.24 671.0184)">DOS ESCENARIOS · NO ES DEUDA OBSERVADA</text>
+  </g>
+  <g id="text_58">
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 689.2344)">Impuesto general por predio, luego mediana y promedio incluidos los ceros; multiplicados por el residuo.</text>
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 707.0904)">Sin aseo, sobretasas ni beneficios particulares. No son intervalos de confianza ni giros de contribuciones.</text>
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 724.9464)">15 mayores escenarios promedio dentro del filtro declarado; campamentos bajo supuesto uno a uno.</text>
+  </g>
+  <g id="text_59">
+   <text style="font-size: 9px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="750.3696" transform="rotate(-0 30.24 750.3696)">3cucharadas.cl/catastro_sii_brecha/#brecha-contribuciones</text>
+  </g>
+  <g id="legend_1">
+   <g id="line2d_26">
+    <path d="M 35.37 128.8413
+L 45.87 128.8413
+L 56.37 128.8413
+" style="fill: none; stroke: #7f91a8; stroke-width: 6; stroke-linecap: square"/>
+   </g>
+   <g id="text_60">
+    <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="64.77" y="132.5163" transform="rotate(-0 64.77 132.5163)">Mediana × residuo</text>
+   </g>
+   <g id="line2d_27">
+    <path d="M 172.649297 128.8413
+L 183.149297 128.8413
+L 193.649297 128.8413
+" style="fill: none; stroke: #00778a; stroke-width: 6; stroke-linecap: square"/>
+   </g>
+   <g id="text_61">
+    <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="202.049297" y="132.5163" transform="rotate(-0 202.049297 132.5163)">Promedio × residuo</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc72a6fd44c">
+   <rect x="177.12" y="165.636" width="449.28" height="446.832"/>
+  </clipPath>
+ </defs>
+</svg>

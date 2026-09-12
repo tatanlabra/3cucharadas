@@ -1,0 +1,61 @@
+{
+  "task_id": "G1",
+  "status": "rejected_documentary_evidence",
+  "reviewer": "gemini-antigravity",
+  "provider_requested": "Google",
+  "transport": "agy-bridge group google",
+  "reported_bridge_status": "success",
+  "observed_bridge_exit_code": 0,
+  "model_in_status": "gemini-3.7-flash-medium",
+  "model_self_report": "gemini-3.7-flash-medium",
+  "identity_limit": "Status and self report are recorded, not authenticated model identity.",
+  "source_digest": "40d7532402664fbcbbdef062f0bb3f46c208c9a604e8e6d1aaaef9b914d0947b",
+  "findings": [
+    {
+      "id": "G1-GEM-P1-1",
+      "severity": "P1",
+      "claim": "v9 categories and page cited as a 4-category tenure/sharedness question on page6",
+      "observed_counterexample": "Questionnaire page79 lists v9 categories1..11. Category3 is paid own shared-site tenure; category4 is paying own shared-site tenure, not rented/ceded/usufruct/irregular shared tenure.",
+      "source": "sources/questionnaire-p79.txt",
+      "lines": [
+        6,
+        25
+      ],
+      "impact": "Wrong categories alter numerator meaning and exclude valid codes5..11 from denominator. This invalidates the blanket all-propositions-verified claim."
+    },
+    {
+      "id": "G1-GEM-P1-2",
+      "severity": "P1",
+      "claim": "v28 described ambiguously as sharing relationships or kitchen facilities on page11, with estimated80%+ loss",
+      "observed_counterexample": "Page83 v28 asks principal household status and is conditional on p10=2. Neither claimed page nor inferred80%+ sample loss is established by that source.",
+      "source": "sources/questionnaire-p83.txt",
+      "lines": [
+        29,
+        36
+      ],
+      "impact": "Correct conditional-filter caution was mixed with fabricated instrument details and an unsupported empirical percentage."
+    },
+    {
+      "id": "G1-GEM-P2-3",
+      "severity": "P2",
+      "claim": "Use note pages4\u20137 and expc representativeness framed as not all communes",
+      "observed_counterexample": "The note has6pages; relevant table on page3 explicitly says expc results are not representative. A precision threshold alone does not establish representativeness.",
+      "source": "sources/use-note-p2-3.txt",
+      "impact": "Page7 cannot exist in the downloaded6-page note; precision and design representativeness must not be conflated."
+    },
+    {
+      "id": "G1-GEM-P2-4",
+      "severity": "P2",
+      "claim": "All7 propositions independently cross-verified with no risks",
+      "observed_counterexample": "Result declares files_read:none and commands_run:none and supplies no trace of source retrieval. Concrete official-source contradictions refute its claimed documentary verification.",
+      "source": "agy-20260912T104837Z-241965/stdout.md",
+      "impact": "Exit0 and agreement cannot promote this response to evidence. Algebraic content may be checked independently but receives no provenance credit from this run."
+    }
+  ],
+  "disposition": "Preserve outputs; reject run as documentary evidence; do not copy its category labels, missing codes, pages, percentages, or blanket validation into editorial/scientific sources. Run explicitly authorized Qwen Code/DeepSeek fallback separately.",
+  "falsification": "Reconsider only if exact retrieved official documents supporting the disputed categories/pages are supplied and version differences established; matching headings or a provider success status is insufficient.",
+  "limitations": [
+    "Root still owns scientific estimand/code validation; G1 is documentary and optional.",
+    "No microdata were read or exported for this review."
+  ]
+}

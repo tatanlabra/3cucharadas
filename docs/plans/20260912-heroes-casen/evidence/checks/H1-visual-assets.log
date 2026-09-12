@@ -1,0 +1,12 @@
+scripts/verify_visual_assets.rb:60:in 'String#include?': no implicit conversion of Integer into String (TypeError)
+
+  return true if cuerpo.include?(cifra)
+                                 ^^^^^
+	from scripts/verify_visual_assets.rb:60:in 'Object#cifra_presente?'
+	from scripts/verify_visual_assets.rb:224:in 'block (3 levels) in <main>'
+	from scripts/verify_visual_assets.rb:222:in 'Array#each'
+	from scripts/verify_visual_assets.rb:222:in 'block (2 levels) in <main>'
+	from scripts/verify_visual_assets.rb:149:in 'Array#each'
+	from scripts/verify_visual_assets.rb:149:in 'block in <main>'
+	from scripts/verify_visual_assets.rb:133:in 'Array#each'
+	from scripts/verify_visual_assets.rb:133:in '<main>'
