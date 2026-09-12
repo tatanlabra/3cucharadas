@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-09-12T05:06:30-03:00",
+  "commit": "910e07023a4976c02c0e146a6c265afa3e2dbb38",
+  "remotes": {
+    "gitlab_main": "910e07023a4976c02c0e146a6c265afa3e2dbb38",
+    "github_main": "910e07023a4976c02c0e146a6c265afa3e2dbb38"
+  },
+  "ci": {
+    "gitlab_pipeline": {
+      "id": 2842837117,
+      "status": "success",
+      "duration_seconds": 172,
+      "url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842837117"
+    },
+    "github_pages": {
+      "run_id": 34682243814,
+      "status": "success",
+      "url": "https://github.com/tatanlabra/3cucharadas/actions/runs/34682243814"
+    },
+    "github_devto_draft_workflow": {
+      "run_id": 34682243815,
+      "status": "success",
+      "avaluos_ii_eligible": false,
+      "registry_changed": false,
+      "observed_side_effect": "Actualizó siete artículos DEV.to previamente registrados; no creó un artículo para Avalúos II.",
+      "url": "https://github.com/tatanlabra/3cucharadas/actions/runs/34682243815"
+    }
+  },
+  "pages": [
+    {
+      "language": "es",
+      "url": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/",
+      "http_status": 200,
+      "title": "Avalúos en 3 cucharadas II: dónde revisar la brecha residencial"
+    },
+    {
+      "language": "en",
+      "url": "https://3cucharadas.cl/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "http_status": 200,
+      "title": "Property assessments in 3 spoonfuls II: where to review the residential gap"
+    }
+  ],
+  "assets": [
+    {
+      "role": "hero",
+      "path": "assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+      "http_status": 200,
+      "width": 1600,
+      "height": 900,
+      "bytes": 156080,
+      "sha256": "31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808"
+    },
+    {
+      "role": "teaser",
+      "path": "assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp",
+      "http_status": 200,
+      "width": 1280,
+      "height": 720,
+      "bytes": 166536,
+      "sha256": "82fb80958eee9a645e7948a86b113327f0286ac30607ae7c2346b19cb3400893"
+    },
+    {
+      "role": "teaser-mobile",
+      "path": "assets/images/teasers/teaser-avaluos-ii-brecha-residencial-640x360.webp",
+      "http_status": 200,
+      "width": 640,
+      "height": 360,
+      "bytes": 55682,
+      "sha256": "8016ba036137b1a5cbe24b38adf37cdcf246adb331a165814b969e25dc168b14"
+    },
+    {
+      "role": "og",
+      "path": "assets/images/avaluos-ii/og-avaluos-ii-brecha-residencial-1200x630.webp",
+      "http_status": 200,
+      "width": 1200,
+      "height": 630,
+      "bytes": 144804,
+      "sha256": "32d5f63854597e69cdf8570b6347929bee31b2bf65c3e414931293636e0126a6"
+    }
+  ]
+}

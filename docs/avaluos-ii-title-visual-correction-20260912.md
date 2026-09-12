@@ -52,4 +52,8 @@ Se inspeccionaron el hero ES a 1440x1000, ES a 390x844 y EN a 390x844, además d
 
 Axe 4.12.1 acotado a WCAG 2 A/AA produjo cero violaciones, 30 comprobaciones aprobadas y una inconclusa: no puede resolver automáticamente contraste sobre gradientes. La corrida sin filtro también muestra tres hallazgos de buenas prácticas del template compartido —orden de encabezados y regiones/landmarks—; esta corrección no tocó ese template y no los presenta como resueltos.
 
-Estado local: C1–C3 completos. C4 permanece pendiente hasta observar CI y comparar en producción el título y los cuatro recursos contra los hashes locales.
+## Cierre productivo
+
+El commit `910e07023a4976c02c0e146a6c265afa3e2dbb38` quedó en `main` de GitLab y GitHub. El pipeline GitLab `2842837117` aprobó build y Pages en 172 segundos; GitHub Pages y el workflow auxiliar de dev.to terminaron en verde. Este último actualizó siete publicaciones ya existentes y no creó una entrada para Avalúos II ni modificó `_data/distribucion.yml`.
+
+Las páginas ES/EN y los cuatro activos devolvieron HTTP 200. Los títulos efectivos coinciden con el front matter corregido; dimensiones, bytes y SHA-256 públicos coinciden con los archivos aprobados. El [recibo productivo](avaluos-ii-title-visual-production-receipt-20260912.json) cierra C4 y el contrato completo.
