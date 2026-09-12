@@ -17,6 +17,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 from PIL import Image
+from modeled_fiscal_projection import project_modeled
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT.parent / 'catastros_sii/v5_brecha/artifacts/fiscal_gap'
@@ -127,6 +128,8 @@ def project():
     initial = sum(max(r['signed_gap'],0) for r in records if r['source_available'])
     absorbed = sum(r['camp_absorbed_positive_gap'] for r in records if r['source_available'])
     labels = {
+        '__CANONICAL_JSON_SHA__': hashlib.sha256((SOURCE/'communes.json').read_bytes()).hexdigest(),
+        '__MODELED_TABLE__': project_modeled(source, ROOT, IMAGES),
         '__COMMUNE_TABLE__': ''.join(table_rows),
         '__GAP_TOTAL__': number(initial),
         '__CAMP_ABSORBED__': number(absorbed),

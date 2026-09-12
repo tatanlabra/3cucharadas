@@ -1,14 +1,14 @@
 # Avalúos II — avance consolidado
 
-Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío de solicitudes excluidos. Este tablero deriva del [contrato principal](../../catastros_sii/v5_brecha/docs/avaluos-ii-contract.md), [F8](../../catastros_sii/v5_brecha/docs/avaluos-ii-campamentos-contract.yaml), [F9](avaluos-ii-polish-contract.yaml), [F10 editorial](avaluos-ii-editorial-consolidation-contract.yaml) y [F11 visual](avaluos-ii-visual-editorial-contract.yaml). La serie emparejada completa cierra la comprobación local del mapa útil; el ranking monetario sigue dependiendo de datos tributarios compatibles.
+Corte: 11-09-2026. El usuario autorizó publicar al terminar los pasos y revisiones. El [contrato de salida](avaluos-ii-release-contract.yaml) incorpora escenarios tributarios normativos calculados por predio. Los contratos anteriores documentan el diagnóstico y sus límites: el neto observado permanece desconocido; el modelo adicional no lo sustituye.
 
 ## Resumen
 
 | Estado | Resultado |
 |---|---|
 | Implementado | Visor y ajustes visuales; campamentos/materialidad; post diagnóstico ES/EN con fecha y portadas; mapa útil frío −20,43% en ensayo local; pruebas y auditoría finales aprobadas. |
-| Parcial | Ranking en pesos y cierre fiscal del post: falta neto habitacional comunal compatible con 2026S1; acceso desde iPhone pendiente de activar y comprobar el túnel de Termius. |
-| No implementado | Push, publicación y envío de solicitud institucional, excluidos de la autorización; ejecución futura del post III CCU. |
+| Parcial | Revisión final y despliegue del escenario monetario en curso; acceso local desde iPhone no observado directamente. |
+| No implementado | Solicitud institucional y ejecución futura del post III CCU, fuera de esta publicación. |
 
 ## Detalle por requisito
 
@@ -20,8 +20,8 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F2: comparación censal con destino habitacional | [x] | 346 comunas, 344 cubiertas; 6.054.808 roles administrativos, incluidos los carentes de geometría; 53 pruebas analíticas | No convertir faltantes en cero |
 | F3a: motor de escenarios y controles | [x] | Pruebas de unidades, componentes, ceros y rechazo de neto no certificado; artefactos monetarios permanecen nulos | Activarlo sólo con datos compatibles |
 | F3b: neto habitacional comunal 2026S1 | [ghost] | Cero valores disponibles en las 346 comunas; solicitud y vías investigadas documentadas | Obtener suma neta y cantidad del mismo universo, período y componentes; medianas requieren distribución o estadístico oficial |
-| F3c: ranking en pesos y sensibilidad monetaria | [ghost] | El contrato prohíbe sustituir el neto por DC mezclado o por una tasa aplicada al avalúo medio | Depende de F3b; conciliar y generar escenarios antes de ordenar |
-| F4: post II ES/EN | [~] | Borradores construidos y cifras conciliadas; diagnóstico físico y prioridad de revisión documentados | Incorporar resultado fiscal de F3 sin presentarlo como deuda ni negligencia probada |
+| F3c: ranking en pesos y sensibilidad monetaria | [x] | Modelo general por predio, media/mediana con ceros, q=0/0,25/0,5/1; 15 comunas priorizadas; controles independientes contra 6.054.808 registros | Son escenarios normativos, no giro neto observado ni deuda |
+| F4: post II ES/EN | [x] | Escenarios y contraste Iquique–Lo Barnechea integrados; artículos en _posts con fecha 11-09-2026; 13 referencias equivalentes | Verificación productiva en R4 |
 | F5: visor único y tabla accesible | [x] | Diagnóstico integrado, selección comunal y tabla completa; 132 pruebas TS y QA móvil/escritorio | La rama monetaria depende de F3 |
 | F6: validación local | [x] | 132 TS, 53 analíticas y 52 Python del visor aprobadas; cero omisiones en la ejecución Python complementaria; builds y verificadores verdes | Evidencia y comandos en F9; no equivale a certificar todo navegador o producción |
 | F7: diseño de post III CCU | [x] | Protocolo C0–C7 de expansión, densificación, tiempos y falsación | Ejecución del cruce y post III fuera del alcance aprobado |
@@ -45,7 +45,7 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 | F11: hero y teaser generados directamente | [x] | Dos outputs inspeccionados; WebP conserva píxeles y reduce 29,07 % / 27,02 % de bytes; integración ES/EN, descripciones sociales y caption legible | 1,45–1,50 MB por WebP; no representa entrega móvil óptima |
 | F11: diagnóstico delegado de imagegen | [x] | [Auditoría](avaluos-ii-imagegen-diagnosis-20260911.md): generación y edición local comprobadas, rúbrica previa y tarjeta real revisada | La corrección de la skill global no formaba parte de la auditoría; sin ranking experimental entre proveedores |
 | Solicitud institucional | [ ] | Texto concreto preparado, no enviado | El envío requiere autorización explícita; no hay respuesta institucional pendiente |
-| Push y publicación | [ ] | Borradores `published: false`; sin push realizado | Excluidos expresamente |
+| Push y publicación | [~] | Autorización explícita del 11-09-2026; contrato R1–R4, pruebas y revisión antes de desplegar | Cerrar con remotos, CI y hashes públicos |
 
 ## Evidencia y reproducción
 
@@ -57,6 +57,6 @@ Corte: 11-09-2026. Preparación y commits locales; push, publicación y envío d
 - [Investigación tributaria complementaria](../../catastros_sii/v5_brecha/docs/avaluos-ii-fiscal-source-followup-20260911.md) y [solicitud preparada](../../catastros_sii/v5_brecha/docs/avaluos-ii-solicitud-datos.md).
 - [Protocolo CCU C0–C7](../../catastros_sii/v5_brecha/docs/avaluos-iii-ccu-protocol.md): diseño completo, ejecución futura.
 
-La comprobación posterior al pedido de acceso móvil mantiene cero valores netos y cero escenarios monetarios no nulos en las 346 comunas: 344 estados `blocked_components` y dos `missing_source`. Se pidió una ruta local o URL del insumo compatible; no se pidió ni se autorizó cambiar el estimando. La solicitud institucional continúa sin enviar y no hay un proceso de obtención de datos confirmado en ejecución.
+La recuperación posterior identificó los catastros NFS y comprobó la copia local protegida 2026S1. La revisión añade una conversión normativa por predio, manteniendo nulos los campos de giro neto observado. No se emplea el DC mezclado como impuesto ni una tasa sobre el avalúo medio. La solicitud institucional sigue preparada sin enviar.
 
-Un estado se reabre si una prueba falla, cambia el artefacto sin validar o una observación contradice el criterio. La falta de neto fiscal no se resuelve cambiando el estimando ni las etiquetas de los gráficos. Rollback: revertir sólo cambios propios y regenerar derivados; conservar fuentes, evidencia y trabajo concurrente.
+Un estado se reabre si una prueba falla, cambia el artefacto sin validar o una observación contradice el criterio. La publicación fue autorizada después del cierre local previo; la investigación de obligaciones reales sigue siendo una tarea distinta. Rollback: revertir sólo cambios propios y regenerar derivados; conservar fuentes, evidencia y trabajo concurrente.

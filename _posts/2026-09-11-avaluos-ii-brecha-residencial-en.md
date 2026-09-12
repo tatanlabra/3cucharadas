@@ -10,9 +10,9 @@ author: clabra
 lang: en
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
-published: false
-editorial_status: pending-tax-reconciliation
-description: "Informal settlements, construction materials and residential assessments to identify where a Census–SII discrepancy warrants a tax review, with explicit assumptions and limitations."
+published: true
+editorial_status: hypothetical-property-tax-scenario
+description: "The Census–SII gap, informal settlements and residential assessments: theoretical tax scenarios in Chilean pesos to guide property-level review, with explicit assumptions."
 excerpt: "A persistent discrepancy alongside high assessed values in registered properties warrants a cadastral review. Establishing omissions and their tax implications requires identifying the properties."
 header:
   overlay_image: /assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
@@ -32,7 +32,7 @@ In the [first property-assessment post](/en/datos/python/territorio/avaluo-vulne
 
 The tax implications deserve closer attention when the discrepancy persists in communes whose registered properties have high assessed values. If a review found omitted properties comparable to them, the next step would be to establish whether registering them or updating their assessments creates a tax liability.
 
-I examine that difference alongside informal settlements, construction materials and assessed values to guide the search. There are three steps: understand what we are subtracting, distinguish where a review might have tax implications, and specify the evidence needed to establish them.
+I examine that difference alongside informal settlements, construction materials and assessed values to guide the search. There are three steps: understand what we are subtracting, gauge its possible tax significance through scenarios in pesos, and specify the evidence needed to establish it.
 
 **How to read the bars.** They guide a review; they do not count omitted properties or outstanding property-tax liabilities.
 {: .notice--info}
@@ -125,9 +125,38 @@ In the dataset analysed, these **15 communes** meet both conditions. They are ra
 
 Iquique combines a large residual with a median just above the threshold: **60.24 million Chilean pesos**. Its mean of **73.84 million** does not describe every property's circumstances. Lo Barnechea shows a different combination: a smaller residual of **2,300**, but a median of **290.03 million** and **85.6%** of records above the exemption threshold.
 
-The contrast helps frame a question: **if omitted properties were found and were comparable to registered ones, what would registering them or updating their assessments imply?** It does not estimate how many would be found or how much tax they should owe.
+The contrast helps frame a question: **if omitted properties were found and were comparable to registered ones, what order of magnitude would the associated tax have?** I construct two scenarios to address that question; neither estimates how many properties would be found.
 
 Comparability is the hardest condition to establish. What is missing from a register may differ systematically from what entered it: smaller buildings, dwellings on agricultural properties or properties covered by a parent record. Applying the observed assessment profile to them could introduce bias if the absent properties have a different profile. This filter does not measure the proportional discrepancy or the cost of investigating each commune either; it is a starting point, not a demonstrably optimal prioritisation.
+
+### Giving the problem a scale: two theoretical tax scenarios
+
+First, I calculate, **property by property**, the general tax that would result from applying the first-half 2026 brackets to each assessed value. I then calculate the mean and median of those results within each commune, **including zeros below the exemption threshold**. Applying a rate to the mean assessed value would not necessarily give the same result: exemptions and brackets change the calculation.
+
+The model uses the parameters in the [SII's official example][sii-ejemplo]: an exemption threshold of **CLP 60,030,710**, a bracket change at **CLP 214,395,361**, and annual rates of **0.893% and 1.042%**, respectively. It is a **theoretical annual-equivalent general property tax**, holding that half-year's parameters fixed. It excludes refuse charges, surtaxes and individual benefits; it does not reproduce actual tax bills or collections for the whole of 2026.
+
+I then multiply the residual under the informal-settlement assumption by each statistic:
+
+| Scenario | Calculation | Interpretation |
+|---|---|---|
+| Using the median | Residual × median theoretical tax per property | Applies the central value of the modelled tax to each unit |
+| Using the mean | Residual × mean theoretical tax per property | Applies the average, which is sensitive to high assessments |
+
+**These are two references for scale, not a confidence interval or guaranteed lower and upper bounds.** The median is not a minimum tax: if more than half the properties fall below the exemption threshold, it can be zero while the mean is positive. The same fifteen communes selected above are retained here and ranked by the scenario using the mean.
+
+<figure>
+  <img class="avaluos-ii-monetary-light" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-en.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
+  <img class="avaluos-ii-monetary-dark" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-en-dark.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
+  <figcaption>Million Chilean pesos, assuming that each residual unit corresponded to a new comparable property. Amounts are hypothetical; they are neither established tax debt nor revenue retained by municipalities.</figcaption>
+</figure>
+
+{% include avaluos-ii-monetary-en.html %}
+
+Iquique illustrates why both references are useful. With **18,949** residual units, the scenario using the median reaches **CLP 36 million** in annual-equivalent tax; using the mean, it reaches **CLP 4,309 million**. The difference is large: the median assessment barely exceeds the exemption threshold and yields theoretical tax of about **CLP 1,912 per property**, while the mean includes the contribution of higher assessments. Showing only one statistic would hide that difference in the profile.
+
+In Lo Barnechea, **2,300** residual units produce **CLP 4,983 million using the median and CLP 6,669 million using the mean**. Under this model, it leads the monetary ranking despite having a much smaller physical gap than Iquique. This has not discovered missing revenue: it shows the scale of tax if new comparable properties were confirmed. The contrast makes the case for reviewing communes where an unresolved discrepancy coincides with high assessed values more concrete.
+
+The full comparison assumes **one new comparable property for every residual unit**: I call this assumption $$q=1$$. The viewer allows it to be reduced to $$q=0.5$$ or $$q=0.25$$, halving or quartering the amounts. This factor represents the hypothetical share of the residual that would result in new comparable properties; **it is not an estimated probability, a collection rate or the share of properties paying tax**. Tax zeros are already included in both statistics. No additional construction-materials deduction is applied.
 
 ## Third spoonful: from a scenario for a commune to verification at property level
 
@@ -142,11 +171,11 @@ Comparing communes helps choose where to look. Establishing an omission with tax
 
 **Registering a property and updating a building's assessment are different actions.** The SII has a [procedure for adding properties to the cadastre][sii-inclusion]. It also provides for changes to assessed values. An extension can increase the assessed value of an existing property without creating another record: the difference between dwellings and records cannot, by itself, detect every outdated cadastral assessment.
 
-### What is missing before a scenario can be expressed in pesos
+### What is missing before a scenario becomes an established liability
 
-Constructing a scenario in pesos for a commune requires a compatible, reconciled measure of net residential property tax, together with explicit assumptions for applying it to the difference between registers. Quantifying liabilities that were actually omitted additionally requires identifying the properties and checking dates, benefits and exemptions.
+The scenarios above give the assumption a scale, but quantifying liabilities that were actually omitted requires identifying the properties, checking their dates and assessed values, and applying the relevant benefits and exemptions. Compatible, reconciled tax-billing data are also needed to compare theoretical tax with actual bills.
 
-The obstacle to the monetary scenario is specific: the extract's half-yearly field does not allow all components of net residential property tax to be separated. The official tables reviewed provide figures by commune and distinguish components, but include other non-agricultural property uses. **Dividing that total by residential records would produce an average drawn from incompatible populations.** The [source audit](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) records this unresolved issue.
+The [SII cadastral dictionary][sii-estructura] defines the available half-yearly field as a contribution **including refuse charges**. It is not used as net tax. The official commune-level tables reviewed distinguish components but include other non-agricultural uses: **dividing that total by residential records would produce an average drawn from incompatible populations**. The [source audit](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) retains this limitation; the rule-based calculation neither reconciles nor removes it.
 
 Determining a tax liability, issuing a tax bill and collecting payment are different stages. The SII determines assessed values and issues property-tax bills; the [General Treasury of the Republic collects payment][tgr-impuestos]. Distribution through the [Municipal Common Fund][sii-fcm] also means that tax associated with a commune cannot be equated with revenue retained entirely by its municipality.
 
@@ -154,7 +183,7 @@ The [guide by Grote and Wen (2024, pp. 16–18)][fmi-guia] helps organise the pr
 
 ## Closing: the difference needs an explanation
 
-Communes where the difference persists and registered properties have high assessed values offer a starting point for cadastral review. If comparable omitted properties are confirmed, their tax implications must then be determined. If existing records, property-use categories or dates resolve the difference, the omission hypothesis becomes less compelling.
+Communes where the difference persists and registered properties have high assessed values offer a starting point for cadastral review. The scenarios in pesos show why a smaller gap may deserve tax-related attention. If comparable omitted properties are confirmed, their tax implications must be determined; if existing records, property-use categories or dates resolve the difference, the omission hypothesis becomes less compelling. The result warrants investigation but does not establish negligence or a failure to collect tax by any agency.
 
 In the next instalment, I will explore the **Continuo de Construcciones Urbanas (CCU)** to examine the built footprint. Before attributing a discrepancy to administrative delay, its sources must be verified and the timing of each change reconstructed.
 
@@ -170,6 +199,17 @@ In the next instalment, I will explore the **Continuo de Construcciones Urbanas 
 **Two informal-settlement snapshots.** The [MINVU report published on 8 July 2026][minvu-campamentos], using information referring to 2024, records 1,373 settlements, 81,993 occupied dwellings and 77,399 households. The CNC 2026 layer used in this processing contains 1,345 polygons and a total of 71,760 in the `HOGARESCEN` field, with 222 polygons missing that value. These are different populations and snapshots. Interpreting the field as census households is a provisional decision supported by its name and the available documentation, rather than by a dictionary specific to the layer. The deduction depends on it.
 
 **Definition of construction materials.** The analysis uses the code in the INE manual, whose classification does not fully match its prose description: for acceptable materials, the latter allows some recoverable wall materials, whereas the code requires acceptable materials in all three components. The scenario combines that criterion with an acceptable dwelling type. Variants using complete materials responses and the broader non-irrecoverable category are retained; these are sensitivity analyses, not confidence intervals. The processing records 4,388 occupied dwellings with incomplete information.
+
+**Monetary formula and unit.** For an assessed value $$A$$, exemption threshold $$E=60\,030\,710$$ and bracket change $$T=214\,395\,361$$, the calculation is:
+
+$$
+\begin{aligned}
+g(A)={}&0.00893\max(\min(A,T)-E,0)\\
+       &+0.01042\max(A-T,0).
+\end{aligned}
+$$
+
+Results are aggregated by commune, including zeros, before multiplying each statistic by the positive residual and by $$q$$. Tax is not applied to the mean assessment, properties with zero theoretical tax are not filtered out, and a rate that is already annual is not annualised again. The individual exempt assessment in the extract does not replace the general exemption threshold in this model. The calculation therefore does not represent individual benefits or seek to reconstruct each property's tax bill. The mean and median describe registered properties; extrapolating them to the residual requires the comparability assumption.
 
 **Processing corrections.** Territorial harmonisation was corrected for Coyhaique, Aysén and Chile Chico. The count of irrecoverable dwellings fell from 73,338 to 72,642—696 fewer—after first applying the official code's non-response exclusion. That correction does not change the dwellings–records difference or the settlement deduction. The historical anonymised 2011–2021 dataset is not used in the current calculation.
 
@@ -187,6 +227,8 @@ Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Terri
 
 Servicio de Impuestos Internos (SII). “De avalúo fiscal a contribuciones: paso a paso,” example for the first half of 2026; “¿Qué es un avalúo fiscal?”; “¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?”, updated 8 April 2026; “¿Cómo regularizo una propiedad que no tiene rol de avalúo?”, updated 7 April 2026; and “¿Para qué sirve el pago del impuesto territorial?”. [Calculation][sii-ejemplo], [assessed value][sii-avaluo], [distinction from market value][sii-comercial], [registration][sii-inclusion] and [municipal distribution][sii-fcm]. For buildings whose legal status has not been regularised, see the [documentation required for assessment][sii-no-regularizadas].
 
+Servicio de Impuestos Internos (SII). N.d. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Basic information for non-agricultural properties, fields 5–8 and the property-use table, p. 1. [Dictionary][sii-estructura].
+
 Tesorería General de la República (TGR). N.d. “Impuestos y tipos de impuestos.” TGR Help Centre. [Source][tgr-impuestos].
 
 *The external sources above were accessed on 11 September 2026. Processing results and corrections should be read alongside the methodological notes.*
@@ -195,6 +237,7 @@ Tesorería General de la República (TGR). N.d. “Impuestos y tipos de impuesto
 [minvu-campamentos]: https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=7e816aa9c26af8904eab01badfbfc6e6
 [minvu-parque]: https://centrodeestudios.minvu.gob.cl/repositorio/categoria/parque-habitacional/
 [sii-ejemplo]: https://www.sii.cl/destacados/impuesto_territorial/Ej_Casa.pdf
+[sii-estructura]: https://www.sii.cl/bbrr/descargas/estructura_detalle_catastral.pdf
 [sii-comercial]: https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8124.htm
 [sii-avaluo]: https://www.sii.cl/destacados/impuesto_territorial/avaluo_fiscal.html
 [sii-inclusion]: https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_1947.htm

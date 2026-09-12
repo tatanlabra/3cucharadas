@@ -3,6 +3,7 @@ import { BarChart } from "echarts/charts";
 import { AriaComponent, GridComponent, TooltipComponent } from "echarts/components";
 import { SVGRenderer } from "echarts/renderers";
 import { chartBase, escapeHtml, getChart, themeColors } from "./chart-theme";
+import { mountModeledTax, type ModeledRow } from "./modeled-tax";
 
 echarts.use([BarChart, AriaComponent, GridComponent, TooltipComponent, SVGRenderer]);
 export interface GapRow {
@@ -60,10 +61,12 @@ export async function mountFiscalGap(): Promise<void> {
   const host = document.getElementById("fiscal-gap-chart");
   const status = document.getElementById("fiscal-gap-selection");
   if (!host || !status) return;
-  const response = await fetch("data/fiscal-gap/communes.json");
+  const sourceVersion = host.dataset.sourceSha;
+  const response = await fetch("data/fiscal-gap/communes.json" + (sourceVersion ? `?v=${encodeURIComponent(sourceVersion)}` : ""));
   if (!response.ok) throw new Error("Diagnóstico no disponible");
-  const payload = await response.json() as { metadata: { fiscal_status: string }; communes: GapRow[] };
-  // This release supports diagnostics only. New monetary data needs a reviewed adapter.
+  const payload = await response.json() as { metadata: { fiscal_status: string }; communes: ModeledRow[] };
+  // Observed net tax stays unavailable; the separately labeled general-rule model
+  // never fills those fields or certifies omitted liabilities.
   if (payload.metadata.fiscal_status !== "blocked_components" || payload.communes.length !== 346)
     throw new Error("Contrato de diagnóstico incompatible");
   let region = (document.getElementById("region") as HTMLSelectElement | null)?.value || null;
@@ -170,4 +173,5 @@ export async function mountFiscalGap(): Promise<void> {
   });
   const fallback = document.getElementById("fiscal-gap-static");
   if (fallback) fallback.hidden = true;
+  mountModeledTax(payload.communes);
 }

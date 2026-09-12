@@ -44,6 +44,34 @@
     "official_residential_total_clp": 331697870962000,
     "fiscal_omission_estimated": false
   },
+  "modeled_tax": {
+    "available_communes": 344,
+    "incomplete_assessment_communes": [],
+    "ranking": [
+      "13115",
+      "9115",
+      "5405",
+      "1101",
+      "10109",
+      "13202",
+      "5606",
+      "13113",
+      "5602",
+      "5103",
+      "13107",
+      "13114",
+      "13123",
+      "5403",
+      "13130"
+    ],
+    "rule_source": {
+      "path": "v5_brecha/config/fiscal_sources/sii_ej_casa_2026s1_20260911.pdf",
+      "bytes": 2499903,
+      "sha256": "7bd1a23bbd7784a04ae0e1583dab6076465398aa15aeca6399f77fc9a1548134"
+    },
+    "observed_tax_reconstructed": false,
+    "unpaid_revenue_estimated": false
+  },
   "api_labels": [
     {
       "conara": 1101,

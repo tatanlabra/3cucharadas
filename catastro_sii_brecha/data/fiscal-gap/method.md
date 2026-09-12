@@ -4,7 +4,7 @@
 
 Una diferencia entre viviendas particulares del Censo 2024 y roles habitacionales del SII (código de destino H) 2026S1. Una vivienda es una unidad censal; un rol identifica un bien raíz. No existe aquí un enlace individual que permita identificar viviendas sin rol. Viviendas vacantes también cuentan; viviendas rurales pueden estar en predios de destino agrícola. Copropiedad, roles matrices, subdivisiones y destino preferente pueden romper la correspondencia uno a uno.
 
-La tabla conserva todas las comunas, diferencias negativas y fuentes ausentes. El gráfico físico muestra las 15 mayores brechas positivas restantes tras el supuesto de campamentos, entre comunas cubiertas. No es un ranking de evasión, deuda, recursos perdidos ni negligencia.
+La tabla conserva todas las comunas, diferencias negativas y fuentes ausentes. El gráfico físico muestra las 15 mayores brechas positivas restantes tras el supuesto de campamentos, entre comunas cubiertas. El modelo monetario adicional ordena otro conjunto: comunas con residuo positivo y mediana de avalúo observado sobre el umbral general, por escenario de impuesto medio calculado por predio. Ninguno es un ranking de evasión, deuda, recursos perdidos ni negligencia.
 
 ## Fuentes y fechas
 
@@ -108,7 +108,7 @@ Un criterio de revisión transparente es observar dónde coexisten un residuo po
 
 La ilegalidad tampoco implica ausencia permanente de rol. La [Ley 17.235](https://www.bcn.cl/leychile/navegar?i=128563) aplica el impuesto territorial a bienes raíces y el rol identifica el predio, no cada vivienda. Además, el [artículo 16 de la Ley 20.234](https://www.bcn.cl/leychile/Navegar/imprimir?idNorma=268116&idParte=0) dispone que, después de la recepción definitiva y el otorgamiento de escrituras en ciertos loteos irregulares regularizados, el SII asigne rol y avalúo separado. La afirmación «el SII jamás los tendrá» no es compatible con ese procedimiento legal.
 
-## Por qué todavía no hay barras en pesos
+## Por qué el impuesto neto observado sigue sin identificarse
 
 El campo DC no separa contribución neta, aseo y sobretasas. Su suma habitacional es 508.919.215.492 CLP; el control SII por destino informa 455.500.163.000 CLP de giro semestral, incluyendo sobretasas. La diferencia de 53.419.052.492 CLP es una discrepancia de conciliación, **no** un cálculo de impuestos omitidos ni un monto de aseo identificado. Estos totales de auditoría no se multiplican por la brecha residencial.
 
@@ -124,7 +124,7 @@ Un corte o una revisión posterior del catastro es una hipótesis compatible con
 
 Una vez obtenido el neto: B(q) = max(viviendas − roles habitacionales, 0) × q × media anual equivalente de los roles habitacionales. El equivalente anual duplica el semestre bajo sus mismas condiciones: no es impuesto anual efectivamente girado o cobrado. La media incluye ceros. Media y promedio son el mismo estadístico; la mediana puede ser cero y se mostrará junto a proporción positiva, media y mediana entre positivos.
 
-q = 0, 0,25, 0,5 y 1 son escenarios transparentes. q = 1 no es una omisión observada ni una cota superior real. No se estiman errores estándar de muestreo. La conversión permanecerá nula hasta disponer de una fuente neta compatible; no hay valores de demostración en producción.
+q = 0, 0,25, 0,5 y 1 son escenarios transparentes. q = 1 no es una omisión observada ni una cota superior real. No se estiman errores estándar de muestreo. La conversión **basada en neto observado** permanecerá nula hasta disponer de una fuente compatible. El modelo general explicado más abajo produce valores adicionales con otro estimando y otros supuestos; no llena esos campos con valores de demostración.
 
 ## Errata de identidad territorial del visor anterior
 
@@ -157,6 +157,24 @@ conteos comunales y del recorte, métodos de asociación y límites. Sólo se di
 imágenes y evidencia agregada: no vectores prediales, nombres de campamentos,
 folios, direcciones ni registros de personas. La superposición no enlaza viviendas
 del Censo con roles ni demuestra ausencia de cobro.
+
+## Escenarios monetarios adicionales: regla general por predio
+
+Este modelo **no reconstruye el giro efectivo ni levanta el bloqueo del neto observado**. Añade una pregunta distinta: cuánto representa el residuo si las propiedades que hipotéticamente lo explicaran tuviesen la distribución de avalúos del stock habitacional observado y se aplicara sólo la regla tributaria general.
+
+El [ejemplo oficial SII, válido para 2026S1](https://www.sii.cl/destacados/impuesto_territorial/Ej_Casa.pdf) fija el monto exento E = $60.030.710, el cambio de tramo T = $214.395.361 y tasas anuales de 0,893% y 1,042%. Para cada avalúo total A se calcula `g(A) = 0,00893 × max(min(A,T) − E, 0) + 0,01042 × max(A − T, 0)`. El ejemplo A = $237.530.004 da $1.619.539,31349 anuales y una cuota redondeada de $404.885. Se excluyen aseo, sobretasas y beneficios o exenciones particulares; por eso no se interpreta como contribución efectiva de ese rol. La regla se congela en el primer semestre: es un equivalente anual y no una liquidación real de todo 2026.
+
+El cálculo se aplica **antes** de promediar o tomar medianas, sin redondear cada predio. Los ceros bajo el umbral forman parte de ambas estadísticas. Las partes administrativas de una comuna se reúnen antes de la agregación; no se promedian medianas de shards. La mediana interpolada también puede cambiar si se transforma después: con avalúos E−10 y E+10, la mediana del avalúo es E y su impuesto es cero, mientras la mediana de los dos impuestos calculados es $0,04465. Un avalúo ausente, negativo o no finito deja sin modelo a toda la comuna; no se usa el promedio de los casos completos como si fuera el del conjunto.
+
+Para el residuo positivo R tras sensibilidad de campamentos se ofrecen **dos escenarios**: `R × mediana(g(A))` y `R × promedio(g(A))`. No se multiplica otra vez por la proporción que supera el umbral, porque los ceros ya participan; tampoco por materialidad aceptable, que no mide tributación. La sensibilidad `q = 0; 0,25; 0,5; 1` se puede aplicar a **ambos** escenarios para variar la fracción hipotética del residuo. El archivo persiste columnas adicionales de q = 0,25 y 0,5 para el promedio; el visor calcula cualquiera de los dos escenarios multiplicando su valor de q = 1. q = 0 significa transferencia nula cuando existe un modelo válido, sin convertir en cero una comuna sin información. q no se estima con los datos; una q común positiva sólo cambia la escala y q = 0 iguala los montos en cero, conservando el orden de referencia.
+
+La transferencia de la distribución observada es un **supuesto**, no una muestra de viviendas sin rol. Viviendas rurales en predios agrícolas, segundas viviendas, subdivisiones, roles matrices, diferencias de fecha y errores censales pueden alterar su pertinencia. La materialidad no corrige esas diferencias ni mide superficie, suelo o exenciones. El rango entre media y mediana no es intervalo de confianza ni límites garantizados: en general la mediana puede superar al promedio. El modelo tampoco localiza qué viviendas generan el residuo.
+
+El ranking `model_ranking` exige fuente completa, residuo positivo y mediana de avalúo observado estrictamente sobre E. Ordena por `modeled_gap_mean_clp`, con empate por CUT normalizado, y muestra hasta 15 comunas. La restricción de mediana alta es un criterio explícito de revisión territorial, no una probabilidad demostrada de que el residuo tribute. El ranking físico conserva sus propias 15 comunas y sus dos anexos: no se sustituyen por los del modelo.
+
+En esta extracción hay 344 comunas con avalúos completos y dos sin fuente. Las 15 priorizadas suman aproximadamente $36.389 millones anuales en el escenario promedio y $13.464 millones en el mediano. El desglose y la evidencia están en `avaluos-ii-modeled-fiscal-evidence-20260911.md`. Son órdenes de magnitud bajo los supuestos anteriores, no recursos municipales retenidos ni deuda cobrable identificada.
+
+La explicación de rezago del catastro se contrastaría con una muestra enlazada que documente viviendas comparables, existencia previa, obligación exigible y falta de incorporación. Se descartaría para los casos explicados por roles existentes, otro destino, exención o diferencia censal. Una distribución de avalúos de las viviendas enlazadas distinta de la observada refutaría la transferencia monetaria usada aquí. La recuperación de los catastros en NFS confirma disponibilidad de avalúos; no identifica por sí sola esas obligaciones.
 
 ## Responsabilidad y evidencia necesaria
 

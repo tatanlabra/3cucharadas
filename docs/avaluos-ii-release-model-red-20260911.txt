@@ -1,0 +1,73 @@
+
+ RUN  v4.1.11 /home/ende/Descargas/programaciones/activos/3cucharadas
+
+ ❯ tests/catastro_sii/modeled-tax.test.ts (4 tests | 4 failed) 22ms
+     × matches the canonical ranking while preserving unavailable observed net tax 14ms
+     × applies q once and never sorts by physical gap 2ms
+     × rejects incomplete, below-threshold, nonpositive and nonfinite rows 1ms
+     × preserves a valid zero median and does not assume median is a lower bound 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/catastro_sii/modeled-tax.test.ts > general-rule monetary scenarios > matches the canonical ranking while preserving unavailable observed net tax
+AssertionError: expected +0 to be 15 // Object.is equality
+
+- Expected
++ Received
+
+- 15
++ 0
+
+ ❯ tests/catastro_sii/modeled-tax.test.ts:10:27
+      8|   it("matches the canonical ranking while preserving unavailable obser…
+      9|     const ranked = modeledRanking(rows);
+     10|     expect(ranked.length).toBe(15);
+       |                           ^
+     11|     expect(ranked.map(r => r.codigo_comuna)).toEqual(data.metadata.mod…
+     12|     expect(ranked[0].comuna).toBe("Lo Barnechea");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/catastro_sii/modeled-tax.test.ts > general-rule monetary scenarios > applies q once and never sorts by physical gap
+TypeError: Cannot read properties of undefined (reading 'modeled_gap_mean_clp')
+ ❯ modeledValues assets/src/catastro_sii/modeled-tax.ts:21:43
+     19| }
+     20| export function modeledValues(row: ModeledRow, q: number): [number, nu…
+     21|   if (![0, .25, .5, 1].includes(q) || row.modeled_gap_mean_clp === nul…
+       |                                           ^
+     22|     || ![row.modeled_gap_mean_clp, row.modeled_gap_median_clp].every(v…
+     23|     throw new Error("Escenario tributario incompatible");
+ ❯ tests/catastro_sii/modeled-tax.test.ts:18:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/catastro_sii/modeled-tax.test.ts > general-rule monetary scenarios > rejects incomplete, below-threshold, nonpositive and nonfinite rows
+TypeError: Cannot read properties of undefined (reading 'region')
+ ❯ tests/catastro_sii/modeled-tax.test.ts:31:34
+     29|       {...r,modeled_gap_median_clp:NaN}, {...r,modeled_gap_mean_clp:In…
+     30|     ])).toEqual([]);
+     31|     expect(modeledRanking(rows,r.region).every(x => x.region === r.reg…
+       |                                  ^
+     32|   });
+     33|   it("preserves a valid zero median and does not assume median is a lo…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/catastro_sii/modeled-tax.test.ts > general-rule monetary scenarios > preserves a valid zero median and does not assume median is a lower bound
+Error: Escenario tributario incompatible
+ ❯ modeledValues assets/src/catastro_sii/modeled-tax.ts:23:11
+     21|   if (![0, .25, .5, 1].includes(q) || row.modeled_gap_mean_clp === nul…
+     22|     || ![row.modeled_gap_mean_clp, row.modeled_gap_median_clp].every(v…
+     23|     throw new Error("Escenario tributario incompatible");
+       |           ^
+     24|   return [row.modeled_gap_median_clp * q, row.modeled_gap_mean_clp * q…
+     25| }
+ ❯ tests/catastro_sii/modeled-tax.test.ts:35:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  23:11:33
+   Duration  477ms (transform 58ms, setup 0ms, import 295ms, tests 22ms, environment 0ms)

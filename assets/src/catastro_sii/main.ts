@@ -93,6 +93,16 @@ function beginFiscalGap(): void {
     if (status) status.textContent = "Vista interactiva no disponible; el gráfico estático y la tabla conservan el diagnóstico nacional.";
     const chart = document.getElementById("fiscal-gap-chart");
     if (chart) chart.hidden = true;
+    const fallback = document.getElementById("fiscal-gap-static");
+    if (fallback) fallback.hidden = false;
+    for (const id of ["modeled-tax-chart", "modeled-tax-current"]) {
+      const element = document.getElementById(id);
+      if (element) element.hidden = true;
+    }
+    const modelStatus = document.getElementById("modeled-tax-status");
+    if (modelStatus) modelStatus.textContent = "Vista interactiva no disponible. La tabla de las 15 comunas conserva los escenarios nacionales y su sensibilidad.";
+    const q = document.getElementById("modeled-tax-q");
+    if (q instanceof HTMLSelectElement) q.disabled = true;
   });
   if (window.location.hash === "#brecha-contribuciones") void start();
   else onceNearViewport(host, () => { void start(); }, "420px");

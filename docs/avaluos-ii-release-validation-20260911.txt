@@ -1,0 +1,120 @@
+v26.8.1
+11.19.0
+
+added 86 packages in 3s
+
+23 packages are looking for funding
+  run `npm fund` for details
+npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn install-scripts   @parcel/watcher@2.5.6 (install: node scripts/build-from-source.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+
+> check:catastro
+> tsc --noEmit --project tsconfig.catastro.json
+
+
+> check:catastro:static-css
+> node scripts/catastro_sii/check_static_css.mjs catastro_sii_brecha/style.css
+
+CSS válido: catastro_sii_brecha/style.css
+
+> test:catastro
+> vitest run --config vitest.catastro.config.ts
+
+
+ RUN  v4.1.11 /home/ende/Descargas/programaciones/activos/3cucharadas
+
+
+ Test Files  18 passed (18)
+      Tests  136 passed (136)
+   Start at  23:25:36
+   Duration  2.77s (transform 1.98s, setup 0ms, import 6.75s, tests 930ms, environment 8ms)
+
+........................................................
+----------------------------------------------------------------------
+Ran 56 tests in 2.554s
+
+OK
+Preview local válido: /home/ende/.local/state/3cucharadas/catastro_sii/local/manifest.json
+
+> build:catastro
+> vite build --config vite.catastro.config.ts
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 611 modules transformed.
+rendering chunks...
+computing gzip size...
+assets/dist/catastro_sii/manifest.json                              2.90 kB │ gzip:   0.57 kB
+assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js    477.73 kB
+assets/dist/catastro_sii/main-BlW7oOGO.css                          3.26 kB │ gzip:   0.71 kB
+assets/dist/catastro_sii/map-CzlKAm3w.css                          82.92 kB │ gzip:  10.71 kB
+assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js        0.15 kB │ gzip:   0.15 kB
+assets/dist/catastro_sii/chunks/data-nQG8qOHv.js                    1.36 kB │ gzip:   0.66 kB
+assets/dist/catastro_sii/chunks/state-CXsuapt9.js                   2.20 kB │ gzip:   1.09 kB
+assets/dist/catastro_sii/main-DryswZAf.js                           5.49 kB │ gzip:   2.21 kB
+assets/dist/catastro_sii/chunks/fiscal-gap-cLXsh8OQ.js             11.06 kB │ gzip:   3.91 kB
+assets/dist/catastro_sii/chunks/install-00HxtDxE.js                23.13 kB │ gzip:   8.76 kB
+assets/dist/catastro_sii/chunks/app-CxzHXb_S.js                    26.35 kB │ gzip:   8.28 kB
+assets/dist/catastro_sii/chunks/coverage-teaser-CkSlM3Oj.js        28.53 kB │ gzip:  10.00 kB
+assets/dist/catastro_sii/chunks/install-B8e9nKf4.js                32.53 kB │ gzip:  11.00 kB
+assets/dist/catastro_sii/chunks/analytics-qVge_TG5.js             144.23 kB │ gzip:  48.64 kB
+assets/dist/catastro_sii/chunks/chart-theme-D-_MF794.js           483.85 kB │ gzip: 165.19 kB
+assets/dist/catastro_sii/chunks/map-C1WJ51gL.js                 1,023.95 kB │ gzip: 269.26 kB
+
+✓ built in 1.34s
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+`/home/ende` is not writable.
+Bundler will use `/tmp/bundler20260911-636-bdjsiw636' as your home directory temporarily.
+Configuration file: /home/ende/Descargas/programaciones/activos/3cucharadas/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: /home/ende/Descargas/programaciones/activos/3cucharadas
+       Destination: /tmp/3cucharadas-catastro-check.xenfAW
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "minimal-mistakes/skins/contrast"; // skin
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 3:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+4 │ @import "minimal-mistakes"; // main partials
+  │         ^^^^^^^^^^^^^^^^^^
+  ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+132 │ @import "minimal-mistakes/skins/contrast";
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 132:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+135 │ @import "minimal-mistakes";
+    │         ^^^^^^^^^^^^^^^^^^
+    ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 135:9  root stylesheet
+                    done in 7.916 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+Artifact verification passed: 78368849/1048576000 bytes, 1308/200000 entries

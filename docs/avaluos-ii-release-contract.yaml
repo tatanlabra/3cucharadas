@@ -1,0 +1,62 @@
+id: avaluos-ii-modeled-tax-release
+version: 1
+authorization:
+  received: '2026-09-11'
+  instruction: pasa a productivo cuando termines todos los pasos y revisiones
+  scope: Post II ES/EN, visor y derivados agregados; push y despliegue tras validación.
+  excluded: Solicitudes institucionales, difusión externa, datos individuales y apertura del preview a toda la tailnet.
+method_decision:
+  observed: NFS y copia protegida contienen avalúos individuales 2026S1; DC incluye aseo.
+  deduction: Aplicar la regla por predio antes de resumir; una tasa sobre el avalúo medio no respeta exenciones
+    y tramos.
+  assumption: El residuo comparable tendría la distribución del stock registrado; q expresa sensibilidad, no probabilidad
+    estimada.
+  estimand: Escenario adicional de contribución general teórica anual equivalente con reglas 2026S1, sin beneficios
+    particulares, aseo ni sobretasas.
+  alternatives:
+  - 'DC reportado: mezcla aseo; no elegido como impuesto neto.'
+  - 'Esperar neto: permite describir giros, pero no identifica los inmuebles del residuo.'
+  falsification: Un cruce predial que resuelva la diferencia o encuentre un perfil distinto invalida la transferencia.
+  invariant: 'net_* y scenario_q* históricos permanecen nulos: el modelo no certifica giros, deuda ni recaudación.'
+capabilities:
+  skills:
+  - estadistica
+  - normativa-chile
+  - jekyll-post
+  - 3cucharadas-site
+  - auditoria-critica
+  - agent-browser
+  recall: Recuperación NFS y fuentes de sesión anterior comprobadas; consulta semántica se abstuvo.
+  providers: Codex implementa y subagentes Codex revisan; no constituyen proveedores independientes.
+  mcp_record: 'Intentado avaluos-model-release-20260911: observación no disponible; selector no registra uso.'
+tasks:
+- id: R1
+  requirement: Escenarios mediana/promedio con ceros y unidades explícitas
+  state: complete
+  command: cd ../catastros_sii && PYTHONPATH=v5_brecha/src /opt/entornos/catastros-sii-predial/bin/python -m pytest
+    v5_brecha/tests
+  evidence: docs/avaluos-ii-release-evidence-20260911.md; docs/avaluos-ii-release-local-receipt-20260911.json
+  falsified_by: 'Mutante tasa x10: 7 fallos; versión canónica verde. pytest incluye las pruebas de la regla.'
+- id: R2
+  requirement: Gráfico, tabla y artículo ES/EN coherentes con el mismo artefacto
+  state: complete
+  command: /opt/entornos/catastros-sii-predial/bin/python scripts/catastro_sii/verify_fiscal_gap.py
+  evidence: docs/avaluos-ii-release-evidence-20260911.md; docs/avaluos-ii-release-local-receipt-20260911.json
+  falsified_by: Dataset anterior rechaza ranking en cuatro tests; campos inválidos y cambio de unidades se rechazan.
+- id: R3
+  requirement: Build, pruebas y QA móvil/escritorio claro/oscuro
+  state: complete
+  command: bash scripts/catastro_sii/validate_build.sh
+  evidence: docs/avaluos-ii-release-evidence-20260911.md; docs/avaluos-ii-release-local-receipt-20260911.json
+  falsified_by: Tabla nueva rompe inventario anterior; inspección visual detectó figuras duplicadas; axe detectó landmarks repetidos y contraste
+    3.88:1. Correcciones verificadas con build y 0 violaciones axe; incompletos declarados.
+- id: R4
+  requirement: Publicación ES/EN, remotos y HTML/assets efectivos de producción
+  state: in_progress
+  command: git ls-remote origin refs/heads/main; git ls-remote github refs/heads/main; verificación HTTP y hashes
+    de referencias efectivas
+  evidence: null
+  falsified_by: HTTP 404 observado en producción antes del push; requiere convertirse en 200 con contenido y hashes
+    esperados.
+rollback: Revertir selectivamente commits propios y desplegar revisión anterior si falla producción; conservar evidencia
+  y datos canónicos.
