@@ -33,6 +33,22 @@ vertical está en `docs/diagrams/flujo-difusion-mobile.d2`.
 - Las comprobaciones locales de enlaces deben construir en un directorio temporal vacío; reutilizar `_site` mezcla páginas viejas con el commit actual y produce diagnósticos falsos.
 - Telegram no se dispara desde el commit: el aviso explícito exige build, ambos remotos, CI y URL pública, y vive en un commit separado del cambio funcional.
 
+## Cierre posdespliegue de Mastodon y Bluesky
+
+El hook de commit solo registra elegibilidad y el timer solo audita pendientes.
+No existe un hook Git nativo `post-push`: un push por sí solo no envía a estas redes.
+Después de verificar Pages, el operador que tenga autorización de envío ejecuta
+`scripts/post_push_difusion.sh REF --live` sobre el borrador revisado. Sin `--live`
+es un simulacro. El comando enlaza envío, verificación pública, reconciliación por
+ref y auditoría estricta de las cuatro URLs ES/EN. El registro resultante se
+incluye en el siguiente commit/push; ningún `[x]` de elegibilidad lo sustituye.
+
+Avalúos II se omitió al declarar incorrectamente `social: false` en ambas versiones.
+Se restauró `true`; excluir estas redes exige ahora una razón explícita aun cuando
+se declaren LinkedIn/X. El perfil `source` verifica esa política antes de Pages.
+La evidencia de reparación y envío está en
+[`releases/20260912-social-closeout/`](releases/20260912-social-closeout/).
+
 ## Cómo leer los gates sin mezclar estados
 
 | Evidencia | Qué demuestra | Qué no demuestra |

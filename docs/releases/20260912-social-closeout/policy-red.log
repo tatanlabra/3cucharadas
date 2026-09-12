@@ -1,0 +1,30 @@
+Run options: --seed 32428
+
+# Running:
+
+.F...F.F..F..
+
+Finished in 1.065833s, 12.1970 runs/s, 41.2822 assertions/s.
+
+  1) Failure:
+VerifyDistributionDoneTest#test_ref_scope_cannot_pass_without_matching_posts [tests/test_verify_distribution_done.rb:186]:
+Expected "- _posts/2026-08-20-fixture.md: falta `mastodon/es` tras 17 días (plazo D2)\n- _posts/2026-08-20-fixture.md: falta `bluesky/es` tras 17 días (plazo D2)\nGate de difusion cumplida fallo (2 canal(es) vencido(s) sin artefacto)\n" to include "ningún post".
+
+  2) Failure:
+VerifyDistributionDoneTest#test_social_opt_out_needs_reason_even_with_linkedin_and_x [tests/test_verify_distribution_done.rb:169]:
+Expected "- _posts/2026-08-20-fixture.md: falta `linkedin/es` tras 17 días (plazo D2)\n- _posts/2026-08-20-fixture.md: falta `x/es` tras 17 días (plazo D2)\nGate de difusion cumplida fallo (2 canal(es) vencido(s) sin artefacto)\n" to include "skip_reason".
+
+  3) Failure:
+VerifyDistributionDoneTest#test_policy_only_does_not_claim_publication_or_ignore_bad_policy [tests/test_verify_distribution_done.rb:175]:
+- _posts/2026-08-20-fixture.md: falta `mastodon/es` tras 17 días (plazo D2)
+- _posts/2026-08-20-fixture.md: falta `bluesky/es` tras 17 días (plazo D2)
+Gate de difusion cumplida fallo (2 canal(es) vencido(s) sin artefacto)
+
+
+  4) Failure:
+VerifyDistributionDoneTest#test_social_scope_keeps_other_channels_out_of_its_closeout [tests/test_verify_distribution_done.rb:193]:
+- _posts/2026-08-20-fixture.md: falta `x/es` tras 17 días (plazo D2)
+Gate de difusion cumplida fallo (1 canal(es) vencido(s) sin artefacto)
+
+
+13 runs, 44 assertions, 4 failures, 0 errors, 0 skips

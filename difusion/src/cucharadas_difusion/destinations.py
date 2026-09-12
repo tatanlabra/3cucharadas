@@ -67,6 +67,10 @@ def _evaluar(
         return BLOQUEADO, f"no hay versión {lang_post}"
 
     republish = requiere.get("republish")
+    if requiere.get("social"):
+        post = pareja.get(lang_post or "es")
+        if post is None or post.distribution.get("social") is not True:
+            faltas.append("falta distribution.social: true")
     if republish:
         post = pareja.get(lang_post or "en")
         declarados = {str(x).lower() for x in (post.distribution.get("republish") or [])}
@@ -128,12 +132,12 @@ def destination_status(
 def destination_checklist(repo: Path, ref: str, catalogo: Path | None = None) -> str:
     filas = destination_status(repo, ref, catalogo)
     idiomas = sorted({str(f["lang"]) for f in filas})
-    lineas = [f"# Checklist de destinos — {ref}", ""]
+    lineas = [f"# Checklist de destinos — {ref}", "", "Elegibilidad: no acredita publicación. Cierre con URLs en _data/distribucion.yml.", ""]
     for idioma in idiomas:
         lineas.append(f"## {idioma}")
         lineas.append("")
         for fila in (f for f in filas if f["lang"] == idioma):
-            marca = "x" if fila["status"] == LISTO else " "
+            marca = " "
             publico = ", ".join(fila["audiencia"]) or "—"
             lineas.append(
                 f"- [{marca}] **{fila['destination']}** ({fila['modo']}, público: {publico})"

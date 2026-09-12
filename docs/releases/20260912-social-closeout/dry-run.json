@@ -1,0 +1,20 @@
+[
+  {
+    "network": "mastodon",
+    "status": "dry_run",
+    "root_id": "dry-run-es",
+    "root_url": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/?utm_source=mastodon&utm_medium=social&utm_campaign=avaluos-ii-brecha-residencial&utm_content=es",
+    "reply_id": "dry-run-en",
+    "reply_url": "https://3cucharadas.cl/en/datos/territorio/avaluos-ii-brecha-residencial/?utm_source=mastodon&utm_medium=social&utm_campaign=avaluos-ii-brecha-residencial&utm_content=en",
+    "error": ""
+  },
+  {
+    "network": "bluesky",
+    "status": "dry_run",
+    "root_id": "at://dry-run/es",
+    "root_url": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/?utm_source=bluesky&utm_medium=social&utm_campaign=avaluos-ii-brecha-residencial&utm_content=es",
+    "reply_id": "at://dry-run/en",
+    "reply_url": "https://3cucharadas.cl/en/datos/territorio/avaluos-ii-brecha-residencial/?utm_source=bluesky&utm_medium=social&utm_campaign=avaluos-ii-brecha-residencial&utm_content=en",
+    "error": ""
+  }
+]

@@ -7,7 +7,7 @@
 #
 # `verify_distribution_done.rb` exige, para dar un canal por cumplido, una URL
 # publicada en `_data/distribucion.yml`. Y el CLI de difusion NO escribe ese
-# fichero: deja su rastro en `difusion/state/ledger.jsonl`, que esta gitignorado.
+# fichero: deja su rastro en el ledger XDG del usuario, fuera del repositorio.
 # El circuito no cerraba solo. La consecuencia esta escrita en el propio YAML,
 # en un comentario del 2026-08-31: la entrada de CASEN llevaba `publicaciones: []`
 # desde julio pese a que el ledger registraba las dos redes desde el 24 de julio.
@@ -33,8 +33,16 @@
 require "json"
 require "yaml"
 require "date"
+require "optparse"
 
-ROOT = File.expand_path("..", __dir__)
+options = {}
+OptionParser.new do |o|
+  o.on("--check") {}
+  o.on("--aplicar") { options[:aplicar] = true }
+  o.on("--ref REF") { |ref| options[:ref] = ref }
+end.parse!
+
+ROOT = File.expand_path(ENV.fetch("DISTRIBUCION_ROOT", File.expand_path("..", __dir__)))
 YML = File.join(ROOT, "_data", "distribucion.yml")
 # El ledger NO vive en el repositorio, y darlo por hecho hacia inutil todo este
 # script: apuntaba a `difusion/state/ledger.jsonl`, que quedo congelado el
@@ -44,16 +52,14 @@ YML = File.join(ROOT, "_data", "distribucion.yml")
 # el 2026-09-05 al publicar el post III: el gate no se entero de la publicacion.
 #
 # Misma resolucion que `storage.py:20 default_state_dir()`: la variable de entorno
-# manda, si no el directorio de estado del usuario. El del repositorio queda como
-# ultimo recurso porque es lo que existe en CI, donde el otro no esta.
-LEDGER = [
-  ENV["CUCHARADAS_DIFUSION_STATE_DIR"] && File.join(ENV["CUCHARADAS_DIFUSION_STATE_DIR"], "ledger.jsonl"),
-  File.join(Dir.home, ".local", "state", "3cucharadas-difusion", "ledger.jsonl"),
-  File.join(ROOT, "difusion", "state", "ledger.jsonl"),
-].compact.find { |p| File.file?(p) } || File.join(ROOT, "difusion", "state", "ledger.jsonl")
-APLICAR = ARGV.include?("--aplicar")
+# manda, si no el directorio de estado del usuario. No se permite recurrir a un
+# ledger distinto cuando el solicitado no existe: ocultaría una precondición rota.
+LEDGER = File.join(File.expand_path(ENV.fetch("CUCHARADAS_DIFUSION_STATE_DIR",
+  File.join(Dir.home, ".local", "state", "3cucharadas-difusion"))), "ledger.jsonl")
+APLICAR = options[:aplicar]
 
 unless File.file?(LEDGER)
+  abort "No hay ledger para reconciliar el ref solicitado" if options[:ref] || APLICAR
   # Sin ledger no se puede afirmar nada: en CI el fichero no existe por estar
   # gitignorado. Salir 0 aqui no es aprobar en vacio, porque quien decide sobre
   # lo publicado es verify_distribution_done.rb, no este puente.
@@ -71,11 +77,17 @@ end
 por_ref = registro.to_h { |e| [e["ref_interno"].to_s, e] }
 por_slug = registro.to_h { |e| [e["slug"].to_s, e] }
 
-publicados = []
+vigentes = {}
 File.foreach(LEDGER) do |linea|
   fila = begin
     JSON.parse(linea)
   rescue JSON::ParserError
+    abort "Ledger inválido: no se puede reconciliar omitiendo eventos corruptos"
+  end
+  next if options[:ref] && fila["ref"] != options[:ref]
+  key = [fila["ref"], fila["network"]]
+  if fila["event"] == "network_rolled_back"
+    vigentes.delete(key)
     next
   end
   next unless fila["event"] == "network_published"
@@ -84,7 +96,7 @@ File.foreach(LEDGER) do |linea|
   url = resultado["root_url"].to_s
   next if url.empty?
 
-  publicados << {
+  vigentes[key] = {
     ref: fila["ref"].to_s,
     red: fila["network"].to_s,
     url: url,
@@ -92,12 +104,17 @@ File.foreach(LEDGER) do |linea|
     fecha: Date.parse(fila["timestamp"].to_s).to_s
   }
 end
+publicados = vigentes.values
+abort "No hay publicaciones vigentes para el ref solicitado" if options[:ref] && publicados.empty?
 
 faltan = publicados.reject do |p|
   entrada = por_ref[p[:ref]] || por_slug[p[:ref]]
   next false if entrada.nil? # sin entrada no se puede insertar; se reporta aparte
 
-  Array(entrada["publicaciones"]).any? { |x| x.is_a?(Hash) && x["url_publicada"].to_s == p[:url] }
+  Array(entrada["publicaciones"]).any? do |x|
+    x.is_a?(Hash) && x["plataforma"] == p[:red] && x["url_publicada"].to_s == p[:url] &&
+      (p[:reply_url].empty? || x["url_publicada_en"].to_s == p[:reply_url])
+  end
 end
 
 sin_entrada = faltan.select { |p| por_ref[p[:ref]].nil? && por_slug[p[:ref]].nil? }
@@ -150,6 +167,19 @@ insertables.group_by { |p| (por_ref[p[:ref]] || por_slug[p[:ref]])["slug"] }.eac
   raise "No se encontro `publicaciones:` dentro de #{slug}" if i_pub.nil? || lineas[i_pub].start_with?("- slug: ")
 
   bloque = grupo.flat_map do |p|
+    entrada = por_ref[p[:ref]] || por_slug[p[:ref]]
+    existente = Array(entrada["publicaciones"]).find { |x| x.is_a?(Hash) && x["plataforma"] == p[:red] }
+    if existente
+      # Completar la respuesta EN sin duplicar plataforma ni borrar comentarios.
+      raise "Conflicto de URL en #{slug}/#{p[:red]}" unless existente["url_publicada"].to_s == p[:url] && existente["url_publicada_en"].to_s.empty?
+      stop = ((i_slug + 1)...lineas.length).find { |i| lineas[i].start_with?("- slug: ") } || lineas.length
+      i_red = ((i_pub + 1)...stop).find { |i| lineas[i].strip == "- plataforma: #{p[:red]}" }
+      raise "No se encontró la plataforma #{p[:red]}" unless i_red
+      i_url = ((i_red + 1)...stop).find { |i| lineas[i].strip.start_with?("url_publicada:") }
+      raise "No se encontró la URL de #{p[:red]}" unless i_url
+      lineas.insert(i_url + 1, "    url_publicada_en: #{p[:reply_url]}\n")
+      next []
+    end
     linea = ["  - plataforma: #{p[:red]}\n",
              "    fecha: #{p[:fecha]}\n",
              "    url_publicada: #{p[:url]}\n"]
@@ -163,6 +193,9 @@ insertables.group_by { |p| (por_ref[p[:ref]] || por_slug[p[:ref]])["slug"] }.eac
   lineas.insert(i_pub + 1, *bloque)
 end
 
-File.write(YML, lineas.join)
-YAML.safe_load_file(YML, permitted_classes: [Date, Time]) # revienta si quedo mal formado
+contenido = lineas.join
+YAML.safe_load(contenido, permitted_classes: [Date, Time]) # validar ANTES de escribir
+temporal = "#{YML}.#{Process.pid}.tmp"
+File.write(temporal, contenido)
+File.rename(temporal, YML)
 puts "Reconciliadas #{insertables.length} publicacion(es) en _data/distribucion.yml."

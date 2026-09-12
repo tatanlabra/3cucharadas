@@ -1,0 +1,38 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_____________________ test_social_catalog_respects_opt_out _____________________
+
+    def test_social_catalog_respects_opt_out():
+        pair = {"es": SimpleNamespace(distribution={"social": False})}
+        for destination in cargar_catalogo():
+            if destination["id"] in {"mastodon-es", "bluesky-es"}:
+                status, reason = _evaluar(destination, pair, [])
+>               assert status == "bloqueado"
+E               AssertionError: assert 'listo' == 'bloqueado'
+E
+E                 - bloqueado
+E                 + listo
+
+difusion/tests/test_social_policy.py:11: AssertionError
+___________________ test_eligibility_is_not_a_completed_task ___________________
+
+repo = PosixPath('/home/ende/Descargas/programaciones/activos/3cucharadas')
+
+    def test_eligibility_is_not_a_completed_task(repo):
+        result = destination_checklist(repo, "casen2024-julia-waffles")
+>       assert "[x]" not in result
+E       AssertionError: assert '[x]' not in '# Checklist...el destino\n'
+E
+E         '[x]' is contained here:
+E
+E           ## en
+E
+E           - [x] **dev** (manual, público: desarrollo) — listo: GitHub Actions prepara el borrador por API; publicación y verificación humanas.
+E         ?   +++...
+E
+E         ...Full output truncated (17 lines hidden), use '-vv' to show
+
+difusion/tests/test_social_policy.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED difusion/tests/test_social_policy.py::test_social_catalog_respects_opt_out
+FAILED difusion/tests/test_social_policy.py::test_eligibility_is_not_a_completed_task

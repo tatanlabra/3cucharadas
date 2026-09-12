@@ -1,0 +1,35 @@
+id: avaluos-ii-social-closeout-20260912
+scope: Corregir omisión Mastodon/Bluesky de Avalúos II y cierre verificable por ref.
+authorization: El autor autorizó push y envío a redes; ahora solicita reparar su omisión.
+baseline: social false en ES/EN; hook solo resuelve; checklist marca elegibilidad como cumplida; sin borrador ni URLs.
+constraints:
+  - Preservar ediciones LinkedIn/X y no duplicar publicaciones manuales.
+  - No convertir commit o push genérico en autorización de publicación.
+  - No cerrar difusión con un borrador o una resolución de destinos.
+tasks:
+  - id: policy
+    acceptance: Exclusión social exige razón; política se verifica antes del build.
+    command: ruby tests/test_verify_distribution_done.rb
+    evidence: docs/releases/20260912-social-closeout/policy-green.log
+    falsified_by: policy-red.log registra cuatro fallos contra la versión anterior; los trece casos pasan tras corregirla.
+  - id: eligibility
+    acceptance: Catálogo respeta social false y nunca marca publicación cumplida.
+    command: PYTHONPATH=difusion/src /opt/entornos/3cucharadas-difusion/bin/python -m pytest difusion/tests/test_social_policy.py
+    evidence: docs/releases/20260912-social-closeout/python-green.log
+    falsified_by: python-red.log reproduce destino desactivado elegible y marcador de tarea cumplida; ambos pasan tras corregirlos.
+  - id: closeout
+    acceptance: Dry-run no envía; fallo de publicación impide reconciliar; éxito verificado concilia solo ref y exige ambas URLs ES/EN.
+    command: PYTHONPATH=difusion/src /opt/entornos/3cucharadas-difusion/bin/python -m pytest difusion/tests/test_closeout.py
+    evidence: docs/releases/20260912-social-closeout/python-green.log
+    falsified_by: Tests inyectan fallo de publicación y reconciliación; ambos devuelven error y el primero no reconcilia.
+  - id: publication
+    acceptance: Ambas redes con raíz ES y respuesta EN comprobadas por API y registro versionado.
+    evidence: docs/releases/20260912-social-closeout/publication.json
+    falsified_by: publication-before.log falla con las cuatro URLs ausentes; publication-after.log pasa tras publicación real.
+    idempotence: closeout-repeat.log e idempotence.json muestran ambas redes skipped y las mismas URLs verificadas.
+rollback: Revertir solo el commit de reparación; las publicaciones requieren rollback explícito del CLI, nunca git revert.
+status: complete_local_and_social
+residual:
+  - Commit y push de la reparación se documentan en README al finalizar.
+  - LinkedIn/X pendientes de URLs en el registro; el autor confirmó X publicado, no debe reenviarse.
+  - Medium de Nushell es deuda anterior fuera de este alcance.

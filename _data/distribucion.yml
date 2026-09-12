@@ -170,6 +170,21 @@
     devto_article_id: 4584570
     url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-what-worked-for-me-and-what-did-not-44g9
     estado: publicado
+- slug: avaluos-ii-brecha-residencial
+  ref_interno: avaluos-ii-brecha-residencial
+  url_canonica: https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/
+  titulo_usado: 'Avalúos en 3 cucharadas II: dónde revisar la brecha residencial'
+  publicaciones:
+  - plataforma: mastodon
+    fecha: 2026-09-12
+    url_publicada: https://mastodon.social/@asiole/117260311924206594
+    url_publicada_en: https://mastodon.social/@asiole/117260311983076404
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-09-12
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mve3cgiakl2y
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mve3chsywl2t
+    resultado_30d:
 - slug: nushell-coprocesador-estructurado
   ref_interno: nushell-coprocesador-estructurado
   url_canonica: https://3cucharadas.cl/en/ia/productividad/desarrollo/nushell-coprocesador-estructurado/

@@ -18,6 +18,7 @@
 #               "feed"    el destino consume un feed; no se empuja nada
 #   requiere    condiciones verificables. Se evalúan todas (AND):
 #     lang_post       el par debe incluir una versión en ese idioma
+#     social          exige distribution.social: true en esa versión
 #     republish       el valor debe estar en distribution.republish del post
 #     tags_min        {etiqueta: n} — n posts de ese idioma con esa etiqueta,
 #                     contando el post evaluado
@@ -35,6 +36,7 @@ destinos:
     modo: api
     requiere:
       lang_post: es
+      social: true
     nota: >-
       Hilo en español con revisión humana previa. Cliente implementado
       (MastodonClient) con hilo, reanudación y rollback.
@@ -45,6 +47,7 @@ destinos:
     modo: api
     requiere:
       lang_post: es
+      social: true
     nota: >-
       Hilo en español con revisión humana previa. Cliente implementado
       (BlueskyClient); ojo con las facets al cortar el texto.

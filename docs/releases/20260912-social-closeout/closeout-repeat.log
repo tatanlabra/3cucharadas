@@ -1,0 +1,67 @@
+Reconciliacion OK: 2 publicacion(es) en el ledger, todas reflejadas en _data/distribucion.yml.
+Gate de difusion cumplida OK: 2 post(s) con canales declarados, 0 aviso(s); alcance: avaluos-ii-brecha-residencial, solo Mastodon/Bluesky.
+{
+  "results": [
+    {
+      "network": "mastodon",
+      "status": "skipped",
+      "root_id": "117260311924206594",
+      "root_url": "https://mastodon.social/@asiole/117260311924206594",
+      "reply_id": "117260311983076404",
+      "reply_url": "https://mastodon.social/@asiole/117260311983076404",
+      "error": ""
+    },
+    {
+      "network": "bluesky",
+      "status": "skipped",
+      "root_id": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mve3cgiakl2y",
+      "root_url": "https://bsky.app/profile/labra.bsky.social/post/3mve3cgiakl2y",
+      "reply_id": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mve3chsywl2t",
+      "reply_url": "https://bsky.app/profile/labra.bsky.social/post/3mve3chsywl2t",
+      "error": ""
+    }
+  ],
+  "verification": {
+    "status": "published_verified",
+    "draft_revision": 5,
+    "networks": {
+      "mastodon": {
+        "status": "verified",
+        "root_url": "https://mastodon.social/@asiole/117260311924206594",
+        "reply_url": "https://mastodon.social/@asiole/117260311983076404",
+        "checks": {
+          "root_language": true,
+          "reply_language": true,
+          "root_position": true,
+          "reply_position": true,
+          "root_card": true,
+          "reply_card": true,
+          "root_image": true,
+          "reply_image": true
+        }
+      },
+      "bluesky": {
+        "status": "verified",
+        "root_url": "https://bsky.app/profile/labra.bsky.social/post/3mve3cgiakl2y",
+        "reply_url": "https://bsky.app/profile/labra.bsky.social/post/3mve3chsywl2t",
+        "checks": {
+          "root_text": true,
+          "reply_text": true,
+          "root_language": true,
+          "reply_language": true,
+          "root_position": true,
+          "reply_parent": true,
+          "reply_root": true,
+          "root_card": true,
+          "reply_card": true,
+          "root_image": true,
+          "reply_image": true,
+          "root_facets": true,
+          "reply_facets": true
+        }
+      }
+    },
+    "errors": []
+  }
+}
+Cierre Mastodon/Bluesky verificado y registrado. LinkedIn/X y otros canales se auditan por separado.

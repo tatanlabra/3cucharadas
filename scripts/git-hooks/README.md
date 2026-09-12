@@ -33,7 +33,7 @@ un gate no pasa, sale con error y no envía ningún mensaje.
 **No publica.** Publicar sigue siendo:
 
 ```bash
-cucharadas-difusion publish --ref <ref>     # dry-run por defecto
+scripts/post_push_difusion.sh <ref>     # dry-run por defecto; --live exige autorización
 ```
 
 que pasa por revisión humana. Un hook que publicara al commitear pondría el
@@ -48,7 +48,7 @@ verificables. La resolución cruza eso con lo que el post declara de verdad.
 
 Tres estados:
 
-- `listo` — se cumplen todas las condiciones.
+- `listo` — elegible; no acredita borrador, aprobación ni publicación. El checklist mantiene `[ ]`.
 - `bloqueado` — falta algo concreto, y el motivo lo dice (`falta republish: dev`,
   `1/2 posts en con tag geo`).
 - `pendiente-verificar` — el destino existe pero **no se han confirmado sus

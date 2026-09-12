@@ -5,6 +5,7 @@ import json
 import os
 import shutil
 import stat
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -241,6 +242,42 @@ def cmd_verify(args: argparse.Namespace) -> int:
     return 0 if result["status"] == "published_verified" else 1
 
 
+def cmd_closeout(args: argparse.Namespace) -> int:
+    """Cierre posdespliegue: política actual, envío, verificación y registro por ref."""
+    repo = resolve_repo(args.repo)
+    storage = _storage(args)
+    draft = storage.load_draft(args.ref)
+    source = repo / "_posts" / Path(draft.posts["es"].path).name
+    posts = find_pair(repo, source)
+    if posts["es"].ref != args.ref:
+        raise PostError("El ref del borrador no coincide con el post actual")
+    for lang, post in posts.items():
+        if post.distribution.get("social") is not True:
+            raise PostError(f"distribution.social debe ser true en {lang}")
+        previous = draft.posts[lang]
+        if (post.canonical_url, post.image_url, post.title, post.description) != (
+            previous.canonical_url, previous.image_url, previous.title, previous.description
+        ):
+            raise PostError("El post cambió: preparar y revisar de nuevo el borrador")
+    if args.live:
+        # Registrar resultados solo después de observar la publicación pública.
+        check_public_urls(posts)
+    status = _publish(args)
+    if status or not args.live:
+        return status
+    env = dict(os.environ, DISTRIBUCION_ROOT=str(repo), CUCHARADAS_DIFUSION_STATE_DIR=str(storage.root.resolve()))
+    for script, flags in (
+        ("reconciliar_distribucion.rb", ["--aplicar"]),
+        ("verify_distribution_done.rb", ["--strict", "--social-only"]),
+    ):
+        result = subprocess.run(["ruby", str(repo / "scripts" / script), "--ref", args.ref, *flags], env=env, cwd=repo)
+        if result.returncode:
+            print("Publicación realizada; cierre documental pendiente. Repetir closeout no duplica el envío.", file=sys.stderr)
+            return result.returncode
+    print("Cierre Mastodon/Bluesky verificado y registrado. LinkedIn/X y otros canales se auditan por separado.")
+    return 0
+
+
 def cmd_rollback(args: argparse.Namespace) -> int:
     storage = _storage(args)
     if args.live:
@@ -309,6 +346,12 @@ def build_parser() -> argparse.ArgumentParser:
         publish.add_argument("--live", action="store_true")
         publish.add_argument("--confirm", help=argparse.SUPPRESS)
         publish.set_defaults(func=_publish)
+
+    closeout = commands.add_parser("closeout", help="Posdespliegue: publicar, verificar y reconciliar Mastodon/Bluesky; dry-run por defecto")
+    closeout.add_argument("ref")
+    closeout.add_argument("--live", action="store_true")
+    closeout.add_argument("--confirm", help=argparse.SUPPRESS)
+    closeout.set_defaults(func=cmd_closeout)
 
     rollback = commands.add_parser("rollback", help="Dry-run por defecto")
     rollback.add_argument("ref")

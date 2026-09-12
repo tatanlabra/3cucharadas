@@ -12,7 +12,7 @@ ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
 published: true
 distribution:
-  social: false
+  social: true
   republish: []
   channels: [linkedin, x]
 editorial_status: escenario-tributario-hipotetico

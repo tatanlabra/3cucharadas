@@ -33,7 +33,41 @@ chmod 600 ~/.config/3cucharadas-difusion/secrets.env
 Usar un token de aplicacion Mastodon con alcance minimo `write:statuses` y una
 App Password dedicada de Bluesky. Nunca usar la contrasena principal.
 
-## Flujo CASEN
+## Cierre después del despliegue
+
+Git no ofrece un hook nativo `post-push`. El hook instalado de `post-commit`
+solo resuelve elegibilidad: **no prepara, programa ni envía publicaciones**.
+El timer `difusion-cadencia` y el job `distribution_audit` auditan pendientes;
+tampoco los envían. Un pipeline Pages verde acredita el sitio, no la difusión.
+
+Después de verificar el despliegue y revisar el borrador de un artículo:
+
+```bash
+scripts/post_push_difusion.sh avaluos-ii-brecha-residencial        # simulacro
+scripts/post_push_difusion.sh avaluos-ii-brecha-residencial --live # envío autorizado
+```
+
+El comando usa el entorno existente `/opt/entornos/3cucharadas-difusion`; en otro
+equipo fija `DIFUSION_PYTHON` a su Python. Equivale a `cucharadas-difusion closeout REF`.
+Comprueba la política y las URLs actuales, exige las aprobaciones del borrador,
+publica los hilos ES/EN, verifica las APIs públicas y reconcilia **solo ese ref**
+con `_data/distribucion.yml`. Luego exige las cuatro URLs de Mastodon/Bluesky.
+Si falla el registro después de publicar, repetir el comando retoma el cierre
+sin duplicar los hilos registrados. Las URLs reconciliadas requieren commit y
+push posteriores; el comando no hace Git ni declara cumplidos LinkedIn/X.
+
+`distribution.social: true` incluye Mastodon y Bluesky. Desactivarlos exige
+`distribution.skip_reason`, incluso si se declaran otros canales. El perfil
+`source` de salud comprueba esta política antes del build. Para auditar un post:
+
+```bash
+ruby scripts/verify_distribution_done.rb --ref avaluos-ii-brecha-residencial --strict
+```
+
+Los comandos inferiores `publish`/`resume` y la GUI conservan su alcance de envío;
+usa `closeout` para completar también el registro versionado y su auditoría.
+
+## Ejemplo de preparación CASEN
 
 ```bash
 cucharadas-difusion doctor
