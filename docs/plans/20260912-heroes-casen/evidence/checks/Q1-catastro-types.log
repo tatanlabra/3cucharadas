@@ -1,0 +1,2 @@
+npm notice run check:catastro
+npm notice run tsc --noEmit --project tsconfig.catastro.json

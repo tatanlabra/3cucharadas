@@ -1,0 +1,21 @@
+{
+  "id": "E1-candidate-build",
+  "task_id": "E1",
+  "command": [
+    "env",
+    "JEKYLL_ENV=production",
+    "bundle",
+    "exec",
+    "jekyll",
+    "build",
+    "--disable-disk-cache",
+    "--destination",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:45:05.493357+00:00",
+  "seconds": 19.047795753000173,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-candidate-build.log",
+  "log_sha256": "caea25e0c8985b8c56f71fbb0a586a9bcc6b7f7aa2311b55e38bef8c8a3edc72"
+}

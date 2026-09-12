@@ -1,0 +1,106 @@
+1 avaluos-ii baseline cold: {'lcp_ms': 1568, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 1460}
+1 avaluos-ii baseline warm: {'lcp_ms': 520, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 520}
+1 avaluos-ii candidate cold: {'lcp_ms': None, 'cls_raw_sum': 0.028321354166666663, 'cls_session_window': 0.028321354166666663, 'fcp_ms': None}
+1 avaluos-ii candidate warm: {'lcp_ms': 4036, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 4036}
+1 casen-long candidate cold: {'lcp_ms': 1164, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 1164}
+1 casen-long candidate warm: {'lcp_ms': 292, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 292}
+1 casen-long baseline cold: {'lcp_ms': 1680, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 1680}
+1 casen-long baseline warm: {'lcp_ms': 632, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 632}
+2 avaluos-ii candidate cold: {'lcp_ms': None, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': None}
+2 avaluos-ii candidate warm: {'lcp_ms': 3832, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 3832}
+2 avaluos-ii baseline cold: {'lcp_ms': None, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': None}
+2 avaluos-ii baseline warm: {'lcp_ms': 3988, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 3988}
+2 casen-long baseline cold: {'lcp_ms': 960, 'cls_raw_sum': 0.014541006944444443, 'cls_session_window': 0.014541006944444441, 'fcp_ms': 960}
+2 casen-long baseline warm: {'lcp_ms': 196, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 196}
+2 casen-long candidate cold: {'lcp_ms': 1240, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 1240}
+2 casen-long candidate warm: {'lcp_ms': 232, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 232}
+3 avaluos-ii baseline cold: {'lcp_ms': 1388, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 1172}
+3 avaluos-ii baseline warm: {'lcp_ms': 300, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 300}
+3 avaluos-ii candidate cold: {'lcp_ms': None, 'cls_raw_sum': 0.028321354166666663, 'cls_session_window': 0.028321354166666663, 'fcp_ms': None}
+3 avaluos-ii candidate warm: {'lcp_ms': 4024, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 4024}
+3 casen-long candidate cold: {'lcp_ms': 1236, 'cls_raw_sum': 0.03823597282503858, 'cls_session_window': 0.03823597282503858, 'fcp_ms': 1236}
+3 casen-long candidate warm: {'lcp_ms': 1264, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 1228}
+3 casen-long baseline cold: {'lcp_ms': None, 'cls_raw_sum': 0.013409230926890432, 'cls_session_window': 0.013409230926890432, 'fcp_ms': None}
+3 casen-long baseline warm: {'lcp_ms': 3852, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 3852}
+4 avaluos-ii candidate cold: {'lcp_ms': 1104, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 1068}
+4 avaluos-ii candidate warm: {'lcp_ms': 296, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 296}
+4 avaluos-ii baseline cold: {'lcp_ms': 1144, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 1008}
+4 avaluos-ii baseline warm: {'lcp_ms': 272, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 272}
+4 casen-long baseline cold: {'lcp_ms': None, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': None}
+4 casen-long baseline warm: {'lcp_ms': 3072, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 3072}
+4 casen-long candidate cold: {'lcp_ms': 1240, 'cls_raw_sum': 0.0379041160300926, 'cls_session_window': 0.0379041160300926, 'fcp_ms': 1196}
+4 casen-long candidate warm: {'lcp_ms': 364, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 364}
+5 avaluos-ii baseline cold: {'lcp_ms': None, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': None}
+5 avaluos-ii baseline warm: {'lcp_ms': 3892, 'cls_raw_sum': 0.002246388888888889, 'cls_session_window': 0.002246388888888889, 'fcp_ms': 3892}
+5 avaluos-ii candidate cold: {'lcp_ms': 1132, 'cls_raw_sum': 0.028321354166666663, 'cls_session_window': 0.028321354166666663, 'fcp_ms': 1120}
+5 avaluos-ii candidate warm: {'lcp_ms': 380, 'cls_raw_sum': 0.002190243055555556, 'cls_session_window': 0.002190243055555556, 'fcp_ms': 376}
+5 casen-long candidate cold: {'lcp_ms': None, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': None}
+5 casen-long candidate warm: {'lcp_ms': 3300, 'cls_raw_sum': 0.027625658576871145, 'cls_session_window': 0.027625658576871145, 'fcp_ms': 3300}
+5 casen-long baseline cold: {'lcp_ms': 3340, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 3340}
+5 casen-long baseline warm: {'lcp_ms': 384, 'cls_raw_sum': 0.014537181712962964, 'cls_session_window': 0.014537181712962964, 'fcp_ms': 384}
+[
+  {
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "n_expected_each": 5,
+    "median_lcp_ms": {
+      "baseline": null,
+      "candidate": null
+    },
+    "regression_percent": null,
+    "lcp_threshold_diagnostic": "missing",
+    "baseline_lcp_absolute_pass": null,
+    "max_cls": {
+      "baseline": null,
+      "candidate": null
+    }
+  },
+  {
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "n_expected_each": 5,
+    "median_lcp_ms": {
+      "baseline": 520,
+      "candidate": 3832
+    },
+    "regression_percent": 636.9230769230769,
+    "lcp_threshold_diagnostic": "fail",
+    "baseline_lcp_absolute_pass": true,
+    "max_cls": {
+      "baseline": 0.002246388888888889,
+      "candidate": 0.002190243055555556
+    }
+  },
+  {
+    "page": "casen-long",
+    "temperature": "cold",
+    "n_expected_each": 5,
+    "median_lcp_ms": {
+      "baseline": null,
+      "candidate": null
+    },
+    "regression_percent": null,
+    "lcp_threshold_diagnostic": "missing",
+    "baseline_lcp_absolute_pass": null,
+    "max_cls": {
+      "baseline": null,
+      "candidate": null
+    }
+  },
+  {
+    "page": "casen-long",
+    "temperature": "warm",
+    "n_expected_each": 5,
+    "median_lcp_ms": {
+      "baseline": 632,
+      "candidate": 364
+    },
+    "regression_percent": -42.40506329113924,
+    "lcp_threshold_diagnostic": "pass",
+    "baseline_lcp_absolute_pass": true,
+    "max_cls": {
+      "baseline": 0.014537181712962964,
+      "candidate": 0.027625658576871145
+    }
+  }
+]

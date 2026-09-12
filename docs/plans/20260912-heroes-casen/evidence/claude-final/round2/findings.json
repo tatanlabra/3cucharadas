@@ -1,0 +1,41 @@
+{
+  "task_id": "R1",
+  "source_digest": "3b27cb4149399559e7fd942f4bdff03e263f26a50bc7e484bf528025f413a79b",
+  "provider": "anthropic",
+  "requested_model": "sonnet",
+  "effective_identity_evidence": {
+    "self_report": "claude-sonnet-5 (Sonnet 5), Anthropic — per this session's harness system-reminder",
+    "runtime_evidence": "none independent of the harness string; no API/header introspection available in this sandbox",
+    "note": "identical caveat as prior rounds; this round adds no independent attestation"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1",
+      "status": "resolved (per supplied evidence; not independently re-verified by this reviewer)",
+      "basis": "Supplied baseline/current sha256 match (31f508f8...) for the exact fixture path at issue, plus a real executed-test log (seed 21376, 13 runs, 145 assertions, 0 failures/errors, exit_code 0) that covers the fixture-dependent test. The manifest-scope explanation (changed files + selected build outputs, not full baseline enumeration) is consistent with the extended manifest now explicitly listing this fixture and image_dimensions.rb.",
+      "caveat": "I did not execute the hash comparison or the test suite myself in this round; disposition rests on the packet's self-reported command output and log_sha256, which I cannot cryptographically verify without the referenced log files."
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "status": "open, unchanged (kept visible per brief and independent assessment)",
+      "basis": "project_casen_shared_site.py still has no allowlist assertion on row keys before shutil.copyfile of estimates.json/csv/parquet/audit.json/provenance.json. Byte-equality to D2-reviewed outputs and the bounded privacy scan (aggregate territorial tables, no original identifiers found) evidence the *current* export is clean, but neither substitutes for an enforced schema check against a future unreviewed source — which the packet itself concedes."
+    },
+    {
+      "id": "F3",
+      "severity": "P3",
+      "status": "partially resolved — gap narrowed from 3 fields to 1, not closed",
+      "basis": "verify_visual_assets.rb:504 (V9 existence scan) and :686 (V10 publicable-pointer check) both include 'teaser' and 'og_image' in their front-matter key lists, closing those two of the original three gaps identified against verify_hero_disclosure.rb. But neither list includes 'teaser_mobile' (exact lists: line 504 `%w[teaser og_image overlay_image overlay_image_mobile image]`, line 686 `%w[teaser og_image overlay_image overlay_image_mobile]`). teaser_mobile therefore still has no automated existence/dimension/hash/publicable-pointer gate.",
+      "packet_self_admission": "The packet itself states teaser_mobile values are only 'exercised in the recorded archive browser check' and explicitly warns not to claim 'a future pointer mutation is universally covered' — i.e., no regression gate, only a one-off manual check for current values, which was not supplied in this packet for independent inspection."
+    }
+  ],
+  "open_p0_p1": false,
+  "verdict": "F1 closes on the strength of the supplied hash-equality proof and real test log, with the caveat that I did not re-execute anything myself. F2 stays open as a documented P2 residual, matching the packet's own framing. F3 does NOT close as claimed: the packet's assertion that verify_visual_assets.rb 'owns every catalog piece's ... frontmatter/reference validation' is overstated for teaser_mobile specifically — that key is absent from both front-matter scan lists in the supplied source, so it has no automated gate, only an unsupplied manual browser check. Recommend either adding teaser_mobile to both key lists in verify_visual_assets.rb, or documenting it explicitly as an accepted P3 residual the same way F2 is documented for CASEN export.",
+  "limitations": [
+    "No command execution attempted or available in this round (read-only per brief); all dispositions derive from static reading of the supplied packet text, including line-level inspection of the reproduced verify_visual_assets.rb and image_dimensions.rb source.",
+    "Did not independently recompute any sha256 or rerun any ruby test; relied on the packet's self-reported command/log/log_sha256 values as given.",
+    "The 'recorded archive browser check' cited as covering current teaser_mobile values was not supplied in this packet, so its actual scope could not be inspected — I can only confirm it is not an automated regression gate based on the packet's own wording.",
+    "D1/D2 acceptance and the bounded privacy review's completeness are taken as reported, not re-audited by me this round."
+  ]
+}

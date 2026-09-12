@@ -1,0 +1,15 @@
+{
+  "id": "Q1-catastro-types",
+  "task_id": "Q1",
+  "command": [
+    "npm",
+    "run",
+    "check:catastro"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:46:31.359625+00:00",
+  "seconds": 3.6991164660012146,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-catastro-types.log",
+  "log_sha256": "4716548b3cac3e2c64bc2e4ed04acc34e2b877b84c68b923dbff16195597fe39"
+}

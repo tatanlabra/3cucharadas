@@ -1,8 +1,7 @@
-# Activos reproducibles del visor y borradores de Avalúos II; publicación autorizada tras validación el 11-09-2026.
 slug: avaluos-ii
 posts:
-- _posts/2026-09-11-avaluos-ii-brecha-residencial.md
 - _posts/2026-09-11-avaluos-ii-brecha-residencial-en.md
+- _posts/2026-09-11-avaluos-ii-brecha-residencial.md
 piezas:
 - id: hero-editorial
   rol: hero
@@ -15,8 +14,8 @@ piezas:
     es: Ciudad residencial nocturna atravesada por una capa conceptual de polígonos catastrales por conciliar.
     en: Residential city at night crossed by a conceptual layer of cadastral polygons to reconcile.
   advertencias:
-    - No representa un mapa real, inmuebles omitidos identificados ni contribuciones adeudadas.
-    - Dirección Tokyo Night recuperada del precedente visual de Avalúos I; sin datos incrustados.
+  - No representa un mapa real, inmuebles omitidos identificados ni contribuciones adeudadas.
+  - Dirección Tokyo Night recuperada del precedente visual de Avalúos I; sin datos incrustados.
 - id: teaser-editorial
   rol: teaser
   archivo: assets/images/teasers/teaser-avaluos-ii-brecha-residencial-1280x720.webp
@@ -53,8 +52,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-puerto-montt-10101-900-webp
@@ -63,8 +62,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 900
   alto: 675
 - id: annex-puerto-montt-10101-dark-1800-webp
@@ -73,8 +72,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-puerto-montt-10101-dark-900-webp
@@ -83,8 +82,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 900
   alto: 675
 - id: annex-puerto-montt-10101-dark-png
@@ -93,8 +92,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-puerto-montt-10101-png
@@ -103,8 +102,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en
-      un recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Puerto Montt: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-valparaiso-05101-1800-webp
@@ -113,8 +112,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-valparaiso-05101-900-webp
@@ -123,8 +122,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 900
   alto: 675
 - id: annex-valparaiso-05101-dark-1800-webp
@@ -133,8 +132,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-valparaiso-05101-dark-900-webp
@@ -143,8 +142,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 900
   alto: 675
 - id: annex-valparaiso-05101-dark-png
@@ -153,8 +152,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: annex-valparaiso-05101-png
@@ -163,8 +162,8 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un
-      recorte urbano con contexto comunal; no identifica viviendas omitidas.'
+    es: 'Valparaíso: predios habitacionales, unidades vecinales y campamentos en un recorte urbano con contexto
+      comunal; no identifica viviendas omitidas.'
   ancho: 1800
   alto: 1350
 - id: gap-top15-en-dark-png
@@ -173,72 +172,64 @@ piezas:
   estado: publicable
   origen: datos
   alt:
-    en: Fifteen largest remaining gaps after the settlement scenario, with assumed
-      acceptable type and materials.
-  ancho: 1980
-  alto: 1530
+    en: Fifteen largest remaining gaps after the settlement scenario, with assumed acceptable type and materials.
+  ancho: 2160
+  alto: 1926
 - id: gap-top15-en-dark-svg
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-en-dark.svg
   estado: publicable
   origen: datos
   alt:
-    en: Fifteen largest remaining gaps after the settlement scenario, with assumed
-      acceptable type and materials.
+    en: Fifteen largest remaining gaps after the settlement scenario, with assumed acceptable type and materials.
 - id: gap-top15-en-png
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-en.png
   estado: publicable
   origen: datos
   alt:
-    en: Fifteen largest remaining gaps after the settlement scenario, with assumed
-      acceptable type and materials.
-  ancho: 1980
-  alto: 1530
+    en: Fifteen largest remaining gaps after the settlement scenario, with assumed acceptable type and materials.
+  ancho: 2160
+  alto: 1926
 - id: gap-top15-en-svg
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-en.svg
   estado: publicable
   origen: datos
   alt:
-    en: Fifteen largest remaining gaps after the settlement scenario, with assumed
-      acceptable type and materials.
+    en: Fifteen largest remaining gaps after the settlement scenario, with assumed acceptable type and materials.
 - id: gap-top15-es-dark-png
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-es-dark.png
   estado: publicable
   origen: datos
   alt:
-    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario
-      de tipo y materiales aceptables.
-  ancho: 1980
-  alto: 1530
+    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario de tipo y materiales aceptables.
+  ancho: 2160
+  alto: 1926
 - id: gap-top15-es-dark-svg
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-es-dark.svg
   estado: publicable
   origen: datos
   alt:
-    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario
-      de tipo y materiales aceptables.
+    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario de tipo y materiales aceptables.
 - id: gap-top15-es-png
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-es.png
   estado: publicable
   origen: datos
   alt:
-    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario
-      de tipo y materiales aceptables.
-  ancho: 1980
-  alto: 1530
+    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario de tipo y materiales aceptables.
+  ancho: 2160
+  alto: 1926
 - id: gap-top15-es-svg
   rol: figura
   archivo: assets/images/avaluos-ii/gap-top15-es.svg
   estado: publicable
   origen: datos
   alt:
-    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario
-      de tipo y materiales aceptables.
+    es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario de tipo y materiales aceptables.
 - id: monetary-top15-es-svg
   rol: figura
   archivo: assets/images/avaluos-ii/monetary-top15-es.svg
@@ -250,8 +241,8 @@ piezas:
 - id: monetary-top15-es-png
   rol: figura
   archivo: assets/images/avaluos-ii/monetary-top15-es.png
-  ancho: 1980
-  alto: 1530
+  ancho: 2160
+  alto: 1926
   estado: publicable
   origen: datos
   alt:
@@ -268,8 +259,8 @@ piezas:
 - id: monetary-top15-es-dark-png
   rol: figura
   archivo: assets/images/avaluos-ii/monetary-top15-es-dark.png
-  ancho: 1980
-  alto: 1530
+  ancho: 2160
+  alto: 1926
   estado: publicable
   origen: datos
   alt:
@@ -286,8 +277,8 @@ piezas:
 - id: monetary-top15-en-png
   rol: figura
   archivo: assets/images/avaluos-ii/monetary-top15-en.png
-  ancho: 1980
-  alto: 1530
+  ancho: 2160
+  alto: 1926
   estado: publicable
   origen: datos
   alt:
@@ -304,10 +295,186 @@ piezas:
 - id: monetary-top15-en-dark-png
   rol: figura
   archivo: assets/images/avaluos-ii/monetary-top15-en-dark.png
-  ancho: 1980
-  alto: 1530
+  ancho: 2160
+  alto: 1926
   estado: publicable
   origen: datos
   alt:
     es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
     en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 161742
+  sha256: 7e5ae4f7a81c9389b703e5602e297f14caca6ad0a60bfc3ea42ce08869ba037c
+  alt: &id001
+    es: Ciudad residencial nocturna y polígonos catastrales conceptuales por conciliar.
+    en: Residential city at night and conceptual cadastral polygons to reconcile.
+  provenance:
+    status: documented_existing
+    source_sha256: 31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 63958
+  sha256: 969489cd2cb03c2a6a540367819845e8f741116e0cbbce573d77acd98a0c2824
+  alt: *id001
+  provenance:
+    status: documented_existing
+    source_sha256: 31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 134398
+  sha256: e9cd7cffeac4be6d83f9c0cd81f860d97ea6166829c60e12a0ab0a559d571661
+  alt: *id001
+  provenance:
+    status: documented_existing
+    source_sha256: 31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/avaluos-ii-brecha-residencial/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 49516
+  sha256: a27250bbe60eafa970de438bdada9ffcaf4599ebc2ed0640d14900b4e48b9ba5
+  alt: *id001
+  provenance:
+    status: documented_existing
+    source_sha256: 31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/avaluos-ii-brecha-residencial/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 121620
+  sha256: 579adfd6863b5c6afe06d1e95fb62038688720279a54c27dee1ccd95a433bddb
+  alt: *id001
+  provenance:
+    status: documented_existing
+    source_sha256: 31f508f8317beb602ed04e5c3fcd974569d308d712ec5f7f707d447196ca0808
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+- id: casen-shared-site-es-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-es.svg
+  estado: publicable
+  origen: datos
+  sha256: a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-es-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-es.png
+  estado: publicable
+  origen: datos
+  ancho: 2160
+  alto: 2412
+  sha256: b840fe7d44b1a41b172d2a4554242d7d1c243b957ad23c0115e590de38da2e0a
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-es-dark-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-es-dark.svg
+  estado: publicable
+  origen: datos
+  sha256: 1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-es-dark-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-es-dark.png
+  estado: publicable
+  origen: datos
+  ancho: 2160
+  alto: 2412
+  sha256: 6843d14c83ae801c2ef6598b9b31941b4705185ed9e9be2e300fbc95ec353c7c
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-en-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-en.svg
+  estado: publicable
+  origen: datos
+  sha256: 82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-en-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-en.png
+  estado: publicable
+  origen: datos
+  ancho: 2160
+  alto: 2412
+  sha256: 370fa28ca634cf41026f9b6419291e039f3a67734e068fffc10f16b4101e87b6
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-en-dark-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-en-dark.svg
+  estado: publicable
+  origen: datos
+  sha256: 3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+- id: casen-shared-site-en-dark-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/casen-shared-site-en-dark.png
+  estado: publicable
+  origen: datos
+  ancho: 2160
+  alto: 2412
+  sha256: b323e886f367cf43e82516313a5b28820d51e575a34e9ad69a09fc224a571b94
+  alt:
+    es: Proporción de hogares con sitio propio compartido; regiones con IC y dos comunas exploratorias sin representatividad.
+    en: Share of households with an owned shared site; regions with CIs and two exploratory nonrepresentative communes.
+  advertencias:
+  - CASEN mide hogares; no aplicar estos porcentajes al residuo fiscal.
+ref: avaluos-ii-brecha-residencial

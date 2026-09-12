@@ -1,0 +1,14 @@
+{
+  "id": "U1-root-dev-tests",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_jekyll_to_devto.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T10:56:41.919779+00:00",
+  "seconds": 2.0388627389993417,
+  "exit_code": 0,
+  "log": "evidence/checks/U1-root-dev-tests.log",
+  "log_sha256": "10f85865fca9d7240837324c32db55a842ea2add972a01aef1c4a51eb4093213"
+}

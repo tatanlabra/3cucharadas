@@ -1,0 +1,377 @@
+test_absent_acceptance_ids_rejected (__main__.IsolatedCLI.test_absent_acceptance_ids_rejected) ... FAIL
+test_absolute_artifact_path_rejected (__main__.IsolatedCLI.test_absolute_artifact_path_rejected) ... FAIL
+test_absolute_log_path_rejected (__main__.IsolatedCLI.test_absolute_log_path_rejected) ... FAIL
+test_absolute_receipt_path_rejected (__main__.IsolatedCLI.test_absolute_receipt_path_rejected) ... FAIL
+test_acceptance_ids_string_rejected (__main__.IsolatedCLI.test_acceptance_ids_string_rejected) ... FAIL
+test_artifact_symlink_escape_rejected (__main__.IsolatedCLI.test_artifact_symlink_escape_rejected) ... FAIL
+test_artifact_traversal_rejected (__main__.IsolatedCLI.test_artifact_traversal_rejected) ... FAIL
+test_boolean_exit_code_is_not_integer_zero (__main__.IsolatedCLI.test_boolean_exit_code_is_not_integer_zero) ... FAIL
+test_changed_artifact_rejected (__main__.IsolatedCLI.test_changed_artifact_rejected) ... ok
+test_changed_log_rejected (__main__.IsolatedCLI.test_changed_log_rejected) ... ok
+test_changed_manual_source_rejected (__main__.IsolatedCLI.test_changed_manual_source_rejected) ... FAIL
+test_dependency_cycle_rejected (__main__.IsolatedCLI.test_dependency_cycle_rejected) ... FAIL
+test_duplicate_task_ids_rejected (__main__.IsolatedCLI.test_duplicate_task_ids_rejected) ... FAIL
+test_empty_acceptance_ids_rejected (__main__.IsolatedCLI.test_empty_acceptance_ids_rejected) ... FAIL
+test_empty_artifacts_rejected (__main__.IsolatedCLI.test_empty_artifacts_rejected) ... ok
+test_empty_checks_rejected (__main__.IsolatedCLI.test_empty_checks_rejected) ... ok
+test_empty_manual_manifest_rejected (__main__.IsolatedCLI.test_empty_manual_manifest_rejected) ... FAIL
+test_empty_task_collection_rejected (__main__.IsolatedCLI.test_empty_task_collection_rejected) ... FAIL
+test_explicit_optional_pending_dependency_accepts (__main__.IsolatedCLI.test_explicit_optional_pending_dependency_accepts) ... ok
+test_failed_check_rejected (__main__.IsolatedCLI.test_failed_check_rejected) ... ok
+test_log_symlink_escape_rejected (__main__.IsolatedCLI.test_log_symlink_escape_rejected) ... FAIL
+test_manual_kind_cannot_be_bypassed (__main__.IsolatedCLI.test_manual_kind_cannot_be_bypassed) ... FAIL
+test_missing_acceptance_coverage_rejected (__main__.IsolatedCLI.test_missing_acceptance_coverage_rejected) ... FAIL
+test_missing_artifact_rejected (__main__.IsolatedCLI.test_missing_artifact_rejected) ... ok
+test_missing_artifacts_rejected (__main__.IsolatedCLI.test_missing_artifacts_rejected) ... ok
+test_missing_check_task_binding_rejected (__main__.IsolatedCLI.test_missing_check_task_binding_rejected) ... FAIL
+test_missing_checks_rejected (__main__.IsolatedCLI.test_missing_checks_rejected) ... ok
+test_missing_command_rejected (__main__.IsolatedCLI.test_missing_command_rejected) ... ok
+test_missing_dependency_rejected (__main__.IsolatedCLI.test_missing_dependency_rejected) ... FAIL
+test_missing_exit_code_rejected (__main__.IsolatedCLI.test_missing_exit_code_rejected) ... ok
+test_missing_log_rejected (__main__.IsolatedCLI.test_missing_log_rejected) ... ok
+test_missing_manual_manifest_rejected (__main__.IsolatedCLI.test_missing_manual_manifest_rejected) ... FAIL
+test_missing_review_identity_rejected (__main__.IsolatedCLI.test_missing_review_identity_rejected) ... ok
+test_missing_task_receipt_rejected (__main__.IsolatedCLI.test_missing_task_receipt_rejected) ... ok
+test_no_contract_acceptance_rejected (__main__.IsolatedCLI.test_no_contract_acceptance_rejected) ... FAIL
+test_one_check_may_cover_multiple_acceptance_ids (__main__.IsolatedCLI.test_one_check_may_cover_multiple_acceptance_ids) ... ok
+test_open_critical_findings_rejected (__main__.IsolatedCLI.test_open_critical_findings_rejected) ... ok
+test_repeated_coverage_is_allowed (__main__.IsolatedCLI.test_repeated_coverage_is_allowed) ... ok
+test_review_source_symlink_escape_rejected (__main__.IsolatedCLI.test_review_source_symlink_escape_rejected) ... FAIL
+test_source_manifest_traversal_rejected (__main__.IsolatedCLI.test_source_manifest_traversal_rejected) ... FAIL
+test_stale_manual_receipt_digest_rejected (__main__.IsolatedCLI.test_stale_manual_receipt_digest_rejected) ... FAIL
+test_todo_disagreement_rejected (__main__.IsolatedCLI.test_todo_disagreement_rejected) ... ok
+test_unknown_acceptance_id_rejected (__main__.IsolatedCLI.test_unknown_acceptance_id_rejected) ... FAIL
+test_unverified_dependency_rejected (__main__.IsolatedCLI.test_unverified_dependency_rejected) ... FAIL
+test_valid_manual_current_digest_accepts (__main__.IsolatedCLI.test_valid_manual_current_digest_accepts) ... ok
+test_valid_shell_receipt_accepts (__main__.IsolatedCLI.test_valid_shell_receipt_accepts) ... ok
+test_verified_dependency_accepts (__main__.IsolatedCLI.test_verified_dependency_accepts) ... ok
+test_wrong_check_task_binding_rejected (__main__.IsolatedCLI.test_wrong_check_task_binding_rejected) ... FAIL
+test_wrong_receipt_task_binding_rejected_by_cli (__main__.IsolatedCLI.test_wrong_receipt_task_binding_rejected_by_cli) ... ok
+
+======================================================================
+FAIL: test_absent_acceptance_ids_rejected (__main__.IsolatedCLI.test_absent_acceptance_ids_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 134, in test_absent_acceptance_ids_rejected
+    self.run_cli('reject')
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_absolute_artifact_path_rejected (__main__.IsolatedCLI.test_absolute_artifact_path_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 158, in test_absolute_artifact_path_rejected
+    def test_absolute_artifact_path_rejected(self):self.receipt['artifacts'][0]['path']=str(self.artifact);self.run_cli('reject')
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_absolute_log_path_rejected (__main__.IsolatedCLI.test_absolute_log_path_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 160, in test_absolute_log_path_rejected
+    def test_absolute_log_path_rejected(self):self.receipt['checks'][0]['log']=str(self.log);self.run_cli('reject')
+                                                                                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_absolute_receipt_path_rejected (__main__.IsolatedCLI.test_absolute_receipt_path_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 161, in test_absolute_receipt_path_rejected
+    def test_absolute_receipt_path_rejected(self):self.task['evidence']=str(self.plan/'receipt-A.json');self.run_cli('reject')
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_acceptance_ids_string_rejected (__main__.IsolatedCLI.test_acceptance_ids_string_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 137, in test_acceptance_ids_string_rejected
+    def test_acceptance_ids_string_rejected(self):self.receipt['checks'][0]['acceptance_ids']='AC-A1';self.run_cli('reject')
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_artifact_symlink_escape_rejected (__main__.IsolatedCLI.test_artifact_symlink_escape_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 166, in test_artifact_symlink_escape_rejected
+    self.artifact.unlink();self.artifact.symlink_to(outside);self.run_cli('reject')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_artifact_traversal_rejected (__main__.IsolatedCLI.test_artifact_traversal_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 159, in test_artifact_traversal_rejected
+    def test_artifact_traversal_rejected(self):self.receipt['artifacts'][0]['path']='outputs/../outputs/result.txt';self.run_cli('reject')
+                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_boolean_exit_code_is_not_integer_zero (__main__.IsolatedCLI.test_boolean_exit_code_is_not_integer_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 157, in test_boolean_exit_code_is_not_integer_zero
+    def test_boolean_exit_code_is_not_integer_zero(self):self.receipt['checks'][0]['exit_code']=False;self.run_cli('reject')
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_changed_manual_source_rejected (__main__.IsolatedCLI.test_changed_manual_source_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 146, in test_changed_manual_source_rejected
+    def test_changed_manual_source_rejected(self):self.manual();self.input.write_text('new source\n');self.run_cli('reject')
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_dependency_cycle_rejected (__main__.IsolatedCLI.test_dependency_cycle_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 141, in test_dependency_cycle_rejected
+    def test_dependency_cycle_rejected(self):self.add_dependency()['depends_on']=['A'];self.run_cli('reject')
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A", "B"], "pending": []}
+
+
+======================================================================
+FAIL: test_duplicate_task_ids_rejected (__main__.IsolatedCLI.test_duplicate_task_ids_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 142, in test_duplicate_task_ids_rejected
+    def test_duplicate_task_ids_rejected(self):self.contract['tasks'].append(copy.deepcopy(self.task));self.run_cli('reject')
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A", "A"], "pending": []}
+
+
+======================================================================
+FAIL: test_empty_acceptance_ids_rejected (__main__.IsolatedCLI.test_empty_acceptance_ids_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 136, in test_empty_acceptance_ids_rejected
+    def test_empty_acceptance_ids_rejected(self):self.receipt['checks'][0]['acceptance_ids']=[];self.run_cli('reject')
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_empty_manual_manifest_rejected (__main__.IsolatedCLI.test_empty_manual_manifest_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 151, in test_empty_manual_manifest_rejected
+    self.receipt['source_digest']=h;self.run_cli('reject')
+                                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_empty_task_collection_rejected (__main__.IsolatedCLI.test_empty_task_collection_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 143, in test_empty_task_collection_rejected
+    def test_empty_task_collection_rejected(self):self.contract['tasks']=[];self.contract['todo_state']={};self.run_cli('reject')
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": [], "pending": []}
+
+
+======================================================================
+FAIL: test_log_symlink_escape_rejected (__main__.IsolatedCLI.test_log_symlink_escape_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 169, in test_log_symlink_escape_rejected
+    self.log.unlink();self.log.symlink_to(outside);self.run_cli('reject')
+                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_manual_kind_cannot_be_bypassed (__main__.IsolatedCLI.test_manual_kind_cannot_be_bypassed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 153, in test_manual_kind_cannot_be_bypassed
+    self.manual();self.receipt['kind']='shell';self.receipt.pop('source_digest');self.receipt.pop('identity_evidence');self.run_cli('reject')
+                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_missing_acceptance_coverage_rejected (__main__.IsolatedCLI.test_missing_acceptance_coverage_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 131, in test_missing_acceptance_coverage_rejected
+    def test_missing_acceptance_coverage_rejected(self):self.receipt['checks'].pop();self.run_cli('reject')
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_missing_check_task_binding_rejected (__main__.IsolatedCLI.test_missing_check_task_binding_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 130, in test_missing_check_task_binding_rejected
+    def test_missing_check_task_binding_rejected(self):del self.receipt['checks'][0]['task_id'];self.run_cli('reject')
+                                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_missing_dependency_rejected (__main__.IsolatedCLI.test_missing_dependency_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 139, in test_missing_dependency_rejected
+    def test_missing_dependency_rejected(self):self.task['depends_on']=['UNKNOWN'];self.run_cli('reject')
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_missing_manual_manifest_rejected (__main__.IsolatedCLI.test_missing_manual_manifest_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 147, in test_missing_manual_manifest_rejected
+    def test_missing_manual_manifest_rejected(self):self.manual();(self.input.parent/'manifest.json').unlink();self.run_cli('reject')
+                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_no_contract_acceptance_rejected (__main__.IsolatedCLI.test_no_contract_acceptance_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 138, in test_no_contract_acceptance_rejected
+    def test_no_contract_acceptance_rejected(self):self.task['acceptance']=[];self.run_cli('reject')
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_review_source_symlink_escape_rejected (__main__.IsolatedCLI.test_review_source_symlink_escape_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 172, in test_review_source_symlink_escape_rejected
+    self.input.unlink();self.input.symlink_to(outside);self.run_cli('reject')
+                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_source_manifest_traversal_rejected (__main__.IsolatedCLI.test_source_manifest_traversal_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 162, in test_source_manifest_traversal_rejected
+    def test_source_manifest_traversal_rejected(self):self.manual();self.receipt['source_manifest']='inputs/../inputs/manifest.json';self.run_cli('reject')
+                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_stale_manual_receipt_digest_rejected (__main__.IsolatedCLI.test_stale_manual_receipt_digest_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 145, in test_stale_manual_receipt_digest_rejected
+    def test_stale_manual_receipt_digest_rejected(self):self.manual();self.receipt['source_digest']='0'*64;self.run_cli('reject')
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_unknown_acceptance_id_rejected (__main__.IsolatedCLI.test_unknown_acceptance_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 135, in test_unknown_acceptance_id_rejected
+    def test_unknown_acceptance_id_rejected(self):self.receipt['checks'][0]['acceptance_ids'].append('AC-UNRELATED');self.run_cli('reject')
+                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+======================================================================
+FAIL: test_unverified_dependency_rejected (__main__.IsolatedCLI.test_unverified_dependency_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 140, in test_unverified_dependency_rejected
+    def test_unverified_dependency_rejected(self):self.add_dependency(status='pending');self.run_cli('reject')
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": ["B"]}
+
+
+======================================================================
+FAIL: test_wrong_check_task_binding_rejected (__main__.IsolatedCLI.test_wrong_check_task_binding_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<plan>/test_execution_evidence.py", line 129, in test_wrong_check_task_binding_rejected
+    def test_wrong_check_task_binding_rejected(self):self.receipt['checks'][0]['task_id']='B';self.run_cli('reject')
+                                                                                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "<plan>/test_execution_evidence.py", line 102, in run_cli
+    self.assertNotEqual(r.returncode,0,'Verifier accepted a forbidden fixture: '+clean(r.stdout))
+AssertionError: 0 == 0 : Verifier accepted a forbidden fixture: {"result": "PASS_CURRENT_EVIDENCE", "verified": ["A"], "pending": []}
+
+
+----------------------------------------------------------------------
+Ran 49 tests in 2.923s
+
+FAILED (failures=27)

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg role="img" aria-labelledby="figure-title figure-description" xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="770.4pt" viewBox="0 0 864 770.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<title id="figure-title">Escenarios de brecha residencial</title>
+<desc id="figure-description">ESCENARIOS ANIDADOS · NO SON CASOS IDENTIFICADOS
+Censo 2024 − roles SII 2026S1. Se descuentan hogares observados en campamentos bajo supuesto uno a uno.
+Al residuo se aplica la proporción comunal de tipo y materiales aceptables del Censo; cifras ≈ redondeadas.
+No identifica viviendas sin rol ni deuda tributaria. 222 polígonos CNC sin conteo; descuento incompleto.</desc>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:description>ESCENARIOS ANIDADOS · NO SON CASOS IDENTIFICADOS
+Censo 2024 − roles SII 2026S1. Se descuentan hogares observados en campamentos bajo supuesto uno a uno.
+Al residuo se aplica la proporción comunal de tipo y materiales aceptables del Censo; cifras ≈ redondeadas.
+No identifica viviendas sin rol ni deuda tributaria. 222 polígonos CNC sin conteo; descuento incompleto.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 770.4
+L 864 770.4
+L 864 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 177.12 612.468
+L 552.96 612.468
+L 552.96 165.636
+L 177.12 165.636
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 177.12 612.468
+L 177.12 165.636
+" clip-path="url(#p12cf2c9bcc)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="177.12" y="629.818" transform="rotate(-0 177.12 629.818)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 271.08 612.468
+L 271.08 165.636
+" clip-path="url(#p12cf2c9bcc)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="271.08" y="629.818" transform="rotate(-0 271.08 629.818)">10.000</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 365.04 612.468
+L 365.04 165.636
+" clip-path="url(#p12cf2c9bcc)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="365.04" y="629.818" transform="rotate(-0 365.04 629.818)">20.000</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 459 612.468
+L 459 165.636
+" clip-path="url(#p12cf2c9bcc)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="459" y="629.818" transform="rotate(-0 459 629.818)">30.000</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 552.96 612.468
+L 552.96 165.636
+" clip-path="url(#p12cf2c9bcc)" style="fill: none; stroke: #d6dfea; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="552.96" y="629.818" transform="rotate(-0 552.96 629.818)">40.000</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 10px; font-family: 'Fira Sans'; text-anchor: middle; fill: #445570" x="365.04" y="653.818" transform="rotate(-0 365.04 653.818)">Viviendas − roles habitacionales  /  escala común</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="196.640159" transform="rotate(-0 165.12 196.640159)">Valparaíso</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="225.375336" transform="rotate(-0 165.12 225.375336)">Puerto Montt</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_13"/>
+     <g id="text_9">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="254.110513" transform="rotate(-0 165.12 254.110513)">Los Ángeles</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_14"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="282.84569" transform="rotate(-0 165.12 282.84569)">Valdivia</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_15"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="311.580867" transform="rotate(-0 165.12 311.580867)">Villarrica</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_16"/>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="340.316043" transform="rotate(-0 165.12 340.316043)">Santiago</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_17"/>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="369.05122" transform="rotate(-0 165.12 369.05122)">Arica</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_18"/>
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="397.786397" transform="rotate(-0 165.12 397.786397)">Iquique</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_19"/>
+     <g id="text_15">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="426.521574" transform="rotate(-0 165.12 426.521574)">Temuco</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_20"/>
+     <g id="text_16">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="455.256751" transform="rotate(-0 165.12 455.256751)">Melipilla</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_21"/>
+     <g id="text_17">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="483.991928" transform="rotate(-0 165.12 483.991928)">Viña del Mar</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_22"/>
+     <g id="text_18">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="512.727105" transform="rotate(-0 165.12 512.727105)">Recoleta</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_23"/>
+     <g id="text_19">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="541.462281" transform="rotate(-0 165.12 541.462281)">Calama</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_24"/>
+     <g id="text_20">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="570.197458" transform="rotate(-0 165.12 570.197458)">Coquimbo</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_25"/>
+     <g id="text_21">
+      <text style="font-size: 11px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="165.12" y="598.932635" transform="rotate(-0 165.12 598.932635)">Padre Las Casas</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 177.12 183.164458
+L 482.800068 183.164458
+L 482.800068 199.83086
+L 177.12 199.83086
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 177.12 211.899635
+L 449.942256 211.899635
+L 449.942256 228.566037
+L 177.12 228.566037
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 177.12 240.634812
+L 434.89926 240.634812
+L 434.89926 257.301214
+L 177.12 257.301214
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 177.12 269.369988
+L 374.548752 269.369988
+L 374.548752 286.036391
+L 177.12 286.036391
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 177.12 298.105165
+L 365.716512 298.105165
+L 365.716512 314.771568
+L 177.12 314.771568
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 177.12 326.840342
+L 360.022536 326.840342
+L 360.022536 343.506745
+L 177.12 343.506745
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 177.12 355.575519
+L 366.533964 355.575519
+L 366.533964 372.241922
+L 177.12 372.241922
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 177.12 384.310696
+L 363.30174 384.310696
+L 363.30174 400.977098
+L 177.12 400.977098
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 177.12 413.045873
+L 350.222508 413.045873
+L 350.222508 429.712275
+L 177.12 429.712275
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 177.12 441.78105
+L 332.821116 441.78105
+L 332.821116 458.447452
+L 177.12 458.447452
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 177.12 470.516226
+L 402.90588 470.516226
+L 402.90588 487.182629
+L 177.12 487.182629
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 177.12 499.251403
+L 322.861356 499.251403
+L 322.861356 515.917806
+L 177.12 515.917806
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 177.12 527.98658
+L 322.38216 527.98658
+L 322.38216 544.652983
+L 177.12 544.652983
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 177.12 556.721757
+L 321.480144 556.721757
+L 321.480144 573.388159
+L 177.12 573.388159
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 177.12 585.456934
+L 312.262668 585.456934
+L 312.262668 602.123336
+L 177.12 602.123336
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #ffffff; stroke: #7f91a8; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 177.12 185.750624
+L 458.633556 185.750624
+L 458.633556 197.244695
+L 177.12 197.244695
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 177.12 214.485801
+L 444.003984 214.485801
+L 444.003984 225.979871
+L 177.12 225.979871
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 177.12 243.220977
+L 432.4563 243.220977
+L 432.4563 254.715048
+L 177.12 254.715048
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 177.12 271.956154
+L 370.968876 271.956154
+L 370.968876 283.450225
+L 177.12 283.450225
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 177.12 300.691331
+L 364.823892 300.691331
+L 364.823892 312.185402
+L 177.12 312.185402
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 177.12 329.426508
+L 360.022536 329.426508
+L 360.022536 340.920579
+L 177.12 340.920579
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 177.12 358.161685
+L 355.850712 358.161685
+L 355.850712 369.655756
+L 177.12 369.655756
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 177.12 386.896862
+L 355.164804 386.896862
+L 355.164804 398.390932
+L 177.12 398.390932
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 177.12 415.632039
+L 342.141948 415.632039
+L 342.141948 427.126109
+L 177.12 427.126109
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 177.12 444.367215
+L 332.163396 444.367215
+L 332.163396 455.861286
+L 177.12 455.861286
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 177.12 473.102392
+L 327.606336 473.102392
+L 327.606336 484.596463
+L 177.12 484.596463
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 177.12 501.837569
+L 322.776792 501.837569
+L 322.776792 513.33164
+L 177.12 513.33164
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 177.12 530.572746
+L 320.042556 530.572746
+L 320.042556 542.066817
+L 177.12 542.066817
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 177.12 559.307923
+L 312.619716 559.307923
+L 312.619716 570.801994
+L 177.12 570.801994
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 177.12 588.0431
+L 312.055956 588.0431
+L 312.055956 599.53717
+L 177.12 599.53717
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #00778a"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 177.12 189.342521
+L 417.197138 189.342521
+L 417.197138 193.652797
+L 177.12 193.652797
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 177.12 218.077698
+L 423.894621 218.077698
+L 423.894621 222.387974
+L 177.12 222.387974
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 177.12 246.812875
+L 412.637059 246.812875
+L 412.637059 251.123151
+L 177.12 251.123151
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_36">
+    <path d="M 177.12 275.548051
+L 357.839556 275.548051
+L 357.839556 279.858328
+L 177.12 279.858328
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_37">
+    <path d="M 177.12 304.283228
+L 348.508714 304.283228
+L 348.508714 308.593505
+L 177.12 308.593505
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_38">
+    <path d="M 177.12 333.018405
+L 344.811632 333.018405
+L 344.811632 337.328682
+L 177.12 337.328682
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_39">
+    <path d="M 177.12 361.753582
+L 316.847569 361.753582
+L 316.847569 366.063859
+L 177.12 366.063859
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_40">
+    <path d="M 177.12 390.488759
+L 336.517315 390.488759
+L 336.517315 394.799035
+L 177.12 394.799035
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_41">
+    <path d="M 177.12 419.223936
+L 332.769007 419.223936
+L 332.769007 423.534212
+L 177.12 423.534212
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_42">
+    <path d="M 177.12 447.959113
+L 315.67678 447.959113
+L 315.67678 452.269389
+L 177.12 452.269389
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_43">
+    <path d="M 177.12 476.694289
+L 314.731854 476.694289
+L 314.731854 481.004566
+L 177.12 481.004566
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_44">
+    <path d="M 177.12 505.429466
+L 302.524537 505.429466
+L 302.524537 509.739743
+L 177.12 509.739743
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_45">
+    <path d="M 177.12 534.164643
+L 301.596723 534.164643
+L 301.596723 538.47492
+L 177.12 538.47492
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_46">
+    <path d="M 177.12 562.89982
+L 298.037357 562.89982
+L 298.037357 567.210096
+L 177.12 567.210096
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_47">
+    <path d="M 177.12 591.634997
+L 299.20538 591.634997
+L 299.20538 595.945273
+L 177.12 595.945273
+z
+" clip-path="url(#p12cf2c9bcc)" style="fill: #6755c4; stroke: #ffffff; stroke-width: 0.6; stroke-linejoin: miter"/>
+   </g>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="195.015159" transform="rotate(-0 619.488 195.015159)">32.533</text>
+  </g>
+  <g id="text_23">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="195.015159" transform="rotate(-0 718.848 195.015159)">29.961</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="195.015159" transform="rotate(-0 822.528 195.015159)">≈ 25.551</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="223.750336" transform="rotate(-0 619.488 223.750336)">29.036</text>
+  </g>
+  <g id="text_26">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="223.750336" transform="rotate(-0 718.848 223.750336)">28.404</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="223.750336" transform="rotate(-0 822.528 223.750336)">≈ 26.264</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="252.485513" transform="rotate(-0 619.488 252.485513)">27.435</text>
+  </g>
+  <g id="text_29">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="252.485513" transform="rotate(-0 718.848 252.485513)">27.175</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="252.485513" transform="rotate(-0 822.528 252.485513)">≈ 25.066</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="281.22069" transform="rotate(-0 619.488 281.22069)">21.012</text>
+  </g>
+  <g id="text_32">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="281.22069" transform="rotate(-0 718.848 281.22069)">20.631</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="281.22069" transform="rotate(-0 822.528 281.22069)">≈ 19.234</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="309.955867" transform="rotate(-0 619.488 309.955867)">20.072</text>
+  </g>
+  <g id="text_35">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="309.955867" transform="rotate(-0 718.848 309.955867)">19.977</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="309.955867" transform="rotate(-0 822.528 309.955867)">≈ 18.241</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="338.691043" transform="rotate(-0 619.488 338.691043)">19.466</text>
+  </g>
+  <g id="text_38">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="338.691043" transform="rotate(-0 718.848 338.691043)">19.466</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="338.691043" transform="rotate(-0 822.528 338.691043)">≈ 17.847</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="367.42622" transform="rotate(-0 619.488 367.42622)">20.159</text>
+  </g>
+  <g id="text_41">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="367.42622" transform="rotate(-0 718.848 367.42622)">19.022</text>
+  </g>
+  <g id="text_42">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="367.42622" transform="rotate(-0 822.528 367.42622)">≈ 14.871</text>
+  </g>
+  <g id="text_43">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="396.161397" transform="rotate(-0 619.488 396.161397)">19.815</text>
+  </g>
+  <g id="text_44">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="396.161397" transform="rotate(-0 718.848 396.161397)">18.949</text>
+  </g>
+  <g id="text_45">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="396.161397" transform="rotate(-0 822.528 396.161397)">≈ 16.964</text>
+  </g>
+  <g id="text_46">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="424.896574" transform="rotate(-0 619.488 424.896574)">18.423</text>
+  </g>
+  <g id="text_47">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="424.896574" transform="rotate(-0 718.848 424.896574)">17.563</text>
+  </g>
+  <g id="text_48">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="424.896574" transform="rotate(-0 822.528 424.896574)">≈ 16.565</text>
+  </g>
+  <g id="text_49">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="453.631751" transform="rotate(-0 619.488 453.631751)">16.571</text>
+  </g>
+  <g id="text_50">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="453.631751" transform="rotate(-0 718.848 453.631751)">16.501</text>
+  </g>
+  <g id="text_51">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="453.631751" transform="rotate(-0 822.528 453.631751)">≈ 14.746</text>
+  </g>
+  <g id="text_52">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="482.366928" transform="rotate(-0 619.488 482.366928)">24.030</text>
+  </g>
+  <g id="text_53">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="482.366928" transform="rotate(-0 718.848 482.366928)">16.016</text>
+  </g>
+  <g id="text_54">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="482.366928" transform="rotate(-0 822.528 482.366928)">≈ 14.646</text>
+  </g>
+  <g id="text_55">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="511.102105" transform="rotate(-0 619.488 511.102105)">15.511</text>
+  </g>
+  <g id="text_56">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="511.102105" transform="rotate(-0 718.848 511.102105)">15.502</text>
+  </g>
+  <g id="text_57">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="511.102105" transform="rotate(-0 822.528 511.102105)">≈ 13.347</text>
+  </g>
+  <g id="text_58">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="539.837281" transform="rotate(-0 619.488 539.837281)">15.460</text>
+  </g>
+  <g id="text_59">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="539.837281" transform="rotate(-0 718.848 539.837281)">15.211</text>
+  </g>
+  <g id="text_60">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="539.837281" transform="rotate(-0 822.528 539.837281)">≈ 13.248</text>
+  </g>
+  <g id="text_61">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="568.572458" transform="rotate(-0 619.488 568.572458)">15.364</text>
+  </g>
+  <g id="text_62">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="568.572458" transform="rotate(-0 718.848 568.572458)">14.421</text>
+  </g>
+  <g id="text_63">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="568.572458" transform="rotate(-0 822.528 568.572458)">≈ 12.869</text>
+  </g>
+  <g id="text_64">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="619.488" y="597.307635" transform="rotate(-0 619.488 597.307635)">14.383</text>
+  </g>
+  <g id="text_65">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #132033" x="718.848" y="597.307635" transform="rotate(-0 718.848 597.307635)">14.361</text>
+  </g>
+  <g id="text_66">
+   <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="597.307635" transform="rotate(-0 822.528 597.307635)">≈ 12.993</text>
+  </g>
+  <g id="text_67">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="32.3568" transform="rotate(-0 30.24 32.3568)">AVALÚOS II  /  DIAGNÓSTICO RESIDENCIAL</text>
+  </g>
+  <g id="text_68">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="30.24" y="65.484" transform="rotate(-0 30.24 65.484)">La brecha que queda por explicar</text>
+  </g>
+  <g id="text_69">
+   <text style="font-size: 12px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="94.7592" transform="rotate(-0 30.24 94.7592)">15 comunas con mayor residuo después del supuesto de campamentos</text>
+  </g>
+  <g id="text_70">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="619.488" y="158.7024" transform="rotate(-0 619.488 158.7024)">Inicial</text>
+  </g>
+  <g id="text_71">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="718.848" y="158.7024" transform="rotate(-0 718.848 158.7024)">Restante</text>
+  </g>
+  <g id="text_72">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: end; fill: #445570" x="822.528" y="158.7024" transform="rotate(-0 822.528 158.7024)">Aceptables ≈</text>
+  </g>
+  <g id="text_73">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="30.24" y="671.0184" transform="rotate(-0 30.24 671.0184)">ESCENARIOS ANIDADOS · NO SON CASOS IDENTIFICADOS</text>
+  </g>
+  <g id="text_74">
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 689.137041)">Censo 2024 − roles SII 2026S1. Se descuentan hogares observados en campamentos bajo supuesto uno a uno.</text>
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 707.0904)">Al residuo se aplica la proporción comunal de tipo y materiales aceptables del Censo; cifras ≈ redondeadas.</text>
+   <text style="font-size: 9.3px; font-family: 'Fira Sans'; fill: #445570" transform="translate(30.24 724.9464)">No identifica viviendas sin rol ni deuda tributaria. 222 polígonos CNC sin conteo; descuento incompleto.</text>
+  </g>
+  <g id="text_75">
+   <text style="font-size: 9px; font-family: 'Fira Sans'; text-anchor: start; fill: #445570" x="30.24" y="750.3696" transform="rotate(-0 30.24 750.3696)">3cucharadas.cl/catastro_sii_brecha/#brecha-contribuciones</text>
+  </g>
+  <g id="legend_1">
+   <g id="line2d_26">
+    <path d="M 35.37 128.8413
+L 44.295 128.8413
+L 53.22 128.8413
+" style="fill: none; stroke: #7f91a8; stroke-width: 1.4; stroke-linecap: square"/>
+   </g>
+   <g id="text_76">
+    <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="61.62" y="132.5163" transform="rotate(-0 61.62 132.5163)">Brecha inicial</text>
+   </g>
+   <g id="line2d_27">
+    <path d="M 148.655156 128.8413
+L 157.580156 128.8413
+L 166.505156 128.8413
+" style="fill: none; stroke: #00778a; stroke-width: 7; stroke-linecap: square"/>
+   </g>
+   <g id="text_77">
+    <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="174.905156" y="132.5163" transform="rotate(-0 174.905156 132.5163)">Tras campamentos</text>
+   </g>
+   <g id="line2d_28">
+    <path d="M 286.974609 128.8413
+L 295.899609 128.8413
+L 304.824609 128.8413
+" style="fill: none; stroke: #6755c4; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="text_78">
+    <text style="font-size: 10.5px; font-family: 'Fira Sans'; text-anchor: start; fill: #132033" x="313.224609" y="132.5163" transform="rotate(-0 313.224609 132.5163)">Tipo y materiales aceptables ≈</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p12cf2c9bcc">
+   <rect x="177.12" y="165.636" width="375.84" height="446.832"/>
+  </clipPath>
+ </defs>
+</svg>

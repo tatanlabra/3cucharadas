@@ -1,0 +1,21 @@
+{
+  "id": "E1-bound-build",
+  "task_id": "E1",
+  "command": [
+    "env",
+    "JEKYLL_ENV=production",
+    "bundle",
+    "exec",
+    "jekyll",
+    "build",
+    "--disable-disk-cache",
+    "--destination",
+    "/tmp/3c-heroes-release-site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:50:10.453357+00:00",
+  "seconds": 12.856607398000051,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-bound-build.log",
+  "log_sha256": "0da2ed02ed1dae8aeb1a9d2f7141742b4f9febf243d011d6ef9cc2343b599e95"
+}

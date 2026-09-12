@@ -1,0 +1,12 @@
+{
+  "initial": {
+    "exit_code": 1,
+    "error": "Polyglot Jekyll cache mkdir ENOENT"
+  },
+  "recovery": {
+    "command": "JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --destination /tmp/3c-heroes-baseline-site",
+    "exit_code": 0,
+    "seconds": 12.348
+  },
+  "source_head": "bf1ff5ac84cde7ed7cd9ef702fda6f9e97e6a4cf"
+}

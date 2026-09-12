@@ -1,0 +1,24 @@
+{
+  "method": "Strict JSONDecoder.raw_decode starting after array bracket; keep only complete objects, stop on first JSONDecodeError; no repair or invented closing characters. Extract text from last complete assistant message.",
+  "raw_bytes": 65536,
+  "raw_sha256": "3d3c49ee0ab5614430a156b510696f90f35503786d14af499220aee7a317c367",
+  "complete_object_count": 27,
+  "final_assistant_object_zero_based": 26,
+  "result_object_truncated": true,
+  "recovered_final_sha256": "9ab657908c054e6a2c3dd3cebac23e6a92349b4940060e88b6b1e33dba871a9e",
+  "bridge_status_preserved": "failed",
+  "recovered_self_report_status": "partial",
+  "transport_cause": "Unknown; 65536-byte boundary is an observed truncation, not a proven diagnosis of buffering.",
+  "model_in_init_event": "deepseek-v4-pro",
+  "harness_version_in_init_event": "0.21.6",
+  "no_third_attempt": true,
+  "raw_files_in_versionable_package": false,
+  "original_evidence_preserved": true,
+  "original_hashes": {
+    "stdout.json": "3d3c49ee0ab5614430a156b510696f90f35503786d14af499220aee7a317c367",
+    "complete-prefix-objects.json": "b21c18f53c37fcba737311a1e2b1b96d48c105c965920e1d8592082b9f005585"
+  },
+  "public_evidence": "sanitized-review-evidence.json",
+  "public_evidence_sha256": "b589c0ea516310eb91dbc92d1ade19e5eb667259521b9a408a3398ff02b170d4",
+  "exclusion_reason": "Raw CLI streams included conversation records and local initialization metadata unnecessary for the public review evidence. Originals retained byte-identically outside the versionable package."
+}

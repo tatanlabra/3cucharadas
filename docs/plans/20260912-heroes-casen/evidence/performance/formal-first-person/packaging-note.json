@@ -1,0 +1,4 @@
+{
+  "incident": "Initial report formatting raised ValueError on literal percent sign before report/receipt write.",
+  "recovery": "Used literal replacements; collection and raw runs unchanged."
+}

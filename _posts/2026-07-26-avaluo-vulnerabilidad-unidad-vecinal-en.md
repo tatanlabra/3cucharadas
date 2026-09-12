@@ -12,9 +12,14 @@ lang: en
 ref: avaluo-vulnerabilidad-uv
 permalink: /datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/
 header:
-  teaser: /assets/images/teasers/teaser-avaluo-vulnerabilidad-1280x720.webp
-  og_image: /assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-social-1200x630-en.webp
-  og_image_alt: "Flow diagram from 10,343,893 original cadastral records to 9,401,277 unique parcels, of which 9,130,127 intersect at least one neighbourhood unit and 271,150 fall outside the mesh entirely."
+  teaser: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/og-1200x630.webp
+  og_image_alt: A geometric portrait and a neighborhood at night as a metaphor for the human dimension of territory.
+  overlay_image: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp
 math: true
 distribution:
   social: true
@@ -24,6 +29,12 @@ toc_sticky: true
 comments: true
 author_profile: true
 classes: [avaluo-vulnerabilidad-post]
+visual_id: avaluo-vulnerabilidad-unidad-vecinal
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 Most countries tax immovable property, and most of them argue about it badly. The argument usually skips the part that decides the answer: before any map is coloured, someone has to choose **what is added up, what it is divided by, over which territory it is aggregated, and which cases are left out**. Change any of those and the map can change while the underlying data stay identical.

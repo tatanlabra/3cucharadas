@@ -1,0 +1,37 @@
+{
+  "task_id": "P0",
+  "checks": [
+    {
+      "id": "P0-source-inventory",
+      "task_id": "P0",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "-c",
+        "import json,hashlib;from pathlib import Path;p=Path(\"activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence\");b=json.loads((p/\"baseline.json\").read_text());i=json.loads((p/\"inventory.json\").read_text());assert len(i)==20 and len({x[\"ref\"] for x in i})==10;assert b[\"files\"];[(lambda f,r: (_ for _ in ()).throw(AssertionError(str(f))) if hashlib.sha256(f.read_bytes()).hexdigest()!=r[\"sha256\"] else None)(Path(k),v) for k,v in b[\"files\"].items()];print(\"PASS 20 posts/10 pairs, all 13 source hashes unchanged\")"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones",
+      "started_at": "2026-09-12T10:42:25.976946+00:00",
+      "seconds": 0.268022430000201,
+      "exit_code": 0,
+      "log": "evidence/checks/P0-source-inventory.log",
+      "log_sha256": "89243976173675081a34fcd9c9c372efef3a166a063e63ea9c63df941150e493",
+      "acceptance_ids": [
+        "AC-P0"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/baseline.json",
+      "sha256": "7a9298af1c42322fe68db961066f800015ea78ded2daaf844ffc4853d2a71ac1"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/inventory.json",
+      "sha256": "e23ae09c70d1de41ed8324b48bf1709c8e933278897f2fb33c9369f6c51dd2f4"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/baseline-build.json",
+      "sha256": "a9c219e58a5d7404f0ebced1b4515376a46683d968d4180fb6c3b0457c7b0fd9"
+    }
+  ]
+}

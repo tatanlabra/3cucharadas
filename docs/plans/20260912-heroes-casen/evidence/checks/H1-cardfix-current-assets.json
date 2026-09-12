@@ -1,0 +1,15 @@
+{
+  "id": "H1-cardfix-current-assets",
+  "task_id": "H1",
+  "command": [
+    "ruby",
+    "scripts/verify_visual_assets.rb",
+    "--strict"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:31:41.221700+00:00",
+  "seconds": 0.6878769680006371,
+  "exit_code": 0,
+  "log": "evidence/checks/H1-cardfix-current-assets.log",
+  "log_sha256": "90439d8ecee2c9f8d74488dbbde227813ddafc22eefce4f9fbcbf36a5bdfc771"
+}

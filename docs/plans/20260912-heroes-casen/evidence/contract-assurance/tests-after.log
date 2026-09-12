@@ -1,0 +1,54 @@
+test_absent_acceptance_ids_rejected (__main__.IsolatedCLI.test_absent_acceptance_ids_rejected) ... ok
+test_absolute_artifact_path_rejected (__main__.IsolatedCLI.test_absolute_artifact_path_rejected) ... ok
+test_absolute_log_path_rejected (__main__.IsolatedCLI.test_absolute_log_path_rejected) ... ok
+test_absolute_receipt_path_rejected (__main__.IsolatedCLI.test_absolute_receipt_path_rejected) ... ok
+test_acceptance_ids_string_rejected (__main__.IsolatedCLI.test_acceptance_ids_string_rejected) ... ok
+test_artifact_symlink_escape_rejected (__main__.IsolatedCLI.test_artifact_symlink_escape_rejected) ... ok
+test_artifact_traversal_rejected (__main__.IsolatedCLI.test_artifact_traversal_rejected) ... ok
+test_boolean_exit_code_is_not_integer_zero (__main__.IsolatedCLI.test_boolean_exit_code_is_not_integer_zero) ... ok
+test_changed_artifact_rejected (__main__.IsolatedCLI.test_changed_artifact_rejected) ... ok
+test_changed_log_rejected (__main__.IsolatedCLI.test_changed_log_rejected) ... ok
+test_changed_manual_source_rejected (__main__.IsolatedCLI.test_changed_manual_source_rejected) ... ok
+test_dependency_cycle_rejected (__main__.IsolatedCLI.test_dependency_cycle_rejected) ... ok
+test_duplicate_task_ids_rejected (__main__.IsolatedCLI.test_duplicate_task_ids_rejected) ... ok
+test_empty_acceptance_ids_rejected (__main__.IsolatedCLI.test_empty_acceptance_ids_rejected) ... ok
+test_empty_artifacts_rejected (__main__.IsolatedCLI.test_empty_artifacts_rejected) ... ok
+test_empty_checks_rejected (__main__.IsolatedCLI.test_empty_checks_rejected) ... ok
+test_empty_manual_manifest_rejected (__main__.IsolatedCLI.test_empty_manual_manifest_rejected) ... ok
+test_empty_task_collection_rejected (__main__.IsolatedCLI.test_empty_task_collection_rejected) ... ok
+test_explicit_optional_pending_dependency_accepts (__main__.IsolatedCLI.test_explicit_optional_pending_dependency_accepts) ... ok
+test_failed_check_rejected (__main__.IsolatedCLI.test_failed_check_rejected) ... ok
+test_log_symlink_escape_rejected (__main__.IsolatedCLI.test_log_symlink_escape_rejected) ... ok
+test_manual_kind_cannot_be_bypassed (__main__.IsolatedCLI.test_manual_kind_cannot_be_bypassed) ... ok
+test_missing_acceptance_coverage_rejected (__main__.IsolatedCLI.test_missing_acceptance_coverage_rejected) ... ok
+test_missing_artifact_rejected (__main__.IsolatedCLI.test_missing_artifact_rejected) ... ok
+test_missing_artifacts_rejected (__main__.IsolatedCLI.test_missing_artifacts_rejected) ... ok
+test_missing_check_task_binding_rejected (__main__.IsolatedCLI.test_missing_check_task_binding_rejected) ... ok
+test_missing_checks_rejected (__main__.IsolatedCLI.test_missing_checks_rejected) ... ok
+test_missing_command_rejected (__main__.IsolatedCLI.test_missing_command_rejected) ... ok
+test_missing_dependency_rejected (__main__.IsolatedCLI.test_missing_dependency_rejected) ... ok
+test_missing_exit_code_rejected (__main__.IsolatedCLI.test_missing_exit_code_rejected) ... ok
+test_missing_log_rejected (__main__.IsolatedCLI.test_missing_log_rejected) ... ok
+test_missing_manual_manifest_rejected (__main__.IsolatedCLI.test_missing_manual_manifest_rejected) ... ok
+test_missing_review_identity_rejected (__main__.IsolatedCLI.test_missing_review_identity_rejected) ... ok
+test_missing_task_receipt_rejected (__main__.IsolatedCLI.test_missing_task_receipt_rejected) ... ok
+test_no_contract_acceptance_rejected (__main__.IsolatedCLI.test_no_contract_acceptance_rejected) ... ok
+test_one_check_may_cover_multiple_acceptance_ids (__main__.IsolatedCLI.test_one_check_may_cover_multiple_acceptance_ids) ... ok
+test_open_critical_findings_rejected (__main__.IsolatedCLI.test_open_critical_findings_rejected) ... ok
+test_repeated_coverage_is_allowed (__main__.IsolatedCLI.test_repeated_coverage_is_allowed) ... ok
+test_review_source_symlink_escape_rejected (__main__.IsolatedCLI.test_review_source_symlink_escape_rejected) ... ok
+test_source_manifest_traversal_rejected (__main__.IsolatedCLI.test_source_manifest_traversal_rejected) ... ok
+test_stale_manual_receipt_digest_rejected (__main__.IsolatedCLI.test_stale_manual_receipt_digest_rejected) ... ok
+test_todo_disagreement_rejected (__main__.IsolatedCLI.test_todo_disagreement_rejected) ... ok
+test_unknown_acceptance_id_rejected (__main__.IsolatedCLI.test_unknown_acceptance_id_rejected) ... ok
+test_unverified_dependency_rejected (__main__.IsolatedCLI.test_unverified_dependency_rejected) ... ok
+test_valid_manual_current_digest_accepts (__main__.IsolatedCLI.test_valid_manual_current_digest_accepts) ... ok
+test_valid_shell_receipt_accepts (__main__.IsolatedCLI.test_valid_shell_receipt_accepts) ... ok
+test_verified_dependency_accepts (__main__.IsolatedCLI.test_verified_dependency_accepts) ... ok
+test_wrong_check_task_binding_rejected (__main__.IsolatedCLI.test_wrong_check_task_binding_rejected) ... ok
+test_wrong_receipt_task_binding_rejected_by_cli (__main__.IsolatedCLI.test_wrong_receipt_task_binding_rejected_by_cli) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 3.114s
+
+OK

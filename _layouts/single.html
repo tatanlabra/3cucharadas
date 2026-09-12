@@ -38,9 +38,10 @@ layout: default
           </h1>
           {%- endif %}
           {% include page__meta.html %}
-        </header>
+            </header>
       {% endunless %}
 
+      {% if page.id %}{% include ai-disclosure.html mode="details" %}{% endif %}
       <section class="page__content" itemprop="text">
         {% if page.toc %}
           {%- comment -%}

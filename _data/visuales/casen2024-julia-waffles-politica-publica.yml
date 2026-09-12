@@ -1,16 +1,172 @@
-# Catálogo manual de gráficos derivados de CASEN 2024.
 slug: casen2024-julia-waffles-politica-publica
 ref: casen2024-julia-waffles
 posts:
-  - _posts/2026-03-15-casen2024-julia-waffles-politica-publica.md
-  - _posts/2026-03-15-casen2024-julia-waffles-politica-publica-en.md
-
+- _posts/2026-03-15-casen2024-julia-waffles-politica-publica-en.md
+- _posts/2026-03-15-casen2024-julia-waffles-politica-publica.md
 piezas:
-  - {id: teaser, rol: teaser, archivo: assets/images/teasers/teaser-casen-2024.webp, ancho: 1280, alto: 720, estado: publicable, origen: datos, alt: {es: "Composición visual de resultados CASEN 2024."}}
-  - {id: og-pobreza, rol: og, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Waffle nacional de pobreza por ingresos, CASEN 2024."}}
-  - {id: waffle-educacion, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional del nivel educacional."}}
-  - {id: waffle-salud, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional del sistema de salud."}}
-  - {id: waffle-pobreza, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp, ancho: 2440, alto: 1560, estado: publicable, origen: datos, alt: {es: "Distribución nacional de pobreza por ingresos."}}
-  - {id: regional-educacion, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp, ancho: 3000, alto: 2460, estado: publicable, origen: datos, alt: {es: "Brechas regionales en educación con intervalos de confianza."}}
-  - {id: regional-salud, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp, ancho: 3000, alto: 1740, estado: publicable, origen: datos, alt: {es: "Brechas regionales en salud con intervalos de confianza."}}
-  - {id: regional-pobreza, rol: figura, archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp, ancho: 3000, alto: 1020, estado: publicable, origen: datos, alt: {es: "Brechas regionales en pobreza con intervalos de confianza."}}
+- id: teaser
+  rol: teaser
+  archivo: assets/images/teasers/teaser-casen-2024.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: datos
+  alt:
+    es: Composición visual de resultados CASEN 2024.
+- id: og-pobreza
+  rol: og
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
+  ancho: 2440
+  alto: 1560
+  estado: publicable
+  origen: datos
+  alt:
+    es: Waffle nacional de pobreza por ingresos, CASEN 2024.
+- id: waffle-educacion
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
+  ancho: 2440
+  alto: 1560
+  estado: publicable
+  origen: datos
+  alt:
+    es: Distribución nacional del nivel educacional.
+- id: waffle-salud
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_salud_s13.webp
+  ancho: 2440
+  alto: 1560
+  estado: publicable
+  origen: datos
+  alt:
+    es: Distribución nacional del sistema de salud.
+- id: waffle-pobreza
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.webp
+  ancho: 2440
+  alto: 1560
+  estado: publicable
+  origen: datos
+  alt:
+    es: Distribución nacional de pobreza por ingresos.
+- id: regional-educacion
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_educacion_educc.webp
+  ancho: 3000
+  alto: 2460
+  estado: publicable
+  origen: datos
+  alt:
+    es: Brechas regionales en educación con intervalos de confianza.
+- id: regional-salud
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_salud_s13.webp
+  ancho: 3000
+  alto: 1740
+  estado: publicable
+  origen: datos
+  alt:
+    es: Brechas regionales en salud con intervalos de confianza.
+- id: regional-pobreza
+  rol: figura
+  archivo: assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
+  ancho: 3000
+  alto: 1020
+  estado: publicable
+  origen: datos
+  alt:
+    es: Brechas regionales en pobreza con intervalos de confianza.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 74248
+  sha256: f9f3d69423613545afd5edbcc101156b6340903e204d54414f4822021a4fb2dc
+  alt: &id001
+    es: Territorio y celdas luminosas como metáfora de la lectura de datos sociales.
+    en: Territory and luminous cells as a metaphor for reading social data.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 93d423186f1f1322198220e7cc8339ad0c5a91b6d4482a91fcdc47ce6e4ad97b
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 25922
+  sha256: c6ee1e5448455e185eb6b61556c8afdabeb68669f5b57e3a4d47514f3fbb53c4
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 93d423186f1f1322198220e7cc8339ad0c5a91b6d4482a91fcdc47ce6e4ad97b
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/casen2024-julia-waffles/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 57726
+  sha256: 28fc7fb5874e59f589a63a64ed3d778fe1a9c55fb4dacd30a318f0bd310278fb
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 93d423186f1f1322198220e7cc8339ad0c5a91b6d4482a91fcdc47ce6e4ad97b
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/casen2024-julia-waffles/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 19876
+  sha256: 330ec6563898ad86d18a68b547b52f67099f5c4c1b1db8095e5dbc7e447227c1
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 93d423186f1f1322198220e7cc8339ad0c5a91b6d4482a91fcdc47ce6e4ad97b
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/casen2024-julia-waffles/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 51996
+  sha256: a22f93e6e1dca70a5fd7f3e3e74796f4cd1d10f64015a1f2e896479d9e0c7268
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 93d423186f1f1322198220e7cc8339ad0c5a91b6d4482a91fcdc47ce6e4ad97b
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

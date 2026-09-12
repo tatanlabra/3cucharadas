@@ -1,0 +1,399 @@
+{
+  "verifier_sha256": "a31f98473648b654c2592c2f4a963405bec681fc13524588a490aaef0a6c6843",
+  "test_suite_sha256": "37b3a841553eb9a05f4db4f127fce9339f3c9ad5bf15c7b7405aaaafb1d44b90",
+  "scope": "Synthetic CLI receipts only; no review quality or performance certification",
+  "observations": [
+    {
+      "test": "test_absent_acceptance_ids_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_absolute_artifact_path_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_absolute_log_path_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_absolute_receipt_path_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_acceptance_ids_string_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_artifact_symlink_escape_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_artifact_traversal_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_boolean_exit_code_is_not_integer_zero",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_changed_artifact_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 33, in validate_receipt\n    require(sha(path) == record['sha256'], 'changed_artifact')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: changed_artifact\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_changed_log_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 27, in validate_receipt\n    require(sha(log) == check['log_sha256'], 'changed_log')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: changed_log\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_changed_manual_source_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_dependency_cycle_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\", \"B\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_duplicate_task_ids_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\", \"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_empty_acceptance_ids_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_empty_artifacts_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 20, in validate_receipt\n    require(bool(receipt.get('artifacts')), 'empty_artifacts')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: empty_artifacts\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_empty_checks_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 19, in validate_receipt\n    require(bool(receipt.get('checks')), 'empty_checks')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: empty_checks\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_empty_manual_manifest_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_empty_task_collection_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_explicit_optional_pending_dependency_accepts",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": [\"B\"]}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_failed_check_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 22, in validate_receipt\n    require(check.get('exit_code') == 0, 'failed_check')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: failed_check\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_log_symlink_escape_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_manual_kind_cannot_be_bypassed",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_missing_acceptance_coverage_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_missing_artifact_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 32, in validate_receipt\n    require(path.is_file(), 'missing_artifact')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: missing_artifact\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_artifacts_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 20, in validate_receipt\n    require(bool(receipt.get('artifacts')), 'empty_artifacts')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: empty_artifacts\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_check_task_binding_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_missing_checks_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 19, in validate_receipt\n    require(bool(receipt.get('checks')), 'empty_checks')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: empty_checks\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_command_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 23, in validate_receipt\n    require(bool(check.get('command') and check.get('log') and check.get('log_sha256')), 'incomplete_check')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: incomplete_check\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_dependency_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_missing_exit_code_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 22, in validate_receipt\n    require(check.get('exit_code') == 0, 'failed_check')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: failed_check\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_log_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 26, in validate_receipt\n    require(log.is_file(), 'missing_log')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: missing_log\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_manual_manifest_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_missing_review_identity_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 35, in validate_receipt\n    require(bool(receipt.get('review_provider') and receipt.get('identity_evidence') and receipt.get('source_digest')), 'missing_review_provenance')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: missing_review_provenance\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_missing_task_receipt_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 46, in main\n    require(path.is_file(), 'missing_receipt')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: missing_receipt\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_no_contract_acceptance_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_one_check_may_cover_multiple_acceptance_ids",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_open_critical_findings_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 49, in main\n    validate_receipt(receipt)\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 36, in validate_receipt\n    require(not receipt.get('open_p0_p1'), 'open_critical_findings')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: open_critical_findings\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_repeated_coverage_is_allowed",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_review_source_symlink_escape_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_source_manifest_traversal_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_stale_manual_receipt_digest_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_todo_disagreement_rejected",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 43, in main\n    require(contract['todo_state'][task['id']] == states[task['status']], 'todo_disagreement')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: todo_disagreement\n",
+      "expectation_met": true
+    },
+    {
+      "test": "test_unknown_acceptance_id_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_unverified_dependency_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": [\"B\"]}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_valid_manual_current_digest_accepts",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_valid_shell_receipt_accepts",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_verified_dependency_accepts",
+      "expected": "accept",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\", \"B\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": true
+    },
+    {
+      "test": "test_wrong_check_task_binding_rejected",
+      "expected": "reject",
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS_CURRENT_EVIDENCE\", \"verified\": [\"A\"], \"pending\": []}\n",
+      "stderr": "",
+      "expectation_met": false
+    },
+    {
+      "test": "test_wrong_receipt_task_binding_rejected_by_cli",
+      "expected": "reject",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 54, in <module>\n    main()\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 48, in main\n    require(receipt.get('task_id') == task['id'], 'wrong_task_receipt')\n  File \"<isolated-fixture>/workspace/activos/blog/docs/plans/fixture-plan/verify_execution.py\", line 12, in require\n    raise ValueError(why)\nValueError: wrong_task_receipt\n",
+      "expectation_met": true
+    }
+  ]
+}

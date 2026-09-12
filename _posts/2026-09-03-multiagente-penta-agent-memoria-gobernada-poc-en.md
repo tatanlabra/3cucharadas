@@ -46,9 +46,20 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
-  og_image: /assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
-  og_image_alt: "Four governed sources on separate platforms—operational memory, personal mail sealed under glass, thesis index, and the public projection—with a membrane that lets only three permitted outputs through."
+  teaser: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/og-1200x630.webp
+  og_image_alt: A luminous spherical network and three controlled routes as a metaphor for governed memory.
+  overlay_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp
+visual_id: multiagente-penta-agent-memoria-gobernada
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 > **Status of the demo.** The viewer was regenerated on August 29, 2026 from a sanitized public projection (with the non-public bits stripped out 😀): the artifact contains no mail bodies, attachments, addresses, absolute paths, tokens, credentials, or microdata.

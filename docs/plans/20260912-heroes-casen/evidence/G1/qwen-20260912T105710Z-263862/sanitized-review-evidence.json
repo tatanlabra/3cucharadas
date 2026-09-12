@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_id": "G1",
+  "identity": {
+    "harness": "Qwen Code",
+    "requested_model": "deepseek-v4-pro",
+    "provider_from_configured_route": "DeepSeek",
+    "recorded_model": "deepseek-v4-pro",
+    "recorded_harness_version": "0.21.6",
+    "identity_not_cryptographically_verified": true
+  },
+  "status": {
+    "task": "partial_optional",
+    "bridge": "failed",
+    "bridge_exit_code": 1,
+    "cli_exit_code": 0,
+    "recovered_review_self_report": "partial",
+    "count_as_approved_external_review": false,
+    "no_third_attempt": true
+  },
+  "counts": {
+    "raw_stdout_bytes": 65536,
+    "complete_json_objects": 27,
+    "final_result_truncated": true
+  },
+  "hashes": {
+    "excluded_originals": {
+      "stdout.json": {
+        "sha256": "3d3c49ee0ab5614430a156b510696f90f35503786d14af499220aee7a317c367",
+        "bytes": 65536,
+        "archive_copy_verified": true,
+        "excluded_from_versionable_package": true
+      },
+      "complete-prefix-objects.json": {
+        "sha256": "b21c18f53c37fcba737311a1e2b1b96d48c105c965920e1d8592082b9f005585",
+        "bytes": 66854,
+        "archive_copy_verified": true,
+        "excluded_from_versionable_package": true
+      }
+    },
+    "recovered_report_sha256": "9ab657908c054e6a2c3dd3cebac23e6a92349b4940060e88b6b1e33dba871a9e",
+    "configured_provider_record_sha256": "00280338f8c91013ae159bc515b06da670517bfcd8aaa78e3273e4769ae2388b"
+  },
+  "sanitization": {
+    "reason": "Raw CLI streams included conversation records and local initialization metadata unnecessary for the public review evidence. Originals retained byte-identically outside the versionable package.",
+    "public_export_allowlist": [
+      "identity",
+      "provider",
+      "status",
+      "counts",
+      "hashes"
+    ],
+    "raw_messages_exported": false,
+    "local_initialization_metadata_exported": false,
+    "private_archive_id": "3c-private-g1-originals"
+  }
+}

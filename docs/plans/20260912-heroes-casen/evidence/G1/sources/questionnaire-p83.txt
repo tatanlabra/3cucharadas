@@ -1,0 +1,71 @@
+Cuestionario Casen 2024                                                                                             Módulo V: Vivienda
+
+
+                 Tipo de pregunta: numérica entera                                      Tipo de pregunta: numérica entera
+
+  v27a. ¿Cuántos dormitorios (uso exclusivo para dormir) tiene la        v29b. ¿Cuántos baños ocupa su hogar en esta vivienda?
+  vivienda?                                                              Registre el número de dormitorios que ocupa el hogar
+  Registre el número de dormitorios en la vivienda
+                                                                         -88. No sabe
+  -88. No sabe
+                                                                         Condición habilitante: viviendas con más de un hogar (p10 = 2,
+  Condición habilitante: no tiene                                        pregunta de la HdR)
+  Nivel: hogar                                                           Nivel: hogar
+
+
+                 Tipo de pregunta: numérica entera                                       Tipo de pregunta: selección única
+
+  v27b. ¿Cuántos baños tiene la vivienda?                                v30. ¿Cuál es la principal razón para compartir esta vivienda con
+  Registre el número de baños en la vivienda                             otro hogar?
+
+  -88. No sabe                                                           1. Cuidar niños(as), enfermos(as), personas mayores o personas con
+                                                                         discapacidad
+  Condición habilitante: no tiene                                        2. Para generar ahorros
+  Nivel: hogar                                                           3. Los ingresos no le permiten mantener una vivienda
+                                                                         independiente
+                                                                         4. Razones de estudio
+                 Tipo de pregunta: selección única
+                                                                         5. Razones laborales
+  v28. ¿Su hogar es el principal de la vivienda?                         6. Por emergencia
+                                                                         7. Prefiere vivir así o se siente cómodo
+  1. Sí
+                                                                         8. Costumbre o tradición familiar
+  2. No
+                                                                         9. Otra
+  Condición habilitante: viviendas con más de un hogar (p10 = 2,
+                                                                         Condición habilitante: viviendas con más de un hogar (p10 = 2,
+  pregunta de la HdR)
+                                                                         pregunta de la HdR)
+  Nivel: hogar
+                                                                         Nivel: hogar
+
+                 Tipo de pregunta: numérica entera
+                                                                                         Tipo de pregunta: selección única
+  v29a. ¿Cuántos dormitorios (uso exclusivo para dormir) ocupa su
+                                                                         v32. ¿Cuál es la principal razón para que los núcleos familiares que
+  hogar en esta vivienda?
+                                                                         forman parte de este hogar compartan la misma vivienda?
+  Registre el número de dormitorios que ocupa el hogar
+                                                                         1. Cuidar niños, enfermos, personas mayores o personas con
+  -88. No sabe                                                           discapacidad
+                                                                         2. Para generar ahorros
+  Condición habilitante: viviendas con más de un hogar (p10 = 2,
+  pregunta de la HdR)                                                    3. Los ingresos no le permiten mantener una vivienda
+                                                                         independiente
+  Nivel: hogar
+                                                                         4. Razones de estudio
+                                                                         5. Razones laborales
+                                                                         6. Por emergencia
+                                                                         7. Prefiere vivir así o se siente cómodo
+                                                                         8. Costumbre o tradición familiar
+                                                                         9. Otra
+
+                                                                         Condición habilitante: hogares con más de un núcleo (n_
+                                                                         nucleos > 1)
+                                                                         Nivel: hogar
+
+
+
+
+                                                                    83
+

@@ -1,0 +1,15 @@
+{
+  "id": "E1-hero-integrated",
+  "task_id": "E1",
+  "command": [
+    "ruby",
+    "scripts/verify_hero_disclosure.rb",
+    "_site"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:46:00.767071+00:00",
+  "seconds": 0.5731821980007226,
+  "exit_code": 1,
+  "log": "evidence/checks/E1-hero-integrated.log",
+  "log_sha256": "b1e9bf1636528d2fc892f0d7cb8cfdacd90346968318a8f78d5e8048dfbd9127"
+}

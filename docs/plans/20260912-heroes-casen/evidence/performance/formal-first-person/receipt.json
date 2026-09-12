@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task": "Q1-formal-performance",
+  "status": "partial",
+  "timestamp": "2026-09-12T12:22:31.768532+00:00",
+  "formal_acceptance": false,
+  "collection_exit_code": 0,
+  "counts": {
+    "runs_total": 40,
+    "expected_total": 40,
+    "pairs_per_page": 5,
+    "lcp_observed": 32,
+    "lcp_missing": 8,
+    "cls_observed": 40,
+    "cpu_windows": 10,
+    "sessions_closed": 20
+  },
+  "missing_by_page_side": {
+    "avaluos-ii/baseline": 2,
+    "avaluos-ii/candidate": 3,
+    "casen-long/baseline": 2,
+    "casen-long/candidate": 1
+  },
+  "max_cls": {
+    "baseline": 0.014541006944444441,
+    "candidate": 0.03823597282503858
+  },
+  "inputs": {
+    "source_manifest": "evidence/editorial/source-first-person-before-build.json",
+    "source_manifest_sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783",
+    "source_digest": "238221099b11ca45bc387d65fe90450397084927173ef75e808dfa36bc848b2a",
+    "build_root": "/tmp/3c-heroes-first-person-site",
+    "build_manifest": "../formal-candidate-first-person-freeze.json",
+    "build_manifest_sha256": "afc097833f8e8a55699926c37f609e1afa4e7ce50ece914158c41e42be94cac7",
+    "build_bytes_unchanged_after_collection": true
+  },
+  "disposition": "Required performance acceptance not met: missing LCP and Avalúos warm threshold failure; separate presentation canary pending root. No sample exclusion or threshold relaxation.",
+  "cleanup": {
+    "all_own_sessions_closed": true,
+    "servers4041_4042_closed": true,
+    "server4004_untouched": true
+  },
+  "files": {
+    "commands.jsonl": "9001260d07cf2176f76acad17d880aff7885047a276d9faf6fac51387d1a5a5c",
+    "cpu-before-pairs.json": "7765927ef33c2d50632fcd2ea31d9986ee1ff9c41628c6e1a8aa40af213f66a4",
+    "cpu-pair-comparison.json": "0d8f0d09be4e0d5d01ba542ad9005699c80b41ffa13bd054157e80c869ceca81",
+    "embedded-vitals-init.js": "51a642ebb48dcfa6dc9fce031146ea1419f6e99e0069f37b39cd5f3a0f7b4068",
+    "measurement-controls.json": "a5257dbe315c42220ee6f959010067ec64160947f0ce099280e3c52a590910d4",
+    "measurement-init.js": "6dcb851456f947e4195e93c9ddca5a81b5f35cc0c3c95a6c99d39086ad1da70b",
+    "observed-metrics-summary.json": "1c2ef902635e266ee3ea47ad7762e521721e847682ed6b4a14ac77b6a5c0687a",
+    "packaging-note.json": "d0073608ac615d6ad6bc46de11b1924562d43ca3f67af46a9a2b31b839120b6a",
+    "progress.log": "715506f73aa5eb2f9c96ae8e583fd63b3471300a80442a76942ed6e79e1a59e1",
+    "report.md": "1793effdaa7cdcc77fccab6231ea0aff9b8525445a0b914f0d436fda81322519",
+    "run_performance.py": "32e0ab445a751090ec8e397764227710cc070187aa64a46a952311548182702c",
+    "runs.json": "72ea02e8e1abf80f7d27b07a59e3bb05cd8ca7b05ac06e4f6281d250a50c65e2",
+    "settings.json": "4225eeb6bbb9b1025c4011a67b82112ae8b34fa10b0ce6222f8745817b0c7778",
+    "summary.json": "65a96056f3bba2ed44d08a8a4f06cfc0f7f19fb70d06d60ed583a809ab5b3594"
+  }
+}

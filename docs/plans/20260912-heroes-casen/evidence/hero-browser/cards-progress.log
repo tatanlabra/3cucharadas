@@ -1,0 +1,25 @@
+{"completed": 1, "id": "home-es-390-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 2, "id": "home-es-390-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 3, "id": "home-en-390-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 4, "id": "home-en-390-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 5, "id": "related-es-390-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 6, "id": "related-es-390-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 7, "id": "related-en-390-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 8, "id": "related-en-390-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 9, "id": "archive-es-390-light", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 10, "id": "archive-es-390-academic-night", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 11, "id": "archive-en-390-light", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 12, "id": "archive-en-390-academic-night", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 13, "id": "home-es-1440-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 14, "id": "home-es-1440-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 15, "id": "home-en-1440-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 16, "id": "home-en-1440-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 17, "id": "related-es-1440-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 18, "id": "related-es-1440-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 19, "id": "related-en-1440-light", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 20, "id": "related-en-1440-academic-night", "failures": [], "axe": {"inapplicable": 79, "incomplete": 0, "passes": 9, "violations": 0}}
+{"completed": 21, "id": "archive-es-1440-light", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 22, "id": "archive-es-1440-academic-night", "failures": ["axe card violations"], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 1}}
+{"completed": 23, "id": "archive-en-1440-light", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+{"completed": 24, "id": "archive-en-1440-academic-night", "failures": [], "axe": {"inapplicable": 82, "incomplete": 0, "passes": 6, "violations": 0}}
+CARDS COMPLETE 24 failed 1

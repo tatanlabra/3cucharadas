@@ -1,0 +1,96 @@
+{
+  "scope": "Public Censo2024 variable dictionary and microdata manual examined; no inference about nonpublic institutional registers",
+  "sources": [
+    {
+      "filename": "diccionario_variables_censo2024.xlsx",
+      "sha256": "9cad2764f64e3a4d5dcc157dbfe21e8634cce97c95a4a7be3c8f60f3f66a02d8"
+    },
+    {
+      "filename": "manual_uso_microdatos_censo2024.pdf",
+      "sha256": "a963aa4b05cac99f0bafeaca9d2935c6c6c231ef6d7deb2d67b89a06c30d7bb8"
+    }
+  ],
+  "dictionary_matches": {
+    "tabla_viviendas": [
+      [
+        "Vivienda",
+        "id_vivienda",
+        "Llave identificadora de la vivienda o de la entrevista",
+        "1:7664466",
+        "Válidos",
+        "1:7664466",
+        "Todos los registros",
+        7664466
+      ],
+      [
+        "Vivienda",
+        "p7_distrib_agua",
+        "7. ¿Cuál es el sistema de distribución del agua en esta vivienda? ",
+        2,
+        "Con llave dentro del sitio, pero fuera de la vivienda",
+        "1:3; \n-99 (no respuesta); \nNA (no aplica)",
+        "Todas las viviendas particulares ocupadas con moradores presentes",
+        160098
+      ]
+    ],
+    "tabla_hogares": [
+      [
+        "Hogar",
+        "id_vivienda",
+        "Llave identificadora de la vivienda o de la entrevista",
+        "1:7664466",
+        "Válidos",
+        "1:7664466",
+        "Todos los registros",
+        6622597
+      ],
+      [
+        "Hogar",
+        "id_hogar",
+        "Llave identificadora de hogar",
+        "0:26",
+        "Válidos",
+        "0:26",
+        "Todos los registros",
+        6622597
+      ]
+    ],
+    "tabla_personas": [
+      [
+        "Persona",
+        "id_vivienda",
+        "Llave identificadora de la vivienda o de la entrevista",
+        "1:7664466",
+        "Válidos",
+        "1:7664466",
+        "Todos los registros",
+        18480432
+      ],
+      [
+        "Persona",
+        "id_hogar",
+        "Llave identificadora de hogar",
+        "0:26",
+        "Válidos",
+        "0:26",
+        "Todos los registros",
+        18480432
+      ],
+      [
+        "Persona",
+        "id_persona",
+        "Llave identificadora de persona",
+        "0:5806",
+        "Válidos",
+        "0:5806",
+        "Todos los registros",
+        18480432
+      ]
+    ],
+    "cod_territoriales_especificos": [],
+    "codigos_territoriales": []
+  },
+  "finding": "Dwelling, household and person identifiers documented; no site/plot/role linkage variable identified in examined public dictionary. Multiple households per dwelling is not multiple dwellings per site.",
+  "online_fetch": "web tool safe-open error; verified existing local official document copies",
+  "runtime": "/opt/entornos/mamba312/bin/python; system Python lacks openpyxl, no installation attempted"
+}

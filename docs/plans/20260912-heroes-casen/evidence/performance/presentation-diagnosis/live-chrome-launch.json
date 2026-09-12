@@ -1,0 +1,162 @@
+[
+  {
+    "pid": 387634,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--disable-backgrounding-occluded-windows",
+      "--disable-features=Translate",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--headless=new",
+      "--enable-unsafe-swiftshader",
+      "--window-size=1280,720",
+      "--ozone-platform=headless",
+      "--ozone-override-screen-size=800,600",
+      "--use-angle=swiftshader-webgl"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387644,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--headless=new",
+      "--ozone-platform=headless",
+      "--ozone-override-screen-size=800,600",
+      "--use-angle=swiftshader-webgl"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387645,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--headless=new",
+      "--ozone-platform=headless",
+      "--ozone-override-screen-size=800,600",
+      "--use-angle=swiftshader-webgl"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387648,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--headless=new",
+      "--ozone-platform=headless",
+      "--ozone-override-screen-size=800,600",
+      "--use-angle=swiftshader-webgl"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387675,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--headless=new",
+      "--ozone-platform=headless",
+      "--use-angle=swiftshader-webgl",
+      "--enable-unsafe-swiftshader",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387679,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--use-angle=swiftshader-webgl",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387681,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387710,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--use-angle=swiftshader-webgl",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387735,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387772,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387780,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387802,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387846,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  },
+  {
+    "pid": 387970,
+    "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+    "flags": [
+      "--ozone-platform=headless",
+      "--disable-gpu-compositing",
+      "--num-raster-threads=4",
+      "--enable-features=NetworkService,NetworkServiceInProcess",
+      "--disable-features=EyeDropper,PaintHolding,Translate"
+    ],
+    "scope": "Observed host Chrome process; not proven to belong to canary; do not attribute effective canary configuration"
+  }
+]

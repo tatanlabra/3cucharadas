@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "unit": "household",
+  "source_estimates_sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+  "accepted_d1_freeze": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "plotted_rows": 19,
+  "national_rows": 1,
+  "regional_rows": 16,
+  "communal_rows": 2,
+  "geography_order": [
+    "15",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "13",
+    "6",
+    "7",
+    "16",
+    "8",
+    "9",
+    "14",
+    "10",
+    "11",
+    "12"
+  ],
+  "communal_selection": [
+    "5101",
+    "5109"
+  ],
+  "communal_representativeness": false,
+  "communal_selection_timing": "after prior exploration; not confirmatory",
+  "source_url": "https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2024",
+  "minimum_display_width_css_px": 1000,
+  "intrinsic_css_px": [
+    1152,
+    1286.4
+  ],
+  "limitations": [
+    "Household estimand, not dwelling/site proportion",
+    "No fiscal-gap correction",
+    "Approximate Taylor CI at national/regional level",
+    "Two exploratory communes without confidence intervals"
+  ],
+  "code_sha256": {
+    "render_casen_shared_site.py": "2d230ff53406d7375f28bf59cda7c055b04697a874b5c624b578271f45bf36ea",
+    "editorial_style.py": "0f415f9675ec51ce2716a0225560754064b176020df2a7030300c1fb2328d35e"
+  },
+  "artifacts": [
+    {
+      "file": "casen-shared-site-es.svg",
+      "sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+      "bytes": 93408
+    },
+    {
+      "file": "casen-shared-site-es.png",
+      "sha256": "b840fe7d44b1a41b172d2a4554242d7d1c243b957ad23c0115e590de38da2e0a",
+      "bytes": 436727
+    },
+    {
+      "file": "casen-shared-site-es-dark.svg",
+      "sha256": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387",
+      "bytes": 93408
+    },
+    {
+      "file": "casen-shared-site-es-dark.png",
+      "sha256": "6843d14c83ae801c2ef6598b9b31941b4705185ed9e9be2e300fbc95ec353c7c",
+      "bytes": 425915
+    },
+    {
+      "file": "casen-shared-site-en.svg",
+      "sha256": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c",
+      "bytes": 92934
+    },
+    {
+      "file": "casen-shared-site-en.png",
+      "sha256": "370fa28ca634cf41026f9b6419291e039f3a67734e068fffc10f16b4101e87b6",
+      "bytes": 430462
+    },
+    {
+      "file": "casen-shared-site-en-dark.svg",
+      "sha256": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09",
+      "bytes": 92934
+    },
+    {
+      "file": "casen-shared-site-en-dark.png",
+      "sha256": "b323e886f367cf43e82516313a5b28820d51e575a34e9ad69a09fc224a571b94",
+      "bytes": 420929
+    },
+    {
+      "file": "casen-shared-site-data.json",
+      "sha256": "07607fa341918c3b65e9cb68e7574fe6ba50d3b06ced6876cd9e44fc4ca864a9",
+      "bytes": 15537
+    },
+    {
+      "file": "casen-shared-site-data.csv",
+      "sha256": "5cc27edc9e5be7e645037fdf6814dc60b2f916a04eca2c52758618cd00665eb9",
+      "bytes": 7346
+    }
+  ]
+}

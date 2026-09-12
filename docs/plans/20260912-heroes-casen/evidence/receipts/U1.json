@@ -1,0 +1,118 @@
+{
+  "task_id": "U1",
+  "checks": [
+    {
+      "id": "U1-first-person-green",
+      "task_id": "U1",
+      "command": [
+        "ruby",
+        "tests/test_ai_disclosure.rb"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:55:15.864922+00:00",
+      "seconds": 0.6530756020001718,
+      "exit_code": 0,
+      "log": "evidence/checks/U1-first-person-green.log",
+      "log_sha256": "2fa98cefe131d2f4ab7ee0904c6d474dbd267530259fce225745d6d0e3fdcec5",
+      "acceptance_ids": [
+        "AC-U1"
+      ]
+    },
+    {
+      "id": "U1-root-dev-tests",
+      "task_id": "U1",
+      "command": [
+        "ruby",
+        "tests/test_jekyll_to_devto.rb"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T10:56:41.919779+00:00",
+      "seconds": 2.0388627389993417,
+      "exit_code": 0,
+      "log": "evidence/checks/U1-root-dev-tests.log",
+      "log_sha256": "10f85865fca9d7240837324c32db55a842ea2add972a01aef1c4a51eb4093213",
+      "acceptance_ids": [
+        "AC-U2"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/_includes/page__hero.html",
+      "sha256": "6f59b69d0c4230846f005b85adbd6bd9d5a38889ca0ced2c2e1b206e4b28b6a0"
+    },
+    {
+      "path": "activos/3cucharadas/_includes/head/custom.html",
+      "sha256": "8e75da9c182cac778dacba2f9e29daf5dd7da5095ac3aa53bb56443cd31be77a"
+    },
+    {
+      "path": "activos/3cucharadas/_includes/ai-disclosure.html",
+      "sha256": "275044409dd549a1986ac72db0dd06b69babe01f886502964f1febcc759f2003"
+    },
+    {
+      "path": "activos/3cucharadas/_layouts/single.html",
+      "sha256": "05e0d5fa328f08cc77ca5e4cd13bea53b4f35877ea9bb2014a781fbe3a1c1dfe"
+    },
+    {
+      "path": "activos/3cucharadas/assets/css/main.scss",
+      "sha256": "99403e70bddca058cac2af28e3c60aad0d821acc377da61a9ca1950d8898b657"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/ai-transparency.md",
+      "sha256": "e6f7a4302dc764d04abd09b1cc8cdb8cdc7318c1d7bd9ba4905ceda3e3399bf9"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/ai-transparency-en.md",
+      "sha256": "9a9a3f4f4d260e2c5dab48eeddfc17e2fde1642ded407b8be85e15dd050940db"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/jekyll_to_devto.rb",
+      "sha256": "200a7e23ee927fbcc67452eadf4ba3148f194f0e1566a5bea5a9b9588ac42d31"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/syndicate_devto.rb",
+      "sha256": "3cb3a5fd79f75ecafb1be22a7ec3249c93092dc88e6bedf4cdd67c2ddcb6647c"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_visual_assets.rb",
+      "sha256": "5b589836a4a2edb067b389f2a80d44060e9660553c6de8838fb11d864bcc4e79"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_hero_disclosure.rb",
+      "sha256": "7c0b24fabdccb92bd209e159b68c9fb5c0396769163136b133f8676144372527"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/lib/ai_disclosure.rb",
+      "sha256": "64e85e66a48d61dbd40e7ef9176c18f1536531d73b927e091c3c3b73e08c2748"
+    },
+    {
+      "path": "activos/3cucharadas/tests/test_ai_disclosure.rb",
+      "sha256": "3903f5f5ef5c52521ea87c3684005bba73fc623330ab3375cb135be4dcd743ee"
+    },
+    {
+      "path": "activos/3cucharadas/tests/test_jekyll_to_devto.rb",
+      "sha256": "d3cba3725b23b16c9d5f33e3e6a053419e90bd0dfbfbb7319191395b48418ede"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/checks/U1-timezone-fixture-red.json",
+      "sha256": "c9f312a1a64e6296530ef21486be772b4ac598282c765e855c1085ec77acaa8d"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/checks/U1-timezone-green.json",
+      "sha256": "1b1bee860f6b515d5e3a32268434c3aac1e4c7e0d2bd7a0634c86020f8ab5785"
+    },
+    {
+      "path": "activos/3cucharadas/_includes/ai-provenance-list.html",
+      "sha256": "853eefc3ac208e4265bf9385195d34943b15e6113dd8b243839af20c0aff3ec4"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/checks/U1-first-person-red.json",
+      "sha256": "f7c8364d951207940a8730c9ea767b337bc954c8ee6c4e5bedb5e2e9b35d51bb"
+    }
+  ],
+  "limitations": [
+    "Global migrated-source acceptance belongs to H1/E1/Q1; currently red as expected before migration"
+  ],
+  "timezone_correction": "Explicit instants compared across UTC/Chile; date-only posts preserve calendar date. Real failing fixture and recovery recorded.",
+  "first_person_change": "User requested brief first-person disclosure; detailed provenance moved to policy. New UI browser matrix pending under H1/Q1."
+}

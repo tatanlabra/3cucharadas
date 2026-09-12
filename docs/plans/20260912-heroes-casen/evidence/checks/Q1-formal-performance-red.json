@@ -1,0 +1,17 @@
+{
+  "id": "Q1-formal-performance-red",
+  "task_id": "Q1",
+  "command": [
+    "python3",
+    "docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py",
+    "performance",
+    "--directory",
+    "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T12:24:51.342548+00:00",
+  "seconds": 0.9915741660006461,
+  "exit_code": 1,
+  "log": "evidence/checks/Q1-formal-performance-red.log",
+  "log_sha256": "4a6ef79ebf28b40939e2b169081aa59aeb39f626e7a8547f60a6f45caa49b33b"
+}

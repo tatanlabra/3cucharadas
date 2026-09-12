@@ -1,0 +1,1080 @@
+{
+  "schema_version": 1,
+  "id": "heroes-casen-parallel-20260912",
+  "status": "executing",
+  "scope": "User authorized full implementation with verifiable contracts; local commits only.",
+  "baseline": {
+    "verified_at": "2026-09-12",
+    "blog": {
+      "path": "activos/3cucharadas",
+      "branch": "fix/pipelines-verdes",
+      "head": "bf1ff5ac",
+      "clean_before_plan": true
+    },
+    "analysis": {
+      "path": "activos/catastros_sii",
+      "branch": "main",
+      "head": "93e3dba979839b3e9711a939a98e57a33e7ede96",
+      "clean_before_plan": true
+    },
+    "external_sources_read_only": [
+      "CASEN2024/julia_viz",
+      "CASEN2024 RData and official codebooks",
+      "Censo2024"
+    ]
+  },
+  "authority": "penta-agent/router/routing.yaml and live bridge capabilities; explicit user gpt-6-astra high review override",
+  "limits": {
+    "max_active_agents_including_root": 4,
+    "hard_session_ceiling": 5,
+    "max_heavy_data_processes": 1,
+    "max_image_generations_at_once": 1,
+    "parallel_same_file_writers": 0,
+    "external_publication": false
+  },
+  "objective": {
+    "hard": [
+      "source preservation",
+      "scientific estimand validity",
+      "no false AI attribution",
+      "accessibility",
+      "no push",
+      "no raw-data export"
+    ],
+    "soft_priority": [
+      "less rework",
+      "bounded wall time",
+      "less duplicate reading",
+      "fewer providers with verified usefulness",
+      "cost"
+    ],
+    "optimality_status": "feasible scheduling proposal, not measured global optimum"
+  },
+  "routing": {
+    "requested_adversarial_review": {
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "transport": "native spawn_agent",
+      "provider": "OpenAI",
+      "independent_provider": false
+    },
+    "codex_workers": "inherit current model; record effective selection",
+    "claude": "sonnet alias, explicit --to-model sonnet; actual identity from evidence",
+    "gemini": "agy-bridge --group google --public-export; no automatic third-party fallback",
+    "excluded": [
+      "Copilot: no need for extra canary and quota renewal stale",
+      "Gemini legacy CLI: canonical bridge exists"
+    ],
+    "gemini_fallback": {
+      "authorized": "2026-09-12 latest user instruction",
+      "order": [
+        "gemini/agy group google",
+        "qwen via canonical configured route",
+        "deepseek via litellm-bridge"
+      ],
+      "scope": "public documentary review G1; effective provider recorded",
+      "no_silent_switch": true
+    }
+  },
+  "requirements": {
+    "site_hero": [
+      "U1",
+      "H1",
+      "E1",
+      "Q1"
+    ],
+    "ai_transparency": [
+      "U1",
+      "H1",
+      "E1",
+      "R1"
+    ],
+    "casen_shared_site": [
+      "D1",
+      "D2",
+      "E1",
+      "R1"
+    ],
+    "python_figures": [
+      "V0",
+      "V1",
+      "E1",
+      "Q1"
+    ],
+    "parallelism": [
+      "P0",
+      "D1",
+      "U1",
+      "H1",
+      "V0",
+      "G1",
+      "D2",
+      "V1",
+      "E1",
+      "R1",
+      "Q1"
+    ]
+  },
+  "interfaces": {
+    "casen_schema_version": 1,
+    "casen_fields": [
+      "scope",
+      "territory_code",
+      "territory_name",
+      "unit",
+      "denominator_definition",
+      "weight",
+      "n_households",
+      "n_valid",
+      "n_missing",
+      "n_flagged",
+      "weighted_denominator",
+      "estimate",
+      "se",
+      "ci_low",
+      "ci_high",
+      "ci_status",
+      "n_psu",
+      "n_strata",
+      "design_df",
+      "selection_note"
+    ],
+    "unit": "household",
+    "communal_ci": "null; nonrepresentative descriptive",
+    "r2": "algebra only, hypothetical dwelling-share parameter; no plug-in household rate",
+    "ai_levels": [
+      "no_ai",
+      "some_ai",
+      "fully_autonomous",
+      "not_disclosed"
+    ],
+    "historical_default": "some_ai by user declaration",
+    "future_missing_default": "not_disclosed",
+    "source_paths_public": false,
+    "ai_article_scope": "Global author declaration; component history separate, unknown allowed."
+  },
+  "phases": [
+    {
+      "id": "F0",
+      "tasks": [
+        "P0"
+      ],
+      "objective": "freeze baseline",
+      "entry": "planning complete",
+      "exit": "source and ownership manifest frozen",
+      "inputs": [
+        "Git source trees",
+        "original source and aggregate hashes"
+      ],
+      "outputs": [
+        "baseline.json",
+        "inventory.json"
+      ],
+      "invariants": [
+        "global hard constraints apply",
+        "one writer per path among concurrently active tasks",
+        "evidence stays bound to frozen inputs",
+        "no external publication"
+      ],
+      "falsification": "Any mandatory task rejection, stale digest, changed source data or unordered shared writer blocks phase exit.",
+      "rollback": "Revert only owned unpublished phase changes after diff inspection; retain evidence and unrelated work."
+    },
+    {
+      "id": "F1",
+      "tasks": [
+        "D1",
+        "U1",
+        "H1",
+        "V0",
+        "G1"
+      ],
+      "objective": "parallel bounded production",
+      "entry": "P0 pass",
+      "exit": "Mandatory D1/U1/H1/V0 accepted; G1 optional status recorded.",
+      "inputs": [
+        "CASEN RData and communal DTA read-only",
+        "official codebook/questionnaire",
+        "Julia Taylor function read-only",
+        "existing hero include/CSS",
+        "canonical visual catalogs",
+        "approved taxonomy",
+        "teasers and dedicated heroes",
+        "existing visual catalogs",
+        "sanitized public brief",
+        "official CASEN questionnaire and use-note",
+        "public Forem schema and visualization documentation",
+        "frozen fiscal aggregates",
+        "existing chart theme tokens"
+      ],
+      "outputs": [
+        "casen_shared_site/estimates.parquet",
+        "casen_shared_site/estimates.csv",
+        "casen_shared_site/estimates.json",
+        "casen_shared_site/audit.json",
+        "casen_shared_site/provenance.json",
+        "Shared responsive hero",
+        "article disclosure component",
+        "bilingual policy",
+        "offline DEV mapping",
+        "per-topic selected hero variants",
+        "visual manifest provenance and image hashes",
+        "source-level counterexamples with URLs/pages",
+        "actual bridge result/status",
+        "ES/EN light/dark main gap SVG PNG",
+        "reusable Matplotlib style"
+      ],
+      "invariants": [
+        "global hard constraints apply",
+        "one writer per path among concurrently active tasks",
+        "evidence stays bound to frozen inputs",
+        "no external publication"
+      ],
+      "falsification": "Any mandatory task rejection, stale digest, changed source data or unordered shared writer blocks phase exit.",
+      "rollback": "Revert only owned unpublished phase changes after diff inspection; retain evidence and unrelated work."
+    },
+    {
+      "id": "F2",
+      "tasks": [
+        "D2",
+        "V1",
+        "E1"
+      ],
+      "objective": "figures and single-writer integration",
+      "entry": "D1 permits D2; accepted D2 and V0 permit V1; E1 waits all mandatory deliverables.",
+      "exit": "candidate frozen",
+      "inputs": [
+        "frozen D1 data/code/fixture digest",
+        "official CASEN citations",
+        "frozen fiscal aggregates",
+        "D1 approved aggregate outputs",
+        "existing chart theme tokens",
+        "D/U/H/V deliverables",
+        "optional G1 critique"
+      ],
+      "outputs": [
+        "science-review.md",
+        "science-findings.json",
+        "ES/EN light/dark SVG PNG chart set",
+        "chart data table and provenance",
+        "all historical front matter migrated",
+        "Avalúos II ES/EN revised",
+        "first CASEN post ES/EN corrected",
+        "offline social disclosure templates"
+      ],
+      "invariants": [
+        "global hard constraints apply",
+        "one writer per path among concurrently active tasks",
+        "evidence stays bound to frozen inputs",
+        "no external publication"
+      ],
+      "falsification": "Any mandatory task rejection, stale digest, changed source data or unordered shared writer blocks phase exit.",
+      "rollback": "Revert only owned unpublished phase changes after diff inspection; retain evidence and unrelated work."
+    },
+    {
+      "id": "F3",
+      "tasks": [
+        "R1",
+        "Q1"
+      ],
+      "objective": "cross-provider review then release checks",
+      "entry": "frozen E1",
+      "exit": "all required acceptance passes and local commits only",
+      "inputs": [
+        "frozen diff hashes",
+        "aggregate artifacts and citations",
+        "browser evidence",
+        "negative test receipts",
+        "approved frozen reviews",
+        "all integrated source changes"
+      ],
+      "outputs": [
+        "findings.json",
+        "review.md",
+        "acceptance.json",
+        "local commit SHA list",
+        "working tree residual inventory"
+      ],
+      "invariants": [
+        "global hard constraints apply",
+        "one writer per path among concurrently active tasks",
+        "evidence stays bound to frozen inputs",
+        "no external publication"
+      ],
+      "falsification": "Any mandatory task rejection, stale digest, changed source data or unordered shared writer blocks phase exit.",
+      "rollback": "Revert only owned unpublished phase changes after diff inspection; retain evidence and unrelated work."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "P0",
+      "owner": "root",
+      "provider": "OpenAI",
+      "role": "integrator",
+      "depends_on": [],
+      "skills": [
+        "3cucharadas-site",
+        "recall-context",
+        "quota-guard"
+      ],
+      "write_scope": [
+        "docs/plans/20260912-heroes-casen/evidence/**"
+      ],
+      "inputs": [
+        "Git source trees",
+        "original source and aggregate hashes"
+      ],
+      "outputs": [
+        "baseline.json",
+        "inventory.json"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-P0",
+          "command": "git status --porcelain=v1",
+          "cwd": "each_repo",
+          "expected": "Snapshot all dirty paths; baseline distinguishes this planning package from unrelated work; record HEAD and file hashes.",
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Congelar inventario por ref/lang, imágenes, HEAD y hashes de agregados y fuentes. Verificar AGENTS locales, permisos, espacio y ejecutables ya instalados. No montar fuentes ni instalar nada por inferencia. No cambiar ramas o borrar trabajo ajeno. El baseline de 20 posts/10 pares es observación al 12-09-2026, no constante universal.",
+      "status": "verified",
+      "evidence": "evidence/receipts/P0.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Snapshot all dirty paths; baseline distinguishes this planning package from unrelated work; record HEAD and file hashes."
+    },
+    {
+      "id": "D1",
+      "owner": "data_worker",
+      "provider": "OpenAI",
+      "role": "implementer",
+      "depends_on": [
+        "P0"
+      ],
+      "skills": [
+        "data-science-rsh",
+        "estadistica",
+        "codigo-multilenguaje",
+        "julia-dev",
+        "chile-contexto"
+      ],
+      "write_scope": [
+        "@analysis/v5_brecha/scripts/casen_shared_site.py",
+        "@analysis/v5_brecha/src/casen_shared_site/**",
+        "@analysis/v5_brecha/tests/test_casen_shared_site.py",
+        "@analysis/v5_brecha/artifacts/casen_shared_site/**",
+        "@analysis/v5_brecha/docs/casen-shared-site-method.md"
+      ],
+      "inputs": [
+        "CASEN RData and communal DTA read-only",
+        "official codebook/questionnaire",
+        "Julia Taylor function read-only"
+      ],
+      "outputs": [
+        "casen_shared_site/estimates.parquet",
+        "casen_shared_site/estimates.csv",
+        "casen_shared_site/estimates.json",
+        "casen_shared_site/audit.json",
+        "casen_shared_site/provenance.json"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-D1",
+          "command": "/opt/entornos/mamba312/bin/python -m unittest discover -s v5_brecha/tests -p test_casen_shared_site.py -v",
+          "cwd": "analysis_repo",
+          "expected": "Observed failing fixtures and green recovery; source counts/join/unit/missingness/domain/Taylor verified.",
+          "implementation_required": true,
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Nuevo entrypoint separado; no ejecutar prepare_sources global. Medida primaria p_h: hogares cuyo jefe declara v9 3/4 dividido por TODOS hogares con v9 válida; expr nacional/16 regiones, expc comunal solo descriptivo. Auditar una jefatura por folio, positivos y missing codes del codebook. No v28 global: singleton household dwelling usa único hogar, multihogar exige principal único; esto es diagnóstico auxiliar, no peso oficial vivienda. Preservar todos PSU por dominio. Port Python Taylor con fixture manual independiente y paridad Julia solo en casos >=2 PSU/estrato; singleton sin política oficial => CI null, not_estimable_singleton, nPSU/nstrata/df visibles. Intervalos normales 1.959963985, aproximados, limitados a [0,1]; p en borde/varianza degenerada => intervalo no concluyente, no falso 0 exacto. Contrastar composición urbano/rural y excluir/reponer missing v9 con cotas. r2 solo fórmula de escenario p hipotético de viviendas, no aplicar p_h ni ajustar brecha. Comunas completo agregado sin ranking; Valpo/Viña seleccionadas después de exploración previa, no confirmatorias. No publicar filas de personas/hogares/identificadores ni rutas privadas. Fuente externa Julia/CASEN se lee, nunca se edita.",
+      "status": "verified",
+      "evidence": "evidence/receipts/D1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Observed failing fixtures and green recovery; source counts/join/unit/missingness/domain/Taylor verified."
+    },
+    {
+      "id": "U1",
+      "owner": "site_worker",
+      "provider": "OpenAI",
+      "role": "implementer",
+      "depends_on": [
+        "P0"
+      ],
+      "skills": [
+        "3cucharadas-site",
+        "jekyll-post",
+        "codigo-multilenguaje",
+        "agent-browser"
+      ],
+      "write_scope": [
+        "_includes/page__hero.html",
+        "_includes/head/custom.html",
+        "_includes/ai-disclosure.html",
+        "_layouts/single.html",
+        "assets/css/main.scss",
+        "_pages/ai-transparency*.md",
+        "scripts/jekyll_to_devto.rb",
+        "scripts/syndicate_devto.rb",
+        "scripts/verify_visual_assets.rb",
+        "scripts/verify_hero_disclosure.rb",
+        "scripts/lib/ai_disclosure.rb",
+        "tests/test_ai_disclosure.rb",
+        "tests/test_jekyll_to_devto.rb",
+        "_includes/ai-provenance-list.html"
+      ],
+      "inputs": [
+        "existing hero include/CSS",
+        "canonical visual catalogs",
+        "approved taxonomy"
+      ],
+      "outputs": [
+        "Shared responsive hero",
+        "article disclosure component",
+        "bilingual policy",
+        "offline DEV mapping"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-U1",
+          "command": "ruby tests/test_ai_disclosure.rb",
+          "cwd": "blog_repo",
+          "expected": "All four levels, absent versus explicit declaration, contradiction and bad links fail appropriately; no forced some_ai for future undeclared posts.",
+          "implementation_required": true,
+          "kind": "shell"
+        },
+        {
+          "id": "AC-U2",
+          "command": "ruby tests/test_jekyll_to_devto.rb",
+          "cwd": "blog_repo",
+          "expected": "Canonical level maps to DEV; legacy conflict is explicit; offline no remote writes.",
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Implementar renderer compartido y schema, sin editar _posts ni catálogos. ai_disclosure.level refleja declaración global del artículo, sin atribuir por sí solo asistencia al texto; components.hero puede ser generated/human/unknown, components.text assisted/human/generated/unknown; no declarar revisión humana o herramienta sin evidencia. Todos históricos some_ai por declaración usuario se aplican en E1; futuros sin campo not_disclosed, no default some_ai. Canonical campo vence legacy solo si iguales; conflicto invalida migración. Hero conocido IA caption Hecho con IA + detalles; origen desconocido mantiene atribución desconocida sin afirmación falsa. Mantener marco visual Avalúos II: título único sobre overlay sin duplicar h1 ni cambiar permalink/date. Contraste mínimo 4.5 normal/3 grande y foco visible. Preload solo imagen efectiva hero presente, no thumbnails/ocultas extra; sin markup JS pesado para esta función. Si requiere otro archivo compartido enviar propuesta a root, no editar fuera scope. Overlay debe usar picture/img decorativo aria-hidden para descargar candidato responsive real sin doble carga; focal point/gradient sobre mismo contenedor, título único. Si ilustración informativa, descripción accesible enlazada en ficha. Añadir hero móvil 800x450 <=100000bytes además de teaser640; U1 cablea srcset/sizes, H1 produce manifest. Preload imagesrcset/imagesizes idénticos al recurso efectivo.",
+      "status": "verified",
+      "evidence": "evidence/receipts/U1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "All four levels, absent versus explicit declaration, contradiction and bad links fail appropriately; no forced some_ai for future undeclared posts. Canonical level maps to DEV; legacy conflict is explicit; offline no remote writes."
+    },
+    {
+      "id": "H1",
+      "owner": "root_imagegen",
+      "provider": "OpenAI",
+      "role": "image_operator",
+      "depends_on": [
+        "P0",
+        "U1"
+      ],
+      "skills": [
+        "imagegen",
+        "3cucharadas-site"
+      ],
+      "write_scope": [
+        "assets/images/heroes-v2/**",
+        "_data/visuales/*.yml",
+        "scripts/build_editorial_image_variants.py",
+        "docs/plans/20260912-heroes-casen/evidence/images/**",
+        "_posts/*.md (frontmatter only; root single writer)",
+        "_includes/archive-single.html"
+      ],
+      "inputs": [
+        "teasers and dedicated heroes",
+        "existing visual catalogs"
+      ],
+      "outputs": [
+        "per-topic selected hero variants",
+        "visual manifest provenance and image hashes",
+        "Mechanical hero/disclosure frontmatter migration; titles/dates/routes preserved"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-H1",
+          "command": "ruby scripts/verify_visual_assets.rb --strict",
+          "cwd": "blog_repo",
+          "expected": "Inventory-complete manifests; formats/dimensions/paths/weight checks; image visual gate recorded per topic.",
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Root usa image_gen integrado tras leer skill e inspeccionar referencias. No API pagada/CLI alternativo automático. Reusar imagen hero buena aunque herramienta exacta desconocida: provenance.status unknown documentado, no generarla para fabricar trazabilidad. Generar por deficiencia visual/familia desde teaser, una solicitud por tema y máximo una corrección dirigida; si aún falla estado partial y continuar otros temas. No 20 generaciones: una por par. Derivados deterministas explícitamente autorizados de resize/crop/encode, referencia 1600x900 1280x720 640x360 1200x630; origen inmutable y copia versionada, no borrar antiguos. Derivaciones .py solo tamaño/codificación, composición por ImageGen. Tope bytes 250000/180000/70000/180000 respectivamente; no sacrificar legibilidad para pasar peso. Origen local en evidencia excluida, catálogo público solo proveedor/tool conocida, hash, fuente de declaración. No contenido factual sintético ni números/mapa real. _posts exclusivo E1. Generar también hero responsive 800x450 <=100000bytes; roles diferenciados hero_mobile vs teaser para no usar crop de tarjeta como hero. La transparencia admite unknown sin obligar recreación y sin caption 'Hecho con IA' cuando ese origen no se conoce. Producción inicia tras P0; aceptación final AC-H1 espera U1 terminado para no correr un verificador en edición. Root recopila resultado cuando versión U1 queda congelada.",
+      "status": "verified",
+      "evidence": "evidence/receipts/H1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Inventory-complete manifests; formats/dimensions/paths/weight checks; image visual gate recorded per topic.",
+      "acceptance_depends_on": [
+        "U1"
+      ]
+    },
+    {
+      "id": "G1",
+      "owner": "gemini_research",
+      "provider": "Google",
+      "role": "optional_validator",
+      "depends_on": [
+        "P0"
+      ],
+      "skills": [
+        "investigacion-bibliografia",
+        "auditoria-critica",
+        "chile-contexto"
+      ],
+      "write_scope": [
+        "docs/plans/20260912-heroes-casen/evidence/gemini/**"
+      ],
+      "inputs": [
+        "sanitized public brief",
+        "official CASEN questionnaire and use-note",
+        "public Forem schema and visualization documentation"
+      ],
+      "outputs": [
+        "source-level counterexamples with URLs/pages",
+        "actual bridge result/status"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-G1",
+          "cwd": "penta_repo",
+          "expected": "Confirm provider group google and effective model evidence; blocked/not_run is explicit, never counts as review.",
+          "kind": "manual_review",
+          "method": "read bridge result.md and status.json",
+          "required_artifact_fields": [
+            "task_id",
+            "source_digest",
+            "reviewer",
+            "provider",
+            "requested_model",
+            "effective_identity_evidence",
+            "findings",
+            "limitations"
+          ],
+          "digest_check": {
+            "algorithm": "sha256",
+            "compare": "source_digest against current frozen source manifest",
+            "mismatch": "reject review as stale"
+          }
+        }
+      ],
+      "instructions": "Solo segundo contraste documental; fuera del camino crítico. Enviar exclusivamente texto público sin rutas internas ni microdatos por agy-bridge --group google --public-export --mode review. No auto group (puede cambiar a Anthropic). No acceso directo al repo; root importa resultado sanitizado a evidence. Prompt solicita AGY_RESULT y MODEL-REPORT diferenciando self_report de transporte. Si unavailable continuar D/U/H; registrar deuda, sin fingir revisión ni cambiar a otro proveedor silenciosamente.",
+      "status": "partial",
+      "evidence": null,
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Confirm provider group google and effective model evidence; blocked/not_run is explicit, never counts as review.",
+      "optional": true
+    },
+    {
+      "id": "V0",
+      "owner": "figure_worker",
+      "provider": "OpenAI",
+      "role": "implementer",
+      "depends_on": [
+        "P0"
+      ],
+      "skills": [
+        "data-science-rsh",
+        "codigo-multilenguaje",
+        "estadistica",
+        "agent-browser"
+      ],
+      "write_scope": [
+        "scripts/catastro_sii/project_fiscal_gap.py",
+        "scripts/catastro_sii/modeled_fiscal_projection.py",
+        "scripts/catastro_sii/editorial_style.py",
+        "scripts/catastro_sii/render_gap_figures.py",
+        "assets/images/avaluos-ii/gap-top15-*",
+        "assets/images/avaluos-ii/modeled-*",
+        "tests/catastro_sii/test_editorial_figures.py",
+        "assets/images/avaluos-ii/monetary-top15-*"
+      ],
+      "inputs": [
+        "frozen fiscal aggregates",
+        "existing chart theme tokens"
+      ],
+      "outputs": [
+        "ES/EN light/dark main gap SVG PNG",
+        "reusable Matplotlib style"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-V0",
+          "command": "/opt/entornos/mamba312/bin/python -m unittest discover -s tests/catastro_sii -p test_editorial_figures.py -v",
+          "cwd": "blog_repo",
+          "expected": "Validate against source rows not drawing functions; invalid nested values fixture fails; unchanged source aggregate hashes.",
+          "implementation_required": true,
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Preparar renderer principal y estilo leyendo snapshot fiscal; no depende de CASEN. Separar render de projection global; nuevos renderers leen datos y escriben solo figuras. No importar entrypoints con side effects. Matplotlib estilo reutilizable, tipografía self-hosted existente sin nueva licencia; colores de chart-theme con contraste comprobado. Brecha como pistas anidadas escenarios, no casos identificados; cero y faltantes conservados y diferencias firmadas no truncadas fuera regla actual. CASEN todas regiones+nacional; comunas Valpo/Viña en panel aparte sin IC ni ranking con n/missing. Texto fuente SVG preservado no implica accesibilidad al embeber img: publicar tabla HTML vía E1 y descarga SVG. Para móvil figura simplificada legible o contenedor zoom/scroll explícito, no encoger 15 etiquetas a 390px. Reproducibilidad de PNG/SVG solo entorno fijado; ImageGen no determinista se archiva con hash. Puede preparar plantilla con snapshot antes de D1, pero la aceptación V1 exige D1 y no usa cifras CASEN preliminares como golden.",
+      "status": "verified",
+      "evidence": "evidence/receipts/V0.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Validate against source rows not drawing functions; invalid nested values fixture fails; unchanged source aggregate hashes."
+    },
+    {
+      "id": "D2",
+      "owner": "claude_reviewer",
+      "provider": "Anthropic",
+      "role": "independent_provider_reviewer",
+      "depends_on": [
+        "D1"
+      ],
+      "skills": [
+        "auditoria-critica",
+        "estadistica",
+        "jekyll-post",
+        "agent-browser"
+      ],
+      "write_scope": [
+        "docs/plans/20260912-heroes-casen/evidence/claude-science/**"
+      ],
+      "inputs": [
+        "frozen D1 data/code/fixture digest",
+        "official CASEN citations"
+      ],
+      "outputs": [
+        "science-review.md",
+        "science-findings.json"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-D2",
+          "cwd": "blog_repo",
+          "expected": "P0/P1 closed with evidence or closure blocked; P2 remains visible; model provenance distinguishes request/transport/self-report.",
+          "kind": "manual_review",
+          "method": "read review findings against frozen artifact digest",
+          "required_artifact_fields": [
+            "task_id",
+            "source_digest",
+            "reviewer",
+            "provider",
+            "requested_model",
+            "effective_identity_evidence",
+            "findings",
+            "limitations"
+          ],
+          "digest_check": {
+            "algorithm": "sha256",
+            "compare": "source_digest against current frozen source manifest",
+            "mismatch": "reject review as stale"
+          }
+        }
+      ],
+      "instructions": "Primera revisión científica Claude sonnet: estimando hogar, denominador, factores, missingness, dominio, IC y falsación manual. No UI ni texto que todavía no existe. Claude sonnet via canonical handoff script with --to-model sonnet, no implicit opus. Sesión read-only, no modificar producto ni datos. Root le da packet sanitizado (relative paths/public source, aggregate tables, no raw records, auth or personal config). Reviewer verifica independencia Anthropic real y resultados, no consenso. Priorizar unidad, expr/expc, singletons, r2, tax claims, imagen no factual, schema compat, responsive. Si bridge no impone sandbox leer restricciones: diffs exportados en directorio aislado, no dar repo canonical writable. Si no hay Claude disponible, continuar QA pero revisión cruzada pending bloquea cierre científico; no sustituirla por otro subagente OpenAI.",
+      "status": "verified",
+      "evidence": "evidence/receipts/D2.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "P0/P1 closed with evidence or closure blocked; P2 remains visible; model provenance distinguishes request/transport/self-report."
+    },
+    {
+      "id": "V1",
+      "owner": "figure_worker",
+      "provider": "OpenAI",
+      "role": "implementer",
+      "depends_on": [
+        "D2",
+        "V0"
+      ],
+      "skills": [
+        "data-science-rsh",
+        "codigo-multilenguaje",
+        "estadistica",
+        "agent-browser"
+      ],
+      "write_scope": [
+        "scripts/catastro_sii/render_casen_shared_site.py",
+        "assets/images/avaluos-ii/casen-shared-site-*",
+        "tests/catastro_sii/test_casen_shared_site_figure.py"
+      ],
+      "inputs": [
+        "frozen fiscal aggregates",
+        "D1 approved aggregate outputs",
+        "existing chart theme tokens"
+      ],
+      "outputs": [
+        "ES/EN light/dark SVG PNG chart set",
+        "chart data table and provenance"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-V1",
+          "command": "/opt/entornos/mamba312/bin/python -m unittest discover -s tests/catastro_sii -p test_casen_shared_site_figure.py -v",
+          "cwd": "blog_repo",
+          "expected": "Validate against source rows not drawing functions; invalid nested values fixture fails; unchanged source aggregate hashes.",
+          "implementation_required": true,
+          "kind": "shell"
+        }
+      ],
+      "instructions": "Continuación del figure_worker después de V0 y revisión D2. Solo figura CASEN y su test; el estilo común ya existe, cambios adicionales se proponen al root. Nacional+16 regiones; Valpo/Viña panel exploratorio. Tabla HTML la integra E1. Null no es cero; IC singletons ausente marcado. No ImageGen, no hashes impuestos de cifras preliminares.",
+      "status": "verified",
+      "evidence": "evidence/receipts/V1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Validate against source rows not drawing functions; invalid nested values fixture fails; unchanged source aggregate hashes."
+    },
+    {
+      "id": "E1",
+      "owner": "root",
+      "provider": "OpenAI",
+      "role": "editorial_integrator",
+      "depends_on": [
+        "D1",
+        "U1",
+        "H1",
+        "V1"
+      ],
+      "skills": [
+        "jekyll-post",
+        "estadistica",
+        "auditoria-critica",
+        "chile-contexto",
+        "publicacion-externa"
+      ],
+      "write_scope": [
+        "_posts/*.md",
+        "catastro_sii_brecha/data/casen-shared-site/**",
+        "_includes/casen-shared-site-table.html",
+        "docs/plans/20260912-heroes-casen/evidence/editorial/**",
+        "docs/distribution/ai-disclosure/**",
+        "scripts/catastro_sii/project_casen_shared_site.py",
+        "_data/visuales/avaluos-ii.yml (new analytical figure metadata; root only)"
+      ],
+      "inputs": [
+        "D/U/H/V deliverables",
+        "optional G1 critique"
+      ],
+      "outputs": [
+        "all historical front matter migrated",
+        "Avalúos II ES/EN revised",
+        "first CASEN post ES/EN corrected",
+        "offline social disclosure templates"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-E0",
+          "kind": "shell",
+          "command": "bundle exec jekyll build --disable-disk-cache --destination _site",
+          "cwd": "blog_repo",
+          "env": {
+            "JEKYLL_ENV": "production"
+          },
+          "expected": "Fresh artifact built from frozen candidate source digest; bind build receipt to source manifest before AC-E1 and R1."
+        },
+        {
+          "id": "AC-E1",
+          "command": "ruby scripts/verify_hero_disclosure.rb _site",
+          "cwd": "blog_repo",
+          "expected": "All inventoried posts have valid hero/disclosure, one h1, canonical/hreflang, dates/permalinks unchanged; no household p labeled dwellings/site.",
+          "implementation_required": true,
+          "kind": "shell"
+        },
+        {
+          "id": "AC-E2",
+          "command": "ruby scripts/syndicate_devto.rb --dry-run",
+          "cwd": "blog_repo",
+          "expected": "No network writes; not a proof of remote state.",
+          "kind": "shell"
+        },
+        {
+          "id": "AC-E3",
+          "kind": "shell",
+          "command": "python3 scripts/catastro_sii/project_casen_shared_site.py --source-dir ../catastros_sii/v5_brecha/artifacts/casen_shared_site --expected-sha256 b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+          "cwd": "blog_repo",
+          "expected": "Publish aggregate-only data and equivalent ES/EN HTML tables from reviewed CASEN digest. Wrong digest must fail before writing; 17 national/regional rows and two exploratory cases, no commune CI."
+        }
+      ],
+      "instructions": "Único escritor _posts incluye front matter y cuerpos. Mantener 3 cucharadas y convención de títulos. Cambiar label p a hogares sitio propio compartido; cifras previas exploratorias de otra unidad quedan superseded, no copiarlas. R2 solo anexo matemático ejemplo hipotético sin aplicar a fiscal. No correlación cero como descarte causal. Fuentes/fecha encuesta vs SII, campamento no exención, rol agrícola/copropiedad/catastral matriz explicaciones alternativas. Primer post CASEN aclarar expc no representativo. IA article nivel some_ai todos históricos por usuario; no atribuir hero a AI sin evidencia. Recuadro Python columnar/geomática incluye R extracción/Julia referencia si usados, no ejecución HPC inexistente. Migrar catálogo existente additive sin duplicar verdad. Redes solo export local y plantillas, jamás syndicate sin dry-run. No cambiar fechas por esta revisión. Cambios parciales preparados por agentes nunca se aplican por orden llegada. Root migra metadata todos históricos de forma consistente; components.text=unknown salvo declaración específica o texto efectivamente asistido en revisión, hero según manifest. Búsqueda Censo es resultado negativo acotado a microdatos/diccionarios examinados, no imposibilidad institucional. Antes de AC-E1 producir build fresco JEKYLL_ENV=production, guardar manifest SHA256 de fuentes incluidas/código/artefacto y recibo de build. R1 recibe ese candidato exacto, nunca _site de corrida previa.",
+      "status": "verified",
+      "evidence": "evidence/receipts/E1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "All inventoried posts have valid hero/disclosure, one h1, canonical/hreflang, dates/permalinks unchanged; no household p labeled dwellings/site. No network writes; not a proof of remote state."
+    },
+    {
+      "id": "R1",
+      "owner": "claude_reviewer",
+      "provider": "Anthropic",
+      "role": "independent_provider_reviewer",
+      "depends_on": [
+        "D2",
+        "U1",
+        "H1",
+        "V1",
+        "E1"
+      ],
+      "skills": [
+        "auditoria-critica",
+        "estadistica",
+        "jekyll-post",
+        "agent-browser"
+      ],
+      "write_scope": [
+        "docs/plans/20260912-heroes-casen/evidence/claude/**"
+      ],
+      "inputs": [
+        "frozen diff hashes",
+        "aggregate artifacts and citations",
+        "browser evidence",
+        "negative test receipts"
+      ],
+      "outputs": [
+        "findings.json",
+        "review.md"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-R1",
+          "cwd": "blog_repo",
+          "expected": "P0/P1 closed with evidence or closure blocked; P2 remains visible; model provenance distinguishes request/transport/self-report.",
+          "kind": "manual_review",
+          "method": "read review findings against frozen artifact digest",
+          "required_artifact_fields": [
+            "task_id",
+            "source_digest",
+            "reviewer",
+            "provider",
+            "requested_model",
+            "effective_identity_evidence",
+            "findings",
+            "limitations"
+          ],
+          "digest_check": {
+            "algorithm": "sha256",
+            "compare": "source_digest against current frozen source manifest",
+            "mismatch": "reject review as stale"
+          }
+        }
+      ],
+      "instructions": "Claude sonnet via canonical handoff script with --to-model sonnet, no implicit opus. Sesión read-only, no modificar producto ni datos. Root le da packet sanitizado (relative paths/public source, aggregate tables, no raw records, auth or personal config). Reviewer verifica independencia Anthropic real y resultados, no consenso. Priorizar unidad, expr/expc, singletons, r2, tax claims, imagen no factual, schema compat, responsive. Si bridge no impone sandbox leer restricciones: diffs exportados en directorio aislado, no dar repo canonical writable. Si no hay Claude disponible, continuar QA pero revisión cruzada pending bloquea cierre científico; no sustituirla por otro subagente OpenAI. En revisión final consumir dictamen D2 ligado a hash, no recalcularlo sin cambio. Revisar aplicación fiel y UX, diferencias invalidan aceptación afectada.",
+      "status": "verified",
+      "evidence": "evidence/receipts/R1.json",
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "P0/P1 closed with evidence or closure blocked; P2 remains visible; model provenance distinguishes request/transport/self-report."
+    },
+    {
+      "id": "Q1",
+      "owner": "root",
+      "provider": "OpenAI",
+      "role": "release_integrator",
+      "depends_on": [
+        "R1"
+      ],
+      "skills": [
+        "3cucharadas-site",
+        "agent-browser",
+        "codigo-multilenguaje",
+        "handoff-protocol"
+      ],
+      "write_scope": [
+        "docs/plans/20260912-heroes-casen/evidence/closure/**",
+        "docs/plans/20260912-heroes-casen/contract.json",
+        "@analysis/v5_brecha/docs/casen-shared-site-method.md"
+      ],
+      "inputs": [
+        "approved frozen reviews",
+        "all integrated source changes"
+      ],
+      "outputs": [
+        "acceptance.json",
+        "local commit SHA list",
+        "working tree residual inventory"
+      ],
+      "acceptance": [
+        {
+          "id": "AC-Q1",
+          "command": "bundle exec jekyll build --disable-disk-cache --destination _site",
+          "cwd": "blog_repo",
+          "env": {
+            "JEKYLL_ENV": "production"
+          },
+          "expected": "Build pass; do not claim current public deployment.",
+          "kind": "shell",
+          "reuse_if": "AC-E0 successful and source/artifact digests unchanged since R1; rebuild and renew affected review if changed."
+        },
+        {
+          "id": "AC-Q2",
+          "command": "ruby scripts/verify_site_artifact.rb _site",
+          "cwd": "blog_repo",
+          "expected": "Pass; no hidden preexisting failure.",
+          "kind": "shell"
+        },
+        {
+          "id": "AC-Q3",
+          "command": "ruby scripts/verify_distribution_readiness.rb _site",
+          "cwd": "blog_repo",
+          "expected": "All bilingual post links/canonicals/OG valid.",
+          "kind": "shell"
+        },
+        {
+          "id": "AC-Q4",
+          "command": "npm run check:catastro",
+          "cwd": "blog_repo",
+          "expected": "Typecheck passes; tests catastro only if renderer/templates affect viewer.",
+          "kind": "shell"
+        },
+        {
+          "id": "AC-Q5",
+          "command": "/opt/entornos/mamba312/bin/python scripts/catastro_sii/verify_fiscal_gap.py",
+          "cwd": "blog_repo",
+          "expected": "Frozen fiscal/method invariants still valid; discovered error blocks closure rather than preserving it.",
+          "kind": "shell"
+        },
+        {
+          "id": "AC-Q6",
+          "kind": "shell",
+          "cwd": "blog_repo",
+          "command": "python3 docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py performance --directory docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright",
+          "expected": "Recompute medians and CLS from40raw observations; reject missing, duplicate, forged, stale or mismatched setup/source; candidate median<=2500ms and regression<=10% in all4groups; CLS<=.1. Collection exit0 is not acceptance."
+        },
+        {
+          "id": "AC-Q7",
+          "kind": "shell",
+          "cwd": "blog_repo",
+          "command": "python3 docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py ui --directory docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person",
+          "expected": "80unique current20post×2width×2theme cases plus8narrow/reflow cases; first-person p and direct policy links, no duplicatedbadge, no unresolved scoped accessibility; bind raw evidence files and actualcurrent source/build hashes."
+        }
+      ],
+      "instructions": "QA 20 posts x 2 widths x 2 themes=80 combinations plus archive/table/screenreader; 320px and zoom200% on longest-title cases. 5 paired cold/warm local runs baseline vs candidate same pages/setup, median LCP no >10% regression and <=2.5s under recorded setup, CLS<=.1; if baseline fails threshold do not hide. Criterios perceptuales review manual anchors, no '100% quality'. Observe negative fixtures and recovery for gates críticos before marks x. Commit analyst separately then blog site and analytical figure/editorial coherent commit; preserve bf1ff5ac and 93e3dba ancestry. Check author AND committer tatan. Inspect hooks before commit to avoid external notification; disable only sending hook for local authorized boundary, record. No push/merge/deploy/messages. Only root stages/commits. Rehash after edits; modifications invalidate affected review evidence. Clean scope not claim globally clean if unrelated dirty. Smoke tests D1 revisan oráculo manual además de Julia; no afirmar independencia por doble implementación. Tabla por región muestra IC ausente si no estimable. No oportunidad de dato=>unknown nunca cero. Git clean esperado por scope solamente.",
+      "status": "in_progress",
+      "evidence": null,
+      "rollback": "Revert only task-owned unpublished diff, preserving source data and unrelated edits; root resolves overlap.",
+      "falsification": "Build pass; do not claim current public deployment. Pass; no hidden preexisting failure. All bilingual post links/canonicals/OG valid. Typecheck passes; tests catastro only if renderer/templates affect viewer. Frozen fiscal/method invariants still valid; discovered error blocks closure rather than preserving it."
+    }
+  ],
+  "emergent_policy": {
+    "incidental": "exclude and report",
+    "necessary_in_scope": "root adds task with owner/input/output/gate, no invisible scope drift",
+    "material": "hold affected branch for native user decision; continue independent tasks",
+    "scientific_baseline_error": "record incident and block scientific closure; unchanged-number rule never preserves a known error",
+    "provider_failure": "capture failure once and retry only if transport evidence suggests transient; no hidden provider substitution"
+  },
+  "todo_state": {
+    "P0": "[x]",
+    "D1": "[x]",
+    "U1": "[x]",
+    "H1": "[x]",
+    "G1": "[~]",
+    "V0": "[x]",
+    "D2": "[x]",
+    "V1": "[x]",
+    "E1": "[x]",
+    "R1": "[x]",
+    "Q1": "[~]"
+  },
+  "validation_notice": "Acceptance commands marked implementation_required name tests to create during implementation. This JSON is an execution contract, not a completed implementation or an automated scheduler.",
+  "review": {
+    "status": "completed",
+    "reviewer": "/root/astra_high_review",
+    "requested_model": "gpt-6-astra",
+    "requested_reasoning": "high",
+    "transport": "native spawn_agent with fork_turns=3",
+    "provider": "OpenAI",
+    "independent_provider": false,
+    "scope": "Read-only plan and targeted source review; no microdata recomputation/build/UI execution",
+    "verdict": "Original plan requires P1 corrections; corrected household indicator defensible pending execution",
+    "report": "adversarial-review.md",
+    "disposition": "All findings incorporated into plan; no implementation findings marked fixed.",
+    "second_pass": {
+      "status": "completed",
+      "scientific_corrections": "confirmed coherent",
+      "new_findings": [
+        "P1 fresh E1 build before R1",
+        "P2 H1 acceptance after U1 checker stabilized",
+        "P2 mark non-shell review acceptance explicitly"
+      ],
+      "resolution": "Contract patched; structural validation passed including 4 observed rejection controls. Product implementation remains pending."
+    }
+  },
+  "epistemic_correction": {
+    "old_casen_percentages": "unverified_for_revised_household_estimand; must recompute, never acceptance golden",
+    "correlation": "rho near zero only weakens monotonic ecological pattern; cannot discard causal mechanism",
+    "future_discrimination": "Outside this implementation: representative site-dwelling-role linkage estimating share of discrepancy attributable to co-location, prespecified material threshold and coverage."
+  },
+  "scheduling": {
+    "ready_queue_priority": [
+      "D1",
+      "U1",
+      "H1",
+      "V0",
+      "D2",
+      "V1",
+      "E1",
+      "R1",
+      "Q1",
+      "G1"
+    ],
+    "root_can_hold_image_lane": true,
+    "optional_gemini": "Only spare capacity; never delay D2/V1",
+    "notes": "With root doing H1, D1/U1/V0 fill 3 worker slots. D2 starts as soon as D1 done and a slot free; G1 uses spare capacity. At most 4 active agents across native and CLI jobs."
+  },
+  "validation_evidence": "plan-validation.json",
+  "execution_evidence_policy": {
+    "verified_task_requires": [
+      "receipt with commands/exit codes",
+      "artifact hashes",
+      "real negative/green evidence for substantive gates"
+    ],
+    "manual_requires": [
+      "source digest",
+      "provider identity evidence",
+      "findings and disposition"
+    ],
+    "todo_derived": true
+  },
+  "amendments": [
+    {
+      "id": "EXEC-01",
+      "reason": "Observed Polyglot disk-cache race ENOENT on initial build; disable-disk-cache recovery passed in12.348s; no config changes",
+      "evidence": "evidence/baseline-build.json"
+    },
+    {
+      "id": "EXEC-02",
+      "reason": "V0 same-style monetary figure is named monetary-top15, authorize exact actual filenames, no data changes"
+    },
+    {
+      "id": "EXEC-03",
+      "reason": "Observed V10 gate depends on migrated post image references: move mechanical frontmatter migration to H1 (same root owner), keeping scientific body integration in E1. Avoid circular H1 acceptance dependency on E1.",
+      "evidence": "evidence/checks/H1-visual-assets-recovery.json"
+    },
+    {
+      "id": "EXEC-04",
+      "reason": "Claude D2 P1 F1: R factor conversion can corrupt codes; reopen D1 and renew D2 after real R fixture/red-green and source class verification.",
+      "evidence": "evidence/claude-science/round1/science-findings.json"
+    },
+    {
+      "id": "EXEC-05",
+      "reason": "Browser audit found archive-single ignored explicit teaser_mobile outside legacy folder; connect declared mobile derivative, retain legacy fallback. Hero-only QA remains scoped to unchanged hero; final archive check must use rebuilt candidate."
+    },
+    {
+      "id": "EXEC-06",
+      "reason": "SVG text references Fira Sans without embedding; verify and close standalone/iPhone font portability using local subsets, preserving selectable text, determinism and source aggregates. Latent cross-platform risk, not an observed iPhone failure."
+    },
+    {
+      "id": "EXEC-07",
+      "reason": "Make CASEN public aggregate and bilingual table projection reproducible under an explicit reviewed-digest guard; add AC-E3. Only root integrates editorial output after V1."
+    },
+    {
+      "id": "EXEC-08",
+      "reason": "Observed false red: checker compared UTC source day to Chile rendered day. Compare explicit timestamps as instants; preserve date-only calendar semantics. Real regression fixture and recovery. SVG catalog omits unsupported dimensions, as existing SVG entries do.",
+      "evidence": "evidence/checks/U1-timezone-fixture-red.json"
+    },
+    {
+      "id": "EXEC-09",
+      "reason": "Explicit user steering: brief first-person ES/EN declaration, no prominent duplicated badge/details. Per-component detail and tool provenance move to bilingual policy with per-article anchors. Renew U1/H1/E1 and final UI/performance evidence.",
+      "authorization": "user latest message 2026-09-12"
+    },
+    {
+      "id": "EXEC-10",
+      "reason": "Make existing runtime requirements executable AC-Q6/Q7, recomputing raw records rather than trusting collection status/summary. No threshold relaxation. Synthetic assurance explicitly separated from empirical acceptance."
+    },
+    {
+      "id": "EXEC-11",
+      "reason": "The original agent-browser collector missed standard LCP even on a minimal static page. Diagnostic fast/late controls using Playwright and the same Chrome151 produced all expected standard LCP values, followed by 8/8 measurements on actual builds. Use the completed Playwright formal40 as the current measurement without changing thresholds, source or builds. All original red evidence is retained. Current formal result is RED: three relative regressions exceed10%.",
+      "evidence": [
+        "evidence/performance/presentation-diagnosis/receipt.json",
+        "evidence/performance/formal-playwright/receipt.json",
+        "evidence/checks/Q1-playwright-performance-red.json"
+      ]
+    },
+    {
+      "id": "EXEC-12",
+      "authorization": "User 2026-09-12: hagamos commit de lo pendiente; LinkedIn y X listos pero no enviados; documentar memorias y receta visual",
+      "reason": "Authorize a local checkpoint commit while AC-Q6 remains RED. This changes the prior sequencing of the commit only: no threshold relaxation, Q1 is not verified, no production or social publication authorized by this checkpoint. Add local LinkedIn/X package and reusable visual skill with a memory update."
+    }
+  ]
+}

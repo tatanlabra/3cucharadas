@@ -1,0 +1,27 @@
+[
+  {
+    "name": "missing",
+    "observed": "missing",
+    "expected": "missing"
+  },
+  {
+    "name": "regression",
+    "observed": "fail",
+    "expected": "fail"
+  },
+  {
+    "name": "absolute",
+    "observed": "fail",
+    "expected": "fail"
+  },
+  {
+    "name": "green",
+    "observed": "pass",
+    "expected": "pass"
+  },
+  {
+    "name": "cls-windows",
+    "observed": 0.11,
+    "expected": 0.11
+  }
+]

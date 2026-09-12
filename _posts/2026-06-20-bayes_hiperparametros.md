@@ -20,7 +20,20 @@ math: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-bayes-hiperparametros.webp
+  teaser: /assets/images/heroes-v2/bayes-hiperparametros/teaser-1280x720.webp
+  overlay_image: /assets/images/heroes-v2/bayes-hiperparametros/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/bayes-hiperparametros/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/bayes-hiperparametros/teaser-mobile-640x360.webp
+  og_image: /assets/images/heroes-v2/bayes-hiperparametros/og-1200x630.webp
+  og_image_alt: Paisaje de curvas abstractas como metáfora de la búsqueda de hiperparámetros.
+visual_id: bayes-hiperparametros
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 Imaginemos un modelo tabular con 10 valores de <span class="text-nowrap">learn_rate</span>, 8 de <span class="text-nowrap">max_depth</span>, 5 de <span class="text-nowrap">sample_rate</span> y 5 de <span class="text-nowrap">col_sample_rate</span>. Una grilla cartesiana entrenaría **2.000 modelos**. Con validación cruzada de 5 folds, la cuenta operativa sube a **10.000 ajustes internos**. En una máquina con RAM, VRAM o CPU acotadas, eso no es necesariamente más rigor: puede ser solo una forma cara de ignorar lo aprendido en las evaluaciones anteriores.

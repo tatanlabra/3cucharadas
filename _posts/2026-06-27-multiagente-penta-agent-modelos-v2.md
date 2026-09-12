@@ -19,7 +19,20 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-vscode.webp
+  teaser: /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp
+  overlay_image: /assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp
+  og_image: /assets/images/heroes-v2/multiagente-penta-agent-modelos/og-1200x630.webp
+  og_image_alt: Red geométrica de agentes conectados, como ilustración conceptual del trabajo coordinado.
+visual_id: multiagente-penta-agent-modelos
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 Esto empezó como una molestia práctica: tareas largas que se cortaban por cuota, conversaciones que quedaban demasiado cargadas y revisiones que exigían copiar contexto entre ventanas de forma incómoda e ineficiente. Para resolverlo armé un multiagente en VS Code, sobre Arch Linux, y llamé primero tri-agent y luego de un par de meses ya es `penta-agent`, una forma todavía imperfecta de coordinar agentes, roles, permisos y trazas dentro de mi flujo.

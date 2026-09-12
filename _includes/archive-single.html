@@ -11,7 +11,10 @@
 {% endif %}
 
 {% assign is_responsive_teaser = false %}
-{% if teaser contains '/assets/images/teasers/' and teaser contains '.webp' %}
+{% assign teaser_mobile = post.header.teaser_mobile %}
+{% if teaser_mobile %}
+  {% assign is_responsive_teaser = true %}
+{% elsif teaser contains '/assets/images/teasers/' and teaser contains '.webp' %}
   {% assign is_responsive_teaser = true %}
   {% assign teaser_filename = teaser | split: '/' | last %}
   {% assign teaser_stem = teaser_filename | remove: '.webp' %}
@@ -20,6 +23,7 @@
   {% else %}
     {% assign teaser_mobile_stem = teaser_stem | append: '-640' %}
   {% endif %}
+  {% assign teaser_mobile = '/assets/images/teasers/' | append: teaser_mobile_stem | append: '.webp' %}
 {% endif %}
 
 {% if include.is_lcp %}
@@ -33,7 +37,7 @@
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src="{{ teaser | relative_url }}"
-          {% if is_responsive_teaser %}srcset="{{ '/assets/images/teasers/' | append: teaser_mobile_stem | append: '.webp' | relative_url }} 640w, {{ teaser | relative_url }} 1280w" sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px"{% endif %}
+          {% if is_responsive_teaser %}srcset="{{ teaser_mobile | relative_url }} 640w, {{ teaser | relative_url }} 1280w" sizes="(max-width: 600px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 32px), 384px"{% endif %}
           alt="" loading="{{ image_loading }}" decoding="async" width="1280" height="720"{% if include.is_lcp %} fetchpriority="high"{% endif %}>
       </div>
     {% endif %}

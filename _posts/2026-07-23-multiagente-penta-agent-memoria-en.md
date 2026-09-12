@@ -22,9 +22,20 @@ author_profile: true
 math: true
 published: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-memoria.webp
-  og_image: /assets/images/teasers/teaser-multiagentes-memoria.webp
-  og_image_alt: "Illustration of auditable memory for a local multi-agent setup"
+  teaser: /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria/og-1200x630.webp
+  og_image_alt: A luminous archive connected to a spherical shared-memory network.
+  overlay_image: /assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp
+visual_id: multiagente-penta-agent-memoria
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 In the [first post]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) I described how I organized my local multi-agent setup, `penta-agent`: Codex executes, Claude reviews, other agents enter in bounded ways, and the human keeps closure authority. I also argued that operational memory should not depend on a single conversation or be confused with the vector index.

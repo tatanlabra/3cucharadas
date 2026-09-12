@@ -1,0 +1,14 @@
+{
+  "id": "U1-root-ai-tests",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_ai_disclosure.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T10:56:41.778654+00:00",
+  "seconds": 0.9859527919998072,
+  "exit_code": 0,
+  "log": "evidence/checks/U1-root-ai-tests.log",
+  "log_sha256": "f0744c0f2263a2c77ee4eaf18025d826638c702acfd3fc424d1f6cfeb7244cc8"
+}

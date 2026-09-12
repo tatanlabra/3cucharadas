@@ -1,0 +1,146 @@
+                                                                                           División Observatorio Social
+                                                                     Nota uso bases de datos Casen 2024 – enero 2026
+                                                            Encuesta de Caracterización Socioeconómica Nacional 2024
+
+La Encuesta Casen 2024 permite obtener estimaciones representativas para la variable de interés en
+cualquiera de estos tres dominios de representación antes indicados, para lo cual se debe utilizar el
+factor de expansión regional (expr). Al momento de generar estimaciones para otras variables y/o
+desagregaciones se recomienda evaluar su precisión según se indica en el Manual para la Investigación2.
+
+     2.1.           Factor de expansión regional
+
+En Casen 2024, el factor de expansión regional, calculado por el INE, incorpora la metodología de
+calibración a totales poblacionales denominada metodología de raking3, la cual permite reducir el sesgo
+asociado a errores no muestrales, provocados por la no respuesta y, además, mejorar la precisión de
+las estimaciones. La metodología de calibración aplicada a los factores de expansión de Casen 2024
+utiliza la información proveniente de las Proyecciones de Población, base Censo 2017, ajustadas a la
+población residente en viviendas particulares ocupadas según sexo y edad y para distintos niveles de
+desagregación4.
+
+El factor de expansión regional debe utilizarse para la obtención de resultados a nivel de personas,
+hogares y núcleos que buscan ser representativos a nivel nacional, regional y por área (urbana y rural).
+Al emplear dicho factor, los resultados expandidos permiten representar las características
+socioeconómicas de las personas, hogares y núcleos de la población sobre la cual la muestra busca ser
+representativa, en congruencia con la proyección de población del INE utilizada como referencia para
+el diseño muestral de la encuesta (base Censo 2017).
+
+Si bien, por diseño, la encuesta es representativa a los niveles nacional, regional y por área (urbano y
+rural), al momento de generar estimaciones se recomienda evaluar su precisión según se indica en el
+Manual para la Investigación.
+
+Los resultados que se obtengan a partir de la información de la Encuesta Casen 2024 sin haber aplicado
+el factor de expansión regional, no deben considerarse estadísticamente representativos de la
+población correspondiente y, en caso de incluirse en documentos de resultados, deben ser
+acompañados de una nota que señale explícitamente que se trata de resultados “muestrales”, “no
+ponderados” o “sin expansión”.
+
+     2.2.           Factores de expansión provincial y comunal
+
+La Encuesta Casen 2024 dispone de dos factores de expansión adicionales a nivel territorial5, dirigidos
+principalmente a personas investigadoras que busquen producir sus propias estimaciones a nivel
+provincial y comunal. Sin embargo, ambos factores deben ser utilizarlos con precaución en su análisis
+e interpretación, ya que el diseño de la encuesta no considera representatividad para dichos niveles,
+por lo que estimaciones directas de la encuesta pueden ser estadísticamente poco fiables o sesgadas.
+
+Los factores de expansión provincial y comunal, a diferencia del factor de expansión regional que utiliza
+el método de calibración por raking, mantienen la metodología de calibración utilizada en las versiones
+previas a Casen 2022, que emplea el método de calibración a totales poblacionales para los respectivos
+niveles territoriales.
+
+2 Para más detalle sobre la evaluación de precisión de las estimaciones, revisar el capítulo 4.6 Paso 6: Evaluación de la
+
+calidad y precisión de las estimaciones del Manual para la Investigación. Ver: Manual para la Investigación Casen 2022
+3 Para más detalles sobre esta metodología revisar: Nueva metodología calibración ENE, metodología raking (INE)
+4 Para más detalle de la metodología de calibración del factor de expansión, se puede revisar Documento Diseño Muestral
+
+Casen 2022, apartado VI. Diseño Factores de expansión publicado en el sitio web de Casen 2022, sección Metodologías:
+https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022
+5
+  Los factores de expansión de provincia y comuna de Casen 2024 se encuentran disponibles en la base de datos provincia y
+comuna.
+
+                                                                                                                            2
+                                                                                       División Observatorio Social
+                                                                 Nota uso bases de datos Casen 2024 – enero 2026
+                                                        Encuesta de Caracterización Socioeconómica Nacional 2024
+
+El ajuste de calibración realizado al factor de expansión “provincial” se obtiene como la razón entre el
+total de personas en este grupo poblacional, según las estimaciones demográficas del INE, y el total de
+personas residentes en viviendas particulares estimado para cada provincia a partir de la
+encuesta. Asimismo, el ajuste “comunal”, se obtiene como la razón entre el total de personas en la
+comuna, según las estimaciones demográficas del INE, y el total de personas residentes en viviendas
+particulares estimadas para cada comuna a partir de la encuesta.
+
+Considerando el diseño muestral de la encuesta Casen, sus niveles de representatividad y las
+limitaciones de precisión a nivel provincial y comunal, el Ministerio no recomienda la realización de
+estimaciones a nivel provincial y comunal, por lo que para la versión 2024 de la Encuesta Casen, el
+Ministerio presenta en la base de datos de Casen 2024 solo la información de región de la vivienda de
+la encuesta y el factor de expansión regional.
+
+Por otro lado, pone a disposición, con las precauciones mencionadas, una base de datos que contiene
+como información complementaria a la encuesta Casen 2024, las variables de provincia, comuna y los
+factores de expansión provincial y comunal, para ser utilizado con los resguardos ya mencionados.
+
+Finalmente, en caso de realizarse estimaciones a nivel provincial o comunal, se recomienda indicar
+explícitamente que no es posible asegurar la representatividad de los resultados obtenidos para dichos
+niveles de desagregación en base a la Tabla 1. Además de evaluar su calidad según los criterios antes
+señalados.
+
+                    Tabla 1: Uso de niveles territoriales y factor de expansión Casen 2024
+ Factor de                                                                                         Metodología
+                Nivel de estimación      Representatividad                Publicación
+ expansión                                                                                         Casen 2024
+                                       Sí, usando el factor de
+               Sí, Casen 2024 fue
+                                       expansión regional
+               diseñada
+                                       (expr), los resultados    Para publicar resultados se
+               considerando el
+                                       obtenidos tienen          debe evaluar la calidad y
+ Regional      territorio a nivel                                                               Metodología
+                                       representatividad a       precisión de las estimaciones
+ (expr)        nacional (región,                                                                raking
+                                       nivel nacional,           de acuerdo con lo sugerido por
+               área) para obtener
+                                       nacional urbano,          el INE6.
+               estimaciones
+                                       nacional rural y
+               confiables.
+                                       regional.
+               No, Casen no
+                                                                 No recomendable. En el caso
+               considera en su         No, usando factor de
+                                                                 de hacerse se debe indicar
+               diseño las provincias   expansión provincial                                      Metodología de
+ Provincial                                                      explícitamente que no son
+               como dominio para       (expp), los resultados                                    totales
+ (expp)                                                          resultados representativos y
+               obtener                 obtenidos no son                                          poblacionales
+                                                                 realizar análisis de calidad
+               estimaciones            representativos.
+                                                                 sugerido por el INE.
+               confiables.
+               No, Casen no
+                                                                 No recomendable. En el caso
+               considera en su         No, usando factor de
+                                                                 de hacerse se debe indicar
+               diseño las comunas      expansión comunal                                         Metodología de
+ Comunal                                                         explícitamente que no son
+               como dominio para       (expc), los resultados                                    totales
+ (expc)                                                          resultados representativos y
+               obtener                 obtenidos no son                                          poblacionales
+                                                                 realizar análisis de calidad
+               estimaciones            representativos.
+                                                                 sugerido por el INE.
+               confiables.
+                                            Fuente: elaboración propia MDSF
+
+
+
+6 Ver nota al pie N°2
+
+
+
+
+                                                                                                                  3
+

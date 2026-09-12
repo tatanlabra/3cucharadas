@@ -1,117 +1,224 @@
-# Catálogo manual de las piezas publicadas por el post AI Quota HUD.
 slug: ai-quota-hud
 ref: ai-quota-hud-kde
 posts:
-  - _posts/2026-07-15-ai-quota-hud-kde.md
-  - _posts/2026-07-15-ai-quota-hud-kde-en.md
-
+- _posts/2026-07-15-ai-quota-hud-kde-en.md
+- _posts/2026-07-15-ai-quota-hud-kde.md
 piezas:
-  - id: teaser
-    rol: teaser
-    archivo: assets/images/teasers/teaser-ai-quota-hud.webp
-    ancho: 1280
-    alto: 720
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "URL histórica ya servida; renombrarla rompería tarjetas y enlaces existentes."
-    alt: {es: "Indicadores circulares de cuota del panel AI Quota HUD."}
-  - id: og-popup
-    rol: og
-    archivo: assets/images/ai-quota-hud/popup-og-1200.webp
-    ancho: 1200
-    alto: 938
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "URL histórica ya servida; el manifiesto fija sus dimensiones reales."
-    alt: {es: "Vista detallada de AI Quota HUD con cinco indicadores de cuota."}
-  - id: barra
-    rol: figura
-    archivo: assets/images/ai-quota-hud/bar.png
-    ancho: 648
-    alto: 120
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "Captura referenciada por ambas versiones del post; no lleva texto, así que se comparte."
-    alt: {es: "Barra compacta de AI Quota HUD en KDE Plasma, con cinco indicadores circulares."}
-  - id: tooltip
-    rol: figura
-    archivo: assets/images/ai-quota-hud/tooltip.png
-    ancho: 1260
-    alto: 930
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "Captura histórica referenciada por ambas versiones del post."
-    alt: {es: "Visor emergente con las ventanas de cuota del agente señalado."}
-  - id: popup-video
-    rol: figura
-    archivo: assets/images/ai-quota-hud/popup-hidpi.png
-    ancho: 1920
-    alto: 1500
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "Poster histórico referenciado por el video y piezas de difusión."
-    alt: {es: "Poster del video demostrativo de AI Quota HUD."}
-  - id: og-popup-en
-    rol: og
-    archivo: assets/images/ai-quota-hud/popup-og-en-1200x938.webp
-    ancho: 1200
-    alto: 938
-    estado: publicable
-    origen: script
-    alt: {en: "AI Quota HUD detailed view with five quota donuts."}
-  - id: tooltip-en
-    rol: figura
-    archivo: assets/images/ai-quota-hud/tooltip-en-1260x930.png
-    ancho: 1260
-    alto: 930
-    estado: publicable
-    origen: script
-    alt: {en: "AI Quota HUD hover panel with the windows of the highlighted agent."}
-  - id: popup-en
-    rol: figura
-    archivo: assets/images/ai-quota-hud/popup-en-1920x1500.png
-    ancho: 1920
-    alto: 1500
-    estado: publicable
-    origen: script
-    alt: {en: "AI Quota HUD detailed view: five selectors and the windows of the selected agent."}
-  - id: teaser-movil
-    rol: teaser
-    archivo: assets/images/teasers/teaser-ai-quota-hud-640.webp
-    ancho: 640
-    alto: 360
-    estado: publicable
-    origen: script
-    nombre_legacy: true
-    motivo_nombre: "El tema deriva el sufijo -640 en _includes/archive-single.html y scripts/verify_site_artifact.rb lo exige literal en required_files."
-    alt: {es: "Barra compacta de AI Quota HUD con los cinco indicadores de cuota."}
-  - id: demo-video
-    rol: video
-    archivo: assets/videos/ai-quota-hud-demo-1472x1152.webm
-    estado: publicable
-    origen: script
-    poster: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
-    nota: "Sin ancho/alto declarados a proposito: image_dimensions() no lee cabeceras EBML, asi que declararlos produciria un aviso V2 de dimension no verificable, que en --strict reprueba. Las dimensiones reales (1472x1152) van en el nombre y en los atributos width/height del <video>."
-  - id: demo-poster
-    rol: figura
-    archivo: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
-    ancho: 1472
-    alto: 1152
-    estado: publicable
-    origen: script
-    alt: {es: "Vista detallada de AI Quota HUD con Antigravity seleccionado y sus dos cuotas semanales.", en: "AI Quota HUD detailed view with Antigravity selected and its two weekly quotas."}
-  - id: xkcd-303
-    rol: figura
-    archivo: assets/images/ai-quota-hud/xkcd-303-compiling.png
-    ancho: 413
-    alto: 360
-    estado: publicable
-    origen: manual
-    nombre_legacy: true
-    motivo_nombre: "Nombre de la obra conservado para mantener la atribución y la URL histórica."
-    alt: {es: "xkcd 303, Compiling, de Randall Munroe."}
+- id: teaser
+  rol: teaser
+  archivo: assets/images/teasers/teaser-ai-quota-hud.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: URL histórica ya servida; renombrarla rompería tarjetas y enlaces existentes.
+  alt:
+    es: Indicadores circulares de cuota del panel AI Quota HUD.
+- id: og-popup
+  rol: og
+  archivo: assets/images/ai-quota-hud/popup-og-1200.webp
+  ancho: 1200
+  alto: 938
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: URL histórica ya servida; el manifiesto fija sus dimensiones reales.
+  alt:
+    es: Vista detallada de AI Quota HUD con cinco indicadores de cuota.
+- id: barra
+  rol: figura
+  archivo: assets/images/ai-quota-hud/bar.png
+  ancho: 648
+  alto: 120
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: Captura referenciada por ambas versiones del post; no lleva texto, así que se comparte.
+  alt:
+    es: Barra compacta de AI Quota HUD en KDE Plasma, con cinco indicadores circulares.
+- id: tooltip
+  rol: figura
+  archivo: assets/images/ai-quota-hud/tooltip.png
+  ancho: 1260
+  alto: 930
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: Captura histórica referenciada por ambas versiones del post.
+  alt:
+    es: Visor emergente con las ventanas de cuota del agente señalado.
+- id: popup-video
+  rol: figura
+  archivo: assets/images/ai-quota-hud/popup-hidpi.png
+  ancho: 1920
+  alto: 1500
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: Poster histórico referenciado por el video y piezas de difusión.
+  alt:
+    es: Poster del video demostrativo de AI Quota HUD.
+- id: og-popup-en
+  rol: og
+  archivo: assets/images/ai-quota-hud/popup-og-en-1200x938.webp
+  ancho: 1200
+  alto: 938
+  estado: publicable
+  origen: script
+  alt:
+    en: AI Quota HUD detailed view with five quota donuts.
+- id: tooltip-en
+  rol: figura
+  archivo: assets/images/ai-quota-hud/tooltip-en-1260x930.png
+  ancho: 1260
+  alto: 930
+  estado: publicable
+  origen: script
+  alt:
+    en: AI Quota HUD hover panel with the windows of the highlighted agent.
+- id: popup-en
+  rol: figura
+  archivo: assets/images/ai-quota-hud/popup-en-1920x1500.png
+  ancho: 1920
+  alto: 1500
+  estado: publicable
+  origen: script
+  alt:
+    en: 'AI Quota HUD detailed view: five selectors and the windows of the selected agent.'
+- id: teaser-movil
+  rol: teaser
+  archivo: assets/images/teasers/teaser-ai-quota-hud-640.webp
+  ancho: 640
+  alto: 360
+  estado: publicable
+  origen: script
+  nombre_legacy: true
+  motivo_nombre: El tema deriva el sufijo -640 en _includes/archive-single.html y scripts/verify_site_artifact.rb
+    lo exige literal en required_files.
+  alt:
+    es: Barra compacta de AI Quota HUD con los cinco indicadores de cuota.
+- id: demo-video
+  rol: video
+  archivo: assets/videos/ai-quota-hud-demo-1472x1152.webm
+  estado: publicable
+  origen: script
+  poster: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
+  nota: 'Sin ancho/alto declarados a proposito: image_dimensions() no lee cabeceras EBML, asi que declararlos produciria
+    un aviso V2 de dimension no verificable, que en --strict reprueba. Las dimensiones reales (1472x1152) van en
+    el nombre y en los atributos width/height del <video>.'
+- id: demo-poster
+  rol: figura
+  archivo: assets/images/ai-quota-hud/demo-poster-1472x1152.webp
+  ancho: 1472
+  alto: 1152
+  estado: publicable
+  origen: script
+  alt:
+    es: Vista detallada de AI Quota HUD con Antigravity seleccionado y sus dos cuotas semanales.
+    en: AI Quota HUD detailed view with Antigravity selected and its two weekly quotas.
+- id: xkcd-303
+  rol: figura
+  archivo: assets/images/ai-quota-hud/xkcd-303-compiling.png
+  ancho: 413
+  alto: 360
+  estado: publicable
+  origen: manual
+  nombre_legacy: true
+  motivo_nombre: Nombre de la obra conservado para mantener la atribución y la URL histórica.
+  alt:
+    es: xkcd 303, Compiling, de Randall Munroe.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/ai-quota-hud-kde/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 70994
+  sha256: a63263fb4c00bdb13bba249e8dd1dd32f0a9faad324e3dcc60cd2c642b05231b
+  alt: &id001
+    es: Cinco instrumentos luminosos ilustran el seguimiento de cuotas de IA.
+    en: Five luminous instruments illustrate AI quota tracking.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 75f075e2312e270afa7daf2154afeafe159227b3420fa82319c8de65ec4d9bb6
+    note: &id002
+      es: Ilustración conceptual; no representa datos medidos, un mapa real ni una interfaz operativa.
+      en: Conceptual illustration; it does not represent measured data, an actual map or an operational interface.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/ai-quota-hud-kde/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 27108
+  sha256: eb1f7071474f220ea58928f5cb57609098fa7abf5a068cea687f54676f24ae7e
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 75f075e2312e270afa7daf2154afeafe159227b3420fa82319c8de65ec4d9bb6
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 56754
+  sha256: f93ec1ae10044428fb93a542c369ee95efc75369c74184fde972613657d4f691
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 75f075e2312e270afa7daf2154afeafe159227b3420fa82319c8de65ec4d9bb6
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 21836
+  sha256: c2f3e0eae0cc4f840db04f62f699a4696e501c6913befd46f75bbb6c69329d8d
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 75f075e2312e270afa7daf2154afeafe159227b3420fa82319c8de65ec4d9bb6
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/ai-quota-hud-kde/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 52012
+  sha256: 36185c874aea027ad980898e2f01d59a6a9ce8da9ec6f0a67946e2279cccbb31
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 75f075e2312e270afa7daf2154afeafe159227b3420fa82319c8de65ec4d9bb6
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex

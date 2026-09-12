@@ -1,0 +1,23 @@
+{
+  "provider": "Anthropic",
+  "transport": "canonical drop_handoff_for_claude.sh -> Claude CLI",
+  "requested_alias": "sonnet",
+  "observed_model": "claude-sonnet-5",
+  "evidence_kind": "local Claude session message.model metadata; not provider-signed attestation",
+  "source_session_sha256": "667eafd838fd59e5a60e6e01969f870ba310fdfb5fb66a784a8a7f7ff873aa5d",
+  "records": [
+    {
+      "line": 23,
+      "type": "assistant",
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:04:05.376Z"
+    },
+    {
+      "line": 24,
+      "type": "assistant",
+      "model": "claude-sonnet-5",
+      "timestamp": "2026-09-12T11:04:29.522Z"
+    }
+  ],
+  "raw_session_exported": false
+}

@@ -1,0 +1,84 @@
+{
+  "checked_at": "2026-09-12T11:59:21.135322+00:00",
+  "checks": [
+    {
+      "source": "/home/ende/Descargas/investigacion/casen2024/casen_2024.rdata",
+      "expected_sha256": "638c6aef38a930ccfbf3153fe9374fe97b9d30338aa492d12f8d19b0d0cb37e4",
+      "actual_sha256": "638c6aef38a930ccfbf3153fe9374fe97b9d30338aa492d12f8d19b0d0cb37e4",
+      "unchanged": true
+    },
+    {
+      "source": "/home/ende/Descargas/investigacion/casen2024/libro_de_codigos_casen_2024.xlsx",
+      "expected_sha256": "c78453bb68ca55cd0201d5421c14a6fee80028e40b6ece639e6a5c6c8b7d4f74",
+      "actual_sha256": "c78453bb68ca55cd0201d5421c14a6fee80028e40b6ece639e6a5c6c8b7d4f74",
+      "unchanged": true
+    },
+    {
+      "source": "/home/ende/Descargas/investigacion/casen2024/julia_viz/src/07b_complex_survey_ci.jl",
+      "expected_sha256": "d0a2b89a3cf50ca440c908ed2027c87f6a976ebd4b4ce5fa7d86470a021ae94b",
+      "actual_sha256": "d0a2b89a3cf50ca440c908ed2027c87f6a976ebd4b4ce5fa7d86470a021ae94b",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/data/external/downloads/casen_2024_provincia_comuna.dta",
+      "expected_sha256": "16ac315fee386edef02a38507c9af4fe5cbb8cf3b083a5898ad7791fb18a0cae",
+      "actual_sha256": "16ac315fee386edef02a38507c9af4fe5cbb8cf3b083a5898ad7791fb18a0cae",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/inputs.json",
+      "expected_sha256": "bbf7d0797a69f509326e75be591a2cfd1139905517ec91c6c74e31790b047dc6",
+      "actual_sha256": "bbf7d0797a69f509326e75be591a2cfd1139905517ec91c6c74e31790b047dc6",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/communes.json",
+      "expected_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+      "actual_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/communes.parquet",
+      "expected_sha256": "131c5a62c2be3be16ab28b75921abaffb7b27f1b7d964187b73b6df135a9919b",
+      "actual_sha256": "131c5a62c2be3be16ab28b75921abaffb7b27f1b7d964187b73b6df135a9919b",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/communes.csv",
+      "expected_sha256": "cdfe0d74029cb3459443e02319b765afe99c977dac4ef6b8665532d6af64c9df",
+      "actual_sha256": "cdfe0d74029cb3459443e02319b765afe99c977dac4ef6b8665532d6af64c9df",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/runtime.json",
+      "expected_sha256": "35fedfb0c804e18082ae15edf5160fa253f23bbfd8b1af4994c72acc41afb6c5",
+      "actual_sha256": "35fedfb0c804e18082ae15edf5160fa253f23bbfd8b1af4994c72acc41afb6c5",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/audit.json",
+      "expected_sha256": "6f8d0020a76628d932830f572b04483635ab0e52a739c0060670792f6d417500",
+      "actual_sha256": "6f8d0020a76628d932830f572b04483635ab0e52a739c0060670792f6d417500",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/.gitattributes",
+      "expected_sha256": "002da6263f3b5064e6170cb2a5322923fe33b9660daa753445d81aeb03a5bdb3",
+      "actual_sha256": "002da6263f3b5064e6170cb2a5322923fe33b9660daa753445d81aeb03a5bdb3",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/source-audit.json",
+      "expected_sha256": "109b6d35eb77dadcb9d9af3d53ec99295699fc3f293fc98e635ce268171f3142",
+      "actual_sha256": "109b6d35eb77dadcb9d9af3d53ec99295699fc3f293fc98e635ce268171f3142",
+      "unchanged": true
+    },
+    {
+      "source": "activos/catastros_sii/v5_brecha/artifacts/fiscal_gap/dictionary.json",
+      "expected_sha256": "2c51170e73ddf6264dc259edd87c24601ea72d594d88e35b59abc4b5d310e743",
+      "actual_sha256": "2c51170e73ddf6264dc259edd87c24601ea72d594d88e35b59abc4b5d310e743",
+      "unchanged": true
+    }
+  ],
+  "all_unchanged": true
+}

@@ -1,0 +1,17 @@
+{
+  "source_digest": "baf903431c559d9b932890b4bfa1f008c620b4e39dd0d79268e305b388fecb01",
+  "manifest": {
+    "evidence/contract-assurance/observations-after.json": "391c79c3cd9d7d05ad917bd01ad0b86f4375a9f53dd6ea5059c8c023d972f56a",
+    "evidence/contract-assurance/observations-before.json": "73351e48c0df5051e6e329ce6cc4c6edecdf8084aa734f9241953c63c853ccff",
+    "evidence/contract-assurance/proposals.md": "33536d09f72563b9482b577aad5440389a4df99d6b5e3d6c2a67aac187436cd9",
+    "evidence/contract-assurance/receipt.json": "43dee0f7f5c3a9abcfbbf3093cda84b0aa49c9420c7e84ae9dfeac1e0bd34e3c",
+    "evidence/contract-assurance/tests-after.log": "c72b2cfb5f40759448cfbfb85fcac7027b8b71cdbcaf8a3b52a5bc3c289e7c95",
+    "evidence/contract-assurance/tests-before.log": "903d8d0e5bf7fe918cf1a040b76f6637e707d753b6d1587430f9ae592c9e6da8",
+    "evidence/contract-assurance/verify_execution.after.py": "d7fcf229e1f2b557f614207f46918fde5e841c00ed87858e608309ab70423a43",
+    "evidence/contract-assurance/verify_execution.before.py": "a31f98473648b654c2592c2f4a963405bec681fc13524588a490aaef0a6c6843",
+    "test_execution_evidence.py": "37b3a841553eb9a05f4db4f127fce9339f3c9ad5bf15c7b7405aaaafb1d44b90",
+    "verify_execution.py": "d7fcf229e1f2b557f614207f46918fde5e841c00ed87858e608309ab70423a43"
+  },
+  "algorithm": "sha256 JSON sorted compact manifest",
+  "scope": "test suite, integrator verifier snapshot and assurance evidence"
+}

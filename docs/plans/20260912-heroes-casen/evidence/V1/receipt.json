@@ -1,0 +1,134 @@
+{
+  "task_id": "V1",
+  "status": "implemented_and_verified",
+  "source_sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+  "accepted_review_digest": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "code_sha256": {
+    "scripts/catastro_sii/render_casen_shared_site.py": "2d230ff53406d7375f28bf59cda7c055b04697a874b5c624b578271f45bf36ea",
+    "tests/catastro_sii/test_casen_shared_site_figure.py": "a05b08d3ef7895a1afab34eb7dc1cd162fb2ceeb3024f86b00cda4854e127179"
+  },
+  "artifacts": [
+    {
+      "file": "casen-shared-site-es.svg",
+      "sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+      "bytes": 93408
+    },
+    {
+      "file": "casen-shared-site-es.png",
+      "sha256": "b840fe7d44b1a41b172d2a4554242d7d1c243b957ad23c0115e590de38da2e0a",
+      "bytes": 436727
+    },
+    {
+      "file": "casen-shared-site-es-dark.svg",
+      "sha256": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387",
+      "bytes": 93408
+    },
+    {
+      "file": "casen-shared-site-es-dark.png",
+      "sha256": "6843d14c83ae801c2ef6598b9b31941b4705185ed9e9be2e300fbc95ec353c7c",
+      "bytes": 425915
+    },
+    {
+      "file": "casen-shared-site-en.svg",
+      "sha256": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c",
+      "bytes": 92934
+    },
+    {
+      "file": "casen-shared-site-en.png",
+      "sha256": "370fa28ca634cf41026f9b6419291e039f3a67734e068fffc10f16b4101e87b6",
+      "bytes": 430462
+    },
+    {
+      "file": "casen-shared-site-en-dark.svg",
+      "sha256": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09",
+      "bytes": 92934
+    },
+    {
+      "file": "casen-shared-site-en-dark.png",
+      "sha256": "b323e886f367cf43e82516313a5b28820d51e575a34e9ad69a09fc224a571b94",
+      "bytes": 420929
+    },
+    {
+      "file": "casen-shared-site-data.json",
+      "sha256": "07607fa341918c3b65e9cb68e7574fe6ba50d3b06ced6876cd9e44fc4ca864a9",
+      "bytes": 15537
+    },
+    {
+      "file": "casen-shared-site-data.csv",
+      "sha256": "5cc27edc9e5be7e645037fdf6814dc60b2f916a04eca2c52758618cd00665eb9",
+      "bytes": 7346
+    },
+    {
+      "file": "casen-shared-site-provenance.json",
+      "sha256": "3b1960bae36e089e2415dc1bcced298adcbdd9ea901a3597f8e7d22fb59f1094",
+      "bytes": 2956
+    }
+  ],
+  "commands": [
+    {
+      "command": "/opt/entornos/mamba312/bin/python -m unittest discover -s tests/catastro_sii -p test_casen_shared_site_figure.py -v",
+      "exit_code": 0,
+      "tests": 12
+    },
+    {
+      "command": "/opt/entornos/mamba312/bin/python scripts/catastro_sii/render_casen_shared_site.py --expected-sha256 b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce",
+      "exit_code": 0
+    }
+  ],
+  "falsified_by": [
+    {
+      "case": "bad-ci",
+      "exit_code": 1,
+      "no_outputs": true,
+      "error": "ValueError: Invalid confidence interval: ('national', 'CL')"
+    },
+    {
+      "case": "missing-is-zero",
+      "exit_code": 1,
+      "no_outputs": true,
+      "error": "ValueError: Invalid estimate/denominator: ('commune', '5101')"
+    },
+    {
+      "case": "forged-communal-ci",
+      "exit_code": 1,
+      "no_outputs": true,
+      "error": "ValueError: Unavailable CI must remain null: ('commune', '5101')"
+    }
+  ],
+  "green_recovery": "render-recovery.json",
+  "repeated_render_all_11_artifacts_identical": true,
+  "fiscal_aggregate_hashes_unchanged": 9,
+  "exact_exported_source_rows": 19,
+  "dimensions": {
+    "inches": [
+      12,
+      13.4
+    ],
+    "svg_points": [
+      864,
+      964.8
+    ],
+    "intrinsic_css_px": [
+      1152,
+      1286.4
+    ],
+    "png_px": [
+      2160,
+      2412
+    ],
+    "minimum_display_width_css_px": 1000
+  },
+  "inspected_with_view_image": [
+    "casen-shared-site-es.png",
+    "casen-shared-site-en-dark.png"
+  ],
+  "fonts": "Embedded subsets through unchanged editorial_style.py; source SVG text retained",
+  "limits": [
+    "Regional Taylor intervals remain approximate, not causal effects.",
+    "Two communes selected after prior exploration; no communal representativeness or CI.",
+    "The estimand is households, not dwellings/sites; never applied as a fiscal adjustment.",
+    "No browser integration test here; E1/Q1 owns actual scroll/zoom/table embedding.",
+    "Physical iPhone/Safari not verified.",
+    "No original data, V0, shared style, posts or catalog changes."
+  ]
+}

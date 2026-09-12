@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/ende/Descargas/programaciones/activos/3cucharadas/tests/catastro_sii/test_editorial_figures.py", line 136, in assert_embedded_font_contract
+    self.assertEqual({int(weight) for weight, _ in faces}, {weight for weight, chars in used.items() if chars})
+  File "/opt/entornos/mamba312/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/opt/entornos/mamba312/lib/python3.12/unittest/case.py", line 1145, in assertSetEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "/opt/entornos/mamba312/lib/python3.12/unittest/case.py", line 715, in fail
+    raise self.failureException(msg)
+AssertionError: Items in the second set but not the first:
+400
+700

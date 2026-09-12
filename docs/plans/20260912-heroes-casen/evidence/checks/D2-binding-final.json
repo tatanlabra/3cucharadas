@@ -1,0 +1,20 @@
+{
+  "id": "D2-binding-final",
+  "task_id": "D2",
+  "command": [
+    "python3",
+    "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+    "--review",
+    "docs/plans/20260912-heroes-casen/evidence/claude-science/round2/science-findings.json",
+    "--manifest",
+    "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha/artifacts/casen_shared_site/evidence/freeze.json",
+    "--source-root",
+    "/home/ende/Descargas/programaciones/activos/catastros_sii/v5_brecha"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:31:41.483610+00:00",
+  "seconds": 0.29753149099997245,
+  "exit_code": 0,
+  "log": "evidence/checks/D2-binding-final.log",
+  "log_sha256": "b5b60d06c18f2207185db174f900fedaa81835413e3d6651e5fd1b62d6713ce9"
+}

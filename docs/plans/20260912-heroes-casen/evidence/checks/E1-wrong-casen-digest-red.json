@@ -1,0 +1,18 @@
+{
+  "id": "E1-wrong-casen-digest-red",
+  "task_id": "E1",
+  "command": [
+    "python3",
+    "scripts/catastro_sii/project_casen_shared_site.py",
+    "--source-dir",
+    "../catastros_sii/v5_brecha/artifacts/casen_shared_site",
+    "--expected-sha256",
+    "0000000000000000000000000000000000000000000000000000000000000000"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:34:10.403176+00:00",
+  "seconds": 0.13867520699932356,
+  "exit_code": 1,
+  "log": "evidence/checks/E1-wrong-casen-digest-red.log",
+  "log_sha256": "f8e74df3c15b4285e1bd86c222eca7eabde668fc2d27d6fbdd2a1a864f963b29"
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "D2",
+  "source_digest": "e40cae6a5f77becf9634b51c1e4b75be3ea21bc1f2cfd56d5dd487c61d5b791f",
+  "provider": "anthropic",
+  "requested_model": "sonnet (alias)",
+  "effective_identity_evidence": {
+    "self_report": "claude-sonnet-5 (Sonnet 5), Anthropic — as stated by this session's own harness system-reminder",
+    "runtime_evidence": "none observable independent of the harness-injected string; no API/header introspection available from within the session",
+    "note": "these are the same source (harness-supplied), not two independent confirmations"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1",
+      "epistemic_status": "abductive, unconfirmed — cannot verify without the actual RData column classes",
+      "file": "scripts/casen_shared_site.py",
+      "line": "56-58",
+      "claim": "The R extraction script applies as.numeric() uniformly to all selected columns (v9, v28, pco1, region, area, varstrat, varunit, id_vivienda). If any of these columns are stored as base-R factor (rather than numeric/haven_labelled) in the source .RData, as.numeric(factor) returns the factor's *level index*, not its numeric value.",
+      "counterexample": "If v9 is a factor with levels sorted lexicographically ('1','10','11','2','3',...,'9'), a household truly coded v9=2 gets remapped to as.numeric()=4 — landing exactly on the 'shared site' positive code (3/4) that this pipeline measures. The corrupted value still falls inside 1..11, so it passes both the codebook sanity check (which validates the Excel dictionary, not the extracted data) and the 'undocumented v9 code' guard. Same risk applies to pco1 (head selection) and varstrat/varunit (design integrity).",
+      "remedy": "In the R script, assert `stopifnot(!any(sapply(d[cols], is.factor)))` before conversion (fail closed, consistent with the pipeline's own stated policy), or explicitly `as.numeric(as.character(x))` per factor column. Add an integration test that exercises the actual R subprocess path with a small synthetic .RData fixture — current tests (test_casen_shared_site.py) only feed synthetic pandas DataFrames directly into Python and never execute scripts/casen_shared_site.py:56-58, so this path has zero test coverage."
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "epistemic_status": "confirmed by code reading; documented as intentional in docs/casen-shared-site-method.md:27",
+      "file": "src/casen_shared_site/core.py",
+      "line": "100-108",
+      "claim": "Singleton-stratum invalidation (`counts.eq(1).any()`) is computed over ALL design strata nationally, not scoped to the estimation domain. A singleton stratum belonging to an unrelated region would null the CI for every other region and the national estimate too.",
+      "counterexample": "Not observed in this run (no singleton strata in the current design, per audit.json design block) — this is a latent risk in future waves, not an active defect here.",
+      "remedy": "Optional: none needed today. If finer-grained estimability is ever required, scope the singleton check to strata with nonzero e-contribution in-domain. Current behavior fails closed, which is the safe direction."
+    },
+    {
+      "id": "F3",
+      "severity": "P2",
+      "epistemic_status": "confirmed by code reading",
+      "file": "src/casen_shared_site/core.py",
+      "line": "48",
+      "claim": "`heads['flagged'] = False` is a constant; any real inconsistency raises before this line, so `n_flagged` is vacuously 0 in every successful export.",
+      "counterexample": "n/a — always 0 by construction, in every possible successful run.",
+      "remedy": "Drop the field, or document explicitly in audit.json/method doc that n_flagged=0 is a tautology of the fail-closed design, not a QA signal."
+    }
+  ],
+  "limitations": [
+    "No execution performed (read-only per task instruction); Taylor-ratio arithmetic for 2 of the 3 manual oracles was independently hand-recomputed and matches the stated results exactly (8/81, 3/16) — this is genuine independent verification, not trust of the green test log.",
+    "R extraction path, Excel codebook parsing (codebook_values), and Census/Stata reads could not be verified against actual source files (no access to original microdata, none provided).",
+    "verification.json's mutation-test claims and formats/hash equality (AggregateArtifacts) are taken as reported, not re-executed.",
+    "Green tests do not constitute proof of representativeness, causality, or R-side type safety — consistent with the module's own stated caveat."
+  ],
+  "verdict": "accept_with_limitations — household/dwelling separation, denominator (all valid v9, no ownership/v28 restriction), full-design PSU domain handling, and Taylor linearization are correctly implemented and partially independently re-derived by hand. Outstanding P1 (F1) is a plausible, unconfirmed silent-corruption risk in the R→Python boundary that the current guards do not actually catch; must be resolved (assert non-factor + add R-path test) before trusting this pipeline against a new CASEN wave."
+}

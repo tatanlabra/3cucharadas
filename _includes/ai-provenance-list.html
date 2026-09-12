@@ -1,0 +1,20 @@
+{% assign provenance_lang = site.active_lang | default: page.lang | default: 'es' %}
+{% assign provenance_posts = site.posts | where: 'lang', provenance_lang %}
+{% for article in provenance_posts %}
+{% assign visual = site.data.visuales[article.visual_id] %}
+{% assign hero_path = article.header.overlay_image | remove_first: '/' %}
+{% assign hero = visual.piezas | where: 'archivo', hero_path | first %}
+<details id="{{ article.ref | escape }}">
+  <summary>{{ article.title | escape }}</summary>
+  <dl>
+    <dt>{% if provenance_lang == 'en' %}Text{% else %}Texto{% endif %}</dt>
+    <dd data-ai-component="text" data-ai-origin="{{ article.ai_disclosure.components.text | default: 'unknown' | escape }}">{% case article.ai_disclosure.components.text %}{% when 'assisted' %}{% if provenance_lang == 'en' %}I worked on this text with AI assistance.{% else %}Trabajé este texto con ayuda de IA.{% endif %}{% when 'generated' %}{% if provenance_lang == 'en' %}I generated this text with AI.{% else %}Generé este texto con IA.{% endif %}{% when 'human' %}{% if provenance_lang == 'en' %}I wrote this text without AI.{% else %}Escribí este texto sin IA.{% endif %}{% else %}{% if provenance_lang == 'en' %}I do not have a documented record of AI involvement in this text.{% else %}No tengo documentada la intervención de IA en este texto.{% endif %}{% endcase %}</dd>
+    <dt>{% if provenance_lang == 'en' %}Cover{% else %}Portada{% endif %}</dt>
+    <dd data-ai-component="hero" data-ai-origin="{{ article.ai_disclosure.components.hero | default: 'unknown' | escape }}">{% case article.ai_disclosure.components.hero %}{% when 'generated' %}{% if provenance_lang == 'en' %}I created this conceptual illustration with AI.{% else %}Creé esta ilustración conceptual con IA.{% endif %}{% when 'human' %}{% if provenance_lang == 'en' %}I use a human-created cover.{% else %}Uso una portada de autoría humana.{% endif %}{% else %}{% if provenance_lang == 'en' %}I have not documented this cover’s origin.{% else %}No tengo documentado el origen de esta portada.{% endif %}{% endcase %}
+    {% if hero.provenance.tool %}<p>{% if provenance_lang == 'en' %}I used{% else %}Usé{% endif %} {{ hero.provenance.tool | escape }}.</p>{% elsif article.ai_disclosure.components.hero == 'generated' %}<p>{% if provenance_lang == 'en' %}I have not documented the specific tool.{% else %}No tengo documentada la herramienta concreta.{% endif %}</p>{% endif %}
+    {% if hero.alt[provenance_lang] %}<p>{{ hero.alt[provenance_lang] | escape }}</p>{% endif %}
+    </dd>
+  </dl>
+  <p><a href="{{ article.url | relative_url }}">{% if provenance_lang == 'en' %}Read the article{% else %}Leer el artículo{% endif %}</a></p>
+</details>
+{% endfor %}

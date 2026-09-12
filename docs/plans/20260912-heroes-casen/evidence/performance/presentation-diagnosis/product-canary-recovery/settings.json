@@ -1,0 +1,76 @@
+{
+  "label": "canary-playwright",
+  "pairs": 1,
+  "pages": {
+    "avaluos-ii": "/datos/territorio/avaluos-ii-brecha-residencial/",
+    "casen-long": "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/"
+  },
+  "roots": {
+    "baseline": "/tmp/3c-heroes-baseline-site",
+    "candidate": "/tmp/3c-heroes-first-person-site"
+  },
+  "viewport": [
+    1440,
+    1000
+  ],
+  "dpr": 1,
+  "media": "light,no-preference",
+  "window_ms": 5000,
+  "collector": "Unmodified formal embedded+raw init concatenated in deterministic order before navigation; standard LCP.startTime and CLS session windows",
+  "driver": "Single Node process using canonical pinned playwright-core",
+  "executable": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+  "version": "151.0.7922.77",
+  "cold": "Fresh Chrome browser and context per pair/page/side",
+  "warm": "Reload same context; no-store server, not HTTP cache hit",
+  "network": "loopback only by context routing; no emulated throttle",
+  "cpu": "Native host;10second pre-pair window and per-navigation deltas; retain every sample",
+  "order": "AB/BA alternating pair/page; cold then warm",
+  "interaction": "No screenshot, rAF pumping, clicks, scrolling or CLI polling; page.waitForTimeout5100 after navigation, frozen snapshot5000ms",
+  "hashes": {
+    "harness": "01ce957fd54bcea16ec8b345025dd557f1df840be199f4629cc6a34b0697a627",
+    "server": "668a569bd34c81c65e7c5a9cb9a01d8b5b951ede01dbdb35275f00d086e7ca76",
+    "builtin": "51a642ebb48dcfa6dc9fce031146ea1419f6e99e0069f37b39cd5f3a0f7b4068",
+    "measurement": "6dcb851456f947e4195e93c9ddca5a81b5f35cc0c3c95a6c99d39086ad1da70b",
+    "chrome": "3ecd43f567afe5204b7673b2dd2ccf05603f41b2f62ad3bca9e691d0b3d54128",
+    "playwright_package": "cc20d8407732820e1a334b890b204360aabf5e675ebfe0d2881bc2f54d32e681",
+    "playwright_lock": "11bf1198f5454aa7861bdac234745a6848db20ade5a8c5febcab6e6b019f376c"
+  },
+  "inputs": {
+    "source_manifest": "evidence/editorial/source-first-person-before-build.json",
+    "source_manifest_sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783",
+    "source_digest": "238221099b11ca45bc387d65fe90450397084927173ef75e808dfa36bc848b2a",
+    "build_root": "/tmp/3c-heroes-first-person-site",
+    "build_manifest": "../../formal-candidate-first-person-freeze.json",
+    "build_manifest_sha256": "afc097833f8e8a55699926c37f609e1afa4e7ce50ece914158c41e42be94cac7"
+  },
+  "served_page_hashes": {
+    "baseline": {
+      "/datos/territorio/avaluos-ii-brecha-residencial/": "027a8a14b001a6b84ee1c636390cd63e75169927a777168c58eff8e24ee76e5e",
+      "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/": "6ee14863dc9e3afe4f2010b7f2d0b126fba5c32817822d1d5bdbba366c721bf5"
+    },
+    "candidate": {
+      "/datos/territorio/avaluos-ii-brecha-residencial/": "4f3a8f87cfeef6f8303cc7fdbffd72965b1ca74e93bb60c52ab3686346eea59d",
+      "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/": "8f3f0b85bb81584c66ab39ed9175828256db7d8723068ac22ba75a21b56d47d0"
+    }
+  },
+  "server_headers": {
+    "baseline": {
+      "accept-ranges": "bytes",
+      "cache-control": "no-store",
+      "connection": "keep-alive",
+      "content-length": "80161",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sat, 12 Sep 2026 12:32:37 GMT",
+      "keep-alive": "timeout=5"
+    },
+    "candidate": {
+      "accept-ranges": "bytes",
+      "cache-control": "no-store",
+      "connection": "keep-alive",
+      "content-length": "103878",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Sat, 12 Sep 2026 12:32:37 GMT",
+      "keep-alive": "timeout=5"
+    }
+  }
+}

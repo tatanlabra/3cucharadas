@@ -1,0 +1,14 @@
+{
+  "id": "U1-timezone-red",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_ai_disclosure.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:47:22.601163+00:00",
+  "seconds": 0.6997648710002977,
+  "exit_code": 1,
+  "log": "evidence/checks/U1-timezone-red.log",
+  "log_sha256": "dd35169776d75dae80b72897056b91084a531be2b1ef708ad44b027056ad3c60"
+}

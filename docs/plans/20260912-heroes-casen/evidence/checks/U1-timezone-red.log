@@ -1,0 +1,20 @@
+Run options: --seed 37570
+
+# Running:
+
+...E.../home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/home/ende/.local/share/gem/ruby/3.4.0/gems/liquid-4.0.4/lib/liquid/tags/case.rb:51: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+......
+
+Finished in 0.451966s, 28.7632 runs/s, 221.2557 assertions/s.
+
+  1) Error:
+HeroDisclosureCheckTest#test_explicit_timestamp_is_compared_as_an_instant_across_timezones:
+NoMethodError: undefined method 'iso8601' for class Time
+    tests/test_ai_disclosure.rb:111:in 'HeroDisclosureCheckTest#test_explicit_timestamp_is_compared_as_an_instant_across_timezones'
+
+13 runs, 100 assertions, 0 failures, 1 errors, 0 skips

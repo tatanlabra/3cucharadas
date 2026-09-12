@@ -1,0 +1,14 @@
+[
+  {
+    "case": "nested-invalid",
+    "exit_code": 1,
+    "rejected_before_output": true,
+    "diagnostic": "ValueError: Invalid nested materiality: 05101"
+  },
+  {
+    "case": "missing-residual",
+    "exit_code": 1,
+    "rejected_before_output": true,
+    "diagnostic": "ValueError: Missing/nonfinite gap: 05101"
+  }
+]

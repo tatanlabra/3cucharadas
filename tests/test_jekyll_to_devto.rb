@@ -192,7 +192,7 @@ class JekyllToDevtoTest < Minitest::Test
 
     assert_equal CANONICAL_URL, front["canonical_url"]
     assert_equal false, front["published"]
-    assert_equal "some_ai", front["ai_disclosure_level"]
+    assert_equal "not_disclosed", front["ai_disclosure_level"]
     assert_equal "ruby, jekyll", front["tags"]
     assert_equal "#{SITE_URL}/cover.png", front["cover_image"]
   end
@@ -301,6 +301,30 @@ class JekyllToDevtoTest < Minitest::Test
     assert_equal source, File.read(path), "la transformación no debe reescribir el post canónico"
   end
 
+  def test_canonical_levels_survive_offline_dev_mapping
+    %w[no_ai some_ai fully_autonomous not_disclosed].each do |level|
+      front = {"ai_disclosure" => {"level" => level}}
+      document = JekyllToDevto.render_document(body: "Body", title: "Title", description: "Description", tags: [], canonical_url: CANONICAL_URL, ai_disclosure_level: AiDisclosure.resolve(front).fetch("level"))
+      assert_equal level, YAML.safe_load(document.split(/^---\s*$/, 3)[1])["ai_disclosure_level"]
+    end
+    assert_raises(ArgumentError) do
+      AiDisclosure.resolve({"ai_disclosure" => {"level" => "no_ai"}, "devto_ai_disclosure_level" => "some_ai"})
+    end
+  end
+
+  def test_dry_run_with_key_never_calls_network_or_changes_registry
+    Dir.mktmpdir("devto-no-network") do |dir|
+      guard = File.join(dir, "guard.rb")
+      File.write(guard, "require 'net/http'\nclass Net::HTTP\n  def request(*)\n    raise 'NETWORK CALL IN OFFLINE MODE'\n  end\nend\n")
+      registry = File.expand_path("../_data/distribucion.yml", __dir__)
+      before = Digest::SHA256.file(registry).hexdigest
+      script = File.expand_path("../scripts/syndicate_devto.rb", __dir__)
+      out, err, status = Open3.capture3({"DEV_TO_API_KEY" => "offline-test-value", "RUBYOPT" => "-r#{guard}"}, "ruby", script, "--dry-run")
+      assert status.success?, "dry-run failed: #{out} #{err}"
+      assert_equal before, Digest::SHA256.file(registry).hexdigest
+    end
+  end
+
   def test_cli_exports_the_exact_derived_document_without_api_key
     path = File.expand_path("../_posts/2026-07-23-multiagente-penta-agent-memoria-en.md", __dir__)
     source = File.read(path)
@@ -321,7 +345,7 @@ class JekyllToDevtoTest < Minitest::Test
       canonical_url: canonical_url,
       cover_image: JekyllToDevto.absolute_url(front.dig("header", "og_image"), SITE_URL, force_relative: true),
       published: false,
-      ai_disclosure_level: "some_ai"
+      ai_disclosure_level: AiDisclosure.resolve(front).fetch("level")
     )
 
     Dir.mktmpdir("devto-export") do |dir|
@@ -335,7 +359,7 @@ class JekyllToDevtoTest < Minitest::Test
         contents = File.read(artifact)
         front = YAML.safe_load(contents.split(/^---\s*$/, 3)[1])
         assert_equal false, front["published"], "published no explícito en #{File.basename(artifact)}"
-        assert_equal "some_ai", front["ai_disclosure_level"], "AI disclosure ausente en #{File.basename(artifact)}"
+        assert_includes AiDisclosure::LEVELS, front["ai_disclosure_level"], "AI disclosure ausente en #{File.basename(artifact)}"
         refute_match(/https?:\/\/[^\s"'<>)]*\.svg\b/i, contents, "SVG residual en #{File.basename(artifact)}")
       end
     end

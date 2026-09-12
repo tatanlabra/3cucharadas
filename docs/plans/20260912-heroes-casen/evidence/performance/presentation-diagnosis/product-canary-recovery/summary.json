@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "page": "avaluos-ii",
+      "temperature": "cold",
+      "median_lcp_ms": {
+        "baseline": 1116,
+        "candidate": 936
+      },
+      "regression_percent": -16.129032258064512,
+      "lcp_threshold_diagnostic": "pass"
+    },
+    {
+      "page": "avaluos-ii",
+      "temperature": "warm",
+      "median_lcp_ms": {
+        "baseline": 240,
+        "candidate": 252
+      },
+      "regression_percent": 5.000000000000004,
+      "lcp_threshold_diagnostic": "pass"
+    },
+    {
+      "page": "casen-long",
+      "temperature": "cold",
+      "median_lcp_ms": {
+        "baseline": 1180,
+        "candidate": 1136
+      },
+      "regression_percent": -3.7288135593220306,
+      "lcp_threshold_diagnostic": "pass"
+    },
+    {
+      "page": "casen-long",
+      "temperature": "warm",
+      "median_lcp_ms": {
+        "baseline": 168,
+        "candidate": 244
+      },
+      "regression_percent": 45.238095238095234,
+      "lcp_threshold_diagnostic": "fail"
+    }
+  ],
+  "n_runs": 8,
+  "missing_runs": 0,
+  "formal_acceptance": false,
+  "qualification": "Requires root acceptance of current input binding and standard metric thresholds; canary is not formal"
+}

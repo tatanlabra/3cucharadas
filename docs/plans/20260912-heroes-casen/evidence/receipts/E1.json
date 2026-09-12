@@ -1,0 +1,179 @@
+{
+  "task_id": "E1",
+  "checks": [
+    {
+      "id": "E1-first-person-build",
+      "task_id": "E1",
+      "command": [
+        "env",
+        "JEKYLL_ENV=production",
+        "bundle",
+        "exec",
+        "jekyll",
+        "build",
+        "--disable-disk-cache",
+        "--destination",
+        "_site"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:55:42.639822+00:00",
+      "seconds": 14.686005958999885,
+      "exit_code": 0,
+      "log": "evidence/checks/E1-first-person-build.log",
+      "log_sha256": "9b06428735f75253af4b8ef5e02c8aa0d03019226e00e4d0f04ba31d698f5e3a",
+      "acceptance_ids": [
+        "AC-E0"
+      ]
+    },
+    {
+      "id": "E1-first-person-hero",
+      "task_id": "E1",
+      "command": [
+        "ruby",
+        "scripts/verify_hero_disclosure.rb",
+        "_site"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:56:50.544660+00:00",
+      "seconds": 0.6591055249991769,
+      "exit_code": 0,
+      "log": "evidence/checks/E1-first-person-hero.log",
+      "log_sha256": "3cd52fb4ada89ab01c21f0707d1bbac67eabaf9875c8889f446ed64a7d46f25d",
+      "acceptance_ids": [
+        "AC-E1"
+      ]
+    },
+    {
+      "id": "E1-first-person-offline-dev",
+      "task_id": "E1",
+      "command": [
+        "ruby",
+        "scripts/syndicate_devto.rb",
+        "--dry-run"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:56:50.569232+00:00",
+      "seconds": 0.6961933880011202,
+      "exit_code": 0,
+      "log": "evidence/checks/E1-first-person-offline-dev.log",
+      "log_sha256": "65270f7acd557ed7f3ec6277c85905d0f332f0083f638d8eef9b6ce9b7fa22d5",
+      "acceptance_ids": [
+        "AC-E2"
+      ]
+    },
+    {
+      "id": "E1-casen-projection-green",
+      "task_id": "E1",
+      "command": [
+        "python3",
+        "scripts/catastro_sii/project_casen_shared_site.py",
+        "--source-dir",
+        "../catastros_sii/v5_brecha/artifacts/casen_shared_site",
+        "--expected-sha256",
+        "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:42:40.652818+00:00",
+      "seconds": 0.15504355499979283,
+      "exit_code": 0,
+      "log": "evidence/checks/E1-casen-projection-green.log",
+      "log_sha256": "eb5cde4e9f8ebb9f70703c2199906b1fa85496e96d749d39c7b8663593156bde",
+      "acceptance_ids": [
+        "AC-E3"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
+      "sha256": "f7c076f661173441b99ad7bfec5d6a6aecbc69220f20e518f714bc512b9403f1"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md",
+      "sha256": "a9fbf3e8f060bb758a3702dc70629fad4d7ffaf3fb886d597a70314b8857aa6a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-03-15-casen2024-julia-waffles-politica-publica.md",
+      "sha256": "103036d0a3872799e4a703db795a4ac0b7754dcd79ef9b1d33a06f75e6f59e62"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-03-15-casen2024-julia-waffles-politica-publica-en.md",
+      "sha256": "1f63d3f41195dcf1ad7714dae551a6216da8efca1b1f74af6e2f204f762bb089"
+    },
+    {
+      "path": "activos/3cucharadas/_includes/casen-shared-site-table.html",
+      "sha256": "fb724a62271361b91e2fca95d396779f1e6ff4ea92d4bf36cad81bb456592bb4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/project_casen_shared_site.py",
+      "sha256": "d38b3a9da28e9e57a04e9e1824d01ff9d101aaed920fb06d1ba1e687e3e867f9"
+    },
+    {
+      "path": "activos/3cucharadas/_data/visuales/avaluos-ii.yml",
+      "sha256": "515f9a5c0af6cb914f208913186ed6662ea2179ef1b56cad631c4ca5c2ff218f"
+    },
+    {
+      "path": "activos/3cucharadas/docs/distribution/ai-disclosure/README.md",
+      "sha256": "3d2e8fede242806ccdf4ef12fb7867b0077dcbcd593def8f1b7d62e75dede2e1"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/estimates.parquet",
+      "sha256": "5802ad1a03c929ad68b617849c842e65c119add571be5c7e82da8cc549479b02"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/estimates.json",
+      "sha256": "b192b57607badd8fac36f42f4e5bc3132b4239ecb05ed7a0904998f91121a9ce"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/projection.json",
+      "sha256": "16bb30cf603c20ca6f779c08852d05b83fef142a8050a5a558e7e1f6f041ac12"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/provenance.json",
+      "sha256": "12286c253b021a9b9a83381e8d5ad1cb46964f312e396f7474582501b61c2df0"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/estimates.csv",
+      "sha256": "c6c7e9ca08f0b12325ed3f8144df00dd27e6906b7e1ecad4f3ba7b8b8b41e1e3"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/audit.json",
+      "sha256": "89c0516199a7bda371cdfd42572917ff92b5551084fb69ee86093a2baafbfd31"
+    },
+    {
+      "path": "activos/3cucharadas/catastro_sii_brecha/data/casen-shared-site/method.md",
+      "sha256": "91d24069b72064ba7f65667cccd23573e1bdc8eb064be7b863058bcd72b78976"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/editorial/source-first-person-before-build.json",
+      "sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/editorial/first-person-build-binding.json",
+      "sha256": "208d3565fe22fc5f82f8be45af1f80040b91b02523a391813249d0f087827a60"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/editorial/baseline-inputs-current.json",
+      "sha256": "9b6548cfd260a7358b8654fefdacfe0c30a3de707c67ae901ba88a497c79d378"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/editorial/routes-current.json",
+      "sha256": "42bf96c8a011cfe0eced563361e68fec69d435a1e876173f0cf7204db81c9c6a"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/editorial-browser/receipt.json",
+      "sha256": "ded9ff6d9b17272b79f0e0eb9df568995dfa090e061100c8d364806203253ddd"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/source-freeze.json",
+      "sha256": "11d8b851af382dffae5fcc647ae9ebb2a9fc93e6b18643f429f5acb821e578f4"
+    }
+  ],
+  "source_freeze": "evidence/claude-final/source-freeze.json",
+  "source_digest": "918f6c4edda5d6ed0bef4075dbd63816c9cce8bb6af4dd41812f40160998dded",
+  "limits": [
+    "New AI UI runtime matrix and performance pending Q1; content review pending R1.",
+    "Chart/table browser matrix covers unchanged figures and table selectors, not new attribution UI.",
+    "No physical Safari/iPhone verification; desktop article column still needs chart horizontal scrolling."
+  ]
+}

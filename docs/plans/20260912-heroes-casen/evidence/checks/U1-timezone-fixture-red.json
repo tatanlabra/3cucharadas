@@ -1,0 +1,14 @@
+{
+  "id": "U1-timezone-fixture-red",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_ai_disclosure.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:47:48.421357+00:00",
+  "seconds": 0.5514207779997378,
+  "exit_code": 1,
+  "log": "evidence/checks/U1-timezone-fixture-red.log",
+  "log_sha256": "2ed9847d9cec9c4bc536cc5427bd3260107d68a00c99b71a4d5a89a957124f42"
+}

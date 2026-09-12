@@ -19,7 +19,20 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-multiagentes-vscode.webp
+  teaser: /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-1280x720.webp
+  overlay_image: /assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/multiagente-penta-agent-modelos/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/multiagente-penta-agent-modelos/teaser-mobile-640x360.webp
+  og_image: /assets/images/heroes-v2/multiagente-penta-agent-modelos/og-1200x630.webp
+  og_image_alt: A geometric network of connected agents illustrating coordinated work.
+visual_id: multiagente-penta-agent-modelos
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 This started as a practical annoyance: long tasks interrupted by quota limits, conversations that became too heavy, and reviews that required copying context across windows in clumsy and inefficient ways. To deal with that, I built a multi-agent workflow in VS Code, on Arch Linux. I first called it tri-agent; after a couple of months it became `penta-agent`, a still imperfect way of coordinating agents, roles, permissions, and traces in my own workflow.

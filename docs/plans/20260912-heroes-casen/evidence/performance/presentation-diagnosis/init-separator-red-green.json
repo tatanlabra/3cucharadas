@@ -1,0 +1,12 @@
+[
+  {
+    "name": "observed-red",
+    "registered": false,
+    "error": "TypeError: (intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(intermediate value)(...) is not a function"
+  },
+  {
+    "name": "recovery-green",
+    "registered": true,
+    "error": null
+  }
+]

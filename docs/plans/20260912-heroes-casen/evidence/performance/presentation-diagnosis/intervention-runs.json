@@ -1,0 +1,824 @@
+[
+  {
+    "intervention": "passive",
+    "navigation": "cold",
+    "sample": {
+      "capturedAt": 5028.60000000149,
+      "cwv": {
+        "cls": 0,
+        "clsEntries": [],
+        "fcp": 68,
+        "inp": null,
+        "lcp": {
+          "element": "h1",
+          "size": 138262,
+          "startTime": 68,
+          "url": null
+        }
+      },
+      "device": {
+        "connection": {
+          "downlink": 1.65,
+          "effectiveType": "4g",
+          "rtt": 0,
+          "saveData": false
+        },
+        "deviceMemory": 16,
+        "dpr": 1,
+        "hardwareConcurrency": 8,
+        "height": 1000,
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "width": 1440
+      },
+      "focused": true,
+      "fontsStatus": "loaded",
+      "h1": [
+        "Static presentation canary with no external resources"
+      ],
+      "images": [],
+      "navigation": [
+        {
+          "activationStart": 0,
+          "confidence": {},
+          "connectEnd": 2,
+          "connectStart": 2,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "criticalCHRestart": 0,
+          "decodedBodySize": 221,
+          "deliveryType": "",
+          "domComplete": 33,
+          "domContentLoadedEventEnd": 32.5,
+          "domContentLoadedEventStart": 32.20000000111759,
+          "domInteractive": 32.100000001490116,
+          "domainLookupEnd": 2,
+          "domainLookupStart": 2,
+          "duration": 33,
+          "encodedBodySize": 221,
+          "entryType": "navigation",
+          "fetchStart": 2,
+          "finalResponseHeadersStart": 13.900000000372527,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "navigation",
+          "loadEventEnd": 33,
+          "loadEventStart": 33,
+          "name": "http://127.0.0.1:4044/fast.html",
+          "navigationId": 6346,
+          "nextHopProtocol": "http/1.0",
+          "notRestoredReasons": null,
+          "redirectCount": 0,
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 12.900000000372527,
+          "responseEnd": 15.400000000372527,
+          "responseStart": 13.900000000372527,
+          "responseStatus": 200,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 0,
+          "transferSize": 521,
+          "type": "navigate",
+          "unloadEventEnd": 0,
+          "unloadEventStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "observation": {
+        "builtinInstalled": true,
+        "errors": [],
+        "fontsReadyAt": 48.40000000037253,
+        "lcpEntries": [
+          {
+            "callbackAt": 75,
+            "duration": 0,
+            "entryType": "largest-contentful-paint",
+            "id": "",
+            "loadTime": 0,
+            "name": "",
+            "navigationId": 6346,
+            "paintTime": 47.5,
+            "presentationTime": 68,
+            "renderTime": 68,
+            "size": 138262,
+            "startTime": 68,
+            "url": ""
+          }
+        ],
+        "lifecycle": [
+          {
+            "focused": false,
+            "name": "init",
+            "t": 28.200000001117587,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "focus",
+            "t": 29.90000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "DOMContentLoaded",
+            "t": 32.20000000111759,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "fonts-ready-after-dcl",
+            "t": 48.5,
+            "visibility": "visible"
+          }
+        ],
+        "longtasks": [],
+        "paints": [
+          {
+            "callbackAt": 74.30000000074506,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-paint",
+            "navigationId": 6346,
+            "paintTime": 47.5,
+            "presentationTime": 68,
+            "startTime": 68
+          },
+          {
+            "callbackAt": 74.30000000074506,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-contentful-paint",
+            "navigationId": 6346,
+            "paintTime": 47.5,
+            "presentationTime": 68,
+            "startTime": 68
+          }
+        ],
+        "registeredAt": 28,
+        "shifts": [],
+        "supported": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ]
+      },
+      "readyState": "complete",
+      "resources": [
+        {
+          "connectEnd": 65.5,
+          "connectStart": 65.10000000149012,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "decodedBodySize": 460,
+          "deliveryType": "",
+          "domainLookupEnd": 65.10000000149012,
+          "domainLookupStart": 65.10000000149012,
+          "duration": 7.300000000745058,
+          "encodedBodySize": 460,
+          "entryType": "resource",
+          "fetchStart": 60.90000000037253,
+          "finalResponseHeadersStart": 66.5,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "other",
+          "name": "http://127.0.0.1:4044/favicon.ico",
+          "navigationId": 6346,
+          "nextHopProtocol": "http/1.0",
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 65.60000000149012,
+          "responseEnd": 68.20000000111759,
+          "responseStart": 66.5,
+          "responseStatus": 404,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 60.90000000037253,
+          "transferSize": 760,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "timeOrigin": 1789215788245.4,
+      "title": "Presentation canary",
+      "url": "http://127.0.0.1:4044/fast.html",
+      "visibility": "visible"
+    }
+  },
+  {
+    "intervention": "passive",
+    "navigation": "warm",
+    "sample": {
+      "capturedAt": 5018.300000000745,
+      "cwv": {
+        "cls": 0,
+        "clsEntries": [],
+        "fcp": 52,
+        "inp": null,
+        "lcp": {
+          "element": "h1",
+          "size": 138262,
+          "startTime": 52,
+          "url": null
+        }
+      },
+      "device": {
+        "connection": {
+          "downlink": 1.65,
+          "effectiveType": "4g",
+          "rtt": 0,
+          "saveData": false
+        },
+        "deviceMemory": 16,
+        "dpr": 1,
+        "hardwareConcurrency": 8,
+        "height": 1000,
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "width": 1440
+      },
+      "focused": true,
+      "fontsStatus": "loaded",
+      "h1": [
+        "Static presentation canary with no external resources"
+      ],
+      "images": [],
+      "navigation": [
+        {
+          "activationStart": 0,
+          "confidence": {},
+          "connectEnd": 0.8000000007450581,
+          "connectStart": 0.8000000007450581,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "criticalCHRestart": 0,
+          "decodedBodySize": 221,
+          "deliveryType": "cache",
+          "domComplete": 20.100000001490116,
+          "domContentLoadedEventEnd": 19.700000001117587,
+          "domContentLoadedEventStart": 19.600000001490116,
+          "domInteractive": 19.600000001490116,
+          "domainLookupEnd": 0.8000000007450581,
+          "domainLookupStart": 0.8000000007450581,
+          "duration": 20.100000001490116,
+          "encodedBodySize": 221,
+          "entryType": "navigation",
+          "fetchStart": 0.8000000007450581,
+          "finalResponseHeadersStart": 9,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "navigation",
+          "loadEventEnd": 20.100000001490116,
+          "loadEventStart": 20.100000001490116,
+          "name": "http://127.0.0.1:4044/fast.html",
+          "navigationId": 2745,
+          "nextHopProtocol": "",
+          "notRestoredReasons": null,
+          "redirectCount": 0,
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 8.400000000372529,
+          "responseEnd": 10.200000001117589,
+          "responseStart": 9,
+          "responseStatus": 200,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 0,
+          "transferSize": 300,
+          "type": "reload",
+          "unloadEventEnd": 13.100000001490116,
+          "unloadEventStart": 13.100000001490116,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "observation": {
+        "builtinInstalled": true,
+        "errors": [],
+        "fontsReadyAt": 21,
+        "lcpEntries": [
+          {
+            "callbackAt": 63.10000000149011,
+            "duration": 0,
+            "entryType": "largest-contentful-paint",
+            "id": "",
+            "loadTime": 0,
+            "name": "",
+            "navigationId": 2745,
+            "paintTime": 20.600000001490116,
+            "presentationTime": 52,
+            "renderTime": 52,
+            "size": 138262,
+            "startTime": 52,
+            "url": ""
+          }
+        ],
+        "lifecycle": [
+          {
+            "focused": false,
+            "name": "init",
+            "t": 18.100000001490116,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "focus",
+            "t": 18.600000001490116,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "DOMContentLoaded",
+            "t": 19.700000001117587,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "fonts-ready-after-dcl",
+            "t": 21,
+            "visibility": "visible"
+          }
+        ],
+        "longtasks": [],
+        "paints": [
+          {
+            "callbackAt": 62.80000000074506,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-paint",
+            "navigationId": 2745,
+            "paintTime": 20.600000001490116,
+            "presentationTime": 52,
+            "startTime": 52
+          },
+          {
+            "callbackAt": 62.90000000037253,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-contentful-paint",
+            "navigationId": 2745,
+            "paintTime": 20.600000001490116,
+            "presentationTime": 52,
+            "startTime": 52
+          }
+        ],
+        "registeredAt": 18,
+        "shifts": [],
+        "supported": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ]
+      },
+      "readyState": "complete",
+      "resources": [],
+      "timeOrigin": 1789215793739.3,
+      "title": "Presentation canary",
+      "url": "http://127.0.0.1:4044/fast.html",
+      "visibility": "visible"
+    }
+  },
+  {
+    "intervention": "screenshot",
+    "navigation": "cold",
+    "sample": {
+      "capturedAt": 5029.200000001118,
+      "cwv": {
+        "cls": 0,
+        "clsEntries": [],
+        "fcp": 84,
+        "inp": null,
+        "lcp": {
+          "element": "h1",
+          "size": 138262,
+          "startTime": 84,
+          "url": null
+        }
+      },
+      "device": {
+        "connection": {
+          "downlink": 1.55,
+          "effectiveType": "4g",
+          "rtt": 0,
+          "saveData": false
+        },
+        "deviceMemory": 16,
+        "dpr": 1,
+        "hardwareConcurrency": 8,
+        "height": 1000,
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "width": 1440
+      },
+      "focused": true,
+      "fontsStatus": "loaded",
+      "h1": [
+        "Static presentation canary with no external resources"
+      ],
+      "images": [],
+      "navigation": [
+        {
+          "activationStart": 0,
+          "confidence": {},
+          "connectEnd": 1.900000000372529,
+          "connectStart": 1.900000000372529,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "criticalCHRestart": 0,
+          "decodedBodySize": 221,
+          "deliveryType": "",
+          "domComplete": 32.30000000074506,
+          "domContentLoadedEventEnd": 32,
+          "domContentLoadedEventStart": 31.700000001117587,
+          "domInteractive": 31.700000001117587,
+          "domainLookupEnd": 1.900000000372529,
+          "domainLookupStart": 1.900000000372529,
+          "duration": 32.40000000037253,
+          "encodedBodySize": 221,
+          "entryType": "navigation",
+          "fetchStart": 1.900000000372529,
+          "finalResponseHeadersStart": 14.700000001117589,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "navigation",
+          "loadEventEnd": 32.40000000037253,
+          "loadEventStart": 32.40000000037253,
+          "name": "http://127.0.0.1:4044/fast.html",
+          "navigationId": 5507,
+          "nextHopProtocol": "http/1.0",
+          "notRestoredReasons": null,
+          "redirectCount": 0,
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 13.900000000372527,
+          "responseEnd": 16.40000000037253,
+          "responseStart": 14.700000001117589,
+          "responseStatus": 200,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 0,
+          "transferSize": 521,
+          "type": "navigate",
+          "unloadEventEnd": 0,
+          "unloadEventStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "observation": {
+        "builtinInstalled": true,
+        "errors": [],
+        "fontsReadyAt": 53.40000000037253,
+        "lcpEntries": [
+          {
+            "callbackAt": 85.90000000037253,
+            "duration": 0,
+            "entryType": "largest-contentful-paint",
+            "id": "",
+            "loadTime": 0,
+            "name": "",
+            "navigationId": 5507,
+            "paintTime": 52.20000000111759,
+            "presentationTime": 84,
+            "renderTime": 84,
+            "size": 138262,
+            "startTime": 84,
+            "url": ""
+          }
+        ],
+        "lifecycle": [
+          {
+            "focused": false,
+            "name": "init",
+            "t": 28.700000001117587,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "focus",
+            "t": 29.90000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "DOMContentLoaded",
+            "t": 31.90000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "fonts-ready-after-dcl",
+            "t": 53.40000000037253,
+            "visibility": "visible"
+          }
+        ],
+        "longtasks": [],
+        "paints": [
+          {
+            "callbackAt": 85.09999999962747,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-paint",
+            "navigationId": 5507,
+            "paintTime": 52.20000000111759,
+            "presentationTime": 84,
+            "startTime": 84
+          },
+          {
+            "callbackAt": 85.09999999962747,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-contentful-paint",
+            "navigationId": 5507,
+            "paintTime": 52.20000000111759,
+            "presentationTime": 84,
+            "startTime": 84
+          }
+        ],
+        "registeredAt": 28.5,
+        "shifts": [],
+        "supported": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ]
+      },
+      "readyState": "complete",
+      "resources": [
+        {
+          "connectEnd": 79.70000000111759,
+          "connectStart": 79.40000000037253,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "decodedBodySize": 460,
+          "deliveryType": "",
+          "domainLookupEnd": 79.40000000037253,
+          "domainLookupStart": 79.40000000037253,
+          "duration": 17.299999998882413,
+          "encodedBodySize": 460,
+          "entryType": "resource",
+          "fetchStart": 65.30000000074506,
+          "finalResponseHeadersStart": 80.70000000111759,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "other",
+          "name": "http://127.0.0.1:4044/favicon.ico",
+          "navigationId": 5507,
+          "nextHopProtocol": "http/1.0",
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 79.80000000074506,
+          "responseEnd": 82.59999999962747,
+          "responseStart": 80.70000000111759,
+          "responseStatus": 404,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 65.30000000074506,
+          "transferSize": 760,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "timeOrigin": 1789215800834.8,
+      "title": "Presentation canary",
+      "url": "http://127.0.0.1:4044/fast.html",
+      "visibility": "visible"
+    }
+  },
+  {
+    "intervention": "screenshot",
+    "navigation": "warm",
+    "sample": {
+      "capturedAt": 5026.299999998882,
+      "cwv": {
+        "cls": 0,
+        "clsEntries": [],
+        "fcp": 56,
+        "inp": null,
+        "lcp": {
+          "element": "h1",
+          "size": 138262,
+          "startTime": 56,
+          "url": null
+        }
+      },
+      "device": {
+        "connection": {
+          "downlink": 1.55,
+          "effectiveType": "4g",
+          "rtt": 0,
+          "saveData": false
+        },
+        "deviceMemory": 16,
+        "dpr": 1,
+        "hardwareConcurrency": 8,
+        "height": 1000,
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+        "width": 1440
+      },
+      "focused": true,
+      "fontsStatus": "loaded",
+      "h1": [
+        "Static presentation canary with no external resources"
+      ],
+      "images": [],
+      "navigation": [
+        {
+          "activationStart": 0,
+          "confidence": {},
+          "connectEnd": 1.099999999627471,
+          "connectStart": 1.099999999627471,
+          "contentEncoding": "",
+          "contentType": "text/html",
+          "criticalCHRestart": 0,
+          "decodedBodySize": 221,
+          "deliveryType": "cache",
+          "domComplete": 29.09999999962747,
+          "domContentLoadedEventEnd": 28.5,
+          "domContentLoadedEventStart": 28.40000000037253,
+          "domInteractive": 28.299999998882413,
+          "domainLookupEnd": 1.099999999627471,
+          "domainLookupStart": 1.099999999627471,
+          "duration": 29.09999999962747,
+          "encodedBodySize": 221,
+          "entryType": "navigation",
+          "fetchStart": 1.099999999627471,
+          "finalResponseHeadersStart": 11.400000000372527,
+          "firstInterimResponseStart": 0,
+          "initiatorType": "navigation",
+          "loadEventEnd": 29.09999999962747,
+          "loadEventStart": 29.09999999962747,
+          "name": "http://127.0.0.1:4044/fast.html",
+          "navigationId": 9322,
+          "nextHopProtocol": "",
+          "notRestoredReasons": null,
+          "redirectCount": 0,
+          "redirectEnd": 0,
+          "redirectStart": 0,
+          "renderBlockingStatus": "non-blocking",
+          "requestStart": 10.5,
+          "responseEnd": 13.299999998882411,
+          "responseStart": 11.400000000372527,
+          "responseStatus": 200,
+          "secureConnectionStart": 0,
+          "serverTiming": [],
+          "startTime": 0,
+          "transferSize": 300,
+          "type": "reload",
+          "unloadEventEnd": 17.799999998882413,
+          "unloadEventStart": 17.799999998882413,
+          "workerCacheLookupStart": 0,
+          "workerFinalSourceType": "",
+          "workerMatchedSourceType": "",
+          "workerRouterEvaluationStart": 0,
+          "workerStart": 0
+        }
+      ],
+      "observation": {
+        "builtinInstalled": true,
+        "errors": [],
+        "fontsReadyAt": 29.699999999254945,
+        "lcpEntries": [
+          {
+            "callbackAt": 60.90000000037253,
+            "duration": 0,
+            "entryType": "largest-contentful-paint",
+            "id": "",
+            "loadTime": 0,
+            "name": "",
+            "navigationId": 9322,
+            "paintTime": 30.799999998882413,
+            "presentationTime": 56,
+            "renderTime": 56,
+            "size": 138262,
+            "startTime": 56,
+            "url": ""
+          }
+        ],
+        "lifecycle": [
+          {
+            "focused": false,
+            "name": "init",
+            "t": 25.90000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "focus",
+            "t": 26.90000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "DOMContentLoaded",
+            "t": 28.40000000037253,
+            "visibility": "visible"
+          },
+          {
+            "focused": true,
+            "name": "fonts-ready-after-dcl",
+            "t": 29.699999999254945,
+            "visibility": "visible"
+          }
+        ],
+        "longtasks": [],
+        "paints": [
+          {
+            "callbackAt": 60.69999999925494,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-paint",
+            "navigationId": 9322,
+            "paintTime": 30.799999998882413,
+            "presentationTime": 56,
+            "startTime": 56
+          },
+          {
+            "callbackAt": 60.69999999925494,
+            "duration": 0,
+            "entryType": "paint",
+            "name": "first-contentful-paint",
+            "navigationId": 9322,
+            "paintTime": 30.799999998882413,
+            "presentationTime": 56,
+            "startTime": 56
+          }
+        ],
+        "registeredAt": 25.90000000037253,
+        "shifts": [],
+        "supported": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ]
+      },
+      "readyState": "complete",
+      "resources": [],
+      "timeOrigin": 1789215806507.6,
+      "title": "Presentation canary",
+      "url": "http://127.0.0.1:4044/fast.html",
+      "visibility": "visible"
+    }
+  }
+]

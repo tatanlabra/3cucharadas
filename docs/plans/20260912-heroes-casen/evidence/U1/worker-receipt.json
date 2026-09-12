@@ -1,0 +1,157 @@
+{
+  "task_id": "U1",
+  "recorded_at": "2026-09-12T10:51:56.049903+00:00",
+  "scope_status": "implementation_ready_for_root_integration",
+  "source_files": {
+    "_includes/page__hero.html": "1d98d4a152ebaec48ac2a0f0401aa1e771f8aac8466b444d53b238225125bd66",
+    "_includes/head/custom.html": "8e75da9c182cac778dacba2f9e29daf5dd7da5095ac3aa53bb56443cd31be77a",
+    "_includes/ai-disclosure.html": "7ca5c7f291d7bfda788af805e34ace167c4fe10efff30d83ea64a50247d64bd8",
+    "_layouts/single.html": "fef163f2ec630c05408c68187bc7c90cd3ea0506ca506548810e12b67be794ea",
+    "assets/css/main.scss": "d737d15345d86125579a24020827246b9a8aad9dda75ea596ac4213b2a0dd592",
+    "_pages/ai-transparency.md": "4f23a601e34ea1d0315716237e008e3a752b37307c5278519d7999b938ffb8b9",
+    "_pages/ai-transparency-en.md": "8e93f238f2dac47cf4a8d203af48005599539b84be8562b5009178ca720420fd",
+    "scripts/jekyll_to_devto.rb": "200a7e23ee927fbcc67452eadf4ba3148f194f0e1566a5bea5a9b9588ac42d31",
+    "scripts/syndicate_devto.rb": "3cb3a5fd79f75ecafb1be22a7ec3249c93092dc88e6bedf4cdd67c2ddcb6647c",
+    "scripts/verify_visual_assets.rb": "5b589836a4a2edb067b389f2a80d44060e9660553c6de8838fb11d864bcc4e79",
+    "scripts/verify_hero_disclosure.rb": "332bdee92ebbc23f0ae715a9d0298c1c398a42bdc4f32b87e8128e640c5efa74",
+    "scripts/lib/ai_disclosure.rb": "64e85e66a48d61dbd40e7ef9176c18f1536531d73b927e091c3c3b73e08c2748",
+    "tests/test_ai_disclosure.rb": "481ee8d28294d2e38e5aa4a574b1ef04175835408e0d3a3b890b9711eacc7c18",
+    "tests/test_jekyll_to_devto.rb": "d3cba3725b23b16c9d5f33e3e6a053419e90bd0dfbfbb7319191395b48418ede"
+  },
+  "checks": [
+    {
+      "argv": [
+        "ruby",
+        "tests/test_ai_disclosure.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-u1-ai-green.log",
+      "sha256": "6f1929ef32c38100ee64f485050bffd01f0dfb5c993e63c0a73ff66296d5c011"
+    },
+    {
+      "argv": [
+        "ruby",
+        "tests/test_jekyll_to_devto.rb"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-u1-dev-green.log",
+      "sha256": "860af3a562a54c2e9811136e70495c6601b07f2ef5b6c74cc051811fd2732902"
+    },
+    {
+      "argv": [
+        "ruby",
+        "scripts/syndicate_devto.rb",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/3c-u1-dryrun.log",
+      "sha256": "0f7c080a1d5048bedb8d73143e39d5da3d0f02d4b462fd302976484e7b8faef4"
+    },
+    {
+      "argv": [
+        "ruby",
+        "scripts/verify_hero_disclosure.rb"
+      ],
+      "exit_code": 1,
+      "log": "/tmp/3c-u1-source-red.log",
+      "sha256": "d874fd7c8efc31f7e692c02b63b5a0eea10b34c4e6ba7a074d4a7a654619084d"
+    },
+    {
+      "argv": [
+        "ruby",
+        "scripts/verify_visual_assets.rb",
+        "--strict"
+      ],
+      "exit_code": 1,
+      "log": "/tmp/3c-u1-visuals.log",
+      "sha256": "1e5a55e83419bc0bde3ff551aecc9bb5f23fb7e9f036d7aade86358ffe077df5"
+    }
+  ],
+  "negative_evidence": {
+    "prior_devto_default": "/tmp/3c-u1-devto-default-red.log",
+    "current_devto_default": "/tmp/3c-u1-devto-default-green.log",
+    "source_gate_before_migration": "/tmp/3c-u1-source-red.log",
+    "fixtures": "tests/test_ai_disclosure.rb includes malformed source/canonical conflicts/unsafe links/missing mobile/wrong hash/byte budget/preload/duplicate h1/date/attribution/empty inventory"
+  },
+  "build": {
+    "argv": [
+      "bundle",
+      "exec",
+      "jekyll",
+      "build",
+      "--disable-disk-cache",
+      "--destination",
+      "/tmp/3c-u1-site"
+    ],
+    "env": {
+      "JEKYLL_ENV": "production"
+    },
+    "exit_code": 0,
+    "log": "/tmp/3c-u1-build.log",
+    "limitation": "U1 component build only; sources edited concurrently outside U1 scope. Root must freeze and rebuild candidate after E1."
+  },
+  "pending": [
+    "Root migration of 20 post front matters and new hero variants/catalog metadata",
+    "Integrated hero/disclosure source and build gate",
+    "Q1 all-post responsive/theme/performance review"
+  ],
+  "observed_external_failures": [
+    "verify_visual_assets sees V0 PNG dimensions drift until root updates catalogs"
+  ],
+  "publication": false,
+  "commits": false,
+  "browser": {
+    "session": "heroes-u1",
+    "closed": true,
+    "viewport_checks": [
+      {
+        "width": 390,
+        "h1": 1,
+        "horizontal_overflow": false
+      },
+      {
+        "width": 320,
+        "h1": 1,
+        "horizontal_overflow": false
+      }
+    ],
+    "a11y": [
+      {
+        "file": "/tmp/3c-u1-details-dark-axe.json",
+        "sha256": "7de5041780481d3a6108d3376bafc1ff68bf21491592323eb50a40e94f77f5d2",
+        "counts": {
+          "inapplicable": 82,
+          "incomplete": 0,
+          "passes": 6,
+          "violations": 0
+        }
+      },
+      {
+        "file": "/tmp/3c-u1-details-light-axe.json",
+        "sha256": "7de5041780481d3a6108d3376bafc1ff68bf21491592323eb50a40e94f77f5d2",
+        "counts": {
+          "inapplicable": 82,
+          "incomplete": 0,
+          "passes": 6,
+          "violations": 0
+        }
+      },
+      {
+        "file": "/tmp/3c-u1-hero-axe.json",
+        "sha256": "7de5041780481d3a6108d3376bafc1ff68bf21491592323eb50a40e94f77f5d2",
+        "counts": {
+          "inapplicable": 82,
+          "incomplete": 0,
+          "passes": 6,
+          "violations": 0
+        }
+      }
+    ],
+    "screenshots": [
+      "/tmp/3c-u1-mobile.png",
+      "/tmp/3c-u1-desktop.png",
+      "/tmp/3c-u1-final-dark320.png"
+    ],
+    "limitation": "Focused Aval\u00faos II component QA, not all-post performance or migrated-image approval"
+  }
+}

@@ -116,10 +116,7 @@ eligible = Dir.glob(File.join(posts_dir, "*-en.md")).filter_map do |path|
     youtube_id: JekyllToDevto.youtube_id_from_url(front["devto_video_url"])
   )
   transformed.warnings.each { |warning| warn "#{File.basename(path)}: #{warning}" }
-  ai_disclosure_level = front.fetch(
-    "devto_ai_disclosure_level",
-    JekyllToDevto::DEFAULT_AI_DISCLOSURE_LEVEL
-  )
+  ai_disclosure_level = AiDisclosure.resolve(front).fetch("level")
   devto_document = JekyllToDevto.render_document(
     body: transformed.body,
     title: front.fetch("title"),

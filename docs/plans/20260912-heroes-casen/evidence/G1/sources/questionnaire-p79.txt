@@ -1,0 +1,71 @@
+Cuestionario Casen 2024                                                                                             Módulo V: Vivienda
+
+
+                  Tipo de pregunta: selección única                                      Tipo de pregunta: selección única
+
+  v9. Su hogar, ¿bajo qué situación ocupa el sitio o terreno?             v12. ¿Cuántos metros cuadrados tiene la vivienda?
+                                                                          No incluya: terrazas abiertas ni jardines, tampoco sótanos,
+  1. Propio pagado                                                        desvanes, trasteros que no sean habitables
+  2. Propio pagándose
+                                                                          1. Menos de 30 m2
+  3. Propio compartido (pagado) con otras viviendas del sitio
+                                                                          2. De 30 a 40 m2
+  4. Propio compartido (pagándose) con otras viviendas del sitio
+                                                                          3. De 41 a 60 m2
+  5. Arrendado con contrato
+                                                                          4. De 61 a 100 m2
+  6. Arrendado sin contrato
+                                                                          5. De 101 a 150 m2
+  7. Cedido por servicio o trabajo
+                                                                          6. Más de 150 m2
+  8. Cedido por familiar u otro
+                                                                          -88. No sabe
+  9. Usufructo (sólo uso y goce)
+                                                                          Alternativas 1 a 6 → Pasan a v13
+  10. Ocupación irregular (de hecho)
+  11. Poseedor irregular                                                  Condición habilitante: no tiene
+  Alternativas 5 a 11 → Pasan a v12                                       Nivel: hogar
+
+  Condición habilitante: no tiene
+  Nivel: hogar                                                                           Tipo de pregunta: numérica entera
+
+
+                  Tipo de pregunta: selección única
+                                                                          👉 v12mt. Estimar metros cuadrados totales de la vivienda
+                                                                          Condición habilitante: no sabe los metros cuadrados que tiene
+  v10. ¿Cuál es la situación del título de propiedad o título de          la vivienda (v12 = -88)
+  dominio de este sitio o inmueble?
+                                                                          Nivel: hogar
+  1. Está inscrito en el Conservador de Bienes Raíces a nombre de
+  algún integrante del hogar
+                                                                                         Tipo de pregunta: selección única
+  2. Está inscrito en el Conservador de Bienes Raíces a nombre de
+  otra persona (no integrante del hogar)                                  v13. Su hogar, ¿bajo qué situación ocupa la vivienda?
+  3. Está inscrito en el Conservador de Bienes Raíces a nombre de         Lea alternativas
+  una persona fallecida (sucesión)
+  4. Está inscrito en el Conservador de Bienes Raíces a nombre del        1. Propia
+  Fisco de Chile                                                          2. Arrendada → Pasa a v13_arrendada
+  5. No está inscrito en el Conservador de Bienes Raíces                  3. Cedida → Pasa a v13_cedida
+  -88. No sabe                                                            9. Usufructo (sólo uso y goce)
+  Alternativas 2 a 5 y -88 → Pasan a v12                                  10. Ocupación irregular (de hecho)
+                                                                          11. Poseedor irregular
+  Condición habilitante: hogares que ocupan sitios o terrenos
+                                                                          Alternativas 9 a 11 → Pasan a v19
+  propios (v9 = 1, 2, 3, 4)
+  Nivel: hogar                                                            Condición habilitante: no tiene
+                                                                          Nivel: hogar
+                 Tipo de pregunta: selección múltiple
+
+  v11. ¿Quién es el propietario de la vivienda o inmueble?
+  Registre hasta 2 propietarios
+
+  Condición habilitante: sitios o inmuebles inscritos en el
+  Conservador de Bienes Raíces a nombre de algún integrante del
+  hogar (v10 = 1)
+  Nivel: hogar
+
+
+
+
+                                                                     79
+

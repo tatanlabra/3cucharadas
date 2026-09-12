@@ -1,0 +1,54 @@
+{
+  "task_id": "D2",
+  "source_digest": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "provider": "anthropic",
+  "requested_model": "sonnet",
+  "effective_identity_evidence": {
+    "self_report": "claude-sonnet-5 (Sonnet 5), Anthropic — per this session's harness system-reminder",
+    "runtime_evidence": "none independent of the harness string; no API/header introspection available",
+    "note": "same source as round 1, not a second confirmation"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1->resolved",
+      "status": "resolved",
+      "file": "src/casen_shared_site/rdata.py:16-38",
+      "claim": "R_READER now validates !is.factor(x) && is.numeric(x) && typeof(x) in {integer,double} && !inherits(x,'integer64') && all(class(x) %in% allowlist) for every selected column BEFORE the 'data' branch runs as.numeric(). A rejected column aborts with UNSUPPORTED_R_COLUMN and Python raises before any coercion — the original silent-corruption path is unreachable.",
+      "verification_performed": "Read the R_READER source and traced control flow: the safety loop runs unconditionally in both 'metadata' and 'data' modes, so a factor can never reach the coercion branch. Cross-checked test_factor_codes_fail_closed_before_level_index_conversion / test_character_codes_fail_closed_before_numeric_coercion / test_integer64_class_rejected_before_silent_precision_change: these build a REAL R factor/character/integer64 via an actual Rscript subprocess and assert ValueError — this is genuine boundary-level verification, not a Python-side mock, and directly answers the remedy the prior review requested ('add an integration test that exercises the actual R subprocess path').",
+      "residual": "The claim that the real 2024 source has 0 factor columns (D2-F1-real-column-metadata.json: 5 haven_labelled + 6 numeric, double storage) is self-reported by the same inspection code path being verified here — not independently re-derived from the raw RData by a second reader. This no longer matters for safety (the guard fails closed regardless of what the real file contains), only for the narrower claim 'this specific file was never at risk.'",
+      "remedy": "none required; optional: if the real file becomes available in a future review, re-run inspect_rdata_columns as a second, independent check against a fresh copy of the source file rather than trusting the persisted json alone."
+    },
+    {
+      "id": "F1-secondary",
+      "severity": "P3",
+      "status": "resolved, correctly scoped",
+      "file": "src/casen_shared_site/rdata.py:73 (read_csv skip_blank_lines=False)",
+      "claim": "pandas silently dropped a blank CSV line for a single-column NA fixture (write.table with na=''). Fixed with skip_blank_lines=False, red/green evidence retained (D2-F1-r-tests-initial-failure.log / D2-F1-r-tests-green.log).",
+      "note": "This was a test-fixture artifact of isolated single-column tests, not a production risk: main() always requests all 11 FIELDS, so a fully-empty output row would need every column NA simultaneously, which write.table renders as ',,,,,,,,,,' (not a blank line). Correctly fixed regardless.",
+      "remedy": "none"
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "status": "unchanged by design, acceptable",
+      "claim": "Global (not domain-scoped) singleton-stratum policy retained intentionally; docs/method.md and core.py comments confirm this is a deliberate fail-closed choice, not an oversight, and that no official singleton correction exists to adopt instead.",
+      "remedy": "none"
+    },
+    {
+      "id": "F3",
+      "severity": "P2->resolved",
+      "status": "resolved",
+      "file": "docs/casen-shared-site-method.md (Fuentes… section) + D2 disposition",
+      "claim": "n_flagged=0 is now explicitly documented as a tautological success sentinel ('Ese cero no constituye una medición independiente ni evidencia positiva de calidad'), matching the prior remedy verbatim.",
+      "remedy": "none"
+    }
+  ],
+  "open_p0_p1": [],
+  "verdict": "F1 resolved: accept D1 under source_digest 14eaab8598... — the fix is structural (fail-closed at the R/Python boundary, independent of what any given source file contains) and verified through actual Rscript subprocess execution against synthetic factor/character/integer64 fixtures, not merely asserted. F3 resolved via documentation. F2 remains an intentional, correctly-labeled conservative policy, not a defect. No open P0/P1.",
+  "limitations": [
+    "No raw microdata access, as in round 1; the 'real source has no factor columns' claim rests on the pipeline's own self-reported inspection output, not a second independent reader.",
+    "Did not byte-verify the pasted code/test blocks against the frozen manifest hashes in round2/source-freeze.json — Write was denied and a heredoc was blocked by a quoting filter; verified instead by reading source-freeze.json directly and cross-checking its rdata.py/core.py hashes against verification.json, and by manually counting the 31 tests in the pasted suite (7+12+7+5), which matched the disposition.json claim.",
+    "R execution, Julia parity, and aggregate-hash reproduction are taken from the pasted receipts, not re-run in this session (task was scoped read-only)."
+  ]
+}

@@ -1,0 +1,49 @@
+hopping into sandbox (command: docker) ...
+Checking for sandbox image: ghcr.io/qwenlm/qwen-code:0.21.6
+Sandbox image ghcr.io/qwenlm/qwen-code:0.21.6 not found locally.
+Attempting to pull image ghcr.io/qwenlm/qwen-code:0.21.6 using docker...
+0.21.6:
+Pulling from qwenlm/qwen-code
+039e6f9f9752: Already exists
+5404bc2cc13c: Pulling fs layer
+555d35074583: Pulling fs layer
+8f99eb9866f3: Pulling fs layer
+c0ed9f2d0e0e:
+Pulling fs layer
+ee619371bdaa: Pulling fs layer
+18f3225bb1ad: Pulling fs layer
+a74cc04cb3fe: Pulling fs layer
+a84abc64a011: Pulling fs layer
+c0ed9f2d0e0e: Waiting
+ee619371bdaa: Waiting
+18f3225bb1ad: Waiting
+a74cc04cb3fe: Waiting
+a84abc64a011: Waiting
+5404bc2cc13c: Download complete
+5404bc2cc13c: Pull complete
+8f99eb9866f3: Verifying Checksum
+8f99eb9866f3: Download complete
+c0ed9f2d0e0e: Download complete
+18f3225bb1ad: Verifying Checksum
+18f3225bb1ad: Download complete
+555d35074583: Verifying Checksum
+555d35074583: Download complete
+a74cc04cb3fe: Verifying Checksum
+a74cc04cb3fe: Download complete
+a84abc64a011: Verifying Checksum
+a84abc64a011: Download complete
+555d35074583: Pull complete
+8f99eb9866f3: Pull complete
+c0ed9f2d0e0e: Pull complete
+ee619371bdaa: Verifying Checksum
+ee619371bdaa: Download complete
+ee619371bdaa: Pull complete
+18f3225bb1ad: Pull complete
+a74cc04cb3fe: Pull complete
+a84abc64a011: Pull complete
+Digest: sha256:1e225a122896d9a5be5894058d6be48c38459d90c5832dba127d8273cc544941
+Status: Downloaded newer image for ghcr.io/qwenlm/qwen-code:0.21.6
+ghcr.io/qwenlm/qwen-code:0.21.6
+Successfully pulled image ghcr.io/qwenlm/qwen-code:0.21.6.
+Sandbox image ghcr.io/qwenlm/qwen-code:0.21.6 is now available after pulling.
+ContainerName (regular): qwen-code-0.21.6-0

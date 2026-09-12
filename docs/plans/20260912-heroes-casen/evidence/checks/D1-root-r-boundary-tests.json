@@ -1,0 +1,21 @@
+{
+  "id": "D1-root-r-boundary-tests",
+  "task_id": "D1",
+  "command": [
+    "/opt/entornos/mamba312/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "v5_brecha/tests",
+    "-p",
+    "test_casen_shared_site.py",
+    "-v"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/catastros_sii",
+  "started_at": "2026-09-12T11:24:51.651690+00:00",
+  "seconds": 5.10430857999927,
+  "exit_code": 0,
+  "log": "evidence/checks/D1-root-r-boundary-tests.log",
+  "log_sha256": "885d16865afd3a9d6aca63f95725e3aa509520f729598f416e81ca5f5dbae309"
+}

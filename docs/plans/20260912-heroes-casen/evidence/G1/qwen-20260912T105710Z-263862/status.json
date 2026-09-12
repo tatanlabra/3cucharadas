@@ -1,0 +1,15 @@
+{
+  "caller": "codex",
+  "ended_at": "2026-09-12T11:00:38Z",
+  "exit_code": 1,
+  "mode": "review",
+  "model": "deepseek-v4-pro",
+  "qwen_exit_code": 0,
+  "repo": "/tmp/3c-heroes-providers",
+  "result_file": "/tmp/3c-heroes-providers/.agents/runs/qwen-20260912T105710Z-263862/result.md",
+  "run_dir": "/tmp/3c-heroes-providers/.agents/runs/qwen-20260912T105710Z-263862",
+  "run_id": "qwen-20260912T105710Z-263862",
+  "started_at": "2026-09-12T10:57:10Z",
+  "status": "failed",
+  "task_file": "/tmp/3c-heroes-providers/.agents/queue/G1-qwen-public.md"
+}

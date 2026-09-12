@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-09-12T12:42:48.524235+00:00",
+  "analysis_commit": "d3576aab3be0a88a590dd9c9cf041fa3cbf7d7aa",
+  "analysis_author_committer": "tatan <tatanlabra@gmail.com> | tatan <tatanlabra@gmail.com>",
+  "analysis_status_porcelain": "",
+  "analysis_frozen_review": "14eaab859814dda0d89066b79c7b395b8e1cbb3e90aa7e65f5f080fe3dddec80",
+  "blog_commit_pending": "AC-Q6 relative LCP regression is red; scientific/editorial/current source and UI checks pass.",
+  "preview": {
+    "unit": "3cucharadas-preview-4004.service",
+    "host": "127.0.0.1",
+    "port": 4004,
+    "http_check": "Host curl observed200; sandbox-only curl could not reach host loopback.",
+    "path": "/datos/territorio/avaluos-ii-brecha-residencial/",
+    "restart_policy": "on-failure"
+  },
+  "external_actions": []
+}

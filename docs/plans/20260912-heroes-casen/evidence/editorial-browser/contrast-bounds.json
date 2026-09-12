@@ -1,0 +1,27 @@
+{
+  "method": "WCAG relative luminance on observed computed colors, bounding all CSS gradient alpha compositions; not a pixel-level audit.",
+  "light": {
+    "text": "#000000",
+    "base": "#faf7f0",
+    "white_overlay": "#fdfdfd",
+    "max_black_shadow_alpha_each": 0.16,
+    "shadow_layers": 2,
+    "conservative_darkest_background": "#b0aea9",
+    "minimum_ratio": 9.473356565663606
+  },
+  "dark_caption": {
+    "text": "#f4f4f4",
+    "lightest_background": "#161616",
+    "minimum_ratio": 16.45309617193269
+  },
+  "dark_cells": {
+    "text": "#e5eaf1",
+    "background": "#202838",
+    "ratio": 12.215510841329912
+  },
+  "caveats": [
+    "Captured stable theme colors; immediate post-toggle light measurement was transitional and excluded.",
+    "Applies to the scoped table text/gradients only; image text contrast separately verified by V0/V1.",
+    "Axe incomplete results preserved, not rewritten as passes."
+  ]
+}

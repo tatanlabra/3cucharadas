@@ -1,0 +1,15 @@
+{
+  "id": "Q1-build-reuse-binding",
+  "task_id": "Q1",
+  "command": [
+    "python3",
+    "-c",
+    "import sys,json,hashlib; from pathlib import Path; p=Path(\"docs/plans/20260912-heroes-casen\"); sys.path.insert(0,str(p)); import verify_runtime_acceptance as runtime; from verify_review_binding import verify; r=json.loads((p/\"evidence/checks/E1-first-person-build.json\").read_text()); assert type(r[\"exit_code\"]) is int and r[\"exit_code\"]==0; assert hashlib.sha256((p/r[\"log\"]).read_bytes()).hexdigest()==r[\"log_sha256\"]; runtime.bind(p/\"evidence/hero-browser-first-person\",p/\"evidence/editorial/source-first-person-before-build.json\",Path(\"_site\")); reviewed=verify(json.loads((p/\"evidence/claude-final/round2/findings.json\").read_text()),json.loads((p/\"evidence/claude-final/round2/source-freeze.json\").read_text()),Path(\".\")); print(json.dumps({\"result\":\"PASS_CURRENT_BUILD_REUSE\", \"build_check\":r[\"id\"],\"source_files\":144,\"built_files\":1248,\"review\":reviewed,\"limit\":\"Reuses successful production build under AC-Q1 reuse_if; does not claim a new build or deployment.\"}))"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T12:39:23.418523+00:00",
+  "seconds": 0.8143605959994602,
+  "exit_code": 0,
+  "log": "evidence/checks/Q1-build-reuse-binding.log",
+  "log_sha256": "0c2a0c5feebbe6a7fe45c37745041735b49de6e340f713f4da0f67fd1fb1b69c"
+}

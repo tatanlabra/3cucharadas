@@ -1,0 +1,100 @@
+{
+  "task_id": "V1",
+  "checks": [
+    {
+      "id": "V1-root-tests",
+      "task_id": "V1",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/catastro_sii",
+        "-p",
+        "test_casen_shared_site_figure.py",
+        "-v"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T11:42:41.613944+00:00",
+      "seconds": 1.7907866820005438,
+      "exit_code": 0,
+      "log": "evidence/checks/V1-root-tests.log",
+      "log_sha256": "987b949b1a8fa4d17a5ef1ef4eca44c7357e0b108dfaeb2b2670b53059876189",
+      "acceptance_ids": [
+        "AC-V1"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-es-dark.svg",
+      "sha256": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-en.png",
+      "sha256": "370fa28ca634cf41026f9b6419291e039f3a67734e068fffc10f16b4101e87b6"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-data.csv",
+      "sha256": "5cc27edc9e5be7e645037fdf6814dc60b2f916a04eca2c52758618cd00665eb9"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-en-dark.svg",
+      "sha256": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-es.png",
+      "sha256": "b840fe7d44b1a41b172d2a4554242d7d1c243b957ad23c0115e590de38da2e0a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-en-dark.png",
+      "sha256": "b323e886f367cf43e82516313a5b28820d51e575a34e9ad69a09fc224a571b94"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-data.json",
+      "sha256": "07607fa341918c3b65e9cb68e7574fe6ba50d3b06ced6876cd9e44fc4ca864a9"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-es-dark.png",
+      "sha256": "6843d14c83ae801c2ef6598b9b31941b4705185ed9e9be2e300fbc95ec353c7c"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-provenance.json",
+      "sha256": "3b1960bae36e089e2415dc1bcced298adcbdd9ea901a3597f8e7d22fb59f1094"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-es.svg",
+      "sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/avaluos-ii/casen-shared-site-en.svg",
+      "sha256": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/catastro_sii/render_casen_shared_site.py",
+      "sha256": "2d230ff53406d7375f28bf59cda7c055b04697a874b5c624b578271f45bf36ea"
+    },
+    {
+      "path": "activos/3cucharadas/tests/catastro_sii/test_casen_shared_site_figure.py",
+      "sha256": "a05b08d3ef7895a1afab34eb7dc1cd162fb2ceeb3024f86b00cda4854e127179"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V1/red-controls.json",
+      "sha256": "b768df5ef6643f24b4a5b68a0dcaad21d16252773abcdbb80feb84ac7fab7ab4"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V1/render-recovery.json",
+      "sha256": "f73982042da4053211eba8ca5e48e7f2b6b42373f050d5ce03faab22b7346fa2"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V1/tests-final.log",
+      "sha256": "010be52f4d7a394f5755bb10b88b08b001df58d8554980023bee69018a5ab19f"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/V1/receipt.json",
+      "sha256": "c7a0d32ff236e36367e88f2670b6fd6b212ed150a6c99ca2b04ab8d558cf2346"
+    }
+  ],
+  "falsification_evidence": "evidence/V1/red-controls.json"
+}

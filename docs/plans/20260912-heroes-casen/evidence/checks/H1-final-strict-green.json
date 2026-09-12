@@ -1,0 +1,15 @@
+{
+  "id": "H1-final-strict-green",
+  "task_id": "H1",
+  "command": [
+    "ruby",
+    "scripts/verify_visual_assets.rb",
+    "--strict"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:48:45.930642+00:00",
+  "seconds": 0.5038789809987065,
+  "exit_code": 0,
+  "log": "evidence/checks/H1-final-strict-green.log",
+  "log_sha256": "95d5248e4ecafcb431301b8e6c7c88a61b1ab711488c2c22ff3265c4e5878de5"
+}

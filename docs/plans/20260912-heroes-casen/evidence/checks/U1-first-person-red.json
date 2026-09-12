@@ -1,0 +1,14 @@
+{
+  "id": "U1-first-person-red",
+  "task_id": "U1",
+  "command": [
+    "ruby",
+    "tests/test_ai_disclosure.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:54:36.247406+00:00",
+  "seconds": 0.9058909100003802,
+  "exit_code": 1,
+  "log": "evidence/checks/U1-first-person-red.log",
+  "log_sha256": "96baa57cda5d777b3a4c88d0f9c5e650f537ed8a55c7f7bcd6df5d275822fd5e"
+}

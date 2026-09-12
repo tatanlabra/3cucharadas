@@ -1,0 +1,160 @@
+[
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "duration_s": 10.020789233,
+    "cpu_busy_percent": 25.848142164781905,
+    "loadavg_start": [
+      3.47,
+      3.98,
+      5.63
+    ],
+    "loadavg_end": [
+      3.09,
+      3.88,
+      5.58
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 1027
+      },
+      {
+        "pid": 456016,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 321
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 131
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 64
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 46
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 26
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 21
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_ticks_delta": 16
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_ticks_delta": 15
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_ticks_delta": 15
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 9
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "duration_s": 10.016374068999998,
+    "cpu_busy_percent": 23.222277473893584,
+    "loadavg_start": [
+      3,
+      3.79,
+      5.51
+    ],
+    "loadavg_end": [
+      2.69,
+      3.7,
+      5.46
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_ticks_delta": 970
+      },
+      {
+        "pid": 456016,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 332
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_ticks_delta": 68
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_ticks_delta": 56
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 34
+      },
+      {
+        "pid": 539513,
+        "comm": "python3",
+        "cpu_ticks_delta": 22
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_ticks_delta": 20
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_ticks_delta": 17
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_ticks_delta": 17
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_ticks_delta": 14
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_ticks_delta": 12
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_ticks_delta": 12
+      }
+    ],
+    "note": "Process deltas in kernel ticks, no assumed CLK_TCK; global percentage from /proc/stat"
+  }
+]

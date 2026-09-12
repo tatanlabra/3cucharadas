@@ -16,9 +16,14 @@ toc_sticky: true
 math: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-casen-2024.webp
-  og_image: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
-
+  teaser: /assets/images/heroes-v2/casen2024-julia-waffles/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/casen2024-julia-waffles/og-1200x630.webp
+  overlay_image: /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/casen2024-julia-waffles/teaser-mobile-640x360.webp
+  og_image_alt: Territorio y celdas luminosas como metáfora de la lectura de datos sociales.
 gallery_nacional:
   - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
@@ -46,6 +51,12 @@ gallery_regional:
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
     alt: "Gráfico 6: Dot plot de brechas regionales en pobreza por ingresos, CASEN 2024. Eje ajustado por panel con referencia nacional."
     title: "Gráfico 6 — Brechas regionales en pobreza: dot plot (eje ajustado por panel, línea punteada = nacional, banda = IC 95 %)"
+visual_id: casen2024-julia-waffles-politica-publica
+ai_disclosure:
+  level: some_ai
+  components:
+    text: assisted
+    hero: generated
 ---
 
 En Chile, **La Araucanía registra 13.0% de pobreza extrema; Magallanes, 4.2%**. Son 8.8 puntos porcentuales de diferencia — y si un servicio público de nivel central o local (GOREs/Municipios) diseñan su intervención usando solo el promedio nacional (6.9%), o despreciando las diferencias regionales, podrían equivocarse en asignar recursos o distribuir sus componentes.
@@ -85,7 +96,7 @@ La diferencia máxima observada es inferior a 3 millonésimas de punto porcentua
 
 ## Cucharada 1: diseño muestral y expansión sin atajos
 
-CASEN 2024 tiene diseño **estratificado bietápico probabilístico** ([nota metodológica BIDAT](https://bidat.gob.cl/url/69b71c77197db)). Para estimaciones a nivel regional, el factor correcto es `expr`; para nivel comunal se requiere `expc` — no son intercambiables. Este análisis usa `expr` y reporta estimaciones por región con IC 95 % calculados por **Taylor linearization** sobre el diseño complejo (estratos, UPM/PSU y pesos/factores).
+CASEN 2024 tiene diseño **estratificado bietápico probabilístico** ([nota metodológica BIDAT](https://bidat.gob.cl/url/69b71c77197db)). El factor `expr` corresponde a estimaciones nacionales y regionales. El factor complementario `expc` permite cálculos descriptivos comunales, pero **no vuelve representativas las estimaciones de cada comuna**, según la [nota oficial de uso de CASEN 2024](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf). Este análisis usa `expr` y reporta estimaciones por región con IC 95 % calculados por **Taylor linearization** sobre el diseño complejo (estratos, UPM/PSU y pesos/factores).
 
 Población representada en esta ejecución (suma de `expr`): **20.13 millones de personas** (un trabajo pendiente es evaluar el impacto de nuevo Censo 2024 en lugar de proyecciones sobre Censo 2017).
 
@@ -238,7 +249,7 @@ En todos los casos los IC no se superponen: las brechas son estadísticamente si
 Si usas CASEN 2024 para caracterización territorial u otros usos donde variables a nivel regional son relevantes, piensalo dos veces antes de usar un dato puntual (sin su intervalo de confianza):
 
 1. **¿Tus resultados están validados contra BIDAT y tienen IC de diseño?** Una diferencia de más de 1×10⁻⁵ pp respecto a las tablas oficiales no es técnica: es de proceso. Y sin IC de diseño complejo, una brecha de 8 pp puede parecer evidencia cuando es ruido en regiones pequeñas.
-2. **¿Estás usando el factor de expansión correcto?** `expr` es el apropiado para región; `expc` para comuna. No son intercambiables y usar el incorrecto sesga las estimaciones de cobertura.
+2. **¿Estás usando el factor de expansión correcto?** `expr` corresponde a los dominios nacional y regional; disponer de `expc` no garantiza representatividad comunal. Los factores no son intercambiables y deben acompañarse del dominio y alcance de la inferencia.
 3. **¿Tu análisis es reproducible?** Un flujo que no puede ser auditado no puede ser defendido frente a una contraparte técnica ni actualizado cuando salga CASEN 2026.
 
 Los IC aquí incorporados son de diseño complejo (Taylor linearization), no asintóticos simples. Cubren la varianza de muestreo pero no el error de no respuesta ni la subcobertura. Para inferencia causal entre subpoblaciones se requiere diseño adicional.

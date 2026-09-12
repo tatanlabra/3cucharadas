@@ -1,0 +1,1858 @@
+[
+  {
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "side": "baseline",
+    "n": 5,
+    "lcp_median": 1068,
+    "lcp_element_counts": {
+      "div": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp": 5
+    },
+    "paint_median": 974.6999999992549,
+    "presentation_minus_paint_median": 93.30000000074506,
+    "image_load_median": 816,
+    "callback_minus_lcp_median": 234.5,
+    "fonts_ready_median": 1337.4000000003725,
+    "cpu_median": 31.217129977460555,
+    "longtasks_total_median": 328,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 31.600000001490116,
+        "start_median": 26.5,
+        "end_median": 58.100000001490116,
+        "bytes_median": 117711,
+        "transfer_median": 118011,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 17,
+        "start_median": 27,
+        "end_median": 49.100000001490116,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 34.90000000037253,
+        "start_median": 27.300000000745058,
+        "end_median": 62.20000000111759,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+        "n": 5,
+        "duration_median": 48.90000000037253,
+        "start_median": 27.40000000037253,
+        "end_median": 77.90000000037253,
+        "bytes_median": 156080,
+        "transfer_median": 156380,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 55.69999999925494,
+        "start_median": 28.100000001490116,
+        "end_median": 83.80000000074506,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 56.70000000111759,
+        "start_median": 27.90000000037253,
+        "end_median": 84.60000000149012,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 61.5,
+        "start_median": 28.200000001117587,
+        "end_median": 89.70000000111759,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 61.90000000037253,
+        "start_median": 28.40000000037253,
+        "end_median": 90.30000000074506,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 67.40000000037253,
+        "start_median": 28.40000000037253,
+        "end_median": 95.80000000074506,
+        "bytes_median": 207700,
+        "transfer_median": 208000,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 66.10000000149012,
+        "start_median": 28.5,
+        "end_median": 94.60000000149012,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 36,
+        "start_median": 28.700000001117587,
+        "end_median": 64.70000000111759,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 775.9000000003725,
+        "start_median": 117,
+        "end_median": 892.9000000003725,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 713.2999999988824,
+        "start_median": 187.7000000011176,
+        "end_median": 901,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 729.2000000011176,
+        "start_median": 188,
+        "end_median": 917.2000000011176,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 730.7999999988824,
+        "start_median": 188.60000000149012,
+        "end_median": 919.4000000003725,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 728.2999999988824,
+        "start_median": 189.10000000149012,
+        "end_median": 917.4000000003725,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 726.5,
+        "start_median": 189.60000000149012,
+        "end_median": 916.1000000014901,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 727.2999999988824,
+        "start_median": 189.60000000149012,
+        "end_median": 916.9000000003725,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "side": "candidate",
+    "n": 5,
+    "lcp_median": 964,
+    "lcp_element_counts": {
+      "img": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp": 5
+    },
+    "paint_median": 862.1999999992549,
+    "presentation_minus_paint_median": 94.69999999925494,
+    "image_load_median": 194,
+    "callback_minus_lcp_median": 305.5,
+    "fonts_ready_median": 1244.300000000745,
+    "cpu_median": 34.1738299904489,
+    "longtasks_total_median": 248,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 25.199999999254942,
+        "start_median": 20.90000000037253,
+        "end_median": 45.59999999962747,
+        "bytes_median": 119679,
+        "transfer_median": 119979,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 19.09999999962747,
+        "start_median": 21.300000000745058,
+        "end_median": 39.90000000037253,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 27.59999999962747,
+        "start_median": 21.5,
+        "end_median": 51,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+        "n": 5,
+        "duration_median": 45.30000000074506,
+        "start_median": 21.699999999254942,
+        "end_median": 69.19999999925494,
+        "bytes_median": 161742,
+        "transfer_median": 162042,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 46.899999998509884,
+        "start_median": 22.09999999962747,
+        "end_median": 71.30000000074506,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 45.79999999888241,
+        "start_median": 22.199999999254942,
+        "end_median": 69,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 52.59999999962747,
+        "start_median": 22.300000000745058,
+        "end_median": 74.09999999962747,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 53,
+        "start_median": 22.40000000037253,
+        "end_median": 74.59999999962747,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 56.70000000111759,
+        "start_median": 22.59999999962747,
+        "end_median": 81.09999999962747,
+        "bytes_median": 215304,
+        "transfer_median": 215604,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 53.40000000037253,
+        "start_median": 22.59999999962747,
+        "end_median": 78.5,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 29.59999999962747,
+        "start_median": 22.800000000745058,
+        "end_median": 52.40000000037253,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 756.4000000003725,
+        "start_median": 101.09999999962747,
+        "end_median": 876.7000000011176,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 704.0999999996275,
+        "start_median": 173.59999999962747,
+        "end_median": 876.9000000003725,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 704.4000000003725,
+        "start_median": 173.80000000074506,
+        "end_median": 877.2000000011176,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 706.3000000007451,
+        "start_median": 174.90000000037253,
+        "end_median": 881.5,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 702.5,
+        "start_median": 175.80000000074506,
+        "end_median": 878.5999999996275,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 710.3999999985099,
+        "start_median": 176.30000000074506,
+        "end_median": 887.0999999996275,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 710.5,
+        "start_median": 176.5,
+        "end_median": 894,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "side": "baseline",
+    "n": 5,
+    "lcp_median": 244,
+    "lcp_element_counts": {
+      "div": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp": 5
+    },
+    "paint_median": 130.7000000011176,
+    "presentation_minus_paint_median": 107,
+    "image_load_median": 103.5,
+    "callback_minus_lcp_median": 218.59999999962747,
+    "fonts_ready_median": 447.2000000011176,
+    "cpu_median": 30.324989020641194,
+    "longtasks_total_median": 221,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 20.59999999962747,
+        "start_median": 22.40000000037253,
+        "end_median": 50.30000000074506,
+        "bytes_median": 117711,
+        "transfer_median": 118011,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 15.100000001490116,
+        "start_median": 22.59999999962747,
+        "end_median": 38,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 26.800000000745058,
+        "start_median": 22.700000001117587,
+        "end_median": 50.90000000037253,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/avaluos-ii/hero-brecha-residencial-tokyo-night-1600x900.webp",
+        "n": 5,
+        "duration_median": 35.70000000111759,
+        "start_median": 22.800000000745058,
+        "end_median": 59.90000000037253,
+        "bytes_median": 156080,
+        "transfer_median": 156380,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 47.40000000037253,
+        "start_median": 23.300000000745058,
+        "end_median": 72.20000000111759,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 47.20000000111759,
+        "start_median": 23.300000000745058,
+        "end_median": 70.5,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 48.40000000037253,
+        "start_median": 23.5,
+        "end_median": 71.90000000037253,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 52.20000000111759,
+        "start_median": 23.5,
+        "end_median": 75.70000000111759,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 53.40000000037253,
+        "start_median": 23.59999999962747,
+        "end_median": 77,
+        "bytes_median": 207700,
+        "transfer_median": 208000,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 52.59999999962747,
+        "start_median": 23.700000001117587,
+        "end_median": 77.59999999962747,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 27.5,
+        "start_median": 23.800000000745058,
+        "end_median": 52.59999999962747,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 62.59999999962747,
+        "start_median": 67,
+        "end_median": 129.59999999962747,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 64.70000000111759,
+        "start_median": 77.90000000037253,
+        "end_median": 144.40000000037253,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 76.19999999925494,
+        "start_median": 78.09999999962747,
+        "end_median": 152.90000000037253,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 79,
+        "start_median": 78.70000000111759,
+        "end_median": 157.7000000011176,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 75.90000000037253,
+        "start_median": 79.30000000074506,
+        "end_median": 155.30000000074506,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 74.29999999888241,
+        "start_median": 79.70000000111759,
+        "end_median": 154,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 74.5,
+        "start_median": 79.80000000074506,
+        "end_median": 154.30000000074506,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "side": "candidate",
+    "n": 5,
+    "lcp_median": 344,
+    "lcp_element_counts": {
+      "img": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp": 5
+    },
+    "paint_median": 173.69999999925494,
+    "presentation_minus_paint_median": 139.2000000011176,
+    "image_load_median": 159.39999999850988,
+    "callback_minus_lcp_median": 238.90000000037253,
+    "fonts_ready_median": 602.6000000014901,
+    "cpu_median": 48.26546003016591,
+    "longtasks_total_median": 264,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 21.09999999962747,
+        "start_median": 31.399999998509884,
+        "end_median": 64.19999999925494,
+        "bytes_median": 119679,
+        "transfer_median": 119979,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 18.799999998882413,
+        "start_median": 31.899999998509884,
+        "end_median": 54.29999999888241,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 25.59999999962747,
+        "start_median": 32,
+        "end_median": 80,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+        "n": 5,
+        "duration_median": 34.70000000111759,
+        "start_median": 32.09999999962747,
+        "end_median": 91.69999999925494,
+        "bytes_median": 161742,
+        "transfer_median": 162042,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 40.80000000074506,
+        "start_median": 32.399999998509884,
+        "end_median": 96.80000000074506,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 45,
+        "start_median": 32.399999998509884,
+        "end_median": 91,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 47.40000000037253,
+        "start_median": 32.5,
+        "end_median": 97.5,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 51.90000000037253,
+        "start_median": 32.69999999925494,
+        "end_median": 105.19999999925494,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 54.30000000074506,
+        "start_median": 33.5,
+        "end_median": 117.09999999962747,
+        "bytes_median": 215304,
+        "transfer_median": 215604,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 52.90000000037253,
+        "start_median": 33.69999999925494,
+        "end_median": 116,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 32.90000000037253,
+        "start_median": 33.899999998509884,
+        "end_median": 72.59999999962747,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 71.70000000111759,
+        "start_median": 95.40000000037253,
+        "end_median": 203.60000000149012,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 87.89999999850988,
+        "start_median": 113.59999999962747,
+        "end_median": 224.69999999925494,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 88.19999999925494,
+        "start_median": 113.90000000037253,
+        "end_median": 225.5,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 91,
+        "start_median": 114.80000000074506,
+        "end_median": 237.60000000149012,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 109.5,
+        "start_median": 115.90000000037253,
+        "end_median": 225.80000000074506,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 107.09999999962747,
+        "start_median": 116.5,
+        "end_median": 224.90000000037253,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 109,
+        "start_median": 116.5,
+        "end_median": 253.40000000037253,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "casen-long",
+    "temperature": "cold",
+    "side": "baseline",
+    "n": 5,
+    "lcp_median": 984,
+    "lcp_element_counts": {
+      "p": 5
+    },
+    "lcp_url_counts": {
+      "": 5
+    },
+    "paint_median": 928,
+    "presentation_minus_paint_median": 56,
+    "image_load_median": 0,
+    "callback_minus_lcp_median": 285.59999999962747,
+    "fonts_ready_median": 1286.7999999988824,
+    "cpu_median": 35.13408472600078,
+    "longtasks_total_median": 212,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 28.09999999962747,
+        "start_median": 20.700000001117587,
+        "end_median": 48.80000000074506,
+        "bytes_median": 117711,
+        "transfer_median": 118011,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 18.300000000745058,
+        "start_median": 21,
+        "end_median": 39.30000000074506,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 29.300000000745058,
+        "start_median": 21.09999999962747,
+        "end_median": 52.29999999888241,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 55.70000000111759,
+        "start_median": 22.09999999962747,
+        "end_median": 77.80000000074506,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 53.20000000111759,
+        "start_median": 22.09999999962747,
+        "end_median": 73.80000000074506,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 54.29999999888241,
+        "start_median": 22.200000001117587,
+        "end_median": 73.80000000074506,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 58.19999999925494,
+        "start_median": 22.200000001117587,
+        "end_median": 81.20000000111759,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 67.90000000037253,
+        "start_median": 22.40000000037253,
+        "end_median": 96.60000000149012,
+        "bytes_median": 207700,
+        "transfer_median": 208000,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 64.5,
+        "start_median": 22.40000000037253,
+        "end_median": 93.40000000037253,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 35.40000000037253,
+        "start_median": 22.59999999962747,
+        "end_median": 59.20000000111759,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 823.1000000014901,
+        "start_median": 117.89999999850988,
+        "end_median": 941,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 842.5,
+        "start_median": 118.09999999962747,
+        "end_median": 960.5999999996275,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 846.1000000014901,
+        "start_median": 118.39999999850988,
+        "end_median": 964.5,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 844.3999999985099,
+        "start_median": 118.5,
+        "end_median": 962.8999999985099,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 842.7999999988824,
+        "start_median": 119.09999999962747,
+        "end_median": 961.8999999985099,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 843.0999999996275,
+        "start_median": 119.19999999925494,
+        "end_median": 962.2999999988824,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "casen-long",
+    "temperature": "cold",
+    "side": "candidate",
+    "n": 5,
+    "lcp_median": 1140,
+    "lcp_element_counts": {
+      "img": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp": 5
+    },
+    "paint_median": 1049.4000000003725,
+    "presentation_minus_paint_median": 90.59999999962747,
+    "image_load_median": 204.59999999962747,
+    "callback_minus_lcp_median": 309.59999999962747,
+    "fonts_ready_median": 1428.699999999255,
+    "cpu_median": 42.42537313432836,
+    "longtasks_total_median": 258,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 24.800000000745058,
+        "start_median": 19.5,
+        "end_median": 43,
+        "bytes_median": 119679,
+        "transfer_median": 119979,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 16.40000000037253,
+        "start_median": 19.90000000037253,
+        "end_median": 35.5,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 29.5,
+        "start_median": 20,
+        "end_median": 48.30000000074506,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "n": 5,
+        "duration_median": 36.5,
+        "start_median": 20.09999999962747,
+        "end_median": 55.30000000074506,
+        "bytes_median": 74248,
+        "transfer_median": 74548,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 55.20000000111759,
+        "start_median": 21.199999999254942,
+        "end_median": 76.40000000037253,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 46.399999998509884,
+        "start_median": 21.299999998882413,
+        "end_median": 67.09999999962747,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 55.90000000037253,
+        "start_median": 21.299999998882413,
+        "end_median": 77.19999999925494,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 57.29999999888241,
+        "start_median": 21.40000000037253,
+        "end_median": 78.69999999925494,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 69.69999999925494,
+        "start_median": 21.5,
+        "end_median": 91.19999999925494,
+        "bytes_median": 215304,
+        "transfer_median": 215604,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 65,
+        "start_median": 21.59999999962747,
+        "end_median": 86.59999999962747,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 34.30000000074506,
+        "start_median": 21.699999999254942,
+        "end_median": 57.90000000037253,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 943.5999999996275,
+        "start_median": 98.09999999962747,
+        "end_median": 1063.699999999255,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 886.2000000011176,
+        "start_median": 204.2999999988824,
+        "end_median": 1090.5,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 888.3000000007451,
+        "start_median": 204.39999999850988,
+        "end_median": 1092.699999999255,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 891.1999999992549,
+        "start_median": 205,
+        "end_median": 1100.199999999255,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 888.7000000011176,
+        "start_median": 205.19999999925494,
+        "end_median": 1094,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 885.9000000003725,
+        "start_median": 205.89999999850988,
+        "end_median": 1091.7999999988824,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 886.0999999996275,
+        "start_median": 206,
+        "end_median": 1092.0999999996275,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "casen-long",
+    "temperature": "warm",
+    "side": "baseline",
+    "n": 5,
+    "lcp_median": 200,
+    "lcp_element_counts": {
+      "p": 5
+    },
+    "lcp_url_counts": {
+      "": 5
+    },
+    "paint_median": 128,
+    "presentation_minus_paint_median": 72,
+    "image_load_median": 0,
+    "callback_minus_lcp_median": 296.6000000014901,
+    "fonts_ready_median": 508.30000000074506,
+    "cpu_median": 30.257558790593507,
+    "longtasks_total_median": 256,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 25.59999999962747,
+        "start_median": 20.5,
+        "end_median": 45.59999999962747,
+        "bytes_median": 117711,
+        "transfer_median": 118011,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 15.599999999627471,
+        "start_median": 20.799999998882413,
+        "end_median": 39.19999999925494,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 28.09999999962747,
+        "start_median": 20.90000000037253,
+        "end_median": 48.40000000037253,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 58.29999999888241,
+        "start_median": 21.799999998882413,
+        "end_median": 79.59999999962747,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 53.5,
+        "start_median": 21.799999998882413,
+        "end_median": 74.90000000037253,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 54,
+        "start_median": 21.799999998882413,
+        "end_median": 75.5,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 61.30000000074506,
+        "start_median": 22,
+        "end_median": 92.19999999925494,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 74.30000000074506,
+        "start_median": 22,
+        "end_median": 101.10000000149012,
+        "bytes_median": 207700,
+        "transfer_median": 208000,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 68.69999999925494,
+        "start_median": 22.09999999962747,
+        "end_median": 96.69999999925494,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 34.79999999888241,
+        "start_median": 22.199999999254942,
+        "end_median": 59,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 68.80000000074506,
+        "start_median": 76.30000000074506,
+        "end_median": 163.10000000149012,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 72,
+        "start_median": 76.5,
+        "end_median": 176.09999999962747,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 85.80000000074506,
+        "start_median": 77.19999999925494,
+        "end_median": 187,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 83.20000000111759,
+        "start_median": 77.5,
+        "end_median": 176.40000000037253,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 80.5,
+        "start_median": 78.19999999925494,
+        "end_median": 174.30000000074506,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 80.80000000074506,
+        "start_median": 78.40000000037253,
+        "end_median": 175.19999999925494,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  },
+  {
+    "page": "casen-long",
+    "temperature": "warm",
+    "side": "candidate",
+    "n": 5,
+    "lcp_median": 236,
+    "lcp_element_counts": {
+      "img": 5
+    },
+    "lcp_url_counts": {
+      "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp": 5
+    },
+    "paint_median": 128.2000000011176,
+    "presentation_minus_paint_median": 120.09999999962747,
+    "image_load_median": 91.20000000111759,
+    "callback_minus_lcp_median": 239.90000000037253,
+    "fonts_ready_median": 476.90000000037253,
+    "cpu_median": 32.41272646928856,
+    "longtasks_total_median": 252,
+    "resources": [
+      {
+        "url": "/assets/css/main.css",
+        "n": 5,
+        "duration_median": 27.200000001117587,
+        "start_median": 22.40000000037253,
+        "end_median": 57,
+        "bytes_median": 119679,
+        "transfer_median": 119979,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/ajax/libs/font-awesome/6.7.2/css/all.min.css",
+        "n": 5,
+        "duration_median": 17.5,
+        "start_median": 22.59999999962747,
+        "end_median": 39.40000000037253,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/katex.css",
+        "n": 5,
+        "duration_median": 27,
+        "start_median": 22.699999999254942,
+        "end_median": 58.90000000037253,
+        "bytes_median": 21692,
+        "transfer_median": 21992,
+        "renderBlockingStatus": {
+          "blocking": 5
+        }
+      },
+      {
+        "url": "/assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp",
+        "n": 5,
+        "duration_median": 30.5,
+        "start_median": 22.90000000037253,
+        "end_median": 64.09999999962747,
+        "bytes_median": 74248,
+        "transfer_median": 74548,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/main.min.js",
+        "n": 5,
+        "duration_median": 53.79999999888241,
+        "start_median": 23.90000000037253,
+        "end_median": 77.69999999925494,
+        "bytes_median": 124030,
+        "transfer_median": 124330,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/theme-toggle.js",
+        "n": 5,
+        "duration_median": 49.399999998509884,
+        "start_median": 23.90000000037253,
+        "end_median": 72.90000000037253,
+        "bytes_median": 2629,
+        "transfer_median": 2929,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/site-nav.js",
+        "n": 5,
+        "duration_median": 53,
+        "start_median": 24,
+        "end_median": 77,
+        "bytes_median": 3663,
+        "transfer_median": 3963,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr.min.js",
+        "n": 5,
+        "duration_median": 57.19999999925494,
+        "start_median": 24.09999999962747,
+        "end_median": 87.70000000111759,
+        "bytes_median": 29510,
+        "transfer_median": 29810,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-store.js",
+        "n": 5,
+        "duration_median": 59.59999999962747,
+        "start_median": 24.199999999254942,
+        "end_median": 94.20000000111759,
+        "bytes_median": 215304,
+        "transfer_median": 215604,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/js/lunr/lunr-en.js",
+        "n": 5,
+        "duration_median": 62.09999999962747,
+        "start_median": 24.199999999254942,
+        "end_median": 94,
+        "bytes_median": 2504,
+        "transfer_median": 2804,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/count.js",
+        "n": 5,
+        "duration_median": 35.19999999925494,
+        "start_median": 24.5,
+        "end_median": 59.69999999925494,
+        "bytes_median": 0,
+        "transfer_median": 0,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Medium.woff2",
+        "n": 5,
+        "duration_median": 69.90000000037253,
+        "start_median": 79.59999999962747,
+        "end_median": 142.90000000037253,
+        "bytes_median": 155208,
+        "transfer_median": 155508,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Regular.woff2",
+        "n": 5,
+        "duration_median": 62.80000000074506,
+        "start_median": 90.60000000149012,
+        "end_median": 151.7000000011176,
+        "bytes_median": 150596,
+        "transfer_median": 150896,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Bold.woff2",
+        "n": 5,
+        "duration_median": 77,
+        "start_median": 90.90000000037253,
+        "end_median": 168,
+        "bytes_median": 162064,
+        "transfer_median": 162364,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "n": 5,
+        "duration_median": 80.5,
+        "start_median": 91.60000000149012,
+        "end_median": 172.30000000074506,
+        "bytes_median": 1138228,
+        "transfer_median": 1138528,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/fonts/fira-sans/FiraSans-Italic.woff2",
+        "n": 5,
+        "duration_median": 76.90000000037253,
+        "start_median": 91.80000000074506,
+        "end_median": 168.80000000074506,
+        "bytes_median": 157932,
+        "transfer_median": 158232,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Math-Italic.woff2",
+        "n": 5,
+        "duration_median": 75.40000000037253,
+        "start_median": 92.60000000149012,
+        "end_median": 168.30000000074506,
+        "bytes_median": 16440,
+        "transfer_median": 16740,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      },
+      {
+        "url": "/assets/vendor/katex/0.17.0/fonts/KaTeX_Main-Regular.woff2",
+        "n": 5,
+        "duration_median": 75.29999999888241,
+        "start_median": 92.80000000074506,
+        "end_median": 168.40000000037253,
+        "bytes_median": 26272,
+        "transfer_median": 26572,
+        "renderBlockingStatus": {
+          "non-blocking": 5
+        }
+      }
+    ]
+  }
+]

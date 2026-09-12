@@ -1,0 +1,14 @@
+{
+  "id": "E1-visual-assets",
+  "task_id": "H1",
+  "command": [
+    "ruby",
+    "scripts/verify_visual_assets.rb"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:45:05.448144+00:00",
+  "seconds": 0.5363347100010287,
+  "exit_code": 0,
+  "log": "evidence/checks/E1-visual-assets.log",
+  "log_sha256": "a84f6da5a07e05f57943d3897e144594050e9a497f62681d64211aa7047bb124"
+}

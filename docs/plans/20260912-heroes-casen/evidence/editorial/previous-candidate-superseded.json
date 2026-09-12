@@ -1,0 +1,15 @@
+{
+  "reason": "User explicitly requested first-person concise AI disclosure; candidate invalidated before acceptance.",
+  "old_source_digest": "7be8c5d4d401d695a920943d72efe66406ab18524161fd37402de147ff584a75",
+  "changed_files": [
+    "_includes/ai-disclosure.html",
+    "_includes/page__hero.html",
+    "_layouts/single.html",
+    "_pages/ai-transparency-en.md",
+    "_pages/ai-transparency.md",
+    "assets/css/main.scss",
+    "docs/distribution/ai-disclosure/README.md",
+    "scripts/verify_hero_disclosure.rb",
+    "tests/test_ai_disclosure.rb"
+  ]
+}

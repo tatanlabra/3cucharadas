@@ -1,0 +1,18 @@
+{
+  "task_id": "contract-assurance",
+  "status": "verified_fixture_recovery",
+  "recorded_at": "2026-09-12T11:03:26.460306+00:00",
+  "test_count": 49,
+  "original_suite_exit_code": 1,
+  "patched_suite_exit_code": 0,
+  "original_invalid_acceptances": 27,
+  "patched_invalid_acceptances": 0,
+  "positive_controls": 6,
+  "negative_controls": 43,
+  "verifier_before_sha256": "a31f98473648b654c2592c2f4a963405bec681fc13524588a490aaef0a6c6843",
+  "verifier_after_sha256": "d7fcf229e1f2b557f614207f46918fde5e841c00ed87858e608309ab70423a43",
+  "test_suite_sha256": "37b3a841553eb9a05f4db4f127fce9339f3c9ad5bf15c7b7405aaaafb1d44b90",
+  "actual_receipts_mutated": false,
+  "D1_modified": false,
+  "limitations": "Receipt integrity/binding only; actual criterion quality, measurements and human review remain independently required."
+}

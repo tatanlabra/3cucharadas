@@ -1,0 +1,782 @@
+[
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "duration_s": 10.029153564000808,
+    "cpu_busy_percent": 33.65907966353291,
+    "loadavg_start": [
+      4.359375,
+      8.5068359375,
+      9.67822265625
+    ],
+    "loadavg_end": [
+      3.9228515625,
+      8.27587890625,
+      9.59033203125
+    ],
+    "top_processes": [
+      {
+        "pid": 483541,
+        "comm": "awk",
+        "cpu_core_equivalents": 0.9911105594872113
+      },
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.87544775777643
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.12164536041995953
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.11267152235619202
+      },
+      {
+        "pid": 483540,
+        "comm": "iconv",
+        "cpu_core_equivalents": 0.05982558709178338
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.05284593526440865
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.03290407290048086
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.02991279354589169
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.0289157004276953
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_core_equivalents": 0.027918607309498914
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.017947676127535013
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.017947676127535013
+      }
+    ]
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "duration_s": 10.033732232999682,
+    "cpu_busy_percent": 31.77199504337051,
+    "loadavg_start": [
+      4.134765625,
+      7.99169921875,
+      9.46142578125
+    ],
+    "loadavg_end": [
+      3.72607421875,
+      7.77734375,
+      9.37548828125
+    ],
+    "top_processes": [
+      {
+        "pid": 483541,
+        "comm": "awk",
+        "cpu_core_equivalents": 0.991654926496414
+      },
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.8740516286807588
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.1166066596985733
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_core_equivalents": 0.09767053547401866
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.05880164890782756
+      },
+      {
+        "pid": 483540,
+        "comm": "iconv",
+        "cpu_core_equivalents": 0.05880164890782756
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.03488233409786381
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.029899143512454693
+      },
+      {
+        "pid": 470418,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.021926038575800107
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.017939486107472816
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.011959657404981876
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.010963019287900054
+      }
+    ]
+  },
+  {
+    "pair": 2,
+    "page": "avaluos-ii",
+    "duration_s": 10.024245501999758,
+    "cpu_busy_percent": 36.197078484773456,
+    "loadavg_start": [
+      4.125,
+      7.53857421875,
+      9.25244140625
+    ],
+    "loadavg_end": [
+      3.7177734375,
+      7.3388671875,
+      9.1689453125
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.8688933245162865
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.11970975768307046
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.058857297527509636
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.035912927304921134
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.028929858106742024
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.02394195153661409
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.02394195153661409
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.018954044966486155
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.017956463652460567
+      },
+      {
+        "pid": 15703,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.013966138396358222
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.010973394454281459
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_core_equivalents": 0.010973394454281459
+      }
+    ]
+  },
+  {
+    "pair": 2,
+    "page": "casen-long",
+    "duration_s": 10.03185848999965,
+    "cpu_busy_percent": 30.83973247460986,
+    "loadavg_start": [
+      4.3603515625,
+      7.21142578125,
+      9.07861328125
+    ],
+    "loadavg_end": [
+      4.23046875,
+      7.0888671875,
+      9.0185546875
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.8702275863143984
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.11064749379255238
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.055822159030476874
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.03389202512564667
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.025917430978435692
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.023923782441632943
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.017942836831224707
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.010965066952415099
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_core_equivalents": 0.009968242684013728
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_core_equivalents": 0.008971418415612354
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_core_equivalents": 0.008971418415612354
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.008971418415612354
+      }
+    ]
+  },
+  {
+    "pair": 3,
+    "page": "avaluos-ii",
+    "duration_s": 10.049714400000084,
+    "cpu_busy_percent": 30.762554246745196,
+    "loadavg_start": [
+      3.60791015625,
+      6.72412109375,
+      8.84619140625
+    ],
+    "loadavg_end": [
+      3.36669921875,
+      6.568359375,
+      8.7724609375
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 1.0030135781768998
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.09054983691874789
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.08855973061284135
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_core_equivalents": 0.08059930538921517
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.06268834863605624
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.05174276395357023
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.04975265764766368
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.04975265764766368
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_core_equivalents": 0.04378233872994404
+      },
+      {
+        "pid": 25875,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.037812019812224394
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.02487632882383184
+      },
+      {
+        "pid": 25171,
+        "comm": "kitty",
+        "cpu_core_equivalents": 0.02189116936497202
+      }
+    ]
+  },
+  {
+    "pair": 3,
+    "page": "casen-long",
+    "duration_s": 10.033134655999675,
+    "cpu_busy_percent": 26.945513218319473,
+    "loadavg_start": [
+      4.45703125,
+      6.6201171875,
+      8.73388671875
+    ],
+    "loadavg_end": [
+      4.00537109375,
+      6.451171875,
+      8.65576171875
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.9897205948553673
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.14751122662496916
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.1465145291477734
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.07076552088089737
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.05581505872296131
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.042857991519416716
+      },
+      {
+        "pid": 25171,
+        "comm": "kitty",
+        "cpu_core_equivalents": 0.021927344498306228
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.013953764680740327
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.013953764680740327
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.011960369726348851
+      },
+      {
+        "pid": 3833,
+        "comm": "prometheus",
+        "cpu_core_equivalents": 0.011960369726348851
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_core_equivalents": 0.011960369726348851
+      }
+    ]
+  },
+  {
+    "pair": 4,
+    "page": "avaluos-ii",
+    "duration_s": 10.038926044000618,
+    "cpu_busy_percent": 52.31299212598425,
+    "loadavg_start": [
+      4.18310546875,
+      6.26318359375,
+      8.5224609375
+    ],
+    "loadavg_end": [
+      4.44287109375,
+      6.25390625,
+      8.49560546875
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.9503008547115671
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.15639123080683026
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.11056959630291821
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.07570530918037642
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.0677363292666526
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.051798369439204926
+      },
+      {
+        "pid": 25171,
+        "comm": "kitty",
+        "cpu_core_equivalents": 0.039844899568619176
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.018926327295094105
+      },
+      {
+        "pid": 2644,
+        "comm": "dockerd",
+        "cpu_core_equivalents": 0.015937959827447667
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.015937959827447667
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.015937959827447667
+      },
+      {
+        "pid": 8015,
+        "comm": "code",
+        "cpu_core_equivalents": 0.01394571484901671
+      }
+    ]
+  },
+  {
+    "pair": 4,
+    "page": "casen-long",
+    "duration_s": 10.029099495000992,
+    "cpu_busy_percent": 70.6737941322725,
+    "loadavg_start": [
+      5.06005859375,
+      6.2294921875,
+      8.41552734375
+    ],
+    "loadavg_end": [
+      5.185546875,
+      6.22119140625,
+      8.3896484375
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.9472435690497715
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.20440519121600328
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.14657347857928044
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.142585084604334
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.12264311472960199
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_core_equivalents": 0.08674756895508433
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.0658085005866157
+      },
+      {
+        "pid": 46815,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.05384331866177649
+      },
+      {
+        "pid": 25171,
+        "comm": "kitty",
+        "cpu_core_equivalents": 0.04686362920562027
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.036892644268254254
+      },
+      {
+        "pid": 2185,
+        "comm": "Telegram",
+        "cpu_core_equivalents": 0.024927462343415037
+      },
+      {
+        "pid": 1889,
+        "comm": "wireplumber",
+        "cpu_core_equivalents": 0.020939068368468632
+      }
+    ]
+  },
+  {
+    "pair": 5,
+    "page": "avaluos-ii",
+    "duration_s": 10.027428772998974,
+    "cpu_busy_percent": 28.530723488602575,
+    "loadavg_start": [
+      5.390625,
+      6.18701171875,
+      8.3203125
+    ],
+    "loadavg_end": [
+      4.72119140625,
+      6.01611328125,
+      8.2412109375
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.9663494221063356
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.13662525369305262
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.10770457955364732
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.09474013942218976
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.06881125915927466
+      },
+      {
+        "pid": 387675,
+        "comm": "chrome",
+        "cpu_core_equivalents": 0.040887849645366105
+      },
+      {
+        "pid": 26133,
+        "comm": "codex",
+        "cpu_core_equivalents": 0.028920674139405293
+      },
+      {
+        "pid": 387772,
+        "comm": "chrome",
+        "cpu_core_equivalents": 0.02493161563741836
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.02094255713543142
+      },
+      {
+        "pid": 387634,
+        "comm": "chrome",
+        "cpu_core_equivalents": 0.019945292509934688
+      },
+      {
+        "pid": 3844,
+        "comm": "grafana",
+        "cpu_core_equivalents": 0.016953498633444485
+      },
+      {
+        "pid": 15638,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.013961704756954282
+      }
+    ]
+  },
+  {
+    "pair": 5,
+    "page": "casen-long",
+    "duration_s": 10.035959127000751,
+    "cpu_busy_percent": 48.04469273743017,
+    "loadavg_start": [
+      3.962890625,
+      5.73876953125,
+      8.08984375
+    ],
+    "loadavg_end": [
+      4.21533203125,
+      5.7314453125,
+      8.06201171875
+    ],
+    "top_processes": [
+      {
+        "pid": 17755,
+        "comm": "brave",
+        "cpu_core_equivalents": 1.130933262717656
+      },
+      {
+        "pid": 387675,
+        "comm": "chrome",
+        "cpu_core_equivalents": 0.9764886321262582
+      },
+      {
+        "pid": 3793,
+        "comm": "cadvisor",
+        "cpu_core_equivalents": 0.17636580396566093
+      },
+      {
+        "pid": 30363,
+        "comm": "claude",
+        "cpu_core_equivalents": 0.12056645355844615
+      },
+      {
+        "pid": 17632,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.08070977469614991
+      },
+      {
+        "pid": 2214,
+        "comm": "brave",
+        "cpu_core_equivalents": 0.06675993709434623
+      },
+      {
+        "pid": 1852,
+        "comm": "kwin_wayland",
+        "cpu_core_equivalents": 0.063770686179674
+      },
+      {
+        "pid": 19848,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.05181368252098513
+      },
+      {
+        "pid": 387772,
+        "comm": "chrome",
+        "cpu_core_equivalents": 0.03487459400450922
+      },
+      {
+        "pid": 1970,
+        "comm": "plasmashell",
+        "cpu_core_equivalents": 0.02889609217516478
+      },
+      {
+        "pid": 25171,
+        "comm": "kitty",
+        "cpu_core_equivalents": 0.02789967520360738
+      },
+      {
+        "pid": 28531,
+        "comm": "vivaldi-bin",
+        "cpu_core_equivalents": 0.02789967520360738
+      }
+    ]
+  }
+]

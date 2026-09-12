@@ -88,6 +88,6 @@ una traducción que le hemos pedido a Google que no indexe.
   {%- endif -%}
 {%- endunless %}
 <!-- end custom head snippets -->
-{% if page.ref == 'avaluos-ii-brecha-residencial' and page.header.overlay_image %}
-<link rel="preload" as="image" href="{{ page.header.overlay_image | relative_url }}" fetchpriority="high">
+{% if page.id and page.header.overlay_image %}
+<link rel="preload" as="image" href="{{ page.header.overlay_image | relative_url }}"{% if page.header.overlay_image_mobile %} imagesrcset="{{ page.header.overlay_image_mobile | relative_url }} 800w, {{ page.header.overlay_image | relative_url }} 1600w" imagesizes="100vw"{% endif %} fetchpriority="high">
 {% endif %}

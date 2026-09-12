@@ -1,0 +1,84 @@
+{
+  "task_id": "R1",
+  "kind": "manual_review",
+  "review_provider": "Anthropic",
+  "identity_evidence": "evidence/claude-final/runtime-identity.json",
+  "source_digest": "3b27cb4149399559e7fd942f4bdff03e263f26a50bc7e484bf528025f413a79b",
+  "source_manifest": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/source-freeze.json",
+  "source_root": "activos/3cucharadas",
+  "open_p0_p1": false,
+  "checks": [
+    {
+      "id": "R1-final-binding",
+      "task_id": "R1",
+      "command": [
+        "python3",
+        "docs/plans/20260912-heroes-casen/verify_review_binding.py",
+        "--review",
+        "docs/plans/20260912-heroes-casen/evidence/claude-final/round2/findings.json",
+        "--manifest",
+        "docs/plans/20260912-heroes-casen/evidence/claude-final/round2/source-freeze.json",
+        "--source-root",
+        "."
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "started_at": "2026-09-12T12:29:22.140244+00:00",
+      "seconds": 0.24136507000002894,
+      "exit_code": 0,
+      "log": "evidence/checks/R1-final-binding.log",
+      "log_sha256": "8e04f952c7ad12fbfa9cc3fb91fda39214b2b59ea9517353aab020af843ef665",
+      "acceptance_ids": [
+        "AC-R1"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/findings.json",
+      "sha256": "a00de89c988100d266517aec349aab2dae1d19824ba596ad4088fc903569f9c0"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/source-freeze.json",
+      "sha256": "5eb880e2718f980e9ff353d26179d48dd03c818b5657ef9070675bf625466ba6"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/baseline-dependencies.json",
+      "sha256": "cfd6c29ff47c6607b52baa84cfade38bcdfc2f5ba7d85d4edf853af56c50914b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/packet.md",
+      "sha256": "0f3cf859a65c46b43981b5dc5689c4562486136391954d38eab080dd37b0096f"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/driver.md",
+      "sha256": "75d95bc755c84e076bc757de5abbe1296124582eaa3bfeb00779b4a303656860"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/round2/bridge.log",
+      "sha256": "18d1e74e669c888f06604944aaf81d5c9a9f35489f5ce031d4a3bb3408b63a11"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/runtime-identity.json",
+      "sha256": "fa598adf1fc412e45f0470a116dd9dfd9152f7e2d4320c823cbf5508378b6901"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/evidence/claude-final/disposition.md",
+      "sha256": "7b205dd5de56e3b75d4efc409c5289a94cc1205e01f04467ad35d7b92cf76fe8"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20260912-heroes-casen/verify_review_binding.py",
+      "sha256": "d06c1af913c48c299d3db953cebb2d59cfaa9eb16a19e46bca186919086e363e"
+    }
+  ],
+  "limitations": [
+    "No command execution attempted or available in this round (read-only per brief); all dispositions derive from static reading of the supplied packet text, including line-level inspection of the reproduced verify_visual_assets.rb and image_dimensions.rb source.",
+    "Did not independently recompute any sha256 or rerun any ruby test; relied on the packet's self-reported command/log/log_sha256 values as given.",
+    "The 'recorded archive browser check' cited as covering current teaser_mobile values was not supplied in this packet, so its actual scope could not be inspected — I can only confirm it is not an automated regression gate based on the packet's own wording.",
+    "D1/D2 acceptance and the bounded privacy review's completeness are taken as reported, not re-audited by me this round."
+  ],
+  "residual_findings": [
+    "P2 publisher lacks per-format schema allowlist; current export verified against D2 and bounded privacy audit.",
+    "P3 generic future teaser_mobile pointer mutation not covered; current catalog/browser variants checked."
+  ],
+  "runtime_scope": "Does not approve Q1 runtime; bound separately."
+}

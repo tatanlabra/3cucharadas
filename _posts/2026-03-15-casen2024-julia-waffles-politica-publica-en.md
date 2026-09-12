@@ -17,9 +17,14 @@ toc_sticky: true
 math: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-casen-2024.webp
-  og_image: /assets/images/casen2024-julia-waffles-politica-publica/waffle_trabajo_ingresos_pobreza.png
-
+  teaser: /assets/images/heroes-v2/casen2024-julia-waffles/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/casen2024-julia-waffles/og-1200x630.webp
+  overlay_image: /assets/images/heroes-v2/casen2024-julia-waffles/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/casen2024-julia-waffles/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/casen2024-julia-waffles/teaser-mobile-640x360.webp
+  og_image_alt: Territory and luminous cells as a metaphor for reading social data.
 gallery_nacional:
   - url: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/waffle_educacion_educc.webp
@@ -47,6 +52,12 @@ gallery_regional:
     image_path: /assets/images/casen2024-julia-waffles-politica-publica/regional_dotplot_trabajo_ingresos_pobreza.webp
     alt: "Chart 6: Dot plot of regional gaps in income poverty, CASEN 2024. Axis fitted per panel with national reference."
     title: "Chart 6 — Regional gaps in poverty: dot plot (axis fitted per panel, dashed line = national, band = 95% CI)"
+visual_id: casen2024-julia-waffles-politica-publica
+ai_disclosure:
+  level: some_ai
+  components:
+    text: assisted
+    hero: generated
 ---
 
 In Chile, **La Araucanía records 13.0% extreme poverty; Magallanes, 4.2%**. That is 8.8 percentage points of difference — and if a public agency at the central or local level (regional governments / municipalities) designs its intervention using only the national average (6.9%), or disregarding regional differences, it could get the allocation of resources or the distribution of its components wrong.
@@ -86,7 +97,7 @@ The maximum observed difference is below 3 millionths of a percentage point and 
 
 ## Spoonful 1: sampling design and expansion without shortcuts
 
-CASEN 2024 has a **probabilistic stratified two-stage** design ([BIDAT methodological note](https://bidat.gob.cl/url/69b71c77197db)). For regional-level estimates, the correct factor is `expr`; for the municipal level `expc` is required — they are not interchangeable. This analysis uses `expr` and reports estimates by region with 95% CIs computed by **Taylor linearization** over the complex design (strata, PSU/UPM and weights/factors).
+CASEN 2024 has a **probabilistic stratified two-stage** design ([BIDAT methodological note](https://bidat.gob.cl/url/69b71c77197db)). The `expr` factor applies to national and regional estimates. The complementary `expc` factor supports descriptive commune calculations, but **does not make estimates representative of each commune**, according to the [official CASEN 2024 data-use note](https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf). This analysis uses `expr` and reports estimates by region with 95% CIs computed by **Taylor linearization** over the complex design (strata, PSU/UPM and weights/factors).
 
 Population represented in this run (sum of `expr`): **20.13 million people** (a pending task is to assess the impact of the new 2024 Census instead of projections over the 2017 Census).
 
@@ -239,7 +250,7 @@ In every case the CIs do not overlap: the gaps are statistically significant at 
 If you use CASEN 2024 for territorial characterization or other uses where regional-level variables matter, think twice before using a point estimate (without its confidence interval):
 
 1. **Are your results validated against BIDAT and do they carry design-based CIs?** A difference greater than 1×10⁻⁵ pp from the official tables is not technical: it is a process issue. And without complex-design CIs, an 8 pp gap can look like evidence when it is noise in small regions.
-2. **Are you using the correct expansion factor?** `expr` is the right one for regions; `expc` for municipalities. They are not interchangeable, and using the wrong one biases coverage estimates.
+2. **Are you using the correct expansion factor?** `expr` applies to national and regional domains; having `expc` does not guarantee commune representativeness. The factors are not interchangeable, and the domain and scope of inference must be stated.
 3. **Is your analysis reproducible?** A flow that cannot be audited cannot be defended before a technical counterpart, nor updated when CASEN 2026 is released.
 
 The CIs incorporated here are complex-design (Taylor linearization), not simple asymptotic ones. They cover sampling variance but not non-response error or undercoverage. Causal inference between subpopulations requires additional design.

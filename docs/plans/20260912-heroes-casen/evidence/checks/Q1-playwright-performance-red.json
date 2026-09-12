@@ -1,0 +1,17 @@
+{
+  "id": "Q1-playwright-performance-red",
+  "task_id": "Q1",
+  "command": [
+    "python3",
+    "docs/plans/20260912-heroes-casen/verify_runtime_acceptance.py",
+    "performance",
+    "--directory",
+    "docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T12:41:26.289513+00:00",
+  "seconds": 0.9287732720003987,
+  "exit_code": 1,
+  "log": "evidence/checks/Q1-playwright-performance-red.log",
+  "log_sha256": "40312ccc73297dcf7ba03b46ff15dad8786b1296b8d34fe5a120edc2f04fbacc"
+}

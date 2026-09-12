@@ -31,9 +31,20 @@ toc_sticky: true
 comments: true
 author_profile: true
 header:
-  teaser: /assets/images/teasers/teaser-ai-quota-hud.webp
-  og_image: /assets/images/ai-quota-hud/popup-og-en-1200x938.webp
-  og_image_alt: "AI Quota HUD detailed view with five quota donuts"
+  teaser: /assets/images/heroes-v2/ai-quota-hud-kde/teaser-1280x720.webp
+  og_image: /assets/images/heroes-v2/ai-quota-hud-kde/og-1200x630.webp
+  og_image_alt: Five luminous instruments illustrate AI quota tracking.
+  overlay_image: /assets/images/heroes-v2/ai-quota-hud-kde/hero-1600x900.webp
+  overlay_image_mobile: /assets/images/heroes-v2/ai-quota-hud-kde/hero-mobile-800x450.webp
+  overlay_filter: linear-gradient(90deg, rgba(9,11,24,0.94) 0%, rgba(9,11,24,0.68) 42%, rgba(9,11,24,0.12) 72%, rgba(9,11,24,0.08) 100%)
+  show_overlay_excerpt: false
+  teaser_mobile: /assets/images/heroes-v2/ai-quota-hud-kde/teaser-mobile-640x360.webp
+visual_id: ai-quota-hud
+ai_disclosure:
+  level: some_ai
+  components:
+    text: unknown
+    hero: generated
 ---
 
 I currently use Claude Code, Codex, Gemini (through `agy` on the command line), and DeepSeek on Arch Linux with KDE Plasma 6. For me, as for many others, the problem has become knowing which one still has quota—especially when a task already carries a lot of context, reviewed files, and an hour of iteration.

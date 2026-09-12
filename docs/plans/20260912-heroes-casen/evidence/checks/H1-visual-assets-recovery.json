@@ -1,0 +1,15 @@
+{
+  "id": "H1-visual-assets-recovery",
+  "task_id": "H1",
+  "command": [
+    "ruby",
+    "scripts/verify_visual_assets.rb",
+    "--strict"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:04:09.491953+00:00",
+  "seconds": 0.5289072759996998,
+  "exit_code": 1,
+  "log": "evidence/checks/H1-visual-assets-recovery.log",
+  "log_sha256": "8cfc0214313986eb41283ef2478a9587e94b5030c9152f9247c816686965f040"
+}

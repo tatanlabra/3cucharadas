@@ -1,0 +1,12 @@
+[
+  {
+    "fixture": "late",
+    "exit_code": 1,
+    "stdout": "{\"fixture\": \"late\", \"standard_lcp_ms\": [3032, 3028, 3040, 3032], \"threshold_ms\": 2500, \"pass\": false}\n"
+  },
+  {
+    "fixture": "fast",
+    "exit_code": 0,
+    "stdout": "{\"fixture\": \"fast\", \"standard_lcp_ms\": [56, 36, 60, 48], \"threshold_ms\": 2500, \"pass\": true}\n"
+  }
+]

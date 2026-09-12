@@ -1,0 +1,21 @@
+{
+  "id": "D1-root-tests",
+  "task_id": "D1",
+  "command": [
+    "/opt/entornos/mamba312/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "v5_brecha/tests",
+    "-p",
+    "test_casen_shared_site.py",
+    "-v"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/catastros_sii",
+  "started_at": "2026-09-12T10:56:41.733469+00:00",
+  "seconds": 2.6046063410003626,
+  "exit_code": 0,
+  "log": "evidence/checks/D1-root-tests.log",
+  "log_sha256": "6edd90d1a0f1169957064d41ddd9dd524f8fe0811ed157842aa2c99b64a6092f"
+}

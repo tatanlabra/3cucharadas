@@ -1,0 +1,182 @@
+[
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 71.98543585350183,
+    "candidate_cpu_busy_percent": 38.0045871559633,
+    "difference_percentage_points": -33.980848697538526,
+    "exclusion": false
+  },
+  {
+    "pair": 2,
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 43.17510788099023,
+    "candidate_cpu_busy_percent": 61.66742183960127,
+    "difference_percentage_points": 18.492313958611035,
+    "exclusion": false
+  },
+  {
+    "pair": 3,
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 45.938748335552596,
+    "candidate_cpu_busy_percent": 28.486511202560585,
+    "difference_percentage_points": -17.45223713299201,
+    "exclusion": false
+  },
+  {
+    "pair": 4,
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 41.57405307325924,
+    "candidate_cpu_busy_percent": 36.500341763499655,
+    "difference_percentage_points": -5.073711309759588,
+    "exclusion": false
+  },
+  {
+    "pair": 5,
+    "page": "avaluos-ii",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 36.119945479327576,
+    "candidate_cpu_busy_percent": 42.471303173531396,
+    "difference_percentage_points": 6.35135769420382,
+    "exclusion": false
+  },
+  {
+    "pair": 1,
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 65.784067564483,
+    "candidate_cpu_busy_percent": 38.223668914206,
+    "difference_percentage_points": -27.560398650276994,
+    "exclusion": false
+  },
+  {
+    "pair": 2,
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 35.073597056117755,
+    "candidate_cpu_busy_percent": 43.40924775707384,
+    "difference_percentage_points": 8.335650700956087,
+    "exclusion": false
+  },
+  {
+    "pair": 3,
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 28.128587830080367,
+    "candidate_cpu_busy_percent": 27.079524680073128,
+    "difference_percentage_points": -1.049063150007239,
+    "exclusion": false
+  },
+  {
+    "pair": 4,
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 31.65013525698828,
+    "candidate_cpu_busy_percent": 75.44045850137975,
+    "difference_percentage_points": 43.79032324439147,
+    "exclusion": false
+  },
+  {
+    "pair": 5,
+    "page": "avaluos-ii",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 40.49217002237136,
+    "candidate_cpu_busy_percent": 53.74800637958533,
+    "difference_percentage_points": 13.255836357213965,
+    "exclusion": false
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 92.52669039145907,
+    "candidate_cpu_busy_percent": 45.98122280741928,
+    "difference_percentage_points": -46.54546758403979,
+    "exclusion": false
+  },
+  {
+    "pair": 2,
+    "page": "casen-long",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 35.54038680318544,
+    "candidate_cpu_busy_percent": 39.188576609247505,
+    "difference_percentage_points": 3.6481898060620637,
+    "exclusion": false
+  },
+  {
+    "pair": 3,
+    "page": "casen-long",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 31.096045197740114,
+    "candidate_cpu_busy_percent": 45.707656612529,
+    "difference_percentage_points": 14.611611414788886,
+    "exclusion": false
+  },
+  {
+    "pair": 4,
+    "page": "casen-long",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 47.254981699878,
+    "candidate_cpu_busy_percent": 40.973952434881085,
+    "difference_percentage_points": -6.281029264996917,
+    "exclusion": false
+  },
+  {
+    "pair": 5,
+    "page": "casen-long",
+    "temperature": "cold",
+    "baseline_cpu_busy_percent": 93.38635412306404,
+    "candidate_cpu_busy_percent": 70.49750162937215,
+    "difference_percentage_points": -22.888852493691886,
+    "exclusion": false
+  },
+  {
+    "pair": 1,
+    "page": "casen-long",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 72.71714922048997,
+    "candidate_cpu_busy_percent": 46.851851851851855,
+    "difference_percentage_points": -25.865297368638117,
+    "exclusion": false
+  },
+  {
+    "pair": 2,
+    "page": "casen-long",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 26.276207839562442,
+    "candidate_cpu_busy_percent": 27.986348122866893,
+    "difference_percentage_points": 1.710140283304451,
+    "exclusion": false
+  },
+  {
+    "pair": 3,
+    "page": "casen-long",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 49.00872323552736,
+    "candidate_cpu_busy_percent": 74.54429843153879,
+    "difference_percentage_points": 25.53557519601143,
+    "exclusion": false
+  },
+  {
+    "pair": 4,
+    "page": "casen-long",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 79.10064239828694,
+    "candidate_cpu_busy_percent": 56.36446886446886,
+    "difference_percentage_points": -22.736173533818075,
+    "exclusion": false
+  },
+  {
+    "pair": 5,
+    "page": "casen-long",
+    "temperature": "warm",
+    "baseline_cpu_busy_percent": 56.54602323503128,
+    "candidate_cpu_busy_percent": 82.04664254121431,
+    "difference_percentage_points": 25.500619306183033,
+    "exclusion": false
+  }
+]

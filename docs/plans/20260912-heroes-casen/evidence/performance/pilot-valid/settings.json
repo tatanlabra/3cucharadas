@@ -1,0 +1,72 @@
+{
+  "label": "pilot-v2",
+  "acceptance_candidate": false,
+  "pairs": 1,
+  "pages": {
+    "avaluos-ii": "/datos/territorio/avaluos-ii-brecha-residencial/",
+    "casen-long": "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/"
+  },
+  "viewport": [
+    1440,
+    1000
+  ],
+  "dpr": 1,
+  "media": "light, no-preference motion",
+  "cpu": "no emulated throttling (native host)",
+  "network": "loopback, no emulated latency/bandwidth throttle, allowed-domains 127.0.0.1; external requests blocked",
+  "cold": "new isolated browser process/session per page/build/pair, no restore/profile; OS disk cache not flushed",
+  "warm": "second navigation via reload in same browser/session; server Cache-Control no-store, not an HTTP cache-hit claim",
+  "window_ms": 5000,
+  "interaction": "none during measurement; no scroll or theme clicks",
+  "order": "AB then BA alternated by pair and page index; cold then warm within each build",
+  "host": {
+    "platform": "Linux-7.2.4-arch1-2-x86_64-with-glibc2.44",
+    "cpu_count": 8,
+    "cpu_model": "Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz"
+  },
+  "tool_versions": {
+    "agent_browser": "agent-browser 0.33.2",
+    "node": "v26.8.2"
+  },
+  "hashes": {
+    "server": "668a569bd34c81c65e7c5a9cb9a01d8b5b951ede01dbdb35275f00d086e7ca76",
+    "agent_browser_binary": "b7bc3dfcf0a7326c1f5a60423163259ba2349eebfa5bd2e70e111af743da4a49",
+    "embedded_init": "51a642ebb48dcfa6dc9fce031146ea1419f6e99e0069f37b39cd5f3a0f7b4068",
+    "measurement_init": "5733002b629e9a0f4720d423f23c7567f8393e3fc15ff5191a65ead83767ecc3",
+    "harness": "e2975bbe8048c4d930452ed1681b7ecfcdc34ea9a3b3b895c28a195bc0971602"
+  },
+  "inputs": {
+    "baseline": {
+      "root": "/tmp/3c-heroes-baseline-site",
+      "pages": {
+        "avaluos-ii": "027a8a14b001a6b84ee1c636390cd63e75169927a777168c58eff8e24ee76e5e",
+        "casen-long": "6ee14863dc9e3afe4f2010b7f2d0b126fba5c32817822d1d5bdbba366c721bf5"
+      }
+    },
+    "candidate": {
+      "root": "/tmp/3c-heroes-cardfix-site",
+      "pages": {
+        "avaluos-ii": "65e741446ff7fdb2aa37c1a2a2bf920eaaa95d61e6c02292b3d1200a1242accb",
+        "casen-long": "d6b3751b95768cb255f6c6f48d37fda601c8b78e23f61bc8eb85a983607ed30c"
+      }
+    }
+  },
+  "server_headers": {
+    "baseline": {
+      "Accept-Ranges": "bytes",
+      "Cache-Control": "no-store",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "80161",
+      "Date": "Sat, 12 Sep 2026 11:32:36 GMT",
+      "Connection": "close"
+    },
+    "candidate": {
+      "Accept-Ranges": "bytes",
+      "Cache-Control": "no-store",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "82268",
+      "Date": "Sat, 12 Sep 2026 11:32:36 GMT",
+      "Connection": "close"
+    }
+  }
+}

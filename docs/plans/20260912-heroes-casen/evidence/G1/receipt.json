@@ -1,0 +1,170 @@
+{
+  "task_id": "G1",
+  "status": "partial_optional",
+  "frozen_at": "2026-09-12T12:11:43.970305+00:00",
+  "count_as_approved_external_review": false,
+  "files_sha256": {
+    "gemini-rejection.json": "96dc5906e63f6d59d7ffea4728c279d282caaaffee7bb46e1edd6e88b9ce0edc",
+    "fallback-disposition.json": "ba232e87c6b2c2c925e2cbbdbc4d82f3414668080cb8065e7364e793feedb14c",
+    "qwen-launch-escalated.log": "f79cd141d888a03851d0b0b7d8da2246b3aa8e18bdc044cbcc5fa3e33f58a1c8",
+    "disposition.md": "6d59917ece85a75001a8cf3e83bdac95b13fd9d8069caebdb2cd172f2c62a607",
+    "qwen-launch.log": "ca58b8ac8a290b8c6f9d7e29fcd938d02db51be8203d7c3b759566f370c684df",
+    "qwen-configured-provider.json": "00280338f8c91013ae159bc515b06da670517bfcd8aaa78e3273e4769ae2388b",
+    "qwen-20260912T105603Z-2/stdout.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qwen-20260912T105603Z-2/prompt.md": "c5860fc17d5707b5e04240335a99e10d8700e0ce265752624d786e6b8f315f90",
+    "qwen-20260912T105603Z-2/interruption.json": "0b8e171a32c2c714dc1ae2e76ae42516836ae76490c3c1ef39f7e76ba8c250e1",
+    "qwen-20260912T105603Z-2/request.md": "e6a146a1b9d6a44132e09dc72b58259da1442f1d4c67b5e467da380e42f9ed84",
+    "qwen-20260912T105603Z-2/stderr.log": "f2542d06e54172804b5a3da1336f6eb56ef922a3c3a0674214857196a11e6a3a",
+    "qwen-20260912T105710Z-263862/diff.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qwen-20260912T105710Z-263862/prompt.md": "c5860fc17d5707b5e04240335a99e10d8700e0ce265752624d786e6b8f315f90",
+    "qwen-20260912T105710Z-263862/result-text.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qwen-20260912T105710Z-263862/status.json": "d906008d8a25953f8b6d8daff0c4bfdfe7cae0e73b51dd94c9480b5f7d40b0db",
+    "qwen-20260912T105710Z-263862/result.md": "a056dadadf2afa72f3e7e38eb8a04dec65cce3fe6d20dd4e09822956f253c4ab",
+    "qwen-20260912T105710Z-263862/recovery.json": "75499218889a66e1469e087c9fff9b62b8908e3e49a6a9f1fb123709c7e699b0",
+    "qwen-20260912T105710Z-263862/recovered-final.md": "9ab657908c054e6a2c3dd3cebac23e6a92349b4940060e88b6b1e33dba871a9e",
+    "qwen-20260912T105710Z-263862/request.md": "e6a146a1b9d6a44132e09dc72b58259da1442f1d4c67b5e467da380e42f9ed84",
+    "qwen-20260912T105710Z-263862/stderr.log": "5086ecc1a28b4f8c9b1ba594ff68f297d2ccac278f31eccd7532e91679d7e2f0",
+    "sources/questionnaire.pdf": "dc3c3afbdc9e90c368b0fe2bdaaf8420257c0f144ce444165b161e58521891dd",
+    "sources/use-note-p2-3.txt": "62ecf61234c7bdf5ad3fc91dd3176eae1ac4767895a83d15e9b8ab3737694bd5",
+    "sources/questionnaire-p83.txt": "0c2ac0f0fdc6093dbc24fcc3699cb785cc4b3850f1b980a8318003b959933c9d",
+    "sources/manifest.json": "f378870b47bd3a15f2e570796320a9c6684c74b747c30271eee5cacae2f23976",
+    "sources/forem-article.rb": "7126646b0be98ceeab6529fbe760bba4984bc42de54a429c9727eba388ba0d4a",
+    "sources/questionnaire-p79.txt": "79f1ee73261b702629a9461c5ca6f2980bf349f06a892ff80057dca56d66cd1e",
+    "sources/use-note.pdf": "44ca117ffedd29f3ac9e8cc415bc6924dede91a220505e2b518b02ff1ac57e90",
+    "sources/mdn-svg-image.html": "bd56cb3021ff99bc59c703655e8312e4403539bca83a2527c32b99b356d32d88",
+    "agy-20260912T104837Z-241965/diff.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agy-20260912T104837Z-241965/prompt.md": "3b4fc7df610f3e7d3dd82dd70f00ffcec94415b83f9910968a83edd1da5c6a71",
+    "agy-20260912T104837Z-241965/status.json": "0698c1be4ae6e3928e070bbdb180d8e2e889e114074e025abaa6010c1e22da81",
+    "agy-20260912T104837Z-241965/result.md": "34192b2160be5a405b17a0ffaceab782cb0d49b8ed392cbd9868bc9c0f498d55",
+    "agy-20260912T104837Z-241965/stdout.md": "2362782cba2e37b80931bbcc40c2665058d99cec573ac966f5fcf9f272933a1f",
+    "agy-20260912T104837Z-241965/request.md": "40d7532402664fbcbbdef062f0bb3f46c208c9a604e8e6d1aaaef9b914d0947b",
+    "agy-20260912T104837Z-241965/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qwen-20260912T105710Z-263862/sanitized-review-evidence.json": "b589c0ea516310eb91dbc92d1ade19e5eb667259521b9a408a3398ff02b170d4"
+  },
+  "no_contract_edit": true,
+  "no_commits": true,
+  "no_publication": true,
+  "source_retrieval_commands": [
+    {
+      "argv": [
+        "curl",
+        "--fail",
+        "--location",
+        "--max-time",
+        "40",
+        "--output",
+        "/tmp/3c-heroes-providers/sources/questionnaire.pdf",
+        "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "curl",
+        "--fail",
+        "--location",
+        "--max-time",
+        "40",
+        "--output",
+        "/tmp/3c-heroes-providers/sources/use-note.pdf",
+        "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-f",
+        "79",
+        "-l",
+        "79",
+        "-layout",
+        "/tmp/3c-heroes-providers/sources/questionnaire.pdf",
+        "/tmp/3c-heroes-providers/sources/questionnaire-p79.txt"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-f",
+        "83",
+        "-l",
+        "83",
+        "-layout",
+        "/tmp/3c-heroes-providers/sources/questionnaire.pdf",
+        "/tmp/3c-heroes-providers/sources/questionnaire-p83.txt"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-f",
+        "2",
+        "-l",
+        "3",
+        "-layout",
+        "/tmp/3c-heroes-providers/sources/use-note.pdf",
+        "/tmp/3c-heroes-providers/sources/use-note-p2-3.txt"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "fallback_command": {
+    "env": {
+      "QWEN_BRIDGE_STATE_DIR": "/tmp/3c-heroes-providers/.agents"
+    },
+    "argv": [
+      "/home/ende/Descargas/programaciones/penta-agent/scripts/qwen_bridge.sh",
+      "run",
+      "--caller",
+      "codex",
+      "--mode",
+      "review",
+      "--timeout",
+      "10m",
+      "--public-export",
+      "--model",
+      "deepseek-v4-pro",
+      "/tmp/3c-heroes-providers/.agents/queue/G1-qwen-public.md"
+    ],
+    "cwd": "/tmp/3c-heroes-providers"
+  },
+  "execution": [
+    {
+      "attempt": 1,
+      "environment": "restricted",
+      "exit_code": 130,
+      "outcome": "interrupted repeated sandbox-backend error; no model response"
+    },
+    {
+      "attempt": 2,
+      "environment": "require_escalated",
+      "bridge_exit_code": 1,
+      "qwen_exit_code": 0,
+      "outcome": "truncated JSON; complete final assistant report recovered separately as partial"
+    }
+  ],
+  "residual_environment": "Qwen sandbox auto-pulled ghcr.io/qwenlm/qwen-code:0.21.6; digest in stderr; not removed because no cleanup authorization and may be shared.",
+  "package_sanitization": {
+    "original_files_excluded": {
+      "qwen-20260912T105710Z-263862/stdout.json": {
+        "sha256": "3d3c49ee0ab5614430a156b510696f90f35503786d14af499220aee7a317c367",
+        "bytes": 65536,
+        "archive_copy_verified": true,
+        "excluded_from_versionable_package": true
+      },
+      "qwen-20260912T105710Z-263862/complete-prefix-objects.json": {
+        "sha256": "b21c18f53c37fcba737311a1e2b1b96d48c105c965920e1d8592082b9f005585",
+        "bytes": 66854,
+        "archive_copy_verified": true,
+        "excluded_from_versionable_package": true
+      }
+    },
+    "reason": "Raw CLI streams included conversation records and local initialization metadata unnecessary for the public review evidence. Originals retained byte-identically outside the versionable package.",
+    "replacement": "qwen-20260912T105710Z-263862/sanitized-review-evidence.json",
+    "original_copy_hashes_verified": true,
+    "original_bridge_and_review_status_preserved": true
+  }
+}

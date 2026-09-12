@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task": "Q1-product-canary-playwright",
+  "timestamp": "2026-09-12T12:33:50.772Z",
+  "status": "requires-review",
+  "formal_acceptance": false,
+  "counts": {
+    "runs_total": 8,
+    "expected_total": 8,
+    "pairs_per_page": 1,
+    "lcp_observed": 8,
+    "lcp_missing": 0,
+    "cls_observed": 8,
+    "cpu_windows": 2,
+    "sessions_closed": 4
+  },
+  "inputs": {
+    "source_manifest": "evidence/editorial/source-first-person-before-build.json",
+    "source_manifest_sha256": "8c8b05ef19e4fa485f000e44b59aa185edbe0146ca2d261fc6a9544ae110c783",
+    "source_digest": "238221099b11ca45bc387d65fe90450397084927173ef75e808dfa36bc848b2a",
+    "build_root": "/tmp/3c-heroes-first-person-site",
+    "build_manifest": "../../formal-candidate-first-person-freeze.json",
+    "build_manifest_sha256": "afc097833f8e8a55699926c37f609e1afa4e7ce50ece914158c41e42be94cac7",
+    "build_bytes_unchanged_after_collection": true
+  },
+  "cleanup": {
+    "all_own_sessions_closed": true,
+    "servers4041_4042_closed": true,
+    "server4004_untouched": true
+  },
+  "files": {
+    "cpu-before-pairs.json": "7b679be92fd1e0631ea4884e0193f522ccad6c192f8149ccaefbc9da492f9067",
+    "runs.json": "cf3b45360e1c2e2f0b0a3860ead6a706844b32a0b08676860fad6dfe60dd674f",
+    "server-baseline.log": "194a7de9a8ddecde2d386058ecea266db66e581bb9fa06524381175327cc65af",
+    "server-candidate.log": "d6768e46f3ff06771f55f7d6e7797b45a2d008366f9738286e32132865da5d2f",
+    "settings.json": "01f2ea9aaa27f5a5515866f9f0f715196fd46d6586bc1cd979598093f980f68c",
+    "summary.json": "4e75140bb50755e2a57a3382bae89996b6dc763d7c6ac25738ebb37bdc900f85"
+  }
+}

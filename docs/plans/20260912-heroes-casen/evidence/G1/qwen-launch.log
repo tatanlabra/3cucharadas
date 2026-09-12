@@ -1,0 +1,1 @@
+WARN: --sandbox se pasa pero no hay backend configurado (sin clave sandbox en ~/.qwen/settings.json, sin $SANDBOX). La contencion efectiva es el workspace aislado, no el flag.

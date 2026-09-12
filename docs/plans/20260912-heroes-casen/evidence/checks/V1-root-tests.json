@@ -1,0 +1,21 @@
+{
+  "id": "V1-root-tests",
+  "task_id": "V1",
+  "command": [
+    "/opt/entornos/mamba312/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/catastro_sii",
+    "-p",
+    "test_casen_shared_site_figure.py",
+    "-v"
+  ],
+  "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "started_at": "2026-09-12T11:42:41.613944+00:00",
+  "seconds": 1.7907866820005438,
+  "exit_code": 0,
+  "log": "evidence/checks/V1-root-tests.log",
+  "log_sha256": "987b949b1a8fa4d17a5ef1ef4eca44c7357e0b108dfaeb2b2670b53059876189"
+}

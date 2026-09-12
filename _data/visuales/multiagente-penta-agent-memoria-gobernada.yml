@@ -1,108 +1,199 @@
-# Manifest de activos visuales del post.
-#
-# Se escribe A MANO. Nunca se deriva del post: si se dedujera de él heredaría sus
-# errores en vez de detectarlos, que es justo lo contrario de lo que se busca.
-# El post es lo que se verifica; este archivo es contra qué se verifica.
-#
-# Lo valida scripts/verify_visual_assets.rb (gate de CI).
-
 slug: multiagente-penta-agent-memoria-gobernada
 ref: multiagente-penta-agent-memoria-gobernada-poc
 posts:
-  - _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
-  - _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
-
+- _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+- _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
 piezas:
-  # --- Generadas con IA externa desde los prompts de source/readme.md ---
-  - id: hero
-    rol: hero
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/hero-memoria-gobernada-1600x900.webp
-    ancho: 1600
-    alto: 900
-    estado: publicable
-    origen: ia-externa
-    alt:
-      es: "Cuatro plataformas separadas —memoria de trabajo, correo personal sellado bajo una cúpula de cristal, índice de tesis y proyección pública— con una membrana translúcida que solo deja pasar tres salidas permitidas hacia la esfera central."
-    advertencias:
-      - "No usar como teaser: a tamaño tarjeta las cuatro etiquetas quedan ilegibles y la membrana se lee como un artefacto."
-      - "La escena es deliberadamente NO cerebral. El post argumenta que lo que hay es un registro de trabajo con procedencia, no cognición, y el teaser del Post II era un cerebro holográfico."
-      - "La esfera se ve hueca a propósito: la proyección pública es derivada, no la cosa misma."
-
-  - id: og
-    rol: og
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
-    ancho: 1200
-    alto: 630
-    estado: publicable
-    origen: ia-externa
-    alt:
-      es: "Cuatro fuentes gobernadas y la frontera que separa lo que puede salir de lo que no."
-    advertencias:
-      - "Reencuadre manual desde el hero, no recorte ciego: se recorta altura desde y=40 para conservar la esfera completa arriba y la fila de etiquetas abajo, que es lo único que explica la escena."
-
-  - id: teaser
-    rol: teaser
-    archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
-    ancho: 1280
-    alto: 720
-    estado: publicable
-    origen: ia-externa
-    alt:
-      es: "Una esfera de malla hueca sobre una plataforma, con tres hilos de luz que descienden y dejan huellas circulares que siguen brillando."
-    advertencias:
-      - "Sin texto a propósito: se muestra a 640x360 en la portada y cualquier tipografía dentro queda ilegible, además de duplicar el titular que ya va en HTML al lado."
-      - "Las huellas son el título del post: una memoria que deja huellas."
-
-  - id: teaser-640
-    rol: teaser
-    archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada-640x360.webp
-    ancho: 640
-    alto: 360
-    estado: publicable
-    origen: ia-externa
-    alt:
-      es: "Miniatura de la esfera de malla hueca y sus tres huellas luminosas."
-
-  - id: cerebro-20
-    rol: figura
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000.webp
-    ancho: 1600
-    alto: 1000
-    estado: publicable
-    origen: ia-externa
-    alt:
-      es: "Ilustración: media silueta de un cerebro formada por puntos y aristas que se deshace hacia la derecha en puntos sueltos, con una barra de carga detenida en 20 %."
-    advertencias:
-      - "ES UNA ILUSTRACIÓN, NO UNA CAPTURA. Sustituyó a un pantallazo real del visor, y por eso el texto y el pie tuvieron que cambiar: decían «fotografía de esa red» y «proyección pública de la memoria», que de una ilustración serían falsos. En un post que argumenta contra afirmar más de lo que la evidencia sostiene, ese detalle no es cosmético."
-      - "El cerebro a medias es deliberado y contradice solo en apariencia la regla de source/readme.md de no usar cerebros: aquella prohíbe el cerebro completo del Post II, que afirmaba lo contrario del texto. Uno cargado al 20 % ilustra el argumento en vez de contradecirlo."
-      - "La paleta sale del visor real (#61afef, #c678dd, #d19a66, #9ece6a), así que ilustración y herramienta hablan el mismo idioma visual."
-
-  # --- Diagramas generados por script, no por IA ---
-  - id: figura-1-es
-    rol: figura
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg
-    estado: publicable
-    origen: render-script
-    cifras: []
-    advertencias:
-      - "Versión informativa de la misma escena del hero: aquí sí se declaran las salidas permitidas y la frontera pública, con su texto legible."
-      - "Geometría medida en navegador, no estimada: tarjetas de 712x226 a la izquierda y 592x226 a la derecha, con 24 px de margen horizontal y 12 vertical. La versión anterior tenía siete textos fuera de su caja, hasta 88 px."
-
-  - id: figura-1-en
-    rol: figura
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg
-    estado: publicable
-    origen: render-script
-    cifras: []
-    advertencias:
-      - "Gemela inglesa de figura-1-es. El post EN debe apuntar a esta, no a la versión española."
-
-  - id: figura-1-en-devto
-    rol: figura
-    archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png
-    ancho: 1600
-    alto: 1169
-    estado: publicable
-    origen: render-script
-    alt:
-      en: "Three governed sources, their allowed outputs, and the public boundary."
+- id: hero
+  rol: hero
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/hero-memoria-gobernada-1600x900.webp
+  ancho: 1600
+  alto: 900
+  estado: publicable
+  origen: ia-externa
+  alt:
+    es: Cuatro plataformas separadas —memoria de trabajo, correo personal sellado bajo una cúpula de cristal, índice
+      de tesis y proyección pública— con una membrana translúcida que solo deja pasar tres salidas permitidas hacia
+      la esfera central.
+  advertencias:
+  - 'No usar como teaser: a tamaño tarjeta las cuatro etiquetas quedan ilegibles y la membrana se lee como un artefacto.'
+  - La escena es deliberadamente NO cerebral. El post argumenta que lo que hay es un registro de trabajo con procedencia,
+    no cognición, y el teaser del Post II era un cerebro holográfico.
+  - 'La esfera se ve hueca a propósito: la proyección pública es derivada, no la cosa misma.'
+- id: og
+  rol: og
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/og-memoria-gobernada-1200x630.webp
+  ancho: 1200
+  alto: 630
+  estado: publicable
+  origen: ia-externa
+  alt:
+    es: Cuatro fuentes gobernadas y la frontera que separa lo que puede salir de lo que no.
+  advertencias:
+  - 'Reencuadre manual desde el hero, no recorte ciego: se recorta altura desde y=40 para conservar la esfera completa
+    arriba y la fila de etiquetas abajo, que es lo único que explica la escena.'
+- id: teaser
+  rol: teaser
+  archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada-1280x720.webp
+  ancho: 1280
+  alto: 720
+  estado: publicable
+  origen: ia-externa
+  alt:
+    es: Una esfera de malla hueca sobre una plataforma, con tres hilos de luz que descienden y dejan huellas circulares
+      que siguen brillando.
+  advertencias:
+  - 'Sin texto a propósito: se muestra a 640x360 en la portada y cualquier tipografía dentro queda ilegible, además
+    de duplicar el titular que ya va en HTML al lado.'
+  - 'Las huellas son el título del post: una memoria que deja huellas.'
+- id: teaser-640
+  rol: teaser
+  archivo: assets/images/teasers/teaser-multiagentes-memoria-gobernada-640x360.webp
+  ancho: 640
+  alto: 360
+  estado: publicable
+  origen: ia-externa
+  alt:
+    es: Miniatura de la esfera de malla hueca y sus tres huellas luminosas.
+- id: cerebro-20
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000.webp
+  ancho: 1600
+  alto: 1000
+  estado: publicable
+  origen: ia-externa
+  alt:
+    es: 'Ilustración: media silueta de un cerebro formada por puntos y aristas que se deshace hacia la derecha en
+      puntos sueltos, con una barra de carga detenida en 20 %.'
+  advertencias:
+  - 'ES UNA ILUSTRACIÓN, NO UNA CAPTURA. Sustituyó a un pantallazo real del visor, y por eso el texto y el pie tuvieron
+    que cambiar: decían «fotografía de esa red» y «proyección pública de la memoria», que de una ilustración serían
+    falsos. En un post que argumenta contra afirmar más de lo que la evidencia sostiene, ese detalle no es cosmético.'
+  - 'El cerebro a medias es deliberado y contradice solo en apariencia la regla de source/readme.md de no usar cerebros:
+    aquella prohíbe el cerebro completo del Post II, que afirmaba lo contrario del texto. Uno cargado al 20 % ilustra
+    el argumento en vez de contradecirlo.'
+  - 'La paleta sale del visor real (#61afef, #c678dd, #d19a66, #9ece6a), así que ilustración y herramienta hablan
+    el mismo idioma visual.'
+- id: figura-1-es
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/fuentes-gobernadas.svg
+  estado: publicable
+  origen: render-script
+  cifras: []
+  advertencias:
+  - 'Versión informativa de la misma escena del hero: aquí sí se declaran las salidas permitidas y la frontera pública,
+    con su texto legible.'
+  - 'Geometría medida en navegador, no estimada: tarjetas de 712x226 a la izquierda y 592x226 a la derecha, con
+    24 px de margen horizontal y 12 vertical. La versión anterior tenía siete textos fuera de su caja, hasta 88
+    px.'
+- id: figura-1-en
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg
+  estado: publicable
+  origen: render-script
+  cifras: []
+  advertencias:
+  - Gemela inglesa de figura-1-es. El post EN debe apuntar a esta, no a la versión española.
+- id: figura-1-en-devto
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png
+  ancho: 1600
+  alto: 1169
+  estado: publicable
+  origen: render-script
+  alt:
+    en: Three governed sources, their allowed outputs, and the public boundary.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 84960
+  sha256: e43fdbf7b6112394e4266f5e211c14a07494b731fb6bc0c8f83c92860671b12f
+  alt: &id001
+    es: Red esférica luminosa y tres recorridos controlados como metáfora de la memoria gobernada.
+    en: A luminous spherical network and three controlled routes as a metaphor for governed memory.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 3d0f41606275de6281e15c2324d477b50ddb8122fa08ebeba9846d511a581a00
+    note: &id002
+      es: Ilustración conceptual; no representa una arquitectura técnica medida ni resultados experimentales.
+      en: Conceptual illustration; it does not represent a measured technical architecture or experimental results.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 28138
+  sha256: 0ede0d9129e28221706f8b79d19acdad90275ce2ca3c2f58b5388f518efd272a
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 3d0f41606275de6281e15c2324d477b50ddb8122fa08ebeba9846d511a581a00
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 66970
+  sha256: 2a6b718d0ef4f3a94e88fa5e0e73c9af14d1e784dbe5e6fff9891712d90e0a0f
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 3d0f41606275de6281e15c2324d477b50ddb8122fa08ebeba9846d511a581a00
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 22484
+  sha256: ebaab65f2bdf8c8f0926239a25c8c8ab91dd090097cbd51f563c2e2b21b7ee33
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 3d0f41606275de6281e15c2324d477b50ddb8122fa08ebeba9846d511a581a00
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 60260
+  sha256: d60d18076e9fe3cd240c850fdbc6abcc87f3a2fae03d24f90e3f735d416e9705
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 3d0f41606275de6281e15c2324d477b50ddb8122fa08ebeba9846d511a581a00
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
