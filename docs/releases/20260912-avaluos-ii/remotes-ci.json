@@ -1,0 +1,26 @@
+{
+  "gitlab": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+  "github": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+  "pipeline": {
+    "id": 2843148339,
+    "iid": 251,
+    "status": "success",
+    "sha": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+    "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843148339",
+    "updated_at": "2026-09-12T13:23:49.244Z"
+  },
+  "jobs": [
+    {
+      "id": 16463031251,
+      "name": "pages",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/16463031251"
+    },
+    {
+      "id": 16463031250,
+      "name": "build_site",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/16463031250"
+    }
+  ]
+}

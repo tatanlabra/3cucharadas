@@ -10,10 +10,11 @@
 - [x] Enlaces con UTM hacia el permalink del artículo; no se modifica su canónico.
 - [x] Atribución breve en primera persona. Los gráficos calculados no se presentan como imágenes generadas.
 - [x] No se enviaron textos, imágenes ni borradores a las plataformas; no existe programación de publicación.
-- [ ] Verificar que la versión pública incorpore esta revisión del blog y la política de IA antes de difundir.
-- [ ] Resolver o disponer explícitamente el pendiente AC-Q6 del blog: tres comparaciones de LCP superan la regresión máxima del 10 %.
+- [x] Producción verificada contra el artefacto GitLab: cinco páginas, incluidos post y política ES/EN, y 49 archivos referenciados. Recibo `docs/releases/20260912-avaluos-ii/public-parity.json`.
+- [x] Usuario autoriza publicar conservando la deuda AC-Q6: tres comparaciones de LCP superan la regresión máxima del 10 %. El resultado de rendimiento sigue RED.
 - [ ] Revisar el recorte y la legibilidad de las imágenes en el compositor real de cada red.
-- [ ] Autorización de envío y registro de las URLs publicadas.
+- [x] Autorización explícita de envío y programación recibida el 12-09-2026.
+- [ ] Iniciar sesión en las cuentas de LinkedIn y X, enviar/programar y registrar URL e identificador remoto. Actualmente no existen.
 
 Reglas consultadas el 12 de septiembre de 2026: [conteo de caracteres de X](https://docs.x.com/fundamentals/counting-characters) y [imágenes y texto alternativo en LinkedIn](https://www.linkedin.com/help/linkedin/answer/a527229/sharing-photos-or-videos?lang=en). Los límites de una ayuda pública no acreditan una prueba en la cuenta del usuario.
 

@@ -1,0 +1,390 @@
+{
+  "checked_at": "2026-09-12T13:24:19.863562+00:00",
+  "pipeline": 2843148339,
+  "sha": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+  "artifact_sha256": "ac61bfe0822b0d8ff6e7c0921e9a70871e13fca77b7a8d336e1fd51d04b9e1a2",
+  "pages": [
+    {
+      "path": "/datos/territorio/avaluos-ii-brecha-residencial/",
+      "http_status": 200,
+      "text_matches_artifact": true,
+      "missing_asset_references": [],
+      "html_sha256": "26c8f60ccc0f240db32b5bb32f0c328ece304e2741f432aea2f19408e038549c"
+    },
+    {
+      "path": "/en/datos/territorio/avaluos-ii-brecha-residencial/",
+      "http_status": 200,
+      "text_matches_artifact": true,
+      "missing_asset_references": [],
+      "html_sha256": "9f3d1ddf54111db6a958d681d3146289bf93699e18bd0d8fae3c190f7d3943e6"
+    },
+    {
+      "path": "/ai-transparency/",
+      "http_status": 200,
+      "text_matches_artifact": true,
+      "missing_asset_references": [],
+      "html_sha256": "991a484088ad91b257dcbf74046a26f2f9b27b067b85e94086fa19040a8225b7"
+    },
+    {
+      "path": "/en/ai-transparency/",
+      "http_status": 200,
+      "text_matches_artifact": true,
+      "missing_asset_references": [],
+      "html_sha256": "02821aaf3b2e28d09f59d644422b31ed59b748598f76bf348dd49b687e2e244c"
+    },
+    {
+      "path": "/catastro_sii_brecha/",
+      "http_status": 200,
+      "text_matches_artifact": true,
+      "missing_asset_references": [],
+      "html_sha256": "2548a09033f0b196de4e189406952ec1fbe77f2af0e1c08a5dd17d8a0d911406"
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://3cucharadas.cl/assets/css/main.css?v=1789219333",
+      "bytes": 119679,
+      "sha256": "7c91af873bc7bfc1b47dcfe5ba1c332f526018989467df7180f6c4a7191db1f9",
+      "artifact_sha256": "7c91af873bc7bfc1b47dcfe5ba1c332f526018989467df7180f6c4a7191db1f9",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/3cucharadas-logo-128.webp",
+      "bytes": 3476,
+      "sha256": "ea661da4291d588da7449c2a097771b34c7ab611d1123a66255392a8ab6c021e",
+      "artifact_sha256": "ea661da4291d588da7449c2a097771b34c7ab611d1123a66255392a8ab6c021e",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-puerto-montt-10101-1800.webp",
+      "bytes": 282626,
+      "sha256": "b84c96c74ee7a0a1fa00b5d08b2071000b3985673f09e12404c80f5132d8daaf",
+      "artifact_sha256": "b84c96c74ee7a0a1fa00b5d08b2071000b3985673f09e12404c80f5132d8daaf",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-puerto-montt-10101-900.webp",
+      "bytes": 98448,
+      "sha256": "d4f69b4ac93d7933801882752bb7fe7fd6558cf5870e3aaae06fd136477f8954",
+      "artifact_sha256": "d4f69b4ac93d7933801882752bb7fe7fd6558cf5870e3aaae06fd136477f8954",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-puerto-montt-10101-dark-1800.webp",
+      "bytes": 264536,
+      "sha256": "6da3ec54c2df1263aa18d340538112c2d1e33fb3f9b55def7d213cee466d0c95",
+      "artifact_sha256": "6da3ec54c2df1263aa18d340538112c2d1e33fb3f9b55def7d213cee466d0c95",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-puerto-montt-10101-dark-900.webp",
+      "bytes": 96784,
+      "sha256": "453aa3eff48fbe655738378184afca2d3c92662b5bd6a7991761b8569e5ad58c",
+      "artifact_sha256": "453aa3eff48fbe655738378184afca2d3c92662b5bd6a7991761b8569e5ad58c",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-valparaiso-05101-1800.webp",
+      "bytes": 300882,
+      "sha256": "b6f06b0f2f09cdba7c8fc0c5a46d86cedebfee8c354340a72dd9ad68839d7497",
+      "artifact_sha256": "b6f06b0f2f09cdba7c8fc0c5a46d86cedebfee8c354340a72dd9ad68839d7497",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-valparaiso-05101-900.webp",
+      "bytes": 98104,
+      "sha256": "6f70d46d97f45205bf4741b4bbcbf07560ed28c8bd81deb928b2a01a0320cfb6",
+      "artifact_sha256": "6f70d46d97f45205bf4741b4bbcbf07560ed28c8bd81deb928b2a01a0320cfb6",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-valparaiso-05101-dark-1800.webp",
+      "bytes": 296430,
+      "sha256": "cf9a23b6b0fbd788605cb43090c72c376db29d7020953760e93b00b3428d8b53",
+      "artifact_sha256": "cf9a23b6b0fbd788605cb43090c72c376db29d7020953760e93b00b3428d8b53",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/annex-valparaiso-05101-dark-900.webp",
+      "bytes": 98376,
+      "sha256": "c7864600359dff8e8ca7dcd52a4c7a866d5549972e5b94048399a0f8e2464a85",
+      "artifact_sha256": "c7864600359dff8e8ca7dcd52a4c7a866d5549972e5b94048399a0f8e2464a85",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/casen-shared-site-en-dark.svg",
+      "bytes": 92934,
+      "sha256": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09",
+      "artifact_sha256": "3ad629729eb39746c4fcb8defcacd8057e4a80a50942f5202c8e1e6820198c09",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/casen-shared-site-en.svg",
+      "bytes": 92934,
+      "sha256": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c",
+      "artifact_sha256": "82dfb42a57697b6fdab66819209ab28b265057f6f92d1cacaac55f09a2db656c",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/casen-shared-site-es-dark.svg",
+      "bytes": 93408,
+      "sha256": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387",
+      "artifact_sha256": "1bcbe6130fb5f120c1068f4d62e313d6173e4040d3e5ae6422033b3c6e4f9387",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/casen-shared-site-es.svg",
+      "bytes": 93408,
+      "sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+      "artifact_sha256": "a07067dd96040364c361f52ef5f3c02e91f646a086051e7ad26ac1b39a7107c5",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/gap-top15-en-dark.svg",
+      "bytes": 76310,
+      "sha256": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef",
+      "artifact_sha256": "29c7b0bb710a52113af73d4d4cafb7632fea472be12d6df62f80fb10eddbd6ef",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/gap-top15-en.svg",
+      "bytes": 76310,
+      "sha256": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d",
+      "artifact_sha256": "fc584c2a855debcdcef7c2ddd9464ea218f883235f9c90ef2aa2735a8c957c3d",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/gap-top15-es-dark.svg",
+      "bytes": 76205,
+      "sha256": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e",
+      "artifact_sha256": "45caff806cc17477a6ece053c5ced08332c89c53fee8c21fb7c554d5f583199e",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/gap-top15-es.svg",
+      "bytes": 76205,
+      "sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+      "artifact_sha256": "b4b04d89659d8761a6188a9e075d3fe1e12163ee3c36b782a097b5ec5c52e454",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/monetary-top15-en-dark.svg",
+      "bytes": 67674,
+      "sha256": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060",
+      "artifact_sha256": "47c845ceeb206ef99c52d97aa3b64a120d971b6d2fbc85a8397d62a610636060",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/monetary-top15-en.svg",
+      "bytes": 67674,
+      "sha256": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402",
+      "artifact_sha256": "2805ee1a09fb2fdb1eeeb9f7090dec05d582320bbe97ebed5021b8a9ae101402",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/monetary-top15-es-dark.svg",
+      "bytes": 67174,
+      "sha256": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461",
+      "artifact_sha256": "bcc3fea5479ae668729b401a776c43fdda56b92b1a5c511fd4437fd8c9555461",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/avaluos-ii/monetary-top15-es.svg",
+      "bytes": 67174,
+      "sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+      "artifact_sha256": "39329925152b791a93622958ba6509390671bd43c803cff06861f38818a48d46",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/catastro-anexo/caldera_03102_geom.png",
+      "bytes": 703577,
+      "sha256": "a000b49f854c6ea5221a57ba1ea1b6a868d6ae56db35b93945303083ad1b7107",
+      "artifact_sha256": "a000b49f854c6ea5221a57ba1ea1b6a868d6ae56db35b93945303083ad1b7107",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/catastro-anexo/diego_de_almagro_03202_geom.png",
+      "bytes": 522670,
+      "sha256": "d0f7eac9d697e31fa2693f370df4823a1487447843a5584048240628a7201776",
+      "artifact_sha256": "d0f7eac9d697e31fa2693f370df4823a1487447843a5584048240628a7201776",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/clabra2026-320.webp",
+      "bytes": 9186,
+      "sha256": "33a98cbb8818a9ca6c95b23021ed780649ee0ed13e864a2cf949224d20d399c3",
+      "artifact_sha256": "33a98cbb8818a9ca6c95b23021ed780649ee0ed13e864a2cf949224d20d399c3",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/clabra2026.webp",
+      "bytes": 63120,
+      "sha256": "5a98aa898e85ed43248002e1ecf5aaf53a0df3eb49b529f24bb943ea0b66bd5b",
+      "artifact_sha256": "5a98aa898e85ed43248002e1ecf5aaf53a0df3eb49b529f24bb943ea0b66bd5b",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/favicons/favicon-96x96.png",
+      "bytes": 5590,
+      "sha256": "966fb2fa389c7491b01e6203720ec14dfb0a3132d9604f374c7802d856212fc7",
+      "artifact_sha256": "966fb2fa389c7491b01e6203720ec14dfb0a3132d9604f374c7802d856212fc7",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-1280x720.webp",
+      "bytes": 107892,
+      "sha256": "5c14373da0891950bb88fc2aa5ffefbb234c103efd3959adf0b0c14e65742a23",
+      "artifact_sha256": "5c14373da0891950bb88fc2aa5ffefbb234c103efd3959adf0b0c14e65742a23",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/avaluo-vulnerabilidad-uv/teaser-mobile-640x360.webp",
+      "bytes": 38082,
+      "sha256": "0947231962c4b970950e08d5b8eca14e159671c278dc82ad95175af1f9563e32",
+      "artifact_sha256": "0947231962c4b970950e08d5b8eca14e159671c278dc82ad95175af1f9563e32",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-1600x900.webp",
+      "bytes": 161742,
+      "sha256": "7e5ae4f7a81c9389b703e5602e297f14caca6ad0a60bfc3ea42ce08869ba037c",
+      "artifact_sha256": "7e5ae4f7a81c9389b703e5602e297f14caca6ad0a60bfc3ea42ce08869ba037c",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/avaluos-ii-brecha-residencial/hero-mobile-800x450.webp",
+      "bytes": 63958,
+      "sha256": "969489cd2cb03c2a6a540367819845e8f741116e0cbbce573d77acd98a0c2824",
+      "artifact_sha256": "969489cd2cb03c2a6a540367819845e8f741116e0cbbce573d77acd98a0c2824",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-1280x720.webp",
+      "bytes": 66970,
+      "sha256": "2a6b718d0ef4f3a94e88fa5e0e73c9af14d1e784dbe5e6fff9891712d90e0a0f",
+      "artifact_sha256": "2a6b718d0ef4f3a94e88fa5e0e73c9af14d1e784dbe5e6fff9891712d90e0a0f",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/multiagente-penta-agent-memoria-gobernada-poc/teaser-mobile-640x360.webp",
+      "bytes": 22484,
+      "sha256": "ebaab65f2bdf8c8f0926239a25c8c8ab91dd090097cbd51f563c2e2b21b7ee33",
+      "artifact_sha256": "ebaab65f2bdf8c8f0926239a25c8c8ab91dd090097cbd51f563c2e2b21b7ee33",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-1280x720.webp",
+      "bytes": 97606,
+      "sha256": "c98fbce25e8a360683050c045d38684aa1c63222b66d702f719e672699837765",
+      "artifact_sha256": "c98fbce25e8a360683050c045d38684aa1c63222b66d702f719e672699837765",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/multiagente-penta-agent-memoria/teaser-mobile-640x360.webp",
+      "bytes": 33640,
+      "sha256": "e7936c776bfc1b19569a57608e584a64dd89cf999f5cfcbe99ac9bc9d2eb6479",
+      "artifact_sha256": "e7936c776bfc1b19569a57608e584a64dd89cf999f5cfcbe99ac9bc9d2eb6479",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp",
+      "bytes": 55516,
+      "sha256": "f212a6a260913e197a3f5dfa28b89b3e1022530caeae61fbbf53709b861ab4e5",
+      "artifact_sha256": "f212a6a260913e197a3f5dfa28b89b3e1022530caeae61fbbf53709b861ab4e5",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-mobile-640x360.webp",
+      "bytes": 20412,
+      "sha256": "d1c84bd02f514c80629dead5e8ee3ed97276cf5a7bac6d0d6199ea4970281e6c",
+      "artifact_sha256": "d1c84bd02f514c80629dead5e8ee3ed97276cf5a7bac6d0d6199ea4970281e6c",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/lunr/lunr-en.js",
+      "bytes": 2504,
+      "sha256": "65a26f858fe8428e6bfc72de0a46a3591923a6a25304491088f8427a29c55fb5",
+      "artifact_sha256": "65a26f858fe8428e6bfc72de0a46a3591923a6a25304491088f8427a29c55fb5",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/lunr/lunr-store.js",
+      "bytes": 215304,
+      "sha256": "183c4f1693bde68fae04e37c93652bcc597533b2c01aaf71c0cec6ccee4b7e1a",
+      "artifact_sha256": "183c4f1693bde68fae04e37c93652bcc597533b2c01aaf71c0cec6ccee4b7e1a",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/lunr/lunr.min.js",
+      "bytes": 29510,
+      "sha256": "0c50d9002b85780a842afffb567bb54ede402dae7c6dc5997a018614d8044fc8",
+      "artifact_sha256": "0c50d9002b85780a842afffb567bb54ede402dae7c6dc5997a018614d8044fc8",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/main.min.js?v=1789219333",
+      "bytes": 124030,
+      "sha256": "c7cff472554fb5a9becf859675cbc8ee6ff2a63611c7e92d740b95abc470d1b6",
+      "artifact_sha256": "c7cff472554fb5a9becf859675cbc8ee6ff2a63611c7e92d740b95abc470d1b6",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/site-nav.js?v=1789219333",
+      "bytes": 3663,
+      "sha256": "65d3a3b9c202b8b655215ae665a779d1fb82023efbe401c24a9607839a0597a9",
+      "artifact_sha256": "65d3a3b9c202b8b655215ae665a779d1fb82023efbe401c24a9607839a0597a9",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/js/theme-toggle.js?v=1789219333",
+      "bytes": 2629,
+      "sha256": "d40324de8eb77a5b54a6c67a82c827e2fd40d98ada5bd9c845c827ff15b2c3a9",
+      "artifact_sha256": "d40324de8eb77a5b54a6c67a82c827e2fd40d98ada5bd9c845c827ff15b2c3a9",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/vendor/katex/0.17.0/katex.css",
+      "bytes": 21692,
+      "sha256": "b8b209a3abe69efcf1f6a904f31e89be6069ed0abe3bb42d27d54269f9cde8f6",
+      "artifact_sha256": "b8b209a3abe69efcf1f6a904f31e89be6069ed0abe3bb42d27d54269f9cde8f6",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/catastro_sii_brecha/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+      "bytes": 21462,
+      "sha256": "1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+      "artifact_sha256": "1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/catastro_sii_brecha/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+      "bytes": 2217,
+      "sha256": "9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+      "artifact_sha256": "9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/catastro_sii_brecha/assets/map-config.js",
+      "bytes": 226,
+      "sha256": "1d2e683ff9f1ae5c9cbcf1a109cb0ca020363e84b0bdfa4b4e44f7cb6f8d13e4",
+      "artifact_sha256": "1d2e683ff9f1ae5c9cbcf1a109cb0ca020363e84b0bdfa4b4e44f7cb6f8d13e4",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/catastro_sii_brecha/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+      "bytes": 7411,
+      "sha256": "1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+      "artifact_sha256": "1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+      "matches": true
+    },
+    {
+      "url": "https://3cucharadas.cl/catastro_sii_brecha/style.css?v=386928a0b46c5d1bfbecf385973881d58a566ed69a047e021d05447f47487c4b",
+      "bytes": 59646,
+      "sha256": "386928a0b46c5d1bfbecf385973881d58a566ed69a047e021d05447f47487c4b",
+      "artifact_sha256": "386928a0b46c5d1bfbecf385973881d58a566ed69a047e021d05447f47487c4b",
+      "matches": true
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

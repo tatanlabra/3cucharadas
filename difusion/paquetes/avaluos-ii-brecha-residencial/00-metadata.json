@@ -1,23 +1,23 @@
 {
-  "status": "authorized_pending_production_and_platform_login",
+  "status": "blog_published_social_blocked_on_login",
   "authorization": "User explicitly authorizes push, social send and scheduling on 2026-09-12; overrides previous local-only restriction. Performance debt remains RED.",
   "canonical": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/",
   "source": "_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
   "source_sha256": "6d91e9819886643386cf831c970b4453632afe413c952e75e86f55a70674db38",
-  "public_revision_verified": false,
+  "public_revision_verified": true,
   "local_content_review": "docs/plans/20260912-heroes-casen/evidence/receipts/R1.json",
-  "runtime_gate_status": "RED: three relative LCP regressions; commit authorized with residual debt, not a PASS",
+  "runtime_gate_status": "RED: three relative LCP regressions remain; user explicitly authorized production release on 2026-09-12 without relabeling the performance result.",
   "language": "es",
   "channels": {
     "linkedin": {
-      "state": "prepared_local",
+      "state": "blocked_on_platform_login",
       "file": "linkedin.txt",
       "published_url": null,
       "remote_draft_id": null,
       "scheduled_at": null
     },
     "x": {
-      "state": "prepared_local",
+      "state": "blocked_on_platform_login",
       "alternatives": [
         "x-single.txt",
         "x-01.txt through x-05.txt"
@@ -52,5 +52,8 @@
     "difusion/paquetes/avaluos-ii-brecha-residencial/media/monetary-top15-es-dark.png": "f3f52ee25797989430d9f4b9f52d46f32fbbdc1971836a13759955f4ba666fda"
   },
   "blog_source_commit": "9b6d4eae1398f6f96d3663843921663f1c7776ea",
-  "source_change_since_review": "Only distribution front matter; ES and EN article bodies are byte-identical to 9b6d4eae."
+  "source_change_since_review": "Only distribution front matter; ES and EN article bodies are byte-identical to 9b6d4eae.",
+  "public_revision_commit": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+  "public_verification_receipt": "docs/releases/20260912-avaluos-ii/public-parity.json",
+  "schedule_status": "Not scheduled. LinkedIn first after account login; X following day. No reservation, remote draft or scheduler ID exists."
 }
