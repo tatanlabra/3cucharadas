@@ -28,8 +28,12 @@ tasks:
     falsified_by: publication-before.log falla con las cuatro URLs ausentes; publication-after.log pasa tras publicación real.
     idempotence: closeout-repeat.log e idempotence.json muestran ambas redes skipped y las mismas URLs verificadas.
 rollback: Revertir solo el commit de reparación; las publicaciones requieren rollback explícito del CLI, nunca git revert.
-status: complete_local_and_social
+status: complete
+release:
+  commit: e77c03ea58dc4b2205cb3bc69f9cc170fa2d7822
+  remotes: [gitlab/main, github/main]
+  pipeline: https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843662335
+  evidence: docs/releases/20260912-social-closeout/remote-ci.json
 residual:
-  - Commit y push de la reparación se documentan en README al finalizar.
   - LinkedIn/X pendientes de URLs en el registro; el autor confirmó X publicado, no debe reenviarse.
   - Medium de Nushell es deuda anterior fuera de este alcance.

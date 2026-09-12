@@ -1,5 +1,9 @@
 # Avalúos II: reparación y cierre social
 
+Reparación `e77c03ea58dc4b2205cb3bc69f9cc170fa2d7822` subida a GitLab y GitHub.
+[Pipeline #253](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843662335)
+terminó en success: build y Pages aprobados. Evidencia en `remote-ci.json`.
+
 El agente omitió Mastodon/Bluesky al declarar `distribution.social: false` en ES/EN
 en `b4638115`, pese a la autorización de difusión. No fue un fallo de credenciales:
 las cuentas autenticaron y ambas URLs del post respondieron HTTP 200.
@@ -28,6 +32,7 @@ Las URLs reconciliadas requieren el commit/push del registro.
 | Regresión de elegibilidad | Dos fallos antes; suite Python completa: 38 pruebas aprobadas | `python-red.log`, `python-green.log` |
 | Reconciliación | 5 pruebas/17 aserciones; ref aislado, repetición, rollback, respuesta EN, ledger inválido | `reconcile-green.log` |
 | Salud del sitio | Perfil source aprobado | `source-health.log` |
+| Build de producción local y gates del artefacto | Aprobados; avisos de deprecación Sass conservados | `jekyll-build.log`, `artifact.log`, `readiness.log` |
 | Ausencia de duplicados antes del envío | Historial público cubierto desde 2026-09-11 sin coincidencias | `dedup-before.json` |
 | Publicación | Ambas raíces ES y respuestas EN verificadas, tarjetas e imágenes presentes | `publication.json` |
 | Repetición del cierre | Ambos envíos skipped; mismas URLs verificadas | `idempotence.json` |
