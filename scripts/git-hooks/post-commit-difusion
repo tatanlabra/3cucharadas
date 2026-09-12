@@ -55,9 +55,9 @@ while IFS= read -r ref; do
     PYTHONPATH="$difusion_src" "$python_bin" -m cucharadas_difusion.cli \
       --repo "$repo_root" destinations record "$ref" 2>&1
   )"; then
-    printf 'difusion: destinos resueltos para %s\n' "$ref"
-    # Sólo los listos, para que el terminal no se llene en cada commit.
-    printf '%s\n' "$salida" | grep -F '[x]' || true
+    printf 'difusion: elegibilidad resuelta para %s; este hook NO publica.\n' "$ref"
+    printf '%s\n' "$salida" | grep -E '\*\*(mastodon-es|bluesky-es)\*\*' || true
+    printf 'difusion: después del despliegue, ejecutar scripts/post_push_difusion.sh %s (simulacro por defecto).\n' "$ref"
   else
     printf 'difusion: no se pudo resolver destinos para %s (%s)\n' \
       "$ref" "$(printf '%s' "$salida" | tail -1)"

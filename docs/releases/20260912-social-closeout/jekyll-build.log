@@ -1,0 +1,48 @@
+`/home/ende` is not writable.
+Bundler will use `/tmp/bundler20260912-2-euzyd02' as your home directory temporarily.
+Configuration file: /home/ende/Descargas/programaciones/activos/3cucharadas/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: /home/ende/Descargas/programaciones/activos/3cucharadas
+       Destination: /tmp/avaluos-social-release-site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "minimal-mistakes/skins/contrast"; // skin
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 3:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+4 │ @import "minimal-mistakes"; // main partials
+  │         ^^^^^^^^^^^^^^^^^^
+  ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+141 │ @import "minimal-mistakes/skins/contrast";
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 141:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+144 │ @import "minimal-mistakes";
+    │         ^^^^^^^^^^^^^^^^^^
+    ╵
+    /home/ende/Descargas/programaciones/activos/3cucharadas/assets/css/main.scss 144:9  root stylesheet
+                    done in 7.41 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.

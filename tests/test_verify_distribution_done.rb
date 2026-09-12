@@ -22,6 +22,7 @@ class VerifyDistributionDoneTest < Minitest::Test
   def write_post(distribution:, lang: "es", date: "2026-08-20")
     front = {
       "title" => "Fixture",
+      "ref" => "fixture",
       "date" => date,
       "lang" => lang,
       "permalink" => "/fixture/",
@@ -159,5 +160,38 @@ class VerifyDistributionDoneTest < Minitest::Test
     _stdout, stderr, status = run_gate
     refute status.success?
     assert_includes stderr, "canal desconocido"
+  end
+
+  def test_social_opt_out_needs_reason_even_with_linkedin_and_x
+    write_post(distribution: { "social" => false, "channels" => %w[linkedin x] })
+    _out, err, status = run_gate("--policy-only")
+    refute status.success?
+    assert_includes err, "skip_reason"
+  end
+
+  def test_policy_only_does_not_claim_publication_or_ignore_bad_policy
+    write_post(distribution: { "social" => true })
+    out, err, status = run_gate("--policy-only")
+    assert status.success?, err
+    assert_includes out, "Política de difusión OK"
+    refute_includes out, "difusion cumplida OK"
+    _out, _err, status = run_gate("--strict", "--ref", "fixture", "--social-only")
+    refute status.success?
+  end
+
+  def test_ref_scope_cannot_pass_without_matching_posts
+    write_post(distribution: { "social" => true })
+    _out, err, status = run_gate("--ref", "does-not-exist")
+    refute status.success?
+    assert_includes err, "ningún post"
+  end
+
+  def test_social_scope_keeps_other_channels_out_of_its_closeout
+    write_post(distribution: { "social" => true, "channels" => ["x"] })
+    write_publications(%w[mastodon bluesky].map { |p| { "plataforma" => p, "url_publicada" => "https://example.org/#{p}" } })
+    _out, err, status = run_gate("--ref", "fixture", "--social-only", "--strict")
+    assert status.success?, err
+    _out, _err, status = run_gate("--ref", "fixture", "--strict")
+    refute status.success?
   end
 end

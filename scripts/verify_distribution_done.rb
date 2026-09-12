@@ -38,13 +38,20 @@
 
 require "date"
 require "yaml"
+require "optparse"
+
+options = {}
+OptionParser.new do |o|
+  o.on("--strict") { options[:strict] = true }
+  o.on("--ventana N", Integer) { |n| options[:ventana] = n }
+  o.on("--ref REF") { |ref| options[:ref] = ref }
+  o.on("--social-only") { options[:social_only] = true }
+  o.on("--policy-only") { options[:policy_only] = true }
+end.parse!
 
 ROOT = File.expand_path(ENV.fetch("DISTRIBUCION_ROOT", File.expand_path("..", __dir__)))
-STRICT = ARGV.include?("--strict")
-VENTANA = begin
-  i = ARGV.index("--ventana")
-  i ? Integer(ARGV[i + 1]) : nil
-end
+STRICT = options[:strict]
+VENTANA = options[:ventana]
 HOY = (ENV["DISTRIBUCION_HOY"] ? Date.parse(ENV["DISTRIBUCION_HOY"]) : Date.today)
 
 PLAZOS = { "social" => 2, "dev" => 4, "medium" => 10, "linkedin" => 2, "x" => 2 }.freeze
@@ -111,6 +118,7 @@ revisados = 0
 posts.each do |path|
   front = front_matter(path)
   next unless front
+  next if options[:ref] && front["ref"] != options[:ref]
 
   relativo = path.sub("#{ROOT}/", "")
   fecha = begin
@@ -129,6 +137,13 @@ posts.each do |path|
   unless distribution.is_a?(Hash)
     errores << "#{relativo}: no declara `distribution`; no se puede saber qué canales le corresponden"
     next
+  end
+
+  if distribution["social"] == false && distribution["skip_reason"].to_s.strip.empty?
+    errores << "#{relativo}: excluir Mastodon/Bluesky exige `distribution.skip_reason`, aunque haya otros canales"
+  end
+  if distribution.key?("social") && ![true, false].include?(distribution["social"])
+    errores << "#{relativo}: `distribution.social` debe ser booleano"
   end
 
   slug = front["permalink"].to_s.chomp("/").split("/").last
@@ -155,6 +170,11 @@ posts.each do |path|
     errores << "#{relativo}: no declara canales y tampoco `distribution.skip_reason`" if razon.empty?
     next
   end
+  next if options[:policy_only]
+  if options[:social_only]
+    errores << "#{relativo}: no declara el canal social solicitado" unless esperados.include?("social")
+    esperados &= ["social"]
+  end
 
   esperados.each do |canal|
     plataformas = canal == "social" ? %w[mastodon bluesky] : [canal == "dev" ? "devto" : canal]
@@ -178,17 +198,25 @@ posts.each do |path|
   end
 end
 
+errores << "No se revisó ningún post para el alcance solicitado" if revisados.zero?
+
 historicos.uniq.each { |h| warn "- atraso historico (fuera de la ventana de #{VENTANA} dias): #{h}" }
 avisos.uniq.each { |a| warn "- aviso: #{a}" }
 errores.uniq.each { |e| warn "- #{e}" }
 
 if !errores.empty?
-  abort "Gate de difusion cumplida fallo (#{errores.uniq.length} canal(es) vencido(s) sin artefacto)"
+  abort "Gate de difusión falló (#{errores.uniq.length} incumplimiento(s) de política o publicación)"
 elsif STRICT && !avisos.empty?
   abort "Gate de difusion cumplida fallo en modo --strict (#{avisos.uniq.length} aviso(s))"
+end
+
+if options[:policy_only]
+  puts "Política de difusión OK: #{revisados} post(s); no verifica publicaciones."
+  exit 0
 end
 
 resumen = "Gate de difusion cumplida OK: #{revisados} post(s) con canales declarados, " \
           "#{avisos.uniq.length} aviso(s)"
 resumen += ", #{historicos.uniq.length} atraso(s) historico(s) fuera de la ventana" unless historicos.empty?
+resumen += "; alcance: #{options[:ref] || 'todos'}, #{options[:social_only] ? 'solo Mastodon/Bluesky' : 'todos los canales declarados'}"
 puts "#{resumen}."
