@@ -1,6 +1,8 @@
-# Avalúos II — LinkedIn y X
+# Avalúos II — paquete y estado de difusión
 
-Estado al 12 de septiembre de 2026: blog publicado y verificado en producción, commit `b4638115`. Envío y programación autorizados; LinkedIn y X pendientes de iniciar sesión en la ventana dedicada. No hay publicaciones, borradores remotos ni reservas creadas. Evidencia: `docs/releases/20260912-avaluos-ii/public-parity.json`.
+Estado al cierre del 12 de septiembre de 2026: Mastodon y Bluesky publicados y verificados en ES/EN; X publicado según confirmación del autor, pendiente de URL; LinkedIn con edición del autor e imagen adjunta, publicación sin verificar. El bloqueo por inicio de sesión quedó superado. No hay programación acreditada. Evidencia: `docs/releases/20260912-social-closeout/publication.json` y `00-metadata.json`.
+
+`linkedin.txt` conserva una propuesta anterior a la edición final del autor en la plataforma. `x-single.txt` conserva la versión local propuesta; no acredita el texto exacto publicado. Se versionan como material de trabajo, sin sustituir las versiones del autor ni autorizar su reenvío. `social.json` sí contiene el texto utilizado en Mastodon/Bluesky.
 
 | Pieza | Archivo para copiar | Imagen sugerida |
 |---|---|---|
@@ -8,7 +10,7 @@ Estado al 12 de septiembre de 2026: blog publicado y verificado en producción, 
 | X, publicación única alternativa | [x-single.txt](x-single.txt) | [Diferencia residencial](media/gap-top15-es-dark.png) |
 | X, hilo de cinco mensajes | `x-01.txt` a `x-05.txt`, en ese orden | Diferencia residencial en el primero; escenarios monetarios en el tercero |
 
-Elegir la publicación única **o** el hilo. Los archivos `.txt` contienen solo el texto a copiar; las instrucciones y textos alternativos están separados. Las imágenes son copias exactas de las figuras revisadas, sin recortes ni cambios de cifras. Para leer las quince comunas conviene abrirlas a tamaño completo.
+El mensaje único y el hilo de X son alternativas históricas: el autor ya confirmó una publicación, por lo que no corresponde enviar ahora la otra. Los archivos `.txt` conservan solo texto; las instrucciones y textos alternativos están separados. Las imágenes son copias exactas de las figuras revisadas, sin recortes ni cambios de cifras.
 
 ## Criterio editorial
 
@@ -20,13 +22,13 @@ Elegir la publicación única **o** el hilo. Los archivos `.txt` contienen solo 
 - Materialidad y campamentos son escenarios con supuestos; no identifican por sí solos predios omitidos. No atribuir ilegalidad, exención ni negligencia de forma automática.
 - Gráficos: Python/Matplotlib y agregados verificables. Portada: ilustración conceptual con IA; no presentarla como cartografía o evidencia territorial.
 
-## Antes del envío
+## Pendientes documentales y lecciones
 
-1. Cumplido: versión pública, imágenes y contenido contrastados con el artefacto GitLab. El usuario autorizó publicar manteniendo explícita la deuda de rendimiento; AC-Q6 sigue RED.
-2. Elegir imagen adjunta o tarjeta automática del enlace; no prometer ambas vistas previas a la vez. Mantener el enlace del artículo en el cuerpo del texto.
-3. Añadir el texto alternativo correspondiente de [alt-text.md](alt-text.md).
-4. Tras iniciar sesión, revisar la vista previa y ejecutar el envío ya autorizado. Registrar URL pública de LinkedIn e identificador, fecha y zona horaria de la programación nativa de X.
+1. Capturar las URLs públicas de LinkedIn/X y el texto final del autor; no inferir ausencia de publicación de la falta de registro.
+2. Conservar la deuda de rendimiento AC-Q6: la autorización de publicación no convirtió el resultado RED en PASS.
+3. Adjuntar medios antes de la edición final; si el autor ya editó, respaldar texto y menciones y verificar su conservación después de adjuntar.
+4. Verificar visualmente recorte, ejes y cifras de cualquier video. Un MP4 técnicamente válido no basta: los ensayos en `/tmp` no quedaron aprobados para difusión.
 
-Cadencia autorizada, todavía sin fecha reservada: LinkedIn tras iniciar sesión; X al día siguiente del envío efectivo. Recalcular la fecha al retomar, sin confundir esta instrucción con una programación realizada. La declaración de IA está en primera persona y la explicación extensa queda en la política del blog.
+La propuesta original «LinkedIn y X al día siguiente» quedó superada por la publicación que confirmó el autor. No constituye una reserva ni debe convertirse en un envío duplicado. Los textos alternativos preparados están en [alt-text.md](alt-text.md); su existencia no acredita que la plataforma los haya guardado.
 
 Las comprobaciones y sus límites están en [QA.md](QA.md); las fuentes, versiones y hashes, en `00-metadata.json`.

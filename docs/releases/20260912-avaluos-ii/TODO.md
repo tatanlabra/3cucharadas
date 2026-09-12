@@ -1,5 +1,7 @@
 # Release 12-09-2026
 
+Actualización de cierre: la lista inferior conserva el corte inicial. El bloqueo de login de R3 quedó superado; Mastodon/Bluesky ya se publicaron y verificaron, X fue publicado según el autor y LinkedIn sigue sin URL verificada. Estado posterior en [el cierre social](../20260912-social-closeout/README.md) y en `difusion/paquetes/avaluos-ii-brecha-residencial/00-metadata.json`. No reenviar X ni interpretar la cadencia inicial como una programación existente.
+
 Derived from contract.json and linked evidence.
 
 - [x] R1: source health, production build, artifact and distribution readiness pass; GitLab repeats them on the committed source.
