@@ -27,9 +27,9 @@ tasks:
   evidence: docs/avaluos-ii-title-visual-correction-20260912.md
 - id: C4
   requirement: Actualizar producción y comprobar los recursos efectivos.
-  state: pending
+  state: complete
   criterion: CI verde, ES/EN HTTP 200, título nuevo y hashes públicos de hero, teaser, teaser móvil y OG iguales al build aprobado.
-  evidence: null
+  evidence: docs/avaluos-ii-title-visual-production-receipt-20260912.json
 falsified_by:
 - El manifiesto nuevo frente al front matter anterior produjo cuatro errores V10; tras actualizar las referencias, el gate volvió a verde con 108 activos y cero avisos.
 - Un título sin la frase en 3 cucharadas, una pieza gris corporativa o un recorte que invada el texto reabre el contrato.
