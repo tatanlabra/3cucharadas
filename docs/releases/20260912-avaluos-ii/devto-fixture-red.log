@@ -1,0 +1,17 @@
+Run options: --seed 47878
+
+# Running:
+
+.F
+
+Finished in 1.110544s, 1.8009 runs/s, 24.3124 assertions/s.
+
+  1) Failure:
+DevtoNoopTest#test_all_published_is_a_verified_repeatable_noop [tests/test_devto_noop.rb:46]:
+/tmp/devto-noop-20260912-294-qg8tpd/scripts/jekyll_to_devto.rb:9:in 'Kernel#require_relative': cannot load such file -- /tmp/devto-noop-20260912-294-qg8tpd/scripts/lib/ai_disclosure (LoadError)
+	from /tmp/devto-noop-20260912-294-qg8tpd/scripts/jekyll_to_devto.rb:9:in '<top (required)>'
+	from scripts/syndicate_devto.rb:23:in 'Kernel#require_relative'
+	from scripts/syndicate_devto.rb:23:in '<main>'
+
+
+2 runs, 27 assertions, 1 failures, 0 errors, 0 skips

@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "status": "fail",
+  "root": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+  "contract": "docs/contracts/repo-governance.yaml",
+  "tracked": {
+    "entries": 2335,
+    "worktree_bytes": 208272554,
+    "large_review_threshold_bytes": 1000000,
+    "large_files": [
+      {
+        "path": "assets/videos/catastro-sii-visor.mp4",
+        "bytes": 21554808
+      },
+      {
+        "path": "assets/visualizations/penta-rag-knowledge-graph/index.html",
+        "bytes": 3471076
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-light.png",
+        "bytes": 2770461
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-dark.png",
+        "bytes": 2679861
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/runs.json",
+        "bytes": 2234605
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-dark.png",
+        "bytes": 2196157
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-light.png",
+        "bytes": 2191917
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright/runs.json",
+        "bytes": 2185148
+      },
+      {
+        "path": "assets/data/rag_knowledge_graph/public-graph.json",
+        "bytes": 2114822
+      },
+      {
+        "path": "assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png",
+        "bytes": 2049992
+      },
+      {
+        "path": "assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.png",
+        "bytes": 2042870
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/avaluo-vulnerabilidad-uv.png",
+        "bytes": 1857448
+      },
+      {
+        "path": "assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png",
+        "bytes": 1855505
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/rss-gobierna-como-lees.png",
+        "bytes": 1820817
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-dark.png",
+        "bytes": 1760903
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-light.png",
+        "bytes": 1710709
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/casen2024-julia-waffles.png",
+        "bytes": 1681380
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria.png",
+        "bytes": 1643522
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/commands.jsonl",
+        "bytes": 1630620
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria-gobernada-poc.png",
+        "bytes": 1535818
+      },
+      {
+        "path": "assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png",
+        "bytes": 1504236
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/bayes-hiperparametros.png",
+        "bytes": 1498849
+      },
+      {
+        "path": "assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp",
+        "bytes": 1495992
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/nushell-coprocesador-estructurado.png",
+        "bytes": 1485722
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/ai-quota-hud-kde.png",
+        "bytes": 1468193
+      },
+      {
+        "path": "assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp",
+        "bytes": 1449082
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-modelos.png",
+        "bytes": 1439438
+      },
+      {
+        "path": "scripts/penta_rag_graph/vendor/3d-force-graph.min.js",
+        "bytes": 1313897
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/G1/sources/questionnaire.pdf",
+        "bytes": 1301618
+      },
+      {
+        "path": "assets/images/avaluos-ii/annex-valparaiso-05101.png",
+        "bytes": 1232425
+      },
+      {
+        "path": "assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf",
+        "bytes": 1229061
+      },
+      {
+        "path": "assets/images/avaluos-ii/annex-valparaiso-05101-dark.png",
+        "bytes": 1219620
+      },
+      {
+        "path": "assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular.woff2",
+        "bytes": 1138228
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-dark.png",
+        "bytes": 1107410
+      },
+      {
+        "path": "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-light.png",
+        "bytes": 1100812
+      },
+      {
+        "path": "assets/images/avaluos-ii/annex-puerto-montt-10101.png",
+        "bytes": 1062368
+      },
+      {
+        "path": "assets/images/avaluos-ii/annex-puerto-montt-10101-dark.png",
+        "bytes": 1036364
+      },
+      {
+        "path": "assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/universo-espacial-1080x1350.png",
+        "bytes": 1035837
+      },
+      {
+        "path": "catastro_sii_brecha/data/fiscal-gap/communes.json",
+        "bytes": 1015853
+      }
+    ],
+    "widest_directory": "catastro_sii_brecha/data/uv",
+    "widest_directory_entries": 347,
+    "maximum_depth": 8
+  },
+  "git_object_store": {
+    "count": "7933",
+    "size": "246200",
+    "in-pack": "22776",
+    "packs": "4",
+    "size-pack": "73194",
+    "prune-packable": "0",
+    "garbage": "0",
+    "size-garbage": "0",
+    "bytes": 327059456,
+    "limit_bytes": 10000000000
+  },
+  "worktrees": [
+    "/home/ende/Descargas/programaciones/activos/3cucharadas",
+    "/home/ende/Descargas/programaciones/.worktrees/3cucharadas/devto-cleanup-20260906",
+    "/home/ende/Descargas/programaciones/.worktrees/3cucharadas/nushell-release",
+    "/home/ende/Descargas/programaciones/.worktrees/3cucharadas/nushell-v2",
+    "/home/ende/Descargas/programaciones/.worktrees/3cucharadas/site-health-20260906"
+  ],
+  "local_residue": [
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site",
+      "bytes": 86108291,
+      "entries": 1396
+    },
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/node_modules",
+      "bytes": 200126701,
+      "entries": 6766
+    },
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/vendor/bundle",
+      "bytes": 43285378,
+      "entries": 4308
+    },
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/.jekyll-cache",
+      "bytes": 7556,
+      "entries": 6
+    },
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/assets/dist/catastro_sii",
+      "bytes": 2350165,
+      "entries": 18
+    },
+    {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/assets/dist/memoria_gobernada",
+      "bytes": 529113,
+      "entries": 3
+    }
+  ],
+  "violations": [
+    {
+      "type": "unowned_large_file",
+      "paths": [
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-light.png",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-desktop-dark.png",
+        "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/runs.json",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-dark.png",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-desktop-light.png",
+        "docs/plans/20260912-heroes-casen/evidence/performance/formal-playwright/runs.json",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/avaluo-vulnerabilidad-uv.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/rss-gobierna-como-lees.png",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-dark.png",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser-first-person/contact-mobile-light.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/casen2024-julia-waffles.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria.png",
+        "docs/plans/20260912-heroes-casen/evidence/performance/formal-first-person/commands.jsonl",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-memoria-gobernada-poc.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/bayes-hiperparametros.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/nushell-coprocesador-estructurado.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/ai-quota-hud-kde.png",
+        "docs/plans/20260912-heroes-casen/evidence/images/sources/multiagente-penta-agent-modelos.png",
+        "docs/plans/20260912-heroes-casen/evidence/G1/sources/questionnaire.pdf",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-dark.png",
+        "docs/plans/20260912-heroes-casen/evidence/hero-browser/contact-mobile-light.png"
+      ]
+    }
+  ]
+}

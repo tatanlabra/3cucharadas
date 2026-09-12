@@ -41,8 +41,13 @@
       "id": "R2",
       "requirement": "Both production remotes and actual public assets match release",
       "criterion": "fetch exact remote SHA, successful exact-SHA pipeline, compare public referenced asset SHA256 against build",
-      "status": "pending",
-      "evidence": []
+      "status": "implemented",
+      "evidence": [
+        "remotes-ci.json",
+        "public-parity.json",
+        "public-parity-recovery.json"
+      ],
+      "falsified_by": "In-memory modification of expected AI policy body rejected with FAIL; public ZIP and deployment unchanged. See public-parity-negative.json."
     },
     {
       "id": "R3",
@@ -61,8 +66,10 @@
         "source-green.json",
         "distribution-channels-red.log",
         "distribution-channels-green.log",
-        "distribution-live.log"
-      ]
+        "distribution-live.log",
+        "remotes-ci.json"
+      ],
+      "detail": "Actual defects fixed and production pipeline #251 passes. Daily distribution audit still fails locally on genuinely overdue Nushell Medium; no deadlines or CI failure rules weakened."
     }
   ],
   "residual_debt": [
@@ -70,5 +77,6 @@
     "Nushell EN Medium overdue: genuine distribution gap, not solved by changing verifier",
     "LinkedIn/X login required; no external social write has occurred"
   ],
-  "rollback": "Use selective git revert of release commits and normal push after determining required restoration; never reset remote history."
+  "rollback": "Use selective git revert of release commits and normal push after determining required restoration; never reset remote history.",
+  "release_commit": "b46381156ed259bbbdc2aea1e615ca3596174eb8"
 }

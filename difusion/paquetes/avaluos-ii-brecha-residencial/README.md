@@ -1,6 +1,6 @@
 # Avalúos II — LinkedIn y X
 
-Estado: preparado localmente, sin enviar ni programar. Preparación autorizada el 12 de septiembre de 2026. La versión revisada del blog aún no está verificada en producción; los enlaces públicos no acreditan que contengan estos cambios.
+Estado al 12 de septiembre de 2026: blog publicado y verificado en producción, commit `b4638115`. Envío y programación autorizados; LinkedIn y X pendientes de iniciar sesión en la ventana dedicada. No hay publicaciones, borradores remotos ni reservas creadas. Evidencia: `docs/releases/20260912-avaluos-ii/public-parity.json`.
 
 | Pieza | Archivo para copiar | Imagen sugerida |
 |---|---|---|
@@ -22,11 +22,11 @@ Elegir la publicación única **o** el hilo. Los archivos `.txt` contienen solo 
 
 ## Antes del envío
 
-1. Resolver o disponer explícitamente el pendiente de rendimiento del blog y verificar la versión pública, sus imágenes y enlaces. Un commit local no realiza ese paso.
+1. Cumplido: versión pública, imágenes y contenido contrastados con el artefacto GitLab. El usuario autorizó publicar manteniendo explícita la deuda de rendimiento; AC-Q6 sigue RED.
 2. Elegir imagen adjunta o tarjeta automática del enlace; no prometer ambas vistas previas a la vez. Mantener el enlace del artículo en el cuerpo del texto.
 3. Añadir el texto alternativo correspondiente de [alt-text.md](alt-text.md).
-4. Revisar la vista previa en la plataforma y obtener la autorización de envío. No hay borradores remotos, reservas ni programación creados.
+4. Tras iniciar sesión, revisar la vista previa y ejecutar el envío ya autorizado. Registrar URL pública de LinkedIn e identificador, fecha y zona horaria de la programación nativa de X.
 
-Cadencia propuesta, sin fecha reservada: LinkedIn después de verificar la publicación del blog; X al día siguiente. La declaración de IA está en primera persona y la explicación extensa queda en la política del blog.
+Cadencia autorizada, todavía sin fecha reservada: LinkedIn tras iniciar sesión; X al día siguiente del envío efectivo. Recalcular la fecha al retomar, sin confundir esta instrucción con una programación realizada. La declaración de IA está en primera persona y la explicación extensa queda en la política del blog.
 
 Las comprobaciones y sus límites están en [QA.md](QA.md); las fuentes, versiones y hashes, en `00-metadata.json`.
