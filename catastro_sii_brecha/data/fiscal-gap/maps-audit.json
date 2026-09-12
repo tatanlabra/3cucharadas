@@ -1,6 +1,6 @@
 {
   "renderer": "render_camp_annex_maps.py",
-  "canonical_sha256": "e10a9158d19314356998b4d89432451b2756aab74d1460756c98f59f381054e6",
+  "canonical_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
   "uv_sha256": "083d0aba4584b30dd721a215bc6479d17839081770fde33c28643eb59fe2f017",
   "cnc_sha256": "5f37e9124e5a84317da2b7469b44dea35b651d372b062d81abf2ae449a49b378",
   "osm_sha256": "25e164a8d3568cd20233ab71d30216006c44c21ed24d90ea29b23c054472328b",
@@ -166,5 +166,115 @@
         }
       ]
     }
-  ]
+  ],
+  "canonical_rebinding": {
+    "kind": "verified_input_equality_rebinding_without_rerender",
+    "date": "2026-09-11",
+    "prior_canonical_sha256": "e10a9158d19314356998b4d89432451b2756aab74d1460756c98f59f381054e6",
+    "canonical_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+    "prior_commit": "b28e7a1e08180b3d4d7b063cde607d6116a081e2",
+    "rows_compared": 346,
+    "preexisting_field_values_compared": 20068,
+    "all_preexisting_commune_values_equal": true,
+    "renderer_unchanged": true,
+    "renderer_sha256": "3297222229f2ba0660d99234451233dddeee3c4cbbaf67c9ba8a052427682e06",
+    "physical_inputs": [
+      {
+        "path": "uv_avaluo/data/derived_2026s1_capitales/uv_geom.parquet",
+        "sha256": "083d0aba4584b30dd721a215bc6479d17839081770fde33c28643eb59fe2f017",
+        "bytes": 110108451
+      },
+      {
+        "path": "chile.gpkg",
+        "sha256": "25e164a8d3568cd20233ab71d30216006c44c21ed24d90ea29b23c054472328b",
+        "bytes": 1343434752
+      },
+      {
+        "path": "CNC_2026.zip",
+        "sha256": "5f37e9124e5a84317da2b7469b44dea35b651d372b062d81abf2ae449a49b378",
+        "bytes": 586363
+      },
+      {
+        "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_05301_valparaiso_05101.parquet",
+        "sha256": "66623d8bffc6b38ecc4bfe8eed7e01e3c75a0827f72e566ee91ae588f14726f0",
+        "bytes": 15896995
+      },
+      {
+        "path": "storage/source_safe/tienda/v2026s1_20260724/parquet/2026s1_10301_puerto_montt_10101.parquet",
+        "sha256": "969f33e6c8427a10e06ce21d62e399170f756b5d7f86bbddd513ad16d0e4aad9",
+        "bytes": 25395253
+      }
+    ],
+    "png_outputs": [
+      {
+        "file": "annex-valparaiso-05101.png",
+        "sha256": "bf8e9d5e7aab23419d98e8cd155afa53b5c0916a7bbaf6d12037960a228a4081",
+        "bytes": 1232425
+      },
+      {
+        "file": "annex-valparaiso-05101-dark.png",
+        "sha256": "5b5ec2cc80cb2d34a26c9d84139f9b397bf3770a24611356f6825e97d5fbaf73",
+        "bytes": 1219620
+      },
+      {
+        "file": "annex-puerto-montt-10101.png",
+        "sha256": "8737c167e92a5cdcfedb12521aa4285eb76bb29d1973dd6788b41077bb476c4a",
+        "bytes": 1062368
+      },
+      {
+        "file": "annex-puerto-montt-10101-dark.png",
+        "sha256": "edc07b41c75be5e996bbf738af5b98d5ee86853ed851758feba39a3f48bda480",
+        "bytes": 1036364
+      }
+    ],
+    "metadata_revision": {
+      "prior_canonical_sha256": "552da0e5e1a088f76f953f44081a357d9ed8f5de30a31c337ddee891e2037a58",
+      "all_commune_values_exactly_equal": false,
+      "commune_values_compared": 22836,
+      "ranking_unchanged": true,
+      "displayed_whole_peso_values_unchanged": true,
+      "model_float_deltas": [
+        {
+          "codigo_comuna": "9108",
+          "field": "modeled_mean_annual_clp",
+          "prior": 25201.066923913622,
+          "current": 25201.066923913615,
+          "difference": -7.275957614183426e-12
+        },
+        {
+          "codigo_comuna": "9108",
+          "field": "modeled_gap_mean_clp",
+          "prior": 157884684.27831885,
+          "current": 157884684.2783188,
+          "difference": -5.960464477539063e-08
+        },
+        {
+          "codigo_comuna": "9108",
+          "field": "modeled_q025_mean_clp",
+          "prior": 39471171.06957971,
+          "current": 39471171.0695797,
+          "difference": -1.4901161193847656e-08
+        },
+        {
+          "codigo_comuna": "9108",
+          "field": "modeled_q05_mean_clp",
+          "prior": 78942342.13915943,
+          "current": 78942342.1391594,
+          "difference": -2.9802322387695312e-08
+        }
+      ],
+      "prior_q": [
+        0.25,
+        0.5,
+        1
+      ],
+      "corrected_q": [
+        0,
+        0.25,
+        0.5,
+        1
+      ]
+    },
+    "reason": "Additional modeled metadata now includes q=0 and explains sensitivity for both statistics. Every baseline physical field, geometry source and PNG output hash was checked live. Four modeled floating-point values in Galvarino changed by less than 0.000001 CLP on regeneration; displayed whole-peso values and ranking are unchanged."
+  }
 }

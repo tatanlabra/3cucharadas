@@ -124,7 +124,7 @@ module TablaDesplazable
     return html if rangos.empty?
 
     # De atras hacia adelante para que los offsets no se muevan al insertar.
-    rangos.reverse_each do |(ini, fin)|
+    rangos.each_with_index.to_a.reverse_each do |(ini, fin), table_index|
       fragmento = html[ini...fin]
 
       # Idempotencia estructural, no por contador: polyglot hace una pasada de
@@ -139,7 +139,7 @@ module TablaDesplazable
       p, columnas = datos
       apertura = %(<div class="#{CLASE}" data-perfil="#{p}" data-columnas="#{columnas}" ) +
                  %(style="--columnas: #{columnas}" role="region" ) +
-                 %(aria-label="#{etiqueta}" tabindex="0">)
+                 %(aria-label="#{etiqueta} #{table_index + 1}" tabindex="0">)
       html = html[0...ini] + apertura + fragmento + "</div>" + html[fin..]
     end
     html

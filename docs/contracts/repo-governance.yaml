@@ -36,6 +36,10 @@ local_residue_paths:
   - assets/dist/memoria_gobernada
   - assets/data/catastro_sii/local
 owned_large_files:
+  catastro_sii_brecha/data/fiscal-gap/communes.json:
+    owner: analisis-avaluos-ii
+    role: agregados-comunales-del-visor-con-procedencia
+    retention: mantener-mientras-el-visor-y-post-consuman-el-corte
   assets/videos/catastro-sii-visor.mp4:
     owner: editorial-catastro-sii
     role: video-publicado-referenciado-por-el-post
@@ -72,6 +76,38 @@ owned_large_files:
     owner: editorial-avaluo
     role: pieza-publicable-de-difusion
     retention: mantener-hasta-versionar-un-reemplazo
+  assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.png:
+    owner: editorial-avaluos-ii
+    role: maestro-editorial-reproducible
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp:
+    owner: editorial-avaluos-ii
+    role: hero-publicado
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.png:
+    owner: editorial-avaluos-ii
+    role: imagen-social-enlazada
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/teaser-catastro-residencial-v1-1672x941.webp:
+    owner: editorial-avaluos-ii
+    role: teaser-publicado
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/annex-valparaiso-05101.png:
+    owner: editorial-avaluos-ii
+    role: mapa-agregado-maestro
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/annex-valparaiso-05101-dark.png:
+    owner: editorial-avaluos-ii
+    role: mapa-agregado-maestro
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/annex-puerto-montt-10101.png:
+    owner: editorial-avaluos-ii
+    role: mapa-agregado-maestro
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
+  assets/images/avaluos-ii/annex-puerto-montt-10101-dark.png:
+    owner: editorial-avaluos-ii
+    role: mapa-agregado-maestro
+    retention: conservar-mientras-el-post-y-la-evidencia-los-requieran
 falsified_by:
   - test: unowned_large_file
     observation: "Observado rojo el 2026-09-06: orphan.bin de 12 bytes superó el umbral fixture de 10 sin dueño; el proceso salió 1. El fixture equivalente con owned.bin declarado salió 0."

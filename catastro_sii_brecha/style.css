@@ -1408,12 +1408,18 @@ button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid
 .gap-stat--camp { border-color: var(--gap-camp); }
 .gap-stat--residual { border-color: var(--gap-acceptable); }
 .gap-reading { margin: 10px 0; padding-left: 12px; border-left: 3px solid var(--gap-acceptable); color: var(--ink-soft); font-size: .9rem; }
-.gap-key { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 0; margin: 16px 0 4px; list-style: none; font-size: .81rem; color: var(--ink-soft); }
-.gap-key li { display: inline-flex; align-items: center; gap: 6px; }
-.gap-key i { display: inline-block; width: 14px; height: 11px; border: 1px solid var(--gap-boundary); border-radius: 2px; }
-.gap-key .acceptable { background: var(--gap-acceptable); }
-.gap-key .other { background: var(--gap-other); }
+.gap-key, .modeled-tax-key { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 0; margin: 16px 0 4px; list-style: none; font-size: .81rem; color: var(--ink-soft); }
+.gap-key li, .modeled-tax-key li { display: inline-flex; align-items: center; gap: 6px; }
+.gap-key i, .modeled-tax-key i { display: inline-block; width: 14px; height: 11px; border: 1px solid var(--gap-boundary); border-radius: 2px; }
+.gap-key .acceptable, .modeled-tax-key .acceptable { background: var(--gap-acceptable); }
+.gap-key .other, .modeled-tax-key .other { background: var(--gap-other); }
 .gap-key .camp { background: var(--gap-camp); }
+.modeled-tax-panel { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 12px; }
+.modeled-tax-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-block: 16px; }
+.modeled-tax-controls label { font-weight: 650; }
+.modeled-tax-controls select { max-width: 100%; min-height: 44px; padding: 8px 32px 8px 12px; border: 1px solid var(--gap-boundary); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; }
+.modeled-tax-controls select:focus-visible { outline: 2px solid var(--gap-acceptable); outline-offset: 3px; }
+#modeled-tax-status { min-height: 3em; color: var(--ink-soft); }
 .gap-details { margin: 10px 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-2); }
 .gap-details summary { min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--ink); font-weight: 700; }
 .gap-details[open] summary { margin-bottom: 12px; }

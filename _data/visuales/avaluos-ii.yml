@@ -1,4 +1,4 @@
-# Activos reproducibles del visor y borradores de Avalúos II; sin autorización de publicación.
+# Activos reproducibles del visor y borradores de Avalúos II; publicación autorizada tras validación el 11-09-2026.
 slug: avaluos-ii
 piezas:
 - id: hero-editorial
@@ -226,3 +226,75 @@ piezas:
   alt:
     es: Quince mayores brechas restantes tras el supuesto de campamentos, con escenario
       de tipo y materiales aceptables.
+- id: monetary-top15-es-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-es.svg
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-es-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-es.png
+  ancho: 1980
+  alto: 1530
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-es-dark-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-es-dark.svg
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-es-dark-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-es-dark.png
+  ancho: 1980
+  alto: 1530
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-en-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-en.svg
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-en-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-en.png
+  ancho: 1980
+  alto: 1530
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-en-dark-svg
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-en-dark.svg
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.
+- id: monetary-top15-en-dark-png
+  rol: figura
+  archivo: assets/images/avaluos-ii/monetary-top15-en-dark.png
+  ancho: 1980
+  alto: 1530
+  estado: publicable
+  origen: datos
+  alt:
+    es: Escenarios de contribución general teórica con mediana y promedio; no son deuda observada.
+    en: General-rule tax scenarios using median and mean; not observed tax debt.

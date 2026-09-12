@@ -10,9 +10,9 @@ author: clabra
 lang: es
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
-published: false
-editorial_status: pendiente-conciliacion-fiscal
-description: "Campamentos, materialidad y avalúos habitacionales para identificar dónde una discrepancia Censo–SII merece revisión tributaria, con supuestos y límites explícitos."
+published: true
+editorial_status: escenario-tributario-hipotetico
+description: "Brecha Censo–SII, campamentos y avalúos habitacionales: escenarios de impuesto teórico en pesos para orientar una revisión predial, con supuestos explícitos."
 excerpt: "Una diferencia persistente junto a avalúos altos en los predios registrados justifica revisar el catastro. Comprobar omisiones y sus efectos tributarios requiere identificar los inmuebles."
 header:
   overlay_image: /assets/images/avaluos-ii/hero-catastro-residencial-v1-1942x809.webp
@@ -32,7 +32,7 @@ En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-u
 
 El interés tributario aumenta cuando la discrepancia persiste en comunas cuyos predios registrados presentan avalúos altos. Si una revisión encontrara inmuebles omitidos comparables a ellos, correspondería comprobar si su incorporación o actualización genera una obligación tributaria.
 
-Cruzo esa diferencia con campamentos, materialidad y avalúos para ordenar la búsqueda. El recorrido tiene tres pasos: entender qué estamos restando, distinguir dónde podría haber interés tributario y precisar qué evidencia permitiría comprobarlo.
+Cruzo esa diferencia con campamentos, materialidad y avalúos para ordenar la búsqueda. El recorrido tiene tres pasos: entender qué estamos restando, dimensionar su posible interés tributario mediante escenarios en pesos y precisar qué evidencia permitiría comprobarlo.
 
 **Cómo leer las barras.** Orientan una revisión; no cuentan inmuebles omitidos ni contribuciones adeudadas.
 {: .notice--info}
@@ -125,9 +125,38 @@ En la base analizada, estas **15 comunas** cumplen ambas condiciones. Están ord
 
 Iquique combina un residuo elevado con una mediana apenas sobre el umbral: **60,24 millones de pesos**. Su media, de **73,84 millones**, no describe la situación de todos sus predios. Lo Barnechea muestra otra combinación: un residuo menor, de **2.300**, pero una mediana de **290,03 millones** y un **85,6 %** de roles sobre el monto exento.
 
-El contraste sirve para formular una pregunta: **si se encontraran inmuebles omitidos y fueran comparables a los registrados, ¿qué implicaría incorporarlos o actualizar su avalúo?** No estima cuántos aparecerán ni cuánto deberían pagar.
+El contraste sirve para formular una pregunta: **si se encontraran inmuebles omitidos y fueran comparables a los registrados, ¿qué orden de magnitud tendría el impuesto asociado?** Para responderla construyo dos escenarios; ninguno estima cuántos inmuebles aparecerán.
 
 La condición de semejanza es la más difícil. Lo que falta en un registro puede diferir sistemáticamente de lo que entró: construcciones más pequeñas, viviendas en predios agrícolas o inmuebles bajo un rol matriz. Trasladarles el perfil de avalúos observado podría introducir un sesgo si los inmuebles ausentes tienen un perfil distinto. Este filtro tampoco mide la discrepancia proporcional ni el costo de investigar cada comuna; es un punto de partida, no una priorización óptima demostrada.
+
+### Dar escala al problema: dos escenarios de impuesto teórico
+
+Primero calculo, **predio por predio**, el impuesto general que resultaría de aplicar a su avalúo los tramos del primer semestre de 2026. Después obtengo la media y la mediana comunales de esos resultados, **incluidos los ceros bajo el monto exento**. Aplicar una tasa al avalúo promedio no daría necesariamente el mismo resultado: las exenciones y los tramos cambian el cálculo.
+
+El modelo sigue los parámetros del [ejemplo oficial del SII][sii-ejemplo]: monto exento de **$60.030.710**, cambio de tramo en **$214.395.361** y tasas anuales de **0,893 % y 1,042 %**, respectivamente. Es un **impuesto general teórico anual equivalente**, manteniendo fijos los parámetros de ese semestre. Excluye aseo, sobretasas y beneficios individuales; no reproduce los giros efectivos ni la recaudación de todo 2026.
+
+Luego multiplico el residuo bajo el supuesto de campamentos por cada estadístico:
+
+| Escenario | Operación | Lectura |
+|---|---|---|
+| Con la mediana | Residuo × impuesto teórico mediano por predio | Aplica a cada unidad el valor central del impuesto modelado |
+| Con la media | Residuo × impuesto teórico medio por predio | Aplica el promedio, sensible a los avalúos altos |
+
+**Son dos referencias de escala, no un intervalo de confianza ni límites inferior y superior garantizados.** La mediana no es un impuesto mínimo: si más de la mitad de los predios queda bajo el monto exento, puede ser cero aunque la media sea positiva. Aquí se conservan las quince comunas del filtro anterior y se ordenan por el escenario con la media.
+
+<figure>
+  <img class="avaluos-ii-monetary-light" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-es.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
+  <img class="avaluos-ii-monetary-dark" width="792" height="612" src="/assets/images/avaluos-ii/monetary-top15-es-dark.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
+  <figcaption>Millones de pesos bajo el supuesto de que cada unidad del residuo correspondiera a un nuevo predio comparable. Los montos son hipotéticos; no son deuda constatada ni ingresos municipales retenidos.</figcaption>
+</figure>
+
+{% include avaluos-ii-monetary-es.html %}
+
+Iquique ilustra por qué conviene mostrar ambas referencias. Con sus **18.949** unidades residuales, el escenario con la mediana alcanza **$36 millones** anuales equivalentes; con la media, **$4.309 millones**. La separación es grande: el avalúo mediano apenas supera el monto exento y genera un impuesto teórico de unos **$1.912 por predio**, mientras la media incorpora el aporte de avalúos más altos. Presentar solo uno de los dos ocultaría esa diferencia de perfil.
+
+En Lo Barnechea, las **2.300** unidades residuales producen **$4.983 millones con la mediana y $6.669 millones con la media**. Bajo este modelo, encabeza el orden monetario pese a tener una brecha física mucho menor que Iquique. No se ha descubierto esa recaudación faltante: se ha mostrado qué escala tendría el impuesto si se confirmaran nuevos predios comparables. Ese contraste vuelve concreta la razón para revisar las comunas donde coinciden una discrepancia pendiente y avalúos elevados.
+
+La comparación completa supone **un nuevo predio comparable por cada unidad residual**: llamo $$q=1$$ a ese supuesto. El visor permite reducirlo a $$q=0{,}5$$ o $$q=0{,}25$$, con lo que los montos caen a la mitad o a un cuarto. Este factor representa la fracción hipotética del residuo que daría lugar a nuevos predios comparables; **no es una probabilidad estimada, una tasa de cobro ni la proporción de predios que paga contribuciones**. Los ceros tributarios ya están incluidos en ambos estadísticos. Tampoco se vuelve a descontar la materialidad.
 
 ## Tercera cucharada: del escenario comunal a la comprobación predial
 
@@ -142,11 +171,11 @@ La comparación comunal permite elegir dónde mirar. Para comprobar una omisión
 
 **Incorporar un predio y actualizar una construcción no son lo mismo.** El SII dispone de un [procedimiento de inclusión de bienes raíces][sii-inclusion]. También contempla modificaciones del avalúo. Una ampliación puede aumentar el valor de un rol existente sin crear otro: la diferencia entre viviendas y roles no detecta por sí sola toda desactualización del catastro.
 
-### Qué falta para construir un escenario en pesos
+### Qué falta para pasar del escenario a una obligación comprobada
 
-Para construir un escenario comunal en pesos falta una contribución neta habitacional compatible y conciliada, junto con supuestos explícitos para trasladarla a la diferencia entre registros. Para cuantificar obligaciones efectivamente omitidas, además hay que identificar los predios y verificar fechas, beneficios y exenciones.
+Los escenarios anteriores dan escala al supuesto, pero para cuantificar obligaciones efectivamente omitidas hay que identificar los predios, verificar sus fechas y avalúos, y aplicar los beneficios y exenciones que les correspondan. También se necesita información compatible y conciliada de los giros para contrastar el impuesto teórico con el efectivo.
 
-El obstáculo del escenario monetario es concreto: el campo semestral del extracto no permite separar todos los componentes de la contribución neta habitacional. Los cuadros comunales oficiales revisados distinguen componentes, pero abarcan otros destinos no agrícolas. **Dividir ese total por roles habitacionales produciría un promedio de universos incompatibles.** La [auditoría de fuentes](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) registra ese pendiente.
+El [diccionario catastral del SII][sii-estructura] define el campo semestral disponible como contribución **con aseo**. No se lo usa como impuesto neto. Los cuadros comunales oficiales revisados distinguen componentes, pero abarcan otros destinos no agrícolas: **dividir ese total por roles habitacionales produciría un promedio de universos incompatibles**. La [auditoría de fuentes](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) conserva este límite; el cálculo normativo no lo concilia ni lo elimina.
 
 Determinar un impuesto, girarlo y recaudarlo son etapas distintas. El SII determina los avalúos y giros; la [Tesorería General de la República recauda][tgr-impuestos]. Además, la distribución mediante el [Fondo Común Municipal][sii-fcm] impide equiparar el impuesto asociado a una comuna con ingresos retenidos íntegramente por su municipio.
 
@@ -154,7 +183,7 @@ La [guía de Grote y Wen (2024, pp. 16–18)][fmi-guia] ayuda a ordenar el probl
 
 ## Cierre: que la diferencia tenga una explicación
 
-Las comunas donde persiste la diferencia y los predios registrados presentan avalúos altos ofrecen un punto de partida para revisar el catastro. Si se confirman inmuebles comparables omitidos, corresponde determinar sus efectos tributarios. Si la diferencia se resuelve con roles existentes, destinos o fechas, la hipótesis de omisión pierde fuerza.
+Las comunas donde persiste la diferencia y los predios registrados presentan avalúos altos ofrecen un punto de partida para revisar el catastro. Los escenarios en pesos muestran por qué una brecha más pequeña puede merecer atención tributaria. Si se confirman inmuebles comparables omitidos, corresponde determinar sus efectos; si la diferencia se resuelve con roles existentes, destinos o fechas, la hipótesis de omisión pierde fuerza. El resultado justifica investigar, pero no permite atribuir negligencia ni falta de cobro a un organismo.
 
 En la próxima entrega exploraré el **Continuo de Construcciones Urbanas (CCU)** para contrastar la huella construida. Antes de atribuir un atraso administrativo, habrá que verificar sus fuentes y reconstruir cuándo ocurrió cada cambio.
 
@@ -170,6 +199,17 @@ En la próxima entrega exploraré el **Continuo de Construcciones Urbanas (CCU)*
 **Dos cortes de campamentos.** El informe [MINVU publicado el 8 de julio de 2026][minvu-campamentos], con información referida a 2024, registra 1.373 campamentos, 81.993 viviendas ocupadas y 77.399 hogares. La capa CNC 2026 utilizada en este procesamiento contiene 1.345 polígonos y suma 71.760 en el campo `HOGARESCEN`, con 222 polígonos sin dato. Son universos y cortes diferentes. Interpretar ese campo como hogares censales es una decisión provisional, apoyada en su nombre y la documentación disponible, no en un diccionario específico de la capa. El descuento depende de ella.
 
 **Definición de materialidad.** Se utiliza el código del manual INE, cuya clasificación no coincide por completo con la descripción en prosa: para materialidad aceptable, esta última admite algunas paredes recuperables, mientras el código exige materiales aceptables en los tres componentes. El escenario combina ese criterio con el tipo aceptable de vivienda. Se conservan variantes con materiales completos y con la categoría más amplia de no irrecuperables; son análisis de sensibilidad, no intervalos de confianza. El procesamiento registra 4.388 viviendas ocupadas con información incompleta.
+
+**Fórmula monetaria y unidad.** Para un avalúo $$A$$, monto exento $$E=60\,030\,710$$ y cambio de tramo $$T=214\,395\,361$$, se calcula:
+
+$$
+\begin{aligned}
+g(A)={}&0{,}00893\max(\min(A,T)-E,0)\\
+       &+0{,}01042\max(A-T,0).
+\end{aligned}
+$$
+
+Se agregan los resultados por comuna, incluidos los ceros, antes de multiplicar cada estadístico por el residuo positivo y por $$q$$. No se aplica el impuesto al avalúo medio, no se filtran solo los predios afectos y no se anualiza otra vez una tasa que ya es anual. El avalúo exento individual del extracto no sustituye al monto exento general en este modelo. Por ello el cálculo no representa beneficios particulares ni pretende reconstruir el giro de cada predio. La media y la mediana describen los predios registrados; extrapolarlas al residuo requiere el supuesto de comparabilidad.
 
 **Correcciones del procesamiento.** Se corrigió la homologación territorial de Coyhaique, Aysén y Chile Chico. El conteo de viviendas irrecuperables pasó de 73.338 a 72.642 —696 menos— al aplicar primero la exclusión de no respuesta del código oficial. Esa corrección no modifica la diferencia viviendas–roles ni el descuento por campamentos. La base histórica innominada 2011–2021 no interviene en el cálculo actual.
 
@@ -187,6 +227,8 @@ Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Terri
 
 Servicio de Impuestos Internos (SII). «De avalúo fiscal a contribuciones: paso a paso», ejemplo del primer semestre de 2026; «¿Qué es un avalúo fiscal?»; «¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?», actualización del 8 de abril de 2026; «¿Cómo regularizo una propiedad que no tiene rol de avalúo?», actualización del 7 de abril de 2026; y «¿Para qué sirve el pago del impuesto territorial?». [Cálculo][sii-ejemplo], [avalúo][sii-avaluo], [distinción del valor comercial][sii-comercial], [inclusión][sii-inclusion] y [distribución municipal][sii-fcm]. Para construcciones no regularizadas, véanse los [documentos requeridos para tasación][sii-no-regularizadas].
 
+Servicio de Impuestos Internos (SII). S. f. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Información básica de la serie no agrícola, campos 5–8 y tabla de destinos, p. 1. [Diccionario][sii-estructura].
+
 Tesorería General de la República (TGR). S. f. «Impuestos y tipos de impuestos». Centro de Ayuda TGR. [Fuente][tgr-impuestos].
 
 *Fuentes externas anteriores consultadas el 11 de septiembre de 2026. Los resultados del procesamiento y sus correcciones deben leerse junto con las notas metodológicas.*
@@ -195,6 +237,7 @@ Tesorería General de la República (TGR). S. f. «Impuestos y tipos de impuesto
 [minvu-campamentos]: https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=7e816aa9c26af8904eab01badfbfc6e6
 [minvu-parque]: https://centrodeestudios.minvu.gob.cl/repositorio/categoria/parque-habitacional/
 [sii-ejemplo]: https://www.sii.cl/destacados/impuesto_territorial/Ej_Casa.pdf
+[sii-estructura]: https://www.sii.cl/bbrr/descargas/estructura_detalle_catastral.pdf
 [sii-comercial]: https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8124.htm
 [sii-avaluo]: https://www.sii.cl/destacados/impuesto_territorial/avaluo_fiscal.html
 [sii-inclusion]: https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_1947.htm

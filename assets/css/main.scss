@@ -5,6 +5,20 @@ search: false
 @charset "utf-8";
 @use "sass:color";
 
+// Avalúos II: figures follow the same theme as the article.
+.page__content .avaluos-ii-monetary-dark { display: none; }
+html[data-theme="academic-night"] .page__content .avaluos-ii-monetary-light { display: none; }
+html[data-theme="academic-night"] .page__content .avaluos-ii-monetary-dark { display: block; }
+html[data-theme="academic-night"] .avaluos-ii-editorial .page__content table tbody td,
+html[data-theme="academic-night"] .avaluos-ii-editorial .page__content table tbody th {
+  color: #e5eaf1;
+  background: #202838;
+}
+html[data-theme="academic-night"] .avaluos-ii-editorial .page__content table tbody tr:nth-child(even) td,
+html[data-theme="academic-night"] .avaluos-ii-editorial .page__content table tbody tr:nth-child(even) th {
+  background: #273244;
+}
+
 /* 1) Webfonts: Fira Sans (texto) */
 
 @font-face {

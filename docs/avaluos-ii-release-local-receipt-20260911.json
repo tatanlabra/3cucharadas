@@ -1,0 +1,58 @@
+{
+  "dataset_sha256": "c21b29389e3a3f0c3d90d7383ac5d19c41851a67d308261a6db841d70e6badfc",
+  "analytics_commit": "93e3dba",
+  "browser": "Chromium, viewport 390 and 1440; no real Safari certification",
+  "a11y": {
+    "es_light": {
+      "counts": {
+        "inapplicable": 60,
+        "incomplete": 1,
+        "passes": 28,
+        "violations": 0
+      },
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    "en_dark": {
+      "counts": {
+        "inapplicable": 60,
+        "incomplete": 1,
+        "passes": 28,
+        "violations": 0
+      },
+      "incomplete": [
+        "color-contrast"
+      ]
+    },
+    "viewer_model": {
+      "counts": {
+        "inapplicable": 64,
+        "incomplete": 1,
+        "passes": 24,
+        "violations": 0
+      },
+      "incomplete": [
+        "color-contrast"
+      ]
+    }
+  },
+  "screenshots": [
+    {
+      "path": "/tmp/avaluos-modeled-1440-before-final.png",
+      "sha256": "c07f56846960b39751fe98598d90e6f41d4ed7b56c0b6fb09c7afa16d998ab8a"
+    },
+    {
+      "path": "/tmp/avaluos-post-es-390-monetary-final.png",
+      "sha256": "d6fc1410ce0568a7e6f69dfa3541ade0cf4847f184a5d73be9cb86130742046c"
+    },
+    {
+      "path": "/tmp/avaluos-post-en-390-dark-confirmed.png",
+      "sha256": "63407edde68f22cdcd0c9c0303be40bbdb4cb0e78f3d50041bdaab85a700f548"
+    }
+  ],
+  "production_before": {
+    "post_es_http": 404,
+    "source": "/tmp/avaluos-public-before.html"
+  }
+}

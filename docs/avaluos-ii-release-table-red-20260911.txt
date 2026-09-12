@@ -1,0 +1,56 @@
+v26.8.1
+11.19.0
+
+added 86 packages in 3s
+
+23 packages are looking for funding
+  run `npm fund` for details
+npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn install-scripts   @parcel/watcher@2.5.6 (install: node scripts/build-from-source.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+
+> check:catastro
+> tsc --noEmit --project tsconfig.catastro.json
+
+
+> check:catastro:static-css
+> node scripts/catastro_sii/check_static_css.mjs catastro_sii_brecha/style.css
+
+CSS válido: catastro_sii_brecha/style.css
+
+> test:catastro
+> vitest run --config vitest.catastro.config.ts
+
+
+ RUN  v4.1.11 /home/ende/Descargas/programaciones/activos/3cucharadas
+
+ ❯ tests/catastro_sii/laboratory-markup.test.ts (25 tests | 1 failed) 38ms
+     × declara cinco tabs, paneles y tablas alternativas 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/catastro_sii/laboratory-markup.test.ts > laboratorio accesible y perezoso > declara cinco tabs, paneles y tablas alternativas
+AssertionError: expected [ 'class="lab-table-scroll', …(9) ] to have a length of 9 but got 10
+
+- Expected
++ Received
+
+- 9
++ 10
+
+ ❯ tests/catastro_sii/laboratory-markup.test.ts:20:61
+     18|       expect(html).toContain(`data-lab-panel="${view}"`);
+     19|     }
+     20|     expect(html.match(/class="[^"]*\blab-table-scroll\b/g)).toHaveLeng…
+       |                                                             ^
+     21|     expect(html.match(/class="[^"]*\blab-chart-scroll\b[^"]*"/g)).toHa…
+     22|     expect(html).toContain('class="lab-chart-scroll lab-chart-scroll--…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 17 passed (18)
+      Tests  1 failed | 135 passed (136)
+   Start at  23:16:23
+   Duration  2.05s (transform 1.58s, setup 0ms, import 5.18s, tests 688ms, environment 7ms)

@@ -11,6 +11,34 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[2]
 
 
+def verify_modeled(rows, meta):
+    model = meta['modeled_tax_model']
+    if (model['period'], model['unit'], model['exemption_clp'], model['rate_threshold_clp'],
+        model['lower_annual_rate'], model['upper_annual_rate']) != ('2026S1', 'CLP_model_annual_2026S1', 60030710, 214395361, .00893, .01042):
+        raise ValueError('Unreviewed modeled rule or unit')
+    fields = ['modeled_mean_annual_clp','modeled_median_annual_clp','modeled_positive_share',
+              'modeled_gap_mean_clp','modeled_gap_median_clp','modeled_q025_mean_clp','modeled_q05_mean_clp']
+    for row in rows:
+        available = row['source_available'] and row['assessment_missing_roles_2026s1'] == 0
+        if available:
+            if row['modeled_tax_status'] != 'available' or any(row[k] is None or not math.isfinite(row[k]) or row[k] < 0 for k in fields):
+                raise ValueError('Modeled coverage or values invalid')
+            if row['modeled_positive_share'] > 1:
+                raise ValueError('Modeled positive share outside unit interval')
+            for stat in ['mean','median']:
+                if not math.isclose(row[f'modeled_gap_{stat}_clp'], row['camp_sensitivity_positive_gap']*row[f'modeled_{stat}_annual_clp'], rel_tol=1e-10,abs_tol=1e-5):
+                    raise ValueError('Modeled residual multiplication differs')
+            for label,q in [('025',.25),('05',.5)]:
+                if not math.isclose(row[f'modeled_q{label}_mean_clp'], q*row['modeled_gap_mean_clp'], rel_tol=1e-10,abs_tol=1e-5):
+                    raise ValueError('Modeled sensitivity differs')
+        elif row['modeled_tax_status'] == 'available' or any(row[k] is not None for k in fields):
+            raise ValueError('Unknown modeled source converted to numbers')
+    top=sorted([r for r in rows if r['modeled_tax_status']=='available' and r['camp_sensitivity_positive_gap']>0 and r['assessment_median_clp']>60030710],key=lambda r:(-r['modeled_gap_mean_clp'],r['codigo_comuna'].zfill(5)))[:15]
+    if not top or [r['codigo_comuna'] for r in top] != meta['model_ranking']:
+        raise ValueError('Modeled ranking differs')
+    return top
+
+
 def verify(data: Path):
     document=json.loads((data/'communes.json').read_text());meta=document['metadata'];rows=document['communes']
     if len(rows)!=346 or len({r['codigo_comuna'] for r in rows})!=346:
@@ -24,10 +52,13 @@ def verify(data: Path):
     for key in ['dwellings_2024','residential_roles_2026s1','signed_gap',
                 'camp_census_households_observed_2024','camp_sensitivity_positive_gap',
                 'irrecoverable_dwellings_2024','materiality_acceptable_scenario','materiality_other_scenario',
-                'assessment_median_clp','assessment_mean_clp','assessment_above_exemption_share','scenario_q1_clp']:
+                'assessment_median_clp','assessment_mean_clp','assessment_above_exemption_share','scenario_q1_clp',
+                'modeled_mean_annual_clp','modeled_median_annual_clp','modeled_gap_mean_clp',
+                'modeled_gap_median_clp','modeled_q025_mean_clp','modeled_q05_mean_clp']:
         pd.testing.assert_series_equal(frame[key].astype(float),csv[key].astype(float),check_names=False)
     if meta['fiscal_status']!='blocked_components' or meta['monetary_ranking']:
-        raise ValueError('No reviewed monetary adapter exists for this release')
+        raise ValueError('No reviewed observed-net adapter exists for this release')
+    modeled_top = verify_modeled(rows,meta)
     source_audit=json.loads((data/'source-audit.json').read_text())
     if source_audit['canonical_json_sha256'] != hashlib.sha256((data/'communes.json').read_bytes()).hexdigest():
         raise ValueError('Official source audit is stale for this canonical table')
@@ -96,6 +127,15 @@ def verify(data: Path):
             if hashlib.sha256(content).hexdigest() != preview['sha256']:
                 raise ValueError('Responsive map preview differs from its evidence')
     for lang in ['es','en']:
+        model_table=(ROOT/'_includes'/f'avaluos-ii-monetary-{lang}.html').read_text()
+        from modeled_fiscal_projection import table
+        if model_table != table(modeled_top,lang):
+            raise ValueError('Modeled translated table differs from canonical data')
+        for suffix in ['', '-dark']:
+            model_svg=(ROOT/'assets/images/avaluos-ii'/f'monetary-top15-{lang}{suffix}.svg').read_text()
+            for r in modeled_top:
+                if r['comuna'] not in model_svg:
+                    raise ValueError('Modeled figure omits canonical commune')
         markup=(ROOT/'_includes'/f'avaluos-ii-top-{lang}.html').read_text()
         svg=(ROOT/'assets/images/avaluos-ii'/f'gap-top15-{lang}.svg').read_text()
         dark_svg=(ROOT/'assets/images/avaluos-ii'/f'gap-top15-{lang}-dark.svg').read_text()
@@ -110,15 +150,17 @@ def verify(data: Path):
     page=(ROOT/'catastro_sii_brecha/index.html').read_text()
     if page.count('id="brecha-contribuciones"')!=1 or page.count('data-gap-commune=')!=346:
         raise ValueError('Viewer missing unique section or complete fallback table')
-    if '__COMMUNE_TABLE__' in page or page.count('class="gap-key"') != 1:
+    if '__COMMUNE_TABLE__' in page or '__MODELED_TABLE__' in page or page.count('class="gap-key"') != 1:
         raise ValueError('Unresolved template or missing semantic legend')
+    if 'data-source-sha="'+hashlib.sha256((data/'communes.json').read_bytes()).hexdigest()+'"' not in page:
+        raise ValueError('Viewer references stale canonical dataset version')
     for asset in ['style.css','app.js','assets/site-ui.js']:
         digest=hashlib.sha256((ROOT/'catastro_sii_brecha'/asset).read_bytes()).hexdigest()
         if asset+'?v='+digest not in page:
             raise ValueError('Viewer references stale asset: '+asset)
     dictionary=json.loads((data/'dictionary.json').read_text())
     if set(dictionary['columns'])!=set(frame.columns): raise ValueError('Dictionary drift')
-    print('PASS: 346 rows; camp sensitivity/materiality; Parquet/JSON/CSV; blocked fiscal fields; ES/EN figures and tables; one viewer')
+    print('PASS: 346 rows; camp sensitivity/materiality; Parquet/JSON/CSV; observed net fields null; general-rule scenarios; ES/EN figures and tables; one viewer')
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--data',type=Path,default=ROOT/'catastro_sii_brecha/data/fiscal-gap')
