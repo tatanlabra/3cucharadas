@@ -1,6 +1,9 @@
 require 'minitest/autorun'
 require 'tmpdir'
 require 'fileutils'
+require 'open3'
+require 'json'
+require 'rbconfig'
 require_relative '../scripts/lib/site_health'
 
 class SiteHealthTest < Minitest::Test
@@ -65,6 +68,31 @@ class SiteHealthTest < Minitest::Test
       assert_raises(RuntimeError) { SiteHealth.catastro_asset_urls(html, dir) }
       File.binwrite(asset, original)
       assert_equal 2, SiteHealth.catastro_asset_urls(html, dir).length
+    end
+  end
+
+  def test_source_profile_runs_declared_and_legacy_diffusion_scopes
+    Dir.mktmpdir do |dir|
+      stub = <<~'SH'
+        #!/bin/sh
+        exit 0
+      SH
+      %w[git ruby python3].each do |name|
+        path = File.join(dir, name)
+        File.write(path, stub)
+        FileUtils.chmod(0o755, path)
+      end
+      report = File.join(dir, 'report.json')
+      env = { 'PATH' => "#{dir}:/usr/bin:/bin" }
+      output, status = Open3.capture2e(env, RbConfig.ruby, File.join(ROOT, 'scripts/verify_site_health.rb'),
+                                      '--profile', 'source', '--root', ROOT, '--report', report)
+      assert status.success?, output
+      checks = JSON.parse(File.read(report)).fetch('checks').to_h { |check| [check.fetch('id'), check] }
+      assert_equal ['ruby', 'scripts/verify_difusion_coherente.rb', '--all-declared', '--root', ROOT],
+                   checks.fetch('diffusion-coherence').fetch('command')
+      assert_equal ['ruby', 'scripts/verify_difusion_coherente.rb',
+                    'multiagente-penta-agent-memoria-gobernada-poc', '--root', ROOT],
+                   checks.fetch('diffusion-coherence-legacy').fetch('command')
     end
   end
 end
