@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "scope": "explanatory_extension_only",
+  "original_analysis_modified": false,
+  "sii": {
+    "unit": "administrative role; not a dwelling, household, person or unregistered building",
+    "commune_series_rows": 672,
+    "destination_rows": 3541,
+    "role_keys_unique": true,
+    "source_unchanged": true,
+    "unresolved_candidate_roles": 0,
+    "unknown_construction_destinations": [
+      {
+        "series": "A",
+        "destination": null,
+        "lines": 103
+      },
+      {
+        "series": "N",
+        "destination": "X",
+        "lines": 30
+      },
+      {
+        "series": "N",
+        "destination": null,
+        "lines": 96448
+      }
+    ],
+    "construction_without_positive_area": 9,
+    "primary_h_without_positive_h_line": 24451
+  },
+  "casen": {
+    "unit": "households selected by household-head v9 response; residents belonging to those households",
+    "rows": 363,
+    "national_weight": "expr",
+    "commune_weight": "expc",
+    "commune_representativeness": false
+  },
+  "combination": "disjoint_direct_sii_role_groups_joined; other units kept separate",
+  "raw_rows_exported": false
+}

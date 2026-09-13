@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "publication_snapshot": "2026-09-13",
+  "sources": [
+    {
+      "label": "sii",
+      "files": [
+        {
+          "filename": "sii-communes.csv",
+          "sha256": "e4b3d214d34363c283c339e55efec8e35631345cfeac11d2f65e6172a3138be6"
+        },
+        {
+          "filename": "sii-destination-breakdown.csv",
+          "sha256": "5e709877dcda2b170580759912e11ff02872cb965152ecb1f5c31c0b8a222664"
+        },
+        {
+          "filename": "sii-audit.json",
+          "sha256": "12720c2b31996516537c603cbc98c67d48915c08210b5ee7e2770aa4c7adbc29"
+        },
+        {
+          "filename": "sii-provenance.json",
+          "sha256": "28c88a491be8197f2bbfc4857e20143d4f8ff2a6fb9662a8d2f0a6c43930fc50"
+        },
+        {
+          "filename": "BRORGA2441_NAC_2026_1.zip",
+          "sha256": "31d50247d696eb20c74867f591e5065ef7f60e18f66eb59912bdddf83fd79d2a"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "label": "expanded_comparison",
+      "files": [
+        {
+          "filename": "expanded-comparison.csv",
+          "sha256": "e3b36141dec65575e03ab74840de3a6b82bf14c19931fdf1ff22a86cafff4a2c"
+        },
+        {
+          "filename": "expanded-national-summary.csv",
+          "sha256": "73b1b6620b17392bdeb2595fd11910b36e395334d89331848ce2e730babeaf53"
+        },
+        {
+          "filename": "expanded-audit.json",
+          "sha256": "3d6ac6053dced3388c466694b38d0d79160c433044d31417625af98828c3b9bc"
+        },
+        {
+          "filename": "expanded-provenance.json",
+          "sha256": "f3a433a057c6e55d0e9235f5b8d95a15303836a65e08966cfd302200a0542eba"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "label": "casen",
+      "files": [
+        {
+          "filename": "casen-counts.csv",
+          "sha256": "9f7e5f4ba9a9f9f86bcb99399540bd90edcfca03f7073528358f1ddab5b85c7a"
+        },
+        {
+          "filename": "casen-counts-audit.json",
+          "sha256": "e6d1717b023eb4896bdc52d911d6900e2be3301ddf5079ccbff7a41ff06fdd40"
+        },
+        {
+          "filename": "casen-counts-provenance.json",
+          "sha256": "c3e7541656ebc2716842bbbe858e86dc6b9214ebebc2302c41b1fff73aaebb66"
+        },
+        {
+          "filename": "casen_2024.rdata",
+          "sha256": "638c6aef38a930ccfbf3153fe9374fe97b9d30338aa492d12f8d19b0d0cb37e4"
+        },
+        {
+          "filename": "casen_2024_provincia_comuna.dta",
+          "sha256": "16ac315fee386edef02a38507c9af4fe5cbb8cf3b083a5898ad7791fb18a0cae"
+        }
+      ],
+      "urls": []
+    }
+  ],
+  "documentation_urls": [
+    "https://www4.sii.cl/sismunInternet6/descargaArchivo",
+    "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf",
+    "https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf"
+  ],
+  "outputs_sha256": {
+    "audit.json": "8ed0633f032e136d973565a6478cac5b574703a4f6ecd2c360498fd152e5e374",
+    "avaluos-ii-extension-en.html": "938b0e1ebf7712ee5c3b601a418a265cef6917cff14c9ed53ac8e2e11a2e74a7",
+    "avaluos-ii-extension-es.html": "f0e5bc3250716c6a8b5b87a0ccc810d077ff1e4a216050bb8ec8096f9c92d57b",
+    "casen-quantities.csv": "0885f7b3bde4973b975c9ce90ba5f8369e8ceee1a0643aab249a4e9e2d2685c4",
+    "expanded-comparison.csv": "e3b36141dec65575e03ab74840de3a6b82bf14c19931fdf1ff22a86cafff4a2c",
+    "expanded-national-summary.csv": "73b1b6620b17392bdeb2595fd11910b36e395334d89331848ce2e730babeaf53",
+    "method.md": "1d9ee41dbd770ce8429b99259d2d2c0eb383e560dd509f59f47e2df7a6365b2a",
+    "sii-communes.csv": "e4b3d214d34363c283c339e55efec8e35631345cfeac11d2f65e6172a3138be6",
+    "sii-destination-breakdown.csv": "5e709877dcda2b170580759912e11ff02872cb965152ecb1f5c31c0b8a222664"
+  },
+  "includes_sha256": {
+    "avaluos-ii-extension-es.html": "f0e5bc3250716c6a8b5b87a0ccc810d077ff1e4a216050bb8ec8096f9c92d57b",
+    "avaluos-ii-extension-en.html": "938b0e1ebf7712ee5c3b601a418a265cef6917cff14c9ed53ac8e2e11a2e74a7"
+  },
+  "projector": {
+    "filename": "project_residential_extension.py",
+    "sha256": "120a80e7b4742edafe40d8b2015081b2a58347517e348eadaf17fc97c7a7d31a"
+  },
+  "private_paths_exported": false,
+  "raw_rows_exported": false
+}

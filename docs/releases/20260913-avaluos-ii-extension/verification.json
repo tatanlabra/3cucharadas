@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "verified_at": "2026-09-13T11:46:00-03:00",
+  "inputs_sha256": {
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial.md": "e5976d6130f20c2d51c4c9e0d8ff7143b5542931d572838087bdfaadb121b659",
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md": "444b8aff41da914f75b144f1f8e6f1e551987c950c420e22866cd80a5857b1ac",
+    "scripts/catastro_sii/project_residential_extension.py": "120a80e7b4742edafe40d8b2015081b2a58347517e348eadaf17fc97c7a7d31a",
+    "_includes/avaluos-ii-extension-es.html": "f0e5bc3250716c6a8b5b87a0ccc810d077ff1e4a216050bb8ec8096f9c92d57b",
+    "_includes/avaluos-ii-extension-en.html": "938b0e1ebf7712ee5c3b601a418a265cef6917cff14c9ed53ac8e2e11a2e74a7",
+    "assets/data/avaluos-ii-extension/sii-communes.csv": "e4b3d214d34363c283c339e55efec8e35631345cfeac11d2f65e6172a3138be6",
+    "assets/data/avaluos-ii-extension/sii-destination-breakdown.csv": "5e709877dcda2b170580759912e11ff02872cb965152ecb1f5c31c0b8a222664",
+    "assets/data/avaluos-ii-extension/casen-quantities.csv": "0885f7b3bde4973b975c9ce90ba5f8369e8ceee1a0643aab249a4e9e2d2685c4",
+    "assets/data/avaluos-ii-extension/expanded-comparison.csv": "e3b36141dec65575e03ab74840de3a6b82bf14c19931fdf1ff22a86cafff4a2c",
+    "assets/data/avaluos-ii-extension/expanded-national-summary.csv": "73b1b6620b17392bdeb2595fd11910b36e395334d89331848ce2e730babeaf53",
+    "assets/data/avaluos-ii-extension/method.md": "1d9ee41dbd770ce8429b99259d2d2c0eb383e560dd509f59f47e2df7a6365b2a",
+    "assets/data/avaluos-ii-extension/audit.json": "8ed0633f032e136d973565a6478cac5b574703a4f6ecd2c360498fd152e5e374",
+    "assets/data/avaluos-ii-extension/provenance.json": "efe5e361d704d943b8124d8393ca9068e7a22f1072e9feea8e551f1845bba391"
+  },
+  "projection_check": {
+    "command": "python3 scripts/catastro_sii/project_residential_extension.py --check",
+    "status": "passed",
+    "front_matter_and_protected_references_bound_to_blog_head": "10c1b7beffd04e2409c8404be7b0e39a7f578941"
+  },
+  "tests": {
+    "command": "python3 -m unittest tests.catastro_sii.test_residential_extension_projection -v",
+    "status": "passed",
+    "passed": 4,
+    "failed": 0
+  },
+  "build_passed": true,
+  "build": {
+    "command": "JEKYLL_ENV=production bundle exec jekyll build --destination /tmp/avaluos-ii-extension-final4/site",
+    "status": "passed",
+    "destination": "/tmp/avaluos-ii-extension-final4/site",
+    "warnings": [
+      "Faraday retry middleware suggestion",
+      "Existing Sass @import deprecation warnings"
+    ]
+  },
+  "mobile_passed": true,
+  "mobile": {
+    "tool": "agent-browser",
+    "viewport": "390x844",
+    "server": "127.0.0.1:4017 isolated preview",
+    "es": {
+      "body_client_scroll_width": [390, 390],
+      "expanded_table_client_scroll_left_width": [358, 880, 420],
+      "keyboard_focus": true,
+      "claims_present": ["6.134.442", "1.588.389", "79.634 roles", "respuesta del hogar tomada desde registro de jefatura"],
+      "screenshot": "docs/releases/20260913-avaluos-ii-extension/mobile-es-expanded-final.png"
+    },
+    "en": {
+      "body_client_scroll_width": [390, 390],
+      "expanded_table_client_scroll_left_width": [358, 911, 420],
+      "keyboard_focus": true,
+      "claims_present": ["6,134,442", "1,588,389", "79,634 records", "household response taken from head's record"],
+      "screenshot": "docs/releases/20260913-avaluos-ii-extension/mobile-en-expanded-final.png"
+    },
+    "page_errors": [],
+    "console_warnings": ["GoatCounter disabled itself on localhost"]
+  },
+  "evidence_sha256": {
+    "docs/releases/20260913-avaluos-ii-extension/mobile-es-expanded-final.png": "82d69a06c0f725bc318465da862e9625d51bcbeeffa034815df77825fed81ca9",
+    "docs/releases/20260913-avaluos-ii-extension/mobile-en-expanded-final.png": "fc46f6fc13e4711a2830bd3bf542d67b30fc837dc699bda6d6b84220b827fc0e",
+    "tests/catastro_sii/test_residential_extension_projection.py": "e9971bbc8fd56d1948576a0c75e4ccfd5556f793937254dd475dd8c4d603be59"
+  },
+  "critical_audit": {
+    "status": "passed",
+    "observed": "Disjoint primary-H and eligible non-H role groups are joined only within the same direct non-agricultural SII file.",
+    "deduction": "The national arithmetic difference falls by 76,493 roles; this does not identify 76,493 dwellings.",
+    "limits": "Positive commune differences, CASEN households, settlement households and the agricultural series remain distinct comparisons."
+  }
+}

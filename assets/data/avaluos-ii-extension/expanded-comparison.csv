@@ -1,0 +1,347 @@
+scope,territory_code,name,region,fiscal_source_available,direct_source_available,census_private_dwellings_2024,fiscal_baseline_primary_h_roles_2026s1,direct_primary_h_roles_2026s1,direct_vs_fiscal_primary_h_change,eligible_nonprincipal_residential_roles_2026s1,expanded_residential_roles_2026s1,signed_difference_before_expansion,positive_difference_before_expansion,signed_difference_after_expansion,positive_difference_after_expansion,signed_difference_reduction,positive_difference_reduction
+commune,10101,Puerto Montt,Los Lagos,True,True,116003,86967,87002,35,946,87948,29001,29001,28055,28055,946,946
+commune,10102,Calbuco,Los Lagos,True,True,15935,4694,4696,2,158,4854,11239,11239,11081,11081,158,158
+commune,10103,Cochamó,Los Lagos,True,True,3059,441,441,0,32,473,2618,2618,2586,2586,32,32
+commune,10104,Fresia,Los Lagos,True,True,6285,3274,3274,0,40,3314,3011,3011,2971,2971,40,40
+commune,10105,Frutillar,Los Lagos,True,True,10299,7007,7007,0,123,7130,3292,3292,3169,3169,123,123
+commune,10106,Los Muermos,Los Lagos,True,True,8696,3205,3205,0,80,3285,5491,5491,5411,5411,80,80
+commune,10107,Llanquihue,Los Lagos,True,True,6957,4983,4984,1,73,5057,1973,1973,1900,1900,73,73
+commune,10108,Maullín,Los Lagos,True,True,7554,3013,3013,0,67,3080,4541,4541,4474,4474,67,67
+commune,10109,Puerto Varas,Los Lagos,True,True,25190,16454,16457,3,319,16776,8733,8733,8414,8414,319,319
+commune,10201,Castro,Los Lagos,True,True,21172,13268,13284,16,502,13786,7888,7888,7386,7386,502,502
+commune,10202,Ancud,Los Lagos,True,True,19842,11768,11770,2,248,12018,8072,8072,7824,7824,248,248
+commune,10203,Chonchi,Los Lagos,True,True,8286,2709,2709,0,100,2809,5577,5577,5477,5477,100,100
+commune,10204,Curaco de Vélez,Los Lagos,True,True,1915,669,669,0,10,679,1246,1246,1236,1236,10,10
+commune,10205,Dalcahue,Los Lagos,True,True,7222,2777,2780,3,104,2884,4442,4442,4338,4338,104,104
+commune,10206,Puqueldón,Los Lagos,True,True,2091,459,459,0,25,484,1632,1632,1607,1607,25,25
+commune,10207,Queilén,Los Lagos,True,True,3139,1256,1258,2,22,1280,1881,1881,1859,1859,22,22
+commune,10208,Quellón,Los Lagos,True,True,13470,5268,5270,2,198,5468,8200,8200,8002,8002,198,198
+commune,10209,Quemchi,Los Lagos,True,True,4650,985,985,0,22,1007,3665,3665,3643,3643,22,22
+commune,10210,Quinchao,Los Lagos,True,True,4148,1272,1276,4,64,1340,2872,2872,2808,2808,64,64
+commune,10301,Osorno,Los Lagos,True,True,68725,55834,55838,4,849,56687,12887,12887,12038,12038,849,849
+commune,10302,Puerto Octay,Los Lagos,True,True,5289,1674,1675,1,53,1728,3614,3614,3561,3561,53,53
+commune,10303,Purranque,Los Lagos,True,True,8704,5305,5305,0,141,5446,3399,3399,3258,3258,141,141
+commune,10304,Puyehue,Los Lagos,True,True,5982,2582,2583,1,44,2627,3399,3399,3355,3355,44,44
+commune,10305,Río Negro,Los Lagos,True,True,6488,3261,3262,1,69,3331,3226,3226,3157,3157,69,69
+commune,10306,San Juan de la Costa,Los Lagos,True,True,6794,1187,1189,2,14,1203,5605,5605,5591,5591,14,14
+commune,10307,San Pablo,Los Lagos,True,True,5130,2375,2375,0,31,2406,2755,2755,2724,2724,31,31
+commune,10401,Chaitén,Los Lagos,True,True,2557,1219,1219,0,72,1291,1338,1338,1266,1266,72,72
+commune,10402,Futaleufú,Los Lagos,True,True,1790,671,671,0,51,722,1119,1119,1068,1068,51,51
+commune,10403,Hualaihué,Los Lagos,True,True,5214,1387,1387,0,32,1419,3827,3827,3795,3795,32,32
+commune,10404,Palena,Los Lagos,True,True,1308,455,455,0,18,473,853,853,835,835,18,18
+commune,1101,Iquique,Tarapacá,True,True,75326,55511,55513,2,1345,56858,19813,19813,18468,18468,1345,1345
+commune,1107,Alto Hospicio,Tarapacá,True,True,46558,31190,31192,2,299,31491,15366,15366,15067,15067,299,299
+commune,11101,Coyhaique,Aysén del General Carlos Ibáñez del Campo,True,True,27953,19704,19711,7,502,20213,8242,8242,7740,7740,502,502
+commune,11102,Lago Verde,Aysén del General Carlos Ibáñez del Campo,True,True,721,285,285,0,22,307,436,436,414,414,22,22
+commune,11201,Aysén,Aysén del General Carlos Ibáñez del Campo,True,True,11036,8133,8133,0,275,8408,2903,2903,2628,2628,275,275
+commune,11202,Cisnes,Aysén del General Carlos Ibáñez del Campo,True,True,3434,1817,1818,1,116,1934,1616,1616,1500,1500,116,116
+commune,11203,Guaitecas,Aysén del General Carlos Ibáñez del Campo,True,True,813,327,327,0,17,344,486,486,469,469,17,17
+commune,11301,Cochrane,Aysén del General Carlos Ibáñez del Campo,True,True,2119,1191,1192,1,60,1252,927,927,867,867,60,60
+commune,11302,O'Higgins,Aysén del General Carlos Ibáñez del Campo,True,True,403,195,195,0,12,207,208,208,196,196,12,12
+commune,11303,Tortel,Aysén del General Carlos Ibáñez del Campo,True,True,392,133,133,0,9,142,259,259,250,250,9,9
+commune,11401,Chile Chico,Aysén del General Carlos Ibáñez del Campo,True,True,3103,1819,1822,3,96,1918,1281,1281,1185,1185,96,96
+commune,11402,Río Ibáñez,Aysén del General Carlos Ibáñez del Campo,True,True,2234,980,980,0,51,1031,1254,1254,1203,1203,51,51
+commune,12101,Punta Arenas,Magallanes y de la Antártica Chilena,True,True,59126,47390,47407,17,850,48257,11719,11719,10869,10869,850,850
+commune,12102,Laguna Blanca,Magallanes y de la Antártica Chilena,True,True,287,50,50,0,2,52,237,237,235,235,2,2
+commune,12103,Río Verde,Magallanes y de la Antártica Chilena,True,True,188,1,1,0,2,3,187,187,185,185,2,2
+commune,12104,San Gregorio,Magallanes y de la Antártica Chilena,True,True,441,118,118,0,14,132,323,323,309,309,14,14
+commune,12201,Cabo de Hornos,Magallanes y de la Antártica Chilena,True,True,775,404,404,0,8,412,371,371,363,363,8,8
+commune,12202,Antártica,Magallanes y de la Antártica Chilena,False,False,0,,,,,,,,,,,
+commune,12301,Porvenir,Magallanes y de la Antártica Chilena,True,True,3540,2017,2017,0,94,2111,1523,1523,1429,1429,94,94
+commune,12302,Primavera,Magallanes y de la Antártica Chilena,True,True,414,65,65,0,36,101,349,349,313,313,36,36
+commune,12303,Timaukel,Magallanes y de la Antártica Chilena,True,True,213,13,13,0,3,16,200,200,197,197,3,3
+commune,12401,Natales,Magallanes y de la Antártica Chilena,True,True,11205,8796,8796,0,306,9102,2409,2409,2103,2103,306,306
+commune,12402,Torres del Paine,Magallanes y de la Antártica Chilena,True,True,303,23,23,0,11,34,280,280,269,269,11,11
+commune,13101,Santiago,Metropolitana de Santiago,True,True,239172,219706,219735,29,2580,222315,19437,19437,16857,16857,2580,2580
+commune,13102,Cerrillos,Metropolitana de Santiago,True,True,31635,28135,28136,1,320,28456,3499,3499,3179,3179,320,320
+commune,13103,Cerro Navia,Metropolitana de Santiago,True,True,40081,30699,30699,0,723,31422,9382,9382,8659,8659,723,723
+commune,13104,Conchalí,Metropolitana de Santiago,True,True,38815,32219,32223,4,690,32913,6592,6592,5902,5902,690,690
+commune,13105,El Bosque,Metropolitana de Santiago,True,True,50329,42543,42545,2,702,43247,7784,7784,7082,7082,702,702
+commune,13106,Estación Central,Metropolitana de Santiago,True,True,75992,70314,70314,0,575,70889,5678,5678,5103,5103,575,575
+commune,13107,Huechuraba,Metropolitana de Santiago,True,True,31097,28411,28415,4,185,28600,2682,2682,2497,2497,185,185
+commune,13108,Independencia,Metropolitana de Santiago,True,True,50308,43742,43746,4,748,44494,6562,6562,5814,5814,748,748
+commune,13109,La Cisterna,Metropolitana de Santiago,True,True,41580,42308,42309,1,1024,43333,-729,0,-1753,0,1024,0
+commune,13110,La Florida,Metropolitana de Santiago,True,True,143584,140184,140209,25,1054,141263,3375,3375,2321,2321,1054,1054
+commune,13111,La Granja,Metropolitana de Santiago,True,True,36686,29929,29929,0,588,30517,6757,6757,6169,6169,588,588
+commune,13112,La Pintana,Metropolitana de Santiago,True,True,53011,48826,48827,1,620,49447,4184,4184,3564,3564,620,620
+commune,13113,La Reina,Metropolitana de Santiago,True,True,31596,30064,30094,30,224,30318,1502,1502,1278,1278,224,224
+commune,13114,Las Condes,Metropolitana de Santiago,True,True,128937,128395,128417,22,532,128949,520,520,-12,0,532,520
+commune,13115,Lo Barnechea,Metropolitana de Santiago,True,True,36370,33957,34071,114,141,34212,2299,2299,2158,2158,141,141
+commune,13116,Lo Espejo,Metropolitana de Santiago,True,True,27346,23026,23027,1,336,23363,4319,4319,3983,3983,336,336
+commune,13117,Lo Prado,Metropolitana de Santiago,True,True,31002,24089,24090,1,405,24495,6912,6912,6507,6507,405,405
+commune,13118,Macul,Metropolitana de Santiago,True,True,50694,49150,49159,9,243,49402,1535,1535,1292,1292,243,243
+commune,13119,Maipú,Metropolitana de Santiago,True,True,169332,161167,161180,13,596,161776,8152,8152,7556,7556,596,596
+commune,13120,Ñuñoa,Metropolitana de Santiago,True,True,121424,127740,127744,4,476,128220,-6320,0,-6796,0,476,0
+commune,13121,Pedro Aguirre Cerda,Metropolitana de Santiago,True,True,31027,26581,26581,0,478,27059,4446,4446,3968,3968,478,478
+commune,13122,Peñalolén,Metropolitana de Santiago,True,True,75487,62545,62568,23,533,63101,12919,12919,12386,12386,533,533
+commune,13123,Providencia,Metropolitana de Santiago,True,True,76376,75458,75480,22,945,76425,896,896,-49,0,945,896
+commune,13124,Pudahuel,Metropolitana de Santiago,True,True,73700,64790,64792,2,456,65248,8908,8908,8452,8452,456,456
+commune,13125,Quilicura,Metropolitana de Santiago,True,True,66986,65154,65158,4,292,65450,1828,1828,1536,1536,292,292
+commune,13126,Quinta Normal,Metropolitana de Santiago,True,True,46784,38307,38317,10,1259,39576,8467,8467,7208,7208,1259,1259
+commune,13127,Recoleta,Metropolitana de Santiago,True,True,55851,40340,40347,7,1088,41435,15504,15504,14416,14416,1088,1088
+commune,13128,Renca,Metropolitana de Santiago,True,True,46449,41881,41884,3,412,42296,4565,4565,4153,4153,412,412
+commune,13129,San Joaquín,Metropolitana de Santiago,True,True,33840,31123,31123,0,711,31834,2717,2717,2006,2006,711,711
+commune,13130,San Miguel,Metropolitana de Santiago,True,True,65777,63793,63794,1,936,64730,1983,1983,1047,1047,936,936
+commune,13131,San Ramón,Metropolitana de Santiago,True,True,23812,19227,19230,3,456,19686,4582,4582,4126,4126,456,456
+commune,13132,Vitacura,Metropolitana de Santiago,True,True,34523,35280,35280,0,173,35453,-757,0,-930,0,173,0
+commune,13201,Puente Alto,Metropolitana de Santiago,True,True,190304,181048,181059,11,1017,182076,9245,9245,8228,8228,1017,1017
+commune,13202,Pirque,Metropolitana de Santiago,True,True,10181,5282,5286,4,62,5348,4895,4895,4833,4833,62,62
+commune,13203,San José de Maipo,Metropolitana de Santiago,True,True,8017,4570,4577,7,216,4793,3440,3440,3224,3224,216,216
+commune,13301,Colina,Metropolitana de Santiago,True,True,54763,48335,48360,25,243,48603,6403,6403,6160,6160,243,243
+commune,13302,Lampa,Metropolitana de Santiago,True,True,50270,35082,35091,9,300,35391,15179,15179,14879,14879,300,300
+commune,13303,Tiltil,Metropolitana de Santiago,True,True,8229,4422,4426,4,81,4507,3803,3803,3722,3722,81,81
+commune,13401,San Bernardo,Metropolitana de Santiago,True,True,102205,92672,92679,7,780,93459,9526,9526,8746,8746,780,780
+commune,13402,Buin,Metropolitana de Santiago,True,True,42438,34675,34676,1,337,35013,7762,7762,7425,7425,337,337
+commune,13403,Calera de Tango,Metropolitana de Santiago,True,True,8399,5492,5493,1,75,5568,2906,2906,2831,2831,75,75
+commune,13404,Paine,Metropolitana de Santiago,True,True,30796,17500,17501,1,225,17726,13295,13295,13070,13070,225,225
+commune,13501,Melipilla,Metropolitana de Santiago,True,True,52214,35643,35662,19,398,36060,16552,16552,16154,16154,398,398
+commune,13502,Alhué,Metropolitana de Santiago,True,True,3311,1235,1238,3,9,1247,2073,2073,2064,2064,9,9
+commune,13503,Curacaví,Metropolitana de Santiago,True,True,14218,8691,8705,14,129,8834,5513,5513,5384,5384,129,129
+commune,13504,María Pinto,Metropolitana de Santiago,True,True,5880,2705,2714,9,18,2732,3166,3166,3148,3148,18,18
+commune,13505,San Pedro,Metropolitana de Santiago,True,True,5358,915,915,0,14,929,4443,4443,4429,4429,14,14
+commune,13601,Talagante,Metropolitana de Santiago,True,True,27522,20709,20711,2,223,20934,6811,6811,6588,6588,223,223
+commune,13602,El Monte,Metropolitana de Santiago,True,True,13357,10092,10092,0,102,10194,3265,3265,3163,3163,102,102
+commune,13603,Isla de Maipo,Metropolitana de Santiago,True,True,14518,10573,10577,4,124,10701,3941,3941,3817,3817,124,124
+commune,13604,Padre Hurtado,Metropolitana de Santiago,True,True,28781,26040,26040,0,159,26199,2741,2741,2582,2582,159,159
+commune,13605,Peñaflor,Metropolitana de Santiago,True,True,33023,28318,28320,2,277,28597,4703,4703,4426,4426,277,277
+commune,1401,Pozo Almonte,Tarapacá,True,True,11593,5379,5379,0,129,5508,6214,6214,6085,6085,129,129
+commune,1402,Camiña,Tarapacá,True,True,1178,494,494,0,12,506,684,684,672,672,12,12
+commune,1403,Colchane,Tarapacá,True,True,2112,239,239,0,5,244,1873,1873,1868,1868,5,5
+commune,1404,Huara,Tarapacá,True,True,3212,1676,1676,0,21,1697,1536,1536,1515,1515,21,21
+commune,1405,Pica,Tarapacá,True,True,3196,1912,1913,1,59,1972,1283,1283,1224,1224,59,59
+commune,14101,Valdivia,Los Ríos,True,True,72810,51798,51809,11,873,52682,21001,21001,20128,20128,873,873
+commune,14102,Corral,Los Ríos,True,True,3358,1712,1712,0,21,1733,1646,1646,1625,1625,21,21
+commune,14103,Lanco,Los Ríos,True,True,7781,4838,4839,1,126,4965,2942,2942,2816,2816,126,126
+commune,14104,Los Lagos,Los Ríos,True,True,9572,4430,4430,0,126,4556,5142,5142,5016,5016,126,126
+commune,14105,Máfil,Los Ríos,True,True,3436,1745,1746,1,29,1775,1690,1690,1661,1661,29,29
+commune,14106,Mariquina,Los Ríos,True,True,10267,5447,5450,3,138,5588,4817,4817,4679,4679,138,138
+commune,14107,Paillaco,Los Ríos,True,True,8437,4486,4486,0,154,4640,3951,3951,3797,3797,154,154
+commune,14108,Panguipulli,Los Ríos,True,True,20013,7947,7949,2,287,8236,12064,12064,11777,11777,287,287
+commune,14201,La Unión,Los Ríos,True,True,17144,10950,10952,2,251,11203,6192,6192,5941,5941,251,251
+commune,14202,Futrono,Los Ríos,True,True,7930,3863,3865,2,133,3998,4065,4065,3932,3932,133,133
+commune,14203,Lago Ranco,Los Ríos,True,True,6248,2215,2216,1,76,2292,4032,4032,3956,3956,76,76
+commune,14204,Río Bueno,Los Ríos,True,True,16362,8928,8928,0,203,9131,7434,7434,7231,7231,203,203
+commune,15101,Arica,Arica y Parinacota,True,True,84853,64694,64703,9,1441,66144,20150,20150,18709,18709,1441,1441
+commune,15102,Camarones,Arica y Parinacota,True,True,1035,365,365,0,11,376,670,670,659,659,11,11
+commune,15201,Putre,Arica y Parinacota,True,True,1851,698,698,0,19,717,1153,1153,1134,1134,19,19
+commune,15202,General Lagos,Arica y Parinacota,True,True,623,121,121,0,2,123,502,502,500,500,2,2
+commune,16101,Chillán,Ñuble,True,True,80984,72955,72964,9,1123,74087,8020,8020,6897,6897,1123,1123
+commune,16102,Bulnes,Ñuble,True,True,10527,7063,7063,0,115,7178,3464,3464,3349,3349,115,115
+commune,16103,Chillán Viejo,Ñuble,True,True,13017,10844,10846,2,123,10969,2171,2171,2048,2048,123,123
+commune,16104,El Carmen,Ñuble,True,True,6206,2370,2371,1,60,2431,3835,3835,3775,3775,60,60
+commune,16105,Pemuco,Ñuble,True,True,4202,2211,2212,1,30,2242,1990,1990,1960,1960,30,30
+commune,16106,Pinto,Ñuble,True,True,7655,3762,3763,1,103,3866,3892,3892,3789,3789,103,103
+commune,16107,Quillón,Ñuble,True,True,13483,6590,6591,1,130,6721,6892,6892,6762,6762,130,130
+commune,16108,San Ignacio,Ñuble,True,True,7989,3735,3746,11,54,3800,4243,4243,4189,4189,54,54
+commune,16109,Yungay,Ñuble,True,True,10335,5096,5099,3,120,5219,5236,5236,5116,5116,120,120
+commune,16201,Quirihue,Ñuble,True,True,5622,3950,3953,3,57,4010,1669,1669,1612,1612,57,57
+commune,16202,Cobquecura,Ñuble,True,True,3891,1750,1752,2,46,1798,2139,2139,2093,2093,46,46
+commune,16203,Coelemu,Ñuble,True,True,7085,3660,3663,3,116,3779,3422,3422,3306,3306,116,116
+commune,16204,Ninhue,Ñuble,True,True,2907,997,998,1,21,1019,1909,1909,1888,1888,21,21
+commune,16205,Portezuelo,Ñuble,True,True,2698,983,983,0,23,1006,1715,1715,1692,1692,23,23
+commune,16206,Ránquil,Ñuble,True,True,3560,1569,1569,0,29,1598,1991,1991,1962,1962,29,29
+commune,16207,Trehuaco,Ñuble,False,True,3053,,1342,,11,1353,1711,1711,1700,1700,11,11
+commune,16301,San Carlos,Ñuble,True,True,23894,15951,15955,4,250,16205,7939,7939,7689,7689,250,250
+commune,16302,Coihueco,Ñuble,True,True,12129,5626,5626,0,98,5724,6503,6503,6405,6405,98,98
+commune,16303,Ñiquén,Ñuble,True,True,6007,1222,1223,1,20,1243,4784,4784,4764,4764,20,20
+commune,16304,San Fabián,Ñuble,True,True,3136,1092,1092,0,26,1118,2044,2044,2018,2018,26,26
+commune,16305,San Nicolás,Ñuble,True,True,6326,2411,2411,0,33,2444,3915,3915,3882,3882,33,33
+commune,2101,Antofagasta,Antofagasta,True,True,139716,117961,117973,12,1299,119272,21743,21743,20444,20444,1299,1299
+commune,2102,Mejillones,Antofagasta,True,True,5789,4356,4356,0,52,4408,1433,1433,1381,1381,52,52
+commune,2103,Sierra Gorda,Antofagasta,True,True,728,428,428,0,22,450,300,300,278,278,22,22
+commune,2104,Taltal,Antofagasta,True,True,5310,3670,3670,0,65,3735,1640,1640,1575,1575,65,65
+commune,2201,Calama,Antofagasta,True,True,60794,45334,45754,420,681,46435,15040,15040,14359,14359,681,681
+commune,2202,Ollagüe,Antofagasta,True,True,438,70,70,0,3,73,368,368,365,365,3,3
+commune,2203,San Pedro de Atacama,Antofagasta,True,True,5048,1675,1675,0,124,1799,3373,3373,3249,3249,124,124
+commune,2301,Tocopilla,Antofagasta,True,True,11870,8974,8975,1,95,9070,2895,2895,2800,2800,95,95
+commune,2302,María Elena,Antofagasta,True,True,1925,94,94,0,19,113,1831,1831,1812,1812,19,19
+commune,3101,Copiapó,Atacama,True,True,64368,53406,53414,8,564,53978,10954,10954,10390,10390,564,564
+commune,3102,Caldera,Atacama,True,True,18099,8504,8505,1,135,8640,9594,9594,9459,9459,135,135
+commune,3103,Tierra Amarilla,Atacama,True,True,4627,3132,3132,0,109,3241,1495,1495,1386,1386,109,109
+commune,3201,Chañaral,Atacama,True,True,7229,4764,4766,2,145,4911,2463,2463,2318,2318,145,145
+commune,3202,Diego de Almagro,Atacama,True,True,6798,2877,2931,54,204,3135,3867,3867,3663,3663,204,204
+commune,3301,Vallenar,Atacama,True,True,23392,18144,18150,6,330,18480,5242,5242,4912,4912,330,330
+commune,3302,Alto del Carmen,Atacama,True,True,3161,1110,1110,0,18,1128,2051,2051,2033,2033,18,18
+commune,3303,Freirina,Atacama,True,True,4395,2327,2327,0,39,2366,2068,2068,2029,2029,39,39
+commune,3304,Huasco,Atacama,True,True,7358,4160,4160,0,71,4231,3198,3198,3127,3127,71,71
+commune,4101,La Serena,Coquimbo,True,True,109413,101350,101384,34,805,102189,8029,8029,7224,7224,805,805
+commune,4102,Coquimbo,Coquimbo,True,True,113054,97690,97714,24,753,98467,15340,15340,14587,14587,753,753
+commune,4103,Andacollo,Coquimbo,True,True,5126,3977,3980,3,62,4042,1146,1146,1084,1084,62,62
+commune,4104,La Higuera,Coquimbo,True,True,3214,2230,2230,0,13,2243,984,984,971,971,13,13
+commune,4105,Paihuano,Coquimbo,True,True,2888,1896,1898,2,31,1929,990,990,959,959,31,31
+commune,4106,Vicuña,Coquimbo,True,True,12035,9981,9983,2,84,10067,2052,2052,1968,1968,84,84
+commune,4201,Illapel,Coquimbo,True,True,14196,9596,9596,0,132,9728,4600,4600,4468,4468,132,132
+commune,4202,Canela,Coquimbo,True,True,5778,3281,3281,0,24,3305,2497,2497,2473,2473,24,24
+commune,4203,Los Vilos,Coquimbo,True,True,14207,10295,10302,7,146,10448,3905,3905,3759,3759,146,146
+commune,4204,Salamanca,Coquimbo,True,True,12135,8667,8672,5,183,8855,3463,3463,3280,3280,183,183
+commune,4301,Ovalle,Coquimbo,True,True,49637,39754,39763,9,330,40093,9874,9874,9544,9544,330,330
+commune,4302,Combarbalá,Coquimbo,True,True,7644,5903,5910,7,56,5966,1734,1734,1678,1678,56,56
+commune,4303,Monte Patria,Coquimbo,True,True,14465,10661,10667,6,63,10730,3798,3798,3735,3735,63,63
+commune,4304,Punitaqui,Coquimbo,True,True,5889,3407,3411,4,27,3438,2478,2478,2451,2451,27,27
+commune,4305,Río Hurtado,Coquimbo,True,True,2911,1790,1791,1,30,1821,1120,1120,1090,1090,30,30
+commune,5101,Valparaíso,Valparaíso,True,True,131986,99453,99462,9,1273,100735,32524,32524,31251,31251,1273,1273
+commune,5102,Casablanca,Valparaíso,True,True,13969,9465,9466,1,172,9638,4503,4503,4331,4331,172,172
+commune,5103,Concón,Valparaíso,True,True,26942,24937,24937,0,161,25098,2005,2005,1844,1844,161,161
+commune,5104,Juan Fernández,Valparaíso,True,True,470,248,248,0,4,252,222,222,218,218,4,4
+commune,5105,Puchuncaví,Valparaíso,True,True,21137,11937,11939,2,124,12063,9198,9198,9074,9074,124,124
+commune,5107,Quintero,Valparaíso,True,True,19653,13736,13736,0,201,13937,5917,5917,5716,5716,201,201
+commune,5109,Viña del Mar,Valparaíso,True,True,163365,139335,139361,26,788,140149,24004,24004,23216,23216,788,788
+commune,5201,Isla de Pascua,Valparaíso,True,True,3107,293,293,0,22,315,2814,2814,2792,2792,22,22
+commune,5301,Los Andes,Valparaíso,True,True,26010,24804,24804,0,363,25167,1206,1206,843,843,363,363
+commune,5302,Calle Larga,Valparaíso,True,True,6201,5164,5164,0,26,5190,1037,1037,1011,1011,26,26
+commune,5303,Rinconada,Valparaíso,True,True,4725,3943,3943,0,26,3969,782,782,756,756,26,26
+commune,5304,San Esteban,Valparaíso,True,True,8213,6482,6482,0,44,6526,1731,1731,1687,1687,44,44
+commune,5401,La Ligua,Valparaíso,True,True,24062,11914,11915,1,245,12160,12147,12147,11902,11902,245,245
+commune,5402,Cabildo,Valparaíso,True,True,7337,5186,5187,1,98,5285,2150,2150,2052,2052,98,98
+commune,5403,Papudo,Valparaíso,True,True,8020,6807,6808,1,74,6882,1212,1212,1138,1138,74,74
+commune,5404,Petorca,Valparaíso,True,True,5034,3296,3296,0,36,3332,1738,1738,1702,1702,36,36
+commune,5405,Zapallar,Valparaíso,True,True,8096,6148,6151,3,65,6216,1945,1945,1880,1880,65,65
+commune,5501,Quillota,Valparaíso,True,True,37199,33672,33673,1,319,33992,3526,3526,3207,3207,319,319
+commune,5502,Calera,Valparaíso,True,True,19627,16727,16730,3,233,16963,2897,2897,2664,2664,233,233
+commune,5503,Hijuelas,Valparaíso,True,True,7374,3892,3892,0,68,3960,3482,3482,3414,3414,68,68
+commune,5504,La Cruz,Valparaíso,True,True,9858,8477,8477,0,56,8533,1381,1381,1325,1325,56,56
+commune,5506,Nogales,Valparaíso,True,True,8394,5709,5709,0,63,5772,2685,2685,2622,2622,63,63
+commune,5601,San Antonio,Valparaíso,True,True,40831,29702,29703,1,678,30381,11128,11128,10450,10450,678,678
+commune,5602,Algarrobo,Valparaíso,True,True,21317,18116,18120,4,118,18238,3197,3197,3079,3079,118,118
+commune,5603,Cartagena,Valparaíso,True,True,18205,10643,10648,5,208,10856,7557,7557,7349,7349,208,208
+commune,5604,El Quisco,Valparaíso,True,True,18694,13670,13676,6,157,13833,5018,5018,4861,4861,157,157
+commune,5605,El Tabo,Valparaíso,True,True,25126,13781,13786,5,109,13895,11340,11340,11231,11231,109,109
+commune,5606,Santo Domingo,Valparaíso,True,True,8893,6128,6130,2,24,6154,2763,2763,2739,2739,24,24
+commune,5701,San Felipe,Valparaíso,True,True,31606,27433,27433,0,277,27710,4173,4173,3896,3896,277,277
+commune,5702,Catemu,Valparaíso,True,True,5603,4056,4057,1,37,4094,1546,1546,1509,1509,37,37
+commune,5703,Llaillay,Valparaíso,True,True,10434,7503,7507,4,99,7606,2927,2927,2828,2828,99,99
+commune,5704,Panquehue,Valparaíso,True,True,2862,1878,1878,0,21,1899,984,984,963,963,21,21
+commune,5705,Putaendo,Valparaíso,True,True,6734,4947,4950,3,49,4999,1784,1784,1735,1735,49,49
+commune,5706,Santa María,Valparaíso,True,True,6088,5000,5000,0,34,5034,1088,1088,1054,1054,34,34
+commune,5801,Quilpué,Valparaíso,True,True,65971,56409,56413,4,532,56945,9558,9558,9026,9026,532,532
+commune,5802,Limache,Valparaíso,True,True,24661,16475,16479,4,211,16690,8182,8182,7971,7971,211,211
+commune,5803,Olmué,Valparaíso,True,True,10529,6429,6429,0,79,6508,4100,4100,4021,4021,79,79
+commune,5804,Villa Alemana,Valparaíso,True,True,55191,50450,50451,1,297,50748,4740,4740,4443,4443,297,297
+commune,6101,Rancagua,Libertador General Bernardo O'Higgins,True,True,100376,95995,96011,16,1074,97085,4365,4365,3291,3291,1074,1074
+commune,6102,Codegua,Libertador General Bernardo O'Higgins,True,True,5176,3111,3140,29,41,3181,2036,2036,1995,1995,41,41
+commune,6103,Coinco,Libertador General Bernardo O'Higgins,True,True,3385,1639,1639,0,20,1659,1746,1746,1726,1726,20,20
+commune,6104,Coltauco,Libertador General Bernardo O'Higgins,True,True,8582,6034,6038,4,53,6091,2544,2544,2491,2491,53,53
+commune,6105,Doñihue,Libertador General Bernardo O'Higgins,True,True,8375,6023,6026,3,73,6099,2349,2349,2276,2276,73,73
+commune,6106,Graneros,Libertador General Bernardo O'Higgins,True,True,12959,10992,10993,1,139,11132,1966,1966,1827,1827,139,139
+commune,6107,Las Cabras,Libertador General Bernardo O'Higgins,True,True,14752,8233,8238,5,148,8386,6514,6514,6366,6366,148,148
+commune,6108,Machalí,Libertador General Bernardo O'Higgins,True,True,22672,21141,21153,12,209,21362,1519,1519,1310,1310,209,209
+commune,6109,Malloa,Libertador General Bernardo O'Higgins,True,True,5736,3394,3395,1,52,3447,2341,2341,2289,2289,52,52
+commune,6110,Mostazal,Libertador General Bernardo O'Higgins,True,True,10133,6905,6916,11,115,7031,3217,3217,3102,3102,115,115
+commune,6111,Olivar,Libertador General Bernardo O'Higgins,True,True,5245,3120,3121,1,62,3183,2124,2124,2062,2062,62,62
+commune,6112,Peumo,Libertador General Bernardo O'Higgins,True,True,5302,4035,4035,0,50,4085,1267,1267,1217,1217,50,50
+commune,6113,Pichidegua,Libertador General Bernardo O'Higgins,True,True,7989,5318,5319,1,60,5379,2670,2670,2610,2610,60,60
+commune,6114,Quinta de Tilcoco,Libertador General Bernardo O'Higgins,True,True,5254,4011,4014,3,49,4063,1240,1240,1191,1191,49,49
+commune,6115,Rengo,Libertador General Bernardo O'Higgins,True,True,25124,21757,21758,1,262,22020,3366,3366,3104,3104,262,262
+commune,6116,Requínoa,Libertador General Bernardo O'Higgins,True,True,10490,7761,7761,0,172,7933,2729,2729,2557,2557,172,172
+commune,6117,San Vicente,Libertador General Bernardo O'Higgins,True,True,19274,14059,14065,6,220,14285,5209,5209,4989,4989,220,220
+commune,6201,Pichilemu,Libertador General Bernardo O'Higgins,True,True,15001,9699,9702,3,227,9929,5299,5299,5072,5072,227,227
+commune,6202,La Estrella,Libertador General Bernardo O'Higgins,True,True,3676,1107,1108,1,19,1127,2568,2568,2549,2549,19,19
+commune,6203,Litueche,Libertador General Bernardo O'Higgins,True,True,5459,1980,1980,0,129,2109,3479,3479,3350,3350,129,129
+commune,6204,Marchihue,Libertador General Bernardo O'Higgins,True,True,5068,2004,2005,1,45,2050,3063,3063,3018,3018,45,45
+commune,6205,Navidad,Libertador General Bernardo O'Higgins,True,True,6597,2064,2064,0,46,2110,4533,4533,4487,4487,46,46
+commune,6206,Paredones,Libertador General Bernardo O'Higgins,True,True,5686,1904,1904,0,37,1941,3782,3782,3745,3745,37,37
+commune,6301,San Fernando,Libertador General Bernardo O'Higgins,True,True,31410,28289,28290,1,437,28727,3120,3120,2683,2683,437,437
+commune,6302,Chépica,Libertador General Bernardo O'Higgins,True,True,5961,4698,4699,1,37,4736,1262,1262,1225,1225,37,37
+commune,6303,Chimbarongo,Libertador General Bernardo O'Higgins,True,True,14247,9879,9884,5,121,10005,4363,4363,4242,4242,121,121
+commune,6304,Lolol,Libertador General Bernardo O'Higgins,True,True,3718,1855,1856,1,19,1875,1862,1862,1843,1843,19,19
+commune,6305,Nancagua,Libertador General Bernardo O'Higgins,True,True,7106,5593,5603,10,75,5678,1503,1503,1428,1428,75,75
+commune,6306,Palmilla,Libertador General Bernardo O'Higgins,True,True,5130,3202,3202,0,28,3230,1928,1928,1900,1900,28,28
+commune,6307,Peralillo,Libertador General Bernardo O'Higgins,True,True,5158,3346,3346,0,57,3403,1812,1812,1755,1755,57,57
+commune,6308,Placilla,Libertador General Bernardo O'Higgins,True,True,3758,2103,2105,2,39,2144,1653,1653,1614,1614,39,39
+commune,6309,Pumanque,Libertador General Bernardo O'Higgins,True,True,2567,891,891,0,24,915,1676,1676,1652,1652,24,24
+commune,6310,Santa Cruz,Libertador General Bernardo O'Higgins,True,True,16443,13562,13564,2,216,13780,2879,2879,2663,2663,216,216
+commune,7101,Talca,Maule,True,True,95336,95449,95472,23,1135,96607,-136,0,-1271,0,1135,0
+commune,7102,Constitución,Maule,True,True,23400,15980,15980,0,257,16237,7420,7420,7163,7163,257,257
+commune,7103,Curepto,Maule,True,True,5196,2671,2673,2,28,2701,2523,2523,2495,2495,28,28
+commune,7104,Empedrado,Maule,True,True,1891,1035,1035,0,4,1039,856,856,852,852,4,4
+commune,7105,Maule,Maule,True,True,23288,20159,20182,23,79,20261,3106,3106,3027,3027,79,79
+commune,7106,Pelarco,Maule,True,True,4073,1940,1940,0,15,1955,2133,2133,2118,2118,15,15
+commune,7107,Pencahue,Maule,True,True,4680,2573,2573,0,18,2591,2107,2107,2089,2089,18,18
+commune,7108,Río Claro,Maule,True,True,6277,3570,3571,1,18,3589,2706,2706,2688,2688,18,18
+commune,7109,San Clemente,Maule,True,True,22304,12832,12836,4,117,12953,9468,9468,9351,9351,117,117
+commune,7110,San Rafael,Maule,True,True,4786,2689,2689,0,23,2712,2097,2097,2074,2074,23,23
+commune,7201,Cauquenes,Maule,True,True,20228,16473,16475,2,216,16691,3753,3753,3537,3537,216,216
+commune,7202,Chanco,Maule,True,True,4441,1955,1959,4,25,1984,2482,2482,2457,2457,25,25
+commune,7203,Pelluhue,Maule,True,True,7739,3826,3838,12,105,3943,3901,3901,3796,3796,105,105
+commune,7301,Curicó,Maule,True,True,62193,57409,57410,1,615,58025,4783,4783,4168,4168,615,615
+commune,7302,Hualañé,Maule,True,True,5196,3272,3272,0,72,3344,1924,1924,1852,1852,72,72
+commune,7303,Licantén,Maule,True,True,4498,2590,2592,2,76,2668,1906,1906,1830,1830,76,76
+commune,7304,Molina,Maule,True,True,18966,16504,16505,1,218,16723,2461,2461,2243,2243,218,218
+commune,7305,Rauco,Maule,True,True,4783,3164,3164,0,28,3192,1619,1619,1591,1591,28,28
+commune,7306,Romeral,Maule,True,True,7230,4575,4576,1,74,4650,2654,2654,2580,2580,74,74
+commune,7307,Sagrada Familia,Maule,True,True,7528,4885,4887,2,87,4974,2641,2641,2554,2554,87,87
+commune,7308,Teno,Maule,True,True,12499,7088,7089,1,97,7186,5410,5410,5313,5313,97,97
+commune,7309,Vichuquén,Maule,True,True,4420,2367,2369,2,32,2401,2051,2051,2019,2019,32,32
+commune,7401,Linares,Maule,True,True,41354,34420,34421,1,535,34956,6933,6933,6398,6398,535,535
+commune,7402,Colbún,Maule,True,True,10579,5825,5832,7,48,5880,4747,4747,4699,4699,48,48
+commune,7403,Longaví,Maule,True,True,14131,5599,5612,13,73,5685,8519,8519,8446,8446,73,73
+commune,7404,Parral,Maule,True,True,20781,15021,15023,2,257,15280,5758,5758,5501,5501,257,257
+commune,7405,Retiro,Maule,True,True,10148,4521,4523,2,50,4573,5625,5625,5575,5575,50,50
+commune,7406,San Javier,Maule,True,True,22226,17484,17487,3,192,17679,4739,4739,4547,4547,192,192
+commune,7407,Villa Alegre,Maule,True,True,8164,5936,5936,0,51,5987,2228,2228,2177,2177,51,51
+commune,7408,Yerbas Buenas,Maule,True,True,8086,4006,4009,3,28,4037,4077,4077,4049,4049,28,28
+commune,8101,Concepción,Biobío,True,True,101138,91142,91251,109,1362,92613,9887,9887,8525,8525,1362,1362
+commune,8102,Coronel,Biobío,True,True,45727,44518,44529,11,381,44910,1198,1198,817,817,381,381
+commune,8103,Chiguayante,Biobío,True,True,30649,28102,28109,7,221,28330,2540,2540,2319,2319,221,221
+commune,8104,Florida,Biobío,True,True,6744,2668,2677,9,30,2707,4067,4067,4037,4037,30,30
+commune,8105,Hualqui,Biobío,True,True,10872,7476,7479,3,59,7538,3393,3393,3334,3334,59,59
+commune,8106,Lota,Biobío,True,True,15964,13113,13113,0,168,13281,2851,2851,2683,2683,168,168
+commune,8107,Penco,Biobío,True,True,17558,14413,14416,3,234,14650,3142,3142,2908,2908,234,234
+commune,8108,San Pedro de La paz,Biobío,True,True,56843,55366,55385,19,490,55875,1458,1458,968,968,490,490
+commune,8109,Santa Juana,Biobío,True,True,7531,4321,4321,0,67,4388,3210,3210,3143,3143,67,67
+commune,8110,Talcahuano,Biobío,True,True,53783,46120,46120,0,683,46803,7663,7663,6980,6980,683,683
+commune,8111,Tomé,Biobío,True,True,25096,19270,19273,3,265,19538,5823,5823,5558,5558,265,265
+commune,8112,Hualpén,Biobío,True,True,32270,31300,31300,0,238,31538,970,970,732,732,238,238
+commune,8201,Lebu,Biobío,True,True,10229,7866,7866,0,118,7984,2363,2363,2245,2245,118,118
+commune,8202,Arauco,Biobío,True,True,15163,10831,10832,1,214,11046,4331,4331,4117,4117,214,214
+commune,8203,Cañete,Biobío,True,True,14497,7345,7351,6,169,7520,7146,7146,6977,6977,169,169
+commune,8204,Contulmo,Biobío,True,True,2990,1189,1190,1,40,1230,1800,1800,1760,1760,40,40
+commune,8205,Curanilahue,Biobío,True,True,13197,9272,9272,0,96,9368,3925,3925,3829,3829,96,96
+commune,8206,Los Álamos,Biobío,True,True,9305,6103,6105,2,62,6167,3200,3200,3138,3138,62,62
+commune,8207,Tirúa,Biobío,True,True,4894,1437,1437,0,25,1462,3457,3457,3432,3432,25,25
+commune,8301,Los Ángeles,Biobío,True,True,93016,65581,65587,6,749,66336,27429,27429,26680,26680,749,749
+commune,8302,Antuco,Biobío,True,True,2671,1314,1314,0,27,1341,1357,1357,1330,1330,27,27
+commune,8303,Cabrero,Biobío,True,True,13268,8433,8433,0,143,8576,4835,4835,4692,4692,143,143
+commune,8304,Laja,Biobío,True,True,10088,6267,6267,0,139,6406,3821,3821,3682,3682,139,139
+commune,8305,Mulchén,Biobío,True,True,11587,7473,7474,1,146,7620,4113,4113,3967,3967,146,146
+commune,8306,Nacimiento,Biobío,True,True,11086,8095,8095,0,173,8268,2991,2991,2818,2818,173,173
+commune,8307,Negrete,Biobío,True,True,4421,2478,2478,0,32,2510,1943,1943,1911,1911,32,32
+commune,8308,Quilaco,Biobío,True,True,2448,992,992,0,13,1005,1456,1456,1443,1443,13,13
+commune,8309,Quilleco,Biobío,True,True,4500,2020,2020,0,39,2059,2480,2480,2441,2441,39,39
+commune,8310,San Rosendo,Biobío,True,True,1866,938,938,0,15,953,928,928,913,913,15,15
+commune,8311,Santa Bárbara,Biobío,True,True,6392,3323,3323,0,69,3392,3069,3069,3000,3000,69,69
+commune,8312,Tucapel,Biobío,True,True,7789,6147,6147,0,97,6244,1642,1642,1545,1545,97,97
+commune,8313,Yumbel,Biobío,True,True,14108,6290,6291,1,131,6422,7817,7817,7686,7686,131,131
+commune,8314,Alto Biobío,Biobío,True,True,2775,255,255,0,15,270,2520,2520,2505,2505,15,15
+commune,9101,Temuco,La Araucanía,True,True,128995,110572,110578,6,1560,112138,18417,18417,16857,16857,1560,1560
+commune,9102,Carahue,La Araucanía,True,True,11653,5114,5115,1,144,5259,6538,6538,6394,6394,144,144
+commune,9103,Cunco,La Araucanía,True,True,10533,5091,5091,0,133,5224,5442,5442,5309,5309,133,133
+commune,9104,Curarrehue,La Araucanía,True,True,4431,896,897,1,34,931,3534,3534,3500,3500,34,34
+commune,9105,Freire,La Araucanía,True,True,12594,3460,3461,1,94,3555,9133,9133,9039,9039,94,94
+commune,9106,Galvarino,La Araucanía,True,True,5475,1646,1646,0,58,1704,3829,3829,3771,3771,58,58
+commune,9107,Gorbea,La Araucanía,True,True,6698,4201,4201,0,122,4323,2497,2497,2375,2375,122,122
+commune,9108,Lautaro,La Araucanía,True,True,18213,11948,11948,0,248,12196,6265,6265,6017,6017,248,248
+commune,9109,Loncoche,La Araucanía,True,True,12370,7087,7087,0,189,7276,5283,5283,5094,5094,189,189
+commune,9110,Melipeuco,La Araucanía,True,True,3606,1081,1081,0,37,1118,2525,2525,2488,2488,37,37
+commune,9111,Nueva Imperial,La Araucanía,True,True,14834,6473,6473,0,162,6635,8361,8361,8199,8199,162,162
+commune,9112,Padre Las Casas,La Araucanía,True,True,32146,17763,17767,4,258,18025,14379,14379,14121,14121,258,258
+commune,9113,Perquenco,La Araucanía,True,True,3345,1458,1458,0,28,1486,1887,1887,1859,1859,28,28
+commune,9114,Pitrufquén,La Araucanía,True,True,13094,7542,7542,0,185,7727,5552,5552,5367,5367,185,185
+commune,9115,Pucón,La Araucanía,True,True,28756,15041,15043,2,511,15554,13713,13713,13202,13202,511,511
+commune,9116,Saavedra,La Araucanía,True,True,6753,1408,1408,0,92,1500,5345,5345,5253,5253,92,92
+commune,9117,Teodoro Schmidt,La Araucanía,True,True,8005,2547,2547,0,78,2625,5458,5458,5380,5380,78,78
+commune,9118,Toltén,La Araucanía,True,True,4951,1864,1864,0,63,1927,3087,3087,3024,3024,63,63
+commune,9119,Vilcún,La Araucanía,True,True,13920,7491,7491,0,111,7602,6429,6429,6318,6318,111,111
+commune,9120,Villarrica,La Araucanía,True,True,43213,23141,23145,4,668,23813,20068,20068,19400,19400,668,668
+commune,9121,Cholchol,La Araucanía,True,True,5268,1727,1731,4,40,1771,3537,3537,3497,3497,40,40
+commune,9201,Angol,La Araucanía,True,True,22085,19299,19299,0,375,19674,2786,2786,2411,2411,375,375
+commune,9202,Collipulli,La Araucanía,True,True,10454,6634,6635,1,109,6744,3819,3819,3710,3710,109,109
+commune,9203,Curacautín,La Araucanía,True,True,9916,6246,6247,1,168,6415,3669,3669,3501,3501,168,168
+commune,9204,Ercilla,La Araucanía,True,True,3782,1606,1608,2,30,1638,2174,2174,2144,2144,30,30
+commune,9205,Lonquimay,La Araucanía,True,True,5651,1614,1614,0,78,1692,4037,4037,3959,3959,78,78
+commune,9206,Los Sauces,La Araucanía,True,True,3369,1880,1880,0,39,1919,1489,1489,1450,1450,39,39
+commune,9207,Lumaco,La Araucanía,True,True,4214,1583,1586,3,50,1636,2628,2628,2578,2578,50,50
+commune,9208,Purén,La Araucanía,True,True,5298,3119,3120,1,71,3191,2178,2178,2107,2107,71,71
+commune,9209,Renaico,La Araucanía,True,True,4516,3354,3358,4,34,3392,1158,1158,1124,1124,34,34
+commune,9210,Traiguén,La Araucanía,True,True,8371,5785,5786,1,107,5893,2585,2585,2478,2478,107,107
+commune,9211,Victoria,La Araucanía,True,True,14449,10011,10012,1,243,10255,4437,4437,4194,4194,243,243
