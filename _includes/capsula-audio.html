@@ -54,6 +54,9 @@
     {%- if cap_spoken != cap_lang -%}
     <li>{% if cap_lang == "en" %}Spoken language: {% case cap_spoken %}{% when 'es' %}Spanish{% when 'en' %}English{% else %}{{ cap_spoken | escape }}{% endcase %}{% else %}Idioma hablado: {% case cap_spoken %}{% when 'es' %}español{% when 'en' %}inglés{% else %}{{ cap_spoken | escape }}{% endcase %}{% endif %}</li>
     {%- endif -%}
+    {%- if page.audio.plataformas -%}
+    <li>{% if cap_lang == "en" %}Also on{% else %}También en{% endif %} {% for plataforma in page.audio.plataformas %}<a href="{{ plataforma.url | escape }}" rel="noopener">{{ plataforma.nombre | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</li>
+    {%- endif -%}
     {%- if page.audio.origen_url -%}
     <li>{% if cap_lang == "en" %}Source notebook{% else %}Cuaderno de origen{% endif %}: <a href="{{ page.audio.origen_url | escape }}">{{ page.audio.origen_url | split: "//" | last | truncate: 44 | escape }}</a></li>
     {%- endif -%}

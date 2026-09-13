@@ -8,7 +8,7 @@ puerta de entrada al mismo contenido. Donde discrepen, manda el post.
 
 ## Por qué este documento existe
 
-Tres cosas de este flujo no se deducen leyendo el código, y las tres cuestan una sesión si se
+Cuatro cosas de este flujo no se deducen leyendo el código, y las cuatro cuestan una sesión si se
 ignoran.
 
 **El audio se genera a mano, y eso no es una carencia que haya que rodear.** NotebookLM no expone
@@ -23,6 +23,17 @@ salió de **1616 s (26:56)** y volvió a caer fuera. Se aplicó la regla en vez 
 la ventana es ahora **600–1800 s**. Escribir un número de minutos en el campo de personalización no
 acorta nada, y dos mediciones separadas por diez minutos son poca base — un tercer episodio puede
 volver a moverla.
+
+**La extensión del archivo publicado decide si se puede saltar dentro del audio, y `.m4a` no
+sirve.** Medido el 2026-09-13 sobre producción, con los dos episodios ya desplegados. Cloudflare
+respondía `cf-cache-status: DYNAMIC` a los dos `.m4a` —no está entre las extensiones que cachea— y
+en ese modo **no propaga las peticiones de rango**: un `Range: bytes=0-99` devolvía `200` con los
+8,3 MB completos en vez de `206`. El contraste que aísla la causa: `assets/videos/catastro-sii-visor.mp4`
+y un `.pdf` de `assets/docs`, ambos `cf-cache-status: MISS`, sí devuelven `206` con su
+`content-range`. Sin rango no hay forma de adelantar ni retroceder, y cada reproducción descarga el
+episodio entero. La salida es la extensión: **`.mp4`**, que es el mismo contenedor MP4 con la misma
+pista AAC —renombrar, no recodificar: el sha256 no cambia— y sí entra en la lista de Cloudflare. El
+MIME nunca fue el problema: GitLab Pages servía `audio/mp4` correctamente también para `.m4a`.
 
 **Los acentos se piden, no se obtienen.** La interfaz no tiene selector de acento por hablante. La
 petición de un conductor con español de España y una experta con español de Chile va en el texto de
@@ -57,8 +68,10 @@ según `docs/gobernanza-repositorio.md`. Lo que entra al repositorio es el re-en
 
 ```bash
 ffmpeg -i <master> -ac 1 -c:a aac -b:a 64k -movflags +faststart \
-  assets/audio/<ref>/capsula-<idioma>-<duración>s.m4a
+  assets/audio/<ref>/capsula-<idioma>-<duración>s.mp4
 ```
+
+**La extensión es `.mp4`, no `.m4a`**, por el rango: ver arriba. El contenido es idéntico.
 
 Son voces: el canal estéreo no porta información. Medido en los dos episodios: 31,8 MB → 8,25 MB y
 52,0 MB → 13,5 MB, un 74 % menos en ambos, sin pérdida audible. La duración va en el nombre por la
@@ -72,7 +85,7 @@ exige purga.
 `retention` no vacíos:
 
 ```yaml
-  assets/audio/<ref>/capsula-es-<duración>s.m4a:
+  assets/audio/<ref>/capsula-es-<duración>s.mp4:
     owner: editorial-<ref>
     role: capsula-de-audio-publicada-referenciada-por-el-post
     retention: mantener-mientras-el-post-la-enlace
@@ -86,7 +99,7 @@ hacer `git add` del binario **antes** de correrlo — si no, pasa en verde sin h
 
 ```yaml
 audio:
-  archivo: /assets/audio/<ref>/capsula-es-<duración>s.m4a
+  archivo: /assets/audio/<ref>/capsula-es-<duración>s.mp4
   tipo: audio/mp4
   duracion_s: 989
   bytes: 8253516
@@ -123,19 +136,19 @@ Y una comprobación que ningún gate hace por ti, porque un `archivo:` mal escri
 grep -c 'class="notice capsula-audio"' public/<permalink>/index.html   # 1, no 0
 ```
 
-### 8. Después del deploy, medir el MIME una vez
+### 8. Después del deploy, medir el rango una vez
 
 ```bash
-curl -sS -I -4 https://3cucharadas.cl/assets/audio/<ref>/capsula-es-<duración>s.m4a \
-  | grep -iE 'content-type|accept-ranges'
+curl -sS -o /dev/null -D - -H 'Range: bytes=0-99' \
+  https://3cucharadas.cl/assets/audio/<ref>/capsula-es-<duración>s.mp4 \
+  | grep -iE 'HTTP/|content-type|content-range|cf-cache'
 ```
 
-Se espera `audio/mp4` (o `audio/x-m4a`) y `accept-ranges: bytes`. Sin Range no hay forma de saltar
-dentro de un audio que dura media hora. Si GitLab Pages devolviera `application/octet-stream`, con
-`x-content-type-options: nosniff` activo el reproductor puede quedarse mudo en Safari: la salida es
-renombrar el archivo a `.mp4` —mismo contenedor, misma pista AAC— y actualizar la entrada del
-contrato. Producción ya sirve `video/mp4` con `accept-ranges: bytes` para
-`assets/videos/catastro-sii-visor.mp4`, medido el 2026-09-13.
+Se espera `video/mp4` y, sobre todo, **`206` con `content-range`**. Un `200` con el archivo entero
+significa que Cloudflare lo está tratando como `DYNAMIC` y no hay forma de saltar dentro del
+episodio. Comprobar el tipo con un `HEAD` no basta: los `.m4a` devolvían `audio/mp4` correcto y aun
+así no admitían rango. Es la comprobación que decide, así que va con el rango explícito, no con un
+`HEAD` a secas.
 
 ## Enlaces
 

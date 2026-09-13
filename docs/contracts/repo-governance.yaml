@@ -192,11 +192,11 @@ owned_large_files:
     owner: editorial-heroes-casen
     role: evidencia-visual-de-matriz-de-aceptacion
     retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
-  assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a:
+  assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4:
     owner: editorial-structured-shell
     role: capsula-de-audio-publicada-referenciada-por-el-post
     retention: mantener-mientras-el-post-la-enlace
-  assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.m4a:
+  assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4:
     owner: editorial-avaluos-ii
     role: capsula-de-audio-publicada-referenciada-por-el-post
     retention: mantener-mientras-el-post-la-enlace

@@ -11,7 +11,7 @@ directorio se versiona y **no** se publica (`difusion/` está en `exclude:` de `
 | Texto de personalización de Audio Overview | — | ídem |
 | Guion A/B | — | ídem; NotebookLM no entrega guion, y el planeado no es transcripción del audio |
 | Máster estéreo descargado | fuera del repo, ver `origen.yaml` | conservado |
-| Audio publicado (mono 64 kbps) | `../../../../assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a` | en el repo, declarado en `docs/contracts/repo-governance.yaml` |
+| Audio publicado (mono 64 kbps) | `../../../../assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4` | en el repo, declarado en `docs/contracts/repo-governance.yaml` |
 | Transcripción | — | **no existe**; el bloque del post lo declara |
 
 ## Lo que este episodio no tiene, y por qué

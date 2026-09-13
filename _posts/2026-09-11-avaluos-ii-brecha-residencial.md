@@ -34,7 +34,7 @@ toc_sticky: true
 comments: true
 visual_id: avaluos-ii
 audio:
-  archivo: /assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.m4a
+  archivo: /assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4
   tipo: audio/mp4
   duracion_s: 1616
   bytes: 13503679
