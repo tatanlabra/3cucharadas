@@ -1,0 +1,15 @@
+REF multiagente-penta-agent-memoria-gobernada-poc
+SOURCE _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md lang=en
+SOURCE _posts/2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md lang=es
+NORMALIZE decimal 0.6 (es)
+NORMALIZE decimal 0.6 (es)
+NORMALIZE decimal 0.6 (es)
+NORMALIZE decimal 0.6 (es)
+COPY difusion/linkedin/multiagente-penta-agent-memoria-gobernada-carrusel.html
+COPY difusion/linkedin/multiagente-penta-agent-memoria-gobernada-copy-linkedin.md
+COPY difusion/linkedin/multiagente-penta-agent-memoria-gobernada-social.md
+COPY difusion/linkedin/multiagente-penta-agent-memoria-gobernada-targeting.md
+COPY difusion/x/multiagente-penta-agent-memoria-gobernada-carrusel.html
+COPY difusion/x/multiagente-penta-agent-memoria-gobernada-hilo.md
+COVERAGE multiagente-penta-agent-memoria-gobernada-poc: 2 posts, 6 piezas, 44 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+PASS: coherencia numérica; 1 ref(s) explícitas
