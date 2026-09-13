@@ -21,8 +21,25 @@ class AiDisclosureTest < Minitest::Test
     assert AiDisclosure.resolve(declaration('not_disclosed'))['explicit']
   end
 
-  def test_liquid_renderer_preserves_levels_and_unknown_component_history
+  # Liquid es una gema del Gemfile, no de la stdlib, y la cascada de
+  # verify_site_health.rb invoca los tests con `ruby`, no con `bundle exec`. En
+  # esta máquina carga desde las gemas del usuario y el test pasaba; en el runner
+  # de GitLab solo existe bajo vendor/bundle y el require reventaba con LoadError
+  # —pipeline #258, 2026-09-13, el día que este test entró a CI—. El respaldo
+  # busca la gema instalada por `bundle install` en el propio repositorio. No
+  # lleva rescue que se salte el caso: si Liquid no está en ninguno de los dos
+  # sitios, el test debe fallar, no aprobar sin comprobar nada.
+  def load_liquid
     require 'liquid'
+  rescue LoadError
+    vendored = Dir[File.expand_path('../vendor/bundle/ruby/*/gems/liquid-*/lib', __dir__)]
+    raise if vendored.empty?
+    vendored.each { |path| $LOAD_PATH.unshift(path) }
+    require 'liquid'
+  end
+
+  def test_liquid_renderer_preserves_levels_and_unknown_component_history
+    load_liquid
     template = Liquid::Template.parse(File.read(File.expand_path('../_includes/ai-disclosure.html', __dir__)))
     %w[no_ai some_ai fully_autonomous not_disclosed].each do |level|
       %w[es en].each do |lang|
