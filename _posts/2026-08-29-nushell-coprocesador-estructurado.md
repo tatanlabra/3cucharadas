@@ -22,7 +22,7 @@ author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 y Claude Code + Codex sobre el mismo workspace"
 audio:
-  archivo: /assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a
+  archivo: /assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4
   tipo: audio/mp4
   duracion_s: 989
   bytes: 8253516
@@ -30,6 +30,9 @@ audio:
   generador: NotebookLM (Google)
   voces: 2
   idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
 header:
   teaser: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp

@@ -10,7 +10,7 @@ en origen «Las casas que le faltan al SII». Este directorio se versiona y **no
 | Registro de escucha y QA | `QA.md` | escuchado y aprobado por la persona usuaria |
 | Fuente editorial, personalización y guion | — | no conservados: el episodio se generó antes de que la plantilla los exigiera |
 | Máster estéreo | fuera del repo, ver `origen.yaml` | conservado |
-| Audio publicado (mono 64 kbps) | `../../../../assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.m4a` | en el repo, declarado en `docs/contracts/repo-governance.yaml` |
+| Audio publicado (mono 64 kbps) | `../../../../assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4` | en el repo, declarado en `docs/contracts/repo-governance.yaml` |
 | Transcripción | — | **no existe**; el bloque del post lo declara |
 
 ## Este episodio movió la ventana de duración
