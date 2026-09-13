@@ -10,7 +10,8 @@ formato: deep dive conversacional, dos hablantes
 idioma_hablado: es
 fecha_generacion: "2026-09-13"
 cuaderno_url: https://notebook.google.com/notebook/8b8ec1e1-ecc2-47b6-b574-ff6498d0aa2f/artifact/00228e7a-97b3-4811-9a3f-9c83b8004d85
-prompt_usado: ~/Descargas/prompt_capsula_3cucharadas.md
+prompt_usado: difusion/paquetes/nushell-coprocesador-estructurado/podcast/prompt-usado.md
+prompt_usado_sha256: 17141177184a387cccdd0b10763df7a77a41f8a09193f2d9ff9e453fad2a7761
 prompt_plantilla_sucesora: penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md
 
 master:
