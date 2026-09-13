@@ -1,0 +1,67 @@
+{%- comment -%}
+  Cápsula de audio: reproductor del podcast conversacional de dos voces que
+  acompaña al artículo. Se alimenta del mapa `audio` del front matter y no
+  renderiza nada si falta `audio.archivo`, igual que reproducibilidad.html.
+
+  Lo invoca _layouts/single.html y no el cuerpo del post, por tres razones: el
+  bloque queda sobre el contenido sin tocar el Markdown; el exportador a dev.to
+  no llega a ver un include que no sabe transformar (jekyll_to_devto.rb elimina
+  con aviso cualquier include desconocido del cuerpo); y al quedar fuera de
+  `content`, la cápsula no entra ni al feed RSS ni al índice del post.
+
+  El audio se genera íntegramente con IA. El bloque lo declara en su propio
+  texto y enlaza la política del sitio; mientras no exista transcripción, la
+  declara pendiente en vez de omitirla.
+
+  `audio.idioma` es el idioma HABLADO y viaja en el atributo lang del
+  reproductor: puede no coincidir con el de la página, y por eso se anuncia en
+  pantalla cuando difieren. Las etiquetas siguen a `site.active_lang`, como en
+  ai-disclosure.html. Fase 3, capsulas-audio-2026-09-13.
+{%- endcomment -%}
+{%- if page.audio.archivo -%}
+{%- assign cap_lang = site.active_lang | default: page.lang | default: 'es' -%}
+{%- assign cap_spoken = page.audio.idioma | default: page.lang | default: 'es' -%}
+{%- assign cap_src = page.audio.archivo | relative_url -%}
+{%- assign cap_type = page.audio.tipo | default: 'audio/mp4' -%}
+{%- assign cap_label = "Cápsula de audio" -%}
+{%- if cap_lang == "en" -%}{%- assign cap_label = "Audio capsule" -%}{%- endif -%}
+<div class="notice capsula-audio" id="capsula-audio">
+  <p class="capsula-audio__titulo"><strong>{{ cap_label }}</strong></p>
+  <p class="capsula-audio__entrada">{% if cap_lang == "en" %}A two-voice conversation about this article, generated entirely with AI from the published text. It does not replace the article and it is not a source: the article is the record. <a href="{{ '/ai-transparency/' | relative_url }}">How I use AI</a>.{% else %}Una conversación de dos voces sobre este artículo, generada íntegramente con IA a partir del texto publicado. No reemplaza al artículo ni es una fuente: el registro es el artículo. <a href="{{ '/ai-transparency/' | relative_url }}">Cómo uso la IA</a>.{% endif %}</p>
+  <audio class="capsula-audio__player" controls preload="none" lang="{{ cap_spoken | escape }}" aria-label="{{ cap_label }}: {{ page.title | strip_html | escape }}">
+    <source src="{{ cap_src }}" type="{{ cap_type | escape }}">
+    {% if cap_lang == "en" %}Your browser cannot play this file. You can <a href="{{ cap_src }}">download the audio</a>.{% else %}Tu navegador no puede reproducir este archivo. Puedes <a href="{{ cap_src }}">descargar el audio</a>.{% endif %}
+  </audio>
+  <ul class="capsula-audio__meta">
+    {%- if page.audio.duracion_s -%}
+    {%- assign cap_min = page.audio.duracion_s | divided_by: 60 -%}
+    {%- assign cap_sec = page.audio.duracion_s | modulo: 60 | prepend: "0" | slice: -2, 2 -%}
+    <li>{% if cap_lang == "en" %}Length{% else %}Duración{% endif %}: <time datetime="PT{{ cap_min }}M{{ cap_sec }}S">{{ cap_min }}:{{ cap_sec }}</time></li>
+    {%- endif -%}
+    {%- if page.audio.bytes -%}
+    {%- assign cap_mb = page.audio.bytes | divided_by: 1000000.0 | round: 1 -%}
+    {%- unless cap_lang == "en" -%}{%- assign cap_mb = cap_mb | replace: ".", "," -%}{%- endunless -%}
+    <li><a href="{{ cap_src }}" download>{% if cap_lang == "en" %}Download the audio{% else %}Descargar el audio{% endif %}</a> ({{ cap_mb }} MB)</li>
+    {%- endif -%}
+    {%- if page.audio.generador -%}
+    <li>{% if cap_lang == "en" %}Generated with{% else %}Generada con{% endif %} {{ page.audio.generador | escape }}{% if page.audio.modelo %} ({{ page.audio.modelo | escape }}){% endif %}{% if page.audio.fecha %}, <time datetime="{{ page.audio.fecha | date: '%Y-%m-%d' }}">{{ page.audio.fecha | date: '%Y-%m-%d' }}</time>{% endif %}</li>
+    {%- else -%}
+    <li>{% if cap_lang == "en" %}I have not documented the specific tool.{% else %}No tengo documentada la herramienta concreta.{% endif %}</li>
+    {%- endif -%}
+    {%- if page.audio.voces -%}
+    <li>{% if cap_lang == "en" %}{{ page.audio.voces }} synthetic voices; nobody recorded them.{% else %}{{ page.audio.voces }} voces sintéticas; ninguna persona las grabó.{% endif %}</li>
+    {%- endif -%}
+    {%- if cap_spoken != cap_lang -%}
+    <li>{% if cap_lang == "en" %}Spoken language: {% case cap_spoken %}{% when 'es' %}Spanish{% when 'en' %}English{% else %}{{ cap_spoken | escape }}{% endcase %}{% else %}Idioma hablado: {% case cap_spoken %}{% when 'es' %}español{% when 'en' %}inglés{% else %}{{ cap_spoken | escape }}{% endcase %}{% endif %}</li>
+    {%- endif -%}
+    {%- if page.audio.origen_url -%}
+    <li>{% if cap_lang == "en" %}Source notebook{% else %}Cuaderno de origen{% endif %}: <a href="{{ page.audio.origen_url | escape }}">{{ page.audio.origen_url | split: "//" | last | truncate: 44 | escape }}</a></li>
+    {%- endif -%}
+    {%- if page.audio.transcripcion -%}
+    <li>{% if cap_lang == "en" %}Transcript{% else %}Transcripción{% endif %}: <a href="{{ page.audio.transcripcion | relative_url }}">{% if cap_lang == "en" %}read it{% else %}leerla{% endif %}</a></li>
+    {%- else -%}
+    <li>{% if cap_lang == "en" %}Transcript: pending. I have not published one yet.{% else %}Transcripción: pendiente. Todavía no publico una.{% endif %}</li>
+    {%- endif -%}
+  </ul>
+</div>
+{%- endif -%}

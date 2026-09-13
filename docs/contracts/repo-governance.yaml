@@ -192,6 +192,10 @@ owned_large_files:
     owner: editorial-heroes-casen
     role: evidencia-visual-de-matriz-de-aceptacion
     retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a:
+    owner: editorial-structured-shell
+    role: capsula-de-audio-publicada-referenciada-por-el-post
+    retention: mantener-mientras-el-post-la-enlace
 falsified_by:
   - test: unowned_large_file
     observation: "Observado rojo el 2026-09-06: orphan.bin de 12 bytes superó el umbral fixture de 10 sin dueño; el proceso salió 1. El fixture equivalente con owned.bin declarado salió 0."

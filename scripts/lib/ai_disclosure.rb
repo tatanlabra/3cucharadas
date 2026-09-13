@@ -5,7 +5,7 @@ require 'uri'
 # declaration never invents the component history or a human review.
 module AiDisclosure
   LEVELS = %w[no_ai some_ai fully_autonomous not_disclosed].freeze
-  COMPONENTS = {'text' => %w[assisted human generated unknown], 'hero' => %w[generated human unknown]}.freeze
+  COMPONENTS = {'text' => %w[assisted human generated unknown], 'hero' => %w[generated human unknown], 'audio' => %w[generated assisted human unknown]}.freeze
   module_function
 
   def resolve(front)

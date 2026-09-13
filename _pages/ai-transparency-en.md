@@ -6,7 +6,7 @@ ref: ai-transparency
 toc: false
 ---
 
-I use AI as a working tool, and I want you to know when it contributes to what I publish. I leave a brief note in each article; here I explain my approach and record what I know about its text and cover.
+I use AI as a working tool, and I want you to know when it contributes to what I publish. I leave a brief note in each article; here I explain my approach and record what I know about its text, cover and audio capsule.
 
 | My declaration | What I mean |
 |---|---|
@@ -20,6 +20,8 @@ I identify articles predating this policy as work prepared with AI assistance, b
 ## Images, data and responsibility
 
 I use AI-generated covers as conceptual illustrations. I do not present them as photographs, real maps or evidence of my findings. I name the tool when it is recorded: I write “Made with ChatGPT” when that is the documented origin, and distinguish OpenAI ImageGen through Codex when I used that route.
+
+Some articles carry an **audio capsule**: a two-voice conversation generated with AI from the already published text. The voices are synthetic and nobody recorded them; they represent neither the author nor any real person, and what they say adds no evidence to the article. The capsule is an alternative way to hear what is already written: where they differ, the article stands. I name the tool that generated it when it is recorded.
 
 For statistical charts, I use data and analytical tools such as Python and Matplotlib. A generated illustration and a calculated chart serve different purposes; I document the latter’s methods and sources so you can examine them.
 

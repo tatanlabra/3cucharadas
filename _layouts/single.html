@@ -67,6 +67,7 @@ layout: default
             </details>
           </aside>
         {% endif %}
+        {% include capsula-audio.html %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ ui_text.ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
         {% include en-abstract.html %}

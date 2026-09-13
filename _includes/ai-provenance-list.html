@@ -14,6 +14,17 @@
     {% if hero.provenance.tool %}<p>{% if provenance_lang == 'en' %}I used{% else %}Usé{% endif %} {{ hero.provenance.tool | escape }}.</p>{% elsif article.ai_disclosure.components.hero == 'generated' %}<p>{% if provenance_lang == 'en' %}I have not documented the specific tool.{% else %}No tengo documentada la herramienta concreta.{% endif %}</p>{% endif %}
     {% if hero.alt[provenance_lang] %}<p>{{ hero.alt[provenance_lang] | escape }}</p>{% endif %}
     </dd>
+    {% comment %}
+      El audio solo se lista cuando el artículo lo declara. A diferencia de texto
+      y portada, que todo artículo tiene, imprimir «no tengo documentado el
+      origen de este audio» en un post sin cápsula afirmaría que existe una.
+    {% endcomment %}
+    {% if article.ai_disclosure.components.audio %}
+    <dt>{% if provenance_lang == 'en' %}Audio{% else %}Audio{% endif %}</dt>
+    <dd data-ai-component="audio" data-ai-origin="{{ article.ai_disclosure.components.audio | escape }}">{% case article.ai_disclosure.components.audio %}{% when 'generated' %}{% if provenance_lang == 'en' %}I generated this audio capsule with AI: the voices are synthetic and nobody recorded them.{% else %}Generé esta cápsula de audio con IA: las voces son sintéticas y ninguna persona las grabó.{% endif %}{% when 'assisted' %}{% if provenance_lang == 'en' %}I produced this audio with AI assistance.{% else %}Produje este audio con ayuda de IA.{% endif %}{% when 'human' %}{% if provenance_lang == 'en' %}Real people recorded this audio.{% else %}Este audio lo grabaron personas reales.{% endif %}{% else %}{% if provenance_lang == 'en' %}I have not documented this audio’s origin.{% else %}No tengo documentado el origen de este audio.{% endif %}{% endcase %}
+    {% if article.audio.generador %}<p>{% if provenance_lang == 'en' %}I used{% else %}Usé{% endif %} {{ article.audio.generador | escape }}.</p>{% elsif article.ai_disclosure.components.audio == 'generated' %}<p>{% if provenance_lang == 'en' %}I have not documented the specific tool.{% else %}No tengo documentada la herramienta concreta.{% endif %}</p>{% endif %}
+    </dd>
+    {% endif %}
   </dl>
   <p><a href="{{ article.url | relative_url }}">{% if provenance_lang == 'en' %}Read the article{% else %}Leer el artículo{% endif %}</a></p>
 </details>

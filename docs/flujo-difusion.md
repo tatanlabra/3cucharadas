@@ -10,6 +10,10 @@ Fecha de revisión: 2026-09-06.
 La fuente mantenible está en `docs/diagrams/flujo-difusion.d2`; la variante
 vertical está en `docs/diagrams/flujo-difusion-mobile.d2`.
 
+Un derivado queda fuera de este mapa porque no se dispara con el push ni con un workflow: la
+**cápsula de audio** de un post, que se genera a mano en NotebookLM y se sirve desde el propio
+artículo. Su procedimiento está en `docs/flujo-podcast.md`.
+
 | Evento | Qué se dispara | Dependencias que deciden | Resultado |
 |---|---|---|---|
 | `git commit` que toca `_posts/*.md` | Cadena local `post-commit` → `post-commit-difusion` | Hook instalado, `difusion/src`, Python y `ref` en el post | Escribe `difusion/state/destinos/<ref>.json`; no publica y nunca bloquea el commit |
