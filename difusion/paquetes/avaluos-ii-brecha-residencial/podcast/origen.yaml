@@ -1,0 +1,42 @@
+# Procedencia de la capsula de audio. No se publica: difusion/ se versiona pero
+# esta excluida del build (_config.yml). El enlace del cuaderno, si existe, vive
+# aqui y no en el post: un "web share" de NotebookLM expone el cuaderno completo
+# y puede cambiar de permisos o caducar sin aviso.
+ref: avaluos-ii-brecha-residencial
+post_canonico: https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/
+generador: NotebookLM (Google), Audio Overview
+formato: deep dive conversacional, dos hablantes
+idioma_hablado: es
+titulo_origen: "Las casas que le faltan al SII"
+fecha_generacion: "2026-09-13"
+cuaderno_url: null   # no registrado por quien genero el episodio
+prompt_plantilla: penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md
+
+master:
+  # Fuera del repositorio, segun docs/gobernanza-repositorio.md
+  ruta: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/avaluos-ii-brecha-residencial/capsula-es-master-estereo.m4a
+  bytes: 52019422
+  sha256: 3574f476bd9d5799fd37c7986360af429417fd2c69141a2de0d0df2935f9dd9b
+  codec: aac 257 kbps estereo 44100 Hz
+  duracion_s: 1616.294603
+
+publicado:
+  ruta: assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.m4a
+  bytes: 13503679
+  sha256: 811296ee81a855491a80872b04c5d832788a9822ba2f22c068476d4dbeb0604b
+  codec: aac 64 kbps mono
+  duracion_s: 1616.294603
+  comando: ffmpeg -i <master> -ac 1 -c:a aac -b:a 64k -movflags +faststart <destino>
+  reduccion: 74 por ciento
+
+coherencia_con_el_post:
+  # El post se reviso el mismo dia, antes de generar el audio.
+  commit_revision: a71c0d9c
+  hora_commit: "2026-09-13 12:00"
+  hora_descarga_audio: "2026-09-13 14:03"
+  nota: >
+    La revision de las 12:00 anadio la seccion sobre lineas de construccion H en
+    roles de otro destino y preciso el tratamiento de la pregunta CASEN de sitio
+    compartido. El audio se descargo dos horas despues, asi que pudo generarse
+    sobre el texto ya revisado, pero eso no esta verificado por maquina: lo
+    confirma la escucha, no la marca de tiempo.

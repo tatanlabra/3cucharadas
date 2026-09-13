@@ -16,11 +16,13 @@ API de cuenta personal para Audio Overviews. El paso manual —abrir el cuaderno
 pegar la personalización, descargar— es parte del procedimiento. No hay que automatizarlo con
 cookies exportadas ni con un navegador teledirigido.
 
-**El producto no obedece la duración que le pidas.** El primer episodio se generó con un prompt que
-exigía entre 300 y 480 segundos y salió de **989 s (16:29)**, más del doble del máximo. Escribir
-«ocho minutos» en el campo de personalización no acorta nada. La ventana realista para un *deep
-dive* de longitud media es 600–1200 s, y esa ventana tiene **una sola observación** detrás: si el
-segundo episodio cae fuera, se revisa la ventana con la nueva medición, no se fuerza el audio.
+**El producto no obedece la duración que le pidas, y la ventana ya se movió una vez.** El primer
+episodio se generó con un prompt que exigía entre 300 y 480 segundos y salió de **989 s (16:29)**,
+más del doble del máximo; con esa medición la ventana se fijó en 600–1200 s. El segundo episodio
+salió de **1616 s (26:56)** y volvió a caer fuera. Se aplicó la regla en vez de recortar el audio:
+la ventana es ahora **600–1800 s**. Escribir un número de minutos en el campo de personalización no
+acorta nada, y dos mediciones separadas por diez minutos son poca base — un tercer episodio puede
+volver a moverla.
 
 **Los acentos se piden, no se obtienen.** La interfaz no tiene selector de acento por hablante. La
 petición de un conductor con español de España y una experta con español de Chile va en el texto de
@@ -58,10 +60,11 @@ ffmpeg -i <master> -ac 1 -c:a aac -b:a 64k -movflags +faststart \
   assets/audio/<ref>/capsula-<idioma>-<duración>s.m4a
 ```
 
-Son voces: el canal estéreo no porta información. Medido en el primer episodio: 31,8 MB → 8,25 MB,
-un 74 % menos, sin pérdida audible. La duración va en el nombre por la misma razón por la que las
-imágenes llevan sus dimensiones — si el episodio se regenera, cambia la ruta y no hay que purgar la
-caché de Cloudflare. Un reemplazo que conserve la duración exacta **sí** exige purga.
+Son voces: el canal estéreo no porta información. Medido en los dos episodios: 31,8 MB → 8,25 MB y
+52,0 MB → 13,5 MB, un 74 % menos en ambos, sin pérdida audible. La duración va en el nombre por la
+misma razón por la que las imágenes llevan sus dimensiones — si el episodio se regenera, cambia la
+ruta y no hay que purgar la caché de Cloudflare. Un reemplazo que conserve la duración exacta **sí**
+exige purga.
 
 ### 5. Declarar el archivo en el contrato del repositorio
 
@@ -128,7 +131,7 @@ curl -sS -I -4 https://3cucharadas.cl/assets/audio/<ref>/capsula-es-<duración>s
 ```
 
 Se espera `audio/mp4` (o `audio/x-m4a`) y `accept-ranges: bytes`. Sin Range no hay forma de saltar
-dentro de un audio de dieciséis minutos. Si GitLab Pages devolviera `application/octet-stream`, con
+dentro de un audio que dura media hora. Si GitLab Pages devolviera `application/octet-stream`, con
 `x-content-type-options: nosniff` activo el reproductor puede quedarse mudo en Safari: la salida es
 renombrar el archivo a `.mp4` —mismo contenedor, misma pista AAC— y actualizar la entrada del
 contrato. Producción ya sirve `video/mp4` con `accept-ranges: bytes` para

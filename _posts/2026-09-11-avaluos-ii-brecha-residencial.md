@@ -4,6 +4,7 @@ classes: [avaluos-ii-editorial]
 title: "Avalúos en 3 cucharadas II: dónde revisar la brecha residencial"
 subtitle: "Campamentos, materialidad y avalúos para pasar de una diferencia comunal a una revisión predial"
 date: 2026-09-11 00:00:00 -0300
+last_modified_at: 2026-09-13 00:00:00 -0300
 categories: [datos, territorio]
 tags: [catastro-sii, censo-2024, contribuciones, datos-abiertos, desigualdad]
 author: clabra
@@ -32,11 +33,21 @@ toc: true
 toc_sticky: true
 comments: true
 visual_id: avaluos-ii
+audio:
+  archivo: /assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.m4a
+  tipo: audio/mp4
+  duracion_s: 1616
+  bytes: 13503679
+  fecha: "2026-09-13"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
 ai_disclosure:
   level: some_ai
   components:
     text: assisted
     hero: generated
+    audio: generated
 ---
 
 En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), cambiar el denominador cambiaba el mapa. Ahora me interesa una pregunta anterior al impuesto: **si el Censo cuenta más viviendas que los roles habitacionales del SII, ¿por dónde conviene empezar a revisar?**
