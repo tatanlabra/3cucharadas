@@ -1,0 +1,48 @@
+`/home/ende` is not writable.
+Bundler will use `/tmp/bundler20260913-96-z2vemx96' as your home directory temporarily.
+Configuration file: /tmp/3c-avaluos-ii-release-20260913/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: /tmp/3c-avaluos-ii-release-20260913
+       Destination: /tmp/3c-avaluos-ii-release-site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+3 │ @import "minimal-mistakes/skins/contrast"; // skin
+  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    /tmp/3c-avaluos-ii-release-20260913/assets/css/main.scss 3:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+4 │ @import "minimal-mistakes"; // main partials
+  │         ^^^^^^^^^^^^^^^^^^
+  ╵
+    /tmp/3c-avaluos-ii-release-20260913/assets/css/main.scss 4:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+141 │ @import "minimal-mistakes/skins/contrast";
+    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /tmp/3c-avaluos-ii-release-20260913/assets/css/main.scss 141:9  root stylesheet
+DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+    ╷
+144 │ @import "minimal-mistakes";
+    │         ^^^^^^^^^^^^^^^^^^
+    ╵
+    /tmp/3c-avaluos-ii-release-20260913/assets/css/main.scss 144:9  root stylesheet
+                    done in 21.69 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.

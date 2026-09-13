@@ -1,0 +1,81 @@
+{
+  "checked_at": "2026-09-13T15:16:05.752149+00:00",
+  "status": "PASS",
+  "deployed_commit": "48403c8dea3c1f8ff705742f5fa50fae2b111376",
+  "analysis_commit": "9d4eb179bef0305af8ebbe3bdff75baf0e213c93",
+  "pipeline": {
+    "id": 2844735033,
+    "status": "success",
+    "url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2844735033",
+    "build_job": 16470811447,
+    "pages_job": 16470811448
+  },
+  "verification": {
+    "source_health_checks": 25,
+    "protected_asset_hashes": 781,
+    "editorial_hash_bindings": 16,
+    "public_pages": 7,
+    "public_referenced_assets": 58,
+    "public_data_files": 8,
+    "approved_es_en_article_text_unchanged": true
+  },
+  "fixes": [
+    "Corrected stale social-package source hash and separated previous public evidence from this revision.",
+    "Restored mandatory validation of six legacy dissemination pieces in addition to all declared packages. Regression test failed before the fix and passed after it."
+  ],
+  "scope": {
+    "github": "Mirror updated with push workflows intentionally skipped; no social syndication triggered.",
+    "analysis_repository": "Local commit; this repository has no remote configured.",
+    "excluded_unrelated_files": 77,
+    "receipt_commit": "Documentation and dissemination bookkeeping only; deployed source remains identical to deployed_commit."
+  },
+  "limits": [
+    "Existing scheduled distribution audit remains failed for missing Medium/EN dissemination of the Nushell post; this publication did not resolve or resend it.",
+    "Existing performance debt AC-Q6 is not reclassified as passed. This release does not certify global performance, Safari/Firefox, or screen readers.",
+    "Initial isolated build and Polyglot test lacked BUNDLE_PATH; both passed using existing pinned gems. Initial artifact check lacked Vite outputs; complete Vite plus Jekyll build passed.",
+    "Analytic generated rol-cobro Markdown retains a trailing blank line to preserve verified reproducible source hashes."
+  ],
+  "rollback": "Revert the release content commits on a new forward commit, then run the same gates and deploy; do not force-push or reset unrelated local work.",
+  "evidence_sha256": {
+    "approved-article-parity.json": "44db1ed81644e30cc06deb2a2eb396bc76396aea6afaf62fb9f06498243d2034",
+    "mobile-en-casen-scrolled.png": "b068e69f4382ebfb50c495d083efcd2db1fafc8a3c62aa00ccf2bbad5ec6fcd2",
+    "mobile-en-expanded-final.png": "fc46f6fc13e4711a2830bd3bf542d67b30fc837dc699bda6d6b84220b827fc0e",
+    "mobile-en-sii-scrolled.png": "fdff02676269dd088ff3a0a0fbad152ac58399f509b9bb94bc4711f0194b6061",
+    "mobile-es-casen-scrolled.png": "87bdd4ef12b637aaf07eeb59c69d76c4d467faffaa817c768eefc0783f747b89",
+    "mobile-es-casen.png": "6ce0dcd0284e25e39cdbc367cdfaa964e1c467302f0e432199a9fa4b204584e7",
+    "mobile-es-expanded-final.png": "82d69a06c0f725bc318465da862e9625d51bcbeeffa034815df77825fed81ca9",
+    "mobile-es-sii-scrolled.png": "51d514c2730857b5c8961733f5eba6329ef88d8173969f0e528e75de93aacc57",
+    "public-data-parity.json": "132b58c8d34c6dfa391fd88643b1f6bdcb75d910afd4b5a827ebde0eff93153e",
+    "public-parity.json": "f8db6eacf8c5aee4cd6802f1604043a56336ef7c3f4d282a4e88b3ec8226612d",
+    "release-artifact.log": "8469cf5248c337d7db32e39bc5a4614629d9d1010c7dd7d81b7228239d7bf41d",
+    "release-build.log": "dbcf9436ee6433f27fc073f0922df13ad9e951f6da82388b5a20ec54a03931a2",
+    "source-health-release.json": "6b592c4ebf09eafe4f7d2135cf875ed1dd61f2e3a82ddda1c788f888b7c6c525",
+    "verification.json": "d4d5cd41b1da566cd082d9d398f009195ea2c219fc23439eef2d8b094bf96583",
+    "source-health-logs/diffusion-coherence-legacy.log": "fea65f85152f5f3fa742e463ecccaf31d98d334b2e999fc99c3142241ccabbb9",
+    "source-health-logs/diffusion-coherence.log": "280a48656b35f7089a25ccd51b40b2093a84e2ff994545132f5deb012195a7f7",
+    "source-health-logs/distribution-policy.log": "164257798cff7250ea1f53af54683c56da5b8f15965a2c4b398db2659755bc27",
+    "source-health-logs/git-integrity.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source-health-logs/governance.log": "b3e5f368133447f927e436e9977f602ca4312dcc458e0c0c3344943459d292b8",
+    "source-health-logs/test-accessible-regions.log": "04c5707cb97381638d9fd2b7b246ffbefae1e5f3bcf1b3b69947e4e60f1ec893",
+    "source-health-logs/test-devto_draft_policy.log": "dbde1b0d5a5ca5615416597b8340a0cc759aa24a6bc5c33b91606a076c6e1255",
+    "source-health-logs/test-devto_noop.log": "299879645482c915ac9c83cae4a6a97075072933b16e6965b451c2774087a81b",
+    "source-health-logs/test-graph-contrast.log": "95664aea42c0be423d80502353053491d4a67ff6c96de51035f0919671a84395",
+    "source-health-logs/test-jekyll_to_devto.log": "fd61be30f05717b6abc083d44f75a4d0c4e9e18e9ceffd35eef4516c9c286539",
+    "source-health-logs/test-math_keyboard.log": "6f77c7d8cc1ddb3552db5a85c26749ac41754f4e149d591d769839ccda7d1c5e",
+    "source-health-logs/test-notification.log": "18e17055e0d9ddd2d2f2fe6fb3ed4300de88eab845837a329f901c06f55e6bb9",
+    "source-health-logs/test-polyglot_doctor.log": "fee360e084f34b90019e7cb7593cd0c11d32449548c79a67fdc87b24dbe608b9",
+    "source-health-logs/test-reconciliar_distribucion.log": "bdf7650aa2e5b73ac7757ed522a8b5a6ab6d42b79ec10a33f8939c3021bdad0f",
+    "source-health-logs/test-site_health.log": "6ed75f9ea670e41d9e7fca8618b9f7199d2708d14bf694e5a625fd84181c4d5c",
+    "source-health-logs/test-static-contrast.log": "1e43b905e11ca028139fe5078016515111aaf7cebf8d6a3e224b7d03b9cb6ac9",
+    "source-health-logs/test-verify_difusion_coherente.log": "5a2b56eafe0a1191fd9f25a408a6c66b80fe0ce554036823c7c524cb9cc58a1a",
+    "source-health-logs/test-verify_distribution_done.log": "f27f1dd36e41bee6949766fe70e1681167beb60c05ba97bbf5918f2354b1b2c2",
+    "source-health-logs/test-verify_repo_governance.log": "605a3a48fa3d1a56f8078a545a1d30725ab20ee0c2483ca31f5be147c7fb5e56",
+    "source-health-logs/test-verify_visual_assets_mobile.log": "2ba0c898649b67a9cbf16d3b123a5f102bb87747f632cc19fd2c39462b7b3f05",
+    "source-health-logs/visual-assets.log": "95d5248e4ecafcb431301b8e6c7c88a61b1ab711488c2c22ff3265c4e5878de5",
+    "source-health-logs/whitespace.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "build_log_normalization": {
+    "raw_sha256": "6fdb8947d86ec99ad855f9a07c3e1892188ec98a53dd281fc0eabbed2777aef9",
+    "change": "Trailing whitespace removed from archived build log; command output content preserved."
+  }
+}

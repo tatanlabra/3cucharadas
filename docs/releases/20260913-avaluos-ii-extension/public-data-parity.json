@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-09-13T15:14:59.332947+00:00",
+  "commit": "48403c8dea3c1f8ff705742f5fa50fae2b111376",
+  "checks": [
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/audit.json",
+      "bytes": 1145,
+      "sha256": "8ed0633f032e136d973565a6478cac5b574703a4f6ecd2c360498fd152e5e374",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/casen-quantities.csv",
+      "bytes": 264,
+      "sha256": "0885f7b3bde4973b975c9ce90ba5f8369e8ceee1a0643aab249a4e9e2d2685c4",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/expanded-comparison.csv",
+      "bytes": 36463,
+      "sha256": "e3b36141dec65575e03ab74840de3a6b82bf14c19931fdf1ff22a86cafff4a2c",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/expanded-national-summary.csv",
+      "bytes": 762,
+      "sha256": "73b1b6620b17392bdeb2595fd11910b36e395334d89331848ce2e730babeaf53",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/method.md",
+      "bytes": 4089,
+      "sha256": "1d9ee41dbd770ce8429b99259d2d2c0eb383e560dd509f59f47e2df7a6365b2a",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/provenance.json",
+      "bytes": 4207,
+      "sha256": "efe5e361d704d943b8124d8393ca9068e7a22f1072e9feea8e551f1845bba391",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/sii-communes.csv",
+      "bytes": 24738,
+      "sha256": "e4b3d214d34363c283c339e55efec8e35631345cfeac11d2f65e6172a3138be6",
+      "matches_commit_and_artifact": true
+    },
+    {
+      "url": "https://3cucharadas.cl/assets/data/avaluos-ii-extension/sii-destination-breakdown.csv",
+      "bytes": 41582,
+      "sha256": "5e709877dcda2b170580759912e11ff02872cb965152ecb1f5c31c0b8a222664",
+      "matches_commit_and_artifact": true
+    }
+  ],
+  "status": "PASS"
+}

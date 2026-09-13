@@ -1,6 +1,6 @@
 # Comprobación del paquete local
 
-Estas comprobaciones corresponden al cierre social del 12 de septiembre de 2026. La revisión ES/EN del 13 de septiembre incorpora líneas de construcción y cantidades CASEN; su evidencia local está en `docs/releases/20260913-avaluos-ii-extension/verification.json`. Las verificaciones de producción anteriores no acreditan esta revisión nueva. Los textos sociales se conservan como material histórico, sin reenvío.
+Estas comprobaciones corresponden al cierre social del 12 de septiembre de 2026. La revisión ES/EN del 13 de septiembre incorpora líneas de construcción y cantidades CASEN; su evidencia local está en `docs/releases/20260913-avaluos-ii-extension/verification.json`. Las verificaciones de producción anteriores no acreditan esta revisión nueva. La nueva publicación sí está verificada en `docs/releases/20260913-avaluos-ii-extension/public-parity.json` y `public-data-parity.json`. Los textos sociales se conservan como material histórico, sin reenvío.
 
 - [x] Artículo ES local leído; se preservan unidad de análisis, supuestos y diferencia entre impuesto teórico y efectivo.
 - [x] Cifras de los textos contrastadas con los ejemplos de Lo Barnechea e Iquique en el artículo revisado.

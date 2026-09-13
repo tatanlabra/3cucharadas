@@ -1,0 +1,35 @@
+REF avaluos-ii-brecha-residencial
+SOURCE _posts/2026-09-11-avaluos-ii-brecha-residencial-en.md lang=en
+SOURCE _posts/2026-09-11-avaluos-ii-brecha-residencial.md lang=es
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/alt-text.md
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/linkedin.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/social.json
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-01.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-02.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-03.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-04.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-05.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-single.txt
+COVERAGE avaluos-ii-brecha-residencial: 2 posts, 9 piezas, 150 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF nushell-coprocesador-estructurado
+SOURCE _posts/2026-08-29-nushell-coprocesador-estructurado-en.md lang=en
+SOURCE _posts/2026-08-29-nushell-coprocesador-estructurado.md lang=es
+COPY difusion/linkedin/nushell-coprocesador-estructurado-carrusel.html
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COPY difusion/paquetes/nushell-coprocesador-estructurado/01-en-source.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/devto.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/hn.txt
+COPY difusion/paquetes/nushell-coprocesador-estructurado/linkedin.md
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COPY difusion/paquetes/nushell-coprocesador-estructurado/medium.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/reddit-target.md
+EXTRACTION /tmp/3c-avaluos-ii-release-20260913/difusion/paquetes/nushell-coprocesador-estructurado/reddit-target.md: título, URL y primer comentario; reglas y recordatorios son notas operativas
+COPY difusion/paquetes/nushell-coprocesador-estructurado/social-corto.md
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COVERAGE nushell-coprocesador-estructurado: 2 posts, 8 piezas, 86 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+PASS: coherencia numérica; 2 ref(s) explícitas
