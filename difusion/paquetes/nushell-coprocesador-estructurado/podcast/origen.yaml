@@ -1,0 +1,31 @@
+# Procedencia de la cápsula de audio. No se publica: difusion/ se versiona pero
+# está excluida del build (_config.yml). El enlace del cuaderno vive aquí y no
+# en el post, por decisión de la persona usuaria el 2026-09-13: un enlace de
+# "web share" de NotebookLM expone el cuaderno completo y puede cambiar de
+# permisos o caducar sin aviso.
+ref: nushell-coprocesador-estructurado
+post_canonico: https://3cucharadas.cl/ia/productividad/desarrollo/nushell-coprocesador-estructurado/
+generador: NotebookLM (Google), Audio Overview
+formato: deep dive conversacional, dos hablantes
+idioma_hablado: es
+fecha_generacion: "2026-09-13"
+cuaderno_url: https://notebook.google.com/notebook/8b8ec1e1-ecc2-47b6-b574-ff6498d0aa2f/artifact/00228e7a-97b3-4811-9a3f-9c83b8004d85
+prompt_usado: ~/Descargas/prompt_capsula_3cucharadas.md
+prompt_plantilla_sucesora: penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md
+
+master:
+  # Fuera del repositorio, segun docs/gobernanza-repositorio.md
+  ruta: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/nushell-coprocesador-estructurado/capsula-es-master-estereo.m4a
+  bytes: 31832477
+  sha256: 9529eee48d3f1223cd1adfa5edeb2d38693a856cebd538b437b9eb864a7dce08
+  codec: aac 257 kbps estereo 44100 Hz
+  duracion_s: 989.053968
+
+publicado:
+  ruta: assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a
+  bytes: 8253516
+  sha256: a69dcacdd8e979cd3e0cf1ad523883aaba9fd7b9bc9d4138e05f0194d247ab5a
+  codec: aac 64 kbps mono
+  duracion_s: 989.053968
+  comando: ffmpeg -i <master> -ac 1 -c:a aac -b:a 64k -movflags +faststart <destino>
+  reduccion: 74 por ciento

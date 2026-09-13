@@ -21,6 +21,15 @@ comments: true
 author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 y Claude Code + Codex sobre el mismo workspace"
+audio:
+  archivo: /assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.m4a
+  tipo: audio/mp4
+  duracion_s: 989
+  bytes: 8253516
+  fecha: "2026-09-13"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
 header:
   teaser: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp
@@ -45,6 +54,7 @@ ai_disclosure:
   components:
     text: unknown
     hero: generated
+    audio: generated
 ---
 
 ## Preámbulo — ¿La estructura realmente ayuda?

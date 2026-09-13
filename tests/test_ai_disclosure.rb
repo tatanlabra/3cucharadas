@@ -93,7 +93,7 @@ class HeroDisclosureCheckTest < Minitest::Test
       <meta itemprop="datePublished" content="2026-09-12T00:00:00-04:00">
       <link rel="preload" as="image" href="/assets/images/hero.png" imagesrcset="/assets/images/mobile.png 800w, /assets/images/hero.png 1600w" imagesizes="100vw">
       <picture aria-hidden="true"><img src="/assets/images/hero.png" srcset="/assets/images/mobile.png 800w, /assets/images/hero.png 1600w" sizes="100vw" width="1600" height="900" alt="" fetchpriority="high" loading="eager"></picture>
-      <p id="ai-disclosure" data-ai-level="some_ai" data-ai-text-origin="unknown" data-ai-hero-origin="generated">Preparé este artículo con ayuda de IA.</p>
+      <p id="ai-disclosure" data-ai-level="some_ai" data-ai-text-origin="unknown" data-ai-hero-origin="generated" data-ai-audio-origin="unknown">Preparé este artículo con ayuda de IA.</p>
       <a href="/ai-transparency/">Policy</a>
     HTML
   end

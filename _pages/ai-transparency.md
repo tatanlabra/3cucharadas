@@ -6,7 +6,7 @@ ref: ai-transparency
 toc: false
 ---
 
-Uso IA como una herramienta de trabajo y quiero que sepas cuándo interviene en lo que publico. En cada artículo dejo una nota breve; aquí explico mi criterio y detallo lo que tengo documentado de sus textos y portadas.
+Uso IA como una herramienta de trabajo y quiero que sepas cuándo interviene en lo que publico. En cada artículo dejo una nota breve; aquí explico mi criterio y detallo lo que tengo documentado de sus textos, portadas y cápsulas de audio.
 
 | Mi declaración | Qué quiero decir |
 |---|---|
@@ -20,6 +20,8 @@ Identifico los artículos anteriores a esta política como trabajos con ayuda de
 ## Imágenes, datos y responsabilidad
 
 Uso las portadas generadas con IA como ilustraciones conceptuales. No las presento como fotografías, mapas reales ni evidencia de mis resultados. Indico la herramienta cuando consta en el registro: escribo «Hecho con ChatGPT» si ese fue el origen documentado, y distingo ImageGen de OpenAI mediante Codex cuando usé esa vía.
+
+Algunos artículos llevan una **cápsula de audio**: una conversación de dos voces generada con IA a partir del texto ya publicado. Las voces son sintéticas y ninguna persona las grabó; no representan al autor ni a nadie real, y lo que dicen no añade evidencia al artículo. La cápsula es una vía alternativa de escuchar lo que ya está escrito: si discrepan, manda el artículo. Indico la herramienta que la generó cuando consta en el registro.
 
 Para los gráficos estadísticos empleo datos y herramientas de análisis —por ejemplo, Python y Matplotlib—. Una ilustración generada y un gráfico calculado tienen funciones distintas; documento el método y las fuentes del segundo para que puedas examinarlo.
 

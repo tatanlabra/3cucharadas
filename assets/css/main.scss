@@ -2634,3 +2634,43 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
     .page__hero-caption { position: static; margin-top: 1rem; justify-self: start; }
   }
 }
+
+/* ── Cápsula de audio (_includes/capsula-audio.html) ─────────────────────────
+   Hereda la superficie editorial de `.page__content .notice` (líneas 1129-1152:
+   Dracula en ambos temas, a propósito) y sólo añade lo que esa regla no cubre.
+
+   El <audio> lo necesita por lo mismo que el <video> de la línea 1372: sin
+   `width: 100%` el control nativo se queda en su ancho intrínseco —unos 300 px—
+   y flota perdido dentro del recuadro. `color-scheme: dark` es la parte menos
+   evidente: el recuadro es oscuro TAMBIÉN en tema claro, y sin esa declaración
+   el navegador dibuja los controles nativos en su variante clara sobre fondo
+   #343746. Es progresivo: un navegador que la ignore sigue siendo usable.
+
+   El borde va scopeado a `.page__content` por especificidad, no por estilo:
+   `.page__content .notice` (0,2,0) fija `border-color` y le ganaría a un
+   `.capsula-audio` suelto (0,1,0). Es el mismo truco de la línea 1143 para
+   `.notice--info`. El rosa #ff79c6 es el único color Dracula del archivo que
+   todavía no distingue a ningún recuadro editorial. */
+.page__content .capsula-audio { border-left: 0.3rem solid #ff79c6; }
+.capsula-audio__titulo { margin-bottom: 0.35em; }
+.capsula-audio__entrada { margin-top: 0; }
+.capsula-audio__player {
+  display: block;
+  width: 100%;
+  margin: 0.9em 0 0.7em;
+  border-radius: 0.75rem;
+  color-scheme: dark;
+}
+.capsula-audio__meta { margin: 0; padding: 0; list-style: none; }
+.capsula-audio__meta li { margin: 0.2em 0; }
+.capsula-audio a:focus-visible,
+.capsula-audio__player:focus-visible { outline: 3px solid #ffdb7d; outline-offset: 3px; }
+
+/* Pareja nocturna. El recuadro no cambia de superficie entre temas —misma
+   decisión que `.notice` en 1154-1170, que también restituye valores idénticos
+   para que un cambio futuro en las reglas diurnas no arrastre al tema oscuro—,
+   así que aquí sólo hay una diferencia real: devolver el foco blanco global del
+   nocturno, que las reglas de arriba le ganarían por especificidad. */
+html[data-theme="academic-night"] .capsula-audio { border-left: 0.3rem solid #ff79c6; }
+html[data-theme="academic-night"] .capsula-audio a:focus-visible,
+html[data-theme="academic-night"] .capsula-audio__player:focus-visible { outline-color: #ffffff; }
