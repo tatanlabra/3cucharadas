@@ -16,8 +16,10 @@ directorio se versiona y **no** se publica (`difusion/` está en `exclude:` de `
 
 ## Lo que este episodio no tiene, y por qué
 
-Se generó con `~/Descargas/prompt_capsula_3cucharadas.md` antes de que existiera el flujo. Los tres
-artefactos editoriales que la plantilla sucesora sí exige —fuente, personalización y guion— no se
+Se generó antes de que existiera el flujo, con el prompt que ahora vive aquí como `prompt-usado.md`.
+Estaba suelto en `~/Descargas` y este paquete lo citaba desde fuera del repositorio: una limpieza
+rutinaria de esa carpeta habría destruido la única procedencia editorial que sobrevive del episodio.
+Los tres artefactos que la plantilla sucesora sí exige —fuente, personalización y guion— no se
 conservaron. Para el próximo episodio se usa
 `penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md`, que los pide.
 
