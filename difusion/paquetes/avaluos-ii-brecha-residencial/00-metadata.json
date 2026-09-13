@@ -1,11 +1,11 @@
 {
   "status": "social_partially_verified",
-  "authorization": "User explicitly authorizes push, social send and scheduling on 2026-09-12; overrides previous local-only restriction. Performance debt remains RED.",
+  "authorization": "Historical social-send authorization on 2026-09-12. On 2026-09-13 the user authorized committing and publishing the revised blog; no new social send is recorded or inferred.",
   "canonical": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/",
   "source": "_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
-  "source_sha256": "1e22ec3e1a6079be1e41a04dec3410836b8209b8711b8e71b373649f0d72c36d",
-  "public_revision_verified": true,
-  "local_content_review": "docs/plans/20260912-heroes-casen/evidence/receipts/R1.json",
+  "source_sha256": "e5976d6130f20c2d51c4c9e0d8ff7143b5542931d572838087bdfaadb121b659",
+  "public_revision_verified": false,
+  "local_content_review": "docs/releases/20260913-avaluos-ii-extension/verification.json",
   "runtime_gate_status": "RED: three relative LCP regressions remain; user explicitly authorized production release on 2026-09-12 without relabeling the performance result.",
   "language": "es",
   "channels": {
@@ -84,10 +84,10 @@
     "difusion/paquetes/avaluos-ii-brecha-residencial/media/gap-top15-es-dark.png": "3354171dc80f79cd42fbd164673ed9f4ee27c75844e7b20c1bf136b51a89de4a",
     "difusion/paquetes/avaluos-ii-brecha-residencial/media/monetary-top15-es-dark.png": "f3f52ee25797989430d9f4b9f52d46f32fbbdc1971836a13759955f4ba666fda"
   },
-  "blog_source_commit": "9b6d4eae1398f6f96d3663843921663f1c7776ea",
-  "source_change_since_review": "Only distribution front matter; ES and EN article bodies are byte-identical to 9b6d4eae.",
-  "public_revision_commit": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
-  "public_verification_receipt": "docs/releases/20260912-avaluos-ii/public-parity.json",
+  "blog_source_commit": "a71c0d9cf25b4beed87feb815e3af5d2b9677542",
+  "source_change_since_review": "On 2026-09-13 both ES and EN article bodies were revised with the direct SII residential-use union and CASEN household/resident quantities. Front matter and original figures remain unchanged. Social copy remains historical; it was not resent or replaced.",
+  "public_revision_commit": null,
+  "public_verification_receipt": null,
   "schedule_status": "No scheduler ID exists. X was published by the author; LinkedIn publication is unverified. Do not schedule duplicate dissemination.",
   "previous_status": {
     "status": "blog_published_social_blocked_on_login",
@@ -98,5 +98,12 @@
   "proposed_cadence_status": "Historical proposal; superseded by author-reported X publication. No pending automatic send or reserved schedule is evidenced.",
   "distribution_repair_commit": "e77c03ea58dc4b2205cb3bc69f9cc170fa2d7822",
   "distribution_repair_receipt": "docs/releases/20260912-social-closeout/remote-ci.json",
-  "copy_counts_scope": "Current local text files only; not evidence of final platform text."
+  "copy_counts_scope": "Current local text files only; not evidence of final platform text.",
+  "source_sha256_at_social_closeout": "1e22ec3e1a6079be1e41a04dec3410836b8209b8711b8e71b373649f0d72c36d",
+  "historical_public_revision": {
+    "verified": true,
+    "commit": "b46381156ed259bbbdc2aea1e615ca3596174eb8",
+    "receipt": "docs/releases/20260912-avaluos-ii/public-parity.json",
+    "scope": "Public revision verified on 2026-09-12; does not cover the 2026-09-13 residential-use extension."
+  }
 }
