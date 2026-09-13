@@ -40,9 +40,9 @@ ai_disclosure:
 
 In the [first property-assessment post](/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), changing the denominator changed the map. Now I am interested in a question that comes before calculating tax: **if the Census counts more dwellings than the SII's residential cadastral records, where should a review begin?**
 
-The tax implications deserve closer attention when the discrepancy persists in communes whose registered properties have high assessed values. If a review found omitted properties comparable to them, the next step would be to establish whether registering them or updating their assessments creates a tax liability.
+A persistent discrepancy in communes whose registered properties have high assessed values may justify a tax-oriented review, under the assumption that any omitted properties would be comparable to them. If a review found such properties, the next step would be to establish whether registering them or updating their assessments creates a tax liability.
 
-I examine that difference alongside informal settlements, construction materials and assessed values to guide the search. There are three steps: understand what we are subtracting, gauge its possible tax significance through scenarios in pesos, and specify the evidence needed to establish it.
+I examine that difference alongside residential uses recorded within properties of another primary use, informal settlements, shared sites, construction materials and assessed values. There are three steps: understand what is being compared and how the result changes when the SII filter is correctly expanded, gauge its possible tax significance through scenarios in pesos, and specify the evidence needed to establish it.
 
 **How to read the bars.** They guide a review; they do not count omitted properties or outstanding property-tax liabilities.
 {: .notice--info}
@@ -52,6 +52,16 @@ I examine that difference alongside informal settlements, construction materials
 I compare **all private dwellings in the 2024 Census**, occupied and vacant, with **residential cadastral records—property-use code H—for the first half of 2026**. The first count concerns dwellings; the second concerns properties registered for tax purposes. SII is Chile's tax authority, and a commune is a local administrative area.
 
 There is no one-to-one correspondence. A property may contain several dwellings, and a dwelling may be on an agricultural property excluded by the residential filter. The dates also differ. Dwellings minus records is therefore a **difference between counts**, not a count of “dwellings without a cadastral record.”
+
+### Primary use H does not exhaust recorded residential use
+
+The original comparison uses each property's primary use. The direct download for the same half-year also exposes its construction lines: some commercial records and records of other primary uses contain an H line. Joining distinct groups within the same file is a valid expansion of the filter; it remains a comparison of property records with dwellings, not an identification of omitted dwellings.
+
+<!-- avaluos-ii-extension:mixed-use:begin -->
+{% include avaluos-ii-extension-en.html section='sii' %}
+<!-- avaluos-ii-extension:mixed-use:end -->
+
+The following bars and scenarios retain the July mirror's primary-H filter as their reference. The expanded comparison above uses the direct download and is reported separately.
 
 The bar is constructed in three steps:
 
@@ -73,7 +83,7 @@ In Alto Hospicio, the initial difference is **15,368**. Subtracting the **9,136*
 | Valparaíso | 32,533 | 2,572 | 29,961 | 7.9% |
 | Puerto Montt | 29,036 | 632 | 28,404 | 2.2% |
 
-This deduction is a sensitivity test, not an established explanation. Several households may share a dwelling, the land may have a parent property record, and dates may differ. The layer also contains **222 polygons without a count**: missing data do not mean an absence of households. The interpretation of its `HOGARESCEN` field is detailed in the methodological notes.
+This deduction is a sensitivity test, not an established explanation. It assumes one unit of the difference per informal-settlement household; it lacks the direct evidence of group membership and non-overlap that supports joining two groups of records within the same SII file. Several households may share a dwelling, the land may have a parent property record, and dates may differ. The layer also contains **222 polygons without a count**: missing data do not mean an absence of households. The interpretation of its `HOGARESCEN` field is detailed in the methodological notes.
 
 The deduction does not represent a tax exemption either: it is an analytical assumption. The SII provides for [the assessment of buildings whose legal status has not been regularised][sii-no-regularizadas]; each property's circumstances must be checked.
 
@@ -109,7 +119,7 @@ The [viewer lets you explore each commune and consult the complete table](/catas
 
 Two dwellings can share a plot and be covered by one property-tax record. The Census would then count two dwellings without a property necessarily being absent from the tax register. This mechanism may contribute to the difference; measuring its contribution requires linking **dwellings, sites and property records**. The public dictionary examined and the [Census microdata manual, pp. 17–20][ine-manual], link dwellings, households and people, but do not provide a shared site or property-record identifier for this reconciliation. Several households within one dwelling are not the same as several dwellings on one site.
 
-CASEN 2024 provides a narrower signal. Categories 3 and 4 of its tenure question identify households reporting **an owned site shared with other dwellings**, either fully paid or being paid for. They do not ask how many dwellings occupy the site. I calculate their share among **all households with valid answers**, including renters and other tenure arrangements, using one household head per household. The principal-household question is conditional; applying it as a filter to the entire dataset would incorrectly remove households in single-household dwellings. See the [official questionnaire, pp. 79 and 83][casen-cuestionario].
+CASEN 2024 provides a narrower signal. In the question about the household's **occupancy situation for the site or plot**, categories 3 and 4 identify households reporting **an owned site shared with other dwellings**, either fully paid or being paid for. They do not ask how many dwellings occupy the site. I calculate their share among **all households with valid answers**, without filtering on main-household status (`v28`) and using one household head per household. That question is asked only in dwellings with more than one household; applying it as a general filter would incorrectly remove households in single-household dwellings. See the [official questionnaire, pp. 79 and 83][casen-cuestionario].
 
 The national result is **1.09% of households**, with an approximate 95% interval of **0.97% to 1.21%**. It comes from 78,654 sampled households, with no missing answers to this question. National and regional estimates use `expr` and Taylor linearization with strata and clusters; the interval expresses sampling uncertainty, rather than every possible measurement error. The [official CASEN data-use note][casen-nota] distinguishes these domains from descriptive use at commune level.
 
@@ -125,9 +135,13 @@ The national result is **1.09% of households**, with an approximate 95% interval
 
 Valparaíso and Viña del Mar show **9.27% and 8.60%**, respectively, in the commune calculation weighted by `expc`. These are exploratory signals: I selected the two communes after observing their discrepancy, and these results **are not representative estimates for each commune**. A commune weight does not confer that property. The table retains sample sizes and missingness; the eleven communes outside the sample are recorded as missing data, never zero.
 
+<!-- avaluos-ii-extension:casen-quantities:begin -->
+{% include avaluos-ii-extension-en.html section='casen' %}
+<!-- avaluos-ii-extension:casen-quantities:end -->
+
 The deduction is limited but useful: dwelling and property-record counts may differ even with an accurate register. The observed pattern in these two communes makes shared sites worth investigating. The hypothesis is that they explain part of the discrepancy, alongside informal settlements, agricultural land uses, timing and possible omissions. A representative sample linking dwellings to sites and property records would discriminate between these explanations; the hypothesis would weaken as a material explanation if this linkage showed a small contribution against a criterion set before measurement.
 
-**I do not subtract this percentage from the bars or monetary scenarios.** It describes household tenure, not the share of excess dwellings in a count. It also misses other ways of sharing sites and may overlap with informal settlements. Subtracting it now would introduce apparent precision and could count the same explanation twice.
+**I do not subtract this percentage from the bars or monetary scenarios.** It describes a site category reported by households, not the share of excess dwellings in a count. It also misses other ways of sharing sites and may overlap with informal settlements. Subtracting it now would introduce apparent precision and could count the same explanation twice. This does not contradict the earlier union: that calculation joins distinct, audited records within the same SII file.
 {: .notice--info}
 
 <details markdown="1">
@@ -139,7 +153,7 @@ In a purely hypothetical example, if a share $$p_v$$ of **dwellings** belonged t
 
 ## Second spoonful: distinguish a large gap from a review with tax implications
 
-The size of the difference alone does not establish its potential tax significance. For context, I examine the assessed values of **residential properties that are already registered**: their mean, median and the share above the general exemption threshold.
+The size of the difference alone does not establish its potential tax significance. The fifteen communes, assessed values and tax scenarios in this spoonful use the bars' reference population: primary-H records in the July mirror, not the new union from the direct download. For context, I examine the assessed values of those **residential properties that are already registered**: their mean, median and the share above the general exemption threshold.
 
 In the first half of 2026, that threshold was **60,030,710 Chilean pesos**, according to the [SII's official example][sii-ejemplo]. I compare each assessed value with the threshold for the same period. Exceeding it is not enough to establish an enforceable property-tax liability: applicable benefits and exemptions must also be checked.
 
@@ -214,6 +228,7 @@ Comparing communes helps choose where to look. Establishing an omission with tax
 
 | Possible explanation | What would need to be checked | What would weaken that explanation |
 |---|---|---|
+| Residential use within a record of another primary use | Primary use, H lines and exclusion of common-property or parent records | The cross-check duplicates records or the H line does not represent valid residential use |
 | Omitted property or building | Location, land and building information, property records and the cadastral file | The property is already correctly registered, including under another record or property-use category |
 | Outdated assessed value | Built floor area and characteristics against cadastral details and their dates | The assessment already incorporates those characteristics |
 | Differences in units or periods | Dwellings per property, parent records, agricultural uses, co-ownership and comparable dates | The discrepancy persists after reconciling units and periods |
@@ -241,6 +256,8 @@ For CASEN, R opens the original dataset and passes the required columns to Pytho
 
 ## Closing: the difference needs an explanation
 
+The expanded SII filter provides the most direct finding in this review: **76,493 distinct records whose primary use is not H nevertheless contain recorded residential use**. Joining them to the H records in the same file raises the non-agricultural count with residential evidence to **6,134,442** and reduces the national arithmetic difference with the Census by 76,493. These are not 76,493 identified dwellings, and the national net calculation is not the sum of positive commune gaps. The agricultural series remains separate.
+
 Communes where the difference persists and registered properties have high assessed values offer a starting point for cadastral review. The scenarios in pesos show why a smaller gap may deserve tax-related attention. If comparable omitted properties are confirmed, their tax implications must be determined; if existing records, property-use categories or dates resolve the difference, the omission hypothesis becomes less compelling. The result warrants investigation but does not establish negligence or a failure to collect tax by any agency.
 
 In the next instalment, I will explore the **Continuo de Construcciones Urbanas (CCU)** to examine the built footprint. Before attributing a discrepancy to administrative delay, its sources must be verified and the timing of each change reconstructed.
@@ -252,7 +269,7 @@ In the next instalment, I will explore the **Continuo de Construcciones Urbanas 
 
 **Provenance and coverage.** The cadastral mirror was downloaded on 24 July 2026 and corresponds to the first half of that year. It is neither a direct SII download nor a September snapshot. Antártica and Trehuaco have no extract and remain missing, rather than being treated as communes with no residential properties.
 
-**Totals still awaiting reconciliation.** The cited [SII control by property-use category][sii-destino] reports 6,056,150 residential properties; the extract contains 6,054,808. The cited [MINVU housing-stock spreadsheets][minvu-parque] for the first half of 2026 report 6,057,949, including 1,342 in Trehuaco. The difference between the SII and the extract is 1,342, but between MINVU and the extract it reaches 3,141. Adding Trehuaco's 1,342 does not reconcile both controls: a difference of 1,799 properties remains against the MINVU total. This discrepancy is not attributed to an unproven cause, and totals are not silently replaced.
+**Totals still awaiting reconciliation.** The cited [SII control by property-use category][sii-destino] reports 6,056,150 residential properties; the July mirror contains 6,054,808. The cited [MINVU housing-stock spreadsheets][minvu-parque] for the first half of 2026 report 6,057,949, including 1,342 in Trehuaco. The direct download contains the same 6,057,949 primary-H records and confirms the MINVU aggregate, without providing a record-level reconciliation of the mirror. Relative to the July reference, the expanded universe grows by 79,634 records: 3,141 come from the source and coverage change, and 76,493 from expanding the filter within the direct file. Thus, 79,634 is not the pure effect of expanding the filter. Differences between sources are not attributed to an unproven cause, and the totals underlying the bars are not silently replaced.
 
 **Two informal-settlement snapshots.** The [MINVU report published on 8 July 2026][minvu-campamentos], using information referring to 2024, records 1,373 settlements, 81,993 occupied dwellings and 77,399 households. The CNC 2026 layer used in this processing contains 1,345 polygons and a total of 71,760 in the `HOGARESCEN` field, with 222 polygons missing that value. These are different populations and snapshots. Interpreting the field as census households is a provisional decision supported by its name and the available documentation, rather than by a dictionary specific to the layer. The deduction depends on it.
 
@@ -277,7 +294,7 @@ Results are aggregated by commune, including zeros, before multiplying each stat
 
 ## Sources and references
 
-Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: questionnaire and data-use note*. Tenure and principal household, pp. 79 and 83 of the [questionnaire][casen-cuestionario]; expansion factors and domains in the [data-use note][casen-nota]. Accessed September 12, 2026.
+Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: questionnaire and data-use note*. Site-occupancy situation and main household, pp. 79 and 83 of the [questionnaire][casen-cuestionario]; expansion factors and domains in the [data-use note][casen-nota]. Accessed September 12, 2026.
 
 Grote, Martin, and Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. International Monetary Fund, September. [Full text][fmi-guia].
 

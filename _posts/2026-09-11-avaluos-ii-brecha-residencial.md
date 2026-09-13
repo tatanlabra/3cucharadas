@@ -41,9 +41,9 @@ ai_disclosure:
 
 En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), cambiar el denominador cambiaba el mapa. Ahora me interesa una pregunta anterior al impuesto: **si el Censo cuenta más viviendas que los roles habitacionales del SII, ¿por dónde conviene empezar a revisar?**
 
-El interés tributario aumenta cuando la discrepancia persiste en comunas cuyos predios registrados presentan avalúos altos. Si una revisión encontrara inmuebles omitidos comparables a ellos, correspondería comprobar si su incorporación o actualización genera una obligación tributaria.
+Una discrepancia persistente en comunas cuyos predios registrados presentan avalúos altos puede justificar una revisión tributaria, bajo el supuesto de que los eventuales inmuebles omitidos fueran comparables a ellos. Si una revisión los encontrara, correspondería comprobar si su incorporación o actualización genera una obligación tributaria.
 
-Cruzo esa diferencia con campamentos, materialidad y avalúos para ordenar la búsqueda. El recorrido tiene tres pasos: entender qué estamos restando, dimensionar su posible interés tributario mediante escenarios en pesos y precisar qué evidencia permitiría comprobarlo.
+Cruzo esa diferencia con los usos residenciales registrados dentro de roles de otro destino, campamentos, sitios compartidos, materialidad y avalúos. El recorrido tiene tres pasos: entender qué estamos comparando y cuánto cambia al ampliar correctamente el filtro SII, dimensionar su posible interés tributario mediante escenarios en pesos y precisar qué evidencia permitiría comprobarlo.
 
 **Cómo leer las barras.** Orientan una revisión; no cuentan inmuebles omitidos ni contribuciones adeudadas.
 {: .notice--info}
@@ -53,6 +53,16 @@ Cruzo esa diferencia con campamentos, materialidad y avalúos para ordenar la b�
 Comparo **todas las viviendas particulares del Censo 2024**, ocupadas y desocupadas, con los **roles de destino habitacional —código H— del primer semestre de 2026**. El primer recuento corresponde a viviendas; el segundo, a bienes raíces registrados para fines tributarios.
 
 No hay una equivalencia uno a uno. Un predio puede contener varias viviendas y una vivienda puede estar en un predio agrícola, excluido por el filtro habitacional. Tampoco coinciden las fechas. Por eso, viviendas menos roles es una **diferencia entre recuentos**, no un conteo de «viviendas sin rol».
+
+### El destino principal H no agota el uso residencial registrado
+
+La comparación original usa el destino principal del rol. La descarga directa del mismo semestre permite mirar además sus líneas de construcción: algunos roles comerciales o de otro destino contienen una línea H. Unir grupos distintos dentro de ese mismo archivo es una corrección válida del filtro; sigue siendo una comparación de roles con viviendas, no una identificación de viviendas omitidas.
+
+<!-- avaluos-ii-extension:mixed-use:begin -->
+{% include avaluos-ii-extension-es.html section='sii' %}
+<!-- avaluos-ii-extension:mixed-use:end -->
+
+Las barras y los escenarios siguientes conservan como referencia el filtro principal H del espejo de julio; la comparación ampliada de arriba usa la descarga directa y se presenta por separado.
 
 La barra se construye en tres pasos:
 
@@ -74,7 +84,7 @@ En Alto Hospicio, la diferencia inicial es de **15.368**. Si se descuentan los *
 | Valparaíso | 32.533 | 2.572 | 29.961 | 7,9 % |
 | Puerto Montt | 29.036 | 632 | 28.404 | 2,2 % |
 
-Este descuento es una prueba de sensibilidad, no una explicación demostrada. Varios hogares pueden compartir vivienda, el terreno puede tener un rol matriz y las fechas pueden diferir. Además, la capa utilizada tiene **222 polígonos sin conteo**: dato faltante no significa ausencia de hogares. La interpretación de su campo `HOGARESCEN` se detalla en las notas metodológicas.
+Este descuento es una prueba de sensibilidad, no una explicación demostrada. Supone una unidad de diferencia por hogar de campamento; no tiene la evidencia de pertenencia y no superposición que sí permite unir dos grupos de roles del mismo archivo SII. Varios hogares pueden compartir vivienda, el terreno puede tener un rol matriz y las fechas pueden diferir. Además, la capa utilizada tiene **222 polígonos sin conteo**: dato faltante no significa ausencia de hogares. La interpretación de su campo `HOGARESCEN` se detalla en las notas metodológicas.
 
 El descuento tampoco representa una exención tributaria: es un supuesto analítico. El SII contempla la [tasación de construcciones no regularizadas][sii-no-regularizadas]; la situación de cada inmueble debe verificarse.
 
@@ -110,7 +120,7 @@ El [visor permite explorar cada comuna y consultar la tabla completa](/catastro_
 
 Dos viviendas pueden compartir un terreno y estar consideradas en un mismo rol. En ese caso, el Censo cuenta dos viviendas sin que necesariamente falte un predio en el registro tributario. Este mecanismo puede contribuir a la diferencia; demostrar cuánto aporta exige vincular **vivienda, sitio y rol**. El diccionario público examinado y el [manual de microdatos del Censo, pp. 17–20][ine-manual], permiten enlazar vivienda, hogar y persona, pero no proporcionan un identificador común de sitio o rol para esta conciliación. Varios hogares dentro de una vivienda tampoco equivalen a varias viviendas dentro de un sitio.
 
-CASEN 2024 permite observar una señal más acotada. En su pregunta de tenencia, las categorías 3 y 4 identifican hogares que declaran **sitio propio compartido con otras viviendas**, pagado o pagándose. No preguntan cuántas viviendas hay en el sitio. Calculo su proporción entre **todos los hogares con respuesta válida**, incluidos arrendatarios y otras tenencias, usando una jefatura por hogar. La pregunta sobre hogar principal es condicional; filtrarla en toda la base eliminaría indebidamente hogares de viviendas unihogar. Véase el [cuestionario oficial, pp. 79 y 83][casen-cuestionario].
+CASEN 2024 permite observar una señal más acotada. En la pregunta sobre la **situación de ocupación del sitio o terreno**, las categorías 3 y 4 identifican hogares que declaran **sitio propio compartido con otras viviendas**, pagado o pagándose. No preguntan cuántas viviendas hay en el sitio. Calculo su proporción entre **todos los hogares con respuesta válida**, sin filtrar por la condición de hogar principal (`v28`) y usando una jefatura por hogar. Esa última pregunta solo se aplica a viviendas con más de un hogar; usarla como filtro general eliminaría indebidamente hogares de viviendas unihogar. Véase el [cuestionario oficial, pp. 79 y 83][casen-cuestionario].
 
 El resultado nacional es **1,09 % de los hogares**, con un intervalo aproximado del 95 % de **0,97 % a 1,21 %**. Procede de 78.654 hogares muestrales, sin respuestas faltantes en esa pregunta. La estimación nacional y las regionales usan `expr` y linealización de Taylor con estratos y conglomerados; el intervalo expresa incertidumbre muestral, no todos los posibles errores de medición. La [nota oficial de uso de CASEN][casen-nota] distingue estos dominios del uso descriptivo comunal.
 
@@ -126,9 +136,13 @@ El resultado nacional es **1,09 % de los hogares**, con un intervalo aproximado 
 
 Valparaíso y Viña del Mar muestran **9,27 % y 8,60 %**, respectivamente, en el cálculo comunal ponderado con `expc`. Son señales exploratorias: las elegí después de observar su discrepancia y estos resultados **no son estimaciones representativas de cada comuna**. La presencia de un factor comunal no les confiere esa propiedad. La tabla conserva tamaños muestrales y faltantes; las once comunas sin muestra se registran como dato ausente, nunca como cero.
 
+<!-- avaluos-ii-extension:casen-quantities:begin -->
+{% include avaluos-ii-extension-es.html section='casen' %}
+<!-- avaluos-ii-extension:casen-quantities:end -->
+
 La deducción es limitada pero útil: contar viviendas y contar roles puede producir diferencias aun con un registro correcto. El patrón observado en estas dos comunas vuelve pertinente examinar los sitios compartidos. La hipótesis es que expliquen una parte de su discrepancia, junto con campamentos, destinos agrícolas, fechas y eventuales omisiones. La evidencia que permitiría distinguir estas explicaciones es una muestra representativa que enlace viviendas con sitios y roles; la hipótesis perdería fuerza como explicación material si ese cruce mostrara que su aporte es pequeño bajo un criterio fijado antes de medirlo.
 
-**No descuento este porcentaje de las barras ni de los escenarios en pesos.** Describe una tenencia de hogares, no la proporción de viviendas que sobran en el recuento. Además, no cubre todas las formas de compartir sitio y podría superponerse con campamentos. Restarlo ahora produciría una precisión aparente y podría contar dos veces la misma explicación.
+**No descuento este porcentaje de las barras ni de los escenarios en pesos.** Describe una categoría del sitio declarada por hogares, no la proporción de viviendas que sobran en el recuento. Además, no cubre todas las formas de compartir sitio y podría superponerse con campamentos. Restarlo ahora produciría una precisión aparente y podría contar dos veces la misma explicación. Esto no contradice la unión anterior: allí se suman roles distintos y auditados dentro del mismo archivo SII.
 {: .notice--info}
 
 <details markdown="1">
@@ -140,7 +154,7 @@ En un ejemplo puramente hipotético, si una proporción $$p_v$$ de las **viviend
 
 ## Segunda cucharada: distinguir una brecha grande de una revisión con interés tributario
 
-El tamaño de la diferencia no basta para anticipar su relevancia tributaria. Para añadir contexto, observo los avalúos de los **predios habitacionales que sí están registrados**: su media, su mediana y la proporción que supera el monto exento general.
+El tamaño de la diferencia no basta para anticipar su relevancia tributaria. Las quince comunas, sus avalúos y los escenarios de impuesto de esta cucharada usan el mismo universo de referencia de las barras: roles de destino principal H del espejo de julio, no la nueva unión de la descarga directa. Para añadir contexto, observo los avalúos de esos **predios habitacionales que sí están registrados**: su media, su mediana y la proporción que supera el monto exento general.
 
 En el primer semestre de 2026, ese monto era de **60.030.710 pesos**, según el [ejemplo oficial del SII][sii-ejemplo]. Comparo cada avalúo con el umbral del mismo período. Superarlo no basta para determinar una contribución exigible: deben revisarse los beneficios y las exenciones aplicables.
 
@@ -215,6 +229,7 @@ La comparación comunal permite elegir dónde mirar. Para comprobar una omisión
 
 | Posible explicación | Qué habría que contrastar | Qué debilitaría esa explicación |
 |---|---|---|
+| Uso residencial dentro de un rol de otro destino | Destino principal, líneas H y exclusión de bienes comunes o matrices | El cruce duplica roles o la línea H no representa uso residencial válido |
 | Predio o construcción omitidos | Ubicación, antecedentes de terreno y construcción, roles y expediente catastral | El inmueble ya está incorporado correctamente, incluso bajo otro rol o destino |
 | Avalúo desactualizado | Superficie y características construidas frente al detalle catastral y sus fechas | El avalúo ya incorpora esas características |
 | Diferencia de unidades o períodos | Viviendas por predio, roles matrices, destinos agrícolas, copropiedad y fechas comparables | La discrepancia persiste después de conciliar unidades y períodos |
@@ -242,6 +257,8 @@ Para CASEN, R abre la base original y entrega a Python las columnas necesarias m
 
 ## Cierre: que la diferencia tenga una explicación
 
+La ampliación del filtro SII entrega el hallazgo más directo de esta revisión: **76.493 roles distintos cuyo destino principal no es H sí contienen uso residencial registrado**. Al unirlos con los roles H del mismo archivo, el recuento no agrícola con evidencia residencial llega a **6.134.442** y la diferencia nacional aritmética frente al Censo baja en 76.493. No son 76.493 viviendas identificadas y el cálculo nacional neto no equivale a sumar diferencias comunales positivas. La serie agrícola permanece separada.
+
 Las comunas donde persiste la diferencia y los predios registrados presentan avalúos altos ofrecen un punto de partida para revisar el catastro. Los escenarios en pesos muestran por qué una brecha más pequeña puede merecer atención tributaria. Si se confirman inmuebles comparables omitidos, corresponde determinar sus efectos; si la diferencia se resuelve con roles existentes, destinos o fechas, la hipótesis de omisión pierde fuerza. El resultado justifica investigar, pero no permite atribuir negligencia ni falta de cobro a un organismo.
 
 En la próxima entrega exploraré el **Continuo de Construcciones Urbanas (CCU)** para contrastar la huella construida. Antes de atribuir un atraso administrativo, habrá que verificar sus fuentes y reconstruir cuándo ocurrió cada cambio.
@@ -253,7 +270,7 @@ En la próxima entrega exploraré el **Continuo de Construcciones Urbanas (CCU)*
 
 **Procedencia y cobertura.** El espejo catastral se descargó el 24 de julio de 2026 y corresponde al primer semestre de ese año. No es una descarga directa del SII ni un corte de septiembre. Antártica y Trehuaco carecen de extracto y se mantienen como faltantes, no como comunas sin predios habitacionales.
 
-**Totales todavía no conciliados.** El control [SII por destino][sii-destino] citado informa 6.056.150 predios habitacionales; el extracto reúne 6.054.808. Las [planillas MINVU de parque habitacional][minvu-parque] citadas para 2026S1 informan 6.057.949, incluidos 1.342 de Trehuaco. La diferencia entre el SII y el extracto es de 1.342, pero entre MINVU y el extracto alcanza 3.141. Incorporar los 1.342 de Trehuaco no concilia ambos controles: todavía quedan 1.799 predios de diferencia respecto del total MINVU. No se atribuye esta discrepancia a una causa no comprobada ni se sustituyen silenciosamente los totales.
+**Totales todavía no conciliados.** El control [SII por destino][sii-destino] citado informa 6.056.150 predios habitacionales; el espejo de julio reúne 6.054.808. Las [planillas MINVU de parque habitacional][minvu-parque] citadas para 2026S1 informan 6.057.949, incluidos 1.342 de Trehuaco. La descarga directa contiene esos mismos 6.057.949 roles principales H y confirma el total agregado MINVU, sin constituir una conciliación individual del espejo. Frente a la referencia de julio, el universo ampliado crece en 79.634 roles: 3.141 corresponden al cambio de fuente y cobertura, y 76.493 a la ampliación del filtro dentro del archivo directo. Por eso, 79.634 no es el efecto puro de ampliar el filtro. No se atribuyen las diferencias entre fuentes a una causa no comprobada ni se sustituyen silenciosamente los totales de las barras.
 
 **Dos cortes de campamentos.** El informe [MINVU publicado el 8 de julio de 2026][minvu-campamentos], con información referida a 2024, registra 1.373 campamentos, 81.993 viviendas ocupadas y 77.399 hogares. La capa CNC 2026 utilizada en este procesamiento contiene 1.345 polígonos y suma 71.760 en el campo `HOGARESCEN`, con 222 polígonos sin dato. Son universos y cortes diferentes. Interpretar ese campo como hogares censales es una decisión provisional, apoyada en su nombre y la documentación disponible, no en un diccionario específico de la capa. El descuento depende de ella.
 
@@ -278,7 +295,7 @@ Se agregan los resultados por comuna, incluidos los ceros, antes de multiplicar 
 
 ## Fuentes y referencias
 
-Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: cuestionario y nota de uso de bases de datos*. Tenencia y hogar principal, pp. 79 y 83 del [cuestionario][casen-cuestionario]; factores de expansión y dominios en la [nota de uso][casen-nota]. Consultados el 12 de septiembre de 2026.
+Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: cuestionario y nota de uso de bases de datos*. Situación de ocupación del sitio y hogar principal, pp. 79 y 83 del [cuestionario][casen-cuestionario]; factores de expansión y dominios en la [nota de uso][casen-nota]. Consultados el 12 de septiembre de 2026.
 
 Grote, Martin, y Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. Fondo Monetario Internacional, septiembre. [Texto completo][fmi-guia].
 
