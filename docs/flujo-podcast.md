@@ -150,9 +150,54 @@ episodio. Comprobar el tipo con un `HEAD` no basta: los `.m4a` devolvían `audio
 así no admitían rango. Es la comprobación que decide, así que va con el rango explícito, no con un
 `HEAD` a secas.
 
+### 9. Distribuir a Apple Podcasts (una sola vez por programa)
+
+**No hay que construir ningún feed.** Spotify for Creators genera el RSS al publicar el primer
+episodio; está en Settings → Availability → **RSS Distribution** y hay que **habilitarlo** para que
+sirva fuera de Spotify. Al hacerlo, el correo del feed se vuelve público: conviene que sea una
+dirección de contacto.
+
+Después, en **podcastsconnect.apple.com** con un Apple ID normal —no hace falta cuenta de
+desarrollador—: botón **+** → **New Show** → **Add a show with an RSS feed** → pegar la URL del
+feed → **Add**. Apple valida y muestra vista previa; si algo falla, avisa antes de dejar seguir.
+Luego **Content Rights**, contacto, **Availability** (países, Distribution, **Transcripts**, Show
+Release, **Show Claiming**) y **Save** → **Publish**. Aprobación: de horas a un par de días, y no se
+vuelve a enviar nada nunca más: cada episodio nuevo entra por el feed.
+
+Dos ajustes que conviene no dejar por defecto: **activar Transcripts**, porque Apple genera
+transcripción automática y eso cubre en parte la brecha que el bloque del post declara; y
+**restringir Show Claiming**, para que nadie más pueda reclamar el programa.
+
+#### La URL de Apple que se publica no es la que Apple enseña
+
+Medido el 2026-09-13 y cuesta una sesión si se ignora: el slug que muestra Apple lleva el título
+completo **con guion largo** (`3-cucharadas-—-datos-...`), y esa URL responde **404**. La canónica
+omite el guion largo. La forma que hay que registrar en el repositorio es la corta,
+`https://podcasts.apple.com/<pais>/podcast/id<ID>`, que responde 200 y redirige sola a la canónica.
+Comprobado en las tiendas `cl` y `us`.
+
+Corolario del mismo día: `https://itunes.apple.com/lookup?id=<ID>` puede devolver `resultCount: 0`
+durante horas después de que la página pública ya sirva 200. Ese endpoint consulta el índice de
+búsqueda, que va por detrás del catálogo: un cero ahí **no** significa que el programa no exista.
+
+#### Artwork
+
+Apple exige entre **1400×1400 y 3000×3000**, JPG o PNG, RGB. Se sirve desde el feed, así que la
+portada se cambia en Spotify, no aquí. Circula un tope de 512 KB de peso que no está en
+documentación oficial de Apple; por si acaso, conviene quedar por debajo.
+
+Y una advertencia medida sobre cómo llegar a ese tamaño, en
+`~/.local/state/3cucharadas/source-masters/podcast-portada/MANIFIESTO.md`: la herramienta `image_gen`
+de Codex —que fue la que generó estas portadas— **no expone parámetro de tamaño** y siempre entrega
+~1,57 MP, o sea 1254×1254 en cuadrado. Regenerar con imagen de referencia conserva la composición
+pero re-sintetiza los píxeles y sale **14× menos fiel** que ampliar el original con
+`waifu2x-ncnn-vulkan -n -1 -s 4` seguido de Lanczos (0,222 frente a 3,167 de diferencia media por
+píxel). Para subir de resolución una portada que ya existe, ampliar gana a regenerar.
+
 ## Enlaces
 
 - Plantilla del prompt: `penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md`
 - Mapa de difusión: `docs/flujo-difusion.md`
 - Custodia de binarios: `docs/gobernanza-repositorio.md`
 - Purga de caché: `docs/purga-cache-cloudflare.md`
+- Portadas y su manifiesto: `~/.local/state/3cucharadas/source-masters/podcast-portada/`

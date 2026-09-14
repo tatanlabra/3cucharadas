@@ -33,6 +33,8 @@ audio:
   plataformas:
     - nombre: Spotify
       url: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 header:
   teaser: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp
