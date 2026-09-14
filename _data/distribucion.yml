@@ -191,6 +191,14 @@
   titulo_usado: 'Nushell in three spoonfuls: when does a structured shell actually
     help an agent?'
   publicaciones:
+  - plataforma: spotify
+    fecha: '2026-09-13'
+    url_publicada: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
+    estado: publicado
+    nota: Capsula de audio en espanol, primer episodio del podcast. Show en
+      https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE y feed RSS en
+      https://anchor.fm/s/1173891c8/podcast/rss. No hay version en ingles del audio.
+      El mismo episodio se sirve desde el post como .mp4 mono de 8,25 MB.
   - plataforma: mastodon
     fecha: '2026-09-10'
     url_publicada: https://mastodon.social/@asiole/117249573006292013

@@ -75,6 +75,7 @@ social:
     - "https://www.facebook.com/cristianlabra"
     - "https://github.com/tatanlabra"
     - "https://gitlab.com/tatanlabra"
+    - "https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE"
     - "https://instagram.com/tatanlabra"
     - "https://repositorio.uchile.cl/browse?authority=88cfb186-afaf-4086-ac6f-36fbc7adf42a&type=author"
     - "https://scholar.google.com/citations?user=ByUN51gAAAAJ"
@@ -141,6 +142,11 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/tatanlabra"
+    # El podcast: capsulas de audio de los posts. El icono fa-spotify existe en
+    # el set del tema; si alguna vez se retira, fa-podcast es el sustituto.
+    - label: "Podcast"
+      icon: "fab fa-fw fa-spotify"
+      url: "https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE"
 
 # Lectura/Exclusiones
 include:
