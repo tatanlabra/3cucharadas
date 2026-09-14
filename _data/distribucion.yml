@@ -191,6 +191,18 @@
   titulo_usado: 'Nushell in three spoonfuls: when does a structured shell actually
     help an agent?'
   publicaciones:
+  - plataforma: apple-podcasts
+    fecha: '2026-09-13'
+    url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
+    estado: publicado
+    nota: >-
+      Mismo episodio, distribuido por el feed RSS de Spotify for Creators
+      (https://anchor.fm/s/1173891c8/podcast/rss). Apple no aloja el audio, lo
+      toma del feed, asi que publicar en Spotify actualiza Apple solo. Verificado
+      con HTTP 200 en las tiendas cl y us. Ojo con la URL larga que muestra
+      Apple, porque su slug lleva un guion largo que la URL real NO tiene y con
+      el responde 404; la forma corta /<pais>/podcast/id<ID> es estable y
+      redirige a la canonica.
   - plataforma: spotify
     fecha: '2026-09-13'
     url_publicada: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
