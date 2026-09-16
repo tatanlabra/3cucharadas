@@ -29,6 +29,10 @@ Ejemplo reproducible para ese caso:
     --live
 
   python difusion/scripts/bluesky_video.py publish ... --live
+
+Nota del 2026-09-15: el ejemplo cita assets/videos/catastro-sii-visor.mp4, que se retiro del
+repositorio y de su historia. La publicacion en Bluesky ya esta hecha y su estado vive fuera del
+control de versiones; el ejemplo queda como registro, no como caso reproducible tal cual.
 """
 
 from __future__ import annotations

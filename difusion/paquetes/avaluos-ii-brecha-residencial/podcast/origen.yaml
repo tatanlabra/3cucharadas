@@ -20,8 +20,12 @@ master:
   codec: aac 257 kbps estereo 44100 Hz
   duracion_s: 1616.294603
 
-publicado:
-  ruta: assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4
+# Retirado del repositorio el 2026-09-15: el sitio dejo de alojar las capsulas y
+# se publican como episodios de podcast. Se conserva el registro porque el sha256
+# es la unica prueba de que este re-encode existio; la ruta ya no se sirve ni se
+# versiona, y su blob salio tambien de la historia con git filter-repo.
+reencode_mono_retirado:
+  ruta_historica: assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4
   bytes: 13503679
   sha256: 811296ee81a855491a80872b04c5d832788a9822ba2f22c068476d4dbeb0604b
   codec: aac 64 kbps mono
@@ -40,3 +44,10 @@ coherencia_con_el_post:
     compartido. El audio se descargo dos horas despues, asi que pudo generarse
     sobre el texto ya revisado, pero eso no esta verificado por maquina: lo
     confirma la escucha, no la marca de tiempo.
+
+publicado:
+  # "Publicado" significa distribuido, no servido desde este repositorio.
+  spotify: https://open.spotify.com/episode/7DaKRRcYT8AhiLO0bVm2eG
+  apple: https://podcasts.apple.com/cl/podcast/id6811713988
+  feed_rss: https://anchor.fm/s/1173891c8/podcast/rss
+  retirado_del_sitio: "2026-09-15"

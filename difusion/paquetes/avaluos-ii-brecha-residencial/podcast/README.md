@@ -10,7 +10,7 @@ en origen «Las casas que le faltan al SII». Este directorio se versiona y **no
 | Registro de escucha y QA | `QA.md` | escuchado y aprobado por la persona usuaria |
 | Fuente editorial, personalización y guion | — | no conservados: el episodio se generó antes de que la plantilla los exigiera |
 | Máster estéreo | fuera del repo, ver `origen.yaml` | conservado |
-| Audio publicado (mono 64 kbps) | `../../../../assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4` | en el repo, declarado en `docs/contracts/repo-governance.yaml` |
+| Audio publicado | retirado del repositorio el 2026-09-15 | se distribuye por Spotify y Apple; ver `origen.yaml` |
 | Transcripción | — | **no existe**; el bloque del post lo declara |
 
 ## Este episodio movió la ventana de duración
@@ -24,6 +24,7 @@ volver a moverla.
 
 ## Si se regenera el audio
 
-El nombre lleva la duración (`-1616s`). Un episodio nuevo con otra duración estrena ruta y no
-necesita purga de Cloudflare. Un reemplazo que conserve la duración exacta **sí** la necesita:
-`scripts/purge_cloudflare_cache.sh --changed`, después de que el pipeline esté en `success`.
+Se sube el episodio nuevo a Spotify for Creators y se actualizan las dos URL en `audio.plataformas`
+del post y en `_data/distribucion.yml`. No hay caché de borde que purgar: el sitio no sirve el
+archivo desde el 2026-09-15, y la duración en el nombre —que existía para estrenar ruta y evitar esa
+purga— dejó de tener función.

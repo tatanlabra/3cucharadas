@@ -2639,12 +2639,10 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    Hereda la superficie editorial de `.page__content .notice` (líneas 1129-1152:
    Dracula en ambos temas, a propósito) y sólo añade lo que esa regla no cubre.
 
-   El <audio> lo necesita por lo mismo que el <video> de la línea 1372: sin
-   `width: 100%` el control nativo se queda en su ancho intrínseco —unos 300 px—
-   y flota perdido dentro del recuadro. `color-scheme: dark` es la parte menos
-   evidente: el recuadro es oscuro TAMBIÉN en tema claro, y sin esa declaración
-   el navegador dibuja los controles nativos en su variante clara sobre fondo
-   #343746. Es progresivo: un navegador que la ignore sigue siendo usable.
+   Ya no hay reproductor: el sitio dejó de alojar el archivo el 2026-09-15 y el
+   bloque enlaza al episodio en Spotify y Apple. Con él se fueron `width: 100%`
+   y `color-scheme: dark`, que existían sólo para que el control nativo no se
+   quedara en sus ~300 px intrínsecos ni se dibujara claro sobre fondo #343746.
 
    El borde va scopeado a `.page__content` por especificidad, no por estilo:
    `.page__content .notice` (0,2,0) fija `border-color` y le ganaría a un
@@ -2654,17 +2652,10 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
 .page__content .capsula-audio { border-left: 0.3rem solid #ff79c6; }
 .capsula-audio__titulo { margin-bottom: 0.35em; }
 .capsula-audio__entrada { margin-top: 0; }
-.capsula-audio__player {
-  display: block;
-  width: 100%;
-  margin: 0.9em 0 0.7em;
-  border-radius: 0.75rem;
-  color-scheme: dark;
-}
+.capsula-audio__escuchar { margin: 0.9em 0 0.7em; }
 .capsula-audio__meta { margin: 0; padding: 0; list-style: none; }
 .capsula-audio__meta li { margin: 0.2em 0; }
-.capsula-audio a:focus-visible,
-.capsula-audio__player:focus-visible { outline: 3px solid #ffdb7d; outline-offset: 3px; }
+.capsula-audio a:focus-visible { outline: 3px solid #ffdb7d; outline-offset: 3px; }
 
 /* Pareja nocturna. El recuadro no cambia de superficie entre temas —misma
    decisión que `.notice` en 1154-1170, que también restituye valores idénticos
@@ -2672,5 +2663,4 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    así que aquí sólo hay una diferencia real: devolver el foco blanco global del
    nocturno, que las reglas de arriba le ganarían por especificidad. */
 html[data-theme="academic-night"] .capsula-audio { border-left: 0.3rem solid #ff79c6; }
-html[data-theme="academic-night"] .capsula-audio a:focus-visible,
-html[data-theme="academic-night"] .capsula-audio__player:focus-visible { outline-color: #ffffff; }
+html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color: #ffffff; }

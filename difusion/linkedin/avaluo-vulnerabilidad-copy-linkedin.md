@@ -6,7 +6,7 @@ convierte a un lector en usuario del visor.
 
 | | |
 |---|---|
-| Video | `assets/videos/catastro-sii-visor.mp4` — 1920×1080, 39,5 s, sin audio |
+| Video (retirado del repositorio el 2026-09-15; se conserva la ficha como registro de la pieza ya publicada) | `assets/videos/catastro-sii-visor.mp4` — 1920×1080, 39,5 s, sin audio |
 | Póster | `assets/images/avaluo-vulnerabilidad-unidad-vecinal/poster-visor-1280x720.jpg` |
 
 El carrusel de 6 láminas queda disponible en `avaluo-vulnerabilidad-carrusel.html`

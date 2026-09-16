@@ -22,11 +22,22 @@ master:
   codec: aac 257 kbps estereo 44100 Hz
   duracion_s: 989.053968
 
-publicado:
-  ruta: assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4
+# Retirado del repositorio el 2026-09-15: el sitio dejo de alojar las capsulas y
+# se publican como episodios de podcast. Se conserva el registro porque el sha256
+# es la unica prueba de que este re-encode existio; la ruta ya no se sirve ni se
+# versiona, y su blob salio tambien de la historia con git filter-repo.
+reencode_mono_retirado:
+  ruta_historica: assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4
   bytes: 8253516
   sha256: a69dcacdd8e979cd3e0cf1ad523883aaba9fd7b9bc9d4138e05f0194d247ab5a
   codec: aac 64 kbps mono
   duracion_s: 989.053968
   comando: ffmpeg -i <master> -ac 1 -c:a aac -b:a 64k -movflags +faststart <destino>
   reduccion: 74 por ciento
+
+publicado:
+  # "Publicado" significa distribuido, no servido desde este repositorio.
+  spotify: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
+  apple: https://podcasts.apple.com/cl/podcast/id6811713988
+  feed_rss: https://anchor.fm/s/1173891c8/podcast/rss
+  retirado_del_sitio: "2026-09-15"

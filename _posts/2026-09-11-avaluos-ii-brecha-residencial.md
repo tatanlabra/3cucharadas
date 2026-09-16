@@ -34,14 +34,16 @@ toc_sticky: true
 comments: true
 visual_id: avaluos-ii
 audio:
-  archivo: /assets/audio/avaluos-ii-brecha-residencial/capsula-es-1616s.mp4
-  tipo: audio/mp4
   duracion_s: 1616
-  bytes: 13503679
   fecha: "2026-09-13"
   generador: NotebookLM (Google)
   voces: 2
   idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/7DaKRRcYT8AhiLO0bVm2eG
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 ai_disclosure:
   level: some_ai
   components:

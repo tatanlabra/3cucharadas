@@ -12,9 +12,23 @@
 | Builds y dependencias instaladas | checkout local, ignorados | efímeros y reconstruibles desde locks |
 | Respaldo de refs | `${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/git-backups/` | conservar antes de retirar ramas o ejecutar GC |
 
-El vídeo `assets/videos/catastro-sii-visor.mp4`, los activos RAG y las piezas sociales
-de avalúo permanecen versionados: el sitio o sus paquetes publicados los consumen. Una
-migración futura debe probar URL, MIME, caché y reproducción antes de retirarlos.
+Los activos RAG y las piezas sociales de avalúo permanecen versionados: el sitio o sus
+paquetes publicados los consumen. Una migración futura debe probar URL, MIME, caché y
+reproducción antes de retirarlos.
+
+El vídeo `assets/videos/catastro-sii-visor.mp4` **se retiró el 2026-09-15**, y con él las dos
+cápsulas de audio de `assets/audio/`. No hubo migración que validar: el vídeo se eliminó del post
+—cuyo párrafo ya describía el recorrido y cuyo botón lleva al visor, así que no quedó promesa sin
+cumplir— y las cápsulas pasaron a publicarse como episodios de podcast en Spotify y Apple. Sumaban
+43,3 MB, el artefacto bajó del 10,32 % al 6,2 % del límite de Pages, y el patrón `assets/audio/**`
+entró en `tracked_forbidden_patterns` para que volver a versionar audio exija editar el contrato.
+
+A diferencia de las dos retiradas anteriores de vídeo —`76a66e87` y `a210ba4d`, que sacaron los
+archivos del árbol y **no liberaron un solo byte** porque sus blobs siguen en la historia—, esta vez
+se reescribió la historia con `git filter-repo`. El alcance fue de 157 commits: el vídeo entra en un
+único commit, `d8cfaf73`, y los audios en tres posteriores. Ningún handoff cita commits de este
+repositorio, así que la evidencia de gobernanza no se vio afectada; las citas de SHA de `docs/` se
+repararon con el `commit-map` que emite la herramienta.
 
 ## Gate
 

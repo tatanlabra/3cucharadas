@@ -22,10 +22,7 @@ author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
 entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 y Claude Code + Codex sobre el mismo workspace"
 audio:
-  archivo: /assets/audio/nushell-coprocesador-estructurado/capsula-es-989s.mp4
-  tipo: audio/mp4
   duracion_s: 989
-  bytes: 8253516
   fecha: "2026-09-13"
   generador: NotebookLM (Google)
   voces: 2
