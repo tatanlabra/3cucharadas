@@ -179,19 +179,17 @@
     fecha: '2026-09-15'
     url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
     estado: publicado
-    nota: >-
-      Segundo episodio del podcast, distribuido por el feed RSS de Spotify for
-      Creators (https://anchor.fm/s/1173891c8/podcast/rss). La URL registrada es
-      la del programa, no la del episodio, igual que en el post de Nushell.
+    nota: Segundo episodio del podcast, distribuido por el feed RSS de Spotify for
+      Creators (https://anchor.fm/s/1173891c8/podcast/rss). La URL registrada es la
+      del programa, no la del episodio, igual que en el post de Nushell.
   - plataforma: spotify
     fecha: '2026-09-15'
     url_publicada: https://open.spotify.com/episode/7DaKRRcYT8AhiLO0bVm2eG
     estado: publicado
-    nota: >-
-      Capsula de audio en espanol, 26:56, subida a mano porque Spotify for
-      Creators no expone API de publicacion. Al comprobarla con curl sin
-      User-Agent de navegador responde 403 y parece rota; con UA responde 200.
-      El sitio no aloja el archivo desde el 2026-09-15.
+    nota: Capsula de audio en espanol, 26:56, subida a mano porque Spotify for Creators
+      no expone API de publicacion. Al comprobarla con curl sin User-Agent de navegador
+      responde 403 y parece rota; con UA responde 200. El sitio no aloja el archivo
+      desde el 2026-09-15.
   - plataforma: mastodon
     fecha: 2026-09-12
     url_publicada: https://mastodon.social/@asiole/117260311924206594
@@ -212,22 +210,20 @@
     fecha: '2026-09-13'
     url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
     estado: publicado
-    nota: >-
-      Mismo episodio, distribuido por el feed RSS de Spotify for Creators
-      (https://anchor.fm/s/1173891c8/podcast/rss). Apple no aloja el audio, lo
-      toma del feed, asi que publicar en Spotify actualiza Apple solo. Verificado
-      con HTTP 200 en las tiendas cl y us. Ojo con la URL larga que muestra
-      Apple, porque su slug lleva un guion largo que la URL real NO tiene y con
-      el responde 404; la forma corta /<pais>/podcast/id<ID> es estable y
-      redirige a la canonica.
+    nota: Mismo episodio, distribuido por el feed RSS de Spotify for Creators (https://anchor.fm/s/1173891c8/podcast/rss).
+      Apple no aloja el audio, lo toma del feed, asi que publicar en Spotify actualiza
+      Apple solo. Verificado con HTTP 200 en las tiendas cl y us. Ojo con la URL larga
+      que muestra Apple, porque su slug lleva un guion largo que la URL real NO tiene
+      y con el responde 404; la forma corta /<pais>/podcast/id<ID> es estable y redirige
+      a la canonica.
   - plataforma: spotify
     fecha: '2026-09-13'
     url_publicada: https://open.spotify.com/episode/12NEz2cVGNVNVP1ifnctfo
     estado: publicado
-    nota: Capsula de audio en espanol, primer episodio del podcast. Show en
-      https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE y feed RSS en
-      https://anchor.fm/s/1173891c8/podcast/rss. No hay version en ingles del audio.
-      El post enlaza a este episodio; desde el 2026-09-15 el sitio no aloja el archivo.
+    nota: Capsula de audio en espanol, primer episodio del podcast. Show en https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE
+      y feed RSS en https://anchor.fm/s/1173891c8/podcast/rss. No hay version en ingles
+      del audio. El post enlaza a este episodio; desde el 2026-09-15 el sitio no aloja
+      el archivo.
   - plataforma: mastodon
     fecha: '2026-09-10'
     url_publicada: https://mastodon.social/@asiole/117249573006292013
