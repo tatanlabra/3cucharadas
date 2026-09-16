@@ -102,7 +102,12 @@ build_site:
   artifacts:
     paths:
       - public
-    expire_in: 1 week
+    # Una semana era de sobra: el unico consumidor de este artefacto es el job
+    # `pages`, que corre minutos despues por `dependencies`. Medido el
+    # 2026-09-16: cada copia pesa 81 MiB y el proyecto acumulaba 5.001 MiB en
+    # artefactos, 19 veces lo que pesa el repositorio. Un dia deja margen para
+    # reintentar `pages` el mismo dia sin reconstruir.
+    expire_in: 1 day
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
     - if: '$CI_COMMIT_BRANCH == "main"'
@@ -115,6 +120,12 @@ pages:
   artifacts:
     paths:
       - public
+    # Sin `expire_in` heredaba el default de la instancia, 30 dias, y duplicaba
+    # los 81 MiB de build_site en cada pipeline. El sitio NO depende de este
+    # artefacto: GitLab guarda el despliegue aparte. Comprobado el 2026-09-16 —
+    # la API devuelve un unico `deployment` activo y hay jobs `pages` con su
+    # artefacto ya expirado mientras el sitio sigue sirviendose.
+    expire_in: 1 day
   rules:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
     - if: '$CI_COMMIT_BRANCH == "main"'
