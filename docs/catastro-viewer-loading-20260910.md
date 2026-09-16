@@ -184,7 +184,7 @@ La comprobación del navegador se cerró sin modificar datos fuente.
 
 ## Auditoría adicional del 11-09-2026: tiempos, CORS y planificación de frames
 
-Se repitió la medición sobre los mismos assets locales del commit `b293b365`,
+Se repitió la medición sobre los mismos assets locales del commit `f6579e60`,
 Chromium headless 151, mediante tres procesos nuevos y dos navegaciones con el
 tercer proceso reutilizado. Viewport fijo 1.280 × 900, misma URL y sonda. La caché
 del sistema operativo, la carga del host y los servicios externos no se reiniciaron.

@@ -30,7 +30,7 @@ tasks:
 rollback: Revertir solo el commit de reparación; las publicaciones requieren rollback explícito del CLI, nunca git revert.
 status: complete
 release:
-  commit: e77c03ea58dc4b2205cb3bc69f9cc170fa2d7822
+  commit: 38841cee70173c0c84e950c3b8a740aa9164627d
   remotes: [gitlab/main, github/main]
   pipeline: https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843662335
   evidence: docs/releases/20260912-social-closeout/remote-ci.json

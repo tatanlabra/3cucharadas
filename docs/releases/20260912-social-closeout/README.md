@@ -1,11 +1,11 @@
 # Avalúos II: reparación y cierre social
 
-Reparación `e77c03ea58dc4b2205cb3bc69f9cc170fa2d7822` subida a GitLab y GitHub.
+Reparación `38841cee70173c0c84e950c3b8a740aa9164627d` subida a GitLab y GitHub.
 [Pipeline #253](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843662335)
 terminó en success: build y Pages aprobados. Evidencia en `remote-ci.json`.
 
 El agente omitió Mastodon/Bluesky al declarar `distribution.social: false` en ES/EN
-en `b4638115`, pese a la autorización de difusión. No fue un fallo de credenciales:
+en `87c5ea09`, pese a la autorización de difusión. No fue un fallo de credenciales:
 las cuentas autenticaron y ambas URLs del post respondieron HTTP 200.
 
 El hook instalado solo resuelve destinos; no existe un emisor automático conectado

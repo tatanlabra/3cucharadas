@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "verified_at": "2026-09-12T05:06:30-03:00",
-  "commit": "910e07023a4976c02c0e146a6c265afa3e2dbb38",
+  "commit": "c27330b6b48c764739cf0b1d733f9b50327b4b5e",
   "remotes": {
-    "gitlab_main": "910e07023a4976c02c0e146a6c265afa3e2dbb38",
-    "github_main": "910e07023a4976c02c0e146a6c265afa3e2dbb38"
+    "gitlab_main": "c27330b6b48c764739cf0b1d733f9b50327b4b5e",
+    "github_main": "c27330b6b48c764739cf0b1d733f9b50327b4b5e"
   },
   "ci": {
     "gitlab_pipeline": {

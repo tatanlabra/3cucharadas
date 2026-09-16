@@ -5,14 +5,14 @@
 | Fase | Estado | Evidencia / siguiente gate |
 |---|---|---|
 | F0 Custodia | [x] | 1.325 archivos, bundle completo, restore y tres negativos rechazados |
-| F1 Reconciliación | [x] | Base 75f80d72 + historia f91498b7; archivo externo verificado; gobernanza verde |
+| F1 Reconciliación | [x] | Base 28bbbc8f + historia 096b2e16; archivo externo verificado; gobernanza verde |
 | F2 Entorno | [x] | Instalación aislada: 52 gems; doctor reparado; 5 tests/38 aserciones, stringex rojo/verde y paridad HTML ES/EN; runtime 2/9 |
 | F3 Dependencias/gates | [x] | Cinco actualizaciones conservadoras; contrato local y tres builds verdes |
 | F4 Interfaz/rendimiento | [x] | 22 combinaciones de la candidata, revisión completa de incompletos, interacción/fallback y ensayo controlado; ver suplemento de validación |
 | F4.1 Paleta nocturna | [x] | Teal tenue, contraste 10,83:1, tema claro y teclado conservados |
 | F4.2–4.4 Accesibilidad emergente | [x] | Paginación, fórmulas móviles y roles Catastro: fallo observado y recuperación |
 | F5 Consumidores/DEV | [x] | 7 publicados/0 borradores; workflow 34071908861 confirma NO_OP, 0 escrituras, ledger intacto |
-| F6 Producción | [x] | Release aa98dabf, ambos remotos, CI/Pages y perfil release ampliado verdes; paridad real CSS/JS de Catastro comprobada |
+| F6 Producción | [x] | Release ce943901, ambos remotos, CI/Pages y perfil release ampliado verdes; paridad real CSS/JS de Catastro comprobada |
 
 ## Custodia y reconciliación
 
@@ -57,13 +57,13 @@ paths, tamaños, hashes, commit de procedencia, responsable, función y retenci�
 
 Los seis entregables se retiran únicamente de la candidata publicable después de
 verificar la copia. Se recuperan desde ese archivo, el respaldo F0 o el commit
-`f91498b7`. Responsable: editorial-multiagente. Retención: hasta reemplazo explícito
+`096b2e16`. Responsable: editorial-multiagente. Retención: hasta reemplazo explícito
 y restauración comprobada. Los documentos de captura permanecen como historia;
 sus enlaces originales se resuelven restaurando el paquete completo del archivo.
 
 ## Validación local y contraejemplos
 
-La candidata integra el remoto 75f80d72 y conserva f91498b7 en su ascendencia.
+La candidata integra el remoto 28bbbc8f y conserva 096b2e16 en su ascendencia.
 Antes de actualizar el checkout operativo se repitió el cotejo de sus 1.325 hashes:
 `PASS unchanged live snapshot`. Los 23 paths quedaron además en el stash
 `site-health-20260906: original pending work preserved; see F0 backup`.
@@ -84,7 +84,7 @@ Antes de actualizar el checkout operativo se repitió el cotejo de sus 1.325 has
 
 Ejecución en `/tmp/3c-health-run-LCLqKQ`: `recovery/local.json` acredita la suite
 verde anterior a la última corrección ARIA; `pre-release/report.json` repitió
-pruebas y builds sobre 27069d2b, pero salió 1: ambos remotos seguían en 75f80d72
+pruebas y builds sobre 87626199, pero salió 1: ambos remotos seguían en 28bbbc8f
 y no había pipeline del candidato. Esto demuestra que HTTP 200 del sitio viejo
 no basta para aprobar producción. El informe final debe repetirse tras el push.
 
@@ -163,7 +163,7 @@ workflows con fixture rojo/verde. La corrida siguiente sí llegó al inventario
 autenticado y se detuvo correctamente por duplicados.
 
 El pipeline https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2824859252
-publicó df3d67bd; build_site y pages exitosos. El CSS que enlaza el HTML público
+publicó 295b0290; build_site y pages exitosos. El CSS que enlaza el HTML público
 (`/assets/css/main.css?v=1788735697`) coincide byte a byte con el build local:
 `daee7bc59122690338d3600367554b82c66404b3a102320b2566635a2b29627d`.
 La comprobación inicial consultaba la URL sin versión y dio falsa alarma por su

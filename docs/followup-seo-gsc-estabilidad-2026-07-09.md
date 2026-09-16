@@ -18,11 +18,11 @@ Arquitectura objetivo:
 - Rama actual: `post-publicacion-dominio-propio`.
 - Arbol local: limpio al cierre de la revision previa.
 - Cambios locales ya comiteados:
-  - `c4729a85 fix(seo): estabilizar canonical y 404`
-  - `ed5d5678 ci(pages): estabilizar redirector github`
-  - `67f82ff6 chore(drafts): retirar borrador bayes obsoleto`
-  - `7de469af draft(posts): agregar borrador predial v44`
-  - `668b3207 chore(assets): conservar imagen fuente rss governance`
+  - `e3fcd3fe fix(seo): estabilizar canonical y 404`
+  - `1a82fd7c ci(pages): estabilizar redirector github`
+  - `ca3e667a chore(drafts): retirar borrador bayes obsoleto`
+  - `549be27d draft(posts): agregar borrador predial v44`
+  - `d71e3f83 chore(assets): conservar imagen fuente rss governance`
 - Redirector GitHub local actualizado en rama `gh-pages-redirect`:
   - `c4e4bcc4 chore(pages): actualizar redirector github`
 

@@ -1,7 +1,7 @@
 # Avalúos II: revisión local del 10 de septiembre de 2026
 
 Preparación local, sin push ni publicación. Contrato: `avaluos-ii-polish-contract.yaml`.
-Baselines: blog `e986f238`, análisis `32c6fa3`. Los datos crudos se conservaron.
+Baselines: blog `7e80744e`, análisis `32c6fa3`. Los datos crudos se conservaron.
 
 ## Resultado analítico y editorial
 
@@ -124,7 +124,7 @@ Comandos de reproducción: `scripts/catastro_sii/validate_build.sh` con Node de
 `ruby scripts/verify_visual_assets.rb --strict` y build Jekyll con borradores.
 Las capturas de esta revisión están en `/tmp/polish-*`; los resultados resumidos
 y los scripts de medición quedan versionados. Código registrado localmente en
-`6986f7dc` (blog) y `b8eeb59` (análisis), con árboles limpios después de esos commits.
+`4363ffe5` (blog) y `b8eeb59` (análisis), con árboles limpios después de esos commits.
 El preview respondió HTTP 200 y los hashes de CSS, app.js y site-ui.js servidos
 coincidieron con los citados por su HTML. Este cierre documental no cambia código.
 No se realizó push ni publicación; Jekyll 4004 permanece activo.

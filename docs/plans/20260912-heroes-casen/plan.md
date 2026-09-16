@@ -157,7 +157,7 @@ Validación reproducible de este paquete: ejecutar `python3 docs/plans/20260912-
 - Primero commit analítico local en catastros_sii: feat(casen): add shared-site household sensitivity.
 - Luego commit blog de sistema visual/atribución con sus assets y todos sus consumidores.
 - Después commit blog coherente de CASEN, figuras y relato ES/EN; figuras y texto viajan juntos para no dejar publicaciones intermedias contradictorias.
-- Conservar historial local existente bf1ff5ac en blog y 93e3dba en analítico; no reset/rebase/push por iniciativa.
+- Conservar historial local existente 7a14c676 en blog y 93e3dba en analítico; no reset/rebase/push por iniciativa.
 - Autor y committer tatan <tatanlabra@gmail.com>, verificados a nivel local y global antes de commit.
 - Rollback sobre cambios propios no publicados; fuentes, evidencia y cambios ajenos permanecen. No restaurar todo el repositorio.
 - Una mejora fuera del scope queda registrada; una corrección necesaria recibe tarea y gate; un cambio material de método/publicación se consulta por vía nativa.

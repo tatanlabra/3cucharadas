@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "status": "prepared_before_measurement",
-  "baseline": "e986f238",
-  "candidate": "6b46731e",
+  "baseline": "7e80744e",
+  "candidate": "b3f35898",
   "server": "http://127.0.0.1:4004",
   "route": "/__catastro_benchmark/{revision}/?vista=mapa#bivariate-card",
   "viewport_px": [1280, 577],

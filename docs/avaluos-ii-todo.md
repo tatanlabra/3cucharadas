@@ -46,7 +46,7 @@ Corte: 11-09-2026. El usuario autorizó publicar al terminar los pasos y revisio
 | F11: diagnóstico delegado de imagegen | [x] | [Auditoría](avaluos-ii-imagegen-diagnosis-20260911.md): generación y edición local comprobadas, rúbrica previa y tarjeta real revisada | La corrección de la skill global no formaba parte de la auditoría; sin ranking experimental entre proveedores |
 | F12: convención de título y sistema visual | [x] | Recall y corpus confirman «tema en 3 cucharadas II» y Tokyo Night; títulos ES/EN, cuatro formatos, pipeline 2842837117 y [hashes públicos](avaluos-ii-title-visual-production-receipt-20260912.json) verificados | Axe deja inconcluso el contraste sobre gradientes; no se probó Safari ni un iPhone físico |
 | Solicitud institucional | [ ] | Texto concreto preparado, no enviado | El envío requiere autorización explícita; no hay respuesta institucional pendiente |
-| Push y publicación | [x] | Commit de implementación 9b5ddf83 enviado a GitLab y GitHub; pipeline 2842505278 aprobado; tres páginas y 58 recursos verificados | Recibo productivo y contrato R4 completos; conservar el ajuste automático posterior del espejo |
+| Push y publicación | [x] | Commit de implementación fac856ff enviado a GitLab y GitHub; pipeline 2842505278 aprobado; tres páginas y 58 recursos verificados | Recibo productivo y contrato R4 completos; conservar el ajuste automático posterior del espejo |
 
 ## Evidencia y reproducción
 

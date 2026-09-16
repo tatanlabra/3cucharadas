@@ -54,6 +54,6 @@ Axe 4.12.1 acotado a WCAG 2 A/AA produjo cero violaciones, 30 comprobaciones apr
 
 ## Cierre productivo
 
-El commit `910e07023a4976c02c0e146a6c265afa3e2dbb38` quedó en `main` de GitLab y GitHub. El pipeline GitLab `2842837117` aprobó build y Pages en 172 segundos; GitHub Pages y el workflow auxiliar de dev.to terminaron en verde. Este último actualizó siete publicaciones ya existentes y no creó una entrada para Avalúos II ni modificó `_data/distribucion.yml`.
+El commit `c27330b6b48c764739cf0b1d733f9b50327b4b5e` quedó en `main` de GitLab y GitHub. El pipeline GitLab `2842837117` aprobó build y Pages en 172 segundos; GitHub Pages y el workflow auxiliar de dev.to terminaron en verde. Este último actualizó siete publicaciones ya existentes y no creó una entrada para Avalúos II ni modificó `_data/distribucion.yml`.
 
 Las páginas ES/EN y los cuatro activos devolvieron HTTP 200. Los títulos efectivos coinciden con el front matter corregido; dimensiones, bytes y SHA-256 públicos coinciden con los archivos aprobados. El [recibo productivo](avaluos-ii-title-visual-production-receipt-20260912.json) cierra C4 y el contrato completo.

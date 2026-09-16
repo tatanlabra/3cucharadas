@@ -60,7 +60,7 @@ tasks:
     esperados.
 completion:
   production_verified_at: '2026-09-12T02:43:30.477790+00:00'
-  implementation_commit: 9b5ddf83048e02397875c55eab4e9b33528675ca
+  implementation_commit: fac856ff3b911e85c46a1327022fc22cc2962f39
   pipeline: https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842505278
   observed: Tres páginas HTTP 200, contenido verificado y 58 recursos con SHA-256 coincidente; CI productivo aprobado.
   remaining_publication_tasks: []

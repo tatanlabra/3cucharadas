@@ -2,10 +2,10 @@
 
 **Estado documental:** `validado`
 **Fecha de estado:** 2026-09-06
-**Evidencia de estado:** DEV resuelto; F6.1 comprobado en producción, release aa98dabf aprobada.
+**Evidencia de estado:** DEV resuelto; F6.1 comprobado en producción, release ce943901 aprobada.
 
 **Estado de implementación:** `implementado`
-**Evidencia de implementación:** F0–F6 verificados, incluida paridad real del CSS y JavaScript de Catastro en aa98dabf.
+**Evidencia de implementación:** F0–F6 verificados, incluida paridad real del CSS y JavaScript de Catastro en ce943901.
 
 ## Metadata
 

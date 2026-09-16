@@ -1,13 +1,13 @@
 # Evidencia de cierre: difusión y gobernanza — 2026-09-06
 
 Medición final: 2026-09-06 18:25, America/Santiago. SHA auditado:
-`03cb4e472d50a0f1b2cba2c77081a4ff63936826`.
+`747e418e466d65970b3c0219ef819952db93ba4c`.
 
 ## Estado probado
 
 | Superficie | Resultado medido |
 |---|---|
-| GitLab y GitHub `main` | Mismo SHA `03cb4e47` |
+| GitLab y GitHub `main` | Mismo SHA `747e418e` |
 | GitLab pipeline `#226` | `build_site` y `pages` en `success` |
 | GitHub DEV.to run `34057422194` | 7 actualizaciones OK; sin 429 |
 | Producción | Avalúo, Multiagente II y portada WebP respondieron HTTP 200 |
@@ -53,7 +53,7 @@ actual del borrador.
 
 ## Checkout compartido
 
-El checkout operativo permaneció en `47234acd`, 10 commits detrás del remoto, para
+El checkout operativo permaneció en `c33178ee`, 10 commits detrás del remoto, para
 no pisar trabajo concurrente. Su estado contenía 32 rutas:
 
 | Clase | Rutas |

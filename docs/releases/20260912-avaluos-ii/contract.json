@@ -17,12 +17,12 @@
   "body_checks": [
     {
       "path": "_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
-      "body_unchanged_from": "9b6d4eae",
+      "body_unchanged_from": "92bbf0dc",
       "sha256": "6d91e9819886643386cf831c970b4453632afe413c952e75e86f55a70674db38"
     },
     {
       "path": "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md",
-      "body_unchanged_from": "9b6d4eae",
+      "body_unchanged_from": "92bbf0dc",
       "sha256": "f87268443b6a9fee64f76c30bc055afde591a0a8d13ac065c984e912997b7a6c"
     }
   ],
@@ -78,5 +78,5 @@
     "LinkedIn/X login required; no external social write has occurred"
   ],
   "rollback": "Use selective git revert of release commits and normal push after determining required restoration; never reset remote history.",
-  "release_commit": "b46381156ed259bbbdc2aea1e615ca3596174eb8"
+  "release_commit": "87c5ea095eb7749c897b71ec2a410a155fe7ea79"
 }

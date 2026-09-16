@@ -293,7 +293,7 @@
           577
         ],
         "timeOrigin": 1789098336654.5,
-        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/?vista=mapa#bivariate-card",
         "registerMap": {},
         "domReady": 271.79999999701977,
         "initialStyle": {
@@ -901,7 +901,7 @@
       ],
       "resources": [
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
           "ms": 62.20000000298023,
           "duration": 37.79999999701977,
           "transfer": 53429,
@@ -922,42 +922,42 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-config.js",
           "ms": 65.09999999403954,
           "duration": 39.29999999701977,
           "transfer": 526,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/site-ui.js",
           "ms": 65.79999999701977,
           "duration": 86.29999999701977,
           "transfer": 2047,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
           "ms": 66.29999999701977,
           "duration": 157.20000000298023,
           "transfer": 21340,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "ms": 66.79999999701977,
           "duration": 156.29999999701977,
           "transfer": 2547,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/comunas.json",
           "ms": 269.09999999403954,
           "duration": 20.299999997019768,
           "transfer": 643734,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/regiones.json",
           "ms": 269.3999999910593,
           "duration": 17.900000005960464,
           "transfer": 2488,
@@ -978,7 +978,7 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/manifest.json",
           "ms": 811.2000000029802,
           "duration": 5.299999997019768,
           "transfer": 2730,
@@ -992,42 +992,42 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "ms": 818.3999999910593,
           "duration": 44.80000001192093,
           "transfer": 3567,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-C-IzAo2O.js",
           "ms": 818.8999999910593,
           "duration": 5,
           "transfer": 5990,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
           "ms": 842.0999999940395,
           "duration": 9.400000005960464,
           "transfer": 1046820,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "ms": 842.5999999940395,
           "duration": 7.200000002980232,
           "transfer": 458,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "ms": 843,
           "duration": 65,
           "transfer": 2506,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/app-CzlKAm3w.css",
           "ms": 844.0999999940395,
           "duration": 50,
           "transfer": 83228,
@@ -1090,7 +1090,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
           "ms": 1333.2999999970198,
           "duration": -19.700000002980232,
           "transfer": 478032,
@@ -1172,14 +1172,14 @@
       "network": [
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/?vista=mapa",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100664.817788
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100664.889485
@@ -1200,49 +1200,49 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-config.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100664.996508
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/site-ui.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100664.99906
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.010425
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.011094
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.571426
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/comunas.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.571826
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/regiones.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.572079
@@ -1263,7 +1263,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.600914
@@ -1277,42 +1277,42 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.608325
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-C-IzAo2O.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.609932
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.635825
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/app-CzlKAm3w.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.641333
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.690361
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100665.69419
@@ -1440,7 +1440,7 @@
       "variant": "baseline",
       "mode": "cold",
       "ordinal": "cold1",
-      "revision": "e986f238"
+      "revision": "7e80744e"
     },
     {
       "id": "baseline-cold1-attempt2",
@@ -1715,7 +1715,7 @@
           577
         ],
         "timeOrigin": 1789098348897.9,
-        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa#bivariate-card",
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/?vista=mapa#bivariate-card",
         "registerMap": {},
         "domReady": 595,
         "initialStyle": {
@@ -2323,7 +2323,7 @@
       ],
       "resources": [
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
           "ms": 22.299999997019768,
           "duration": 21.900000005960464,
           "transfer": 53429,
@@ -2344,42 +2344,42 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-config.js",
           "ms": 23.5,
           "duration": 75.20000000298023,
           "transfer": 526,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/site-ui.js",
           "ms": 23.700000002980232,
           "duration": 42.099999994039536,
           "transfer": 2047,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
           "ms": 23.900000005960464,
           "duration": 42.099999994039536,
           "transfer": 21340,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "ms": 24.099999994039536,
           "duration": 75.6000000089407,
           "transfer": 2547,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/comunas.json",
           "ms": 513.7999999970198,
           "duration": 12.600000008940697,
           "transfer": 643734,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/regiones.json",
           "ms": 513.9000000059605,
           "duration": 11.099999994039536,
           "transfer": 2488,
@@ -2393,7 +2393,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/manifest.json",
           "ms": 624.2999999970198,
           "duration": 6.799999997019768,
           "transfer": 2730,
@@ -2407,14 +2407,14 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "ms": 633.2000000029802,
           "duration": 45.599999994039536,
           "transfer": 3567,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-C-IzAo2O.js",
           "ms": 633.7000000029802,
           "duration": 8.5,
           "transfer": 5990,
@@ -2428,28 +2428,28 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
           "ms": 795.7000000029802,
           "duration": 33.20000000298023,
           "transfer": 1046820,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "ms": 796.2999999970198,
           "duration": 29.100000008940697,
           "transfer": 458,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "ms": 796.7000000029802,
           "duration": 46.3999999910593,
           "transfer": 2506,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/app-CzlKAm3w.css",
           "ms": 798.2000000029802,
           "duration": 41.70000000298023,
           "transfer": 83228,
@@ -2519,7 +2519,7 @@
           "status": 206
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
           "ms": 1236.7999999970198,
           "duration": -56.3999999910593,
           "transfer": 478032,
@@ -2594,14 +2594,14 @@
       "network": [
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/?vista=mapa",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/?vista=mapa",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.038471
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/style.css?v=7f59d198501ad20af6fc187f4804a310552b17210a43bafd10471298b0ee344a",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.070277
@@ -2622,49 +2622,49 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/site-ui.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/site-ui.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.507455
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/app.js?v=254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.50779
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-config.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.50823
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.508622
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.62813
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/regiones.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.628519
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/data/comunas.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.628736
@@ -2678,7 +2678,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.658742
@@ -2692,7 +2692,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.66765
@@ -2706,35 +2706,35 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/main-C-IzAo2O.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/main-C-IzAo2O.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.787308
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.857478
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/app-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/app-CzlKAm3w.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.908449
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.909571
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/e986f238/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/chunks/app-BAp0uObk.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100677.942561
@@ -2862,7 +2862,7 @@
       "variant": "baseline",
       "mode": "cold",
       "ordinal": "cold1",
-      "revision": "e986f238"
+      "revision": "7e80744e"
     },
     {
       "id": "candidate-cold1-attempt1",
@@ -3092,7 +3092,7 @@
           577
         ],
         "timeOrigin": 1789098353998.3,
-        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa#bivariate-card",
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa#bivariate-card",
         "registerMap": {},
         "domReady": 927.9000000059605,
         "initialStyle": {
@@ -3700,7 +3700,7 @@
       ],
       "resources": [
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "ms": 39.599999994039536,
           "duration": 29.80000001192093,
           "transfer": 59181,
@@ -3728,42 +3728,42 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "ms": 41.400000005960464,
           "duration": 84.29999999701977,
           "transfer": 526,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "ms": 41.5,
           "duration": 49.5,
           "transfer": 7711,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "ms": 41.70000000298023,
           "duration": 84.3999999910593,
           "transfer": 21762,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "ms": 41.79999999701977,
           "duration": 85.5,
           "transfer": 2547,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "ms": 684.4000000059605,
           "duration": 26.19999998807907,
           "transfer": 643734,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "ms": 684.9000000059605,
           "duration": 25,
           "transfer": 2488,
@@ -3777,7 +3777,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "ms": 988.4000000059605,
           "duration": 13.799999997019768,
           "transfer": 3204,
@@ -3798,35 +3798,35 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "ms": 1219.7000000029802,
           "duration": 16.399999991059303,
           "transfer": 3567,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "ms": 1220.4000000059605,
           "duration": 16,
           "transfer": 5820,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "ms": 1245,
           "duration": 60.5,
           "transfer": 26650,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "ms": 1245.7000000029802,
           "duration": 60.29999999701977,
           "transfer": 2506,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "ms": 1247.4000000059605,
           "duration": 22.599999994039536,
           "transfer": 1663,
@@ -3868,21 +3868,21 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "ms": 1481.0999999940395,
           "duration": 19.200000002980232,
           "transfer": 1024342,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "ms": 1481.5999999940395,
           "duration": 16.400000005960464,
           "transfer": 458,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "ms": 1482.4000000059605,
           "duration": 14.899999991059303,
           "transfer": 83228,
@@ -3910,7 +3910,7 @@
           "status": 206
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
           "ms": 1773.7999999970198,
           "duration": -73.79999999701977,
           "transfer": 478032,
@@ -3964,14 +3964,14 @@
       "network": [
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.149546
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.187197
@@ -3999,42 +3999,42 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.764351
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.766078
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.766617
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100682.767098
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.061992
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.062573
@@ -4048,7 +4048,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.063171
@@ -4062,7 +4062,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.132573
@@ -4076,35 +4076,35 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.366177
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.368827
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.575992
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.57647
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.576799
@@ -4146,14 +4146,14 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.626582
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.638087
@@ -4167,7 +4167,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100683.690663
@@ -4225,7 +4225,7 @@
       "variant": "candidate",
       "mode": "cold",
       "ordinal": "cold1",
-      "revision": "6b46731e"
+      "revision": "b3f35898"
     },
     {
       "id": "candidate-cold2-attempt1",
@@ -4468,7 +4468,7 @@
           577
         ],
         "timeOrigin": 1789098358216.6,
-        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa#bivariate-card",
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa#bivariate-card",
         "registerMap": {},
         "domReady": 230.90000000596046,
         "initialStyle": {
@@ -5076,7 +5076,7 @@
       ],
       "resources": [
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "ms": 55.20000000298023,
           "duration": 34.5,
           "transfer": 59181,
@@ -5104,42 +5104,42 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "ms": 58.900000005960464,
           "duration": 93,
           "transfer": 526,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "ms": 59.400000005960464,
           "duration": 143.5,
           "transfer": 7711,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "ms": 59.900000005960464,
           "duration": 115.59999999403954,
           "transfer": 21762,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "ms": 60.400000005960464,
           "duration": 160.5,
           "transfer": 2547,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "ms": 228.6000000089407,
           "duration": 14.599999994039536,
           "transfer": 643734,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "ms": 229.1000000089407,
           "duration": 13,
           "transfer": 2488,
@@ -5153,7 +5153,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "ms": 614.2000000029802,
           "duration": 5.0999999940395355,
           "transfer": 3204,
@@ -5167,14 +5167,14 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "ms": 621.1000000089407,
           "duration": 47.19999998807907,
           "transfer": 3567,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "ms": 621.4000000059605,
           "duration": 7.5,
           "transfer": 5820,
@@ -5188,21 +5188,21 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "ms": 632,
           "duration": 44.20000000298023,
           "transfer": 26650,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "ms": 632.2999999970198,
           "duration": 5.4000000059604645,
           "transfer": 2506,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "ms": 632.5,
           "duration": 48.79999999701977,
           "transfer": 1663,
@@ -5244,21 +5244,21 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "ms": 716.2000000029802,
           "duration": 12.200000002980232,
           "transfer": 1024342,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "ms": 716.6000000089407,
           "duration": 47.3999999910593,
           "transfer": 458,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "ms": 717.4000000059605,
           "duration": 9.700000002980232,
           "transfer": 83228,
@@ -5279,7 +5279,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
           "ms": 1019,
           "duration": 24.900000005960464,
           "transfer": 478032,
@@ -5340,14 +5340,14 @@
       "network": [
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.372581
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.439637
@@ -5375,49 +5375,49 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.523179
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.535095
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.551108
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.577209
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.941346
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.941801
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.941964
@@ -5431,7 +5431,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.965823
@@ -5445,7 +5445,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.97434
@@ -5459,28 +5459,28 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.977227
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100686.985608
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100687.029229
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100687.031186
@@ -5522,7 +5522,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100687.084382
@@ -5536,14 +5536,14 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100687.111921
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100687.118019
@@ -5601,7 +5601,7 @@
       "variant": "candidate",
       "mode": "cold",
       "ordinal": "cold2",
-      "revision": "6b46731e"
+      "revision": "b3f35898"
     },
     {
       "id": "candidate-cold2-attempt2",
@@ -5844,7 +5844,7 @@
           577
         ],
         "timeOrigin": 1789098370182,
-        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa#bivariate-card",
+        "initialUrl": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa#bivariate-card",
         "registerMap": {},
         "domReady": 203.09999999403954,
         "initialStyle": {
@@ -6452,7 +6452,7 @@
       ],
       "resources": [
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "ms": 49.70000000298023,
           "duration": 19.19999998807907,
           "transfer": 59181,
@@ -6480,42 +6480,42 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "ms": 51.3999999910593,
           "duration": 74.1000000089407,
           "transfer": 526,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "ms": 51.70000000298023,
           "duration": 72.29999999701977,
           "transfer": 7711,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "ms": 51.79999999701977,
           "duration": 123.90000000596046,
           "transfer": 21762,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "ms": 52.099999994039536,
           "duration": 130.40000000596046,
           "transfer": 2547,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "ms": 201.20000000298023,
           "duration": 12.599999994039536,
           "transfer": 643734,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "ms": 201.5,
           "duration": 11.200000002980232,
           "transfer": 2488,
@@ -6529,7 +6529,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "ms": 604.5,
           "duration": 5.200000002980232,
           "transfer": 3204,
@@ -6543,14 +6543,14 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "ms": 611.5,
           "duration": 47,
           "transfer": 3567,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "ms": 611.8999999910593,
           "duration": 8.600000008940697,
           "transfer": 5820,
@@ -6564,21 +6564,21 @@
           "status": 404
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "ms": 623.5999999940395,
           "duration": 45.20000000298023,
           "transfer": 26650,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "ms": 624,
           "duration": 5.0999999940395355,
           "transfer": 2506,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "ms": 624.2999999970198,
           "duration": 49.099999994039536,
           "transfer": 1663,
@@ -6620,21 +6620,21 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "ms": 692.0999999940395,
           "duration": 13.5,
           "transfer": 1024342,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "ms": 692.5999999940395,
           "duration": 48,
           "transfer": 458,
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "ms": 693.5,
           "duration": 10.399999991059303,
           "transfer": 83228,
@@ -6655,7 +6655,7 @@
           "status": 200
         },
         {
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js",
           "ms": 1049.3999999910593,
           "duration": -24.5,
           "transfer": 478032,
@@ -6716,14 +6716,14 @@
       "network": [
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/?vista=mapa",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/?vista=mapa",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.334933
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/style.css?v=5ce41b3d69a63bf9b067fc0e91a6df7dfad69a3c6517f5156ad0a014004d1d1b",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.385317
@@ -6751,49 +6751,49 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/site-ui.js?v=1a40049e0112a00a5757a33ec6a706d272236092c8ec0c385fd1a8f51673c2b3",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.451818
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-config.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-config.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.452201
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/app.js?v=1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.489571
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/map-app-loader.js?v=9d87c4c9ce4458e05d9bcc2372740aae2566dd59238ef3f9c5eae028a49f98df",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.514906
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/comunas.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/comunas.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.896738
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.897203
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/data/regiones.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/data/regiones.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.897383
@@ -6807,7 +6807,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/manifest.json",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/manifest.json",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.921644
@@ -6821,7 +6821,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-BlW7oOGO.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-BlW7oOGO.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.931223
@@ -6835,28 +6835,28 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/main-C5TYS6iA.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/main-C5TYS6iA.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.93415
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/state-CXsuapt9.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.942566
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/app-o1ESgcOi.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.982843
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/data-nQG8qOHv.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100698.986862
@@ -6898,7 +6898,7 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/map-CzlKAm3w.css",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/map-CzlKAm3w.css",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100699.024875
@@ -6912,14 +6912,14 @@
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/rolldown-runtime-DK3Fl9T5.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100699.053955
         },
         {
           "event": "response",
-          "url": "http://127.0.0.1:4004/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
+          "url": "http://127.0.0.1:4004/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/chunks/map-DEg2aPEU.js",
           "status": 200,
           "fromDiskCache": false,
           "timestamp": 100699.068776
@@ -6977,7 +6977,7 @@
       "variant": "candidate",
       "mode": "cold",
       "ordinal": "cold2",
-      "revision": "6b46731e"
+      "revision": "b3f35898"
     }
   ],
   "evaluation": {

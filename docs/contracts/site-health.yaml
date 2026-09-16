@@ -38,7 +38,7 @@ phases:
     exit_gate: Candidate governance passes and all path dispositions are recorded.
     evidence: docs/evidence/site-health-20260906.md and external video manifest.
     falsified_by: Governance rejected the two unowned MP4 before their verified archival removal.
-    rollback: Restore f91498b7 and the F0 working snapshot.
+    rollback: Restore 096b2e16 and the F0 working snapshot.
   - id: F2
     objective: Reproducible dependencies and working diagnostics.
     invariants: Preserve anchors, multilingual URLs and host runtime.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "measured_at_utc": "2026-09-11T03:15:00Z",
-  "source_commit": "b293b365",
+  "source_commit": "f6579e60",
   "url": "http://127.0.0.1:4004/catastro_sii_brecha/?vista=mapa#bivariate-card",
   "browser": "HeadlessChrome/151.0.0.0 Linux x86_64",
   "cold_definition": "New browser process, about:blank then fixed viewport before navigation; OS cache and external infrastructure not reset.",

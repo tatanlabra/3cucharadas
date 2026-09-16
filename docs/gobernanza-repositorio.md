@@ -23,10 +23,10 @@ cumplir— y las cápsulas pasaron a publicarse como episodios de podcast en Spo
 43,3 MB, el artefacto bajó del 10,32 % al 6,2 % del límite de Pages, y el patrón `assets/audio/**`
 entró en `tracked_forbidden_patterns` para que volver a versionar audio exija editar el contrato.
 
-A diferencia de las dos retiradas anteriores de vídeo —`76a66e87` y `a210ba4d`, que sacaron los
+A diferencia de las dos retiradas anteriores de vídeo —`c64d7184` y `d28041cb`, que sacaron los
 archivos del árbol y **no liberaron un solo byte** porque sus blobs siguen en la historia—, esta vez
 se reescribió la historia con `git filter-repo`. El alcance fue de 157 commits: el vídeo entra en un
-único commit, `d8cfaf73`, y los audios en tres posteriores. Ningún handoff cita commits de este
+único commit, `ed94b93b`, y los audios en tres posteriores. Ningún handoff cita commits de este
 repositorio, así que la evidencia de gobernanza no se vio afectada; las citas de SHA de `docs/` se
 repararon con el `commit-map` que emite la herramienta.
 

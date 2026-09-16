@@ -47,7 +47,7 @@
     }
   ],
   "analysis_commit": "d3576aa",
-  "blog_commit": "9b6d4eae1398f6f96d3663843921663f1c7776ea",
+  "blog_commit": "92bbf0dcec46c0f9ace6cb8e0158539ad399f891",
   "performance": "40 complete observations; three relative LCP regressions over10%, all candidate group medians below2500ms; CLS maximum0.053783. Host CPU varied, so product-only causation is not established.",
   "discarded_optimization": "Deferring Lunr indexing removed longtasks but failed to improve LCP in eight diagnostic navigations; not adopted.",
   "next_step": "Establish a controlled low-load profiling interval and isolate font/layout/composition cost before further product changes; do not repeat samples until PASS or relax thresholds silently.",

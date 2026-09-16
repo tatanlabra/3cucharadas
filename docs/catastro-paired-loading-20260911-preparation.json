@@ -1,11 +1,11 @@
 {
   "variants": [
     {
-      "revision": "e986f2385c4e80a604738306e88e2427bec97467",
+      "revision": "7e80744eb892c31d00ed99abc66d7a3cc6408d84",
       "source_map_sha256": "c294758f42eee1e5631b4f7ebcc70c84f7225e64bf7cf8dce6244f1286a7a5db",
       "instrumented_map_sha256": "7d8afb20dbb6c70a55f85a939c51372f1e27a87bcd58e062a4804e5b2500d912",
       "package_lock_sha256": "b3578f2823c5d1695d639f260ab75bcf51af396d6fdb836cdda4132d667d7470",
-      "bundle_base": "/__catastro_benchmark/e986f238/assets/dist/catastro_sii/",
+      "bundle_base": "/__catastro_benchmark/7e80744e/assets/dist/catastro_sii/",
       "artifacts": {
         "app.js": "254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d",
         "assets/dist/catastro_sii/app-CzlKAm3w.css": "265a1b054adf92875b3740c2c858ef7d31c166933238a40dbb973eac023ab441",
@@ -34,11 +34,11 @@
       }
     },
     {
-      "revision": "6b46731ed607b4fefaa1fb5ce9dce32e8be630d0",
+      "revision": "b3f35898eeac72760559b007958f7f5176d031c8",
       "source_map_sha256": "f0d3e4408cfa0fc55289168037a25b45e70fa68a0a6b3699677cb0c201b81fd5",
       "instrumented_map_sha256": "45ae2f7d451c9a98c50f8a3ef46d89b8bda331d12e426881311308eb8f883ad4",
       "package_lock_sha256": "b3578f2823c5d1695d639f260ab75bcf51af396d6fdb836cdda4132d667d7470",
-      "bundle_base": "/__catastro_benchmark/6b46731e/assets/dist/catastro_sii/",
+      "bundle_base": "/__catastro_benchmark/b3f35898/assets/dist/catastro_sii/",
       "artifacts": {
         "app.js": "1714f860262b0eb7640ebae1c7e1309e89d3ecd61f0caca740e82618753eed08",
         "assets/dist/catastro_sii/assets/maplibre-gl-worker-Bz4HezZp.js": "c66b398e786071e378e82406bf98accc870650407cfbd9ff62946c46115d0a01",

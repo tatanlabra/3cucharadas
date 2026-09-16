@@ -112,7 +112,7 @@ phases:
       - "publish/nushell-20260829 está obsoleta; no fue fusionada."
       - "El worktree compartido conserva cambios previos del hook fuera del índice del release."
     resolved_incidents:
-      - "[x] Snapshot previo al release: HEAD=origin/main=github/main=893a8b79; divergencia remota 0/0."
+      - "[x] Snapshot previo al release: HEAD=origin/main=github/main=7506e167; divergencia remota 0/0."
       - "[x] Suite requerida verde y cero archivos ajenos en staging."
     evidence_required:
       - "git diff --check"
@@ -152,8 +152,8 @@ phases:
       ci_status: success
       origin_and_github_main_same_sha: true
     evidence:
-      - "release commit 5df980d1 en GitLab y GitHub"
-      - "registro dev.to d28fa2b4 replicado por fast-forward a GitLab"
+      - "release commit a6698fbd en GitLab y GitHub"
+      - "registro dev.to b5d7e536 replicado por fast-forward a GitLab"
       - "GitLab pipelines 215 y 216 success"
       - "GitHub workflow 33995688469 success; borrador dev.to 4584688"
     falsified_by: "slug duplicado, CI rojo, remoto divergente o commit con archivos ajenos"

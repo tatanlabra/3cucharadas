@@ -20,7 +20,7 @@
 
 - Observado: axe detectó contraste 2,38:1 en metadatos, color #545454 sobre #161616, umbral 4,5:1. La lectura estable posterior pasó.
 - La muestra de transición registra cambios entre 0 y 387 ms; CSS declara 0,2 s, pero la muestra no permite afirmar que todo quedó estable a los 200 ms ni determinar duración total del defecto.
-- La regla de metadatos nocturnos y el archivo theme-toggle.js son idénticos frente al baseline Git bf1ff5ac (`transition-baseline-comparison.json`). Esas fuentes preexistían; no se reprodujo el runtime del baseline y la equivalencia del defecto histórico permanece sin medir.
+- La regla de metadatos nocturnos y el archivo theme-toggle.js son idénticos frente al baseline Git 7a14c676 (`transition-baseline-comparison.json`). Esas fuentes preexistían; no se reprodujo el runtime del baseline y la equivalencia del defecto histórico permanece sin medir.
 - Disposición: deuda P2 de transición global, conservada con evidencia; no se amplió la modificación de CSS. La comprobación estable y la carga responsive correcta satisfacen el alcance focal de tarjetas. No se afirma ausencia de defectos transitorios.
 
 ## Límites y vínculo de evidencia

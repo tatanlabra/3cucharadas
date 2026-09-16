@@ -1,7 +1,7 @@
 # Comparación emparejada de carga cartográfica
 
 Estado inicial: preparación terminada; ninguna observación ejecutada antes del
-aviso `FREEZE` del integrador. Revisiones `e986f238` y `6b46731e`, protocolo fijado
+aviso `FREEZE` del integrador. Revisiones `7e80744e` y `b3f35898`, protocolo fijado
 en `catastro-paired-loading-20260911-protocol.json` antes de navegar.
 
 ## Comparabilidad y criterio previo

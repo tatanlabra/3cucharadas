@@ -1,7 +1,7 @@
 contract: avaluos-ii-polish-20260910
 authorization: 'Usuario: implementar ajustes de relato, carga, diseño y análisis con subagentes; preparación local previa a público.'
 baseline:
-  blog_commit: e986f238
+  blog_commit: 7e80744e
   analysis_commit: 32c6fa3
   desktop_metric_grid_1440px_height: 495.28125
   mobile_metric_grid_390px_height: 1241.5
@@ -67,14 +67,14 @@ tasks:
       al menos tres cargas nuevas y dos recargas por versión. La mediana fría debe bajar al menos 10%
       frente al baseline emparejado, sin empeorar más de 10% selector o recarga y sin fallos ocultos.
       Evaluar con el protocolo fijado antes de medir en docs/catastro-paired-loading-20260911-protocol.json
-      (ecc5800a). El evento load inicial se conserva como secundario: las cámaras en ese punto difieren.
+      (c3872060). El evento load inicial se conserva como secundario: las cámaras en ese punto difieren.
       El margen es un criterio operativo acotado; no demuestra significación estadística ni optimalidad global.
     evidence: >-
       docs/catastro-paired-loading-20260911-focus.md y attempt3.json: diez observaciones válidas,
       dos cebados y dos exclusiones por foco conservadas. Mapa útil frío 2002,20 a 1593,10 ms (-20,43%);
       recarga 1668,10 a 1077,45 ms (-35,41%); selector mejora en ambas condiciones, cámaras/capas equivalentes.
       Primer load frío mejora sólo 6,72%, insuficiente por sí solo para el umbral del 10%.
-      Once pruebas del evaluador verdes; código cartográfico actual idéntico al candidato 6b46731e.
+      Once pruebas del evaluador verdes; código cartográfico actual idéntico al candidato b3f35898.
     criterion_clarification: >-
       El resumen anterior decía MapLibre load; se sincroniza con la definición de mapa útil que el protocolo
       original ya fijaba antes de obtener datos. Se conservan umbrales y resultados adversos, incluida la

@@ -10,7 +10,7 @@ Dejar el checkout operativo reconciliado, las dependencias reproducibles, los di
 - DEV.to podrá actualizar únicamente borradores existentes; no creará artículos ni modificará publicados.
 - Codex implementará y juzgará con herramientas y contraejemplos; se declarará autorrevisión, sin delegación.
 - La deuda de publicaciones sociales seguirá visible y separada de la salud técnica.
-- El baseline se actualizará al comenzar: la auditoría anterior encontró `f91498b7` local, `75f80d72` remoto y 23 rutas pendientes.
+- El baseline se actualizará al comenzar: la auditoría anterior encontró `096b2e16` local, `28bbbc8f` remoto y 23 rutas pendientes.
 
 ## Contrato y regla del juez
 

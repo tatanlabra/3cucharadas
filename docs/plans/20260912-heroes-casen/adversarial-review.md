@@ -60,7 +60,7 @@ Fecha: 2026-09-12. Solicitud: revisión con GPT-6-Astra, esfuerzo high.
 
 ## Snapshot operativo
 
-- Blog limpio antes de crear este paquete: `fix/pipelines-verdes`, HEAD `bf1ff5ac`.
+- Blog limpio antes de crear este paquete: `fix/pipelines-verdes`, HEAD `7a14c676`.
 - Repo analítico limpio: `main`, HEAD `93e3dba979839b3e9711a939a98e57a33e7ede96`.
 - Caché de cuotas de 3 minutos al consultar: Claude sesión 76% libre/semanal 97%; Codex semanal 97%; Gemini Google semanal 96%.
 - Copilot reporta renovación vencida: no se usa como base confiable de asignación.

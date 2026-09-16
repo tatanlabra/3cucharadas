@@ -19,7 +19,7 @@
   "projection_check": {
     "command": "python3 scripts/catastro_sii/project_residential_extension.py --check",
     "status": "passed",
-    "front_matter_and_protected_references_bound_to_blog_head": "10c1b7beffd04e2409c8404be7b0e39a7f578941"
+    "front_matter_and_protected_references_bound_to_blog_head": "064749a3a023926bdce959cad6ea515d56a2461a"
   },
   "tests": {
     "command": "python3 -m unittest tests.catastro_sii.test_residential_extension_projection -v",

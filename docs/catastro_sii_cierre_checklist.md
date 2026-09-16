@@ -34,7 +34,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 - [x] URL compartible región/comuna y alias plural → ruta canónica.
 - [x] Gate reproducible local: `validate_build.sh` selecciona Node 24.18.0/npm 11.16.0 desde `herramientas/local-config/runtimes/` cuando el PATH expone Node 26; permite override explícito con `NODE24_HOME` y no modifica el runtime del sistema.
 - [x] Dependencias de desarrollo actualizadas y auditoría npm sin vulnerabilidades.
-- [x] Commit fuente remoto registrado: `2fc2424c`.
+- [x] Commit fuente remoto registrado: `fecce495`.
 - [x] Promoción de manifest atómica, con prueba de éxito y de rollback ante índice territorial ausente.
 - [x] DPA 2023 tratada explícitamente: campo `CUT_COM` y exclusión declarada de Antártica Chilena `12202`.
 
@@ -90,7 +90,7 @@ Leyenda: `[x]` comprobado, `[~]` en curso o parcialmente resuelto, `[ ]` pendien
 
 | UTC | Cambio | Evidencia / siguiente gate |
 | --- | --- | --- |
-| 2026-07-18 | Integración y hardening local | `2fc2424c`; validación completa local aprobada. |
+| 2026-07-18 | Integración y hardening local | `fecce495`; validación completa local aprobada. |
 | 2026-07-18 | Corrección de entorno por instrucción del usuario | Se abandona el clon temporal: el script queda restringido a `python_base`; se eliminan los directorios creados y se instalarán sólo los tres binarios faltantes en `/opt/conda`. |
 | 2026-07-18 | Entorno `python_base` cerrado | Tippecanoe 2.79.0, PMTiles 3.7.0 (`pmtiles-show`) y rclone 1.74.3 instalados desde conda-forge. DNF ya tenía `proj-data`; no se modifica Fedora. |
 | 2026-07-18 | Primer intento de piloto detenido sin artefactos | La DPA usa `CUT_COM`; el runner no lo propagaba. Se corrige el contrato antes de reintentar. |

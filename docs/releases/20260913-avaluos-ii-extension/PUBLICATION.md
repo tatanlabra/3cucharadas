@@ -1,6 +1,6 @@
 # Avalúos II: cierre de publicación del 13 de septiembre de 2026
 
-Revisión desplegada: `48403c8dea3c1f8ff705742f5fa50fae2b111376`. Análisis reproducible: `9d4eb179bef0305af8ebbe3bdff75baf0e213c93` en catastros_sii (repositorio local sin remoto).
+Revisión desplegada: `1ba2bb61165555e3af20a57afb7bf09c2985f33e`. Análisis reproducible: `9d4eb179bef0305af8ebbe3bdff75baf0e213c93` en catastros_sii (repositorio local sin remoto).
 
 [Pipeline GitLab aprobado](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2844735033). Los recibos `public-parity.json` y `public-data-parity.json` comparan las URLs normales realmente servidas, sin parámetros para eludir caché: siete páginas, 58 assets referenciados y ocho descargas. El artefacto ZIP pasó CRC. El texto del artículo ES/EN coincide con el aprobado.
 

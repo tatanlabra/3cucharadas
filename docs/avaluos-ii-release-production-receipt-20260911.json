@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-09-12T02:43:30.477790+00:00",
-  "implementation_commit": "9b5ddf83048e02397875c55eab4e9b33528675ca",
+  "implementation_commit": "fac856ff3b911e85c46a1327022fc22cc2962f39",
   "pages": [
     {
       "url": "https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/",
@@ -434,7 +434,7 @@
   "pipeline": {
     "id": 2842505278,
     "status": "success",
-    "sha": "9b5ddf83048e02397875c55eab4e9b33528675ca",
+    "sha": "fac856ff3b911e85c46a1327022fc22cc2962f39",
     "url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842505278",
     "finished_at": "2026-09-12T02:42:28.223Z"
   },
@@ -452,8 +452,8 @@
   },
   "outgoing_review": {
     "branch": "fix/pipelines-verdes",
-    "head": "9b5ddf83048e02397875c55eab4e9b33528675ca",
-    "destination_base": "8a74ee0b93f4c3352c1f601756b878d9923e59de",
+    "head": "fac856ff3b911e85c46a1327022fc22cc2962f39",
+    "destination_base": "e1318953af8c13411f57af15991b36f15441f7dc",
     "changed_files": 140,
     "private_pattern_findings": [],
     "public_rows": 346,

@@ -16,7 +16,7 @@ phase:
   - Fecha editorial 2026-09-11 en America/Santiago; published false en ambos idiomas.
   - Sin push, publicación ni envío de solicitudes.
   falsification: Un original alterado, idioma duplicado, tabla divergente o fecha incorrecta impide el cierre.
-  rollback: Restaurar los dos borradores desde 6b46731e y el recibido desde su archivo intacto; conservar evidencia
+  rollback: Restaurar los dos borradores desde b3f35898 y el recibido desde su archivo intacto; conservar evidencia
     y cambios ajenos.
 tasks:
   F10_1:

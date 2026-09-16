@@ -1,6 +1,6 @@
 # Publicación del 12-09-2026
 
-Producto publicado: `b46381156ed259bbbdc2aea1e615ca3596174eb8`. [Pipeline #251](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843148339): build y Pages correctos.
+Producto publicado: `87c5ea095eb7749c897b71ec2a410a155fe7ea79`. [Pipeline #251](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2843148339): build y Pages correctos.
 
 `contract.json` y `TODO.md` distinguen publicación del blog, difusión externa y deuda real de auditoría. `remotes-ci.json` conserva los SHA observados antes del commit documental de estos recibos; ese commit posterior no cambia producto ni configuración y puede omitir reconstrucción CI.
 

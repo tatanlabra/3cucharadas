@@ -7,7 +7,7 @@ sin reducirlo a las pruebas ya ejecutadas. F4 se reabrió porque un ensayo explo
 y un resultado axe con revisión pendiente no satisfacían el contrato completo.
 La implementación y esta revisión son propias; sólo la paleta nocturna original
 fue delegada al subagente expresamente autorizado. No se afirma perfección ni
-óptimo global. F6 quedó verificado en la release funcional aa98dabf; el sello de
+óptimo global. F6 quedó verificado en la release funcional ce943901; el sello de
 la revisión documental final se conserva aparte, ligado a su SHA, sin bucle de
 commits para incrustar el hash del propio documento.
 
@@ -121,7 +121,7 @@ no cobertura ejecutada. Ningún dato canónico ni post se reescribió en este su
 
 ## F6 y hallazgo F6.1 de caché
 
-El perfil release de 8ee974a7 terminó verde una vez que GitLab confirmó estado
+El perfil release de d3fdab40 terminó verde una vez que GitLab confirmó estado
 terminal success (pipeline 2825007853, build 16336009979, Pages 16336009980).
 Dos intentos anteriores rechazaron correctamente el estado agregado running,
 incluso cuando los jobs ya aparecían verdes. GitHub DEV 34071908861 confirmó
@@ -141,7 +141,7 @@ correctos. F6.1 incorpora versiones SHA-256 en las dos referencias HTML y extien
 el perfil release: descarga las URLs que realmente pide ese HTML, no unas URL
 artificiales de diagnóstico. El test rechazó el index anterior y luego aprobó
 cinco tests/23 aserciones con negativos por ausencia, duplicidad, versión antigua
-y contenido alterado. La paridad real aprobó en producción en aa98dabf:
+y contenido alterado. La paridad real aprobó en producción en ce943901:
 CSS `7c19b97d7ef6e7123324ac414edec5ba1390e3a89bce1473b6c2026aaad07325`,
 app `254489af467a5c635e31ba38da3c9342d37d770d05800536876d837d90651a3d`.
 GitLab pipeline 2825034485 y jobs 16336158647/16336158648: success;
@@ -164,6 +164,6 @@ promovida. CLS, navegadores no ejecutados, lectores de pantalla y las siete prue
 geoespaciales declaradas siguen siendo límites; no hay garantía de ausencia universal
 de errores. La deuda editorial ajena a DEV permanece visible.
 
-Bundle suplementario: `~/.local/state/3cucharadas/git-backups/site-health-validation-8ee974a7.bundle`,
+Bundle suplementario: `~/.local/state/3cucharadas/git-backups/site-health-validation-d3fdab40.bundle`,
 SHA-256 `c0216b5a7ee8af2a4e54cd922d76077ff174836cb8f59fdbc0287a8dd75e8420`.
-Clone mirror y fsck completos: main 8ee974a7 y stash original 34bdb48c conservados.
+Clone mirror y fsck completos: main d3fdab40 y stash original 4e657d65 conservados.

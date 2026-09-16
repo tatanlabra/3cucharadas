@@ -48,14 +48,14 @@ El 11-09-2026 a las 23:43:30 de Santiago, el [recibo productivo](avaluos-ii-rele
 | Artículo ES | https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/ — 404 previo → 200 con contenido esperado. |
 | Artículo EN | https://3cucharadas.cl/en/datos/territorio/avaluos-ii-brecha-residencial/ — 200, canonical y ocho expresiones KaTeX. |
 | Visor | https://3cucharadas.cl/catastro_sii_brecha/ — 200, panel monetario y SHA del dataset final. |
-| GitLab Pages | [Pipeline 2842505278](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842505278), success para `9b5ddf83048e02397875c55eab4e9b33528675ca`; terminó a las 02:42:28 UTC del 12-09. |
+| GitLab Pages | [Pipeline 2842505278](https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/2842505278), success para `fac856ff3b911e85c46a1327022fc22cc2962f39`; terminó a las 02:42:28 UTC del 12-09. |
 | GitHub | [Redirector](https://github.com/tatanlabra/3cucharadas/actions/runs/34668294141) y [automatización de sindicación existente](https://github.com/tatanlabra/3cucharadas/actions/runs/34668294132), success. Avalúos II carece de opt-in de sindicación. |
 | Seguridad de dependencias | `npm audit`: cero vulnerabilidades; API de alertas abiertas de GitHub: lista vacía. El aviso de tres moderadas durante el push correspondía al estado anterior. |
 | Fuente y publicación | El commit analítico `93e3dba` permanece local; el blog publica exclusivamente los derivados agregados y activos revisados. |
 
 El primer intento de push fue rechazado por la revisión automática por falta de evidencia del destino y del contenido saliente. Se verificó mediante API que el proyecto público GitLab `tatanlabra/3cucharadas` (57339918) tiene el dominio `3cucharadas.cl` verificado, que GitHub es el espejo configurado y que el envío era fast-forward. La inspección acotada de 140 archivos no detectó patrones privados ni fuentes individuales. Con esa evidencia adicional, la revisión automática aprobó el mismo push. No queda permiso pendiente ni se eludió el rechazo.
 
-GitHub añadió después `d8184c7c`, un ajuste automático de saltos de línea en `_data/distribucion.yml`. La comparación YAML de ambas versiones dio igualdad semántica; se integró por fast-forward para conservar su autoría e historia. El commit de cierre sólo añade documentación excluida del build y usa `[skip ci]`; la evidencia productiva sigue vinculada al commit de implementación `9b5ddf83`, no a un supuesto segundo despliegue.
+GitHub añadió después `4e91b537`, un ajuste automático de saltos de línea en `_data/distribucion.yml`. La comparación YAML de ambas versiones dio igualdad semántica; se integró por fast-forward para conservar su autoría e historia. El commit de cierre sólo añade documentación excluida del build y usa `[skip ci]`; la evidencia productiva sigue vinculada al commit de implementación `fac856ff`, no a un supuesto segundo despliegue.
 
 Reproducción del recibo: `python docs/avaluos-ii-release-public-check-20260911.py.txt /tmp/avaluos-production-recheck.json`, conservando o reconstruyendo el build aprobado en `/tmp/avaluos-release-production`. El script es una copia del comprobador usado, fijada a esta entrega; no constituye un verificador universal del sitio. Cambios posteriores en producción pueden invalidar la paridad y requieren otro recibo.
 

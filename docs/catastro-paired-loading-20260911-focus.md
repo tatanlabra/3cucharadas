@@ -20,7 +20,7 @@ Hipótesis provisional: controlar el modo de arranque permite completar una seri
 
 ## Serie declarada
 
-El protocolo de continuación copia literalmente los umbrales, número de observaciones, orden, viewport, caché, tolerancias geométricas y reglas de fallos del original. Añade únicamente el modo headless explícito y registro del motor. Las revisiones siguen siendo e986f238 y 6b46731e; el código cartográfico actual coincide con esta última, aunque el blog tiene commits editoriales posteriores.
+El protocolo de continuación copia literalmente los umbrales, número de observaciones, orden, viewport, caché, tolerancias geométricas y reglas de fallos del original. Añade únicamente el modo headless explícito y registro del motor. Las revisiones siguen siendo 7e80744e y b3f35898; el código cartográfico actual coincide con esta última, aunque el blog tiene commits editoriales posteriores.
 
 Se prepararon las mismas dos copias aisladas con el script existente y se proyectaron al Jekyll 4004 ya activo, sin reiniciarlo. Durante la serie no se modificará fuente del sitio; el recibo FREEZE es un compromiso operativo del agente principal, no una aprobación humana simulada. Se conserva cada observación, incluso si el criterio falla.
 
@@ -51,7 +51,7 @@ La pérdida de foco **reapareció incluso en headless**: queda refutada la expec
 
 ### Qué mide el criterio y qué no
 
-El contrato resumido decía «MapLibre load», pero el protocolo original, fijado antes de las mediciones y conservado en `ecc5800a`, ya distinguía el mapa útil como medida principal: el evento `load` de la versión anterior ocurre con centro [−71,1; −36,7] y zoom 3,1, antes de ajustar Chile. En la versión nueva ocurre durante la transición. Esas cámaras no son equivalentes; compararlas como final de carga mezclaría estados visuales distintos.
+El contrato resumido decía «MapLibre load», pero el protocolo original, fijado antes de las mediciones y conservado en `c3872060`, ya distinguía el mapa útil como medida principal: el evento `load` de la versión anterior ocurre con centro [−71,1; −36,7] y zoom 3,1, antes de ajustar Chile. En la versión nueva ocurre durante la transición. Esas cámaras no son equivalentes; compararlas como final de carga mezclaría estados visuales distintos.
 
 Se sincroniza ahora la redacción del contrato con esa definición previa: primer `idle` con `loaded`, teselas listas, cámara inmóvil y 343 comunas. No se cambian umbrales tras los resultados. El evento `load` se conserva como secundario y **su reducción fría de 6,72 % no satisface por sí sola el umbral del 10 %**. La mejora demostrada del 20,43 % corresponde al estado final comparable.
 
