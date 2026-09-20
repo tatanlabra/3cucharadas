@@ -44,12 +44,17 @@ def _verify_mastodon(storage: Storage, ref: str, draft: Any, fetch: JsonFetcher)
     instance = str(result.get("root_url", "https://mastodon.social")).split("/@", 1)[0]
     root = fetch(f"{instance}/api/v1/statuses/{urllib.parse.quote(root_id)}")
     reply = fetch(f"{instance}/api/v1/statuses/{urllib.parse.quote(reply_id)}")
+    root_direct_urls = re.findall(r"https?://[^\s<>()]+", draft.messages["mastodon"]["es"].text, flags=re.IGNORECASE)
+    expected_root_cards = {draft.messages["mastodon"]["es"].target_url}
+    expected_root_cards.update(
+        url for url in root_direct_urls if url in draft.posts["es"].audio_urls
+    )
     checks = {
         "root_language": root.get("language") == "es",
         "reply_language": reply.get("language") == "en",
         "root_position": root.get("in_reply_to_id") is None,
         "reply_position": str(reply.get("in_reply_to_id", "")) == root_id,
-        "root_card": (root.get("card") or {}).get("url") == draft.messages["mastodon"]["es"].target_url,
+        "root_card": (root.get("card") or {}).get("url") in expected_root_cards,
         "reply_card": (reply.get("card") or {}).get("url") == draft.messages["mastodon"]["en"].target_url,
         "root_image": bool((root.get("card") or {}).get("image")),
         "reply_image": bool((reply.get("card") or {}).get("image")),

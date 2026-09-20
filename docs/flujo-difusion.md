@@ -98,6 +98,12 @@ del artículo. Mastodon añade además el enlace UTM al artículo. La versión E
 debe presentar una cápsula ES como si fuera audio en inglés: puede mencionarla
 como tal o enlazar solo el artículo.
 
+Mastodon genera una sola tarjeta para la primera URL externa que procesa. Si la
+raíz ES incluye una URL de audio declarada antes del UTM, la tarjeta Spotify es
+válida y la URL UTM del artículo debe seguir visible en el texto; la respuesta
+EN conserva la tarjeta del artículo. El verificador acepta esa excepción solo
+para una URL declarada en `audio.plataformas` y presente en la raíz publicada.
+
 La copy final, las URLs de la cápsula y la condición de aprobación quedan en
 `difusion/paquetes/<ref>/`; el borrador operativo y su ledger viven fuera del
 repositorio. Ninguno reemplaza al otro: el paquete permite revisión, el ledger

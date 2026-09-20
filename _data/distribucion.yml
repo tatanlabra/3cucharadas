@@ -175,6 +175,16 @@
   url_canonica: https://3cucharadas.cl/internet/soberania-digital/rss/
   titulo_usado: 'RSS en 3 cucharadas: volver a elegir qué lees'
   publicaciones:
+  - plataforma: mastodon
+    fecha: 2026-09-20
+    url_publicada: https://mastodon.social/@asiole/117305734695732880
+    url_publicada_en: https://mastodon.social/@asiole/117305734733586915
+    resultado_30d:
+  - plataforma: bluesky
+    fecha: 2026-09-20
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mvyascioiq2k
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mvyase6lx22v
+    resultado_30d:
   - plataforma: apple-podcasts
     fecha: '2026-09-19'
     url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
