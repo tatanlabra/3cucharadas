@@ -166,6 +166,19 @@ def test_bluesky_richtext_facets_include_mentions_and_hashtags():
     assert tag.features[0].tag == "RAG"
 
 
+def test_bluesky_richtext_facets_include_secondary_links():
+    from atproto import models
+
+    spotify = "https://open.spotify.com/episode/0gHdvYkrUomRP5vizqkgtW"
+    text = f"La cápsula está en Spotify: {spotify} #RSS"
+    facets = BlueskyClient._richtext_facets(text, models)
+    link = next(facet for facet in facets if hasattr(facet.features[0], "uri"))
+    encoded = text.encode("utf-8")
+
+    assert encoded[link.index.byte_start : link.index.byte_end].decode("utf-8") == spotify
+    assert link.features[0].uri == spotify
+
+
 def test_bluesky_card_rejects_non_https_image():
     client = BlueskyClient({})
 

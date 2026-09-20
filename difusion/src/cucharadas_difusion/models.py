@@ -24,6 +24,7 @@ class PostMetadata:
     canonical_url: str
     image_url: str
     distribution: dict[str, Any] = field(default_factory=dict)
+    audio_urls: list[str] = field(default_factory=list)
 
 
 @dataclass(slots=True)

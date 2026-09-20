@@ -61,6 +61,13 @@ def test_base_copy_cannot_duplicate_url_in_bluesky(draft):
     assert any("tarjeta externa" in error for error in errors)
 
 
+def test_bluesky_allows_a_declared_audio_url(draft):
+    spotify = "https://open.spotify.com/episode/0gHdvYkrUomRP5vizqkgtW"
+    draft.posts["es"].audio_urls = [spotify]
+    draft.messages["bluesky"]["es"].text += f" {spotify}"
+    assert validate_draft(draft) == []
+
+
 def test_atomic_revision_and_ledger(tmp_path, draft):
     storage = Storage(tmp_path)
     first = storage.save_draft(draft)

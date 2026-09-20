@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -96,8 +97,18 @@ def _verify_bluesky(storage: Storage, ref: str, draft: Any, fetch: JsonFetcher) 
             if feature.get("$type") == "app.bsky.richtext.facet#tag"
         ]
 
+    def links(record: dict[str, Any]) -> list[str]:
+        return [
+            str(feature.get("uri"))
+            for facet in record.get("facets") or []
+            for feature in facet.get("features") or []
+            if feature.get("$type") == "app.bsky.richtext.facet#link"
+        ]
+
     expected_root_tags = [tag[1:] for tag in extract_hashtags(draft.messages["bluesky"]["es"].text)]
     expected_reply_tags = [tag[1:] for tag in extract_hashtags(draft.messages["bluesky"]["en"].text)]
+    expected_root_links = re.findall(r"https?://[^\s<>()]+", draft.messages["bluesky"]["es"].text, flags=re.IGNORECASE)
+    expected_reply_links = re.findall(r"https?://[^\s<>()]+", draft.messages["bluesky"]["en"].text, flags=re.IGNORECASE)
     checks = {
         "root_text": root_record.get("text") == draft.messages["bluesky"]["es"].text,
         "reply_text": reply_record.get("text") == draft.messages["bluesky"]["en"].text,
@@ -112,6 +123,8 @@ def _verify_bluesky(storage: Storage, ref: str, draft: Any, fetch: JsonFetcher) 
         "reply_image": bool(embed(reply_record).get("thumb")),
         "root_facets": tags(root_record) == expected_root_tags,
         "reply_facets": tags(reply_record) == expected_reply_tags,
+        "root_links": links(root_record) == expected_root_links,
+        "reply_links": links(reply_record) == expected_reply_links,
     }
     failed = [name for name, ok in checks.items() if not ok]
     if failed:

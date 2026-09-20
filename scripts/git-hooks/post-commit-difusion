@@ -58,6 +58,7 @@ while IFS= read -r ref; do
     printf 'difusion: elegibilidad resuelta para %s; este hook NO publica.\n' "$ref"
     printf '%s\n' "$salida" | grep -E '\*\*(mastodon-es|bluesky-es)\*\*' || true
     printf 'difusion: después del despliegue, ejecutar scripts/post_push_difusion.sh %s (simulacro por defecto).\n' "$ref"
+    printf 'difusion: runbook y recuperación: docs/flujo-difusion.md#runbook-reproducible-para-un-lanzamiento-social\n'
   else
     printf 'difusion: no se pudo resolver destinos para %s (%s)\n' \
       "$ref" "$(printf '%s' "$salida" | tail -1)"

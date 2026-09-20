@@ -251,6 +251,7 @@ class BlueskyClient:
     HANDLE_RE = re.compile(
         r"(?<![\w@])@([A-Za-z0-9][A-Za-z0-9.-]*\.[A-Za-z][A-Za-z0-9.-]*[A-Za-z0-9])"
     )
+    URL_RE = re.compile(r"https?://[^\s<>()]+", flags=re.IGNORECASE)
 
     def __init__(self, secrets: dict[str, str]) -> None:
         self.secrets = secrets
@@ -283,6 +284,24 @@ class BlueskyClient:
             )
         return facets
 
+    @classmethod
+    def _link_facets(cls, text: str, models: Any) -> list[Any]:
+        """Build byte-indexed link facets for declared secondary URLs."""
+        facets: list[Any] = []
+        for match in cls.URL_RE.finditer(text):
+            byte_start = len(text[: match.start()].encode("utf-8"))
+            byte_end = len(text[: match.end()].encode("utf-8"))
+            facets.append(
+                models.AppBskyRichtextFacet.Main(
+                    index=models.AppBskyRichtextFacet.ByteSlice(
+                        byte_start=byte_start,
+                        byte_end=byte_end,
+                    ),
+                    features=[models.AppBskyRichtextFacet.Link(uri=match.group(0))],
+                )
+            )
+        return facets
+
     @staticmethod
     def _did(value: Any) -> str:
         if isinstance(value, str):
@@ -298,8 +317,8 @@ class BlueskyClient:
         models: Any,
         resolve_handle: Callable[[str], Any] | None = None,
     ) -> list[Any]:
-        """Build byte-indexed hashtag and mention facets for Bluesky."""
-        facets = cls._hashtag_facets(text, models)
+        """Build byte-indexed hashtag, link, and mention facets for Bluesky."""
+        facets = [*cls._hashtag_facets(text, models), *cls._link_facets(text, models)]
         if resolve_handle is None:
             return facets
         for match in cls.HANDLE_RE.finditer(text):

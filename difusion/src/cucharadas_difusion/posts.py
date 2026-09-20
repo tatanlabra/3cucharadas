@@ -63,6 +63,12 @@ def parse_post(path: Path, repo: Path) -> PostMetadata:
     header = data.get("header") if isinstance(data.get("header"), dict) else {}
     image = str(header.get("og_image") or config.get("og_image") or "")
     distribution = data.get("distribution") if isinstance(data.get("distribution"), dict) else {}
+    audio = data.get("audio") if isinstance(data.get("audio"), dict) else {}
+    audio_urls = [
+        str(platform["url"])
+        for platform in audio.get("plataformas", [])
+        if isinstance(platform, dict) and str(platform.get("url", "")).startswith("https://")
+    ]
     return PostMetadata(
         path=str(path.resolve()),
         ref=str(data["ref"]),
@@ -74,6 +80,7 @@ def parse_post(path: Path, repo: Path) -> PostMetadata:
         canonical_url=_absolute(site_root, localized),
         image_url=_absolute(site_root, image) if image else "",
         distribution=distribution,
+        audio_urls=audio_urls,
     )
 
 
@@ -212,7 +219,8 @@ def extract_hashtags(text: str) -> list[str]:
 
 
 def _numbers(text: str) -> set[str]:
-    return set(re.findall(r"(?<!\w)\d+(?:[.,]\d+)?%?", text))
+    without_urls = re.sub(r"https?://[^\s<>()]+", "", text, flags=re.IGNORECASE)
+    return set(re.findall(r"(?<!\w)\d+(?:[.,]\d+)?%?", without_urls))
 
 
 def validate_message(message: Message, draft: Draft) -> list[str]:
@@ -226,10 +234,13 @@ def validate_message(message: Message, draft: Draft) -> list[str]:
         warnings.append(f"error: {count} caracteres; limite {limit}")
     if message.network == "mastodon" and message.target_url not in text:
         warnings.append("error: Mastodon debe incluir la URL UTM")
-    if message.network == "bluesky" and re.search(r"https?://", text, flags=re.IGNORECASE):
-        warnings.append("error: Bluesky usa la tarjeta externa; elimina la URL del mensaje base")
-
     post = draft.posts[message.lang]
+    if message.network == "bluesky":
+        direct_urls = re.findall(r"https?://[^\s<>()]+", text, flags=re.IGNORECASE)
+        invalid_urls = [url for url in direct_urls if url not in post.audio_urls]
+        if invalid_urls:
+            warnings.append("error: Bluesky usa la tarjeta externa; solo admite URLs declaradas de audio")
+
     allowed_numbers = _numbers(f"{post.title} {post.description} {post.canonical_url}")
     introduced = sorted(_numbers(text) - allowed_numbers)
     if introduced:

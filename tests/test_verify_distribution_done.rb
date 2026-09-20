@@ -19,20 +19,20 @@ class VerifyDistributionDoneTest < Minitest::Test
     FileUtils.remove_entry(@root)
   end
 
-  def write_post(distribution:, lang: "es", date: "2026-08-20")
+  def write_post(distribution:, lang: "es", date: "2026-08-20", ref: "fixture", permalink: "/fixture/")
     front = {
       "title" => "Fixture",
-      "ref" => "fixture",
+      "ref" => ref,
       "date" => date,
       "lang" => lang,
-      "permalink" => "/fixture/",
+      "permalink" => permalink,
       "distribution" => distribution
     }
     File.write(File.join(@root, "_posts", "#{date}-fixture.md"), "---\n#{front.to_yaml.sub(/\A---\s*\n/, '')}---\nBody\n")
   end
 
-  def write_publications(publications)
-    data = [{ "slug" => "fixture", "publicaciones" => publications }]
+  def write_publications(publications, slug: "fixture", ref: "fixture")
+    data = [{ "slug" => slug, "ref_interno" => ref, "publicaciones" => publications }]
     File.write(File.join(@root, "_data", "distribucion.yml"), data.to_yaml)
   end
 
@@ -193,5 +193,16 @@ class VerifyDistributionDoneTest < Minitest::Test
     assert status.success?, err
     _out, _err, status = run_gate("--ref", "fixture", "--strict")
     refute status.success?
+  end
+
+  def test_ref_identity_closes_the_contract_when_permalink_basename_differs
+    write_post(distribution: { "social" => true }, ref: "editorial-ref", permalink: "/renamed-url/")
+    write_publications(
+      %w[mastodon bluesky].map { |platform| { "plataforma" => platform, "url_publicada" => "https://example.org/#{platform}" } },
+      slug: "legacy-url",
+      ref: "editorial-ref"
+    )
+    _out, err, status = run_gate("--strict")
+    assert status.success?, err
   end
 end

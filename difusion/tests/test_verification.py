@@ -1,12 +1,14 @@
 from __future__ import annotations
 
+import re
+
 from cucharadas_difusion.posts import extract_hashtags
 from cucharadas_difusion.storage import Storage
 from cucharadas_difusion.verification import verify_publication
 
 
 def _facets(text: str):
-    return [
+    tags = [
         {
             "$type": "app.bsky.richtext.facet",
             "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": tag[1:]}],
@@ -14,6 +16,15 @@ def _facets(text: str):
         }
         for tag in extract_hashtags(text)
     ]
+    links = [
+        {
+            "$type": "app.bsky.richtext.facet",
+            "features": [{"$type": "app.bsky.richtext.facet#link", "uri": url}],
+            "index": {"byteStart": 0, "byteEnd": 1},
+        }
+        for url in re.findall(r"https?://[^\s<>()]+", text)
+    ]
+    return [*tags, *links]
 
 
 def test_public_verification_persists_verified_status(tmp_path, draft):
@@ -109,3 +120,30 @@ def test_public_verification_marks_unverified_without_losing_publication(tmp_pat
     assert result["status"] == "published_unverified"
     assert result["errors"]
     assert storage.load_draft(draft.ref).status == "published_unverified"
+
+
+def test_public_verification_rejects_an_incorrect_secondary_bluesky_link(tmp_path, draft):
+    spotify = "https://open.spotify.com/episode/0gHdvYkrUomRP5vizqkgtW"
+    draft.posts["es"].audio_urls = [spotify]
+    draft.messages["bluesky"]["es"].text += f" {spotify}"
+    storage = Storage(tmp_path)
+    storage.save_draft(draft)
+    root_uri = "at://did:plc:test/app.bsky.feed.post/root"
+    reply_uri = "at://did:plc:test/app.bsky.feed.post/reply"
+    storage.append_event({"event": "network_published", "ref": draft.ref, "network": "mastodon", "result": {"root_id": "m-root", "reply_id": "m-reply", "root_url": "https://mastodon.social/@test/m-root", "reply_url": "https://mastodon.social/@test/m-reply"}})
+    storage.append_event({"event": "network_published", "ref": draft.ref, "network": "bluesky", "result": {"root_id": root_uri, "reply_id": reply_uri, "root_url": "https://bsky.app/profile/test/post/root", "reply_url": "https://bsky.app/profile/test/post/reply"}})
+
+    def fetch(url: str):
+        if "mastodon.social" in url:
+            return {"url": url, "language": "es" if "m-root" in url else "en", "in_reply_to_id": None if "m-root" in url else "m-root", "card": {"url": draft.messages["mastodon"]["es" if "m-root" in url else "en"].target_url, "image": "image"}}
+        lang = "es" if "root" in url else "en"
+        record = {"text": draft.messages["bluesky"][lang].text, "langs": [lang], "embed": {"external": {"uri": draft.messages["bluesky"][lang].target_url, "thumb": {"ref": "blob"}}}, "facets": _facets(draft.messages["bluesky"][lang].text)}
+        if lang == "es":
+            record["facets"][-1]["features"][0]["uri"] = "https://example.invalid/not-spotify"
+        else:
+            record["reply"] = {"parent": {"uri": root_uri}, "root": {"uri": root_uri}}
+        return {"posts": [{"uri": root_uri if lang == "es" else reply_uri, "record": record}]}
+
+    result = verify_publication(storage, draft.ref, fetch=fetch, attempts=1)
+    assert result["status"] == "published_unverified"
+    assert "root_links" in result["errors"][0]

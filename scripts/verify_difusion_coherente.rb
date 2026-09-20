@@ -65,6 +65,10 @@ module DiffusionCoherence
   def self.numbers(text, lang = nil)
     # TeX decimal braces are punctuation, not distinct numeric tokens.
     text = text.gsub(/\{([.,])\}/, '\\1').gsub(%r{https?://[^\s<>]+}, "")
+    # RSS 2.0 is a version identifier, not a Spanish decimal. Normalize its
+    # two-component form to the existing literal-version branch so parity is
+    # still checked without imposing a locale separator on the protocol name.
+    text = text.gsub(/\bRSS\s+(\d+)\.(\d+)\b/i, '\\1.\\2.0')
     text.scan(/\d+(?:[.,]\d+)*(?:[\u00a0\u202f]\d{3})*/).map { |n| number(n, lang) }
         .reject { |n| n.match?(IGNORE) }.to_set
   end

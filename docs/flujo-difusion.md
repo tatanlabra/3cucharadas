@@ -26,7 +26,7 @@ artículo. Su procedimiento está en `docs/flujo-podcast.md`.
 | 09:30 local cada día | `difusion-cadencia.timer` | Timer habilitado, repositorio accesible y `_data/distribucion.yml` actualizado | Vigila Mastodon y Bluesky por idioma, DEV D4 y Medium D10; un vencimiento de hasta 30 días dispara toast |
 | Orden humana explícita | DEV.to, Medium, LinkedIn o `cucharadas-difusion publish --live` | Revisión del borrador, autenticación y reglas del destino | Publicación externa verificable; el borrador DEV.to por sí solo no cierra D4 |
 
-## Estado observado
+## Estado observado (histórico al 2026-09-06)
 
 - El timer está habilitado y activo; la corrida del 2026-09-06 falló y activó `OnFailure`.
 - El rojo accionable contiene cinco artefactos del post de Nushell: Mastodon y Bluesky en ES y EN, más DEV.to.
@@ -52,6 +52,84 @@ Se restauró `true`; excluir estas redes exige ahora una razón explícita aun c
 se declaren LinkedIn/X. El perfil `source` verifica esa política antes de Pages.
 La evidencia de reparación y envío está en
 [`releases/20260912-social-closeout/`](releases/20260912-social-closeout/).
+
+## Runbook reproducible para un lanzamiento social
+
+Este es el único orden autorizado para Mastodon y Bluesky. El hook resuelve
+elegibilidad; no convierte un commit ni un push en autorización o en envío.
+
+| Carril | Alcance automático | Decisión o verificación humana que permanece |
+|---|---|---|
+| Mastodon y Bluesky | Preparación, envío explícito y verificación por API | Autorizar el envío y revisar la copia antes de `--live` |
+| DEV.to | Crear o actualizar un borrador cuando el workflow tiene secreto | Publicar el borrador y comprobar el canónico |
+| Medium, LinkedIn y X | Ninguno | Preparar, publicar, verificar y reconciliar la URL pública |
+| Feeds y directorios | Resolver elegibilidad y monitorear la deuda | Enviar o insistir y comprobar la inclusión externa |
+
+| Fase | Operador / script | Evidencia de salida | No hacer |
+|---|---|---|---|
+| 1. Declarar | Editar las dos versiones del post y `distribution` | `social: true` en ES/EN; `ref` idéntico; `slug` en `_data/distribucion.yml` igual al último segmento del permalink | Cambiar título, fecha o permalink para abrir una campaña |
+| 2. Resolver | `post-commit-difusion` o `destinations status REF` | Checklist `listo`, `bloqueado` o `pendiente-verificar` por destino | Leer `listo` como publicación |
+| 3. Validar y desplegar | Suite de difusión, build limpio, commit selectivo, push y Pages | Tests, artefacto, SHA y URL canónica pública | Enviar mientras el sitio o su OG todavía no están disponibles |
+| 4. Preparar y revisar | `cucharadas-difusion prepare`/`review` y paquete local | Borrador válido, texto final y aprobación de ambas redes | Publicar un borrador vacío, sin revisión o con datos no trazables |
+| 5. Enviar y verificar | `scripts/post_push_difusion.sh REF --live --confirm "PUBLICAR REF"` | Cuatro piezas ES/EN, tarjetas, URLs públicas y ledger XDG | Repetir a mano un envío parcial; el comando lo reanuda de forma idempotente |
+| 6. Reconciliar | El cierre ejecuta `reconciliar_distribucion.rb --aplicar` | URLs raíz ES y respuesta EN en `_data/distribucion.yml`; gate social estricto verde para el ref | Declarar éxito si las URLs siguen solo en el ledger ignorado |
+| 7. Versionar el cierre | Commit selectivo y push dual del ledger reconciliado | SHA idéntico en remotos y registro versionado | Asumir que el push original contiene las URLs sociales |
+
+### Preflight mínimo
+
+```bash
+cd /home/ende/Descargas/programaciones/activos/3cucharadas
+PYTHONPATH=difusion/src /opt/entornos/3cucharadas-difusion/bin/python -m pytest difusion/tests -q
+JEKYLL_ENV=production bundle exec jekyll build -d "$(mktemp -d /tmp/3c-difusion.XXXXXX)"
+PYTHONPATH=difusion/src /opt/entornos/3cucharadas-difusion/bin/python -m cucharadas_difusion.cli --repo . destinations status REF
+curl -fsS -A 'Mozilla/5.0' -o /dev/null -w '%{http_code}\n' 'https://open.spotify.com/episode/<ID>'
+```
+
+El envío real requiere una orden humana vigente y una revisión local previa. El
+comando de cierre no publica DEV.to, Medium, LinkedIn, X ni otro `ref`; solo
+Mastodon y Bluesky del `REF` solicitado.
+
+### Cápsulas de audio
+
+La cápsula se declara en `audio.plataformas` del post y se aloja fuera del sitio.
+Una raíz de Bluesky puede incluir una URL secundaria únicamente si es una de esas
+URLs declaradas; el publicador crea su facet enlazable y conserva la tarjeta OG
+del artículo. Mastodon añade además el enlace UTM al artículo. La versión EN no
+debe presentar una cápsula ES como si fuera audio en inglés: puede mencionarla
+como tal o enlazar solo el artículo.
+
+La copy final, las URLs de la cápsula y la condición de aprobación quedan en
+`difusion/paquetes/<ref>/`; el borrador operativo y su ledger viven fuera del
+repositorio. Ninguno reemplaza al otro: el paquete permite revisión, el ledger
+previene duplicados y `_data/distribucion.yml` conserva la evidencia versionada.
+Spotify puede responder 403 a consultas sin User-Agent para episodios recientes;
+el 200 con un User-Agent de navegador es una precondición del lanzamiento, no una
+consecuencia de haber escrito `audio:`.
+
+### Límites del hook y del ledger
+
+`post-commit-difusion` usa el Python disponible en `PATH`, nunca bloquea un
+commit y escribe una caché ignorada en `difusion/state/`. No acredita que la
+resolución corresponda al SHA desplegado, especialmente si el worktree tenía
+cambios sin commit. Antes de `--live`, se resuelve otra vez con el intérprete
+fijado del preflight sobre la revisión aprobada; se conserva el JSON solo como
+ayuda de diagnóstico.
+
+El ledger XDG es la única protección local contra reenvíos. No ejecutar dos
+cierres simultáneos ni reemplazarlo; si falta, está corrupto o cambió de equipo,
+primero se comparan las APIs públicas, el ledger y `_data/distribucion.yml`.
+Un rollback remoto vigente todavía requiere retirar manualmente sus URLs del
+registro versionado, commit y push: la reconciliación actual añade publicaciones
+vigentes, pero no borra evidencia histórica ya versionada.
+
+### Recuperación
+
+| Situación | Acción segura | Criterio de salida |
+|---|---|---|
+| `partial` | Repetir `scripts/post_push_difusion.sh REF --live --confirm "PUBLICAR REF"` | La red ya emitida queda `skipped`; solo se completa la faltante |
+| `published_unverified` | Ejecutar `cucharadas-difusion verify REF` sin volver a publicar | Tarjetas, idioma, orden y facets comprobados desde APIs públicas |
+| Publicación externa informada sin URL | Conservar copy y buscar URL; no reenviar | URL o recibo comprobable en el ledger y luego reconciliado |
+| Cambio del post después del borrador | Preparar y revisar de nuevo | Metadatos del borrador coinciden con el post actual |
 
 ## Cómo leer los gates sin mezclar estados
 

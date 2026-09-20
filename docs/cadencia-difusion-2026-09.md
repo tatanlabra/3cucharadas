@@ -1,6 +1,6 @@
-# Cadencia de cierre de difusión · septiembre de 2026
+# Cadencia de cierre de difusión · septiembre de 2026 (histórica)
 
-Esta cola no agenda ni publica automáticamente. Cada fila se ejecuta a mano en
+Esta fue la cola propuesta al 2026-09-06; no representa el estado actual. No agenda ni publica automáticamente. Cada fila se ejecuta a mano en
 su fecha, se verifica en la plataforma y recién entonces se registra en
 `_data/distribucion.yml`. D0 queda reservado al release técnico de esta
 remediación.

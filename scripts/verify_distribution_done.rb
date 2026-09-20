@@ -78,8 +78,12 @@ rescue Psych::SyntaxError
   nil
 end
 
-def publicaciones_de(registro, slug)
-  entrada = registro.find { |e| e.is_a?(Hash) && e["slug"] == slug }
+def publicaciones_de(registro, ref, slug)
+  # `ref` connects the bilingual pair; `slug` is the public permalink basename.
+  # Prefer the stable editorial reference so a permalink rename cannot invent a
+  # diffusion debt against an otherwise reconciled publication.
+  entrada = registro.find { |e| e.is_a?(Hash) && e["ref_interno"] == ref }
+  entrada ||= registro.find { |e| e.is_a?(Hash) && e["slug"] == slug }
   Array(entrada && entrada["publicaciones"]).select { |p| p.is_a?(Hash) }
 end
 
@@ -147,7 +151,7 @@ posts.each do |path|
   end
 
   slug = front["permalink"].to_s.chomp("/").split("/").last
-  pubs = publicaciones_de(registro, slug)
+  pubs = publicaciones_de(registro, front["ref"].to_s, slug)
   revisados += 1
 
   esperados = []

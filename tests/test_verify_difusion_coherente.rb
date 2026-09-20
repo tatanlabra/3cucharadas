@@ -159,6 +159,18 @@ class VerifyDiffusionCoherenceTest < Minitest::Test
     refute status.success?, out
   end
 
+  def test_two_component_rss_versions_are_identifiers_not_locale_decimals
+    post('es', 'El protocolo RSS 2.0 sigue disponible.')
+    post('en', 'The RSS 2.0 protocol remains available.')
+    copy('social.json', JSON.generate(es: 'RSS 2.0', en: 'RSS 2.0'))
+    out, status = gate('fixture')
+    assert status.success?, out
+    post('en', 'The RSS 2.1 protocol remains available.')
+    out, status = gate('fixture')
+    refute status.success?, out
+    assert_includes out, 'paridad'
+  end
+
   def test_empty_copy_and_empty_json_fail
     post('en', 'There were 7654 cases.')
     copy('social.json', '{}')
