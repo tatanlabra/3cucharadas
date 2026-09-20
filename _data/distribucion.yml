@@ -189,16 +189,16 @@
     fecha: '2026-09-19'
     url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
     estado: publicado
-    nota: Episodio distribuido por el feed RSS de Spotify for Creators
-      (https://anchor.fm/s/1173891c8/podcast/rss). La URL registrada es la del
-      programa, no la del episodio, igual que en Nushell y Avalúos II.
+    nota: Episodio distribuido por el feed RSS de Spotify for Creators (https://anchor.fm/s/1173891c8/podcast/rss).
+      La URL registrada es la del programa, no la del episodio, igual que en Nushell
+      y Avalúos II.
   - plataforma: spotify
     fecha: '2026-09-19'
     url_publicada: https://open.spotify.com/episode/0gHdvYkrUomRP5vizqkgtW
     estado: publicado
-    nota: Cápsula de audio en español, 25:18, generada con NotebookLM a partir
-      del artículo. El sitio no aloja el archivo; Spotify requiere User-Agent
-      de navegador para comprobar episodios recientes.
+    nota: Cápsula de audio en español, 25:18, generada con NotebookLM a partir del
+      artículo. El sitio no aloja el archivo; Spotify requiere User-Agent de navegador
+      para comprobar episodios recientes.
 - slug: avaluos-ii-brecha-residencial
   ref_interno: avaluos-ii-brecha-residencial
   url_canonica: https://3cucharadas.cl/datos/territorio/avaluos-ii-brecha-residencial/
