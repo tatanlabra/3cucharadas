@@ -1,0 +1,66 @@
+[
+  {
+    "ref": "catastro-sii-brecha-python-osm",
+    "visual_id": "catastro-sii-brecha-python-osm",
+    "paths": {
+      "hero": "/assets/images/heroes-v2/catastro-sii-brecha-python-osm/hero-1600x900.webp",
+      "hero-mobile": "/assets/images/heroes-v2/catastro-sii-brecha-python-osm/hero-mobile-800x450.webp",
+      "teaser": "/assets/images/heroes-v2/catastro-sii-brecha-python-osm/teaser-1280x720.webp",
+      "teaser-mobile": "/assets/images/heroes-v2/catastro-sii-brecha-python-osm/teaser-mobile-640x360.webp",
+      "og": "/assets/images/heroes-v2/catastro-sii-brecha-python-osm/og-1200x630.webp"
+    },
+    "ai_generated": true,
+    "alt": {
+      "es": "Viviendas, parcelas y hogares luminosos como metáfora de la diferencia entre catastro y censo.",
+      "en": "Homes, parcels and luminous households as a metaphor for the difference between a cadastre and a census."
+    }
+  },
+  {
+    "ref": "replica-tesis-establecimientos-educacionales",
+    "visual_id": "replica-tesis-establecimientos",
+    "paths": {
+      "hero": "/assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-1600x900.webp",
+      "hero-mobile": "/assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-mobile-800x450.webp",
+      "teaser": "/assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-1280x720.webp",
+      "teaser-mobile": "/assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-mobile-640x360.webp",
+      "og": "/assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/og-1200x630.webp"
+    },
+    "ai_generated": true,
+    "alt": {
+      "es": "Tesis archivada y modelos escolares reconstruidos como metáfora de una réplica que corrige su original.",
+      "en": "An archived thesis and reconstructed school models as a metaphor for a replication that corrects its original."
+    }
+  },
+  {
+    "ref": "multiagente-penta-agent-memoria-decision",
+    "visual_id": "multiagente-penta-agent-memoria-decision",
+    "paths": {
+      "hero": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-decision/hero-1600x900.webp",
+      "hero-mobile": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-decision/hero-mobile-800x450.webp",
+      "teaser": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-decision/teaser-1280x720.webp",
+      "teaser-mobile": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-decision/teaser-mobile-640x360.webp",
+      "og": "/assets/images/heroes-v2/multiagente-penta-agent-memoria-decision/og-1200x630.webp"
+    },
+    "ai_generated": true,
+    "alt": {
+      "es": "Una memoria simple continúa en producción mientras una red más compleja queda detenida ante un umbral.",
+      "en": "A simple memory remains in production while a more complex network stops at a threshold."
+    }
+  },
+  {
+    "ref": "extender-tesis-no-es-agregar-anos",
+    "visual_id": "extender-tesis-no-es-agregar-anos",
+    "paths": {
+      "hero": "/assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/hero-1600x900.webp",
+      "hero-mobile": "/assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/hero-mobile-800x450.webp",
+      "teaser": "/assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/teaser-1280x720.webp",
+      "teaser-mobile": "/assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/teaser-mobile-640x360.webp",
+      "og": "/assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/og-1200x630.webp"
+    },
+    "ai_generated": true,
+    "alt": {
+      "es": "Escuelas en distintos estados y contornos superpuestos como metáfora de cierres y mercados alternativos.",
+      "en": "Schools in different states and overlapping contours as a metaphor for closures and alternative markets."
+    }
+  }
+]

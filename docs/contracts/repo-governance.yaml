@@ -192,6 +192,22 @@ owned_large_files:
     owner: editorial-heroes-casen
     role: evidencia-visual-de-matriz-de-aceptacion
     retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260926-draft-heroes/evidence/images/sources/catastro-sii-brecha-python-osm.png:
+    owner: editorial-heroes-drafts
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260926-draft-heroes/evidence/images/sources/extender-tesis-no-es-agregar-anos.png:
+    owner: editorial-heroes-drafts
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260926-draft-heroes/evidence/images/sources/multiagente-penta-agent-memoria-decision.png:
+    owner: editorial-heroes-drafts
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
+  docs/plans/20260926-draft-heroes/evidence/images/sources/replica-tesis-establecimientos-educacionales.png:
+    owner: editorial-heroes-drafts
+    role: maestro-editorial-seleccionado-con-procedencia
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
 falsified_by:
   - test: unowned_large_file
     observation: "Observado rojo el 2026-09-06: orphan.bin de 12 bytes superó el umbral fixture de 10 sin dueño; el proceso salió 1. El fixture equivalente con owned.bin declarado salió 0."

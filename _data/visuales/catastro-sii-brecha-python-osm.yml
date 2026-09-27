@@ -1,0 +1,100 @@
+slug: catastro-sii-brecha-python-osm
+ref: catastro-sii-brecha-python-osm
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/catastro-sii-brecha-python-osm/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 163902
+  sha256: 91c01274403a651abf5147716fefeceba763a66a13f896f293b5569355f16981
+  alt: &id001
+    es: Viviendas, parcelas y hogares luminosos como metáfora de la diferencia entre catastro y censo.
+    en: Homes, parcels and luminous households as a metaphor for the difference between a cadastre and a census.
+  provenance:
+    status: generated_this_revision
+    source_sha256: cd108facf2beb4b41e6694597f84ea9abd9575871673bf83a51f23cf8ef0d882
+    note: &id002
+      es: Ilustración conceptual; no representa personas, datos medidos, un catastro ni un mapa real.
+      en: Conceptual illustration; it does not depict people, measured data, an actual cadastre or a real map.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/catastro-sii-brecha-python-osm/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 63122
+  sha256: 2c3d6d655503a687fbb302c6191590a7278e4614781fb55bfa85fe1d397d6f39
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: cd108facf2beb4b41e6694597f84ea9abd9575871673bf83a51f23cf8ef0d882
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/catastro-sii-brecha-python-osm/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 137014
+  sha256: 3452bebad8faa66168865b0a87962128d4a90c87fb8e008c530cac7c007854da
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: cd108facf2beb4b41e6694597f84ea9abd9575871673bf83a51f23cf8ef0d882
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/catastro-sii-brecha-python-osm/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 48956
+  sha256: 26cea682b97c625ce78ed71859d62dd86a2aae4d03a774d519e25f646b3cc086
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: cd108facf2beb4b41e6694597f84ea9abd9575871673bf83a51f23cf8ef0d882
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/catastro-sii-brecha-python-osm/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 121112
+  sha256: 49e8bb887136a2daefbbd618d594a7539d8ca7ed7eaa15702c685af79aaa5379
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: cd108facf2beb4b41e6694597f84ea9abd9575871673bf83a51f23cf8ef0d882
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+drafts:
+- _drafts/2026-07-17-catastro-sii-brecha-python-osm.md
+- _drafts/2026-07-17-catastro-sii-brecha-python-osm-en.md

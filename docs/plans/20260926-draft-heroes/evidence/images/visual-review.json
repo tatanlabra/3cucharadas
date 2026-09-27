@@ -1,0 +1,26 @@
+{
+  "reviewed_at": "2026-09-26",
+  "reviewer": "Codex",
+  "criteria": ["topic recognizable", "left title-safe", "right focal subject", "no measured-data claim", "no text or glyphs", "thumbnail-safe"],
+  "accepted": ["catastro-sii-brecha-python-osm", "replica-tesis-establecimientos-educacionales", "multiagente-penta-agent-memoria-decision", "extender-tesis-no-es-agregar-anos"],
+  "corrected_before_acceptance": {
+    "replica-tesis-establecimientos-educacionales": "removed text-like marks from archival pages",
+    "multiagente-penta-agent-memoria-decision": "removed X glyph from decision threshold",
+    "extender-tesis-no-es-agregar-anos": "removed X glyph from closed school doorway"
+  },
+  "browser_review": {
+    "tool": "agent-browser 0.33.2",
+    "viewports": ["1440x900", "390x844"],
+    "source_routes": 7,
+    "result": "pass",
+    "observations": ["all long titles remain contained", "all heroes retain a visible focal subject", "ES and EN pairs share art", "mobile crops preserve the subject"]
+  },
+  "checks": {
+    "visual_assets_strict": "pass",
+    "jekyll_drafts_future_unpublished": "pass",
+    "hero_disclosure_artifact": "pass",
+    "site_artifact": "pass",
+    "draft_render_bindings": "pass"
+  },
+  "limits": ["conceptual visual review is not human editorial acceptance", "no physical mobile browser or screen-reader validation in this review"]
+}

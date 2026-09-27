@@ -1,0 +1,70 @@
+{
+  "catastro-sii-brecha-python-osm": {
+    "source": "/home/ende/.codex/generated_images/01a0e06d-34dd-7c62-b3ed-4a14f7d0ebb0/exec-2ac7b7da-5754-4119-89b6-503148d71760.png",
+    "mode": "built-in imagegen",
+    "review": "accepted: parcel and household layers remain conceptual; quiet left; no labels or measured values",
+    "visual_id": "catastro-sii-brecha-python-osm",
+    "ai_generated": true,
+    "provenance_status": "generated_this_revision",
+    "tool": "ImageGen de OpenAI mediante Codex",
+    "alt": {
+      "es": "Viviendas, parcelas y hogares luminosos como metáfora de la diferencia entre catastro y censo.",
+      "en": "Homes, parcels and luminous households as a metaphor for the difference between a cadastre and a census."
+    },
+    "note": {
+      "es": "Ilustración conceptual; no representa personas, datos medidos, un catastro ni un mapa real.",
+      "en": "Conceptual illustration; it does not depict people, measured data, an actual cadastre or a real map."
+    }
+  },
+  "replica-tesis-establecimientos-educacionales": {
+    "source": "/home/ende/.codex/generated_images/01a0e06d-34dd-7c62-b3ed-4a14f7d0ebb0/exec-5b5768b9-8567-42bb-9f20-f9fcd9effea3.png",
+    "mode": "built-in imagegen",
+    "review": "accepted after removing text-like marks: archival thesis and reconstructed schools right; quiet left; no fake results",
+    "visual_id": "replica-tesis-establecimientos",
+    "ai_generated": true,
+    "provenance_status": "generated_this_revision",
+    "tool": "ImageGen de OpenAI mediante Codex",
+    "alt": {
+      "es": "Tesis archivada y modelos escolares reconstruidos como metáfora de una réplica que corrige su original.",
+      "en": "An archived thesis and reconstructed school models as a metaphor for a replication that corrects its original."
+    },
+    "note": {
+      "es": "Ilustración conceptual; no reproduce documentos, establecimientos ni resultados medidos.",
+      "en": "Conceptual illustration; it does not reproduce actual documents, schools or measured results."
+    }
+  },
+  "multiagente-penta-agent-memoria-decision": {
+    "source": "/home/ende/.codex/generated_images/01a0e06d-34dd-7c62-b3ed-4a14f7d0ebb0/exec-a75d09bd-19b1-4f10-8d12-5211029e1ce8.png",
+    "mode": "built-in imagegen",
+    "review": "accepted after replacing the X glyph: simple production sphere, complex candidate behind an unmarked threshold, quiet left",
+    "visual_id": "multiagente-penta-agent-memoria-decision",
+    "ai_generated": true,
+    "provenance_status": "generated_this_revision",
+    "tool": "ImageGen de OpenAI mediante Codex",
+    "alt": {
+      "es": "Una memoria simple continúa en producción mientras una red más compleja queda detenida ante un umbral.",
+      "en": "A simple memory remains in production while a more complex network stops at a threshold."
+    },
+    "note": {
+      "es": "Ilustración conceptual; no representa la arquitectura técnica ni resultados experimentales medidos.",
+      "en": "Conceptual illustration; it does not represent the technical architecture or measured experimental results."
+    }
+  },
+  "extender-tesis-no-es-agregar-anos": {
+    "source": "/home/ende/.codex/generated_images/01a0e06d-34dd-7c62-b3ed-4a14f7d0ebb0/exec-7d7f0154-f104-4f50-8b28-08915a7a694d.png",
+    "mode": "built-in imagegen",
+    "review": "accepted after removing the X glyph: school states and overlapping market contours remain conceptual; quiet left",
+    "visual_id": "extender-tesis-no-es-agregar-anos",
+    "ai_generated": true,
+    "provenance_status": "generated_this_revision",
+    "tool": "ImageGen de OpenAI mediante Codex",
+    "alt": {
+      "es": "Escuelas en distintos estados y contornos superpuestos como metáfora de cierres y mercados alternativos.",
+      "en": "Schools in different states and overlapping contours as a metaphor for closures and alternative markets."
+    },
+    "note": {
+      "es": "Ilustración conceptual; no representa escuelas, cierres, mercados ni cartografía observados.",
+      "en": "Conceptual illustration; it does not depict observed schools, closures, markets or cartography."
+    }
+  }
+}

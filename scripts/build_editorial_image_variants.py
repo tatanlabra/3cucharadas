@@ -39,19 +39,19 @@ def encode(source, output, size, budget, compact):
             return quality
     raise ValueError(f'Image quality/weight conflict: {output}; do not silently overcompress')
 
-def build(selection):
-    inventory=json.loads((EVIDENCE.parent/'inventory.json').read_text())
+def build(selection, evidence=EVIDENCE):
+    inventory=json.loads((evidence.parent/'inventory.json').read_text())
     public=[]
     for ref, item in selection.items():
         posts=[p['file'] for p in inventory if p['ref']==ref]
-        if len(posts)!=2:
-            raise ValueError(f'Expected a bilingual pair for {ref}')
+        if not posts:
+            raise ValueError(f'Expected at least one post for {ref}')
         source=Path(item['source'])
         if not source.is_absolute():
             source=ROOT/source
         if not source.is_file():
             raise FileNotFoundError(source)
-        master=EVIDENCE/'sources'/(ref+source.suffix)
+        master=evidence/'sources'/(ref+source.suffix)
         master.parent.mkdir(parents=True,exist_ok=True)
         if master.exists() and digest(master)!=digest(source):
             raise ValueError('An immutable master already exists with different content')
@@ -62,9 +62,18 @@ def build(selection):
         destination.mkdir(parents=True,exist_ok=True)
         visual_id=item['visual_id']
         catalog_path=ROOT/'_data/visuales'/(visual_id+'.yml')
-        catalog=yaml.safe_load(catalog_path.read_text()) if catalog_path.exists() else {'slug':visual_id,'ref':ref,'posts':posts,'piezas':[]}
+        catalog=yaml.safe_load(catalog_path.read_text()) if catalog_path.exists() else {'slug':visual_id,'ref':ref,'piezas':[]}
         catalog['ref']=ref
-        catalog['posts']=posts
+        published=[post for post in posts if post.startswith('_posts/')]
+        drafts=[post for post in posts if post.startswith('_drafts/')]
+        if published:
+            catalog['posts']=published
+        else:
+            catalog.pop('posts',None)
+        if drafts:
+            catalog['drafts']=drafts
+        else:
+            catalog.pop('drafts',None)
         catalog['piezas']=[x for x in catalog.get('piezas',[]) if not x['id'].startswith('editorial-v2-')]
         for piece in catalog['piezas']:
             if 'cifras' in piece:
@@ -86,11 +95,14 @@ def build(selection):
             paths[name]='/'+relative
         catalog_path.write_text(yaml.safe_dump(catalog,allow_unicode=True,sort_keys=False,width=110))
         public.append({'ref':ref,'visual_id':visual_id,'paths':paths,'ai_generated':item['ai_generated'],'alt':item['alt']})
-    (EVIDENCE/'derivatives.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
+    (evidence/'derivatives.json').write_text(json.dumps(public,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'families':len(public),'derivatives':len(public)*len(VARIANTS)},ensure_ascii=False))
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
-    parser.add_argument('--selection',type=Path,default=EVIDENCE/'selected-sources.json')
+    parser.add_argument('--evidence-dir',type=Path,default=EVIDENCE)
+    parser.add_argument('--selection',type=Path)
     args=parser.parse_args()
-    build(json.loads(args.selection.read_text()))
+    evidence=args.evidence_dir.resolve()
+    selection=(args.selection or evidence/'selected-sources.json').resolve()
+    build(json.loads(selection.read_text()), evidence=evidence)
