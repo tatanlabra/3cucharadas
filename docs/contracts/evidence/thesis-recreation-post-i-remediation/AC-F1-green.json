@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "d966649de54b5cd6977f7dbc1dd40e88401181d14034bbc7c9ae7dd671d9a00b",
+  "observed_command": "git -C incubadora/tesis_mae_mejorada show e4c8d924691bf40763897fd61ad6df7459fab82c:audit/f5_judgment_registry.json | jq -e '.summary.judgments == 34 and ([.judgments[] | select(.id == \"J-012\")][0].mecanismo | contains(\"once efectos\") and contains(\"otros diez\") and contains(\"doce coeficientes\"))'",
+  "observed_command_sha256": "d966649de54b5cd6977f7dbc1dd40e88401181d14034bbc7c9ae7dd671d9a00b",
+  "outcome": "green",
+  "setup_status": "restored",
+  "started_at": "2026-09-27T15:43:58Z",
+  "finished_at": "2026-09-27T15:43:58Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "true\n",
+  "stderr": ""
+}

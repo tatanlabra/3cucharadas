@@ -1,0 +1,45 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F3",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "740fc4a0884bd0fe511ac6a929795180398f18d16420654cbad820a77476c24a",
+  "observed_command": "node activos/3cucharadas/scripts/verify_thesis_recreation_post_i_browser.mjs --fixture baseline",
+  "observed_command_sha256": "5e86115453a20ff5a28afe5e80444fc2a6aafd02e8e0466792469c852b2b6930",
+  "outcome": "red",
+  "setup_status": "historical_loaded",
+  "started_at": "2026-09-27T15:44:13Z",
+  "finished_at": "2026-09-27T15:44:13Z",
+  "exit_code": 1,
+  "fixture_sha256": "b1429b3c32cf049ce9c5b05f82a24b63a8df8cfbc947725e98714ac7763182b1",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/assets/css/main.scss",
+      "exists": true,
+      "sha256": "70e861634915eb2743ac92bcee06bf9b8e7f14bbf6d93d2beaf5d3aa4d57833e"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_browser.mjs",
+      "exists": true,
+      "sha256": "f907d73cc913cdd0b0e3ef5233e26c9e72ecd3cfa5b0e806531a9f7b2deba1e6"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/assets/css/main.scss",
+      "exists": true,
+      "sha256": "70e861634915eb2743ac92bcee06bf9b8e7f14bbf6d93d2beaf5d3aa4d57833e"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_browser.mjs",
+      "exists": true,
+      "sha256": "f907d73cc913cdd0b0e3ef5233e26c9e72ecd3cfa5b0e806531a9f7b2deba1e6"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\n  \"status\": \"fail\",\n  \"fixture\": \"/home/ende/Descargas/programaciones/activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f3-baseline.json\",\n  \"failures\": [\n    \"carousel-left-overflow\",\n    \"carousel-title-too-large\",\n    \"slide-title-too-large\",\n    \"previous-target-too-small\",\n    \"next-target-too-small\",\n    \"dot-target-too-small\",\n    \"pipeline-too-tall\",\n    \"pipeline-misplaced\"\n  ],\n  \"measurement\": {\n    \"locale\": \"es\",\n    \"theme\": \"light\",\n    \"viewport\": {\n      \"width\": 1366,\n      \"height\": 768\n    },\n    \"documentOverflow\": false,\n    \"article\": {\n      \"left\": 354.5,\n      \"right\": 1085.5\n    },\n    \"carousel\": {\n      \"left\": 125.5,\n      \"right\": 1085.5\n    },\n    \"fonts\": {\n      \"carouselTitle\": 37.44,\n      \"slideTitle\": 28.8,\n      \"body\": 18\n    },\n    \"controls\": {\n      \"previous\": {\n        \"width\": 42.4,\n        \"height\": 42.4\n      },\n      \"next\": {\n        \"width\": 42.4,\n        \"height\": 42.4\n      },\n      \"dot\": {\n        \"width\": 12.8,\n        \"height\": 12.8\n      }\n    },\n    \"pipeline\": {\n      \"width\": 731,\n      \"height\": 1689.6,\n      \"loaded\": true,\n      \"beforeFirstSubheading\": false,\n      \"count\": 1\n    },\n    \"imagesLoaded\": true,\n    \"interaction\": {\n      \"end\": true,\n      \"home\": true,\n      \"next\": true\n    }\n  }\n}\n",
+  "stderr": ""
+}

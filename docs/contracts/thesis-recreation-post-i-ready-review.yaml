@@ -1,0 +1,343 @@
+id: thesis-recreation-post-i-ready-review
+version: 10
+authorization: "Publicación bilingüe autorizada por el autor el 2026-09-27: commit selectivo, push explícito a GitLab y GitHub y despliegue; difusión social y hooks de post-publicación en pausa."
+status_target: READY_FOR_PUBLICATION_NO_DISTRIBUTION
+scope:
+  documents:
+    es: _posts/2026-08-29-replica-tesis-establecimientos-educacionales.md
+    en: _posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  excluded:
+    - _drafts/2026-09-17-extender-tesis-no-es-agregar-anos.md
+    - _drafts/2026-09-17-extender-tesis-no-es-agregar-anos-en.md
+    - penta-agent
+evidence:
+  editorial_reduction:
+    baseline_commit: fac3b3f6d9d6cb919061653199b1f7bdd7b057fa
+    unit: Unicode characters including front matter
+    maximum_after_per_draft: 30000
+    before:
+      es: 50589
+      en: 50562
+  primary_hypothesis_registry:
+    repository: incubadora/tesis_mae_mejorada
+    commit: e4c8d924691bf40763897fd61ad6df7459fab82c
+    path: audit/f4_divergence_adjudication.json
+    git_blob: 98654dc39e68ed4735aeb20f7deb1c277421e2ee
+    sha256: b6b38eb4d6377333d8def1ad5044c844ffe530b460ac178814753550c9a37417
+    hypotheses_tested: 50
+    outcomes:
+      REFUTADA: 37
+      SOSTENIDA: 11
+      PARCIAL: 1
+      REFUTADA_PARA_ONCE_TERMINOS: 1
+  editorial_judgment_registry:
+    repository: incubadora/tesis_mae_mejorada
+    commit: e4c8d924691bf40763897fd61ad6df7459fab82c
+    path: audit/f5_judgment_registry.json
+    git_blob: 6e619165db1b6d3f61d22274513d22510264f34d
+    sha256: 9c12c52fc733a232a2ab916b72db5a76da4fbc5c3dde72e3a564204ea2dfc286
+    judgments: 34
+    verdict_counts:
+      CALCE_CORRECTO: 15
+      DESCALCE_ERROR_PASADO: 10
+      DESCALCE_AMBOS_MAL: 1
+      CALCE_HEREDADO: 1
+      LIMITE_DECLARADO: 2
+      NO_NUMERICO_ESTRUCTURAL: 3
+      PROCEDENCIA_VERIFICADA: 2
+    expected_verdicts:
+      J-017: CALCE_CORRECTO
+      J-010: CALCE_CORRECTO
+      J-011: CALCE_CORRECTO
+      J-016: CALCE_CORRECTO
+      J-026: CALCE_CORRECTO
+  result_comparison:
+    repository: incubadora/tesis_mae_mejorada
+    commit: e4c8d924691bf40763897fd61ad6df7459fab82c
+    path: audit/recreation_result_comparison_v2.json
+    git_blob: ae578e1461865168270a8c48cb81cb82c7131589
+    sha256: 8bd336a3c443d95b8d08449b475fb688a71cfd7ffd2f584e2e37392d380827a2
+    expected:
+      status: COMPLETE_WITH_CLASSIFIED_LIMITS
+      reopened_cases: 9
+      execution_terminal: 9
+      comparison_terminal: 9
+      matches: 3
+      mismatches: 2
+      not_comparable_by_design: 4
+      inferential_models: 4
+      central_claim: "Todo el itinerario computacional disponible volvió a ejecutarse; eso no hizo que todos los resultados fueran iguales."
+  stata17_traceable_rerun:
+    repository: incubadora/tesis_mae_mejorada
+    commit: a8ee6ac8b19ab7bac37b7282778aabdd05101b90
+    path: recreacion/stata17_e2e_summary.json
+    git_blob: 57f3589883c373b684a8cf4860fe75788997bdd0
+    sha256: 7042e48863b49138c82c083eb46e24ae71d2f4aa2bc1485d31b207808bc7c485
+    expected:
+      status: TRACEABLE_PRESENT_DAY_RERUN_COMPLETED
+      successful_roles: 15
+      active_routes: 14
+      documented_inactive_routes: 1
+      receipt_count: 15
+      route_verdict: TRACEABLE_PRESENT_DAY_ROUTE_COMPLETED
+      runtime_status: STATA_17_C_MP_EQ_1_CONFIRMED
+      isolation_status: READ_ONLY_ROOTS_INTACT
+      prohibited_claims:
+        - HISTORICAL_EXECUTION_OBSERVED
+        - LITERAL_HISTORICAL_EQUIVALENCE
+        - ALL_HISTORICAL_COMMANDS_EXECUTED_UNMODIFIED
+  stata17_output_harvest:
+    repository: incubadora/tesis_mae_mejorada
+    commit: cd6d19b133961e1cf297e8aae0a29bd896f41eea
+    path: audit/stata17_output_harvest.json
+    git_blob: f66d0dcf3280f8d0111f724ac77f3e5712254400
+    sha256: 649e57204f62460f2c8072e69f8f82067bcd9f5520d8e6d279e41af5f55a0010
+    expected:
+      status: COMPLETE_WITH_DECLARED_LIMITS
+      routes: 3
+      outputs: 4
+      literal_source_status: NO_EJECUTABLE
+      governed_rerun_status: TRACEABLE_PRESENT_DAY_ROUTE_COMPLETED
+      panel_rows: 234284
+      schools: 16048
+      years: [1992, 2012]
+      communes: 346
+      coordinate_rows: 2934033
+      multilevel_models: 4
+      observations_per_model: [816, 816, 816, 816]
+      persisted_graph_files: 0
+  face_to_face_carousel:
+    repository: incubadora/tesis_mae_mejorada
+    commit: e4c8d924691bf40763897fd61ad6df7459fab82c
+    path: audit/post_face_to_face_carousel.json
+    git_blob: 9db42fb440b4dc6cefa75b3f62d2e45e194b3e45
+    sha256: d7dd0593e7e00dec2cd42eda718a3b600a0fd63df0aca3b7c3c1104490750927
+    expected:
+      status: READY_FOR_BLOG_INTEGRATION
+      slides: 6
+      assets: 18
+      historical_execution: HISTORICAL_EXECUTION_NOT_VERIFIED
+      causal_boundary: ASSOCIATIONAL_ONLY
+      slide_order:
+        - table-04-exact
+        - figure-01-pattern
+        - figure-11-hhi
+        - figure-02-rates
+        - table-08-rounding
+        - figure-04-net-mobility
+  reconstruction_pipeline:
+    renderer:
+      name: d2
+      version: v0.7.1
+      layout: elk
+      theme: 200
+      command: "DEBUG=0 d2 --theme=200 --layout=elk --elk-nodeNodeBetweenLayers=20 --elk-edgeNodeBetweenLayers=12 --pad=6 SOURCE.d2 OUTPUT.svg"
+      annotation_command: "python3 annotate_svg.py OUTPUT.svg --title TITLE --description DESCRIPTION"
+    expected:
+      inputs: 3
+      gates: 4
+      gate_chain: shared_once
+      outcomes: [matches, differs, not_comparable, declared_limit]
+      placement: spoonful_2_before_first_subheading
+      causal_boundary_es: "reejecutable no significa recreable; recreable no significa coincidente; coincidente no significa correcto; correcto no significa causal"
+      causal_boundary_en: "rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal"
+    artifacts:
+      - language: es
+        surface: desktop
+        source: assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.d2
+        source_sha256: 0fb223471c608417883f0e6364c056a9d45af22f72263cebcee4385580788a1d
+        svg: assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.svg
+        svg_sha256: a78e14ec33ba5eec57d35c6bea645380a62a569e185a8a411fc2c5459fa8f3ec
+      - language: es
+        surface: mobile
+        source: assets/images/replica-tesis-establecimientos/pipeline-recreacion-es-mobile.d2
+        source_sha256: 52e3d2040d38aabb91b7d08a93e7364d58cf5be16f62983578113c96acff9b4f
+        svg: assets/images/replica-tesis-establecimientos/pipeline-recreacion-es-mobile.svg
+        svg_sha256: 0523f36d22aa4608151593d076c496a8f3191502bb0b27d5dcbc5c6aee876593
+      - language: en
+        surface: desktop
+        source: assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.d2
+        source_sha256: f165e5240c47db011c8dd6e95afe1cf22e7b4e68f2ad4a8e7c2875330fa4213e
+        svg: assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.svg
+        svg_sha256: fe1224e2762849a8583365ae06ecb93697a742372c5aec4c3abc7237f9f26ade
+      - language: en
+        surface: mobile
+        source: assets/images/replica-tesis-establecimientos/pipeline-recreacion-en-mobile.d2
+        source_sha256: 0f6140ea10e096fe7837fd56201f6a26a07645d7f9a1611f0a820c2eac9a50f3
+        svg: assets/images/replica-tesis-establecimientos/pipeline-recreacion-en-mobile.svg
+        svg_sha256: 20bb6a12b8986f17fc13cd10e27c88dbb74b99b818f02263d1bc4b28f747c5e9
+commit:
+  subject: "docs(post): publish thesis recreation evidence audit"
+  author: "tatan <tatanlabra@gmail.com>"
+  paths:
+    - _config.yml
+    - _data/thesis_recreation_face_to_face.yml
+    - _data/visuales/replica-tesis-establecimientos.yml
+    - _posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+    - _posts/2026-08-29-replica-tesis-establecimientos-educacionales.md
+    - _includes/evidence-carousel.html
+    - assets/css/main.scss
+    - assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-1600x900.webp
+    - assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-mobile-800x450.webp
+    - assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/og-1200x630.webp
+    - assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-1280x720.webp
+    - assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-mobile-640x360.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s01-table04-original.png
+    - assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s02-figure01-original.png
+    - assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s03-figure11-original.png
+    - assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s04-figure02-original.png
+    - assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s05-table08-original.png
+    - assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-es.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s06-figure04-original.png
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-en-mobile.d2
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-en-mobile.svg
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.d2
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.svg
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-es-mobile.d2
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-es-mobile.svg
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.d2
+    - assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.svg
+    - assets/js/evidence-carousel.js
+    - docs/contracts/thesis-recreation-post-i-ready-review.yaml
+    - docs/contracts/thesis-recreation-post-i-remediation.md
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f0-invalid.md
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-baseline.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-hygiene-cycle.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f3-baseline.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F0-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F0-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-HYGIENE-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-HYGIENE-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-MOBILITY-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F1-MOBILITY-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F2-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F2-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F3-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F3-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F4-green.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/AC-F4-red.json
+    - docs/contracts/evidence/thesis-recreation-post-i-remediation/remediation-closeout.json
+    - research/replica-tesis/hypothesis-accounting.md
+    - research/replica-tesis/literature.yml
+    - scripts/verify_thesis_recreation_post_i_browser.mjs
+    - scripts/verify_thesis_recreation_post_i_ready_review.rb
+  deletions:
+    - _drafts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+    - _drafts/2026-08-29-replica-tesis-establecimientos-educacionales.md
+    - assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-noncomparable-rerun-en.webp
+    - assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-noncomparable-rerun-es.webp
+required_front_matter:
+  es:
+    layout: single
+    lang: es
+    ref: replica-tesis-establecimientos-educacionales
+    permalink: /datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+    distribution:
+      social: false
+      republish: []
+      skip_reason: "Difusión posterior pausada por decisión editorial al publicar el post."
+  en:
+    layout: single
+    lang: en
+    ref: replica-tesis-establecimientos-educacionales
+    permalink: /datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+    distribution:
+      social: false
+      republish: []
+      skip_reason: "Post-publication distribution paused by editorial decision when the post was published."
+controls:
+  - id: C0
+    requirement: "Scope bounded to the approved local commit paths; unrelated work remains unstaged."
+    acceptance: "--staged accepts exactly commit.paths."
+    falsified_by: "Observed 2026-09-22: removing a required scoped file in a temporary fixture returns C0 red; restoration returns green."
+    rollback: "Unstage only paths selected by this task; never reset unrelated work."
+  - id: C1
+    requirement: "Four DOI-backed replication sources, two Chilean closure-context sources, and the OA/manual-access boundary are recorded; PDFs remain external and unversioned."
+    acceptance: "literature.yml validates citations and hashes; --external-papers validates the external copies; no PDF exists under research/replica-tesis."
+    falsified_by: "Observed 2026-09-22: replacing a required DOI and injecting a PDF under research/replica-tesis in temporary fixtures returns C1 red; restoration returns green."
+    rollback: "Remove any repository PDF; retain only verified metadata and the external, unversioned copies."
+  - id: C2
+    requirement: "Spanish and English explain 1980s–2020s regime breaks and the requested sardonic framing."
+    acceptance: "Both drafts contain the five-period source note and required framing."
+    falsified_by: "Observed 2026-09-22: removing the Spanish framing in a temporary fixture returns C2 red; restoration returns green."
+    rollback: "Restore the prior draft wording without altering F5 evidence."
+  - id: C3
+    requirement: "Computing is described as a traceable present-day rerun, not historical equivalence; the public-policy bridge preserves each study's design and the panel's non-causal limit; the self-audit limitation remains explicit."
+    acceptance: "Both posts contain Python, the exact Stata 17 runtime wording, 14 active routes, the traceable-present-day boundary, the non-causal limit and the explicit statement that this is not an independent replication; Paredes–Fresard is attributed to 2002–2012 associations and destinations, Núñez–Solís–Soto to two rural communities, and neither result is assigned to the panel."
+    falsified_by: "Observed 2026-09-27: the pre-publication contract turned red when the author removed the dense runtime disclosure; the revised negative probes remove the present-day-rerun boundary, move the policy bridge or inject an unverified attribution and return C3 red."
+    rollback: "Restore the narrower claims and self-audit limitation; retain no performance assertion, causal transfer or unverifiable attribution."
+  - id: C4
+    requirement: "The 50-hypothesis balance is traceable to a content-pinned F4 registry; the distinct 34-judgement F5 balance records 15 correct matches, zero known present errors and the exact status of J-010/J-011/J-016."
+    acceptance: "--thesis-root resolves the hash-pinned Git objects at e4c8d924; F4 has 50 rows and 37/11/1/1 outcomes; F5 has the seven exact verdict counts, zero DESCALCE_ERROR_PRESENTE and five expected row verdicts; both drafts render the same balance and Table 2 mapping."
+    falsified_by: "Observed 2026-09-27: the pre-adjustment verifier required three present errors and returned C4 red after the corrected prose; changing an expected F4 outcome or any exact Table 2 row also returns C4 red."
+    rollback: "Restore both content-pinned registries and the exact four-category F4 wording; never promote a divergent sensitivity route as the canonical reconstruction."
+  - id: C5
+    requirement: "Each bilingual post is reduced to roughly half of its pinned baseline while front matter, three-spoon structure, notes and ES/EN parity survive production rendering."
+    acceptance: "Each source is at most 30,000 Unicode characters versus 50,589 ES and 50,562 EN at fac3b3f, preserving at least a 40% reduction; source verifier, diff check and a clean JEKYLL_ENV=production bundle exec jekyll build exit 0 with exactly root and /en/ pages."
+    falsified_by: "Observed 2026-09-22: removing the English closing heading in a temporary fixture returns C5 red; restoration returns green."
+    rollback: "Move the bilingual pair back to _drafts and restore the last green source; do not publish one language alone."
+  - id: C6
+    requirement: "The publication commit contains only approved files, promotes ES and EN together and leaves unrelated work unstaged."
+    acceptance: "The non-empty staged set is a subset of commit.paths plus commit.deletions, contains both _posts sources, excludes both _drafts sources, and passes git diff --cached --check plus the --staged verifier."
+    falsified_by: "Observed 2026-09-22: an empty index and staging unrelated.txt in temporary fixtures return C6 red; staging only allowed paths returns green."
+    rollback: "Revert only this publication commit if a release defect appears; preserve unrelated worktree changes."
+  - id: C7
+    requirement: "The public rerun claim is bound to the committed Stata receipt and preserves its limits."
+    acceptance: "--thesis-root resolves the pinned Git object, blob and SHA-256; the receipt contains the exact 15 roles in order, 15 green route verdicts, zero Stata errors, 15 valid runtime identities, intact roots, 14 active routes, one documentary route and all three prohibited claims."
+    falsified_by: "Observed 2026-09-25: the real final receipt was red at 14/15 until the nested-run evaluator was corrected and falsified; changing the pinned technical digest in a temporary fixture returns C7 red, and restoration returns green."
+    rollback: "Remove the public rerun assertion or pin a newly completed receipt; never reinterpret an incomplete suite as success."
+  - id: C8
+    requirement: "The post separates rerunnable, rebuildable, matching and correctness attribution, and binds the nine reopened cases plus four inferential families to the committed comparison artifact."
+    acceptance: "--thesis-root resolves the content-pinned Git object at e4c8d924; all nine cases have terminal execution/comparison/attribution states; counts are 3 matches, 2 mismatches and 4 not comparable by design; Tables 5–8 retain their strict published-precision summaries and causal boundary."
+    falsified_by: "Observed 2026-09-25: the construction test was red with the comparison module absent; the negative probe exits 1 when historical recovery or causality is injected. Mutating the pinned comparison digest or removing the central bilingual claim returns C8 red; restoration returns green."
+    rollback: "Remove the terminal comparison claims or pin a newly verified artifact; never turn successful execution into numerical agreement."
+  - id: C9
+    requirement: "A reusable, accessible face-to-face carousel presents exactly six bilingual comparisons in the predeclared evidence order; originals remain documentary facsimiles, every image opens in a lightbox and exposes its native-size file, navigation never auto-advances, and every asset is bound to the committed technical manifest."
+    acceptance: "Both drafts include the component at the start of Spoonful 3; ES/EN data keep the six IDs, exact verdicts and paired panels; Figures 2/3 and 4 report exact reconstruction; 18 files match the pinned SHA-256 records and the e4c8d924 technical manifest; HTML exposes region/group/slide semantics, twelve popup links and twelve native-size links; JS supports swipe/scroll-snap plus Left/Right/Home/End without autoplay or looping."
+    falsified_by: "Observed 2026-09-27: temporary fixtures reject a missing sixth slide, a replaced asset digest, removed carousel ARIA, a removed native-size link and injected autoplay; moving the include after Table 3 changes the structural placement predicate from true to false."
+    rollback: "Remove the two include calls and the scoped component files/assets; keep the existing inline figures and the C0-C8 evidence unchanged."
+  - id: C10
+    requirement: "The concise bilingual account of do_058, do_059 and do_060 remains bound to a committed output harvest: literal non-executability stays distinct from governed rerun success, do_059 remains a smoke test, and unexported maps are not promoted as recovered assets."
+    acceptance: "--thesis-root resolves the pinned Git object, blob and SHA-256; the artifact has three green governed routes, four hashed .dta outputs, the exact panel and territorial QA, four 816-observation example models, zero persisted graphs and all four prohibited claims; both posts name the three recovered routes and retain the [^harvest] provenance note without reproducing the full runtime ledger in the narrative."
+    falsified_by: "Observed 2026-09-26: the thesis-side construction test first returned ModuleNotFoundError, then --probe-negative rejected literal historical reproduction with exit 1. In the blog fixture, mutating the pinned harvest digest or promoting do_059 to thesis evidence returns C10 red; restoration returns green."
+    rollback: "Remove the rerun claim and notes or pin a newly verified artifact; never reinterpret NO_EJECUTABLE as proof that the governed route did not run."
+  - id: C11
+    requirement: "A bilingual, responsive D2 figure makes one shared anti-drift pipeline inspectable in Spoonful 2, and the closing separates one descriptive/predictive route from two causal identification candidates without promoting any current association to an effect."
+    acceptance: "Four D2 sources and four accessible SVGs match their pinned SHA-256 values and preserve three inputs, one occurrence of each of four shared gates, four terminal outcomes, mobile/desktop parity and the inference boundary; both drafts embed the correct picture/source pair before the first Spoonful 2 subheading and present exactly three future routes with their identification gates, the missing-counterfactual warning and the existing Grau–Hojman–Mizala citation."
+    falsified_by: "Observed 2026-09-27: temporary fixtures with a missing mobile SVG, removed SVG role metadata, or a causal overclaim each return C11 red; restoring the artifacts and boundary returns green."
+    rollback: "Remove Figure 2, its scoped CSS and eight diagram artifacts, then restore the prior placement; do not weaken the causal boundary to keep the figure."
+  - id: C12
+    requirement: "The public account distinguishes the 12 producer coefficients, 11 published fixed effects and 10 matches, and narrows every policy use by period, territory and estimand."
+    acceptance: "ES/EN contain the 12/11/10 reconciliation, Greater Santiago qualifier, retrospective-warning qualifier, interpretive-policy wording and a four-row public-use matrix with an explicit non-authorisation column."
+    falsified_by: "Observed 2026-09-27: the source-side denominator test failed on the prior eleven-remaining-effects wording; correcting the registry and drafts returned it green."
+    rollback: "Restore both drafts and the pinned F5 object together; never alter only the prose denominator."
+  - id: C13
+    requirement: "The face-to-face carousel remains inside the article column on desktop, uses proportionate type and 44 px controls, preserves every image's aspect ratio without clipping, and stays non-overflowing on mobile in both themes."
+    acceptance: "The browser gate passes ES/EN in light/dark at 390x844, 768x1024, 1366x768 and 1440x900; carousel headings are at most 24.5/20.5 px, arrows are at least 44 px and pagination targets at least 24 px, the D2 is bounded to one desktop viewport or 1.5 mobile viewports, all twelve images load inside their frames at the native aspect ratio, the Table 8 popup loads, every native-size link is valid and Home/End/Next work."
+    falsified_by: "Observed 2026-09-27: the versioned baseline and live pre-remediation page failed for desktop overflow, heading scale, touch targets, D2 height and placement; the media-negative fixture additionally fails for missing native-size links, clipped preview and absent popup."
+    rollback: "Restore the previous CSS and diagram pair together; do not hide document overflow to make the measurement green."
+  - id: C14
+    requirement: "Runtime detail remains auditable without displacing the narrative of results, differences and public use."
+    acceptance: "Each locale names Stata 17, stata-mp, the 14 active routes, do_058/do_059/do_060 and the traceable-present-day-rerun limit; [^stata17] binds the 15-role receipt and c(MP)/c(flavor observations, while [^harvest] binds the output harvest."
+    falsified_by: "Observed 2026-09-27: removing the dense disclosure made the old C14 red although both pinned receipts remained; the displaced gate now turns red when a runtime note, receipt commit or traceable-present-day limit is removed."
+    rollback: "Restore the concise runtime paragraph and both pinned notes; do not reinsert dense ledger prose into the main narrative merely to satisfy a stale literal check."
+final_contract:
+  id: F0
+  requirement: "READY_FOR_PUBLICATION_NO_DISTRIBUTION requires C0–C14 green over the same staged source, the pinned F4/F5/comparison/carousel/output-harvest/D2 evidence, the Stata receipt, bilingual promotion to _posts and an explicit pause on social and Telegram diffusion."
+  evidence: "Verifier JSON with --thesis-root and --external-papers, C0–C14 self-test, D2 structural validation, browser matrix, clean production build, rendered ES/EN review, selective commit SHA, explicit GitLab/GitHub remote parity and public root plus /en/ verification."
+  falsified_by: "Any changed required source after verification, evidence mismatch, causal overclaim, failed build, inaccessible visual, extra staged path, one-language promotion, remote divergence, stale public page or execution of a diffusion closeout returns F0 to red."
+  rollback: "Selective revert of this publication commit if deployment fails; preserve unrelated worktree changes and keep dissemination paused."

@@ -1,0 +1,55 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F2",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "21bd7529d0d0f3ead00bf7ca7afdb2f0c5570d379c706ee3fed2a71b6561f2e0",
+  "observed_command": "cd activos/3cucharadas && ruby scripts/verify_thesis_recreation_post_i_ready_review.rb --thesis-root ../../incubadora/tesis_mae_mejorada --external-papers /home/ende/Descargas/investigacion/tesis-recreacion-educacion/papers --staged",
+  "observed_command_sha256": "21bd7529d0d0f3ead00bf7ca7afdb2f0c5570d379c706ee3fed2a71b6561f2e0",
+  "outcome": "green",
+  "setup_status": "restored",
+  "started_at": "2026-09-27T15:45:29Z",
+  "finished_at": "2026-09-27T15:45:30Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/_drafts/2026-08-29-replica-tesis-establecimientos-educacionales.md",
+      "exists": true,
+      "sha256": "1c034fd0383cf91279e03447e175527732755a18afff6561e2bdce1478c140b4"
+    },
+    {
+      "path": "activos/3cucharadas/_drafts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md",
+      "exists": true,
+      "sha256": "f1b59f8ae5e7c52cd411fa39ca63a639cafc7279d3361b27f080cb0f9c1986b9"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/_drafts/2026-08-29-replica-tesis-establecimientos-educacionales.md",
+      "exists": true,
+      "sha256": "1c034fd0383cf91279e03447e175527732755a18afff6561e2bdce1478c140b4"
+    },
+    {
+      "path": "activos/3cucharadas/_drafts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md",
+      "exists": true,
+      "sha256": "f1b59f8ae5e7c52cd411fa39ca63a639cafc7279d3361b27f080cb0f9c1986b9"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\n  \"contract\": \"docs/contracts/thesis-recreation-post-i-ready-review.yaml\",\n  \"status\": \"pass\",\n  \"controls\": {}\n}\n",
+  "stderr": ""
+}

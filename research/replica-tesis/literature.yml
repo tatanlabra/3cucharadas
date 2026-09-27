@@ -1,0 +1,90 @@
+schema_version: 1
+retrieved_on: "2026-09-21"
+search_strategy:
+  question: "Por qué reexaminar trabajos empíricos antiguos puede recrear o mejorar evidencia."
+  method: "paper-search: abstract verificado, resolución OA y formato APA por DOI; sin Sci-Hub ni bypass editorial."
+  inclusion: "Economía y reproducibilidad con discusión conceptual o caso de reanálisis."
+  exclusion: "Snippets no verificados, fuentes sin DOI y descargas no autorizadas."
+sources:
+  - key: christensen2018
+    doi: "10.1257/jel.20171350"
+    apa: "Christensen, G., & Miguel, E. (2018). Transparency, Reproducibility, and the Credibility of Economics Research. Journal of Economic Literature, 56(3), 920–980. https://doi.org/10.1257/jel.20171350"
+    abstract_source: crossref
+    oa_status: resolved
+    oa_source: unpaywall
+    oa_url: "https://www.aeaweb.org/articles/pdf/doi/10.1257/jel.20171350"
+    cache_source: "https://emiguel.econ.berkeley.edu/assets/miguel_research/78/jel.20171350.pdf"
+    external_pdf:
+      filename: christensen-miguel-2018.pdf
+      sha256: "65d105c0a182d00e68df31d94e302a029d5918be6cd5d7214d87e2dc8e87c402"
+      provenance: author_hosted_open_access
+    editorial_use: "Transparencia, intercambio de materiales y credibilidad de la investigación económica."
+  - key: clemens2015
+    doi: "10.1111/joes.12139"
+    apa: "Clemens, M. A. (2015). The Meaning of Failed Replications: A Review and Proposal. Journal of Economic Surveys, 31(1), 326–342. https://doi.org/10.1111/joes.12139"
+    abstract_source: crossref
+    oa_status: unavailable
+    access: manual_academic
+    external_pdf:
+      filename: clemens-2015.pdf
+      sha256: "34070d6b106799c627bc5f3c80dc27253c939e99ad3c00946897d22080d53122"
+      provenance: user_provided_local_copy
+    editorial_use: "Distinguir una réplica discrepante de desacuerdos metodológicos y exigir una prueba conservadora."
+  - key: herndon2013
+    doi: "10.1093/cje/bet075"
+    apa: "Herndon, T., Ash, M., & Pollin, R. (2013). Does high public debt consistently stifle economic growth? A critique of Reinhart and Rogoff. Cambridge Journal of Economics, 38(2), 257–279. https://doi.org/10.1093/cje/bet075"
+    abstract_source: openalex
+    oa_status: unavailable
+    access: manual_academic
+    external_pdf:
+      filename: herndon-ash-pollin-2013.pdf
+      sha256: "7061561059048d71d83551ce1600b2534afe9ae25d6ac46cd2c89169c319fa77"
+      provenance: user_provided_local_copy
+    editorial_use: "Caso de reanálisis donde código, selección y ponderación cambian la conclusión."
+  - key: hamermesh2007
+    doi: "10.1111/j.1365-2966.2007.00428.x"
+    apa: "Hamermesh, D. S. (2007). Viewpoint: Replication in economics. Canadian Journal of Economics/Revue Canadienne d’économique, 40(3), 715–733. https://doi.org/10.1111/j.1365-2966.2007.00428.x"
+    abstract_source: crossref
+    oa_status: unavailable
+    access: manual_academic
+    external_pdf:
+      filename: hamermesh-2007.pdf
+      sha256: "78ae46a4524abb3c6c73ddd6f5b32c978fae0432a1c8122f616e3dc38cf89f89"
+      provenance: user_provided_local_copy
+    editorial_use: "Escasez de réplicas y sus incentivos en economía."
+contextual_sources:
+  - key: paredes2018
+    apa: "Paredes, R. D., & Fresard, M. (2018). Voucher y cierre de escuelas en Chile. Estudios Públicos, 151, 7–27."
+    external_pdf:
+      filename: paredes-fresard-2018.pdf
+      sha256: "656d7cf7f6b3005986885f75ab919364e9c244c8d1e6aef781a09d5d0f57d2ad"
+      provenance: user_provided_local_copy
+    editorial_use: "Delimitar que el flujo administrativo no identifica la decisión de cierre ni sus correlatos institucionales."
+  - key: nunez2014
+    doi: "10.11144/Javeriana.UPSY13-2.qscc"
+    apa: "Núñez, C. G., Solís, C., & Soto, R. (2014). ¿Qué sucede en las comunidades cuando se cierra la escuela rural? Un análisis psicosocial de la política de cierre de las escuelas rurales en Chile. Universitas Psychologica, 13(2), 615–625. https://doi.org/10.11144/Javeriana.UPSY13-2.qscc"
+    external_pdf:
+      filename: nunez-solis-soto-2014.pdf
+      sha256: "089d7931d50214577a7018fa5133a617ee7ef789479ea87f9ea4f6a18aa890d0"
+      provenance: user_provided_local_copy
+    editorial_use: "Distinguir el flujo administrativo de procesos comunitarios observados cualitativamente."
+historical_regimes:
+  - period: "1980s"
+    label: municipalization
+    source: "https://www.bcn.cl/historiadelaley/historia-de-la-ley/vista-expandida/8363/"
+  - period: "1990s"
+    label: shared_financing
+    source: "https://www.bcn.cl/leychile/navegar?idNorma=127911"
+  - period: "2000s"
+    label: preferential_school_subsidy
+    source: "https://www.bcn.cl/leychile/Navegar/index_html?idNorma=269001&idVersion="
+  - period: "2010s"
+    label: inclusion_and_new_public_education
+    source: "https://www.bcn.cl/leychile/Navegar?idNorma=1078172&idParte=9605200&idVersion=2222-02-02"
+  - period: "2020s"
+    label: new_public_education_rollout
+    source: "https://www.bcn.cl/leychile/Navegar?idNorma=1111237&idParte=9853075"
+limits:
+  - "OA no disponible en el resolvedor no significa que el artículo no exista; requiere acceso académico manual."
+  - "Los PDFs viven fuera de este checkout, en una carpeta local de investigación no versionada; las citas DOI, los metadatos y los hashes sí son revisables."
+  - "Una copia local aportada por la persona usuaria acredita su lectura e identidad bibliográfica, no el origen de descarga ni una licencia de redistribución."

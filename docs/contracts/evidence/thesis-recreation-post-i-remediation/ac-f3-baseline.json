@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-09-27T09:38:00-03:00",
+  "source": "agent-browser measurement of the pre-remediation draft",
+  "viewport": { "width": 1366, "height": 768 },
+  "article": { "x": 354.5, "width": 731 },
+  "carousel": { "x": 125.5, "width": 960 },
+  "typography_px": { "carousel_title": 37.44, "slide_title": 28.8, "body": 18 },
+  "controls_px": { "arrow_width": 42.4, "arrow_height": 42.4, "dot_width": 12.8, "dot_height": 12.8 },
+  "pipeline": {
+    "desktop": { "rendered_width": 731, "rendered_height": 1689.6, "viewbox_width": 681, "viewbox_height": 1574 },
+    "mobile": { "rendered_width": 358, "rendered_height": 2129.9, "viewbox_width": 396, "viewbox_height": 2356 }
+  }
+}

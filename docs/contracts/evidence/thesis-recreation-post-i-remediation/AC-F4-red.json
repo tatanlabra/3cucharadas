@@ -1,0 +1,45 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F4",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "21bd7529d0d0f3ead00bf7ca7afdb2f0c5570d379c706ee3fed2a71b6561f2e0",
+  "observed_command": "cd activos/3cucharadas && ruby scripts/verify_thesis_recreation_post_i_ready_review.rb --self-test --staged --thesis-root ../../incubadora/tesis_mae_mejorada | jq -e '(.observed_red_controls | index(\"C6\")) == null'",
+  "observed_command_sha256": "b12d5951c49b4efaa41562fdc365c85ddcf5abbc461735df428e15f04f510344",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-09-27T15:45:30Z",
+  "finished_at": "2026-09-27T15:45:33Z",
+  "exit_code": 1,
+  "fixture_sha256": "8385ba1ac371d7afa60d366b965af4c17bbc937b84288cd431c62d51b2f2c82c",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_ready_review.rb",
+      "exists": true,
+      "sha256": "8385ba1ac371d7afa60d366b965af4c17bbc937b84288cd431c62d51b2f2c82c"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_ready_review.rb",
+      "exists": true,
+      "sha256": "8385ba1ac371d7afa60d366b965af4c17bbc937b84288cd431c62d51b2f2c82c"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "false\n",
+  "stderr": ""
+}

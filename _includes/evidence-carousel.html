@@ -1,0 +1,143 @@
+{% assign carousel_data = site.data.thesis_recreation_face_to_face %}
+{% assign carousel = carousel_data.locales[page.lang] | default: carousel_data.locales.es %}
+<section
+  class="evidence-carousel"
+  data-evidence-carousel
+  role="region"
+  aria-roledescription="carousel"
+  aria-labelledby="{{ carousel.id }}-title"
+  data-status-template="{{ carousel.status_template }}"
+>
+  <header class="evidence-carousel__header">
+    <p class="evidence-carousel__eyebrow">{{ carousel.eyebrow }}</p>
+    <h3 id="{{ carousel.id }}-title">{{ carousel.title }}</h3>
+    <p>{{ carousel.intro }}</p>
+  </header>
+
+  <div class="evidence-carousel__toolbar">
+    <p class="evidence-carousel__instructions" id="{{ carousel.id }}-instructions">
+      {{ carousel.instructions }}
+    </p>
+    <p class="evidence-carousel__status" data-carousel-status aria-live="polite"></p>
+    <div class="evidence-carousel__arrows" role="group" aria-label="{{ carousel.controls_label }}">
+      <button type="button" data-carousel-previous aria-label="{{ carousel.previous }}" disabled>
+        <span aria-hidden="true">←</span>
+      </button>
+      <button type="button" data-carousel-next aria-label="{{ carousel.next }}">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="evidence-carousel__viewport"
+    data-carousel-viewport
+    tabindex="0"
+    aria-describedby="{{ carousel.id }}-instructions"
+  >
+    <div class="evidence-carousel__track">
+      {% for slide in carousel.slides %}
+        {% assign original = carousel_data.assets[slide.original_asset] %}
+        {% assign recreated = carousel_data.assets[slide.recreated_asset] %}
+        <div
+          class="evidence-carousel__slide"
+          id="{{ carousel.id }}-slide-{{ forloop.index }}"
+          data-carousel-slide
+          data-slide-id="{{ slide.id }}"
+          data-tone="{{ slide.tone }}"
+          role="group"
+          aria-roledescription="slide"
+          aria-label="{{ forloop.index }} {{ carousel.of }} {{ forloop.length }}"
+        >
+          <header class="evidence-carousel__slide-header">
+            <div>
+              <p class="evidence-carousel__case">{{ slide.case }}</p>
+              <h4>{{ slide.title }}</h4>
+            </div>
+            <p class="evidence-carousel__verdict">{{ slide.verdict }}</p>
+          </header>
+
+          <p class="evidence-carousel__metric">{{ slide.metric }}</p>
+
+          <div class="evidence-carousel__panels">
+            <figure class="evidence-carousel__panel">
+              <figcaption>
+                <span>{{ slide.original_label }}</span>
+                <a
+                  class="evidence-carousel__full-size-link"
+                  data-carousel-hd-link
+                  href="{{ original.path | relative_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="{{ carousel.open_full_size }}: {{ slide.original_alt }}"
+                >{{ carousel.open_full_size }} <span aria-hidden="true">↗</span></a>
+              </figcaption>
+              <a
+                class="image-popup evidence-carousel__media"
+                data-carousel-popup
+                href="{{ original.path | relative_url }}"
+                title="{{ slide.original_alt }}"
+                aria-label="{{ carousel.enlarge }}: {{ slide.original_alt }}"
+              >
+                <img
+                  src="{{ original.path | relative_url }}"
+                  width="{{ original.width }}"
+                  height="{{ original.height }}"
+                  loading="lazy"
+                  decoding="async"
+                  alt="{{ slide.original_alt }}"
+                >
+                <span class="evidence-carousel__zoom-cue" aria-hidden="true">{{ carousel.enlarge }} ⤢</span>
+              </a>
+            </figure>
+            <figure class="evidence-carousel__panel">
+              <figcaption>
+                <span>{{ slide.recreated_label }}</span>
+                <a
+                  class="evidence-carousel__full-size-link"
+                  data-carousel-hd-link
+                  href="{{ recreated.path | relative_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="{{ carousel.open_full_size }}: {{ slide.recreated_alt }}"
+                >{{ carousel.open_full_size }} <span aria-hidden="true">↗</span></a>
+              </figcaption>
+              <a
+                class="image-popup evidence-carousel__media"
+                data-carousel-popup
+                href="{{ recreated.path | relative_url }}"
+                title="{{ slide.recreated_alt }}"
+                aria-label="{{ carousel.enlarge }}: {{ slide.recreated_alt }}"
+              >
+                <img
+                  src="{{ recreated.path | relative_url }}"
+                  width="{{ recreated.width }}"
+                  height="{{ recreated.height }}"
+                  loading="lazy"
+                  decoding="async"
+                  alt="{{ slide.recreated_alt }}"
+                >
+                <span class="evidence-carousel__zoom-cue" aria-hidden="true">{{ carousel.enlarge }} ⤢</span>
+              </a>
+            </figure>
+          </div>
+
+          <p class="evidence-carousel__evidence">{{ slide.evidence }}</p>
+          <p class="evidence-carousel__limit"><strong>{{ carousel.limit_label }}</strong> {{ slide.limit }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="evidence-carousel__dots" data-carousel-dots role="group" aria-label="{{ carousel.pagination_label }}">
+    {% for slide in carousel.slides %}
+      <button
+        type="button"
+        data-carousel-dot="{{ forloop.index0 }}"
+        aria-label="{{ carousel.go_to }} {{ forloop.index }}: {{ slide.title }}"
+        {% if forloop.first %}aria-current="true"{% endif %}
+      ></button>
+    {% endfor %}
+  </div>
+</section>
+<script src="{{ '/assets/js/evidence-carousel.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

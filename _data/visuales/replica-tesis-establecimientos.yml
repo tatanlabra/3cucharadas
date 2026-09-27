@@ -1,10 +1,163 @@
-# Catálogo manual de piezas derivadas de datos para el borrador de réplica.
 slug: replica-tesis-establecimientos
 piezas:
-  - {id: og-es, rol: og, archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630.webp, ancho: 1200, alto: 630, estado: publicable, origen: datos, alt: {es: "Réplica de resultados sobre establecimientos educacionales."}}
-  - {id: og-en, rol: og, archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630-en.webp, ancho: 1200, alto: 630, estado: publicable, origen: datos, alt: {en: "Replication of results on Chilean schools."}}
-  - {id: movilidad-es, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp, ancho: 2226, alto: 620, estado: publicable, origen: datos, alt: {es: "Comparación de movilidad escolar histórica y replicada."}}
-  - {id: movilidad-en, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en.webp, ancho: 2226, alto: 620, estado: publicable, origen: datos, alt: {en: "Comparison of historical and replicated school mobility."}}
-  - {id: ihh-es, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp, ancho: 2562, alto: 710, estado: publicable, origen: datos, alt: {es: "Comparación del índice de Herfindahl y movilidad."}}
-  - {id: ihh-en, rol: figura, archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp, ancho: 2562, alto: 710, estado: publicable, origen: datos, alt: {en: "Comparison of the Herfindahl index and mobility."}}
-  - {id: sombra-muerte, rol: figura, archivo: assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp, ancho: 1779, alto: 879, estado: publicable, origen: datos, alt: {es: "Evolución previa al cierre de establecimientos educacionales."}}
+- id: og-es
+  rol: og
+  archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630.webp
+  ancho: 1200
+  alto: 630
+  estado: publicable
+  origen: datos
+  alt:
+    es: Réplica de resultados sobre establecimientos educacionales.
+- id: og-en
+  rol: og
+  archivo: assets/images/replica-tesis-establecimientos/og-replica-tesis-1200x630-en.webp
+  ancho: 1200
+  alto: 630
+  estado: publicable
+  origen: datos
+  alt:
+    en: Replication of results on Chilean schools.
+- id: movilidad-es
+  rol: figura
+  archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp
+  ancho: 2226
+  alto: 620
+  estado: publicable
+  origen: datos
+  alt:
+    es: Comparación de movilidad escolar histórica y replicada.
+- id: movilidad-en
+  rol: figura
+  archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en.webp
+  ancho: 2226
+  alto: 620
+  estado: publicable
+  origen: datos
+  alt:
+    en: Comparison of historical and replicated school mobility.
+- id: ihh-es
+  rol: figura
+  archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp
+  ancho: 2562
+  alto: 710
+  estado: publicable
+  origen: datos
+  alt:
+    es: Comparación del índice de Herfindahl y movilidad.
+- id: ihh-en
+  rol: figura
+  archivo: assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp
+  ancho: 2562
+  alto: 710
+  estado: publicable
+  origen: datos
+  alt:
+    en: Comparison of the Herfindahl index and mobility.
+- id: sombra-muerte
+  rol: figura
+  archivo: assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp
+  ancho: 1779
+  alto: 879
+  estado: publicable
+  origen: datos
+  alt:
+    es: Evolución previa al cierre de establecimientos educacionales.
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 135398
+  sha256: 56a70586bcd50ec8de79e46b6ef7e089fe3480ac5111baca7d38c99c3e49618f
+  alt: &id001
+    es: Tesis archivada y modelos escolares reconstruidos como metáfora de una réplica que corrige su original.
+    en: An archived thesis and reconstructed school models as a metaphor for a replication that corrects its original.
+  provenance:
+    status: generated_this_revision
+    source_sha256: b18c2fb011ee61508a5373aed855df4d6a7d631406e3e6684b23068ee8ea9a89
+    note: &id002
+      es: Ilustración conceptual; no reproduce documentos, establecimientos ni resultados medidos.
+      en: Conceptual illustration; it does not reproduce actual documents, schools or measured results.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 47350
+  sha256: 32a4ad9a6d5a65d736bd3f36b79b55d35a6e213253142122aefe6725804b3d86
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b18c2fb011ee61508a5373aed855df4d6a7d631406e3e6684b23068ee8ea9a89
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 108322
+  sha256: 58c7d3f71e3266c042b0350dd9d9748240808bd9dffdd622b3be83e2ec061526
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b18c2fb011ee61508a5373aed855df4d6a7d631406e3e6684b23068ee8ea9a89
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 37446
+  sha256: 0255f8b69a34ac3f9480d8d2cb859e29fa7c364480729d1071e1ad94e83e8a86
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b18c2fb011ee61508a5373aed855df4d6a7d631406e3e6684b23068ee8ea9a89
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 97858
+  sha256: 615f3f343fb029c31d9508de9ff7a14d713b39d135a28a9fe8316a5ed6f53a65
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b18c2fb011ee61508a5373aed855df4d6a7d631406e3e6684b23068ee8ea9a89
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+ref: replica-tesis-establecimientos-educacionales
+posts:
+- _posts/2026-08-29-replica-tesis-establecimientos-educacionales.md
+- _posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md

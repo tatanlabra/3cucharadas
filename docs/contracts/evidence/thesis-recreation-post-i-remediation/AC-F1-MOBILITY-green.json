@@ -1,0 +1,45 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1-MOBILITY",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "b82528166cc477cbec12dda869a7964b0e16b327604936c2801a3fa233e199c0",
+  "observed_command": "git -C incubadora/tesis_mae_mejorada show e4c8d924691bf40763897fd61ad6df7459fab82c:audit/f4_divergence_adjudication.json | jq -e '.displays[\"FIGURE-02\"].producer_workbook.formula_cells_verified == 400 and .displays[\"FIGURE-02\"].producer_workbook.embedded_chart_comparisons[\"FIGURE-02\"].points == 80 and .displays[\"FIGURE-02\"].producer_workbook.embedded_chart_comparisons[\"FIGURE-03\"].points == 40 and .displays[\"FIGURE-02\"].producer_workbook.embedded_chart_comparisons[\"FIGURE-04\"].points == 80 and .displays[\"FIGURE-02\"].producer_workbook.all_embedded_series_match == true'",
+  "observed_command_sha256": "b82528166cc477cbec12dda869a7964b0e16b327604936c2801a3fa233e199c0",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-09-27T15:43:58Z",
+  "finished_at": "2026-09-27T15:43:58Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json",
+      "exists": true,
+      "sha256": "d987ce896ea5fc6cad8d7044aa125663ba1ea582467328b14e3d62792fe401fe"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-ready-review.yaml",
+      "exists": true,
+      "sha256": "161a6c62d332376a1cbe7335fe14b3ffb659c37d948eb6fa891cdf60b1cdc903"
+    },
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json",
+      "exists": true,
+      "sha256": "d987ce896ea5fc6cad8d7044aa125663ba1ea582467328b14e3d62792fe401fe"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "true\n",
+  "stderr": ""
+}

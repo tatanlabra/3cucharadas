@@ -1,0 +1,322 @@
+technical:
+  repository: incubadora/tesis_mae_mejorada
+  commit: e4c8d924691bf40763897fd61ad6df7459fab82c
+  manifest: audit/post_face_to_face_carousel.json
+  manifest_sha256: d7dd0593e7e00dec2cd42eda718a3b600a0fd63df0aca3b7c3c1104490750927
+  historical_execution: HISTORICAL_EXECUTION_NOT_VERIFIED
+  causal_boundary: ASSOCIATIONAL_ONLY
+
+assets:
+  s01-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s01-table04-original.png
+    file: s01-table04-original.png
+    width: 1197
+    height: 387
+    sha256: ab67c3adccf3bd4a3c9594fcdd26a2382daed7031a12bdb74738921a9af1c8fb
+  s01-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-es.webp
+    file: s01-table-04-exact-rerun-es.webp
+    width: 1280
+    height: 648
+    sha256: adae77431bfe038b4b2900ab6f7632819068094c5632a6a78bdb3f9e523c7d02
+  s01-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-en.webp
+    file: s01-table-04-exact-rerun-en.webp
+    width: 1280
+    height: 648
+    sha256: ff05ec530c1b3e59c553cdc377bbbbbb86631a69a3249ca973de6ee1ac2cbe73
+  s02-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s02-figure01-original.png
+    file: s02-figure01-original.png
+    width: 811
+    height: 357
+    sha256: 35f0161d8191973994f0815fcef5644dfccbf250c5e8cf6166fc95f56c822c10
+  s02-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-es.webp
+    file: s02-figure-01-pattern-rerun-es.webp
+    width: 1280
+    height: 695
+    sha256: ef46e2ce47c471d97a88e93ef681b7cc17a8886739c61a1d821f3f854ee8f63d
+  s02-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-en.webp
+    file: s02-figure-01-pattern-rerun-en.webp
+    width: 1280
+    height: 695
+    sha256: eac352ae138b578799bdc21fb064b2b2785607c3443754359af04ab2dc400386
+  s03-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s03-figure11-original.png
+    file: s03-figure11-original.png
+    width: 773
+    height: 357
+    sha256: 417a885da51dc37e97820234ac6ba6d380f9d69941cab1298c5cff4508428896
+  s03-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-es.webp
+    file: s03-figure-11-hhi-rerun-es.webp
+    width: 1280
+    height: 740
+    sha256: ec1497ae4723cad01e64acca0f76c8006f79339b9b679be87e55662030b811ae
+  s03-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-en.webp
+    file: s03-figure-11-hhi-rerun-en.webp
+    width: 1280
+    height: 740
+    sha256: 6cdc0e91aea5be534bec2031cc1a1d782832918e7a1c2bec2c2ce7967c47c7ef
+  s04-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s04-figure02-original.png
+    file: s04-figure02-original.png
+    width: 477
+    height: 357
+    sha256: 31560b7d3f1c8806ece77f0a9cfc394542077250e6dd957421bcd716153a4a2f
+  s04-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-es.webp
+    file: s04-figure-02-rates-rerun-es.webp
+    width: 1280
+    height: 587
+    sha256: caccc278205cd17e5c42e9f7b36dda55da8ed0adb9769a722883150b628dfc96
+  s04-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-en.webp
+    file: s04-figure-02-rates-rerun-en.webp
+    width: 1280
+    height: 586
+    sha256: 88e37c0e75fdae1f19bd9948b6f0b63567d3f703c5560ee1da969837e2d0efd2
+  s05-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s05-table08-original.png
+    file: s05-table08-original.png
+    width: 1010
+    height: 1258
+    sha256: 8f99b134c96226d2c63b376e715bfcd82b036d76efe835050ad1654d2b9e5080
+  s05-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-es.webp
+    file: s05-table-08-rounding-rerun-es.webp
+    width: 1280
+    height: 1079
+    sha256: 0b265ba49c8eaa42682f2693c62f4c6e2fb2fdbf4b026231365d5cad0bc618a0
+  s05-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-en.webp
+    file: s05-table-08-rounding-rerun-en.webp
+    width: 1280
+    height: 1101
+    sha256: d1ac12356aafc5605a9c73f6f90c7e88b5e8bcc2fa8267b2a6182d737a4a3b57
+  s06-original:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s06-figure04-original.png
+    file: s06-figure04-original.png
+    width: 773
+    height: 357
+    sha256: 0328257a9929fe4f7623c1e0b3321458da18c794ce1b67e32db4c2dc4dfecab6
+  s06-es:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-es.webp
+    file: s06-figure-04-net-mobility-rerun-es.webp
+    width: 1280
+    height: 718
+    sha256: 501a778c4739a381115cf4f1086ade4cfdc09bad7f2719b8dd7e894c97483809
+  s06-en:
+    path: /assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-en.webp
+    file: s06-figure-04-net-mobility-rerun-en.webp
+    width: 1280
+    height: 716
+    sha256: 16b9d4c004996bc16873d7cdb0c8ddb604dba485c4148796809f115b9f6e7e62
+
+locales:
+  es:
+    id: evidencia-cara-a-cara
+    eyebrow: Auditoría visual
+    title: La evidencia, cara a cara
+    intro: Seis contrastes con su resultado medido y el límite que no conviene maquillar.
+    instructions: Desliza, usa las flechas o presiona Inicio, Fin, ← y →. No hay avance automático.
+    enlarge: Ampliar
+    open_full_size: Ver a tamaño completo
+    controls_label: Controles del carrusel
+    pagination_label: Elegir contraste
+    previous: Contraste anterior
+    next: Contraste siguiente
+    go_to: Ir al contraste
+    of: de
+    status_template: Contraste %current% de %total%
+    limit_label: "Límite:"
+    slides:
+      - id: table-04-exact
+        case: TABLE-04 · J-017
+        title: Cuadro 4 · movilidad por quintil
+        verdict: "Acerté: 12 de 12"
+        tone: match
+        metric: 12/12 celdas; N=955
+        evidence: La tesis y la reejecución de Stata 17 contienen el mismo vector completo, no sólo el mismo total.
+        limit: El calce actual no recupera la sesión histórica de 2014.
+        original_label: Tesis publicada (2014)
+        recreated_label: Reejecución actual (Stata 17)
+        original_alt: Facsímil del Cuadro 4 de la tesis con las doce celdas y total 955.
+        recreated_alt: Tabla reconstruida que reproduce exactamente las doce celdas del Cuadro 4.
+        original_asset: s01-original
+        recreated_asset: s01-es
+      - id: figure-01-pattern
+        case: FIGURE-01
+        title: Figura 1 · quién entra y quién sale
+        verdict: La conclusión sobrevivió
+        tone: survived
+        metric: Mismo patrón sectorial; totales distintos
+        evidence: La expansión se concentra en particulares subvencionados y la destrucción en municipales en ambos lados.
+        limit: Es un calce de patrón, no igualdad de alturas ni de totales.
+        original_label: Tesis publicada (2014)
+        recreated_label: Serie reconstruida
+        original_alt: Facsímil de la Figura 1 con barras apiladas anuales por dependencia.
+        recreated_alt: Barras reconstruidas de entradas y salidas acumuladas por dependencia entre 1993 y 2012.
+        original_asset: s02-original
+        recreated_asset: s02-es
+      - id: figure-11-hhi
+        case: FIGURE-11
+        title: Figura 11 · concentración y movilidad
+        verdict: Me equivoqué en 2014
+        tone: past-error
+        metric: La escala publicada del IHH y su umbral eran incorrectos
+        evidence: Recalculado en escala 0–10.000, el umbral de 2.500 y la pendiente quedan visibles sobre 336 comunas.
+        limit: La pendiente es asociacional; no demuestra que la concentración cause movilidad.
+        original_label: Tesis publicada (2014)
+        recreated_label: Reconstrucción con escala corregida
+        original_alt: Facsímil de la Figura 11 con IHH en una escala de cero a cien.
+        recreated_alt: Dispersión reconstruida de IHH comunal en escala cero a diez mil y movilidad anual.
+        original_asset: s03-original
+        recreated_asset: s03-es
+      - id: figure-02-rates
+        case: FIGURE-02 · J-010
+        title: Figuras 2 y 3 · movilidad, creación y destrucción
+        verdict: Recreación exacta
+        tone: match
+        metric: 80/80 y 40/40 puntos; medias 6,342 · 4,454 · 1,616
+        evidence: Las fórmulas preservadas usan stock rezagado para movilidad bruta y destrucción; la creación usa el stock contemporáneo.
+        limit: Las variantes del panel amplio son sensibilidad a universo y denominador, no sustituyen el estimando del productor.
+        original_label: Tesis publicada (2014)
+        recreated_label: Recreación canónica (2026)
+        original_alt: Facsímil de la Figura 2 con tasas relativas por dependencia.
+        recreated_alt: Movilidad bruta por dependencia y tasas totales de creación y destrucción, recreadas desde las fórmulas del productor.
+        original_asset: s04-original
+        recreated_asset: s04-es
+      - id: table-08-rounding
+        case: TABLE-08 · J-020
+        title: Cuadro 8 · doce magnitudes
+        verdict: Parece que truncé ocho valores
+        tone: tentative
+        metric: 12/12 compatibles; 4/12 redondean igual
+        evidence: Las doce magnitudes están cerca, pero ocho caen en el dígito inferior al que produciría el redondeo convencional.
+        limit: Truncamiento es la mejor hipótesis actual, no una ejecución histórica observada.
+        original_label: Tesis publicada (2014)
+        recreated_label: Reejecución Stata 17 y regla de redondeo
+        original_alt: Facsímil completo del Cuadro 8 con efectos fijos, varianzas, N y grupos.
+        recreated_alt: Comparación de doce magnitudes publicadas y reejecutadas, con cuatro redondeos iguales y ocho compatibles con truncamiento.
+        original_asset: s05-original
+        recreated_asset: s05-es
+      - id: figure-04-net-mobility
+        case: FIGURE-04 · J-028
+        title: Figura 4 · movilidad neta
+        verdict: Recreación exacta
+        tone: match
+        metric: 80/80 puntos de entradas menos salidas
+        evidence: La planilla productora y el vector incrustado en el manuscrito coinciden punto por punto para las cuatro series.
+        limit: El calce numérico no prueba que el ciclo macroeconómico cause los movimientos descritos en la prosa.
+        original_label: Tesis publicada (2014)
+        recreated_label: Serie regenerada
+        original_alt: Facsímil de la Figura 4 con movilidad neta anual por dependencia.
+        recreated_alt: Serie regenerada de entradas menos salidas por dependencia entre 1993 y 2012.
+        original_asset: s06-original
+        recreated_asset: s06-es
+
+  en:
+    id: face-to-face-evidence
+    eyebrow: Visual audit
+    title: The evidence, face to face
+    intro: Six contrasts, each with a measured result and a limit that should not be airbrushed away.
+    instructions: Swipe, use the arrows, or press Home, End, ← and →. Nothing advances automatically.
+    enlarge: Enlarge
+    open_full_size: View full size
+    controls_label: Carousel controls
+    pagination_label: Choose a contrast
+    previous: Previous contrast
+    next: Next contrast
+    go_to: Go to contrast
+    of: of
+    status_template: Contrast %current% of %total%
+    limit_label: "Limit:"
+    slides:
+      - id: table-04-exact
+        case: TABLE-04 · J-017
+        title: Table 4 · mobility by quintile
+        verdict: "I got it right: 12 of 12"
+        tone: match
+        metric: 12/12 cells; N=955
+        evidence: The thesis and the Stata 17 rerun contain the same complete vector, not merely the same total.
+        limit: A present-day match does not recover the historical 2014 session.
+        original_label: Published thesis (2014)
+        recreated_label: Present-day rerun (Stata 17)
+        original_alt: Facsimile of thesis Table 4 with all twelve cells and total 955.
+        recreated_alt: Reconstructed table exactly reproducing all twelve cells in Table 4.
+        original_asset: s01-original
+        recreated_asset: s01-en
+      - id: figure-01-pattern
+        case: FIGURE-01
+        title: Figure 1 · who enters and who exits
+        verdict: The conclusion survived
+        tone: survived
+        metric: Same sector pattern; different totals
+        evidence: In both panels, expansion concentrates in subsidised private schools and destruction in municipal schools.
+        limit: This is a pattern match, not equality of heights or totals.
+        original_label: Published thesis (2014)
+        recreated_label: Reconstructed series
+        original_alt: Facsimile of Figure 1 with annual stacked bars by school sector.
+        recreated_alt: Reconstructed bars of cumulative entries and exits by sector from 1993 to 2012.
+        original_asset: s02-original
+        recreated_asset: s02-en
+      - id: figure-11-hhi
+        case: FIGURE-11
+        title: Figure 11 · concentration and mobility
+        verdict: I was wrong in 2014
+        tone: past-error
+        metric: The published HHI scale and threshold were wrong
+        evidence: Recomputed on the 0–10,000 scale, the 2,500 threshold and slope are visible across 336 municipalities.
+        limit: The slope is associational; it does not show that concentration causes mobility.
+        original_label: Published thesis (2014)
+        recreated_label: Reconstruction with corrected scale
+        original_alt: Facsimile of Figure 11 with HHI displayed on a zero-to-one-hundred scale.
+        recreated_alt: Reconstructed scatterplot of municipal HHI on a zero-to-ten-thousand scale and annual mobility.
+        original_asset: s03-original
+        recreated_asset: s03-en
+      - id: figure-02-rates
+        case: FIGURE-02 · J-010
+        title: Figures 2 and 3 · mobility, creation, and destruction
+        verdict: Exact reconstruction
+        tone: match
+        metric: 80/80 and 40/40 points; means 6.342 · 4.454 · 1.616
+        evidence: The preserved formulas use lagged stock for gross mobility and destruction; creation uses contemporaneous stock.
+        limit: Broad-panel variants are sensitivity checks for universe and denominator, not substitutes for the producer's estimand.
+        original_label: Published thesis (2014)
+        recreated_label: Canonical reconstruction (2026)
+        original_alt: Facsimile of Figure 2 with relative rates by school sector.
+        recreated_alt: Gross mobility by sector and total creation and destruction rates reconstructed from the producer formulas.
+        original_asset: s04-original
+        recreated_asset: s04-en
+      - id: table-08-rounding
+        case: TABLE-08 · J-020
+        title: Table 8 · twelve magnitudes
+        verdict: I appear to have truncated eight values
+        tone: tentative
+        metric: 12/12 practically compatible; 4/12 round identically
+        evidence: All twelve magnitudes are close, but eight fall on the lower digit than conventional rounding would produce.
+        limit: Truncation is the best current hypothesis, not an observed historical execution.
+        original_label: Published thesis (2014)
+        recreated_label: Stata 17 rerun and rounding rule
+        original_alt: Full facsimile of Table 8 with fixed effects, variances, N, and groups.
+        recreated_alt: Comparison of twelve published and rerun magnitudes, with four equal roundings and eight consistent with truncation.
+        original_asset: s05-original
+        recreated_asset: s05-en
+      - id: figure-04-net-mobility
+        case: FIGURE-04 · J-028
+        title: Figure 4 · net mobility
+        verdict: Exact reconstruction
+        tone: match
+        metric: 80/80 entry-minus-exit points
+        evidence: The producer workbook and the vector embedded in the manuscript match point by point for all four series.
+        limit: Numeric agreement does not show that the macroeconomic cycle caused the movements described in the prose.
+        original_label: Published thesis (2014)
+        recreated_label: Regenerated series
+        original_alt: Facsimile of Figure 4 with annual net mobility by school sector.
+        recreated_alt: Regenerated series of entries minus exits by sector from 1993 to 2012.
+        original_asset: s06-original
+        recreated_asset: s06-en

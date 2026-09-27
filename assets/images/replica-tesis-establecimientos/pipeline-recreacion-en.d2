@@ -1,0 +1,44 @@
+direction: down
+
+classes: {
+  source: { style.fill: "#102737"; style.stroke: "#75d5ff"; style.stroke-width: 3; style.font-color: "#f2fbff"; style.font-size: 17; style.border-radius: 12 }
+  data: { style.fill: "#102b21"; style.stroke: "#55d89b"; style.stroke-width: 2; style.font-color: "#f1fff8"; style.font-size: 17; style.border-radius: 9 }
+  stats: { style.fill: "#152942"; style.stroke: "#63b7ff"; style.stroke-width: 2; style.font-color: "#f3f8ff"; style.font-size: 17; style.border-radius: 9 }
+  econ: { style.fill: "#2d2515"; style.stroke: "#ffc857"; style.stroke-width: 2; style.font-color: "#fff9eb"; style.font-size: 17; style.border-radius: 9 }
+  gate: { style.fill: "#17253a"; style.stroke: "#9ad7ff"; style.stroke-width: 2; style.font-color: "#f4f8ff"; style.font-size: 17; style.border-radius: 9 }
+  verdict: { style.fill: "#162c25"; style.stroke: "#71e0ac"; style.stroke-width: 4; style.font-color: "#f1fff8"; style.font-size: 17; style.border-radius: 12 }
+  boundary: { style.fill: "#351b27"; style.stroke: "#ff7998"; style.stroke-width: 4; style.font-color: "#fff3f7"; style.font-size: 17; style.border-radius: 12 }
+}
+
+inputs: "2014 SOURCES UNDER CUSTODY · THREE JOBS, ONE CONTRACT" {
+  direction: right
+  style.fill: "#0b1420"
+  style.stroke: "#526d8a"
+  style.font-color: "#dcecff"
+  style.font-size: 18
+  style.border-radius: 12
+  data_lane: "PIECES AND DATA\nCopies · hashes · provenance" { class: data }
+  stats_lane: "DESCRIPTIVE STATISTICS\nUniverse · sample · definition" { class: stats }
+  econ_lane: "ASSOCIATIONAL ECONOMETRICS\nSpecification · N · estimand" { class: econ }
+}
+
+gates: "SHARED ANTI-DRIFT CHAIN" {
+  direction: right
+  grid-columns: 4
+  style.fill: "#0b1420"
+  style.stroke: "#526d8a"
+  style.font-color: "#dcecff"
+  style.font-size: 18
+  style.border-radius: 12
+  g1: "G1 · CUSTODY\nOriginal intact" { class: gate }
+  g2: "G2 · EXECUTION\nRoute + log + receipt" { class: gate }
+  g3: "G3 · COMPARISON\nPrior criterion" { class: gate }
+  g4: "G4 · ATTRIBUTION\n2014 · 2026 · limit" { class: gate }
+}
+
+verdict: "RESULT FOR EACH PIECE\nmatches · differs\nnot comparable · declared limit" { class: verdict }
+boundary: "INFERENCE BOUNDARY\nrerunnable ≠ rebuildable\n≠ matching ≠ correct ≠ causal" { class: boundary }
+
+inputs -> gates: { style.stroke: "#9ad7ff"; style.stroke-width: 3 }
+gates -> verdict: { style.stroke: "#71e0ac"; style.stroke-width: 3 }
+verdict -> boundary: { style.stroke: "#ff7998"; style.stroke-width: 3 }

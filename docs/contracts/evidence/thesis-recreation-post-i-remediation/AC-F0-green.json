@@ -1,0 +1,47 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F0",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "279155e99c466c5f7ba5e3f29ad96c0785df628f02dd316725f1e08f1cdabc65",
+  "observed_command": "python3 -c \"from pathlib import Path; from scripts.plan_contract import extract_contract, validate_contract; y,c=extract_contract(Path(\\\"activos/3cucharadas/docs/contracts/thesis-recreation-post-i-remediation.md\\\"),\\\"thesis-recreation-post-i-remediation\\\"); validate_contract(c,yaml_text=y,require_evidence_files=False); print(\\\"VALID\\\")\"",
+  "observed_command_sha256": "72006b20519522b1b4b00c760701325aa40b1f71d069046c2450f16d789f5225",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-09-27T15:43:57Z",
+  "finished_at": "2026-09-27T15:43:57Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-remediation.md",
+      "exists": true,
+      "sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+      "sha256_kind": "contract_definition"
+    },
+    {
+      "path": "penta-agent/specs/plan-contract.schema.json",
+      "exists": true,
+      "sha256": "948a7b245237cab5bfd9236e4450771e31f4ddf809601c87bdc04f10698a7bdf"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/thesis-recreation-post-i-remediation.md",
+      "exists": true,
+      "sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+      "sha256_kind": "contract_definition"
+    },
+    {
+      "path": "penta-agent/specs/plan-contract.schema.json",
+      "exists": true,
+      "sha256": "948a7b245237cab5bfd9236e4450771e31f4ddf809601c87bdc04f10698a7bdf"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "VALID\n",
+  "stderr": ""
+}

@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1-HYGIENE",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "1ec9b39a23a05c1b7c880de5307bcd4b6b5ae0acbeca29879980f3143419880d",
+  "observed_command": "jq -e '(.provenance.cycles | length) == 0' activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-hygiene-cycle.json",
+  "observed_command_sha256": "ea405e03d1845356f5ee8a08b4b10ac76706eb1206bd413386129d27d16d2cf4",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-09-27T15:43:58Z",
+  "finished_at": "2026-09-27T15:43:58Z",
+  "exit_code": 1,
+  "fixture_sha256": "459b1afd0568b92af2f734034762c03e944f2ce0985ed7aed3ff9d7499194c5e",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-hygiene-cycle.json",
+      "exists": true,
+      "sha256": "459b1afd0568b92af2f734034762c03e944f2ce0985ed7aed3ff9d7499194c5e"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-hygiene-cycle.json",
+      "exists": true,
+      "sha256": "459b1afd0568b92af2f734034762c03e944f2ce0985ed7aed3ff9d7499194c5e"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "false\n",
+  "stderr": ""
+}

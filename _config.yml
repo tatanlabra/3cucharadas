@@ -161,6 +161,7 @@ exclude:
   - "*.sublime-workspace"
   - vendor
   - public          # dir de salida de GitLab Pages; nunca tratarlo como fuente
+  - research/replica-tesis # metadatos y caché privados de revisión; no se sirven
   # Una copia anidada del propio sitio no debe servirse jamas: Jekyll la compila
   # como contenido y sus plantillas arrastran referencias a assets que no existen
   # en esta raiz. Medido el 2026-08-31: activos/3cucharadas-nushell-release/

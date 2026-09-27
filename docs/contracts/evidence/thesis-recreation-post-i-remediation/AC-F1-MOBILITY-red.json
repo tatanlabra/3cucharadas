@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1-MOBILITY",
+  "target_contract_sha256": "876739b9f0ecea4b0297702c75118ecf6a7b3614f39d396d56d9c8be0e5ba805",
+  "target_definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+  "criterion_command_sha256": "b82528166cc477cbec12dda869a7964b0e16b327604936c2801a3fa233e199c0",
+  "observed_command": "jq -e '.formula_cells_verified == 400 and .figure_02_matching_points == 80 and .figure_03_matching_points == 40 and .figure_04_matching_points == 80 and .known_present_errors == 0' activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json",
+  "observed_command_sha256": "3f981ccdc938516be1df00346f2b4e7a5514297ec693cbf9a665aebad79c4a11",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-09-27T15:43:58Z",
+  "finished_at": "2026-09-27T15:43:58Z",
+  "exit_code": 1,
+  "fixture_sha256": "d987ce896ea5fc6cad8d7044aa125663ba1ea582467328b14e3d62792fe401fe",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json",
+      "exists": true,
+      "sha256": "d987ce896ea5fc6cad8d7044aa125663ba1ea582467328b14e3d62792fe401fe"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/contracts/evidence/thesis-recreation-post-i-remediation/ac-f1-mobility-baseline.json",
+      "exists": true,
+      "sha256": "d987ce896ea5fc6cad8d7044aa125663ba1ea582467328b14e3d62792fe401fe"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "false\n",
+  "stderr": ""
+}

@@ -1,0 +1,68 @@
+{
+  "contract_id": "thesis-recreation-post-i-remediation",
+  "recorded_at": "2026-09-27T12:41:22-03:00",
+  "scope": "local_only",
+  "publication_action": false,
+  "acceptance": {
+    "AC-F0": {
+      "red": {"exit": 1, "fixture": "ac-f0-invalid.md"},
+      "green": {"exit": 0, "check": "plan contract schema"}
+    },
+    "AC-F1": {
+      "red": {"exit": 1, "check": "baseline without the 12/11/10 distinction"},
+      "green": {"exit": 0, "check": "34-judgement F5 registry with the 12/11/10 distinction"},
+      "commit": "e4c8d924691bf40763897fd61ad6df7459fab82c"
+    },
+    "AC-F1-MOBILITY": {
+      "red": {"exit": 1, "fixture": "ac-f1-mobility-baseline.json", "formula_cells_verified": 0, "known_present_errors": 3},
+      "green": {"exit": 0, "formula_cells_verified": 400, "figure_points": [80, 40, 80], "known_present_errors": 0},
+      "commit": "e4c8d924691bf40763897fd61ad6df7459fab82c"
+    },
+    "AC-F1-HYGIENE": {
+      "red": {"exit": 1, "fixture": "ac-f1-hygiene-cycle.json"},
+      "green": {"exit": 0, "stale": 0, "cycles": 0}
+    },
+    "AC-F2": {
+      "red": {"exit": 1, "check": "self-test observed C12 red internally"},
+      "green": {"exit": 0, "check": "ready-review tree verifier"}
+    },
+    "AC-F3": {
+      "red": {"exit": 1, "fixture": "ac-f3-baseline.json", "failure_classes": 8},
+      "green": {"exit": 0, "cases": 16, "failures": 0}
+    },
+    "AC-F4": {
+      "red": {"exit": 1, "check": "self-test observed C6 red internally"},
+      "green": {"exit": 0, "check": "staged ready-review verifier and C0-C14 self-test"}
+    }
+  },
+  "accessibility": {
+    "scoped_components": "no_axe_violations",
+    "manual_contrast": {
+      "carousel_arrow": 16.268,
+      "technical_disclosure": 18.278
+    },
+    "known_site_shell_findings": [
+      "heading order in author/share shell",
+      "duplicate skip landmark",
+      "masthead and hero outside landmarks",
+      "broad table contrast needs manual review"
+    ]
+  },
+  "build": {
+    "jekyll_exit": 0,
+    "artifact_exit": 0,
+    "bytes": 68794887,
+    "entries": 1477,
+    "known_warning": "Dart Sass @import deprecation"
+  },
+  "integral_contract_run": {
+    "recorded_at": "2026-09-27T15:47:18Z",
+    "definition_sha256": "8f417ba4d420c7872f74a24c6aee5c9b58ff928900ec51d3419a9109b58afdae",
+    "result": "COMPLETE",
+    "integral_complete": true,
+    "criteria": 7,
+    "failures": 0,
+    "skips": 0
+  },
+  "closeout": "ready_for_detailed_review_v2_after_local_commit"
+}
