@@ -29,9 +29,9 @@
     </div>
 
     {% if site.search == true %}
-      <div class="search-content">
+      <main id="search-main" class="search-content" tabindex="-1">
         {% include_cached search/search_form.html lang=active_lang %}
-      </div>
+      </main>
     {% endif %}
 
     <div id="footer" class="page__footer">

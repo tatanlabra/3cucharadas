@@ -1,4 +1,6 @@
 {% assign items_max = 0 %}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
 {% for item in include.taxonomies %}
   {% if item[1].size > items_max %}
     {% assign items_max = item[1].size %}
@@ -30,7 +32,7 @@
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <a href="#page-title" class="back-to-top">{{ ui_text.back_to_top | default: 'Back to Top' }} &uarr;</a>
       </section>
     {% endif %}
   {% endfor %}

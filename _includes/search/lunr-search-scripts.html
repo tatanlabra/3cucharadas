@@ -1,10 +1,8 @@
-{% assign lang = site.locale | slice: 0,2 | default: "en" %}
-{% case lang %}
-{% when "gr" %}
-  {% assign lang = "gr" %}
-{% else %}
-  {% assign lang = "en" %}
-{% endcase %}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign search_store_path = '/search-store.js' %}
+{% if active_lang != site.default_lang %}
+  {% assign search_store_path = '/' | append: active_lang | append: search_store_path %}
+{% endif %}
 <script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/lunr/lunr-store.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/lunr/lunr-' | append: lang | append: '.js' | relative_url }}"></script>
+<script src="{{ search_store_path | relative_url }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-site.js' | relative_url }}"></script>

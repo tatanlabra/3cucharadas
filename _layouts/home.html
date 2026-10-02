@@ -6,7 +6,7 @@ layout: archive
 
 {% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
-<h3 class="archive__subtitle">{{ ui_text.recent_posts | default: "Recent Posts" }}</h3>
+<h2 class="archive__subtitle">{{ ui_text.recent_posts | default: "Recent Posts" }}</h2>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}

@@ -48,7 +48,7 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
 {% if active_lang == "en" %}{% assign nav_label = ui_text.primary_nav_label | default: "Primary navigation" %}{% endif %}
 {% assign menu_short = "Menú" %}{% if active_lang == "en" %}{% assign menu_short = "Menu" %}{% endif %}
 
-<div class="masthead">
+<header class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__brand">
       {% unless logo_path == empty %}
@@ -75,7 +75,7 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
       {% include lang-switcher.html %}
       {% include theme-toggle.html %}
       {% if site.search == true %}
-      <button class="search__toggle" type="button">
+      <button class="search__toggle" type="button" aria-controls="search-main" aria-expanded="false">
         <span class="visually-hidden">{{ ui_text.search_label | default: "Toggle search" }}</span>
         <i class="fas fa-search" aria-hidden="true"></i>
       </button>
@@ -143,4 +143,4 @@ presentación. La lupa los acompaña; su manejador del tema se engancha por clas
       </nav>
     </div>
   </div>
-</div>
+</header>

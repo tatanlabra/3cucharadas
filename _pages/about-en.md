@@ -2,7 +2,7 @@
 permalink: /about/
 title: "About"
 excerpt: "Who I am, why I write this blog, and what it covers."
-last_modified_at: 2026-07-14T00:00:00-04:00
+last_modified_at: 2026-10-01T00:00:00-03:00
 lang: en
 ref: about
 toc: true
@@ -16,7 +16,7 @@ For more than a decade, I have worked at Chile's **Ministry of Social Developmen
 
 ---
 
-### Why this blog?
+## Why this blog?
 
 This is a place to **share, learn, and collaborate**. It is for public-interest communication and intellectual curiosity.
 
@@ -31,17 +31,15 @@ There is no rigid editorial line.
 
 ---
 
-### Recent posts
+## Recent posts
 
-- [CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind]({{ "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/" | relative_url }}) - a reproducible Julia analysis with complex-survey confidence intervals.
-- [Hyperparameters with Bayes: less grid, more statistical memory]({{ "/mlops/bayes-hiperparametros/" | relative_url }}) - Bayesian optimization for vulnerability models and expected-value modelling in ecommerce.
-- [Multi-agent work in three spoonfuls: what worked for me and what did not]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) - how I coordinate several AI models for practical technical work.
+{% include recent-posts.html lang="en" %}
 
 Explore all posts by [topic]({{ "/categories/" | relative_url }}) or [tag]({{ "/tags/" | relative_url }}).
 
 ---
 
-### Contact
+## Contact
 
 For comments, criticism, or collaboration, you can find me here:
 

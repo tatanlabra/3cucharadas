@@ -3,6 +3,8 @@ layout: archive
 ---
 
 {{ content }}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
 
 <ul class="taxonomy__index">
   {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.date | date: "%Y"' %}
@@ -25,6 +27,6 @@ layout: archive
         {% include archive-single.html type=entries_layout %}
       {% endfor %}
     </div>
-    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+    <a href="#page-title" class="back-to-top">{{ ui_text.back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
 {% endfor %}

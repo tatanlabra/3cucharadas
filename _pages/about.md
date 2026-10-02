@@ -1,8 +1,8 @@
 ---
 permalink: /about/
 title: "Acerca de mí"
-excerpt: "Quién soy, por qué escribo este blog y de que trata."
-last_modified_at: 2026-05-01T08:00:00-04:00
+excerpt: "Quién soy, por qué escribo este blog y de qué trata."
+last_modified_at: 2026-10-01T00:00:00-03:00
 lang: es
 ref: about
 toc: true
@@ -16,7 +16,7 @@ Ya hace más de una década que estoy en el **Ministerio de Desarrollo Social y 
 
 ---
 
-### ¿Por qué este blog?
+## ¿Por qué este blog?
 
 Este espacio nace de la necesidad simple de **compartir, aprender y colaborar**. Divulgación y ocio solamente.
 
@@ -31,17 +31,15 @@ No hay línea editorial estricta.
 
 ---
 
-### Publicaciones recientes
+## Publicaciones recientes
 
-- [CASEN 2024 en 3 cucharadas: lectura territorial para la política social]({{ "/datos/politica-publica/julia/casen/casen2024-julia-waffles-politica-publica/" | relative_url }}) — análisis reproducible en Julia con intervalos de confianza de diseño complejo.
-- [Hiperparámetros con Bayes: menos grilla, más memoria estadística]({{ "/mlops/bayes-hiperparametros/" | relative_url }}) — optimización bayesiana para modelos de vulnerabilidad (RSH) y de valor esperado en ecommerce.
-- [Multiagentes en 3 cucharadas: lo que me funcionó y lo que no]({{ "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/" | relative_url }}) — cómo orquesto varios modelos de IA para trabajar.
+{% include recent-posts.html lang="es" %}
 
 Puedes explorar todo por [temas]({{ "/categories/" | relative_url }}) o por [etiquetas]({{ "/tags/" | relative_url }}).
 
 ---
 
-### Contacto
+## Contacto
 
 Si quieres comentar, criticar o colaborar, puedes encontrarme en:
 

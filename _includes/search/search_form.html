@@ -1,6 +1,7 @@
 {% assign active_lang = include.lang | default: site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
 <div class="search-content__inner-wrap">
+  <h1 class="page__title">{% if active_lang == "en" %}Search{% else %}Buscar{% endif %}</h1>
   {%- assign search_provider = site.search_provider | default: "lunr" -%}
   {%- case search_provider -%}
   {%- when "lunr" -%}
@@ -10,7 +11,7 @@
     </label>
     <input type="search" id="search" class="search-input" tabindex="-1" placeholder="{{ ui_text.search_placeholder_text | default: 'Enter your search term...' }}" />
   </form>
-  <div id="results" class="results"></div>
+  <div id="results" class="results" data-results-found="{{ ui_text.results_found | escape }}" aria-live="polite"></div>
   {%- when "google" -%}
   <form onsubmit="return googleCustomSearchExecute();" id="cse-search-box-form-id" role="search">
     <label class="sr-only" for="cse-search-input-box-id">

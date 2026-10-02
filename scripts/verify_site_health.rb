@@ -95,6 +95,7 @@ begin
         built = run.call("build-#{mode}", command, { 'JEKYLL_ENV' => 'production', 'BUNDLE_FROZEN' => 'true' })
         next unless built
         run.call("artifact-#{mode}", ['ruby', 'scripts/verify_site_artifact.rb', dest], { 'VERIFY_MATH_DRAFTS' => mode == 'drafts' ? '1' : nil })
+        run.call('site-ux-production', ['python3', 'tests/test_site_ux.py', dest], { 'PYTHONDONTWRITEBYTECODE' => '1' }) if mode == 'production'
         run.call('distribution-readiness', ['ruby', 'scripts/verify_distribution_readiness.rb', dest]) if mode == 'production'
       end
     else

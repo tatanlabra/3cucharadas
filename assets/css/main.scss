@@ -494,18 +494,22 @@ html[data-theme="academic-night"] .author__name a:focus-visible {
 
 html[data-theme="academic-night"] .page__content a:not(.btn),
 html[data-theme="academic-night"] .archive a,
+html[data-theme="academic-night"] .search-content .archive__item-title a,
 html[data-theme="academic-night"] .sidebar a,
 html[data-theme="academic-night"] .breadcrumbs a {
   color: var(--night-link);
 }
 
 html[data-theme="academic-night"] .page__content a:not(.btn):visited,
-html[data-theme="academic-night"] .archive a:visited {
+html[data-theme="academic-night"] .archive a:visited,
+html[data-theme="academic-night"] .search-content .archive__item-title a:visited {
   color: var(--night-muted);
 }
 
 html[data-theme="academic-night"] .page__content a:not(.btn):hover,
 html[data-theme="academic-night"] .archive a:hover,
+html[data-theme="academic-night"] .search-content .archive__item-title a:hover,
+html[data-theme="academic-night"] .search-content .archive__item-title a:focus-visible,
 html[data-theme="academic-night"] .sidebar a:hover,
 html[data-theme="academic-night"] .breadcrumbs a:hover {
   color: var(--night-link-hover);
