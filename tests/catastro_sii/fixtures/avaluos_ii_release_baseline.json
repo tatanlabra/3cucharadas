@@ -1,0 +1,10 @@
+{
+  "purpose": "Approved main front matter for the Avalúos II extension; historical source and frozen-file baseline remain unchanged in catastros_sii.",
+  "blog_head": "81c7449bf2f78bc9bfd2503312cc5e44804dd4bf",
+  "historical_blog_head": "10c1b7beffd04e2409c8404be7b0e39a7f578941",
+  "historical_baseline_sha256": "eda285353eea3514d7c3ed2277c3bf4890787ce4e31a4af1533eb7bf633693e4",
+  "approved_front_matter_delta_sha256": {
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial.md": "5b829b4972693b9b77cdeb8c69d7a8e0971d8c1234cde0ea047c4c5c3131c9ee",
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md": "3f1f1c9f9c7dbded80a051b437262d27597f35ef02201ff4bb920f6211d699cf"
+  }
+}
