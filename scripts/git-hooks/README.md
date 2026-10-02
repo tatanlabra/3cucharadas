@@ -23,7 +23,8 @@ tumbar un commit que ya está hecho.
 ## Aviso de publicación verificada
 
 Telegram se invoca explícitamente, nunca desde el hook. El emisor
-`../notify_telegram_publication.py` exige build local del commit aislado, el
+`../notify_telegram_publication.py` instala el lockfile sin scripts de instalación
+y recompila los bundles Vite antes del build Jekyll del commit aislado; exige el
 mismo SHA en GitLab y GitHub, CI exitoso de GitLab y contenido esperado en la URL pública. Si
 un gate no pasa, sale con error y no envía ningún mensaje.
 

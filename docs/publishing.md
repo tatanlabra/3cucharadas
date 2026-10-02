@@ -72,8 +72,9 @@ python3 scripts/notify_telegram_publication.py \
   --dry-run
 ```
 
-El comando verifica el build del commit aislado, el mismo SHA en GitLab y
-GitHub, un pipeline exitoso de GitLab para ese SHA y el texto esperado en la página
+El comando instala dependencias sin scripts, recompila los bundles Vite y verifica
+el build del commit aislado sin pasar credenciales del bot a procesos hijos.
+Comprueba el mismo SHA en GitLab y GitHub, un pipeline exitoso de GitLab y el texto esperado en la página
 pública. Si cualquiera falla, no envía Telegram. Al pasar el `--dry-run`,
 repite el comando sin ese flag para enviar un único aviso con URL, commit y gates.
 Las credenciales siguen llegando sólo por `EPUB_CURATOR_TG_TOKEN` y

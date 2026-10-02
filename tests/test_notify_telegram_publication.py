@@ -1,9 +1,11 @@
 import contextlib
 import importlib.util
 import io
+import os
 import shutil
 import subprocess
 import sys
+import tarfile
 import tempfile
 import unittest
 from pathlib import Path
@@ -26,6 +28,54 @@ local_commit = _load_module("notify_telegram_commit_under_test", "notify_telegra
 
 
 class PublicationNotifierTests(unittest.TestCase):
+    def test_isolated_commit_builds_vite_assets_before_artifact_checks(self):
+        archive_bytes = io.BytesIO()
+        with tarfile.open(fileobj=archive_bytes, mode="w"):
+            pass
+        with (
+            mock.patch.dict(os.environ, {
+                "EPUB_CURATOR_TG_TOKEN": "secret-token",
+                "EPUB_CURATOR_TG_CHAT_ID": "private-chat",
+                "OPENAI_API_KEY": "unrelated-secret",
+                "SSH_AUTH_SOCK": "/tmp/test-agent-socket",
+            }),
+            mock.patch.object(publication.subprocess, "check_output", return_value=archive_bytes.getvalue()) as git,
+            mock.patch.object(publication.subprocess, "run") as run,
+        ):
+            publication._verify_local_gates(Path("/repo"), "a" * 40)
+        for call in git.call_args_list + run.call_args_list:
+            for secret in ("EPUB_CURATOR_TG_TOKEN", "EPUB_CURATOR_TG_CHAT_ID", "OPENAI_API_KEY", "SSH_AUTH_SOCK"):
+                self.assertNotIn(secret, call.kwargs["env"])
+        self.assertEqual(
+            [call.args[0] for call in run.call_args_list],
+            [
+                ("npm", "ci", "--ignore-scripts"),
+                ("npm", "run", "build:catastro"),
+                ("npm", "run", "build:memoria-gobernada"),
+                ("npm", "run", "check:memoria-gobernada:assets"),
+                ("bundle", "exec", "jekyll", "build", "-d", "public"),
+                ("ruby", "scripts/verify_site_artifact.rb", "public"),
+                ("python3", "tests/test_site_ux.py", "public"),
+                ("ruby", "scripts/verify_distribution_readiness.rb", "public"),
+            ],
+        )
+
+    def test_isolated_vite_build_failure_fails_closed(self):
+        archive_bytes = io.BytesIO()
+        with tarfile.open(fileobj=archive_bytes, mode="w"):
+            pass
+
+        def fail_catastro(command, **_kwargs):
+            if command == ("npm", "run", "build:catastro"):
+                raise subprocess.CalledProcessError(1, command)
+
+        with (
+            mock.patch.object(publication.subprocess, "check_output", return_value=archive_bytes.getvalue()),
+            mock.patch.object(publication.subprocess, "run", side_effect=fail_catastro),
+        ):
+            with self.assertRaisesRegex(publication.VerificationError, "npm run build:catastro"):
+                publication._verify_local_gates(Path("/repo"), "a" * 40)
+
     def test_accepts_only_canonical_https_publication_urls(self):
         self.assertEqual(
             publication._validate_publication_url("https://3cucharadas.cl/articulo/"),
@@ -48,13 +98,21 @@ class PublicationNotifierTests(unittest.TestCase):
 
     def test_remote_gate_fails_when_github_has_another_commit(self):
         expected = "a" * 40
-        with mock.patch.object(
-            publication.subprocess,
-            "check_output",
-            side_effect=[f"{expected}\trefs/heads/main\n", f"{'b' * 40}\trefs/heads/main\n"],
+        with (
+            mock.patch.dict(os.environ, {
+                "EPUB_CURATOR_TG_TOKEN": "secret-token",
+                "SSH_AUTH_SOCK": "/tmp/test-agent-socket",
+            }),
+            mock.patch.object(
+                publication.subprocess,
+                "check_output",
+                side_effect=[f"{expected}\trefs/heads/main\n", f"{'b' * 40}\trefs/heads/main\n"],
+            ) as git,
         ):
             with self.assertRaisesRegex(publication.VerificationError, "GitHub"):
                 publication._verify_remote_ref(Path("/repo"), "main", expected)
+        self.assertTrue(all("EPUB_CURATOR_TG_TOKEN" not in call.kwargs["env"] for call in git.call_args_list))
+        self.assertTrue(all(call.kwargs["env"].get("SSH_AUTH_SOCK") == "/tmp/test-agent-socket" for call in git.call_args_list))
 
     def test_pipeline_gate_rejects_pending_pipeline(self):
         with (

@@ -21,10 +21,25 @@ from pathlib import Path
 ALLOWED_PUBLICATION_HOSTS = {"3cucharadas.cl", "www.3cucharadas.cl"}
 HTTP_TIMEOUT_SECONDS = 20
 MAX_PUBLIC_PAGE_BYTES = 2_000_000
+CHILD_ENV_KEYS = {
+    "PATH", "HOME", "LANG", "LC_ALL", "LC_CTYPE", "TMPDIR",
+    "XDG_CACHE_HOME", "XDG_CONFIG_HOME", "NPM_CONFIG_CACHE",
+    "BUNDLE_PATH", "BUNDLE_GEMFILE", "BUNDLE_DEPLOYMENT", "BUNDLE_FROZEN",
+    "GEM_HOME", "GEM_PATH", "SSL_CERT_FILE", "NODE_EXTRA_CA_CERTS",
+}
 
 
 class VerificationError(RuntimeError):
     """A publication condition could not be proven."""
+
+
+def _child_env(*, allow_ssh: bool = False) -> dict[str, str]:
+    """Pass build and Git tooling only the environment it needs, never bot credentials."""
+    env = {key: value for key, value in os.environ.items() if key in CHILD_ENV_KEYS}
+    if allow_ssh and "SSH_AUTH_SOCK" in os.environ:
+        env["SSH_AUTH_SOCK"] = os.environ["SSH_AUTH_SOCK"]
+    env["GIT_TERMINAL_PROMPT"] = "0"
+    return env
 
 
 class _CanonicalPublicationRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -47,6 +62,7 @@ def _run_git(repo_root: Path, *args: str) -> str:
         return subprocess.check_output(
             ["git", *args],
             cwd=repo_root,
+            env=_child_env(),
             stderr=subprocess.DEVNULL,
             text=True,
         ).strip()
@@ -92,6 +108,7 @@ def _verify_local_gates(repo_root: Path, commit: str) -> None:
         archive_bytes = subprocess.check_output(
             ["git", "archive", "--format=tar", commit],
             cwd=repo_root,
+            env=_child_env(),
             stderr=subprocess.DEVNULL,
         )
     except subprocess.CalledProcessError as exc:
@@ -102,10 +119,15 @@ def _verify_local_gates(repo_root: Path, commit: str) -> None:
         try:
             with tarfile.open(fileobj=io.BytesIO(archive_bytes), mode="r:") as archive:
                 _safe_extract(archive, source)
-            env = {**os.environ, "JEKYLL_ENV": "production"}
+            env = {**_child_env(), "JEKYLL_ENV": "production"}
             commands = (
+                ("npm", "ci", "--ignore-scripts"),
+                ("npm", "run", "build:catastro"),
+                ("npm", "run", "build:memoria-gobernada"),
+                ("npm", "run", "check:memoria-gobernada:assets"),
                 ("bundle", "exec", "jekyll", "build", "-d", "public"),
                 ("ruby", "scripts/verify_site_artifact.rb", "public"),
+                ("python3", "tests/test_site_ux.py", "public"),
                 ("ruby", "scripts/verify_distribution_readiness.rb", "public"),
             )
             for command in commands:
@@ -144,6 +166,7 @@ def _verify_remote_ref(repo_root: Path, ref: str, commit: str) -> None:
             output = subprocess.check_output(
                 ["git", "ls-remote", "--exit-code", remote, f"refs/heads/{ref}"],
                 cwd=repo_root,
+                env=_child_env(allow_ssh=True),
                 stderr=subprocess.DEVNULL,
                 text=True,
                 timeout=HTTP_TIMEOUT_SECONDS,
