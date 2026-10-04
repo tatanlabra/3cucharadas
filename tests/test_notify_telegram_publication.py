@@ -219,6 +219,9 @@ class PublicationNotifierTests(unittest.TestCase):
                 SCRIPTS_DIR / "git-hooks" / "post-commit-difusion",
                 hooks_source / "post-commit-difusion",
             )
+            # Desde el 2026-10-04 el instalador tambien instala pre-push (gitleaks) y falla si
+            # falta su fuente: un checkout sin el hook de seguridad no debe saltarlo en silencio.
+            shutil.copy2(SCRIPTS_DIR / "git-hooks" / "pre-push", hooks_source / "pre-push")
             subprocess.run(["git", "init", "-q"], cwd=root, check=True)
             installer = root / "scripts" / "install_git_hooks.sh"
 
@@ -227,8 +230,11 @@ class PublicationNotifierTests(unittest.TestCase):
                 ["bash", str(installer)], cwd=root, check=True, capture_output=True, text=True
             )
 
-            self.assertIn("already installed", second.stdout)
+            self.assertIn("hook chain already installed", second.stdout)
+            self.assertIn("pre-push already installed", second.stdout)
             self.assertEqual([], list((root / ".git" / "hooks").glob("post-commit.backup-*")))
+            self.assertEqual([], list((root / ".git" / "hooks").glob("pre-push.backup-*")))
+            self.assertTrue(os.access(root / ".git" / "hooks" / "pre-push", os.X_OK))
 
 
 if __name__ == "__main__":
