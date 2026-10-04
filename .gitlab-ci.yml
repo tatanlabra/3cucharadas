@@ -151,15 +151,25 @@ pages:
 # (234, 235, 239, 242) estaban rojos, y un rojo que se repite cada mañana durante
 # medio año se silencia, que es el mismo fallo que no tener gate.
 #
-# La pregunta completa NO se pierde: vive en distribution_audit_full, que corre
-# semanalmente con --strict y sin ventana. Auditar y vigilar son cosas distintas.
+# La pregunta completa NO se pierde: vive en distribution_audit_full, pensada para
+# correr semanalmente con --strict y sin ventana. Auditar y vigilar son cosas
+# distintas. (Al 2026-10-04 esa schedule semanal no existe: la única es la diaria.)
+#
+# OPCIONAL DESDE EL 2026-10-04: la persona usuaria sigue la difusión a mano y apagó
+# también el timer local difusion-cadencia. La vigilancia diaria solo corre si la
+# schedule fija AUDITORIA_DIFUSION_DIARIA=1; sin eso, cada mañana pintaba de rojo el
+# pipeline que sí publica Pages y RSS (el audit corre después de deploy) y mandaba un
+# correo de «Failed pipeline». Reactivar, sin tocar este archivo:
+#   glab api --method POST "projects/tatanlabra%2F3cucharadas/pipeline_schedules/4273390/variables" \
+#     -f key=AUDITORIA_DIFUSION_DIARIA -f value=1
+# La corrida manual desde la web sigue disponible siempre.
 distribution_audit:
   stage: audit
   dependencies: []
   script:
     - ruby scripts/verify_distribution_done.rb --ventana 30
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $AUDITORIA_COMPLETA != "1"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $AUDITORIA_COMPLETA != "1" && $AUDITORIA_DIFUSION_DIARIA == "1"'
     - if: '$CI_PIPELINE_SOURCE == "web"'
       when: manual
     - when: never

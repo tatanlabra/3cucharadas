@@ -38,7 +38,8 @@ App Password dedicada de Bluesky. Nunca usar la contrasena principal.
 Git no ofrece un hook nativo `post-push`. El hook instalado de `post-commit`
 solo resuelve elegibilidad: **no prepara, programa ni envía publicaciones**.
 El timer `difusion-cadencia` y el job `distribution_audit` auditan pendientes;
-tampoco los envían. Un pipeline Pages verde acredita el sitio, no la difusión.
+tampoco los envían. Desde el 2026-10-04 ambos están apagados y la difusión se
+sigue a mano (reactivación en `systemd/user/README.md` y `.gitlab-ci.yml`). Un pipeline Pages verde acredita el sitio, no la difusión.
 
 Después de verificar el despliegue y revisar el borrador de un artículo:
 

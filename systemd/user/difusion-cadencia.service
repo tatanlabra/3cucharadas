@@ -19,7 +19,8 @@ WorkingDirectory=/home/ende/Descargas/programaciones/activos/3cucharadas
 # tiempo. El atraso historico se imprime igual, con su cuenta, pero no dispara el
 # toast: repetir siete lineas de hace medio ano cada manana termina en que se
 # silencia el aviso entero. La auditoría completa corre sin esta bandera en el
-# job programado `distribution_audit`, después del despliegue de Pages.
+# job programado `distribution_audit`, después del despliegue de Pages (opcional
+# desde el 2026-10-04: requiere AUDITORIA_DIFUSION_DIARIA=1 en la schedule).
 ExecStart=/usr/bin/ruby scripts/verify_distribution_done.rb --ventana 30
 StandardOutput=journal
 StandardError=journal
