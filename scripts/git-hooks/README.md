@@ -7,6 +7,7 @@ y se instalan con un symlink o una copia.
 |---|---|---|
 | `post-commit` | Termina en silencio: un commit no confirma publicación | No |
 | `post-commit-difusion` | Resuelve a qué destinos de difusión corresponde cada post tocado y deja la traza en `difusion/state/destinos/<ref>.json` | No |
+| `pre-push` | Escanea con gitleaks solo los commits que salen y detiene el push si encuentra un posible secreto, antes de GitLab y de GitHub | **Sí**, el push |
 
 ## Instalar
 
@@ -19,6 +20,13 @@ scripts/install_git_hooks.sh
 
 Ambos terminan en `exit 0` a propósito: un aviso o una traza que falla no debe
 tumbar un commit que ya está hecho.
+
+`pre-push` es lo contrario y falla a propósito: `origin` empuja primero a GitLab
+(producción, público) y después a GitHub, y el push no es atómico, así que el bloqueo
+de pushes de GitHub llega cuando GitLab ya publicó el commit. El hook es el único punto
+común a los dos. Requiere `gitleaks` (`sudo pacman -S --needed gitleaks`); si falta,
+detiene el push. Saltarlo con `git push --no-verify` es una decisión humana.
+`.git/hooks` es común a todos los worktrees del repo, así que aplica a todos.
 
 ## Aviso de publicación verificada
 

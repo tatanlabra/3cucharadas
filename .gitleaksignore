@@ -1,0 +1,16 @@
+# Hallazgos historicos revisados el 2026-10-04 (gitleaks 8.30.1 sobre origin/main), ninguno es un secreto:
+# valores publicos del tema Minimal Mistakes heredados de su historia (reCAPTCHA siteKey, secreto Staticman
+# cifrado, clave Algolia de solo busqueda; archivos que ya no estan en main), un MASTODON_TOKEN vacio en un
+# .example y una clave de cita bibliografica. Los hashes de manifiestos los cubre .gitleaks.toml.
+5539de129f464de71716beda2e28142700d7fa84:test/_config.yml:generic-api-key:58
+81c7449bf2f78bc9bfd2503312cc5e44804dd4bf:research/replica-tesis/literature.yml:generic-api-key:9
+99b90764edba12992c89ca92dd98d244106025da:difusion/config/secrets.env.example:generic-api-key:4
+9bd9049bf75ad01ecfcd4fb3065222cef0c48ae1:difusion/config/secrets.env.example:generic-api-key:4
+a612fb98d734ca9d4a8b729d8b58968386078c46:docs/_config.yml:generic-api-key:50
+a612fb98d734ca9d4a8b729d8b58968386078c46:docs/_config.yml:generic-api-key:51
+a612fb98d734ca9d4a8b729d8b58968386078c46:staticfile.yml:generic-api-key:101
+a612fb98d734ca9d4a8b729d8b58968386078c46:staticfile.yml:generic-api-key:104
+af460fcbbefcf9be43afc6e539983f50303e3f12:docs/_config.yml:generic-api-key:64
+f0bbf8bb0701a62f3918ec70e877f4a092d68885:docs/_config.travis.yml:generic-api-key:53
+f0bbf8bb0701a62f3918ec70e877f4a092d68885:docs/_config.travis.yml:generic-api-key:54
+f0bbf8bb0701a62f3918ec70e877f4a092d68885:docs/_config.travis.yml:generic-api-key:65

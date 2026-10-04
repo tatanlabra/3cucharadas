@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Frena un push que lleve secretos, antes de que salga hacia GitLab y GitHub.
+#
+# `origin` tiene dos pushurl y empuja primero a GitLab (producción, repo público) y
+# después a GitHub; el push no es atómico. El bloqueo de pushes de GitHub (push
+# protection) llega tarde: GitLab ya aceptó y publicó el commit. Este hook es el único
+# punto común a los dos remotos. Escanea con gitleaks solo los commits que salen.
+#
+# Saltarlo (`git push --no-verify`) es una decisión humana, no de un agente.
+# Instalar con scripts/install_git_hooks.sh; ver scripts/git-hooks/README.md.
+set -uo pipefail
+
+remote="${1:-origin}"
+url="${2:-$remote}"
+zero=0000000000000000000000000000000000000000
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  printf 'pre-push: falta gitleaks (sudo pacman -S --needed gitleaks); push detenido.\n' >&2
+  exit 1
+fi
+
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue   # borrado de una rama remota: no sale contenido
+  if [ "$remote_sha" = "$zero" ] || ! git cat-file -e "${remote_sha}^{commit}" 2>/dev/null; then
+    # Rama nueva, o el remoto tiene commits que aquí no están: lo que no conoce ningún remoto.
+    range="${local_sha} --not --remotes=${remote}"
+  else
+    range="${remote_sha}..${local_sha}"
+  fi
+  if ! gitleaks git --log-opts="$range" --redact --verbose --no-banner --log-level warn --exit-code 1 >&2; then
+    status=1
+  fi
+done
+
+if [ "$status" -ne 0 ]; then
+  printf 'pre-push: gitleaks encontró posibles secretos en %s hacia %s; push detenido antes de\n' "$local_ref" "$url" >&2
+  printf 'llegar a GitLab o a GitHub. Quitar el secreto reescribiendo el commit, rotarlo si ya\n' >&2
+  printf 'existía en otra parte, y volver a empujar. Un falso positivo va a .gitleaksignore.\n' >&2
+fi
+exit "$status"

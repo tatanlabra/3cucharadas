@@ -1,0 +1,11 @@
+# gitleaks para 3cucharadas: reglas por defecto mas una excepcion acotada.
+# La usa scripts/git-hooks/pre-push. Triage del 2026-10-04 en docs/security/threat-model.md.
+title = "3cucharadas"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Manifiestos de evidencia: nombre de archivo -> sha256. generic-api-key lee 'sankey' como 'key'."
+regexTarget = "line"
+regexes = ['''"[^"]+\.(svg|webp|png|jpe?g|gif|avif|log|json|html|js|css|csv|parquet|pdf|mp4)"\s*:\s*"[0-9a-f]{64}"''']

@@ -28,14 +28,31 @@ SH
 
 if [ -e "$target_hook" ] && cmp -s "$temporary_hook" "$target_hook"; then
   printf 'hook chain already installed: %s\n' "$target_hook"
-  exit 0
+else
+  if [ -e "$target_hook" ]; then
+    backup="$target_hook.backup-$(date +%Y%m%d%H%M%S)"
+    cp "$target_hook" "$backup"
+    printf 'backed up existing hook: %s\n' "$backup"
+  fi
+  install -m 0755 "$temporary_hook" "$target_hook"
+  printf 'installed hook chain: %s\n' "$target_hook"
 fi
 
-if [ -e "$target_hook" ]; then
-  backup="$target_hook.backup-$(date +%Y%m%d%H%M%S)"
-  cp "$target_hook" "$backup"
-  printf 'backed up existing hook: %s\n' "$backup"
+# pre-push: frena secretos antes de que el push salga hacia GitLab y GitHub (ver el hook).
+push_source="$repo_root/scripts/git-hooks/pre-push"
+push_target="$(git rev-parse --git-path hooks/pre-push)"
+if [ ! -f "$push_source" ]; then
+  printf 'missing hook source: %s\n' "$push_source" >&2
+  exit 1
 fi
-
-install -m 0755 "$temporary_hook" "$target_hook"
-printf 'installed hook chain: %s\n' "$target_hook"
+if [ -e "$push_target" ] && cmp -s "$push_source" "$push_target"; then
+  printf 'pre-push already installed: %s\n' "$push_target"
+else
+  if [ -e "$push_target" ]; then
+    backup="$push_target.backup-$(date +%Y%m%d%H%M%S)"
+    cp "$push_target" "$backup"
+    printf 'backed up existing hook: %s\n' "$backup"
+  fi
+  install -m 0755 "$push_source" "$push_target"
+  printf 'installed pre-push: %s\n' "$push_target"
+fi

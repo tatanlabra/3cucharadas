@@ -127,6 +127,14 @@ invisible, así que conviene revisar a mano de vez en cuando (`npm outdated`,
 `bundle outdated`). Si el problema fuera solo el ruido, la alternativa es
 `interval: "monthly"` con el límite en 5.
 
+**2026-10-04, secretos:** GitHub tiene activos la detección de secretos y el bloqueo de
+pushes (push protection), pero como `origin` empuja primero a GitLab, ese bloqueo llega
+cuando el commit ya está publicado en producción. La defensa que cubre a los dos remotos es
+`scripts/git-hooks/pre-push` (gitleaks sobre los commits que salen). Un vigilante diario en
+la máquina de trabajo avisa si quedan alertas o PR de seguridad abiertos en GitHub, porque
+solo existen allí y producción no los ve. Riesgo residual que se acepta: un
+`git push --no-verify` o un push desde otra máquina sin el hook.
+
 **Salvedad:** `origin` tiene dos URLs de push (GitLab + GitHub), o sea GitHub es
 un espejo alimentado desde la máquina local. Dependabot solo abre PRs en GitHub.
 Fusionar uno allí deja `main` de GitHub por delante de GitLab y el siguiente push
