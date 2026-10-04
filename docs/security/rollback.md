@@ -115,6 +115,9 @@ ejecutar código movible con `contents: write` y `DEV_TO_API_KEY`;
 
 Revertir es borrar el archivo. No rompe nada: Dependabot deja de abrir PRs.
 
+Estado al 2026-10-04: `open-pull-requests-limit: 0` (solo seguridad). Para volver a
+recibir actualizaciones de versión, devolver el límite a 5 en los tres ecosistemas.
+
 Si el problema es el ruido y no el mecanismo, bajar
 `open-pull-requests-limit` o cambiar `interval: "weekly"` por `"monthly"` es
 preferible a eliminarlo.

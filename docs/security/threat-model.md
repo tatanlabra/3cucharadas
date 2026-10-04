@@ -118,6 +118,15 @@ dependencias estén al día.
 Se añadió `.github/dependabot.yml` con `bundler`, `npm` y `github-actions`,
 semanal.
 
+**2026-10-04, cambio de criterio:** las actualizaciones de versión quedan apagadas
+(`open-pull-requests-limit: 0`) por decisión de la persona usuaria, que prefiere
+actuar solo ante fallas o alertas. Siguen activas las alertas de vulnerabilidad y
+los PR automáticos de seguridad, que no cuentan para ese límite. El riesgo que se
+acepta es el que motivó este archivo: el atraso de versiones vuelve a ser
+invisible, así que conviene revisar a mano de vez en cuando (`npm outdated`,
+`bundle outdated`). Si el problema fuera solo el ruido, la alternativa es
+`interval: "monthly"` con el límite en 5.
+
 **Salvedad:** `origin` tiene dos URLs de push (GitLab + GitHub), o sea GitHub es
 un espejo alimentado desde la máquina local. Dependabot solo abre PRs en GitHub.
 Fusionar uno allí deja `main` de GitHub por delante de GitLab y el siguiente push
