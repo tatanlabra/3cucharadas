@@ -1,19 +1,20 @@
 schema_version: 2
 plan_id: thesis-post2-closeout-20261011
-revision: 22
-updated_at: "2026-10-12T08:38:00-03:00"
+revision: 23
+updated_at: "2026-10-12T16:20:19-03:00"
 status: in_progress
 integrator: codex
-peer_review: claude-opus-r3-read-only
+peer_review: claude-opus-e46-rereview-read-only
 objective: >-
   Cerrar el Post II con evidencia científica congelada, relato bilingüe didáctico,
   visualización responsiva y una revisión humana informada, sin convertir asociaciones
   locales ni recuerdos del autor en afirmaciones causales.
 
 scope:
-  research_repo: incubadora/tesis_mae_mejorada@38a31d79272f
-  blog_repo: activos/3cucharadas@af3daf2a9900
-  blog_branch: release/thesis-post-ii-20261011
+  research_repo: incubadora/tesis_mae_mejorada@8a71aadb7017ef02833c961c463e97098cfa6d21
+  research_branch: release/thesis-post-ii-science-20261012
+  blog_repo: activos/3cucharadas@8c1b0e11f7b8d3e17d360ba91ee29772b96d4567
+  blog_branch: release/thesis-post-ii-public-clean-20261012
   authorized_local_actions: [edit, test, research_commit, blog_commit]
   external_actions: [telegram_review_notice]
   blocked_without_new_authority: [push, deploy, dissemination]
@@ -716,13 +717,13 @@ emergent_tasks:
   - id: E-46
     source: research_commit_custody
     task: Construir un commit científico autosuficiente para el puente del artículo sin absorber trabajo concurrente.
-    status: blocked
-    cause: El parche acotado de ocho archivos no valida sobre 38a31d79 y el registro depende de ocho artefactos no rastreados de líneas H1-H3/Post II.
-    impact: El puente científico es válido en el workspace vivo, pero todavía no constituye una revisión Git portable del artículo futuro; no bloquea H1 del post.
+    status: done
+    cause: El bloqueo inicial se resolvió ampliando la clausura científica con generadores, contratos, artefactos y recibos trazables en un candidato Git aislado.
+    impact: El puente científico constituye una revisión portable y falsada; no convierte sus estimandos asociacionales ni los diseños SAE/SLEP inconclusos en evidencia causal.
     acceptance: Un worktree científico limpio debe pasar 22 claims, 18 freeze tests, ambos validadores y Ruff con una clausura de procedencia explícita.
     authority: No se incorporan artefactos ni generadores concurrentes sin custodia o autorización de su propietario.
-    blocker: La clausura mínima cruza artefactos y generadores no rastreados cuya propiedad no está adjudicada en este plan.
-    unblock_condition: Congelar o autorizar una revisión científica coherente que incluya los ocho artefactos faltantes y su procedencia reproducible.
+    evidence: docs/plans/20261011-thesis-post2-closeout/evidence/F23-e46-scientific-custody-and-causal-roadmap-20261012.md; research 8a71aadb7017ef02833c961c463e97098cfa6d21; blog 8c1b0e11f7b8d3e17d360ba91ee29772b96d4567; Claude ACCEPT_WITH_CAVEATS.
+    caveats: [M3b_transitive_visual_hash_portability, F4_restorability_not_established, preexisting_313_schema_drift, future_git_topology_receipt_refresh]
 
 drifts:
   - id: D-01
@@ -800,6 +801,26 @@ drifts:
     impact: Las cifras, nombres, trayectorias, mapas y gates vigentes del blog ya no representan la salida preregistrada.
     repair: Tratar los artefactos actuales como obsoletos, actualizar todas las superficies en F7-F9 y no seleccionar ex post los casos anteriores.
     status: repaired
+  - id: D-16
+    observed: El freeze aceptaba mutaciones causales de su diccionario de claims porque solo validaba estructura y campos seleccionados.
+    impact: Una prosa causal podía conservar etiquetas no causales y pasar los validadores científicos.
+    repair: Exigir igualdad exacta con el diccionario canónico y conservar una sonda SRF-014 que fue verde antes de la reparación y roja después.
+    status: repaired
+  - id: D-17
+    observed: Tres suites visuales escribían doce artefactos versionados sobre la raíz y dejaban el freeze en rojo después de pasar sus propios tests.
+    impact: Un gate verde contaminaba el candidato que pretendía validar.
+    repair: Copiar inputs públicos a tmp_path_factory, renderizar allí y verificar cero cambios y cero mtimes alterados en la raíz.
+    status: repaired
+  - id: D-18
+    observed: Siete PNG, un SVG y cinco recibos derivados no reproducen los bytes históricos en este host, aunque dos corridas locales producen 51 de 51 archivos idénticos.
+    impact: El freeze acopla transitivamente evidencia científica a métricas tipográficas y a la portabilidad del entorno visual.
+    repair: Mantener la deuda explícita, no prometer reproducción byte a byte entre entornos y fijar el entorno o desplazar el freeze a datos antes de una futura renovación visual.
+    status: open_nonblocking
+  - id: D-19
+    observed: El validador 313 espera un esquema anterior de tres casos y uses_outcomes, mientras el audit vigente usa esquema 5, dos casos sistemáticos y claves de selección separadas.
+    impact: Tres pruebas no focales están rojas desde la base y el freeze cita esa nota como evidencia de tres claims.
+    repair: Migrar el validador y su nota al esquema 5 en una tarea científica separada; candidato menos base permanece vacío para E-46.
+    status: open_preexisting
 
 gates:
   - id: G-VISUAL
@@ -1092,6 +1113,7 @@ execution:
       status: done
       step: Integrar matriz de apoyo a la decisión con paridad ES/EN.
       deps: [E-38]
+      dependency_contract: Requiere la implementación verificable de E-38, no el cierre humano de DEC-REL-007, que permanece pending con selected null.
       verification:
         kind: red_green
         ref: Gate normal exit 0; canarios policy-auto-close y policy-slep-scope EXPECTED_FAIL exit 1.
@@ -1125,14 +1147,14 @@ execution:
         kind: red_green
         ref: AC-H1-PORTABLE; raíz inexistente exit 1, raíz canónica exit 0 y seis self-tests EXPECTED_FAIL exit 1.
     - id: E-46
-      status: blocked
+      status: done
       step: Materializar un commit científico autosuficiente del puente del artículo futuro.
       deps: [E-40]
       emergent: true
-      cause: El experimento limpio de ocho archivos falló por evidencia no rastreada y observación Git no portable.
-      blocker:
-        kind: decision
-        unblock: Adjudicar la custodia de los ocho artefactos faltantes y sus generadores antes de ampliar el commit científico.
+      cause: La clausura científica ampliada incorporó generadores, contratos, artefactos y recibos trazables sin absorber el checkout vivo.
+      verification:
+        kind: red_green_peer_review
+        ref: F23; 254 y 316 exit 0 sin builder previo; 67 tests exit 0 sin escribir ROOT; mutaciones semánticas y topológicas exit 2; Claude ACCEPT_WITH_CAVEATS.
     - id: F15
       status: blocked
       step: Revisión humana del preview bilingüe.
@@ -1400,6 +1422,18 @@ execution:
       item: E-46
       cause: finding
       text: Un worktree científico limpio con solo los ocho archivos del puente falló claims 1/22, freeze 1/18 y ambos validadores exit 2; se prohíbe un commit parcial que oculte ocho evidencias no rastreadas.
+    - at: "2026-10-12T14:52:00-03:00"
+      kind: peer_review
+      item: E-46
+      text: Claude emitió REQUEST_CHANGES por AP-035 obsoleto, un bypass de prosa causal y tres suites visuales que escribían sobre ROOT; M3b y F4 quedaron como deudas explícitas, no como prueba de reproducibilidad.
+    - at: "2026-10-12T16:05:00-03:00"
+      kind: red_green
+      item: E-46
+      text: La sonda causal pasó exit 0 antes y fue rechazada exit 2 después; 254 y 316 quedaron verdes sin builder; 67 tests pasaron sin alterar ROOT; B1-B3 quedaron alineados entre research y blog.
+    - at: "2026-10-12T16:19:00-03:00"
+      kind: peer_review
+      item: E-46
+      text: Claude reprodujo commits 8a71aadb y 8c1b0e11 en clon aislado, falsó N1, M1 y M3 y emitió ACCEPT_WITH_CAVEATS; no autorizó causalidad, DEC-REL-007 ni acciones externas.
 
 rollback:
   - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
@@ -1407,4 +1441,4 @@ rollback:
   - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
 
 PLAN_STATE: v2
-HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 conserva bloqueado el commit científico no autosuficiente -> H1 humano pendiente; toda acción pública sigue bloqueada."
+HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica en 8a71aadb y Claude ACCEPT_WITH_CAVEATS -> H1 humano y DEC-REL-007 pendientes; toda acción pública sigue bloqueada."
