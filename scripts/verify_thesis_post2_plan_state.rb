@@ -39,12 +39,15 @@ class ThesisPost2PlanStateVerifier
   }.freeze
   DEGRADING_ACTION = /(retirar|degradar|deferir|no afirmar|no atribuir|mantener .*limit|tratar .*contexto|hacer visibles?|declarar|evitar atribuci[oó]n)/i
 
-  attr_reader :root, :state, :contract
+  RESEARCH_RELATIVE_PREFIX = "../../incubadora/tesis_mae_mejorada".freeze
 
-  def initialize(root:, state:, contract:)
+  attr_reader :root, :state, :contract, :research_root
+
+  def initialize(root:, state:, contract:, research_root: nil)
     @root = Pathname(root).expand_path
     @state = state
     @contract = contract
+    @research_root = research_root && Pathname(research_root).expand_path
   end
 
   def verify(stage:, site_dir: nil)
@@ -173,7 +176,13 @@ class ThesisPost2PlanStateVerifier
   end
 
   def resolve(path)
-    root.join(path).cleanpath
+    relative = path.to_s
+    if research_root && (relative == RESEARCH_RELATIVE_PREFIX || relative.start_with?("#{RESEARCH_RELATIVE_PREFIX}/"))
+      research_relative = relative.delete_prefix(RESEARCH_RELATIVE_PREFIX).delete_prefix("/")
+      return research_root.join(research_relative).cleanpath
+    end
+
+    root.join(relative).cleanpath
   end
 
   def public_source_files
@@ -227,7 +236,9 @@ def run_self_test(name, root, state, contract)
     test_state["placeholder_registry"].find { |entry| entry["id"] == "PH-02" }["emergent_task_id"] = nil
     verifier.verify_registry
   when "done-without-evidence"
-    test_state["emergent_tasks"].find { |task| task["id"] == "E-24" }["status"] = "done"
+    task = test_state["emergent_tasks"].find { |entry| entry["id"] == "E-24" }
+    task["status"] = "done"
+    task["evidence"] = nil
     verifier.verify_emergent_tasks
   when "blocking-open"
     test_state["placeholder_registry"].find { |entry| entry["id"] == "PH-01" }["status"] = "PENDIENTE"
@@ -264,7 +275,8 @@ begin
 options = {
   stage: "draft",
   state: "docs/plans/20261011-thesis-post2-closeout/PLAN_STATE.yml",
-  contract: "docs/contracts/thesis-extension-post-ii-publication.yml"
+  contract: "docs/contracts/thesis-extension-post-ii-publication.yml",
+  research_root: nil
 }
 
 parser = OptionParser.new do |opts|
@@ -273,6 +285,7 @@ parser = OptionParser.new do |opts|
   opts.on("--state PATH") { |value| options[:state] = value }
   opts.on("--contract PATH") { |value| options[:contract] = value }
   opts.on("--site-dir PATH") { |value| options[:site_dir] = value }
+  opts.on("--research-root PATH") { |value| options[:research_root] = value }
   opts.on("--self-test RULE", SELF_TESTS.keys) { |value| options[:self_test] = value }
   opts.on("--list-self-tests") { options[:list_self_tests] = true }
 end
@@ -291,7 +304,7 @@ if options[:self_test]
   exit run_self_test(options[:self_test], root, state, contract)
 end
 
-verifier = ThesisPost2PlanStateVerifier.new(root:, state:, contract:)
+verifier = ThesisPost2PlanStateVerifier.new(root:, state:, contract:, research_root: options[:research_root])
 verifier.verify(stage: options[:stage], site_dir: options[:site_dir])
 puts "PLAN_STATE_OK stage=#{options[:stage]} placeholders=#{state.fetch('placeholder_registry').length} emergent_tasks=#{state.fetch('emergent_tasks').length}"
 exit 0

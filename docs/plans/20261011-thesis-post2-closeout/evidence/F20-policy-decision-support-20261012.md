@@ -55,6 +55,6 @@ Fecha: 2026-10-12. Estado: implementación local en revisión independiente.
 
 | Estado | Resultado |
 |---|---|
-| Implementado | E-38–E-42: matriz bilingüe, claims esquema 2, revisión independiente, gates y candidato limpio. |
-| Parcial | H1: candidato listo para revisión humana; todavía no aprobado. |
+| Implementado | E-38–E-42 y E-45: matriz bilingüe, claims esquema 2, revisión independiente, candidato limpio y H1 portable. |
+| Parcial | H1 espera aprobación humana; E-46 mantiene el puente científico sin commit hasta adjudicar ocho evidencias y sus generadores. |
 | No implementado | Push, despliegue, paridad pública y difusión. |

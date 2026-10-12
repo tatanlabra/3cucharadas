@@ -1,6 +1,6 @@
 schema_version: 2
 plan_id: thesis-post2-closeout-20261011
-revision: 20
+revision: 22
 updated_at: "2026-10-12T08:38:00-03:00"
 status: in_progress
 integrator: codex
@@ -690,7 +690,7 @@ emergent_tasks:
     source: release_candidate
     task: Construir candidato local limpio y ejecutar gates científicos, Jekyll, artefacto, navegador y preview privado.
     status: done
-    evidence: Worktree basado en b2957178 común a GitLab/GitHub; 71 rutas, freeze y claims vigentes, semántica, tres bundles Vite, Jekyll, artefacto 70.884.482 bytes/1.506 entradas y navegador 24/24+12/12+2/2 en exit 0.
+    evidence: Worktree basado en b2957178 común a GitLab/GitHub; 73 rutas, freeze y claims vigentes, semántica, tres bundles Vite, Jekyll, artefacto 70.884.482 bytes/1.506 entradas y navegador 24/24+12/12+2/2 en exit 0.
     unblock_condition: E-41 adjudicada y suites integrales verdes sobre el mismo candidato.
   - id: E-43
     source: public_parity
@@ -704,6 +704,25 @@ emergent_tasks:
     status: blocked
     blocker: PUBLICATION_PENDING es el estado factual mientras no exista despliegue verificado.
     unblock_condition: E-43 verde sobre ES/EN públicas.
+  - id: E-45
+    source: clean_candidate_portability
+    task: Hacer explícita la raíz científica y ejecutar el gate H1 dentro del preview integral del worktree aislado.
+    status: done
+    cause: El gate H1 resolvía ../../ contra /tmp y no podía verificar el mismo candidato limpio que construía el preview.
+    impact: La suite integral podía quedar verde sin haber ejecutado H1 sobre su propio artefacto.
+    acceptance: Raíz inexistente falla exit 1; raíz canónica pasa exit 0; los seis self-tests producen EXPECTED_FAIL exit 1 y preview integral ejecuta H1.
+    authority: Mejora local reversible que desplaza la ruta implícita por una dependencia declarada sin relajar evidencia.
+    evidence: Raíz inexistente y ejecución sin opción fallaron exit 1; raíz canónica pasó exit 0; seis self-tests produjeron EXPECTED_FAIL exit 1, incluido done-without-evidence reparado.
+  - id: E-46
+    source: research_commit_custody
+    task: Construir un commit científico autosuficiente para el puente del artículo sin absorber trabajo concurrente.
+    status: blocked
+    cause: El parche acotado de ocho archivos no valida sobre 38a31d79 y el registro depende de ocho artefactos no rastreados de líneas H1-H3/Post II.
+    impact: El puente científico es válido en el workspace vivo, pero todavía no constituye una revisión Git portable del artículo futuro; no bloquea H1 del post.
+    acceptance: Un worktree científico limpio debe pasar 22 claims, 18 freeze tests, ambos validadores y Ruff con una clausura de procedencia explícita.
+    authority: No se incorporan artefactos ni generadores concurrentes sin custodia o autorización de su propietario.
+    blocker: La clausura mínima cruza artefactos y generadores no rastreados cuya propiedad no está adjudicada en este plan.
+    unblock_condition: Congelar o autorizar una revisión científica coherente que incluya los ocho artefactos faltantes y su procedencia reproducible.
 
 drifts:
   - id: D-01
@@ -1096,6 +1115,24 @@ execution:
         ref: >-
           Worktree desde b2957178 común a ambos remotos; freeze, claims, semántica,
           Vite, Jekyll, artefacto y navegador exit 0; evidence/F21-release-candidate-20261012.md.
+    - id: E-45
+      status: done
+      step: Hacer portable el gate H1 y encadenarlo al preview integral.
+      deps: [E-42]
+      emergent: true
+      cause: El worktree aislado resolvía la evidencia científica bajo /tmp y omitía H1 en la suite integral.
+      verification:
+        kind: red_green
+        ref: AC-H1-PORTABLE; raíz inexistente exit 1, raíz canónica exit 0 y seis self-tests EXPECTED_FAIL exit 1.
+    - id: E-46
+      status: blocked
+      step: Materializar un commit científico autosuficiente del puente del artículo futuro.
+      deps: [E-40]
+      emergent: true
+      cause: El experimento limpio de ocho archivos falló por evidencia no rastreada y observación Git no portable.
+      blocker:
+        kind: decision
+        unblock: Adjudicar la custodia de los ocho artefactos faltantes y sus generadores antes de ampliar el commit científico.
     - id: F15
       status: blocked
       step: Revisión humana del preview bilingüe.
@@ -1349,6 +1386,20 @@ execution:
       kind: validation
       item: E-42
       text: El candidato limpio basado en b2957178 pasó freeze, claims, semántica, tres bundles Vite, Jekyll, artefacto y navegador; 24 páginas, 12 SVG y dos fallbacks quedaron sin fallos.
+    - at: "2026-10-12T10:02:44-03:00"
+      kind: emergent
+      item: E-45
+      cause: finding
+      text: La auditoría de completitud mostró que H1 no resolvía evidencia científica desde /tmp y que el self-test done-without-evidence no perturbaba su evidencia; se abrió reparación falsable.
+    - at: "2026-10-12T10:03:51-03:00"
+      kind: red_green
+      item: E-45
+      text: Raíz científica inexistente falló exit 1; raíz explícita pasó H1 exit 0; los seis self-tests dieron EXPECTED_FAIL exit 1 y el preview quedó encadenado a H1.
+    - at: "2026-10-12T10:18:19-03:00"
+      kind: emergent
+      item: E-46
+      cause: finding
+      text: Un worktree científico limpio con solo los ocho archivos del puente falló claims 1/22, freeze 1/18 y ambos validadores exit 2; se prohíbe un commit parcial que oculte ocho evidencias no rastreadas.
 
 rollback:
   - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
@@ -1356,4 +1407,4 @@ rollback:
   - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
 
 PLAN_STATE: v2
-HANDOFF-TRACE: "Claude entregó plan revisado -> Codex integró F19-F20 -> Claude falsó R1-R2 -> Codex cerró ambos en rojo-verde -> Claude APPROVE -> E-42 limpio y verde -> H1 pendiente; push, despliegue y difusión pública siguen bloqueados."
+HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 conserva bloqueado el commit científico no autosuficiente -> H1 humano pendiente; toda acción pública sigue bloqueada."

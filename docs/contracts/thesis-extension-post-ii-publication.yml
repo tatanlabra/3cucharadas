@@ -1,6 +1,6 @@
 schema_version: 2
 contract_id: thesis-extension-post-ii-publication
-revision: 20
+revision: 21
 status: ready_for_human_review
 reopened_on: "2026-10-11"
 current_plan: docs/plans/20261011-thesis-post2-closeout/PLAN_STATE.yml
@@ -134,7 +134,7 @@ acceptance:
     note: El cuerpo extendido debe ser aceptado y producir post-above-soft-word-target antes de activar el canario esperado.
   - id: AC-GIT
     expected: commits locales selectivos autorizados; sin push, despliegue ni difusión pública
-    observed: candidato local materializado desde b2957178 compartido por GitLab y GitHub; historia privada y cuatro SVG obsoletos excluidos; commit local selectivo pendiente del último gate
+    observed: candidato local en rama release/thesis-post-ii-public-clean-20261012 desde b2957178 compartido por GitLab y GitHub; historia privada y cuatro SVG obsoletos excluidos; sin upstream ni push
   - id: AC-SELF-TESTS
     expected: todos los canarios fallan por la causa declarada
     observed: >-
@@ -162,7 +162,13 @@ acceptance:
     command: THESIS_WORKSPACE_ROOT=/home/ende/Descargas/programaciones THESIS_RESEARCH_ROOT=/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada BUNDLE_PATH=/home/ende/Descargas/programaciones/activos/3cucharadas/vendor/bundle bash scripts/verify_thesis_extension_post_ii_preview.sh
     expected_exit: 0
     observed_exit: 0
-    note: Worktree limpio en /tmp basado en b2957178; freeze, claims, semántica, Vite, Jekyll, artefacto y navegador pasaron sobre el mismo candidato.
+    note: Worktree limpio en /tmp basado en b2957178; freeze, claims, semántica, Vite, Jekyll, H1, artefacto y navegador pasaron sobre el mismo candidato.
+  - id: AC-H1-PORTABLE
+    command: ruby scripts/verify_thesis_post2_plan_state.rb --stage h1 --site-dir /home/ende/Descargas/programaciones/activos/3cucharadas/_site --research-root /home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada
+    expected_exit: 0
+    observed_exit: 0
+    falsified_by: Una raíz científica inexistente produjo h1-missing-evidence y exit 1; el gate sin --research-root también falló desde el worktree aislado.
+    green_observation: La raíz científica explícita produjo PLAN_STATE_OK stage=h1 con 18 placeholders y 45 tareas emergentes.
   - id: AC-POLICY-CANARIES
     expected: siete mutaciones de matriz, actor, IVE, ranking y salvaguarda causal fallan por la causa declarada
     observed: siete EXPECTED_FAIL exit 1 antes del verde normal, incluidos los límites SLEP en ES y EN
@@ -212,7 +218,8 @@ adversarial_review:
   eighth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.E2R5gt.txt
   eighth_response_sha256: 80f2f95b8ebdbb9f023b0ccd3f95f1750559f011324fedaff3437bd8fb9e0058
   eighth_adjudication: R1 cerrado; el preview ejecuta freeze --validate y luego article claims --validate sobre el mismo candidato.
-  commit_local: c88efe28e342c88bd2c88ec439787ece9984d124
+  candidate_branch: release/thesis-post-ii-public-clean-20261012
+  candidate_history: dos commits locales selectivos sobre b2957178, sin upstream ni push
   push: blocked_until_human_approval
   repaired_findings_pending_third_rereview:
     - La inicialización no cambia scroll vertical y su canario falla con delta fuera de tolerancia.
@@ -226,7 +233,7 @@ adversarial_review:
     - Intervalos ES usan punto y coma; etiquetas, títulos y lenguaje de sustitución fueron corregidos.
     - El directorio Vite generado está ignorado y las fuentes del bundle quedan hasheadas.
 content_hashes:
-  status: revision_20_clean_candidate_ready_for_h1
+  status: revision_21_h1_portable_ready_for_human_review
   post_es: 5948ecee5409e78e4b19b7efe79adb9ba2fa2b3ba2f1f15c9a5e9f30eb080b6d
   post_en: 4163f6f4655642d9b34e4bea6d3d3bab481f8b1452ac843c098f8b5a4d3c08ad
   stylized_include: 030618951eeafd184f1c0beb652bccc6db07dcafe3c00b03c5e0133c1a93e8af
@@ -236,7 +243,7 @@ content_hashes:
   coordinate_audit_data: ed110bfe7fe24972cdf837840fe4a294dc922857b3cc516c28d96923e50bd4de
   semantic_verifier: c659b6f9e5a0a014c6b31efe5d7e66fe6fa4358bd65949473983b8e78cb3e891
   prepublication_verifier: e21efb68c8628eb79de9779924254ec042ac84f87264c6ef211900c40f7a8b3b
-  plan_verifier: d94ea4ce59a157a425a638653ffb0880c56d3d78e0df0ca145b7bd3cfd814b0f
+  plan_verifier: 6843d141edeea2dedd85657dc6a90b8210640cb73107d5590577eaea2622a844
   browser_verifier: 8d7e75e4cf8952a688688c3cb3aaba5908e0355fc31ff9fb29d813be8c930b24
   stylesheet: 22804080d91673f7da39f4f7f638554fdb24f37305bf4011600b89dcefd6e98d
   map_source: d2e77e56385f468e83c7369391c70a10a1e9ea5ba5ec2cdf13d8be78cd0e4653
@@ -279,4 +286,4 @@ rollback:
   - Eliminar la rama local de release después de conservar el commit si la revisión humana la rechaza.
   - Restaurar el stash de la rama de trabajo para recuperar cambios concurrentes.
 PLAN_STATE: v2
-HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex integró F17-F20 -> Claude falsó R1-R2 -> Codex cerró ambos en rojo-verde -> Claude APPROVE -> E-42 produjo candidato limpio con suite integral verde -> H1 queda pendiente; push, despliegue y difusión pública siguen bloqueados.'
+HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 produjo candidato limpio -> E-45 encadenó H1 portable y reparó un canario vacuo -> H1 humano queda pendiente; push, despliegue y difusión pública siguen bloqueados.'

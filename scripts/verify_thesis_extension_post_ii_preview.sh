@@ -40,6 +40,10 @@ BUNDLE_FROZEN=true JEKYLL_ENV=production bundle exec jekyll build \
   --disable-disk-cache \
   --future \
   --destination "$build_dir"
+ruby scripts/verify_thesis_post2_plan_state.rb \
+  --stage h1 \
+  --site-dir "$build_dir" \
+  --research-root "$research_root"
 ruby scripts/verify_site_artifact.rb "$build_dir"
 
 preview_port="$(ruby -rsocket -e 'server = TCPServer.new("127.0.0.1", 0); puts server.addr[1]; server.close')"
