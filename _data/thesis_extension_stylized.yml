@@ -1,0 +1,541 @@
+schema_version: 3
+generated_by: scripts/render_thesis_extension_stylized.py
+data_governance:
+  official_institution_locations: true
+  public_school_registry_rows: true
+  student_microdata: false
+  personal_identifiers: false
+  third_party_restricted_rows: false
+  map_geometry: official_point_coordinates
+assets:
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-es.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-es.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-es.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-es.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-admission-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-admission-es.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-simce-en.svg
+  - /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-simce-es.svg
+locales:
+  es:
+    id: thesis-extension-stylized-es
+    eyebrow: "Visor de evidencia · Chile 2013–2025"
+    title: "Dos casos seleccionados, una fusión y una cautela"
+    intro: "Empiece por los casos territoriales. Después contraste la presión demográfica y las trayectorias nacionales sin confundir cercanía con destino ni descripción con causalidad."
+    open_full_size: "Abrir SVG en HD"
+    enlarge: "Ampliar figura"
+    instructions: "Elija una lámina o use las flechas. Toque la figura para ampliarla."
+    status_template: "Figura %current% de %total%"
+    controls_label: "Controles del carrusel de evidencia estilizada"
+    previous: "Figura anterior"
+    next: "Figura siguiente"
+    go_to: "Ir a la figura"
+    of: "de"
+    figure_label: "Figura"
+    map_case: "Caso comunal"
+    demographic_case: "Demografía"
+    trajectory_case: "Trayectoria nacional"
+    schools_heading: "Ver establecimientos y fuente pública"
+    closure_role: "Cierre"
+    entry_role: "Apertura compatible"
+    receiver_role: "Escuela receptora"
+    school_source: "Directorio oficial de establecimientos MINEDUC"
+    trajectory_tabs:
+      simce: "SIMCE"
+      admission: "Admisión"
+    demographic:
+      heading: "La población en edad escolar se contrae"
+      asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-es.svg
+      alt: "Serie nacional de población de 6 a 17 años, índice 2025 igual a 100. Las estimaciones terminan en 2024 y las proyecciones comienzan en 2025."
+      caption: "La población de 6 a 17 años pasa de 3,08 millones en 2025 a 1,37 millones en 2050: una caída proyectada de 55,7 %. No es una predicción de matrícula ni de cierres."
+      rows:
+        - year: 2025
+          population: 3081791
+          index: 100.000
+        - year: 2030
+          population: 2785605
+          index: 90.389
+        - year: 2035
+          population: 2211185
+          index: 71.750
+        - year: 2050
+          population: 1366155
+          index: 44.330
+    authored_case:
+      label: "Caso del autor · fuera de la selección sistemática"
+      title: "El Salvador: una escuela cerró y otra recibió de 1° a 6° básico"
+      intro: "La Escuela N° 14 Óscar Yáñez Pastén cerró al terminar 2013 y se fusionó con la Escuela N° 1 La Mina. La BCN documentó el traslado de primero a sexto básico."
+      caveat: "La matrícula conjunta cayó 30,2 % entre 2004 y 2013. La tendencia es compatible con contracción demográfica, pero no prueba el motivo administrativo del cierre."
+      coordinate_caveat: "El mapa usa la coordenada oficial 2020 de la Escuela N° 1, coherente con Diego Portales 1510; los directorios anteriores la ubicaban erróneamente en Diego de Almagro."
+      commune: El Salvador
+      segment_family: basic
+      event_period: 2013–2014
+      asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-es.svg
+      alt: "Mapa esquemático de la Escuela N° 14 cerrada y la Escuela N° 1 receptora en El Salvador, con cifras agregadas de matrícula."
+      open_label: "Abrir evidencia estática en HD"
+      distance_km: 0.449
+      combined_2004: 1399
+      combined_2004_display: "1.399"
+      combined_2013: 977
+      combined_2013_display: "977"
+      combined_change_percent: -30.2
+      receiver_2014: 738
+      receiver_2014_display: "738"
+      receiver_2025: 445
+      schools:
+        - role: closure
+          rbd: 391
+          name: "Escuela Oscar Yañez Pastén"
+          event_year: 2014
+        - role: receiver
+          rbd: 390
+          name: "Escuela Coeducacional Particular N° 1"
+          event_year: 2014
+      sources_heading: "Fuentes del caso"
+      sources:
+        - label: "BCN, 1 de abril de 2014"
+          url: "https://www.bcn.cl/laborparlamentaria/documento?id=636175"
+        - label: "FEES, reglamento institucional"
+          url: "https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf"
+        - label: "Datos abiertos MINEDUC"
+          url: "https://datosabiertos.mineduc.cl/"
+    maps:
+      heading: "Dos ejemplos sistemáticos y una fusión documentada"
+      intro: "Primero elegimos un caso por familia educativa preferida; dentro de cada familia ordenamos por misma comuna, distancia, año y RBD. Ni los valores ni la disponibilidad de resultados participan. Cada mapa muestra cercanía, no destino de estudiantes."
+      items:
+        - commune: "Lo Barnechea"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-es.svg
+          alt: "Mapa de establecimientos con coordenadas oficiales para Lo Barnechea. Las equis son cierres y los signos más son aperturas compatibles; las líneas muestran el emparejamiento de proximidad, no destinos."
+          caption: "1 cierre y 1 apertura única; distancia 1,046 km"
+          paired_closures: 1
+          nearby_entries: 1
+          same_commune_pairs: 1
+          event_period: "2016"
+          median_distance_km: 1.046
+          education_segment: "initial:transicion"
+          segment_family: "educación inicial"
+          schools:
+            - marker: "C1"
+              role: "Cierre"
+              rbd: 25077
+              name: "ESC. DE PARV.BEATO PADRE ALBERTO HURTADO"
+              event_year: 2016
+            - marker: "A1"
+              role: "Apertura compatible"
+              rbd: 20428
+              name: "ESCUELA DE PAVULOS N°2471 ESCUELA PRE ESCOLAR CANTAGALLO"
+              event_year: 2016
+        - commune: "Lo Prado"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-es.svg
+          alt: "Mapa de establecimientos con coordenadas oficiales para Lo Prado. Las equis son cierres y los signos más son aperturas compatibles; las líneas muestran el emparejamiento de proximidad, no destinos."
+          caption: "1 cierre y 1 apertura única; distancia 7,860 km"
+          paired_closures: 1
+          nearby_entries: 1
+          same_commune_pairs: 0
+          event_period: "2016"
+          median_distance_km: 7.860
+          education_segment: "basic"
+          segment_family: "educación básica"
+          schools:
+            - marker: "C1"
+              role: "Cierre"
+              rbd: 31422
+              name: "ESCUELA BASICA MY GARDEN SCHOOL PORTALES"
+              event_year: 2016
+            - marker: "A1"
+              role: "Apertura compatible"
+              rbd: 20440
+              name: "LICEO DOCTOR JUAN VERDAGUER PLANAS"
+              event_year: 2016
+    trajectories:
+      heading: "Resultados académicos con el soporte a la vista"
+      intro: "Las salidas y las entradas viven en paneles distintos. N cuenta celdas descriptivas, no el soporte inferencial exacto; las cruces no estimables no son ceros."
+      items:
+        - outcome: simce_relative
+          title: "SIMCE: el soporte es desigual entre años"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-simce-es.svg
+          alt: "Trayectorias nacionales de SIMCE relativo. Salidas y entradas están en paneles independientes; cada punto muestra unidades y, cuando es estimable, intervalo de confianza de 95 por ciento."
+        - outcome: admission_core
+          title: "Admisión: las entradas no alcanzan soporte inferencial"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-admission-es.svg
+          alt: "Trayectorias nacionales de pruebas de admisión, estandarizadas dentro de cada régimen. Las cruces son celdas descriptivas sin soporte inferencial suficiente."
+      rows:
+        - branch: "Salida"
+          outcome: "Admisión · núcleo"
+          relative_year: -3
+          estimate: -0.028
+          interval: "[-0.252, 0.164]"
+          units: 19
+          status: "Celda descriptiva"
+          regime: "PSU"
+        - branch: "Salida"
+          outcome: "Admisión · núcleo"
+          relative_year: -2
+          estimate: -0.080
+          interval: "[-0.313, 0.116]"
+          units: 19
+          status: "Celda descriptiva"
+          regime: "PDT+PSU"
+        - branch: "Salida"
+          outcome: "Admisión · núcleo"
+          relative_year: -1
+          estimate: -0.115
+          interval: "[-0.319, 0.070]"
+          units: 15
+          status: "Celda descriptiva"
+          regime: "PDT+PSU"
+        - branch: "Salida"
+          outcome: "SIMCE relativo"
+          relative_year: -3
+          estimate: 0.084
+          interval: "[-0.146, 0.295]"
+          units: 61
+          status: "Celda descriptiva"
+          regime: "SIMCE"
+        - branch: "Salida"
+          outcome: "SIMCE relativo"
+          relative_year: -2
+          estimate: -0.050
+          interval: "[-0.262, 0.145]"
+          units: 58
+          status: "Celda descriptiva"
+          regime: "SIMCE"
+        - branch: "Salida"
+          outcome: "SIMCE relativo"
+          relative_year: -1
+          estimate: -0.077
+          interval: "[-0.312, 0.136]"
+          units: 51
+          status: "Celda descriptiva"
+          regime: "SIMCE"
+        - branch: "Entrada"
+          outcome: "Admisión · núcleo"
+          relative_year: 0
+          estimate: -0.431
+          interval: "—"
+          units: 5
+          status: "No estimable"
+          regime: "PDT+PSU"
+        - branch: "Entrada"
+          outcome: "Admisión · núcleo"
+          relative_year: 1
+          estimate: -0.692
+          interval: "—"
+          units: 2
+          status: "No estimable"
+          regime: "PDT"
+        - branch: "Entrada"
+          outcome: "Admisión · núcleo"
+          relative_year: 2
+          estimate: -0.304
+          interval: "—"
+          units: 3
+          status: "No estimable"
+          regime: "PAES+PDT"
+        - branch: "Entrada"
+          outcome: "SIMCE relativo"
+          relative_year: 0
+          estimate: -0.196
+          interval: "—"
+          units: 9
+          status: "No estimable"
+          regime: "SIMCE"
+        - branch: "Entrada"
+          outcome: "SIMCE relativo"
+          relative_year: 1
+          estimate: -0.531
+          interval: "[-0.919, 0.124]"
+          units: 10
+          status: "Celda descriptiva"
+          regime: "SIMCE"
+        - branch: "Entrada"
+          outcome: "SIMCE relativo"
+          relative_year: 2
+          estimate: -0.443
+          interval: "[-0.715, 0.032]"
+          units: 11
+          status: "Celda descriptiva"
+          regime: "SIMCE"
+    table_labels:
+      method_heading: "Ver los datos detrás de las figuras"
+      data_tables_label: "Valores seleccionados detrás de las figuras"
+      year: "Año"
+      population: "Población 6–17"
+      index: "Índice 2025=100"
+      commune: "Comuna"
+      closures: "Cierres emparejados"
+      entries: "Entradas únicas"
+      same_commune: "Pares en la misma comuna"
+      period: "Periodo"
+      distance: "Distancia del par"
+      branch: "Rama"
+      outcome: "Resultado"
+      relative_year: "Año relativo"
+      estimate: "Estimación"
+      interval: "IC 95 %"
+      n: "N"
+      status: "Estado"
+      regime: "Régimen"
+  en:
+    id: thesis-extension-stylized-en
+    eyebrow: "Evidence viewer · Chile 2013–2025"
+    title: "Two selected cases, one merger, and one caution"
+    intro: "Start with the territorial cases. Then compare demographic pressure and national trajectories without confusing proximity with destination or description with causality."
+    open_full_size: "Open HD SVG"
+    enlarge: "Enlarge figure"
+    instructions: "Choose a panel or use the arrows. Tap the figure to enlarge it."
+    status_template: "Figure %current% of %total%"
+    controls_label: "Stylised-evidence carousel controls"
+    previous: "Previous figure"
+    next: "Next figure"
+    go_to: "Go to figure"
+    of: "of"
+    figure_label: "Figure"
+    map_case: "Commune case"
+    demographic_case: "Demography"
+    trajectory_case: "National trajectory"
+    schools_heading: "View schools and public source"
+    closure_role: "Closure"
+    entry_role: "Compatible opening"
+    receiver_role: "Receiving school"
+    school_source: "Official MINEDUC school directory"
+    trajectory_tabs:
+      simce: "SIMCE"
+      admission: "Admissions"
+    demographic:
+      heading: "The school-age population is shrinking"
+      asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-en.svg
+      alt: "National population aged 6–17, indexed to 2025 equals 100. Estimates end in 2024 and projections begin in 2025."
+      caption: "The population aged 6–17 falls from 3.08 million in 2025 to 1.37 million in 2050, a projected 55.7% decline. This is not a forecast of enrolment or closures."
+      rows:
+        - year: 2025
+          population: 3081791
+          index: 100.000
+        - year: 2030
+          population: 2785605
+          index: 90.389
+        - year: 2035
+          population: 2211185
+          index: 71.750
+        - year: 2050
+          population: 1366155
+          index: 44.330
+    authored_case:
+      label: "Author case · outside the systematic selection"
+      title: "El Salvador: one school closed and another received grades 1–6"
+      intro: "School No. 14 Óscar Yáñez Pastén closed at the end of 2013 and merged with School No. 1 La Mina. The BCN record documents the transfer of grades one through six."
+      caveat: "Combined enrolment fell 30.2% between 2004 and 2013. The trend is consistent with demographic contraction, but it does not prove the administrative motive for closure."
+      coordinate_caveat: "The map uses School No. 1's official 2020 coordinate, consistent with 1510 Diego Portales; earlier directories incorrectly placed it in Diego de Almagro."
+      commune: El Salvador
+      segment_family: basic
+      event_period: 2013–2014
+      asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-en.svg
+      alt: "Schematic map of closed School No. 14 and receiving School No. 1 in El Salvador, with aggregate enrolment figures."
+      open_label: "Open static evidence in HD"
+      distance_km: 0.449
+      combined_2004: 1399
+      combined_2004_display: "1,399"
+      combined_2013: 977
+      combined_2013_display: "977"
+      combined_change_percent: -30.2
+      receiver_2014: 738
+      receiver_2014_display: "738"
+      receiver_2025: 445
+      schools:
+        - role: closure
+          rbd: 391
+          name: "Escuela Oscar Yañez Pastén"
+          event_year: 2014
+        - role: receiver
+          rbd: 390
+          name: "Escuela Coeducacional Particular N° 1"
+          event_year: 2014
+      sources_heading: "Case sources"
+      sources:
+        - label: "BCN, 1 April 2014"
+          url: "https://www.bcn.cl/laborparlamentaria/documento?id=636175"
+        - label: "FEES institutional regulations"
+          url: "https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf"
+        - label: "MINEDUC open data"
+          url: "https://datosabiertos.mineduc.cl/"
+    maps:
+      heading: "Two systematic examples and one documented merger"
+      intro: "We first choose one case from each preferred education family; within each family, we order by same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability are used. Each map shows proximity, not student destinations."
+      items:
+        - commune: "Lo Barnechea"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg
+          alt: "School map using official coordinates for Lo Barnechea. Crosses are closures and plus signs are compatible openings; lines show the proximity match, not student destinations."
+          caption: "1 closure and 1 unique opening; distance 1.046 km"
+          paired_closures: 1
+          nearby_entries: 1
+          same_commune_pairs: 1
+          event_period: "2016"
+          median_distance_km: 1.046
+          education_segment: "initial:transicion"
+          segment_family: "early childhood"
+          schools:
+            - marker: "C1"
+              role: "Closure"
+              rbd: 25077
+              name: "ESC. DE PARV.BEATO PADRE ALBERTO HURTADO"
+              event_year: 2016
+            - marker: "O1"
+              role: "Compatible opening"
+              rbd: 20428
+              name: "ESCUELA DE PAVULOS N°2471 ESCUELA PRE ESCOLAR CANTAGALLO"
+              event_year: 2016
+        - commune: "Lo Prado"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-en.svg
+          alt: "School map using official coordinates for Lo Prado. Crosses are closures and plus signs are compatible openings; lines show the proximity match, not student destinations."
+          caption: "1 closure and 1 unique opening; distance 7.860 km"
+          paired_closures: 1
+          nearby_entries: 1
+          same_commune_pairs: 0
+          event_period: "2016"
+          median_distance_km: 7.860
+          education_segment: "basic"
+          segment_family: "primary"
+          schools:
+            - marker: "C1"
+              role: "Closure"
+              rbd: 31422
+              name: "ESCUELA BASICA MY GARDEN SCHOOL PORTALES"
+              event_year: 2016
+            - marker: "O1"
+              role: "Compatible opening"
+              rbd: 20440
+              name: "LICEO DOCTOR JUAN VERDAGUER PLANAS"
+              event_year: 2016
+    trajectories:
+      heading: "Academic outcomes with support in view"
+      intro: "Exits and entries remain in separate panels. N counts descriptive cells, not exact inferential support; non-estimable crosses are not zeroes."
+      items:
+        - outcome: simce_relative
+          title: "SIMCE: support is uneven across years"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-simce-en.svg
+          alt: "National relative-SIMCE trajectories. Exits and entries are shown in separate panels; each point reports units and, when estimable, a 95 percent confidence interval."
+        - outcome: admission_core
+          title: "Admissions: entrants lack inferential support"
+          asset: /assets/images/extender-tesis-no-es-agregar-anos/estilizada-trayectoria-admission-en.svg
+          alt: "National admissions-test trajectories, standardised within each regime. Crosses mark descriptive cells without enough support for inference."
+      rows:
+        - branch: "Exit"
+          outcome: "Admissions · core"
+          relative_year: -3
+          estimate: -0.028
+          interval: "[-0.252, 0.164]"
+          units: 19
+          status: "Descriptive cell"
+          regime: "PSU"
+        - branch: "Exit"
+          outcome: "Admissions · core"
+          relative_year: -2
+          estimate: -0.080
+          interval: "[-0.313, 0.116]"
+          units: 19
+          status: "Descriptive cell"
+          regime: "PDT+PSU"
+        - branch: "Exit"
+          outcome: "Admissions · core"
+          relative_year: -1
+          estimate: -0.115
+          interval: "[-0.319, 0.070]"
+          units: 15
+          status: "Descriptive cell"
+          regime: "PDT+PSU"
+        - branch: "Exit"
+          outcome: "Relative SIMCE"
+          relative_year: -3
+          estimate: 0.084
+          interval: "[-0.146, 0.295]"
+          units: 61
+          status: "Descriptive cell"
+          regime: "SIMCE"
+        - branch: "Exit"
+          outcome: "Relative SIMCE"
+          relative_year: -2
+          estimate: -0.050
+          interval: "[-0.262, 0.145]"
+          units: 58
+          status: "Descriptive cell"
+          regime: "SIMCE"
+        - branch: "Exit"
+          outcome: "Relative SIMCE"
+          relative_year: -1
+          estimate: -0.077
+          interval: "[-0.312, 0.136]"
+          units: 51
+          status: "Descriptive cell"
+          regime: "SIMCE"
+        - branch: "Entry"
+          outcome: "Admissions · core"
+          relative_year: 0
+          estimate: -0.431
+          interval: "—"
+          units: 5
+          status: "Not estimable"
+          regime: "PDT+PSU"
+        - branch: "Entry"
+          outcome: "Admissions · core"
+          relative_year: 1
+          estimate: -0.692
+          interval: "—"
+          units: 2
+          status: "Not estimable"
+          regime: "PDT"
+        - branch: "Entry"
+          outcome: "Admissions · core"
+          relative_year: 2
+          estimate: -0.304
+          interval: "—"
+          units: 3
+          status: "Not estimable"
+          regime: "PAES+PDT"
+        - branch: "Entry"
+          outcome: "Relative SIMCE"
+          relative_year: 0
+          estimate: -0.196
+          interval: "—"
+          units: 9
+          status: "Not estimable"
+          regime: "SIMCE"
+        - branch: "Entry"
+          outcome: "Relative SIMCE"
+          relative_year: 1
+          estimate: -0.531
+          interval: "[-0.919, 0.124]"
+          units: 10
+          status: "Descriptive cell"
+          regime: "SIMCE"
+        - branch: "Entry"
+          outcome: "Relative SIMCE"
+          relative_year: 2
+          estimate: -0.443
+          interval: "[-0.715, 0.032]"
+          units: 11
+          status: "Descriptive cell"
+          regime: "SIMCE"
+    table_labels:
+      method_heading: "View the data behind the figures"
+      data_tables_label: "Selected values behind the figures"
+      year: "Year"
+      population: "Population aged 6–17"
+      index: "Index 2025=100"
+      commune: "Commune"
+      closures: "Paired closures"
+      entries: "Unique entries"
+      same_commune: "Same-commune pairs"
+      period: "Period"
+      distance: "Pair distance"
+      branch: "Branch"
+      outcome: "Outcome"
+      relative_year: "Relative year"
+      estimate: "Estimate"
+      interval: "95% CI"
+      n: "N"
+      status: "Status"
+      regime: "Regime"

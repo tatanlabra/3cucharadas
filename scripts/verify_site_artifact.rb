@@ -26,6 +26,7 @@ required_files = %w[
   assets/css/main.css
   assets/js/main.min.js
   assets/js/theme-toggle.js
+  assets/js/thesis-post2-map-loader.js
   assets/js/lunr/lunr-en.js
   assets/js/lunr/lunr-store.js
   assets/js/lunr/lunr.min.js
@@ -47,6 +48,8 @@ required_files = %w[
 ].freeze
 
 pruned_files = %w[
+  assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-en.svg
+  assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-es.svg
   assets/images/catppuccin_latte-skin-archive-large.png
   assets/images/catppuccin_mocha-skin-archive-large.png
   assets/images/favicons/favicon.svg
@@ -61,6 +64,24 @@ pruned_files = %w[
 required_files.each do |relative|
   abort "Required runtime asset is missing: #{relative}" unless File.file?(File.join(site_dir, relative))
 end
+
+thesis_map_bundle_dir = File.join(site_dir, "assets", "dist", "thesis_post2_map")
+thesis_map_manifest_path = File.join(thesis_map_bundle_dir, "manifest.json")
+abort "Thesis Post II map manifest is missing" unless File.file?(thesis_map_manifest_path)
+thesis_map_manifest = JSON.parse(File.read(thesis_map_manifest_path))
+thesis_map_entry = thesis_map_manifest.fetch("assets/src/thesis_post2_map/main.ts")
+abort "Thesis Post II map manifest entry is not marked as entry" unless thesis_map_entry["isEntry"] == true
+thesis_map_files = [thesis_map_entry.fetch("file"), *thesis_map_entry.fetch("css", [])]
+thesis_map_files.each do |relative|
+  abort "Thesis Post II map asset is unsafe: #{relative}" if relative.start_with?("/") || relative.include?("..")
+  abort "Thesis Post II map asset is missing: #{relative}" unless File.file?(File.join(thesis_map_bundle_dir, relative))
+end
+thesis_map_workers = Dir.glob(File.join(thesis_map_bundle_dir, "assets", "maplibre-gl-worker-*.js"))
+abort "Thesis Post II map worker inventory drifted" unless thesis_map_workers.length == 1
+entry_source = File.read(File.join(thesis_map_bundle_dir, thesis_map_entry.fetch("file")))
+worker_name = File.basename(thesis_map_workers.first)
+abort "Thesis Post II map entry does not reference its worker" unless entry_source.include?(worker_name)
+abort "Thesis Post II map data is missing" unless File.file?(File.join(site_dir, "assets", "data", "thesis-extension-post2", "cases.json"))
 
 microsite = "catastro_sii_brecha"
 microsite_dir = File.join(site_dir, microsite)

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="figure-title figure-desc">
+  <title id="figure-title">SIMCE: el soporte es desigual entre años</title>
+  <desc id="figure-desc">Trayectorias nacionales de SIMCE relativo. Salidas y entradas están en paneles independientes; cada punto muestra unidades y, cuando es estimable, intervalo de confianza de 95 por ciento.</desc>
+  <defs>
+    <pattern id="projection-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#b8ff3c" stroke-width="3" opacity="0.24"/>
+    </pattern>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <style>
+    text { font-family: Inter, "Inter var", system-ui, sans-serif; }
+    .title { fill: #f4f7fb; font-size: 32px; font-weight: 760; letter-spacing: -0.4px; }
+    .subtitle { fill: #b8c2d6; font-size: 16px; }
+    .label { fill: #f4f7fb; font-size: 16px; }
+    .small { fill: #b8c2d6; font-size: 14px; }
+    .tiny { fill: #b8c2d6; font-size: 12px; }
+    .number { fill: #f4f7fb; font-size: 22px; font-weight: 760; font-variant-numeric: tabular-nums; }
+    .kicker { fill: #37e7ff; font-size: 13px; font-weight: 750; letter-spacing: 1.4px; }
+    .map-title { fill: #f4f7fb; font-size: 40px; font-weight: 780; letter-spacing: -0.5px; }
+    .map-label { fill: #b8c2d6; font-size: 18px; }
+    .map-small { fill: #b8c2d6; font-size: 16px; }
+    .map-value { fill: #f4f7fb; font-size: 34px; font-weight: 780; font-variant-numeric: tabular-nums; }
+  </style>
+  <rect width="1200" height="720" rx="24" fill="#10121d"/>
+  <text class="kicker" x="72" y="64">POST II · SIMCE RELATIVO</text>
+  <text class="title" x="72" y="110">SIMCE: el soporte es desigual entre años</text>
+  <text class="subtitle"><tspan x="72" y="140">Trayectorias nacionales de SIMCE relativo. Salidas y entradas están en paneles independientes; cada punto</tspan><tspan x="72" y="162">muestra unidades y, cuando es estimable, intervalo de confianza de 95 por ciento.</tspan></text>
+  <rect x="72.0" y="186" width="502.0" height="408" rx="18" fill="#171b2a" stroke="#48516a"/>
+  <text class="label" x="96.0" y="210" font-weight="720">Antes de la salida</text>
+  <line x1="144.0" y1="520.00" x2="546.0" y2="520.00" stroke="#48516a" stroke-width="1" />
+  <text class="tiny" x="132.0" y="524.00" text-anchor="end">−1,0</text>
+  <line x1="144.0" y1="412.86" x2="546.0" y2="412.86" stroke="#48516a" stroke-width="1" />
+  <text class="tiny" x="132.0" y="416.86" text-anchor="end">−0,5</text>
+  <line x1="144.0" y1="305.71" x2="546.0" y2="305.71" stroke="#48516a" stroke-width="2" stroke-dasharray="5 6"/>
+  <text class="tiny" x="132.0" y="309.71" text-anchor="end">0,0</text>
+  <line x1="188.0" y1="336.90" x2="188.0" y2="242.54" stroke="#ff4fd8" stroke-width="5"/>
+  <line x1="177.0" y1="336.90" x2="199.0" y2="336.90" stroke="#ff4fd8" stroke-width="4"/>
+  <line x1="177.0" y1="242.54" x2="199.0" y2="242.54" stroke="#ff4fd8" stroke-width="4"/>
+  <circle cx="188.0" cy="287.79" r="9" fill="#10121d" stroke="#ff4fd8" stroke-width="5"/>
+  <text class="small" x="188.0" y="542" text-anchor="middle">t−3</text>
+  <text x="188.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=61</text>
+  <text x="188.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="188.0" y="268.79" text-anchor="middle" fill="#ff4fd8" font-size="13" font-weight="700">+0,08</text>
+  <line x1="348.0" y1="361.96" x2="348.0" y2="274.56" stroke="#ff4fd8" stroke-width="5"/>
+  <line x1="337.0" y1="361.96" x2="359.0" y2="361.96" stroke="#ff4fd8" stroke-width="4"/>
+  <line x1="337.0" y1="274.56" x2="359.0" y2="274.56" stroke="#ff4fd8" stroke-width="4"/>
+  <circle cx="348.0" cy="316.36" r="9" fill="#10121d" stroke="#ff4fd8" stroke-width="5"/>
+  <text class="small" x="348.0" y="542" text-anchor="middle">t−2</text>
+  <text x="348.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=58</text>
+  <text x="348.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="348.0" y="297.36" text-anchor="middle" fill="#ff4fd8" font-size="13" font-weight="700">−0,05</text>
+  <line x1="508.0" y1="372.60" x2="508.0" y2="276.47" stroke="#ff4fd8" stroke-width="5"/>
+  <line x1="497.0" y1="372.60" x2="519.0" y2="372.60" stroke="#ff4fd8" stroke-width="4"/>
+  <line x1="497.0" y1="276.47" x2="519.0" y2="276.47" stroke="#ff4fd8" stroke-width="4"/>
+  <circle cx="508.0" cy="322.11" r="9" fill="#10121d" stroke="#ff4fd8" stroke-width="5"/>
+  <text class="small" x="508.0" y="542" text-anchor="middle">t−1</text>
+  <text x="508.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=51</text>
+  <text x="508.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="508.0" y="303.11" text-anchor="middle" fill="#ff4fd8" font-size="13" font-weight="700">−0,08</text>
+  <polyline points="188.00,287.79 348.00,316.36 508.00,322.11" fill="none" stroke="#ff4fd8" stroke-width="2" stroke-dasharray="4 8" opacity="0.55"/>
+  <rect x="626.0" y="186" width="502.0" height="408" rx="18" fill="#171b2a" stroke="#48516a"/>
+  <text class="label" x="650.0" y="210" font-weight="720">Después de la entrada</text>
+  <line x1="698.0" y1="520.00" x2="1100.0" y2="520.00" stroke="#48516a" stroke-width="1" />
+  <text class="tiny" x="686.0" y="524.00" text-anchor="end">−1,0</text>
+  <line x1="698.0" y1="412.86" x2="1100.0" y2="412.86" stroke="#48516a" stroke-width="1" />
+  <text class="tiny" x="686.0" y="416.86" text-anchor="end">−0,5</text>
+  <line x1="698.0" y1="305.71" x2="1100.0" y2="305.71" stroke="#48516a" stroke-width="2" stroke-dasharray="5 6"/>
+  <text class="tiny" x="686.0" y="309.71" text-anchor="end">0,0</text>
+  <rect x="730.0" y="335.81" width="24" height="24" rx="4" fill="none" stroke="#ffd166" stroke-width="3"/>
+  <line x1="734.0" y1="339.81" x2="750.0" y2="355.81" stroke="#ffd166" stroke-width="3"/>
+  <line x1="750.0" y1="339.81" x2="734.0" y2="355.81" stroke="#ffd166" stroke-width="3"/>
+  <text class="small" x="742.0" y="542" text-anchor="middle">t0</text>
+  <text x="742.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=9</text>
+  <text x="742.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="742.0" y="328.81" text-anchor="middle" fill="#ffd166" font-size="13" font-weight="700">−0,20</text>
+  <line x1="902.0" y1="502.54" x2="902.0" y2="279.08" stroke="#b8ff3c" stroke-width="5"/>
+  <line x1="891.0" y1="502.54" x2="913.0" y2="502.54" stroke="#b8ff3c" stroke-width="4"/>
+  <line x1="891.0" y1="279.08" x2="913.0" y2="279.08" stroke="#b8ff3c" stroke-width="4"/>
+  <circle cx="902.0" cy="419.52" r="9" fill="#10121d" stroke="#b8ff3c" stroke-width="5"/>
+  <text class="small" x="902.0" y="542" text-anchor="middle">t+1</text>
+  <text x="902.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=10</text>
+  <text x="902.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="902.0" y="400.52" text-anchor="middle" fill="#b8ff3c" font-size="13" font-weight="700">−0,53</text>
+  <line x1="1062.0" y1="458.96" x2="1062.0" y2="298.78" stroke="#b8ff3c" stroke-width="5"/>
+  <line x1="1051.0" y1="458.96" x2="1073.0" y2="458.96" stroke="#b8ff3c" stroke-width="4"/>
+  <line x1="1051.0" y1="298.78" x2="1073.0" y2="298.78" stroke="#b8ff3c" stroke-width="4"/>
+  <circle cx="1062.0" cy="400.75" r="9" fill="#10121d" stroke="#b8ff3c" stroke-width="5"/>
+  <text class="small" x="1062.0" y="542" text-anchor="middle">t+2</text>
+  <text x="1062.0" y="562" text-anchor="middle" fill="#b8c2d6" font-size="11">N=11</text>
+  <text x="1062.0" y="579" text-anchor="middle" fill="#b8c2d6" font-size="11">SIMCE</text>
+  <text x="1062.0" y="381.75" text-anchor="middle" fill="#b8ff3c" font-size="13" font-weight="700">−0,44</text>
+  <polyline points="742.00,347.81 902.00,419.52 1062.00,400.75" fill="none" stroke="#b8ff3c" stroke-width="2" stroke-dasharray="4 8" opacity="0.55"/>
+  <circle cx="88" cy="620" r="7" fill="#10121d" stroke="#37e7ff" stroke-width="4"/>
+  <text class="small" x="106" y="625">Celda descriptiva con IC 95 %</text>
+  <rect x="360" y="612" width="16" height="16" rx="3" fill="none" stroke="#ffd166" stroke-width="2"/>
+  <line x1="363" y1="615" x2="373" y2="625" stroke="#ffd166" stroke-width="2"/>
+  <line x1="373" y1="615" x2="363" y2="625" stroke="#ffd166" stroke-width="2"/>
+  <text class="small" x="387" y="625">NOT_ESTIMABLE · solo descriptivo</text>
+  <text class="small" x="1128" y="625" text-anchor="end">El soporte cambia entre años; no es un estudio de evento causal.</text>
+  <text class="small" x="72" y="654">Punto = establecimiento que sale o entra menos sus comparables.</text>
+  <text class="tiny" x="72" y="680">Fuente: MINEDUC, directorios, matrícula y resultados; elaboración propia.</text>
+</svg>

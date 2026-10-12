@@ -182,6 +182,10 @@ exclude:
   - assets/images/structured-shell/fig-eficiencia.svg
   - assets/images/structured-shell/fig-tesis-caso-real.svg
   - assets/images/structured-shell/fig-tesis-caso-real-en.svg
+  # El carrusel MR2 fue retirado: sus puntos descriptivos no tienen soporte
+  # inferencial y no deben quedar disponibles como artefactos huérfanos.
+  - assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-es.svg
+  - assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-en.svg
   - assets/images/ai-quota-hud/bar_gemini.png
   - assets/images/ai-quota-hud/popup.png
   # Másters de render y piezas para subir a mano a redes: se versionan como

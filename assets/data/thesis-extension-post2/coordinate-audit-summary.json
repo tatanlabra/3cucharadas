@@ -1,0 +1,2490 @@
+{
+  "adjudication": {
+    "duplicate_candidates": 207,
+    "manual_review_pending": 0,
+    "manual_review_rows": 126,
+    "official_errors_confirmed": 0,
+    "temporal_jump_candidates": 750
+  },
+  "aggregated_records": [
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 1,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 1,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 87,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 1,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 116,
+      "distance_band_m": "LE_100M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 12,
+      "distance_band_m": "LE_250M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_100M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_5000M",
+      "region_code": 1,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 2,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 17,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 2,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 140,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 2,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "GT_5000M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_100M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 84,
+      "distance_band_m": "LE_100M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_250M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_500M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 9,
+      "distance_band_m": "LE_100M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 2,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 9,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 3,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 67,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 3,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "GT_5000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_1000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_100M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 63,
+      "distance_band_m": "LE_100M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_2000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_250M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_5000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_500M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_100M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 3,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 14,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 4,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 353,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 4,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "GT_5000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 9,
+      "distance_band_m": "LE_1000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 9,
+      "distance_band_m": "LE_100M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 318,
+      "distance_band_m": "LE_100M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_2000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 22,
+      "distance_band_m": "LE_250M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_5000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 23,
+      "distance_band_m": "LE_500M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "GT_5000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 23,
+      "distance_band_m": "LE_100M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_5000M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 4,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 17,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 5,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 568,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 5,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "GT_5000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 18,
+      "distance_band_m": "LE_1000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 19,
+      "distance_band_m": "LE_100M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 477,
+      "distance_band_m": "LE_100M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 16,
+      "distance_band_m": "LE_2000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 43,
+      "distance_band_m": "LE_250M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 15,
+      "distance_band_m": "LE_5000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 19,
+      "distance_band_m": "LE_500M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_100M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 65,
+      "distance_band_m": "LE_100M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_2000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_250M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_5000M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 5,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 22,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 6,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 316,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 6,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "GT_5000M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 12,
+      "distance_band_m": "LE_1000M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_100M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 284,
+      "distance_band_m": "LE_100M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_2000M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 27,
+      "distance_band_m": "LE_250M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_5000M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 15,
+      "distance_band_m": "LE_500M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 26,
+      "distance_band_m": "LE_100M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_250M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 6,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 7,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 10,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 7,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 306,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 7,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "GT_5000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 31,
+      "distance_band_m": "LE_1000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 16,
+      "distance_band_m": "LE_100M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 329,
+      "distance_band_m": "LE_100M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 16,
+      "distance_band_m": "LE_2000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 57,
+      "distance_band_m": "LE_250M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 10,
+      "distance_band_m": "LE_5000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_500M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 41,
+      "distance_band_m": "LE_500M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "GT_5000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 24,
+      "distance_band_m": "LE_100M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_2000M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_250M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 7,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 8,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 6,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 8,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 518,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 8,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "GT_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 13,
+      "distance_band_m": "LE_1000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 411,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_2000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 28,
+      "distance_band_m": "LE_250M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 16,
+      "distance_band_m": "LE_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 15,
+      "distance_band_m": "LE_500M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "GT_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 64,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_250M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_500M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "GT_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 39,
+      "distance_band_m": "LE_100M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_250M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_5000M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 8,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 9,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 11,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 9,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 540,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 9,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 27,
+      "distance_band_m": "GT_5000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 20,
+      "distance_band_m": "LE_1000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_100M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 304,
+      "distance_band_m": "LE_100M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 16,
+      "distance_band_m": "LE_2000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 54,
+      "distance_band_m": "LE_250M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 14,
+      "distance_band_m": "LE_5000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 54,
+      "distance_band_m": "LE_500M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "GT_5000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_1000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 29,
+      "distance_band_m": "LE_100M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_250M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_5000M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_500M",
+      "region_code": 9,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 8,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 10,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 281,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 10,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 18,
+      "distance_band_m": "GT_5000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_1000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 20,
+      "distance_band_m": "LE_100M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 549,
+      "distance_band_m": "LE_100M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_2000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 36,
+      "distance_band_m": "LE_250M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 12,
+      "distance_band_m": "LE_5000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 10,
+      "distance_band_m": "LE_500M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_1000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_100M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 28,
+      "distance_band_m": "LE_100M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 10,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 3,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 11,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 35,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 11,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_100M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "GT_5000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_1000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 29,
+      "distance_band_m": "LE_100M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_2000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 4,
+      "distance_band_m": "LE_5000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_100M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 11,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 12,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 12,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 3,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 12,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 2,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 12,
+      "signal": "MINEDUC_COORDINATE_SWAPPED",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 37,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 12,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXPLICIT_REFERENCE_CANDIDATE",
+      "count": 17,
+      "distance_band_m": "LE_100M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_A",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_100M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 35,
+      "distance_band_m": "LE_100M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_100M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 12,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 13,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 100,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 13,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 1604,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 13,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 9,
+      "distance_band_m": "GT_5000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_1000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 11,
+      "distance_band_m": "LE_1000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 58,
+      "distance_band_m": "LE_100M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 974,
+      "distance_band_m": "LE_100M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 26,
+      "distance_band_m": "LE_2000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_250M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 103,
+      "distance_band_m": "LE_250M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 22,
+      "distance_band_m": "LE_5000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_500M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 23,
+      "distance_band_m": "LE_500M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "GT_5000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_1000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 18,
+      "distance_band_m": "LE_100M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 228,
+      "distance_band_m": "LE_100M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_2000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 22,
+      "distance_band_m": "LE_250M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_5000M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_500M",
+      "region_code": 13,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 10,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 14,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 162,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 14,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 10,
+      "distance_band_m": "GT_5000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 10,
+      "distance_band_m": "LE_1000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "LE_100M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 212,
+      "distance_band_m": "LE_100M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_2000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 13,
+      "distance_band_m": "LE_250M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_5000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 10,
+      "distance_band_m": "LE_500M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "GT_5000M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_100M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 13,
+      "distance_band_m": "LE_100M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 14,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 59,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 15,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 5,
+      "distance_band_m": "GT_5000M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_1000M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_100M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 58,
+      "distance_band_m": "LE_100M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 9,
+      "distance_band_m": "LE_250M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_5000M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 8,
+      "distance_band_m": "LE_100M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_2000M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_250M",
+      "region_code": 15,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 16,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 7,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 16,
+      "signal": "MINEDUC_COORDINATE_MISSING",
+      "source_year": 2025
+    },
+    {
+      "case_status": "NO_OSM_CANDIDATE",
+      "confidence": "NO_MATCH_EVIDENCE",
+      "count": 202,
+      "distance_band_m": "NO_DISTANCE",
+      "region_code": 16,
+      "signal": "NO_OSM_CANDIDATE",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "GT_5000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 7,
+      "distance_band_m": "LE_1000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_100M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 177,
+      "distance_band_m": "LE_100M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 6,
+      "distance_band_m": "LE_2000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 19,
+      "distance_band_m": "LE_250M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "AMBIGUOUS_CANDIDATE",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_5000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "EXACT_NAME_CANDIDATE",
+      "count": 3,
+      "distance_band_m": "LE_500M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_B",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 11,
+      "distance_band_m": "LE_100M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 2,
+      "distance_band_m": "LE_250M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_5000M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    },
+    {
+      "case_status": "CANDIDATE_ONLY",
+      "confidence": "FUZZY_NAME_CANDIDATE",
+      "count": 1,
+      "distance_band_m": "LE_500M",
+      "region_code": 16,
+      "signal": "OSM_MATCH_C",
+      "source_year": 2025
+    }
+  ],
+  "commune_signals": {
+    "COMMUNE_BORDER_BUFFER": 31,
+    "COMMUNE_MISMATCH_CANDIDATE": 48,
+    "INSIDE_COMMUNE": 11785,
+    "OFFICIAL_COORDINATE_INVALID": 252
+  },
+  "coordinate_status": {
+    "MISSING": 250,
+    "SWAPPED": 2,
+    "VALID": 11864
+  },
+  "frozen_on": "2026-10-11",
+  "license": {
+    "attribution": "© OpenStreetMap contributors",
+    "combined_row_level_csv_published": false,
+    "mineduc_portal_license_observed": null,
+    "mineduc_republication_assumed": false,
+    "odbl": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "public_surface": "aggregate_only"
+  },
+  "matching": {
+    "ambiguous_official_rows": 237,
+    "candidate_links": 6850,
+    "cumulative_distance_m": {
+      "100": 5230,
+      "1000": 6184,
+      "2000": 6324,
+      "250": 5745,
+      "500": 6013,
+      "5000": 6465
+    },
+    "match_levels": {
+      "A": 524,
+      "B": 5368,
+      "C": 709,
+      "NONE": 5515
+    },
+    "official_rows_with_candidate": 6601,
+    "official_rows_without_candidate": 5515,
+    "shared_mineduc_source_risk_links": 2
+  },
+  "schema_version": 1,
+  "scope": {
+    "authorized_without_enrollment": 78,
+    "authorized_without_enrollment_status_code": 4,
+    "directory_year": 2025,
+    "official_rows_audited": 12116,
+    "operating_establishments": 12038,
+    "operating_status_code": 1
+  },
+  "sources": {
+    "audit_sha256": "7ef913ca19efbfbc72b227e672369e4273f3f3ee4929e44794632278dd65d751",
+    "commune_archive_sha256": "8ac1ce872230b645c3cf04db2d980c1968e78f602144347f4513119dc9b945db",
+    "directory_2025_sha256": "9892fdf465232497d40f2780fd50921e47aebc5e08d6caceb448ad17630d21e9",
+    "osm_snapshot_date": "2026-08-27T17:01:11+00:00",
+    "public_summary_csv_sha256": "3b4f195a7af6c078d361c654ae09bf60f0633ff26f82b9e4f255fee4a92de8a6"
+  },
+  "status": "SCHOOL_COORDINATE_OSM_AUDIT_READY_WITH_CANDIDATE_LIMITS"
+}

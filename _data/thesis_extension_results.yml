@@ -1,0 +1,156 @@
+schema_version: 1
+
+locales:
+  es:
+    id: thesis-extension-results-es
+    eyebrow: Evidencia 2013–2025
+    title: Seis resultados, con sus límites a la vista
+    intro: Cada lámina separa lo que los datos muestran de lo que el diseño todavía no permite concluir.
+    instructions: Deslice, use las flechas o las teclas izquierda y derecha. Cada figura se puede ampliar y abrir como SVG.
+    status_template: "Figura %current% de %total%"
+    controls_label: Controles del carrusel de resultados
+    previous: Figura anterior
+    next: Figura siguiente
+    open_full_size: Abrir SVG
+    enlarge: Ampliar
+    go_to: Ir a la figura
+    of: de
+    limit_label: "Límite:"
+    slides:
+      - id: market-sensitivity
+        tone: survived
+        case: Cucharada 1 · frontera
+        title: Cambiar el mercado mueve poco el contraste grueso
+        verdict: Resiste 0,5 pp; no 0,25 pp
+        metric: Seis bandas simultáneas contienen cero; techo primario 0,273108 pp.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v3-sensibilidad-mercados-es.svg
+        alt: Seis contrastes entre mercados espaciales y comuna con bandas simultáneas; todos contienen cero y quedan bajo 0,5 puntos porcentuales.
+        evidence: Las bandas directas por bloques espaciales llegan a 0,375248 puntos porcentuales y conservan solo la decisión de 0,5.
+        limit: Es sensibilidad de una asociación a la frontera elegida, no el efecto causal de cambiar el mercado.
+      - id: exit-selection
+        tone: tentative
+        case: Cucharada 2 · salida
+        title: La señal primaria de salida es imprecisa
+        verdict: SIMCE incierto; admisión no estimable
+        metric: SIMCE +0,029 DE (n=21); puntaje de admisión (núcleo), entre quienes rinden, NOT_ESTIMABLE (n=8).
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v5-mr1-es.svg
+        alt: Estimaciones primarias y sensibilidades de selección de salida en SIMCE y admisión, con intervalos de confianza y embudos de soporte.
+        evidence: El intervalo SIMCE va de −0,095 a +0,158 DE; en admisión, ocho cierres no alcanzan el soporte mínimo fijado para inferir.
+        limit: Selección previa al cierre no equivale al efecto de cerrar una escuela.
+      - id: entry-support
+        tone: limit
+        case: Cucharada 3 · entrada
+        title: Una cohorte calculable no vuelve estimable la pregunta
+        verdict: NOT_ESTIMABLE
+        metric: Soporte SIMCE 4/6/8; admisión 1/1/2; mínimo exigido 10.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-es.svg
+        alt: Soporte de las tres cohortes de escuelas entrantes en SIMCE y admisión frente al mínimo de diez unidades y conglomerados.
+        evidence: La primera cohorte SIMCE queda bajo el mínimo y admisión no alcanza el umbral en ninguna cohorte.
+        limit: No estimable significa soporte insuficiente, no efecto cero ni prueba de que las escuelas nuevas sean iguales.
+      - id: market-recomposition
+        tone: tentative
+        case: Cucharada 3 · recomposición
+        title: La rotación oficial aporta poco al cambio observado
+        verdict: Pequeño, con signos opuestos
+        metric: −0,000105 DE en SIMCE y +0,000113 DE en admisión; solo el intervalo SIMCE cruza cero.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v7-mr3-es.svg
+        alt: Descomposición del cambio de mercado entre escuelas que continúan, reasignación de matrícula, entradas y salidas oficiales.
+        evidence: La reasignación entre escuelas que continúan domina la entrada y salida oficial en ambos resultados.
+        limit: Es una identidad contable en mercados con resultado observado, no aprendizaje nacional ni bienestar causado por la rotación.
+      - id: modality-support
+        tone: limit
+        case: Cucharada 2 · cuarto medio
+        title: La prueba de admisión no cubre por igual todas las modalidades
+        verdict: HC y TP no estimables
+        metric: Salida HC con n=7; entrada HC 1/1/2; TP sin comparaciones estrictas.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v8-mr4-es.svg
+        alt: Contrastes de salida y soporte de entrada en enseñanza humanista-científica y técnico-profesional para puntajes y participación en admisión.
+        evidence: Ninguna celda alcanza el soporte mínimo predefinido para sostener inferencia por modalidad.
+        limit: Los puntajes describen a egresados que rinden; no son una medida universal de calidad escolar.
+      - id: causal-ladder
+        tone: limit
+        case: Cierre · inferencia
+        title: Reproducir una cifra no construye un contrafactual
+        verdict: Efecto causal no identificado
+        metric: Descripción y asociación están ejecutadas; la atribución causal sigue abierta.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v10-escalera-causal-es.svg
+        alt: Escalera que distingue descripción, asociación, sensibilidad y evidencia causal, y ubica los resultados actuales antes del último peldaño.
+        evidence: Los resultados descartan una narrativa automática, pero no comparan cada cierre con lo que habría ocurrido sin él.
+        limit: Cualquier afirmación sobre el efecto de abrir o cerrar exige variación exógena y supuestos falsables.
+
+  en:
+    id: thesis-extension-results-en
+    eyebrow: Evidence, 2013–2025
+    title: Six results, with their limits in view
+    intro: Each slide separates what the data show from what the design still does not permit us to conclude.
+    instructions: Swipe, use the arrows, or press the left and right keys. Every figure can be enlarged and opened as an SVG.
+    status_template: "Figure %current% of %total%"
+    controls_label: Results carousel controls
+    previous: Previous figure
+    next: Next figure
+    open_full_size: Open SVG
+    enlarge: Enlarge
+    go_to: Go to figure
+    of: of
+    limit_label: "Limit:"
+    slides:
+      - id: market-sensitivity
+        tone: survived
+        case: Spoonful 1 · boundary
+        title: Changing the market barely moves the coarse contrast
+        verdict: Holds at 0.5 pp, not 0.25 pp
+        metric: All six simultaneous bands contain zero; the primary upper bound is 0.273108 pp.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v3-sensibilidad-mercados-en.svg
+        alt: Six spatial-market contrasts against the commune with simultaneous bands; all contain zero and remain below 0.5 percentage points.
+        evidence: Direct spatial-block bands reach 0.375248 percentage points and preserve only the 0.5-point decision.
+        limit: This measures an association's sensitivity to the chosen boundary, not the causal effect of changing the market.
+      - id: exit-selection
+        tone: tentative
+        case: Spoonful 2 · exit
+        title: The primary exit signal is imprecise
+        verdict: SIMCE uncertain; admissions not estimable
+        metric: SIMCE +0.029 SD (n=21); admissions score (core), among test takers, NOT_ESTIMABLE (n=8).
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v5-mr1-en.svg
+        alt: Primary estimates and sensitivities for exit selection in SIMCE and admissions, with confidence intervals and support funnels.
+        evidence: The SIMCE interval runs from −0.095 to +0.158 SD; for admissions, eight closures fall short of the prespecified inferential support.
+        limit: Selection before closure is not the effect of closing a school.
+      - id: entry-support
+        tone: limit
+        case: Spoonful 3 · entry
+        title: One calculable cohort does not make the question estimable
+        verdict: NOT_ESTIMABLE
+        metric: SIMCE support 4/6/8; admissions 1/1/2; required minimum 10.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v6-mr2-en.svg
+        alt: Support in three cohorts of entering schools for SIMCE and admissions against the minimum of ten units and clusters.
+        evidence: The first SIMCE cohort falls below the minimum, and admissions reaches the threshold in no cohort.
+        limit: Not estimable means insufficient support, not a zero effect or proof that new schools are equivalent.
+      - id: market-recomposition
+        tone: tentative
+        case: Spoonful 3 · recomposition
+        title: Official turnover contributes little to observed change
+        verdict: Small, with opposite signs
+        metric: −0.000105 SD in SIMCE and +0.000113 SD in admissions; only the SIMCE interval crosses zero.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v7-mr3-en.svg
+        alt: Decomposition of market change into continuing-school change, enrolment reallocation, official entries, and official exits.
+        evidence: Reallocation among continuing schools dominates official entry and exit in both outcomes.
+        limit: This is an accounting identity in markets with observed outcomes, not national learning or welfare caused by turnover.
+      - id: modality-support
+        tone: limit
+        case: Spoonful 2 · upper secondary
+        title: Admissions tests do not cover both tracks equally
+        verdict: Academic (AC) and technical-vocational (TV) not estimable
+        metric: Academic (AC) exits have n=7; AC entries 1/1/2; no strictly supported technical-vocational (TV) comparison.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v8-mr4-en.svg
+        alt: Exit contrasts and entry support in academic and technical-vocational upper secondary education for admissions scores and participation.
+        evidence: No cell reaches the prespecified minimum support for modality-specific inference.
+        limit: Scores describe graduates who take the tests; they are not a universal measure of school quality.
+      - id: causal-ladder
+        tone: limit
+        case: Closing · inference
+        title: Reproducing a number does not build a counterfactual
+        verdict: Causal effect not identified
+        metric: Description and association are complete; causal attribution remains open.
+        asset: /assets/images/extender-tesis-no-es-agregar-anos/resultados-v10-escalera-causal-en.svg
+        alt: Ladder distinguishing description, association, sensitivity, and causal evidence, with current results below the final rung.
+        evidence: The results reject an automatic narrative, but do not compare each closure with what would have happened without it.
+        limit: Any claim about the effect of opening or closing requires exogenous variation and falsifiable assumptions.

@@ -1,0 +1,193 @@
+{% assign stylized_data = site.data.thesis_extension_stylized %}
+{% assign stylized = stylized_data.locales[page.lang] | default: stylized_data.locales.es %}
+{% assign systematic_count = stylized.maps.items | size %}
+{% assign slide_total = systematic_count | plus: 3 %}
+<section
+  class="thesis-market-map"
+  data-thesis-market-map
+  data-data-url="{{ '/assets/data/thesis-extension-post2/cases.json' | relative_url }}"
+  data-map-state="loading"
+  data-fallback-message="{% if page.lang == 'en' %}Interactive map unavailable; the static poster remains available.{% else %}Mapa interactivo no disponible; se conserva la lámina estática.{% endif %}"
+  aria-labelledby="thesis-market-map-title-{{ page.lang }}"
+>
+  <header class="thesis-market-map__header">
+    <p>{% if page.lang == 'en' %}Territorial evidence · official MINEDUC coordinates{% else %}Evidencia territorial · coordenadas oficiales MINEDUC{% endif %}</p>
+    <h3 id="thesis-market-map-title-{{ page.lang }}">{% if page.lang == 'en' %}Two systematic cases and one documented merger{% else %}Dos casos sistemáticos y una fusión documentada{% endif %}</h3>
+    <p>{% if page.lang == 'en' %}The first two cases come from one example per preferred education family; within each family, the rule uses same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability are used. El Salvador is an author-proposed case shown separately because documents establish a merger, not an opening. The line means proximity unless the record explicitly says otherwise.{% else %}Los dos primeros casos aportan un ejemplo por familia educativa preferida; dentro de cada familia, la regla usa misma comuna, distancia, año y RBD. No intervienen ni los valores ni la disponibilidad de resultados. El Salvador es un caso propuesto por el autor y se muestra aparte porque los documentos acreditan una fusión, no una apertura. La línea significa cercanía salvo cuando el registro dice expresamente otra cosa.{% endif %}</p>
+  </header>
+  <div class="thesis-market-map__tabs" role="tablist" aria-label="{% if page.lang == 'en' %}Territorial cases{% else %}Casos territoriales{% endif %}">
+    {% for item in stylized.maps.items %}
+      <button type="button" role="tab" data-market-map-tab aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">{{ item.commune }} · {{ item.segment_family }}</button>
+    {% endfor %}
+    <button type="button" role="tab" data-market-map-tab aria-selected="false" tabindex="-1">{{ stylized.authored_case.commune }} · {{ stylized.receiver_role }}</button>
+  </div>
+  <div class="thesis-market-map__layout">
+    <div class="thesis-market-map__stage">
+      <figure class="thesis-market-map__fallback">
+        <img data-market-map-fallback src="{{ stylized.maps.items[0].asset | relative_url }}" alt="{{ stylized.maps.items[0].alt }}" width="1200" height="720">
+      </figure>
+      <div class="thesis-market-map__canvas" data-market-map-canvas></div>
+    </div>
+    <aside class="thesis-market-map__aside" data-market-map-aside aria-live="polite">
+      <h4>{{ stylized.maps.items[0].commune }}</h4>
+      <p>{% if page.lang == 'en' %}Loading the case record…{% else %}Cargando la ficha del caso…{% endif %}</p>
+    </aside>
+  </div>
+  <p class="thesis-market-map__status" data-market-map-status role="status" aria-live="polite">{% if page.lang == 'en' %}Loading the interactive map; the static poster remains visible.{% else %}Cargando el mapa interactivo; la lámina estática sigue visible.{% endif %}</p>
+  <a class="thesis-market-map__poster-link" data-market-map-poster href="{{ stylized.maps.items[0].asset | relative_url }}" target="_blank" rel="noopener">{% if page.lang == 'en' %}Open static HD poster ↗{% else %}Abrir lámina estática en HD ↗{% endif %}</a>
+  <noscript><p>{% if page.lang == 'en' %}JavaScript is disabled. Use the HD posters and the accessible data table below.{% else %}JavaScript está desactivado. Use las láminas HD y la tabla accesible que sigue.{% endif %}</p></noscript>
+</section>
+<aside class="thesis-author-case" aria-labelledby="thesis-author-case-title-{{ page.lang }}">
+  <div class="thesis-author-case__copy">
+    <p class="thesis-author-case__eyebrow">{{ stylized.authored_case.label }}</p>
+    <h3 id="thesis-author-case-title-{{ page.lang }}">{{ stylized.authored_case.title }}</h3>
+    <dl class="thesis-author-case__facts">
+      <div><dt>2004</dt><dd>{{ stylized.authored_case.combined_2004_display }}<span>{% if page.lang == 'en' %}combined enrolment{% else %}matrícula conjunta{% endif %}</span></dd></div>
+      <div><dt>2013</dt><dd>{{ stylized.authored_case.combined_2013_display }}<span>{% if page.lang == 'en' %}combined enrolment{% else %}matrícula conjunta{% endif %}</span></dd></div>
+      <div><dt>2004–2013</dt><dd>{% if page.lang == 'en' %}−30.2%{% else %}−30,2 %{% endif %}<span>{% if page.lang == 'en' %}observed change{% else %}cambio observado{% endif %}</span></dd></div>
+      <div><dt>2014</dt><dd>{{ stylized.authored_case.receiver_2014_display }}<span>{% if page.lang == 'en' %}School No. 1 enrolment{% else %}matrícula Escuela N° 1{% endif %}</span></dd></div>
+    </dl>
+    <p class="thesis-author-case__caveat">{{ stylized.authored_case.caveat }}</p>
+    <details>
+      <summary>{{ stylized.authored_case.sources_heading }}</summary>
+      <ul>
+        {% for source in stylized.authored_case.sources %}<li><a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }} <span aria-hidden="true">↗</span></a></li>{% endfor %}
+      </ul>
+      <p>{{ stylized.authored_case.coordinate_caveat }}</p>
+    </details>
+  </div>
+  <figure class="thesis-author-case__figure">
+    <a class="image-popup" href="{{ stylized.authored_case.asset | relative_url }}" title="{{ stylized.authored_case.alt }}" aria-label="{{ stylized.enlarge }}: {{ stylized.authored_case.alt }}">
+      <img src="{{ stylized.authored_case.asset | relative_url }}" width="1200" height="720" loading="lazy" decoding="async" alt="{{ stylized.authored_case.alt }}">
+    </a>
+    <figcaption><a href="{{ stylized.authored_case.asset | relative_url }}" target="_blank" rel="noopener">{{ stylized.authored_case.open_label }} <span aria-hidden="true">↗</span></a></figcaption>
+  </figure>
+</aside>
+<section
+  class="evidence-carousel evidence-carousel--stylized thesis-stylized"
+  data-evidence-carousel
+  role="region"
+  aria-roledescription="carousel"
+  aria-labelledby="{{ stylized.id }}-title"
+  data-status-template="{{ stylized.status_template }}"
+>
+  <header class="thesis-stylized__header">
+    <p class="thesis-stylized__eyebrow">{{ stylized.eyebrow }}</p>
+    <h3 id="{{ stylized.id }}-title">{{ stylized.title }}</h3>
+    <p>{{ stylized.intro }}</p>
+  </header>
+
+  <div class="thesis-stylized__tabs" data-carousel-dots role="group" aria-label="{{ stylized.controls_label }}">
+    {% for item in stylized.maps.items %}
+      <button type="button" data-carousel-dot="{{ forloop.index0 }}" aria-label="{{ stylized.go_to }}: {{ item.commune }}" {% if forloop.first %}aria-current="true"{% endif %}>
+        <span>{{ stylized.map_case }} {{ forloop.index }}</span>{{ item.commune }}
+      </button>
+    {% endfor %}
+    <button type="button" data-carousel-dot="{{ systematic_count }}" aria-label="{{ stylized.go_to }}: {{ stylized.demographic_case }}"><span>{{ stylized.figure_label }} {{ systematic_count | plus: 1 }}</span>{{ stylized.demographic_case }}</button>
+    <button type="button" data-carousel-dot="{{ systematic_count | plus: 1 }}" aria-label="{{ stylized.go_to }}: SIMCE"><span>{{ stylized.figure_label }} {{ systematic_count | plus: 2 }}</span>SIMCE</button>
+    <button type="button" data-carousel-dot="{{ systematic_count | plus: 2 }}" aria-label="{{ stylized.go_to }}: {{ stylized.trajectory_tabs.admission }}"><span>{{ stylized.figure_label }} {{ systematic_count | plus: 3 }}</span>{{ stylized.trajectory_tabs.admission }}</button>
+  </div>
+
+  <div class="thesis-stylized__toolbar">
+    <p class="thesis-stylized__instructions" id="{{ stylized.id }}-instructions">{{ stylized.instructions }}</p>
+    <p class="thesis-stylized__status" data-carousel-status aria-live="polite"></p>
+    <div class="thesis-stylized__arrows" role="group" aria-label="{{ stylized.controls_label }}">
+      <button type="button" data-carousel-previous aria-label="{{ stylized.previous }}" disabled></button>
+      <button type="button" data-carousel-next aria-label="{{ stylized.next }}"></button>
+    </div>
+  </div>
+
+  <div class="thesis-stylized__viewport" data-carousel-viewport tabindex="0" aria-describedby="{{ stylized.id }}-instructions">
+    <div class="thesis-stylized__track">
+      {% for item in stylized.maps.items %}
+        <div class="thesis-stylized__slide" data-carousel-slide data-slide-kind="map" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} {{ stylized.of }} {{ slide_total }}">
+          <header class="thesis-stylized__slide-header">
+            <p>{{ stylized.map_case }} {{ forloop.index }} · {{ item.event_period }}</p>
+            <h4>{{ item.commune }}</h4>
+          </header>
+          <dl class="thesis-stylized__facts" aria-label="{{ stylized.maps.heading }}">
+            <div><dt>{{ stylized.table_labels.closures }}</dt><dd>{{ item.paired_closures }}</dd></div>
+            <div><dt>{{ stylized.table_labels.entries }}</dt><dd>{{ item.nearby_entries }}</dd></div>
+            <div><dt>{{ stylized.table_labels.distance }}</dt><dd>{% if page.lang == 'es' %}{{ item.median_distance_km | replace: '.', ',' }}{% else %}{{ item.median_distance_km }}{% endif %} km</dd></div>
+            <div><dt>{{ stylized.table_labels.same_commune }}</dt><dd>{{ item.same_commune_pairs }}</dd></div>
+          </dl>
+          <figure class="thesis-stylized__figure">
+            <a class="image-popup thesis-stylized__media" data-carousel-popup href="{{ item.asset | relative_url }}" title="{{ item.alt }}" aria-label="{{ stylized.enlarge }}: {{ item.alt }}">
+              <img src="{{ item.asset | relative_url }}" width="1200" height="720" loading="eager" decoding="async" alt="{{ item.alt }}">
+              <span class="thesis-stylized__zoom" aria-hidden="true">⤢</span>
+            </a>
+            <figcaption>
+              <span>{{ item.caption }}. {{ stylized.maps.intro }}</span>
+              <a class="thesis-stylized__hd-link" data-carousel-hd-link href="{{ item.asset | relative_url }}" target="_blank" rel="noopener" aria-label="{{ stylized.open_full_size }}: {{ item.alt }}">{{ stylized.open_full_size }} <span aria-hidden="true">↗</span></a>
+            </figcaption>
+          </figure>
+          <details class="thesis-stylized__schools">
+            <summary>{{ stylized.schools_heading }}</summary>
+            <ul>
+              {% for school in item.schools %}
+                <li><span>{{ school.marker }}</span><strong>{{ school.name }}</strong><small>{{ school.role }} · RBD {{ school.rbd }} · {{ school.event_year }}</small></li>
+              {% endfor %}
+            </ul>
+            <p><a href="https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/" target="_blank" rel="noopener">{{ stylized.school_source }} <span aria-hidden="true">↗</span></a></p>
+          </details>
+        </div>
+      {% endfor %}
+
+      <div class="thesis-stylized__slide" data-carousel-slide data-slide-kind="demography" role="group" aria-roledescription="slide" aria-label="{{ systematic_count | plus: 1 }} {{ stylized.of }} {{ slide_total }}">
+        <header class="thesis-stylized__slide-header">
+          <p>{{ stylized.demographic_case }}</p>
+          <h4>{{ stylized.demographic.heading }}</h4>
+        </header>
+        <figure class="thesis-stylized__figure">
+          <a class="image-popup thesis-stylized__media" data-carousel-popup href="{{ stylized.demographic.asset | relative_url }}" title="{{ stylized.demographic.alt }}" aria-label="{{ stylized.enlarge }}: {{ stylized.demographic.alt }}">
+            <img src="{{ stylized.demographic.asset | relative_url }}" width="1200" height="720" loading="eager" decoding="async" alt="{{ stylized.demographic.alt }}">
+            <span class="thesis-stylized__zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption>
+            <span>{{ stylized.demographic.caption }}</span>
+            <a class="thesis-stylized__hd-link" data-carousel-hd-link href="{{ stylized.demographic.asset | relative_url }}" target="_blank" rel="noopener" aria-label="{{ stylized.open_full_size }}: {{ stylized.demographic.alt }}">{{ stylized.open_full_size }} <span aria-hidden="true">↗</span></a>
+          </figcaption>
+        </figure>
+      </div>
+
+      {% for item in stylized.trajectories.items %}
+        <div class="thesis-stylized__slide" data-carousel-slide data-slide-kind="trajectory" role="group" aria-roledescription="slide" aria-label="{{ forloop.index | plus: systematic_count | plus: 1 }} {{ stylized.of }} {{ slide_total }}">
+          <header class="thesis-stylized__slide-header">
+            <p>{{ stylized.trajectory_case }}</p>
+            <h4>{{ item.title }}</h4>
+          </header>
+          <figure class="thesis-stylized__figure">
+            <a class="image-popup thesis-stylized__media" data-carousel-popup href="{{ item.asset | relative_url }}" title="{{ item.alt }}" aria-label="{{ stylized.enlarge }}: {{ item.alt }}">
+              <img src="{{ item.asset | relative_url }}" width="1200" height="720" loading="eager" decoding="async" alt="{{ item.alt }}">
+              <span class="thesis-stylized__zoom" aria-hidden="true">⤢</span>
+            </a>
+            <figcaption>
+              <span>{{ stylized.trajectories.intro }}</span>
+              <a class="thesis-stylized__hd-link" data-carousel-hd-link href="{{ item.asset | relative_url }}" target="_blank" rel="noopener" aria-label="{{ stylized.open_full_size }}: {{ item.alt }}">{{ stylized.open_full_size }} <span aria-hidden="true">↗</span></a>
+            </figcaption>
+          </figure>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <details class="thesis-stylized__data">
+    <summary>{{ stylized.table_labels.method_heading }}</summary>
+    <div class="tabla-desliza thesis-stylized__table-wrap" role="region" tabindex="0" aria-label="{{ stylized.table_labels.data_tables_label }}">
+      <table>
+        <thead><tr><th>{{ stylized.table_labels.year }}</th><th>{{ stylized.table_labels.population }}</th><th>{{ stylized.table_labels.index }}</th></tr></thead>
+        <tbody>{% for row in stylized.demographic.rows %}{% assign population_text = row.population | append: '' %}<tr><th scope="row">{{ row.year }}</th><td>{% if page.lang == 'es' %}{{ population_text | slice: 0 }}.{{ population_text | slice: 1, 3 }}.{{ population_text | slice: 4, 3 }}{% else %}{{ population_text | slice: 0 }},{{ population_text | slice: 1, 3 }},{{ population_text | slice: 4, 3 }}{% endif %}</td><td>{% if page.lang == 'es' %}{{ row.index | replace: '.', ',' }}{% else %}{{ row.index }}{% endif %}</td></tr>{% endfor %}</tbody>
+      </table>
+      <table>
+        <thead><tr><th>{{ stylized.table_labels.commune }}</th><th>{{ stylized.table_labels.closures }}</th><th>{{ stylized.table_labels.entries }}</th><th>{{ stylized.table_labels.same_commune }}</th><th>{{ stylized.table_labels.period }}</th><th>{{ stylized.table_labels.distance }}</th></tr></thead>
+        <tbody>{% for row in stylized.maps.items %}<tr><th scope="row">{{ row.commune }}</th><td>{{ row.paired_closures }}</td><td>{{ row.nearby_entries }}</td><td>{{ row.same_commune_pairs }}</td><td>{{ row.event_period }}</td><td>{% if page.lang == 'es' %}{{ row.median_distance_km | replace: '.', ',' }}{% else %}{{ row.median_distance_km }}{% endif %} km</td></tr>{% endfor %}</tbody>
+      </table>
+      <table>
+        <thead><tr><th>{{ stylized.table_labels.branch }}</th><th>{{ stylized.table_labels.outcome }}</th><th>{{ stylized.table_labels.relative_year }}</th><th>{{ stylized.table_labels.estimate }}</th><th>{{ stylized.table_labels.interval }}</th><th>{{ stylized.table_labels.n }}</th><th>{{ stylized.table_labels.status }}</th><th>{{ stylized.table_labels.regime }}</th></tr></thead>
+        <tbody>{% for row in stylized.trajectories.rows %}<tr><th scope="row">{{ row.branch }}</th><td>{{ row.outcome }}</td><td>{{ row.relative_year }}</td><td>{% if page.lang == 'es' %}{{ row.estimate | replace: '.', ',' }}{% else %}{{ row.estimate }}{% endif %}</td><td>{% if page.lang == 'es' and row.interval contains '[' %}{% assign interval_values = row.interval | remove: '[' | remove: ']' | split: ', ' %}[{{ interval_values[0] | replace: '.', ',' }}; {{ interval_values[1] | replace: '.', ',' }}]{% elsif page.lang == 'es' %}{{ row.interval | replace: '.', ',' }}{% else %}{{ row.interval }}{% endif %}</td><td>{{ row.units }}</td><td>{{ row.status }}</td><td>{{ row.regime }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </details>
+</section>
+<script src="{{ '/assets/js/thesis-post2-map-loader.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/evidence-carousel.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

@@ -73,6 +73,7 @@ build_site:
     - npm run check:catastro
     - npm run test:catastro
     - npm run build:catastro
+    - npm run build:thesis-post2-map
     - npm run check:memoria-gobernada
     - npm run test:memoria-gobernada
     - npm run build:memoria-gobernada

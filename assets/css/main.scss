@@ -175,6 +175,61 @@ $max-width: 1375px;
   font-size: clamp(16px, 14px + 0.35vw, 18px);
 }
 
+/* Post II de tesis: el lector necesita comparar mapas, tablas y trayectorias sin
+   comprimirlas entre las barras laterales. El tope sube de 1375 a 1485 px: con
+   ambas barras fijas, la columna central pasa de 731 a 841 px (+15 %) en un
+   escritorio con espacio suficiente. Por debajo de 64em no cambia el layout. */
+@media (min-width: 64em) {
+  body.thesis-extension-post #main {
+    max-width: 1485px;
+  }
+
+  /* Mantiene la medida de lectura en el rango editorial y reserva el ancho
+     adicional para mapas, tablas, figuras y notas técnicas. */
+  body.thesis-extension-post .page__content > :is(p, ul, ol) {
+    width: 100%;
+    max-width: 72ch;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Fallback legible antes de que cargue el bundle del minivisor. El CSS de Vite,
+   cargado inmediatamente desde su manifest, desplaza estas reglas por orden. */
+:where(body.thesis-extension-post .thesis-market-map, body.thesis-extension-post .thesis-author-case) {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.25rem 0 2rem;
+  padding: 1rem;
+  color: #26354c;
+  background: #fbf5e8;
+  border: 1px solid #a9b9c9;
+  border-radius: 0.75rem;
+  font-family: "Fira Sans", "Aptos", system-ui, sans-serif;
+}
+
+:where(body.thesis-extension-post .thesis-market-map__layout) {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 0.7fr);
+  gap: 0.75rem;
+}
+
+:where(body.thesis-extension-post .thesis-market-map__stage) {
+  min-height: 28rem;
+}
+
+:where(body.thesis-extension-post .thesis-market-map__fallback img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 52rem) {
+  :where(body.thesis-extension-post .thesis-market-map__layout) {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Referencias y notas al pie ───────────────────────────────────────────
    Minimal Mistakes trata las notas al pie como texto auxiliar gris. Sobre el
    fondo crema del sitio ese gris queda en 2,44:1, insuficiente para una
@@ -1528,6 +1583,14 @@ html[data-theme="academic-night"] .page__footer a:hover {
   background-color: #f3efe4;
 }
 
+/* Post II usa una trama de cuaderno en el contenedor. Las filas impares
+   transparentes dejaban el contraste visualmente correcto, pero indeterminado
+   para axe porque el fondo efectivo era un degradado. Un color sólido acotado
+   al post vuelve el contraste medible sin alterar las demás tablas del sitio. */
+.thesis-extension-post .page__content table tbody tr:nth-child(odd) {
+  background-color: #faf7f0;
+}
+
 .page__content table tbody tr:hover {
   background-color: #f7e9e4;
 }
@@ -1555,6 +1618,10 @@ html[data-theme="academic-night"] .page__content table td {
 
 html[data-theme="academic-night"] .page__content table tbody tr:nth-child(even) {
   background: var(--night-layer);
+}
+
+html[data-theme="academic-night"] .thesis-extension-post .page__content table tbody tr:nth-child(odd) {
+  background: var(--night-bg);
 }
 
 html[data-theme="academic-night"] .page__content table tbody tr:hover {
@@ -2982,6 +3049,20 @@ html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color
 }
 .evidence-carousel__evidence { margin: 0.9rem 0 0.35rem; }
 .evidence-carousel__limit { margin: 0; color: var(--carousel-muted); font-size: 0.86rem; }
+.evidence-carousel--results { overflow: hidden; }
+.evidence-carousel--results .evidence-carousel__slide-header {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 48%);
+}
+.evidence-carousel--results .evidence-carousel__verdict { max-width: 100%; }
+.evidence-carousel--results .evidence-carousel__panels { grid-template-columns: minmax(0, 1fr); }
+.evidence-carousel--results .evidence-carousel__panel figcaption {
+  grid-template-rows: auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  min-height: 0;
+  align-items: center;
+}
+.evidence-carousel--results .evidence-carousel__media { min-height: 0; }
+.evidence-carousel--results .evidence-carousel__media img { width: 100%; max-height: none; }
 .evidence-carousel.is-enhanced .evidence-carousel__dots {
   display: flex;
   justify-content: center;
@@ -3040,8 +3121,12 @@ html[data-theme="academic-night"] .evidence-carousel__full-size-link:focus-visib
   .evidence-carousel__status { min-width: 0; text-align: left; }
   .evidence-carousel__slide-header { grid-template-columns: 1fr; }
   .evidence-carousel__verdict { justify-self: start; }
+  .evidence-carousel--results .evidence-carousel__slide-header { grid-template-columns: 1fr; }
+  .evidence-carousel--results .evidence-carousel__verdict { max-width: 100%; }
   .evidence-carousel__panels { grid-template-columns: 1fr; }
+  .evidence-carousel--results .evidence-carousel__panel figcaption { grid-template-columns: 1fr; }
   .evidence-carousel__media { min-height: 210px; }
+  .evidence-carousel--results .evidence-carousel__media { min-height: 0; }
   .evidence-carousel__slide[data-slide-id="table-08-rounding"] .evidence-carousel__media { min-height: 290px; }
 }
 
@@ -3059,3 +3144,638 @@ html[data-theme="academic-night"] .evidence-carousel__full-size-link:focus-visib
 .technical-disclosure summary { cursor: pointer; font-weight: 700; }
 .technical-disclosure > :last-child { margin-bottom: 0; }
 html[data-theme="academic-night"] .technical-disclosure { background: #262626; border-color: #6f6f6f; }
+
+/* Post II · recuadro de auditoría geográfica. La notice usa superficie Dracula
+   en ambos temas; se neutraliza aquí la cebra clara global de las tablas para
+   que texto, enlaces y filas compartan una relación de contraste medible. */
+.page__content .thesis-coordinate-audit a {
+  color: #8be9fd;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+.page__content .thesis-coordinate-audit .tabla-desliza {
+  --fondo: #343746;
+  background: #343746;
+}
+.page__content .thesis-coordinate-audit table caption {
+  color: #f8f8f2;
+}
+.page__content .thesis-coordinate-audit table tbody tr:nth-child(odd) th,
+.page__content .thesis-coordinate-audit table tbody tr:nth-child(odd) td {
+  background: #2b2e3b;
+  color: #f8f8f2;
+}
+.page__content .thesis-coordinate-audit table tbody tr:nth-child(even) th,
+.page__content .thesis-coordinate-audit table tbody tr:nth-child(even) td {
+  background: #3d4050;
+  color: #f8f8f2;
+}
+.page__content .thesis-coordinate-audit table tbody tr:hover th,
+.page__content .thesis-coordinate-audit table tbody tr:hover td {
+  background: #44475a;
+}
+
+/* Post II · evidencia estilizada. Bloque aislado: no altera los carruseles
+   históricos y conserva el vocabulario visual del visor de Avalúos. */
+.evidence-carousel--stylized {
+  --stylized-surface: #f4fbfd;
+  --stylized-layer: #ffffff;
+  --stylized-ink: #172033;
+  --stylized-muted: #526078;
+  --stylized-border: #bfdce6;
+  --stylized-cyan: #16738a;
+  --stylized-lime: #557b00;
+  --stylized-magenta: #a5208c;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--stylized-ink);
+  background: var(--stylized-surface);
+  border-color: var(--stylized-border);
+  font-family: Inter, "Fira Sans", system-ui, sans-serif;
+}
+.evidence-carousel--stylized .thesis-stylized__header { max-width: 68ch; }
+.evidence-carousel--stylized .thesis-stylized__header h3 {
+  margin: 0.12rem 0 0.45rem;
+  color: var(--stylized-ink);
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+}
+.evidence-carousel--stylized .thesis-stylized__header p:last-child {
+  margin: 0;
+  color: var(--stylized-muted);
+}
+.evidence-carousel--stylized .thesis-stylized__eyebrow,
+.evidence-carousel--stylized .thesis-stylized__slide-header p {
+  margin: 0;
+  color: var(--stylized-cyan);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.evidence-carousel--stylized .thesis-stylized__toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.15rem 0 0.8rem;
+}
+.evidence-carousel--stylized .thesis-stylized__instructions,
+.evidence-carousel--stylized .thesis-stylized__status {
+  margin: 0;
+  color: var(--stylized-muted);
+  font-size: 0.82rem;
+}
+.evidence-carousel--stylized .thesis-stylized__status {
+  min-width: 8rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.evidence-carousel--stylized .thesis-stylized__arrows,
+.evidence-carousel--stylized .thesis-stylized__dots { display: none; }
+.evidence-carousel--stylized.is-enhanced .thesis-stylized__arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+.evidence-carousel--stylized .thesis-stylized__arrows button {
+  display: grid;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  place-items: center;
+  color: #10121d;
+  background: #37e7ff;
+  border: 1px solid #176b87;
+  border-radius: 50%;
+  box-shadow: 0 5px 16px rgba(25, 52, 67, 0.18);
+  cursor: pointer;
+}
+.evidence-carousel--stylized .thesis-stylized__arrows button:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.25);
+  opacity: 0.45;
+}
+.evidence-carousel--stylized .thesis-stylized__viewport {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: #37e7ff #dcebf0;
+  scrollbar-width: thin;
+}
+.evidence-carousel--stylized .thesis-stylized__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0.5rem;
+}
+.evidence-carousel--stylized .thesis-stylized__slide {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: clamp(0.75rem, 2vw, 1.2rem);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--stylized-layer);
+  border: 1px solid var(--stylized-border);
+  border-top: 0.32rem solid #37e7ff;
+  border-radius: 0.85rem;
+}
+.evidence-carousel--stylized .thesis-stylized__slide[data-slide-kind="map"] { border-top-color: #b8ff3c; }
+.evidence-carousel--stylized .thesis-stylized__slide[data-slide-kind="trajectory"] { border-top-color: #ff4fd8; }
+.evidence-carousel--stylized .thesis-stylized__slide-header {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+.evidence-carousel--stylized .thesis-stylized__slide-header h4 {
+  margin: 0.12rem 0 0;
+  color: var(--stylized-ink);
+  font-size: clamp(1rem, 2.4vw, 1.22rem);
+  line-height: 1.28;
+}
+.evidence-carousel--stylized .thesis-stylized__figure { min-width: 0; margin: 0; }
+.evidence-carousel--stylized .thesis-stylized__media {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  overflow: hidden;
+  background: #10121d;
+  border: 1px solid #48516a;
+  border-radius: 0.65rem;
+  cursor: zoom-in;
+}
+.evidence-carousel--stylized .thesis-stylized__media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0;
+}
+.evidence-carousel--stylized .thesis-stylized__zoom {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  padding: 0.3rem 0.55rem;
+  color: #10121d;
+  background: rgba(55, 231, 255, 0.96);
+  border: 1px solid #10121d;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+.evidence-carousel--stylized .thesis-stylized__figure figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--stylized-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.evidence-carousel--stylized .thesis-stylized__hd-link {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.7rem;
+  color: #174d60;
+  border: 1px solid #3e7e9e;
+  border-radius: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.evidence-carousel--stylized.is-enhanced .thesis-stylized__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 0.55rem;
+}
+.evidence-carousel--stylized .thesis-stylized__dots button {
+  position: relative;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.evidence-carousel--stylized .thesis-stylized__dots button::before {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 0.72rem;
+  height: 0.72rem;
+  content: "";
+  border: 2px solid var(--stylized-muted);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.evidence-carousel--stylized .thesis-stylized__dots button[aria-current="true"]::before {
+  background: #37e7ff;
+  border-color: #176b87;
+}
+.evidence-carousel--stylized .thesis-stylized__data {
+  margin-top: 1rem;
+  color: var(--stylized-ink);
+  background: var(--stylized-layer);
+  border: 1px solid var(--stylized-border);
+  border-radius: 0.65rem;
+}
+.evidence-carousel--stylized .thesis-stylized__data summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+.evidence-carousel--stylized .thesis-stylized__table-wrap {
+  max-width: 100%;
+  padding: 0 0.75rem 0.75rem;
+  overflow-x: auto;
+}
+.evidence-carousel--stylized .thesis-stylized__table-wrap table {
+  width: 100%;
+  min-width: 36rem;
+  margin: 0.75rem 0 1rem;
+  color: var(--stylized-ink);
+  font-size: 0.76rem;
+}
+.evidence-carousel--stylized .thesis-stylized__table-wrap th,
+.evidence-carousel--stylized .thesis-stylized__table-wrap td { white-space: nowrap; }
+.evidence-carousel--stylized .thesis-stylized__arrows button:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__dots button:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__viewport:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__media:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__hd-link:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__data summary:focus-visible,
+.evidence-carousel--stylized .thesis-stylized__table-wrap:focus-visible {
+  outline: 3px solid #3e7e9e;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(62, 126, 158, 0.22);
+}
+
+html[data-theme="academic-night"] .evidence-carousel--stylized {
+  --stylized-surface: #10121d;
+  --stylized-layer: #171b2a;
+  --stylized-ink: #f4f7fb;
+  --stylized-muted: #c5cee0;
+  --stylized-border: #48516a;
+  --stylized-cyan: #37e7ff;
+  --stylized-lime: #b8ff3c;
+  --stylized-magenta: #ff4fd8;
+  background: var(--stylized-surface);
+  border-color: var(--stylized-border);
+}
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__hd-link { color: #37e7ff; }
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__table-wrap table { background: #171b2a; }
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__table-wrap th,
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__table-wrap td {
+  color: #f4f7fb;
+  background: #171b2a;
+}
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__table-wrap tr:nth-child(even) th,
+html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized__table-wrap tr:nth-child(even) td { background: #22283b; }
+
+@media (max-width: 720px) {
+  .evidence-carousel--stylized .thesis-stylized__toolbar { grid-template-columns: minmax(0, 1fr) auto; }
+  .evidence-carousel--stylized .thesis-stylized__instructions { grid-column: 1 / -1; }
+  .evidence-carousel--stylized .thesis-stylized__status { min-width: 0; text-align: left; }
+  .evidence-carousel--stylized .thesis-stylized__slide { padding: 0.65rem; }
+  .evidence-carousel--stylized .thesis-stylized__figure figcaption { grid-template-columns: 1fr; }
+  .evidence-carousel--stylized .thesis-stylized__hd-link { justify-self: start; }
+  .evidence-carousel--stylized .thesis-stylized__zoom { font-size: 0.68rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-carousel--stylized .thesis-stylized__viewport { scroll-behavior: auto; }
+}
+
+/* Post II · visor editorial v2. La geometría toma el panel oscuro, los rieles
+   finos y los acentos de Avalúos; los nombres de lámina sustituyen los dots. */
+.page__content .evidence-carousel--stylized {
+  --stylized-surface: #10121d;
+  --stylized-layer: #171b2a;
+  --stylized-ink: #f4f7fb;
+  --stylized-muted: #b8c2d6;
+  --stylized-border: #48516a;
+  --stylized-cyan: #37e7ff;
+  --stylized-lime: #b8ff3c;
+  --stylized-magenta: #ff4fd8;
+  position: relative;
+  isolation: isolate;
+  margin: 2rem 0 2.4rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  overflow: hidden;
+  color: var(--stylized-ink);
+  background: var(--stylized-surface);
+  border: 1px solid var(--stylized-border);
+  border-left: 5px solid var(--stylized-cyan);
+  border-radius: 2px;
+  box-shadow: 0 1.1rem 2.8rem rgba(16, 18, 29, 0.24);
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__header {
+  max-width: 62ch;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__header h3 {
+  margin: 0.12rem 0 0.35rem;
+  color: var(--stylized-ink);
+  font-size: clamp(1.22rem, 2.6vw, 1.62rem);
+  hyphens: none;
+  line-height: 1.15;
+  overflow-wrap: normal;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__header p:last-child {
+  margin: 0;
+  color: var(--stylized-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__eyebrow {
+  color: var(--stylized-cyan);
+  font: 750 0.68rem/1.2 "Fira Code", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.1em;
+}
+.page__content .thesis-stylized__tabs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  max-width: 100%;
+  margin: 1.2rem 0 0;
+  overflow-x: auto;
+  border-top: 1px solid var(--stylized-border);
+  border-bottom: 1px solid var(--stylized-border);
+  scrollbar-color: var(--stylized-cyan) var(--stylized-layer);
+  scrollbar-width: thin;
+}
+.page__content .thesis-stylized__tabs button {
+  min-width: 0;
+  min-height: 58px;
+  padding: 0.55rem 0.65rem;
+  color: var(--stylized-muted);
+  background: #171b2a;
+  border: 0;
+  border-right: 1px solid var(--stylized-border);
+  border-bottom: 3px solid transparent;
+  font-size: 0.78rem;
+  font-weight: 720;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+.page__content .thesis-stylized__tabs button span {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: #7f91a8;
+  font: 650 0.59rem/1.1 "Fira Code", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.page__content .thesis-stylized__tabs button[aria-current="true"] {
+  color: var(--stylized-ink);
+  background: #22283b;
+  border-bottom-color: var(--stylized-cyan);
+}
+.page__content .thesis-stylized__tabs button:nth-child(-n+3)[aria-current="true"] { border-bottom-color: var(--stylized-lime); }
+.page__content .thesis-stylized__tabs button:nth-child(n+5)[aria-current="true"] { border-bottom-color: var(--stylized-magenta); }
+.page__content .thesis-stylized__tabs button:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: -4px;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__toolbar {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  margin: 0.75rem 0 0.65rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__instructions,
+.page__content .evidence-carousel--stylized .thesis-stylized__status {
+  color: var(--stylized-muted);
+  font-size: 0.74rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__arrows button {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  color: #10121d;
+  background: var(--stylized-cyan);
+  border: 0;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__arrows [data-carousel-previous]::before { content: "←"; }
+.page__content .evidence-carousel--stylized .thesis-stylized__arrows [data-carousel-next]::before { content: "→"; }
+.page__content .evidence-carousel--stylized .thesis-stylized__viewport {
+  border-top: 1px solid var(--stylized-border);
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__slide {
+  padding: 1rem 0 0.4rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__slide-header {
+  margin-bottom: 0.7rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__slide-header p {
+  color: var(--stylized-cyan);
+  font: 700 0.66rem/1.2 "Fira Code", "SFMono-Regular", Consolas, monospace;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__slide[data-slide-kind="map"] .thesis-stylized__slide-header p { color: var(--stylized-lime); }
+.page__content .evidence-carousel--stylized .thesis-stylized__slide[data-slide-kind="trajectory"] .thesis-stylized__slide-header p { color: var(--stylized-magenta); }
+.page__content .evidence-carousel--stylized .thesis-stylized__slide-header h4 {
+  color: var(--stylized-ink);
+  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+}
+.page__content .thesis-stylized__facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 0.75rem;
+  background: var(--stylized-border);
+  border: 1px solid var(--stylized-border);
+}
+.page__content .thesis-stylized__facts div {
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  background: rgba(23, 27, 42, 0.98);
+}
+.page__content .thesis-stylized__facts dt {
+  margin: 0;
+  color: var(--stylized-muted);
+  font-size: 0.63rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+.page__content .thesis-stylized__facts dd {
+  margin: 0.15rem 0 0;
+  color: var(--stylized-ink);
+  font-size: 1.15rem;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__media {
+  background: #10121d;
+  border: 1px solid var(--stylized-border);
+  border-radius: 0;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__media img {
+  aspect-ratio: 5 / 3;
+  object-fit: contain;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__zoom {
+  right: 0.5rem;
+  bottom: 0.5rem;
+  color: #10121d;
+  background: var(--stylized-cyan);
+  border: 0;
+  border-radius: 2px;
+  font-size: 0.68rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__figure figcaption {
+  color: var(--stylized-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__hd-link {
+  color: var(--stylized-cyan);
+  border-color: var(--stylized-border);
+  border-radius: 2px;
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools {
+  margin-top: 0.7rem;
+  color: var(--stylized-muted);
+  background: rgba(23, 27, 42, 0.95);
+  border: 1px solid var(--stylized-border);
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools summary {
+  padding: 0.65rem 0.75rem;
+  color: var(--stylized-cyan);
+  font: 700 0.72rem/1.3 "Fira Code", "SFMono-Regular", Consolas, monospace;
+  cursor: pointer;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  list-style: none;
+  background: var(--stylized-border);
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  padding: 0.5rem 0.6rem;
+  background: var(--stylized-layer);
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools li > span {
+  grid-row: 1 / 3;
+  color: var(--stylized-lime);
+  font: 800 0.72rem/1.3 "Fira Code", "SFMono-Regular", Consolas, monospace;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools strong {
+  color: var(--stylized-ink);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools small {
+  color: var(--stylized-muted);
+  font-size: 0.64rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools p {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.68rem;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__schools a { color: var(--stylized-cyan); }
+.page__content .evidence-carousel--stylized .thesis-stylized__data {
+  margin-top: 0.75rem;
+  color: var(--stylized-ink);
+  background: rgba(23, 27, 42, 0.95);
+  border-color: var(--stylized-border);
+  border-radius: 0;
+}
+.page__content .evidence-carousel--stylized .thesis-stylized__table-wrap table,
+.page__content .evidence-carousel--stylized .thesis-stylized__table-wrap th,
+.page__content .evidence-carousel--stylized .thesis-stylized__table-wrap td {
+  color: var(--stylized-ink);
+  background: var(--stylized-layer);
+}
+
+/* En tema claro el visor conserva la composición editorial del carrusel, pero
+   usa papel crema y capas sólidas. El tema nocturno mantiene la paleta
+   cyberpunk definida arriba. Evitar tramas detrás del texto permite que axe
+   mida el contraste real en vez de devolver un resultado inconcluso. */
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized {
+  --stylized-surface: #fbf5e8;
+  --stylized-layer: #fffaf0;
+  --stylized-ink: #26354c;
+  --stylized-muted: #566477;
+  --stylized-border: #a9b9c9;
+  --stylized-cyan: #096b83;
+  --stylized-lime: #356b42;
+  --stylized-magenta: #b74765;
+  background: var(--stylized-surface);
+  box-shadow: 0 0.7rem 1.8rem rgba(38, 53, 76, 0.1);
+}
+html:not([data-theme="academic-night"]) .page__content .thesis-stylized__tabs button {
+  color: var(--stylized-muted);
+  background: var(--stylized-layer);
+}
+html:not([data-theme="academic-night"]) .page__content .thesis-stylized__tabs button span { color: #465970; }
+html:not([data-theme="academic-night"]) .page__content .thesis-stylized__tabs button[aria-current="true"] {
+  color: var(--stylized-ink);
+  background: #e8efec;
+}
+html:not([data-theme="academic-night"]) .page__content .thesis-stylized__facts div,
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized .thesis-stylized__schools,
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized .thesis-stylized__data {
+  background: var(--stylized-layer);
+}
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized .thesis-stylized__schools li {
+  background: #f4f7f3;
+}
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized .thesis-stylized__arrows button,
+html:not([data-theme="academic-night"]) .page__content .evidence-carousel--stylized .thesis-stylized__zoom {
+  color: #fff;
+  background: var(--stylized-cyan);
+}
+
+@media (max-width: 720px) {
+  .page__content .evidence-carousel--stylized {
+    width: 100%;
+    margin-left: 0;
+    padding: 0.8rem;
+  }
+  .page__content .evidence-carousel--stylized .thesis-stylized__toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .page__content .evidence-carousel--stylized .thesis-stylized__schools ul { grid-template-columns: 1fr; }
+  .page__content .evidence-carousel--stylized .thesis-stylized__instructions {
+    grid-column: 1 / -1;
+  }
+  .page__content .thesis-stylized__tabs {
+    grid-template-columns: none;
+    grid-auto-columns: minmax(7.25rem, 1fr);
+    grid-auto-flow: column;
+  }
+  .page__content .thesis-stylized__tabs button { min-width: 7.25rem; }
+  .page__content .thesis-stylized__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page__content .evidence-carousel--stylized .thesis-stylized__figure figcaption { grid-template-columns: 1fr; }
+  .page__content .evidence-carousel--stylized .thesis-stylized__hd-link { justify-self: start; }
+}

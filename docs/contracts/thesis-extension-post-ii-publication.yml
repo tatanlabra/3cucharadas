@@ -1,0 +1,282 @@
+schema_version: 2
+contract_id: thesis-extension-post-ii-publication
+revision: 20
+status: ready_for_human_review
+reopened_on: "2026-10-11"
+current_plan: docs/plans/20261011-thesis-post2-closeout/PLAN_STATE.yml
+decision:
+  id: DEC-P2-001
+  selected: public_story_plus_technical_note
+  rationale: >-
+    El relato principal debe responder preguntas de política pública en lenguaje común;
+    identificadores de pipeline, cifras de sensibilidad y detalles de ejecución quedan en
+    una nota técnica auditable. La decisión sustituye el gate literal por invariantes
+    semánticos sin relajar límites causales ni trazabilidad.
+scope:
+  base: origin/main@b2957178
+  branch: release/thesis-post-ii-public-clean-20261012
+  authorized_local_actions: [edit, test, research_commit, blog_commit, tailnet_preview, telegram_review_notice]
+  external_actions: [tailnet_preview, telegram_review_notice]
+  excluded: [push, deployment, dissemination]
+invariants:
+  - id: INV-01
+    rule: ES y EN conservan identidad, cifras materiales, límites y visuales equivalentes.
+  - id: INV-02
+    rule: NOT_ESTIMABLE nunca se presenta como cero, empate ni prueba de peor desempeño.
+  - id: INV-03
+    rule: Ninguna asociación, descomposición o cercanía se presenta como efecto causal.
+  - id: INV-04
+    rule: Los identificadores de auditoría y decimales auxiliares no invaden el relato público.
+  - id: INV-05
+    rule: El release parte de origin/main y no incorpora la historia privada de Tailnet.
+  - id: INV-06
+    rule: El Salvador se presenta como caso autoral documentado, fuera de la selección sistemática y sin atribuir a la caída de matrícula un motivo administrativo no probado.
+  - id: INV-07
+    rule: RBD 390 es escuela receptora de una fusión y nunca se rotula como apertura.
+  - id: INV-08
+    rule: >-
+      Las 2500 palabras son una meta editorial flexible, no un máximo contractual:
+      excederla genera una advertencia informativa, nunca un rechazo, cuando la extensión
+      aporta evidencia trazable, claridad didáctica o límites inferenciales necesarios.
+  - id: INV-09
+    rule: >-
+      La auditoría geográfica publica solo agregados, conserva atribución OSM/ODbL,
+      separa 12.038 establecimientos funcionando de 78 autorizados sin matrícula y no
+      convierte candidatos en errores oficiales confirmados.
+  - id: INV-10
+    rule: >-
+      Los dos casos sistemáticos son Lo Barnechea y Lo Prado bajo la spec v5; ni valores
+      ni disponibilidad de resultados intervienen en su selección.
+  - id: INV-11
+    rule: Cada figura declara la fuente sustantiva correcta y la demografía base 2024 se atribuye a INE, no a MINEDUC.
+  - id: INV-12
+    rule: En escritorio la prosa directa no supera 72ch; el ancho adicional queda reservado para visuales, tablas y componentes técnicos.
+  - id: INV-13
+    rule: La secuencia pública es observación, diagnóstico y decisión; ninguna señal activa por sí sola cierre, fusión, apertura o ranking.
+  - id: INV-14
+    rule: Los SLEP actúan sobre su propia red y no se les atribuye autoridad sobre toda la oferta comunal.
+  - id: INV-15
+    rule: Falsos positivos, falsos negativos e IVE-SINAE agregado quedan visibles como salvaguardas de focalización.
+  - id: INV-16
+    rule: La teoría de cambio es una hipótesis evaluable y no evidencia de que la cadena produzca aprendizaje o equidad.
+phases:
+  - id: F1
+    objective: Separar relato público y nota técnica.
+    status: done
+  - id: F2
+    objective: Promover ES y EN a posts y observar custodia roja y verde.
+    status: done
+  - id: F3
+    objective: Validar generadores, fuente, build, artefacto y UX visual.
+    status: done
+  - id: F4
+    objective: Crear commit local selectivo y dejar el repositorio limpio.
+    status: historical_done_reopened
+  - id: F5
+    objective: Reestilizar el visor y ensanchar solo Post II sin degradar móvil.
+    status: done
+  - id: F6
+    objective: Verificar el caso Escuela N14 a Escuela N1 de El Salvador sin selección ex post ni causalidad no documentada.
+    status: done
+  - id: F7
+    objective: Regenerar recibos, revisar con Claude y entregar a revisión humana sobre la revisión 10.
+    status: done
+  - id: F8
+    objective: Validar claro/oscuro, ES/EN y 390/1440/1920px con canarios rojos de overflow, contraste y separación de muestra.
+    status: done
+  - id: F9
+    objective: Incorporar la matriz de uso de política, sincronizar claims y obtener revisión independiente antes de reabrir H1.
+    status: done
+acceptance:
+  - id: AC-EDITORIAL
+    command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --all
+    expected_exit: 0
+    observed_exit: 0
+  - id: AC-PUBLIC-LEAK-CANARY
+    command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --self-test public-technical-leak
+    expected_exit: 1
+    observed_exit: 1
+    result: EXPECTED_FAIL
+  - id: AC-CUSTODY-CYCLE
+    red_condition: drafts presentes y posts ausentes
+    red_exit: 1
+    red_error: 'custodia: faltan posts ES/EN'
+    green_condition: posts ES/EN presentes y drafts ausentes
+    green_exit: 0
+  - id: AC-BUILD
+    expected_exit: 0
+    observed_exit: 0
+    note: Build Jekyll de producción ejecutado desde un worktree limpio basado en origin/main; avisos Sass deprecados no bloqueantes.
+  - id: AC-ARTIFACT
+    expected_exit: 0
+    observed_exit: 0
+    note: 70884482 bytes y 1506 entradas; posts ES/EN, anexos, datos y los tres bundles Vite presentes; los dos SVG MR2 retirados quedan excluidos.
+  - id: AC-VISUAL
+    expected_exit: 0
+    observed_exit: 0
+    note: >-
+      Matriz final revisión 15 con 24/24 páginas, 12/12 SVG y 2/2 fallbacks, ES/EN, claro/oscuro y
+      360/390/768/1280/1440/1920px; cero fallos. Una medición directa encontró 62 bloques
+      de prosa y un máximo de 720px dentro de una columna de 796px a viewport 1440px.
+      El canario de inicialización muta initializationVisualShiftPx, la métrica usada en
+      producción, y falla con un desplazamiento de 577px. La extensión sobre 2500
+      palabras se reporta como señal editorial no bloqueante.
+  - id: AC-A11Y
+    command: agent-browser a11y --tags wcag2a,wcag2aa --selector .page__content --json
+    expected: cero violaciones y cero inconclusos en ES y EN con contenido dentro del viewport de auditoría
+    observed: es_0_0__en_0_0_in_academic_night_after_maplibre_contrast_red_green_at_1440x16000
+  - id: AC-LENGTH-FLEXIBILITY
+    command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --self-test long-body-soft
+    expected_exit: 1
+    observed_exit: 1
+    expected_result: EXPECTED_FAIL
+    observed_result: EXPECTED_FAIL
+    note: El cuerpo extendido debe ser aceptado y producir post-above-soft-word-target antes de activar el canario esperado.
+  - id: AC-GIT
+    expected: commits locales selectivos autorizados; sin push, despliegue ni difusión pública
+    observed: candidato local materializado desde b2957178 compartido por GitLab y GitHub; historia privada y cuatro SVG obsoletos excluidos; commit local selectivo pendiente del último gate
+  - id: AC-SELF-TESTS
+    expected: todos los canarios fallan por la causa declarada
+    observed: >-
+      21 canarios semánticos, cinco de prepublicación, seis del plan y ocho del navegador
+      terminaron EXPECTED_FAIL exit 1; las superficies normales terminaron exit 0.
+  - id: AC-ELSALVADOR
+    expected: Dossier válido, tercer tab interactivo autoral, rol receptor, coordenada 2020 y dos mapas sistemáticos inalterados.
+    observed: dossier_validated_and_integrated
+  - id: AC-ELSALVADOR-CAUSE
+    expected: La caída de matrícula se presenta como tendencia compatible, nunca como causa administrativa demostrada.
+    observed: dossier_and_public_copy_compliant
+  - id: AC-POLICY-BOUNDARIES
+    command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --all
+    expected_exit: 0
+    observed_exit: 0
+    note: ES/EN distinguen señal, diagnóstico, decisión, alcance institucional, errores de focalización y teoría de cambio no acreditada.
+  - id: AC-CLAIMS-CURRENT
+    command: PYTHONPATH=src /opt/entornos/mamba312/bin/python scripts/254_validate_article_claims.py --validate
+    cwd: ../../incubadora/tesis_mae_mejorada
+    expected_exit: 0
+    observed_exit: 0
+    red_observation: Después de regenerar el freeze, el audit anterior falló como derivado obsoleto con exit 2.
+    green_observation: Regenerado en el orden freeze -> article claims, el validador informó ARTICLE_PRODUCT_CLAIMS_CURRENT_WITH_BLOCKERS con exit 0 y el freeze permaneció válido.
+  - id: AC-CLEAN-CANDIDATE
+    command: THESIS_WORKSPACE_ROOT=/home/ende/Descargas/programaciones THESIS_RESEARCH_ROOT=/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada BUNDLE_PATH=/home/ende/Descargas/programaciones/activos/3cucharadas/vendor/bundle bash scripts/verify_thesis_extension_post_ii_preview.sh
+    expected_exit: 0
+    observed_exit: 0
+    note: Worktree limpio en /tmp basado en b2957178; freeze, claims, semántica, Vite, Jekyll, artefacto y navegador pasaron sobre el mismo candidato.
+  - id: AC-POLICY-CANARIES
+    expected: siete mutaciones de matriz, actor, IVE, ranking y salvaguarda causal fallan por la causa declarada
+    observed: siete EXPECTED_FAIL exit 1 antes del verde normal, incluidos los límites SLEP en ES y EN
+adversarial_review:
+  model: claude-opus-effort-max
+  verdict: REQUEST_CHANGES_ADJUDICATED_READY_FOR_HUMAN_REVIEW
+  initial_response_sha256: 29cd7adfe81f42775ee2f815df1ebedc960dfdca913e811bee8518d59fcd8bd0
+  second_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/_2026-10-11-response-thesis-post2-rereview-claude-opus.md
+  second_response_sha256: a80cecf52d6460091cbc41d8fe617f5b79ca35cfba3d2a5ff0bc69248b7fe3bc
+  second_verdict: REQUEST_CHANGES
+  second_findings: {high: 2, medium: 6, low: 5}
+  third_briefing_path: /home/ende/Descargas/programaciones/archivo/handoffs/2026-10-11_HANDOFF_thesis-post2-third-rereview-codex-to-claude.md
+  third_review_status: completed_read_only_request_changes
+  third_response_path: docs/plans/20261011-thesis-post2-closeout/evidence/F13-claude-r3-20261011.md
+  third_verdict: REQUEST_CHANGES
+  interruption_note: Claude F18 read-only review emitted plan-board EPERM and was interrupted after no response; no verdict was inferred.
+  adjudication_path: docs/plans/20261011-thesis-post2-closeout/evidence/F14-adjudication-public-readiness-20261011.md
+  fourth_briefing_path: /home/ende/Descargas/programaciones/penta-agent/.agents/queue/2026-10-12-post2-f19-narrow-rereview.md
+  fourth_review_status: completed_read_only
+  fourth_verdict: APPROVE
+  fourth_response_custody: claude_session_813a3ef7-b1f7-47fc-be3e-5447f1dcc89e
+  fourth_evidence_path: docs/plans/20261011-thesis-post2-closeout/evidence/F19-adversarial-closeout-20261012.md
+  fifth_briefing_status: completed_read_only_request_changes_adjudicated
+  fifth_scope: matriz de política, registro de claims esquema 2, paridad ES/EN y límites institucionales
+  fifth_verdict: REQUEST_CHANGES
+  fifth_findings: {high: 0, medium: 3, low: 6, minor: 2}
+  fifth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.retXGU.txt
+  fifth_response_sha256: 172cb0b7720656f96f0b091a83620c0a11c58c6633a6050d7bdfa339257671eb
+  fifth_adjudication: M1-M3 y B1-B6 corregidos; requiere rerevisión estrecha antes de E-42.
+  sixth_review_status: completed_read_only_request_changes_repaired
+  sixth_scope: remediaciones M1-M3 y B1-B6, derivados de claims y límite de autoridad SLEP
+  sixth_verdict: REQUEST_CHANGES
+  sixth_findings: {medium: 1, low_medium: 1}
+  sixth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.rk1A6T.txt
+  sixth_response_sha256: e8f0c470d58d29114da4779d580343b026ad17b68cf41bd9ae635024aac0bba5
+  sixth_adjudication: R2 cubierto por fragmentos ES/EN, canarios rojos y prohibición estructural en todo claim SLEP; R1 reapareció porque el audit se había generado antes del freeze.
+  seventh_review_status: completed_read_only_request_changes_repaired
+  seventh_scope: cierre final de R1-R2, recibos y guardias abductivas
+  seventh_verdict: REQUEST_CHANGES
+  seventh_findings: {low_medium: 1}
+  seventh_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.UX1ntB.txt
+  seventh_response_sha256: 9ee2377c12b88406ed499db983f1e8642b36129a2cfa7598a8b53a50003a9d5e
+  seventh_adjudication: R2 confirmado cerrado; R1 reproducido rojo y corregido regenerando article claims después del freeze, con AC-CLAIMS-CURRENT añadido.
+  eighth_review_status: completed_read_only_approve
+  eighth_scope: microrevisión de convergencia R1 y consistencia documental
+  eighth_verdict: APPROVE
+  eighth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.E2R5gt.txt
+  eighth_response_sha256: 80f2f95b8ebdbb9f023b0ccd3f95f1750559f011324fedaff3437bd8fb9e0058
+  eighth_adjudication: R1 cerrado; el preview ejecuta freeze --validate y luego article claims --validate sobre el mismo candidato.
+  commit_local: c88efe28e342c88bd2c88ec439787ece9984d124
+  push: blocked_until_human_approval
+  repaired_findings_pending_third_rereview:
+    - La inicialización no cambia scroll vertical y su canario falla con delta fuera de tolerancia.
+    - La selección publicada refleja familia primero y orden intrafamilia; Lo Barnechea y Lo Prado son los casos sistemáticos vigentes.
+    - Error de módulo y WebGL ausente terminan en fallback estático no interactivo.
+    - Todos los controles MapLibre relevantes quedan localizados al español.
+    - El freeze revisión 6 registra coordenadas temporales, auditoría agregada y los casos Lo Barnechea y Lo Prado.
+    - La paridad compara el multiconjunto completo de tokens numéricos ES/EN.
+    - Las dos superficies JSON usan whitelists compartidas y canarios propios.
+    - Los cuatro posibles reemplazos permanecen en el universo estricto y se excluyen solo del ejercicio territorial.
+    - Intervalos ES usan punto y coma; etiquetas, títulos y lenguaje de sustitución fueron corregidos.
+    - El directorio Vite generado está ignorado y las fuentes del bundle quedan hasheadas.
+content_hashes:
+  status: revision_20_clean_candidate_ready_for_h1
+  post_es: 5948ecee5409e78e4b19b7efe79adb9ba2fa2b3ba2f1f15c9a5e9f30eb080b6d
+  post_en: 4163f6f4655642d9b34e4bea6d3d3bab481f8b1452ac843c098f8b5a4d3c08ad
+  stylized_include: 030618951eeafd184f1c0beb652bccc6db07dcafe3c00b03c5e0133c1a93e8af
+  coordinate_audit_include: 347c65f141f82fb1e48b5581445af96d3891ffe697992ccea399e5b0a5d7bd30
+  annex_es: 8db6bc90d969c8e15abaa467785d6802565de5b38fe158de94e5629fcd779afb
+  annex_en: 1f3f01a28f4d8fdcf12541cef79bd4d3f764a334d58fea1758f35ade74b68af1
+  coordinate_audit_data: ed110bfe7fe24972cdf837840fe4a294dc922857b3cc516c28d96923e50bd4de
+  semantic_verifier: c659b6f9e5a0a014c6b31efe5d7e66fe6fa4358bd65949473983b8e78cb3e891
+  prepublication_verifier: e21efb68c8628eb79de9779924254ec042ac84f87264c6ef211900c40f7a8b3b
+  plan_verifier: d94ea4ce59a157a425a638653ffb0880c56d3d78e0df0ca145b7bd3cfd814b0f
+  browser_verifier: 8d7e75e4cf8952a688688c3cb3aaba5908e0355fc31ff9fb29d813be8c930b24
+  stylesheet: 22804080d91673f7da39f4f7f638554fdb24f37305bf4011600b89dcefd6e98d
+  map_source: d2e77e56385f468e83c7369391c70a10a1e9ea5ba5ec2cdf13d8be78cd0e4653
+  map_styles: 0b4023d1403ce69bdab8e1843b206cbc7b44764e3b72e35107beecf645a1aa4d
+  map_loader: 9ae694bd33d712b3def8eaf66268c7fd25693a39b3dec21bdfda740f9670b118
+  map_manifest_generated: 349e8dcbdb5a17e8df35ec4d86b7ca37aa9a35b958f3ebfb53d558480ac71a20
+  stylized_data: 2357979962bd554a7b3e19c10160a96e1b6bbf9265e51933242265efc276abc5
+  case_data: 0a50fa53de925735b4e98acc12a141e4cbea9eebb6c616d4ced70f3954b4b09d
+  stylized_manifest: cb1c330df05a19c9cc7e24927dca33a6cfe29e9f8e7bec2074b20efdac6b5945
+  scientific_freeze: 3a519f16411b8a075b393bf7f625fdbc4e278830a67a353ca8dbf67e0e5653c9
+source_contract_hashes:
+  gitignore: 0439e8808433fd3c5b7073868375ea3e39ecb89fde5835c7c38e03fc55dee4ad
+  gitlab_ci: 065cc0ede965b91487d0d53c0e80b5993cc8bf28cc06b6950cae5247e962fe2b
+  package_json: 1a9923df86260fe9742866277647c33190e457479a82a9c81b400ed42513e76f
+  vite_config: 692522a5f14304fb50f5069e90299b0fd14fab91e11494006a69ba5928dc7a52
+  artifact_verifier: 8ae0390454525614bbf30dbba5e98b9113997167904ad133944fc5ab46950e95
+  stylized_renderer: ea50fa7f4573479eb929656d42bdf92cd829f1762be73b5486fe93e91cb0130e
+hash_path_index:
+  post_es: _posts/2026-10-11-extender-tesis-no-es-agregar-anos.md
+  post_en: _posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  stylized_include: _includes/thesis-extension-stylized-evidence.html
+  coordinate_audit_include: _includes/thesis-post2-coordinate-audit-box.html
+  annex_es: _pages/auditoria-coordenadas-rbd.md
+  annex_en: _pages/rbd-coordinate-audit-en.md
+  coordinate_audit_data: assets/data/thesis-extension-post2/coordinate-audit-summary.json
+  semantic_verifier: scripts/verify_thesis_extension_post_ii.rb
+  prepublication_verifier: scripts/verify_thesis_post2_prepublication.rb
+  plan_verifier: scripts/verify_thesis_post2_plan_state.rb
+  browser_verifier: scripts/verify_thesis_extension_post_ii_browser.mjs
+  stylesheet: assets/css/main.scss
+  map_source: assets/src/thesis_post2_map/main.ts
+  map_styles: assets/src/thesis_post2_map/styles.scss
+  map_loader: assets/js/thesis-post2-map-loader.js
+  map_manifest_generated: assets/dist/thesis_post2_map/manifest.json
+  stylized_data: _data/thesis_extension_stylized.yml
+  case_data: assets/data/thesis-extension-post2/cases.json
+  stylized_manifest: assets/images/extender-tesis-no-es-agregar-anos/estilizada-manifest.json
+  scientific_freeze: ../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json
+rollback:
+  - Eliminar la rama local de release después de conservar el commit si la revisión humana la rechaza.
+  - Restaurar el stash de la rama de trabajo para recuperar cambios concurrentes.
+PLAN_STATE: v2
+HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex integró F17-F20 -> Claude falsó R1-R2 -> Codex cerró ambos en rojo-verde -> Claude APPROVE -> E-42 produjo candidato limpio con suite integral verde -> H1 queda pendiente; push, despliegue y difusión pública siguen bloqueados.'

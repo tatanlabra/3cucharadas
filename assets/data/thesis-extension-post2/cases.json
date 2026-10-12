@@ -1,0 +1,572 @@
+{
+  "basemap_manifest": "/assets/data/catastro_sii/manifest.json",
+  "cases": [
+    {
+      "case": "Caso 1",
+      "case_kind": "systematic",
+      "commune": "Lo Barnechea",
+      "distance_band": "within_2km",
+      "distance_km": 1.046,
+      "education_segment": "initial:transicion",
+      "event_period": "2016",
+      "id": "lo-barnechea",
+      "links": [
+        {
+          "closure_rbd": 25077,
+          "closure_year": 2016,
+          "distance_km": 1.046243,
+          "entry_coordinate_year": 2019,
+          "entry_rbd": 20428,
+          "entry_year": 2016,
+          "location_lag_years": 3,
+          "market_segment": "initial:transicion"
+        }
+      ],
+      "points": [
+        {
+          "coordinate_year": 2015,
+          "event_year": 2016,
+          "latitude": -33.357883,
+          "location_lag_years": 0,
+          "longitude": -70.505989,
+          "market_segment": "initial:transicion",
+          "name": "ESC. DE PARV.BEATO PADRE ALBERTO HURTADO",
+          "rbd": 25077,
+          "role": "closure",
+          "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
+        },
+        {
+          "coordinate_year": 2019,
+          "event_year": 2016,
+          "latitude": -33.36673,
+          "location_lag_years": 3,
+          "longitude": -70.50989,
+          "market_segment": "initial:transicion",
+          "name": "ESCUELA DE PAVULOS N°2471 ESCUELA PRE ESCOLAR CANTAGALLO",
+          "rbd": 20428,
+          "role": "entry",
+          "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
+        }
+      ],
+      "poster_en": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg",
+      "poster_es": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-es.svg",
+      "same_commune": true,
+      "segment_family": "initial",
+      "selection_note_en": "Example from the pre-primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
+      "selection_note_es": "Ejemplo de la familia educación inicial; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
+      "selection_rank": 1,
+      "trajectories": [
+        {
+          "branch": "exit",
+          "estimate": 131.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_sala_cuna",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_nivel_medio",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 131.0,
+          "minimum_units": 1,
+          "outcome": "initial_transicion",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_heterogeneo",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 139.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_sala_cuna",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_nivel_medio",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 139.0,
+          "minimum_units": 1,
+          "outcome": "initial_transicion",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_heterogeneo",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 398.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_sala_cuna",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_nivel_medio",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 398.0,
+          "minimum_units": 1,
+          "outcome": "initial_transicion",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_heterogeneo",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 388.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_sala_cuna",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_nivel_medio",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 388.0,
+          "minimum_units": 1,
+          "outcome": "initial_transicion",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_heterogeneo",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 398.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_sala_cuna",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_nivel_medio",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 398.0,
+          "minimum_units": 1,
+          "outcome": "initial_transicion",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": 0.0,
+          "minimum_units": 1,
+          "outcome": "initial_heterogeneo",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        }
+      ]
+    },
+    {
+      "case": "Caso 2",
+      "case_kind": "systematic",
+      "commune": "Lo Prado",
+      "distance_band": "from_5_to_10km",
+      "distance_km": 7.86,
+      "education_segment": "basic",
+      "event_period": "2016",
+      "id": "lo-prado",
+      "links": [
+        {
+          "closure_rbd": 31422,
+          "closure_year": 2016,
+          "distance_km": 7.860461,
+          "entry_coordinate_year": 2019,
+          "entry_rbd": 20440,
+          "entry_year": 2016,
+          "location_lag_years": 3,
+          "market_segment": "basic"
+        }
+      ],
+      "points": [
+        {
+          "coordinate_year": 2015,
+          "event_year": 2016,
+          "latitude": -33.444801,
+          "location_lag_years": 0,
+          "longitude": -70.721184,
+          "market_segment": "basic",
+          "name": "ESCUELA BASICA MY GARDEN SCHOOL PORTALES",
+          "rbd": 31422,
+          "role": "closure",
+          "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
+        },
+        {
+          "coordinate_year": 2019,
+          "event_year": 2016,
+          "latitude": -33.431055,
+          "location_lag_years": 3,
+          "longitude": -70.638258,
+          "market_segment": "basic",
+          "name": "LICEO DOCTOR JUAN VERDAGUER PLANAS",
+          "rbd": 20440,
+          "role": "entry",
+          "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
+        }
+      ],
+      "poster_en": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-en.svg",
+      "poster_es": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-es.svg",
+      "same_commune": false,
+      "segment_family": "basic",
+      "selection_note_en": "Example from the primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
+      "selection_note_es": "Ejemplo de la familia educación básica; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
+      "selection_rank": 2,
+      "trajectories": [
+        {
+          "branch": "exit",
+          "estimate": 43.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 2.0598768,
+          "minimum_units": 5,
+          "outcome": "simce_relative",
+          "regime": "SIMCE",
+          "relative_year": -2,
+          "status": "PUBLISHED",
+          "units": 19
+        },
+        {
+          "branch": "exit",
+          "estimate": 44.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "exit",
+          "estimate": 1.17909733,
+          "minimum_units": 5,
+          "outcome": "simce_relative",
+          "regime": "SIMCE",
+          "relative_year": -1,
+          "status": "PUBLISHED",
+          "units": 16
+        },
+        {
+          "branch": "entry",
+          "estimate": 303.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": -0.87834592,
+          "minimum_units": 5,
+          "outcome": "simce_relative",
+          "regime": "SIMCE",
+          "relative_year": 0,
+          "status": "PUBLISHED",
+          "units": 134
+        },
+        {
+          "branch": "entry",
+          "estimate": 318.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": -0.52595948,
+          "minimum_units": 5,
+          "outcome": "simce_relative",
+          "regime": "SIMCE",
+          "relative_year": 1,
+          "status": "PUBLISHED",
+          "units": 134
+        },
+        {
+          "branch": "entry",
+          "estimate": 368.0,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MATRICULA",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 1
+        },
+        {
+          "branch": "entry",
+          "estimate": -0.47047441,
+          "minimum_units": 5,
+          "outcome": "simce_relative",
+          "regime": "SIMCE",
+          "relative_year": 2,
+          "status": "PUBLISHED",
+          "units": 133
+        }
+      ]
+    },
+    {
+      "case": "author-el-salvador",
+      "case_kind": "author_documented",
+      "commune": "El Salvador",
+      "distance_band": "under_1_km",
+      "distance_km": 0.448903,
+      "education_segment": "basic",
+      "event_period": "2013–2014",
+      "id": "el-salvador",
+      "links": [
+        {
+          "closure_rbd": 391,
+          "closure_year": 2014,
+          "distance_km": 0.448903,
+          "market_segment": "basic",
+          "receiver_rbd": 390,
+          "receiver_year": 2014,
+          "relationship": "documented_merger"
+        }
+      ],
+      "points": [
+        {
+          "coordinate_year": 2015,
+          "event_year": 2014,
+          "latitude": -26.244385,
+          "location_lag_years": 1,
+          "longitude": -69.627083,
+          "market_segment": "basic",
+          "name": "Escuela Oscar Yañez Pastén",
+          "rbd": 391,
+          "role": "closure",
+          "source_url": "https://datosabiertos.mineduc.cl/"
+        },
+        {
+          "coordinate_year": 2020,
+          "event_year": 2014,
+          "latitude": -26.243219,
+          "location_lag_years": 6,
+          "longitude": -69.62278,
+          "market_segment": "basic",
+          "name": "Escuela Coeducacional Particular N° 1",
+          "rbd": 390,
+          "role": "receiver",
+          "source_url": "https://datosabiertos.mineduc.cl/"
+        }
+      ],
+      "poster_en": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-en.svg",
+      "poster_es": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-es.svg",
+      "same_commune": true,
+      "segment_family": "basic",
+      "selection_note_en": "Author-proposed case; outside the systematic selection",
+      "selection_note_es": "Caso propuesto por el autor; fuera de la selección sistemática",
+      "selection_rank": null,
+      "trajectories": [
+        {
+          "branch": "combined",
+          "calendar_year": 2004,
+          "estimate": 1399,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MINEDUC",
+          "relative_year": -10,
+          "status": "DESCRIPTIVE",
+          "units": 2
+        },
+        {
+          "branch": "combined",
+          "calendar_year": 2013,
+          "estimate": 977,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MINEDUC",
+          "relative_year": -1,
+          "status": "DESCRIPTIVE",
+          "units": 2
+        },
+        {
+          "branch": "receiver",
+          "calendar_year": 2014,
+          "estimate": 738,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MINEDUC",
+          "relative_year": 0,
+          "status": "DESCRIPTIVE",
+          "units": 1
+        },
+        {
+          "branch": "receiver",
+          "calendar_year": 2025,
+          "estimate": 445,
+          "minimum_units": 1,
+          "outcome": "enrollment_total",
+          "regime": "MINEDUC",
+          "relative_year": 11,
+          "status": "DESCRIPTIVE",
+          "units": 1
+        }
+      ]
+    }
+  ],
+  "generated_by": "scripts/render_thesis_extension_stylized.py",
+  "schema_version": 3,
+  "selection_rule": "first one strict entity-segment pair per preferred education family; within each family, ranked by same-commune status, distance, year, and stable identifiers; neither outcome values nor outcome availability were used"
+}

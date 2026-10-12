@@ -1,0 +1,100 @@
+slug: extender-tesis-no-es-agregar-anos
+ref: extender-tesis-no-es-agregar-anos
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 146006
+  sha256: 90cc8b339385acda808bf6765d35bb1f3481e7fcce31893231fac184eab016f5
+  alt: &id001
+    es: Escuelas en distintos estados y contornos superpuestos como metáfora de cierres y mercados alternativos.
+    en: Schools in different states and overlapping contours as a metaphor for closures and alternative markets.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 96b7535c5638fecbe3eab75de9b20fe631def062fcffdd746ba42ace606c7f05
+    note: &id002
+      es: Ilustración conceptual; no representa escuelas, cierres, mercados ni cartografía observados.
+      en: Conceptual illustration; it does not depict observed schools, closures, markets or cartography.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 54574
+  sha256: f1af053802926a8abd5f9da3952fef8856fff110f2adb83afe09c4b289e47980
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 96b7535c5638fecbe3eab75de9b20fe631def062fcffdd746ba42ace606c7f05
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 119456
+  sha256: 9085182c13151b951d7143a34089030080ad0bc150df475090900f5ba7ae1b95
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 96b7535c5638fecbe3eab75de9b20fe631def062fcffdd746ba42ace606c7f05
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 42478
+  sha256: 01d4547a72b074b98e4261137274a57572d0e87952a0130611dde54cadcdeef9
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 96b7535c5638fecbe3eab75de9b20fe631def062fcffdd746ba42ace606c7f05
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 108040
+  sha256: a1a6daab3f707fa23abd4e4fd28b8d8490bda2d9bb1de6a0f3ec68bdf4732ec8
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 96b7535c5638fecbe3eab75de9b20fe631def062fcffdd746ba42ace606c7f05
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+posts:
+- _posts/2026-10-11-extender-tesis-no-es-agregar-anos.md
+- _posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md

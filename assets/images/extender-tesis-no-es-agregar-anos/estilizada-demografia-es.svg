@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="figure-title figure-desc">
+  <title id="figure-title">Menos población en edad escolar: una presión que ya viene en camino</title>
+  <desc id="figure-desc">Serie nacional de población de 6 a 17 años, índice 2025 igual a 100. Las estimaciones terminan en 2024 y las proyecciones comienzan en 2025.</desc>
+  <defs>
+    <pattern id="projection-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#b8ff3c" stroke-width="3" opacity="0.24"/>
+    </pattern>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <style>
+    text { font-family: Inter, "Inter var", system-ui, sans-serif; }
+    .title { fill: #f4f7fb; font-size: 32px; font-weight: 760; letter-spacing: -0.4px; }
+    .subtitle { fill: #b8c2d6; font-size: 16px; }
+    .label { fill: #f4f7fb; font-size: 16px; }
+    .small { fill: #b8c2d6; font-size: 14px; }
+    .tiny { fill: #b8c2d6; font-size: 12px; }
+    .number { fill: #f4f7fb; font-size: 22px; font-weight: 760; font-variant-numeric: tabular-nums; }
+    .kicker { fill: #37e7ff; font-size: 13px; font-weight: 750; letter-spacing: 1.4px; }
+    .map-title { fill: #f4f7fb; font-size: 40px; font-weight: 780; letter-spacing: -0.5px; }
+    .map-label { fill: #b8c2d6; font-size: 18px; }
+    .map-small { fill: #b8c2d6; font-size: 16px; }
+    .map-value { fill: #f4f7fb; font-size: 34px; font-weight: 780; font-variant-numeric: tabular-nums; }
+  </style>
+  <rect width="1200" height="720" rx="24" fill="#10121d"/>
+  <text class="kicker" x="72" y="64">POST II · PRESIÓN DEMOGRÁFICA</text>
+  <text class="title" x="72" y="110">Menos población en edad escolar: una presión que ya viene en camino</text>
+  <text class="subtitle"><tspan x="72" y="140">Serie nacional de población de 6 a 17 años, índice 2025 igual a 100. Las estimaciones terminan en 2024 y las</tspan><tspan x="72" y="162">proyecciones comienzan en 2025.</tspan></text>
+  <rect x="72" y="164" width="1092" height="438" rx="18" fill="#171b2a" stroke="#48516a"/>
+  <line x1="112.0" y1="570.00" x2="1128.0" y2="570.00" stroke="#48516a" stroke-width="1"/>
+  <text class="small" x="98" y="575.00" text-anchor="end">40</text>
+  <line x1="112.0" y1="453.08" x2="1128.0" y2="453.08" stroke="#48516a" stroke-width="1"/>
+  <text class="small" x="98" y="458.08" text-anchor="end">60</text>
+  <line x1="112.0" y1="336.15" x2="1128.0" y2="336.15" stroke="#48516a" stroke-width="1"/>
+  <text class="small" x="98" y="341.15" text-anchor="end">80</text>
+  <line x1="112.0" y1="219.23" x2="1128.0" y2="219.23" stroke="#48516a" stroke-width="1"/>
+  <text class="small" x="98" y="224.23" text-anchor="end">100</text>
+  <text class="small" x="112.00" y="594" text-anchor="middle">2013</text>
+  <text class="small" x="304.22" y="594" text-anchor="middle">2020</text>
+  <text class="small" x="441.51" y="594" text-anchor="middle">2025</text>
+  <text class="small" x="578.81" y="594" text-anchor="middle">2030</text>
+  <text class="small" x="853.41" y="594" text-anchor="middle">2040</text>
+  <text class="small" x="1128.00" y="594" text-anchor="middle">2050</text>
+  <rect x="441.51" y="190" width="686.49" height="380" fill="url(#projection-hatch)"/>
+  <line x1="441.51" y1="180" x2="441.51" y2="575" stroke="#ffd166" stroke-width="2" stroke-dasharray="7 7"/>
+  <text class="tiny" x="431.51" y="558" text-anchor="end" fill="#ffd166">Comienza la proyección</text>
+  <polyline points="112.00,241.35 139.46,246.27 166.92,248.76 194.38,248.68 221.84,246.44 249.30,242.73 276.76,238.68 304.22,234.65 331.68,229.02 359.14,222.78 386.59,219.61 414.05,218.41" fill="none" stroke="#37e7ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="414.05,218.41 441.51,219.23 468.97,224.68 496.43,235.00 523.89,246.96 551.35,259.56 578.81,275.42 606.27,294.34 633.73,316.36 661.19,340.09 688.65,363.03 716.11,384.38 743.57,405.42 771.03,426.09 798.49,444.62 825.95,460.47 853.41,476.04 880.86,491.36 908.32,503.45 935.78,512.46 963.24,519.49 990.70,525.41 1018.16,530.59 1045.62,535.08 1073.08,538.90 1100.54,542.10 1128.00,544.69" fill="none" stroke="#b8ff3c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="11 9"/>
+  <circle cx="441.51" cy="219.23" r="7" fill="#10121d" stroke="#b8ff3c" stroke-width="4"/>
+  <text class="small" x="441.51" y="203.23" text-anchor="middle" fill="#f4f7fb">2025 · 3,08 millones</text>
+  <circle cx="578.81" cy="275.42" r="7" fill="#10121d" stroke="#b8ff3c" stroke-width="4"/>
+  <text class="small" x="578.81" y="259.42" text-anchor="middle" fill="#f4f7fb">2030 · 2,79 millones</text>
+  <circle cx="716.11" cy="384.38" r="7" fill="#10121d" stroke="#b8ff3c" stroke-width="4"/>
+  <text class="small" x="716.11" y="368.38" text-anchor="middle" fill="#f4f7fb">2035 · 2,21 millones</text>
+  <circle cx="1128.00" cy="544.69" r="7" fill="#10121d" stroke="#b8ff3c" stroke-width="4"/>
+  <text class="small" x="1120.00" y="528.69" text-anchor="end" fill="#f4f7fb">2050 · 1,37 millones</text>
+  <rect x="746" y="226" width="350" height="102" rx="14" fill="#22283b" stroke="#ff4fd8" filter="url(#soft-shadow)"/>
+  <text x="770" y="270" fill="#ff4fd8" font-size="34" font-weight="780">−55,7 %</text>
+  <text class="small" x="770" y="300">población de 6–17 años entre 2025 y 2050</text>
+  <line x1="84" y1="630" x2="130" y2="630" stroke="#37e7ff" stroke-width="5"/>
+  <text class="small" x="140" y="635">Estimación 2013–2024</text>
+  <line x1="350" y1="630" x2="396" y2="630" stroke="#b8ff3c" stroke-width="5" stroke-dasharray="10 8"/>
+  <text class="small" x="406" y="635">Proyección 2025–2050</text>
+  <text class="small" x="1128" y="635" text-anchor="end">Es población, no una proyección de matrícula.</text>
+  <text class="tiny" x="72" y="680">Fuente: INE, estimaciones y proyecciones de población 1992–2070, base 2024.</text>
+</svg>

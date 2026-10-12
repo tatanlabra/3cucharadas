@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build:catastro": "vite build --config vite.catastro.config.ts",
+    "build:thesis-post2-map": "vite build --config vite.thesis-post2-map.config.ts",
     "build:memoria-gobernada": "vite build --config vite.memoria-gobernada.config.ts",
     "dev:catastro": "vite --config vite.catastro.config.ts",
     "check:catastro": "tsc --noEmit --project tsconfig.catastro.json",

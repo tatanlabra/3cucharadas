@@ -1,0 +1,313 @@
+{
+  "blog_layout_adjustments": [
+    "v5: reduce the admissions result-row label to 10px to prevent left-edge clipping",
+    "v7: shift the second vertical axis label +6 SVG units to prevent left-edge clipping",
+    "v8: reduce the first score-row label to 8px to prevent left-edge clipping",
+    "v8 EN: define academic (AC) and technical-vocational (TV) inside the SVG"
+  ],
+  "figures": [
+    {
+      "key": "v3",
+      "numeric_fingerprint": [
+        "-0.2",
+        "-0.4",
+        "0",
+        "0.0",
+        "0.2",
+        "0.25",
+        "0.25",
+        "0.273",
+        "0.273",
+        "0.4",
+        "0.5",
+        "0.5",
+        "10",
+        "10",
+        "20",
+        "25",
+        "5",
+        "50",
+        "95%",
+        "95%",
+        "±0.25",
+        "±0.5"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 18397,
+          "filename": "resultados-v3-sensibilidad-mercados-en.svg",
+          "sha256": "1ddf701894ff67975fd717ea1bf01ce0ae7489eefc41c95440dd9012a3513f2c",
+          "text_nodes": 24,
+          "translated_nodes": 15
+        },
+        "es": {
+          "bytes": 18397,
+          "filename": "resultados-v3-sensibilidad-mercados-es.svg",
+          "sha256": "58a76b591b7b4c0a29f86e684dad4c2b85557a5849241b35498e3c6235a8f19d",
+          "text_nodes": 24,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals_h1_h3/v3_market_sensitivity.csv",
+      "source_csv_sha256": "bc5da6eb151aec63daa30268ad7c1bf58e04bf2b8dc792360c386753b1521e4b",
+      "source_svg": "figures/release_visuals_h1_h3/v3_market_sensitivity.svg",
+      "source_svg_sha256": "0d4ce3d1d763d278989a347f5cf1cc10a36a345837cfbb2d1caef30afbaa656f"
+    },
+    {
+      "key": "v5",
+      "numeric_fingerprint": [
+        "+0.029",
+        "+0.040",
+        "-0.1",
+        "-0.2",
+        "0",
+        "0.0",
+        "0.001",
+        "0.029",
+        "0.1",
+        "0.2",
+        "0.3",
+        "100",
+        "150",
+        "200",
+        "21",
+        "21",
+        "21",
+        "21",
+        "250",
+        "300",
+        "330",
+        "330",
+        "330",
+        "350",
+        "46",
+        "50",
+        "8",
+        "8",
+        "8",
+        "8",
+        "95%",
+        "97"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 24521,
+          "filename": "resultados-v5-mr1-en.svg",
+          "sha256": "bd0540c319ab36abce74c6c32d57ae57da2eeb48f76c7ac53fa051869a9f9e5b",
+          "text_nodes": 41,
+          "translated_nodes": 20
+        },
+        "es": {
+          "bytes": 24580,
+          "filename": "resultados-v5-mr1-es.svg",
+          "sha256": "376b1ef783eaad2ffdc4f8f7f4c4e8b61c133e953ef8017a96906ff70f382d0d",
+          "text_nodes": 41,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals_mr/v5_mr1_forest.csv",
+      "source_csv_sha256": "667bf4ef8a1278440681e94d3668f939a5775315810e977c9a4b471ace660a69",
+      "source_svg": "figures/release_visuals_mr/v5_mr1_forest.svg",
+      "source_svg_sha256": "f3ecbaee006bd34a5d1381498b0db536218a1d44052a56ec54bd0ce3c722480e"
+    },
+    {
+      "key": "v6",
+      "numeric_fingerprint": [
+        "-0.1",
+        "-0.2",
+        "-0.3",
+        "-0.4",
+        "-0.5",
+        "-0.6",
+        "0",
+        "0.0",
+        "0.1",
+        "0.2",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "10",
+        "10",
+        "10",
+        "10",
+        "10",
+        "10",
+        "100",
+        "150",
+        "2",
+        "2",
+        "2",
+        "2",
+        "200",
+        "250",
+        "3",
+        "3",
+        "3",
+        "300",
+        "350",
+        "4",
+        "400",
+        "414",
+        "450",
+        "50",
+        "6",
+        "8",
+        "8",
+        "95%"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 35923,
+          "filename": "resultados-v6-mr2-en.svg",
+          "sha256": "0265f7efaa73776bc5f40998778f473e7a49c1ce717423448e3152e852ff6f0a",
+          "text_nodes": 52,
+          "translated_nodes": 26
+        },
+        "es": {
+          "bytes": 35977,
+          "filename": "resultados-v6-mr2-es.svg",
+          "sha256": "f6d6b73e4f74a3f2cb6c102f670735497fcb8048ed3395f3378af0d92ac7eacd",
+          "text_nodes": 52,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals_mr/v6_mr2_support.csv",
+      "source_csv_sha256": "fb6561e81cc7318591ca09fc3c47bc74d350e7705e6ef8a016b447bef9fd2cca",
+      "source_svg": "figures/release_visuals_mr/v6_mr2_support.svg",
+      "source_svg_sha256": "9d0a5341d2434c1e9681c8c5ade225973a7ed2441fd78224dd2237e3e8aeee80"
+    },
+    {
+      "key": "v7",
+      "numeric_fingerprint": [
+        "+0.000027",
+        "+0.000103",
+        "+0.000113",
+        "+0.000213",
+        "-0.000105",
+        "-0.000346",
+        "-0.0025",
+        "-0.0050",
+        "-0.0075",
+        "-0.0100",
+        "0.000",
+        "0.0000",
+        "0.002",
+        "0.004",
+        "16",
+        "1e-10",
+        "6.66",
+        "6.66e-16"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 23699,
+          "filename": "resultados-v7-mr3-en.svg",
+          "sha256": "81d24bb79e46cb46435439531daef10abffe51a378976f771fa33a10e47375e2",
+          "text_nodes": 43,
+          "translated_nodes": 32
+        },
+        "es": {
+          "bytes": 23706,
+          "filename": "resultados-v7-mr3-es.svg",
+          "sha256": "374aba0f7b4edd63acf202a2f95e4e8481474e28d1493e6bb8bdcddbe4197752",
+          "text_nodes": 43,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals_mr/v7_mr3_fhk.csv",
+      "source_csv_sha256": "7e94a951bffb68f5cbe6f2eee993247e340d8edc27ecbfd1d642b55d4114ab86",
+      "source_svg": "figures/release_visuals_mr/v7_mr3_fhk.svg",
+      "source_svg_sha256": "52154ee972ab5f89256b298bd616e024620be1c7ad2a6b3b82bd07e035943e35"
+    },
+    {
+      "key": "v8",
+      "numeric_fingerprint": [
+        "-0.01",
+        "-0.02",
+        "-0.05",
+        "-0.10",
+        "-0.15",
+        "0",
+        "0",
+        "0",
+        "0.00",
+        "0.00",
+        "0.01",
+        "0.05",
+        "10",
+        "15",
+        "20",
+        "3",
+        "5",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "95%",
+        "95%"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 27780,
+          "filename": "resultados-v8-mr4-en.svg",
+          "sha256": "0df38cac5f41bbc70f1e6e3f820e18713a68a3f8560c412ba995cb68d1ce85b2",
+          "text_nodes": 44,
+          "translated_nodes": 24
+        },
+        "es": {
+          "bytes": 27830,
+          "filename": "resultados-v8-mr4-es.svg",
+          "sha256": "b69646adad641caf758a32d2249caa9ad11083491ec03515035d933de86d465f",
+          "text_nodes": 44,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals_mr/v8_mr4_modality.csv",
+      "source_csv_sha256": "edcdd179ab5995107b95979bdd23238863ad9f7ca5d2b2e519012d43c9be3cea",
+      "source_svg": "figures/release_visuals_mr/v8_mr4_modality.svg",
+      "source_svg_sha256": "e1b2f337a76548b849744f9563422a067b2ba2fe1c5394f73e37d0a8a60765ae"
+    },
+    {
+      "key": "v10",
+      "numeric_fingerprint": [
+        "0",
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "outputs": {
+        "en": {
+          "bytes": 6128,
+          "filename": "resultados-v10-escalera-causal-en.svg",
+          "sha256": "f916fe9d3a1afeb14783946b8b66c75b6116c023d6fd53d3ba85dbeb3aa8e626",
+          "text_nodes": 17,
+          "translated_nodes": 16
+        },
+        "es": {
+          "bytes": 6160,
+          "filename": "resultados-v10-escalera-causal-es.svg",
+          "sha256": "56e21befc40e4ec42d1c5ff43df6ea8364a09631063a1b9a265f08a868e05451",
+          "text_nodes": 17,
+          "translated_nodes": 0
+        }
+      },
+      "source_csv": "figures/release_visuals/v10_causal_ladder.csv",
+      "source_csv_sha256": "56fb09c24eb420271b407f92696d44fd61af0713dbfe664039683528bb7a57b7",
+      "source_svg": "figures/release_visuals/v10_causal_ladder.svg",
+      "source_svg_sha256": "156a2b1f835337874cc85c252f773616ff7574a42e8895d35bb5b14479203c0b"
+    }
+  ],
+  "generator": "scripts/render_thesis_extension_results.py",
+  "generator_sha256": "61ff0783629a4b9810f7ca67af96a56ed03907c490a4af0c36eb5ba896a473c9",
+  "languages": [
+    "es",
+    "en"
+  ],
+  "schema_version": 1,
+  "source_policy": "closed_public_svg_geometry_plus_csv_hash",
+  "status": "BILINGUAL_THESIS_EXTENSION_RESULTS_READY"
+}

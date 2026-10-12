@@ -1,0 +1,1359 @@
+schema_version: 2
+plan_id: thesis-post2-closeout-20261011
+revision: 20
+updated_at: "2026-10-12T08:38:00-03:00"
+status: in_progress
+integrator: codex
+peer_review: claude-opus-r3-read-only
+objective: >-
+  Cerrar el Post II con evidencia científica congelada, relato bilingüe didáctico,
+  visualización responsiva y una revisión humana informada, sin convertir asociaciones
+  locales ni recuerdos del autor en afirmaciones causales.
+
+scope:
+  research_repo: incubadora/tesis_mae_mejorada@38a31d79272f
+  blog_repo: activos/3cucharadas@af3daf2a9900
+  blog_branch: release/thesis-post-ii-20261011
+  authorized_local_actions: [edit, test, research_commit, blog_commit]
+  external_actions: [telegram_review_notice]
+  blocked_without_new_authority: [push, deploy, dissemination]
+
+invariants:
+  - id: INV-01
+    rule: ES y EN conservan cifras, límites, visuales y significado equivalentes.
+  - id: INV-02
+    rule: NOT_ESTIMABLE no significa cero, empate ni ausencia de efecto.
+  - id: INV-03
+    rule: Cercanía, trayectoria y rotación contable no identifican causalidad.
+  - id: INV-04
+    rule: Anexos, sucesiones de identidad y segmentos educacionales no se cuentan como cierres comparables.
+  - id: INV-05
+    rule: El Salvador no altera los dos mapas seleccionados sistemáticamente; se rotula como caso propuesto por el autor y queda fuera de esa muestra.
+  - id: INV-06
+    rule: Menor matrícula se presenta como causa solo con respaldo documental; la serie por sí sola acredita una tendencia.
+  - id: INV-07
+    rule: El ancho adicional rige solo para Post II desde 64em; móvil conserva la composición existente y cero desborde horizontal.
+  - id: INV-08
+    rule: El commit local requiere autoridad explícita; push, despliegue y difusión requieren autorizaciones posteriores separadas.
+  - id: INV-09
+    rule: La meta de 2500 palabras es una señal editorial flexible; contenido trazable puede excederla sin reprobar gates duros.
+  - id: INV-10
+    rule: Cada figura nombra su fuente sustantiva; INE para demografía y MINEDUC para directorios, matrícula y resultados.
+  - id: INV-11
+    rule: La prosa conserva una medida máxima de 72ch en escritorio; visuales, tablas y notas técnicas pueden usar el ancho ampliado.
+
+placeholder_registry:
+  - id: PH-01
+    status: CORREGIDO
+    target_status: CORREGIDO
+    requires_additional_research: false
+    emergent_task_id: null
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/post2_stylized_evidence.json]
+    claim_action: Conciliar período, eventos y unidad establecimiento-segmento antes de publicar totales.
+    unblock_condition: F5a regenerado y validado con spec v5 preregistrada.
+  - id: PH-02
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-24
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/school_identity_registry_v1.json]
+    claim_action: Mantener continuidad como candidata y retirar cualquier confirmación automática.
+    unblock_condition: Claim degradado en el post o E-24 resuelta con evidencia.
+  - id: PH-03
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-25
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/publication/release_program.yaml]
+    claim_action: Retirar atribución causal a SLEP y conservar solo hechos administrativos fechados.
+    unblock_condition: El texto no atribuye aperturas o cierres a SLEP sin diseño identificador.
+  - id: PH-04
+    status: VERIFICADO
+    target_status: VERIFICADO
+    requires_additional_research: false
+    emergent_task_id: null
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_school_market_event_support.json]
+    claim_action: Mantener 665, 76, 188 y 47 con sus denominadores separados.
+    unblock_condition: Conteos trazados al artefacto y expresados sin sumar universos distintos.
+  - id: PH-05
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-26
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_post2_research_closeout.json]
+    claim_action: Mostrar el embudo y no afirmar representatividad de la muestra depurada.
+    unblock_condition: El texto declara selección, pérdidas y universo de cada cifra.
+  - id: PH-06
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-27
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_school_market_renewal_estimation.json]
+    claim_action: Presentar 10 como umbral retrospectivo y conservar sensibilidad 5/10/20.
+    unblock_condition: La regla no cambia según el signo y el límite queda visible.
+  - id: PH-07
+    status: VERIFICADO
+    target_status: VERIFICADO
+    requires_additional_research: false
+    emergent_task_id: null
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json]
+    claim_action: Retirar MR2 subsoportado y distinguir NOT_ESTIMABLE de cero.
+    unblock_condition: Freeze revisión 6 y post sin puntos MR2 no estimables.
+  - id: PH-08
+    status: CORREGIDO
+    target_status: CORREGIDO
+    requires_additional_research: false
+    emergent_task_id: null
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_school_market_renewal_estimation.json, ../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json]
+    claim_action: Corregir signos e intervalos MR3 en freeze, figuras y prosa.
+    unblock_condition: Freeze revisión 6 y expectativas v11 coinciden con la estimación.
+  - id: PH-09
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-28
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_r007_openalex_chain.json]
+    claim_action: Tratar la literatura como contexto y retirar todo claim de novedad.
+    unblock_condition: R-007 puede seguir abierto si el blog no afirma novedad.
+  - id: PH-10
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-29
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/research/article_post2/slep_transfer_schedule.yaml]
+    claim_action: Fechar competencias y evitar atribución retroactiva a la institucionalidad actual.
+    unblock_condition: Cada afirmación institucional está fechada o se retira.
+  - id: PH-11
+    status: CORREGIDO
+    target_status: CORREGIDO
+    requires_additional_research: true
+    emergent_task_id: E-22
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/school_coordinate_osm_audit_v1.json]
+    claim_action: Sustituir el placeholder por auditoría nacional agregada y límites de matching.
+    unblock_condition: E-22 y E-23 cerradas con auditoría, licencia y resumen público.
+  - id: PH-12
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-30
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/post2_stylized_evidence.json]
+    claim_action: Hacer visibles censura derecha, ventanas y regla de selección.
+    unblock_condition: El post divulga cobertura y los resultados no intervienen en la selección.
+  - id: PH-13
+    status: VERIFICADO
+    target_status: VERIFICADO
+    requires_additional_research: false
+    emergent_task_id: E-37
+    publication_blocking: true
+    evidence_paths: [assets/data/thesis-extension-post2/cases.json, ../../incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml]
+    claim_action: Revalidar nombres, RBD, años, distancias y roles después de F5a.
+    unblock_condition: Casos regenerados y consistentes entre JSON, mapas y prosa.
+  - id: PH-14
+    status: LIMITACION_DOCUMENTADA
+    target_status: LIMITACION_DOCUMENTADA
+    requires_additional_research: true
+    emergent_task_id: E-31
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml]
+    claim_action: Retirar motivo administrativo y destinos individuales no documentados.
+    unblock_condition: El texto separa fusión documentada, tendencia compatible y causa no verificada.
+  - id: PH-15
+    status: VERIFICADO
+    target_status: VERIFICADO
+    requires_additional_research: false
+    emergent_task_id: null
+    publication_blocking: true
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/post2_stylized_evidence.json]
+    claim_action: Publicar 55,670096 por ciento solo como proyección 6-17, base 2024, escenario nacional.
+    unblock_condition: La cifra conserva base, edades, periodo y no se traduce en cierres.
+  - id: PH-16
+    status: DEFERIDO_POST_III
+    target_status: DEFERIDO_POST_III
+    requires_additional_research: true
+    emergent_task_id: E-32
+    publication_blocking: false
+    evidence_paths: [docs/plans/20261011-thesis-post2-closeout/PLAN.md]
+    claim_action: Deferir escenarios demográficos, capacidad y accesibilidad al Post III.
+    unblock_condition: Post III contará con datos, supuestos y criterios preregistrados.
+  - id: PH-17
+    status: VERIFICADO
+    target_status: VERIFICADO
+    requires_additional_research: true
+    emergent_task_id: E-33
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json, ../../incubadora/tesis_mae_mejorada/reports/316_scientific_release_freeze.md]
+    claim_action: Mantener ejecución, 999 réplicas, 112 celdas y residual; diferir sensibilidades no necesarias.
+    unblock_condition: El alcance descriptivo actual queda reproducible y las sensibilidades pendientes se declaran.
+  - id: PH-18
+    status: CORREGIDO
+    target_status: CORREGIDO
+    requires_additional_research: true
+    emergent_task_id: E-34
+    publication_blocking: false
+    evidence_paths: [../../incubadora/tesis_mae_mejorada/publication/acciones_pendientes_autor.md, ../../incubadora/tesis_mae_mejorada/publication/manuscript/manuscript.md, _posts/2026-10-11-extender-tesis-no-es-agregar-anos.md, _posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md]
+    claim_action: Incorporar declaraciones confirmadas de financiamiento, vínculos y uso de IA.
+    unblock_condition: La persona usuaria confirma literalmente el párrafo E-34 en H0.
+
+phases:
+  - id: P0
+    name: Gobierno y estado vivo
+    status: done
+    evidence: Este archivo reabre el contrato visual y registra tareas, derivas y límites de autoridad.
+  - id: P1
+    name: Integridad científica
+    status: done
+    evidence: Freeze científico revisión 4, quince pruebas, ocho canarios, Ruff y validador en verde; la transición de tres a dos casos sistemáticos quedó registrada.
+  - id: P2
+    name: Relato ES/EN y evidencia visual
+    status: done
+    evidence: Texto, mapa interactivo, carrusel y fallback OSM reparados; la regla publicada refleja familia educativa primero y no atribuye sustitución ni puntajes observables a Rancagua.
+  - id: P3
+    name: Rediseño responsivo del visor
+    status: done
+    evidence: Matriz de 24 páginas, 12 SVG y dos fallbacks en verde; axe-core obtuvo cero violaciones y cero inconclusos en el contenido ES y EN con viewport completo.
+  - id: P4
+    name: Caso El Salvador
+    status: done
+    evidence: >-
+      Expediente trazable disponible: RBD 391 cerró y se fusionó con RBD 390;
+      la BCN documenta el traslado de primero a sexto; MINEDUC aporta identidad,
+      coordenadas y matrícula 2004-2025. La causa administrativa del cierre no está documentada.
+  - id: P5
+    name: Regeneración y paridad
+    status: done
+    evidence: >-
+      El caso fue admitido como recuadro descriptivo propuesto por el autor, fuera de la
+      selección sistemática. JSON, SVG, include, relato ES/EN y manifiestos fueron regenerados y validados.
+  - id: P6
+    name: Revisión adversarial
+    status: done
+    evidence: Claude R3 emitió REQUEST_CHANGES; F19 reparó las derivas y Claude Opus 5.5 reprodujo los cierres en solo lectura antes de emitir APPROVE.
+  - id: P7
+    name: Revisión humana y entrega externa
+    status: blocked
+    evidence: H1 debe usar el candidato limpio revisión 20; push, despliegue y difusión requieren instrucciones posteriores explícitas.
+  - id: P8
+    name: Uso de política y puente científico
+    status: done
+    evidence: Matriz bilingüe, claims esquema 2, revisión Claude APPROVE y candidato limpio con suite integral exit 0.
+
+tasks:
+  - id: T-RESEARCH-FREEZE
+    phase: P1
+    class: planned
+    status: done
+    acceptance: scientific-release-freeze revisión 4 conserva hash 626563b9c075e9dfcd6e6d5085acad431e4256cdbb7dd011ea454fdf03f81a95 y registra la transición 3→2.
+  - id: T-TAXONOMY
+    phase: P1
+    class: planned
+    status: done
+    acceptance: Cierres estrictos, anexos, educación inicial y segmento exacto quedan diferenciados.
+  - id: T-ESTIMATION
+    phase: P1
+    class: planned
+    status: done
+    acceptance: MR1 a MR4 conservan soporte, intervalos y NOT_ESTIMABLE sin sobreafirmación causal.
+  - id: T-MAP-PIPELINE
+    phase: P2
+    class: planned
+    status: done
+    acceptance: Mapa interactivo usa casos trazables, atribución y fallback OSM cuando el estilo vectorial rechaza el origen local.
+  - id: T-EDITORIAL
+    phase: P2
+    class: planned
+    status: done
+    acceptance: El texto explica objetivo, método, resultado y límite en ES y EN.
+  - id: T-LIGHT-THEME
+    phase: P3
+    class: emergent
+    status: done
+    acceptance: Superficie cálida tipo cuaderno de los noventa, texto oscuro y contraste WCAG AA.
+  - id: T-DARK-THEME
+    phase: P3
+    class: emergent
+    status: done
+    acceptance: Fondo índigo, bordes cian y magenta y lectura AA, sin negro plano dominante.
+  - id: T-RESPONSIVE-TYPE
+    phase: P3
+    class: emergent
+    status: done
+    acceptance: Fira Sans y escala fluida; título del visor no supera 24px desktop ni 20px móvil.
+  - id: T-DESKTOP-WIDTH
+    phase: P3
+    class: emergent
+    status: done
+    acceptance: A 1920px la columna central alcanza aproximadamente 841px, un 15 por ciento sobre 731px; móvil no cambia.
+  - id: T-VISUAL-GATE
+    phase: P3
+    class: drift_repair
+    status: done
+    acceptance: Matriz ES/EN por tema a 360/390/768/1280/1440/1920px sin overflow, cortes, bajo contraste ni consola roja; dos escenarios de fallback quedan resueltos.
+  - id: T-ELSALVADOR-IDENTITY
+    phase: P4
+    class: emergent
+    status: done
+    acceptance: RBD, nombre, ubicación, segmento y estado anual de las escuelas N14 y N1 se reconcilian en fuentes oficiales.
+    evidence: RBD 391 Oscar Yañez Pastén y RBD 390 Escuela N1 La Mina reconciliados en Directorio MINEDUC y FEES.
+  - id: T-ELSALVADOR-ENROLLMENT
+    phase: P4
+    class: emergent
+    status: done
+    acceptance: La matrícula se reconstruye al menos en t-4 a t y se distinguen descenso, quiebre y datos faltantes.
+    evidence: Serie 2004-2014 y 2025; matrícula conjunta cae de 1399 a 977 entre 2004 y 2013, y RBD 390 pasa de 432 a 738 en 2014.
+  - id: T-ELSALVADOR-TRANSFER
+    phase: P4
+    class: emergent
+    status: done
+    acceptance: El traslado a Escuela N1 se afirma solo si una fuente oficial o documental lo acredita; de lo contrario se describe como recuerdo del autor no verificado.
+    evidence: Registro parlamentario BCN del 1 de abril de 2014 documenta fusión y traslado de primero a sexto.
+  - id: T-ELSALVADOR-SELECTION
+    phase: P4
+    class: drift_guard
+    status: done
+    acceptance: El caso se etiqueta como propuesto por el autor y queda fuera de los dos mapas seleccionados sin usar valores de resultados.
+    evidence: El expediente declara systematic_sample_member false y uses_outcomes false.
+  - id: T-ELSALVADOR-DECISION
+    phase: P4
+    class: planned
+    status: done
+    acceptance: Un expediente HECHO/INFERENCIA/NO_VERIFICADO decide incluir, excluir o dejar como recuadro pendiente.
+    evidence: research/article_post2/el_salvador_author_case.yaml admite un caso descriptivo documentado y prohíbe afirmar el motivo causal.
+  - id: T-ELSALVADOR-COORDINATES
+    phase: P4
+    class: emergent
+    status: done
+    acceptance: La coordenada usada se contrasta con dirección institucional y se registra cualquier deriva del Directorio.
+    evidence: RBD 390 usa coordenada oficial 2020 coherente con Diego Portales 1510; 2015-2019 se descarta por apuntar erróneamente a Diego de Almagro.
+  - id: T-ELSALVADOR-SOURCE-CUSTODY
+    phase: P4
+    class: planned
+    status: done
+    acceptance: El expediente conserva URL, alcance, limitación y hash de cada insumo local relevante.
+    evidence: Dossier YAML validado sintácticamente con fuentes BCN, FEES y MINEDUC y hashes de Directorio y matrícula.
+  - id: T-ELSALVADOR-MAP-DATA
+    phase: P5
+    class: planned
+    status: done
+    acceptance: El JSON añade un tercer tab interactivo con cierre y escuela receptora, años calendario, 0,449 km y rótulo de caso del autor.
+  - id: T-ELSALVADOR-STATIC-MAP
+    phase: P5
+    class: planned
+    status: done
+    acceptance: SVG ES/EN 1200x720 muestra ambas escuelas, la relación documentada, cuatro cifras clave y el límite causal sin depender de JavaScript.
+  - id: T-ELSALVADOR-NARRATIVE
+    phase: P5
+    class: planned
+    status: done
+    acceptance: ES y EN explican cierre, fusión, caída de matrícula y salto receptor con lenguaje didáctico y enlaces a BCN, FEES y MINEDUC.
+  - id: T-ELSALVADOR-CAROUSEL-GUARD
+    phase: P5
+    class: drift_guard
+    status: done
+    acceptance: El carrusel conserva dos mapas sistemáticos; El Salvador aparece como tab interactivo y recuadro separado para no contaminar su selección.
+  - id: T-REGENERATE
+    phase: P5
+    class: planned
+    status: done
+    acceptance: JSON, SVG, manifiestos, include y textos se regeneran de una fuente única si el caso es admitido.
+  - id: T-GATES
+    phase: P5
+    class: planned
+    status: done
+    acceptance: Vite, Jekyll, verificador semántico, artefacto y navegador terminan exit 0; canarios pertinentes se observan rojos.
+  - id: T-ACCESSIBILITY
+    phase: P5
+    class: planned
+    status: done
+    acceptance: Tabs operables por teclado, tabla accesible, foco visible, contraste AA y alternativa estática HD clickeable en ambos idiomas.
+  - id: T-SOURCE-LINKS
+    phase: P5
+    class: planned
+    status: done
+    acceptance: Cada claim documental de El Salvador enlaza la fuente que realmente lo respalda y declara su limitación.
+  - id: T-CLAUDE
+    phase: P6
+    class: planned
+    status: done
+    acceptance: Respuestas originales quedan bajo custodia; cada hallazgo material de la segunda revisión se corrige o refuta con evidencia y una tercera revisión estrecha juzga el resultado actual.
+    evidence: Briefings bajo custodia en penta-agent/.agents/queue; Claude Opus 5.5 rerevisó en solo lectura, reprodujo los tres cierres F19 y emitió APPROVE.
+  - id: T-REMOTE-INFRA
+    phase: P6
+    class: proportionality_guard
+    status: done
+    acceptance: >-
+      stata01/stata08 se usan solo si resuelven una brecha real de fuente, software o cómputo;
+      se registra abstención cuando los datos oficiales y artefactos locales bastan.
+    evidence: No apareció una brecha que justificara ampliar la superficie operativa remota.
+  - id: T-HUMAN
+    phase: P7
+    class: planned
+    status: blocked
+    acceptance: La persona usuaria revisa el preview final y entrega una autorización separada para acciones externas.
+  - id: T-POLICY-MATRIX
+    phase: P8
+    class: emergent
+    status: done
+    acceptance: ES/EN separan observación, diagnóstico, decisión, actor, evidencia adicional, uso permitido y salvaguarda.
+    evidence: Posts canónicos del 2026-10-11 y verificador semántico revisión 16.
+  - id: T-POLICY-CLAIMS
+    phase: P8
+    class: drift_guard
+    status: done
+    acceptance: El registro esquema 2 rechaza deducciones, inducciones, abducciones y usos públicos sin soporte estructurado.
+    evidence: publication/article_claim_register.yaml y 15 pruebas verdes con cinco canarios rojos observados.
+  - id: T-POLICY-PEER
+    phase: P8
+    class: planned
+    status: active
+    acceptance: Claude revisa el diff actual en solo lectura y cada hallazgo material se corrige o refuta con evidencia.
+  - id: T-CLEAN-CANDIDATE
+    phase: P8
+    class: planned
+    status: blocked
+    acceptance: Rama candidata nace desde ambos main remotos actuales, excluye historia Tailnet y pasa gates científicos, Jekyll, artefacto y navegador.
+
+emergent_tasks:
+  - id: E-01
+    source: browser_qa
+    task: Corregir tabla del visor con fondo crema y texto blanco.
+    status: done
+  - id: E-02
+    source: local_preview
+    task: Mantener fallback OSM por CORS del estilo vectorial en origen aleatorio.
+    status: done
+  - id: E-03
+    source: user_visual_review
+    task: Reemplazar estética negra genérica por identidad cuaderno/cyberpunk y reducir tipografía.
+    status: done
+  - id: E-04
+    source: user_visual_review
+    task: Ampliar solo Post II en escritorio sin degradar móvil.
+    status: done
+  - id: E-05
+    source: author_local_knowledge
+    task: Investigar Escuela N14, Escuela N1 y reasignación local en El Salvador.
+    status: done
+  - id: E-06
+    source: source_reconciliation
+    task: Sustituir la coordenada histórica errónea del RBD 390 por la oficial 2020 coherente con Diego Portales 1510.
+    status: done
+  - id: E-07
+    source: sample_boundary
+    task: Separar El Salvador porque el evento 2013-2014 queda fuera del soporte sistemático que comienza en 2015.
+    status: done
+  - id: E-08
+    source: epistemic_audit
+    task: Distinguir fusión documentada, tendencia demográfica compatible y motivo administrativo no verificado.
+    status: done
+  - id: E-09
+    source: editorial_architecture
+    task: Añadir El Salvador como tercer tab interactivo y recuadro autoral sin alterar los dos mapas sistemáticos del carrusel de cinco láminas.
+    status: done
+  - id: E-10
+    source: visual_identity
+    task: Crear un fallback HD propio de El Salvador con estética cuaderno/cyberpunk, no una captura oscura genérica.
+    status: done
+  - id: E-11
+    source: user_decision
+    task: Convertir el techo de 2500 palabras en advertencia editorial no bloqueante.
+    status: done
+  - id: E-12
+    source: verifier_reconciliation
+    task: Eliminar el techo semántico residual de 20000 caracteres y conservar solo una advertencia por superar la meta editorial de 2500 palabras.
+    status: done
+  - id: E-13
+    source: accessibility_audit
+    task: Corregir contraste claro, eliminar la escala redundante sobre canvas y convertir flechas decorativas en CSS.
+    status: done
+  - id: E-14
+    source: browser_visual_review
+    task: Localizar segmentos y roles del visor en ES/EN y centrar íntegramente la pestaña activa en móvil.
+    status: done
+  - id: E-15
+    source: artifact_falsification
+    task: Integrar el manifiesto Vite del mapa al artefacto y demostrar rojo al retirarlo de una copia temporal.
+    status: done
+  - id: E-16
+    source: second_adversarial_review
+    task: Alinear relato, visor y generador con la selección real por familia educativa y divulgar que Rancagua no tiene puntajes observables.
+    status: done
+  - id: E-17
+    source: second_adversarial_review
+    task: Eliminar salto vertical de inicialización, localizar controles MapLibre y probar fallback ante error de módulo y ausencia de WebGL.
+    status: done
+  - id: E-18
+    source: second_adversarial_review
+    task: Elevar el freeze a revisión 4, comparar todos los tokens numéricos ES/EN y reutilizar whitelists para ambos JSON públicos.
+    status: done
+  - id: E-19
+    source: browser_qa
+    task: Mostrar los tres tabs completos en escritorio, conservar navegación horizontal móvil y cerrar Axe sin inconclusos espurios por contenido fuera de viewport.
+    status: done
+  - id: E-20
+    source: partial_close_audit
+    task: Reconciliar el recibo de artefacto final y explicitar las rutas de los hashes del estilo y manifiesto Vite en el contrato.
+    status: done
+  - id: E-21
+    source: user_infrastructure
+    task: Resolver capacidad de stata08, inventariar el snapshot OSM y acreditar una superficie nacional de lectura segura.
+    cause: La auditoría nacional requiere evidencia OSM local sin usar el NFS bloqueado ni una API pública masiva.
+    impact: Bloquea E-22 si no existe filesystem seguro o superficie de extracción de solo lectura.
+    acceptance: Preflight fechado con filesystem objetivo menor o igual a 90 %, PSI aceptable, versión y fecha OSM, y prueba de no escritura.
+    authority: Solo lectura mediante remote_exec.sh; prohibido tocar /mnt/nas05.
+    status: done
+    evidence: ../../incubadora/tesis_mae_mejorada/audit/school_coordinate_osm_preflight.json
+  - id: E-22
+    source: PH-11
+    task: Construir la auditoría nacional vigente y la historia acotada de los RBD marcados.
+    cause: El borrador contiene un placeholder geográfico sin cobertura nacional reproducible.
+    impact: Bloquea Post II porque el recuadro y el anexo dependen de sus conteos agregados.
+    acceptance: Audit JSON, informe y resumen público reconcilian universo, matching, distancias, adjudicación y límites.
+    authority: Datos institucionales permitidos y extracto OSM mínimo; sin imputar ni sobrescribir coordenadas MINEDUC.
+    status: done
+    evidence: >-
+      audit/school_coordinate_osm_audit_v1.json y reports/323_school_coordinate_osm_audit_v1.md:
+      12.038 establecimientos funcionando, 78 autorizados sin matrícula, 18.588 candidatos OSM,
+      6.601 establecimientos con match y 126 filas revisadas; cero errores oficiales confirmados.
+  - id: E-23
+    source: PH-11_license
+    task: Resolver la superficie pública compatible con ODbL y la situación de redistribución MINEDUC.
+    cause: La base combinada mezcla una fuente ODbL con un portal que no declara licencia junto a los archivos.
+    impact: Bloquea el CSV completo, pero no agregados, figuras ni una tabla acotada con atribución.
+    acceptance: Decisión documentada sobre cada superficie pública, atribución OSM visible y exclusión del CSV si la compatibilidad no se acredita.
+    authority: No reinterpretar ausencia de licencia como permiso y no publicar durante esta ejecución.
+    status: done
+    resolution: >-
+      Solo se publica un resumen agregado con atribución OSM/ODbL; no se redistribuye la
+      tabla combinada fila a fila ni se infiere permiso desde la ausencia de licencia MINEDUC.
+    evidence: figures/school_coordinate_osm_audit/public_summary.csv
+  - id: E-24
+    source: PH-02
+    task: Evaluar 16 exclusiones y cuatro posibles reemplazos administrativos.
+    cause: La continuidad de identidad contiene candidatos que no admiten confirmación automática.
+    impact: No bloquea Post II si el claim queda como limitación explícita.
+    acceptance: Registro de identidad adjudica o conserva como candidato cada caso sin inflar cierres comparables.
+    authority: Evidencia administrativa fechada; coincidencia nominal por sí sola no confirma identidad.
+    status: done
+    evidence: audit/school_identity_registry_v1.json y audit/school_identity_outcome_sensitivity_v1.json; los dos candidatos registrados no intersectan el panel y el riesgo residual queda visible.
+  - id: E-25
+    source: PH-03
+    task: Evaluar diseños y datos adicionales para el rol de los SLEP.
+    cause: La cronología institucional no identifica el efecto causal de un traspaso.
+    impact: Continúa en el carril académico y no bloquea el blog con wording fechado.
+    acceptance: Diseño identificador documentado o retiro explícito de toda atribución causal.
+    authority: El post puede describir hechos administrativos, no mecanismos causales no estimados.
+    status: done
+    evidence: audit/slep_identification_v2.json y audit/slep_discovery_v3.json; el diseño causal fue rechazado y el post no atribuye efectos a SLEP.
+  - id: E-26
+    source: PH-05
+    task: Medir composición y selección entre el universo amplio y el depurado.
+    cause: El embudo de selección no acredita representatividad de la muestra retenida.
+    impact: No bloquea Post II si se publican denominadores y no se generaliza desde la muestra depurada.
+    acceptance: Comparación reproducible de universos o limitación visible con pérdidas por etapa.
+    authority: No convertir descriptivos de selección en inferencia poblacional.
+    status: done
+    evidence: reports/253_article_selection_support.md, reports/255_article_selection_support_strata.md y reports/257_article_selection_positivity.md; el post declara selección y no generaliza a población nacional.
+  - id: E-27
+    source: PH-06
+    task: Completar sensibilidad de soporte y reglas 5/10/20.
+    cause: El umbral 10 es retrospectivo y requiere mostrar estabilidad frente a alternativas preregistradas.
+    impact: No bloquea Post II si 10 se declara umbral retrospectivo y no cambia según el signo.
+    acceptance: Tabla 5/10/20 reproducible o límite público que retire la pretensión de robustez.
+    authority: Una regla única se aplica a todos los resultados.
+    status: done
+    evidence: audit/article_school_market_renewal_estimation.json DEV-MR-003 y evidencia/F18-placeholder-publication-audit-20261011.md; 5/10/20 sigue sin ejecutar y el post retira la pretensión de robustez del umbral.
+  - id: E-28
+    source: PH-09
+    task: Completar R-007, textos íntegros y revisión independiente de novedad.
+    cause: La cadena bibliográfica actual no sostiene un claim exhaustivo de novedad.
+    impact: Bloquea el artículo, no el blog, siempre que el blog omita novedad.
+    acceptance: Revisión independiente cerrada con textos íntegros o claim de novedad retirado definitivamente.
+    authority: La literatura se usa como contexto en Post II.
+    status: done
+    evidence: audit/article_r007_openalex_chain.json y evidencia/F18-placeholder-publication-audit-20261011.md; el claim de novedad quedó retirado del blog y R-007 sigue abierta solo para el artículo.
+  - id: E-29
+    source: PH-10
+    task: Completar crosswalk normativo por año y traspaso.
+    cause: La institucionalidad vigente no puede atribuirse retroactivamente a eventos anteriores.
+    impact: No bloquea Post II si cada hecho institucional está fechado.
+    acceptance: Crosswalk temporal trazable o retiro de atribuciones que excedan la evidencia fechada.
+    authority: Descripción institucional, sin inferencia causal.
+    status: done
+    evidence: research/article_post2/slep_transfer_schedule.yaml, Ley 21.040 y calendario DEP; el post fecha el traspaso y prohíbe atribución retroactiva.
+  - id: E-30
+    source: PH-12
+    task: Profundizar ventanas, censura y estabilidad de la selección de casos.
+    cause: Los ejemplos tienen ventanas finitas y censura derecha que condicionan su lectura.
+    impact: No bloquea Post II si cobertura y regla de selección quedan visibles.
+    acceptance: Sensibilidades reproducibles o divulgación explícita del soporte temporal vigente.
+    authority: Los resultados educativos nunca intervienen en la selección de ejemplos.
+    status: done
+    evidence: audit/post2_stylized_evidence.json; selección, ventana t a t+2, rezago de coordenadas y censura reciente quedan visibles.
+  - id: E-31
+    source: PH-14
+    task: Buscar acto administrativo, motivo y destinos individuales de El Salvador.
+    cause: La fusión está documentada, pero el motivo del cierre y destinos individuales no lo están.
+    impact: No bloquea Post II mientras esos claims permanezcan retirados.
+    acceptance: Fuente institucional contemporánea o limitación pública que separe fusión, tendencia y causa no verificada.
+    authority: El recuerdo del autor orienta búsqueda, no prueba el hecho.
+    status: done
+    evidence: research/article_post2/el_salvador_author_case.yaml; se documentan fusión y cursos derivados, mientras motivo y destinos individuales permanecen retirados.
+  - id: E-32
+    source: PH-16
+    task: Diseñar Post III sobre demografía, capacidad y accesibilidad.
+    cause: Esos escenarios exceden el alcance descriptivo y la evidencia del Post II.
+    impact: No bloquea Post II; queda diferida con destino explícito.
+    acceptance: Contrato futuro con datos, supuestos, resultados y criterios preregistrados.
+    authority: No anticipar cierres ni recomendaciones de política desde la proyección poblacional.
+    status: deferred
+    blocker: Requiere una fase editorial y analítica distinta.
+    unblock_condition: Inicio autorizado del Post III con su propio plan y fuentes congeladas.
+  - id: E-33
+    source: PH-17
+    task: Completar sensibilidades reproducibles pendientes.
+    cause: El alcance actual reproduce 999 réplicas, 112 celdas y residual, pero no agota todas las sensibilidades.
+    impact: No bloquea el alcance descriptivo actual si la deuda queda visible.
+    acceptance: Sensibilidades ejecutadas o registro explícito de cuáles quedan fuera y por qué no cambian el claim publicado.
+    authority: No elevar resultados descriptivos a causalidad.
+    status: done
+    evidence: audit/scientific_release_freeze.json y evidencia/F18-placeholder-publication-audit-20261011.md; ejecución y residual se reproducen y las sensibilidades ausentes quedan inventariadas sin sostener el claim.
+  - id: E-34
+    source: PH-18
+    task: Recabar financiamiento, vínculos, uso de IA y aprobación autoral.
+    cause: Las declaraciones solo pueden ser confirmadas por la persona autora.
+    impact: Bloquea H1 y el cierre editorial del Post II.
+    acceptance: Párrafo literal aprobado por la persona usuaria e incorporado con paridad ES/EN.
+    authority: Decisión humana; ningún agente puede simular la aprobación.
+    status: done
+    evidence: La persona usuaria aprobó literalmente ambos textos en H0; las declaraciones ES/EN se incorporaron con paridad.
+  - id: E-35
+    source: official_dictionary_revalidation
+    task: Separar establecimientos funcionando de autorizados sin matrícula en el universo 2025.
+    cause: El diccionario oficial 2025 define ESTADO_ESTAB=1 como Funcionando y 4 como Autorizado sin matrícula, no como una sola categoría activa homogénea.
+    impact: Evita mezclar 12.038 establecimientos funcionando con 78 autorizados sin matrícula.
+    acceptance: Spec, auditoría y salida pública informan ambos denominadores por separado.
+    authority: ER_Directorio_Oficial_EE_WEB.pdf dentro del RAR oficial MINEDUC, hash registrado.
+    status: done
+    evidence: ../../incubadora/tesis_mae_mejorada/audit/school_coordinate_osm_inventory.json
+  - id: E-36
+    source: commune_boundary_inventory
+    task: Adquirir y validar polígonos comunales oficiales para el gate de comuna con buffer de 250 m.
+    cause: Las cinco capas locales candidatas contienen centroides o atributos, pero ninguna geometría poligonal.
+    impact: Bloquea la señal fuera de comuna de F5b; no afecta el matching nominal ni por RBD.
+    acceptance: Capa oficial hasheada, procedencia y condiciones de circulación registradas, códigos comunales únicos y cobertura adjudicada.
+    authority: La persona usuaria autorizó buscar primero en /home/ende y descargar solo si era necesario.
+    status: done
+    evidence: ../../incubadora/tesis_mae_mejorada/audit/school_coordinate_osm_inventory.json
+    resolution: Se reutilizó data/DPA_2023.zip de Avalúos; no fue necesaria una descarga nueva.
+  - id: E-37
+    source: post2_stylized_evidence_v5_regeneration
+    task: Reconciliar relato, mapas, datos del visor y gates con los casos sistemáticos regenerados.
+    cause: La regla preregistrada de primera coordenada oficial válida cambió los casos desde Rancagua/La Reina a Lo Barnechea/Lo Prado.
+    impact: Bloquea PH-13 y F8b porque la prosa y el visor actuales describen establecimientos, años y distancias obsoletos.
+    acceptance: JSON, mapas, tablas, prosa ES/EN y verificadores coinciden con los dos casos v5 y conservan El Salvador fuera de la muestra sistemática.
+    authority: La selección es mecánica y no puede restaurarse manualmente para conservar casos narrativamente convenientes.
+    status: done
+    evidence: assets/data/thesis-extension-post2/cases.json, estilizada-manifest.json, posts ES/EN y gate browser 24/24 coinciden en Lo Barnechea, Lo Prado y El Salvador separado.
+  - id: E-38
+    source: user_policy_request
+    task: Fijar reglas de decisión para uso público con razonamiento deductivo, inductivo y abductivo.
+    status: done
+    evidence: DEC-REL-007 y contrato editorial revisión 16.
+  - id: E-39
+    source: policy_matrix
+    task: Reemplazar la sección de política por una matriz ES/EN de señal, evidencia, acción y salvaguarda.
+    status: done
+    evidence: _posts/2026-10-11-extender-tesis-no-es-agregar-anos.md y hermano EN.
+  - id: E-40
+    source: article_bridge
+    task: Sincronizar la ruta canónica, elevar el registro de claims a esquema 2 y diferir la evaluación causal a un producto futuro.
+    status: done
+    evidence: publication/article_claim_register.yaml, audit/article_product_claims.json y publication/release_program.yaml.
+  - id: E-41
+    source: tandem_review
+    task: Obtener revisión independiente de Claude sobre política, paridad, inferencia y alcance institucional.
+    status: done
+    evidence: Claude confirmó R2, falsó R1 por el orden de regeneración y después emitió APPROVE sobre el rojo-verde convergente freeze antes de article claims; respuesta SHA-256 80f2f95b8ebdbb9f023b0ccd3f95f1750559f011324fedaff3437bd8fb9e0058.
+  - id: E-42
+    source: release_candidate
+    task: Construir candidato local limpio y ejecutar gates científicos, Jekyll, artefacto, navegador y preview privado.
+    status: done
+    evidence: Worktree basado en b2957178 común a GitLab/GitHub; 71 rutas, freeze y claims vigentes, semántica, tres bundles Vite, Jekyll, artefacto 70.884.482 bytes/1.506 entradas y navegador 24/24+12/12+2/2 en exit 0.
+    unblock_condition: E-41 adjudicada y suites integrales verdes sobre el mismo candidato.
+  - id: E-43
+    source: public_parity
+    task: Verificar paridad de artefacto y URL pública después de un despliegue autorizado.
+    status: blocked
+    blocker: No existe autorización de push o despliegue.
+    unblock_condition: EXT ejecutada con autorización explícita y URL pública observable.
+  - id: E-44
+    source: editorial_state
+    task: Cambiar AP-017 a PUBLICATION_VERIFIED solo después de observar la URL pública canónica.
+    status: blocked
+    blocker: PUBLICATION_PENDING es el estado factual mientras no exista despliegue verificado.
+    unblock_condition: E-43 verde sobre ES/EN públicas.
+
+drifts:
+  - id: D-01
+    observed: El contrato de publicación decía complete antes de los cambios visuales y del nuevo caso.
+    impact: Sus hashes y recibos ya no prueban el estado actual.
+    repair: Reabrir contrato, regenerar recibos y no citar el gate anterior como vigente.
+    status: repaired_pending_rereview
+  - id: D-02
+    observed: Las capturas y el gate Playwright corresponden al visor negro anterior.
+    impact: No validan la nueva dirección estética.
+    repair: Repetir matriz de tema, idioma y viewport.
+    status: repaired
+  - id: D-03
+    observed: El caso El Salvador fue propuesto después de congelar dos mapas sistemáticos.
+    impact: Incorporarlo silenciosamente produciría selección ex post.
+    repair: Tratarlo como caso del autor, con rótulo y carril inferencial separado.
+    status: repaired
+  - id: D-04
+    observed: El recuerdo atribuye el cierre a menos estudiantes y un destino escolar específico.
+    impact: La matrícula no basta para demostrar ni la decisión administrativa ni el traslado.
+    repair: Buscar documento contemporáneo; degradar wording si no aparece.
+    status: bounded
+  - id: D-05
+    observed: El Directorio MINEDUC ubicó el RBD 390 en Diego de Almagro hasta 2019 y en El Salvador desde 2020.
+    impact: Usar la coordenada antigua dibujaría una relación espacial falsa de aproximadamente 43 km.
+    repair: Usar coordenada oficial 2020, contrastarla con Diego Portales 1510 y divulgar la deriva.
+    status: repaired
+  - id: D-06
+    observed: El evento El Salvador ocurrió al terminar 2013 y la muestra sistemática de eventos comienza en 2015.
+    impact: No pertenece al universo de selección de los otros tres ejemplos.
+    repair: Mantenerlo fuera del carrusel y rotularlo como caso documentado del autor.
+    status: repaired
+  - id: D-07
+    observed: La Escuela N1 es receptora de una fusión, no una escuela nueva.
+    impact: Presentarla como apertura falsearía el mecanismo institucional.
+    repair: Incorporar un rol receiver distinto de entry en mapa, tabla, leyenda y narrativa.
+    status: repaired
+  - id: D-08
+    observed: El salto de matrícula de RBD 390 en 2014 es consistente con la fusión, pero no identifica destinos individuales.
+    impact: No puede afirmarse que cada estudiante cerrado terminó en RBD 390.
+    repair: Hablar de cursos derivados y cambio agregado; reservar destinos individuales como no verificados.
+    status: bounded
+  - id: D-09
+    observed: El gate visual trataba 2500 palabras como techo rígido aunque el caso documentado agrega sustancia pública pertinente.
+    impact: Un criterio de concisión podía bloquear evidencia útil sin detectar una falla metodológica o de UX.
+    repair: Medir y reportar longitud como advertencia blanda; conservar como duros causalidad, paridad, accesibilidad, overflow y trazabilidad.
+    status: repaired
+  - id: D-10
+    observed: El texto decía que la disponibilidad de resultados precedía toda selección, pero el algoritmo elige primero una familia educativa; Rancagua entra sin puntajes observables.
+    impact: La explicación podía hacer parecer que ambos ejemplos sobrevivían por resultados observados.
+    repair: Publicar el orden completo, declarar que los valores nunca intervienen y rotular la ausencia de puntajes en Rancagua.
+    status: repaired
+  - id: D-11
+    observed: El visor podía mover verticalmente la página al activar un tab y quedaba inerte si fallaba el módulo o WebGL.
+    impact: La experiencia degradaba navegación y accesibilidad aunque la ruta principal cargara bien.
+    repair: Centrar tabs solo con scroll horizontal y ofrecer fallback estático no interactivo en ambos fallos.
+    status: repaired
+  - id: D-12
+    observed: El freeze conservaba revisión 3 después de reducir los casos sistemáticos de tres a dos.
+    impact: Un hash nuevo sin cambio de revisión ocultaba una modificación material de alcance.
+    repair: Elevar a revisión 4, serializar el historial 3→2 y falsar su ausencia.
+    status: repaired
+  - id: D-13
+    observed: Axe clasificó tres contrastes como inconclusos cuando el contenido estaba fuera del viewport, sin reportar violaciones.
+    impact: El recibo 0/0 no era reproducible con un viewport corto aunque colores y fondos fueran válidos.
+    repair: Usar superficies opacas y un viewport completo para el gate semántico; conservar la matriz responsiva separada para geometría real.
+    status: repaired
+  - id: D-14
+    observed: El tablero global de investigación aún bloquea Post II por el contrato editorial antiguo, aunque el contrato nuevo y el QA local existen.
+    impact: La vista terminal global subestima el avance editorial y mezcla el cierre técnico del Post II con la revisión científica R-007 todavía abierta.
+    repair: En el nuevo chat, reconciliar publication/release_program.yaml con este plan sin declarar resuelto R-007 ni saltarse la revisión humana.
+    status: repaired
+  - id: D-15
+    observed: La regla v5 amplió de 119 a 389 las entradas con coordenada elegible y cambió ambos casos sistemáticos a Lo Barnechea y Lo Prado.
+    impact: Las cifras, nombres, trayectorias, mapas y gates vigentes del blog ya no representan la salida preregistrada.
+    repair: Tratar los artefactos actuales como obsoletos, actualizar todas las superficies en F7-F9 y no seleccionar ex post los casos anteriores.
+    status: repaired
+
+gates:
+  - id: G-VISUAL
+    status: done
+    red_probe: Forzar ancho, tamaño o contraste fuera de umbral debe producir exit distinto de cero.
+    green: ES y EN, claro y oscuro, 390/1440/1920px cumplen tamaño, contraste y overflow.
+  - id: G-ELSALVADOR
+    status: done
+    red_probe: Un RBD ambiguo, anexo, cierre no estricto o destino no documentado impide el claim fuerte.
+    green: Identidad y cronología verificadas; cada afirmación conserva su clase epistémica.
+  - id: G-ELSALVADOR-SEPARATION
+    status: done
+    red_probe: Añadir el caso al arreglo o al contador de la selección sistemática debe producir exit distinto de cero.
+    green: Dos mapas permanecen sistemáticos y El Salvador aparece solo como caso autoral documentado.
+  - id: G-COORDINATE-CAVEAT
+    status: done
+    red_probe: Alimentar la coordenada 2019 del RBD 390 debe fallar por incompatibilidad con localidad, dirección y distancia.
+    green: El render usa la coordenada oficial 2020 y conserva la advertencia de procedencia.
+  - id: G-LENGTH-FLEXIBILITY
+    status: done
+    red_probe: Una versión extensa con contenido trazable debe atravesar el verificador semántico y emitir post-above-soft-word-target.
+    green: No existe máximo duro de palabras o caracteres; se conserva solo el mínimo contra truncamiento y la advertencia editorial.
+  - id: G-PARITY
+    status: done
+    red_probe: Mutar 665 a 664, retirar el caso o insertar un campo público no autorizado debe fallar.
+    green: ES y EN tienen multiconjuntos numéricos idénticos y ambos JSON pasan whitelists compartidas.
+  - id: G-RELEASE
+    status: active_pending_human_review
+    red_probe: Un cambio posterior invalida hashes o recibos previos.
+    green: Build limpio, artefacto, QA visual, revisión adversarial y aprobación humana actuales.
+
+execution:
+  baseline:
+    - F0
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5a
+    - F5b
+    - F6
+    - F10a
+    - F7
+    - F8a
+    - F8b
+    - F9
+    - H0
+    - F11
+    - G-ANCHOR
+    - F10b
+    - F12
+    - F13
+    - F14
+    - F15
+    - EXT
+    - EXT-D
+  items:
+    - id: F0
+      status: done
+      step: Custodia del estado inicial y materialización de la revisión 8.
+      deps: []
+      verification:
+        kind: command
+        ref: PLAN_STATE_VALID revision=8 items=23; git bundle verify exit 0; sha256sum -c exit 0.
+    - id: F1
+      status: done
+      step: Registro PH-01 a PH-18 y verificador del plan vivo.
+      deps: [F0]
+      verification:
+        kind: red_green
+        ref: Seis self-tests EXPECTED_FAIL exit 1; sintaxis y validación draft exit 0.
+    - id: F2
+      status: done
+      step: Gates del blog y contrato de auditoría geográfica.
+      deps: [F1]
+      verification:
+        kind: red_green
+        ref: 15 pytest + spec + Ruff exit 0; cinco probes geo exit 2; cuatro self-tests blog exit 1. Sello contractual exit 1 esperado por lifecycle active hasta F6.
+    - id: F3
+      status: done
+      step: Preflight de stata08 y Nominatim estrictamente de solo lectura.
+      deps: [F2]
+      verification:
+        kind: remote_red_green
+        ref: remote exit 0; full avg60 6,75 %; filesystem 85 %; health OK; read_only on; CREATE TABLE EXPECTED_FAIL; relación ausente.
+    - id: F4
+      status: done
+      step: Inventarios OSM, polígonos comunales y Directorio oficial.
+      deps: [F3]
+      verification:
+        kind: command
+        ref: OSM y MINEDUC inventariados exit 0; DPA local 345/345 geometrías válidas y CUT únicas; transformación EPSG:5360 a 4326 exit 0; sin descarga.
+    - id: F5a
+      status: done
+      step: Regeneración de pares con spec v5 preregistrada.
+      deps: [F4]
+      preregistered_spec_sha256: 253f6f2a9dc5bb3588b9cb39986e951b727d51cb6e4e1640c865535520098423
+      verification:
+        kind: red_green
+        ref: Build exit 0; 11 pytest, validación idempotente y Ruff exit 0; probes outcome-selected y privacy-leak EXPECTED_FAIL exit 1.
+    - id: F5b
+      status: done
+      step: Extracción OSM, matching y adjudicación.
+      deps: [F4, F5a]
+      verification:
+        kind: remote_red_green
+        ref: >-
+          El extractor se observó rojo con full avg60 66,05 % y no ejecutó SQL; después,
+          con preflight admisible y Nominatim read_only=on, extrajo 18.588 candidatos y
+          cerró matching, distancias geodésicas, duplicados, saltos y 126 adjudicaciones.
+    - id: F6
+      status: done
+      step: Auditoría, resumen público y resolución de licencia.
+      deps: [F5b]
+      verification:
+        kind: red_green
+        ref: >-
+          22 pytest, cinco probes esperados exit 2, validación pública, Ruff y contrato
+          school-coordinate-osm-audit exit 0; búsqueda de identificadores, coordenadas,
+          nombres y rutas privadas sin coincidencias.
+    - id: F10a
+      status: done
+      step: Freeze científico revisión 5 y release program.
+      deps: [F6]
+      verification:
+        kind: red_green
+        ref: >-
+          Freeze revisión 5 fija 58 artefactos, 15 claims y la auditoría geográfica;
+          17 pruebas, nueve probes exit 2, Ruff, validación y contrato exit 0. Release
+          program observado rojo y luego verde con 19 pruebas, seis probes exit 2,
+          DEC-REL-005/006 y R-007 bloqueando solo TASK-F10-ARTICLE-FINAL.
+    - id: F7
+      status: done
+      step: Recuadro y anexo técnico ES/EN.
+      deps: [F6]
+      verification:
+        kind: red_green
+        ref: >-
+          Canario combined_row_level_csv_published=true devolvió EXPECTED_FAIL exit 1;
+          generador y check del JSON agregado, anexo ES/EN, metadatos, enlaces cruzados,
+          atribución OSM/ODbL, Ruby syntax y Ruff terminaron exit 0.
+    - id: F8a
+      status: done
+      step: Expectativas v10 con caso rojo observado antes de editar.
+      deps: [F10a]
+      verification:
+        kind: gate_red
+        ref: >-
+          Contrato elevado a revisión 10 y verificador fijado al freeze revisión 5,
+          Lo Barnechea/Lo Prado, selección sin resultados y auditoría agregada; ejecución
+          previa al reemplazo terminó exit 1 por dos fuentes ES con la misma identidad.
+    - id: F8b
+      status: done
+      step: Reemplazo integral del Post II ES desde el borrador revisado.
+      deps: [F8a, F7]
+      verification:
+        kind: red_green
+        ref: >-
+          La copia conflictiva del draft se retiró después del rojo documentado; el post
+          ES canónico pasó gate semántico y prepublicación source exit 0. La advertencia
+          de 3.020 palabras es blanda y el source retirado permanece recuperable desde F0.
+    - id: F9
+      status: done
+      step: Hermano EN con paridad numérica y epistémica.
+      deps: [F8b]
+      verification:
+        kind: command
+        ref: >-
+          Gate EN, paridad numérica, verificador completo y prepublicación source exit 0;
+          seis visuales y seis visuales estilizadas coinciden. EN conserva advertencia
+          blanda de 2.991 palabras.
+    - id: H0
+      status: done
+      step: Confirmación autoral de financiamiento, vínculos y uso de IA.
+      deps: [F8b]
+      verification:
+        kind: human
+        ref: Aprobación literal ES/EN recibida el 2026-10-11 e incorporada en ambos posts.
+    - id: F11
+      status: done
+      step: Gates nuevos observados rojo y luego verde con receipts.
+      deps: [F9]
+      verification:
+        kind: red_green
+        ref: >-
+          evidence/F11-red-green-20261011.md: 20 canarios semánticos, cinco de
+          prepublicación y seis del plan terminaron EXPECTED_FAIL exit 1; ejecuciones
+          normales de plan, source, annex y semántica completa terminaron exit 0.
+    - id: G-ANCHOR
+      status: done
+      step: Commits temáticos locales de investigación y freeze definitivo.
+      deps: [F11, H0]
+      verification:
+        kind: command
+        ref: >-
+          Commits locales 6ecb192, 5caf912, e6a0bb7 y 38a31d7; el freeze 15eee9b registra
+          135/135 rutas científicas limpias en 38a31d7, 58 artefactos y 15 claims. El estado
+          OPEN_PENDING_HUMAN_COMMIT_RECEIPT se conserva como límite del snapshot, no como
+          negación de los commits observados.
+    - id: F10b
+      status: done
+      step: Contrato del blog revisión 11 y hashes definitivos.
+      deps: [G-ANCHOR]
+      verification:
+        kind: command
+        ref: Contrato revisión 11 fija posts, anexos, JSON público, verificadores, fuentes visuales, manifiestos y freeze; plan-state mutable se excluye del hash para evitar autorreferencia.
+    - id: F12
+      status: done
+      step: Suites científicas, editoriales, visuales y de accesibilidad.
+      deps: [F10b]
+      verification:
+        kind: red_green
+        ref: >-
+          evidence/F12-validation-20261011.md: freeze y auditoría científica, source health,
+          TypeScript/Vitest/Vite, Jekyll y artefacto exit 0; 24/24 páginas, 12/12 SVG,
+          2/2 fallbacks y Axe ES/EN 0 violaciones, 0 inconclusos después de rojos reales.
+    - id: F13
+      status: done
+      step: R3 de Claude en solo lectura sobre hashes finales.
+      deps: [F12]
+      verification:
+        kind: peer_review
+        ref: evidence/F13-claude-r3-20261011.md; REQUEST_CHANGES con 13 hallazgos custodiados literalmente.
+    - id: F14
+      status: done
+      step: Reparaciones proporcionales y rerevisión estrecha.
+      deps: [F13]
+      verification:
+        kind: adversarial_adjudication
+        ref: evidence/F14-adjudication-public-readiness-20261011.md; H-01 a H-12 corregidos y H-13 parcial no bloqueante.
+    - id: F16
+      status: done
+      step: Commit local selectivo del blog y paquete de preview para revisión.
+      deps: [F14]
+      cause: La persona usuaria autorizó explícitamente el commit local y pidió un enlace de revisión, sin push ni despliegue público.
+      verification:
+        kind: git_commit_and_review_handoff
+        ref: >-
+          c88efe28e342c88bd2c88ec439787ece9984d124 y aad41b4a; preview
+          3cucharadas-post2-preview activo solo en una direccion Tailnet privada, rutas ES/EN
+          observadas HTTP 200 y tg_notify.sh confirmó telegram-sent.
+    - id: F17
+      status: done
+      step: Corregir procedencia editorial y fecha de los posts desde el borrador autoral revisado.
+      deps: [F16]
+      emergent: true
+      cause: La revisión humana detectó que F8b y F9 habían usado el post antiguo como base efectiva y conservado la identidad 2026-09-17.
+      verification:
+        kind: red_green_and_build
+        ref: >-
+          Los posts ES/EN fueron reconstruidos desde el borrador autoral de 2026-10-11,
+          la identidad antigua fue retirada y los gates semántico, de prepublicación,
+          custodia, source health, Jekyll y artefacto terminaron exit 0; el gate semántico
+          rechazó antes una fecha 2026-09-17 y el de custodia rechazó un draft duplicado.
+    - id: F18
+      status: done
+      step: Investigar y adjudicar los 18 placeholders, corregir procedencia visual y optimizar medida tipográfica y panel cartográfico.
+      deps: [F17]
+      emergent: true
+      cause: La persona usuaria pidió una publicación robusta, sin placeholders pendientes y con estándar científico y visual alto.
+      verification:
+        kind: evidence_and_red_green
+        ref: >-
+          evidence/F18-placeholder-publication-audit-20261011.md; canarios prose-measure y
+          scroll-jump EXPECTED_FAIL exit 1; matriz final 24/24 páginas, 12/12 SVG y 2/2
+          fallbacks exit 0; axe ES/EN nocturno 0 violaciones y 0 inconclusos; prosa 720 px
+          dentro de artículo de 796 px a viewport 1440 px.
+    - id: F19
+      status: done
+      step: Reparar derivas adversariales y renovar el preview HTTPS privado.
+      deps: [F18]
+      emergent: true
+      cause: La auditoría independiente detectó contradicción en MR2, evidencia SLEP errónea, una medición tipográfica vacía y metadatos Tailnet versionados.
+      verification:
+        kind: red_green_and_peer_review
+        ref: >-
+          evidence/F19-adversarial-closeout-20261012.md; MR2 conserva NOT_ESTIMABLE sin
+          publicar seis puntos subsoportados; el artefacto excluye dos SVG MR2 retirados;
+          PH-10 usa slep_transfer_schedule.yaml; los canarios de prosa y scroll fallan
+          por causas exactas; build, artefacto, prepublicación, matriz HTTPS y rerevisión
+          Claude APPROVE terminaron verdes.
+    - id: E-38
+      status: done
+      step: Fijar alcance, actores, errores de focalización y teoría de cambio.
+      deps: [F19]
+      verification:
+        kind: decision
+        ref: DEC-REL-007 y contrato editorial revisión 16.
+    - id: E-39
+      status: done
+      step: Integrar matriz de apoyo a la decisión con paridad ES/EN.
+      deps: [E-38]
+      verification:
+        kind: red_green
+        ref: Gate normal exit 0; canarios policy-auto-close y policy-slep-scope EXPECTED_FAIL exit 1.
+    - id: E-40
+      status: done
+      step: Sincronizar claims, ruta canónica y destino del artículo futuro.
+      deps: [E-39]
+      verification:
+        kind: red_green
+        ref: Ruta obsoleta exit 2; cinco canarios epistémicos exit 1; 15 pruebas, validador, Ruff y release program exit 0.
+    - id: E-41
+      status: done
+      step: Revisión Claude en solo lectura sobre política y convergencia de derivados.
+      deps: [E-40]
+    - id: E-42
+      status: done
+      step: Candidato limpio, gates integrales y preview privado vigente.
+      deps: [E-41]
+      verification:
+        kind: clean_candidate_and_integrated_gate
+        ref: >-
+          Worktree desde b2957178 común a ambos remotos; freeze, claims, semántica,
+          Vite, Jekyll, artefacto y navegador exit 0; evidence/F21-release-candidate-20261012.md.
+    - id: F15
+      status: blocked
+      step: Revisión humana del preview bilingüe.
+      deps: [E-42]
+      blocker:
+        kind: human_checkpoint
+        unblock: E-42 verde y aprobación humana H1 sobre el preview vigente.
+    - id: EXT
+      status: blocked
+      step: Push y despliegue público del blog.
+      deps: [F15]
+      blocker:
+        kind: decision
+        unblock: Autorización explícita posterior a H1 y rama pública sin el commit histórico que contiene metadatos Tailnet.
+    - id: EXT-D
+      status: blocked
+      step: Difusión conjunta de los Posts I y II.
+      deps: [EXT]
+      blocker:
+        kind: decision
+        unblock: Post en vivo y autorización específica de difusión.
+    - id: E-43
+      status: blocked
+      step: Verificación de paridad pública ES/EN y artefacto.
+      deps: [EXT]
+      blocker:
+        kind: external_state
+        unblock: Despliegue autorizado y URL pública observable.
+    - id: E-44
+      status: blocked
+      step: Promover AP-017 de PUBLICATION_PENDING a PUBLICATION_VERIFIED.
+      deps: [E-43]
+      blocker:
+        kind: evidence
+        unblock: Paridad pública verificada sin depender de recibos históricos.
+  decisions:
+    - id: DEC-SOURCE-CORRECTION
+      by: human
+      binding: true
+      affects: [F17, F15]
+      chosen: Integrar los hallazgos en el borrador autoral revisado de 2026-10-11 y retirar los posts basados en la versión antigua.
+    - id: DEC-BASE
+      by: human
+      binding: true
+      affects: [F8b, F9]
+      chosen: _drafts/2026-10-11-tesis-continuacion-post-II.md
+    - id: DEC-DATE
+      by: human
+      binding: true
+      affects: [F8b, F9]
+      chosen: "2026-10-11"
+    - id: DEC-COORDINATES
+      by: human
+      binding: true
+      affects: [F5a]
+      chosen: Primera coordenada oficial válida entre t y 2025.
+    - id: DEC-ANCHOR
+      by: human
+      binding: true
+      affects: [G-ANCHOR]
+      chosen: Commit local de investigación antes de R3 con scope completo.
+    - id: DEC-DIFFUSION
+      by: human
+      binding: true
+      affects: [EXT-D]
+      chosen: LinkedIn ES, Bluesky, Mastodon y X manual como pieza conjunta de la serie.
+    - id: DEC-NAS
+      by: human
+      binding: true
+      affects: [F3, F5b]
+      chosen: No tocar /mnt/nas05.
+    - id: DEC-H0
+      by: human
+      binding: true
+      affects: [H0, E-34, G-ANCHOR]
+      chosen: Aprobar literalmente las declaraciones ES/EN de financiamiento, vínculos y uso de IA; continuar hasta commit local y preview de revisión por tailnet.
+    - id: DEC-REL-005
+      by: human
+      binding: true
+      affects: [F8b, F9, F10b]
+      chosen: Reemplazo integral del Post II, R-007 desacoplada del blog y título amplio con frontera causal visible.
+    - id: DEC-REL-006
+      by: human
+      binding: true
+      affects: [F4, F5b, F6, F7]
+      chosen: Cobertura nacional vigente para todas las dependencias y producto público limitado a recuadro más anexo bilingüe.
+  events:
+    - at: "2026-10-11T17:52:04-03:00"
+      kind: baseline
+      text: Revisión 8 congelada desde el handoff revisado por Claude y aceptada por la persona usuaria.
+    - at: "2026-10-11T17:52:04-03:00"
+      kind: handoff
+      text: Claude Code Opus 5.5 entrega la integración a Codex gpt-5.6-sol; Claude queda como par R3.
+    - at: "2026-10-11T17:54:00-03:00"
+      kind: progress
+      text: F0 verificado con YAML válido, bundle completo y hashes de custodia coincidentes.
+    - at: "2026-10-11T17:57:09-03:00"
+      kind: progress
+      text: F1 cerrada con PH-01 a PH-18, E-21 a E-34, DEC-REL-005/006 y seis reglas del verificador observadas rojo y luego verde.
+    - at: "2026-10-11T18:00:56-03:00"
+      kind: progress
+      text: F2 cerrada con gates editoriales falsados y contrato geográfico activo; 15 pruebas y cinco canarios prueban reglas antes de extraer.
+    - at: "2026-10-11T18:02:17-03:00"
+      kind: progress
+      text: F3 cerrada en stata08 sin tocar el NAS; PSI y capacidad aceptables, Nominatim sano y guarda SQL observada roja y verde.
+    - at: "2026-10-11T18:06:15-03:00"
+      kind: finding
+      text: F4 inventarió OSM y MINEDUC; el diccionario separa 12.038 funcionando de 78 autorizados sin matrícula y las capas comunales locales carecen de polígonos.
+    - at: "2026-10-11T18:11:03-03:00"
+      kind: decision
+      text: La persona usuaria autorizó buscar DPA en /home/ende y descargar solo si era necesario; Avalúos ya conservaba el ZIP oficial, validado sin nueva descarga.
+    - at: "2026-10-11T18:11:03-03:00"
+      kind: progress
+      text: "F4 cerrada con DPA 2023 local: 345 geometrías válidas, Antártica 12202 fuera de cobertura y clasificada como no evaluable."
+    - at: "2026-10-11T18:11:57-03:00"
+      kind: preregistration
+      text: Spec stylized v5 fijada antes de ejecutar con coordenada de entrada oficial futura, exclusión por salto posterior y selección sin resultados.
+    - at: "2026-10-11T18:20:08-03:00"
+      kind: progress
+      text: F5a cerrada; 38 pares y 389 entradas ubicables cambian los casos sistemáticos a Lo Barnechea y Lo Prado sin usar valores ni disponibilidad de resultados.
+    - at: "2026-10-11T18:20:08-03:00"
+      kind: gate_red
+      text: F5b no extrae OSM porque el preflight vivo registró full avg60 27,41 %, sobre el máximo preregistrado de 20 %.
+    - at: "2026-10-11T19:00:33-03:00"
+      kind: progress
+      text: F5b cerrada con 18.588 candidatos OSM, 6.601 establecimientos con match, distancias geodésicas corregidas y 126 adjudicaciones conservadoras; ningún error oficial quedó confirmado.
+    - at: "2026-10-11T19:00:33-03:00"
+      kind: progress
+      text: F6 cerrada con auditoría pública agregada, atribución OSM/ODbL, exclusión de la tabla combinada y contrato observado rojo y verde; F10a queda activa.
+    - at: "2026-10-11T19:07:28-03:00"
+      kind: progress
+      text: F10a cerrada con freeze revisión 5 y release program reconciliado; R-007 permanece abierto para el artículo, no bloquea F8/F12, y D-14 queda reparada tras release-validate y release-status exit 0.
+    - at: "2026-10-11T19:11:35-03:00"
+      kind: progress
+      text: F7 cerrada con recuadro bilingüe, anexo ES/EN y JSON agregado reproducible; el gate rechazó una superficie fila a fila y conservó atribución OSM/ODbL. F8a queda activa.
+    - at: "2026-10-11T19:14:09-03:00"
+      kind: gate_red
+      text: F8a fijó expectativas de revisión 10 y observó el gate rojo exit 1 por identidad ES duplicada entre draft y post antes de editar el contenido canónico; F8b queda activa.
+    - at: "2026-10-11T19:22:42-03:00"
+      kind: progress
+      text: F8b y F9 cerradas con posts canónicos ES/EN, identidad única, paridad numérica y epistémica, seis visuales más seis estilizadas y source/annex en verde; persisten solo advertencias blandas de extensión.
+    - at: "2026-10-11T19:22:42-03:00"
+      kind: red_green
+      text: F11 cerrada con 31 canarios observados en EXPECTED_FAIL exit 1 y cuatro superficies normales exit 0; receipt y hashes previos a H0 quedaron bajo custodia.
+    - at: "2026-10-11T19:27:00-03:00"
+      kind: decision
+      text: La persona usuaria aprobó literalmente H0, autorizó commits locales y pidió revisión pública potencial, preview por tailnet y aviso final por Telegram; push, despliegue y difusión pública permanecen fuera de alcance.
+    - at: "2026-10-11T19:27:00-03:00"
+      kind: progress
+      text: PH-18 y E-34 quedaron corregidos al incorporar declaraciones bilingües de financiamiento, vínculos y uso de IA; G-ANCHOR queda activo.
+    - at: "2026-10-11T19:34:00-03:00"
+      kind: progress
+      text: G-ANCHOR cerró con commits de investigación 6ecb192 y 5caf912; el freeze definitivo observa 135 rutas científicas limpias y conserva explícitamente sus gates abiertos.
+    - at: "2026-10-11T19:34:00-03:00"
+      kind: decision
+      text: F10b excluyó el PLAN_STATE mutable de su índice de hashes para evitar invalidación autorreferente y amplió el índice a todas las superficies estables de Post II; F12 queda activa.
+    - at: "2026-10-11T19:38:00-03:00"
+      kind: gate_red
+      text: F12 observó rojo en test_live_persisted_artifacts_validate porque el commit 5caf912 volvió obsoleta la observación Git del freeze; se regeneró b471c02 contra ese HEAD y se conservó el snapshot fuera de su propio scope para evitar autorreferencia infinita.
+    - at: "2026-10-11T20:18:00-03:00"
+      kind: gate_red
+      text: La matriz visual observó primero timeout por fetch cartográfico sin límite y luego 24 fallos market-map-case-switch-broken porque la comparación interna aún exigía Rancagua y La Reina; ambos defectos se repararon sin relajar la matriz.
+    - at: "2026-10-11T20:30:00-03:00"
+      kind: finding
+      text: La inspección de screenshots detectó que el inventario SVG del gate aún apuntaba a Rancagua y La Reina; se desplazó la auditoría a Lo Barnechea y Lo Prado antes de aceptar F12.
+    - at: "2026-10-11T20:34:00-03:00"
+      kind: red_green
+      text: F12 cerró con 24/24 páginas, 12/12 SVG vigentes, 2/2 fallbacks, Axe ES/EN 0/0 y builds verdes; los rojos de timeout, casos obsoletos, inventario SVG y contraste fueron reparados sin reducir cobertura. F13 queda activa.
+    - at: "2026-10-11T20:36:00-03:00"
+      kind: emergent
+      item: F16
+      cause: user
+      text: Se agrega commit local selectivo y paquete de preview después de F14; push y despliegue permanecen separados y bloqueados.
+    - at: "2026-10-11T21:22:00-03:00"
+      kind: peer_review
+      item: F13
+      text: Claude R3 terminó REQUEST_CHANGES con 13 hallazgos; se confirmó evidencia contraria en denominadores, claims MR1/MR3, plan H1, mapa, ruta EN y vigencia de receipts.
+    - at: "2026-10-11T21:30:00-03:00"
+      kind: red_green
+      item: F14
+      text: El H1 real se observó rojo por hash obsoleto y la primera matriz visual por expectativa editorial de cuatro respuestas; se desplazaron ambos contratos a la evidencia vigente sin reducir cobertura.
+    - at: "2026-10-11T21:36:00-03:00"
+      kind: progress
+      item: F14
+      text: F14 adjudicó H-01 a H-13, corrigió freeze revisión 6, denominador 12.116, mapa sin anécdotas académicas, literatura balanceada y permalink Polyglot; F16 queda activa.
+    - at: "2026-10-11T21:51:00-03:00"
+      kind: commit
+      item: F16
+      text: Commit local selectivo c88efe28 fijó el paquete bilingüe y sus gates; cuatro SVG obsoletos no rastreados de Rancagua y La Reina quedaron preservados y fuera del commit.
+    - at: "2026-10-11T22:21:00-03:00"
+      kind: external_handoff
+      item: F16
+      text: Tras autorización humana explícita, el servicio 3cucharadas-post2-preview quedó activo solo en una direccion Tailnet privada; ES y EN respondieron HTTP 200 y Telegram confirmó telegram-sent con ambos enlaces clicables.
+    - at: "2026-10-11T23:09:40-03:00"
+      kind: correction
+      item: F17
+      cause: user
+      text: La revisión humana invalidó la procedencia editorial de F8b/F9; se reconstruyeron ES y EN desde el borrador autoral revisado, se trasladó la identidad a 2026-10-11 y se retiraron las entradas antiguas sin push ni despliegue.
+    - at: "2026-10-11T23:15:36-03:00"
+      kind: peer_review_unavailable
+      item: F17
+      text: La revisión estrecha de Claude se intentó dos veces en modo solo lectura; el primer intento terminó EAI_AGAIN y el segundo no produjo respuesta tras más de cuatro minutos, por lo que se interrumpió y el cierre conserva esta revisión como parcial.
+    - at: "2026-10-11T23:25:00-03:00"
+      kind: progress
+      item: F18
+      cause: user
+      text: Los 18 placeholders fueron investigados y adjudicados; se corrigió la fuente INE de demografía, se acotó la prosa a 72ch y se amplió el panel cartográfico sin ejecutar sensibilidades pendientes ni ampliar claims.
+    - at: "2026-10-11T23:46:29-03:00"
+      kind: peer_review_unavailable
+      item: F18
+      text: Claude se invocó en solo lectura con PLAN_STATE v2 y HANDOFF-TRACE; el hook plan-board emitió EPERM y la sesión no respondió durante dos minutos, por lo que se interrumpió con exit 130 sin simular veredicto.
+    - at: "2026-10-12T07:41:29-03:00"
+      kind: drift_repair
+      item: F19
+      cause: independent_audit
+      text: La auditoría encontró dos restricciones duras y dos derivas medias; se retiraron los puntos MR2 subsoportados, se corrigió la evidencia SLEP, se endureció la medición tipográfica y se sanitizó el archivo vivo. El commit histórico con metadatos Tailnet bloquea cualquier push hasta preparar una historia pública limpia.
+    - at: "2026-10-12T07:55:18-03:00"
+      kind: peer_review
+      item: F19
+      text: Claude Opus 5.5 reprodujo matriz 24/24, medida 62 bloques con máximo 720px, canario de desplazamiento visual, poda MR2, paridad y hashes; emitió APPROVE. Su observación baja sobre el período 1992-2012 quedó refutada por las fuentes ES/EN actuales.
+    - at: "2026-10-12T08:38:00-03:00"
+      kind: decision
+      item: E-38
+      cause: user
+      text: La persona usuaria pidió reforzar el Post II y el artículo futuro para implementación de políticas públicas; se fijó apoyo a la decisión, no regla automática de cierre.
+    - at: "2026-10-12T08:46:00-03:00"
+      kind: red_green
+      item: E-40
+      text: La ruta obsoleta falló exit 2; cinco canarios epistémicos fallaron exit 1; registro esquema 2, programa editorial y gate bilingüe terminaron exit 0.
+    - at: "2026-10-12T09:19:00-03:00"
+      kind: peer_review
+      item: E-41
+      text: La rerevisión estrecha de Claude confirmó seis de siete remediaciones y emitió REQUEST_CHANGES por R1, derivado de claims obsoleto, y R2, límite SLEP todavía no falsable en ambos idiomas.
+    - at: "2026-10-12T09:26:46-03:00"
+      kind: red_green
+      item: E-41
+      text: Codex regeneró y validó claims y freeze; 22 pruebas y 18 pruebas de freeze pasaron, diez canarios de claims y siete de política dieron rojo, y el gate normal quedó verde con límites SLEP ES/EN.
+    - at: "2026-10-12T09:34:13-03:00"
+      kind: peer_review
+      item: E-41
+      text: Claude confirmó R2 cerrado y emitió REQUEST_CHANGES por R1; reconstruyó el audit y demostró que todavía retenía el hash del freeze anterior.
+    - at: "2026-10-12T09:34:45-03:00"
+      kind: red_green
+      item: E-41
+      text: Codex reprodujo 254 --validate en rojo exit 2, regeneró article claims después del freeze y observó verde exit 0; la validación del freeze permaneció verde.
+    - at: "2026-10-12T09:39:51-03:00"
+      kind: peer_review
+      item: E-41
+      text: Claude reprodujo claims y freeze en exit 0, verificó 37 hashes de evidencia, 20 hashes del contrato y ausencia de deriva; emitió APPROVE. E-42 quedó activo.
+    - at: "2026-10-12T09:49:57-03:00"
+      kind: validation
+      item: E-42
+      text: El candidato limpio basado en b2957178 pasó freeze, claims, semántica, tres bundles Vite, Jekyll, artefacto y navegador; 24 páginas, 12 SVG y dos fallbacks quedaron sin fallos.
+
+rollback:
+  - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
+  - Excluir el caso El Salvador si falla cualquier gate de identidad o cronología.
+  - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
+
+PLAN_STATE: v2
+HANDOFF-TRACE: "Claude entregó plan revisado -> Codex integró F19-F20 -> Claude falsó R1-R2 -> Codex cerró ambos en rojo-verde -> Claude APPROVE -> E-42 limpio y verde -> H1 pendiente; push, despliegue y difusión pública siguen bloqueados."

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="el-salvador-en-title el-salvador-en-desc">
+  <title id="el-salvador-en-title">El Salvador: a documented closure and merger</title>
+  <desc id="el-salvador-en-desc">Diagram of School No. 14 and School No. 1, 0.449 kilometres apart, with aggregate enrolment before and after the merger.</desc>
+  <metadata>{&quot;case_id&quot;: &quot;el-salvador&quot;, &quot;closure_rbd&quot;: 391, &quot;coordinate_caveat&quot;: &quot;El Directorio MINEDUC ubica erróneamente el RBD 390 en Diego de Almagro hasta 2019 y lo sitúa en El Salvador desde 2020. Para el mapa se usa la coordenada oficial 2020, coherente con la dirección institucional.&quot;, &quot;not_verified&quot;: [&quot;La baja de matrícula fue la razón administrativa decisiva del cierre.&quot;, &quot;Cada estudiante del RBD 391 se matriculó en el RBD 390.&quot;], &quot;receiver_coordinate_year&quot;: 2020, &quot;receiver_rbd&quot;: 390, &quot;sources&quot;: [&quot;https://www.bcn.cl/laborparlamentaria/documento?id=636175&quot;, &quot;https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf&quot;, &quot;https://fees.cl/wp-content/uploads/2020/03/Propuesta-Boletin_08_03_20_Final.pdf&quot;, &quot;https://datosabiertos.mineduc.cl/&quot;], &quot;status&quot;: &quot;documented_descriptive_case&quot;, &quot;systematic_sample_member&quot;: false}</metadata>
+  <defs>
+    <pattern id="rules-en" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M0 27.5H28" stroke="#94c5df" stroke-opacity=".25"/></pattern>
+    <style>
+      text { font-family: "Fira Sans", "Inter", "Aptos", sans-serif; fill: #26354c; }
+      .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 1.5px; fill: #096b83; }
+      .title { font-size: 29px; font-weight: 800; }
+      .school { font-size: 17px; font-weight: 800; }
+      .detail { font-size: 13px; fill: #566477; }
+      .metric { font-size: 27px; font-weight: 800; fill: #096b83; }
+      .label { font-size: 13px; fill: #566477; }
+      .note { font-size: 14px; font-weight: 650; }
+      .source { font-size: 11px; fill: #566477; }
+      .receiver-marker { font-size: 21px; font-weight: 850; fill: #096b83; }
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#fbf5e8"/>
+  <rect width="1200" height="720" fill="url(#rules-en)"/>
+  <line x1="46" y1="0" x2="46" y2="720" stroke="#c74e5c" stroke-opacity=".42"/>
+  <text x="76" y="48" class="eyebrow">AUTHOR CASE · OUTSIDE THE SYSTEMATIC SELECTION</text>
+  <text x="76" y="84" class="title">El Salvador: a documented closure and merger</text>
+  <rect x="58" y="122" width="682" height="448" rx="16" fill="#eef3ef" stroke="#a9b9c9"/>
+  <path d="M202 422 C315 360 420 303 574 244" fill="none" stroke="#16738a" stroke-width="4" stroke-dasharray="10 9"/>
+  <text x="328" y="318" class="detail">documented merger · 0.449 km</text>
+  <circle cx="202" cy="422" r="22" fill="#fffaf0" stroke="#b74765" stroke-width="5"/>
+  <path d="M191 411l22 22M213 411l-22 22" stroke="#b74765" stroke-width="5"/>
+  <text x="88" y="474" class="school">School No. 14 · RBD 391</text>
+  <text x="88" y="498" class="detail">Óscar Yáñez Pastén · closed at the end of 2013</text>
+  <rect x="552" y="222" width="44" height="44" rx="8" fill="#fffaf0" stroke="#096b83" stroke-width="5"/>
+  <text x="574" y="252" text-anchor="middle" class="receiver-marker">R</text>
+  <text x="466" y="184" class="school">School No. 1 · RBD 390</text>
+  <text x="410" y="208" class="detail">La Mina · 1510 Diego Portales · documented receiver</text>
+  <text x="80" y="528" class="detail">× closure · R receiving school</text>
+  <text x="80" y="552" class="source">Diagram of School No. 14 and School No. 1, 0.449 kilometres apart, with aggregate enrolment before and after the merger.</text>
+  <g><rect x="770" y="152" width="374" height="88" rx="12" fill="#fffaf0" stroke="#a9b9c9"/>
+    <text x="794" y="189" class="metric">1,399</text>
+    <text x="794" y="215" class="label">combined enrolment · 2004</text></g>
+  <g><rect x="770" y="262" width="374" height="88" rx="12" fill="#fffaf0" stroke="#a9b9c9"/>
+    <text x="794" y="299" class="metric">977</text>
+    <text x="794" y="325" class="label">combined enrolment · 2013</text></g>
+  <g><rect x="770" y="372" width="374" height="88" rx="12" fill="#fffaf0" stroke="#a9b9c9"/>
+    <text x="794" y="409" class="metric">−30.2%</text>
+    <text x="794" y="435" class="label">combined change · 2004–2013</text></g>
+  <g><rect x="770" y="482" width="374" height="88" rx="12" fill="#fffaf0" stroke="#a9b9c9"/>
+    <text x="794" y="519" class="metric">738</text>
+    <text x="794" y="545" class="label">School No. 1 enrolment · 2014</text></g>
+  <rect x="58" y="600" width="1086" height="58" rx="10" fill="#fffaf0" stroke="#b74765" stroke-width="2"/>
+  <text x="82" y="626" class="note">The preceding decline is consistent with demographic contraction; it does not prove the administrative motive for closure.</text>
+  <text x="82" y="647" class="source">BCN 2014 · FEES · MINEDUC directory and enrolment</text>
+</svg>
