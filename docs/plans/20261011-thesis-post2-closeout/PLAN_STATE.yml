@@ -669,8 +669,8 @@ emergent_tasks:
   - id: E-38
     source: user_policy_request
     task: Fijar reglas de decisión para uso público con razonamiento deductivo, inductivo y abductivo.
-    status: done
-    evidence: DEC-REL-007 y contrato editorial revisión 16.
+    status: implemented_pending_human_decision
+    evidence: La matriz ES/EN y sus canarios están implementados; DEC-REL-007 permanece pending con selected null y no acredita una decisión humana.
   - id: E-39
     source: policy_matrix
     task: Reemplazar la sección de política por una matriz ES/EN de señal, evidencia, acción y salvaguarda.
@@ -1082,12 +1082,12 @@ execution:
           por causas exactas; build, artefacto, prepublicación, matriz HTTPS y rerevisión
           Claude APPROVE terminaron verdes.
     - id: E-38
-      status: done
+      status: implemented_pending_human_decision
       step: Fijar alcance, actores, errores de focalización y teoría de cambio.
       deps: [F19]
       verification:
-        kind: decision
-        ref: DEC-REL-007 y contrato editorial revisión 16.
+        kind: implementation_with_open_human_decision
+        ref: Matriz ES/EN y canarios verdes; DEC-REL-007 sigue pending con selected null.
     - id: E-39
       status: done
       step: Integrar matriz de apoyo a la decisión con paridad ES/EN.

@@ -24,9 +24,9 @@ RESULTS_DIR = File.join(ROOT, "assets/images/extender-tesis-no-es-agregar-anos")
 RESULTS_MANIFEST_PATH = File.join(RESULTS_DIR, "resultados-manifest.json")
 STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
-STYLIZED_MANIFEST_SHA256 = "cb1c330df05a19c9cc7e24927dca33a6cfe29e9f8e7bec2074b20efdac6b5945"
+STYLIZED_MANIFEST_SHA256 = "3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "6a73845d9a9fb617eb2806703d303adb507fdd0829f01da18335cb3d068fd06f"
+FREEZE_SHA256 = "d5e09f142f0d37b47e291799a250e114816d90067108e6d94d090f7f248e1723"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 2_500
@@ -422,7 +422,12 @@ def check_author_case!(author_case, map_data, data, manifest, research_root)
   check_map_public_fields!(map_data)
   fail_unless(author_case.fetch("status") == "documented_descriptive_case", "El Salvador dejó de ser caso descriptivo documentado")
   selection = author_case.fetch("selection")
-  fail_unless(selection.fetch("systematic_sample_member") == false && selection.fetch("uses_outcomes") == false, "El Salvador contaminó la selección sistemática")
+  fail_unless(
+    selection.fetch("systematic_sample_member") == false &&
+      selection.fetch("selected_on_event") == true &&
+      selection.fetch("uses_measured_performance_outcomes") == false,
+    "El Salvador contaminó la selección sistemática"
+  )
   event = author_case.fetch("event")
   fail_unless(event.fetch("type") == "documented_closure_and_merger" && event.fetch("school_year") == 2014, "evento de El Salvador derivó")
   schools = author_case.fetch("schools")

@@ -10,7 +10,7 @@
   "generated_by": "scripts/render_thesis_extension_stylized.py",
   "generator": {
     "path": "scripts/render_thesis_extension_stylized.py",
-    "sha256": "ea50fa7f4573479eb929656d42bdf92cd829f1762be73b5486fe93e91cb0130e"
+    "sha256": "ded1d0e40773514ac7cb278de38aec6d409df7846379b0994b0e80ef0022278c"
   },
   "inputs": {
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/case_trajectory.csv": "97c300319c6c871583a66b801664f84d3081fc7293c55d8d314e98fd540e939a",
@@ -19,7 +19,7 @@
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_case_summary.csv": "af3c6281ea8d3ec7957dcfe77fd7795615e87971072360fc1b6a8ca51342b432",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_links.csv": "fb40b52295ac88875d1c512083e86097f90bfd5076a2f8b5a4587ee83c5886b2",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_points.csv": "10daceed8871bc6ddfa4b28b21a4dfe26495bcf4b404d725f51fd1825669e87f",
-    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "49d1bb91c60467ca6a647278791453579fac164a877101e6c66699fd1ab89b16"
+    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "e7f16e78e8bc78c7b7cc6cc275470280f7663742de2240ce5c382756be05dad8"
   },
   "outputs": {
     "_data/thesis_extension_stylized.yml": {
@@ -39,12 +39,12 @@
       "sha256": "53c6c59a99cc236ff742fc757752956ca7b65d87d459e5a171e101aaddced6b6"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-en.svg": {
-      "bytes": 5150,
-      "sha256": "72d0921ff0850eaf2343d9988b47af9c2352f444e2acba47d4935f9289f3ad3f"
+      "bytes": 5242,
+      "sha256": "4fffa9b66e2ffbf3472325aa1bef575a763ef777b6208d7d9f1620a68001dba4"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-es.svg": {
-      "bytes": 5186,
-      "sha256": "540fc41eeb4510edf9aa03fe48fe99025987e9b2d2efed1c05afa42a7ef1cd7e"
+      "bytes": 5278,
+      "sha256": "1d1c260e13fe068c65055d063f960877dcdb77e75a29a2adcd5091c287f565ed"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg": {
       "bytes": 6322,

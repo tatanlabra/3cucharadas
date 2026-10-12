@@ -377,7 +377,11 @@ def validate_author_case(case: Mapping[str, Any]) -> None:
     if case.get("status") != "documented_descriptive_case":
         raise ValueError("El Salvador dejó de ser un caso descriptivo documentado")
     selection = case["selection"]
-    if selection.get("systematic_sample_member") is not False or selection.get("uses_outcomes") is not False:
+    if (
+        selection.get("systematic_sample_member") is not False
+        or selection.get("selected_on_event") is not True
+        or selection.get("uses_measured_performance_outcomes") is not False
+    ):
         raise ValueError("El Salvador contaminó la selección sistemática")
     event = case["event"]
     if event.get("type") != "documented_closure_and_merger" or int(event.get("school_year", 0)) != 2014:
@@ -1102,6 +1106,10 @@ def render_author_case_map(case: Mapping[str, Any], lang: str) -> str:
             "case_id": case["case_id"],
             "status": case["status"],
             "systematic_sample_member": case["selection"]["systematic_sample_member"],
+            "selected_on_event": case["selection"]["selected_on_event"],
+            "uses_measured_performance_outcomes": case["selection"][
+                "uses_measured_performance_outcomes"
+            ],
             "closure_rbd": case["schools"]["closure"]["rbd"],
             "receiver_rbd": case["schools"]["receiver"]["rbd"],
             "receiver_coordinate_year": case["schools"]["receiver"]["coordinate_reference_year"],
