@@ -26,7 +26,7 @@ STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
 STYLIZED_MANIFEST_SHA256 = "cb1c330df05a19c9cc7e24927dca33a6cfe29e9f8e7bec2074b20efdac6b5945"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "3a519f16411b8a075b393bf7f625fdbc4e278830a67a353ca8dbf67e0e5653c9"
+FREEZE_SHA256 = "6a73845d9a9fb617eb2806703d303adb507fdd0829f01da18335cb3d068fd06f"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 2_500
@@ -198,6 +198,7 @@ end
 
 def check_frozen_files!(freeze, research_root)
   required = %w[
+    research/article_post2/el_salvador_author_case.yaml
     audit/post2_stylized_evidence.json
     audit/article_school_market_renewal_estimation.json
     audit/release_visuals_h1_h3.json
