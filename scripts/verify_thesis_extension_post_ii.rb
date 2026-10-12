@@ -26,7 +26,7 @@ STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
 STYLIZED_MANIFEST_SHA256 = "3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "d5e09f142f0d37b47e291799a250e114816d90067108e6d94d090f7f248e1723"
+FREEZE_SHA256 = "23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 2_500
@@ -76,7 +76,10 @@ EXPECTED_CLAIMS = {
   "SRF-008" => "NOT_SUPPORTED",
   "SRF-013" => "NOT_GRANTED",
   "SRF-014" => "NOT_IDENTIFIED",
-  "SRF-015" => "DESCRIPTIVE_AUDIT_WITH_CANDIDATE_LIMITS"
+  "SRF-015" => "DESCRIPTIVE_AUDIT_WITH_CANDIDATE_LIMITS",
+  "SRF-016" => "DESIGN_REJECTED_NO_SYNTHETIC_SUPPORT",
+  "SRF-017" => "EXPLORATORY_ONLY",
+  "SRF-018" => "EXPLORATORY_DDD_CAUSAL_BLOCKED"
 }.freeze
 EXPECTED_MR_CLAIM_STATEMENTS = {
   "SRF-004" => "MR1 estima SIMCE en +0,029 DE con un intervalo que cruza cero; admisión queda NOT_ESTIMABLE con ocho cierres.",
@@ -157,9 +160,11 @@ end
 
 def safe_source_path!(root, relative)
   canonical = Pathname.new(File.realpath(root))
-  candidate = Pathname.new(File.expand_path(relative, root))
+  candidate = canonical.join(relative).cleanpath
   fail_unless(candidate.to_s.start_with?("#{canonical}/"), "ruta fuente escapa raíz: #{relative}")
-  candidate.to_s
+  resolved = Pathname.new(File.realpath(candidate))
+  fail_unless(resolved.to_s.start_with?("#{canonical}/"), "ruta fuente escapa raíz: #{relative}")
+  resolved.to_s
 end
 
 def frozen_artifact_map(freeze)
@@ -168,9 +173,15 @@ end
 
 def check_freeze!(freeze)
   fail_unless(freeze.fetch("status") == "TECHNICAL_SNAPSHOT_WITH_OPEN_GATES", "estado del freeze científico derivó")
-  fail_unless(freeze.fetch("freeze_revision") == 6, "revisión del freeze científico derivó")
-  current = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 6 }
-  fail_unless(current && current.fetch("supersedes") == 5 && current.fetch("change").include?("claims MR1 y MR3"), "transición a revisión 6 ausente")
+  fail_unless(freeze.fetch("freeze_revision") == 9, "revisión del freeze científico derivó")
+  current = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 9 }
+  fail_unless(current && current.fetch("supersedes") == 8 && current.fetch("change").include?("no distinguible del azar") && current.fetch("change").include?("cambios de calendario posteriores"), "transición a revisión 9 ausente")
+  historical_rollout = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 8 }
+  fail_unless(historical_rollout && historical_rollout.fetch("supersedes") == 7 && historical_rollout.fetch("change").include?("14 clusters históricos") && historical_rollout.fetch("change").include?("Ñuble con Biobío"), "transición a revisión 8 ausente")
+  identification = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 7 }
+  fail_unless(identification && identification.fetch("supersedes") == 6 && identification.fetch("change").include?("SLEP v2") && identification.fetch("change").include?("triple diferencia SAE"), "transición a revisión 7 ausente")
+  mr_transition = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 6 }
+  fail_unless(mr_transition && mr_transition.fetch("supersedes") == 5 && mr_transition.fetch("change").include?("claims MR1 y MR3"), "transición a revisión 6 ausente")
   geographic = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 5 }
   fail_unless(geographic && geographic.fetch("supersedes") == 4 && geographic.fetch("change").include?("Lo Barnechea y Lo Prado"), "transición a revisión 5 ausente")
   transition = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 4 }
@@ -184,6 +195,9 @@ def check_freeze!(freeze)
   fail_unless(boundaries.fetch("causal_effect_identified") == false, "el freeze promovió causalidad")
   fail_unless(boundaries.fetch("creative_destruction_proven") == false, "el freeze promovió destrucción creadora")
   fail_unless(boundaries.fetch("mr2_global_status").values.all? { |value| value == "NOT_ESTIMABLE" }, "MR2 dejó de ser NOT_ESTIMABLE")
+  fail_unless(boundaries.fetch("slep_identification_status") == "DESIGN_REJECTED_NO_SYNTHETIC_SUPPORT", "SLEP v2 fue promovido pese al rechazo")
+  fail_unless(boundaries.fetch("slep_exploratory_status") == "EXPLORATORY_RESULTS_REPRODUCED_CAUSAL_BLOCKED", "SLEP v3 fue promovido a efecto")
+  fail_unless(boundaries.fetch("sae_ddd_status") == "EXPLORATORY_DDD_ESTIMATED_CAUSAL_BLOCKED", "SAE DDD fue promovido a efecto")
   claims = freeze.fetch("claims").to_h { |row| [row.fetch("claim_id"), row] }
   EXPECTED_CLAIMS.each do |claim_id, status|
     row = claims.fetch(claim_id)
@@ -201,6 +215,13 @@ def check_frozen_files!(freeze, research_root)
     research/article_post2/el_salvador_author_case.yaml
     audit/post2_stylized_evidence.json
     audit/article_school_market_renewal_estimation.json
+    audit/slep_identification_v2.json
+    audit/slep_discovery_v3.json
+    audit/sae_entry_grade_ddd_v1.json
+    reports/275_slep_identification_v2.md
+    reports/276_slep_discovery_v3.md
+    reports/317_sae_entry_grade_ddd_v1.md
+    research/article_post2/sae_entry_grade_ddd_v1.yaml
     audit/release_visuals_h1_h3.json
     audit/release_visuals_mr.json
     figures/post2_stylized_evidence/case_trajectory.csv
@@ -628,7 +649,15 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                  "21 y 8", "+0.029", "[-0.095; +0.158]", "4/6/8", "1/1/2", "38 cierres emparejados con 29 aperturas únicas",
                  "lo barnechea", "lo prado", "-0.000105", "+0.000113", "la consistencia schumpeteriana no queda apoyada",
                  "contrafactual", "no identifica el efecto de una modalidad de gestión", "estos datos no identifican el efecto causal", "3.081.791", "1.366.155", "55.7 %",
-                 "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2 %", "432 a 738", "no prueba que haya sido el motivo administrativo"
+                 "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2 %", "432 a 738", "no prueba que haya sido el motivo administrativo",
+                 "ninguna de las 25", "regla de soporte fijada en la especificación", "no mostraron capacidad predictiva distinguible del azar",
+                 "auc exacta fue 0.5341 con p=0.2195 de permutación", "53 de 70 territorios", "20 %",
+                 "hhi +0.0035", "log del número efectivo de escuelas -0.0042",
+                 "[-0.010368; +0.017395]", "[-0.026491; +0.018106]", "ñuble se agrupa con biobío",
+                 "magallanes se excluye", "solo dos de cuatro", "no acota el efecto de la política",
+                 "para cambios de calendario posteriores", "superan incluso los extremos de los intervalos de 2018",
+                 "fortalecerían, sin garantizar, una lectura causal de estos diseños",
+                 "la lectura correcta no es «los slep y el sae no tuvieron efecto»", "qué permite identificar la base actual"
                ]
              else
                [
@@ -636,14 +665,22 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                  "21 and 8", "+0.029", "[-0.095, +0.158]", "4/6/8", "1/1/2", "38 matched closures and 29 unique openings",
                  "lo barnechea", "lo prado", "-0.000105", "+0.000113", "do not support joint schumpeterian consistency",
                  "counterfactual", "these data do not identify the causal effect", "not causal effects", "3.081.791", "1.366.155", "55.7%",
-                 "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2%", "432 to 738", "does not prove it was the administrative motive"
+                 "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2%", "432 to 738", "does not prove it was the administrative motive",
+                 "none of the 25", "support rule fixed in the analysis specification", "showed no predictive ability distinguishable from chance",
+                 "exact auc was 0.5341 with permutation p=0.2195", "53 of 70 territories", "20%",
+                 "hhi +0.0035", "log effective number of schools -0.0042",
+                 "[-0.010368, +0.017395]", "[-0.026491, +0.018106]", "ñuble is pooled with biobío",
+                 "magallanes is excluded", "only two of four", "do not bound the policy effect",
+                 "for later schedule changes", "exceed even the bounds of the 2018 intervals",
+                 "would strengthen, not guarantee, a causal reading of these designs",
+                 "the correct reading is not “sleps and sae had no effect.”", "what the current data can identify"
                ]
              end
   required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
   forbidden = if lang == "es"
-                ["los cierres mejoraron", "destrucción creadora funcionó", "efecto causal está identificado", "la baja de matrícula causó el cierre", "primer estudio", "rancagua", "la reina", "deberían cerrar primero", "base administrativa suficiente", "saltar a un cierre es razonable", "gestiona toda la oferta comunal", "también toda la oferta de una comuna", "coordina la de los demás sostenedores de la comuna", "impactos ya observados"]
+                ["los cierres mejoraron", "destrucción creadora funcionó", "efecto causal está identificado", "la baja de matrícula causó el cierre", "primer estudio", "rancagua", "la reina", "deberían cerrar primero", "base administrativa suficiente", "saltar a un cierre es razonable", "gestiona toda la oferta comunal", "también toda la oferta de una comuna", "coordina la de los demás sostenedores de la comuna", "impactos ya observados", "soporte preregistrado", "regla de soporte preespecificada", "no predijeron mejor que el azar"]
               else
-                ["closures improved", "creative destruction worked", "causal effect is identified", "enrolment decline caused the closure", "first study", "rancagua", "la reina", "should close first", "sufficient administrative basis", "jumping to closure is reasonable", "manages every school in the commune", "and every school in the commune", "impacts already observed"]
+                ["closures improved", "creative destruction worked", "causal effect is identified", "enrolment decline caused the closure", "first study", "rancagua", "la reina", "should close first", "sufficient administrative basis", "jumping to closure is reasonable", "manages every school in the commune", "and every school in the commune", "impacts already observed", "preregistered support", "prespecified support rule", "predicted no better than chance"]
               end
   forbidden.each { |fragment| fail_unless(!lower.include?(fragment), "#{lang}: promoción causal prohibida: #{fragment}") }
   check_release_boundaries!(body, lang)
@@ -698,6 +735,44 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       mutant.fetch("claims").find { |row| row["claim_id"] == "SRF-006" }["statement"] = "MR3 entrega contribuciones positivas."
       expected = "SRF-006 derivó de la evidencia MR"
       check_freeze!(mutant)
+    when "policy-identification"
+      mutant = Marshal.load(Marshal.dump(freeze))
+      mutant.fetch("claims").find { |row| row["claim_id"] == "SRF-016" }["status"] = "NOT_IDENTIFIED"
+      expected = "SRF-016 derivó de DESIGN_REJECTED_NO_SYNTHETIC_SUPPORT"
+      check_freeze!(mutant)
+    when "policy-slep-predictive-null"
+      expected = "es: evidencia o cautela ausente: no mostraron capacidad predictiva distinguible del azar"
+      mutant = es_body.gsub(
+        "no mostraron capacidad predictiva distinguible del azar",
+        "predijeron qué territorios se traspasaron antes"
+      )
+      check_language!(es_front, mutant, "es", enforce_length: false)
+    when "policy-sae-interval-parity"
+      expected = "en: evidencia o cautela ausente: [-0.010368, +0.017395]"
+      mutant = en_body.gsub("[−0.010368, +0.017395]", "[−0.009893, +0.016919]")
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "policy-prespecified"
+      expected = "en: evidencia o cautela ausente: support rule fixed in the analysis specification"
+      mutant = en_body.gsub("support rule fixed in the analysis specification", "preregistered support")
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "policy-slep-source-scope"
+      expected = "en: evidencia o cautela ausente: for later schedule changes"
+      mutant = en_body.gsub("For later schedule changes", "For the cohorts analysed here")
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "policy-sae-margin-scope"
+      expected = "es: evidencia o cautela ausente: superan incluso los extremos de los intervalos de 2018"
+      mutant = es_body.gsub(
+        "superan incluso los extremos de los intervalos de 2018",
+        "son más amplios que las estimaciones puntuales"
+      )
+      check_language!(es_front, mutant, "es", enforce_length: false)
+    when "policy-design-specificity"
+      expected = "en: evidencia o cautela ausente: would strengthen, not guarantee, a causal reading of these designs"
+      mutant = en_body.gsub(
+        "would strengthen, not guarantee, a causal reading of **these designs**",
+        "are necessary for any causal result"
+      )
+      check_language!(en_front, mutant, "en", enforce_length: false)
     when "segment-closure"
       mutant = Marshal.load(Marshal.dump(audit))
       mutant.fetch("spatial")["exact_market_segment_required"] = false
