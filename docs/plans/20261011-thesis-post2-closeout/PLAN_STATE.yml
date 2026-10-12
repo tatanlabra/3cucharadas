@@ -1,19 +1,19 @@
 schema_version: 2
 plan_id: thesis-post2-closeout-20261011
-revision: 23
-updated_at: "2026-10-12T16:20:19-03:00"
-status: in_progress
+revision: 26
+updated_at: "2026-10-12T20:02:21-03:00"
+status: ready_for_human_review
 integrator: codex
-peer_review: claude-opus-e46-rereview-read-only
+peer_review: claude-opus-e47-r2-accept-with-caveats
 objective: >-
   Cerrar el Post II con evidencia científica congelada, relato bilingüe didáctico,
   visualización responsiva y una revisión humana informada, sin convertir asociaciones
   locales ni recuerdos del autor en afirmaciones causales.
 
 scope:
-  research_repo: incubadora/tesis_mae_mejorada@8a71aadb7017ef02833c961c463e97098cfa6d21
+  research_repo: incubadora/tesis_mae_mejorada@768a8595d843409de2d5ace0ef980b98470dc1b3
   research_branch: release/thesis-post-ii-science-20261012
-  blog_repo: activos/3cucharadas@8c1b0e11f7b8d3e17d360ba91ee29772b96d4567
+  blog_repo: activos/3cucharadas@c53a889bd04d569b7708638e4d0a03d5015f2505
   blog_branch: release/thesis-post-ii-public-clean-20261012
   authorized_local_actions: [edit, test, research_commit, blog_commit]
   external_actions: [telegram_review_notice]
@@ -42,6 +42,14 @@ invariants:
     rule: Cada figura nombra su fuente sustantiva; INE para demografía y MINEDUC para directorios, matrícula y resultados.
   - id: INV-11
     rule: La prosa conserva una medida máxima de 72ch en escritorio; visuales, tablas y notas técnicas pueden usar el ancho ampliado.
+  - id: INV-12
+    rule: Un diseño rechazado por falta de soporte sintético no acredita efecto cero ni ausencia de efecto SLEP.
+  - id: INV-13
+    rule: Los estimandos exploratorios SAE con intervalos que incluyen cero no acreditan efecto nulo ni causalidad identificada.
+  - id: INV-14
+    rule: La ausencia de capacidad predictiva SLEP distinguible del azar no acredita calendario exógeno ni ausencia de selección no observada.
+  - id: INV-15
+    rule: Una regla fijada en la especificación no se denomina preespecificada o preregistrada sin custodia temporal independiente anterior a la estimación.
 
 placeholder_registry:
   - id: PH-01
@@ -106,7 +114,7 @@ placeholder_registry:
     publication_blocking: true
     evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json]
     claim_action: Retirar MR2 subsoportado y distinguir NOT_ESTIMABLE de cero.
-    unblock_condition: Freeze revisión 6 y post sin puntos MR2 no estimables.
+    unblock_condition: Freeze revisión 9 y post sin puntos MR2 no estimables.
   - id: PH-08
     status: CORREGIDO
     target_status: CORREGIDO
@@ -115,7 +123,7 @@ placeholder_registry:
     publication_blocking: true
     evidence_paths: [../../incubadora/tesis_mae_mejorada/audit/article_school_market_renewal_estimation.json, ../../incubadora/tesis_mae_mejorada/audit/scientific_release_freeze.json]
     claim_action: Corregir signos e intervalos MR3 en freeze, figuras y prosa.
-    unblock_condition: Freeze revisión 6 y expectativas v11 coinciden con la estimación.
+    unblock_condition: Freeze revisión 9 y expectativas v11 coinciden con la estimación.
   - id: PH-09
     status: LIMITACION_DOCUMENTADA
     target_status: LIMITACION_DOCUMENTADA
@@ -244,11 +252,19 @@ phases:
   - id: P7
     name: Revisión humana y entrega externa
     status: blocked
-    evidence: H1 debe usar el candidato limpio revisión 20; push, despliegue y difusión requieren instrucciones posteriores explícitas.
+    evidence: H1 usa el candidato limpio revisión 23; push, despliegue y difusión requieren instrucciones posteriores explícitas.
   - id: P8
     name: Uso de política y puente científico
     status: done
     evidence: Matriz bilingüe, claims esquema 2, revisión Claude APPROVE y candidato limpio con suite integral exit 0.
+  - id: P9
+    name: Búsqueda causal SLEP y SAE
+    status: done
+    evidence: >-
+      SLEP v2 rechazó 25 de 25 comparaciones por falta de soporte; SLEP v3 estimó AUC 0,5341
+      con p=0,2195 y 53 de 70 unidades de alto solapamiento; SAE DDD estimó HHI +0,003513
+      y log del número efectivo -0,004192, ambos con intervalos que incluyen cero. Claude
+      emitió ACCEPT_WITH_CAVEATS y Codex adjudicó M1-M3, L1-L12 y V1-V3 en la revisión 9.
 
 tasks:
   - id: T-RESEARCH-FREEZE
@@ -417,13 +433,42 @@ tasks:
   - id: T-POLICY-PEER
     phase: P8
     class: planned
-    status: active
+    status: done
     acceptance: Claude revisa el diff actual en solo lectura y cada hallazgo material se corrige o refuta con evidencia.
   - id: T-CLEAN-CANDIDATE
     phase: P8
     class: planned
-    status: blocked
+    status: done
     acceptance: Rama candidata nace desde ambos main remotos actuales, excluye historia Tailnet y pasa gates científicos, Jekyll, artefacto y navegador.
+  - id: T-SLEP-IDENTIFICATION
+    phase: P9
+    class: planned
+    status: done
+    acceptance: SLEP v2/v3 separan rechazo de diseño, señal exploratoria y causalidad no identificada con soporte y sensibilidad reproducibles.
+    evidence: Research 768a859; 0/25 comparaciones sintéticas admisibles, AUC 0,5341, p=0,2195 y 53/70 unidades de alto solapamiento.
+  - id: T-SAE-DDD
+    phase: P9
+    class: planned
+    status: done
+    acceptance: La DDD fijada en la especificación conserva estimandos, intervalos, soporte regional, tendencias previas y oráculo R sin elevar exploración a causalidad.
+    evidence: Research 768a859; HHI +0,003513 [-0,010368; 0,017395] y log del número efectivo -0,004192 [-0,026491; 0,018106].
+  - id: T-FREEZE-R9
+    phase: P9
+    class: drift_guard
+    status: done
+    acceptance: El freeze revisión 9 fija SLEP/SAE, rechaza mutaciones epistémicas y su gate no modifica derivados.
+    evidence: SHA-256 23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348; 24 pruebas y 11 canarios rojos.
+  - id: T-POST2-CAUSAL-INTEGRATION
+    phase: P9
+    class: planned
+    status: done
+    acceptance: ES/EN explican resultados, límites, requisitos futuros y hoja de ruta con paridad material.
+  - id: T-CLAUDE-CAUSAL-REREVIEW
+    phase: P9
+    class: planned
+    status: done
+    acceptance: Claude revisa de forma independiente estimación, lenguaje causal, paridad y reproducibilidad; cada hallazgo material se corrige o refuta con evidencia.
+    evidence: REQUEST_CHANGES en R1; ACCEPT_WITH_CAVEATS en R2; M1-M3 aplicados y V1-V3 adjudicados con custodia de ambas respuestas.
 
 emergent_tasks:
   - id: E-01
@@ -724,6 +769,22 @@ emergent_tasks:
     authority: No se incorporan artefactos ni generadores concurrentes sin custodia o autorización de su propietario.
     evidence: docs/plans/20261011-thesis-post2-closeout/evidence/F23-e46-scientific-custody-and-causal-roadmap-20261012.md; research 8a71aadb7017ef02833c961c463e97098cfa6d21; blog 8c1b0e11f7b8d3e17d360ba91ee29772b96d4567; Claude ACCEPT_WITH_CAVEATS.
     caveats: [M3b_transitive_visual_hash_portability, F4_restorability_not_established, preexisting_313_schema_drift, future_git_topology_receipt_refresh]
+  - id: E-47
+    source: causal_ambition_review
+    task: Ejecutar los diseños SLEP y SAE estimables, congelar sus fronteras inferenciales e integrar resultados al Post II.
+    status: done_verified_local
+    cause: La persona usuaria pidió maximizar la búsqueda de causalidad sin confundir falta de soporte, imprecisión o señal predictiva con efecto causal.
+    impact: El Post II y el artículo futuro distinguen qué se aprendió, qué diseño falló y qué datos permitirían una evaluación causal más ambiciosa.
+    acceptance: Research limpio y reproducible; post ES/EN, contrato y freeze sincronizados; revisión Claude adjudicada; build y QA visual verdes.
+    evidence: research 768a8595d843409de2d5ace0ef980b98470dc1b3; freeze 23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348; Claude R2 1af9855610492d3738d8e36c4046cfbf76cbbc999e9e6f9399cb9ab79cc25b48; blog c53a889bd04d569b7708638e4d0a03d5015f2505.
+  - id: E-48
+    source: prepublication_canary_drift
+    task: Reparar el fixture annex-metadata para que falsifique metadatos y no falle antes por identidad de anexo.
+    status: done
+    cause: El fixture usaba ref audit en vez de auditoria-coordenadas-rbd y nunca alcanzaba la condición declarada.
+    impact: Un canario listado como cobertura de metadatos no probaba realmente esa guarda.
+    acceptance: Antes produce annex-language-pair-missing exit 2; después produce annex-metadata-missing EXPECTED_FAIL exit 1 y el gate normal permanece verde.
+    evidence: scripts/verify_thesis_post2_prepublication.rb; cinco canarios de prepublicación y seis del plan observados en exit 1.
 
 drifts:
   - id: D-01
@@ -821,6 +882,21 @@ drifts:
     impact: Tres pruebas no focales están rojas desde la base y el freeze cita esa nota como evidencia de tres claims.
     repair: Migrar el validador y su nota al esquema 5 en una tarea científica separada; candidato menos base permanece vacío para E-46.
     status: open_preexisting
+  - id: D-20
+    observed: La primera DDD SAE usó códigos regionales contemporáneos y trató Ñuble y Magallanes de forma incompatible con el despliegue histórico.
+    impact: La inferencia agrupaba quince clusters y atribuía el contraste a una geografía que no recibió así la asignación de 2018.
+    repair: Excluir Magallanes por ingreso en 2017, agrupar Ñuble con Biobío y rehacer estimación, intervalos, oráculo y relato sobre catorce regiones históricas.
+    status: repaired
+  - id: D-21
+    observed: La prosa atribuía criterios a las cohortes analizadas y llamaba preespecificada a una regla cuya precedencia no estaba probada.
+    impact: Dos afirmaciones de custodia podían leerse como hechos identificadores no demostrados.
+    repair: Limitar el informe oficial a cambios posteriores y describir la regla solo como fijada en la especificación; conservar ambas fronteras en canarios rojos.
+    status: repaired
+  - id: D-22
+    observed: El canario annex-metadata fallaba por ref de fixture incorrecta antes de evaluar metadatos.
+    impact: La suite informaba cobertura nominal sin falsar la guarda declarada.
+    repair: Usar ANNEX_REF canónico en el fixture y exigir el error annex-metadata-missing.
+    status: repaired
 
 gates:
   - id: G-VISUAL
@@ -1434,6 +1510,27 @@ execution:
       kind: peer_review
       item: E-46
       text: Claude reprodujo commits 8a71aadb y 8c1b0e11 en clon aislado, falsó N1, M1 y M3 y emitió ACCEPT_WITH_CAVEATS; no autorizó causalidad, DEC-REL-007 ni acciones externas.
+    - at: "2026-10-12T18:49:50-03:00"
+      kind: progress
+      item: E-47
+      cause: user
+      text: SLEP v2/v3, SAE DDD, claims AP-041 a AP-044 y freeze revisión 7 quedaron implementados; el relato ES/EN integra resultados y requisitos de identificación. La revisión independiente y el QA integral permanecen activos.
+    - at: "2026-10-12T19:45:00-03:00"
+      kind: peer_review
+      item: E-47
+      text: Claude Opus 5.5 emitió ACCEPT_WITH_CAVEATS sin hallazgos altos; M1-M3 y L1-L12 se aplicaron, V1/V3 se contrastaron con fuentes oficiales y V2 se degradó por falta de custodia temporal independiente.
+    - at: "2026-10-12T19:55:41-03:00"
+      kind: red_green
+      item: E-47
+      text: Literatura y claims fallaron primero como derivados obsoletos con exit 2; regenerados en orden literatura, freeze y claims, pasaron. Research quedó limpio en 768a859 con seis gates exit 0 y freeze revisión 9.
+    - at: "2026-10-12T20:01:19-03:00"
+      kind: clean_candidate_and_integrated_gate
+      item: E-47
+      text: El preview integral pasó con exit 0 sobre c53a889b y research 768a859; validó freeze, claims, 36 canarios, tres bundles Vite, Jekyll, H1, artefacto de 70.965.718 bytes y navegador 24/24+12/12+2/2 sin fallos.
+    - at: "2026-10-12T20:02:21-03:00"
+      kind: red_green
+      item: E-48
+      text: annex-metadata falló primero por causa equivocada con exit 2; corregido el ref del fixture, falló por annex-metadata-missing con exit 1 y el gate normal siguió verde.
 
 rollback:
   - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
@@ -1441,4 +1538,4 @@ rollback:
   - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
 
 PLAN_STATE: v2
-HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica en 8a71aadb y Claude ACCEPT_WITH_CAVEATS -> H1 humano y DEC-REL-007 pendientes; toda acción pública sigue bloqueada."
+HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica -> E-47 implementó SLEP/SAE y freeze revisión 9 en 768a859 -> Claude ACCEPT_WITH_CAVEATS -> Codex adjudicó M1-M3 y V1-V3 -> H1 humano y DEC-REL-007 pendientes; toda acción pública sigue bloqueada."

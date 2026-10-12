@@ -1,7 +1,7 @@
 schema_version: 2
 contract_id: thesis-extension-post-ii-publication
-revision: 21
-status: ready_for_human_review
+revision: 24
+status: local_implementation_complete_pending_human_review
 reopened_on: "2026-10-11"
 current_plan: docs/plans/20261011-thesis-post2-closeout/PLAN_STATE.yml
 decision:
@@ -59,6 +59,15 @@ invariants:
     rule: Falsos positivos, falsos negativos e IVE-SINAE agregado quedan visibles como salvaguardas de focalización.
   - id: INV-16
     rule: La teoría de cambio es una hipótesis evaluable y no evidencia de que la cadena produzca aprendizaje o equidad.
+  - id: INV-17
+    rule: El rechazo del control sintético SLEP por falta de soporte no se interpreta como efecto cero ni ausencia de efecto.
+  - id: INV-18
+    rule: La DDD SAE es exploratoria y causalmente bloqueada mientras cuatro regiones tratadas, posibles spillovers e intervalos imprecisos no permitan identificar un efecto.
+  - id: INV-19
+    rule: >-
+      La AUC SLEP no distinguible del azar es ausencia de detección con tres predictores,
+      no evidencia de calendario aleatorio; los márgenes SAE, más amplios que los
+      intervalos de 2018, no acreditan tendencias paralelas útiles.
 phases:
   - id: F1
     objective: Separar relato público y nota técnica.
@@ -87,6 +96,9 @@ phases:
   - id: F9
     objective: Incorporar la matriz de uso de política, sincronizar claims y obtener revisión independiente antes de reabrir H1.
     status: done
+  - id: F10
+    objective: Estimar los diseños SLEP/SAE factibles, congelar sus límites e integrar los hallazgos al relato bilingüe.
+    status: done_verified_local
 acceptance:
   - id: AC-EDITORIAL
     command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --all
@@ -106,11 +118,11 @@ acceptance:
   - id: AC-BUILD
     expected_exit: 0
     observed_exit: 0
-    note: Build Jekyll de producción ejecutado desde un worktree limpio basado en origin/main; avisos Sass deprecados no bloqueantes.
+    note: Build Jekyll de producción ejecutado sobre el candidato c53a889b con gemas locales aisladas; avisos Sass deprecados no bloqueantes.
   - id: AC-ARTIFACT
     expected_exit: 0
     observed_exit: 0
-    note: 70884482 bytes y 1506 entradas; posts ES/EN, anexos, datos y los tres bundles Vite presentes; los dos SVG MR2 retirados quedan excluidos.
+    note: 70965718 bytes y 1506 entradas; posts ES/EN, anexos, datos y los tres bundles Vite presentes; los dos SVG MR2 retirados quedan excluidos.
   - id: AC-VISUAL
     expected_exit: 0
     observed_exit: 0
@@ -134,12 +146,13 @@ acceptance:
     note: El cuerpo extendido debe ser aceptado y producir post-above-soft-word-target antes de activar el canario esperado.
   - id: AC-GIT
     expected: commits locales selectivos autorizados; sin push, despliegue ni difusión pública
-    observed: candidato local en rama release/thesis-post-ii-public-clean-20261012 desde b2957178 compartido por GitLab y GitHub; historia privada y cuatro SVG obsoletos excluidos; sin upstream ni push
+    observed: commit semántico local c53a889b en release/thesis-post-ii-public-clean-20261012; historia privada y cuatro SVG obsoletos excluidos; sin upstream ni push
   - id: AC-SELF-TESTS
     expected: todos los canarios fallan por la causa declarada
     observed: >-
-      21 canarios semánticos, cinco de prepublicación, seis del plan y ocho del navegador
-      terminaron EXPECTED_FAIL exit 1; las superficies normales terminaron exit 0.
+      36 canarios semánticos, cinco de prepublicación y seis del plan terminaron
+      EXPECTED_FAIL exit 1; la superficie normal terminó exit 0. El canario
+      annex-metadata se observó primero rojo incorrecto exit 2 y quedó reparado.
   - id: AC-ELSALVADOR
     expected: Dossier válido, tercer tab interactivo autoral, rol receptor, coordenada 2020 y dos mapas sistemáticos inalterados.
     observed: dossier_validated_and_integrated
@@ -162,19 +175,31 @@ acceptance:
     command: THESIS_WORKSPACE_ROOT=/home/ende/Descargas/programaciones THESIS_RESEARCH_ROOT=/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada BUNDLE_PATH=/home/ende/Descargas/programaciones/activos/3cucharadas/vendor/bundle bash scripts/verify_thesis_extension_post_ii_preview.sh
     expected_exit: 0
     observed_exit: 0
-    note: Worktree limpio en /tmp basado en b2957178; freeze, claims, semántica, Vite, Jekyll, H1, artefacto y navegador pasaron sobre el mismo candidato.
+    note: Candidato local sobre c53a889b; freeze, claims, semántica, Vite, Jekyll, H1, artefacto y navegador pasaron juntos con exit 0 usando dependencias locales ya instaladas.
   - id: AC-H1-PORTABLE
     command: ruby scripts/verify_thesis_post2_plan_state.rb --stage h1 --site-dir /home/ende/Descargas/programaciones/activos/3cucharadas/_site --research-root /home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada
     expected_exit: 0
     observed_exit: 0
     falsified_by: Una raíz científica inexistente produjo h1-missing-evidence y exit 1; el gate sin --research-root también falló desde el worktree aislado.
-    green_observation: La raíz científica explícita produjo PLAN_STATE_OK stage=h1 con 18 placeholders y 45 tareas emergentes.
+    green_observation: La raíz científica explícita produjo PLAN_STATE_OK stage=h1 con 18 placeholders y 48 tareas emergentes.
   - id: AC-POLICY-CANARIES
     expected: siete mutaciones de matriz, actor, IVE, ranking y salvaguarda causal fallan por la causa declarada
     observed: siete EXPECTED_FAIL exit 1 antes del verde normal, incluidos los límites SLEP en ES y EN
+  - id: AC-IDENTIFICATION-BOUNDARIES
+    command: ruby scripts/verify_thesis_extension_post_ii.rb --research-root ../../incubadora/tesis_mae_mejorada --workspace-root ../.. --all
+    expected_exit: 0
+    observed_exit: 0
+    red_observation: El canario policy-identification mutó SRF-016 y fue rechazado con EXPECTED_FAIL exit 1.
+    green_observation: ES/EN y freeze revisión 9 preservan rechazo de diseño SLEP, resultados exploratorios y bloqueo causal SAE.
+  - id: AC-SCIENTIFIC-FREEZE-R9
+    command: make check-scientific-release-freeze
+    cwd: ../../incubadora/tesis_mae_mejorada
+    expected_exit: 0
+    observed_exit: 0
+    note: 24 pruebas, 18 claims, 11 canarios rojos y gate no constructivo byte-estable; article claims siguió verde desde el commit hijo 768a859.
 adversarial_review:
   model: claude-opus-effort-max
-  verdict: REQUEST_CHANGES_ADJUDICATED_READY_FOR_HUMAN_REVIEW
+  verdict: ACCEPT_WITH_CAVEATS_ADJUDICATED_READY_FOR_HUMAN_REVIEW
   initial_response_sha256: 29cd7adfe81f42775ee2f815df1ebedc960dfdca913e811bee8518d59fcd8bd0
   second_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/_2026-10-11-response-thesis-post2-rereview-claude-opus.md
   second_response_sha256: a80cecf52d6460091cbc41d8fe617f5b79ca35cfba3d2a5ff0bc69248b7fe3bc
@@ -218,8 +243,22 @@ adversarial_review:
   eighth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.E2R5gt.txt
   eighth_response_sha256: 80f2f95b8ebdbb9f023b0ccd3f95f1750559f011324fedaff3437bd8fb9e0058
   eighth_adjudication: R1 cerrado; el preview ejecuta freeze --validate y luego article claims --validate sobre el mismo candidato.
+  ninth_review_status: completed_read_only_request_changes_repaired
+  ninth_scope: primera revisión E-47 de resultados SLEP/SAE, paridad bilingüe y alcance causal
+  ninth_verdict: REQUEST_CHANGES
+  ninth_findings: {high: 0, medium: 6, low: 2}
+  ninth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.post2-e47-public-r1-20261012.txt
+  ninth_response_sha256: d64f4d16b2c5ebfd685203bdb45cf4ac9fd28f9ae312094707fd7d35d077ced9
+  ninth_adjudication: Se corrigieron nulo predictivo, fuente, custodia temporal, pretrends, inferencia SAE, rollout, grados de entrada y terminología.
+  tenth_review_status: completed_read_only_accept_with_caveats_adjudicated
+  tenth_scope: rerevisión estrecha E-47 de las reparaciones públicas y sus fuentes declaradas
+  tenth_verdict: ACCEPT_WITH_CAVEATS
+  tenth_findings: {high: 0, medium: 3, low: 12, verification: 3}
+  tenth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.post2-e47-public-r2-20261012.txt
+  tenth_response_sha256: 1af9855610492d3738d8e36c4046cfbf76cbbc999e9e6f9399cb9ab79cc25b48
+  tenth_adjudication: M1-M3 y precisiones L1-L12 aplicadas; V1 y V3 verificadas en fuentes oficiales, y V2 degradada a regla fijada en la especificación porque la precedencia no quedó acreditada.
   candidate_branch: release/thesis-post-ii-public-clean-20261012
-  candidate_history: dos commits locales selectivos sobre b2957178, sin upstream ni push
+  candidate_history: commit semántico c53a889b sobre e380aa5b más el recibo documental que contiene este contrato; sin upstream ni push
   push: blocked_until_human_approval
   repaired_findings_pending_third_rereview:
     - La inicialización no cambia scroll vertical y su canario falla con delta fuera de tolerancia.
@@ -233,16 +272,16 @@ adversarial_review:
     - Intervalos ES usan punto y coma; etiquetas, títulos y lenguaje de sustitución fueron corregidos.
     - El directorio Vite generado está ignorado y las fuentes del bundle quedan hasheadas.
 content_hashes:
-  status: revision_21_h1_portable_ready_for_human_review
-  post_es: 5948ecee5409e78e4b19b7efe79adb9ba2fa2b3ba2f1f15c9a5e9f30eb080b6d
-  post_en: 4163f6f4655642d9b34e4bea6d3d3bab481f8b1452ac843c098f8b5a4d3c08ad
+  status: revision_24_local_verified_pending_human_review
+  post_es: 73b4f458d563a02db84a0dae30098e04930dd7f4473fd8b0849dbec02ac7cb71
+  post_en: a75257de36eb7e513672c38a83044a6243aab029db624f90ef10c3d94e4b970a
   stylized_include: 030618951eeafd184f1c0beb652bccc6db07dcafe3c00b03c5e0133c1a93e8af
   coordinate_audit_include: 347c65f141f82fb1e48b5581445af96d3891ffe697992ccea399e5b0a5d7bd30
   annex_es: 8db6bc90d969c8e15abaa467785d6802565de5b38fe158de94e5629fcd779afb
   annex_en: 1f3f01a28f4d8fdcf12541cef79bd4d3f764a334d58fea1758f35ade74b68af1
   coordinate_audit_data: ed110bfe7fe24972cdf837840fe4a294dc922857b3cc516c28d96923e50bd4de
-  semantic_verifier: c659b6f9e5a0a014c6b31efe5d7e66fe6fa4358bd65949473983b8e78cb3e891
-  prepublication_verifier: e21efb68c8628eb79de9779924254ec042ac84f87264c6ef211900c40f7a8b3b
+  semantic_verifier: 5d638c9c852386e10b1032b51a63169405e6e3020aa54c5262a833dd26859e5e
+  prepublication_verifier: f321c8b06d271631f9b5471e51fbd41d713005efd998e73a42655bd205c87809
   plan_verifier: 6843d141edeea2dedd85657dc6a90b8210640cb73107d5590577eaea2622a844
   browser_verifier: 8d7e75e4cf8952a688688c3cb3aaba5908e0355fc31ff9fb29d813be8c930b24
   stylesheet: 22804080d91673f7da39f4f7f638554fdb24f37305bf4011600b89dcefd6e98d
@@ -252,8 +291,8 @@ content_hashes:
   map_manifest_generated: 349e8dcbdb5a17e8df35ec4d86b7ca37aa9a35b958f3ebfb53d558480ac71a20
   stylized_data: 2357979962bd554a7b3e19c10160a96e1b6bbf9265e51933242265efc276abc5
   case_data: 0a50fa53de925735b4e98acc12a141e4cbea9eebb6c616d4ced70f3954b4b09d
-  stylized_manifest: cb1c330df05a19c9cc7e24927dca33a6cfe29e9f8e7bec2074b20efdac6b5945
-  scientific_freeze: 3a519f16411b8a075b393bf7f625fdbc4e278830a67a353ca8dbf67e0e5653c9
+  stylized_manifest: 3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a
+  scientific_freeze: 23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348
 source_contract_hashes:
   gitignore: 0439e8808433fd3c5b7073868375ea3e39ecb89fde5835c7c38e03fc55dee4ad
   gitlab_ci: 065cc0ede965b91487d0d53c0e80b5993cc8bf28cc06b6950cae5247e962fe2b
@@ -286,4 +325,4 @@ rollback:
   - Eliminar la rama local de release después de conservar el commit si la revisión humana la rechaza.
   - Restaurar el stash de la rama de trabajo para recuperar cambios concurrentes.
 PLAN_STATE: v2
-HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 produjo candidato limpio -> E-45 encadenó H1 portable y reparó un canario vacuo -> H1 humano queda pendiente; push, despliegue y difusión pública siguen bloqueados.'
+HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 produjo candidato limpio -> E-45 encadenó H1 portable -> E-46 cerró custodia científica -> E-47 integró SLEP/SAE y freeze revisión 9 -> Claude ACCEPT_WITH_CAVEATS -> Codex adjudicó M1-M3 y verificó V1/V3; H1 humano, push, despliegue y difusión pública siguen bloqueados.'

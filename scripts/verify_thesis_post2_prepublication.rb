@@ -258,7 +258,7 @@ def run_self_test(name, verifier)
       verifier.verify_first_screen(document)
     when "annex-metadata"
       base = {
-        "ref" => "audit",
+        "ref" => ThesisPost2PrepublicationVerifier::ANNEX_REF,
         "description" => "",
         "header" => {},
       }
