@@ -1,23 +1,23 @@
 schema_version: 2
 plan_id: thesis-post2-closeout-20261011
-revision: 26
-updated_at: "2026-10-12T20:02:21-03:00"
-status: ready_for_human_review
+revision: 30
+updated_at: "2026-10-14T21:54:00-03:00"
+status: ready_for_public_push
 integrator: codex
-peer_review: claude-opus-e47-r2-accept-with-caveats
+peer_review: claude-opus-postintegration-r12-text-approved-custody-change-required
 objective: >-
   Cerrar el Post II con evidencia científica congelada, relato bilingüe didáctico,
   visualización responsiva y una revisión humana informada, sin convertir asociaciones
   locales ni recuerdos del autor en afirmaciones causales.
 
 scope:
-  research_repo: incubadora/tesis_mae_mejorada@768a8595d843409de2d5ace0ef980b98470dc1b3
+  research_repo: incubadora/tesis_mae_mejorada@8b928c012e3e1ba9bebefaa96362d90f4ed346d7
   research_branch: release/thesis-post-ii-science-20261012
   blog_repo: activos/3cucharadas@c53a889bd04d569b7708638e4d0a03d5015f2505
   blog_branch: release/thesis-post-ii-public-clean-20261012
   authorized_local_actions: [edit, test, research_commit, blog_commit]
   external_actions: [telegram_review_notice]
-  blocked_without_new_authority: [push, deploy, dissemination]
+  blocked_without_new_authority: [dissemination]
 
 invariants:
   - id: INV-01
@@ -741,8 +741,8 @@ emergent_tasks:
   - id: E-43
     source: public_parity
     task: Verificar paridad de artefacto y URL pública después de un despliegue autorizado.
-    status: blocked
-    blocker: No existe autorización de push o despliegue.
+    status: active
+    blocker: El despliegue todavía no termina ni existe URL pública observada para el nuevo commit.
     unblock_condition: EXT ejecutada con autorización explícita y URL pública observable.
   - id: E-44
     source: editorial_state
@@ -785,6 +785,14 @@ emergent_tasks:
     impact: Un canario listado como cobertura de metadatos no probaba realmente esa guarda.
     acceptance: Antes produce annex-language-pair-missing exit 2; después produce annex-metadata-missing EXPECTED_FAIL exit 1 y el gate normal permanece verde.
     evidence: scripts/verify_thesis_post2_prepublication.rb; cinco canarios de prepublicación y seis del plan observados en exit 1.
+  - id: E-49
+    source: postintegration_editorial_and_custody_review
+    task: Versionar el registro reanclado, regenerar freeze y claims desde un árbol limpio y refijar el sitio antes del commit público local.
+    status: done
+    cause: Claude R12 aprobó el contenido, pero verificó que el freeze 1ba0e0e5 declara OPEN_UNCOMMITTED en un HEAD separado dentro de /tmp.
+    impact: Un commit del sitio fijaría una evidencia científica no alcanzable desde una referencia Git persistente.
+    acceptance: Commit científico hijo de 768a859; freeze limpio con OPEN_PENDING_HUMAN_COMMIT_RECEIPT; claims actuales; nuevos pines y gates integrales verdes.
+    evidence: b3853d594029c93ecf9788b6bcc4547113a168bb; 16beb342bae802410e7dd7489617f1a8fce32376; 8b928c012e3e1ba9bebefaa96362d90f4ed346d7; freeze a53da9519d863cd565b340346e979b0cb9fad89b1a00a033d0be311f4c55e06d.
 
 drifts:
   - id: D-01
@@ -1232,19 +1240,19 @@ execution:
         kind: red_green_peer_review
         ref: F23; 254 y 316 exit 0 sin builder previo; 67 tests exit 0 sin escribir ROOT; mutaciones semánticas y topológicas exit 2; Claude ACCEPT_WITH_CAVEATS.
     - id: F15
-      status: blocked
+      status: done
       step: Revisión humana del preview bilingüe.
       deps: [E-42]
-      blocker:
-        kind: human_checkpoint
-        unblock: E-42 verde y aprobación humana H1 sobre el preview vigente.
+      verification:
+        kind: human
+        ref: Objetivo explícito 2026-10-14 de terminar, crear commit limpio y empujar a público sobre el preview vigente.
     - id: EXT
-      status: blocked
+      status: active
       step: Push y despliegue público del blog.
       deps: [F15]
-      blocker:
-        kind: decision
-        unblock: Autorización explícita posterior a H1 y rama pública sin el commit histórico que contiene metadatos Tailnet.
+      verification:
+        kind: pending_external
+        ref: Autorización explícita recibida; falta commit, push, pipeline y URL pública verificada.
     - id: EXT-D
       status: blocked
       step: Difusión conjunta de los Posts I y II.
@@ -1253,12 +1261,12 @@ execution:
         kind: decision
         unblock: Post en vivo y autorización específica de difusión.
     - id: E-43
-      status: blocked
+      status: active
       step: Verificación de paridad pública ES/EN y artefacto.
       deps: [EXT]
-      blocker:
-        kind: external_state
-        unblock: Despliegue autorizado y URL pública observable.
+      verification:
+        kind: pending_external
+        ref: Se ejecutará después del push y cierre del pipeline.
     - id: E-44
       status: blocked
       step: Promover AP-017 de PUBLICATION_PENDING a PUBLICATION_VERIFIED.
@@ -1531,6 +1539,27 @@ execution:
       kind: red_green
       item: E-48
       text: annex-metadata falló primero por causa equivocada con exit 2; corregido el ref del fixture, falló por annex-metadata-missing con exit 1 y el gate normal siguió verde.
+    - at: "2026-10-14T21:14:30-03:00"
+      kind: peer_review
+      item: E-49
+      text: Auditorías paralelas y Claude R11 emitieron REQUEST_CHANGES por unidad del 4,3 %, umbrales H1, estatus SAE, voz autoral EN y nueve anclajes obsoletos; Codex reparó las superficies públicas y regeneró claims y freeze, con rerevisión y QA final aún activos.
+    - at: "2026-10-14T21:27:35-03:00"
+      kind: peer_review
+      item: E-49
+      text: Claude R12 aprobó las reparaciones de contenido y detectó que el freeze vigente conserva OPEN_UNCOMMITTED; dos ajustes editoriales menores quedaron aplicados y el commit científico limpio requiere autorización explícita antes de refijar el sitio.
+    - at: "2026-10-14T21:46:00-03:00"
+      kind: decision
+      item: EXT
+      cause: user
+      text: La persona usuaria autorizó terminar la implementación, crear commits limpios y empujar el candidato a público; la difusión social no fue solicitada.
+    - at: "2026-10-14T21:46:00-03:00"
+      kind: red_green
+      item: E-49
+      text: El freeze quedó rojo después del primer commit de recibos; se reprodujo el contrato de dos fases y cerró verde en b3853d5, 16beb34 y 8b928c0 con SHA a53da951 y árbol científico limpio.
+    - at: "2026-10-14T21:54:00-03:00"
+      kind: validation
+      item: EXT
+      text: El preview integral previo al push pasó freeze, claims, 37 canarios, tres builds Vite, Jekyll, H1, artefacto y navegador 24/24+12/12+2/2; dos intentos ambientales previos quedaron rojos por socket EPERM y ruta Playwright ausente.
 
 rollback:
   - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
@@ -1538,4 +1567,4 @@ rollback:
   - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
 
 PLAN_STATE: v2
-HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica -> E-47 implementó SLEP/SAE y freeze revisión 9 en 768a859 -> Claude ACCEPT_WITH_CAVEATS -> Codex adjudicó M1-M3 y V1-V3 -> H1 humano y DEC-REL-007 pendientes; toda acción pública sigue bloqueada."
+HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica -> E-47 implementó SLEP/SAE -> Claude ACCEPT_WITH_CAVEATS -> auditorías paralelas y Claude R11 detectaron deriva -> Codex corrigió -> Claude R12 aprobó el texto y abrió E-49 -> Codex cerró custodia en 8b928c0 y refijó a53da951 -> autorización humana vigente para commit, push, despliegue y paridad pública; difusión social sigue bloqueada."

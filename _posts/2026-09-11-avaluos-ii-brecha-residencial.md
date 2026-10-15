@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [avaluos-ii-editorial]
-title: "Avalúos en 3 cucharadas II: dónde revisar la brecha residencial"
+title: "Avalúos en 3 cucharadas (parte II): dónde revisar la brecha residencial"
 subtitle: "Campamentos, materialidad y avalúos para pasar de una diferencia comunal a una revisión predial"
 date: 2026-09-11 00:00:00 -0300
 last_modified_at: 2026-09-13 00:00:00 -0300

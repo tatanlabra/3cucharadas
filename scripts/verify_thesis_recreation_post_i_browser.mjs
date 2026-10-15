@@ -121,7 +121,12 @@ const viewports = [
   { width: 1366, height: 768 },
   { width: 1440, height: 900 }
 ];
-const browser = await chromium.launch({ headless: true });
+const browserExecutable = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+  || ['/usr/bin/chromium', '/usr/bin/brave', '/usr/bin/google-chrome-stable'].find(existsSync);
+const browser = await chromium.launch({
+  headless: true,
+  ...(browserExecutable ? { executablePath: browserExecutable } : {})
+});
 const results = [];
 
 try {

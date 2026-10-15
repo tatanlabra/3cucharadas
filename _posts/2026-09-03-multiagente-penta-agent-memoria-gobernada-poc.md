@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multiagentes en 3 cucharadas III: una memoria que deja huellas"
+title: "Multiagentes en 3 cucharadas (parte III): una memoria que deja huellas"
 subtitle: "Del RAG auditable a una memoria más gobernada: aún no es un clon digital"
 date: 2026-09-03 00:00:00 -0400
 last_modified_at: 2026-09-03 00:00:00 -0400

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multiagentes en 3 cucharadas II: una memoria que se puede auditar"
+title: "Multiagentes en 3 cucharadas (parte II): una memoria que se puede auditar"
 subtitle: "De los handoffs a una recuperación compartida: qué implementé, cómo lo medí y qué falta validar"
 date: 2026-07-23 00:00:00 +0000
 last_modified_at: 2026-07-24 00:00:00 +0000

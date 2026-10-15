@@ -1,10 +1,10 @@
 ---
 layout: single
 classes: [thesis-extension-post]
-title: "Extender mi tesis en 3 cucharadas II: ¿mejora la educación cuando abren y cierran escuelas?"
+title: "Extender mi tesis en 3 cucharadas (parte II): ¿mejora la educación cuando abren y cierran escuelas?"
 subtitle: "Más evidencia sobre el recambio escolar, sus límites y las preguntas que deja para los sostenedores y los SLEP."
 date: 2026-10-11 10:00:00 -0300
-last_modified_at: 2026-10-12 19:28:00 -0300
+last_modified_at: 2026-10-14 18:30:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [educacion, mercado-escolar, cierre-escolar, mineduc, datos-administrativos, replicabilidad, simce, admision, slep, territorio]
 description: "Una extensión de mi tesis examina cierres y aperturas escolares en Chile: qué muestran los registros y qué falta para evaluar calidad, cobertura y continuidad educativa."
@@ -39,26 +39,35 @@ ai_disclosure:
     hero: generated
 ---
 
-En el [primer post]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) volví sobre mi tesis de 2014 antes de extenderla. **Este análisis no identifica efectos causales.** Sobrevivieron dos hallazgos importantes para 1992–2012: hubo una reducción neta de establecimientos municipales y una expansión neta de particulares subvencionados; y, en el universo reconstruido del Gran Santiago, quienes después salían del registro atendían una matrícula más vulnerable. También encontré errores que cambiaban algunas interpretaciones. No bastaba con añadir años a las mismas tablas.
+En la [parte I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) volví sobre mi tesis de 2014 antes de extenderla. **Este análisis no identifica efectos causales.** Sobrevivieron dos hallazgos importantes para 1992–2012: hubo una reducción neta de establecimientos municipales y una expansión neta de particulares subvencionados; y, en el universo reconstruido del Gran Santiago, los establecimientos que después salían del registro atendían una matrícula más vulnerable. También encontré errores que cambiaban algunas interpretaciones. No bastaba con sumar años a las mismas tablas.
+
+Las dos entregas no usan una sola ventana ni estiman lo mismo. La parte I audita 1992–2012. Esta entrega usa directorios de 2015 a 2025 para observar transiciones entre 2016 y 2025, y un panel 2013–2025 para detectar entradas. No vuelve a estimar la reasignación por dependencia, la brecha de vulnerabilidad ni la razón alumnos por docente de la primera parte.
+
+| Lo que dejé planteado en la parte I | Qué hice en esta entrega | Estado |
+|---|---|---|
+| Construir una alerta predictiva | Clasifiqué eventos y describí la matrícula previa al cierre. | Pendiente: validación temporal, calibración y auditoría distributiva. |
+| Evaluar los traspasos a SLEP con diferencias en diferencias o estudio de eventos | Probé un control sintético; ninguna comparación pasó la regla de soporte. Añadí un diagnóstico exploratorio. | Diseño cambiado; sin estimación causal. |
+| Seguir trayectorias individuales | Contrasté literatura y alternativas territoriales, pero no enlacé estudiantes. | Pendiente. |
+| No planteado en la parte I: examinar el SAE | Incorporé una triple diferencia exploratoria. | Análisis nuevo; no identifica el efecto de la política. |
 
 Esta segunda entrega retoma una pregunta pendiente: **¿qué significa que una escuela salga del sistema y otra entre?** Para quienes trabajan en educación, importa saber si ese movimiento amplía las oportunidades de aprender, reorganiza una oferta que ya no responde al territorio o interrumpe una trayectoria que necesitaba apoyo, no un traslado.
 
 La intuición de que salen las escuelas de menor desempeño y llegan alternativas mejores merece examinarse. Pero no debe convertirse en la respuesta antes de mirar los datos. Con el análisis disponible **no pude establecer si el recambio observado mejora o empeora sistemáticamente los resultados educativos**. Eso no demuestra que sus efectos sean nulos: hay comparaciones imprecisas, otras sin información suficiente y, sobre todo, falta seguir a los estudiantes y construir el contrafactual —qué habría ocurrido sin el cierre o la apertura—.
 
-Estos datos no identifican el efecto causal de abrir o cerrar escuelas. Sí permiten precisar los eventos, examinar sus trayectorias y terminar en el territorio: allí donde una apertura, una fusión o un cierre deja de ser una fila y cambia las alternativas de una comunidad.
+Con ese límite, los datos sí permiten precisar los eventos, examinar sus trayectorias y terminar en el territorio: allí donde una apertura, una fusión o un cierre deja de ser una fila y cambia las alternativas de una comunidad.
 
 ## Seis respuestas antes del método
 
 | Pregunta | Resultado | Qué podemos decir |
 |---|---|---|
-| ¿Cuántos cierres hubo? | **900 transiciones oficiales** entre 2015 y 2025; 330 son cierres estrictos con matrícula para este ejercicio. | `37.818` es el stock cerrado repetido año a año, no 37.818 cierres. |
-| ¿Cierran las de peor rendimiento? | SIMCE `+0,029` DE, IC 95 % `[−0,095; +0,158]`; admisión no alcanza soporte. | Entre escuelas comparables, no aparece una desventaja relativa robusta de las que cierran. |
-| ¿Las nuevas son mejores? | **`NOT_ESTIMABLE`**. | Falta soporte en las cohortes iniciales; no significa efecto cero, empate ni igualdad. |
+| ¿Cuántos cierres hubo? | **900 transiciones oficiales** entre 2016 y 2025, usando 2015 como línea base; 330 son cierres estrictos con matrícula para este ejercicio. | `37.818` es el recuento acumulado de establecimientos cerrados, repetido año a año; no son 37.818 cierres. |
+| ¿Cierran las de peor rendimiento? | En 21 de 330 cierres estrictos, SIMCE da `+0,029` DE, IC 95 % `[−0,095; +0,158]`; admisión reúne solo 8 casos. | El contraste no describe el universo de cierres: 97 tenían SIMCE y solo 21 soporte exacto. En el universo histórico amplio, la mediana parte en `−0,232` DE. |
+| ¿Las nuevas son mejores? | **No estimable bajo la regla adoptada (mínimo 10 casos).** | Las cohortes iniciales no reúnen casos suficientes; no significa efecto cero, empate ni igualdad. |
 | ¿La rotación mejoró el promedio? | SIMCE `−0,000105` DE; admisión `+0,000113` DE. | Los signos discrepan y son una descomposición contable, no efectos causales. |
 | ¿Qué rol tienen los sostenedores y los SLEP? | Administran redes y transiciones bajo reglas distintas. | El panel describe eventos; no identifica el efecto de una modalidad de gestión. |
 | ¿Existe una alternativa territorial? | Hay 38 cierres con una apertura compatible bajo la regla espacial. | Cercanía no demuestra cupos, acceso, destino ni sustitución. |
 
-`DE` significa desviación estándar (una unidad relativa a la dispersión del puntaje). Un `IC 95 %` es un rango de incertidumbre del procedimiento. «Admisión núcleo» promedia lenguaje y matemática entre quienes rindieron ambas pruebas; no representa a todo cuarto medio.
+`DE` significa desviación estándar (una unidad relativa a la dispersión del puntaje). Un `IC 95 %` es un rango de incertidumbre del procedimiento. El «puntaje núcleo de admisión» promedia lenguaje y matemática entre quienes rindieron ambas pruebas; no representa a todo cuarto medio.
 {: .small}
 
 ## Cucharada 1: antes de evaluar un cierre, hay que saber qué cambió
@@ -71,9 +80,9 @@ Un establecimiento puede cerrar; entrar en receso; fusionarse con otro; cambiar 
 
 El **RBD**, el identificador que utiliza el Ministerio de Educación para cada establecimiento, ayuda a seguir su historia, pero no la resuelve por sí solo. Un código que desaparece exige revisar qué ocurrió con la escuela, su sede y su oferta.
 
-El panel sigue establecimientos durante el período reciente. Las transiciones oficiales comienzan cuando existen dos directorios consecutivos para observar el cambio de estado; El Salvador queda aparte como antecedente histórico. La unidad depende de la pregunta: el inventario cuenta eventos por RBD, la depuración reconstruye establecimientos y sedes, y las comparaciones usan establecimientos dentro de un segmento educativo.
+El panel sigue establecimientos durante el período reciente. Los directorios comienzan en 2015 y la primera transición observable corresponde a 2016. El caso de El Salvador es de 2013 y se presenta más adelante como un antecedente separado. La unidad depende de la pregunta: el inventario cuenta eventos por RBD, la depuración reconstruye establecimientos y sedes, y las comparaciones usan establecimientos dentro de un segmento educativo.
 
-**Ejercicio.** Separamos un cierre real de un cambio administrativo. Definimos como cierre oficial solo el paso desde un estado no cerrado al código `3`. Receso no es cierre; desaparecer del archivo queda como salida desconocida.
+**Ejercicio.** Separé un cierre real de un cambio administrativo. Definí como cierre oficial solo el paso desde un estado no cerrado al código `3`. Receso no es cierre; si un RBD desaparece del archivo, lo clasifico como salida desconocida.
 
 **Resultado.** Hay **900 cierres oficiales**: 684 desde actividad, 215 desde receso y uno desde autorización sin matrícula. De las 684 escuelas antes activas, 346 tenían estudiantes y 338 ya registraban matrícula cero. Cerrar una escuela vacía no equivale a desplazar una comunidad escolar.
 {: .text-justify}
@@ -83,12 +92,12 @@ Pero esos 346 tampoco son automáticamente 346 escuelas que desaparecieron. Al r
 
 ### No toda oferta cercana atiende la misma necesidad
 
-La oferta también importa. Una sala cuna no compite por la misma población que una escuela básica o un liceo. Los códigos oficiales permiten separar educación inicial en sala cuna, nivel medio, transición y nivel heterogéneo; luego distinguimos básica y media. Desde aquí, «mercado» significa **comuna y segmento educativo exacto**, no toda institución que comparte territorio.
+La oferta también importa. Una sala cuna no compite por la misma población que una escuela básica o un liceo. Los códigos oficiales permiten separar educación inicial en sala cuna, nivel medio, transición y nivel heterogéneo; luego distingo básica y media. Desde aquí, «mercado» significa **comuna y segmento educativo exacto**, no toda institución que comparte territorio.
 {: .text-justify}
 
 Esa es una definición operativa, no una afirmación de que las familias eligen solo dentro de su comuna. También conviene distinguir establecimientos, matrícula y capacidad: una escuela con estudiantes no necesariamente tiene vacantes. Evaluar cobertura requiere saber qué niveles imparte, cuántos cupos puede ofrecer y si resulta accesible para quienes la necesitan.
 
-Mientras tanto, el universo escolar se contrae. La población de 6 a 17 años proyectada por el [INE](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion) pasa de **3.081.791 en 2025** a **1.366.155 en 2050**: `55,7 %` menos. Es población, no una predicción mecánica de matrícula o cierres; sí obliga a planificar capacidad, transporte y continuidad por territorio.
+Según la proyección del [INE con base en el Censo 2024](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion), la población de 6 a 17 años pasa de **3.081.791 en 2025** a **1.366.155 en 2050**: `55,7 %` menos. La cifra no incluye la educación parvularia y describe población, no matrícula ni cierres; sí obliga a planificar capacidad, transporte y continuidad por territorio.
 {: .text-justify}
 
 ### Dónde entran los SLEP y la desmunicipalización
@@ -102,11 +111,11 @@ La desmunicipalización plantea una pregunta distinta: **¿cambia la capacidad d
 
 ### La matrícula permite reconocer una trayectoria, no explicar su causa
 
-**Objetivo.** Comprobar si las escuelas que cierran venían peor que alternativas comparables. Cada cierre se compara con establecimientos del mismo año, comuna, segmento educativo, dependencia, ruralidad y tamaño. SIMCE se estandariza por año, grado y asignatura; PSU, PDT y PAES, dentro de su propio proceso.
+Quise saber si las escuelas que cierran venían peor que alternativas comparables. Comparé cada cierre con establecimientos del mismo año, comuna, segmento educativo, dependencia, ruralidad y tamaño. Estandaricé SIMCE por año, grado y asignatura; PSU, PDT y PAES, dentro de su propio proceso.
 
-**Resultado.** La matrícula entrega la señal más clara: de los 684 cierres que venían de actividad, 665 tienen tres años completos y su mediana cae **`28 → 23 → 1`** estudiante.
+La matrícula entrega la señal más clara: de los 684 cierres que venían de actividad, 665 tienen tres años completos y su mediana cae **`28 → 23 → 1`** estudiante.
 
-Es una señal de vaciamiento anterior al cierre registrado. No significa que cada escuela haya seguido esa secuencia, ni explica si las familias se retiraron por dificultades educativas, por el anuncio de un cierre, por un traslado residencial o porque había menos niños en el territorio. Son explicaciones rivales por contrastar, no causas identificadas por esta trayectoria.
+Es una señal de una caída sostenida de la matrícula antes del cierre registrado. No significa que cada escuela haya seguido esa secuencia, ni explica si las familias se retiraron por dificultades educativas, por el anuncio de un cierre, por un traslado residencial o porque había menos niños en el territorio. Son explicaciones rivales por contrastar, no causas identificadas por esta trayectoria.
 
 El desempeño tiene mucha menos cobertura:
 
@@ -125,23 +134,22 @@ La tabla anterior describe el universo histórico amplio. La prueba estricta vue
 | Resultado | Estimación primaria | IC 95 % | Soporte |
 |---|---:|---:|---:|
 | SIMCE relativo | `+0,029` DE | `[−0,095; +0,158]` | 21 cierres |
-| Puntaje de admisión (núcleo), entre quienes rinden | `−0,001` DE | `NOT_ESTIMABLE` | 8 cierres |
+| Puntaje núcleo de admisión, entre quienes rinden | `−0,001` DE | No estimable | 8 cierres |
 
-En palabras simples: entre escuelas comparables, SIMCE no muestra una diferencia precisa y admisión no alcanza el mínimo de diez cierres. Esto no dice que las escuelas que cierran estén sobre el promedio nacional: en el universo histórico amplio, la mediana SIMCE parte en `−0,232` DE. `NOT_ESTIMABLE` no significa cero, empate ni igualdad; significa que publicar un intervalo defendible exigiría fingir más información de la disponible.
+Entre escuelas comparables, SIMCE no muestra una diferencia precisa y admisión no alcanza el mínimo de diez cierres. Esto no dice que las escuelas que cierran estén sobre el promedio nacional: en el universo histórico amplio, la mediana SIMCE parte en `−0,232` DE. En los artefactos técnicos, `NOT_ESTIMABLE` no significa cero, empate ni igualdad; significa que publicar un intervalo defendible exigiría fingir más información de la disponible.
 {: .text-justify}
+
+El `−4,3 %` de la parte I y el `+0,029` de esta entrega no son el mismo contraste. El primero resume, en porcentaje respecto del promedio comunal, la brecha de matemática de 4° básico de particulares subvencionados que cierran, en nueve años entre 1999 y 2011. El segundo usa desviaciones estándar anuales, cierres estrictos recientes, la media entre `t−3` y `t−1` y controles exactos. Cambian el período, la unidad, el universo y aquello que se estima; sus signos no se comparan directamente.
+{: .small}
 
 El mínimo de diez es una regla operativa retrospectiva, no una ley estadística que vuelva inválido cualquier estudio con nueve y válido cualquiera con diez. El límite se declara para no cambiarlo después de mirar los signos.
 
-Las sensibilidades cuentan la misma historia. SIMCE ponderado da `+0,034` DE con un intervalo amplio `[−0,225; +0,289]`; las variantes de admisión siguen bajo el mínimo. Una especificación preliminar daba señal negativa, pero desaparece cuando dejamos de tratar anexos y mercados distintos como cierres comparables. Eso no prueba igualdad: muestra que la respuesta dependía de una definición demasiado laxa.
+El análisis de sensibilidad mantiene la conclusión. SIMCE ponderado da `+0,034` DE con un intervalo amplio `[−0,225; +0,289]`; las variantes de admisión siguen bajo el mínimo. Una especificación preliminar daba una señal negativa, pero desaparece cuando dejo de tratar anexos y mercados distintos como cierres comparables. Eso no prueba igualdad: muestra que la respuesta dependía de una definición demasiado laxa.
 {: .text-justify}
 
 ### Un promedio puede cambiar sin que sepamos cuánto aprendieron los estudiantes
 
 La contabilidad separa el cambio de quienes permanecen, la redistribución de matrícula y la contribución de entradas y salidas al indicador agregado. Un promedio podría subir porque deja de incluir a un grupo con puntajes bajos, sin que eso demuestre una mejora para ese grupo. También podría permanecer casi igual mientras unas comunidades ganan acceso y otras enfrentan traslados más difíciles.
-
-### Este resultado no reemplaza lo que han encontrado otros estudios
-
-[Grau, Hojman y Mizala](https://doi.org/10.1016/j.econedurev.2018.05.003), [Iocco](https://doi.org/10.2139/ssrn.4808834) y [Elacqua y colaboradores](https://doi.org/10.4067/S0718-52862012000200005) estudian consecuencias, receptores y alternativas con unidades y diseños distintos. No hay que obligarlos a entregar un único veredicto ni usarlos como validación automática de este ejercicio. Sí ayudan a precisar la pregunta: importa qué cierre ocurre, cómo se organiza la transición y qué alternativa efectiva encuentran los estudiantes.
 
 ## Cucharada 3: del promedio a la red educativa de cada territorio
 
@@ -151,17 +159,17 @@ La utilidad inmediata no es construir un ranking de escuelas que deberían cerra
 
 ### Cómo leer los mapas sin convertir cercanía en reemplazo
 
-**Objetivo.** Dar una forma territorial a la pregunta: cuando cierra una escuela estricta, ¿aparece cerca otra que atiende el mismo segmento? Buscamos una apertura dentro de 10 km y entre `t` y `t+2`. La ubicación del cierre corresponde a `t−1`; la ubicación de la entrada usa la **primera coordenada oficial válida entre el año de entrada y 2025**. Esta regla recupera registros tardíos sin fingir que la escuela estaba físicamente allí desde el primer año.
+Quise dar una forma territorial a la pregunta: ante un cierre estricto, ¿aparece cerca otra escuela que atiende el mismo segmento? Busqué una apertura dentro de 10 km y entre `t` y `t+2`. La ubicación del cierre corresponde a `t−1`; la ubicación de la entrada usa la **primera coordenada oficial válida entre el año de entrada y 2025**. Esta regla recupera registros tardíos sin fingir que la escuela estaba físicamente allí desde el primer año.
 
-Aquí «entrada» es operacional: actividad con matrícula positiva después de al menos dos años despejados en el panel 2013–2025, sin episodio activo previo en esa ventana ni sucesión registrada. No demuestra que la escuela sea históricamente nueva; puede quedar historia anterior fuera del panel. Para los eventos recientes, además, la ventana posterior todavía puede estar incompleta.
+Uso «entrada» en un sentido operativo: actividad con matrícula positiva después de al menos dos años previos sin actividad registrada en el panel 2013–2025, sin episodio activo anterior en esa ventana ni sucesión registrada. No demuestra que la escuela sea históricamente nueva; puede quedar historia anterior fuera del panel. Para los eventos recientes, además, la ventana posterior todavía puede estar incompleta.
 
-Para mostrar variedad sin elegir el resultado más llamativo, tomamos primero **un caso por familia educativa preferida**; dentro de cada familia ordenamos por misma comuna, distancia, año y RBD. **Ni los valores ni la disponibilidad de resultados participan**. Las 9 trayectorias inestables se excluyen antes del emparejamiento y 259 entradas usan una coordenada informada con retraso; ambas cifras quedan visibles porque una ubicación tardía cambia qué significa «cerca».
+Para mostrar variedad sin elegir el resultado más llamativo, seleccioné primero **un caso por cada grupo educativo priorizado por la regla**; dentro de cada grupo ordené por misma comuna, distancia, año y RBD. **Ni los valores ni la disponibilidad de resultados participaron en la selección**. Las 9 trayectorias inestables se excluyen antes del emparejamiento y 259 entradas usan una coordenada informada con retraso; ambas cifras quedan visibles porque una ubicación tardía cambia qué significa «cerca».
 
-**Resultado.** De 330 cierres estrictos, 320 tienen coordenada válida. Entre 414 aperturas, 389 tienen una coordenada elegible bajo la regla temporal. La guarda aparta seis pares candidatos, correspondientes a cuatro cierres, del mismo año y a no más de 100 metros, porque pueden ser reemplazos administrativos; exigir el mismo segmento excluye 420 combinaciones. Quedan **38 cierres emparejados con 29 aperturas únicas**. No hubo un par elegible de educación media. Los dos casos sistemáticos son descriptivos:
+De 330 cierres estrictos, 320 tienen coordenada válida. Entre 414 aperturas, 389 tienen una coordenada elegible bajo la regla temporal. La regla de resguardo excluye seis pares candidatos, correspondientes a cuatro cierres, del mismo año y a no más de 100 metros, porque pueden ser reemplazos administrativos; exigir el mismo segmento excluye 420 combinaciones. Quedan **38 cierres emparejados con 29 aperturas únicas**. No hubo un par elegible de educación media. Los dos casos sistemáticos son descriptivos:
 
 | Caso | Segmento | Cierre → apertura | Distancia | Qué permite ver |
 |---|---|---|---:|---|
-| Lo Barnechea | Transición inicial | 2016 → 2016 | 1,046 km | La apertura tiene su primera coordenada válida en 2019; observamos proximidad, no destino. |
+| Lo Barnechea | Transición inicial | 2016 → 2016 | 1,046 km | La apertura tiene su primera coordenada válida en 2019; muestra proximidad, no destino. |
 | Lo Prado | Básica | 2016 → 2016 | 7,860 km | La apertura también se ubica con coordenada 2019 y queda fuera de la comuna del cierre. |
 
 La selección no afirma que estos ejemplos sean representativos del país. Hace una cosa más modesta: muestra cómo cambian las preguntas cuando se conserva segmento, año de la coordenada y regla de identidad. Un enlace espacial es una hipótesis de proximidad, no una trayectoria estudiantil ni una prueba de sustitución.
@@ -171,7 +179,7 @@ La selección no afirma que estos ejemplos sean representativos del país. Hace 
 
 {% include thesis-extension-stylized-evidence.html %}
 
-Los dos primeros botones pertenecen a la selección sistemática. El tercero juega otra partida: lo propuse porque crecí en El Salvador. Esa cercanía ayuda a formular preguntas, pero no convierte mi experiencia en explicación del cierre. Allí la Escuela N° 14 Óscar Yáñez Pastén (RBD 391) cerró al terminar 2013 y se fusionó con la Escuela N° 1 La Mina (RBD 390), en Diego Portales 1510. El [registro de la BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documenta que primero a sexto básico fueron derivados a la N° 1; el [reglamento institucional](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf) confirma su dirección e identidad.
+Los dos primeros botones pertenecen a la selección sistemática. El tercero es distinto: lo incluí porque crecí en El Salvador. Esa cercanía ayuda a formular preguntas, pero no convierte mi experiencia en explicación del cierre. Allí la Escuela N° 14 Óscar Yáñez Pastén (RBD 391) cerró al terminar 2013 y se fusionó con la Escuela N° 1 La Mina (RBD 390), en Diego Portales 1510. El [registro de la BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documenta que primero a sexto básico fueron derivados a la N° 1; el [reglamento institucional](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf) confirma su dirección e identidad.
 {: .text-justify}
 
 La matrícula conjunta de ambas escuelas cayó de **1.399 en 2004 a 977 en 2013** (`−30,2 %`). En 2014 la N° 1 pasó de 432 a 738 estudiantes, un salto compatible con la fusión documentada. La caída previa hace plausible una contracción demográfica, pero **no prueba que haya sido el motivo administrativo del cierre**; la intervención parlamentaria contemporánea discutió, de hecho, hacinamiento y adecuaciones posteriores.
@@ -182,38 +190,32 @@ La matrícula conjunta de ambas escuelas cayó de **1.399 en 2004 a 977 en 2013*
 El visor usa un callejero OSM y coordenadas MINEDUC. En los dos casos sistemáticos la línea muestra cercanía, no destino; en El Salvador muestra la fusión documentada, no cada trayectoria individual.
 {: .small}
 
-Los ejemplos hacen visible la escala y el límite. En Lo Barnechea, el cierre y la entrada compatible están separados por 1,046 km y comparten comuna. En Lo Prado, la distancia es 7,860 km y no hay coincidencia comunal. En ambos casos el evento se registra en 2016, pero la coordenada de entrada aparece recién en 2019: el mapa es válido para contrastar los puntos oficiales seleccionados, no para reconstruir un recorrido ocurrido en 2016.
+En ambos casos, la coordenada de la apertura aparece recién en 2019. El mapa compara los puntos oficiales seleccionados; no reconstruye un recorrido ocurrido en 2016.
 {: .text-justify}
 
-Estos son hechos estilizados (patrones descriptivos útiles para formular preguntas), no experimentos. Los **paneles de salida y entrada son muestras separadas**; no seguimos estudiantes y no sabemos si la escuela nueva recibió a quienes salieron de la antigua.
+Estos son hechos estilizados (patrones descriptivos útiles para formular preguntas), no experimentos. Los **paneles de salida y entrada son muestras separadas**; este análisis no sigue a los estudiantes y, por tanto, no muestra si la escuela nueva recibió a quienes salieron de la anterior.
 {: .small}
 
 Las figuras del carrusel usan **celdas descriptivas sin regularización** (sin el ajuste que estabiliza estimaciones ruidosas). La nota técnica usa otra cohorte, emparejamiento exacto y una regla mínima de soporte: **no son una segunda versión de la misma serie**.
 {: .text-justify}
 
-En el universo nacional, las nuevas tampoco entregan un final cómodo. El soporte exacto es `4/6/8` escuelas en SIMCE y `1/1/2` en admisión. Ninguna cohorte alcanza diez. La respuesta defendible es **`NOT_ESTIMABLE`**: esta base no permite decidir limpiamente si las entrantes son mejores o peores.
+Para las escuelas nuevas tampoco hay una respuesta concluyente. El soporte exacto es `4/6/8` escuelas en SIMCE y `1/1/2` en admisión. Ninguna cohorte alcanza diez casos. Por eso el resultado es **no estimable bajo la regla adoptada**: la base no permite determinar si rinden mejor o peor.
 {: .text-justify}
 
-La contabilidad de cada mercado separa el cambio de las escuelas que continúan, la reasignación de matrícula y la entrada o salida oficial. El recambio aporta `−0,000105` DE en SIMCE, con intervalo que cruza cero, y `+0,000113` en admisión, con intervalo positivo. Los signos no convergen y admisión observa solo rendidores. Como además las entradas no son estimables, **la consistencia schumpeteriana no queda apoyada**.
+La contabilidad de cada mercado separa el cambio de las escuelas que continúan, la reasignación de matrícula y la entrada o salida oficial. El recambio aporta `−0,000105` DE en SIMCE, con intervalo que cruza cero, y `+0,000113` en admisión, con intervalo positivo. Los signos difieren y admisión observa solo rendidores. Como además las entradas no son estimables, **estos resultados no respaldan la hipótesis de destrucción creativa**.
 {: .text-justify}
 
-## Lo que ya sabíamos y lo que agrega este ejercicio
+### Cómo conversa este resultado con estudios anteriores
 
-[Iocco (2024)](https://doi.org/10.2139/ssrn.4808834) sigue estudiantes desplazados en Chile: encuentra efectos medios cercanos a cero y mejores resultados cuando la escuela receptora rinde más. Es un preprint; su cierre por desaparición prolongada del RBD puede mezclar cierres, fusiones o cambios de identificador. [Grau, Hojman y Mizala (2018)](https://doi.org/10.1016/j.econedurev.2018.05.003), en cambio, estiman para estudiantes afectados aumentos de `1,8–2,5` puntos porcentuales en deserción de enseñanza media y de `3,9–4,4` puntos en repitencia de quinto básico. Su unidad, periodo y diseño causal son distintos de nuestros descriptivos por escuela; por eso no se promedian ni se presentan como una contradicción automática.
+[Iocco (2024)](https://doi.org/10.2139/ssrn.4808834) sigue estudiantes desplazados en Chile: encuentra efectos medios cercanos a cero y mejores resultados cuando la escuela receptora rinde más. Es un preprint; su cierre por desaparición prolongada del RBD puede mezclar cierres, fusiones o cambios de identificador. [Grau, Hojman y Mizala (2018)](https://doi.org/10.1016/j.econedurev.2018.05.003), en cambio, estiman para estudiantes afectados aumentos de `1,8–2,5` puntos porcentuales en deserción de enseñanza media y de `3,9–4,4` puntos en repitencia de quinto básico. [Elacqua y colaboradores](https://doi.org/10.4067/S0718-52862012000200005) estudian las alternativas disponibles para quienes enfrentan un cierre. Sus unidades, períodos y diseños son distintos de este análisis descriptivo por escuela; por eso no se promedian ni se presentan como una contradicción automática.
 {: .text-justify}
 
-Aquí distinguimos evento, entidad, anexo y segmento; observamos renovación espacial y extendemos hasta 2025. Sin trayectorias individuales no identificamos destino, accesibilidad ni bienestar.
+Este ejercicio distingue evento, entidad, anexo y segmento, observa la renovación espacial y extiende el panel hasta 2025. Sin trayectorias individuales no identifica destino, accesibilidad ni bienestar.
 {: .text-justify}
 
-### La pregunta que queda para una tercera entrega
+### Qué ocurrió al buscar efectos del SAE y de los SLEP
 
-La proyección demográfica nacional vuelve más importante esta discusión, pero no entrega un calendario de cierres. Antes de trasladarla a una comuna o localidad hay que estudiar población por edad, movilidad de los hogares, escolarización, capacidad y oferta por nivel. Un descenso nacional puede coexistir con barrios que necesitan escuelas nuevas.
-
-Una tercera entrega podría construir escenarios territoriales para anticipar dónde apoyar, ampliar, reorganizar o resguardar capacidad educativa. Su producto útil no sería una lista de establecimientos destinados a cerrar.
-
-## Qué ocurrió al buscar efectos del SAE y de los SLEP
-
-Ser más ambiciosos no consiste en forzar una estimación. Consiste en formular un contraste que pueda fracasar y aceptar su resultado. Probamos dos familias de análisis: una para los traspasos a Servicios Locales de Educación Pública (SLEP) y otra para el ingreso escalonado del Sistema de Admisión Escolar (SAE).
+También intenté dos análisis causales: uno sobre los traspasos a Servicios Locales de Educación Pública (SLEP) y otro sobre el ingreso escalonado del Sistema de Admisión Escolar (SAE). Ambos podían fracasar; el primero quedó bloqueado antes de estimar un efecto.
 {: .text-justify}
 
 | Análisis | Hipótesis puesta a prueba | Resultado observado | Qué bloquea una lectura causal |
@@ -222,7 +224,7 @@ Ser más ambiciosos no consiste en forzar una estimación. Consiste en formular 
 | SLEP exploratorio | Condiciones basales predicen qué territorios se traspasan antes y la cercanía entre redes puede contaminar comparaciones. | Tres condiciones basales no mostraron capacidad predictiva distinguible del azar: AUC con validación cruzada `0,53`, `p=0,22` de permutación. En 53 de 70 territorios existe al menos otro SLEP respecto del cual 20 % o más de sus escuelas queda, en distancia lineal, a 20 km o menos de alguna escuela de ese SLEP. | No detectar selección observada no demuestra que el calendario sea aleatorio; la geometría muestra interferencia potencial, no un efecto derrame observado. |
 | SAE, triple diferencia | En 2018 cambia la concentración en dos de los grados de entrada —1° y 7° básico— frente a grados aún diferidos, de forma distinta en cuatro regiones que ingresaron ese año que en diez regiones de control. | HHI `+0,0035` `[−0,0104; +0,0174]`; log del número efectivo de escuelas `−0,0042` `[−0,0265; +0,0181]`. | Con la ponderación principal, igual por comuna-grado, pasan 4 de 4 equivalencias previas; con peso igual por región histórica fallan ambos resultados en 2016–2017, el período inmediatamente anterior. Solo hay cuatro regiones tratadas y no se descartan efectos entre grados. |
 
-La lectura correcta no es «los SLEP y el SAE no tuvieron efecto». En SLEP, el diseño causal fue rechazado antes de estimar un efecto. En SAE, ambos intervalos de 95 % —*jackknife* eliminando una de 14 regiones históricas a la vez— incluyen cero y valores de ambos signos. Con solo cuatro regiones tratadas, la cobertura nominal de 95 % es solo aproximada y, sin identificación, no acota el efecto de la política. Encontramos una respuesta sobre **qué permite identificar la base actual**, no un veredicto sobre las políticas.
+Estos resultados no permiten concluir que los SLEP y el SAE no tuvieron efectos. En SLEP, el diseño causal fue rechazado antes de estimarlos. En SAE, ambos intervalos de 95 % —*jackknife* eliminando una de 14 regiones históricas a la vez— incluyen cero y valores de ambos signos. Con solo cuatro regiones tratadas, la cobertura nominal de 95 % es aproximada y, sin identificación, no acota el efecto de la política. La base permite diagnosticar los límites del diseño, no evaluar ninguna de las dos políticas.
 {: .text-justify}
 
 En SLEP, una próxima evaluación sería causalmente más informativa si documentara antes del traspaso los criterios que fijan el orden de ingreso, acumulara más territorios tratados y midiera interferencia, destinos estudiantiles, accesibilidad y resultados. En SAE, cuyo despliegue ya terminó, ampliar la ventana obliga a combinar cohortes posteriores con menos regiones aún no tratadas o a construir otro contraste, por ejemplo a partir de una regla de asignación defendible. Estas condiciones fortalecerían, sin garantizar, una lectura causal de **estos diseños**; mientras no se cumplan, sus resultados son señales exploratorias, no impactos.
@@ -230,7 +232,7 @@ En SLEP, una próxima evaluación sería causalmente más informativa si documen
 
 ## Qué puede usar la política pública
 
-Este análisis sirve como **apoyo a la decisión**, no como una regla para cerrar, fusionar, abrir u ordenar escuelas en un ranking. La secuencia prudente es **observación → diagnóstico → decisión**. Saltar de una observación —por ejemplo, menor matrícula o una escuela cercana— directamente a un cierre confunde una señal con una causa y una causa con una solución.
+Este análisis sirve como **apoyo a la decisión**, no como una regla para cerrar, fusionar, abrir u ordenar escuelas en un ranking. La secuencia prudente es **observación → diagnóstico → decisión**. Una baja de matrícula o la cercanía de otra escuela justifican un diagnóstico; no bastan para decidir un cierre.
 {: .text-justify}
 
 | Momento de la decisión | Señal que aporta este análisis | Evidencia adicional indispensable | Acción admisible y resguardo |
@@ -240,7 +242,7 @@ Este análisis sirve como **apoyo a la decisión**, no como una regla para cerra
 | Planificar la transición o la red | Separa niveles y advierte que cercanía no equivale a sustitución. | Vacantes reales, accesibilidad y tiempos de viaje, destinos, apoyos, participación y continuidad pedagógica. | Preparar escenarios y un plan de transición; no presumir que la alternativa del directorio es utilizable. |
 | Evaluar resultados | Define denominadores, muestras y límites de comparación. | Seguimiento de estudiantes y un contrafactual creíble. | Medir productos, resultados e impacto por separado; no atribuir aprendizaje, equidad o bienestar al cierre sin identificación causal. |
 
-El alcance institucional también importa. Un SLEP planifica y gestiona **su propia red**, no los establecimientos de otros sostenedores. La [Ley 21.040, artículo 18, letras c y t](https://www.bcn.cl/leychile/navegar?idNorma=1111237), le encarga velar por una cobertura pública adecuada en su territorio —identificando zonas de expansión poblacional o de cobertura insuficiente— y por la continuidad de las trayectorias. MINEDUC puede observar brechas del sistema escolar; la Dirección de Educación Pública, las del Sistema de Educación Pública. El [Plan Anual Local 2026](https://dep.gob.cl/pal-2026/) planifica apoyo técnico, infraestructura y dotaciones a partir del número de cursos y la matrícula. Ninguna de esas funciones entrega autoridad sobre otros sostenedores, convierte este estudio en autorización administrativa ni demuestra que una modalidad de gestión sea superior.
+El alcance institucional también importa. Un SLEP planifica y gestiona **su propia red**, no los establecimientos de otros sostenedores. La [Ley 21.040, artículo 18, letras c y t](https://www.bcn.cl/leychile/navegar?idNorma=1111237) encarga a cada SLEP desarrollar la oferta pública, velar por la cobertura —incluidas las áreas de expansión poblacional o de cobertura insuficiente— y asegurar la continuidad de las trayectorias. La letra t) agrega monitoreo y apoyos para la permanencia y la revinculación. MINEDUC ejerce la rectoría del sistema educativo; la Dirección de Educación Pública coordina y conduce estratégicamente el Sistema de Educación Pública. El [Plan Anual Local 2026](https://dep.gob.cl/pal-2026/) planifica apoyo técnico, infraestructura y dotaciones a partir del número de cursos y la matrícula. Ninguna de esas funciones entrega autoridad sobre otros sostenedores, convierte este estudio en autorización administrativa ni demuestra que una modalidad de gestión sea superior.
 {: .text-justify}
 
 Hay dos errores de focalización que conviene vigilar. Un **falso positivo** señalaría como inviable una escuela cuya matrícula cae porque disminuye la población local, aunque siga siendo necesaria para asegurar acceso. Un **falso negativo** omitiría una transición riesgosa porque la matrícula agregada parece estable, aun cuando ciertos niveles, territorios o grupos hayan perdido una alternativa efectiva. El IVE-SINAE ayuda a describir composición agregada de la escuela; no identifica pobreza individual ni decide por sí solo dónde intervenir.
@@ -259,52 +261,60 @@ Una teoría de cambio evaluable distingue cinco niveles. **Insumos:** registros 
 | Discontinuidad o variable instrumental | Aprovechar una regla que cambie la probabilidad de cierre. | Manipulación, primera etapa débil o exclusión inverosímil. |
 | Seguimiento individual | Medir destino, transporte y resultados posteriores. | Pérdida selectiva o enlaces erróneos. |
 
+### La pregunta que queda para una tercera entrega
+
+La proyección demográfica nacional vuelve más importante esta discusión, pero no entrega un calendario de cierres. Antes de trasladarla a una comuna o localidad hay que estudiar población por edad, movilidad de los hogares, escolarización, capacidad y oferta por nivel. Un descenso nacional puede coexistir con barrios que necesitan escuelas nuevas.
+
+Una tercera entrega podría construir escenarios territoriales para anticipar dónde apoyar, ampliar, reorganizar o resguardar capacidad educativa. Su producto útil no sería una lista de establecimientos destinados a cerrar.
+
 <details class="technical-disclosure" markdown="1">
 <summary>Nota técnica y controles de robustez</summary>
 
-Esta sección conserva las cifras necesarias para auditar el ejercicio sin convertir el relato principal en un log de ejecución.
+Esta sección conserva las cifras necesarias para auditar el ejercicio sin convertir el relato principal en un registro de ejecución.
 
-**Cobertura y deuda residual.** El registro de identidad reunió 14 alias oficiales y dos sucesiones temporales candidatas; estas últimas no tocan las 337 salidas del panel de riesgo, pero el registro no acredita que todas las recodificaciones posibles estén detectadas. La auditoría de selección muestra soporte desigual por dependencia, ruralidad y región, por lo que los resultados describen la muestra observada y no un efecto poblacional nacional. En SLEP, ninguna de las 25 combinaciones territorio-horizonte superó el soporte sintético: la regla fijada en la especificación exigía al menos 10 donantes elegibles y 3 efectivos, peso máximo `0,50`, error cuadrático pretratamiento de hasta `0,25` DE, error en el último año previo de hasta 5 % en matrícula y 2 % en escuelas, y al menos dos territorios admisibles por celda y cinco en total. El diagnóstico posterior usa matrícula pública, escuelas públicas activas y estudiantes por escuela en 2015 para distinguir 26 territorios traspasados al 31 de diciembre de 2025 de 44 aún no traspasados, con regresión logística penalizada, validación cruzada de cinco pliegues y 1.999 permutaciones. La AUC exacta fue `0,5341` con `p=0,2195` de permutación: no mostró capacidad predictiva distinguible del azar y tampoco demuestra asignación aleatoria. El traslape alto se calcula por pares: respecto de al menos otro SLEP, 20 % o más de las escuelas del territorio queda a una distancia lineal de 20 km o menos de alguna escuela de ese SLEP; no exige contigüidad territorial. En SAE, los cuatro placebos primarios quedaron dentro de los márgenes fijados, pero la sensibilidad por región histórica aprobó solo dos de cuatro y el contraste posterior usa apenas cuatro regiones tratadas. La literatura se usa como contexto: este post no reclama novedad exhaustiva.
+**Cobertura y límites pendientes.** El registro de identidad reunió 14 alias oficiales y dos sucesiones temporales candidatas; estas últimas no tocan las 337 salidas del panel de riesgo, pero el registro no acredita que todas las recodificaciones posibles estén detectadas. La auditoría de selección muestra soporte desigual por dependencia, ruralidad y región, por lo que los resultados describen la muestra observada y no un efecto poblacional nacional. En SLEP, ninguna de las 25 combinaciones territorio-horizonte superó el soporte sintético: la regla fijada en la especificación exigía al menos 10 territorios de comparación elegibles y 3 efectivos, peso máximo `0,50`, error cuadrático pretratamiento de hasta `0,25` DE, error en el último año previo de hasta 5 % en matrícula y 2 % en escuelas, y al menos dos territorios admisibles por celda y cinco en total. El diagnóstico posterior usa matrícula pública, escuelas públicas activas y estudiantes por escuela en 2015 para distinguir 26 territorios traspasados al 31 de diciembre de 2025 de 44 aún no traspasados, con regresión logística penalizada, validación cruzada de cinco pliegues y 1.999 permutaciones. La AUC exacta fue `0,5341` con `p=0,2195` de permutación: no mostró capacidad predictiva distinguible del azar y tampoco demuestra asignación aleatoria. La superposición alta se calcula por pares: respecto de al menos otro SLEP, 20 % o más de las escuelas del territorio queda a una distancia lineal de 20 km o menos de alguna escuela de ese SLEP; no exige contigüidad territorial. En SAE, los cuatro placebos primarios quedaron dentro de los márgenes fijados, pero la sensibilidad por región histórica aprobó solo dos de cuatro y el contraste posterior usa apenas cuatro regiones tratadas. La literatura se usa como contexto: este post no reclama novedad exhaustiva.
 
-**SAE.** La triple diferencia 2017–2018 compara dos de los grados de entrada, 1° y 7°, con 2°–6° y 8°, entre cuatro regiones que ingresaron en 2018 y diez regiones del despliegue todavía no tratadas. La [guía oficial de MINEDUC](https://www.mineduc.cl/wp-content/uploads/sites/19/2018/01/guia-informativa.pdf) confirma la secuencia: Magallanes ingresó para el año escolar 2017 y Tarapacá, Coquimbo, O’Higgins y Los Lagos para 2018. Magallanes se excluye; Ñuble se agrupa con Biobío porque esa era la geografía que recibió la asignación. La inferencia usa *jackknife* eliminando una de 14 regiones históricas a la vez. Los intervalos no están ajustados; el valor p ajustado por Holm es `1,0` en ambos resultados. HHI y `log(1/HHI)`, el log del número efectivo de escuelas, son dos escalas del mismo índice. Cubren toda la matrícula observada de educación básica regular por comuna-grado y todos los tipos de sostenedor, no solo postulantes SAE; por eso un efecto entre postulantes se diluiría con estudiantes que no postularon y no constituyen señales independientes. HHI da `+0,003513` `[−0,010368; +0,017395]`; el log del número efectivo, `−0,004192` `[−0,026491; +0,018106]`, aproximadamente `−0,4 %` `[−2,6 %; +1,8 %]` en el número efectivo. Como referencia descriptiva, en 2017 la media comuna-grado de HHI era `0,1913` y la media aritmética del número efectivo era `12,48`. Los márgenes previos fijados en la especificación —`±0,02` para HHI y `±0,05` para el log— superan incluso los extremos de los intervalos de 2018: aprobarlos no descarta desviaciones de tendencia del tamaño de cualquier efecto compatible con esos intervalos. Un oráculo R recompone doce celdas dentro de `1e−10`. Es una DDD exploratoria: los valores p son descriptivos, no inferencia de aleatorización.
+**SAE.** La triple diferencia 2017–2018 compara dos de los grados de entrada, 1° y 7°, con 2°–6° y 8°, entre cuatro regiones que ingresaron en 2018 y diez regiones del despliegue todavía no tratadas. La [guía oficial de MINEDUC](https://www.mineduc.cl/wp-content/uploads/sites/19/2018/01/guia-informativa.pdf) confirma la secuencia: Magallanes ingresó para el año escolar 2017 y Tarapacá, Coquimbo, O’Higgins y Los Lagos para 2018. Magallanes se excluye; Ñuble se agrupa con Biobío porque esa era la geografía que recibió la asignación. La inferencia usa *jackknife* eliminando una de 14 regiones históricas a la vez. Los intervalos no están ajustados; el valor p ajustado por Holm es `1,0` en ambos resultados. HHI y `log(1/HHI)`, el log del número efectivo de escuelas, son dos escalas del mismo índice. Cubren toda la matrícula observada de educación básica regular por comuna-grado y todos los tipos de sostenedor, no solo postulantes SAE; por eso un efecto entre postulantes se diluiría con estudiantes que no postularon y no constituyen señales independientes. HHI da `+0,003513` `[−0,010368; +0,017395]`; el log del número efectivo, `−0,004192` `[−0,026491; +0,018106]`, aproximadamente `−0,4 %` `[−2,6 %; +1,8 %]` en el número efectivo. Como referencia descriptiva, en 2017 la media comuna-grado de HHI era `0,1913` y la media aritmética del número efectivo era `12,48`. Los márgenes previos fijados en la especificación —`±0,02` para HHI y `±0,05` para el log— superan incluso los extremos de los intervalos de 2018: aprobarlos no descarta desviaciones de tendencia del tamaño de cualquier efecto compatible con esos intervalos. Una implementación independiente en R reproduce las doce celdas con una diferencia menor que `1e−10`. Es una DDD exploratoria: los valores p son descriptivos, no inferencia de aleatorización.
 
-**Mercados locales.** El estimando H1 compara la diferencia de riesgo entre los percentiles 75 y 25 de concentración en seis vecindarios espaciales con la misma diferencia bajo comuna. Es una sensibilidad de posición relativa, no el efecto de redibujar el mercado. Ninguna banda excluye cero: los techos son `0,273108` y `0,375248` puntos porcentuales. Los cortes de `0,25` y `0,5` son umbrales exploratorios del índice de concentración fijados por el autor, no reglas de política.
+**Mercados locales.** El estimando H1 compara la diferencia de riesgo entre los percentiles 75 y 25 de concentración en seis vecindarios espaciales con la misma diferencia bajo comuna. Es una sensibilidad de posición relativa, no el efecto de redibujar el mercado. Ninguna banda excluye cero: los límites superiores de los contrastes son `0,273108` y `0,375248` puntos porcentuales. El umbral principal de relevancia práctica fue `0,5` puntos porcentuales, con sensibilidades en `0,25` y `1,0`; los fijé antes de estimar H1. No son umbrales del índice de concentración ni reglas de política.
 
-**Salidas y sensibilidad.** MR1-SIMCE estima `+0,029` DE `[−0,095; +0,158]` con 21 cierres. La variante `weighted_raw` da `+0,034` `[−0,225; +0,289]`. Admisión núcleo queda `NOT_ESTIMABLE` con ocho cierres en el resultado primario y sus sensibilidades. En modalidad humanista-científica hay siete; técnico-profesional tiene cero comparaciones con soporte estricto. Ciencias cubre solo a quienes eligieron y rindieron esa prueba.
+**Salidas y sensibilidad.** MR1-SIMCE estima `+0,029` DE `[−0,095; +0,158]` con 21 cierres. La variante `weighted_raw` da `+0,034` `[−0,225; +0,289]`. El puntaje núcleo de admisión queda `NOT_ESTIMABLE` con ocho cierres en el resultado primario y sus sensibilidades. En modalidad humanista-científica hay siete; técnico-profesional no tiene comparaciones con soporte estricto. Ciencias cubre solo a quienes eligieron y rindieron esa prueba.
 
-La regresión a la media (un extremo tiende a acercarse al promedio al repetirse) produjo rebotes entre escuelas abiertas. Este diagnóstico no está emparejado, no aplica el shrinkage de MR1 ni asigna un evento de cierre. La vía administrativa de cierre de la Ley 20.529 es otro mecanismo rival.
+La regresión a la media (un extremo tiende a acercarse al promedio al repetirse) produjo rebotes entre escuelas abiertas. Este diagnóstico no está emparejado, no aplica el ajuste de regularización de MR1 ni asigna un evento de cierre. La vía administrativa de cierre de la Ley 20.529 es otro mecanismo rival.
 
-**Entradas.** MR2 queda `NOT_ESTIMABLE` en ambos resultados: el soporte por cohorte es 4/6/8 en SIMCE y 1/1/2 en admisión, insuficiente para publicar estimaciones o intervalos. Promover signos sin soporte cambiaría la regla después de mirar. El protocolo es retrospectivo, no un registro previo prospectivo: registra diez desviaciones; planificó soportes mínimos 5, 10 y 20, pero solo ejecutó 10. Por eso esta publicación no presenta el umbral como una prueba de robustez ni usa puntos subsoportados para concluir.
+**Entradas.** MR2 queda `NOT_ESTIMABLE` en ambos resultados: el soporte por cohorte es 4/6/8 en SIMCE y 1/1/2 en admisión, insuficiente para publicar estimaciones o intervalos. Promover signos sin soporte cambiaría la regla después de mirar. El protocolo es retrospectivo, no un registro previo prospectivo: registra diez desviaciones; planificó soportes mínimos 5, 10 y 20, pero solo ejecutó 10. Por eso esta publicación no presenta el umbral como una prueba de robustez ni usa estimaciones con menos casos que el mínimo para concluir.
 
-**Descomposición.** Los mercados son comuna por segmento exacto. La rotación oficial suma entrada y salida: SIMCE `−0,000105` `[−0,000346; +0,000103]`; admisión `+0,000113` `[+0,000027; +0,000213]`. El componente `between` (reasignación entre incumbentes) es mayor: `+0,004777` en SIMCE y `+0,001858` en admisión. La identidad contable cierra con residuo máximo `6,66e−16`, bajo la tolerancia `1e−10`. Son identidades, no causas.
+**Descomposición.** Los mercados son comuna por segmento exacto. La rotación oficial suma entrada y salida: SIMCE `−0,000105` `[−0,000346; +0,000103]`; admisión `+0,000113` `[+0,000027; +0,000213]`. El componente `between` (reasignación entre establecimientos que permanecen) es mayor: `+0,004777` en SIMCE y `+0,001858` en admisión. La identidad contable cierra con residuo máximo `6,66e−16`, bajo la tolerancia `1e−10`. Son identidades, no causas.
 
-**Territorio y coordenadas.** El ejercicio espacial conserva 38 cierres emparejados con 29 aperturas únicas. La entrada se ubica en la primera coordenada oficial válida entre su año de entrada y 2025; 9 trayectorias inestables quedan fuera y 259 entradas tienen coordenada tardía. La auditoría nacional abarca 12.116 filas oficiales: 12.038 establecimientos funcionando y 78 autorizados sin matrícula, informados por separado. En ese total, 6.601 tienen al menos un candidato OSM, 5.515 no lo tienen y 126 filas fueron revisadas. Hay cero errores oficiales confirmados. OSM es una fuente secundaria; el producto público contiene agregados y no redistribuye la tabla combinada por establecimiento.
+**Territorio y coordenadas.** El ejercicio espacial conserva 38 cierres emparejados con 29 aperturas únicas. La entrada se ubica en la primera coordenada oficial válida entre su año de entrada y 2025; 9 trayectorias inestables quedan fuera y 259 entradas tienen coordenada tardía. La auditoría nacional abarca 12.116 filas oficiales: 12.038 establecimientos funcionando y 78 autorizados sin matrícula, informados por separado. En ese total, 6.601 tienen al menos un candidato OSM, 5.515 no lo tienen y 126 filas fueron revisadas. La revisión no confirmó errores en las coordenadas oficiales. OSM es una fuente secundaria; el producto público contiene agregados y no redistribuye la tabla combinada por establecimiento.
 
-**Reproducibilidad.** Las cifras agregadas de esta ejecución son reproducibles; el snapshot científico está ligado a un ancla Git local y a un *freeze* verificable. Python preparó el CSV privado de entrada; R produjo los agregados, ejecutó 999 réplicas *bootstrap* (remuestreos para medir incertidumbre), y Python reconcilió las estimaciones puntuales de 112 celdas públicas agregadas. Ese acuerdo reduce errores de implementación, no confusión causal.
+**Reproducibilidad.** Las cifras agregadas de esta ejecución son reproducibles; la copia científica está ligada a un ancla Git local y a una versión inmutable verificable. Python preparó el CSV privado de entrada; R produjo los agregados, ejecutó 999 réplicas *bootstrap* (remuestreos para medir incertidumbre), y Python reconcilió las estimaciones puntuales de 112 celdas públicas agregadas. Ese acuerdo reduce errores de implementación, no confusión causal.
 
 </details>
 
 ## Cierre: evaluar la transición, no celebrar el movimiento
 
-Extender la tesis reveló que «cierre» escondía stocks, eventos, escuelas vacías, anexos y reemplazos de RBD; «mercado» mezclaba sala cuna, básica y media; «renovación» confundía cercanía con destino.
+Extender la tesis reveló que «cierre» escondía recuentos acumulados, eventos, escuelas vacías, anexos y reemplazos de RBD; «mercado» mezclaba sala cuna, básica y media; «renovación» confundía cercanía con destino.
 {: .text-justify}
 
-La destrucción creadora escolar sigue siendo atractiva y por eso merece una prueba desagradablemente estricta. Hay señales, vacíos y presión demográfica; no permiso para celebrar.
+La hipótesis de destrucción creativa es atractiva; por eso hay que exigirle una prueba estricta. Hoy hay señales, vacíos y presión demográfica, pero no evidencia para celebrar el recambio.
 {: .text-justify}
 
-El mercado escolar chileno cambió de reglas y estructura en las décadas de 1980, 1990, 2000, 2010 y 2020. A este ritmo, la inteligencia artificial todavía corre detrás: al menos sus versiones vienen numeradas.
+El movimiento existe. Lo que todavía falta saber es quién gana continuidad y quién termina pagando la transición.
 {: .text-justify}
 
 ### Transparencia y alcance de las fuentes
 
-La tesis y su extensión son de mi autoría; no constituyen una réplica independiente. El Salvador fue seleccionado por mi vínculo biográfico con la localidad. Hacer explícitas ambas circunstancias permite reconocer posibles sesgos de confirmación y selección.
+La tesis y su extensión son de mi autoría; no constituyen una réplica independiente. También fui coautor de [*Destructive Creation* (DT 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), antecedente del artículo de Grau, Hojman y Mizala (2018) citado aquí. El Salvador fue seleccionado por mi vínculo biográfico con la localidad. Hacer explícitas estas relaciones permite reconocer posibles sesgos de confirmación y selección.
 
-Este trabajo no recibió financiamiento de ninguna fuente. La persona autora declara no tener conflictos de interés; su única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, institución que no financió, encargó, supervisó ni revisó este trabajo, y cuyas posiciones no están representadas por sus conclusiones. Se utilizaron asistentes de inteligencia artificial para apoyar programación, control de calidad, revisión de prosa y revisión adversarial. Las decisiones metodológicas y editoriales, la verificación de fuentes y la responsabilidad por todas las afirmaciones y resultados corresponden exclusivamente a la persona autora.
+No recibí financiamiento para este trabajo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó, supervisó ni revisó este trabajo; sus posiciones no están representadas por estas conclusiones. Utilicé asistentes de inteligencia artificial para apoyar programación, control de calidad, revisión de prosa y revisión adversarial. Las decisiones metodológicas y editoriales, la verificación de fuentes y la responsabilidad por todas las afirmaciones y resultados son mías.
 {: .text-justify}
 
 ---
 
 ## Referencias
+
+<div class="post-references" markdown="1">
 
 Chay, K. Y., McEwan, P. J., & Urquiola, M. (2005). [The central role of noise in evaluating interventions that use test scores to rank schools](https://doi.org/10.1257/0002828054825529). *American Economic Review, 95*(4), 1237–1258.
 
@@ -321,3 +331,5 @@ Paredes, R. D., & Fresard, M. (2018). [Voucher y cierre de escuelas en Chile](ht
 Quintero-Fragozo, C., Cortés, Y., & Sarrias, M. (2023). [Effects of spatial competition on public educational efficiency](https://doi.org/10.1080/02680939.2021.1966102). *Journal of Education Policy, 38*(1), 115–140.
 
 Taghizadeh, J. L. (2020). [Effects of school closures on displaced students and future cohorts](https://doi.org/10.1016/j.labeco.2020.101910). *Labour Economics, 67*, 101910.
+
+</div>

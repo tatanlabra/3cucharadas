@@ -231,7 +231,7 @@ async function checkPreview(origin) {
   }
 
   for (const [name, route, expected] of [
-    ["preview-post", postRoute, ["Multiagentes en 3 cucharadas III", "Mapa de trabajo aprendido por penta-agent", "Alternativa textual y límites de la proyección"]],
+    ["preview-post", postRoute, ["Multiagentes en 3 cucharadas (parte III)", "Abrir el visor interactivo en una pestaña nueva", "El visor no es la memoria. Es apenas un mapa construido desde una de sus proyecciones."]],
     ["preview-viewer", viewerRoute, ["Mapa de trabajo aprendido", 'id="taskFilter"', 'role="tablist"']],
   ]) {
     const response = await fetch(new URL(route, parsed));

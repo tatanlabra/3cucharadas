@@ -121,7 +121,7 @@ locales:
     id: evidencia-cara-a-cara
     eyebrow: Auditoría visual
     title: La evidencia, cara a cara
-    intro: Seis contrastes con su resultado medido y el límite que no conviene maquillar.
+    intro: Seis comparaciones, cada una con su resultado y con el límite que no conviene esconder.
     instructions: Desliza, usa las flechas o presiona Inicio, Fin, ← y →. No hay avance automático.
     enlarge: Ampliar
     open_full_size: Ver a tamaño completo
@@ -140,8 +140,8 @@ locales:
         verdict: "Acerté: 12 de 12"
         tone: match
         metric: 12/12 celdas; N=955
-        evidence: La tesis y la reejecución de Stata 17 contienen el mismo vector completo, no sólo el mismo total.
-        limit: El calce actual no recupera la sesión histórica de 2014.
+        evidence: La tesis y la reejecución de Stata 17 contienen la misma secuencia completa de doce valores, no solo el mismo total.
+        limit: Que coincidan hoy no permite reconstruir la sesión original de 2014.
         original_label: Tesis publicada (2014)
         recreated_label: Reejecución actual (Stata 17)
         original_alt: Facsímil del Cuadro 4 de la tesis con las doce celdas y total 955.
@@ -182,8 +182,8 @@ locales:
         verdict: Recreación exacta
         tone: match
         metric: 80/80 y 40/40 puntos; medias 6,342 · 4,454 · 1,616
-        evidence: Las fórmulas preservadas usan stock rezagado para movilidad bruta y destrucción; la creación usa el stock contemporáneo.
-        limit: Las variantes del panel amplio son sensibilidad a universo y denominador, no sustituyen el estimando del productor.
+        evidence: Las fórmulas guardadas dividen la movilidad bruta y las salidas por el número de establecimientos del año anterior; para las entradas usan el del mismo año.
+        limit: Las variantes con un panel más amplio muestran qué cambia al modificar el universo o el denominador; no reemplazan la medida calculada en el archivo original.
         original_label: Tesis publicada (2014)
         recreated_label: Recreación canónica (2026)
         original_alt: Facsímil de la Figura 2 con tasas relativas por dependencia.
@@ -193,15 +193,15 @@ locales:
       - id: table-08-rounding
         case: TABLE-08 · J-020
         title: Cuadro 8 · doce magnitudes
-        verdict: Parece que truncé ocho valores
+        verdict: Parece que recorté ocho valores sin redondearlos
         tone: tentative
         metric: 12/12 compatibles; 4/12 redondean igual
-        evidence: Las doce magnitudes están cerca, pero ocho caen en el dígito inferior al que produciría el redondeo convencional.
-        limit: Truncamiento es la mejor hipótesis actual, no una ejecución histórica observada.
+        evidence: Las doce magnitudes están cerca, pero, en ocho, el último dígito queda por debajo del que daría el redondeo convencional.
+        limit: Recortar sin redondear es la explicación que mejor calza con la evidencia, pero no observé la ejecución original de 2014.
         original_label: Tesis publicada (2014)
         recreated_label: Reejecución Stata 17 y regla de redondeo
         original_alt: Facsímil completo del Cuadro 8 con efectos fijos, varianzas, N y grupos.
-        recreated_alt: Comparación de doce magnitudes publicadas y reejecutadas, con cuatro redondeos iguales y ocho compatibles con truncamiento.
+        recreated_alt: Comparación de doce magnitudes publicadas y reejecutadas, con cuatro redondeos iguales y ocho compatibles con un recorte sin redondeo.
         original_asset: s05-original
         recreated_asset: s05-es
       - id: figure-04-net-mobility
@@ -210,8 +210,8 @@ locales:
         verdict: Recreación exacta
         tone: match
         metric: 80/80 puntos de entradas menos salidas
-        evidence: La planilla productora y el vector incrustado en el manuscrito coinciden punto por punto para las cuatro series.
-        limit: El calce numérico no prueba que el ciclo macroeconómico cause los movimientos descritos en la prosa.
+        evidence: La planilla de cálculo original y la serie incrustada en el manuscrito coinciden punto por punto para las cuatro series.
+        limit: La coincidencia numérica no prueba que el ciclo macroeconómico cause los movimientos descritos en la prosa.
         original_label: Tesis publicada (2014)
         recreated_label: Serie regenerada
         original_alt: Facsímil de la Figura 4 con movilidad neta anual por dependencia.

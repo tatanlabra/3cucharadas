@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Avalúo y vulnerabilidad en 3 cucharadas: cambie el denominador, cambie el mapa"
+title: "Avalúo y vulnerabilidad en 3 cucharadas (parte I): cambie el denominador, cambie el mapa"
 subtitle: "Qué ocurre al repartir el avalúo fiscal de 9,4 millones de predios entre unidades vecinales y cambiar la unidad de comparación"
 date: 2026-07-26 19:20:00 -0400
 categories: [datos, python, territorio]

@@ -136,23 +136,23 @@ def validate(root, staged:, external_papers:, thesis_root:)
   checks = {
     "es" => {
       "C2" => ["El mercado mutó muy rápido", "La IA al menos publica notas de versión", "[^regimenes]"],
-      "C3" => ["Python", "invocó Stata 17 mediante `stata-mp`", "14 rutas activas", "reejecución actual trazable", "Nada de lo que sigue es causal", "Con datos de 2002 a 2012", "dos comunidades rurales del sur", "Mi panel (datos que siguen", "La tesis es mía y la auditoría también: no es una réplica independiente"],
-      "C4" => ["50 hipótesis", "37 quedaron refutadas, 11 sostenidas, 1 parcial y 1 refutada para once de catorce términos", "34 juicios", "quince juicios quedaron correctamente respaldados", "ninguno permanece como error conocido en la salida canónica de 2026", "doce convergencias, diez divergencias explicadas y cuatro sin prueba numérica", "Fórmulas productoras: 80/80 y 40/40 puntos", "Planilla y gráfico incrustado: 80/80 puntos", "salida canónica de 2026 sin errores conocidos"],
-      "C8" => ["Todo el itinerario computacional disponible volvió a ejecutarse; eso no hizo que todos los resultados fueran iguales.", "10 de 20 coeficientes", "4 de 12 coinciden", "| Coincidencia | 3 |", "| Diferencia | 2 |", "| No comparable por diseño | 4 |"],
-      "C10" => ["`do_058`", "`do_059`", "`do_060`", "recuperación gobernada", "[^harvest]:"],
+      "C3" => ["Python", "Una nueva ejecución usó Stata 17 mediante `stata-mp`", "14 rutas que todavía podían ejecutarse", "reejecución actual trazable", "Nada de lo que sigue es causal", "Con datos de 2002 a 2012", "dos comunidades rurales del sur", "Mis datos siguen las mismas unidades en el tiempo", "La tesis es mía y la auditoría también: no es una réplica independiente"],
+      "C4" => ["50 hipótesis", "37 quedaron refutadas, 11 sostenidas, una tuvo un resultado parcial y otra fue refutada en once de catorce términos", "34 juicios", "quince juicios quedaron respaldados", "Ninguno pasó a la versión de 2026 que uso como referencia", "doce convergencias, diez divergencias explicadas y cuatro sin prueba numérica", "Fórmulas productoras: 80/80 y 40/40 puntos", "Planilla y gráfico incrustado: 80/80 puntos", "salida canónica de 2026 sin errores conocidos"],
+      "C8" => ["Todo el código disponible volvió a ejecutarse, pero no siempre produjo el mismo resultado.", "10 de 20 coeficientes", "4 de 12 coinciden", "| Coincidencia | 3 |", "| Diferencia | 2 |", "| No comparable por diseño | 4 |"],
+      "C10" => ["`do_058`", "`do_059`", "`do_060`", "recuperación controlada", "[^harvest]:"],
       "C11" => ["para que una reparación técnica no reescriba la evidencia histórica", "reejecutable no significa recreable; recreable no significa coincidente; coincidente no significa correcto; correcto no significa causal", "### De describir el cierre a identificar una política", "no crea el contrafactual que falta", "**Alerta descriptiva/predictiva**", "**Reforma escalonada**", "**Consecuencias del cierre**"],
       "C12" => ["10 de los 11 efectos fijos publicados", "12 coeficientes en el archivo, 11 efectos en el cuadro y 10 coincidencias", "solo para el universo reconstruido del Gran Santiago", "visible retrospectivamente durante los siete años previos", "mayor consecuencia interpretativa para la política pública", "**Tabla 4** — Qué uso público resiste y dónde termina la evidencia", "Lo que no autoriza"],
-      "C14" => ["invocó Stata 17 mediante `stata-mp`", "14 rutas activas", "reejecución actual trazable", "[^stata17]: Recibo técnico fijado", "15/15 roles", "`c(MP)=1`", "`c(flavor)=IC`", "[^harvest]: Cosecha de salidas fijada"]
+      "C14" => ["Una nueva ejecución usó Stata 17 mediante `stata-mp`", "14 rutas que todavía podían ejecutarse", "reejecución actual trazable", "[^stata17]: Recibo técnico fijado", "15/15 roles", "`c(MP)=1`", "`c(flavor)=IC`", "[^harvest]: Cosecha de salidas fijada"]
     },
     "en" => {
-      "C2" => ["school market changed rules faster than AI", "[^regimenes]"],
-      "C3" => ["Python", "invoked Stata 17 through `stata-mp`", "14 active routes", "traceable present-day rerun", "Nothing below is causal", "With data from 2002 to 2012", "two rural communities in southern Chile", "My panel (data that follow", "The thesis is mine and so is the audit: this is not an independent replication"],
-      "C4" => ["50 hypotheses", "37 were refuted, 11 sustained, 1 partial, and 1 refuted for eleven of fourteen terms", "34 judgements", "fifteen judgements were correctly supported", "none remains as a known error in the canonical 2026 output", "twelve converge, ten have explained divergences, and four lack a numerical test", "Producer formulas: 80/80 and 40/40 points", "Workbook and embedded chart: 80/80 points", "canonical 2026 output with no known errors"],
-      "C8" => ["Every available computational route ran again; that did not make every result equal.", "10 of 20 coefficients", "4 of 12 match", "| Match | 3 |", "| Mismatch | 2 |", "| Not comparable by design | 4 |"],
-      "C10" => ["`do_058`", "`do_059`", "`do_060`", "governed recovery", "[^harvest]:"],
-      "C11" => ["so a repair cannot rewrite historical evidence", "rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal", "### From describing closure to identifying a policy", "do not create the missing counterfactual", "**Descriptive/predictive warning**", "**Staggered reform**", "**Consequences of closure**"],
+      "C2" => ["AI at least publishes release notes", "[^regimenes]"],
+      "C3" => ["Python", "A new run used Stata 17 through `stata-mp`", "14 routes that could still be executed", "traceable present-day rerun", "Nothing below is causal", "With data from 2002 to 2012", "two rural communities in southern Chile", "My data follow the same units over time", "The thesis is mine and so is the audit: this is not an independent replication"],
+      "C4" => ["50 hypotheses", "37 were refuted, 11 sustained, 1 partial, and 1 refuted for eleven of fourteen terms", "34 judgements", "fifteen judgements were supported", "None carried into the 2026 version I now use as a reference", "twelve converge, ten have explained divergences, and four lack a numerical test", "Producer formulas: 80/80 and 40/40 points", "Workbook and embedded chart: 80/80 points", "a 2026 version with no known errors"],
+      "C8" => ["All the available code ran again, but it did not always produce the same result.", "10 of 20 coefficients", "4 of 12 match", "| Match | 3 |", "| Mismatch | 2 |", "| Not comparable by design | 4 |"],
+      "C10" => ["`do_058`", "`do_059`", "`do_060`", "controlled recovery", "[^harvest]:"],
+      "C11" => ["so a technical repair cannot rewrite historical evidence", "rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal", "### From describing closure to identifying a policy", "do not create the missing counterfactual", "**Descriptive/predictive warning**", "**Staggered reform**", "**Consequences of closure**"],
       "C12" => ["10 of the 11 published fixed effects", "12 coefficients in the file, 11 effects in the table, and 10 matches", "only for the reconstructed Greater Santiago universe", "visible retrospectively across the previous seven years", "largest interpretive consequence for public policy", "**Table 4** — What public use survives, and where the evidence ends", "What it does not authorise"],
-      "C14" => ["invoked Stata 17 through `stata-mp`", "14 active routes", "traceable present-day rerun", "[^stata17]: Technical receipt pinned", "15/15 roles", "`c(MP)=1`", "`c(flavor)=IC`", "[^harvest]: Output harvest pinned"]
+      "C14" => ["A new run used Stata 17 through `stata-mp`", "14 routes that could still be executed", "traceable present-day rerun", "[^stata17]: Technical receipt pinned", "15/15 roles", "`c(MP)=1`", "`c(flavor)=IC`", "[^harvest]: Output harvest pinned"]
     }
   }
   checks.each { |language, controls| controls.each { |control, needles| needles.each { |needle| add(errors, control, bodies.fetch(language, "").include?(needle), "#{language} missing: #{needle}") } } }
@@ -300,14 +300,14 @@ def validate(root, staged:, external_papers:, thesis_root:)
     table_rows = {
       "es" => [
         "| Alumnos por docente | 48 celdas | Hoja `rad`: 48/48; cálculo alternativo separado | Vector productor verificado |",
-        "| Brecha SIMCE, subvencionados que cierran | −4,3 | Hoja productora: −4,3 | Valor productor verificado |",
+        "| Brecha SIMCE, subvencionados que cierran | −4,3 % | Hoja productora: −4,3 % | Valor productor verificado |",
         "| Movilidad bruta y tasas | 6,3; 4,5; 1,6 | Fórmulas productoras: 80/80 y 40/40 puntos | Calce final correcto |",
         "| Movilidad neta | Entradas − salidas | Planilla y gráfico incrustado: 80/80 puntos | Calce final correcto; interpretación causal no probada |",
         "| Brecha PSU | ≈ 10 | Resultado final: 10,40, no 11,25 | Calce final correcto |"
       ],
       "en" => [
         "| Pupils per teacher | 48 cells | `rad`: 48/48; alternative calculation separated | Producer vector verified |",
-        "| SIMCE gap, closing subsidised schools | −4.3 | Producer sheet: −4.3 | Producer value verified |",
+        "| SIMCE gap, closing subsidised schools | −4.3% | Producer sheet: −4.3% | Producer value verified |",
         "| Gross mobility and rates | 6.3; 4.5; 1.6 | Producer formulas: 80/80 and 40/40 points | Correct final match |",
         "| Net mobility | Entries − exits | Workbook and embedded chart: 80/80 points | Correct final match; causal interpretation unproven |",
         "| PSU gap | ≈ 10 | Final result: 10.40, not 11.25 | Correct final match |"
@@ -428,7 +428,7 @@ def validate(root, staged:, external_papers:, thesis_root:)
         add(errors, "C9", data.dig("technical", "historical_execution") == "HISTORICAL_EXECUTION_NOT_VERIFIED", "carousel data promotes historical execution")
         add(errors, "C9", data.dig("technical", "causal_boundary") == "ASSOCIATIONAL_ONLY", "carousel data crosses the causal boundary")
         expected_verdicts = {
-          "es" => ["Acerté: 12 de 12", "La conclusión sobrevivió", "Me equivoqué en 2014", "Recreación exacta", "Parece que truncé ocho valores", "Recreación exacta"],
+          "es" => ["Acerté: 12 de 12", "La conclusión sobrevivió", "Me equivoqué en 2014", "Recreación exacta", "Parece que recorté ocho valores sin redondearlos", "Recreación exacta"],
           "en" => ["I got it right: 12 of 12", "The conclusion survived", "I was wrong in 2014", "Exact reconstruction", "I appear to have truncated eight values", "Exact reconstruction"]
         }
         referenced_assets = []
@@ -593,7 +593,7 @@ def validate(root, staged:, external_papers:, thesis_root:)
         "desktop" => "pipeline-recreacion-es.svg", "mobile" => "pipeline-recreacion-es-mobile.svg",
         "desktop_source" => "pipeline-recreacion-es.d2", "mobile_source" => "pipeline-recreacion-es-mobile.d2",
         "spoon" => "## Cucharada 2: quién se equivocó", "first_subheading" => "### Donde me equivoqué en 2014",
-        "section" => "### De describir el cierre a identificar una política", "section_end" => "La ironía final",
+        "section" => "### De describir el cierre a identificar una política", "section_end" => "Un RBD —el identificador oficial del establecimiento—",
         "route_class" => 'class="causal-routes causal-routes--es"',
         "routes" => ["**Alerta descriptiva/predictiva**", "**Reforma escalonada**", "**Consecuencias del cierre**"]
       },
@@ -601,7 +601,7 @@ def validate(root, staged:, external_papers:, thesis_root:)
         "desktop" => "pipeline-recreacion-en.svg", "mobile" => "pipeline-recreacion-en-mobile.svg",
         "desktop_source" => "pipeline-recreacion-en.d2", "mobile_source" => "pipeline-recreacion-en-mobile.d2",
         "spoon" => "## Spoonful 2: who was wrong", "first_subheading" => "### Where my 2014 self was wrong",
-        "section" => "### From describing closure to identifying a policy", "section_end" => "The final irony",
+        "section" => "### From describing closure to identifying a policy", "section_end" => "An RBD—the school's official identifier—",
         "route_class" => 'class="causal-routes causal-routes--en"',
         "routes" => ["**Descriptive/predictive warning**", "**Staggered reform**", "**Consequences of closure**"]
       }
@@ -865,7 +865,7 @@ def self_test(root, thesis_root:)
     contract_path.write(contract_original.sub(comparison_sha, "0" * 64))
     raise "C8 comparison receipt did not fail" if validate(fixture, **validate_options).fetch("C8", []).empty?
     contract_path.write(contract_original)
-    es.write(es_original.sub("Todo el itinerario computacional disponible volvió a ejecutarse", "La ruta no volvió a ejecutarse"))
+    es.write(es_original.sub("Todo el código disponible volvió a ejecutarse", "La ruta no volvió a ejecutarse"))
     raise "C8 central claim did not fail" if validate(fixture, **validate_options).fetch("C8", []).empty?
     es.write(es_original)
     es.write(es_original.sub("| Coincidencia | 3 |", "| Coincidencia | 1 |"))

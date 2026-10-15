@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multi-agent work in three spoonfuls: what worked for me and what did not"
+title: "Multi-agent work in three spoonfuls (part I): what worked for me and what did not"
 subtitle: "A practical note on Codex, Claude, Gemini/Antigravity, Copilot, MCP, skills, and handoffs in my daily workflow"
 date: 2026-06-27 00:00:00 +0000
 categories: [ai, productivity, development, multi-agent]

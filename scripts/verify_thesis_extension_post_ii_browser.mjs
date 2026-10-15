@@ -354,8 +354,8 @@ const routes = {
   en: '/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/'
 };
 const expectedTitle = {
-  es: 'Extender mi tesis en 3 cucharadas II',
-  en: 'Extending my thesis in three spoonfuls II'
+  es: 'Extender mi tesis en 3 cucharadas (parte II)',
+  en: 'Extending my thesis in three spoonfuls (part II)'
 };
 const expectedHeadings = {
   es: ['Seis respuestas antes del método', 'Cucharada 1', 'Cucharada 2', 'Cucharada 3', 'Qué falta para hablar de causalidad', 'Referencias'],

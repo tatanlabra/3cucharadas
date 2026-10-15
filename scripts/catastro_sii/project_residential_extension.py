@@ -104,6 +104,12 @@ POSTS = (
     ROOT / "_posts/2026-09-11-avaluos-ii-brecha-residencial.md",
     ROOT / "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md",
 )
+APPROVED_CURRENT_TITLE_LINES = {
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial.md":
+        'title: "Avalúos en 3 cucharadas (parte II): dónde revisar la brecha residencial"',
+    "_posts/2026-09-11-avaluos-ii-brecha-residencial-en.md":
+        'title: "Property assessments in 3 spoonfuls (part II): where to review the residential gap"',
+}
 PROTECTED_REFERENCE_PATTERN = re.compile(
     r"/(?:assets/images/avaluos-ii|catastro_sii_brecha)/[^\s\"'<>)]*"
 )
@@ -123,6 +129,20 @@ def front_matter(text: str) -> str:
     end = text.find("\n---\n", 4)
     require(end >= 0, "post front matter is not closed")
     return text[: end + 5]
+
+
+def approved_current_front_matter(original: str, relative: str) -> str:
+    expected_title = APPROVED_CURRENT_TITLE_LINES.get(relative)
+    require(expected_title is not None, f"{relative}: approved current title is missing")
+    approved, replacements = re.subn(
+        r"^title:.*$",
+        expected_title,
+        front_matter(original),
+        count=1,
+        flags=re.MULTILINE,
+    )
+    require(replacements == 1, f"{relative}: baseline title is missing or duplicated")
+    return approved
 
 
 def baseline_post(repo_ref: str, relative: str) -> str:
@@ -741,7 +761,10 @@ def check_projection(output_dir: Path, include_dir: Path, baseline_path: Path) -
         include_name = "avaluos-ii-extension-en.html" if post.name.endswith("-en.md") else "avaluos-ii-extension-es.html"
         relative = str(post.relative_to(ROOT))
         original = baseline_post(blog_head, relative)
-        require(front_matter(text) == front_matter(original), f"{post.name}: protected front matter changed")
+        require(
+            front_matter(text) == approved_current_front_matter(original, relative),
+            f"{post.name}: protected front matter changed",
+        )
         require(
             sorted(PROTECTED_REFERENCE_PATTERN.findall(text)) == sorted(PROTECTED_REFERENCE_PATTERN.findall(original)),
             f"{post.name}: protected figure or viewer references changed",

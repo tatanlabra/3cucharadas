@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Appraisal and vulnerability in 3 spoonfuls: change the denominator, change the map"
+title: "Appraisal and vulnerability in 3 spoonfuls (part I): change the denominator, change the map"
 subtitle: "What happens when you spread the assessed value of 9.4 million parcels across neighbourhood units and then change the unit of comparison"
 date: 2026-07-26 19:20:00 -0400
 categories: [data, python, territory]

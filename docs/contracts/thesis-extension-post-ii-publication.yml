@@ -1,7 +1,7 @@
 schema_version: 2
 contract_id: thesis-extension-post-ii-publication
-revision: 24
-status: local_implementation_complete_pending_human_review
+revision: 28
+status: ready_for_public_push
 reopened_on: "2026-10-11"
 current_plan: docs/plans/20261011-thesis-post2-closeout/PLAN_STATE.yml
 decision:
@@ -16,8 +16,8 @@ scope:
   base: origin/main@b2957178
   branch: release/thesis-post-ii-public-clean-20261012
   authorized_local_actions: [edit, test, research_commit, blog_commit, tailnet_preview, telegram_review_notice]
-  external_actions: [tailnet_preview, telegram_review_notice]
-  excluded: [push, deployment, dissemination]
+  external_actions: [tailnet_preview, telegram_review_notice, push, deployment]
+  excluded: [dissemination]
 invariants:
   - id: INV-01
     rule: ES y EN conservan identidad, cifras materiales, límites y visuales equivalentes.
@@ -197,6 +197,21 @@ acceptance:
     expected_exit: 0
     observed_exit: 0
     note: 24 pruebas, 18 claims, 11 canarios rojos y gate no constructivo byte-estable; article claims siguió verde desde el commit hijo 768a859.
+  - id: AC-POSTINTEGRATION-20261014
+    expected: Contenido, paridad, build, artefacto y matrices de navegador verdes sobre el candidato final.
+    observed: >-
+      Salud de fuente exit 0; Post I fuente y 16/16 casos de navegador verdes; Post II semántico
+      exit 0 sobre freeze a53da951, 37/37 canarios EXPECTED_FAIL, preview integral con tres
+      builds Vite, Jekyll, H1, 24/24 páginas, 12/12 SVG y 2/2 fallbacks verdes; artefacto
+      final de 70.989.985 bytes con 1.506 entradas.
+    result: PASS
+  - id: AC-RESEARCH-CUSTODY-20261014
+    expected: Registro reanclado versionado; freeze regenerado desde árbol limpio y pin actualizado después del commit científico.
+    observed: >-
+      Registro y recibos versionados en b3853d5, 16beb34 y 8b928c0; el freeze a53da951
+      observa el padre limpio 16beb34 sobre release/thesis-post-ii-science-20261012 y valida
+      desde el commit hijo autocontenido con 24 pruebas y 11 canarios adversariales.
+    result: PASS
 adversarial_review:
   model: claude-opus-effort-max
   verdict: ACCEPT_WITH_CAVEATS_ADJUDICATED_READY_FOR_HUMAN_REVIEW
@@ -257,9 +272,23 @@ adversarial_review:
   tenth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/response.post2-e47-public-r2-20261012.txt
   tenth_response_sha256: 1af9855610492d3738d8e36c4046cfbf76cbbc999e9e6f9399cb9ab79cc25b48
   tenth_adjudication: M1-M3 y precisiones L1-L12 aplicadas; V1 y V3 verificadas en fuentes oficiales, y V2 degradada a regla fijada en la especificación porque la precedencia no quedó acreditada.
+  eleventh_review_status: completed_read_only_request_changes_repaired
+  eleventh_scope: coherencia editorial Post I y II, convención de títulos, homogeneidad tipográfica y trazabilidad causal SLEP/SAE
+  eleventh_verdict: REQUEST_CHANGES
+  eleventh_findings: {high: 3, medium: 3, low: 0}
+  eleventh_adjudication: Se corrigieron la unidad del 4,3 %, los umbrales de relevancia práctica, el estatus no propuesto de SAE, la voz autoral EN y nueve anclajes del registro.
+  eleventh_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/20261014-post12-postintegration-r11-claude.md
+  eleventh_response_sha256: 5510eaa2b0020f9cb7bbfe2d4525cb78b22a825694ca209dc59920f689ae3b68
+  twelfth_review_status: completed_read_only_requires_custody_change
+  twelfth_scope: verificación estrecha de las reparaciones R11 y custodia del freeze científico
+  twelfth_verdict: TEXT_APPROVED_WITH_OBSERVATIONS_COMMIT_BLOCKED_BY_CUSTODY
+  twelfth_findings: {blocking_custody: 1, nonblocking: 2, preference: 1}
+  twelfth_adjudication: Contenido aprobado; se aplicaron dos ajustes no bloqueantes y se conserva el commit científico limpio como requisito previo al commit del sitio.
+  twelfth_response_path: /home/ende/Descargas/programaciones/archivo/handoffs/.originals/20261014-post12-postintegration-r12-claude.md
+  twelfth_response_sha256: 177b2468c26d05bf69218a2312705d4c1594d4e0806d35c81d2afc3c07bb01d0
   candidate_branch: release/thesis-post-ii-public-clean-20261012
-  candidate_history: commit semántico c53a889b sobre e380aa5b más el recibo documental que contiene este contrato; sin upstream ni push
-  push: blocked_until_human_approval
+  candidate_history: commit semántico c53a889b sobre e380aa5b más cambios postintegración validados; commit público final pendiente.
+  push: authorized_by_user_goal_20261014_pending_execution
   repaired_findings_pending_third_rereview:
     - La inicialización no cambia scroll vertical y su canario falla con delta fuera de tolerancia.
     - La selección publicada refleja familia primero y orden intrafamilia; Lo Barnechea y Lo Prado son los casos sistemáticos vigentes.
@@ -272,19 +301,19 @@ adversarial_review:
     - Intervalos ES usan punto y coma; etiquetas, títulos y lenguaje de sustitución fueron corregidos.
     - El directorio Vite generado está ignorado y las fuentes del bundle quedan hasheadas.
 content_hashes:
-  status: revision_24_local_verified_pending_human_review
-  post_es: 73b4f458d563a02db84a0dae30098e04930dd7f4473fd8b0849dbec02ac7cb71
-  post_en: a75257de36eb7e513672c38a83044a6243aab029db624f90ef10c3d94e4b970a
+  status: revision_28_verified_ready_for_public_push
+  post_es: e8df9e33f38144d523835f45d19dd36e1ddb4a3fe546e35e816a4b2df96c57b1
+  post_en: 0f12a4bd603237a8b3f059485fd9aad66d26024617de47b5611843983ba4afbe
   stylized_include: 030618951eeafd184f1c0beb652bccc6db07dcafe3c00b03c5e0133c1a93e8af
   coordinate_audit_include: 347c65f141f82fb1e48b5581445af96d3891ffe697992ccea399e5b0a5d7bd30
   annex_es: 8db6bc90d969c8e15abaa467785d6802565de5b38fe158de94e5629fcd779afb
   annex_en: 1f3f01a28f4d8fdcf12541cef79bd4d3f764a334d58fea1758f35ade74b68af1
   coordinate_audit_data: ed110bfe7fe24972cdf837840fe4a294dc922857b3cc516c28d96923e50bd4de
-  semantic_verifier: 5d638c9c852386e10b1032b51a63169405e6e3020aa54c5262a833dd26859e5e
+  semantic_verifier: 5ff453018e0d7b85e1d8f53ec36a6577af94bcafc01f444d1036083d1534a763
   prepublication_verifier: f321c8b06d271631f9b5471e51fbd41d713005efd998e73a42655bd205c87809
   plan_verifier: 6843d141edeea2dedd85657dc6a90b8210640cb73107d5590577eaea2622a844
-  browser_verifier: 8d7e75e4cf8952a688688c3cb3aaba5908e0355fc31ff9fb29d813be8c930b24
-  stylesheet: 22804080d91673f7da39f4f7f638554fdb24f37305bf4011600b89dcefd6e98d
+  browser_verifier: 1ad3fd709310ee4e0ad87dfd8a79f52cffc4104d27068e1ff21d41226a51603a
+  stylesheet: 1b2088efd19799e040d3de6a1588cf9ff53696f7c7ca5c16a927fe8c1013b735
   map_source: d2e77e56385f468e83c7369391c70a10a1e9ea5ba5ec2cdf13d8be78cd0e4653
   map_styles: 0b4023d1403ce69bdab8e1843b206cbc7b44764e3b72e35107beecf645a1aa4d
   map_loader: 9ae694bd33d712b3def8eaf66268c7fd25693a39b3dec21bdfda740f9670b118
@@ -292,7 +321,7 @@ content_hashes:
   stylized_data: 2357979962bd554a7b3e19c10160a96e1b6bbf9265e51933242265efc276abc5
   case_data: 0a50fa53de925735b4e98acc12a141e4cbea9eebb6c616d4ced70f3954b4b09d
   stylized_manifest: 3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a
-  scientific_freeze: 23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348
+  scientific_freeze: a53da9519d863cd565b340346e979b0cb9fad89b1a00a033d0be311f4c55e06d
 source_contract_hashes:
   gitignore: 0439e8808433fd3c5b7073868375ea3e39ecb89fde5835c7c38e03fc55dee4ad
   gitlab_ci: 065cc0ede965b91487d0d53c0e80b5993cc8bf28cc06b6950cae5247e962fe2b
@@ -325,4 +354,4 @@ rollback:
   - Eliminar la rama local de release después de conservar el commit si la revisión humana la rechaza.
   - Restaurar el stash de la rama de trabajo para recuperar cambios concurrentes.
 PLAN_STATE: v2
-HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 produjo candidato limpio -> E-45 encadenó H1 portable -> E-46 cerró custodia científica -> E-47 integró SLEP/SAE y freeze revisión 9 -> Claude ACCEPT_WITH_CAVEATS -> Codex adjudicó M1-M3 y verificó V1/V3; H1 humano, push, despliegue y difusión pública siguen bloqueados.'
+HANDOFF-TRACE: 'Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 produjo candidato limpio -> E-45 encadenó H1 portable -> E-46 cerró custodia científica -> E-47 integró SLEP/SAE y freeze revisión 9 -> Claude ACCEPT_WITH_CAVEATS -> auditorías paralelas y Claude R11 detectaron deriva editorial y causal -> Codex corrigió unidad, umbrales, voz y trazabilidad -> Claude R12 aprobó el texto y abrió custodia -> Codex cerró custodia en 8b928c0 y refijó a53da951 -> autorización humana vigente para commit, push y despliegue; difusión social permanece excluida.'

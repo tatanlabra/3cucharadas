@@ -26,7 +26,7 @@ STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
 STYLIZED_MANIFEST_SHA256 = "3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "23b34ddba938cbe1f8efc58c3899096c9b7bc72b9a7e8876ccb2f3088f3d1348"
+FREEZE_SHA256 = "a53da9519d863cd565b340346e979b0cb9fad89b1a00a033d0be311f4c55e06d"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 2_500
@@ -524,7 +524,7 @@ def check_release_boundaries!(body, lang)
                      end
   fail_unless(series_fragments.all? { |fragment| public_lower.include?(fragment) }, "serie descriptiva y cohorte inferencial no se distinguen #{lang}")
   selection_fragments = if lang == "es"
-                          ["un caso por familia educativa preferida", "misma comuna, distancia, año y rbd", "ni los valores ni la disponibilidad de resultados participan", "primera coordenada oficial válida entre el año de entrada y 2025", "9 trayectorias inestables", "38 cierres emparejados con 29 aperturas únicas"]
+                          ["un caso por cada grupo educativo priorizado por la regla", "misma comuna, distancia, año y rbd", "ni los valores ni la disponibilidad de resultados participaron en la selección", "primera coordenada oficial válida entre el año de entrada y 2025", "9 trayectorias inestables", "38 cierres emparejados con 29 aperturas únicas"]
                         else
                           ["one case from each preferred education family", "same commune, distance, year, and rbd", "neither outcome values nor outcome availability enter the selection", "first valid official coordinate between the entry year and 2025", "9 unstable trajectories", "38 matched closures and 29 unique openings"]
                         end
@@ -565,15 +565,15 @@ def check_policy_boundaries!(body, lang)
                  "apoyo a la decisión",
                  "ordenar escuelas en un ranking",
                  "observación → diagnóstico → decisión",
-                 "directamente a un cierre confunde una señal con una causa",
+                 "una baja de matrícula o la cercanía de otra escuela justifican un diagnóstico",
                  "solicitar la corrección a quien mantiene el registro",
                  "no usar un umbral de matrícula como regla de cierre",
                  "un slep planifica y gestiona su propia red",
                  "no los establecimientos de otros sostenedores",
                  "ninguna de esas funciones entrega autoridad sobre otros sostenedores",
-                 "cobertura pública adecuada en su territorio",
-                 "mineduc puede observar brechas del sistema escolar",
-                 "la dirección de educación pública, las del sistema de educación pública",
+                 "desarrollar la oferta pública, velar por la cobertura",
+                 "mineduc ejerce la rectoría del sistema educativo",
+                 "la dirección de educación pública coordina y conduce estratégicamente el sistema de educación pública",
                  "planifica apoyo técnico, infraestructura y dotaciones a partir del número de cursos y la matrícula",
                  "un falso positivo señalaría como inviable una escuela",
                  "un falso negativo omitiría una transición riesgosa",
@@ -594,15 +594,15 @@ def check_policy_boundaries!(body, lang)
                  "decision support",
                  "ranking schools",
                  "observation → diagnosis → decision",
-                 "directly to closure confuses a signal with a cause",
+                 "falling enrolment or a nearby school justify diagnosis",
                  "ask the register's custodian to correct it",
                  "do not use an enrolment threshold as a closure rule",
                  "a slep plans and manages its own network",
                  "not establishments run by other providers",
                  "none of these functions grants authority over other providers",
-                 "adequate public provision in its territory",
-                 "mineduc can monitor gaps across the school system",
-                 "the directorate of public education, those within the public education system",
+                 "develop public provision, safeguard coverage",
+                 "mineduc is the governing authority for the education system",
+                 "the directorate of public education coordinates and strategically steers the public education system",
                  "plans technical support, infrastructure, and staffing on the basis of course numbers and enrolment",
                  "a false positive would flag a school as unviable",
                  "a false negative would miss a risky transition",
@@ -627,7 +627,7 @@ end
 def check_identity!(front, lang)
   POST_IDENTITY.each { |key, value| fail_unless(front.fetch(key).to_s == value, "#{lang}: #{key} derivó") }
   fail_unless(front.fetch("lang") == lang, "#{lang}: lang derivó")
-  fail_unless(front.fetch("title").include?(lang == "es" ? "3 cucharadas II" : "three spoonfuls II"), "#{lang}: título de serie derivó")
+  fail_unless(front.fetch("title").include?(lang == "es" ? "3 cucharadas (parte II)" : "three spoonfuls (part II)"), "#{lang}: título de serie derivó")
   fail_unless(front.dig("ai_disclosure", "components", "text") == "assisted", "#{lang}: divulgación de asistencia derivó")
 end
 
@@ -647,8 +647,8 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                [
                  "330 cierres estrictos", "los otros 16", "sede o anexo", "sala cuna", "segmento educativo exacto",
                  "21 y 8", "+0.029", "[-0.095; +0.158]", "4/6/8", "1/1/2", "38 cierres emparejados con 29 aperturas únicas",
-                 "lo barnechea", "lo prado", "-0.000105", "+0.000113", "la consistencia schumpeteriana no queda apoyada",
-                 "contrafactual", "no identifica el efecto de una modalidad de gestión", "estos datos no identifican el efecto causal", "3.081.791", "1.366.155", "55.7 %",
+                 "lo barnechea", "lo prado", "-0.000105", "+0.000113", "estos resultados no respaldan la hipótesis de destrucción creativa",
+                 "contrafactual", "no identifica el efecto de una modalidad de gestión", "este análisis no identifica efectos causales", "3.081.791", "1.366.155", "55.7 %",
                  "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2 %", "432 a 738", "no prueba que haya sido el motivo administrativo",
                  "ninguna de las 25", "regla de soporte fijada en la especificación", "no mostraron capacidad predictiva distinguible del azar",
                  "auc exacta fue 0.5341 con p=0.2195 de permutación", "53 de 70 territorios", "20 %",
@@ -657,14 +657,14 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                  "magallanes se excluye", "solo dos de cuatro", "no acota el efecto de la política",
                  "para cambios de calendario posteriores", "superan incluso los extremos de los intervalos de 2018",
                  "fortalecerían, sin garantizar, una lectura causal de estos diseños",
-                 "la lectura correcta no es «los slep y el sae no tuvieron efecto»", "qué permite identificar la base actual"
+                 "estos resultados no permiten concluir que los slep y el sae no tuvieron efectos", "la base permite diagnosticar los límites del diseño"
                ]
              else
                [
                  "330 strict closures", "the other 16", "annex", "nursery", "exact education segment",
                  "21 and 8", "+0.029", "[-0.095, +0.158]", "4/6/8", "1/1/2", "38 matched closures and 29 unique openings",
-                 "lo barnechea", "lo prado", "-0.000105", "+0.000113", "do not support joint schumpeterian consistency",
-                 "counterfactual", "these data do not identify the causal effect", "not causal effects", "3.081.791", "1.366.155", "55.7%",
+                 "lo barnechea", "lo prado", "-0.000105", "+0.000113", "do not support the creative-destruction hypothesis",
+                 "counterfactual", "this analysis does not identify causal effects", "not causal effects", "3.081.791", "1.366.155", "55.7%",
                  "el salvador", "rbd 391", "rbd 390", "1.399", "977", "-30.2%", "432 to 738", "does not prove it was the administrative motive",
                  "none of the 25", "support rule fixed in the analysis specification", "showed no predictive ability distinguishable from chance",
                  "exact auc was 0.5341 with permutation p=0.2195", "53 of 70 territories", "20%",
@@ -673,7 +673,7 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                  "magallanes is excluded", "only two of four", "do not bound the policy effect",
                  "for later schedule changes", "exceed even the bounds of the 2018 intervals",
                  "would strengthen, not guarantee, a causal reading of these designs",
-                 "the correct reading is not “sleps and sae had no effect.”", "what the current data can identify"
+                 "these results do not allow me to conclude that sleps and sae had no effects", "the data let me diagnose the design's limits"
                ]
              end
   required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
@@ -771,6 +771,13 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       mutant = en_body.gsub(
         "would strengthen, not guarantee, a causal reading of **these designs**",
         "are necessary for any causal result"
+      )
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "policy-null-interpretation"
+      expected = "en: evidencia o cautela ausente: these results do not allow me to conclude that sleps and sae had no effects"
+      mutant = en_body.gsub(
+        "These results do not allow me to conclude that SLEPs and SAE had no effects",
+        "These results show that SLEPs and SAE had no effects"
       )
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "segment-closure"

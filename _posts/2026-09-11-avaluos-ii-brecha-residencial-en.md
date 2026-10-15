@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: [avaluos-ii-editorial]
-title: "Property assessments in 3 spoonfuls II: where to review the residential gap"
+title: "Property assessments in 3 spoonfuls (part II): where to review the residential gap"
 subtitle: "Informal settlements, construction materials and assessed values: from differences by commune to a property-level review"
 date: 2026-09-11 00:00:00 -0300
 last_modified_at: 2026-09-13 00:00:00 -0300

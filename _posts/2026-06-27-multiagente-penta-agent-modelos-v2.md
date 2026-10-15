@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multiagentes en 3 cucharadas: lo que me funcionó y lo que no"
+title: "Multiagentes en 3 cucharadas (parte I): lo que me funcionó y lo que no"
 subtitle: "Una bitácora práctica sobre Codex, Claude, Gemini/Antigravity, Copilot, MCP, skills y handoffs en mi flujo diario"
 date: 2026-06-27 00:00:00 +0000
 categories: [ia, productividad, desarrollo, multiagente]

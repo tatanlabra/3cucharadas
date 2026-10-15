@@ -135,7 +135,7 @@ class ResidentialExtensionProjectionTest(unittest.TestCase):
         def tampered_read(path, *args, **kwargs):
             source = original_read(path, *args, **kwargs)
             if path == POSTS[0]:
-                return source.replace('title: "Avalúos en 3 cucharadas II:', 'title: "Alterado en 3 cucharadas II:', 1)
+                return source.replace('title: "Avalúos en 3 cucharadas (parte II):', 'title: "Alterado en 3 cucharadas (parte II):', 1)
             return source
 
         with patch.object(Path, "read_text", tampered_read):

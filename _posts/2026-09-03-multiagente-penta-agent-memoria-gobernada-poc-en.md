@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multi-agent work in three spoonfuls III: a memory that leaves traces"
+title: "Multi-agent work in three spoonfuls (part III): a memory that leaves traces"
 subtitle: "From auditable RAG to a more governed memory: it still is not a digital clone"
 date: 2026-09-03 00:00:00 -0400
 last_modified_at: 2026-09-03 00:00:00 -0400

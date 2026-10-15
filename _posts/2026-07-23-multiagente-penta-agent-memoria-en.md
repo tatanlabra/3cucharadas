@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Multi-agent work in three spoonfuls II: auditable memory"
+title: "Multi-agent work in three spoonfuls (part II): auditable memory"
 subtitle: "From handoffs to shared retrieval: what I implemented, how I measured it, and what still needs validation"
 date: 2026-07-23 00:00:00 +0000
 last_modified_at: 2026-07-24 00:00:00 +0000
