@@ -490,5 +490,58 @@ class UxTransversalContract(unittest.TestCase):
         self.assertEqual([k for k, ok in wanted.items() if not ok], [], "objetivos bajo 24 px")
 
 
+    def test_navegacion_en_linea(self) -> None:
+        rules = css_rules_in_context(css())
+        def found(selector: str, prop: str, value: str, wide: bool) -> bool:
+            for media, sel, body in rules:
+                inside = any("min-width: 64em" in m or "min-width:64em" in m for m in media)
+                if inside != wide or selector not in selector_parts(sel):
+                    continue
+                if re.search(rf"(?<![-\w]){prop}:\s*{value}\b", body):
+                    return True
+            return False
+        # Bajo 64em, panel plegado; desde 64em, la MISMA regla en línea y sin botón.
+        self.assertTrue(found(".masthead__nav .masthead__nav-list", "display", "none", wide=False))
+        self.assertTrue(found(".masthead__nav .masthead__nav-list", "display", "flex", wide=True))
+        self.assertTrue(found('.masthead__nav .masthead__nav-toggle[aria-expanded=true]~.masthead__nav-list', "display", "flex", wide=True)
+                        or found('.masthead__nav .masthead__nav-toggle[aria-expanded="true"] ~ .masthead__nav-list', "display", "flex", wide=True),
+                        "el panel abierto en estrecho quedaría en bloque al ensanchar")
+        self.assertTrue(found(".masthead__nav .masthead__nav-toggle", "display", "none", wide=True))
+        for page in ("index.html", "en/index.html"):
+            links = re.findall(r'class="masthead__nav-link"', rendered(page))
+            self.assertGreaterEqual(len(links), 2, page)
+
+    def test_escala_y_lectura_fina(self) -> None:
+        compiled = css()
+        sizes = {}
+        for level in (1, 2, 3, 4):
+            found = re.search(rf"(?:^|[}};,]){{1}}h{level}\{{[^}}]*?font-size:\s*([\d.]+)em", compiled)
+            self.assertIsNotNone(found, f"h{level} sin tamaño en em")
+            sizes[level] = float(found.group(1))
+        self.assertEqual(sizes, {1: 1.953, 2: 1.5625, 3: 1.25, 4: 1.125})
+        rules = css_rules_in_context(compiled)
+        def body_of(selector: str) -> str:
+            return " ".join(b for _, sel, b in rules if selector in selector_parts(sel))
+        notice = body_of(".page__content :is(.notice,.notice--primary,.notice--info,.notice--warning,.notice--success,.notice--danger)")
+        self.assertRegex(notice, r"font-size:\s*\.875em")
+        self.assertRegex(body_of(".page__content figcaption"), r"font-size:\s*\.8em")
+        self.assertRegex(body_of(".toc__menu a"), r"hyphens:\s*manual")
+
+    def test_tablas_leyenda_y_fondo(self) -> None:
+        compiled = css()
+        root = re.search(r":root\{[^}]*--fondo:\s*(#[0-9a-fA-F]{6})", compiled)
+        self.assertIsNotNone(root, "--fondo sin definir: las sombras de las tablas caen en #fdfdfd")
+        page_bg = re.search(r"html\{[^}]*background-color:\s*(#[0-9a-fA-F]{6})", compiled)
+        self.assertIsNotNone(page_bg)
+        self.assertEqual(root.group(1).lower(), page_bg.group(1).lower())
+        rules = css_rules_in_context(compiled)
+        wrapper = " ".join(b for _, sel, b in rules if sel.strip() == ".tabla-desliza")
+        self.assertIn("var(--fondo", wrapper)
+        self.assertRegex(wrapper, r"container-type:\s*inline-size")
+        caption = " ".join(b for _, sel, b in rules if sel.replace(" ", "") == ".tabla-desliza>table>caption")
+        self.assertRegex(caption, r"(?<![-\w])inline-size:\s*100cqi")
+        self.assertRegex(caption, r"position:\s*sticky")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
