@@ -42,28 +42,38 @@ ai_disclosure:
 ---
 
 In [part I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) I left one question open: when one school leaves and another enters, do opportunities to learn improve, or does only the register change?
+{: .text-justify}
 
 <span id="claim-causal-boundary"></span>**This analysis does not identify whether turnover improves or worsens educational outcomes.** That is not an elegant way of saying that the effect is zero. Some comparisons are imprecise; others lack enough comparable cases; and the records neither follow each student nor reconstruct what would have happened without the closure or opening.
+{: .text-justify}
 
 Part I audited 1992–2012. Here I use directories from 2015 to 2025 to observe transitions from 2016 to 2025, and a 2013–2025 panel to detect entries. The period and questions differ; I do not re-estimate Part I's results.
+{: .text-justify}
 
 Three results organise the account. First, the register contains **900 official closures**, but the stricter definition leaves **330 closures with enrolment** for comparison. Second, median enrolment falls sharply before closure, although that path does not reveal its cause. Third, only **38 closures** have a nearby opening in the same segment under the territorial criterion; proximity does not establish available places, accessibility, or student destination.
+{: .text-justify}
 
 The contribution is a public question: **what continuity did the community receive, and who bore its costs?**
+{: .text-justify}
 
 ## Spoonful 1: before evaluating turnover, establish what actually changed
 
 ### Leaving the register does not always mean a school disappeared
 
 In the first instalment, “entry” and “exit” described appearances and disappearances in the files. To study the recent period, I need to separate those from administrative changes and an actual interruption in education provision.
+{: .text-justify}
 
 An establishment may close, enter recess, merge with another, change identifier, lose a site, or stop serving a level. It may also change provider—the entity responsible for managing it—without ceasing to operate. None of those situations should automatically become the same kind of closure.
+{: .text-justify}
 
 The **RBD**, MINEDUC's identifier for each establishment, helps track its history but does not resolve it on its own. A code that disappears requires checking what happened to the school, its site, and its provision.
+{: .text-justify}
 
 The panel follows establishments over the recent period. The directories begin in 2015, so the first observable transition is in 2016. The El Salvador case dates from 2013 and appears later as a separate historical case. The unit depends on the question: the inventory counts RBD events, identity work reconstructs establishments and sites, and comparisons use establishments within an education segment.
+{: .text-justify}
 
 **Exercise.** I separate an actual closure from an administrative change. I define an official closure only as a transition from a non-closed status into code `3`. Recess is not closure; disappearance from the file remains an exit of unknown cause.
+{: .text-justify}
 
 <span id="claim-event-count"></span>**Result.** There are **900 official closures**: 684 after activity, 215 after recess, and one after authorisation without enrolment. Of the 684 previously active schools, 346 had students and 338 already recorded zero enrolment. Closing an empty school is not the same as displacing a school community.
 {: .text-justify}
@@ -77,6 +87,7 @@ Provision matters too. A nursery does not compete for the same population as a p
 {: .text-justify}
 
 That is an operational definition, not a claim that families choose only within their commune. We must also distinguish establishments, enrolment, and capacity: a school with students does not necessarily have vacancies. Assessing coverage requires knowing which levels it serves, how many places it can offer, and whether it is accessible to those who need it.
+{: .text-justify}
 
 <span id="claim-demography"></span>According to the [INE projection based on the 2024 Census](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion), the population aged 6–17 falls from **3,081,791 in 2025** to **1,366,155 in 2050**, a `55.7%` decline. The figure excludes early childhood education and describes population, not enrolment or closures; it does require territorial planning of capacity, transport, and continuity.
 {: .text-justify}
@@ -84,20 +95,25 @@ That is an operational definition, not a claim that families choose only within 
 ### Where SLEPs and de-municipalisation fit
 
 SLEPs are public providers of establishments transferred to them; they do not govern every school in a commune. [Law 21,040](https://www.bcn.cl/leychile/navegar?idNorma=1111237) regulates the transfer, and the Directorate of Public Education publishes its [territorial schedule](https://dep.gob.cl/calendario-de-traspaso/). A transfer is not the disappearance of a school when the same community remains served, nor can an earlier event be attributed to today's SLEP. Comparing administrations requires equivalent exposed populations and periods: this panel describes events; it does not identify the effect of a management model.
+{: .text-justify}
 
 ## Spoonful 2: do the lower-performing schools leave and better alternatives arrive?
 
 ### Enrolment reveals a trajectory, not its cause
 
 The comparison asks whether closing schools had been performing worse than similar alternatives. Each closure is compared with institutions in the same year, commune, education segment, sector, rurality, and size band. SIMCE is standardised by year, grade, and subject; PSU, PDT, and PAES within their own process.
+{: .text-justify}
 
 <span id="claim-enrolment-path"></span>Enrolment provides the clearest signal: of the 684 closures that followed activity, 665 have three complete years. **The medians for those three years fall `28 → 23 → 1` student.**
+{: .text-justify}
 
 The sequence describes three snapshots of the group, not every school's trajectory. Nor does it show whether families left because of education difficulties, a closure announcement, residential movement, or fewer children in the territory. These are rival explanations to test, not causes identified by the medians. SIMCE has three complete years for 76 closures and moves from `−0.232` to `−0.083` standard deviations; IVE-SINAE covers 188 and rises from `0.882` to `0.946`. The latter is an aggregate school-vulnerability index, not individual poverty.
+{: .text-justify}
 
 ### What scores do—and do not—tell us
 
 <span id="claim-outcomes"></span>The strict test filters out annexes, administrative changes, and different segments again. Of 330 eligible closures, only 97 have SIMCE and 46 have admissions data; exact matching leaves **21 and 8**, respectively.
+{: .text-justify}
 
 {: .table-caption}
 **Table 1.** Observed signals and the limit of each comparison
@@ -123,20 +139,25 @@ The minimum of ten is a retrospective rule to prevent adapting the threshold to 
 ### An average can change without telling us how much students learned
 
 The accounting separates continuation, reallocation, and entry or exit. An average can rise after excluding a low-scoring group without that group improving, or remain stable while access and journeys change.
+{: .text-justify}
 
 ## Spoonful 3: from the average to each territory's education network
 
 ### What providers can do with this evidence
 
 The immediate use is not a ranking of schools that should close. It is to organise information before deciding whether to support an establishment, expand its provision, reorganise a network, or assess a merger. These questions lead to maps—not because a map answers them on its own, but because it reveals where an aggregate comparison is insufficient.
+{: .text-justify}
 
 ### How to read the maps without turning proximity into replacement
 
 The territorial comparison asks whether another school serving the same segment appears nearby after a strict closure. I search within 10 km and from `t` to `t+2`. Closure location is measured at `t−1`; entry location uses the **first valid official coordinate between the entry year and 2025**. This criterion recovers late records without pretending that the school was physically there from its first year.
+{: .text-justify}
 
 Here “entry” is operational: activity with positive enrolment after at least two clear years in the 2013–2025 panel, with no prior active episode in that window and no registered succession. It does not prove that the school is historically new; earlier history may lie outside the panel. For recent events, the later observation window may also remain incomplete.
+{: .text-justify}
 
 <span id="claim-territorial"></span>Of 330 strict closures, 320 have valid coordinates. Among 414 openings, 389 have an eligible coordinate under the temporal rule. After excluding possible administrative replacements, different segments, and nine unstable trajectories, **38 closures remain linked by proximity to 29 unique openings**. This national result helps size the phenomenon; it does not show that the openings received the displaced students or offered an accessible substitute.
+{: .text-justify}
 
 <span id="claim-el-salvador"></span>I use El Salvador as the territorial example because I grew up there. That familiarity guides questions and may introduce selection bias; it neither explains the closure nor makes the case nationally representative. School No. 14 (RBD 391) closed at the end of 2013 and merged with School No. 1 (RBD 390). The 2008–2011 directories place the former at **500 Diego Portales**; [institutional regulations](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf) place the latter at **1510 Diego Portales**. The [BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documents the transfer of grades one through six.
 {: .text-justify}
@@ -209,16 +230,21 @@ Teaching capacity belongs in that chain. Lower enrolment may create opportunitie
 ## What would need to happen for causal inference
 
 A causal result requires more than adding years. For closures, we need to follow students, know their destinations, and compare their trajectories with a credible group before families anticipate the change. For SLEPs, we need to document why each territory transferred when it did, accumulate more treated units, and measure interference across nearby networks. For SAE, a longer window does not by itself solve the small number of treated clusters or placebos that depend on weighting: a different contrast must rest on a defensible assignment rule.
+{: .text-justify}
 
 Each route can fail. Incompatible pre-trends invalidate an event study; a discontinuity requires a rule that cannot be manipulated; an instrumental variable needs a clear first stage and credible exclusion; and individual follow-up can be biased when links fail selectively. Stating these conditions before estimation is part of the result, not a formality.
+{: .text-justify}
 
 Demographic change makes territorial scenarios for support, expansion, reorganisation, and protection of capacity more urgent. It does not provide a closure calendar: national decline can coexist with neighbourhoods that need new schools. A future article should combine local demography, provision by level, vacancies, travel times, and student trajectories. Its useful product would not be a list of establishments destined to close.
+{: .text-justify}
 
 ### Scope and reproducibility
 
 Coverage changes with the question: 665 closures have complete enrolment trajectories, 76 have SIMCE, 188 have IVE-SINAE, and only 21 remain in the strict SIMCE comparison. Admissions describes students who reached the end of secondary education and sat an admissions test, not all pupils. Each result must be read with its own denominator; these are not one national cohort.
+{: .text-justify}
 
 Independent routes produced the principal aggregates and agreed within the specified precision. That agreement reduces calculation risk, but it does not establish the historical session, compensate for missing data, or create causal identification. Public artefacts preserve figures, sources, rules, and limits; restricted data remain outside the repository.
+{: .text-justify}
 
 ## Closing: evaluate the transition, do not celebrate movement
 
@@ -234,6 +260,7 @@ The creative-destruction hypothesis is attractive; that is why it requires a str
 ### Transparency and scope of the sources
 
 The thesis and its extension are my own work; they are not an independent replication. I was also a co-author of [*Destructive Creation* (Working Paper 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), a predecessor to the Grau, Hojman, and Mizala (2018) article cited here. El Salvador was selected because of my biographical connection to the town. Making these relationships explicit helps recognise possible confirmation and selection bias.
+{: .text-justify}
 
 I received no funding for this work and declare no conflicts of interest. My sole institutional affiliation is Chile's Ministry of Social Development and Family, which did not fund, commission, supervise, or review this work; its positions are not represented by these conclusions. I used artificial-intelligence assistants to support programming, quality control, prose review, and adversarial review. The methodological and editorial decisions, source verification, and responsibility for every claim and result are mine.
 {: .text-justify}

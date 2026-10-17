@@ -129,3 +129,6 @@ invariants:
   - id: ficha-autor-acerca
     rule: En la ficha del autor, la foto y el nombre llevan a «Acerca de» del mismo idioma (/about/ o /en/about/), no al inicio; la foto no repite la parada de tabulación del nombre y la h-card conserva u-url y rel="me".
     why: ambos llevaban al inicio, que ya está en el logo y el título de la cabecera; la persona usuaria pidió que lleven a «Acerca de» (2026-10-17).
+  - id: prosa-justificada-tesis
+    rule: En los Post I y II, en español e inglés, todo párrafo de prosa del cuerpo (hijo directo del contenido, antes de la primera regla horizontal que abre notas o referencias) lleva .text-justify, la misma marca de párrafo que usan los posts anteriores; solo quedan fuera las notas .small, las leyendas .table-caption y las referencias.
+    why: el Post II tenía 25 de 49 párrafos de prosa justificados y el Post I 38 de 41, mientras los posts anteriores justifican el cuerpo completo; la persona usuaria notó el Post II sin justificar (2026-10-17).

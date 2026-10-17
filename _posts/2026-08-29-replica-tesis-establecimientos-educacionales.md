@@ -217,6 +217,7 @@ La recreación deja un panel capaz de describir flujos, reconocer señales de ri
 {: .text-justify}
 
 La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) retoma estas tres preguntas sin tratarlas como intercambiables:
+{: .text-justify}
 
 {: .table-caption}
 **Tabla 3.** Rutas causales y condiciones mínimas

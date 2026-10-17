@@ -42,24 +42,32 @@ ai_disclosure:
 ---
 
 La [parte I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) dejó una pregunta abierta: cuando una escuela sale y otra entra, ¿mejoran las oportunidades de aprender o solo cambia el registro?
+{: .text-justify}
 
 <span id="claim-causal-boundary"></span>**Este análisis no identifica si el recambio mejora o empeora los resultados educativos.** No es una forma elegante de decir que el efecto sea cero. Algunas comparaciones son imprecisas; otras no reúnen casos comparables suficientes; y los registros no permiten seguir a cada estudiante ni reconstruir qué habría ocurrido sin el cierre o la apertura.
+{: .text-justify}
 
 La parte I auditó 1992–2012. Aquí uso directorios de 2015 a 2025 para observar transiciones entre 2016 y 2025, y un panel 2013–2025 para detectar entradas. El período y las preguntas son distintos; no vuelvo a estimar los resultados de la parte I.
+{: .text-justify}
 
 El registro contiene **900 cierres oficiales**, pero la definición estricta deja **330 cierres con matrícula**; las medianas caen antes del cierre sin revelar su causa; y, bajo el criterio territorial, solo **38 cierres** tienen una apertura cercana del mismo segmento. La cercanía no acredita cupos, accesibilidad ni destino. El aporte es una pregunta pública: **qué continuidad recibió la comunidad y quién absorbió sus costos**.
+{: .text-justify}
 
 ## Cucharada 1: antes de evaluar el recambio, hay que saber qué cambió realmente
 
 ### Una salida del registro no siempre es una escuela que desaparece
 
 En la primera entrega, «entrada» y «salida» describían apariciones y desapariciones en los archivos. Para estudiar el período reciente necesito distinguirlas de los cambios administrativos y de la interrupción efectiva de la oferta educativa.
+{: .text-justify}
 
 Un establecimiento puede cerrar; entrar en receso; fusionarse con otro; cambiar de identificador; perder una sede o dejar de impartir un nivel. También puede cambiar de sostenedor —la entidad responsable de administrarlo— sin dejar de funcionar. Ninguna de esas situaciones debería convertirse automáticamente en la misma clase de cierre.
+{: .text-justify}
 
 El **RBD**, identificador oficial del establecimiento, ayuda a seguir su historia, pero un código que desaparece exige revisar la escuela, la sede y la oferta. Los directorios comienzan en 2015 y la primera transición observable es de 2016. El caso de El Salvador, de 2013, se presenta aparte. El inventario cuenta eventos por RBD; las comparaciones reconstruyen establecimientos dentro de un segmento educativo.
+{: .text-justify}
 
 **Ejercicio.** Separé un cierre real de un cambio administrativo. Definí como cierre oficial solo el paso desde un estado no cerrado al código `3`. Receso no es cierre; si un RBD desaparece del archivo, lo clasifico como salida desconocida.
+{: .text-justify}
 
 <span id="claim-event-count"></span>**Resultado.** Hay **900 cierres oficiales**: 684 desde actividad, 215 desde receso y uno desde autorización sin matrícula. De las 684 escuelas antes activas, 346 tenían estudiantes y 338 ya registraban matrícula cero. Cerrar una escuela vacía no equivale a desplazar una comunidad escolar.
 {: .text-justify}
@@ -70,6 +78,7 @@ Pero esos 346 tampoco son automáticamente 346 escuelas que desaparecieron. Al r
 ### No toda oferta cercana atiende la misma necesidad
 
 Una sala cuna no atiende la misma población que una escuela básica o un liceo. Separo educación inicial —sala cuna, nivel medio, transición y heterogéneo—, básica y media. Desde aquí, «mercado» significa **comuna y segmento educativo exacto**. Es una definición operativa, no una afirmación sobre dónde eligen las familias. Cobertura, además, exige distinguir matrícula de vacantes y accesibilidad.
+{: .text-justify}
 
 <span id="claim-demography"></span>Según la proyección del [INE con base en el Censo 2024](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion), la población de 6 a 17 años pasa de **3.081.791 en 2025** a **1.366.155 en 2050**: `55,7 %` menos. La cifra no incluye la educación parvularia y describe población, no matrícula ni cierres; sí obliga a planificar capacidad, transporte y continuidad por territorio.
 {: .text-justify}
@@ -77,20 +86,25 @@ Una sala cuna no atiende la misma población que una escuela básica o un liceo.
 ### Dónde entran los SLEP y la desmunicipalización
 
 Los SLEP son sostenedores públicos de los establecimientos traspasados a su dependencia; no gobiernan toda la oferta comunal. La [Ley 21.040](https://www.bcn.cl/leychile/navegar?idNorma=1111237) regula el traspaso y la Dirección de Educación Pública publica su [calendario territorial](https://dep.gob.cl/calendario-de-traspaso/). Un traspaso no es la desaparición de una escuela si la comunidad continúa atendida, ni un evento anterior puede atribuirse al SLEP actual. Comparar administraciones exige poblaciones expuestas y períodos equivalentes: este panel describe eventos, no identifica el efecto de una modalidad de gestión.
+{: .text-justify}
 
 ## Cucharada 2: ¿se van las que rinden peor y llegan alternativas mejores?
 
 ### La matrícula permite reconocer una trayectoria, no explicar su causa
 
 La comparación pregunta si las escuelas que cierran venían peor que alternativas similares. Cada cierre se contrasta con establecimientos del mismo año, comuna, segmento educativo, dependencia, ruralidad y tamaño. SIMCE se estandariza por año, grado y asignatura; PSU, PDT y PAES, dentro de su propio proceso.
+{: .text-justify}
 
 <span id="claim-enrolment-path"></span>La matrícula entrega la señal más clara: de los 684 cierres que venían de actividad, 665 tienen tres años completos. **Las medianas de los tres años caen `28 → 23 → 1` estudiante.**
+{: .text-justify}
 
 La secuencia describe tres cortes del conjunto, no la trayectoria de cada escuela. Tampoco permite saber si las familias se retiraron por dificultades educativas, por el anuncio de un cierre, por un traslado residencial o porque había menos niños en el territorio. Son explicaciones rivales por contrastar, no causas identificadas por estas medianas. SIMCE tiene tres años completos para 76 cierres y cambia de `−0,232` a `−0,083` desviaciones estándar; IVE-SINAE cubre 188 y pasa de `0,882` a `0,946`. Este último es un índice agregado de vulnerabilidad escolar, no pobreza individual.
+{: .text-justify}
 
 ### Lo que dicen —y lo que no dicen— los puntajes
 
 <span id="claim-outcomes"></span>La prueba estricta vuelve a filtrar anexos, cambios administrativos y segmentos distintos. De los 330 cierres elegibles, solo 97 tienen SIMCE y 46 admisión; después del emparejamiento exacto quedan **21 y 8**, respectivamente.
+{: .text-justify}
 
 {: .table-caption}
 **Tabla 1.** Señales observadas y límite de cada comparación
@@ -116,20 +130,25 @@ El mínimo de diez es una regla retrospectiva para no ajustar el umbral a los si
 ### Un promedio puede cambiar sin que sepamos cuánto aprendieron los estudiantes
 
 La contabilidad separa permanencia, redistribución y entradas o salidas. Un promedio puede subir al excluir un grupo con puntajes bajos sin que ese grupo mejore, o permanecer estable mientras cambian el acceso y los traslados.
+{: .text-justify}
 
 ## Cucharada 3: del promedio a la red educativa de cada territorio
 
 ### Qué pueden hacer los sostenedores con esta evidencia
 
 La utilidad inmediata no es construir un ranking de escuelas que deberían cerrar. Es ordenar información antes de decidir si corresponde apoyar un establecimiento, ampliar su oferta, reorganizar una red o evaluar una fusión. Estas preguntas llevan a los mapas: no porque un mapa responda por sí solo, sino porque permite ver dónde una comparación agregada resulta insuficiente.
+{: .text-justify}
 
 ### Cómo leer los mapas sin convertir cercanía en reemplazo
 
 La comparación territorial pregunta: ante un cierre estricto, ¿aparece cerca otra escuela que atiende el mismo segmento? Busqué una apertura dentro de 10 km y entre `t` y `t+2`. La ubicación del cierre corresponde a `t−1`; la ubicación de la entrada usa la **primera coordenada oficial válida entre el año de entrada y 2025**. Este criterio recupera registros tardíos sin fingir que la escuela estaba físicamente allí desde el primer año.
+{: .text-justify}
 
 Uso «entrada» en un sentido operativo: actividad con matrícula positiva después de al menos dos años previos sin actividad registrada en el panel 2013–2025, sin episodio activo anterior en esa ventana ni sucesión registrada. No demuestra que la escuela sea históricamente nueva; puede quedar historia anterior fuera del panel. Para los eventos recientes, además, la ventana posterior todavía puede estar incompleta.
+{: .text-justify}
 
 <span id="claim-territorial"></span>De 330 cierres estrictos, 320 tienen coordenada válida. Entre 414 aperturas, 389 tienen una coordenada elegible bajo el criterio temporal. Después de excluir posibles reemplazos administrativos, segmentos distintos y nueve trayectorias inestables, quedan **38 cierres vinculados por proximidad con 29 aperturas únicas**. Es un resultado nacional útil para dimensionar el fenómeno; no demuestra que esas aperturas recibieran a los estudiantes ni que fueran sustitutos accesibles.
+{: .text-justify}
 
 <span id="claim-el-salvador"></span>Para mirar esas limitaciones en un territorio concreto elegí El Salvador porque crecí allí. Esa cercanía orienta preguntas y puede introducir sesgo de selección; no explica el cierre ni convierte el caso en representativo. La Escuela N° 14 (RBD 391) cerró al terminar 2013 y se fusionó con la N° 1 (RBD 390). Los directorios 2008–2011 ubican la primera en **Diego Portales 500**; el [reglamento institucional](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf), la segunda en **Diego Portales 1510**. La [BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documenta el traspaso de primero a sexto básico.
 {: .text-justify}
@@ -202,16 +221,21 @@ La capacidad docente forma parte de esa cadena. Una matrícula menor puede abrir
 ## Qué tendría que ocurrir para hablar de causalidad
 
 Un resultado causal exige algo más ambicioso que acumular años. Para los cierres, hace falta seguir a los estudiantes, conocer sus destinos y comparar sus trayectorias con las de un grupo creíble antes de que las familias anticipen el cambio. Para SLEP, se necesita documentar por qué cada territorio fue traspasado en cierta fecha, disponer de más unidades tratadas y medir la interferencia entre redes cercanas. Para SAE, una ventana más larga no resuelve por sí sola los pocos conglomerados tratados ni los placebos sensibles a la ponderación: se requiere otro contraste, apoyado en una regla de asignación defendible.
+{: .text-justify}
 
 Cada ruta puede fallar. Tendencias previas incompatibles invalidan un estudio de eventos; una discontinuidad exige una regla no manipulable; una variable instrumental requiere una primera etapa clara y una exclusión creíble; y el seguimiento individual puede sesgarse si los enlaces fallan de forma selectiva. Declarar estas condiciones antes de estimar es parte del resultado, no una formalidad.
+{: .text-justify}
 
 La proyección demográfica vuelve urgente construir escenarios territoriales de apoyo, expansión, reorganización y resguardo de capacidad. No entrega un calendario de cierres: un descenso nacional puede coexistir con barrios que necesitan escuelas nuevas. Un futuro artículo debería unir demografía local, oferta por nivel, vacantes, tiempos de viaje y trayectorias estudiantiles. Su producto útil no sería una lista de establecimientos destinados a cerrar.
+{: .text-justify}
 
 ### Alcance y reproducibilidad
 
 La cobertura cambia con cada pregunta: 665 cierres tienen trayectoria completa de matrícula, 76 tienen SIMCE, 188 tienen IVE-SINAE y solo 21 quedan en la comparación estricta de SIMCE. Admisión describe a quienes llegaron a rendir una prueba al terminar la enseñanza media, no a todo el alumnado. Los resultados deben leerse con su propio denominador; no forman una única cohorte nacional.
+{: .text-justify}
 
 Los principales agregados se calcularon por rutas independientes y coincidieron dentro de la precisión fijada. Ese acuerdo reduce el riesgo de error de cálculo, pero no acredita la sesión histórica, no compensa datos faltantes y no crea identificación causal. Los artefactos públicos conservan cifras, fuentes, reglas y límites; los datos restringidos permanecen fuera del repositorio.
+{: .text-justify}
 
 ## Cierre: evaluar la transición, no celebrar el movimiento
 
@@ -227,6 +251,7 @@ La hipótesis de destrucción creativa es atractiva; por eso hay que exigirle un
 ### Transparencia y alcance de las fuentes
 
 La tesis y su extensión son de mi autoría; no constituyen una réplica independiente. También fui coautor de [*Destructive Creation* (DT 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), antecedente del artículo de Grau, Hojman y Mizala (2018) citado aquí. El Salvador fue seleccionado por mi vínculo biográfico con la localidad. Hacer explícitas estas relaciones permite reconocer posibles sesgos de confirmación y selección.
+{: .text-justify}
 
 No recibí financiamiento para este trabajo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó, supervisó ni revisó este trabajo; sus posiciones no están representadas por estas conclusiones. Utilicé asistentes de inteligencia artificial para apoyar programación, control de calidad, revisión de prosa y revisión adversarial. Las decisiones metodológicas y editoriales, la verificación de fuentes y la responsabilidad por todas las afirmaciones y resultados son mías.
 {: .text-justify}

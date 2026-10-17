@@ -217,6 +217,7 @@ The reconstruction leaves a panel that can describe flows, recognise risk signal
 {: .text-justify}
 
 [Part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) revisits these three questions without treating them as interchangeable:
+{: .text-justify}
 
 {: .table-caption}
 **Table 3.** Causal routes and minimum conditions

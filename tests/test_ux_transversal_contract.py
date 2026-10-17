@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+from html.parser import HTMLParser
 import json
 import re
 import sys
@@ -203,6 +204,48 @@ def related_hrefs(page_html: str) -> list[str]:
         return []
     titles = re.findall(r'class="archive__item-title[^"]*"[^>]*>.*?<a href="([^"]+)"', block[1], re.DOTALL)
     return [html.unescape(t) for t in titles][:4]
+
+
+class BodyParagraphs(HTMLParser):
+    """Párrafos hijos directos de .page__content, hasta la primera regla horizontal."""
+
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.depth = 0
+        self.content = None
+        self.current = None
+        self.done = False
+        self.paragraphs: list[tuple[set[str], str]] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        classes = set((dict(attrs).get("class") or "").split())
+        # Antes de abrir la etiqueta, la profundidad es la de su padre.
+        if self.content is not None and not self.done and self.depth == self.content:
+            if tag == "hr":
+                self.done = True
+            elif tag == "p":
+                self.current = [classes, ""]
+        if tag in self.VOID:
+            return
+        self.depth += 1
+        if self.content is None and "page__content" in classes:
+            self.content = self.depth
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in self.VOID:
+            return
+        if tag == "p" and self.current is not None and self.depth == self.content + 1:
+            self.paragraphs.append((self.current[0], self.current[1]))
+            self.current = None
+        if self.content is not None and self.depth == self.content:
+            self.done = True
+        self.depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self.current is not None:
+            self.current[1] += data
 
 
 class UxTransversalContract(unittest.TestCase):
@@ -873,6 +916,19 @@ class UxTransversalContract(unittest.TestCase):
                 self.assertIn(f'href="{about}"', avatar.group(1), f"{page}: la foto no lleva a {about}")
                 self.assertIn('tabindex="-1"', avatar.group(1), f"{page}: la foto repite la parada de tabulación")
         self.assertGreater(checked, 0, "ninguna página con ficha del autor")
+
+    def test_prosa_justificada_tesis(self) -> None:
+        checked = 0
+        for slug in ("replica-tesis-establecimientos-educacionales", "extender-tesis-no-es-agregar-anos"):
+            for prefix in ("", "en/"):
+                rel = f"{prefix}datos/educacion/politica-publica/{slug}/index.html"
+                body = BodyParagraphs()
+                body.feed(rendered(rel))
+                self.assertGreater(len(body.paragraphs), 10, f"{rel}: no se encontró la prosa del cuerpo")
+                loose = [text.strip()[:60] for classes, text in body.paragraphs if not {"text-justify", "small", "table-caption"} & classes]
+                self.assertEqual(loose, [], f"{rel}: párrafos sin justificar")
+                checked += 1
+        self.assertEqual(checked, 4)
 
 
 if __name__ == "__main__":
