@@ -11,6 +11,9 @@
 #
 # El Liquid de main.scss se reduce a lo que hace hoy: `{{ 'ruta' | relative_url }}`
 # → 'ruta' (baseurl vacío). Cualquier otro Liquid hace fallar el gate, a propósito.
+# El CI lo corre con `ruby` a secas (como verify_site_artifact.rb): sin bundler/setup no
+# encuentra sass-embedded, que vive en el bundle (falló así en el pipeline #2959153599).
+require "bundler/setup"
 require "sass-embedded"
 
 root = File.expand_path("..", __dir__)
