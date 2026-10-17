@@ -1,0 +1,28 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+/* Reemplaza la librería breakpoint del tema (capa 2C, auditoría UX 2026-10-17).
+   El tema y el sitio solo la usan de dos formas: breakpoint($x), que es min-width,
+   y breakpoint(max-width $x). Con "to ems" activado, la librería convertía px a em
+   sobre 16 px; aquí se hace lo mismo, sin estado global. */
+$breakpoint-base: 16px;
+
+@function breakpoint-to-em($value) {
+  @if math.unit($value) == "px" {
+    @return math.div($value, $breakpoint-base) * 1em;
+  }
+  @return $value;
+}
+
+@mixin breakpoint($query) {
+  @if meta.type-of($query) == "list" and list.length($query) == 2 {
+    @media (#{list.nth($query, 1)}: #{breakpoint-to-em(list.nth($query, 2))}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{breakpoint-to-em($query)}) {
+      @content;
+    }
+  }
+}

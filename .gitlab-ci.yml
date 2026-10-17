@@ -95,6 +95,7 @@ build_site:
     - ruby scripts/verify_site_health.rb --profile source --report /tmp/site-health-source/report.json
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
+    - ruby scripts/verify_sass_strict.rb
     - python3 tests/test_site_ux.py public
     # Invariantes de UX transversales (docs/contracts/ux-transversal.yml): rojo si
     # alguien revierte el tema según el sistema, la medida --measure, el contraste

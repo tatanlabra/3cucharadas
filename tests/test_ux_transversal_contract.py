@@ -805,17 +805,24 @@ class UxTransversalContract(unittest.TestCase):
             self.assertNotRegex(value, r"#[0-9a-fA-F]{3,6}\b|rgba?\(", f"{part} {prop}: color literal {value}")
 
 
-    def test_sass_import_contenido(self) -> None:
-        source = (ROOT / "assets" / "css" / "main.scss").read_text(encoding="utf-8")
-        imports = re.findall(r'^\s*@import\s+"([^"]+)"', source, re.M)
-        self.assertEqual(len(imports), 2, f"@import nuevos en main.scss: {imports}")
-        self.assertTrue(imports[0].startswith("minimal-mistakes/skins/") and imports[1] == "minimal-mistakes", imports)
-        lock = (ROOT / "Gemfile.lock").read_text(encoding="utf-8")
-        versions = re.findall(r"^\s{4}sass-embedded \((\d+)\.\d+\.\d+", lock, re.M)
-        self.assertTrue(versions, "sass-embedded no aparece resuelto en Gemfile.lock")
-        for major in versions:
-            self.assertLess(int(major), 3, "Dart Sass 3 elimina @import: migrar main.scss y salir de los parciales del tema antes de subir")
-
+    def test_sass_sin_import(self) -> None:
+        sources = [ROOT / "assets" / "css" / "main.scss"] + sorted((ROOT / "_sass").rglob("*.scss"))
+        for path in sources:
+            code = re.sub(r"/\*.*?\*/|//[^\n]*", "", path.read_text(encoding="utf-8"), flags=re.S)
+            self.assertNotRegex(code, r"(?m)^\s*@import\b", f"{path.relative_to(ROOT)} usa @import")
+        main = (ROOT / "assets" / "css" / "main.scss").read_text(encoding="utf-8")
+        self.assertRegex(main, r'@use "minimal-mistakes" as \* with \(')
+        entry = (ROOT / "_sass" / "minimal-mistakes.scss").read_text(encoding="utf-8")
+        self.assertIn('@forward "minimal-mistakes/variables"', entry)
+        for gone in ("vendor/susy", "vendor/breakpoint", "vendor/magnific-popup"):
+            self.assertFalse((ROOT / "_sass" / "minimal-mistakes" / gone).exists(), gone)
+        skins = sorted(p.name for p in (ROOT / "_sass" / "minimal-mistakes" / "skins").glob("*.scss"))
+        self.assertEqual(skins, ["_contrast.scss"])
+        self.assertRegex((ROOT / "_config.yml").read_text(encoding="utf-8"), r'(?m)^minimal_mistakes_skin:\s*"contrast"')
+        self.assertNotIn(".mfp-", css(), "quedaron reglas de Magnific Popup")
+        self.assertFalse((SITE / "en" / "assets" / "css" / "main.css").exists(), "CSS huérfano del tema en /en/")
+        ci = (ROOT / ".gitlab-ci.yml").read_text(encoding="utf-8")
+        self.assertRegex(ci, r"(?m)^\s*- ruby scripts/verify_sass_strict\.rb\s*$")
 
     def test_destacados_del_tema(self) -> None:
         rules = css_rules_in_context(css())
@@ -841,6 +848,10 @@ class UxTransversalContract(unittest.TestCase):
         self.assertIn(last.get((quote, "background")), ("transparent", "rgba(0,0,0,0)"))
         for (part, prop), value in last.items():
             self.assertNotRegex(value.lower(), r"#343746|#bd93f9|#6272a4", f"{part} {prop}: superficie Dracula")
+        # Ningún componente alojado en un destacado conserva colores pensados para Dracula.
+        for _, selector, body in rules:
+            if "thesis-coordinate-audit" in selector:
+                self.assertNotRegex(body.lower(), r"#343746|#2b2e3b|#3d4050|#44475a|#8be9fd|#f8f8f2", f"{selector}: color Dracula")
 
 
 if __name__ == "__main__":

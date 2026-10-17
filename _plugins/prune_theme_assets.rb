@@ -28,4 +28,15 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # Theme files with YAML front matter (for example lunr-gr.js) are Pages,
   # not StaticFiles, so they must be removed from that collection as well.
   site.pages.reject! { |page| prunable_path.call(page.path) }
+
+  # El main.scss de la gema. En español lo sombrea el del sitio, pero en la pasada
+  # inglesa Polyglot excluye `assets` del sitio y el del tema reaparecía: se publicaba
+  # /en/assets/css/main.css (72 KB, CSS por defecto del tema, ninguna página lo enlaza)
+  # y era la fuente de los últimos avisos de @import del build. Capa 2C, 2026-10-17.
+  theme_root = site.theme&.root
+  if theme_root
+    site.pages.reject! do |page|
+      page.name == "main.scss" && page.instance_variable_get(:@base).to_s.start_with?(theme_root)
+    end
+  end
 end
