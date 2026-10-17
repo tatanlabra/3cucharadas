@@ -28,7 +28,7 @@
   style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if page.header.overlay_image and editorial_hero == false %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
 >
   {% if editorial_hero %}
-    <picture class="page__hero-media" aria-hidden="true">
+    <picture class="page__hero-media" aria-hidden="true"{% if page.ref %} style="view-transition-name: vt-{{ page.ref }}"{% endif %}>
       <img src="{{ page.header.overlay_image | relative_url }}"{% if page.header.overlay_image_mobile %} srcset="{{ page.header.overlay_image_mobile | relative_url }} 800w, {{ page.header.overlay_image | relative_url }} 1600w" sizes="100vw"{% endif %} width="1600" height="900" alt="" fetchpriority="high" loading="eager" style="object-position: {{ page.header.focal_point | default: '65% center' | escape }};">
     </picture>
     <span class="page__hero-shade" aria-hidden="true"{% if overlay_filter %} style="background-image: {{ overlay_filter | escape }};"{% endif %}></span>

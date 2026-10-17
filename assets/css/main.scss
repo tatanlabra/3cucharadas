@@ -3851,3 +3851,82 @@ html:not([data-theme="academic-night"]) .page__content .evidence-carousel--styli
   align-items: center;
   min-block-size: 24px;
 }
+
+/* ===== Movimiento editorial (auditoría UX 2026-10-17; aprobado M1-M4) =====
+   Aparición única con IntersectionObserver (assets/js/motion.js): el estado
+   pendiente lo pone JS solo bajo el pliegue, así que sin JS no se oculta nada. */
+.motion-pending { opacity: 0; transform: translateY(16px); }
+.page__content > figure.motion-pending,
+.page__content .evidence-carousel.motion-pending,
+.page__content .territorial-evidence.motion-pending { transform: none; }  /* los datos no se mueven: solo aparecen */
+.archive__item,
+.page__content > figure,
+.page__content .evidence-carousel,
+.page__content .territorial-evidence {
+  transition: opacity 420ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--motion-delay, 0ms),
+              transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--motion-delay, 0ms),
+              box-shadow 180ms ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .archive__item:hover { transform: translateY(-4px); box-shadow: 0 0.6rem 1.4rem rgba(20, 26, 40, 0.14); }
+}
+
+/* Firma: las tres cucharadas. Navegación por las tres secciones del post. */
+.cucharadas {
+  position: fixed;
+  z-index: 25;
+  inset-block-end: max(12px, env(safe-area-inset-bottom));
+  inset-inline-start: 50%;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #d7d0c4;
+  border-radius: 999px;
+  background: rgba(250, 247, 240, 0.92);
+  box-shadow: 0 0.3rem 1rem rgba(20, 26, 40, 0.16);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 140%);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 260ms ease;
+}
+.cucharadas.is-visible { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+.cucharadas.is-visible.is-tucked:not(:focus-within) { opacity: 0; pointer-events: none; transform: translate(-50%, 140%); }
+.cucharadas__step {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  border-radius: 999px;
+  color: #1f5f8b;
+  text-decoration: none;
+}
+.cucharadas__spoon { position: absolute; inset: 0.35rem; display: grid; }
+.cucharadas__spoon svg { inline-size: 100%; block-size: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.cucharadas__spoon--fill { clip-path: inset(calc((1 - var(--fill, 0)) * 100%) 0 0 0); }
+.cucharadas__spoon--fill svg { fill: currentColor; }
+.cucharadas__n { position: absolute; inset-block-end: -0.05rem; inset-inline-end: 0.1rem; font-size: 0.62rem; font-weight: 700; color: #26354c; }
+.cucharadas__step[aria-current="step"] { background: rgba(31, 95, 139, 0.12); }
+.cucharadas__step:focus-visible { outline: 3px solid #1f5f8b; outline-offset: 2px; }
+html[data-theme="academic-night"] .cucharadas { background: rgba(22, 22, 22, 0.9); border-color: #525252; }
+html[data-theme="academic-night"] .cucharadas__step { color: #78a9ff; }
+html[data-theme="academic-night"] .cucharadas__n { color: #f4f4f4; }
+html[data-theme="academic-night"] .cucharadas__step[aria-current="step"] { background: rgba(120, 169, 255, 0.18); }
+
+/* Transición entre la tarjeta y la portada del post (Chrome 126+, Safari 18.2+).
+   La declaración @view-transition vive en línea en head.html: desde esta hoja
+   Chromium 152 la ignoraba (pagereveal sin transición), en línea funciona (medido). */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(*) { animation-duration: 320ms; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-pending { opacity: 1; transform: none; }
+  .archive__item, .page__content > figure, .page__content .evidence-carousel,
+  .page__content .territorial-evidence, .cucharadas { transition: none; }
+}
+@media print {
+  .motion-pending { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .cucharadas { display: none; }
+}
