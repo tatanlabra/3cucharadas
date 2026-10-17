@@ -45,3 +45,15 @@ invariants:
   - id: transicion-tarjeta-post
     rule: La declaración @view-transition va en línea en el head, condicionada a prefers-reduced-motion no-preference, y ninguna página repite un view-transition-name.
     why: desde main.css Chromium 152 ignoraba la declaración; un nombre repetido anula la transición entera.
+  - id: identidad-cromatica
+    rule: No quedan los colores de la skin contrast (#0000ff, #b60000) en el CSS compilado; enlaces #1f5f8b y acento navy #1b2a41, con contraste AA sobre el crema.
+    why: la interfaz usaba el azul de navegador y el rojo de la skin, ajenos a la paleta aprobada de las portadas (C5).
+  - id: fuentes-subconjunto
+    rule: Las @font-face apuntan solo a los subconjuntos del manifiesto, sus sha256 coinciden y todo carácter usado en el sitio está cubierto (o tampoco existía en la fuente completa).
+    why: los posts descargaban 2 MB de fuentes; FiraCode Nerd sola pesaba 1,1 MB sin que el código usara un glifo Nerd (C1).
+  - id: iconos-autohospedados
+    rule: Ninguna página carga Font Awesome desde cdnjs; todo ícono fa-* usado en el HTML o en el JS tiene su regla en fa-subset.css y sus archivos coinciden con el manifiesto.
+    why: se descargaban ~315 KB de un tercero para 27 íconos (C2).
+  - id: imagenes-responsivas
+    rule: Toda <img> cuya fuente tiene variantes en _data/image_variants.json se publica con srcset que las incluye, y las variantes existen.
+    why: figuras de hasta 2562 px se servían completas en huecos de 731 px (C3).
