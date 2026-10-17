@@ -20,7 +20,7 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main" role="main"{% if page.collection == "posts" %} class="main--post"{% endif %}>
   {% include sidebar.html %}
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
@@ -38,6 +38,7 @@ layout: default
           </h1>
           {%- endif %}
           {% include page__meta.html %}
+          {% if page.collection == "posts" %}{% include post-byline.html %}{% endif %}
             </header>
       {% endunless %}
 

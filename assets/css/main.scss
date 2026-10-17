@@ -4144,3 +4144,147 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
   text-align: start;
   hyphens: manual;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANATOMÍA DEL POST EN ESCRITORIO (D2, auditoría UX 2026-10-17)
+
+   Con tres columnas —ficha del autor, texto e índice— la lectura quedaba
+   descentrada y la biografía se repetía arriba en cada post. Desde $large la
+   ficha pasa al final, con el MISMO reordenamiento por `order` que ya rige por
+   debajo de $large (ver «SIDEBAR EN MÓVIL»): el markup no se mueve y el
+   `itemscope Person` sigue temprano en el DOM. Arriba queda la firma compacta
+   (_includes/post-byline.html).
+
+   Convertir #main en flex anula sus floats directos, que es justo lo buscado:
+   página, ficha y relacionados se apilan. El índice no es hijo directo de #main
+   (vive dentro de .page__content), así que conserva su columna sticky.
+
+   La columna de texto se centra con un relleno inicial igual al final que el
+   tema ya reserva para el índice. Solo aplica a posts (`.main--post`).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page__byline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75em 0 0;
+  font-size: 0.85em;
+}
+
+.page__byline-avatar {
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.page__byline a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
+  color: inherit;
+  font-weight: 700;
+}
+
+@mixin post-anatomy($gutter) {
+  #main.main--post > .page {
+    padding-inline-start: $gutter;
+  }
+
+  #main.main--post > .sidebar {
+    margin-inline: $gutter;
+  }
+
+  #main.main--post > .page__related {
+    margin-inline-start: $gutter;
+  }
+}
+
+@media (min-width: 64em) {
+  #main.main--post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main.main--post > .page {
+    order: 1;
+    float: none;
+    width: 100%;
+  }
+
+  #main.main--post > .sidebar {
+    order: 2;
+    float: none;
+    width: auto;
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 1px solid $border-color;
+    opacity: 1;
+  }
+
+  #main.main--post > .sidebar.sticky {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #main.main--post > .page__related {
+    order: 3;
+    float: none;
+    width: auto;
+  }
+
+  /* La ficha al final: avatar a la izquierda, nombre, biografía y enlaces a la
+     derecha, en una sola fila de enlaces. */
+  #main.main--post > .sidebar .h-card {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  #main.main--post > .sidebar .author__avatar {
+    grid-row: 1 / span 2;
+    inline-size: 5.5rem;
+  }
+
+  #main.main--post > .sidebar .author__avatar img {
+    inline-size: 5.5rem;
+    block-size: 5.5rem;
+    max-width: none;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  #main.main--post > .sidebar .author__content,
+  #main.main--post > .sidebar .author__urls-wrapper {
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main.main--post > .sidebar .author__name {
+    margin-top: 0;
+  }
+
+  #main.main--post > .sidebar .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    margin: 0.5em 0 0;
+    padding: 0;
+  }
+
+  #main.main--post > .sidebar .author__urls li {
+    margin: 0;
+  }
+
+  @include post-anatomy($right-sidebar-width-narrow);
+}
+
+@media (min-width: 80em) {
+  @include post-anatomy($right-sidebar-width);
+}

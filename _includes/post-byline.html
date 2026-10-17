@@ -1,0 +1,15 @@
+{%- comment -%}
+Firma compacta bajo el título de cada post (D2, auditoría UX 2026-10-17). En
+escritorio la ficha completa del autor pasa al final del artículo, como ya ocurría
+en móvil; aquí queda solo quién escribe. El avatar es la misma variante de 320 px
+que usa la ficha, así que el navegador la descarga una sola vez.
+{%- endcomment -%}
+{% assign byline_author = page.author | default: page.authors[0] | default: site.author %}
+{% assign byline_author = site.data.authors[byline_author] | default: byline_author %}
+{% assign byline_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign byline_avatar = byline_author.avatar %}
+{% if byline_avatar contains '/assets/images/clabra2026.webp' %}{% assign byline_avatar = '/assets/images/clabra2026-320.webp' %}{% endif %}
+<p class="page__byline">
+  {% if byline_avatar %}<img class="page__byline-avatar" src="{{ byline_avatar | relative_url }}" width="32" height="32" alt="" decoding="async">{% endif %}
+  <span>{% if byline_lang == "en" %}By{% else %}Por{% endif %} <a href="{{ '/about/' | relative_url }}" rel="author">{{ byline_author.name }}</a></span>
+</p>

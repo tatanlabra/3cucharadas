@@ -543,5 +543,43 @@ class UxTransversalContract(unittest.TestCase):
         self.assertRegex(caption, r"position:\s*sticky")
 
 
+    def test_anatomia_del_post(self) -> None:
+        checked = 0
+        for lang, posts in posts_by_lang().items():
+            for post in posts:
+                url = str(post["permalink"])
+                built = ("en" + url if lang == "en" and not url.startswith("/en/") else url).strip("/")
+                text = (SITE / built / "index.html").read_text(encoding="utf-8")
+                self.assertTrue('<div id="main" role="main" class="main--post">' in text, f"{url}: #main sin main--post")
+                about = "/en/about/" if lang == "en" else "/about/"
+                byline = re.search(rf'class="page__byline">.*?<a href="{re.escape(about)}" rel="author">', text, re.S)
+                self.assertTrue(byline, f"{url}: sin firma compacta hacia {about}")
+                self.assertTrue('class="author__name p-name"' in text, f"{url}: sin h-card del autor")
+                checked += 1
+        self.assertGreater(checked, 0)
+        rules = css_rules_in_context(css())
+        def gutters(width: str) -> dict[str, str]:
+            found: dict[str, str] = {}
+            for media, selector, body in rules:
+                if not any(f"min-width: {width}" in m or f"min-width:{width}" in m for m in media):
+                    continue
+                for prop in ("padding-inline-start", "padding-inline-end"):
+                    value = re.search(rf"(?<![-\w]){prop}:\s*([\d.]+px)", body)
+                    if value and selector.strip() in ("#main.main--post>.page", "#main.main--post > .page", ".page"):
+                        found[f"{selector.strip().split()[-1].split('>')[-1]}:{prop}"] = value.group(1)
+            return found
+        for width, gutter in (("64em", "200px"), ("80em", "300px")):
+            found = gutters(width)
+            self.assertEqual(found.get(".page:padding-inline-start"), gutter, f"{width}: {found}")
+            self.assertEqual(found.get(".page:padding-inline-end"), gutter, f"{width}: el índice cambió de ancho")
+        order: dict[str, str] = {}
+        for media, selector, body in rules:
+            if any("min-width: 64em" in x for x in media):
+                key = selector.replace(" ", "")
+                order[key] = order.get(key, "") + ";" + body
+        self.assertRegex(order.get("#main.main--post>.sidebar", ""), r"order:\s*2")
+        self.assertRegex(order.get("#main.main--post", ""), r"flex-direction:\s*column")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
