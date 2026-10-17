@@ -18,7 +18,8 @@ falsified_by: >-
   build de origin/main 6543e912 y aprobaron con la rama claude/ux-highend-20261017. Las 3
   de la fase 1 de dirección visual (navegación, escala y tablas) reprobaron contra el
   build de origin/main 15929d70 y aprobaron con la rama claude/ux-fase1-20261017. La de
-  anatomía del post reprobó contra e6b63368 y aprobó con claude/ux-fase2-20261017.
+  anatomía del post reprobó contra e6b63368 y aprobó con claude/ux-fase2-20261017. La de
+  portada reprobó contra 812d261a y aprobó con claude/ux-fase3-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -86,3 +87,6 @@ invariants:
   - id: anatomia-del-post
     rule: Todo post lleva firma compacta (avatar y nombre con enlace a «Acerca de») bajo su título, conserva la h-card del autor en el DOM y, desde 64em, la presenta después del artículo con la columna de texto centrada entre márgenes iguales al del índice.
     why: en escritorio la ficha del autor ocupaba la columna izquierda de cada post y descentraba la lectura; en móvil ya iba al final.
+  - id: portada-ultima-cucharada
+    rule: La página 1 de la portada (ES y EN) abre con el post visible más reciente de su idioma como hero, la grilla no lo repite, el único fetchpriority alto es el del hero y la ficha del autor con sus rel="me" sigue en la portada. La página 2 en adelante conserva el hero de marca.
+    why: el hero era una marca genérica con dos botones; el contenido nuevo no tenía lugar propio, y la ficha lleva los rel="me" con que Mastodon, LinkedIn y Bluesky verifican el sitio.

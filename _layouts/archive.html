@@ -2,7 +2,10 @@
 layout: default
 ---
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+{% include home-latest.html %}
+{% if home_latest %}
+  {% include home-hero-latest.html post=home_latest %}
+{% elsif page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
   {% include page__hero_video.html %}
@@ -14,7 +17,7 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main" role="main"{% if page.home_hero == "latest" %} class="main--home"{% endif %}>
   {% include sidebar.html %}
 
   <div class="archive">

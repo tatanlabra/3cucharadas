@@ -1,0 +1,17 @@
+{%- comment -%}
+Asigna `home_latest`: el post que encabeza la portada (D3, auditoría UX 2026-10-17).
+Solo en la página 1 y con `home_hero: latest` en el front matter de index.html. Sale
+de la misma lista que la grilla (paginator.posts), así que el post del hero y el que
+la grilla omite son siempre el mismo. Lo incluyen el layout archive (hero) y el
+layout home (grilla); en Jekyll un `assign` dentro de un include llega a quien lo
+incluye.
+{%- endcomment -%}
+{%- assign home_latest = nil -%}
+{%- if page.home_hero == "latest" -%}
+  {%- if paginator == nil or paginator.page == 1 -%}
+    {%- assign home_candidates = paginator.posts | default: site.posts -%}
+    {%- for candidate in home_candidates -%}
+      {%- unless candidate.hidden -%}{%- assign home_latest = candidate -%}{%- break -%}{%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}

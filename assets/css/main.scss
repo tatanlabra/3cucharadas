@@ -386,13 +386,13 @@ html[data-theme="academic-night"] .page__content .reversefootnote {
   }
 }
 
-.layout--home.home-codera-hero .page__hero--overlay {
+.layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
   background-position: center right;
   background-size: cover;
 }
 
 @media (max-width: 1200px) {
-  .layout--home.home-codera-hero .page__hero--overlay {
+  .layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
     background-image:
       linear-gradient(90deg, rgba(8, 13, 16, 0.97) 0%, rgba(8, 13, 16, 0.93) 40%, rgba(8, 13, 16, 0.50) 68%, rgba(8, 13, 16, 0.16) 100%),
       url("{{ '/assets/images/home/el-salvador-codera-hero-1600x524.webp' | relative_url }}") !important;
@@ -401,7 +401,7 @@ html[data-theme="academic-night"] .page__content .reversefootnote {
 }
 
 @media (max-width: 640px) {
-  .layout--home.home-codera-hero .page__hero--overlay {
+  .layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
     background-image:
       linear-gradient(180deg, rgba(8, 13, 16, 0.95) 0%, rgba(8, 13, 16, 0.86) 52%, rgba(8, 13, 16, 0.36) 100%),
       url("{{ '/assets/images/home/el-salvador-codera-hero-mobile-1200x720.webp' | relative_url }}") !important;
@@ -4287,4 +4287,182 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
 
 @media (min-width: 80em) {
   @include post-anatomy($right-sidebar-width);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PORTADA: LA ÚLTIMA CUCHARADA COMO HERO (D3, auditoría UX 2026-10-17)
+
+   El hero era una marca genérica en mayúsculas espaciadas con dos botones; ahora
+   abre el post más reciente con su propia portada (_includes/home-hero-latest.html)
+   y hereda la superficie de .page__hero--editorial. La ficha del autor deja la
+   columna izquierda, así que la grilla ocupa el ancho completo.
+
+   La página 1 queda con 7 tarjetas para una grilla de 2 columnas (paginate: 8, una
+   va al hero). La primera se destaca en horizontal a todo el ancho: 1 + 6, sin
+   hueco en la última fila. La página 2 en adelante no cambia.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page__hero--overlay.page__hero--latest {
+  .page__hero-kicker {
+    margin: 0 0 0.7rem;
+    color: #9fe7f5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .page__hero-kicker span {
+    color: #f4f6ff;
+    font-weight: 400;
+  }
+
+  .page__title {
+    margin-top: 0;
+  }
+
+  .page__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page__title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.12em;
+  }
+
+  .page__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0 0;
+  }
+
+  .page__hero-secondary {
+    border-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+/* La ficha del autor pasa bajo la grilla con el mismo `order` que en móvil: el
+   markup y su h-card (con los rel="me") siguen en la portada. */
+@media (min-width: 64em) {
+  #main.main--home {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main.main--home > .archive {
+    order: 1;
+    float: none;
+    width: 100%;
+    padding-inline-end: 0;
+  }
+
+  #main.main--home > .sidebar {
+    order: 2;
+    float: none;
+    width: auto;
+    margin-top: 2.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid $border-color;
+    opacity: 1;
+  }
+
+  #main.main--home > .sidebar.sticky {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #main.main--home > .sidebar .h-card {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 46rem);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  #main.main--home > .sidebar .author__avatar {
+    grid-row: 1 / span 2;
+    inline-size: 5.5rem;
+  }
+
+  #main.main--home > .sidebar .author__avatar img {
+    inline-size: 5.5rem;
+    block-size: 5.5rem;
+    max-width: none;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  #main.main--home > .sidebar :is(.author__content, .author__urls-wrapper) {
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main.main--home > .sidebar .author__name {
+    margin-top: 0;
+  }
+
+  #main.main--home > .sidebar .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    margin: 0.5em 0 0;
+    padding: 0;
+  }
+
+  #main.main--home > .sidebar .author__urls li {
+    margin: 0;
+  }
+}
+
+/* Las tarjetas declaraban 16:9, pero el `max-height: 120px` del tema para grillas
+   las recortaba a una franja (462 × 120 px, también en producción). Sin la ficha
+   del autor las tarjetas miden ~650 px: a 2:1 la portada se ve entera sin volver
+   cada tarjeta un póster. */
+.home-latest .home__entries.entries-grid .archive__item-teaser {
+  aspect-ratio: 2 / 1;
+  height: auto;
+  max-height: none;
+}
+
+@media (min-width: 48em) {
+  .layout--home .home__entries--after-hero > .grid__item:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(1rem, 2.4vw, 2rem);
+    align-content: start;
+  }
+
+  /* Con `aspect-ratio`, un item de grilla no se estira a lo ancho: sin el 100 %
+     la portada medía 213 px en una columna de 650. */
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-teaser {
+    grid-row: 1 / span 3;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 15rem;
+    aspect-ratio: auto;
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-title {
+    margin-top: 0.2rem;
+    font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-excerpt {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 6;
+  }
 }

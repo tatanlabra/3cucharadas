@@ -581,5 +581,33 @@ class UxTransversalContract(unittest.TestCase):
         self.assertRegex(order.get("#main.main--post", ""), r"flex-direction:\s*column")
 
 
+    def test_portada_ultima_cucharada(self) -> None:
+        grouped = posts_by_lang()
+        for lang, prefix in (("es", ""), ("en", "en/")):
+            home = rendered(prefix + "index.html")
+            hero = re.search(r'id="home-latest-title"[^>]*>\s*<a href="([^"]+)"', home)
+            self.assertIsNotNone(hero, f"{prefix}index.html sin hero de la última cucharada")
+            newest = str(grouped[lang][0]["permalink"])
+            expected = "/en" + newest if lang == "en" and not newest.startswith("/en/") else newest
+            self.assertEqual(hero.group(1), expected, f"{prefix}index.html: el hero no es el post más reciente")
+            grid = re.findall(r'<h2 class="archive__item-title[^"]*" itemprop="headline">\s*<a href="([^"]+)"', home)
+            self.assertGreater(len(grid), 0)
+            self.assertNotIn(expected, grid, "la grilla repite el post del hero")
+            self.assertEqual(len(re.findall(r'fetchpriority="high"', home)), 1, f"{prefix}index.html: más de un LCP declarado")
+            self.assertIn('class="author__name p-name"', home)
+            self.assertRegex(home, r'href="https://mastodon\.social/[^"]+"[^>]*rel="[^"]*\bme\b')
+            page2 = SITE / prefix / "page2" / "index.html"
+            if page2.is_file():
+                self.assertNotIn('id="home-latest-title"', page2.read_text(encoding="utf-8"))
+        rules = css_rules_in_context(css())
+        teaser = " ".join(b for _, sel, b in rules if sel.strip() == ".home-latest .home__entries.entries-grid .archive__item-teaser")
+        self.assertRegex(teaser, r"aspect-ratio:\s*2\s*/\s*1")
+        self.assertRegex(teaser, r"max-height:\s*none")
+        codera = [sel for _, sel, b in rules if ".home-codera-hero .page__hero--overlay" in sel and "background-image" in b]
+        self.assertTrue(codera)
+        for sel in codera:
+            self.assertIn(":not(.page__hero--latest)", sel, "la imagen de marca se descargaría bajo el hero nuevo")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

@@ -1,0 +1,33 @@
+{%- comment -%}
+Hero de portada con la última cucharada (D3, auditoría UX 2026-10-17). Reutiliza la
+superficie del hero editorial de los posts (.page__hero--editorial) y el mismo
+`view-transition-name` que el hero del post, de modo que al entrar la portada se
+transforma en el post. Por eso la grilla omite este post: un nombre repetido en la
+misma página anula la transición entera.
+
+El h1 sigue siendo la marca, en tamaño de antetítulo; el título del post es un h2
+porque la página es la portada del sitio, no el post.
+{%- endcomment -%}
+{% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+{% assign brand = site.data.brand[active_lang] | default: site.data.brand[site.default_lang] %}
+{% assign latest = include.post %}
+{% assign latest_filter = latest.header.overlay_filter %}
+{% unless latest_filter contains "gradient" %}{% assign latest_filter = nil %}{% endunless %}
+<div class="page__hero--overlay page__hero--editorial page__hero--latest" role="region" aria-labelledby="home-latest-title">
+  <picture class="page__hero-media" aria-hidden="true"{% if latest.ref %} style="view-transition-name: vt-{{ latest.ref }}"{% endif %}>
+    <img src="{{ latest.header.overlay_image | relative_url }}"{% if latest.header.overlay_image_mobile %} srcset="{{ latest.header.overlay_image_mobile | relative_url }} 800w, {{ latest.header.overlay_image | relative_url }} 1600w" sizes="100vw"{% endif %} width="1600" height="900" alt="" fetchpriority="high" loading="eager" style="object-position: {{ latest.header.focal_point | default: '65% center' | escape }};">
+  </picture>
+  <span class="page__hero-shade" aria-hidden="true"{% if latest_filter %} style="background-image: {{ latest_filter | escape }};"{% endif %}></span>
+  <div class="wrapper">
+    <h1 class="page__hero-kicker">{{ brand.name }} <span>· {% if active_lang == "en" %}Latest spoonful{% else %}Última cucharada{% endif %}</span></h1>
+    <h2 id="home-latest-title" class="page__title"><a href="{{ latest.url | relative_url }}">{{ latest.title | markdownify | remove: "<p>" | remove: "</p>" | strip }}</a></h2>
+    {% assign latest_lead = latest.tagline | default: latest.excerpt %}
+    {% if latest_lead %}<p class="page__lead">{{ latest_lead | markdownify | strip_html | strip }}</p>{% endif %}
+    {% assign post = latest %}{% include page__meta.html %}{% assign post = nil %}
+    <p class="page__hero-actions">
+      <a href="{{ latest.url | relative_url }}" class="btn btn--light-outline btn--large">{% if active_lang == "en" %}Read it{% else %}Leer la cucharada{% endif %}</a>
+      <a href="{{ '/year-archive/' | relative_url }}" class="btn btn--light-outline btn--large page__hero-secondary">{% if active_lang == "en" %}All posts{% else %}Todas las publicaciones{% endif %}</a>
+    </p>
+  </div>
+  <span class="page__hero-caption"><a href="{{ '/ai-transparency/' | relative_url }}#{{ latest.ref | escape }}">{% if latest.ai_disclosure.components.hero == 'generated' %}{% if active_lang == 'en' %}I created this cover with AI{% else %}Creé esta portada con IA{% endif %}{% elsif latest.ai_disclosure.components.hero == 'human' %}{% if active_lang == 'en' %}I use a human-created cover{% else %}Uso una portada de autoría humana{% endif %}{% else %}{% if active_lang == 'en' %}I have not documented this cover’s origin{% else %}No tengo documentado el origen de esta portada{% endif %}{% endif %}</a></span>
+</div>

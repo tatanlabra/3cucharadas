@@ -10,7 +10,8 @@
 
 {%- for post in entries -%}
   {% assign is_home_lcp = false %}
-  {% if page.layout == 'home' and forloop.first %}
+  {%- comment -%} Con el hero de la última cucharada (D3), el LCP es el hero y no la primera tarjeta. {%- endcomment -%}
+  {% if page.layout == 'home' and forloop.first and home_latest == nil %}
     {% assign is_home_lcp = true %}
   {% endif %}
   {% include archive-single.html type=include.type is_lcp=is_home_lcp %}
