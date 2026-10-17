@@ -1683,6 +1683,14 @@ html[data-theme="academic-night"] .page__footer a:hover {
   text-align: start;
 }
 
+/* Columnas de cifras marcadas en el build (_plugins/tablas_numericas.rb):
+   al final y con cifras tabulares, para que miles y decimales queden en
+   columna. Sin !important: un `style="text-align"` del autor sigue mandando. */
+.page__content table :is(td, th).num {
+  text-align: end;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
 .page__content table tbody tr:nth-child(even) {
   /* Más oscura que el fondo de página, no más clara: con el crema, el #fafafa
      anterior quedaba por encima en luminancia y la cebra se leía al revés. */
@@ -1697,8 +1705,10 @@ html[data-theme="academic-night"] .page__footer a:hover {
   background-color: #faf7f0;
 }
 
+/* El rosado #f7e9e4 era el último resto de la cabecera roja; el realce de fila
+   usa ahora el tinte de interfaz, el mismo azul de enlaces y chips. */
 .page__content table tbody tr:hover {
-  background-color: #f7e9e4;
+  background-color: var(--ui-tint);
 }
 
 p.table-caption {

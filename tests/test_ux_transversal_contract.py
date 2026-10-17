@@ -206,6 +206,72 @@ def related_hrefs(page_html: str) -> list[str]:
     return [html.unescape(t) for t in titles][:4]
 
 
+def as_number(text: str) -> float | None:
+    """Convierte la celda a número por otra vía que el plugin: normaliza y usa float()."""
+    value = re.sub(r"\s+", "", text.replace("\u2212", "-"))
+    value = re.sub(r"^[(\[]|[)\]]$|\*+$", "", value)
+    value = re.sub(r"(%|‰|pp|p\.p\.|DE|SD|pts?|x|×)$", "", value)
+    value = re.sub(r"^[~≈<>≤≥±]", "", value)
+    value = value.lstrip("$€£")
+    if not re.fullmatch(r"[-+]?[\d.,]+", value) or not re.search(r"\d", value):
+        return None
+    if "," in value and "." in value:
+        value = value.replace(".", "").replace(",", ".") if value.rfind(",") > value.rfind(".") else value.replace(",", "")
+    elif "," in value:
+        value = value.replace(",", ".") if value.count(",") == 1 else value.replace(",", "")
+    elif value.count(".") > 1:
+        value = value.replace(".", "")
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
+class TableCells(HTMLParser):
+    """Celdas (clases, texto) por fila y sección de cada <table> del documento."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.tables: list[dict] = []
+        self.stack: list[dict] = []
+        self.section = "tbody"
+        self.row: list | None = None
+        self.cell: list | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attr = dict(attrs)
+        if tag == "table":
+            self.stack.append({"rows": [], "spans": False})
+        if not self.stack:
+            return
+        if tag in ("thead", "tbody", "tfoot"):
+            self.section = tag
+        elif tag == "tr":
+            self.row = []
+        elif tag in ("td", "th") and self.row is not None:
+            if attr.get("colspan") or attr.get("rowspan"):
+                self.stack[-1]["spans"] = True
+            self.cell = [set((attr.get("class") or "").split()), ""]
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self.stack:
+            return
+        if tag in ("td", "th") and self.cell is not None and self.row is not None:
+            self.row.append((self.cell[0], self.cell[1]))
+            self.cell = None
+        elif tag == "tr" and self.row is not None:
+            self.stack[-1]["rows"].append((self.section, self.row))
+            self.row = None
+        elif tag in ("thead", "tbody", "tfoot"):
+            self.section = "tbody"
+        elif tag == "table":
+            self.tables.append(self.stack.pop())
+
+    def handle_data(self, data: str) -> None:
+        if self.cell is not None:
+            self.cell[1] += data
+
+
 class BodyParagraphs(HTMLParser):
     """Párrafos hijos directos de .page__content, hasta la primera regla horizontal."""
 
@@ -929,6 +995,45 @@ class UxTransversalContract(unittest.TestCase):
                 self.assertEqual(loose, [], f"{rel}: párrafos sin justificar")
                 checked += 1
         self.assertEqual(checked, 4)
+
+    def test_tablas_cifras_alineadas(self) -> None:
+        css = (SITE / "assets" / "css" / "main.css").read_text(encoding="utf-8")
+        rule = re.search(r"\.page__content table :is\(td, ?th\)\.num\s*\{([^}]*)\}", css)
+        self.assertIsNotNone(rule, "falta la regla .num en main.css")
+        self.assertRegex(rule.group(1), r"text-align:\s*end")
+        self.assertRegex(rule.group(1), r"tabular-nums")
+        self.assertNotIn("#f7e9e4", css, "el realce de fila conserva el rosado de la cabecera roja")
+        columns = cells_marked = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            if "main--post" not in text:
+                continue
+            parser = TableCells()
+            parser.feed(text)
+            for table in parser.tables:
+                if table["spans"]:
+                    continue
+                body = [row for section, row in table["rows"] if section == "tbody"]
+                head = [row for section, row in table["rows"] if section == "thead"]
+                width = max((len(row) for row in body), default=0)
+                for col in range(width):
+                    values = [row[col] for row in body if col < len(row) and row[col][1].strip()]
+                    numeric = [cell for cell in values if as_number(cell[1]) is not None]
+                    is_numeric = col > 0 and len(numeric) >= 2 and len(numeric) >= 0.6 * len(values)
+                    for classes, value in values:
+                        marked = "num" in classes
+                        if is_numeric and as_number(value) is not None:
+                            self.assertTrue(marked, f"{page}: cifra sin alinear en la columna {col}: {value!r}")
+                            cells_marked += 1
+                        if marked:
+                            self.assertTrue(is_numeric, f"{page}: columna {col} marcada sin ser numérica: {value!r}")
+                    if is_numeric:
+                        columns += 1
+                        for row in head:
+                            if col < len(row):
+                                self.assertIn("num", row[col][0], f"{page}: encabezado de la columna {col} sin alinear")
+        self.assertGreater(columns, 0, "ninguna columna numérica: el detector no encontró tablas")
+        self.assertGreater(cells_marked, 0)
 
 
 if __name__ == "__main__":
