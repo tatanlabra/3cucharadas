@@ -19,6 +19,14 @@ const routes = {
   es: '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/',
   en: '/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/'
 };
+const postIRoutes = {
+  es: '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/',
+  en: '/en/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/'
+};
+const postITitles = {
+  es: 'Replicar mi tesis en 3 cucharadas (parte I)',
+  en: 'Replicating my thesis in three spoonfuls (part I)'
+};
 const titles = {
   es: 'Extender mi tesis en 3 cucharadas (parte II)',
   en: 'Extending my thesis in three spoonfuls (part II)'
@@ -29,10 +37,11 @@ const headingNeedles = {
 };
 const viewports = [
   { width: 320, height: 800 },
-  { width: 390, height: 844 },
+  { width: 360, height: 800 },
+  { width: 430, height: 900 },
   { width: 768, height: 1024 },
-  { width: 1440, height: 900 },
-  { width: 1920, height: 1080 }
+  { width: 1280, height: 900 },
+  { width: 1440, height: 900 }
 ];
 const themes = ['light', 'academic-night'];
 
@@ -51,11 +60,11 @@ function evaluate(row) {
   if (row.wordCount < 3000 || row.wordCount > 4200) failures.push('visible-word-target');
   if (row.retiredComponents !== 0) failures.push('retired-component-present');
   if (row.mapState !== 'ready' || !row.mapLoaded) failures.push('market-map-not-ready');
-  if (row.tabCount !== 3 || row.selectedTabCount !== 1) failures.push('tab-contract');
-  if (!row.tabsAccessible || !row.homeEndWorks || !row.panelLabelled) failures.push('tab-keyboard-or-aria');
+  if (row.tabCount !== 0 || row.selectedTabCount !== 0 || !row.panelLabelled) failures.push('single-case-contract');
   if (!row.canvasAccessible || !row.attributionPresent) failures.push('map-accessibility');
-  if (row.staticCaseCount !== 3 || !row.staticCasesHiddenWhenReady) failures.push('static-case-contract');
-  if (!row.posterUtilityValid || row.systematicFallbackImages !== 0 || row.documentedFallbackImages !== 1) failures.push('static-poster-utility');
+  if (row.attributionCount !== 1 || !row.attributionIncludesOsm) failures.push('map-attribution-contract');
+  if (row.staticCaseCount !== 1 || !row.staticCasesHiddenWhenReady) failures.push('static-case-contract');
+  if (row.visibleStaticSheetLinks !== 0 || row.fallbackImages !== 0) failures.push('static-fallback-contract');
   if (!row.tableWrappersValid) failures.push('table-wrapper-contract');
   if (!row.tableHeadersScoped) failures.push('table-header-scope');
   if (!row.touchTargetsValid) failures.push('touch-target-too-small');
@@ -70,18 +79,19 @@ function runFixture(name) {
     httpStatus: 200, titleMatches: true, headingsPresent: true, documentOverflow: false,
     componentInsideArticle: true, bodyFontPx: 16, tableMinFontPx: 13, referenceMinFontPx: 15,
     viewportWidth: 1440, proseBlocks: 8, proseMaxPx: 700, wordCount: 3600,
-    retiredComponents: 0, mapState: 'ready', mapLoaded: true, tabCount: 3,
-    selectedTabCount: 1, tabsAccessible: true, homeEndWorks: true, panelLabelled: true,
-    canvasAccessible: true, attributionPresent: true, staticCaseCount: 3,
-    staticCasesHiddenWhenReady: true, posterUtilityValid: true, systematicFallbackImages: 0,
-    documentedFallbackImages: 1, tableWrappersValid: true, tableHeadersScoped: true,
+    retiredComponents: 0, mapState: 'ready', mapLoaded: true, tabCount: 0,
+    selectedTabCount: 0, panelLabelled: true,
+    canvasAccessible: true, attributionPresent: true, attributionCount: 1,
+    attributionIncludesOsm: true, staticCaseCount: 1,
+    staticCasesHiddenWhenReady: true, visibleStaticSheetLinks: 0,
+    fallbackImages: 0, tableWrappersValid: true, tableHeadersScoped: true,
     touchTargetsValid: true, idsUnique: true, imagesNamed: true, themeSurfaceValid: true,
     criticalErrors: []
   };
   const mutations = {
     overflow: { documentOverflow: true },
-    'fallback-resilience': { mapState: 'fallback', mapLoaded: false, staticCaseCount: 2 },
-    'poster-utility': { posterUtilityValid: false, systematicFallbackImages: 2 },
+    'fallback-resilience': { mapState: 'fallback', mapLoaded: false, staticCaseCount: 0 },
+    'poster-utility': { visibleStaticSheetLinks: 1 },
     'prose-measure-empty': { proseBlocks: 0 },
     'glyph-template': { criticalErrors: ['glyph-template-encoded:%7Bfontstack%7D'] }
   };
@@ -93,7 +103,7 @@ function runFixture(name) {
   const expected = {
     overflow: ['document-overflow'],
     'fallback-resilience': ['market-map-not-ready', 'static-case-contract'],
-    'poster-utility': ['static-poster-utility'],
+    'poster-utility': ['static-fallback-contract'],
     'prose-measure-empty': ['prose-measure-empty'],
     'glyph-template': ['critical-resource-or-console-error']
   }[name];
@@ -139,29 +149,14 @@ async function measurePage(browser, locale, route, theme, viewport) {
     );
     await page.evaluate(() => document.fonts.ready);
 
-    const tabs = page.locator('[data-market-map-tab]');
-    let casesWork = true;
-    const posterVisibility = [];
-    for (let index = 0; index < 3; index += 1) {
-      await tabs.nth(index).click();
-      const selected = await tabs.nth(index).getAttribute('aria-selected');
-      casesWork &&= selected === 'true';
-      posterVisibility.push(await page.locator('[data-market-map-poster]').isVisible());
-    }
-    await tabs.nth(1).focus();
-    await page.keyboard.press('Home');
-    const homeWorks = await tabs.nth(0).getAttribute('aria-selected') === 'true';
-    await page.keyboard.press('End');
-    const endWorks = await tabs.nth(2).getAttribute('aria-selected') === 'true';
-
-    const row = await page.evaluate(({ locale, theme, viewport, status, title, headings, tolerance, errors, casesWork, homeEnd, posterUtility }) => {
+    const row = await page.evaluate(({ locale, theme, viewport, status, title, headings, tolerance, errors }) => {
       const article = document.querySelector('.page__content');
       const component = article?.querySelector('[data-thesis-market-map]');
       const articleBox = article?.getBoundingClientRect();
       const componentBox = component?.getBoundingClientRect();
       const headingText = [...(article?.querySelectorAll('h2, h3') || [])].map((node) => node.textContent?.trim() || '');
       const tables = [...(article?.querySelectorAll('table') || [])];
-      const references = [...(article?.querySelectorAll('.post-references p') || [])];
+      const references = [...(article?.querySelectorAll('.footnotes li, .post-references p') || [])];
       const tabs = [...(component?.querySelectorAll('[data-market-map-tab]') || [])];
       const panel = component?.querySelector('[data-market-map-panel]');
       const canvas = component?.querySelector('[data-market-map-canvas]');
@@ -200,18 +195,16 @@ async function measurePage(browser, locale, route, theme, viewport) {
         mapLoaded: component?.dataset.mapLoaded === 'true',
         tabCount: tabs.length,
         selectedTabCount: tabs.filter((tab) => tab.getAttribute('aria-selected') === 'true').length,
-        tabsAccessible: casesWork && tabs.every((tab) => tab.getAttribute('role') === 'tab'
-          && Boolean(tab.getAttribute('aria-controls')) && tab.getBoundingClientRect().height >= 44),
-        homeEndWorks: homeEnd,
         panelLabelled: Boolean(panel?.getAttribute('aria-labelledby'))
-          && document.getElementById(panel.getAttribute('aria-labelledby'))?.getAttribute('aria-selected') === 'true',
+          && Boolean(document.getElementById(panel.getAttribute('aria-labelledby'))),
         canvasAccessible: canvas?.getAttribute('role') === 'region'
           && canvas?.getAttribute('tabindex') === '0' && Boolean(canvas?.getAttribute('aria-label')),
         attributionPresent: Boolean(component?.querySelector('.maplibregl-ctrl-attrib')),
+        attributionCount: component?.querySelectorAll('.maplibregl-ctrl-attrib').length || 0,
+        attributionIncludesOsm: /openstreetmap/i.test(component?.querySelector('.maplibregl-ctrl-attrib')?.textContent || ''),
         staticCaseCount: component?.querySelectorAll('[data-market-map-fallback-grid] .territorial-evidence__case-card').length || 0,
-        systematicFallbackImages: component?.querySelectorAll('[data-fallback-kind="systematic-summary"] img').length || 0,
-        documentedFallbackImages: component?.querySelectorAll('[data-fallback-kind="documented-poster"] img').length || 0,
-        posterUtilityValid: posterUtility,
+        fallbackImages: component?.querySelectorAll('[data-market-map-fallback-grid] img').length || 0,
+        visibleStaticSheetLinks: [...(component?.querySelectorAll('a') || [])].filter((link) => /lámina|sheet/i.test(link.textContent || '') && getComputedStyle(link).display !== 'none').length,
         staticCasesHiddenWhenReady: component?.dataset.mapState !== 'ready'
           || getComputedStyle(component.querySelector('[data-market-map-fallback-grid]')).display === 'none',
         tableWrappersValid: wrappers.length > 0 && wrappers.every((wrapper) => {
@@ -237,12 +230,10 @@ async function measurePage(browser, locale, route, theme, viewport) {
       };
     }, {
       locale, theme, viewport, status: response?.status() || 0, title: titles[locale],
-      headings: headingNeedles[locale], tolerance, errors: criticalErrors,
-      casesWork, homeEnd: homeWorks && endWorks,
-      posterUtility: JSON.stringify(posterVisibility) === JSON.stringify([false, false, true])
+      headings: headingNeedles[locale], tolerance, errors: criticalErrors
     });
     row.failures = evaluate(row);
-    if ([390, 1440].includes(viewport.width)) {
+    if ([430, 1280].includes(viewport.width)) {
       mkdirSync(screenshotDir, { recursive: true });
       await page.screenshot({ path: `${screenshotDir}/${locale}-${theme}-${viewport.width}.png`, fullPage: true });
     }
@@ -275,10 +266,10 @@ async function auditFallback(browser, locale, route, theme) {
       status: payload.status,
       state: node.dataset.mapState,
       cases: node.querySelectorAll('[data-market-map-fallback-grid] .territorial-evidence__case-card').length,
-      systematicImages: node.querySelectorAll('[data-fallback-kind="systematic-summary"] img').length,
-      documentedImages: node.querySelectorAll('[data-fallback-kind="documented-poster"] img').length,
+      fallbackImages: node.querySelectorAll('[data-market-map-fallback-grid] img').length,
+      staticSheetLinks: [...node.querySelectorAll('a')].filter((link) => /lámina|sheet/i.test(link.textContent || '')).length,
       gridVisible: getComputedStyle(node.querySelector('[data-market-map-fallback-grid]')).display !== 'none',
-      tabsHidden: node.querySelector('[data-market-map-tabs]')?.hidden === true,
+      tabsAbsent: !node.querySelector('[data-market-map-tabs]'),
       panelHidden: node.querySelector('[data-market-map-panel]')?.hidden === true,
       statusResolved: !/carga|loads/i.test(node.querySelector('[data-market-map-status]')?.textContent || ''),
       themeValid: payload.theme !== 'academic-night' || (
@@ -329,12 +320,77 @@ async function auditNoJs(browser, locale, route) {
       locale: payload.locale,
       status: payload.status,
       cases: node.querySelectorAll('[data-market-map-fallback-grid] .territorial-evidence__case-card').length,
-      systematicImages: node.querySelectorAll('[data-fallback-kind="systematic-summary"] img').length,
-      documentedImages: node.querySelectorAll('[data-fallback-kind="documented-poster"] img').length,
+      fallbackImages: node.querySelectorAll('[data-market-map-fallback-grid] img').length,
+      staticSheetLinks: [...node.querySelectorAll('a')].filter((link) => /lámina|sheet/i.test(link.textContent || '')).length,
       gridVisible: getComputedStyle(node.querySelector('[data-market-map-fallback-grid]')).display !== 'none',
-      tabsHidden: node.querySelector('[data-market-map-tabs]')?.hidden === true,
+      tabsAbsent: !node.querySelector('[data-market-map-tabs]'),
       panelHidden: node.querySelector('[data-market-map-panel]')?.hidden === true
     }), { locale, status: response?.status() || 0 });
+  } finally {
+    await context.close();
+  }
+}
+
+async function auditPostI(browser, locale, route, theme, viewport) {
+  const context = await browser.newContext({ viewport });
+  await context.addInitScript((selectedTheme) => localStorage.setItem('3cucharadas-theme', selectedTheme), theme);
+  const page = await context.newPage();
+  const criticalErrors = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error') criticalErrors.push(`console:${message.text()}`);
+  });
+  page.on('requestfailed', (request) => {
+    if (request.url().startsWith(baseUrl)) criticalErrors.push(`request:${request.url()}:${request.failure()?.errorText || 'failed'}`);
+  });
+  try {
+    const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+    await page.evaluate(() => document.fonts.ready);
+    const row = await page.evaluate(({ locale, theme, viewport, status, title, tolerance, errors }) => {
+      const article = document.querySelector('.page__content');
+      const tables = [...(article?.querySelectorAll('table') || [])];
+      const wrappers = [...(article?.querySelectorAll('.tabla-desliza') || [])];
+      const references = [...(article?.querySelectorAll('.footnotes li, .post-references p') || [])];
+      const tableFonts = tables.flatMap((table) => [...table.querySelectorAll('th, td')].map((cell) => parseFloat(getComputedStyle(cell).fontSize)));
+      const referenceFonts = references.map((node) => parseFloat(getComputedStyle(node).fontSize));
+      const prose = [...(article?.querySelectorAll(':scope > :is(p, ul, ol)') || [])]
+        .filter((node) => node.getBoundingClientRect().width > 0)
+        .map((node) => node.getBoundingClientRect().width);
+      const headings = [...(article?.querySelectorAll('h2') || [])].map((node) => node.textContent || '');
+      return {
+        locale, theme, viewportWidth: viewport.width, httpStatus: status,
+        titleMatches: document.title.includes(title),
+        threeSpoonfuls: ['1', '2', '3'].every((number) => headings.some((heading) => heading.includes(locale === 'es' ? `Cucharada ${number}` : `Spoonful ${number}`))),
+        closingPresent: headings.some((heading) => /de replicar a extender|from replication to extension/i.test(heading)),
+        documentOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + tolerance,
+        bodyFontPx: article ? parseFloat(getComputedStyle(article).fontSize) : 0,
+        tableCount: tables.length,
+        wrapperCount: wrappers.length,
+        wrappersValid: wrappers.every((wrapper) => {
+          const box = wrapper.getBoundingClientRect();
+          return wrapper.getAttribute('role') === 'region' && wrapper.getAttribute('tabindex') === '0'
+            && box.left >= -tolerance && box.right <= document.documentElement.clientWidth + tolerance;
+        }),
+        tableMinFontPx: tableFonts.length ? Math.min(...tableFonts) : 0,
+        referenceMinFontPx: referenceFonts.length ? Math.min(...referenceFonts) : 0,
+        proseMaxPx: prose.length ? Math.max(...prose) : 0,
+        themeApplied: document.documentElement.dataset.theme === theme,
+        criticalErrors: errors.filter((error) => !error.includes('favicon'))
+      };
+    }, { locale, theme, viewport, status: response?.status() || 0, title: postITitles[locale], tolerance, errors: criticalErrors });
+    row.failures = [];
+    if (row.httpStatus !== 200) row.failures.push('route-not-200');
+    if (!row.titleMatches || !row.threeSpoonfuls || !row.closingPresent) row.failures.push('post-i-structure');
+    if (row.documentOverflow) row.failures.push('document-overflow');
+    if (row.bodyFontPx < 16 || row.tableMinFontPx < 13 || row.referenceMinFontPx < 14) row.failures.push('legibility');
+    if (row.tableCount !== 3 || row.wrapperCount !== 3 || !row.wrappersValid) row.failures.push('table-wrapper-contract');
+    if (row.viewportWidth >= 1024 && row.proseMaxPx > 720 + tolerance) row.failures.push('prose-measure-too-wide');
+    if (!row.themeApplied) row.failures.push('theme-not-applied');
+    if (row.criticalErrors.length) row.failures.push('critical-resource-or-console-error');
+    if ([430, 1280].includes(viewport.width)) {
+      mkdirSync(screenshotDir, { recursive: true });
+      await page.screenshot({ path: `${screenshotDir}/post-i-${locale}-${theme}-${viewport.width}.png`, fullPage: true });
+    }
+    return row;
   } finally {
     await context.close();
   }
@@ -348,6 +404,7 @@ const rows = [];
 const fallbacks = [];
 const noJsRows = [];
 const deepLinks = [];
+const postIRows = [];
 try {
   for (const [locale, route] of Object.entries(routes)) {
     for (const theme of themes) {
@@ -356,6 +413,11 @@ try {
     for (const theme of themes) fallbacks.push(await auditFallback(browser, locale, route, theme));
     noJsRows.push(await auditNoJs(browser, locale, route));
     deepLinks.push(await auditDeepLink(browser, locale, route));
+  }
+  for (const [locale, route] of Object.entries(postIRoutes)) {
+    for (const theme of themes) {
+      for (const viewport of viewports) postIRows.push(await auditPostI(browser, locale, route, theme, viewport));
+    }
   }
 } finally {
   await browser.close();
@@ -367,12 +429,12 @@ const failures = rows.flatMap((row) => row.failures.map((failure) => ({
   wordCount: failure === 'visible-word-target' ? row.wordCount : undefined
 })));
 for (const row of fallbacks) {
-  if (row.status !== 200 || row.state !== 'fallback' || row.cases !== 3 || row.systematicImages !== 0 || row.documentedImages !== 1 || !row.gridVisible || !row.tabsHidden || !row.panelHidden || !row.statusResolved || !row.themeValid) {
+  if (row.status !== 200 || row.state !== 'fallback' || row.cases !== 1 || row.fallbackImages !== 0 || row.staticSheetLinks !== 0 || !row.gridVisible || !row.tabsAbsent || !row.panelHidden || !row.statusResolved || !row.themeValid) {
     failures.push({ surface: 'fallback', ...row, failure: 'fallback-contract' });
   }
 }
 for (const row of noJsRows) {
-  if (row.status !== 200 || row.cases !== 3 || row.systematicImages !== 0 || row.documentedImages !== 1 || !row.gridVisible || !row.tabsHidden || !row.panelHidden) {
+  if (row.status !== 200 || row.cases !== 1 || row.fallbackImages !== 0 || row.staticSheetLinks !== 0 || !row.gridVisible || !row.tabsAbsent || !row.panelHidden) {
     failures.push({ surface: 'no-js', ...row, failure: 'no-js-contract' });
   }
 }
@@ -381,6 +443,9 @@ for (const row of deepLinks) {
     failures.push({ surface: 'deep-link', ...row, failure: 'deep-link-contract' });
   }
 }
+for (const row of postIRows) {
+  row.failures.forEach((failure) => failures.push({ surface: 'post-i', locale: row.locale, theme: row.theme, viewport: row.viewportWidth, failure, detail: row.criticalErrors }));
+}
 
 const summary = {
   status: failures.length ? 'FAIL' : 'PASS',
@@ -388,8 +453,9 @@ const summary = {
   fallback: `${fallbacks.length - failures.filter((row) => row.surface === 'fallback').length}/${fallbacks.length}`,
   noJs: `${noJsRows.length - failures.filter((row) => row.surface === 'no-js').length}/${noJsRows.length}`,
   deepLinks: `${deepLinks.length - failures.filter((row) => row.surface === 'deep-link').length}/${deepLinks.length}`,
+  postI: `${postIRows.filter((row) => row.failures.length === 0).length}/${postIRows.length}`,
   screenshots: screenshotDir,
   failures
 };
-console.log(JSON.stringify(summaryOnly ? summary : { ...summary, rows, fallbacks, noJsRows, deepLinks }, null, 2));
+console.log(JSON.stringify(summaryOnly ? summary : { ...summary, rows, fallbacks, noJsRows, deepLinks, postIRows }, null, 2));
 process.exit(failures.length ? 1 : 0);

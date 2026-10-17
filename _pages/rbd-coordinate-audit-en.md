@@ -4,7 +4,7 @@ classes: [thesis-extension-post, thesis-coordinate-audit-annex]
 title: "National audit of MINEDUC–OSM school coordinates"
 subtitle: "Method, aggregate results and limitations of the check used in Post II."
 date: 2026-10-11 19:10:00 -0300
-last_modified_at: 2026-10-17 13:40:00 -0300
+last_modified_at: 2026-10-17 17:15:00 -0300
 categories: [data, education, methods]
 tags: [education, mineduc, openstreetmap, coordinates, data-quality]
 description: "Reproducible technical annex for the aggregate audit of Chilean school coordinates using OpenStreetMap signals."
@@ -86,22 +86,21 @@ The national audit publishes aggregates only, grouped by region, signal, confide
 
 The national JSON fixes hashes for the aggregate sources and OSM snapshot. It contains no names, individual RBDs, addresses, coordinates or personal identifiers.
 
-## Audit of the viewer's six points
+## Audit of the El Salvador case
 
-The national 2025 audit was insufficient to validate the viewer: three of its six RBDs were closed and a fourth returned no OSM candidate. I therefore ran a scoped check with one decision for **each of the six points**, retaining cases with no candidate.
+The 2025 national audit was insufficient to validate the case shown in the viewer because RBD 391 was closed and lay outside that universe. I therefore ran a scoped check for the two El Salvador establishments, keeping the official observations and OSM candidates separate.
 
 | Contrast result | Cases |
 |---|---:|
-| Official points retained | 6 |
-| OSM candidates retained for comparison | 5 |
-| No OSM candidate | 1 |
+| Official points retained | 2 |
+| OSM candidates retained for comparison | 2 |
 | Rejected homonyms | 1 |
 | Confirmed official errors | **0** |
 {: .table--compact .table--scroll}
 
-School No. 14 (RBD 391) remains an **unresolved discrepancy**: the 2008–2011 MINEDUC directories list 500 Diego Portales and the homonymous OSM feature is compatible with that site, but it was created in 2022 and states no RBD. The viewer may display it as a historical candidate only while retaining the official 2015 coordinate for comparison.
+School No. 14 (RBD 391) remains an **unresolved discrepancy**: the 2008–2011 MINEDUC directories list 500 Diego Portales and the homonymous OSM feature is compatible with that site, but it was created in 2022 and states no RBD. The candidate lies **825.551 m** from the official 2015 point. Measured from that candidate, School No. 1 is **1.272025 km** away; using both official coordinates, it is **0.448903 km** away. The viewer retains both observations and does not claim that OSM corrected MINEDUC.
 
-- [Download the six-point contrast GeoJSON](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
+- [Download the El Salvador contrast GeoJSON](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
 - [Download its reproducibility manifest](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.manifest.json).
 
 This scoped file contains RBDs, names and coordinates already displayed in Post II, plus OSM identifiers and links. It contains no student data or personal identifiers.

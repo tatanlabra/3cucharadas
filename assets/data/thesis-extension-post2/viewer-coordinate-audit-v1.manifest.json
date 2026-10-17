@@ -1,25 +1,17 @@
 {
-  "audit_id": "thesis-post-ii-viewer-coordinate-audit-v1",
+  "audit_id": "thesis-post-ii-viewer-coordinate-audit-v2",
   "counts": {
-    "accepted_candidates": 5,
-    "not_found": 1,
-    "official": 6,
+    "accepted_candidates": 2,
+    "not_found": 0,
+    "official": 2,
     "rejected_candidates": 1
   },
   "coverage": {
     "audited_rbds": [
       390,
-      391,
-      20428,
-      20440,
-      25077,
-      31422
+      391
     ],
     "expected_rbds": [
-      25077,
-      20428,
-      31422,
-      20440,
       391,
       390
     ]
@@ -28,12 +20,12 @@
     "confirmed_official_errors": 0,
     "dual_source_observations_preserved": 1,
     "official_coordinates_overwritten": false,
-    "rbd_391": "high-confidence historical-site candidate with unresolved official-coordinate discrepancy"
+    "rbd_391": "plausible historical-site candidate with unresolved official-coordinate discrepancy"
   },
   "generated_by": "scripts/build_thesis_post2_viewer_coordinate_audit.py",
   "inputs": {
-    "assets/data/thesis-extension-post2/cases.json": "565227669bf6af8caeba2dbfb6968636c61b3d9ed3e813ec92dd81d73960364b",
-    "docs/contracts/thesis-post-ii-viewer-coordinate-audit.yml": "f56d317860c0fc502806823aeeea3ae472e80018d65d96e395df68230e1c5ebd"
+    "assets/data/thesis-extension-post2/cases.json": "06d910a90158a66c139a51dc18cd33c7220ded6578ec6c2a68c25104241922fc",
+    "docs/contracts/thesis-post-ii-viewer-coordinate-audit.yml": "d1fa33670c264cedc58c9fdb59b8ff78c7121f2bb035cc761720a3dbf1de6265"
   },
-  "schema_version": 1
+  "schema_version": 2
 }

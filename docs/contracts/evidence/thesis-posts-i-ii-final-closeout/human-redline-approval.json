@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "decision": "approved",
+  "approved_at": "2026-10-17T19:02:03-03:00",
+  "approved_by": "persona autora",
+  "scope": [
+    "two_coordinated_local_commits",
+    "final_commit_audit",
+    "clean_worktrees"
+  ],
+  "excluded": [
+    "push",
+    "deploy",
+    "dissemination"
+  ],
+  "source": "Mensaje de la persona usuaria del 2026-10-17: si autorizo, commits locales, y repo limpio, para que claude pueda cerrar tambien su trabajo"
+}

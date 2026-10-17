@@ -1,0 +1,37 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F0",
+  "target_contract_sha256": "a0f47e11ff3bad06c98482fdc0319926e6030d3c70d0b09b4df09f5e7d98b565",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "3f32c1bc7ae89c91cc5ea4847ef19795448e5810b08cd0722f095da7056f79a4",
+  "observed_command": "bash scripts/verify_handoff_governance_contract.sh --require-plan-profile --contract .worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/ac-f0-invalid.md --contract-id thesis-posts-i-ii-final-closeout --validate-only --json; probe_rc=$?; test \"$probe_rc\" -eq 0",
+  "observed_command_sha256": "82ddf26fb784fc0b9d617af47937785a333c5da40013c32a36a8985c0b7a78ca",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-10-17T21:05:01Z",
+  "finished_at": "2026-10-17T21:05:01Z",
+  "exit_code": 1,
+  "fixture_sha256": "c229492188f59ebf8645151c4490e574af6849a15e0bcd987caadd778d8cfbf3",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/ac-f0-invalid.md",
+      "exists": true,
+      "sha256": "131523665b6ed5a78e6998277ec101d884ca7f5fc3f2daca468996f393a4f549",
+      "sha256_kind": "contract_definition"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/ac-f0-invalid.md",
+      "exists": true,
+      "sha256": "131523665b6ed5a78e6998277ec101d884ca7f5fc3f2daca468996f393a4f549",
+      "sha256_kind": "contract_definition"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\"result\": \"ERROR\", \"error\": \"plan_contract.py solo acepta plan_contract_version: 1\"}\n",
+  "stderr": ""
+}

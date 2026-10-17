@@ -22,19 +22,17 @@ def inputs():
     return contract, cases
 
 
-def test_all_six_public_points_have_a_decision(inputs):
+def test_all_primary_case_points_have_a_decision(inputs):
     geojson, manifest = MODULE.build(*inputs)
-    assert manifest["coverage"]["expected_rbds"] == [25077, 20428, 31422, 20440, 391, 390]
-    assert manifest["counts"] == {"official": 6, "accepted_candidates": 5, "rejected_candidates": 1, "not_found": 1}
-    assert len(geojson["features"]) == 12
+    assert manifest["coverage"]["expected_rbds"] == [391, 390]
+    assert manifest["counts"] == {"official": 2, "accepted_candidates": 2, "rejected_candidates": 1, "not_found": 0}
+    assert len(geojson["features"]) == 5
 
 
-def test_not_found_is_retained_as_an_official_observation(inputs):
+def test_only_reviewed_and_flagged_primary_case_is_public(inputs):
     geojson, _ = MODULE.build(*inputs)
-    rows = [f["properties"] for f in geojson["features"] if f["properties"]["rbd"] == 20428]
-    assert len(rows) == 1
-    assert rows[0]["final_status"] == "NOT_FOUND"
-    assert rows[0]["candidate_available"] is False
+    assert {f["properties"]["rbd"] for f in geojson["features"]} == {390, 391}
+    assert {f["properties"]["final_status"] for f in geojson["features"]} == {"PLAUSIBLE", "DISCREPANCY"}
 
 
 def test_school_14_is_not_silently_overwritten(inputs):
@@ -46,6 +44,7 @@ def test_school_14_is_not_silently_overwritten(inputs):
     accepted = next(r for r in rows if r["properties"]["observation_kind"] == "OSM_CANDIDATE")
     official = next(r for r in rows if r["properties"]["observation_kind"] == "OFFICIAL_MINEDUC")
     assert accepted["properties"]["osm_id"] == 1122520465
+    assert accepted["properties"]["identity_status"] == "PLAUSIBLE"
     assert accepted["properties"]["temporal_status"] == "RETROSPECTIVE_UNVERIFIED"
     assert accepted["properties"]["used_as_viewer_point"] is True
     assert official["geometry"]["coordinates"] == [-69.627083, -26.244385]

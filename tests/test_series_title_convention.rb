@@ -31,9 +31,9 @@ class SeriesTitleConventionTest < Minitest::Test
     '_posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md' =>
       'Replicating my thesis in three spoonfuls (part I): what survived and what the evidence corrected',
     '_posts/2026-10-11-extender-tesis-no-es-agregar-anos.md' =>
-      'Extender mi tesis en 3 cucharadas (parte II): ¿mejora la educación cuando abren y cierran escuelas?',
+      'Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir',
     '_posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md' =>
-      'Extending my thesis in three spoonfuls (part II): does education improve when schools open and close?'
+      'Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us'
   }.freeze
   BARE_ROMAN = /(?:3 cucharadas|(?:3|three) spoonfuls)\s+[IVX]+:/i
 

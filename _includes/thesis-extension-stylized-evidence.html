@@ -5,48 +5,31 @@
   data-thesis-market-map
   data-data-url="{{ '/assets/data/thesis-extension-post2/cases.json' | relative_url }}"
   data-map-state="loading"
-  data-fallback-message="{% if page.lang == 'en' %}The interactive map is unavailable. Case summaries and the documented El Salvador evidence sheet remain below.{% else %}El mapa interactivo no está disponible. Permanecen los resúmenes de los casos y la lámina documental de El Salvador.{% endif %}"
+  data-fallback-message="{% if page.lang == 'en' %}The interactive map is unavailable. The documented case summary remains below.{% else %}El mapa interactivo no está disponible. El resumen del caso documentado permanece abajo.{% endif %}"
   aria-labelledby="territorial-evidence-title-{{ page.lang }}"
 >
   <header class="territorial-evidence__header">
     <p class="territorial-evidence__eyebrow">{% if page.lang == 'en' %}Territorial evidence{% else %}Evidencia territorial{% endif %}</p>
-    <h3 id="territorial-evidence-title-{{ page.lang }}">{% if page.lang == 'en' %}Three cases, three different questions{% else %}Tres casos, tres preguntas distintas{% endif %}</h3>
-    <p>{% if page.lang == 'en' %}Lo Barnechea and Lo Prado follow the systematic selection rule. El Salvador is separate: documents establish a merger, and my connection to the town explains why I included it. In every case, the map locates a question; it does not reconstruct student destinations.{% else %}Lo Barnechea y Lo Prado siguen la regla de selección sistemática. El Salvador se mantiene aparte: los documentos acreditan una fusión y mi vínculo con la localidad explica por qué lo incorporé. En los tres casos, el mapa sitúa una pregunta; no reconstruye el destino de los estudiantes.{% endif %}</p>
+    <h3 id="territorial-evidence-title-{{ page.lang }}">{% if page.lang == 'en' %}El Salvador: a documented merger, not a replacement estimate{% else %}El Salvador: una fusión documentada, no una estimación de reemplazo{% endif %}</h3>
+    <p>{% if page.lang == 'en' %}The case is included because of my connection to the town and remains outside the systematic selection. The map distinguishes the official MINEDUC point from a retrospective OpenStreetMap candidate; neither reconstructs student destinations.{% else %}Incluyo el caso por mi vínculo con la localidad y lo mantengo fuera de la selección sistemática. El mapa distingue el punto oficial MINEDUC de un candidato retrospectivo de OpenStreetMap; ninguno reconstruye el destino de los estudiantes.{% endif %}</p>
   </header>
 
-  <div class="territorial-evidence__tabs" data-market-map-tabs role="tablist" aria-label="{% if page.lang == 'en' %}Territorial cases{% else %}Casos territoriales{% endif %}" hidden>
-    {% for item in stylized.maps.items %}
-      <button id="territorial-case-tab-{{ forloop.index }}-{{ page.lang }}" type="button" role="tab" data-market-map-tab data-case-id="{{ item.commune | slugify }}" aria-controls="territorial-case-panel-{{ page.lang }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">{{ item.tab_label | default: item.commune }}</button>
-    {% endfor %}
-    <button id="territorial-case-tab-3-{{ page.lang }}" type="button" role="tab" data-market-map-tab data-case-id="{{ stylized.authored_case.commune | slugify }}" aria-controls="territorial-case-panel-{{ page.lang }}" aria-selected="false" tabindex="-1">{{ stylized.authored_case.commune }} · {{ stylized.receiver_role }}</button>
-  </div>
-
-  <div id="territorial-case-panel-{{ page.lang }}" class="territorial-evidence__interactive" data-market-map-panel role="tabpanel" aria-labelledby="territorial-case-tab-1-{{ page.lang }}" hidden>
+  <div id="territorial-case-panel-{{ page.lang }}" class="territorial-evidence__interactive" data-market-map-panel role="region" aria-labelledby="territorial-evidence-title-{{ page.lang }}" hidden>
     <div class="territorial-evidence__stage">
       <div class="territorial-evidence__canvas" data-market-map-canvas aria-describedby="territorial-evidence-status-{{ page.lang }}"></div>
     </div>
-    <aside class="territorial-evidence__aside" data-market-map-aside role="region" tabindex="0" aria-label="{% if page.lang == 'en' %}Details for the selected territorial case{% else %}Ficha del caso territorial seleccionado{% endif %}">
-      <h4>{{ stylized.maps.items[0].commune }}</h4>
-      <p>{% if page.lang == 'en' %}Loading the case record…{% else %}Cargando la ficha del caso…{% endif %}</p>
+    <aside class="territorial-evidence__aside" data-market-map-aside role="region" tabindex="0" aria-label="{% if page.lang == 'en' %}Documented details for El Salvador{% else %}Antecedentes documentados de El Salvador{% endif %}">
+      <h4>El Salvador</h4>
+      <p>{% if page.lang == 'en' %}Loading the documented case…{% else %}Cargando el caso documentado…{% endif %}</p>
     </aside>
   </div>
-  <p id="territorial-evidence-status-{{ page.lang }}" class="territorial-evidence__status" data-market-map-status role="status" aria-live="polite">{% if page.lang == 'en' %}Case summaries remain available while the map loads.{% else %}Los resúmenes de los casos permanecen disponibles mientras carga el mapa.{% endif %}</p>
-  <a class="territorial-evidence__poster-link" data-market-map-poster href="{{ stylized.authored_case.asset | relative_url }}" target="_blank" rel="noopener" hidden>{% if page.lang == 'en' %}Open the documented merger evidence sheet{% else %}Abrir la lámina de la fusión documentada{% endif %} <span aria-hidden="true">↗</span></a>
+
+  <p id="territorial-evidence-status-{{ page.lang }}" class="territorial-evidence__status" data-market-map-status role="status" aria-live="polite">{% if page.lang == 'en' %}The documented summary remains available while the map loads.{% else %}El resumen documentado permanece disponible mientras carga el mapa.{% endif %}</p>
 
   <div class="territorial-evidence__fallback-grid" data-market-map-fallback-grid>
-    {% for item in stylized.maps.items %}
-      <article class="territorial-evidence__case-card" data-fallback-kind="systematic-summary">
-        <header><p>{% if page.lang == 'en' %}Systematic case{% else %}Caso sistemático{% endif %}</p><h4>{{ item.commune }}</h4></header>
-        <dl>
-          <div><dt>{% if page.lang == 'en' %}Period{% else %}Período{% endif %}</dt><dd>{{ item.event_period }}</dd></div>
-          <div><dt>{% if page.lang == 'en' %}Distance{% else %}Distancia{% endif %}</dt><dd>{% if page.lang == 'es' %}{{ item.median_distance_km | replace: '.', ',' }}{% else %}{{ item.median_distance_km }}{% endif %} km</dd></div>
-        </dl>
-        <p>{{ item.caption }}. {% if page.lang == 'en' %}Proximity is not a student destination.{% else %}La proximidad no equivale al destino de los estudiantes.{% endif %}</p>
-      </article>
-    {% endfor %}
-    <article class="territorial-evidence__case-card territorial-evidence__case-card--author" data-fallback-kind="documented-poster">
+    <article class="territorial-evidence__case-card territorial-evidence__case-card--author" data-fallback-kind="documented-summary">
       <header><p>{{ stylized.authored_case.label }}</p><h4>{{ stylized.authored_case.commune }}</h4></header>
-      <a href="{{ stylized.authored_case.asset | relative_url }}" class="image-popup"><img src="{{ stylized.authored_case.asset | relative_url }}" width="1200" height="720" loading="lazy" decoding="async" alt="{{ stylized.authored_case.alt }}"></a>
+      <p>{{ stylized.authored_case.intro }}</p>
       <dl>
         <div><dt>2004–2013</dt><dd>{% if page.lang == 'en' %}−30.2%{% else %}−30,2 %{% endif %}</dd></div>
         <div><dt>2014</dt><dd>{{ stylized.authored_case.receiver_2014_display }}</dd></div>
@@ -56,22 +39,6 @@
     </article>
   </div>
 
-  <details class="territorial-evidence__secondary">
-    <summary>{% if page.lang == 'en' %}See demographic and outcome context{% else %}Ver contexto demográfico y de resultados{% endif %}</summary>
-    <div class="territorial-evidence__figure-grid">
-      <figure><a class="image-popup" href="{{ stylized.demographic.asset | relative_url }}"><img src="{{ stylized.demographic.asset | relative_url }}" width="1200" height="720" loading="lazy" decoding="async" alt="{{ stylized.demographic.alt }}"></a><figcaption>{{ stylized.demographic.caption }}</figcaption></figure>
-      {% for item in stylized.trajectories.items %}<figure><a class="image-popup" href="{{ item.asset | relative_url }}"><img src="{{ item.asset | relative_url }}" width="1200" height="720" loading="lazy" decoding="async" alt="{{ item.alt }}"></a><figcaption>{{ item.title }}. {{ stylized.trajectories.intro }}</figcaption></figure>{% endfor %}
-    </div>
-    <h4>{{ stylized.table_labels.method_heading }}</h4>
-    <table class="table--compact table--numeric table--scroll" style="--table-columns: 3">
-      <thead><tr><th scope="col">{{ stylized.table_labels.year }}</th><th scope="col">{{ stylized.table_labels.population }}</th><th scope="col">{{ stylized.table_labels.index }}</th></tr></thead>
-      <tbody>{% for row in stylized.demographic.rows %}{% assign population_text = row.population | append: '' %}<tr><th scope="row">{{ row.year }}</th><td>{% if page.lang == 'es' %}{{ population_text | slice: 0 }}.{{ population_text | slice: 1, 3 }}.{{ population_text | slice: 4, 3 }}{% else %}{{ population_text | slice: 0 }},{{ population_text | slice: 1, 3 }},{{ population_text | slice: 4, 3 }}{% endif %}</td><td>{% if page.lang == 'es' %}{{ row.index | replace: '.', ',' }}{% else %}{{ row.index }}{% endif %}</td></tr>{% endfor %}</tbody>
-    </table>
-    <table class="table--compact table--scroll" style="--table-columns: 8">
-      <thead><tr><th scope="col">{{ stylized.table_labels.branch }}</th><th scope="col">{{ stylized.table_labels.outcome }}</th><th scope="col">{{ stylized.table_labels.relative_year }}</th><th scope="col">{{ stylized.table_labels.estimate }}</th><th scope="col">{{ stylized.table_labels.interval }}</th><th scope="col">{{ stylized.table_labels.n }}</th><th scope="col">{{ stylized.table_labels.status }}</th><th scope="col">{{ stylized.table_labels.regime }}</th></tr></thead>
-      <tbody>{% for row in stylized.trajectories.rows %}<tr><th scope="row">{{ row.branch }}</th><td>{{ row.outcome }}</td><td>{{ row.relative_year }}</td><td>{% if page.lang == 'es' %}{{ row.estimate | replace: '.', ',' }}{% else %}{{ row.estimate }}{% endif %}</td><td>{% if page.lang == 'es' and row.interval contains '[' %}{% assign interval_values = row.interval | remove: '[' | remove: ']' | split: ', ' %}[{{ interval_values[0] | replace: '.', ',' }}; {{ interval_values[1] | replace: '.', ',' }}]{% elsif page.lang == 'es' %}{{ row.interval | replace: '.', ',' }}{% else %}{{ row.interval }}{% endif %}</td><td>{{ row.units }}</td><td>{{ row.status }}</td><td>{{ row.regime }}</td></tr>{% endfor %}</tbody>
-    </table>
-  </details>
-  <noscript><p>{% if page.lang == 'en' %}JavaScript is disabled. The summaries preserve the two systematic selections; only El Salvador retains a static sheet because it documents a merger.{% else %}JavaScript está desactivado. Los resúmenes conservan las dos selecciones sistemáticas; solo El Salvador mantiene una lámina porque documenta una fusión.{% endif %}</p></noscript>
+  <noscript><p>{% if page.lang == 'en' %}JavaScript is disabled. The documented summary above preserves the evidence and its limits.{% else %}JavaScript está desactivado. El resumen documentado conserva la evidencia y sus límites.{% endif %}</p></noscript>
 </section>
 <script src="{{ '/assets/js/thesis-post2-map-loader.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

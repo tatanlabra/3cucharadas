@@ -29,23 +29,16 @@
 .territorial-evidence__eyebrow { margin: 0 0 .25rem; color: var(--map-accent); font-size: clamp(13px, .72rem, .78rem); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .territorial-evidence__header h3 { margin: 0; color: var(--map-ink); font-size: clamp(1.08rem, 2vw, 1.35rem); line-height: 1.25; }
 .territorial-evidence__header p:last-child { margin: .45rem 0 .9rem; color: var(--map-muted); font-size: .88rem; line-height: 1.55; }
-.territorial-evidence__tabs { display: flex; gap: .4rem; margin-bottom: .65rem; overflow-x: auto; scrollbar-width: thin; }
-.territorial-evidence__tabs[hidden],
 .territorial-evidence__interactive[hidden] { display: none; }
-.territorial-evidence__tabs button { min-width: max-content; min-height: 44px; padding: .45rem .65rem; color: var(--map-muted); background: var(--map-layer); border: 1px solid var(--map-border); border-radius: .35rem; font: inherit; font-size: clamp(13px, .78rem, .84rem); font-weight: 700; cursor: pointer; }
-.territorial-evidence__tabs button[aria-selected="true"] { color: var(--map-ink); border-color: var(--map-accent); box-shadow: inset 0 -3px 0 var(--map-accent); }
-.territorial-evidence__tabs button:focus-visible,
 .territorial-evidence__canvas:focus-visible,
-.territorial-evidence__poster-link:focus-visible,
 .territorial-evidence__aside:focus-visible { outline: 3px solid var(--map-accent); outline-offset: 3px; }
-.territorial-evidence__tabs button:focus-visible { outline-offset: -3px; }
 .territorial-evidence__interactive { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(16rem, .8fr); gap: .7rem; min-width: 0; }
-.territorial-evidence__stage { position: relative; min-width: 0; height: clamp(24rem, 56vh, 34rem); overflow: hidden; background: var(--map-soft); border: 1px solid var(--map-border); border-radius: .45rem; }
+.territorial-evidence__stage { position: relative; min-width: 0; height: clamp(22rem, 50vh, 29rem); overflow: hidden; background: var(--map-soft); border: 1px solid var(--map-border); border-radius: .45rem; }
 .territorial-evidence__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .territorial-evidence__canvas { opacity: 0; transition: opacity 160ms ease; }
 .territorial-evidence[data-map-state="ready"] .territorial-evidence__canvas { opacity: 1; }
 .territorial-evidence[data-map-state="ready"] .territorial-evidence__fallback-grid { display: none; }
-.territorial-evidence__aside { min-width: 0; max-height: clamp(24rem, 56vh, 34rem); padding: .75rem; overflow: auto; background: var(--map-layer); border: 1px solid var(--map-border); border-radius: .45rem; }
+.territorial-evidence__aside { min-width: 0; max-height: clamp(22rem, 50vh, 29rem); padding: .75rem; overflow: auto; background: var(--map-layer); border: 1px solid var(--map-border); border-radius: .45rem; }
 .territorial-evidence__aside h4 { margin: 0; color: var(--map-ink); font-size: 1rem; line-height: 1.3; }
 .territorial-evidence__meta { margin: .2rem 0 .65rem; color: var(--map-muted); font-size: clamp(13px, .75rem, .8rem); }
 .territorial-evidence__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; margin: 0 0 .7rem; }
@@ -67,9 +60,7 @@
 .territorial-evidence__trajectory td { padding: .3rem .25rem; color: var(--map-ink); background: var(--map-layer); border-bottom: 1px solid var(--map-border); text-align: start; }
 .territorial-evidence__trajectory tbody tr:nth-child(even) td { background: var(--map-soft); }
 .territorial-evidence__status { min-height: 1.1rem; margin: .55rem 0 0; color: var(--map-muted); font-size: clamp(13px, .72rem, .78rem); }
-.territorial-evidence__poster-link { display: inline-flex; min-height: 44px; align-items: center; margin-top: .35rem; padding: .35rem .1rem; color: var(--map-accent); font-size: clamp(13px, .74rem, .8rem); font-weight: 700; }
-.territorial-evidence__poster-link[hidden] { display: none; }
-.territorial-evidence__fallback-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin-top: .8rem; }
+.territorial-evidence__fallback-grid { display: grid; grid-template-columns: minmax(0, 42rem); gap: .65rem; margin-top: .8rem; }
 .territorial-evidence__case-card { min-width: 0; padding: .65rem; background: var(--map-layer); border: 1px solid var(--map-border); border-radius: .4rem; }
 .territorial-evidence__case-card h4 { margin: 0 0 .35rem; color: var(--map-ink); font-size: .9rem; }
 .territorial-evidence__case-card figure { margin: 0; }
@@ -84,7 +75,7 @@
 .territorial-evidence__figure-grid figcaption { margin-top: .3rem; color: var(--map-muted); font-size: clamp(13px, .72rem, .78rem); line-height: 1.4; }
 .territorial-evidence__source { margin: .7rem 0 0; color: var(--map-muted); font-size: clamp(13px, .72rem, .78rem); line-height: 1.45; }
 .territorial-evidence__source a { color: var(--map-accent); text-decoration: underline; text-underline-offset: 2px; }
-.territorial-evidence .maplibregl-ctrl-attrib { max-width: min(78%, 34rem); font-family: inherit; font-size: 12px; }
+.territorial-evidence .maplibregl-ctrl-attrib { max-width: calc(100% - 3.2rem); padding: 1px 5px; font-family: inherit; font-size: 10px; line-height: 1.35; background: rgba(255, 255, 255, .86); }
 .territorial-evidence .maplibregl-ctrl-group button { width: 44px; height: 44px; }
 .territorial-evidence .maplibregl-ctrl-scale,
 .territorial-evidence .maplibregl-popup-content { color: #26354c; background: #fffaf0; }
@@ -105,21 +96,18 @@ html[data-theme="academic-night"] .territorial-evidence {
   box-shadow: 0 .6rem 1.8rem rgba(0, 0, 0, .28);
 }
 
-@media (min-width: 52.01rem) {
-  .territorial-evidence__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
-  .territorial-evidence__tabs button { min-width: 0; }
-}
+html[data-theme="academic-night"] .territorial-evidence .maplibregl-canvas { filter: brightness(.72) contrast(1.1) saturate(.78); }
+html[data-theme="academic-night"] .territorial-evidence .maplibregl-ctrl-attrib { background: rgba(18, 23, 36, .88); }
 
 @media (max-width: 52rem) {
   .territorial-evidence__interactive { grid-template-columns: 1fr; }
-  .territorial-evidence__stage { height: clamp(21rem, 52vh, 28rem); }
+  .territorial-evidence__stage { height: clamp(20rem, 48vh, 25rem); }
   .territorial-evidence__aside { max-height: none; }
-  .territorial-evidence__fallback-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 30rem) {
   .territorial-evidence { padding: .65rem; }
-  .territorial-evidence__stage { height: clamp(19rem, 48vh, 23rem); }
+  .territorial-evidence__stage { height: clamp(18rem, 46vh, 22rem); }
   .territorial-evidence__figure-grid { grid-template-columns: 1fr; }
 }
 

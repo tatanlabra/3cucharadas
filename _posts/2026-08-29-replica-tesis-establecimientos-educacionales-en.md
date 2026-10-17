@@ -4,7 +4,7 @@ classes: [thesis-recreation-post]
 title: "Replicating my thesis in three spoonfuls (part I): what survived and what the evidence corrected"
 subtitle: "I measured my 2014 thesis on school entry and exit again. The overall story survived, several numbers did not, and the working files helped explain why."
 date: 2026-08-29 09:30:00 -0400
-last_modified_at: 2026-10-14 18:30:00 -0300
+last_modified_at: 2026-10-17 17:15:00 -0300
 categories: [data, education, public-policy]
 tags: [replicability, education, school-market, voucher, mineduc, duration-analysis, vulnerability, audit]
 description: "I rebuilt the results of my 2014 thesis on Chilean schools and audited 34 claims: what held, what was wrong then, and what still cannot be known."
@@ -23,6 +23,7 @@ header:
   show_overlay_excerpt: false
   teaser_mobile: /assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-mobile-640x360.webp
 visual_id: replica-tesis-establecimientos
+table_contract: explicit-v1
 math: true
 toc: true
 toc_sticky: true
@@ -42,7 +43,7 @@ ai_disclosure:
 In April 2014 I defended and submitted my master's thesis on the entry and exit of Chilean schools between 1992 and 2012.[^tesis] Twelve years later I am trying to rebuild it and extend it through 2025.
 {: .text-justify}
 
-Over that interval, the rules changed: municipalisation in the 1980s; shared financing in the 1990s; the Preferential School Subsidy in the 2000s; Inclusion and New Public Education in the 2010s; and another state architecture in the 2020s.[^regimenes] The market mutated very quickly, and so did the relationships that might explain school exits. AI at least publishes release notes; Chile's school system does not always do so.
+Over that interval, the rules changed: municipalisation in the 1980s; shared financing in the 1990s; the Preferential School Subsidy in the 2000s; Inclusion and New Public Education in the 2010s; and another state architecture in the 2020s.[^regimenes] The market changed, and so did the relationships that might explain school exits.
 {: .text-justify}
 
 Before adding thirteen years, I had to answer a smaller question: **which 2014 results could I produce again exactly?** In brief, fifteen judgements were supported and ten errors came from the 2014 document. None carried into the 2026 version I now use as a reference. Of the remaining nine, one was wrong on both sides, another was a misleading match, and seven do not clearly show where the error lay.
@@ -79,16 +80,19 @@ Several smaller results survived too: **10 of the 11 published fixed effects** (
 {: .text-justify}
 
 {: .table-caption}
-**Table 1** — What happened to the 34 audited judgements
+**Table 1.** Audit balance and differences that change the interpretation
 
-| Outcome | Judgements | Interpretation |
-|---|---:|---|
-| Correct match | 15 | Published and rebuilt evidence support the same claim, backed by a third source. |
-| 2014 error | 10 | The producer or rerun backs the reconstruction and refutes the publication. |
-| Known error in the 2026 output | 0 | Divergent routes remain sensitivity analyses and did not enter the canonical output. |
-| Wrong on both sides | 1 | Neither document nor reconstruction represents the estimand (the exact quantity being measured) well. |
-| Misleading match | 1 | Both sides agree because they inherit the same wrong definition. |
-| Limit, non-numeric claim, or provenance | 7 | The evidence cannot name a winner, but it can say why. |
+| Level | Result | Evidence | Verdict |
+|---|---|---|---|
+| Overall balance | 15 supported judgements; 10 errors in the 2014 document; 0 known errors in the 2026 reference output | Producer files and present-day reruns distinguish a published error from a reconstruction error. | The substantive account survives, with corrections. |
+| Remaining limits | 1 wrong on both sides; 1 misleading match; 7 limits, non-numeric claims, or provenance questions | The evidence can explain why there is no valid comparison, even when it cannot name a winner. | They are not converted into an accuracy rate. |
+| Lagged SIMCE | 0.003 in the table; 0.001 in the producing output and two engines | 0.000533 rounds to 0.001. | 2014 transcription error. |
+| Model variances | 3.82 and 2.791 | They were crossed log standard deviations, not variances. | 2014 interpretation error. |
+| Municipal HHI | Santiago around 1,534 | The canonical scale gives around 152. | 2014 scale error. |
+| Small cities | “Fewer than 15,000 inhabitants” account for about 80% | The capital/non-capital split gives 78.3%; the literal population threshold gives 11%. | The number and sentence refer to different partitions. |
+| SIMCE gap | −4.3% among closing subsidised schools | The producer spreadsheet also gives −4.3%. | Producer value verified. |
+| Mobility | Rates 6.3, 4.5, and 1.6 | Producer formulas recover every compared point. | Final match; causal interpretation remains unproven. |
+{: .table--compact .table--scroll}
 
 Counting by display answers a different question. Of 26 objects, twelve converge, ten have explained divergences, and four lack a numerical test; no divergence remains unexplained. I do not turn that inventory into an “accuracy rate”: an inequality, a rounding match, and literal equality are not the same test.
 {: .small}
@@ -111,7 +115,7 @@ I therefore added a third source: 2014 files that preserve traces of the calcula
       <img src="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.svg' | relative_url }}" alt="Three input classes—pieces and data, descriptive statistics, and associational econometrics—pass through one shared chain of custody, execution, comparison, and attribution before the result is classified and the causal boundary declared." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figure 2 —</strong> Reconstruction and verification chain. If a check fails, the claim stops; an apparent match cannot replace missing evidence. Reproducible D2 sources: <a href="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.d2' | relative_url }}">desktop</a> and <a href="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-en-mobile.d2' | relative_url }}">mobile</a>.</figcaption>
+  <figcaption><strong>Figure 2</strong> — Reconstruction and verification chain. If a check fails, the claim stops; an apparent match cannot replace missing evidence.</figcaption>
 </figure>
 
 The sequence matters for public policy. Change the definition of exit, the sample, or the comparison precision, and an administrative flow can resemble system decline. If a model runs without preserving the same ordered list of values, all we know is that it could run. The diagram condenses the boundary: **rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal**.
@@ -141,24 +145,6 @@ The spreadsheet even preserved the threshold formula: `=C2>2.5`. On its scale th
 Another nearly correct result concealed a different definition. The text said that intermediate and small cities—fewer than 15,000 inhabitants—accounted for about 80% of mobility in six regions. The figure's recipe split regional capitals from the rest and yielded 78.3%. Applied literally, the population threshold yielded 11%. The number was close; the sentence described another partition.
 {: .text-justify}
 
-### Summary of key findings
-
-{: .table-caption}
-**Table 2** — Differences that change the interpretation, and whose error they were
-
-| Object | Published in 2014 | New evidence | Verdict |
-|---|---|---|---|
-| Lagged SIMCE, hierarchical model | 0.003 | Output and two engines: 0.001 | 2014 error |
-| Model variances | 3.82 and 2.791 | They were crossed log standard deviations | 2014 error |
-| Subsidised-private coefficient | 1.4142 | Output: 0.4142 | 2014 error |
-| Municipal HHI | Santiago ≈ 1,534 | Canonical scale ≈ 152 | 2014 error |
-| “Fewer than 15,000 inhabitants” | ≈ 80% | Capital/non-capital: 78.3%; population: 11% | 2014 error |
-| Pupils per teacher | 48 cells | `rad`: 48/48; alternative calculation separated | Producer vector verified |
-| SIMCE gap, closing subsidised schools | −4.3% | Producer sheet: −4.3% | Producer value verified |
-| Gross mobility and rates | 6.3; 4.5; 1.6 | Producer formulas: 80/80 and 40/40 points | Correct final match |
-| Net mobility | Entries − exits | Workbook and embedded chart: 80/80 points | Correct final match; causal interpretation unproven |
-| PSU gap | ≈ 10 | Final result: 10.40, not 11.25 | Correct final match |
-
 The most suggestive new finding was not quantified in the thesis. The pupil–teacher ratio among exiting schools falls from 17.95 to 12.22 over the previous seven years, against 20.31 among schools that remain in the register. This does not look like an instantaneous collapse but a prolonged thinning-out visible retrospectively across the previous seven years. The label is retrospective: it marks the entire prior history of a school that later disappears.
 {: .text-justify}
 
@@ -174,35 +160,36 @@ That figure is relevant to public policy precisely because it does not promise w
 
 ## Spoonful 3: what is ready to be extended through 2025
 
-**This was the test I needed before adding thirteen years: not that every 2014 number survived, but that I knew exactly what I was extending.** All the available code ran again, but it did not always produce the same result. Rerunnable means the code finishes; rebuildable, that it produces something comparable again; matching, that it passes a criterion fixed before looking at the result. Those are different claims.[^comparison]
+**This was the test I needed before adding thirteen years: not that every 2014 number survived, but that I knew exactly what I was extending.** All the available code ran again, but it did not always produce the same result. Rerunnable means the code finishes; rebuildable, that it produces something comparable again; matching, that it passes a criterion fixed before looking at the result. Those are different claims.
 {: .text-justify}
 
 {% include evidence-carousel.html %}
 
-{: .table-caption}
-**Table 3** — What happened when I reopened the nine doubtful cases
-
-| Outcome | Cases | What it permits me to say |
-|---|---:|---|
-| Match | 3 | Table 4 reproduces 12/12 cells; Figures 3 and 4 reproduce 40/40 and 80/80 points. |
-| Mismatch | 2 | Tables 5 and 8 fail their pre-specified criterion. |
-| Not comparable by design | 4 | The code ran, but no common series or list of values survives; comparing only appearance would answer another question. |
-
-Table 5 recovers *N* = 30,484 and `duracion3`, but only 10 of 20 coefficients and 11 of 20 standard errors equal the printed rounding. Table 6 retains 35 of 41 magnitudes; Table 7, 10 of 11 fixed effects, except 0.003 versus 0.001. In Table 8, only 4 of 12 match under rounding; eight appear to have been cut off without rounding. “Close” and “equal at published precision” are not synonyms.
+Of the nine doubtful cases, three matched, two retained differences, and four lacked a sufficient common basis for comparison. The present rerun completed the recoverable routes and rebuilt the tables and figures, but it does not establish the effective 2014 session. The registry retains **50 technical hypotheses** and **34 editorial judgements**: the former test explanations; the latter classify published claims. Neither is an accuracy rate for the other.
 {: .text-justify}
 
-Python rebuilt the tables and figures. A new run used Stata 17 through `stata-mp` and completed the 14 routes that could still be executed, including the controlled recovery of `do_058`, `do_059`, and `do_060`.[^stata17][^harvest] The result is a **traceable present-day rerun**, not historical equivalence: it shows that the chain can be traversed today, not that this was the 2014 session.
+A comparison is informative only when both routes answer the same question. Sample size, outcome definition, value order, and published precision are part of the result, not details to be adjusted afterwards. A nearby number may therefore be a real discrepancy, while two identical numbers may merely inherit the same mistaken definition. The criterion is not to reward resemblance, but to establish what evidence could distinguish a supported result from a misleading match.
 {: .text-justify}
 
-I also keep two inventories separate. The registry tested **50 hypotheses**: **37 were refuted, 11 sustained, 1 partial, and 1 refuted for eleven of fourteen terms**. The editorial balance contains **34 judgements**. Hypotheses count explanations tested; judgements count published claims and objects. Neither is an accuracy rate for the other.
+In the three matching cases, the tables or series retained a common basis and passed a rule fixed before comparison. In the two cases that remained different, rerunning the analysis did not erase the discrepancy; it located its starting point more precisely. Different tools reproduced the recoverable results, reducing the possibility that a finding depends on one particular program. Even so, that convergence supports the present calculation; on its own, it does not recreate the historical run.
 {: .text-justify}
 
-I did not undertake this archaeology to acquit or condemn my 2014 work. Before constructing 2013–2025, I needed to separate what I could produce again, what was wrong, what was a sensitivity analysis (an alternative result under a different decision), and what could not be compared. I also wanted to subject a thesis that took considerable effort to complete to today's tools. Its failure to emerge intact makes the exercise more useful.
+The other four cases teach a different lesson. When no common list of values, series, or sufficiently detailed output survives, comparing only the appearance of two figures would answer a new question. Calling them non-comparable is less dramatic than announcing a replication, but it protects the interpretation. The absence of a valid test does not make the original publication false or the reconstruction correct; it leaves an evidence debt that retrospective confidence cannot settle.
+{: .text-justify}
+
+This distinction matters beyond the thesis. An administration might use a rebuilt number to describe a historical period, formulate an alert, or justify an intervention. Those uses demand different support. A descriptive pattern can open a monitoring question; an alert needs out-of-sample validation and explicit error costs; an intervention needs a contrast that can approximate the counterfactual. If those levels are blurred, technical traceability lends causal authority that the design never earned.
+{: .text-justify}
+
+The extension through 2025 does not automatically inherit every variable or interpretation. It inherits a narrower set: definitions that remain defensible, results that permit valid comparison, and questions whose answers are still pending. That narrower base is useful. It separates actual system change from changes in the records and requires asking whether an exit represents closure, recess, merger, relocation, or continuity under another provider before associating it with performance, vulnerability, or a reform.
+{: .text-justify}
+
+I did not undertake this archaeology to acquit or condemn my 2014 work. Before constructing 2013–2025, I needed to separate what I could produce again, what was wrong, what was a sensitivity analysis (an alternative result under a different decision), and what could not be compared.
+{: .text-justify}
 
 What matters is not vindicating the original, but reaching [part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) with an auditable 1992–2012 base, corrected known errors, and visible limits. Now adding thirteen years makes sense: not to prolong a series, but to learn what changed with the rules and what it means for a school to enter or leave the register.
 {: .text-justify}
 
-## Closing: preparing for 2025
+## Closing: from replication to extension
 
 The thesis ended up organised into four groups: results that survive, 2014 errors, a 2026 version with no known errors, and cases with no valid comparison. That separation shows what to retain and what not to carry into 1992–2025.
 {: .text-justify}
@@ -211,7 +198,7 @@ The general direction of reallocation between 1992 and 2012 survives: municipal 
 {: .text-justify}
 
 {: .table-caption}
-**Table 4** — What public use survives, and where the evidence ends
+**Table 2.** What public use survives, and where the evidence ends
 
 | Result | Reasonable public use | What it does not authorise |
 |---|---|---|
@@ -219,6 +206,7 @@ The general direction of reallocation between 1992 and 2012 survives: municipal 
 | Vulnerability in the reconstructed Greater Santiago universe | Questions about protection and educational continuity | Generalisation to Chile or effects of closure |
 | Pupil–teacher ratio before exit | Retrospective hypothesis for designing a warning system | Presenting it as a current classifier or validated alert |
 | Corrected HHI | Describing concentration on the correct scale | Inferring the effect of competition on closure or mobility |
+{: .table--compact .table--scroll}
 
 The second part cannot add thirteen rows and pretend continuity. A school in the 1980s, one in the 1990s, one after SEP, one under Inclusion, and one transferred to a Local Education Service do not face the same market or the same state. A series can be calculated flawlessly and still answer another question. That is a particularly dangerous false signal of success in public policy.
 {: .text-justify}
@@ -230,6 +218,9 @@ The reconstruction leaves a panel that can describe flows, recognise risk signal
 
 [Part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) revisits these three questions without treating them as interchangeable:
 
+{: .table-caption}
+**Table 3.** Causal routes and minimum conditions
+
 <div class="causal-routes causal-routes--en" markdown="1">
 
 | Route | Question and design | Minimum condition for interpretation |
@@ -237,6 +228,7 @@ The reconstruction leaves a panel that can describe flows, recognise risk signal
 | **Descriptive/predictive warning** | Model transitions among active, zero enrolment, recess, official closure, and absence from the register; estimate out-of-sample risk (in years or cases not used to fit the model). | Temporal validation, calibration (predicted risk should resemble observed frequency), decision thresholds, and a distributive audit. It can guide monitoring; it does not estimate effects. |
 | **Staggered reform** | Evaluate changes associated with transfer to Local Education Services using difference-in-differences (comparing changes between affected and unaffected groups) and a cohort event study. | Verified dates and exposure; plausible parallel trends (similar pre-reform evolution), anticipation, composition, and spillovers. If rollout timing responded to risk, the design is not causal by decree. |
 | **Consequences of closure** | Link pupil trajectories and compare continuity, distance, attendance, attainment, and dropout through an event study or matched difference-in-differences. | Cause of closure, genuinely comparable controls, and plausibly exogenous variation (not determined by the outcome); matching alone does not remove selection. |
+{: .table--compact .table--scroll}
 
 </div>
 
@@ -246,7 +238,7 @@ There is, however, a question that comes before econometric design. In a system 
 That changes the public-policy question. The task is neither to prevent every closure nor to preserve every school. It is to determine **who absorbs the cost of transition**: which pupils must move, where they arrive, how much farther they travel, what happens to attendance, learning, and persistence, and what the community loses. Available seats are necessary; they do not exhaust those costs.
 {: .text-justify}
 
-Part II clarified administrative events, examined institutional comparisons that could not identify effects, and left individual follow-up pending. That boundary matters because a longer dataset cannot replace the student trajectories that the 2014 thesis could barely observe.
+Part II clarifies administrative events, examines institutional comparisons that cannot identify effects, and leaves individual follow-up pending. That boundary matters because a longer dataset cannot replace the student trajectories that the 2014 thesis could barely observe.
 {: .text-justify}
 
 The open question is less comfortable than counting entries and exits: **when does creative destruction genuinely renew educational supply, and when does it merely shift its costs onto pupils, families, and territories with less capacity to absorb them?**
@@ -276,9 +268,3 @@ An RBD—the school's official identifier—may disappear from the register. **A
 [^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013.
 
 [^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007.
-
-[^stata17]: Technical receipt pinned at commit `0e9e02d4316d120336d6c2af26434beb5d4b24e0`: 15/15 roles with zero `r(NNN)`, Stata 17 with `c(MP)=1`, `c(flavor)=IC` reported separately, and four historical roots intact.
-
-[^comparison]: Terminal comparison pinned at `tesis_mae_mejorada@a8ee6ac`: nine reopened cases, four inferential families, and separate thresholds for tables, raster images, and equivalence.
-
-[^harvest]: Output harvest pinned at `tesis_mae_mejorada@cd6d19b`: directed reruns of `do_058`, `do_059`, and `do_060`, four validated data products, and separate limits for smoke tests and graphs that were never exported.

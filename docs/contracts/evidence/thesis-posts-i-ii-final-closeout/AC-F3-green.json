@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F3",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "e3ff0bb24332c8073e3feb624332427429c154d80edbf4801320a63c00955972",
+  "observed_command": "cd .worktrees/3cucharadas/posts-i-ii-closeout-20261017 && ruby scripts/verify_thesis_extension_post_ii.rb --closeout --research-root /home/ende/Descargas/programaciones/.worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017 --workspace-root /home/ende/Descargas/programaciones",
+  "observed_command_sha256": "bec41ec4ef8c63464b17c1f00747e87e5ec88eaae93b9db74106c9c7103abf70",
+  "outcome": "green",
+  "setup_status": "restored",
+  "started_at": "2026-10-17T21:01:55Z",
+  "finished_at": "2026-10-17T21:01:56Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_data/thesis_extension_stylized.yml",
+      "exists": true,
+      "sha256": "a7ab5bceaa549c41f79dda942715a9324364de96f837205b43789bf2fa12b4d0"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_data/thesis_extension_stylized.yml",
+      "exists": true,
+      "sha256": "a7ab5bceaa549c41f79dda942715a9324364de96f837205b43789bf2fa12b4d0"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\"result\":\"PASS\",\"mode\":\"closeout\",\"freeze_sha256\":\"75ec5b91a7ff30c02934dba14159ab3e37703e4d4eed7802b9b6e4c06fba69b6\",\"visuals\":6,\"stylized_visuals\":6,\"soft_warnings\":[]}\n",
+  "stderr": ""
+}

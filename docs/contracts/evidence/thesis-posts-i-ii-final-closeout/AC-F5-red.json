@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F5",
+  "target_contract_sha256": "e0f9450365c79012b7ae8b7aae5eb9e3812eeaa1fb13a90c7873440a5866f42d",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "00d3198e2ef0eebde683f1c08398a68ae06e8dd956a3ee5de089d51282289d8d",
+  "observed_command": "test -f .worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/human-redline-approval.json",
+  "observed_command_sha256": "9d0f0b1fe267cf3582047c1a247b63251ba8b487da25262eaf91749a9e1a7722",
+  "outcome": "red",
+  "setup_status": "historical_loaded",
+  "started_at": "2026-10-17T22:02:00Z",
+  "finished_at": "2026-10-17T22:02:00Z",
+  "exit_code": 1,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/human-redline.md",
+      "exists": true,
+      "sha256": "0929708dce97edea43c4e12975fcae182d197f9757c84509ca6b0b1b3effaa75"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/evidence/thesis-posts-i-ii-final-closeout/human-redline.md",
+      "exists": true,
+      "sha256": "0929708dce97edea43c4e12975fcae182d197f9757c84509ca6b0b1b3effaa75"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "",
+  "stderr": ""
+}

@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "53b97e63ed6483878044497750f0f86731158bff9ae37985c6be57db455cf5d8",
+  "observed_command": "cd .worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017 && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /opt/entornos/mamba312/bin/python scripts/316_build_scientific_release_freeze.py --contract-probe author-case-old-distance",
+  "observed_command_sha256": "030bc8d0747edd97ed39ef2ebaaf4abebefb418e690974fa1b6f552113128137",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-10-17T21:01:43Z",
+  "finished_at": "2026-10-17T21:01:43Z",
+  "exit_code": 1,
+  "fixture_sha256": "401022224b4f023bacd29455b67c1939fba26448358cdb4e471f194639f253c1",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/scripts/316_build_scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "401022224b4f023bacd29455b67c1939fba26448358cdb4e471f194639f253c1"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/scripts/316_build_scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "401022224b4f023bacd29455b67c1939fba26448358cdb4e471f194639f253c1"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "",
+  "stderr": "CONTRACT_PROBE_EXPECTED_REJECTION author-case-old-distance: distancia cartográfica corregida divergente\n"
+}

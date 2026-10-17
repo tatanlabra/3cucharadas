@@ -1,0 +1,105 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F4",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "d9a5f97bf3b69c1922d90623ab88ab28a11737f54eb6a42ef73b23efac6f2d10",
+  "observed_command": "cd .worktrees/3cucharadas/posts-i-ii-closeout-20261017 && npm run build:thesis-post2-map && BUNDLE_FROZEN=true JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --destination _site && ruby scripts/verify_site_artifact.rb _site && PYTHONDONTWRITEBYTECODE=1 python3 tests/test_site_ux.py _site && PYTHONDONTWRITEBYTECODE=1 python3 tests/test_ux_transversal_contract.py _site && PLAYWRIGHT_MODULE_PATH=/home/ende/Descargas/programaciones/penta-agent/tools/playwright-local-mcp/node_modules/playwright PLAYWRIGHT_CHROMIUM_EXECUTABLE=/home/ende/.local/share/ms-playwright/chromium-1237/chrome-linux64/chrome node scripts/verify_thesis_extension_post_ii_browser.mjs --base-url http://127.0.0.1:4004 --summary --screenshot-dir /tmp/thesis-posts-i-ii-browser-contract",
+  "observed_command_sha256": "d9a5f97bf3b69c1922d90623ab88ab28a11737f54eb6a42ef73b23efac6f2d10",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-10-17T21:01:56Z",
+  "finished_at": "2026-10-17T21:04:17Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_includes/scripts.html",
+      "exists": true,
+      "sha256": "308304e4b4ec83baf45301eeb0f7f3c09c49be957f008cbc2d247a28e9d3ed53"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_plugins/region_unica.rb",
+      "exists": true,
+      "sha256": "eb310c1c97d5e011527b9ad46d48d18b73fcd38ca839356f9fbd4fcad8b0c458"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss",
+      "exists": true,
+      "sha256": "2d4ab137168c723d25516f203ecccf4a97c9631e4a85cce22cb09003aac611a1"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/js/site-core.js",
+      "exists": true,
+      "sha256": "336c9a274ea8e06c2de99066cafec31fe3a98e3883c467e43c98347f0112a373"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_site_artifact.rb",
+      "exists": true,
+      "sha256": "8e43720073304e184cc5776d1f1b245ac4c67697ab8a9976ddc909afd05b1f28"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_extension_post_ii_browser.mjs",
+      "exists": true,
+      "sha256": "67123ca928aeb5560aa79dfc2af4ac500d529067d533fc9feaab8af667816cf8"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/tests/test_site_ux.py",
+      "exists": true,
+      "sha256": "ac78146ee075b8ac7016df6212b213c03db201229724d1f91450965ea383e6c3"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/tests/test_ux_transversal_contract.py",
+      "exists": true,
+      "sha256": "9b5f4e36ba48c7e63ef393f5a0bc33b1a5cf45099acadbeebbbf89fde38e43da"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_includes/scripts.html",
+      "exists": true,
+      "sha256": "308304e4b4ec83baf45301eeb0f7f3c09c49be957f008cbc2d247a28e9d3ed53"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_plugins/region_unica.rb",
+      "exists": true,
+      "sha256": "eb310c1c97d5e011527b9ad46d48d18b73fcd38ca839356f9fbd4fcad8b0c458"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss",
+      "exists": true,
+      "sha256": "2d4ab137168c723d25516f203ecccf4a97c9631e4a85cce22cb09003aac611a1"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/js/site-core.js",
+      "exists": true,
+      "sha256": "336c9a274ea8e06c2de99066cafec31fe3a98e3883c467e43c98347f0112a373"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_site_artifact.rb",
+      "exists": true,
+      "sha256": "8e43720073304e184cc5776d1f1b245ac4c67697ab8a9976ddc909afd05b1f28"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_extension_post_ii_browser.mjs",
+      "exists": true,
+      "sha256": "67123ca928aeb5560aa79dfc2af4ac500d529067d533fc9feaab8af667816cf8"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/tests/test_site_ux.py",
+      "exists": true,
+      "sha256": "ac78146ee075b8ac7016df6212b213c03db201229724d1f91450965ea383e6c3"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/tests/test_ux_transversal_contract.py",
+      "exists": true,
+      "sha256": "9b5f4e36ba48c7e63ef393f5a0bc33b1a5cf45099acadbeebbbf89fde38e43da"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "vite v8.2.2 building client environment for production...\ntransforming...\n✓ 10 modules transformed.\nrendering chunks...\ncomputing gzip size...\nassets/dist/thesis_post2_map/manifest.json                            0.21 kB │ gzip:   0.15 kB\nassets/dist/thesis_post2_map/assets/maplibre-gl-worker-Bz4HezZp.js  477.73 kB\nassets/dist/thesis_post2_map/main-BfUPW00q.css                       90.16 kB │ gzip:  12.34 kB\nassets/dist/thesis_post2_map/main-Btj6ZPfD.js                       990.02 kB │ gzip: 261.84 kB\n\n✓ built in 902ms\nConfiguration file: /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/_config.yml\n            Source: /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017\n       Destination: /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/_site\n Incremental build: disabled. Enable with --incremental\n      Generating... \n       Jekyll Feed: Generating feed for posts\n       Jekyll Feed: Generating feed for posts\n                    done in 7.512 seconds.\n Auto-regeneration: disabled. Use --watch to enable.\nArtifact verification passed: 72139190/1048576000 bytes, 1552/200000 entries\n{\n  \"status\": \"PASS\",\n  \"pages\": \"24/24\",\n  \"fallback\": \"4/4\",\n  \"noJs\": \"2/2\",\n  \"deepLinks\": \"2/2\",\n  \"postI\": \"24/24\",\n  \"screenshots\": \"/tmp/thesis-posts-i-ii-browser-contract\",\n  \"failures\": []\n}\n",
+  "stderr": "npm notice run build:thesis-post2-map\nnpm notice run vite build --config vite.thesis-post2-map.config.ts\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\nTo use retry middleware with Faraday v2.0+, install `faraday-retry` gem\nDEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.\n\nMore info and automated migrator: https://sass-lang.com/d/import\n\n  ╷\n3 │ @import \"minimal-mistakes/skins/contrast\"; // skin\n  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n    /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss 3:9  root stylesheet\nDEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.\n\nMore info and automated migrator: https://sass-lang.com/d/import\n\n  ╷\n4 │ @import \"minimal-mistakes\"; // main partials\n  │         ^^^^^^^^^^^^^^^^^^\n  ╵\n    /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss 4:9  root stylesheet\nDEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.\n\nMore info and automated migrator: https://sass-lang.com/d/import\n\n    ╷\n177 │ @import \"minimal-mistakes/skins/contrast\";\n    │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n    /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss 177:9  root stylesheet\nDEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.\n\nMore info and automated migrator: https://sass-lang.com/d/import\n\n    ╷\n180 │ @import \"minimal-mistakes\";\n    │         ^^^^^^^^^^^^^^^^^^\n    ╵\n    /home/ende/Descargas/programaciones/.worktrees/3cucharadas/posts-i-ii-closeout-20261017/assets/css/main.scss 180:9  root stylesheet\ntest_404_is_bilingual_and_noindex (__main__.SiteUxTest.test_404_is_bilingual_and_noindex) ... ok\ntest_about_uses_current_posts (__main__.SiteUxTest.test_about_uses_current_posts) ... ok\ntest_dark_search_links_have_local_rule (__main__.SiteUxTest.test_dark_search_links_have_local_rule) ... ok\ntest_english_navigation (__main__.SiteUxTest.test_english_navigation) ... ok\ntest_search_assets_and_semantics (__main__.SiteUxTest.test_search_assets_and_semantics) ... ok\ntest_search_stores_are_localized (__main__.SiteUxTest.test_search_stores_are_localized) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.012s\n\nOK\ntest_anatomia_del_post (__main__.UxTransversalContract.test_anatomia_del_post) ... ok\ntest_autor_cabecera_objetivos_tactiles (__main__.UxTransversalContract.test_autor_cabecera_objetivos_tactiles) ... ok\ntest_avisos_enlace_contraste (__main__.UxTransversalContract.test_avisos_enlace_contraste) ... ok\ntest_botones_interaccion (__main__.UxTransversalContract.test_botones_interaccion) ... ok\ntest_carrusel_nocturno_contraste (__main__.UxTransversalContract.test_carrusel_nocturno_contraste) ... ok\ntest_comentarios_h2 (__main__.UxTransversalContract.test_comentarios_h2) ... ok\ntest_contract_ids_have_tests (__main__.UxTransversalContract.test_contract_ids_have_tests) ... ok\ntest_destacados_del_tema (__main__.UxTransversalContract.test_destacados_del_tema) ... ok\ntest_escala_y_lectura_fina (__main__.UxTransversalContract.test_escala_y_lectura_fina) ... ok\ntest_fechas_en_idioma (__main__.UxTransversalContract.test_fechas_en_idioma) ... ok\ntest_firma_tres_cucharadas (__main__.UxTransversalContract.test_firma_tres_cucharadas) ... ok\ntest_fuentes_subconjunto (__main__.UxTransversalContract.test_fuentes_subconjunto) ... ok\ntest_iconos_autohospedados (__main__.UxTransversalContract.test_iconos_autohospedados) ... ok\ntest_identidad_cromatica (__main__.UxTransversalContract.test_identidad_cromatica) ... ok\ntest_imagenes_responsivas (__main__.UxTransversalContract.test_imagenes_responsivas) ... ok\ntest_medida_linea (__main__.UxTransversalContract.test_medida_linea) ... ok\ntest_minutos_lectura_plural (__main__.UxTransversalContract.test_minutos_lectura_plural) ... ok\ntest_movimiento_accesible (__main__.UxTransversalContract.test_movimiento_accesible) ... ok\ntest_navegacion_en_linea (__main__.UxTransversalContract.test_navegacion_en_linea) ... ok\ntest_pie_objetivos_tactiles (__main__.UxTransversalContract.test_pie_objetivos_tactiles) ... ok\ntest_portada_ultima_cucharada (__main__.UxTransversalContract.test_portada_ultima_cucharada) ... ok\ntest_primera_visita_sistema (__main__.UxTransversalContract.test_primera_visita_sistema) ... ok\ntest_recursos_versionados (__main__.UxTransversalContract.test_recursos_versionados) ... ok\ntest_relacionados_por_etiquetas (__main__.UxTransversalContract.test_relacionados_por_etiquetas) ... ok\ntest_sass_import_contenido (__main__.UxTransversalContract.test_sass_import_contenido) ... ok\ntest_sin_entrada_animada (__main__.UxTransversalContract.test_sin_entrada_animada) ... ok\ntest_sin_jquery (__main__.UxTransversalContract.test_sin_jquery) ... ok\ntest_tablas_leyenda_y_fondo (__main__.UxTransversalContract.test_tablas_leyenda_y_fondo) ... ok\ntest_tablas_region_unica (__main__.UxTransversalContract.test_tablas_region_unica) ... ok\ntest_theme_color_crema (__main__.UxTransversalContract.test_theme_color_crema) ... ok\ntest_titulo_y_parrafo_alineados (__main__.UxTransversalContract.test_titulo_y_parrafo_alineados) ... ok\ntest_tokens_de_interfaz (__main__.UxTransversalContract.test_tokens_de_interfaz) ... ok\ntest_transicion_tarjeta_post (__main__.UxTransversalContract.test_transicion_tarjeta_post) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 0.948s\n\nOK\n"
+}

@@ -169,10 +169,9 @@ function linkCollection(item: Case): GeoJSON.FeatureCollection {
 function coordinateLabel(point: Point, lang: "es" | "en"): string {
   const year = point.coordinate_year;
   if (point.coordinate_source_kind === "osm_historical_site_candidate") {
-    const distance = Math.round(point.official_distance_m || 0);
     return lang === "es"
-      ? `Sede histórica candidata OSM · observada en ${year} · ${point.address_evidence || "directorio MINEDUC"} · punto oficial ${point.official_coordinate_year} conservado a ${distance} m`
-      : `OSM historical-site candidate · observed in ${year} · ${point.address_evidence || "MINEDUC directory"} · official ${point.official_coordinate_year} point retained ${distance} m away`;
+      ? `Sede histórica candidata OSM · observada en ${year} · ${point.address_evidence || "directorio MINEDUC"} · punto oficial ${point.official_coordinate_year} conservado para contraste`
+      : `OSM historical-site candidate · observed in ${year} · ${point.address_evidence || "MINEDUC directory"} · official ${point.official_coordinate_year} point retained for comparison`;
   }
   if (point.coordinate_source_kind === "official_mineduc_reference") {
     return lang === "es"
@@ -264,8 +263,7 @@ async function init(host: HTMLElement): Promise<void> {
   const canvas = host.querySelector<HTMLElement>("[data-market-map-canvas]");
   const aside = host.querySelector<HTMLElement>("[data-market-map-aside]");
   const status = host.querySelector<HTMLElement>("[data-market-map-status]");
-  const posterLink = host.querySelector<HTMLAnchorElement>("[data-market-map-poster]");
-  if (!canvas || !aside || !status || !posterLink) throw new Error("estructura del visor incompleta");
+  if (!canvas || !aside || !status) throw new Error("estructura del visor incompleta");
 
   const map = new maplibregl.Map({
     container: canvas,
@@ -273,7 +271,7 @@ async function init(host: HTMLElement): Promise<void> {
     center: [-70.65, -33.45],
     zoom: 11,
     cooperativeGestures: true,
-    attributionControl: true,
+    attributionControl: false,
     locale: lang === "es" ? {
       "AttributionControl.ToggleAttribution": "Mostrar u ocultar atribución",
       "AttributionControl.MapFeedback": "Comentarios sobre el mapa",
@@ -289,8 +287,9 @@ async function init(host: HTMLElement): Promise<void> {
     } : undefined
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  map.addControl(new maplibregl.AttributionControl({ compact: false }), "bottom-right");
   canvas.setAttribute("role", "region");
-  canvas.setAttribute("aria-label", lang === "es" ? "Mapa interactivo de cierres, aperturas y fusiones escolares" : "Interactive map of school closures, openings, and mergers");
+  canvas.setAttribute("aria-label", lang === "es" ? "Mapa interactivo del cierre y fusión escolar de El Salvador" : "Interactive map of the El Salvador school closure and merger");
   canvas.setAttribute("tabindex", "0");
 
   await new Promise<void>((resolve, reject) => {
@@ -401,7 +400,7 @@ async function init(host: HTMLElement): Promise<void> {
     facts.className = "territorial-evidence__facts";
     const selectionNote = lang === "es" ? item.selection_note_es : item.selection_note_en;
     const distance = item.case_kind === "author_documented"
-      ? `≈${item.distance_km.toLocaleString(lang === "es" ? "es-CL" : "en-GB", { maximumFractionDigits: 1 })} km`
+      ? `${item.distance_km.toLocaleString(lang === "es" ? "es-CL" : "en-GB", { minimumFractionDigits: 6, maximumFractionDigits: 6 })} km`
       : `${item.distance_km.toLocaleString(lang === "es" ? "es-CL" : "en-GB", { maximumFractionDigits: 3 })} km`;
     const factRows = lang === "es"
       ? [["Distancia", distance], ["Misma comuna", item.same_commune ? "Sí" : "No"], ["Segmento", localizedSegment], ["Selección", selectionNote]]
@@ -454,7 +453,7 @@ async function init(host: HTMLElement): Promise<void> {
     aside.append(table);
     const sourceNote = document.createElement("p");
     sourceNote.className = "territorial-evidence__source";
-    sourceNote.append(document.createTextNode(lang === "es" ? "Fuentes: directorios MINEDUC y mapa de calles OpenStreetMap." : "Sources: MINEDUC directories and OpenStreetMap street map."));
+    sourceNote.append(document.createTextNode(lang === "es" ? "Las fichas distinguen el punto oficial MINEDUC y el candidato histórico; la atribución cartográfica permanece dentro del mapa." : "The records distinguish the official MINEDUC point from the historical candidate; map attribution remains inside the map."));
     if (item.case_kind === "author_documented") {
       sourceNote.append(document.createTextNode(lang === "es" ? " M = punto MINEDUC; C = sede histórica candidata; R = receptora." : " M = MINEDUC point; C = candidate historical site; R = receiver."));
       sourceNote.append(document.createTextNode(lang === "es" ? " Caso documentado: " : " Documented case: "));
@@ -473,16 +472,6 @@ async function init(host: HTMLElement): Promise<void> {
       sourceNote.append(document.createTextNode("."));
     }
     aside.append(sourceNote);
-    const poster = lang === "es" ? item.poster_es : item.poster_en;
-    const hasDocumentedPoster = item.case_kind === "author_documented" && typeof poster === "string";
-    if (hasDocumentedPoster) posterLink.href = poster;
-    else posterLink.removeAttribute("href");
-    posterLink.hidden = !hasDocumentedPoster;
-    posterLink.replaceChildren(document.createTextNode(lang === "es" ? "Abrir la lámina de la fusión documentada" : "Open the documented merger evidence sheet"));
-    const externalMark = document.createElement("span");
-    externalMark.setAttribute("aria-hidden", "true");
-    externalMark.textContent = " ↗";
-    posterLink.append(externalMark);
     status.textContent = item.case_kind === "author_documented"
       ? (lang === "es"
         ? `${item.commune}: cierre y fusión documentados; la matrícula agregada no prueba el motivo administrativo.`

@@ -1,10 +1,15 @@
 schema_version: 2
 plan_id: thesis-post2-closeout-20261011
-revision: 30
-updated_at: "2026-10-14T21:54:00-03:00"
-status: ready_for_public_push
+revision: 39
+updated_at: "2026-10-17T19:06:22-03:00"
+status: local_complete
 integrator: codex
-peer_review: claude-opus-postintegration-r12-text-approved-custody-change-required
+peer_review: claude-r14-content-clear-receipts-refreshed
+closure_contract: docs/contracts/thesis-posts-i-ii-final-closeout.md
+editorial_decisions: docs/contracts/thesis-posts-i-ii-editorial-decisions.yml
+reopened_reason: >-
+  El cierre anterior no incorporó los manuales de estilo al cuerpo, conservaba el
+  freeze científico revisión 9 y no auditaba los commits UX posteriores de Claude.
 objective: >-
   Cerrar el Post II con evidencia científica congelada, relato bilingüe didáctico,
   visualización responsiva y una revisión humana informada, sin convertir asociaciones
@@ -12,12 +17,27 @@ objective: >-
 
 scope:
   research_repo: incubadora/tesis_mae_mejorada@8b928c012e3e1ba9bebefaa96362d90f4ed346d7
-  research_branch: release/thesis-post-ii-science-20261012
-  blog_repo: activos/3cucharadas@c53a889bd04d569b7708638e4d0a03d5015f2505
-  blog_branch: release/thesis-post-ii-public-clean-20261012
-  authorized_local_actions: [edit, test, research_commit, blog_commit]
-  external_actions: [telegram_review_notice]
-  blocked_without_new_authority: [dissemination]
+  research_final_head: incubadora/tesis_mae_mejorada@88d97bfb99e54b5fae25f5becfd205c9535afc81
+  research_branch: codex/postii-freeze-r10-20261017
+  blog_baseline: activos/3cucharadas@043058e11010fd3b91da5650b083a689049d0456
+  blog_integrated_head: activos/3cucharadas@e22f4505150831adf25be60f6a7ae71a9c991d1b
+  blog_branch: codex/posts-i-ii-closeout-20261017
+  authorized_local_actions: [edit, test, human_redline_preview, two_coordinated_local_commits, final_commit_audit, clean_worktrees]
+  external_actions: []
+  blocked_without_new_authority: [push, deploy, dissemination]
+
+closeout_board:
+  contract: docs/contracts/thesis-posts-i-ii-final-closeout.md
+  F0: done
+  F1: done
+  F2: done
+  F3: done
+  F4: done
+  F5: done_human_approval_recorded
+  F6: done_local_commits_and_clean_trees
+  F7: deferred_until_authorized_deploy
+  local_preview: http://127.0.0.1:4004
+  browser_matrix: "PASS 24/24 Post II, 24/24 Post I, fallback 4/4, no-JS 2/2, deep links 2/2 después del merge UX"
 
 invariants:
   - id: INV-01
@@ -29,7 +49,7 @@ invariants:
   - id: INV-04
     rule: Anexos, sucesiones de identidad y segmentos educacionales no se cuentan como cierres comparables.
   - id: INV-05
-    rule: El Salvador no altera los dos mapas seleccionados sistemáticamente; se rotula como caso propuesto por el autor y queda fuera de esa muestra.
+    rule: El visor editorial presenta solo El Salvador, rotulado como caso propuesto por el autor y fuera de la selección sistemática; los casos sistemáticos permanecen únicamente en la custodia científica histórica.
   - id: INV-06
     rule: Menor matrícula se presenta como causa solo con respaldo documental; la serie por sí sola acredita una tendencia.
   - id: INV-07
@@ -881,15 +901,15 @@ drifts:
     repair: Copiar inputs públicos a tmp_path_factory, renderizar allí y verificar cero cambios y cero mtimes alterados en la raíz.
     status: repaired
   - id: D-18
-    observed: Siete PNG, un SVG y cinco recibos derivados no reproducen los bytes históricos en este host, aunque dos corridas locales producen 51 de 51 archivos idénticos.
-    impact: El freeze acopla transitivamente evidencia científica a métricas tipográficas y a la portabilidad del entorno visual.
-    repair: Mantener la deuda explícita, no prometer reproducción byte a byte entre entornos y fijar el entorno o desplazar el freeze a datos antes de una futura renovación visual.
-    status: open_nonblocking
+    observed: La reproducción byte a byte solo es exigible dentro del mismo entorno fijado; no existe garantía válida entre hosts con tipografías o librerías distintas.
+    impact: Prometer identidad entre entornos acoplaría indebidamente evidencia científica y detalles de renderizado.
+    repair: La revisión 10 limita la garantía a dos corridas del mismo entorno fijado y rechaza explícitamente promoverla a identidad entre hosts.
+    status: repaired_revision_10
   - id: D-19
-    observed: El validador 313 espera un esquema anterior de tres casos y uses_outcomes, mientras el audit vigente usa esquema 5, dos casos sistemáticos y claves de selección separadas.
-    impact: Tres pruebas no focales están rojas desde la base y el freeze cita esa nota como evidencia de tres claims.
-    repair: Migrar el validador y su nota al esquema 5 en una tarea científica separada; candidato menos base permanece vacío para E-46.
-    status: open_preexisting
+    observed: El validador 313 esperaba un esquema anterior de tres casos y uses_outcomes, mientras el audit vigente usa esquema 5, dos casos sistemáticos y claves de selección separadas.
+    impact: El contrato antiguo podía declarar deuda inexistente o validar una estructura retirada.
+    repair: La revisión 10 valida esquema 5, dos casos sistemáticos y las claves separadas sin reintroducir uses_outcomes.
+    status: repaired_revision_10
   - id: D-20
     observed: La primera DDD SAE usó códigos regionales contemporáneos y trató Ñuble y Magallanes de forma incompatible con el despliegue histórico.
     impact: La inferencia agrupaba quince clusters y atribuía el contraste a una geografía que no recibió así la asignación de 2018.
@@ -1560,6 +1580,32 @@ execution:
       kind: validation
       item: EXT
       text: El preview integral previo al push pasó freeze, claims, 37 canarios, tres builds Vite, Jekyll, H1, artefacto y navegador 24/24+12/12+2/2; dos intentos ambientales previos quedaron rojos por socket EPERM y ruta Playwright ausente.
+    - at: "2026-10-17T18:05:01-03:00"
+      kind: red_green_and_peer_review
+      item: FINAL-CLOSEOUT
+      text: Claude R14 descartó bloqueantes de contenido y detectó recibos obsoletos; Codex corrigió conteo, distancia dinámica y paridad, integró la línea UX hasta e22f4505, observó cinco pares rojo/verde y dejó el contrato VALID con definición 0772cba76233, F5 bloqueado por redline humano.
+    - at: "2026-10-17T19:02:10-03:00"
+      kind: decision
+      item: FINAL-CLOSEOUT
+      cause: user
+      text: La persona autora aprobó el redline y autorizó dos commits locales coordinados, la auditoría final y la limpieza de ambos repositorios; push, despliegue y difusión permanecen excluidos.
+    - at: "2026-10-17T19:03:36-03:00"
+      kind: commit
+      item: FINAL-CLOSEOUT
+      text: El freeze científico revisión 10 quedó comprometido localmente en 88d97bfb99e54b5fae25f5becfd205c9535afc81, después de 29 pruebas, validación del snapshot, Ruff y diff-check en verde; el árbol científico quedó limpio.
+    - at: "2026-10-17T19:04:30-03:00"
+      kind: emergent
+      item: E-50
+      cause: test
+      text: El health global observó rojo el contrato de títulos porque su fixture conservaba el subtítulo descartado del Post II; se alineó el test con los títulos ES/EN aprobados, sin modificar los posts.
+    - at: "2026-10-17T19:06:22-03:00"
+      kind: red_green
+      item: FINAL-CLOSEOUT
+      text: F6 observó rojo con el árbol del blog sucio y verde después de los dos commits locales coordinados; la auditoría verificó conteos, decisiones, autoría y limpieza de ambos worktrees con exit 0.
+    - at: "2026-10-17T19:08:30-03:00"
+      kind: external_dependency
+      item: F7
+      text: El health transversal conserva el fallo preexistente de anclas en test_polyglot_doctor y los checkouts primarios mantienen trabajo concurrente; ambos hechos quedan entregados a Claude y no alteran la limpieza ni los gates específicos de los worktrees de cierre, pero deben reconciliarse antes de un push.
 
 rollback:
   - Restaurar solo los selectores y la clase del Post II; no alterar el ancho global del sitio.
@@ -1567,4 +1613,4 @@ rollback:
   - Conservar fuentes crudas fuera de Git y regenerar solo derivados trazables.
 
 PLAN_STATE: v2
-HANDOFF-TRACE: "Claude entregó plan revisado -> Codex cerró R1-R2 -> Claude APPROVE -> E-42 limpio y verde -> E-45 cerró H1 portable -> E-46 cerró custodia científica -> E-47 implementó SLEP/SAE -> Claude ACCEPT_WITH_CAVEATS -> auditorías paralelas y Claude R11 detectaron deriva -> Codex corrigió -> Claude R12 aprobó el texto y abrió E-49 -> Codex cerró custodia en 8b928c0 y refijó a53da951 -> autorización humana vigente para commit, push, despliegue y paridad pública; difusión social sigue bloqueada."
+HANDOFF-TRACE: "Claude entregó las fases UX -> Codex integró af1b13cf y reparó R13 -> Claude R14 descartó bloqueantes de contenido y detectó custodia stale -> Codex corrigió M1-M3/L1-L5/L7, integró por fast-forward e22f4505 y renovó los receipts -> la persona autora aprobó el redline -> Codex cerró F6 con dos commits locales y árboles limpios -> Claude puede cerrar su línea paralela desde el briefing final -> push, despliegue y difusión bloqueados hasta autorización separada."
