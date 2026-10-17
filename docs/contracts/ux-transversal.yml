@@ -1,0 +1,37 @@
+schema: ux-transversal-v1
+# Invariantes de UX que valen para todo el sitio. Nacieron de la auditoría
+# archivo/handoffs/2026-10-17_AUDITORIA_ux-ui-3cucharadas.md (capa 0) y las aprobó
+# la persona usuaria punto por punto el 2026-10-17.
+#
+# Las verifica tests/test_ux_transversal_contract.py sobre el sitio construido, en
+# el job build_site del CI. Cada `id` exige un método test_<id con guiones bajos>,
+# así que agregar una invariante sin su prueba también reprueba.
+#
+# Cambiar un valor de aquí es una decisión de diseño, no un ajuste: se cambia el
+# contrato y el test en el mismo commit, con la medición que lo justifica.
+falsified_by: >-
+  2026-10-17: las 7 pruebas reprobaron contra el build de origin/main b1a3eaaa
+  (antes de los cambios) y aprobaron con los cambios de la rama
+  claude/ux-transversal-20261017.
+invariants:
+  - id: theme-color-crema
+    rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
+    why: theme-toggle.js pisaba con #ffffff el valor correcto de head.html.
+  - id: primera-visita-sistema
+    rule: Sin elección guardada, la primera visita sigue prefers-color-scheme; el tema del sistema no se persiste como elección.
+    why: con el sistema en oscuro el sitio abría en claro.
+  - id: carrusel-nocturno-contraste
+    rule: En academic-night, cada tono del carrusel de evidencia tiene un color de métrica con contraste >= 4,5:1 sobre su capa.
+    why: los tonos base medían entre 2,08 y 2,65:1 sobre #262626.
+  - id: medida-linea
+    rule: Existe un único token --measure en ch (45-66), y toda regla de medida de la prosa de .page__content lo usa en vez de un valor literal.
+    why: la prosa medía 85-87 caracteres por línea en tablet; con 62ch, 74.
+  - id: pie-objetivos-tactiles
+    rule: Los enlaces sociales del pie miden al menos 24 px de alto (WCAG 2.5.8).
+    why: medían 14 px en móvil.
+  - id: comentarios-h2
+    rule: El título de la sección de comentarios es h2, al mismo nivel que «Puede que también te interese».
+    why: saltaba de h2 a h4 en todos los posts.
+  - id: relacionados-por-etiquetas
+    rule: «Puede que también te interese» ordena por etiquetas compartidas (3, 2, 1) en el mismo idioma y completa con recientes.
+    why: con lsi false mostraba los 4 más recientes; el Post II ponía su propia parte I en tercer lugar solo por fecha.

@@ -1,0 +1,239 @@
+#!/usr/bin/env python3
+"""Check docs/contracts/ux-transversal.yml against the rendered site.
+
+Usage: python3 tests/test_ux_transversal_contract.py public
+
+Only the standard library: the CI image runs this with the system python3.
+"Puede que también te interese" is recomputed here from the posts' front matter
+instead of trusting the Liquid that produces it.
+"""
+
+from __future__ import annotations
+
+import html
+import re
+import sys
+import unittest
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+ROOT = Path(__file__).resolve().parents[1]
+SITE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else (ROOT / "_site")
+CONTRACT = ROOT / "docs" / "contracts" / "ux-transversal.yml"
+
+
+def rendered(path: str) -> str:
+    return (SITE / path).read_text(encoding="utf-8")
+
+
+def css() -> str:
+    return rendered("assets/css/main.css")
+
+
+def luminance(hex_color: str) -> float:
+    def channel(value: int) -> float:
+        v = value / 255
+        return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+
+    r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+    return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
+
+
+def contrast(a: str, b: str) -> float:
+    high, low = sorted((luminance(a), luminance(b)), reverse=True)
+    return (high + 0.05) / (low + 0.05)
+
+
+def css_rules(source: str) -> list[tuple[str, str]]:
+    """Flat (selector, body) pairs; @media wrappers are irrelevant for these checks."""
+    flat = re.sub(r"/\*.*?\*/", "", source, flags=re.DOTALL)
+    return [(sel.strip(), body) for sel, body in re.findall(r"([^{}@;]+)\{([^{}]*)\}", flat)]
+
+
+def front_matter(path: Path) -> dict[str, object]:
+    text = path.read_text(encoding="utf-8")
+    block = text.split("---", 2)[1]
+    data: dict[str, object] = {}
+    lines = block.splitlines()
+    for index, line in enumerate(lines):
+        match = re.match(r"^([A-Za-z_]+):\s*(.*)$", line)
+        if not match:
+            continue
+        key, value = match.groups()
+        if key == "tags":
+            if value.startswith("["):
+                data[key] = [t.strip().strip("'\"") for t in value.strip("[]").split(",") if t.strip()]
+            else:
+                items = []
+                for follow in lines[index + 1:]:
+                    item = re.match(r"^\s*-\s*(.+)$", follow)
+                    if not item:
+                        break
+                    items.append(item.group(1).strip().strip("'\""))
+                data[key] = items
+        elif key in {"lang", "permalink", "date", "hidden", "related"}:
+            data[key] = value.strip().strip("'\"")
+    return data
+
+
+def site_timezone():
+    match = re.search(r"^timezone\s*:\s*[\"']?([^\"'\s#]+)", (ROOT / "_config.yml").read_text(encoding="utf-8"), re.MULTILINE)
+    try:
+        return ZoneInfo(match.group(1) if match else "UTC")
+    except ZoneInfoNotFoundError:
+        # Imagen de CI sin tzdata: solo afecta a posts con fecha sin hora, y el
+        # desfase de Chile (-3/-4) no cambia el orden entre días distintos.
+        return timezone(timedelta(hours=-4))
+
+
+def parse_date(value: str, zone) -> datetime:
+    for fmt in ("%Y-%m-%d %H:%M:%S %z", "%Y-%m-%d %H:%M %z", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+        try:
+            parsed = datetime.strptime(value, fmt)
+        except ValueError:
+            continue
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=zone)
+    raise AssertionError(f"fecha no reconocida: {value}")
+
+
+def posts_by_lang() -> dict[str, list[dict[str, object]]]:
+    zone = site_timezone()
+    posts = []
+    for path in sorted((ROOT / "_posts").glob("*.md")):
+        data = front_matter(path)
+        if str(data.get("hidden", "")).lower() == "true":
+            continue
+        data["path"] = path.name
+        data["when"] = parse_date(str(data["date"]), zone)
+        posts.append(data)
+    # Jekyll ordena por fecha y desempata por ruta; site.posts es el orden inverso.
+    posts.sort(key=lambda p: (p["when"], p["path"]), reverse=True)
+    grouped: dict[str, list[dict[str, object]]] = {}
+    for post in posts:
+        grouped.setdefault(str(post.get("lang", "es")), []).append(post)
+    return grouped
+
+
+def expected_related(page: dict[str, object], candidates: list[dict[str, object]]) -> list[str]:
+    own = set(page["tags"])
+    chosen: list[dict[str, object]] = []
+    for need in (3, 2, 1):
+        for post in candidates:
+            if post is page or post in chosen:
+                continue
+            if len(own & set(post["tags"])) >= need:
+                chosen.append(post)
+    for post in candidates:
+        if len(chosen) >= 4:
+            break
+        if post is not page and post not in chosen:
+            chosen.append(post)
+    return [str(p["permalink"]) for p in chosen[:4]]
+
+
+def related_hrefs(page_html: str) -> list[str]:
+    block = page_html.split('class="page__related"', 1)
+    if len(block) < 2:
+        return []
+    titles = re.findall(r'class="archive__item-title[^"]*"[^>]*>.*?<a href="([^"]+)"', block[1], re.DOTALL)
+    return [html.unescape(t) for t in titles][:4]
+
+
+class UxTransversalContract(unittest.TestCase):
+    def test_contract_ids_have_tests(self) -> None:
+        ids = re.findall(r"^\s*-\s*id:\s*(\S+)", CONTRACT.read_text(encoding="utf-8"), re.MULTILINE)
+        self.assertGreater(len(ids), 0)
+        for invariant in ids:
+            self.assertTrue(hasattr(self, "test_" + invariant.replace("-", "_")), invariant)
+
+    def test_theme_color_crema(self) -> None:
+        toggle = rendered("assets/js/theme-toggle.js")
+        match = re.search(r"function updateThemeColor\(theme\)\s*\{(.*?)\n  \}", toggle, re.DOTALL)
+        self.assertIsNotNone(match, "updateThemeColor no encontrado")
+        self.assertIn('"#faf7f0"', match.group(1))
+        self.assertNotIn('"#ffffff"', match.group(1))
+        self.assertIn('<meta name="theme-color" content="#faf7f0"', rendered("index.html"))
+
+    def test_primera_visita_sistema(self) -> None:
+        for page in ("index.html", "en/index.html"):
+            head = rendered(page).split("</head>", 1)[0]
+            self.assertIn("prefers-color-scheme: dark", head, page)
+            self.assertRegex(head, r"storedTheme === null", page)
+        toggle = rendered("assets/js/theme-toggle.js")
+        self.assertRegex(toggle, r"stored === null \?")
+        # El tema del sistema no se guarda como si fuera una elección.
+        self.assertNotRegex(toggle, r"if \(theme === DARK_THEME\) \{\s*storeTheme\(theme\);")
+
+    def test_carrusel_nocturno_contraste(self) -> None:
+        rules = css_rules(css())
+        layer = None
+        for selector, body in rules:
+            if 'academic-night' in selector and selector.endswith(".evidence-carousel"):
+                found = re.search(r"--carousel-layer:\s*(#[0-9a-fA-F]{6})", body)
+                if found:
+                    layer = found.group(1)
+        self.assertIsNotNone(layer, "capa nocturna del carrusel no encontrada")
+        tones = set()
+        for page in SITE.rglob("index.html"):
+            tones.update(re.findall(r'class="evidence-carousel__slide"[^>]*data-tone="([a-z-]+)"', page.read_text(encoding="utf-8")))
+        self.assertGreater(len(tones), 0, "no hay carruseles de evidencia en el sitio")
+        for tone in sorted(tones):
+            color = None
+            for selector, body in rules:
+                plain = selector.replace('"', "").replace("'", "")  # Sass comprimido quita las comillas
+                if ("academic-night" in plain and f"data-tone={tone}]" in plain
+                        and plain.endswith(".evidence-carousel__metric")):
+                    found = re.search(r"(?<![-\w])color:\s*(#[0-9a-fA-F]{6})", body)
+                    if found:
+                        color = found.group(1)
+            self.assertIsNotNone(color, f"tono {tone} sin color nocturno de métrica")
+            self.assertGreaterEqual(contrast(color, layer), 4.5, f"{tone}: {color} sobre {layer}")
+
+    def test_medida_linea(self) -> None:
+        rules = css_rules(css())
+        measures = [re.search(r"--measure:\s*([\d.]+)ch", body) for _, body in rules]
+        measures = [float(m.group(1)) for m in measures if m]
+        self.assertEqual(len(set(measures)), 1, f"--measure ausente o con varios valores: {measures}")
+        self.assertTrue(45 <= measures[0] <= 66, measures[0])
+        prose = re.compile(r"\.page__content\s*>\s*(?::is\()?[^,{]*\bp\b")
+        literal = re.compile(r"max-(?:width|inline-size):\s*[\d.]+ch")
+        users = 0
+        for selector, body in rules:
+            if not prose.search(selector):
+                continue
+            self.assertIsNone(literal.search(body), f"medida literal en {selector}")
+            users += "var(--measure)" in body
+        self.assertGreaterEqual(users, 1, "ninguna regla de prosa usa var(--measure)")
+
+    def test_pie_objetivos_tactiles(self) -> None:
+        for selector, body in css_rules(css()):
+            if selector.replace("  ", " ").endswith(".page__footer-follow .social-icons a"):
+                found = re.search(r"min-block-size:\s*(\d+)px", body)
+                if found and int(found.group(1)) >= 24:
+                    return
+        self.fail("los enlaces sociales del pie no tienen min-block-size >= 24px")
+
+    def test_comentarios_h2(self) -> None:
+        source = (ROOT / "_includes" / "comments.html").read_text(encoding="utf-8")
+        self.assertNotIn('<h4 class="page__comments-title"', source)
+        self.assertIn('<h2 class="page__comments-title"', source)
+
+    def test_relacionados_por_etiquetas(self) -> None:
+        checked = 0
+        for lang, posts in posts_by_lang().items():
+            for post in posts:
+                if str(post.get("related", "true")).lower() == "false":
+                    continue
+                url = str(post["permalink"])
+                built = ("en" + url if lang == "en" and not url.startswith("/en/") else url).strip("/")
+                page = SITE / built / "index.html"
+                self.assertTrue(page.is_file(), page)
+                got = [h.removeprefix("/en") if lang == "en" else h for h in related_hrefs(page.read_text(encoding="utf-8"))]
+                self.assertEqual(got, expected_related(post, posts), url)
+                checked += 1
+        self.assertGreater(checked, 0)
+
+
+if __name__ == "__main__":
+    unittest.main(argv=[sys.argv[0]], verbosity=2)
