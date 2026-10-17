@@ -1,0 +1,13 @@
+{%- comment -%}
+Fecha en el idioma de la página (D5, auditoría UX 2026-10-17). El filtro `date` de
+Liquid escribe %B siempre en inglés: las páginas en español decían «Actualizado:
+September 13, 2026» (15 páginas el 2026-10-17). Uso: {% include fecha.html date=x %}.
+{%- endcomment -%}
+{%- assign fecha_lang = include.lang | default: site.active_lang | default: page.lang | default: site.default_lang | default: "es" -%}
+{%- if fecha_lang == "es" -%}
+  {%- assign fecha_meses = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," -%}
+  {%- assign fecha_mes = include.date | date: "%-m" | minus: 1 -%}
+  {{- include.date | date: "%-d" }} de {{ fecha_meses[fecha_mes] }} de {{ include.date | date: "%Y" -}}
+{%- else -%}
+  {{- include.date | date: "%B %-d, %Y" -}}
+{%- endif -%}

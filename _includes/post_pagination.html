@@ -1,16 +1,32 @@
 {% assign active_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
+{%- comment -%}
+Anterior y siguiente con el título del post (D5, auditoría UX 2026-10-17). Antes eran
+dos celdas con «Anterior» y «Siguiente» y el título escondido en `title`, que no se ve
+en pantallas táctiles ni lo anuncian todos los lectores de pantalla. El extremo sin
+destino ya no es un enlace deshabilitado (`role="link" aria-disabled`): queda una celda
+vacía, oculta a la tecnología asistiva, que solo sostiene la grilla.
+
+page.previous y page.next ya quedan en el mismo idioma con Polyglot: medido sobre
+los 44 enlaces del sitio el 2026-10-17.
+{%- endcomment -%}
 {% if page.previous or page.next %}
-  <nav class="pagination">
+  <nav class="pagination pagination--post" aria-label="{% if active_lang == 'en' %}More posts{% else %}Más publicaciones{% endif %}">
     {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html | strip}}">{{ ui_text.pagination_previous | default: "Previous" }}</a>
+      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager pagination--prev" rel="prev">
+        <span class="pagination__label"><span aria-hidden="true">←</span> {{ ui_text.pagination_previous | default: "Previous" }}</span>
+        <span class="pagination__title">{{ page.previous.title | markdownify | strip_html | strip }}</span>
+      </a>
     {% else %}
-      <a role="link" aria-disabled="true" class="pagination--pager disabled">{{ ui_text.pagination_previous | default: "Previous" }}</a>
+      <span class="pagination--pager pagination--empty" aria-hidden="true"></span>
     {% endif %}
     {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html | strip}}">{{ ui_text.pagination_next | default: "Next" }}</a>
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager pagination--next" rel="next">
+        <span class="pagination__label">{{ ui_text.pagination_next | default: "Next" }} <span aria-hidden="true">→</span></span>
+        <span class="pagination__title">{{ page.next.title | markdownify | strip_html | strip }}</span>
+      </a>
     {% else %}
-      <a role="link" aria-disabled="true" class="pagination--pager disabled">{{ ui_text.pagination_next | default: "Next" }}</a>
+      <span class="pagination--pager pagination--empty" aria-hidden="true"></span>
     {% endif %}
   </nav>
 {% endif %}

@@ -609,5 +609,56 @@ class UxTransversalContract(unittest.TestCase):
             self.assertIn(":not(.page__hero--latest)", sel, "la imagen de marca se descargaría bajo el hero nuevo")
 
 
+    def test_botones_interaccion(self) -> None:
+        rules = css_rules_in_context(css())
+        family = {".btn", ".masthead__nav-link", ".page__taxonomy-item", ".pagination--pager", ".subscribe-rss__topic"}
+        transition = [b for m, sel, b in rules if family <= set(selector_parts(sel)) and "transition-property" in b]
+        self.assertTrue(transition, "sin transición común para botones y controles")
+        for body in transition:
+            props = re.search(r"transition-property:\s*([^;]+)", body).group(1)
+            self.assertNotIn("all", props)
+            self.assertIn("transform", props)
+        focus = [b for _, sel, b in rules if ":focus-visible" in sel and all(f in sel for f in family)]
+        self.assertTrue(focus, "sin foco común")
+        self.assertTrue(any(re.search(r"outline:\s*([2-9])px solid", b) for b in focus))
+        for media, sel, body in rules:
+            if "transform" not in body or not any(f in sel for f in family):
+                continue
+            chain = " ".join(media).replace(" ", "")
+            if ":active" in sel or ":hover" in sel:
+                self.assertIn("prefers-reduced-motion:no-preference", chain, sel)
+            if ":hover" in sel:
+                self.assertIn("hover:hover", chain, sel)
+        self.assertTrue(any(sel.strip() == ".btn" and re.search(r"border-radius:\s*999px", b) for _, sel, b in rules))
+        checked = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            share = text.split('<section class="page__share">', 1)
+            if len(share) == 2:
+                block = share[1].split("</section>", 1)[0]
+                self.assertNotIn("fa-twitter\"", block, page)
+                self.assertIn("fa-x-twitter", block, page)
+            nav = text.split('<nav class="pagination pagination--post"', 1)
+            if len(nav) == 2:
+                block = nav[1].split("</nav>", 1)[0]
+                self.assertNotIn('aria-disabled="true"', block, page)
+                self.assertIn('class="pagination__title"', block, page)
+                checked += 1
+        self.assertGreater(checked, 0, "ningún post con «Anterior / Siguiente»")
+
+    def test_fechas_en_idioma(self) -> None:
+        english = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, 20\d\d")
+        spanish = re.compile(r"\d{1,2} de (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre) de 20\d\d")
+        seen = 0
+        for page in SITE.rglob("index.html"):
+            if "en" in page.relative_to(SITE).parts[:1]:
+                continue
+            text = re.sub(r"<(script|style)\b.*?</\1>", " ", page.read_text(encoding="utf-8"), flags=re.S)
+            visible = re.sub(r"<[^>]+>", " ", text)
+            self.assertIsNone(english.search(visible), f"{page}: fecha con mes en inglés")
+            seen += bool(spanish.search(visible))
+        self.assertGreater(seen, 0, "ninguna página en español muestra una fecha")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

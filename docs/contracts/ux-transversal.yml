@@ -19,7 +19,8 @@ falsified_by: >-
   de la fase 1 de dirección visual (navegación, escala y tablas) reprobaron contra el
   build de origin/main 15929d70 y aprobaron con la rama claude/ux-fase1-20261017. La de
   anatomía del post reprobó contra e6b63368 y aprobó con claude/ux-fase2-20261017. La de
-  portada reprobó contra 812d261a y aprobó con claude/ux-fase3-20261017.
+  portada reprobó contra 812d261a y aprobó con claude/ux-fase3-20261017. Las de
+  botones y fechas reprobaron contra 989493dd y aprobaron con claude/ux-fase4-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -90,3 +91,9 @@ invariants:
   - id: portada-ultima-cucharada
     rule: La página 1 de la portada (ES y EN) abre con el post visible más reciente de su idioma como hero, la grilla no lo repite, el único fetchpriority alto es el del hero y la ficha del autor con sus rel="me" sigue en la portada. La página 2 en adelante conserva el hero de marca.
     why: el hero era una marca genérica con dos botones; el contenido nuevo no tenía lugar propio, y la ficha lleva los rel="me" con que Mastodon, LinkedIn y Bluesky verifican el sitio.
+  - id: botones-interaccion
+    rule: Botones, controles, chips y paginación comparten un lenguaje: transición solo de color, fondo, borde, sombra y transformación (nunca `all`); anillo de foco de al menos 2 px; pulsación y elevación solo sin movimiento reducido, y la elevación solo con `hover: hover`; botones en píldora; «Compartir» monocromo con X; «Anterior / Siguiente» con el título del destino y sin enlaces deshabilitados falsos.
+    why: convivían esquinas de 0, 4 y 999 px, el `transition: all` del tema, los colores de cada red social y un «Anterior / Siguiente» cuyo destino solo estaba en un `title` invisible en táctil.
+  - id: fechas-en-idioma
+    rule: Ninguna página en español muestra una fecha con el mes en inglés; las fechas en español se escriben «13 de septiembre de 2026».
+    why: el filtro date de Liquid escribe %B en inglés y 15 páginas en español decían «Actualizado: September 13, 2026».
