@@ -27,6 +27,7 @@ falsified_by: >-
   recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017. La de
   tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017. La de
   Sass sin @import se vio roja con un @import y con un darken() global inyectados. La de
+  ficha del autor reprobó contra 760944ee y aprobó con claude/ux-ficha-acerca-20261017. La de
   destacados reprobó contra 6948bcd0 y aprobó con claude/ux-destacados-20261017.
 invariants:
   - id: theme-color-crema
@@ -125,3 +126,6 @@ invariants:
   - id: destacados-del-tema
     rule: Citas y avisos, y lo que alojan (como el recuadro de auditoría del Post II), usan la superficie de cada tema (tokens --callout-*), no la de Dracula; la cita no tiene fondo ni sangría y arranca en el borde de la prosa; texto con 4,5:1 y acentos (por tipo y filete de cita) con 3:1 sobre su fondo, en los dos temas. El código conserva Dracula.
     why: los destacados eran un recuadro #343746 con filete morado #bd93f9 idéntico en ambos temas, una losa oscura en el tema claro y un tinte morado en una paleta nocturna de grises; la cita entraba 40 px respecto de la prosa (señalado por la persona usuaria en «Acerca de»).
+  - id: ficha-autor-acerca
+    rule: En la ficha del autor, la foto y el nombre llevan a «Acerca de» del mismo idioma (/about/ o /en/about/), no al inicio; la foto no repite la parada de tabulación del nombre y la h-card conserva u-url y rel="me".
+    why: ambos llevaban al inicio, que ya está en el logo y el título de la cabecera; la persona usuaria pidió que lleven a «Acerca de» (2026-10-17).
