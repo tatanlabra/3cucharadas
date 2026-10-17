@@ -24,7 +24,8 @@ falsified_by: >-
   alineación título→párrafo reprobó contra 58b311d2 y aprobó con claude/ux-sangria-20261017. La de
   región única reprobó contra 782dfc47 y aprobó con claude/ux-region-unica-20261017. La de
   jQuery reprobó contra e912c92b y aprobó con claude/ux-capa2a-20261017. La de
-  recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017.
+  recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017. La de
+  tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -113,3 +114,6 @@ invariants:
   - id: recursos-versionados
     rule: Todo script y hoja de estilo local se enlaza con ?v=<build>, o con una versión o un hash en su propia ruta; ninguno queda con un nombre fijo que el borde o el navegador puedan servir viejo.
     why: el 2026-10-17, al retirar jQuery, Cloudflare siguió sirviendo el lunr-site.js anterior (sin versión, max-age 4 h) y el buscador falló en producción con «$ is not defined» hasta purgarlo; search-store.js arrastraba el mismo defecto con el índice de búsqueda.
+  - id: tokens-de-interfaz
+    rule: Los tokens --ui-* se definen en :root y se redefinen bajo academic-night; resueltos, tinta sobre papel y sobre superficie, enlace sobre superficie y texto fuerte sobre fondo fuerte cumplen 4,5:1 en los dos temas; compartir, paginación, etiquetas y chips usan solo tokens y no tienen reglas propias por tema.
+    why: cada componente nuevo llevaba un par de reglas claro/oscuro con colores literales, y al chip le faltó la suya: en oscuro su borde era invisible y su texto al pasar el cursor quedaba en #123e5c sobre #161616.

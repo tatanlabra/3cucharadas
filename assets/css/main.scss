@@ -4493,10 +4493,37 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
      botón «levantado» después de tocarlo.
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Tokens de interfaz (capa 2, fase B). Un mismo nombre para los dos temas: el
+   valor claro vive en :root y el oscuro se toma de la paleta --night-* bajo
+   academic-night. Los componentes de esta sección ya no llevan pares de reglas
+   claro/oscuro: si un color cambia, cambia aquí. */
 :root {
   --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ui-fast: 140ms;
   --focus-ring: #1f5f8b;
+  --ui-paper: #faf7f0;
+  --ui-surface: #fffdf8;
+  --ui-ink: #1b2a41;
+  --ui-link: #1f5f8b;
+  --ui-line: rgba(27, 42, 65, 0.28);
+  --ui-line-soft: rgba(27, 42, 65, 0.16);
+  --ui-tint: rgba(31, 95, 139, 0.08);
+  --ui-strong-bg: #1b2a41;
+  --ui-strong-fg: #faf7f0;
+  --ui-shadow: 0 0.35rem 1rem rgba(27, 42, 65, 0.1);
+}
+
+html[data-theme="academic-night"] {
+  --ui-paper: var(--night-bg);
+  --ui-surface: var(--night-layer-strong);
+  --ui-ink: var(--night-text);
+  --ui-link: var(--night-link);
+  --ui-line: var(--night-border-strong);
+  --ui-line-soft: var(--night-border-strong);
+  --ui-tint: rgba(244, 244, 244, 0.08);
+  --ui-strong-bg: var(--night-link);
+  --ui-strong-fg: var(--night-bg-dark);
+  --ui-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.45);
 }
 
 .btn,
@@ -4558,27 +4585,15 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
 
 /* ── Compartir: monocromo, sin los colores de cada red ─────────────────────── */
 .page__share .btn {
-  border: 1px solid rgba(27, 42, 65, 0.28);
+  border: 1px solid var(--ui-line);
   background: transparent;
-  color: #1b2a41;
+  color: var(--ui-ink);
 }
 
 .page__share .btn:hover {
-  border-color: #1b2a41;
-  background: #1b2a41;
-  color: #faf7f0;
-}
-
-html[data-theme="academic-night"] .page__share .btn {
-  border-color: var(--night-border-strong);
-  background: transparent;
-  color: var(--night-text);
-}
-
-html[data-theme="academic-night"] .page__share .btn:hover {
-  border-color: var(--night-link);
-  background: var(--night-link);
-  color: var(--night-bg-dark);
+  border-color: var(--ui-strong-bg);
+  background: var(--ui-strong-bg);
+  color: var(--ui-strong-fg);
 }
 
 /* ── Anterior y siguiente: tarjetas con el título del destino ──────────────── */
@@ -4599,10 +4614,10 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   width: auto;
   margin: 0;
   padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(27, 42, 65, 0.16);
+  border: 1px solid var(--ui-line-soft);
   border-radius: 0.65rem;
-  background: #fffdf8;
-  color: #1b2a41;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
   text-align: start;
   text-decoration: none;
 }
@@ -4621,7 +4636,7 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1f5f8b;
+  color: var(--ui-link);
 }
 
 .pagination__title {
@@ -4633,27 +4648,21 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   -webkit-line-clamp: 2;
 }
 
-.pagination--post .pagination--pager:hover {
-  border-color: #1f5f8b;
-  background: #fffdf8;
-  box-shadow: 0 0.35rem 1rem rgba(27, 42, 65, 0.1);
-  color: #1b2a41;
-}
-
+/* Los selectores del tema nocturno para .pagination--pager (más arriba) son más
+   específicos; :not(.pagination--empty) los iguala sin tocar la celda vacía. */
+.pagination--post .pagination--pager:not(.pagination--empty),
 html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty) {
-  border-color: var(--night-border-strong);
-  background: var(--night-layer-strong);
-  color: var(--night-text);
+  border-color: var(--ui-line-soft);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
 }
 
+.pagination--post .pagination--pager:not(.pagination--empty):hover,
 html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty):hover {
-  border-color: var(--night-link);
-  background: var(--night-layer-strong);
-  color: var(--night-text);
-}
-
-html[data-theme="academic-night"] .pagination__label {
-  color: var(--night-link);
+  border-color: var(--ui-link);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow);
+  color: var(--ui-ink);
 }
 
 @media (max-width: 47.99em) {
@@ -4677,13 +4686,16 @@ html[data-theme="academic-night"] .pagination__label {
   align-items: center;
   min-block-size: 24px;
   padding: 0.2em 0.75em;
-  border: 1px solid rgba(27, 42, 65, 0.22);
+  border: 1px solid var(--ui-line);
   border-radius: 999px;
 }
 
+/* El hover del tema pone el texto en $link-color-hover (#123e5c) también en
+   oscuro, donde quedaba ilegible sobre #161616. */
 .page__taxonomy-item:hover {
-  border-color: #1f5f8b;
-  background: rgba(31, 95, 139, 0.08);
+  border-color: var(--ui-link);
+  background: var(--ui-tint);
+  color: var(--ui-ink);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

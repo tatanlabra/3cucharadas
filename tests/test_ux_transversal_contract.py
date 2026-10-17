@@ -739,5 +739,51 @@ class UxTransversalContract(unittest.TestCase):
         self.assertGreater(seen, 0)
 
 
+    def test_tokens_de_interfaz(self) -> None:
+        rules = css_rules_in_context(css())
+        def declared(selector: str) -> dict[str, str]:
+            out: dict[str, str] = {}
+            for media, sel, body in rules:
+                if not media and sel.strip() == selector:
+                    out.update({k: v.strip() for k, v in re.findall(r"(--[\w-]+):\s*([^;]+)", body)})
+            return out
+        root = declared(":root")
+        night = {**root, **declared("html[data-theme=academic-night]")}
+        names = ("--ui-paper", "--ui-surface", "--ui-ink", "--ui-link", "--ui-line", "--ui-strong-bg", "--ui-strong-fg")
+        for name in names:
+            self.assertIn(name, root, f"{name} sin valor claro")
+            self.assertIn(name, declared("html[data-theme=academic-night]"), f"{name} sin valor oscuro")
+        def resolve(table: dict[str, str], name: str) -> str:
+            value = table[name]
+            for _ in range(5):
+                ref = re.fullmatch(r"var\((--[\w-]+)\)", value)
+                if not ref:
+                    break
+                value = table[ref.group(1)]
+            return value
+        for theme, table in (("claro", root), ("oscuro", night)):
+            for fg, bg in (("--ui-ink", "--ui-paper"), ("--ui-ink", "--ui-surface"), ("--ui-link", "--ui-surface"), ("--ui-strong-fg", "--ui-strong-bg")):
+                a, b = resolve(table, fg), resolve(table, bg)
+                self.assertRegex(a + b, r"^#[0-9a-fA-F]{6}#[0-9a-fA-F]{6}$", f"{theme}: {fg}/{bg} no resuelven a hex")
+                self.assertGreaterEqual(contrast(a, b), 4.5, f"{theme}: {fg} {a} sobre {bg} {b}")
+        # Cascada: por selector y propiedad gana la última declaración (las del tema
+        # quedan antes en el CSS compilado); esa tiene que ser un token.
+        components = (".page__share .btn", ".page__share .btn:hover", ".pagination__label",
+                      ".page__taxonomy-item", ".page__taxonomy-item:hover")
+        last: dict[tuple[str, str], str] = {}
+        for media, sel, body in rules:
+            for part in selector_parts(sel):
+                if part in components and not media:
+                    for prop, value in re.findall(r"(?<![-\w])(color|background|background-color|border-color|border):\s*([^;]+)", body):
+                        last[(part, prop)] = value.strip()
+                if "academic-night" in part and any(part.endswith(c) for c in components):
+                    self.fail(f"regla por tema: {part}")
+        self.assertTrue(last)
+        for (part, prop), value in last.items():
+            if re.fullmatch(r"transparent|rgba\(0,\s*0,\s*0,\s*0\)", value):
+                continue
+            self.assertNotRegex(value, r"#[0-9a-fA-F]{3,6}\b|rgba?\(", f"{part} {prop}: color literal {value}")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
