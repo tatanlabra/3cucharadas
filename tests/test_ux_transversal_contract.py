@@ -10,7 +10,9 @@ instead of trusting the Liquid that produces it.
 
 from __future__ import annotations
 
+import hashlib
 import html
+import json
 import re
 import sys
 import unittest
@@ -326,6 +328,90 @@ class UxTransversalContract(unittest.TestCase):
                 duplicated = sorted({n for n in names if names.count(n) > 1})
                 self.assertEqual(duplicated, [], f"{page}: nombres repetidos")
         self.assertGreater(pages, 0, "ninguna página declara nombres de transición")
+
+    def test_identidad_cromatica(self) -> None:
+        compiled = css()
+        for skin in ("#0000ff", "#b60000"):
+            self.assertNotIn(skin, compiled.lower(), f"color de la skin contrast: {skin}")
+        rules = css_rules_in_context(compiled)
+        def color_of(selector: str, prop: str) -> str | None:
+            for _, sel, body in rules:
+                if sel.strip() == selector:
+                    found = re.search(rf"(?<![-\w]){prop}:\s*(#[0-9a-fA-F]{{6}})", body)
+                    if found:
+                        return found.group(1)
+            return None
+        link = color_of("a", "color")
+        self.assertIsNotNone(link, "sin color base de enlace")
+        self.assertGreaterEqual(contrast(link, "#faf7f0"), 4.5, link)
+        toc = color_of(".toc .nav__title", "background")
+        self.assertIsNotNone(toc)
+        self.assertGreaterEqual(contrast("#ffffff", toc), 4.5, toc)
+
+    def test_fuentes_subconjunto(self) -> None:
+        manifest = json.loads((ROOT / "assets" / "fonts" / "subset-manifest.json").read_text(encoding="utf-8"))
+        total = 0
+        for rel, meta in manifest["files"].items():
+            data = (SITE / rel).read_bytes()
+            self.assertEqual(hashlib.sha256(data).hexdigest(), meta["sha256"], rel)
+            total += len(data)
+        self.assertLessEqual(total, 450_000, f"fuentes: {total} bytes")
+        faces = re.findall(r"@font-face\{[^}]*\}", css())
+        served = [re.search(r"url\(([^)]+)\)", f).group(1).strip("\"'").split("?")[0] for f in faces
+                  if "Fira" in f]
+        self.assertTrue(served)
+        for url in served:
+            self.assertIn(url.lstrip("/"), manifest["files"], f"@font-face fuera del manifiesto: {url}")
+        text, code = set(), set()
+        for page in SITE.rglob("*.html"):
+            raw = re.sub(r"<(script|style)\b.*?</\1>", " ", page.read_text(encoding="utf-8", errors="ignore"), flags=re.S | re.I)
+            raw = re.sub(r'<span class="katex.*?</span>\s*</span>\s*</span>', " ", raw, flags=re.S)
+            for block in re.findall(r"<(?:code|pre)\b[^>]*>(.*?)</(?:code|pre)>", raw, flags=re.S | re.I):
+                code.update(ord(c) for c in html.unescape(re.sub(r"<[^>]+>", "", block)) if ord(c) > 31)
+            text.update(ord(c) for c in html.unescape(re.sub(r"<[^>]+>", " ", raw)) if ord(c) > 31)
+        for family, used in (("fira-sans", text), ("firacode-nerd", code)):
+            allowed = set(manifest["covered"][family]) | set(manifest["uncovered_by_original"][family])
+            missing = sorted(hex(c) for c in used - allowed)
+            self.assertEqual(missing, [], f"{family}: caracteres sin cubrir; correr scripts/build_font_subsets.py")
+
+    def test_iconos_autohospedados(self) -> None:
+        manifest = json.loads((ROOT / "assets" / "vendor" / "fontawesome" / "subset-manifest.json").read_text(encoding="utf-8"))
+        for rel, meta in manifest["files"].items():
+            self.assertEqual(hashlib.sha256((SITE / rel).read_bytes()).hexdigest(), meta["sha256"], rel)
+        sheet = rendered("assets/vendor/fontawesome/fa-subset.css")
+        modifiers = {"fa-fw", "fa-lg", "fa-xs", "fa-sm", "fa-solid", "fa-regular", "fa-brands", "fa-spin", "fa-pulse"}
+        used = set()
+        for page in SITE.rglob("*.html"):
+            text = page.read_text(encoding="utf-8", errors="ignore")
+            self.assertNotIn("cdnjs.cloudflare.com/ajax/libs/font-awesome", text, page)
+            for attr in re.findall(r'class="([^"]*\bfa[sbr]?\b[^"]*)"', text):
+                used.update(c for c in attr.split() if c.startswith("fa-") and c not in modifiers)
+        for script in (SITE / "assets" / "js").rglob("*.js"):
+            used.update(c for c in re.findall(r"\bfa-[a-z0-9-]+", script.read_text(encoding="utf-8", errors="ignore"))
+                        if c not in modifiers)
+        self.assertGreater(len(used), 0)
+        for icon in sorted(used):
+            self.assertRegex(sheet, rf"\.{re.escape(icon)}[,{{]", f"ícono sin regla: {icon}")
+            self.assertIn(icon, manifest["icons"], f"ícono fuera del subconjunto: {icon}")
+
+    def test_imagenes_responsivas(self) -> None:
+        data = json.loads((ROOT / "_data" / "image_variants.json").read_text(encoding="utf-8"))
+        self.assertGreater(len(data["images"]), 0)
+        seen = 0
+        for page in SITE.rglob("*.html"):
+            for tag in re.findall(r"<img\b[^>]*>", page.read_text(encoding="utf-8", errors="ignore")):
+                src = re.search(r'\ssrc="([^"?]+)', tag)
+                if not src or src.group(1) not in data["images"]:
+                    continue
+                seen += 1
+                srcset = re.search(r'\ssrcset="([^"]+)"', tag)
+                self.assertIsNotNone(srcset, f"{page}: {src.group(1)} sin srcset")
+                for variant in data["images"][src.group(1)]["variants"]:
+                    self.assertIn(variant["src"], srcset.group(1))
+        self.assertGreater(seen, 0, "ninguna figura declarada aparece en el sitio")
+        for entry in data["images"].values():
+            for variant in entry["variants"]:
+                self.assertTrue((SITE / variant["src"].lstrip("/")).is_file(), variant["src"])
 
 
 if __name__ == "__main__":
