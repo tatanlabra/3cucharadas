@@ -223,12 +223,17 @@ $h-size-4: 1.125em;
   /* Mantiene la medida de lectura en el rango editorial y reserva el ancho
      adicional para mapas, tablas, figuras y notas técnicas. Usa el token común
      --measure (definido más abajo): con 72ch medía 77-78 caracteres por línea,
-     sobre el rango 45-75 que este mismo comentario promete (medido 2026-10-17). */
+     sobre el rango 45-75 que este mismo comentario promete (medido 2026-10-17).
+
+     La prosa arranca en el mismo borde que los títulos y el ancho extra queda a la
+     derecha. Centrada con `margin: auto`, cada párrafo tras un subtítulo parecía
+     sangrado: 88 px a 1.440 y 20 px a 1.100, en los 14 pares título→párrafo del
+     post, cuando los otros 23 posts comparten borde (medido 2026-10-17). */
   body.thesis-extension-post .page__content > :is(p, ul, ol) {
     width: 100%;
     max-width: var(--measure);
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 0;
   }
 }
 

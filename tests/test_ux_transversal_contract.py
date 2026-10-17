@@ -660,5 +660,17 @@ class UxTransversalContract(unittest.TestCase):
         self.assertGreater(seen, 0, "ninguna página en español muestra una fecha")
 
 
+    def test_titulo_y_parrafo_alineados(self) -> None:
+        prose = re.compile(r"\.page__content\s*>\s*(?::is\()?[^,{]*\bp\b")
+        auto_start = re.compile(r"margin-left:\s*auto|margin-inline-start:\s*auto|margin-inline:\s*auto|margin:\s*[^;]*\bauto\b[^;]*\bauto\b")
+        checked = 0
+        for _, selector, body in css_rules_in_context(css()):
+            if not prose.search(selector):
+                continue
+            checked += 1
+            self.assertIsNone(auto_start.search(body), f"prosa centrada (sangría aparente tras los títulos): {selector}")
+        self.assertGreater(checked, 0)
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

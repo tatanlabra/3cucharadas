@@ -20,7 +20,8 @@ falsified_by: >-
   build de origin/main 15929d70 y aprobaron con la rama claude/ux-fase1-20261017. La de
   anatomía del post reprobó contra e6b63368 y aprobó con claude/ux-fase2-20261017. La de
   portada reprobó contra 812d261a y aprobó con claude/ux-fase3-20261017. Las de
-  botones y fechas reprobaron contra 989493dd y aprobaron con claude/ux-fase4-20261017.
+  botones y fechas reprobaron contra 989493dd y aprobaron con claude/ux-fase4-20261017. La de
+  alineación título→párrafo reprobó contra 58b311d2 y aprobó con claude/ux-sangria-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -97,3 +98,6 @@ invariants:
   - id: fechas-en-idioma
     rule: Ninguna página en español muestra una fecha con el mes en inglés; las fechas en español se escriben «13 de septiembre de 2026».
     why: el filtro date de Liquid escribe %B en inglés y 15 páginas en español decían «Actualizado: September 13, 2026».
+  - id: titulo-y-parrafo-alineados
+    rule: La prosa directa de .page__content (p, ul, ol) no se centra con margen automático a la izquierda; arranca en el mismo borde que los títulos y el ancho extra queda a la derecha.
+    why: en el Post II la prosa centrada a 62ch dejaba cada párrafo tras un subtítulo 88 px adentro a 1.440 px (14 de 14 pares), y la persona usuaria lo leía como una sangría.
