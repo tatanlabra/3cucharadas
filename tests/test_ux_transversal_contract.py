@@ -725,5 +725,19 @@ class UxTransversalContract(unittest.TestCase):
                 self.assertNotIn("(s)", value)
 
 
+    def test_recursos_versionados(self) -> None:
+        pinned = re.compile(r"/\d+\.\d+(?:\.\d+)?/|[-.][0-9a-f]{8,}\.(?:js|css)$")
+        seen = 0
+        for page in SITE.rglob("*.html"):
+            text = page.read_text(encoding="utf-8", errors="ignore")
+            refs = re.findall(r'<script\b[^>]*\bsrc="(/[^"]+)"', text)
+            refs += re.findall(r'<link\b[^>]*\brel="stylesheet"[^>]*\bhref="(/[^"]+)"', text)
+            for ref in refs:
+                seen += 1
+                path = ref.split("?", 1)[0]
+                self.assertTrue("?v=" in ref or pinned.search(path), f"{page}: {ref} sin versión")
+        self.assertGreater(seen, 0)
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

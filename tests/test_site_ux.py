@@ -48,8 +48,9 @@ class SiteUxTest(unittest.TestCase):
     def test_search_assets_and_semantics(self) -> None:
         for prefix, expected in (("", "/search-store.js"), ("en/", "/en/search-store.js")):
             home = rendered(prefix + "index.html")
-            self.assertIn(f'<script src="{expected}"></script>', home)
-            self.assertIn('src="/assets/js/lunr/lunr-site.js"', home)
+            # Con ?v=<build>: sin versión, el borde servía 4 h un lunr-site.js viejo.
+            self.assertRegex(home, rf'<script src="{re.escape(expected)}\?v=\d+"></script>')
+            self.assertRegex(home, r'src="/assets/js/lunr/lunr-site\.js\?v=\d+"')
             self.assertNotIn('src="/assets/js/lunr/lunr-store.js"', home)
             self.assertIn('<main id="search-main" class="search-content" tabindex="-1">', home)
             self.assertIn('id="skip-content-link" href="#main"', home)
