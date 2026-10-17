@@ -4,7 +4,7 @@ classes: [thesis-extension-post, thesis-coordinate-audit-annex]
 title: "National audit of MINEDUC–OSM school coordinates"
 subtitle: "Method, aggregate results and limitations of the check used in Post II."
 date: 2026-10-11 19:10:00 -0300
-last_modified_at: 2026-10-11 19:10:00 -0300
+last_modified_at: 2026-10-17 13:40:00 -0300
 categories: [data, education, methods]
 tags: [education, mineduc, openstreetmap, coordinates, data-quality]
 description: "Reproducible technical annex for the aggregate audit of Chilean school coordinates using OpenStreetMap signals."
@@ -59,7 +59,7 @@ Ties retain every alternative. Matching does not use enrolment, SIMCE, admission
 | Cases inside the 250 m commune buffer | 31 |
 | Shared-campus candidates | 207 |
 | Candidate temporal jumps | 750 |
-| Manually reviewed rows | 126 |
+| Sample rows adjudicated by rules | 126 |
 | Confirmed official errors | **0** |
 
 Among establishments with a candidate and a calculable distance, cumulative counts are 5,230 within 100 m; 5,745 within 250 m; 6,013 within 500 m; 6,184 within 1 km; 6,324 within 2 km; and 6,465 within 5 km. These thresholds prioritise review; they are not a truth scale.
@@ -68,7 +68,7 @@ Two OSM links declare a possible MINEDUC source. They remain a shared-source ris
 
 ## Adjudication and interpretation
 
-Manual review covered 126 rows: compatible or divergent explicit references, name matches and duplicate candidates. The outcome was deliberately conservative: **no signal was promoted to a confirmed official error**.
+A stratified sample using seed `20261011`, plus mandatory rows, assembled 126 compatible or divergent explicit references, name matches and duplicate candidates. Rules then adjudicated them. The repository **does not document an independent human review of all 126 rows**, so calling them “manually reviewed” would be inaccurate. The automated outcome was deliberately conservative: **no signal was promoted to a confirmed official error**.
 
 - An invalid coordinate is observable in the official snapshot, but OSM alone does not establish the correct point.
 - A point outside its commune can reflect a border, entrance, move or error; the 250 m buffer prevents cartographic precision from becoming an administrative conclusion.
@@ -78,13 +78,33 @@ Manual review covered 126 rows: compatible or divergent explicit references, nam
 
 ## Public surface, licensing and reproducibility
 
-The public surface contains aggregates only, grouped by region, signal, confidence and distance band. The combined establishment-level table is not published: the MINEDUC portal did not display a licence alongside the files during this review, and that absence is not treated as permission to redistribute them.
+The national audit publishes aggregates only, grouped by region, signal, confidence and distance band. The combined national establishment-level table is not published: the MINEDUC portal did not display a licence alongside the files during this review, and that absence is not treated as permission to redistribute them.
 
 - [Download the aggregate JSON summary](/assets/data/thesis-extension-post2/coordinate-audit-summary.json).
 - Official source: [MINEDUC directory of education establishments](https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/).
 - Cartography: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), under the [ODbL](https://opendatacommons.org/licenses/odbl/1-0/).
 
-The JSON fixes hashes for the aggregate sources and OSM snapshot. It contains no names, individual RBDs, addresses, coordinates or personal identifiers.
+The national JSON fixes hashes for the aggregate sources and OSM snapshot. It contains no names, individual RBDs, addresses, coordinates or personal identifiers.
+
+## Audit of the viewer's six points
+
+The national 2025 audit was insufficient to validate the viewer: three of its six RBDs were closed and a fourth returned no OSM candidate. I therefore ran a scoped check with one decision for **each of the six points**, retaining cases with no candidate.
+
+| Contrast result | Cases |
+|---|---:|
+| Official points retained | 6 |
+| OSM candidates retained for comparison | 5 |
+| No OSM candidate | 1 |
+| Rejected homonyms | 1 |
+| Confirmed official errors | **0** |
+{: .table--compact .table--scroll}
+
+School No. 14 (RBD 391) remains an **unresolved discrepancy**: the 2008–2011 MINEDUC directories list 500 Diego Portales and the homonymous OSM feature is compatible with that site, but it was created in 2022 and states no RBD. The viewer may display it as a historical candidate only while retaining the official 2015 coordinate for comparison.
+
+- [Download the six-point contrast GeoJSON](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
+- [Download its reproducibility manifest](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.manifest.json).
+
+This scoped file contains RBDs, names and coordinates already displayed in Post II, plus OSM identifiers and links. It contains no student data or personal identifiers.
 
 ## What can be concluded
 

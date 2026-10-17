@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="el-salvador-en-title el-salvador-en-desc">
   <title id="el-salvador-en-title">El Salvador: a documented closure and merger</title>
-  <desc id="el-salvador-en-desc">Diagram of School No. 14 and School No. 1, 0.449 kilometres apart, with aggregate enrolment before and after the merger.</desc>
-  <metadata>{&quot;case_id&quot;: &quot;el-salvador&quot;, &quot;closure_rbd&quot;: 391, &quot;coordinate_caveat&quot;: &quot;El Directorio MINEDUC ubica erróneamente el RBD 390 en Diego de Almagro hasta 2019 y lo sitúa en El Salvador desde 2020. Para el mapa se usa la coordenada oficial 2020, coherente con la dirección institucional.&quot;, &quot;not_verified&quot;: [&quot;La baja de matrícula fue la razón administrativa decisiva del cierre.&quot;, &quot;Cada estudiante del RBD 391 se matriculó en el RBD 390.&quot;], &quot;receiver_coordinate_year&quot;: 2020, &quot;receiver_rbd&quot;: 390, &quot;selected_on_event&quot;: true, &quot;sources&quot;: [&quot;https://www.bcn.cl/laborparlamentaria/documento?id=636175&quot;, &quot;https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf&quot;, &quot;https://fees.cl/wp-content/uploads/2020/03/Propuesta-Boletin_08_03_20_Final.pdf&quot;, &quot;https://datosabiertos.mineduc.cl/&quot;], &quot;status&quot;: &quot;documented_descriptive_case&quot;, &quot;systematic_sample_member&quot;: false, &quot;uses_measured_performance_outcomes&quot;: false}</metadata>
+  <desc id="el-salvador-en-desc">Diagram of School No. 14 and School No. 1: ≈1.3 kilometres from the OSM historical-site candidate, versus 0.45 using the 2015 MINEDUC point.</desc>
+  <metadata>{&quot;case_id&quot;: &quot;el-salvador&quot;, &quot;closure_rbd&quot;: 391, &quot;coordinate_caveat&quot;: &quot;Los directorios MINEDUC 2008–2011 ubican el RBD 391 en Diego Portales 500. El mapa usa como candidato de sede histórica el objeto OSM Escuela N° 14, a 826 m del punto MINEDUC 2015, y conserva este último en la auditoría como contraste. Para el RBD 390 se mantiene la coordenada oficial 2020, coherente con Diego Portales 1510 y a 19 m del candidato OSM.&quot;, &quot;not_verified&quot;: [&quot;La baja de matrícula fue la razón administrativa decisiva del cierre.&quot;, &quot;Cada estudiante del RBD 391 se matriculó en el RBD 390.&quot;, &quot;OSM por sí solo confirma que el polígono corresponde al RBD 391 en 2013.&quot;], &quot;receiver_coordinate_year&quot;: 2020, &quot;receiver_rbd&quot;: 390, &quot;selected_on_event&quot;: true, &quot;sources&quot;: [&quot;https://www.bcn.cl/laborparlamentaria/documento?id=636175&quot;, &quot;https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf&quot;, &quot;https://fees.cl/wp-content/uploads/2020/03/Propuesta-Boletin_08_03_20_Final.pdf&quot;, &quot;https://datosabiertos.mineduc.cl/&quot;, &quot;https://www.openstreetmap.org/way/1122520465&quot;], &quot;status&quot;: &quot;documented_descriptive_case&quot;, &quot;systematic_sample_member&quot;: false, &quot;uses_measured_performance_outcomes&quot;: false}</metadata>
   <defs>
     <pattern id="rules-en" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M0 27.5H28" stroke="#94c5df" stroke-opacity=".25"/></pattern>
     <style>
@@ -24,7 +24,7 @@
   <text x="76" y="84" class="title">El Salvador: a documented closure and merger</text>
   <rect x="58" y="122" width="682" height="448" rx="16" fill="#eef3ef" stroke="#a9b9c9"/>
   <path d="M202 422 C315 360 420 303 574 244" fill="none" stroke="#16738a" stroke-width="4" stroke-dasharray="10 9"/>
-  <text x="328" y="318" class="detail">documented merger · 0.449 km</text>
+  <text x="328" y="318" class="detail">documented merger · candidate site ≈1.3 km</text>
   <circle cx="202" cy="422" r="22" fill="#fffaf0" stroke="#b74765" stroke-width="5"/>
   <path d="M191 411l22 22M213 411l-22 22" stroke="#b74765" stroke-width="5"/>
   <text x="88" y="474" class="school">School No. 14 · RBD 391</text>
@@ -34,7 +34,7 @@
   <text x="466" y="184" class="school">School No. 1 · RBD 390</text>
   <text x="410" y="208" class="detail">La Mina · 1510 Diego Portales · documented receiver</text>
   <text x="80" y="528" class="detail">× closure · R receiving school</text>
-  <text x="80" y="552" class="source">Diagram of School No. 14 and School No. 1, 0.449 kilometres apart, with aggregate enrolment before and after the merger.</text>
+  <text x="80" y="552" class="source">Diagram of School No. 14 and School No. 1: ≈1.3 kilometres from the OSM historical-site candidate, versus 0.45 using the 2015 MINEDUC point.</text>
   <g><rect x="770" y="152" width="374" height="88" rx="12" fill="#fffaf0" stroke="#a9b9c9"/>
     <text x="794" y="189" class="metric">1,399</text>
     <text x="794" y="215" class="label">combined enrolment · 2004</text></g>

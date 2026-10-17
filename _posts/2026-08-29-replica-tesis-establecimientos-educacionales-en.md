@@ -69,7 +69,7 @@ The first conclusion held. Between 1992 and 2012, Chile did not merely have more
 The totals are not identical, but they tell the same story. My 2014 working spreadsheet is 3.05 percentage points from the reconstruction and 13.41 from the published prose: the reconstruction resembles the file that produced the figure more closely than the document I signed.
 {: .text-justify}
 
-The second surviving conclusion is distributive. In Greater Santiago, schools that later closed served more vulnerable enrolments: 87.4% versus 78.3% among municipal schools, and 72.2% versus 62.8% among subsidised private schools. All 42 rebuilt cells are compatible with the published rounding margin, although the effective number of observations does not match the printed N. The magnitude survives; the exact universe does not.
+The second surviving conclusion is distributive. In Greater Santiago, schools that later left the register served more vulnerable enrolments: 87.4% versus 78.3% among municipal schools, and 72.2% versus 62.8% among subsidised private schools. All 42 rebuilt cells are compatible with the published rounding margin, although the effective number of observations does not match the printed *N*. The magnitude survives; the exact universe does not.
 {: .text-justify}
 
 This describes selection (who belongs to each group), not effects. With data from 2002 to 2012, Paredes and Fresard associate lower enrolment by grade with a greater probability of closure and study where pupils go afterwards.[^paredes2018] Núñez, Solís, and Soto examine two rural communities in southern Chile after the 2010 earthquake and show that how a school is closed matters to social cohesion.[^nunez2014] My data follow the same units over time, but they cannot establish those findings: they observe administrative flows, not motives, later trajectories, or community life.
@@ -188,7 +188,7 @@ That figure is relevant to public policy precisely because it does not promise w
 | Mismatch | 2 | Tables 5 and 8 fail their pre-specified criterion. |
 | Not comparable by design | 4 | The code ran, but no common series or list of values survives; comparing only appearance would answer another question. |
 
-Table 5 recovers N=30,484 and `duracion3`, but only 10 of 20 coefficients and 11 of 20 standard errors equal the printed rounding. Table 6 retains 35 of 41 magnitudes; Table 7, 10 of 11 fixed effects, except 0.003 versus 0.001. In Table 8, only 4 of 12 match under rounding; eight appear to have been cut off without rounding. “Close” and “equal at published precision” are not synonyms.
+Table 5 recovers *N* = 30,484 and `duracion3`, but only 10 of 20 coefficients and 11 of 20 standard errors equal the printed rounding. Table 6 retains 35 of 41 magnitudes; Table 7, 10 of 11 fixed effects, except 0.003 versus 0.001. In Table 8, only 4 of 12 match under rounding; eight appear to have been cut off without rounding. “Close” and “equal at published precision” are not synonyms.
 {: .text-justify}
 
 Python rebuilt the tables and figures. A new run used Stata 17 through `stata-mp` and completed the 14 routes that could still be executed, including the controlled recovery of `do_058`, `do_059`, and `do_060`.[^stata17][^harvest] The result is a **traceable present-day rerun**, not historical equivalence: it shows that the chain can be traversed today, not that this was the 2014 session.
@@ -199,7 +199,7 @@ I also keep two inventories separate. The registry tested **50 hypotheses**: **3
 
 I did not undertake this archaeology to acquit or condemn my 2014 work. Before constructing 2013–2025, I needed to separate what I could produce again, what was wrong, what was a sensitivity analysis (an alternative result under a different decision), and what could not be compared. I also wanted to subject a thesis that took considerable effort to complete to today's tools. Its failure to emerge intact makes the exercise more useful.
 
-What matters is not vindicating the original, but reaching [part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) with an auditable 1992–2012 base, corrected known errors, and visible limits. Now adding thirteen years makes sense: not to prolong a series, but to learn what changed with the rules and what it means for a school to enter or leave the system.
+What matters is not vindicating the original, but reaching [part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) with an auditable 1992–2012 base, corrected known errors, and visible limits. Now adding thirteen years makes sense: not to prolong a series, but to learn what changed with the rules and what it means for a school to enter or leave the register.
 {: .text-justify}
 
 ## Closing: preparing for 2025
@@ -207,7 +207,7 @@ What matters is not vindicating the original, but reaching [part II]({{ '/datos/
 The thesis ended up organised into four groups: results that survive, 2014 errors, a 2026 version with no known errors, and cases with no valid comparison. That separation shows what to retain and what not to carry into 1992–2025.
 {: .text-justify}
 
-The general direction of reallocation between 1992 and 2012 survives: municipal loss and subsidised-private expansion. Greater vulnerability among schools that later close also survives, **only for the reconstructed Greater Santiago universe**. The scale of the concentration index, the literal reading of “fewer than 15,000 inhabitants”, two variances, several labels, and one key timing definition do not. Discrepancies found in the present route were iterated until the canonical output had no known errors; alternatives remain visible as sensitivity checks, not as the reconstruction.
+The general direction of reallocation between 1992 and 2012 survives: municipal loss and subsidised-private expansion. Greater vulnerability among schools that later leave the register also survives, **only for the reconstructed Greater Santiago universe**. The scale of the concentration index, the literal reading of “fewer than 15,000 inhabitants”, two variances, several labels, and one key timing definition do not. Discrepancies found in the present route were iterated until the canonical output had no known errors; alternatives remain visible as sensitivity checks, not as the reconstruction.
 {: .text-justify}
 
 {: .table-caption}
@@ -228,11 +228,11 @@ The second part cannot add thirteen rows and pretend continuity. A school in the
 The reconstruction leaves a panel that can describe flows, recognise risk signals, and re-estimate associations. It does not observe why each school closed, what would have happened without a reform, or the individual trajectories of its pupils. More controls, fixed effects, sophisticated standard errors, or computing power can reduce some biases; **they do not create the missing counterfactual** (what would have happened without the reform or closure).
 {: .text-justify}
 
-For the extension through 2025 to produce evidence useful for social policy, the second post will have to distinguish three routes rather than sell them as interchangeable:
+[Part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) revisits these three questions without treating them as interchangeable:
 
 <div class="causal-routes causal-routes--en" markdown="1">
 
-| Route | Question and design | Gate it must pass |
+| Route | Question and design | Minimum condition for interpretation |
 |---|---|---|
 | **Descriptive/predictive warning** | Model transitions among active, zero enrolment, recess, official closure, and absence from the register; estimate out-of-sample risk (in years or cases not used to fit the model). | Temporal validation, calibration (predicted risk should resemble observed frequency), decision thresholds, and a distributive audit. It can guide monitoring; it does not estimate effects. |
 | **Staggered reform** | Evaluate changes associated with transfer to Local Education Services using difference-in-differences (comparing changes between affected and unaffected groups) and a cohort event study. | Verified dates and exposure; plausible parallel trends (similar pre-reform evolution), anticipation, composition, and spillovers. If rollout timing responded to risk, the design is not causal by decree. |
@@ -246,7 +246,7 @@ There is, however, a question that comes before econometric design. In a system 
 That changes the public-policy question. The task is neither to prevent every closure nor to preserve every school. It is to determine **who absorbs the cost of transition**: which pupils must move, where they arrive, how much farther they travel, what happens to attendance, learning, and persistence, and what the community loses. Available seats are necessary; they do not exhaust those costs.
 {: .text-justify}
 
-That is where I want to take part II: extend a base whose construction and failures I now understand, distinguish institutional changes from changes in the register, and observe individual trajectories that the 2014 thesis could barely see. They matter in themselves and for what each pupil contributes to their surroundings.
+Part II clarified administrative events, examined institutional comparisons that could not identify effects, and left individual follow-up pending. That boundary matters because a longer dataset cannot replace the student trajectories that the 2014 thesis could barely observe.
 {: .text-justify}
 
 The open question is less comfortable than counting entries and exits: **when does creative destruction genuinely renew educational supply, and when does it merely shift its costs onto pupils, families, and territories with less capacity to absorb them?**

@@ -1,6 +1,6 @@
 {
   "data_governance": {
-    "map_geometry": "official_point_coordinates",
+    "map_geometry": "official points plus one adjudicated historical-site candidate; official observation retained in audit",
     "official_institution_locations": true,
     "personal_identifiers": false,
     "public_school_registry_rows": true,
@@ -10,7 +10,7 @@
   "generated_by": "scripts/render_thesis_extension_stylized.py",
   "generator": {
     "path": "scripts/render_thesis_extension_stylized.py",
-    "sha256": "ded1d0e40773514ac7cb278de38aec6d409df7846379b0994b0e80ef0022278c"
+    "sha256": "d523eea36c6ae15e7f36a19f137917706d2884fad247dd0ff09837bc82d744cc"
   },
   "inputs": {
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/case_trajectory.csv": "97c300319c6c871583a66b801664f84d3081fc7293c55d8d314e98fd540e939a",
@@ -19,16 +19,16 @@
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_case_summary.csv": "af3c6281ea8d3ec7957dcfe77fd7795615e87971072360fc1b6a8ca51342b432",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_links.csv": "fb40b52295ac88875d1c512083e86097f90bfd5076a2f8b5a4587ee83c5886b2",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_points.csv": "10daceed8871bc6ddfa4b28b21a4dfe26495bcf4b404d725f51fd1825669e87f",
-    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "e7f16e78e8bc78c7b7cc6cc275470280f7663742de2240ce5c382756be05dad8"
+    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "cfe6468f34f3c13349061ba8c1e711c9f9412c41480b1e6d6219152757beeaaf"
   },
   "outputs": {
     "_data/thesis_extension_stylized.yml": {
-      "bytes": 23165,
-      "sha256": "2357979962bd554a7b3e19c10160a96e1b6bbf9265e51933242265efc276abc5"
+      "bytes": 23494,
+      "sha256": "a7ab5bceaa549c41f79dda942715a9324364de96f837205b43789bf2fa12b4d0"
     },
     "assets/data/thesis-extension-post2/cases.json": {
-      "bytes": 17386,
-      "sha256": "0a50fa53de925735b4e98acc12a141e4cbea9eebb6c616d4ced70f3954b4b09d"
+      "bytes": 17947,
+      "sha256": "70fc5301c0d8b2f6cde77b65cbef3e95349b6a880a94fe0d68d13636b615ffa5"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-en.svg": {
       "bytes": 6011,
@@ -39,12 +39,12 @@
       "sha256": "53c6c59a99cc236ff742fc757752956ca7b65d87d459e5a171e101aaddced6b6"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-en.svg": {
-      "bytes": 5242,
-      "sha256": "4fffa9b66e2ffbf3472325aa1bef575a763ef777b6208d7d9f1620a68001dba4"
+      "bytes": 5594,
+      "sha256": "4f81dde1e31f456707eabf827f95105d4dede3a05051fc0ac16787c8fe11a7f7"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-el-salvador-es.svg": {
-      "bytes": 5278,
-      "sha256": "1d1c260e13fe068c65055d063f960877dcdb77e75a29a2adcd5091c287f565ed"
+      "bytes": 5608,
+      "sha256": "af5814633fbe9498bb8af2cde2b460f0cdbc03b39c330026c3b4eb5116095997"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg": {
       "bytes": 6322,

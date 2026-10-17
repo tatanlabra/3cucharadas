@@ -373,6 +373,11 @@ def haversine_km(left: Mapping[str, Any], right: Mapping[str, Any]) -> float:
     return 2 * radius * math.asin(math.sqrt(value))
 
 
+def display_coordinate(school: Mapping[str, Any]) -> Mapping[str, Any]:
+    """Return an adjudicated display point without replacing the official observation."""
+    return school.get("display_coordinate") or school
+
+
 def validate_author_case(case: Mapping[str, Any]) -> None:
     if case.get("status") != "documented_descriptive_case":
         raise ValueError("El Salvador dejó de ser un caso descriptivo documentado")
@@ -392,12 +397,26 @@ def validate_author_case(case: Mapping[str, Any]) -> None:
         raise ValueError("identidad RBD de El Salvador derivó")
     if int(receiver["coordinate_reference_year"]) != 2020 or "Diego Portales 1510" not in receiver["address"]:
         raise ValueError("la coordenada receptora no conserva su contraste documental")
-    for school in (closure, receiver):
+    for school in (closure, receiver, display_coordinate(closure)):
         if not (-60 <= float(school["latitude"]) <= -10 and -112 <= float(school["longitude"]) <= -60):
             raise ValueError("coordenada de El Salvador fuera de Chile")
-    observed_distance = haversine_km(closure, receiver)
+    closure_display = display_coordinate(closure)
+    if closure_display is closure:
+        raise ValueError("El Salvador perdió el candidato adjudicado de sede histórica")
+    if (
+        closure_display.get("source_kind") != "osm_historical_site_candidate"
+        or int(closure_display.get("osm_id", 0)) != 1122520465
+        or closure_display.get("temporal_status") != "RETROSPECTIVE_UNVERIFIED"
+        or closure_display.get("final_status") != "DISCREPANCY"
+        or "Diego Portales 500" not in closure["address"]
+    ):
+        raise ValueError("auditoría de coordenada de Escuela N° 14 derivó")
+    observed_distance = haversine_km(closure_display, receiver)
     if abs(observed_distance - float(case["schools"]["geodesic_distance_km"])) > 0.002:
         raise ValueError("distancia de El Salvador no coincide con las coordenadas")
+    official_distance = haversine_km(closure, receiver)
+    if abs(official_distance - float(case["schools"]["official_coordinate_distance_km"])) > 0.002:
+        raise ValueError("contraste oficial de El Salvador no coincide con las coordenadas")
     rows = {int(row["year"]): row for row in case["enrollment"]["rows"]}
     required = {
         2004: (818, 581, 1399),
@@ -1045,15 +1064,23 @@ def render_map(
 
 
 def render_author_case_map(case: Mapping[str, Any], lang: str) -> str:
+    distance_km = float(case["schools"]["geodesic_distance_km"])
+    candidate_distance_label = (
+        f"≈{distance_km:.1f}".replace(".", ",") if lang == "es" else f"≈{distance_km:.1f}"
+    )
+    official_distance = float(case["schools"]["official_coordinate_distance_km"])
+    official_distance_label = (
+        f"{official_distance:.2f}".replace(".", ",") if lang == "es" else f"{official_distance:.2f}"
+    )
     title = (
         "El Salvador: cierre y fusión documentados"
         if lang == "es"
         else "El Salvador: a documented closure and merger"
     )
     desc = (
-        "Esquema de la Escuela N° 14 y la Escuela N° 1, separadas por 0,449 kilómetros, con matrícula agregada antes y después de la fusión."
+        f"Esquema de la Escuela N° 14 y la Escuela N° 1: {candidate_distance_label} kilómetros desde la sede histórica candidata OSM, frente a {official_distance_label} con el punto MINEDUC 2015."
         if lang == "es"
-        else "Diagram of School No. 14 and School No. 1, 0.449 kilometres apart, with aggregate enrolment before and after the merger."
+        else f"Diagram of School No. 14 and School No. 1: {candidate_distance_label} kilometres from the OSM historical-site candidate, versus {official_distance_label} using the 2015 MINEDUC point."
     )
     copy = {
         "es": {
@@ -1062,7 +1089,7 @@ def render_author_case_map(case: Mapping[str, Any], lang: str) -> str:
             "closure_detail": "Óscar Yáñez Pastén · cerró al terminar 2013",
             "receiver": "Escuela N° 1 · RBD 390",
             "receiver_detail": "La Mina · Diego Portales 1510 · receptora documentada",
-            "relationship": "fusión documentada · 0,449 km",
+            "relationship": f"fusión documentada · sede candidata {candidate_distance_label} km",
             "legend": "× cierre · R escuela receptora",
             "m1": "1.399",
             "l1": "matrículas conjuntas · 2004",
@@ -1081,7 +1108,7 @@ def render_author_case_map(case: Mapping[str, Any], lang: str) -> str:
             "closure_detail": "Óscar Yáñez Pastén · closed at the end of 2013",
             "receiver": "School No. 1 · RBD 390",
             "receiver_detail": "La Mina · 1510 Diego Portales · documented receiver",
-            "relationship": "documented merger · 0.449 km",
+            "relationship": f"documented merger · candidate site {candidate_distance_label} km",
             "legend": "× closure · R receiving school",
             "m1": "1,399",
             "l1": "combined enrolment · 2004",
@@ -1239,13 +1266,16 @@ def render_map_data(
             summary["segment_family"],
             (summary["segment_family"], summary["segment_family"]),
         )
+        same_commune = bool(int(summary["same_commune_pairs"]))
+        geography_warning_es = "El par cruza comunas; " if not same_commune else ""
+        geography_warning_en = "The pair crosses municipal boundaries; " if not same_commune else ""
         selection_note_es = (
-            f"Ejemplo de la familia {family_es}; dentro de ella se "
+            f"{geography_warning_es}ejemplo de la familia {family_es}; dentro de ella se "
             "ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad "
             "de resultados participaron"
         )
         selection_note_en = (
-            f"Example from the {family_en} family; within-family ordering "
+            f"{geography_warning_en}example from the {family_en} family; within-family ordering "
             "used same-commune status, distance, year, and RBD. Neither outcome values nor "
             "outcome availability were used"
         )
@@ -1263,13 +1293,7 @@ def render_map_data(
                 "segment_family": summary["segment_family"],
                 "distance_km": float(summary["median_distance_km"]),
                 "distance_band": summary["distance_band"],
-                "same_commune": bool(int(summary["same_commune_pairs"])),
-                "poster_es": asset_path(
-                    f"estilizada-mapa-{slug(summary['commune'])}-es.svg"
-                ),
-                "poster_en": asset_path(
-                    f"estilizada-mapa-{slug(summary['commune'])}-en.svg"
-                ),
+                "same_commune": same_commune,
                 "points": points,
                 "links": links,
                 "trajectories": trajectories,
@@ -1278,6 +1302,7 @@ def render_map_data(
     schools = author_case["schools"]
     closure = schools["closure"]
     receiver = schools["receiver"]
+    closure_display = display_coordinate(closure)
     enrolment = {int(row["year"]): row for row in author_case["enrollment"]["rows"]}
     mineduc_url = next(
         row["url"]
@@ -1297,7 +1322,7 @@ def render_map_data(
             "education_segment": "basic",
             "segment_family": "basic",
             "distance_km": float(schools["geodesic_distance_km"]),
-            "distance_band": "under_1_km",
+            "distance_band": "within_2km",
             "same_commune": True,
             "poster_es": asset_path("estilizada-mapa-el-salvador-es.svg"),
             "poster_en": asset_path("estilizada-mapa-el-salvador-en.svg"),
@@ -1307,12 +1332,21 @@ def render_map_data(
                     "rbd": int(closure["rbd"]),
                     "name": closure["official_name"],
                     "event_year": 2014,
-                    "coordinate_year": int(closure["coordinate_reference_year"]),
-                    "location_lag_years": int(closure["coordinate_reference_year"]) - 2014,
-                    "latitude": float(closure["latitude"]),
-                    "longitude": float(closure["longitude"]),
+                    "coordinate_year": int(str(closure_display["observed_on"])[:4]),
+                    "location_lag_years": int(str(closure_display["observed_on"])[:4]) - 2014,
+                    "latitude": float(closure_display["latitude"]),
+                    "longitude": float(closure_display["longitude"]),
                     "market_segment": "basic",
-                    "source_url": mineduc_url,
+                    "source_url": f"https://www.openstreetmap.org/{closure_display['osm_type']}/{closure_display['osm_id']}",
+                    "coordinate_source_kind": closure_display["source_kind"],
+                    "coordinate_source_label_es": "Candidato de sede histórica OSM",
+                    "coordinate_source_label_en": "OSM historical-site candidate",
+                    "address_evidence": closure["address"],
+                    "official_coordinate_year": int(closure["coordinate_reference_year"]),
+                    "official_latitude": float(closure["latitude"]),
+                    "official_longitude": float(closure["longitude"]),
+                    "official_distance_m": float(closure_display["official_distance_m"]),
+                    "audit_url": "/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson",
                 },
                 {
                     "role": "receiver",
@@ -1325,6 +1359,11 @@ def render_map_data(
                     "longitude": float(receiver["longitude"]),
                     "market_segment": "basic",
                     "source_url": mineduc_url,
+                    "coordinate_source_kind": "official_mineduc",
+                    "coordinate_source_label_es": "Coordenada oficial MINEDUC",
+                    "coordinate_source_label_en": "Official MINEDUC coordinate",
+                    "address_evidence": receiver["address"],
+                    "audit_url": "/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson",
                 },
             ],
             "links": [
@@ -1387,7 +1426,7 @@ def render_map_data(
         }
     )
     payload = {
-        "schema_version": 3,
+        "schema_version": 4,
         "generated_by": "scripts/render_thesis_extension_stylized.py",
         "basemap_manifest": "/assets/data/catastro_sii/manifest.json",
         "selection_rule": (
@@ -1693,6 +1732,19 @@ def render_yaml(
                 entry_label = "unique opening" if entries == 1 else "unique openings"
                 caption = f"{closures} {closure_label} and {entries} {entry_label}; distance "
             caption += f"{fmt_decimal(float(row['median_distance_km']), 3, lang)} km"
+            if int(row["same_commune_pairs"]) == 0:
+                caption += (
+                    "; la apertura queda fuera de la comuna del cierre"
+                    if lang == "es"
+                    else "; the opening lies outside the closure's municipality"
+                )
+            tab_label = f"{row['commune']} · {copy['segment_labels'][row['segment_family']]}"
+            if row["commune"] == "Lo Prado" and int(row["same_commune_pairs"]) == 0:
+                tab_label = (
+                    "Lo Prado · par fuera de comuna"
+                    if lang == "es"
+                    else "Lo Prado · cross-municipality pair"
+                )
             case_points = [
                 point
                 for point in school_points
@@ -1701,6 +1753,7 @@ def render_yaml(
             lines.extend(
                 [
                     f"        - commune: {json.dumps(row['commune'], ensure_ascii=False)}",
+                    f"          tab_label: {json.dumps(tab_label, ensure_ascii=False)}",
                     f"          asset: {asset_path(file_name)}",
                     f"          alt: {json.dumps(alt, ensure_ascii=False)}",
                     f"          caption: {json.dumps(caption, ensure_ascii=False)}",
@@ -1854,7 +1907,7 @@ def build_outputs(
             "student_microdata": False,
             "personal_identifiers": False,
             "third_party_restricted_rows": False,
-            "map_geometry": "official_point_coordinates",
+            "map_geometry": "official points plus one adjudicated historical-site candidate; official observation retained in audit",
         },
         "visual_lineage": {
             "reference": "assets/src/catastro_sii/chart-theme.ts",

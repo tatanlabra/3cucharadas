@@ -48,12 +48,10 @@
           "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
         }
       ],
-      "poster_en": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-en.svg",
-      "poster_es": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-barnechea-es.svg",
       "same_commune": true,
       "segment_family": "initial",
-      "selection_note_en": "Example from the pre-primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
-      "selection_note_es": "Ejemplo de la familia educación inicial; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
+      "selection_note_en": "example from the pre-primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
+      "selection_note_es": "ejemplo de la familia educación inicial; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
       "selection_rank": 1,
       "trajectories": [
         {
@@ -355,12 +353,10 @@
           "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
         }
       ],
-      "poster_en": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-en.svg",
-      "poster_es": "/assets/images/extender-tesis-no-es-agregar-anos/estilizada-mapa-lo-prado-es.svg",
       "same_commune": false,
       "segment_family": "basic",
-      "selection_note_en": "Example from the primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
-      "selection_note_es": "Ejemplo de la familia educación básica; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
+      "selection_note_en": "The pair crosses municipal boundaries; example from the primary family; within-family ordering used same-commune status, distance, year, and RBD. Neither outcome values nor outcome availability were used",
+      "selection_note_es": "El par cruza comunas; ejemplo de la familia educación básica; dentro de ella se ordenó por misma comuna, distancia, año y RBD. Ni valores ni disponibilidad de resultados participaron",
       "selection_rank": 2,
       "trajectories": [
         {
@@ -469,8 +465,8 @@
       "case": "author-el-salvador",
       "case_kind": "author_documented",
       "commune": "El Salvador",
-      "distance_band": "under_1_km",
-      "distance_km": 0.448903,
+      "distance_band": "within_2km",
+      "distance_km": 1.272025,
       "education_segment": "basic",
       "event_period": "2013–2014",
       "id": "el-salvador",
@@ -478,7 +474,7 @@
         {
           "closure_rbd": 391,
           "closure_year": 2014,
-          "distance_km": 0.448903,
+          "distance_km": 1.272025,
           "market_segment": "basic",
           "receiver_rbd": 390,
           "receiver_year": 2014,
@@ -487,18 +483,32 @@
       ],
       "points": [
         {
-          "coordinate_year": 2015,
+          "address_evidence": "Avenida Diego Portales 500",
+          "audit_url": "/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson",
+          "coordinate_source_kind": "osm_historical_site_candidate",
+          "coordinate_source_label_en": "OSM historical-site candidate",
+          "coordinate_source_label_es": "Candidato de sede histórica OSM",
+          "coordinate_year": 2026,
           "event_year": 2014,
-          "latitude": -26.244385,
-          "location_lag_years": 1,
-          "longitude": -69.627083,
+          "latitude": -26.24743105,
+          "location_lag_years": 12,
+          "longitude": -69.634624116,
           "market_segment": "basic",
           "name": "Escuela Oscar Yañez Pastén",
+          "official_coordinate_year": 2015,
+          "official_distance_m": 825.551,
+          "official_latitude": -26.244385,
+          "official_longitude": -69.627083,
           "rbd": 391,
           "role": "closure",
-          "source_url": "https://datosabiertos.mineduc.cl/"
+          "source_url": "https://www.openstreetmap.org/way/1122520465"
         },
         {
+          "address_evidence": "Avenida Diego Portales 1510",
+          "audit_url": "/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson",
+          "coordinate_source_kind": "official_mineduc",
+          "coordinate_source_label_en": "Official MINEDUC coordinate",
+          "coordinate_source_label_es": "Coordenada oficial MINEDUC",
           "coordinate_year": 2020,
           "event_year": 2014,
           "latitude": -26.243219,
@@ -567,6 +577,6 @@
     }
   ],
   "generated_by": "scripts/render_thesis_extension_stylized.py",
-  "schema_version": 3,
+  "schema_version": 4,
   "selection_rule": "first one strict entity-segment pair per preferred education family; within each family, ranked by same-commune status, distance, year, and stable identifiers; neither outcome values nor outcome availability were used"
 }

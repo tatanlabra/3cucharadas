@@ -34,16 +34,16 @@
 
   const fallback = () => {
     host.dataset.mapState = "fallback";
-    const tabs = host.querySelector(".thesis-market-map__tabs");
+    const tabs = host.querySelector("[data-market-map-tabs]");
     if (tabs) tabs.hidden = true;
     host.querySelectorAll("[data-market-map-tab]").forEach((button) => {
       button.disabled = true;
       button.tabIndex = -1;
     });
-    const canvas = host.querySelector("[data-market-map-canvas]");
-    if (canvas) canvas.hidden = true;
-    const aside = host.querySelector("[data-market-map-aside]");
-    if (aside) aside.hidden = true;
+    const panel = host.querySelector("[data-market-map-panel]");
+    if (panel) panel.hidden = true;
+    const fallbackGrid = host.querySelector("[data-market-map-fallback-grid]");
+    if (fallbackGrid) fallbackGrid.hidden = false;
     const status = host.querySelector("[data-market-map-status]");
     if (status) status.textContent = host.dataset.fallbackMessage || "Mapa interactivo no disponible; se conserva la lámina estática.";
   };

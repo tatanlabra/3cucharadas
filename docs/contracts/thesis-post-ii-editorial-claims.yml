@@ -1,0 +1,41 @@
+schema: thesis-post-ii-editorial-claims-v1
+post_ref: extender-tesis-no-es-agregar-anos
+locales: [es, en]
+rule: Every core claim must remain visible outside closed details in both locales.
+claims:
+  - id: claim-causal-boundary
+    class: limitation
+    requirement: Turnover effects are not identified and non-identification is not a zero effect.
+  - id: claim-event-count
+    class: descriptive
+    requirement: 900 official closures, 684 from activity, and 330 strict closures remain distinguished.
+  - id: claim-demography
+    class: contextual
+    requirement: INE population projection is not described as enrolment or a closure forecast.
+  - id: claim-enrolment-path
+    class: descriptive
+    requirement: Medians 28 to 23 to 1 are group snapshots and do not identify a mechanism.
+  - id: claim-outcomes
+    class: noncausal_estimate
+    requirement: SIMCE 21-case estimate and eight-case non-estimable admissions result remain qualified.
+  - id: claim-territorial
+    class: descriptive
+    requirement: 38 closures and 29 openings describe proximity, not substitution or destinations.
+  - id: claim-el-salvador
+    class: documented_author_case
+    requirement: Merger facts and the author's biographical selection remain explicit and separate.
+  - id: claim-new-schools
+    class: not_estimable
+    requirement: Entrant outcomes are not estimable and are never interpreted as zero.
+  - id: claim-decomposition
+    class: accounting
+    requirement: Turnover contributions remain accounting identities; the positive admissions interval is visible but never promoted to a causal effect.
+  - id: claim-slep-sae
+    class: not_identified
+    requirement: Neither SLEP nor SAE findings are promoted to causal policy effects.
+  - id: claim-policy-use
+    class: decision_boundary
+    requirement: Evidence supports observation and diagnosis, not a closure rule or ranking.
+  - id: claim-open-question
+    class: unresolved
+    requirement: Continuity and distribution of transition costs remain open questions.

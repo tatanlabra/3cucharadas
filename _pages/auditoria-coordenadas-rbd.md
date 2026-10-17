@@ -4,7 +4,7 @@ classes: [thesis-extension-post, thesis-coordinate-audit-annex]
 title: "Auditoría nacional de coordenadas escolares MINEDUC–OSM"
 subtitle: "Método, resultados agregados y límites del control usado en el Post II."
 date: 2026-10-11 19:10:00 -0300
-last_modified_at: 2026-10-11 19:10:00 -0300
+last_modified_at: 2026-10-17 13:40:00 -0300
 categories: [datos, educacion, metodologia]
 tags: [educacion, mineduc, openstreetmap, coordenadas, calidad-de-datos]
 description: "Anexo técnico reproducible de la auditoría agregada de coordenadas de establecimientos educacionales chilenos con señales de OpenStreetMap."
@@ -59,7 +59,7 @@ Los empates conservan todas sus alternativas. El matching no usa matrícula, SIM
 | Casos dentro del buffer comunal de 250 m | 31 |
 | Candidatos de campus compartido | 207 |
 | Saltos temporales candidatos | 750 |
-| Filas revisadas manualmente | 126 |
+| Filas de muestra adjudicadas por reglas | 126 |
 | Errores oficiales confirmados | **0** |
 
 Entre los establecimientos con candidato y distancia calculable, los conteos acumulados son 5.230 hasta 100 m; 5.745 hasta 250 m; 6.013 hasta 500 m; 6.184 hasta 1 km; 6.324 hasta 2 km; y 6.465 hasta 5 km. Estos umbrales priorizan revisión: no son una escala de verdad.
@@ -68,7 +68,7 @@ Dos enlaces OSM declaran una posible fuente MINEDUC. Se conservan como riesgo de
 
 ## Adjudicación e interpretación
 
-La revisión manual cubrió 126 filas: referencias explícitas compatibles o divergentes, matches nominales y candidatos de duplicado. El resultado fue deliberadamente conservador: **ninguna señal se elevó a error oficial confirmado**.
+Una muestra estratificada con semilla `20261011`, más filas obligatorias, reunió 126 filas con referencias explícitas compatibles o divergentes, coincidencias nominales y candidatos de duplicado. Luego se adjudicó por reglas. El repositorio **no documenta una revisión humana independiente de las 126 filas**, por lo que no corresponde llamarlas «revisadas manualmente». El resultado automatizado fue deliberadamente conservador: **ninguna señal se elevó a error oficial confirmado**.
 
 - Una coordenada inválida es un problema observable del snapshot oficial, pero OSM por sí solo no acredita el punto correcto.
 - Un punto fuera de la comuna puede reflejar borde, acceso, traslado o error; el buffer de 250 m evita convertir precisión cartográfica en una conclusión administrativa.
@@ -78,13 +78,33 @@ La revisión manual cubrió 126 filas: referencias explícitas compatibles o div
 
 ## Superficie pública, licencia y reproducibilidad
 
-La superficie pública contiene únicamente agregados por región, señal, confianza y banda de distancia. El cruce combinado por establecimiento no se publica: el portal MINEDUC no mostró una licencia adjunta a los archivos durante esta revisión y esa ausencia no se interpreta como permiso de redistribución.
+La auditoría nacional publica únicamente agregados por región, señal, confianza y banda de distancia. El cruce nacional por establecimiento no se publica: el portal MINEDUC no mostró una licencia adjunta a los archivos durante esta revisión y esa ausencia no se interpreta como permiso de redistribución.
 
 - [Descargar el resumen agregado en JSON](/assets/data/thesis-extension-post2/coordinate-audit-summary.json).
 - Fuente oficial: [Directorio de establecimientos educacionales MINEDUC](https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/).
 - Cartografía: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), bajo [ODbL](https://opendatacommons.org/licenses/odbl/1-0/).
 
-El JSON fija hashes de las fuentes agregadas y el snapshot OSM. No contiene nombres, RBD individuales, direcciones, coordenadas ni identificadores personales.
+El JSON nacional fija hashes de las fuentes agregadas y el snapshot OSM. No contiene nombres, RBD individuales, direcciones, coordenadas ni identificadores personales.
+
+## Auditoría específica de los seis puntos del visor
+
+La auditoría nacional 2025 no bastaba para validar el visor: tres de sus seis RBD estaban cerrados y un cuarto no obtuvo candidato OSM. Por eso se ejecutó un control específico, con una decisión para **cada uno de los seis puntos** y sin descartar los casos sin candidato.
+
+| Resultado del contraste | Casos |
+|---|---:|
+| Puntos oficiales conservados | 6 |
+| Candidatos OSM retenidos para contraste | 5 |
+| Sin candidato OSM | 1 |
+| Homónimos rechazados | 1 |
+| Errores oficiales confirmados | **0** |
+{: .table--compact .table--scroll}
+
+La Escuela N° 14 (RBD 391) queda como **discrepancia no resuelta**: los directorios MINEDUC 2008–2011 registran Diego Portales 500 y el objeto OSM homónimo es compatible con esa sede, pero fue creado en 2022 y no declara RBD. El visor puede mostrarlo como candidato histórico siempre que conserve la coordenada oficial 2015 como contraste.
+
+- [Descargar el GeoJSON del contraste de los seis puntos](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
+- [Descargar su manifiesto reproducible](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.manifest.json).
+
+Este archivo de alcance acotado contiene RBD, nombres y coordenadas que ya se muestran en el Post II, además de identificadores y enlaces OSM. No contiene datos de estudiantes ni identificadores personales.
 
 ## Qué permite concluir
 
