@@ -15,7 +15,9 @@ falsified_by: >-
   claude/ux-transversal-20261017; las 3 de movimiento se vieron rojas con su
   defecto inyectado (ver el commit que las agrega). Las 4 de la ronda high-end
   (avisos, entrada animada, minutos y objetivos del autor) reprobaron contra el
-  build de origin/main 6543e912 y aprobaron con la rama claude/ux-highend-20261017.
+  build de origin/main 6543e912 y aprobaron con la rama claude/ux-highend-20261017. Las 3
+  de la fase 1 de dirección visual (navegación, escala y tablas) reprobaron contra el
+  build de origin/main 15929d70 y aprobaron con la rama claude/ux-fase1-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -71,3 +73,12 @@ invariants:
   - id: autor-cabecera-objetivos-tactiles
     rule: Los enlaces del perfil del autor y el título del sitio miden al menos 24 px de alto (WCAG 2.5.8).
     why: medían 19 y 18 px en móvil (U14).
+  - id: navegacion-en-linea
+    rule: Desde 64em los enlaces de navegación se ven en línea y el botón «Menú» desaparece; bajo 64em sigue el panel plegado. Cada regla de 64em tiene el mismo selector que la que reemplaza, de modo que gana por orden y no por especificidad.
+    why: a ningún ancho se veía una sección del sitio sin abrir el menú (U12); la versión anterior en línea había dejado el panel abierto por una guerra de especificidad.
+  - id: escala-y-lectura-fina
+    rule: Los títulos siguen una escala de razón 1,25 sobre el cuerpo (h4 1,125em, h3 1,25em, h2 1,5625em, h1 1,953em); el texto de avisos mide 0,875em del cuerpo, los pies de figura 0,8em y el índice no parte palabras con guion.
+    why: h2 y h3 medían 1,25 y 1,125 veces el cuerpo; avisos y pies quedaban a 13,5 px y el índice a 12,4 px con «re-sidencial» y «diferen-cia».
+  - id: tablas-leyenda-y-fondo
+    rule: --fondo vale el fondo de la página y lo usan las sombras de .tabla-desliza; cada .tabla-desliza contiene su ancho y su leyenda mide el visor (100cqi) y queda fija al desplazar.
+    why: 120 de 122 tablas tenían un parche casi blanco sobre el crema; 6 tablas se salían de la columna de texto y 6 leyendas se cortaban a mitad de frase en móvil.
