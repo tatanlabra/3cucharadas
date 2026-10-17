@@ -854,5 +854,26 @@ class UxTransversalContract(unittest.TestCase):
                 self.assertNotRegex(body.lower(), r"#343746|#2b2e3b|#3d4050|#44475a|#8be9fd|#f8f8f2", f"{selector}: color Dracula")
 
 
+    def test_ficha_autor_acerca(self) -> None:
+        checked = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            card = re.search(r'<div itemscope itemtype="https://schema.org/Person" class="h-card">(.*?)<div class="author__urls-wrapper">', text, re.S)
+            if not card:
+                continue
+            checked += 1
+            about = "/en/about/" if page.relative_to(SITE).parts[:1] == ("en",) else "/about/"
+            avatar = re.search(r'<div class="author__avatar">\s*<a ([^>]*)>', card.group(1))
+            name = re.search(r'<p class="author__name p-name"[^>]*>\s*<a ([^>]*)>', card.group(1))
+            self.assertIsNotNone(name, page)
+            self.assertIn(f'href="{about}"', name.group(1), f"{page}: el nombre no lleva a {about}")
+            self.assertRegex(name.group(1), r'class="u-url"')
+            self.assertRegex(name.group(1), r'rel="me"')
+            if avatar:
+                self.assertIn(f'href="{about}"', avatar.group(1), f"{page}: la foto no lleva a {about}")
+                self.assertIn('tabindex="-1"', avatar.group(1), f"{page}: la foto repite la parada de tabulación")
+        self.assertGreater(checked, 0, "ninguna página con ficha del autor")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

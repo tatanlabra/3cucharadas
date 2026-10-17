@@ -12,11 +12,19 @@
   {% assign author_bio = brand.author_bio | default: author.bio %}
 {% endif %}
 
+{%- comment -%}
+Foto y nombre llevan a «Acerca de», no al inicio (pedido de la persona usuaria,
+2026-10-17): la ficha presenta a la persona y el inicio ya está en el logo y el título
+de la cabecera. relative_url y no absolute_url: Polyglot localiza la ruta relativa y en
+inglés queda /en/about/. La foto sale del orden de tabulación y de la tecnología
+asistiva porque el nombre, justo después, es el mismo enlace con texto.
+{%- endcomment -%}
+{% assign author_about_url = '/about/' | relative_url %}
 <div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   {% if author.avatar %}
     <div class="author__avatar">
-      <a href="{{ author.home | default: '/' | absolute_url }}">
+      <a href="{{ author_about_url }}" tabindex="-1" aria-hidden="true">
         {% if author.avatar contains '/assets/images/clabra2026.webp' %}
           <img src="{{ '/assets/images/clabra2026-320.webp' | relative_url }}" srcset="{{ '/assets/images/clabra2026-320.webp' | relative_url }} 320w, {{ author.avatar | relative_url }} 1122w" sizes="(max-width: 1024px) 56px, 160px" width="160" height="200" decoding="async" alt="{{ author.name }}" itemprop="image" class="u-photo">
         {% else %}
@@ -28,7 +36,7 @@
 
   <div class="author__content">
     <p class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
+      <a class="u-url" rel="me" href="{{ author_about_url }}" itemprop="url"{% if page.url == '/about/' %} aria-current="page"{% endif %}>{{ author.name }}</a>
     </p>
     {% if author_bio %}
       <div class="author__bio p-note" itemprop="description">
