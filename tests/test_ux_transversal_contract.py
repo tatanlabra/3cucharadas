@@ -841,6 +841,10 @@ class UxTransversalContract(unittest.TestCase):
         self.assertIn(last.get((quote, "background")), ("transparent", "rgba(0,0,0,0)"))
         for (part, prop), value in last.items():
             self.assertNotRegex(value.lower(), r"#343746|#bd93f9|#6272a4", f"{part} {prop}: superficie Dracula")
+        # Ningún componente alojado en un destacado conserva colores pensados para Dracula.
+        for _, selector, body in rules:
+            if "thesis-coordinate-audit" in selector:
+                self.assertNotRegex(body.lower(), r"#343746|#2b2e3b|#3d4050|#44475a|#8be9fd|#f8f8f2", f"{selector}: color Dracula")
 
 
 if __name__ == "__main__":

@@ -1451,16 +1451,6 @@ html[data-theme="academic-night"] .page__content :is(.notice, .notice--primary, 
   color: var(--ui-link);
 }
 
-/* Excepción acotada: el recuadro de auditoría geográfica del Post II (componente de
-   Codex) fija leyendas y enlaces para fondo oscuro; conserva su superficie hasta que
-   ese componente migre a los tokens. */
-.page__content .thesis-coordinate-audit,
-html[data-theme="academic-night"] .page__content .thesis-coordinate-audit {
-  border-color: #6272a4;
-  background: #343746;
-  color: #f8f8f2;
-}
-
 /* Código: Dracula Classic en claro y nocturno para evitar dos gramáticas visuales. */
 .page__content :not(pre) > code,
 .page__content kbd {
@@ -3326,34 +3316,41 @@ html[data-theme="academic-night"] .evidence-carousel__full-size-link:focus-visib
 .technical-disclosure > :last-child { margin-bottom: 0; }
 html[data-theme="academic-night"] .technical-disclosure { background: #262626; border-color: #6f6f6f; }
 
-/* Post II · recuadro de auditoría geográfica. La notice usa superficie Dracula
-   en ambos temas; se neutraliza aquí la cebra clara global de las tablas para
-   que texto, enlaces y filas compartan una relación de contraste medible. */
+/* Post II · recuadro de auditoría geográfica. Usa la superficie de destacados de
+   cada tema (tokens --callout-*, h14); antes fijaba colores para el fondo Dracula y
+   era la única excepción oscura. Se neutraliza la cebra clara global de las tablas
+   con un tinte del propio tema para que texto, enlaces y filas tengan contraste
+   medible en claro y en oscuro. */
 .page__content .thesis-coordinate-audit a {
-  color: #8be9fd;
+  color: var(--ui-link);
   text-decoration: underline;
   text-underline-offset: 0.14em;
 }
 .page__content .thesis-coordinate-audit .tabla-desliza {
-  --fondo: #343746;
-  background: #343746;
+  --fondo: var(--callout-bg);
+  background: var(--callout-bg);
 }
 .page__content .thesis-coordinate-audit table caption {
-  color: #f8f8f2;
+  color: var(--callout-ink);
+}
+/* La cebra global pinta la fila (tr); el tinte de abajo es translúcido y se
+   sumaba a ella. Dentro del recuadro la fila no lleva fondo propio. */
+.page__content .thesis-coordinate-audit table tbody tr {
+  background: transparent;
 }
 .page__content .thesis-coordinate-audit table tbody tr:nth-child(odd) th,
 .page__content .thesis-coordinate-audit table tbody tr:nth-child(odd) td {
-  background: #2b2e3b;
-  color: #f8f8f2;
+  background: var(--callout-bg);
+  color: var(--callout-ink);
 }
 .page__content .thesis-coordinate-audit table tbody tr:nth-child(even) th,
 .page__content .thesis-coordinate-audit table tbody tr:nth-child(even) td {
-  background: #3d4050;
-  color: #f8f8f2;
+  background: var(--ui-tint);
+  color: var(--callout-ink);
 }
 .page__content .thesis-coordinate-audit table tbody tr:hover th,
 .page__content .thesis-coordinate-audit table tbody tr:hover td {
-  background: #44475a;
+  background: var(--ui-tint);
 }
 
 /* Post II · evidencia estilizada. Bloque aislado: no altera los carruseles
