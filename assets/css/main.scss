@@ -185,10 +185,12 @@ $max-width: 1375px;
   }
 
   /* Mantiene la medida de lectura en el rango editorial y reserva el ancho
-     adicional para mapas, tablas, figuras y notas técnicas. */
+     adicional para mapas, tablas, figuras y notas técnicas. Usa el token común
+     --measure (definido más abajo): con 72ch medía 77-78 caracteres por línea,
+     sobre el rango 45-75 que este mismo comentario promete (medido 2026-10-17). */
   body.thesis-extension-post .page__content > :is(p, ul, ol) {
     width: 100%;
-    max-width: 72ch;
+    max-width: var(--measure);
     margin-right: auto;
     margin-left: auto;
   }
@@ -2997,6 +2999,13 @@ html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color
 .evidence-carousel__slide[data-tone="past-error"] { --tone: #a12649; }
 .evidence-carousel__slide[data-tone="present-error"] { --tone: #9e4200; }
 .evidence-carousel__slide[data-tone="tentative"] { --tone: #6951a3; }
+/* Modo nocturno: como texto sobre #262626 estos tonos quedaban entre 2,08 y 2,65:1.
+   Solo se aclara la métrica: --tone sigue siendo el fondo del veredicto, que lleva
+   texto blanco y se rompe si el tono se aclara (medido 2026-10-17, >= 4,6:1). */
+html[data-theme="academic-night"] .evidence-carousel__slide[data-tone="match"] .evidence-carousel__metric { color: #619a79; }
+html[data-theme="academic-night"] .evidence-carousel__slide[data-tone="survived"] .evidence-carousel__metric { color: #6596ac; }
+html[data-theme="academic-night"] .evidence-carousel__slide[data-tone="past-error"] .evidence-carousel__metric { color: #c5788e; }
+html[data-theme="academic-night"] .evidence-carousel__slide[data-tone="tentative"] .evidence-carousel__metric { color: #9685bf; }
 .evidence-carousel__slide[data-tone="limit"] { --tone: #596273; }
 
 .evidence-carousel__slide-header {
@@ -3818,4 +3827,27 @@ html:not([data-theme="academic-night"]) .page__content .evidence-carousel--styli
   .page__content .thesis-stylized__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .page__content .evidence-carousel--stylized .thesis-stylized__figure figcaption { grid-template-columns: 1fr; }
   .page__content .evidence-carousel--stylized .thesis-stylized__hd-link { justify-self: start; }
+}
+
+/* Medida de línea (auditoría UX 2026-10-17): la prosa medía 85-87 caracteres por
+   línea de mediana en tablet (máx. 121) y 75-78 en escritorio. En Fira Sans un `ch`
+   (el ancho del «0») equivale a ~1,2 caracteres medios: 62ch deja 69 por línea a
+   1440 px y 74 a 768 px, el máximo que mantiene la tablet dentro de 45-75.
+   Un solo token para todo el sitio; tests/test_ux_transversal_contract.py lo exige.
+   No toca figuras, tablas ni carruseles, que conservan el ancho de la columna. */
+:root {
+  --measure: 62ch;
+}
+.page__content > p,
+.page__content > ul,
+.page__content > ol,
+.page__content > blockquote {
+  max-inline-size: var(--measure);
+}
+
+/* Objetivos táctiles del pie: 14 px de alto en móvil, bajo el mínimo de 24 px de WCAG 2.5.8. */
+.page__footer-follow .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
 }

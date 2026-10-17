@@ -13,7 +13,9 @@
 
   function readStoredTheme() {
     try {
-      return normalizeTheme(window.localStorage.getItem(STORAGE_KEY));
+      var stored = window.localStorage.getItem(STORAGE_KEY);
+      // Sin elección guardada manda lo que resolvió head.html (incluido el tema del sistema).
+      return stored === null ? normalizeTheme(root.getAttribute("data-theme")) : normalizeTheme(stored);
     } catch (error) {
       return normalizeTheme(root.getAttribute("data-theme"));
     }
@@ -30,7 +32,7 @@
   function updateThemeColor(theme) {
     var themeColor = document.querySelector("meta[data-theme-color]");
     if (themeColor) {
-      themeColor.setAttribute("content", theme === DARK_THEME ? "#161616" : "#ffffff");
+      themeColor.setAttribute("content", theme === DARK_THEME ? "#161616" : "#faf7f0");
     }
   }
 
@@ -65,10 +67,15 @@
   }
 
   function initializeThemeToggle() {
-    var theme = applyTheme(readStoredTheme());
+    applyTheme(readStoredTheme());
 
-    if (theme === DARK_THEME) {
-      storeTheme(theme);
+    // Solo se migra el valor heredado; el tema del sistema no se persiste como elección.
+    try {
+      if (window.localStorage.getItem(STORAGE_KEY) === LEGACY_DARK_THEME) {
+        storeTheme(DARK_THEME);
+      }
+    } catch (error) {
+      // Sin almacenamiento no hay nada que migrar.
     }
 
     var buttons = document.querySelectorAll("[data-theme-toggle]");

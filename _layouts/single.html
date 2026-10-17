@@ -101,10 +101,38 @@ layout: default
   </article>
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
-  {% if page.id and page.related and site.related_posts.size > 0 %}
-    {% include page__related.html posts=site.related_posts %}
-  {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
-  {% elsif page.id and page.related %}
-    {% include page__related.html posts=site.posts %}
+  {%- comment -%}
+  Con `lsi: false`, `site.related_posts` son los 10 más recientes: el Post II mostraba
+  su propia parte I en tercer lugar solo por fecha. Se ordena por etiquetas compartidas
+  (3, 2 y 1) y se completa con recientes. Sin plugin: 24 posts x ~10 etiquetas.
+  {%- endcomment -%}
+  {% if page.id and page.related %}
+    {%- assign related = "" | split: "" -%}
+    {%- assign related_ids = "|" | append: page.id | append: "|" -%}
+    {%- assign thresholds = "3,2,1" | split: "," -%}
+    {%- for threshold in thresholds -%}
+      {%- assign need = threshold | plus: 0 -%}
+      {%- for post in site.posts -%}
+        {%- assign post_key = "|" | append: post.id | append: "|" -%}
+        {%- if related_ids contains post_key -%}{%- continue -%}{%- endif -%}
+        {%- assign shared = 0 -%}
+        {%- for tag in post.tags -%}
+          {%- if page.tags contains tag -%}{%- assign shared = shared | plus: 1 -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if shared >= need -%}
+          {%- assign related = related | push: post -%}
+          {%- assign related_ids = related_ids | append: post.id | append: "|" -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+    {%- for post in site.posts -%}
+      {%- if related.size >= 4 -%}{%- break -%}{%- endif -%}
+      {%- assign post_key = "|" | append: post.id | append: "|" -%}
+      {%- unless related_ids contains post_key -%}
+        {%- assign related = related | push: post -%}
+        {%- assign related_ids = related_ids | append: post.id | append: "|" -%}
+      {%- endunless -%}
+    {%- endfor -%}
+    {% include page__related.html posts=related %}
   {% endif %}
 </div>

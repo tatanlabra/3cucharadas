@@ -21,6 +21,10 @@
       var storedTheme = window.localStorage.getItem("3cucharadas-theme");
       if (storedTheme === "academic-night" || storedTheme === "tokyo-night") {
         theme = "academic-night";
+      } else if (storedTheme === null && window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        // Primera visita sin elección explícita: se respeta el tema del sistema.
+        theme = "academic-night";
       }
     } catch (error) {
       // El tema claro sigue disponible cuando localStorage está bloqueado.
