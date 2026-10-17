@@ -1,0 +1,58 @@
+{
+ "schema": "fontawesome-subset-v1",
+ "source": "Font Awesome Free 6.7.2 (cdnjs, css sha512 = integrity previo de head.html)",
+ "license": "https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT)",
+ "icons": {
+  "fa-book-open": "f518",
+  "fa-calendar-alt": "f073",
+  "fa-check": "f00c",
+  "fa-clock": "f017",
+  "fa-cloud": "f0c2",
+  "fa-copy": "f0c5",
+  "fa-download": "f019",
+  "fa-envelope": "f0e0",
+  "fa-facebook": "f09a",
+  "fa-file-alt": "f15c",
+  "fa-file-pdf": "f1c1",
+  "fa-folder-open": "f07c",
+  "fa-github": "f09b",
+  "fa-instagram": "f16d",
+  "fa-link": "f0c1",
+  "fa-linkedin": "f08c",
+  "fa-map-marker-alt": "f3c5",
+  "fa-mastodon": "f4f6",
+  "fa-moon": "f186",
+  "fa-rss": "f09e",
+  "fa-rss-square": "f143",
+  "fa-search": "f002",
+  "fa-spotify": "f1bc",
+  "fa-square-rss": "f143",
+  "fa-sun": "f185",
+  "fa-sync-alt": "f2f1",
+  "fa-tags": "f02c",
+  "fa-twitter": "f099",
+  "fa-user": "f007",
+  "fa-x-twitter": "e61b"
+ },
+ "files": {
+  "assets/vendor/fontawesome/webfonts/fa-solid-900-sub.woff2": {
+   "sha256": "5ca1792be5fa6fdf6e5fa8ad15c39b0b603de32929dea94f06892280c857f16c",
+   "bytes": 2816,
+   "source_bytes": 158220
+  },
+  "assets/vendor/fontawesome/webfonts/fa-regular-400-sub.woff2": {
+   "sha256": "248f2d495408f13df5ebcafb43c3a6277be6d5bd057ac9139dd4ad630500f9f4",
+   "bytes": 1872,
+   "source_bytes": 25472
+  },
+  "assets/vendor/fontawesome/webfonts/fa-brands-400-sub.woff2": {
+   "sha256": "e9098dd932aa6d77af0dfe8ce116fc9a314ec373f52dcb9a6b0222caf55fa9a1",
+   "bytes": 1876,
+   "source_bytes": 118684
+  },
+  "assets/vendor/fontawesome/fa-subset.css": {
+   "sha256": "b682d404f9ef1ef89f6566675f598c5a8707d91209c5aabd9bf0edabef3f6a34",
+   "bytes": 8797
+  }
+ }
+}
