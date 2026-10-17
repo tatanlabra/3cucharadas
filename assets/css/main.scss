@@ -2,8 +2,50 @@
 search: false
 ---
 
-@charset "utf-8";
 @use "sass:color";
+
+/* Pilas tipográficas del sitio. Configuran el tema en el @use de abajo; llevan prefijo
+   $site- para no chocar con los miembros que el tema expone con `as *`. */
+$site-serif: Georgia, "Times New Roman", Times, serif;
+$site-sans-serif: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Helvetica Neue", Arial, sans-serif;
+$site-monospace: "FiraCode Nerd Font", "Fira Code", "Fira Mono", Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+
+/* Tema vendorizado y migrado a módulos (capa 2C, auditoría UX 2026-10-17): sin @import.
+   La configuración reemplaza las variables que antes se fijaban antes del @import:
+
+   - $background-color #faf7f0: crema en vez de blanco. Al configurarla la siguen todas
+     las superficies del tema; contraste del texto 19,63:1 (antes 21:1 sobre blanco).
+   - $code-background-color #f3efe4: el #fafafa del tema es más claro que el crema y se
+     leía como resalte en vez de sombra.
+   - $primary-color, $link-color*: identidad cromática C5 (enlace 6,4:1 sobre el crema,
+     visitado 8,1:1, acento navy 13,5:1); los exige identidad-cromatica.
+   - $max-width 1375px: columna de 731 px (~82 caracteres) en vez de 636.
+   - $h-size-*: escala modular de razón 1,25 (D4).
+   tests/test_ux_transversal_contract.py (sass-sin-import) exige que no vuelva un @import. */
+@use "minimal-mistakes" as * with (
+  $serif: $site-serif,
+  $sans-serif: $site-sans-serif,
+  $monospace: $site-monospace,
+  $global-font-family: $site-sans-serif,
+  $header-font-family: $site-sans-serif,
+  $caption-font-family: $site-sans-serif,
+  $background-color: #faf7f0,
+  $code-background-color: #f3efe4,
+  $primary-color: #1b2a41,
+  $link-color: #1f5f8b,
+  $link-color-hover: #123e5c,
+  $link-color-visited: #5b3a8c,
+  $max-width: 1375px,
+  $h-size-1: 1.953em,
+  $h-size-2: 1.5625em,
+  $h-size-3: 1.25em,
+  $h-size-4: 1.125em
+);
+
+/* Variable del sitio (el tema no la declara): fuente de los bloques de código. */
+$code-font-family: $site-monospace;
 
 // Avalúos II: figures follow the same theme as the article.
 .page__content .avaluos-ii-monetary-dark { display: none; }
@@ -81,107 +123,6 @@ html[data-theme="academic-night"] .avaluos-ii-editorial .page__content table tbo
   font-style: normal;
   font-display: swap;
 }
-
-/* 3) Pilas tipográficas y variables globales de Minimal Mistakes */
-
-$serif: Georgia, "Times New Roman", Times, serif !default;
-
-$sans-serif: "Fira Sans",
-             -apple-system,
-             BlinkMacSystemFont,
-             "Segoe UI",
-             "Roboto",
-             "Helvetica Neue",
-             Arial,
-             sans-serif !default;
-
-$monospace: "FiraCode Nerd Font",
-            "Fira Code",
-            "Fira Mono",
-            Menlo,
-            Monaco,
-            Consolas,
-            "Liberation Mono",
-            "Courier New",
-            monospace !default;
-
-$global-font-family:  $sans-serif !default;
-$header-font-family:  $sans-serif !default;
-$caption-font-family: $sans-serif !default;
-$code-font-family:    $monospace !default;
-
-/* Fondo del tema claro: crema en vez de blanco puro.
-   ─────────────────────────────────────────────────────────────────────────────
-   Se declara AQUÍ, antes de los `@import` de abajo, y SIN `!default`. Ese es el
-   punto: `_variables.scss` del tema declara `$background-color: #fff !default`,
-   y `!default` sólo asigna si la variable aún no tiene valor. Al fijarla antes,
-   la siguen todas las superficies del tema —página, cabecera, buscador, avisos,
-   pie— sin tener que enumerarlas una por una en una lista que se quedaría
-   obsoleta a la primera superficie nueva.
-
-   Medido antes de aplicarlo: el contraste con el texto (#000 en el skin
-   `contrast`) baja de 21:1 a 19,63:1, y el de los enlaces (#0000ff) de 8,59:1 a
-   8,03:1. Ambos siguen muy por encima del 7:1 que pide AAA para texto normal,
-   así que el cambio es puramente estético y no toca accesibilidad.
-
-   Las tarjetas de la portada y el widget de RSS conservan el blanco puro porque
-   lo llevan escrito a mano más abajo. No es un descuido: el contraste entre
-   tarjeta blanca y página crema las levanta del fondo sin necesidad de sombras.
-   El tema oscuro no se ve afectado; va por variables CSS `--night-*` propias. */
-$background-color: #faf7f0;
-
-/* Fondo de bloques de código. El tema lo deja en `#fafafa`, cuya luminancia
-   (0.956) es MAYOR que la del crema (0.931): sobre blanco puro funcionaba como
-   sombra suave, sobre crema se invierte y pasa a leerse como un resalte. Se
-   sustituye por un tono más oscuro y de la misma familia cálida. */
-$code-background-color: #f3efe4;
-
-/* Identidad cromática (auditoría UX 2026-10-17, C5). La skin `contrast` pintaba los
-   enlaces en azul de navegador (#0000ff) y el acento en rojo (#b60000: foco, botones,
-   paginación, cabecera del índice, ícono del menú), ajenos a la paleta aprobada de
-   las portadas (navy, índigo, cian, violeta). Se fijan antes del @import, sin
-   `!default`, por la misma razón que $background-color. Contrastes sobre #faf7f0:
-   enlace 6,4:1, visitado 8,1:1, acento navy 13,5:1 (texto blanco encima: 13,1:1).
-   tests/test_ux_transversal_contract.py (identidad-cromatica) los exige. */
-$primary-color: #1b2a41;
-$link-color: #1f5f8b;
-$link-color-hover: #123e5c;
-$link-color-visited: #5b3a8c;
-
-/* 4) Imports oficiales de Minimal Mistakes */
-
-/* Skin (se selecciona vía _config.yml: minimal_mistakes_skin) */
-/* 3 bis) Ancho de la columna de lectura.
- *
- * Medido en el navegador el 2026-08-29 sobre un post real: `.page__content` daba 636 px con
- * 18 px de cuerpo, es decir ~71 caracteres por linea, y el envoltorio `#main` topaba en los
- * 1.280 px que trae el tema por defecto ($max-width: $x-large). En una pantalla de 1920 eso
- * dejaba 320 px de aire muerto por lado y estiraba cada post innecesariamente.
- *
- * La relacion es lineal: la columna es `max-width - 644` (344 de la barra de autor y 300 de la
- * de contenidos, ambas fijas en px). Subir el tope a 1.375 px lleva la columna de 636 a 731 px,
- * un +14,9 %, dejandola en ~82 caracteres por linea — todavia dentro del rango tipografico
- * habitual — y recorta el aire lateral de 320 a 272 px por lado en 1920.
- */
-$max-width: 1375px;
-
-/* 3 ter) Escala de títulos (D4, auditoría UX 2026-10-17).
- *
- * Con los valores del tema, un h2 medía 22,5 px y un h3 20,25 px sobre un cuerpo de 18 px:
- * 1,25 y 1,125 veces el texto, una jerarquía que apenas se distinguía al recorrer un post de
- * 30 minutos. Se adopta una escala modular de razón 1,25 anclada en el cuerpo
- * (h4 1,125 → h3 1,25 → h2 1,5625 → h1 1,953). Son variables del tema, así que la escala
- * llega a todo título que use $h-size-*, sin reglas de reemplazo sueltas.
- */
-$h-size-1: 1.953em;
-$h-size-2: 1.5625em;
-$h-size-3: 1.25em;
-$h-size-4: 1.125em;
-
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
-
-/* Main partials del tema */
-@import "minimal-mistakes";
 
 /* 5) Ajustes finos del sitio */
 

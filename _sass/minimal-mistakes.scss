@@ -1,0 +1,30 @@
+/*!
+ * Entrada del tema (Minimal Mistakes 4.28.1, MIT), vendorizado y migrado al sistema de
+ * módulos de Sass en la capa 2C de la auditoría UX 2026-10-17: sin @import, sin Susy,
+ * sin la librería breakpoint ni Magnific Popup. assets/css/main.scss lo configura con
+ * @use "minimal-mistakes" as * with (...).
+ */
+@forward "minimal-mistakes/variables";
+@forward "minimal-mistakes/breakpoint";
+@forward "minimal-mistakes/mixins";
+
+@use "minimal-mistakes/copyright";
+@use "minimal-mistakes/button-reset";
+@use "minimal-mistakes/skins/contrast";
+@use "minimal-mistakes/reset";
+@use "minimal-mistakes/base";
+@use "minimal-mistakes/forms";
+@use "minimal-mistakes/tables";
+@use "minimal-mistakes/animations";
+@use "minimal-mistakes/buttons";
+@use "minimal-mistakes/notices";
+@use "minimal-mistakes/masthead";
+@use "minimal-mistakes/navigation";
+@use "minimal-mistakes/footer";
+@use "minimal-mistakes/search";
+@use "minimal-mistakes/syntax";
+@use "minimal-mistakes/utilities";
+@use "minimal-mistakes/page";
+@use "minimal-mistakes/archive";
+@use "minimal-mistakes/sidebar";
+@use "minimal-mistakes/print";

@@ -1,0 +1,6 @@
+/* Lo único de Magnific Popup que no era suyo: el reset del foco interno de los botones
+   en Firefox. Se conserva al retirar Magnific Popup (el lightbox es <dialog>). */
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
