@@ -26,7 +26,8 @@ falsified_by: >-
   jQuery reprobó contra e912c92b y aprobó con claude/ux-capa2a-20261017. La de
   recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017. La de
   tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017. La de
-  contención de Sass se vio roja con un tercer @import y con sass-embedded 3.0.0 en el lockfile.
+  contención de Sass se vio roja con un tercer @import y con sass-embedded 3.0.0 en el lockfile. La de
+  destacados reprobó contra 6948bcd0 y aprobó con claude/ux-destacados-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -71,7 +72,7 @@ invariants:
     rule: Toda <img> cuya fuente tiene variantes en _data/image_variants.json se publica con srcset que las incluye, y las variantes existen.
     why: figuras de hasta 2562 px se servían completas en huecos de 731 px (C3).
   - id: avisos-enlace-contraste
-    rule: En las citas y avisos oscuros de .page__content, todo enlace tiene contraste >= 4,5:1 sobre el fondo del aviso, y la regla cubre cada variante de aviso.
+    rule: En citas y avisos de .page__content, todo enlace usa el enlace del sitio (--ui-link) y tiene contraste >= 4,5:1 sobre la superficie del aviso y sobre el papel, en los dos temas; la regla cubre cada variante de aviso.
     why: en Avalúos II el enlace #358ca7 quedaba a 3,07:1 sobre #343746 (U06).
   - id: sin-entrada-animada
     rule: La cabecera, el hero, #main y el pie no conservan la animación de entrada del tema; la última declaración animation que los alcanza es none.
@@ -121,3 +122,6 @@ invariants:
   - id: sass-import-contenido
     rule: assets/css/main.scss conserva solo los 2 @import del tema (skin y minimal-mistakes) y Gemfile.lock resuelve sass-embedded por debajo de la versión 3, que elimina @import; subir de ahí exige migrar antes.
     why: Dart Sass 3.0.0 elimina @import y Minimal Mistakes lo usa en todos sus parciales. Hoy jekyll-sass-converter 3.1.0 fija sass-embedded ~> 1.75 (1.104.0 instalado), así que el riesgo no puede activarse solo; migrar exige salir del tema (capa 2 completa, 3-6 semanas), y este contrato vuelve visible el momento en que deje de ser opcional.
+  - id: destacados-del-tema
+    rule: Citas y avisos usan la superficie de cada tema (tokens --callout-*), no la de Dracula; la cita no tiene fondo ni sangría y arranca en el borde de la prosa; texto con 4,5:1 y acentos (por tipo y filete de cita) con 3:1 sobre su fondo, en los dos temas. El código conserva Dracula.
+    why: los destacados eran un recuadro #343746 con filete morado #bd93f9 idéntico en ambos temas, una losa oscura en el tema claro y un tinte morado en una paleta nocturna de grises; la cita entraba 40 px respecto de la prosa (señalado por la persona usuaria en «Acerca de»).

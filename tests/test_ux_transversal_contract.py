@@ -92,6 +92,30 @@ def selector_parts(selector: str) -> list[str]:
     return parts
 
 
+def css_tokens(rules, selector: str) -> dict[str, str]:
+    """Custom properties declaradas en `selector` fuera de @media, en orden de cascada."""
+    out: dict[str, str] = {}
+    for media, sel, body in rules:
+        if not media and sel.strip() == selector:
+            out.update({k: v.strip() for k, v in re.findall(r"(--[\w-]+):\s*([^;]+)", body)})
+    return out
+
+
+def theme_tokens(rules) -> dict[str, dict[str, str]]:
+    root = css_tokens(rules, ":root")
+    return {"claro": root, "oscuro": {**root, **css_tokens(rules, "html[data-theme=academic-night]")}}
+
+
+def resolve_token(table: dict[str, str], name: str) -> str:
+    value = table[name]
+    for _ in range(6):
+        ref = re.fullmatch(r"var\((--[\w-]+)\)", value)
+        if not ref:
+            break
+        value = table[ref.group(1)]
+    return value
+
+
 def front_matter(path: Path) -> dict[str, object]:
     text = path.read_text(encoding="utf-8")
     block = text.split("---", 2)[1]
@@ -432,24 +456,20 @@ class UxTransversalContract(unittest.TestCase):
 
     def test_avisos_enlace_contraste(self) -> None:
         rules = css_rules_in_context(css())
-        box = next(((s, b) for _, s, b in rules
-                    if s.startswith(".page__content blockquote,") and re.search(r"background:\s*#[0-9a-fA-F]{6}", b)), None)
-        self.assertIsNotNone(box, "sin fondo oscuro para citas y avisos")
-        background = re.search(r"background:\s*(#[0-9a-fA-F]{6})", box[1]).group(1)
-        variants = {"blockquote"} | set(re.findall(r"\.page__content \.(notice[\w-]*)", box[0]))
+        variants = {"notice", "notice--primary", "notice--info", "notice--warning", "notice--success", "notice--danger"}
         covered: set[str] = set()
-        for _, selector, body in rules:
-            found = re.search(r"(?<![-\w])color:\s*(#[0-9a-fA-F]{6})", body)
-            if not found:
+        for media, selector, body in rules:
+            color = re.search(r"(?<![-\w])color:\s*var\((--ui-link)\)", body)
+            if media or not color:
                 continue
             for part in selector_parts(selector):
-                if not (part.startswith(".page__content ") and part.endswith(" a")):
-                    continue
-                owners = {"blockquote"} if part == ".page__content blockquote a" else set(re.findall(r"\.(notice[\w-]*)", part))
-                if owners & variants:
-                    self.assertGreaterEqual(contrast(found.group(1), background), 4.5, f"{part}: {found.group(1)} sobre {background}")
-                    covered |= owners
-        self.assertEqual(sorted(variants - covered), [], "variantes de aviso sin color de enlace propio")
+                if part.startswith(".page__content ") and part.endswith(" a"):
+                    covered |= ({"blockquote"} if "blockquote" in part else set()) | set(re.findall(r"\.(notice[\w-]*)", part))
+        self.assertEqual(sorted(({"blockquote"} | variants) - covered), [], "destacados sin el enlace del sitio")
+        for theme, table in theme_tokens(rules).items():
+            link, surface, paper = (resolve_token(table, n) for n in ("--ui-link", "--callout-bg", "--ui-paper"))
+            self.assertGreaterEqual(contrast(link, surface), 4.5, f"{theme}: enlace {link} sobre aviso {surface}")
+            self.assertGreaterEqual(contrast(link, paper), 4.5, f"{theme}: enlace {link} en cita sobre {paper}")
 
     def test_sin_entrada_animada(self) -> None:
         last: dict[str, str] = {}
@@ -795,6 +815,32 @@ class UxTransversalContract(unittest.TestCase):
         self.assertTrue(versions, "sass-embedded no aparece resuelto en Gemfile.lock")
         for major in versions:
             self.assertLess(int(major), 3, "Dart Sass 3 elimina @import: migrar main.scss y salir de los parciales del tema antes de subir")
+
+
+    def test_destacados_del_tema(self) -> None:
+        rules = css_rules_in_context(css())
+        tables = theme_tokens(rules)
+        for name in ("--callout-bg", "--callout-ink", "--quote-rule", "--accent-info"):
+            self.assertIn(name, tables["claro"], f"{name} sin definir: los destacados no tienen tokens de tema")
+        for theme, table in tables.items():
+            bg, ink = resolve_token(table, "--callout-bg"), resolve_token(table, "--callout-ink")
+            self.assertGreaterEqual(contrast(ink, bg), 4.5, f"{theme}: texto {ink} sobre {bg}")
+            self.assertGreaterEqual(contrast(resolve_token(table, "--callout-ink"), resolve_token(table, "--ui-paper")), 4.5, f"{theme}: cita")
+            for accent in ("--accent-primary", "--accent-info", "--accent-warning", "--accent-success", "--accent-danger", "--accent-audio", "--quote-rule"):
+                self.assertGreaterEqual(contrast(resolve_token(table, accent), bg if accent != "--quote-rule" else resolve_token(table, "--ui-paper")), 3.0, f"{theme}: {accent}")
+        self.assertNotEqual(tables["claro"]["--callout-bg"], tables["oscuro"]["--callout-bg"], "el aviso no cambia con el tema")
+        last: dict[tuple[str, str], str] = {}
+        boxes = (".page__content blockquote", ".page__content :is(.notice,.notice--primary,.notice--info,.notice--warning,.notice--success,.notice--danger)")
+        for media, selector, body in rules:
+            for part in selector_parts(selector):
+                if part.replace(" ", "") in {b.replace(" ", "") for b in boxes} and not media:
+                    for prop, value in re.findall(r"(?<![-\w])(background|background-color|margin-inline|border-left):\s*([^;]+)", body):
+                        last[(part.replace(" ", ""), prop)] = value.strip()
+        quote = ".page__contentblockquote"
+        self.assertEqual(last.get((quote, "margin-inline")), "0", "la cita vuelve a llevar sangría")
+        self.assertIn(last.get((quote, "background")), ("transparent", "rgba(0,0,0,0)"))
+        for (part, prop), value in last.items():
+            self.assertNotRegex(value.lower(), r"#343746|#bd93f9|#6272a4", f"{part} {prop}: superficie Dracula")
 
 
 if __name__ == "__main__":

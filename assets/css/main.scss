@@ -1371,52 +1371,95 @@ html[data-theme="academic-night"] tbody tr:nth-child(even) {
   background: var(--night-layer);
 }
 
-/* Recuadros editoriales: superficie Dracula consistente en ambos temas. */
+/* Destacados: citas y avisos con la superficie de cada tema (h14, auditoría UX
+   2026-10-17). Antes eran «superficie Dracula consistente en ambos temas»: un
+   recuadro #343746 con filete morado #bd93f9 que en claro caía como una losa
+   oscura sobre el crema y en nocturno teñía de morado una paleta de grises
+   neutros. El código sigue en Dracula (abajo): es la convención de los bloques de
+   código y no compite con la prosa.
+
+   - Cita (blockquote): sin fondo, filete de 3 px y texto en tinta; arranca en el
+     borde de la prosa (el navegador le daba 40 px de sangría).
+   - Aviso (.notice y .notice--*): superficie, borde suave y un acento de 3 px por
+     tipo. Las variantes se usan también solas, sin la clase base.
+   Todo sale de tokens: el valor claro vive en :root y el nocturno en
+   academic-night, sin pares de reglas por tema. */
+:root {
+  --callout-bg: #fffdf8;
+  --callout-line: rgba(27, 42, 65, 0.16);
+  --callout-ink: #1b2a41;
+  --quote-rule: #1f5f8b;
+  --accent-primary: #1b2a41;
+  --accent-info: #1f5f8b;
+  --accent-warning: #9a6700;
+  --accent-success: #2e7d4f;
+  --accent-danger: #b42318;
+  --accent-audio: #8a2b6d;
+}
+
+html[data-theme="academic-night"] {
+  --callout-bg: var(--night-layer);
+  --callout-line: var(--night-border);
+  --callout-ink: var(--night-text);
+  --quote-rule: var(--night-border-strong);
+  --accent-primary: var(--night-muted);
+  --accent-info: #78a9ff;
+  --accent-warning: #f1c21b;
+  --accent-success: #42be65;
+  --accent-danger: #ff8389;
+  --accent-audio: #ff7eb6;
+}
+
 .page__content blockquote,
-.page__content .notice,
-.page__content .notice--primary,
-.page__content .notice--info,
-.page__content .notice--warning,
-.page__content .notice--success,
-.page__content .notice--danger {
-  border-color: #6272a4;
-  background: #343746;
-  color: #f8f8f2;
+html[data-theme="academic-night"] .page__content blockquote {
+  margin-inline: 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border: 0;
+  border-left: 3px solid var(--quote-rule);
+  background: transparent;
+  color: var(--callout-ink);
   box-shadow: none;
 }
 
-.page__content blockquote { border-left-color: #bd93f9; }
-.page__content .notice--info { border-left: 0.3rem solid #8be9fd; }
-.page__content .notice--warning { border-left: 0.3rem solid #f1fa8c; }
-.page__content .notice--success { border-left: 0.3rem solid #50fa7b; }
-.page__content .notice--danger { border-left: 0.3rem solid #ff5555; }
+.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger),
+html[data-theme="academic-night"] :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) {
+  border: 1px solid var(--callout-line);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  background: var(--callout-bg);
+  color: var(--callout-ink);
+  box-shadow: none;
+}
+
+.page__content .notice--info,
+html[data-theme="academic-night"] .page__content .notice--info { border-left-color: var(--accent-info); }
+.page__content .notice--warning,
+html[data-theme="academic-night"] .page__content .notice--warning { border-left-color: var(--accent-warning); }
+.page__content .notice--success,
+html[data-theme="academic-night"] .page__content .notice--success { border-left-color: var(--accent-success); }
+.page__content .notice--danger,
+html[data-theme="academic-night"] .page__content .notice--danger { border-left-color: var(--accent-danger); }
 
 /* Las variantes .notice--* se usan solas (p. ej. <aside class="notice--info">), sin la
    clase base .notice: con solo `.notice a`, el tema les aplicaba su enlace mezclado
-   (#358ca7, 3,07:1 sobre #343746). Medido el 2026-10-17 en Avalúos II (U06). */
+   (#358ca7, 3,07:1). El enlace de los destacados es el del sitio, 4,5:1 o más sobre
+   la superficie de cada tema (U06 y tokens-de-interfaz). */
 .page__content blockquote a,
-.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a {
-  color: #8be9fd;
+.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a,
+html[data-theme="academic-night"] .page__content blockquote a,
+html[data-theme="academic-night"] .page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a {
+  color: var(--ui-link);
 }
 
-html[data-theme="academic-night"] .page__content blockquote,
-html[data-theme="academic-night"] .notice,
-html[data-theme="academic-night"] .notice--primary,
-html[data-theme="academic-night"] .notice--info,
-html[data-theme="academic-night"] .notice--warning,
-html[data-theme="academic-night"] .notice--success,
-html[data-theme="academic-night"] .notice--danger {
+/* Excepción acotada: el recuadro de auditoría geográfica del Post II (componente de
+   Codex) fija leyendas y enlaces para fondo oscuro; conserva su superficie hasta que
+   ese componente migre a los tokens. */
+.page__content .thesis-coordinate-audit,
+html[data-theme="academic-night"] .page__content .thesis-coordinate-audit {
   border-color: #6272a4;
   background: #343746;
   color: #f8f8f2;
-  box-shadow: none;
 }
-
-html[data-theme="academic-night"] .page__content blockquote { border-left-color: #bd93f9; }
-html[data-theme="academic-night"] .notice--info { border-left: 0.3rem solid #8be9fd; }
-html[data-theme="academic-night"] .notice--warning { border-left: 0.3rem solid #f1fa8c; }
-html[data-theme="academic-night"] .notice--success { border-left: 0.3rem solid #50fa7b; }
-html[data-theme="academic-night"] .notice--danger { border-left: 0.3rem solid #ff5555; }
 
 /* Código: Dracula Classic en claro y nocturno para evitar dos gramáticas visuales. */
 .page__content :not(pre) > code,
@@ -2974,7 +3017,8 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    `.capsula-audio` suelto (0,1,0). Es el mismo truco de la línea 1143 para
    `.notice--info`. El rosa #ff79c6 es el único color Dracula del archivo que
    todavía no distingue a ningún recuadro editorial. */
-.page__content .capsula-audio { border-left: 0.3rem solid #ff79c6; }
+.page__content .capsula-audio,
+html[data-theme="academic-night"] .page__content .capsula-audio { border-left-color: var(--accent-audio); }
 .capsula-audio__titulo { margin-bottom: 0.35em; }
 .capsula-audio__entrada { margin-top: 0; }
 .capsula-audio__escuchar { margin: 0.9em 0 0.7em; }
@@ -2987,7 +3031,6 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    para que un cambio futuro en las reglas diurnas no arrastre al tema oscuro—,
    así que aquí sólo hay una diferencia real: devolver el foco blanco global del
    nocturno, que las reglas de arriba le ganarían por especificidad. */
-html[data-theme="academic-night"] .capsula-audio { border-left: 0.3rem solid #ff79c6; }
 html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color: #ffffff; }
 
 /* ── Carrusel de evidencia cara a cara ─────────────────────────────────── */
