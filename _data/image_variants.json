@@ -1,0 +1,273 @@
+{
+ "schema": "image-variants-v1",
+ "generated_by": "scripts/build_image_variants.py",
+ "sizes": "(max-width: 48em) calc(100vw - 2rem), 845px",
+ "images": {
+  "/assets/images/rss-governance-hero.jpg": {
+   "w": 1439,
+   "bytes": 287808,
+   "variants": [
+    {
+     "src": "/assets/images/rss-governance-hero-w800.webp",
+     "w": 800,
+     "bytes": 107640
+    },
+    {
+     "src": "/assets/images/rss-governance-hero-w1280.webp",
+     "w": 1280,
+     "bytes": 215828
+    }
+   ]
+  },
+  "/assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000.webp": {
+   "w": 1600,
+   "bytes": 91500,
+   "variants": [
+    {
+     "src": "/assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000-w800.webp",
+     "w": 800,
+     "bytes": 35050
+    },
+    {
+     "src": "/assets/images/multiagente-penta-agent-memoria-gobernada/cerebro-20-por-ciento-1600x1000-w1280.webp",
+     "w": 1280,
+     "bytes": 66046
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp": {
+   "w": 2562,
+   "bytes": 72580,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-w800.webp",
+     "w": 800,
+     "bytes": 20056
+    },
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-w1280.webp",
+     "w": 1280,
+     "bytes": 37440
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en.webp": {
+   "w": 2562,
+   "bytes": 72886,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en-w800.webp",
+     "w": 800,
+     "bytes": 20050
+    },
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh-en-w1280.webp",
+     "w": 1280,
+     "bytes": 37522
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp": {
+   "w": 2226,
+   "bytes": 68556,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-w800.webp",
+     "w": 800,
+     "bytes": 21730
+    },
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-w1280.webp",
+     "w": 1280,
+     "bytes": 37794
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en.webp": {
+   "w": 2226,
+   "bytes": 68386,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en-w800.webp",
+     "w": 800,
+     "bytes": 21680
+    },
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad-en-w1280.webp",
+     "w": 1280,
+     "bytes": 37950
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp": {
+   "w": 1779,
+   "bytes": 42966,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte-w800.webp",
+     "w": 800,
+     "bytes": 19000
+    },
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte-w1280.webp",
+     "w": 1280,
+     "bytes": 30584
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table08-original.png": {
+   "w": 1010,
+   "bytes": 184590,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table08-original-w800.webp",
+     "w": 800,
+     "bytes": 71758
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table04-original.png": {
+   "w": 1197,
+   "bytes": 60468,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table04-original-w800.webp",
+     "w": 800,
+     "bytes": 18662
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 34146,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 18740
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 30974,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s01-table-04-exact-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 17010
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 27278,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 14924
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 24610,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s02-figure-01-pattern-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 13570
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 52900,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 27812
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 52120,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s03-figure-11-hhi-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 27408
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 71838,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 36978
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 71330,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s04-figure-02-rates-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 35798
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 92424,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 46442
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 89370,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s05-table-08-rounding-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 45674
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-es.webp": {
+   "w": 1280,
+   "bytes": 66282,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-es-w800.webp",
+     "w": 800,
+     "bytes": 34316
+    }
+   ]
+  },
+  "/assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-en.webp": {
+   "w": 1280,
+   "bytes": 66100,
+   "variants": [
+    {
+     "src": "/assets/images/replica-tesis-establecimientos/face-to-face/s06-figure-04-net-mobility-rerun-en-w800.webp",
+     "w": 800,
+     "bytes": 32848
+    }
+   ]
+  }
+ }
+}
