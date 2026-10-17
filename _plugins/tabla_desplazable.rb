@@ -46,6 +46,7 @@ require "rexml/document"
 
 module TablaDesplazable
   CLASE = "tabla-desliza"
+  CONTRATO_EXPLICITO = "explicit-v1"
 
   # Una celda con mas de este numero de caracteres convierte la tabla en
   # narrativa. El umbral sale del inventario real de 62 tablas en 12 posts: las
@@ -116,7 +117,24 @@ module TablaDesplazable
     nil
   end
 
-  def envolver(html, lang)
+  def clases_de_tabla(fragmento)
+    doc = REXML::Document.new(fragmento)
+    doc.root&.attributes&.fetch("class", "").to_s.split
+  rescue REXML::ParseException
+    []
+  end
+
+  def envuelta_inmediatamente?(antes)
+    antes.match?(%r{<div\b[^>]*class=(["'])[^"']*\b#{Regexp.escape(CLASE)}\b[^"']*\1[^>]*>\s*\z}m)
+  end
+
+  def asegurar_scope_columnas(fragmento)
+    fragmento.gsub(%r{<thead\b[^>]*>.*?</thead>}m) do |encabezado|
+      encabezado.gsub(/<th(?=[\s>])(?![^>]*\bscope=)/, '<th scope="col"')
+    end
+  end
+
+  def envolver(html, lang, contrato = nil)
     return html unless html.is_a?(String)
 
     etiqueta = ETIQUETAS.fetch(lang.to_s, ETIQUETAS["es"])
@@ -131,15 +149,28 @@ module TablaDesplazable
       # render por idioma. La pregunta correcta es si ESTA tabla ya tiene su
       # envoltorio, no cuantas llevo vistas.
       antes = html[0...ini]
-      next if antes.rstrip.end_with?(%(class="#{CLASE}">))
+      next if envuelta_inmediatamente?(antes)
 
-      datos = perfil(fragmento)
-      next if datos.nil?
+      if contrato == CONTRATO_EXPLICITO
+        next unless clases_de_tabla(fragmento).include?("table--scroll")
 
-      p, columnas = datos
-      apertura = %(<div class="#{CLASE}" data-perfil="#{p}" data-columnas="#{columnas}" ) +
-                 %(style="--columnas: #{columnas}" role="region" ) +
-                 %(aria-label="#{etiqueta} #{table_index + 1}" tabindex="0">)
+        datos = perfil(fragmento)
+        next if datos.nil?
+
+        _perfil, columnas = datos
+        apertura = %(<div class="#{CLASE}" data-table-contract="#{CONTRATO_EXPLICITO}" ) +
+                   %(style="--table-columns: #{columnas}" ) +
+                   %(role="region" aria-label="#{etiqueta} #{table_index + 1}" tabindex="0">)
+      else
+        datos = perfil(fragmento)
+        next if datos.nil?
+
+        p, columnas = datos
+        apertura = %(<div class="#{CLASE}" data-perfil="#{p}" data-columnas="#{columnas}" ) +
+                   %(style="--columnas: #{columnas}" role="region" ) +
+                   %(aria-label="#{etiqueta} #{table_index + 1}" tabindex="0">)
+      end
+      fragmento = asegurar_scope_columnas(fragmento)
       html = html[0...ini] + apertura + fragmento + "</div>" + html[fin..]
     end
     html
@@ -150,5 +181,5 @@ Jekyll::Hooks.register :documents, :post_render do |doc|
   next unless doc.output.is_a?(String)
   next unless doc.collection&.label == "posts"
 
-  doc.output = TablaDesplazable.envolver(doc.output, doc.data["lang"])
+  doc.output = TablaDesplazable.envolver(doc.output, doc.data["lang"], doc.data["table_contract"])
 end

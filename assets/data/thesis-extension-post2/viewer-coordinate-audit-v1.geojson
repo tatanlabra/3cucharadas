@@ -1,0 +1,392 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          -70.505989,
+          -33.357883
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": true,
+        "coordinate_year": 2015,
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.",
+        "rationale_es": "Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.",
+        "rbd": 25077,
+        "role": "closure",
+        "school_name": "ESC. DE PARV.BEATO PADRE ALBERTO HURTADO",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.5063353,
+          -33.3573828
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Avenida Lo Barnechea 1174",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "RETAINED_FOR_CONTRAST",
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OSM_CANDIDATE",
+        "official_distance_m": 64.161,
+        "osm_id": 906438465,
+        "osm_name": "Colegio Parroquial Beato Padre Alberto Hurtado",
+        "osm_type": "node",
+        "osm_url": "https://www.openstreetmap.org/node/906438465",
+        "rationale_en": "Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.",
+        "rationale_es": "Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.",
+        "rbd": 25077,
+        "role": "closure",
+        "school_name": "ESC. DE PARV.BEATO PADRE ALBERTO HURTADO",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": false
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.50989,
+          -33.36673
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": false,
+        "coordinate_year": 2019,
+        "event_year": 2016,
+        "final_status": "NOT_FOUND",
+        "identity_status": "NOT_EVALUABLE",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "The query returned no OSM candidate; this does not validate the official coordinate.",
+        "rationale_es": "La consulta no recuperó un candidato OSM; esto no valida la coordenada oficial.",
+        "rbd": 20428,
+        "role": "entry",
+        "school_name": "ESCUELA DE PAVULOS N°2471 ESCUELA PRE ESCOLAR CANTAGALLO",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "NOT_EVALUABLE",
+        "temporal_status": "NOT_EVALUABLE",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.721184,
+          -33.444801
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": true,
+        "coordinate_year": 2015,
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.",
+        "rationale_es": "Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.",
+        "rbd": 31422,
+        "role": "closure",
+        "school_name": "ESCUELA BASICA MY GARDEN SCHOOL PORTALES",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.7214658,
+          -33.4447806
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Avenida Portales 6082",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "RETAINED_FOR_CONTRAST",
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OSM_CANDIDATE",
+        "official_distance_m": 26.3,
+        "osm_id": 11417691051,
+        "osm_name": "Escuela Básica My Garden School Portales",
+        "osm_type": "node",
+        "osm_url": "https://www.openstreetmap.org/node/11417691051",
+        "rationale_en": "Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.",
+        "rationale_es": "Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.",
+        "rbd": 31422,
+        "role": "closure",
+        "school_name": "ESCUELA BASICA MY GARDEN SCHOOL PORTALES",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": false
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.638258,
+          -33.431055
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": true,
+        "coordinate_year": 2019,
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "Name and distance are compatible; OSM does not state the RBD or prove the 2019 location.",
+        "rationale_es": "Nombre y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2019.",
+        "rbd": 20440,
+        "role": "entry",
+        "school_name": "LICEO DOCTOR JUAN VERDAGUER PLANAS",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.6386829,
+          -33.43081
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Purísima, Recoleta",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "RETAINED_FOR_CONTRAST",
+        "event_year": 2016,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME",
+        "observation_kind": "OSM_CANDIDATE",
+        "official_distance_m": 47.956,
+        "osm_id": 1364106474,
+        "osm_name": "Liceo Doctor Juan Verdaguer Planas",
+        "osm_type": "way",
+        "osm_url": "https://www.openstreetmap.org/way/1364106474",
+        "rationale_en": "Name and distance are compatible; OSM does not state the RBD or prove the 2019 location.",
+        "rationale_es": "Nombre y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2019.",
+        "rbd": 20440,
+        "role": "entry",
+        "school_name": "LICEO DOCTOR JUAN VERDAGUER PLANAS",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "RETROSPECTIVE",
+        "used_as_viewer_point": false
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -69.627083,
+          -26.244385
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": true,
+        "coordinate_year": 2015,
+        "event_year": 2014,
+        "final_status": "DISCREPANCY",
+        "identity_status": "HIGH_CONFIDENCE_HISTORICAL_SITE_CANDIDATE",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "Name and Avenida Diego Portales converge; number 500 comes from MINEDUC and is not geolocated in OSM. The object was created in 2022 and states neither an RBD nor a contemporaneous source.",
+        "rationale_es": "El nombre y la calle Avenida Diego Portales convergen; el número 500 proviene de MINEDUC y no está geolocalizado en OSM. El objeto fue creado en 2022 y no declara RBD ni fuente contemporánea.",
+        "rbd": 391,
+        "role": "closure",
+        "school_name": "Escuela Oscar Yañez Pastén",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "OFFICIAL_COORDINATE_MISMATCH_CANDIDATE",
+        "temporal_status": "RETROSPECTIVE_UNVERIFIED",
+        "used_as_viewer_point": false
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -69.634624116,
+          -26.24743105
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Avenida Diego Portales 500 (directorio MINEDUC 2008–2011)",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "RETAINED_FOR_CONTRAST",
+        "event_year": 2014,
+        "final_status": "DISCREPANCY",
+        "identity_status": "HIGH_CONFIDENCE_HISTORICAL_SITE_CANDIDATE",
+        "observation_kind": "OSM_CANDIDATE",
+        "official_distance_m": 825.551,
+        "osm_id": 1122520465,
+        "osm_name": "Escuela N 14",
+        "osm_type": "way",
+        "osm_url": "https://www.openstreetmap.org/way/1122520465",
+        "rationale_en": "Name and Avenida Diego Portales converge; number 500 comes from MINEDUC and is not geolocated in OSM. The object was created in 2022 and states neither an RBD nor a contemporaneous source.",
+        "rationale_es": "El nombre y la calle Avenida Diego Portales convergen; el número 500 proviene de MINEDUC y no está geolocalizado en OSM. El objeto fue creado en 2022 y no declara RBD ni fuente contemporánea.",
+        "rbd": 391,
+        "role": "closure",
+        "school_name": "Escuela Oscar Yañez Pastén",
+        "spatial_status": "OFFICIAL_COORDINATE_MISMATCH_CANDIDATE",
+        "temporal_status": "RETROSPECTIVE_UNVERIFIED",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -70.0515555,
+          -26.390516
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Diego Portales 500, Diego de Almagro",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "REJECTED_DISTANT_HOMONYM",
+        "event_year": 2014,
+        "final_status": "DISCREPANCY",
+        "identity_status": "HIGH_CONFIDENCE_HISTORICAL_SITE_CANDIDATE",
+        "observation_kind": "OSM_REJECTED_CANDIDATE",
+        "official_distance_m": 45369.428,
+        "osm_id": 991314175,
+        "osm_name": "Escuela Coeducacional Particular Oscary",
+        "osm_type": "way",
+        "osm_url": "https://www.openstreetmap.org/way/991314175",
+        "rationale_en": "Name and Avenida Diego Portales converge; number 500 comes from MINEDUC and is not geolocated in OSM. The object was created in 2022 and states neither an RBD nor a contemporaneous source.",
+        "rationale_es": "El nombre y la calle Avenida Diego Portales convergen; el número 500 proviene de MINEDUC y no está geolocalizado en OSM. El objeto fue creado en 2022 y no declara RBD ni fuente contemporánea.",
+        "rbd": 391,
+        "rejection_reason_en": "Misleading name and commune match; it belongs to another locality and is 45.4 km away.",
+        "rejection_reason_es": "Coincidencia nominal y comunal engañosa; pertenece a otra localidad y está a 45,4 km.",
+        "role": "closure",
+        "school_name": "Escuela Oscar Yañez Pastén",
+        "spatial_status": "OFFICIAL_COORDINATE_MISMATCH_CANDIDATE",
+        "temporal_status": "RETROSPECTIVE_UNVERIFIED"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -69.62278,
+          -26.243219
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "audit_observed_on": "2026-10-17",
+        "candidate_available": true,
+        "coordinate_year": 2020,
+        "event_year": 2014,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OFFICIAL_MINEDUC",
+        "rationale_en": "Name, institutional address and the official 2020 coordinate converge; OSM does not state the RBD.",
+        "rationale_es": "Nombre, dirección institucional y coordenada oficial 2020 convergen; OSM no declara el RBD.",
+        "rbd": 390,
+        "role": "receiver",
+        "school_name": "Escuela Coeducacional Particular N° 1",
+        "source_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "CONTEMPORANEOUS_RANGE",
+        "used_as_viewer_point": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          -69.6226464604,
+          -26.243339
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "address_evidence": "Avenida Diego Portales 1510",
+        "audit_observed_on": "2026-10-17",
+        "candidate_disposition": "RETAINED_FOR_CONTRAST",
+        "event_year": 2014,
+        "final_status": "PLAUSIBLE",
+        "identity_status": "PLAUSIBLE_EXACT_NAME_ADDRESS",
+        "observation_kind": "OSM_CANDIDATE",
+        "official_distance_m": 18.832,
+        "osm_id": 133830776,
+        "osm_name": "Escuela Coeducacional Particular N 1",
+        "osm_type": "way",
+        "osm_url": "https://www.openstreetmap.org/way/133830776",
+        "rationale_en": "Name, institutional address and the official 2020 coordinate converge; OSM does not state the RBD.",
+        "rationale_es": "Nombre, dirección institucional y coordenada oficial 2020 convergen; OSM no declara el RBD.",
+        "rbd": 390,
+        "role": "receiver",
+        "school_name": "Escuela Coeducacional Particular N° 1",
+        "spatial_status": "CONSISTENT_WITH_OFFICIAL",
+        "temporal_status": "CONTEMPORANEOUS_RANGE",
+        "used_as_viewer_point": false
+      },
+      "type": "Feature"
+    }
+  ],
+  "metadata": {
+    "counts": {
+      "accepted_candidates": 5,
+      "not_found": 1,
+      "official": 6,
+      "rejected_candidates": 1
+    },
+    "limitations": [
+      "OSM objects can be retrospective and do not establish a historical location by themselves.",
+      "No candidate is evidence of absence from OSM, not validation of MINEDUC.",
+      "Name and commune agreement alone cannot distinguish distant homonyms."
+    ],
+    "method": "Every public point used by the Post II viewer is retained as an official observation and compared with the frozen OSM education snapshot through institutional Nominatim. A candidate never overwrites the official point.",
+    "observed_on": "2026-10-17",
+    "schema_version": 1,
+    "sources": {
+      "cases_path": "assets/data/thesis-extension-post2/cases.json",
+      "mineduc_directory_url": "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/",
+      "nominatim_queried_on": "2026-10-17",
+      "osm_attribution": "© OpenStreetMap contributors",
+      "osm_license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "osm_snapshot_date": "2026-08-27",
+      "osm_snapshot_sha256": "ec5389b4e514221d51b0b3d251d9d017855bdc6d7895aef9c3064ea3da8f276e"
+    }
+  },
+  "name": "thesis-post-ii-viewer-coordinate-audit-v1",
+  "type": "FeatureCollection"
+}

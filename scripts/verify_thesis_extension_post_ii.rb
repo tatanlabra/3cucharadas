@@ -19,17 +19,18 @@ EN_POST_PATH = File.join(ROOT, "_posts/2026-10-11-extender-tesis-no-es-agregar-a
 RESULTS_DATA_PATH = File.join(ROOT, "_data/thesis_extension_results.yml")
 STYLIZED_DATA_PATH = File.join(ROOT, "_data/thesis_extension_stylized.yml")
 STYLIZED_INCLUDE_PATH = File.join(ROOT, "_includes/thesis-extension-stylized-evidence.html")
+EDITORIAL_CLAIMS_PATH = File.join(ROOT, "docs/contracts/thesis-post-ii-editorial-claims.yml")
 MAP_DATA_PATH = File.join(ROOT, "assets/data/thesis-extension-post2/cases.json")
 RESULTS_DIR = File.join(ROOT, "assets/images/extender-tesis-no-es-agregar-anos")
 RESULTS_MANIFEST_PATH = File.join(RESULTS_DIR, "resultados-manifest.json")
 STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
-STYLIZED_MANIFEST_SHA256 = "3fad8f1fdb2f27b252bcb1bcad0c50f1871418f78740ed8190bfe1937c9b210a"
+STYLIZED_MANIFEST_SHA256 = "62aa347a13235936c4aeea9f2a63289e892bcf700fa9c5d1530b41a83bf718d4"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
 FREEZE_SHA256 = "a53da9519d863cd565b340346e979b0cb9fad89b1a00a033d0be311f4c55e06d"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
-EDITORIAL_WORD_TARGET = 2_500
+EDITORIAL_WORD_TARGET = 4_200
 EXPECTED_STYLIZED_COMMUNES = ["Lo Barnechea", "Lo Prado"].freeze
 STYLIZED_MAP_ITEM_FIELDS = %w[
   commune asset alt caption paired_closures nearby_entries same_commune_pairs event_period
@@ -44,6 +45,8 @@ MAP_CASE_FIELDS = %w[
 ].freeze
 MAP_POINT_FIELDS = %w[
   role rbd name event_year coordinate_year location_lag_years latitude longitude source_url market_segment
+  coordinate_source_kind coordinate_source_label_es coordinate_source_label_en address_evidence
+  official_coordinate_year official_latitude official_longitude official_distance_m audit_url
 ].freeze
 MAP_LINK_FIELDS = %w[
   closure_rbd entry_rbd receiver_rbd closure_year entry_year receiver_year distance_km
@@ -145,6 +148,19 @@ def public_and_technical(body)
   match = body.match(/<details\b[^>]*class=["'][^"']*technical-disclosure[^"']*["'][^>]*>.*?<\/details>/mi)
   fail_unless(match, "nota técnica separada ausente")
   [body.sub(match[0], ""), match[0]]
+end
+
+def editorial_claim_ids
+  fail_unless(File.file?(EDITORIAL_CLAIMS_PATH), "contrato editorial de claims ausente")
+  contract = YAML.safe_load(File.read(EDITORIAL_CLAIMS_PATH, encoding: "UTF-8"), permitted_classes: [], aliases: false)
+  fail_unless(contract.fetch("schema") == "thesis-post-ii-editorial-claims-v1", "schema editorial de claims derivó")
+  fail_unless(contract.fetch("post_ref") == "extender-tesis-no-es-agregar-anos", "ref editorial de claims derivó")
+  fail_unless(contract.fetch("locales") == %w[es en], "locales editoriales de claims derivaron")
+  claims = contract.fetch("claims")
+  ids = claims.map { |claim| claim.fetch("id") }
+  fail_unless(ids.length == ids.uniq.length && ids.length == 12, "claims editoriales deben ser doce y únicos")
+  fail_unless(claims.all? { |claim| !claim.fetch("class").empty? && !claim.fetch("requirement").empty? }, "claim editorial incompleto")
+  ids
 end
 
 def visible_word_count(markdown)
@@ -456,7 +472,17 @@ def check_author_case!(author_case, map_data, data, manifest, research_root)
   receiver = schools.fetch("receiver")
   fail_unless(closure.fetch("rbd") == 391 && receiver.fetch("rbd") == 390, "RBD del caso El Salvador derivaron")
   fail_unless(receiver.fetch("coordinate_reference_year") == 2020 && receiver.fetch("address").include?("Diego Portales 1510"), "coordenada receptora de El Salvador no conserva el contraste 2020")
-  fail_unless((schools.fetch("geodesic_distance_km") - 0.448903).abs < 0.000001, "distancia de El Salvador derivó")
+  fail_unless((schools.fetch("geodesic_distance_km") - 1.272025).abs < 0.000001, "distancia de El Salvador derivó")
+  fail_unless((schools.fetch("official_coordinate_distance_km") - 0.448903).abs < 0.000001, "contraste oficial de El Salvador derivó")
+  closure_display = closure.fetch("display_coordinate")
+  fail_unless(
+    closure.fetch("address").include?("Diego Portales 500") &&
+      closure_display.fetch("source_kind") == "osm_historical_site_candidate" &&
+      closure_display.fetch("osm_id") == 1_122_520_465 &&
+      closure_display.fetch("temporal_status") == "RETROSPECTIVE_UNVERIFIED" &&
+      closure_display.fetch("final_status") == "DISCREPANCY",
+    "auditoría de sede histórica de Escuela N° 14 derivó"
+  )
   rows = author_case.dig("enrollment", "rows").to_h { |row| [row.fetch("year"), row] }
   fail_unless(rows.dig(2004, "combined") == 1399 && rows.dig(2013, "combined") == 977, "trayectoria histórica de El Salvador derivó")
   fail_unless(rows.dig(2013, "receiver_rbd_390") == 432 && rows.dig(2014, "receiver_rbd_390") == 738, "salto receptor de El Salvador derivó")
@@ -466,7 +492,7 @@ def check_author_case!(author_case, map_data, data, manifest, research_root)
   not_verified = author_case.dig("epistemic_register", "not_verified").join(" ").downcase
   fail_unless(not_verified.include?("razón administrativa") && not_verified.include?("cada estudiante"), "límites epistémicos de El Salvador incompletos")
 
-  fail_unless(map_data.fetch("schema_version") == 3, "schema cartográfico no incorpora el caso autoral")
+  fail_unless(map_data.fetch("schema_version") == 4, "schema cartográfico no incorpora la procedencia auditada")
   cases = map_data.fetch("cases")
   systematic = cases.select { |row| row.fetch("case_kind") == "systematic" }
   authored = cases.select { |row| row.fetch("case_kind") == "author_documented" }
@@ -478,6 +504,15 @@ def check_author_case!(author_case, map_data, data, manifest, research_root)
   fail_unless(role_by_rbd == {391 => "closure", 390 => "receiver"}, "la escuela receptora fue rotulada como apertura")
   receiver_map = author_map.fetch("points").find { |row| row.fetch("rbd") == 390 }
   fail_unless(receiver_map.fetch("coordinate_year") == 2020 && receiver_map.fetch("latitude") == -26.243219 && receiver_map.fetch("longitude") == -69.62278, "el render no usa la coordenada 2020 de RBD 390")
+  closure_map = author_map.fetch("points").find { |row| row.fetch("rbd") == 391 }
+  fail_unless(
+    closure_map.fetch("coordinate_source_kind") == "osm_historical_site_candidate" &&
+      closure_map.fetch("coordinate_year") == 2026 &&
+      closure_map.fetch("official_coordinate_year") == 2015 &&
+      closure_map.fetch("official_distance_m") == 825.551 &&
+      closure_map.fetch("source_url").end_with?("/way/1122520465"),
+    "el visor no conserva la procedencia dual de Escuela N° 14"
+  )
   fail_unless(author_map.fetch("trajectories").map { |row| row.fetch("calendar_year") } == [2004, 2013, 2014, 2025], "años calendario de El Salvador derivaron")
 
   %w[es en].each do |lang|
@@ -497,12 +532,14 @@ end
 def check_include!(text)
   required = %w[
     data-thesis-market-map data-market-map-tab data-market-map-canvas data-market-map-aside
-    thesis-post2-map-loader.js evidence-carousel--stylized data-evidence-carousel data-carousel-slide
-    data-carousel-popup data-carousel-hd-link image-popup tabla-desliza thesis-author-case
+    data-market-map-panel data-market-map-fallback-grid thesis-post2-map-loader.js
+    territorial-evidence territorial-evidence__fallback-grid image-popup table--scroll
   ]
   required.each { |token| fail_unless(text.include?(token), "include estilizado sin selector requerido: #{token}") }
-  fail_unless(text.include?("target=\"_blank\"") && text.include?("rel=\"noopener\""), "enlace HD sin custodia de pestaña")
-  fail_unless(text.include?("row.median_distance_km | replace: '.', ','") && text.include?("interval_values[1] | replace: '.', ','"), "tabla accesible sin localización numérica ES/EN")
+  retired = %w[evidence-carousel--stylized data-evidence-carousel thesis-author-case]
+  fail_unless(retired.none? { |token| text.include?(token) }, "include conserva componentes territoriales retirados")
+  fail_unless(text.include?("target=\"_blank\"") && text.include?("rel=\"noopener\""), "enlace externo sin custodia de pestaña")
+  fail_unless(text.scan("scope=\"col\"").length >= 11, "tablas accesibles sin encabezados de columna")
 end
 
 def check_release_boundaries!(body, lang)
@@ -510,28 +547,20 @@ def check_release_boundaries!(body, lang)
   public_text = normalized_text(visible_text(public_body)).gsub(/[*`]/, "")
   technical_text = normalized_text(visible_text(technical_body)).gsub(/[*`]/, "")
   public_lower = public_text.downcase
-  full_lower = normalized_text(visible_text(body)).gsub(/[*`]/, "").downcase
-  denominator_fragments = if lang == "es"
-                            ["684 desde actividad", "de los 684 cierres que venían de actividad", "cobertura sobre 684", "de las 684 escuelas antes activas, 346 tenían estudiantes"]
-                          else
-                            ["684 after activity", "of the 684 closures that followed activity", "coverage of 684", "of the 684 previously active schools, 346 had students"]
-                          end
-  fail_unless(denominator_fragments.all? { |fragment| full_lower.include?(fragment) }, "denominadores públicos incompletos #{lang}")
-  series_fragments = if lang == "es"
-                       ["celdas descriptivas sin regularización", "la nota técnica usa otra cohorte", "no son una segunda versión de la misma serie"]
-                     else
-                       ["descriptive cells without regularisation", "the technical note uses a different cohort", "not a second version of the same series"]
-                     end
-  fail_unless(series_fragments.all? { |fragment| public_lower.include?(fragment) }, "serie descriptiva y cohorte inferencial no se distinguen #{lang}")
+  claim_ids = editorial_claim_ids
+  public_source = public_body.to_s
+  claim_ids.each do |claim_id|
+    fail_unless(public_source.scan(%(id="#{claim_id}")).length == 1, "#{lang}: claim visible ausente o duplicado: #{claim_id}")
+  end
   selection_fragments = if lang == "es"
-                          ["un caso por cada grupo educativo priorizado por la regla", "misma comuna, distancia, año y rbd", "ni los valores ni la disponibilidad de resultados participaron en la selección", "primera coordenada oficial válida entre el año de entrada y 2025", "9 trayectorias inestables", "38 cierres emparejados con 29 aperturas únicas"]
+                          ["ni los valores ni la disponibilidad de resultados participaron en la selección", "primera coordenada oficial válida entre el año de entrada y 2025", "nueve trayectorias inestables", "38 cierres emparejados con 29 aperturas únicas"]
                         else
-                          ["one case from each preferred education family", "same commune, distance, year, and rbd", "neither outcome values nor outcome availability enter the selection", "first valid official coordinate between the entry year and 2025", "9 unstable trajectories", "38 matched closures and 29 unique openings"]
+                          ["neither outcome values nor outcome availability enter the selection", "first valid official coordinate between the entry year and 2025", "nine unstable trajectories", "38 matched closures and 29 unique openings"]
                         end
   fail_unless(selection_fragments.all? { |fragment| public_lower.include?(fragment) }, "selección territorial incompletamente divulgada #{lang}")
   leaked = %w[weighted_raw MR1 MR2].select { |token| public_text.include?(token) }
   fail_unless(leaked.empty?, "relato público expone identificadores de auditoría #{lang}: #{leaked.join(', ')}")
-  fail_unless(%w[weighted_raw MR1 MR2].all? { |token| technical_text.include?(token) }, "nota técnica perdió identificadores auditables #{lang}")
+  fail_unless(%w[MR1 MR2].all? { |token| technical_text.include?(token) }, "nota técnica perdió identificadores auditables #{lang}")
   mr2_point_tokens = %w[-0.124 -0.512 -0.284 -0.030 -0.322 -0.250]
   leaked_mr2_points = mr2_point_tokens.select { |token| technical_text.include?(token) }
   fail_unless(leaked_mr2_points.empty?, "nota técnica expone puntos MR2 subsoportados #{lang}: #{leaked_mr2_points.join(', ')}")
@@ -560,6 +589,27 @@ def check_policy_boundaries!(body, lang)
     rows.all? { |row| row[3].downcase.split(action_guard, 2).last.to_s.strip.length >= 15 },
     "#{lang}: matriz conserva una salvaguarda vacía o trivial"
   )
+  if body.include?('id="claim-policy-use"')
+    required = if lang == "es"
+                 [
+                   "apoyo a la decisión", "observación → diagnóstico → decisión",
+                   "un slep planifica y gestiona su propia red", "no los establecimientos de otros sostenedores",
+                   "un falso positivo señalaría como inviable una escuela", "un falso negativo omitiría una transición riesgosa",
+                   "ive-sinae ayuda a describir composición agregada", "la teoría de cambio distingue",
+                   "este post propone evaluar esa cadena; no acredita que ya funcione"
+                 ]
+               else
+                 [
+                   "decision support", "observation → diagnosis → decision",
+                   "a slep plans and manages its own network", "not establishments run by other providers",
+                   "a false positive would flag a school as unviable", "a false negative would miss a risky transition",
+                   "ive-sinae helps describe aggregate school composition", "an evaluable theory of change",
+                   "this post proposes the chain for evaluation; it does not establish that it already works"
+                 ]
+               end
+    required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: frontera de uso público ausente: #{fragment}") }
+    return
+  end
   required = if lang == "es"
                [
                  "apoyo a la decisión",
@@ -628,6 +678,8 @@ def check_identity!(front, lang)
   POST_IDENTITY.each { |key, value| fail_unless(front.fetch(key).to_s == value, "#{lang}: #{key} derivó") }
   fail_unless(front.fetch("lang") == lang, "#{lang}: lang derivó")
   fail_unless(front.fetch("title").include?(lang == "es" ? "3 cucharadas (parte II)" : "three spoonfuls (part II)"), "#{lang}: título de serie derivó")
+  fail_unless(front.fetch("editorial_contract") == "societal-contribution-v1", "#{lang}: contrato editorial ausente")
+  fail_unless(front.fetch("table_contract") == "explicit-v1", "#{lang}: contrato explícito de tablas ausente")
   fail_unless(front.dig("ai_disclosure", "components", "text") == "assisted", "#{lang}: divulgación de asistencia derivó")
 end
 
@@ -636,6 +688,48 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
   text = visible_text(body)
   normalized = normalized_text(text).gsub(/[*`]/, "")
   lower = normalized.downcase
+  if front["editorial_contract"] == "societal-contribution-v1"
+    fail_unless(body.scan("{% include thesis-extension-stylized-evidence.html %}").length == 1, "#{lang}: evidencia territorial ausente o duplicada")
+    fail_unless(!body.include?("{% include thesis-post2-coordinate-audit-box.html %}"), "#{lang}: auditoría geográfica duplicada fuera del componente unificado")
+    fail_unless(!body.include?("{% include thesis-extension-results-carousel.html %}"), "#{lang}: carrusel redundante sigue montado")
+    fail_unless(!text.match?(FORBIDDEN_PRIVATE), "#{lang}: ruta o identificador privado expuesto")
+    fail_unless(text.scan("NOT_ESTIMABLE").length >= 2, "#{lang}: NOT_ESTIMABLE traducido o ausente")
+    required = if lang == "es"
+                 [
+                   "900 cierres oficiales", "330 cierres estrictos", "28 → 23 → 1", "21 y 8",
+                   "+0.029", "[-0.095; +0.158]", "4/6/8", "1/1/2",
+                   "38 cierres emparejados con 29 aperturas únicas", "1.046 km", "7.860 km",
+                   "rbd 391", "rbd 390", "1.399", "977", "432 a 738",
+                   "ninguna de las 25", "53 de 70 territorios", "hhi +0.0035",
+                   "estos resultados no permiten concluir que los slep y el sae no tuvieron efectos",
+                   "observación → diagnóstico → decisión", "no como una regla para cerrar"
+                 ]
+               else
+                 [
+                   "900 official closures", "330 strict closures", "28 → 23 → 1", "21 and 8",
+                   "+0.029", "[-0.095, +0.158]", "4/6/8", "1/1/2",
+                   "38 matched closures and 29 unique openings", "1.046 km", "7.860 km",
+                   "rbd 391", "rbd 390", "1.399", "977", "432 to 738",
+                   "none of the 25", "53 of 70 territories", "hhi +0.0035",
+                   "these results do not allow me to conclude that sleps and sae had no effects",
+                   "observation → diagnosis → decision", "not a rule for closing"
+                 ]
+               end
+    required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
+    forbidden = lang == "es" ? ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero"] : ["closures improved", "causal effect is identified", "should close first"]
+    forbidden.each { |fragment| fail_unless(!lower.include?(fragment), "#{lang}: promoción causal prohibida: #{fragment}") }
+    check_release_boundaries!(body, lang)
+    check_policy_boundaries!(body, lang)
+    if enforce_length
+      public_body, = public_and_technical(body)
+      word_count = visible_word_count(public_body)
+      fail_unless(word_count >= 3_000, "#{lang}: relato visible demasiado breve (#{word_count})")
+      if word_count > EDITORIAL_WORD_TARGET
+        soft_warnings << { code: "post-above-soft-word-target", lang: lang, observed_words: word_count, target_words: EDITORIAL_WORD_TARGET }
+      end
+    end
+    return soft_warnings
+  end
   fail_unless(body.scan("{% include thesis-extension-stylized-evidence.html %}").length == 1, "#{lang}: evidencia estilizada ausente o duplicada")
   fail_unless(body.scan("{% include thesis-post2-coordinate-audit-box.html %}").length == 1, "#{lang}: recuadro de auditoría geográfica ausente o duplicado")
   fail_unless(!body.include?("{% include thesis-extension-results-carousel.html %}"), "#{lang}: carrusel redundante sigue montado")
@@ -932,9 +1026,29 @@ OptionParser.new do |parser|
   parser.on("--parity") { options[:mode] = "parity" }
   parser.on("--causal-language") { options[:mode] = "causal" }
   parser.on("--custody") { options[:mode] = "custody" }
+  parser.on("--editorial-only") { options[:mode] = "editorial" }
   parser.on("--all") { options[:mode] = "all" }
   parser.on("--self-test NAME") { |value| options[:self_test] = value }
 end.parse!
+
+if options[:mode] == "editorial"
+  begin
+    warnings = []
+    include_text = File.read(STYLIZED_INCLUDE_PATH, encoding: "UTF-8")
+    es_front, es_body = read_post(post_path("es"))
+    en_front, en_body = read_post(post_path("en"))
+    check_include!(include_text)
+    check_language!(es_front, es_body, "es", soft_warnings: warnings)
+    check_language!(en_front, en_body, "en", soft_warnings: warnings)
+    check_parity!(es_front, es_body, en_front, en_body)
+    check_custody!
+    puts JSON.generate(result: "PASS", mode: "editorial", soft_warnings: warnings)
+    exit 0
+  rescue VerificationError, KeyError, JSON::ParserError, Psych::SyntaxError, REXML::ParseException => e
+    warn JSON.generate(result: "FAIL", mode: "editorial", error: e.message)
+    exit 1
+  end
+end
 
 begin
   soft_warnings = []

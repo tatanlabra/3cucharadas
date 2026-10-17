@@ -3,6 +3,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { PMTiles, Protocol } from "pmtiles";
 import "./styles.scss";
+import { resolveAssetTemplate, resolveOrdinaryAsset } from "./url_helpers";
 
 type Point = {
   role: "closure" | "entry" | "receiver";
@@ -15,6 +16,15 @@ type Point = {
   longitude: number;
   market_segment: string;
   source_url: string;
+  coordinate_source_kind?: "official_mineduc" | "official_mineduc_reference" | "osm_historical_site_candidate";
+  coordinate_source_label_es?: string;
+  coordinate_source_label_en?: string;
+  address_evidence?: string;
+  official_coordinate_year?: number;
+  official_latitude?: number;
+  official_longitude?: number;
+  official_distance_m?: number;
+  audit_url?: string;
 };
 
 type Trajectory = {
@@ -39,8 +49,8 @@ type Case = {
   segment_family: string;
   distance_km: number;
   same_commune: boolean;
-  poster_es: string;
-  poster_en: string;
+  poster_es?: string;
+  poster_en?: string;
   points: Point[];
   trajectories: Trajectory[];
 };
@@ -56,7 +66,7 @@ maplibregl.setWorkerUrl(maplibreWorkerUrl);
 const root = document.querySelector<HTMLElement>("[data-thesis-market-map]");
 
 function absoluteTileUrl(manifest: Manifest, path: string): string {
-  return new URL(path, `${manifest.tiles_base.replace(/\/$/, "")}/`).toString();
+  return resolveOrdinaryAsset(manifest.tiles_base, path, window.location.origin);
 }
 
 function rewriteStyle(style: maplibregl.StyleSpecification, manifest: Manifest): maplibregl.StyleSpecification {
@@ -68,7 +78,10 @@ function rewriteStyle(style: maplibregl.StyleSpecification, manifest: Manifest):
     protocol.add(new PMTiles(url));
   }
   if (typeof copy.glyphs === "string" && !/^https?:\/\//.test(copy.glyphs)) {
-    copy.glyphs = absoluteTileUrl(manifest, copy.glyphs);
+    copy.glyphs = resolveAssetTemplate(manifest.tiles_base, copy.glyphs);
+  }
+  if (typeof copy.sprite === "string" && !/^https?:\/\//.test(copy.sprite)) {
+    copy.sprite = absoluteTileUrl(manifest, copy.sprite);
   }
   return copy;
 }
@@ -103,13 +116,36 @@ async function fetchWithTimeout(url: string, init: RequestInit, timeoutMs = 3_00
 }
 
 function pointCollection(item: Case): GeoJSON.FeatureCollection {
-  return {
-    type: "FeatureCollection",
-    features: item.points.map((point) => ({
+  const points = item.points.flatMap((point) => {
+    const primary: GeoJSON.Feature = {
       type: "Feature",
       properties: { ...point },
       geometry: { type: "Point", coordinates: [point.longitude, point.latitude] }
-    }))
+    };
+    if (
+      point.coordinate_source_kind !== "osm_historical_site_candidate"
+      || point.official_latitude === undefined
+      || point.official_longitude === undefined
+      || point.official_coordinate_year === undefined
+    ) return [primary];
+    const official: GeoJSON.Feature = {
+      type: "Feature",
+      properties: {
+        ...point,
+        name: `${point.name} · punto MINEDUC ${point.official_coordinate_year}`,
+        coordinate_source_kind: "official_mineduc_reference",
+        coordinate_year: point.official_coordinate_year,
+        latitude: point.official_latitude,
+        longitude: point.official_longitude,
+        source_url: "https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/"
+      },
+      geometry: { type: "Point", coordinates: [point.official_longitude, point.official_latitude] }
+    };
+    return [primary, official];
+  });
+  return {
+    type: "FeatureCollection",
+    features: points
   };
 }
 
@@ -132,6 +168,17 @@ function linkCollection(item: Case): GeoJSON.FeatureCollection {
 
 function coordinateLabel(point: Point, lang: "es" | "en"): string {
   const year = point.coordinate_year;
+  if (point.coordinate_source_kind === "osm_historical_site_candidate") {
+    const distance = Math.round(point.official_distance_m || 0);
+    return lang === "es"
+      ? `Sede histórica candidata OSM · observada en ${year} · ${point.address_evidence || "directorio MINEDUC"} · punto oficial ${point.official_coordinate_year} conservado a ${distance} m`
+      : `OSM historical-site candidate · observed in ${year} · ${point.address_evidence || "MINEDUC directory"} · official ${point.official_coordinate_year} point retained ${distance} m away`;
+  }
+  if (point.coordinate_source_kind === "official_mineduc_reference") {
+    return lang === "es"
+      ? `Punto oficial MINEDUC ${year} · conservado para contraste; no se usa como sede histórica en la línea`
+      : `Official MINEDUC ${year} point · retained for comparison; not used as the historical site in the line`;
+  }
   if (point.role === "entry" && point.location_lag_years > 0) {
     return lang === "es"
       ? `Coordenada oficial ${year} · ${point.location_lag_years} años después del evento`
@@ -200,6 +247,9 @@ async function init(host: HTMLElement): Promise<void> {
   let basemapMode = "pmtiles";
   let style: maplibregl.StyleSpecification;
   try {
+    if (["127.0.0.1", "localhost"].includes(window.location.hostname)) {
+      throw new Error("preview local: usar base OSM sin solicitar recursos CORS remotos");
+    }
     const styleResponse = await fetchWithTimeout(
       absoluteTileUrl(manifest, manifest.basemap.style_url),
       { cache: "force-cache" }
@@ -214,9 +264,8 @@ async function init(host: HTMLElement): Promise<void> {
   const canvas = host.querySelector<HTMLElement>("[data-market-map-canvas]");
   const aside = host.querySelector<HTMLElement>("[data-market-map-aside]");
   const status = host.querySelector<HTMLElement>("[data-market-map-status]");
-  const fallbackImage = host.querySelector<HTMLImageElement>("[data-market-map-fallback]");
   const posterLink = host.querySelector<HTMLAnchorElement>("[data-market-map-poster]");
-  if (!canvas || !aside || !status || !fallbackImage || !posterLink) throw new Error("estructura del visor incompleta");
+  if (!canvas || !aside || !status || !posterLink) throw new Error("estructura del visor incompleta");
 
   const map = new maplibregl.Map({
     container: canvas,
@@ -263,9 +312,9 @@ async function init(host: HTMLElement): Promise<void> {
     source: "case-schools",
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 7, 14, 11],
-      "circle-color": ["match", ["get", "role"], "closure", "#ff4fd8", "receiver", "#37e7ff", "#b8ff3c"],
-      "circle-stroke-color": "#10121d",
-      "circle-stroke-width": 2
+      "circle-color": ["case", ["==", ["get", "coordinate_source_kind"], "official_mineduc_reference"], "rgba(255,255,255,0.78)", ["match", ["get", "role"], "closure", "#ff4fd8", "receiver", "#37e7ff", "#b8ff3c"]],
+      "circle-stroke-color": ["case", ["==", ["get", "coordinate_source_kind"], "official_mineduc_reference"], "#ff4fd8", "#10121d"],
+      "circle-stroke-width": ["case", ["==", ["get", "coordinate_source_kind"], "official_mineduc_reference"], 3, 2]
     }
   });
   map.addLayer({
@@ -274,7 +323,7 @@ async function init(host: HTMLElement): Promise<void> {
     source: "case-schools",
     minzoom: 10,
     layout: {
-      "text-field": ["case", ["==", ["get", "role"], "closure"], "C", ["==", ["get", "role"], "receiver"], "R", lang === "es" ? "A" : "O"],
+      "text-field": ["case", ["==", ["get", "coordinate_source_kind"], "official_mineduc_reference"], "M", ["==", ["get", "role"], "closure"], "C", ["==", ["get", "role"], "receiver"], "R", lang === "es" ? "A" : "O"],
       "text-font": ["Noto Sans Regular"],
       "text-size": 11,
       "text-offset": [0, 1.55],
@@ -315,34 +364,48 @@ async function init(host: HTMLElement): Promise<void> {
   map.on("mouseenter", "case-school-points", () => { map.getCanvas().style.cursor = "pointer"; });
   map.on("mouseleave", "case-school-points", () => { map.getCanvas().style.cursor = ""; });
 
-  function selectCase(index: number): void {
+  function selectCase(index: number, animate = true): void {
     const item = data.cases[index];
     if (!item) return;
-    (map.getSource("case-schools") as maplibregl.GeoJSONSource).setData(pointCollection(item));
+    const pointData = pointCollection(item);
+    (map.getSource("case-schools") as maplibregl.GeoJSONSource).setData(pointData);
     (map.getSource("case-links") as maplibregl.GeoJSONSource).setData(linkCollection(item));
+    host.dataset.mapPointCount = String(pointData.features.length);
     const bounds = new maplibregl.LngLatBounds();
     item.points.forEach((point) => bounds.extend([point.longitude, point.latitude]));
-    map.fitBounds(bounds, { padding: { top: 75, right: 75, bottom: 75, left: 75 }, maxZoom: 15.5, duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 450 });
+    map.fitBounds(bounds, {
+      padding: { top: 75, right: 75, bottom: 75, left: 75 },
+      maxZoom: 15.5,
+      duration: !animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 450
+    });
+    const center = map.getCenter();
+    host.dataset.activeCase = item.id;
+    host.dataset.mapCenter = `${center.lat.toFixed(6)},${center.lng.toFixed(6)}`;
     let activeButton: HTMLButtonElement | null = null;
     host.querySelectorAll<HTMLButtonElement>("[data-market-map-tab]").forEach((button, buttonIndex) => {
       button.setAttribute("aria-selected", String(buttonIndex === index));
       button.tabIndex = buttonIndex === index ? 0 : -1;
       if (buttonIndex === index) activeButton = button;
     });
-    const tabList = activeButton?.closest<HTMLElement>(".thesis-market-map__tabs");
+    const panel = host.querySelector<HTMLElement>("[data-market-map-panel]");
+    if (panel && activeButton) panel.setAttribute("aria-labelledby", activeButton.id);
+    const tabList = activeButton?.closest<HTMLElement>(".territorial-evidence__tabs");
     if (activeButton && tabList) {
       tabList.scrollLeft = Math.max(0, activeButton.offsetLeft - (tabList.clientWidth - activeButton.offsetWidth) / 2);
     }
     aside.replaceChildren();
     appendText(aside, "h4", item.commune);
     const localizedSegment = segmentLabel(item.education_segment, lang);
-    appendText(aside, "p", `${item.event_period} · ${localizedSegment}`, "thesis-market-map__meta");
+    appendText(aside, "p", `${item.event_period} · ${localizedSegment}`, "territorial-evidence__meta");
     const facts = document.createElement("dl");
-    facts.className = "thesis-market-map__facts";
+    facts.className = "territorial-evidence__facts";
     const selectionNote = lang === "es" ? item.selection_note_es : item.selection_note_en;
+    const distance = item.case_kind === "author_documented"
+      ? `≈${item.distance_km.toLocaleString(lang === "es" ? "es-CL" : "en-GB", { maximumFractionDigits: 1 })} km`
+      : `${item.distance_km.toLocaleString(lang === "es" ? "es-CL" : "en-GB", { maximumFractionDigits: 3 })} km`;
     const factRows = lang === "es"
-      ? [["Distancia", `${item.distance_km.toLocaleString("es-CL", { maximumFractionDigits: 3 })} km`], ["Misma comuna", item.same_commune ? "Sí" : "No"], ["Segmento", localizedSegment], ["Selección", selectionNote]]
-      : [["Distance", `${item.distance_km.toLocaleString("en-GB", { maximumFractionDigits: 3 })} km`], ["Same commune", item.same_commune ? "Yes" : "No"], ["Segment", localizedSegment], ["Selection", selectionNote]];
+      ? [["Distancia", distance], ["Misma comuna", item.same_commune ? "Sí" : "No"], ["Segmento", localizedSegment], ["Selección", selectionNote]]
+      : [["Distance", distance], ["Same commune", item.same_commune ? "Yes" : "No"], ["Segment", localizedSegment], ["Selection", selectionNote]];
     for (const [label, value] of factRows) {
       const row = document.createElement("div");
       appendText(row, "dt", label);
@@ -351,10 +414,10 @@ async function init(host: HTMLElement): Promise<void> {
     }
     aside.append(facts);
     const schools = document.createElement("div");
-    schools.className = "thesis-market-map__schools";
+    schools.className = "territorial-evidence__schools";
     for (const point of item.points) {
       const card = document.createElement("div");
-      card.className = "thesis-market-map__school";
+      card.className = "territorial-evidence__school";
       card.dataset.role = point.role;
       appendText(card, "strong", point.name);
       appendText(card, "span", `${roleLabel(point.role, lang)} · RBD ${point.rbd} · ${point.event_year}`);
@@ -364,7 +427,7 @@ async function init(host: HTMLElement): Promise<void> {
     aside.append(schools);
     const visibleRows = item.trajectories.filter((row) => row.outcome === "enrollment_total" || (item.segment_family === "initial" && row.outcome === "initial_transicion"));
     const table = document.createElement("table");
-    table.className = "thesis-market-map__trajectory";
+    table.className = "territorial-evidence__trajectory";
     const caption = document.createElement("caption");
     caption.textContent = lang === "es"
       ? "Matrícula alrededor del evento en escuelas distintas"
@@ -373,7 +436,10 @@ async function init(host: HTMLElement): Promise<void> {
     const head = document.createElement("thead");
     const headRow = document.createElement("tr");
     const usesCalendarYear = visibleRows.some((row) => Number.isInteger(row.calendar_year));
-    for (const label of (lang === "es" ? ["Rama", "Indicador", usesCalendarYear ? "Año" : "t", "Valor"] : ["Branch", "Indicator", usesCalendarYear ? "Year" : "t", "Value"])) appendText(headRow, "th", label);
+    for (const label of (lang === "es" ? ["Rama", "Indicador", usesCalendarYear ? "Año" : "t", "Valor"] : ["Branch", "Indicator", usesCalendarYear ? "Year" : "t", "Value"])) {
+      const cell = appendText(headRow, "th", label);
+      cell.setAttribute("scope", "col");
+    }
     head.append(headRow);
     table.append(head);
     const body = document.createElement("tbody");
@@ -386,35 +452,110 @@ async function init(host: HTMLElement): Promise<void> {
     }
     table.append(body);
     aside.append(table);
+    const sourceNote = document.createElement("p");
+    sourceNote.className = "territorial-evidence__source";
+    sourceNote.append(document.createTextNode(lang === "es" ? "Fuentes: directorios MINEDUC y mapa de calles OpenStreetMap." : "Sources: MINEDUC directories and OpenStreetMap street map."));
+    if (item.case_kind === "author_documented") {
+      sourceNote.append(document.createTextNode(lang === "es" ? " M = punto MINEDUC; C = sede histórica candidata; R = receptora." : " M = MINEDUC point; C = candidate historical site; R = receiver."));
+      sourceNote.append(document.createTextNode(lang === "es" ? " Caso documentado: " : " Documented case: "));
+      const sourceLinks = lang === "es"
+        ? [["registro BCN", "https://www.bcn.cl/laborparlamentaria/documento?id=636175"], ["reglamento institucional", "https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf"]]
+        : [["BCN record", "https://www.bcn.cl/laborparlamentaria/documento?id=636175"], ["institutional regulations", "https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf"]];
+      sourceLinks.forEach(([label, href], sourceIndex) => {
+        if (sourceIndex > 0) sourceNote.append(document.createTextNode(lang === "es" ? " y " : " and "));
+        const link = document.createElement("a");
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = label;
+        sourceNote.append(link);
+      });
+      sourceNote.append(document.createTextNode("."));
+    }
+    aside.append(sourceNote);
     const poster = lang === "es" ? item.poster_es : item.poster_en;
-    fallbackImage.src = poster;
-    fallbackImage.alt = lang === "es" ? `Lámina estática del caso de ${item.commune}` : `Static poster for the ${item.commune} case`;
-    posterLink.href = poster;
-    posterLink.textContent = lang === "es" ? "Abrir lámina estática en HD ↗" : "Open static HD poster ↗";
+    const hasDocumentedPoster = item.case_kind === "author_documented" && typeof poster === "string";
+    if (hasDocumentedPoster) posterLink.href = poster;
+    else posterLink.removeAttribute("href");
+    posterLink.hidden = !hasDocumentedPoster;
+    posterLink.replaceChildren(document.createTextNode(lang === "es" ? "Abrir la lámina de la fusión documentada" : "Open the documented merger evidence sheet"));
+    const externalMark = document.createElement("span");
+    externalMark.setAttribute("aria-hidden", "true");
+    externalMark.textContent = " ↗";
+    posterLink.append(externalMark);
     status.textContent = item.case_kind === "author_documented"
       ? (lang === "es"
         ? `${item.commune}: cierre y fusión documentados; la matrícula agregada no prueba el motivo administrativo.`
         : `${item.commune}: documented closure and merger; aggregate enrolment does not prove the administrative motive.`)
+      : !item.same_commune
+        ? (lang === "es"
+          ? `${item.commune}: la apertura queda fuera de la comuna del cierre; es una selección analítica, no una relación local ni un destino.`
+          : `${item.commune}: the opening lies outside the closure's municipality; it is an analytical selection, not a local relationship or destination.`)
       : (lang === "es"
         ? `${item.commune}: cierre y apertura del mismo segmento; la línea indica proximidad, no destino.`
         : `${item.commune}: closure and opening in the same segment; the line shows proximity, not destination.`);
   }
 
   const tabs = [...host.querySelectorAll<HTMLButtonElement>("[data-market-map-tab]")];
+  const updateHash = (index: number): void => {
+    const caseId = tabs[index]?.dataset.caseId;
+    if (caseId) history.replaceState(null, "", `#territorial-case-${caseId}`);
+  };
   tabs.forEach((button, index) => {
-    button.addEventListener("click", () => selectCase(index));
+    button.addEventListener("click", () => {
+      selectCase(index);
+      updateHash(index);
+    });
     button.addEventListener("keydown", (event) => {
-      if (!(["ArrowLeft", "ArrowRight"] as string[]).includes(event.key)) return;
+      if (!(["ArrowLeft", "ArrowRight", "Home", "End"] as string[]).includes(event.key)) return;
       event.preventDefault();
-      const next = (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+      const next = event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? tabs.length - 1
+          : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
       tabs[next].focus();
       selectCase(next);
+      updateHash(next);
     });
   });
-  selectCase(0);
+  const requestedCase = location.hash.match(/^#territorial-case-(.+)$/)?.[1];
+  const initialIndex = requestedCase
+    ? Math.max(0, tabs.findIndex((button) => button.dataset.caseId === requestedCase))
+    : 0;
+  host.dataset.requestedCase = requestedCase || "";
+  host.dataset.initialCaseIndex = String(initialIndex);
+  selectCase(initialIndex, false);
+  await new Promise<void>((resolve, reject) => {
+    const onError = (event: { error?: Error }) => {
+      cleanup();
+      reject(event.error || new Error("recurso cartográfico no disponible"));
+    };
+    const onIdle = () => {
+      cleanup();
+      resolve();
+    };
+    const timer = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("el mapa no alcanzó un estado estable"));
+    }, 20_000);
+    const cleanup = () => {
+      window.clearTimeout(timer);
+      map.off("error", onError);
+      map.off("idle", onIdle);
+    };
+    map.on("error", onError);
+    map.once("idle", onIdle);
+  });
+  const tabsContainer = host.querySelector<HTMLElement>("[data-market-map-tabs]");
+  const panel = host.querySelector<HTMLElement>("[data-market-map-panel]");
+  if (tabsContainer) tabsContainer.hidden = false;
+  if (panel) panel.hidden = false;
   host.dataset.mapBasemap = basemapMode;
   host.dataset.mapState = "ready";
+  host.dataset.mapLoaded = "true";
   map.resize();
+  selectCase(initialIndex, false);
 }
 
 if (root) init(root).catch(() => root.dispatchEvent(new CustomEvent("thesis-post2-map:fallback")));

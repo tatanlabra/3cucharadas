@@ -69,7 +69,7 @@ La primera conclusión sí resistió: entre 1992 y 2012 no hubo simplemente más
 Los totales no son idénticos, pero cuentan la misma historia. Mi planilla de 2014 está a 3,05 puntos porcentuales de la reconstrucción y a 13,41 del texto publicado: la recreación se parece más al archivo productor que a la prosa que firmé.
 {: .text-justify}
 
-La segunda conclusión que resistió es distributiva. En el Gran Santiago, los establecimientos que después cierran atendían una matrícula más vulnerable: 87,4 % frente a 78,3 % en municipales y 72,2 % frente a 62,8 % en particulares subvencionados. Las 42 celdas reconstruidas son compatibles con el margen de redondeo publicado, aunque el número efectivo de observaciones no coincide con el impreso. La magnitud sobrevive; el universo exacto, no.
+La segunda conclusión que resistió es distributiva. En el Gran Santiago, los establecimientos que después salen del registro atendían una matrícula más vulnerable: 87,4 % frente a 78,3 % en municipales y 72,2 % frente a 62,8 % en particulares subvencionados. Las 42 celdas reconstruidas son compatibles con el margen de redondeo publicado, aunque el número efectivo de observaciones no coincide con el impreso. La magnitud sobrevive; el universo exacto, no.
 {: .text-justify}
 
 Esto describe selección (quiénes integran cada grupo), no efectos. Con datos de 2002 a 2012, Paredes y Fresard asocian menor matrícula con mayor probabilidad de cierre y estudian el destino posterior de los alumnos.[^paredes2018] Núñez, Solís y Soto examinan dos comunidades rurales del sur tras el terremoto de 2010 y muestran que el modo de cerrar una escuela importa para la cohesión social.[^nunez2014] Mis datos siguen las mismas unidades en el tiempo, pero no alcanzan para sostener esas conclusiones: observan flujos administrativos, no motivos, trayectorias ni vida comunitaria.
@@ -188,7 +188,7 @@ Esa figura es útil para política pública precisamente porque no promete lo qu
 | Diferencia | 2 | Los Cuadros 5 y 8 no superan su criterio preespecificado. |
 | No comparable por diseño | 4 | El código se ejecutó, pero falta una serie o una lista de valores común; comparar solo la apariencia respondería otra pregunta. |
 
-El Cuadro 5 recupera N=30.484 y `duracion3`, pero solo 10 de 20 coeficientes y 11 de 20 errores estándar igualan el redondeo impreso. El Cuadro 6 conserva 35 de 41 magnitudes; el 7, 10 de 11 efectos fijos, salvo 0,003 frente a 0,001. En el 8, solo 4 de 12 coinciden bajo redondeo; ocho parecen haber sido recortadas sin redondear. «Cerca» no es «igual a la precisión publicada».
+El Cuadro 5 recupera *N* = 30.484 y `duracion3`, pero solo 10 de 20 coeficientes y 11 de 20 errores estándar igualan el redondeo impreso. El Cuadro 6 conserva 35 de 41 magnitudes; el 7, 10 de 11 efectos fijos, salvo 0,003 frente a 0,001. En el 8, solo 4 de 12 coinciden bajo redondeo; ocho parecen haber sido recortadas sin redondear. «Cerca» no es «igual a la precisión publicada».
 {: .text-justify}
 
 Python reconstruyó tablas y gráficos. Una nueva ejecución usó Stata 17 mediante `stata-mp` y completó las 14 rutas que todavía podían ejecutarse, incluida la recuperación controlada de `do_058`, `do_059` y `do_060`.[^stata17][^harvest] El resultado es una **reejecución actual trazable**, no equivalencia histórica: prueba que la cadena puede recorrerse hoy, no que esta fuera la sesión de 2014.
@@ -199,7 +199,7 @@ También separo dos inventarios que es fácil confundir. En el registro puse a p
 
 No hice esta arqueología para absolver o condenar mi trabajo de 2014. Antes de construir 2013–2025 necesitaba separar qué podía producir de nuevo, qué estaba mal, qué era una sensibilidad (un resultado alternativo bajo otra decisión) y qué no podía compararse. También quise someter a herramientas actuales una tesis que costó sacar a flote. Que no haya salido intacta hace el ejercicio más útil.
 
-Lo importante no es reivindicar el original, sino llegar a la [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) con una base 1992–2012 auditable, errores conocidos corregidos y límites visibles. Ahora sí tiene sentido añadir trece años: no para prolongar una serie, sino para averiguar qué cambió con las reglas y qué significa que un establecimiento entre o salga del sistema.
+Lo importante no es reivindicar el original, sino llegar a la [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) con una base 1992–2012 auditable, errores conocidos corregidos y límites visibles. Ahora sí tiene sentido añadir trece años: no para prolongar una serie, sino para averiguar qué cambió con las reglas y qué significa que un establecimiento entre o salga del registro.
 {: .text-justify}
 
 ## Cierre: preparando para 2025
@@ -207,7 +207,7 @@ Lo importante no es reivindicar el original, sino llegar a la [parte II]({{ '/da
 La tesis quedó organizada en cuatro grupos: resultados que sobreviven, errores de 2014, una versión de 2026 sin errores conocidos y casos sin comparación válida. Esa separación muestra qué conservar y qué no llevar a 1992–2025.
 {: .text-justify}
 
-Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subvencionada. También sobrevive, **solo para el universo reconstruido del Gran Santiago**, la mayor vulnerabilidad de quienes después cierran. No sobreviven la escala del IHH, la lectura de «menos de 15 mil habitantes», dos varianzas, varios rótulos ni una definición temporal clave. Las discrepancias de la ruta actual se corrigieron hasta dejar una salida canónica de 2026 sin errores conocidos; las alternativas siguen visibles como sensibilidades, no como recreación.
+Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subvencionada. También sobrevive, **solo para el universo reconstruido del Gran Santiago**, la mayor vulnerabilidad de quienes después salen del registro. No sobreviven la escala del IHH, la lectura de «menos de 15 mil habitantes», dos varianzas, varios rótulos ni una definición temporal clave. Las discrepancias de la ruta actual se corrigieron hasta dejar una salida canónica de 2026 sin errores conocidos; las alternativas siguen visibles como sensibilidades, no como recreación.
 {: .text-justify}
 
 {: .table-caption}
@@ -228,11 +228,11 @@ La segunda parte no podrá sumar trece filas y fingir continuidad. Un establecim
 La recreación deja un panel capaz de describir flujos, reconocer señales de riesgo y reestimar asociaciones. No observa por qué cerró cada establecimiento, qué habría ocurrido sin una reforma ni la trayectoria individual de sus alumnos. Agregar controles, efectos fijos, errores estándar más sofisticados o más capacidad de cálculo puede reducir algunos sesgos; **no crea el contrafactual que falta** (qué habría ocurrido sin la reforma o el cierre).
 {: .text-justify}
 
-Para que la extensión a 2025 produzca evidencia útil para la política social, el segundo post deberá distinguir tres rutas y no venderlas como intercambiables:
+La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) retoma estas tres preguntas sin tratarlas como intercambiables:
 
 <div class="causal-routes causal-routes--es" markdown="1">
 
-| Ruta | Pregunta y diseño | Gate que debe pasar |
+| Ruta | Pregunta y diseño | Condición mínima para interpretarla |
 |---|---|---|
 | **Alerta descriptiva/predictiva** | Modelar transiciones entre activo, matrícula cero, receso, cierre oficial y ausencia del registro; estimar riesgo fuera de muestra (en años o casos no usados para ajustar el modelo). | Validación temporal, calibración (que el riesgo predicho se parezca a la frecuencia observada), umbrales de decisión y auditoría distributiva. Puede orientar monitoreo; no estima efectos. |
 | **Reforma escalonada** | Evaluar cambios asociados al traspaso a Servicios Locales con diferencias en diferencias (comparar cambios entre grupos afectados y no afectados) y estudio de eventos por cohortes. | Fechas y exposición verificadas; tendencias paralelas (evolución previa semejante), anticipación, composición y derrames plausibles. Si el calendario respondió al riesgo, el diseño no es causal por decreto. |
@@ -246,7 +246,7 @@ Hay, sin embargo, una pregunta anterior al diseño econométrico. En un sistema 
 Eso cambia la pregunta de política pública. No se trata de impedir cualquier cierre ni de conservar todo establecimiento. Se trata de saber **quién absorbe el costo de la transición**: quién debe cambiarse, adónde llega, cuánto más se desplaza, qué ocurre con su asistencia, aprendizaje y permanencia, y qué pierde la comunidad. Que existan cupos es necesario; no agota esos costos.
 {: .text-justify}
 
-Ahí quiero llevar la parte II: extender una base cuya construcción y fallas ahora conozco, distinguir cambios institucionales de cambios de registro y observar trayectorias individuales que la tesis de 2014 casi no podía ver. Importan por sí mismas y por lo que cada estudiante aporta a su entorno.
+La parte II precisó los eventos administrativos, examinó comparaciones institucionales que no permitieron atribuir efectos y dejó pendiente el seguimiento individual. Esa frontera importa porque una base más larga no reemplaza las trayectorias de estudiantes que la tesis de 2014 casi no podía observar.
 {: .text-justify}
 
 La pregunta que queda abierta no es contar nuevamente entradas y salidas, sino **¿cuándo la destrucción creativa renueva efectivamente la oferta educativa y cuándo solo desplaza sus costos hacia estudiantes, familias y territorios con menor capacidad para absorberlos?**

@@ -196,7 +196,7 @@ $max-width: 1375px;
 
 /* Fallback legible antes de que cargue el bundle del minivisor. El CSS de Vite,
    cargado inmediatamente desde su manifest, desplaza estas reglas por orden. */
-:where(body.thesis-extension-post .thesis-market-map, body.thesis-extension-post .thesis-author-case) {
+:where(body.thesis-extension-post .territorial-evidence) {
   box-sizing: border-box;
   width: 100%;
   margin: 1.25rem 0 2rem;
@@ -208,24 +208,48 @@ $max-width: 1375px;
   font-family: "Fira Sans", "Aptos", system-ui, sans-serif;
 }
 
-:where(body.thesis-extension-post .thesis-market-map__layout) {
+:where(body.thesis-extension-post .territorial-evidence__interactive) {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 0.7fr);
   gap: 0.75rem;
 }
 
-:where(body.thesis-extension-post .thesis-market-map__stage) {
+:where(body.thesis-extension-post .territorial-evidence__stage) {
   min-height: 28rem;
 }
 
-:where(body.thesis-extension-post .thesis-market-map__fallback img) {
+:where(body.thesis-extension-post .territorial-evidence__case-card img) {
   display: block;
   width: 100%;
   height: auto;
 }
 
+/* El fallback debe seguir siendo legible incluso si el bundle cartográfico
+   falla: en tema nocturno adopta superficie y enlace oscuros desde el CSS base. */
+html[data-theme="academic-night"] body.thesis-extension-post .territorial-evidence[data-map-state="fallback"] {
+  color: #f2f5f8;
+  background: #121724;
+  border-color: #526176;
+}
+
+html[data-theme="academic-night"] body.thesis-extension-post .territorial-evidence[data-map-state="fallback"] a {
+  color: #64d8e9;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+:where(body.thesis-extension-post .territorial-evidence__fallback-grid) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+:where(body.thesis-extension-post .territorial-evidence__tabs[hidden], body.thesis-extension-post .territorial-evidence__interactive[hidden]) {
+  display: none;
+}
+
 @media (max-width: 52rem) {
-  :where(body.thesis-extension-post .thesis-market-map__layout) {
+  :where(body.thesis-extension-post .territorial-evidence__interactive, body.thesis-extension-post .territorial-evidence__fallback-grid) {
     grid-template-columns: 1fr;
   }
 }
@@ -237,12 +261,12 @@ $max-width: 1375px;
    comparten una escala legible y estable en móvil y escritorio. */
 .page__content .footnotes,
 .page__content .footnotes p,
-body.thesis-extension-post .page__content .post-references {
+.page__content .post-references {
   color: #303030;
 }
 
 .page__content .footnotes,
-body.thesis-extension-post .page__content .post-references {
+.page__content .post-references {
   font-size: inherit;
 }
 
@@ -251,7 +275,7 @@ body.thesis-extension-post .page__content .post-references {
 }
 
 .page__content .footnotes li,
-body.thesis-extension-post .page__content .post-references p {
+.page__content .post-references p {
   font-size: 0.95em;
   line-height: 1.6;
 }
@@ -263,13 +287,13 @@ body.thesis-extension-post .page__content .post-references p {
 
 @media (min-width: 64rem) {
   .page__content .footnotes li,
-  body.thesis-extension-post .page__content .post-references p {
+  .page__content .post-references p {
     font-size: 0.9em;
   }
 }
 
 .page__content .footnotes li,
-body.thesis-extension-post .page__content .post-references p {
+.page__content .post-references p {
   margin-bottom: 0.85rem;
 }
 
@@ -290,8 +314,8 @@ body.thesis-extension-post .page__content .post-references p {
 
 html[data-theme="academic-night"] .page__content .footnotes,
 html[data-theme="academic-night"] .page__content .footnotes p,
-html[data-theme="academic-night"] body.thesis-extension-post .page__content .post-references,
-html[data-theme="academic-night"] body.thesis-extension-post .page__content .post-references p {
+html[data-theme="academic-night"] .page__content .post-references,
+html[data-theme="academic-night"] .page__content .post-references p {
   color: var(--night-text);
 }
 
@@ -1588,33 +1612,55 @@ html[data-theme="academic-night"] .page__footer a:hover {
 
 /* Tablas del sitio: antes estaban inline en head/custom.html. */
 .page__content table {
-  width: auto;
+  width: 100%;
+  max-width: 100%;
   margin: 1.4em auto 0.4em;
   border-collapse: collapse;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  font-size: 0.9em;
+  overflow: hidden;
+  background: #fffdf8;
+  border: 1px solid #d7d0c4;
+  border-radius: 0.45rem;
+  box-shadow: 0 0.18rem 0.7rem rgba(33, 39, 51, 0.07);
+  font-size: clamp(13px, 0.8rem, 0.88rem);
+  line-height: 1.42;
 }
 
 .page__content table thead th {
   border: 0;
-  background-color: #b71c1c;
-  color: #fff;
-  padding: 0.45em 0.9em;
+  background-color: #e8e2d8;
+  color: #26354c;
+  padding: 0.58em 0.75em;
   /* Sin `font-size` a propósito: se anidaba dentro del 0.84em de la tabla y el
      producto dejaba los encabezados en 9,5 px en móvil. Heredan el de la tabla,
      y la jerarquía la da el peso y el fondo, no un tamaño aún menor. */
-  letter-spacing: 0.02em;
-  text-align: center;
+  letter-spacing: 0.01em;
+  text-align: start;
+  vertical-align: bottom;
 }
 
-.page__content table td {
+.page__content table :is(th, td) {
   border-bottom: 1px solid #e8e8e8;
-  padding: 0.38em 0.85em;
-  text-align: center;
+  padding: 0.55em 0.75em;
+  text-align: start;
+  vertical-align: top;
+  overflow-wrap: break-word;
 }
 
-.page__content table tbody tr td:first-child {
-  text-align: left;
+.page__content table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.page__content table.table--compact :is(th, td) {
+  padding: 0.42em 0.62em;
+}
+
+.page__content table.table--numeric :is(td, th:not(:first-child)) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.page__content table.table--numeric :is(td, th):first-child {
+  text-align: start;
 }
 
 .page__content table tbody tr:nth-child(even) {
@@ -1643,6 +1689,9 @@ p.table-caption {
 }
 
 html[data-theme="academic-night"] .page__content table {
+  color: var(--night-text);
+  background: var(--night-bg);
+  border-color: var(--night-border);
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.32);
 }
 
@@ -1792,6 +1841,10 @@ html[data-theme="academic-night"] p.table-caption {
     width: auto;
     max-width: none;
     margin: 0;
+  }
+
+  table.table--scroll {
+    min-width: min(46rem, calc(var(--table-columns, 6) * 8.5rem));
   }
 
   /* Perfil narrativo: alguna celda supera los 60 caracteres. El suelo se escala
