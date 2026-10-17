@@ -3,6 +3,15 @@
 {% if active_lang != site.default_lang %}
   {% assign search_store_path = '/' | append: active_lang | append: search_store_path %}
 {% endif %}
-<script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}"></script>
-<script src="{{ search_store_path | relative_url }}"></script>
-<script src="{{ '/assets/js/lunr/lunr-site.js' | relative_url }}"></script>
+{%- comment -%}
+Versionados con ?v=<build>, como el resto de los scripts del sitio. Sin versión,
+Cloudflare y el navegador los cachean 4 h con el mismo nombre: el 2026-10-17, al
+retirar jQuery, el borde siguió sirviendo el lunr-site.js anterior (que usaba $) y el
+buscador falló en producción hasta purgarlo. El HTML no se cachea, así que una URL
+nueva por build llega de inmediato también a los navegadores con la copia vieja.
+search-store.js cambia con cada post y tenía el mismo problema: índice viejo 4 h.
+{%- endcomment -%}
+{% assign search_version = site.time | date: '%s' %}
+<script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}?v={{ search_version }}"></script>
+<script src="{{ search_store_path | relative_url }}?v={{ search_version }}"></script>
+<script src="{{ '/assets/js/lunr/lunr-site.js' | relative_url }}?v={{ search_version }}"></script>

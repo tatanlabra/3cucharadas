@@ -22,7 +22,12 @@ falsified_by: >-
   portada reprobó contra 812d261a y aprobó con claude/ux-fase3-20261017. Las de
   botones y fechas reprobaron contra 989493dd y aprobaron con claude/ux-fase4-20261017. La de
   alineación título→párrafo reprobó contra 58b311d2 y aprobó con claude/ux-sangria-20261017. La de
-  región única reprobó contra 782dfc47 y aprobó con claude/ux-region-unica-20261017.
+  región única reprobó contra 782dfc47 y aprobó con claude/ux-region-unica-20261017. La de
+  jQuery reprobó contra e912c92b y aprobó con claude/ux-capa2a-20261017. La de
+  recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017. La de
+  tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017. La de
+  contención de Sass se vio roja con un tercer @import y con sass-embedded 3.0.0 en el lockfile. La de
+  destacados reprobó contra 6948bcd0 y aprobó con claude/ux-destacados-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -67,7 +72,7 @@ invariants:
     rule: Toda <img> cuya fuente tiene variantes en _data/image_variants.json se publica con srcset que las incluye, y las variantes existen.
     why: figuras de hasta 2562 px se servían completas en huecos de 731 px (C3).
   - id: avisos-enlace-contraste
-    rule: En las citas y avisos oscuros de .page__content, todo enlace tiene contraste >= 4,5:1 sobre el fondo del aviso, y la regla cubre cada variante de aviso.
+    rule: En citas y avisos de .page__content, todo enlace usa el enlace del sitio (--ui-link) y tiene contraste >= 4,5:1 sobre la superficie del aviso y sobre el papel, en los dos temas; la regla cubre cada variante de aviso.
     why: en Avalúos II el enlace #358ca7 quedaba a 3,07:1 sobre #343746 (U06).
   - id: sin-entrada-animada
     rule: La cabecera, el hero, #main y el pie no conservan la animación de entrada del tema; la última declaración animation que los alcanza es none.
@@ -105,3 +110,18 @@ invariants:
   - id: tablas-region-unica
     rule: Cada tabla tiene una sola región enfocable (ninguna región envuelve a .tabla-desliza), ningún envoltorio fuerza `width:max-content`, toda región de tabla con leyenda se llama como su leyenda, y los includes sellados de Avalúos II siguen coincidiendo con su procedencia.
     why: en Avalúos II 7 de 12 tablas tenían dos paradas de tabulación (región del generador más región del plugin) y las 12 se anunciaban «Tabla desplazable horizontalmente N»; los generadores no se pueden tocar porque provenance.json sella sus salidas.
+  - id: sin-jquery
+    rule: Ninguna página carga main.min.js ni jQuery; el artefacto no publica main.min.js; site-core.js carga en todas las páginas con scripts y cubre «Seguir», buscador, índice activo, anclas, copiar código e imágenes ampliables con <dialog>; ningún JS propio usa jQuery; el desplazamiento suave existe solo sin movimiento reducido; el contador del buscador no usa «(s)».
+    why: main.min.js pesaba 124 KB (42 KB con gzip) para seis comportamientos que la plataforma ya resuelve; site-core.js pesa 9,9 KB (3,4 KB con gzip).
+  - id: recursos-versionados
+    rule: Todo script y hoja de estilo local se enlaza con ?v=<build>, o con una versión o un hash en su propia ruta; ninguno queda con un nombre fijo que el borde o el navegador puedan servir viejo.
+    why: el 2026-10-17, al retirar jQuery, Cloudflare siguió sirviendo el lunr-site.js anterior (sin versión, max-age 4 h) y el buscador falló en producción con «$ is not defined» hasta purgarlo; search-store.js arrastraba el mismo defecto con el índice de búsqueda.
+  - id: tokens-de-interfaz
+    rule: Los tokens --ui-* se definen en :root y se redefinen bajo academic-night; resueltos, tinta sobre papel y sobre superficie, enlace sobre superficie y texto fuerte sobre fondo fuerte cumplen 4,5:1 en los dos temas; compartir, paginación, etiquetas y chips usan solo tokens y no tienen reglas propias por tema.
+    why: cada componente nuevo llevaba un par de reglas claro/oscuro con colores literales, y al chip le faltó la suya: en oscuro su borde era invisible y su texto al pasar el cursor quedaba en #123e5c sobre #161616.
+  - id: sass-import-contenido
+    rule: assets/css/main.scss conserva solo los 2 @import del tema (skin y minimal-mistakes) y Gemfile.lock resuelve sass-embedded por debajo de la versión 3, que elimina @import; subir de ahí exige migrar antes.
+    why: Dart Sass 3.0.0 elimina @import y Minimal Mistakes lo usa en todos sus parciales. Hoy jekyll-sass-converter 3.1.0 fija sass-embedded ~> 1.75 (1.104.0 instalado), así que el riesgo no puede activarse solo; migrar exige salir del tema (capa 2 completa, 3-6 semanas), y este contrato vuelve visible el momento en que deje de ser opcional.
+  - id: destacados-del-tema
+    rule: Citas y avisos usan la superficie de cada tema (tokens --callout-*), no la de Dracula; la cita no tiene fondo ni sangría y arranca en el borde de la prosa; texto con 4,5:1 y acentos (por tipo y filete de cita) con 3:1 sobre su fondo, en los dos temas. El código conserva Dracula.
+    why: los destacados eran un recuadro #343746 con filete morado #bd93f9 idéntico en ambos temas, una losa oscura en el tema claro y un tinte morado en una paleta nocturna de grises; la cita entraba 40 px respecto de la prosa (señalado por la persona usuaria en «Acerca de»).

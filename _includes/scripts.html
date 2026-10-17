@@ -3,7 +3,11 @@
     <script src="{{ script | relative_url }}?v={{ site.time | date: '%s' }}"></script>
   {% endfor %}
 {% else %}
-  <script src="{{ '/assets/js/main.min.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  {%- comment -%}
+  site-core.js reemplaza al main.min.js del tema (jQuery y plugins, 124 KB): capa 2,
+  fase A de la auditoría UX 2026-10-17. Ver el encabezado del propio archivo.
+  {%- endcomment -%}
+  <script src="{{ '/assets/js/site-core.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% endif %}
 
 <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

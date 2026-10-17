@@ -1395,52 +1395,95 @@ html[data-theme="academic-night"] tbody tr:nth-child(even) {
   background: var(--night-layer);
 }
 
-/* Recuadros editoriales: superficie Dracula consistente en ambos temas. */
+/* Destacados: citas y avisos con la superficie de cada tema (h14, auditoría UX
+   2026-10-17). Antes eran «superficie Dracula consistente en ambos temas»: un
+   recuadro #343746 con filete morado #bd93f9 que en claro caía como una losa
+   oscura sobre el crema y en nocturno teñía de morado una paleta de grises
+   neutros. El código sigue en Dracula (abajo): es la convención de los bloques de
+   código y no compite con la prosa.
+
+   - Cita (blockquote): sin fondo, filete de 3 px y texto en tinta; arranca en el
+     borde de la prosa (el navegador le daba 40 px de sangría).
+   - Aviso (.notice y .notice--*): superficie, borde suave y un acento de 3 px por
+     tipo. Las variantes se usan también solas, sin la clase base.
+   Todo sale de tokens: el valor claro vive en :root y el nocturno en
+   academic-night, sin pares de reglas por tema. */
+:root {
+  --callout-bg: #fffdf8;
+  --callout-line: rgba(27, 42, 65, 0.16);
+  --callout-ink: #1b2a41;
+  --quote-rule: #1f5f8b;
+  --accent-primary: #1b2a41;
+  --accent-info: #1f5f8b;
+  --accent-warning: #9a6700;
+  --accent-success: #2e7d4f;
+  --accent-danger: #b42318;
+  --accent-audio: #8a2b6d;
+}
+
+html[data-theme="academic-night"] {
+  --callout-bg: var(--night-layer);
+  --callout-line: var(--night-border);
+  --callout-ink: var(--night-text);
+  --quote-rule: var(--night-border-strong);
+  --accent-primary: var(--night-muted);
+  --accent-info: #78a9ff;
+  --accent-warning: #f1c21b;
+  --accent-success: #42be65;
+  --accent-danger: #ff8389;
+  --accent-audio: #ff7eb6;
+}
+
 .page__content blockquote,
-.page__content .notice,
-.page__content .notice--primary,
-.page__content .notice--info,
-.page__content .notice--warning,
-.page__content .notice--success,
-.page__content .notice--danger {
-  border-color: #6272a4;
-  background: #343746;
-  color: #f8f8f2;
+html[data-theme="academic-night"] .page__content blockquote {
+  margin-inline: 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border: 0;
+  border-left: 3px solid var(--quote-rule);
+  background: transparent;
+  color: var(--callout-ink);
   box-shadow: none;
 }
 
-.page__content blockquote { border-left-color: #bd93f9; }
-.page__content .notice--info { border-left: 0.3rem solid #8be9fd; }
-.page__content .notice--warning { border-left: 0.3rem solid #f1fa8c; }
-.page__content .notice--success { border-left: 0.3rem solid #50fa7b; }
-.page__content .notice--danger { border-left: 0.3rem solid #ff5555; }
+.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger),
+html[data-theme="academic-night"] :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) {
+  border: 1px solid var(--callout-line);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  background: var(--callout-bg);
+  color: var(--callout-ink);
+  box-shadow: none;
+}
+
+.page__content .notice--info,
+html[data-theme="academic-night"] .page__content .notice--info { border-left-color: var(--accent-info); }
+.page__content .notice--warning,
+html[data-theme="academic-night"] .page__content .notice--warning { border-left-color: var(--accent-warning); }
+.page__content .notice--success,
+html[data-theme="academic-night"] .page__content .notice--success { border-left-color: var(--accent-success); }
+.page__content .notice--danger,
+html[data-theme="academic-night"] .page__content .notice--danger { border-left-color: var(--accent-danger); }
 
 /* Las variantes .notice--* se usan solas (p. ej. <aside class="notice--info">), sin la
    clase base .notice: con solo `.notice a`, el tema les aplicaba su enlace mezclado
-   (#358ca7, 3,07:1 sobre #343746). Medido el 2026-10-17 en Avalúos II (U06). */
+   (#358ca7, 3,07:1). El enlace de los destacados es el del sitio, 4,5:1 o más sobre
+   la superficie de cada tema (U06 y tokens-de-interfaz). */
 .page__content blockquote a,
-.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a {
-  color: #8be9fd;
+.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a,
+html[data-theme="academic-night"] .page__content blockquote a,
+html[data-theme="academic-night"] .page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a {
+  color: var(--ui-link);
 }
 
-html[data-theme="academic-night"] .page__content blockquote,
-html[data-theme="academic-night"] .notice,
-html[data-theme="academic-night"] .notice--primary,
-html[data-theme="academic-night"] .notice--info,
-html[data-theme="academic-night"] .notice--warning,
-html[data-theme="academic-night"] .notice--success,
-html[data-theme="academic-night"] .notice--danger {
+/* Excepción acotada: el recuadro de auditoría geográfica del Post II (componente de
+   Codex) fija leyendas y enlaces para fondo oscuro; conserva su superficie hasta que
+   ese componente migre a los tokens. */
+.page__content .thesis-coordinate-audit,
+html[data-theme="academic-night"] .page__content .thesis-coordinate-audit {
   border-color: #6272a4;
   background: #343746;
   color: #f8f8f2;
-  box-shadow: none;
 }
-
-html[data-theme="academic-night"] .page__content blockquote { border-left-color: #bd93f9; }
-html[data-theme="academic-night"] .notice--info { border-left: 0.3rem solid #8be9fd; }
-html[data-theme="academic-night"] .notice--warning { border-left: 0.3rem solid #f1fa8c; }
-html[data-theme="academic-night"] .notice--success { border-left: 0.3rem solid #50fa7b; }
-html[data-theme="academic-night"] .notice--danger { border-left: 0.3rem solid #ff5555; }
 
 /* Código: Dracula Classic en claro y nocturno para evitar dos gramáticas visuales. */
 .page__content :not(pre) > code,
@@ -3027,7 +3070,8 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    `.capsula-audio` suelto (0,1,0). Es el mismo truco de la línea 1143 para
    `.notice--info`. El rosa #ff79c6 es el único color Dracula del archivo que
    todavía no distingue a ningún recuadro editorial. */
-.page__content .capsula-audio { border-left: 0.3rem solid #ff79c6; }
+.page__content .capsula-audio,
+html[data-theme="academic-night"] .page__content .capsula-audio { border-left-color: var(--accent-audio); }
 .capsula-audio__titulo { margin-bottom: 0.35em; }
 .capsula-audio__entrada { margin-top: 0; }
 .capsula-audio__escuchar { margin: 0.9em 0 0.7em; }
@@ -3040,7 +3084,6 @@ html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color:
    para que un cambio futuro en las reglas diurnas no arrastre al tema oscuro—,
    así que aquí sólo hay una diferencia real: devolver el foco blanco global del
    nocturno, que las reglas de arriba le ganarían por especificidad. */
-html[data-theme="academic-night"] .capsula-audio { border-left: 0.3rem solid #ff79c6; }
 html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color: #ffffff; }
 
 /* ── Carrusel de evidencia cara a cara ─────────────────────────────────── */
@@ -4546,10 +4589,37 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
      botón «levantado» después de tocarlo.
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Tokens de interfaz (capa 2, fase B). Un mismo nombre para los dos temas: el
+   valor claro vive en :root y el oscuro se toma de la paleta --night-* bajo
+   academic-night. Los componentes de esta sección ya no llevan pares de reglas
+   claro/oscuro: si un color cambia, cambia aquí. */
 :root {
   --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ui-fast: 140ms;
   --focus-ring: #1f5f8b;
+  --ui-paper: #faf7f0;
+  --ui-surface: #fffdf8;
+  --ui-ink: #1b2a41;
+  --ui-link: #1f5f8b;
+  --ui-line: rgba(27, 42, 65, 0.28);
+  --ui-line-soft: rgba(27, 42, 65, 0.16);
+  --ui-tint: rgba(31, 95, 139, 0.08);
+  --ui-strong-bg: #1b2a41;
+  --ui-strong-fg: #faf7f0;
+  --ui-shadow: 0 0.35rem 1rem rgba(27, 42, 65, 0.1);
+}
+
+html[data-theme="academic-night"] {
+  --ui-paper: var(--night-bg);
+  --ui-surface: var(--night-layer-strong);
+  --ui-ink: var(--night-text);
+  --ui-link: var(--night-link);
+  --ui-line: var(--night-border-strong);
+  --ui-line-soft: var(--night-border-strong);
+  --ui-tint: rgba(244, 244, 244, 0.08);
+  --ui-strong-bg: var(--night-link);
+  --ui-strong-fg: var(--night-bg-dark);
+  --ui-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.45);
 }
 
 .btn,
@@ -4611,27 +4681,15 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
 
 /* ── Compartir: monocromo, sin los colores de cada red ─────────────────────── */
 .page__share .btn {
-  border: 1px solid rgba(27, 42, 65, 0.28);
+  border: 1px solid var(--ui-line);
   background: transparent;
-  color: #1b2a41;
+  color: var(--ui-ink);
 }
 
 .page__share .btn:hover {
-  border-color: #1b2a41;
-  background: #1b2a41;
-  color: #faf7f0;
-}
-
-html[data-theme="academic-night"] .page__share .btn {
-  border-color: var(--night-border-strong);
-  background: transparent;
-  color: var(--night-text);
-}
-
-html[data-theme="academic-night"] .page__share .btn:hover {
-  border-color: var(--night-link);
-  background: var(--night-link);
-  color: var(--night-bg-dark);
+  border-color: var(--ui-strong-bg);
+  background: var(--ui-strong-bg);
+  color: var(--ui-strong-fg);
 }
 
 /* ── Anterior y siguiente: tarjetas con el título del destino ──────────────── */
@@ -4652,10 +4710,10 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   width: auto;
   margin: 0;
   padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(27, 42, 65, 0.16);
+  border: 1px solid var(--ui-line-soft);
   border-radius: 0.65rem;
-  background: #fffdf8;
-  color: #1b2a41;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
   text-align: start;
   text-decoration: none;
 }
@@ -4674,7 +4732,7 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1f5f8b;
+  color: var(--ui-link);
 }
 
 .pagination__title {
@@ -4686,27 +4744,21 @@ html[data-theme="academic-night"] .page__share .btn:hover {
   -webkit-line-clamp: 2;
 }
 
-.pagination--post .pagination--pager:hover {
-  border-color: #1f5f8b;
-  background: #fffdf8;
-  box-shadow: 0 0.35rem 1rem rgba(27, 42, 65, 0.1);
-  color: #1b2a41;
-}
-
+/* Los selectores del tema nocturno para .pagination--pager (más arriba) son más
+   específicos; :not(.pagination--empty) los iguala sin tocar la celda vacía. */
+.pagination--post .pagination--pager:not(.pagination--empty),
 html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty) {
-  border-color: var(--night-border-strong);
-  background: var(--night-layer-strong);
-  color: var(--night-text);
+  border-color: var(--ui-line-soft);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
 }
 
+.pagination--post .pagination--pager:not(.pagination--empty):hover,
 html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty):hover {
-  border-color: var(--night-link);
-  background: var(--night-layer-strong);
-  color: var(--night-text);
-}
-
-html[data-theme="academic-night"] .pagination__label {
-  color: var(--night-link);
+  border-color: var(--ui-link);
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow);
+  color: var(--ui-ink);
 }
 
 @media (max-width: 47.99em) {
@@ -4730,11 +4782,112 @@ html[data-theme="academic-night"] .pagination__label {
   align-items: center;
   min-block-size: 24px;
   padding: 0.2em 0.75em;
-  border: 1px solid rgba(27, 42, 65, 0.22);
+  border: 1px solid var(--ui-line);
   border-radius: 999px;
 }
 
+/* El hover del tema pone el texto en $link-color-hover (#123e5c) también en
+   oscuro, donde quedaba ilegible sobre #161616. */
 .page__taxonomy-item:hover {
-  border-color: #1f5f8b;
-  background: rgba(31, 95, 139, 0.08);
+  border-color: var(--ui-link);
+  background: var(--ui-tint);
+  color: var(--ui-ink);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIN JQUERY (capa 2, fase A; auditoría UX 2026-10-17)
+
+   assets/js/site-core.js reemplaza al main.min.js del tema. Lo que el tema hacía
+   con plugins de JS pasa aquí a CSS cuando la plataforma ya lo resuelve:
+
+   - SmoothScroll (offset 20 px) → scroll-padding-top y scroll-behavior, este
+     último solo sin movimiento reducido;
+   - Magnific Popup → <dialog class="lightbox"> nativo: el fondo y el foco los
+     gestiona el navegador, Esc cierra sin JS propio.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-padding-top: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.lightbox {
+  max-inline-size: min(96vw, 1600px);
+  max-block-size: 94vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(9, 11, 24, 0.88);
+}
+
+.lightbox__figure {
+  margin: 0;
+}
+
+.lightbox__img {
+  display: block;
+  max-inline-size: min(96vw, 1600px);
+  max-block-size: 86vh;
+  margin-inline: auto;
+  border-radius: 0.4rem;
+  background: #fff;
+  cursor: zoom-out;
+}
+
+.lightbox__caption {
+  margin-top: 0.6rem;
+  color: #f4f6ff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border: 1px solid rgba(244, 246, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(9, 11, 24, 0.6);
+  color: #f4f6ff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__close { inset-block-start: 1rem; inset-inline-end: 1rem; }
+.lightbox__prev { inset-block-start: 50%; inset-inline-start: 1rem; transform: translateY(-50%); }
+.lightbox__next { inset-block-start: 50%; inset-inline-end: 1rem; transform: translateY(-50%); }
+
+.lightbox :is(.lightbox__close, .lightbox__prev, .lightbox__next):hover {
+  background: #f4f6ff;
+  color: #0b1020;
+}
+
+.lightbox :is(.lightbox__close, .lightbox__prev, .lightbox__next):focus-visible {
+  outline: 3px solid #ffdb7d;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] {
+    animation: lightbox-in 160ms var(--ui-ease, ease-out);
+  }
+
+  @keyframes lightbox-in {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
 }
