@@ -51,6 +51,33 @@ def css_rules(source: str) -> list[tuple[str, str]]:
     return [(sel.strip(), body) for sel, body in re.findall(r"([^{}@;]+)\{([^{}]*)\}", flat)]
 
 
+def css_rules_in_context(source: str) -> list[tuple[tuple[str, ...], str, str]]:
+    """(cadena de @media/@supports, selector, cuerpo) para CSS compilado, con anidamiento."""
+    flat = re.sub(r"/\*.*?\*/", "", source, flags=re.DOTALL)
+    rules: list[tuple[tuple[str, ...], str, str]] = []
+    stack: list[str] = []
+    start = 0
+    index = 0
+    while index < len(flat):
+        char = flat[index]
+        if char == "{":
+            prelude = flat[start:index].strip()
+            if prelude.startswith("@"):
+                stack.append(prelude)
+                start = index + 1
+            else:
+                close = flat.index("}", index)
+                rules.append((tuple(stack), prelude, flat[index + 1:close]))
+                index = close
+                start = index + 1
+        elif char == "}":
+            if stack:
+                stack.pop()
+            start = index + 1
+        index += 1
+    return rules
+
+
 def front_matter(path: Path) -> dict[str, object]:
     text = path.read_text(encoding="utf-8")
     block = text.split("---", 2)[1]
@@ -233,6 +260,72 @@ class UxTransversalContract(unittest.TestCase):
                 self.assertEqual(got, expected_related(post, posts), url)
                 checked += 1
         self.assertGreater(checked, 0)
+
+    def test_movimiento_accesible(self) -> None:
+        rules = css_rules_in_context(css())
+        hides = [(m, s, b) for m, s, b in rules if ".motion-pending" in s and re.search(r"opacity:\s*0(?![.\d])", b)]
+        self.assertTrue(hides, "no hay estado pendiente: ¿se retiró la aparición sin retirar el contrato?")
+        for media, selector, _ in hides:
+            self.assertFalse(any("print" in m or "reduce" in m for m in media), f"oculta en print/reduce: {selector}")
+        resets = {kind: False for kind in ("reduce", "print")}
+        for media, selector, body in rules:
+            if ".motion-pending" in selector and re.search(r"opacity:\s*1", body):
+                chain = " ".join(media)
+                if "prefers-reduced-motion: reduce" in chain or "prefers-reduced-motion:reduce" in chain:
+                    resets["reduce"] = True
+                if "print" in chain and "transition:none" in body.replace(" ", ""):
+                    resets["print"] = True
+        self.assertEqual(resets, {"reduce": True, "print": True})
+        for media, selector, body in rules:
+            parts = [p.strip() for p in selector.split(",")]
+            if any(p in (".archive__item", ".page__content>figure", ".page__content > figure") for p in parts):
+                self.assertNotRegex(body, r"opacity:\s*0(?![.\d])", f"oculto por defecto: {selector}")
+            if ".archive__item:hover" in selector and "transform" in body:
+                chain = " ".join(media).replace(" ", "")
+                self.assertIn("hover:hover", chain, selector)
+                self.assertIn("prefers-reduced-motion:no-preference", chain, selector)
+        script = rendered("assets/js/motion.js")
+        self.assertIn('matchMedia("(prefers-reduced-motion: reduce)")', script)
+        self.assertRegex(script, r"getBoundingClientRect\(\)\.top < fold\) return")
+        self.assertIn("unobserve", script)
+        self.assertIn("/assets/js/motion.js", rendered("index.html"))
+
+    def test_firma_tres_cucharadas(self) -> None:
+        heading = re.compile(r"<h2([^>]*)>\s*(?:Cucharada|Spoonful) [1-3]\b")
+        checked = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            found = heading.findall(text)
+            if len(found) != 3:
+                continue
+            checked += 1
+            for attrs in found:
+                self.assertRegex(attrs, r'\bid="[^"]+"', f"cucharada sin id en {page}")
+            self.assertIn("/assets/js/motion.js", text, page)
+        self.assertGreater(checked, 0, "ningún post con tres cucharadas")
+        script = rendered("assets/js/motion.js")
+        self.assertIn('setAttribute("aria-current", "step")', script)
+        sizes = []
+        for _, selector, body in css_rules_in_context(css()):
+            if selector.strip() == ".cucharadas__step":
+                sizes += [float(v) for v in re.findall(r"(?:inline|block)-size:\s*([\d.]+)rem", body)]
+        self.assertEqual(len(sizes), 2, "tamaño del indicador no declarado en rem")
+        self.assertTrue(all(v * 16 >= 24 for v in sizes), sizes)
+
+    def test_transicion_tarjeta_post(self) -> None:
+        for page in ("index.html", "en/index.html"):
+            head = rendered(page).split("</head>", 1)[0]
+            inline = re.search(r"<style>([^<]*@view-transition[^<]*)</style>", head)
+            self.assertIsNotNone(inline, page)
+            self.assertIn("prefers-reduced-motion: no-preference", inline.group(1))
+        pages = 0
+        for page in SITE.rglob("index.html"):
+            names = re.findall(r"view-transition-name:\s*([\w-]+)", page.read_text(encoding="utf-8"))
+            if names:
+                pages += 1
+                duplicated = sorted({n for n in names if names.count(n) > 1})
+                self.assertEqual(duplicated, [], f"{page}: nombres repetidos")
+        self.assertGreater(pages, 0, "ninguna página declara nombres de transición")
 
 
 if __name__ == "__main__":

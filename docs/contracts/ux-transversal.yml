@@ -10,9 +10,10 @@ schema: ux-transversal-v1
 # Cambiar un valor de aquí es una decisión de diseño, no un ajuste: se cambia el
 # contrato y el test en el mismo commit, con la medición que lo justifica.
 falsified_by: >-
-  2026-10-17: las 7 pruebas reprobaron contra el build de origin/main b1a3eaaa
-  (antes de los cambios) y aprobaron con los cambios de la rama
-  claude/ux-transversal-20261017.
+  2026-10-17: las 7 pruebas de la capa 0 reprobaron contra el build de origin/main
+  b1a3eaaa (antes de los cambios) y aprobaron con los cambios de la rama
+  claude/ux-transversal-20261017; las 3 de movimiento se vieron rojas con su
+  defecto inyectado (ver el commit que las agrega).
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -35,3 +36,12 @@ invariants:
   - id: relacionados-por-etiquetas
     rule: «Puede que también te interese» ordena por etiquetas compartidas (3, 2, 1) en el mismo idioma y completa con recientes.
     why: con lsi false mostraba los 4 más recientes; el Post II ponía su propia parte I en tercer lugar solo por fecha.
+  - id: movimiento-accesible
+    rule: Nada se oculta por defecto; .motion-pending solo lo pone JS bajo el pliegue y se anula con prefers-reduced-motion y al imprimir; el hover de tarjetas solo existe con hover:hover y sin movimiento reducido.
+    why: la referencia (Nintendo) dejaba 123 de 123 bloques en opacity 0 hasta que corría el JS e ignoraba reduced-motion en el hover.
+  - id: firma-tres-cucharadas
+    rule: Todo post con tres títulos «Cucharada N»/«Spoonful N» los tiene con id, carga motion.js y el indicador tiene objetivos de al menos 24 px.
+    why: el indicador enlaza a cada cucharada; sin id no hay destino y sin 24 px falla WCAG 2.5.8.
+  - id: transicion-tarjeta-post
+    rule: La declaración @view-transition va en línea en el head, condicionada a prefers-reduced-motion no-preference, y ninguna página repite un view-transition-name.
+    why: desde main.css Chromium 152 ignoraba la declaración; un nombre repetido anula la transición entera.
