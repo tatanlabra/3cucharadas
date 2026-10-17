@@ -13,7 +13,9 @@ falsified_by: >-
   2026-10-17: las 7 pruebas de la capa 0 reprobaron contra el build de origin/main
   b1a3eaaa (antes de los cambios) y aprobaron con los cambios de la rama
   claude/ux-transversal-20261017; las 3 de movimiento se vieron rojas con su
-  defecto inyectado (ver el commit que las agrega).
+  defecto inyectado (ver el commit que las agrega). Las 4 de la ronda high-end
+  (avisos, entrada animada, minutos y objetivos del autor) reprobaron contra el
+  build de origin/main 6543e912 y aprobaron con la rama claude/ux-highend-20261017.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -57,3 +59,15 @@ invariants:
   - id: imagenes-responsivas
     rule: Toda <img> cuya fuente tiene variantes en _data/image_variants.json se publica con srcset que las incluye, y las variantes existen.
     why: figuras de hasta 2562 px se servían completas en huecos de 731 px (C3).
+  - id: avisos-enlace-contraste
+    rule: En las citas y avisos oscuros de .page__content, todo enlace tiene contraste >= 4,5:1 sobre el fondo del aviso, y la regla cubre cada variante de aviso.
+    why: en Avalúos II el enlace #358ca7 quedaba a 3,07:1 sobre #343746 (U06).
+  - id: sin-entrada-animada
+    rule: La cabecera, el hero, #main y el pie no conservan la animación de entrada del tema; la última declaración animation que los alcanza es none.
+    why: con prefers-reduced-motion la portada seguía con 4 animaciones activas (U20); quitarlas adelantó el LCP móvil 36 ms en la portada.
+  - id: minutos-lectura-plural
+    rule: El tiempo de lectura concuerda en número («1 minuto», «12 minutos») y ninguna página muestra «minuto(s)».
+    why: todos los posts decían «N minuto(s) de lectura» (U16), y la división entera daba «1 minutos» entre 200 y 399 palabras.
+  - id: autor-cabecera-objetivos-tactiles
+    rule: Los enlaces del perfil del autor y el título del sitio miden al menos 24 px de alto (WCAG 2.5.8).
+    why: medían 19 y 18 px en móvil (U14).

@@ -80,6 +80,18 @@ def css_rules_in_context(source: str) -> list[tuple[tuple[str, ...], str, str]]:
     return rules
 
 
+def selector_parts(selector: str) -> list[str]:
+    """Separa una lista de selectores sin cortar dentro de :is(), :not() ni :where()."""
+    parts, depth, start = [], 0, 0
+    for index, char in enumerate(selector):
+        depth += (char == "(") - (char == ")")
+        if char == "," and depth == 0:
+            parts.append(selector[start:index].strip())
+            start = index + 1
+    parts.append(selector[start:].strip())
+    return parts
+
+
 def front_matter(path: Path) -> dict[str, object]:
     text = path.read_text(encoding="utf-8")
     block = text.split("---", 2)[1]
@@ -417,6 +429,65 @@ class UxTransversalContract(unittest.TestCase):
         for entry in data["images"].values():
             for variant in entry["variants"]:
                 self.assertTrue((SITE / variant["src"].lstrip("/")).is_file(), variant["src"])
+
+    def test_avisos_enlace_contraste(self) -> None:
+        rules = css_rules_in_context(css())
+        box = next(((s, b) for _, s, b in rules
+                    if s.startswith(".page__content blockquote,") and re.search(r"background:\s*#[0-9a-fA-F]{6}", b)), None)
+        self.assertIsNotNone(box, "sin fondo oscuro para citas y avisos")
+        background = re.search(r"background:\s*(#[0-9a-fA-F]{6})", box[1]).group(1)
+        variants = {"blockquote"} | set(re.findall(r"\.page__content \.(notice[\w-]*)", box[0]))
+        covered: set[str] = set()
+        for _, selector, body in rules:
+            found = re.search(r"(?<![-\w])color:\s*(#[0-9a-fA-F]{6})", body)
+            if not found:
+                continue
+            for part in selector_parts(selector):
+                if not (part.startswith(".page__content ") and part.endswith(" a")):
+                    continue
+                owners = {"blockquote"} if part == ".page__content blockquote a" else set(re.findall(r"\.(notice[\w-]*)", part))
+                if owners & variants:
+                    self.assertGreaterEqual(contrast(found.group(1), background), 4.5, f"{part}: {found.group(1)} sobre {background}")
+                    covered |= owners
+        self.assertEqual(sorted(variants - covered), [], "variantes de aviso sin color de enlace propio")
+
+    def test_sin_entrada_animada(self) -> None:
+        last: dict[str, str] = {}
+        targets = (".masthead", ".page__hero", ".page__hero--overlay", "#main", ".page__footer")
+        for _, selector, body in css_rules_in_context(css()):
+            parts = {p.strip() for p in selector.split(",")}
+            for value in re.findall(r"(?<![-\w])animation:\s*([^;]+)", body):
+                for target in targets:
+                    if target in parts:
+                        last[target] = value.strip()
+        self.assertTrue(last, "ninguna regla de animación sobre la estructura: ¿cambió el tema?")
+        for target in targets:
+            self.assertEqual(last.get(target, "none"), "none", target)
+
+    def test_minutos_lectura_plural(self) -> None:
+        source = (ROOT / "_includes" / "page__meta.html").read_text(encoding="utf-8")
+        # Ningún post baja de 400 palabras, así que la rama del singular no aparece en el
+        # sitio construido: se exige en la fuente.
+        self.assertRegex(source, r"\{%\s*elsif minutes == 1\s*%\}\s*1 \{\{ ui_text\.minute_read_one")
+        seen = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            self.assertNotIn("minuto(s)", text, page)
+            for count, word in re.findall(r"(\d+)\s+(minutos?) de lectura", text):
+                seen += 1
+                self.assertEqual(word == "minuto", count == "1", f"{page}: {count} {word}")
+        self.assertGreater(seen, 0, "ninguna página en español muestra tiempo de lectura")
+
+    def test_autor_cabecera_objetivos_tactiles(self) -> None:
+        wanted = {".author__urls a": False, ".masthead__brand .site-title": False}
+        for _, selector, body in css_rules_in_context(css()):
+            found = re.search(r"min-block-size:\s*(\d+)px", body)
+            if not found or int(found.group(1)) < 24:
+                continue
+            for part in (p.strip() for p in selector.split(",")):
+                if part in wanted:
+                    wanted[part] = True
+        self.assertEqual([k for k, ok in wanted.items() if not ok], [], "objetivos bajo 24 px")
 
 
 if __name__ == "__main__":

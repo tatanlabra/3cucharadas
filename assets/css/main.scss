@@ -1373,8 +1373,11 @@ html[data-theme="academic-night"] tbody tr:nth-child(even) {
 .page__content .notice--success { border-left: 0.3rem solid #50fa7b; }
 .page__content .notice--danger { border-left: 0.3rem solid #ff5555; }
 
+/* Las variantes .notice--* se usan solas (p. ej. <aside class="notice--info">), sin la
+   clase base .notice: con solo `.notice a`, el tema les aplicaba su enlace mezclado
+   (#358ca7, 3,07:1 sobre #343746). Medido el 2026-10-17 en Avalúos II (U06). */
 .page__content blockquote a,
-.page__content .notice a {
+.page__content :is(.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger) a {
   color: #8be9fd;
 }
 
@@ -3965,4 +3968,27 @@ html:not([data-theme="academic-night"]) .archive__item-title a:hover,
 html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+/* Sin fundido de entrada de página (U20, auditoría UX 2026-10-17). El `intro` del tema
+   (300 ms de opacity sobre cabecera, hero, #main y pie) corría incluso con movimiento
+   reducido, arrancaba el hero (elemento LCP) en opacidad 0 y se encimaba con la
+   transición de página entre la tarjeta y el post. */
+.masthead,
+.page__hero,
+.page__hero--overlay,
+#main,
+.page__footer {
+  animation: none;
+}
+
+/* Objetivos táctiles del autor y del título del sitio (U14): medían 18-19 px de alto.
+   El título conserva su flex en columna (nombre + subtítulo); solo gana altura mínima. */
+.author__urls a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
+}
+.masthead__brand .site-title {
+  min-block-size: 24px;
 }
