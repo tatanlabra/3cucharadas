@@ -47,6 +47,17 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def to_spans(codepoints: set[int]) -> list[list[int]]:
+    """Comprime un conjunto de codepoints en intervalos [inicio, fin] inclusivos."""
+    out: list[list[int]] = []
+    for cp in sorted(codepoints):
+        if out and cp == out[-1][1] + 1:
+            out[-1][1] = cp
+        else:
+            out.append([cp, cp])
+    return out
+
+
 def cmap(path: Path) -> set[int]:
     return set(TTFont(path).getBestCmap() or {})
 
@@ -92,13 +103,12 @@ def main() -> int:
         "text_ranges": TEXT_RANGES,
         "code_ranges": CODE_RANGES,
         "files": files,
-        "covered": {k: sorted(v) for k, v in covered.items()},
-        # Usados por el sitio pero ausentes también en la fuente completa (emoji, etc.):
-        # el navegador ya los tomaba de otra fuente; el subconjunto no cambia eso.
-        "uncovered_by_original": {
-            "fira-sans": sorted(text - original_sans),
-            "firacode-nerd": sorted(code - original_code),
-        },
+        # Cobertura en intervalos. El test solo exige lo que la fuente COMPLETA tenía y el
+        # subconjunto perdió: cualquier emoji, o un símbolo que Fira nunca trajo, ya venía
+        # de una fuente del sistema y sigue igual. Antes se guardaba la lista de los que
+        # faltaban HOY, y un emoji nuevo en un post futuro habría reprobado el CI.
+        "covered_ranges": {k: to_spans(v) for k, v in covered.items()},
+        "original_ranges": {"fira-sans": to_spans(original_sans), "firacode-nerd": to_spans(original_code)},
     }
     MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     before = sum(v["source_bytes"] for v in files.values())

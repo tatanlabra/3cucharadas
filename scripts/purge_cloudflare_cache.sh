@@ -83,6 +83,15 @@ echo "Comprobando que el origen ya sirve los bytes nuevos..."
 declare -a URLS=()
 stale=0
 for rel in "${PATHS[@]}"; do
+  # Fuentes que no se publican con su propia ruta. Comparar el .scss contra
+  # $SITE/assets/css/main.scss daba la pagina 404 (12764 B) y el script concluia
+  # en falso "el despliegue no llego" (2026-10-17). El .scss se compila a .css y
+  # head.html lo enlaza con ?v=<build>: cada despliegue usa una URL nueva, asi que
+  # en el borde no hay copia vieja que purgar.
+  case "$rel" in
+    *.scss) echo "  -  $rel: se compila a .css con ?v=<build> (URL nueva por despliegue); no se purga"; continue ;;
+    _*|assets/src/*) echo "  -  $rel: no se publica con esta ruta; se omite"; continue ;;
+  esac
   local_size=$(stat -c%s "$ROOT/$rel" 2>/dev/null || echo 0)
   [ "$local_size" -eq 0 ] && { echo "  ?  $rel (no existe en el arbol; se omite)"; continue; }
   # El parametro aleatorio evita la clave de cache y llega al origen de verdad.

@@ -369,10 +369,15 @@ class UxTransversalContract(unittest.TestCase):
             for block in re.findall(r"<(?:code|pre)\b[^>]*>(.*?)</(?:code|pre)>", raw, flags=re.S | re.I):
                 code.update(ord(c) for c in html.unescape(re.sub(r"<[^>]+>", "", block)) if ord(c) > 31)
             text.update(ord(c) for c in html.unescape(re.sub(r"<[^>]+>", " ", raw)) if ord(c) > 31)
+        def inside(cp: int, spans: list[list[int]]) -> bool:
+            return any(start <= cp <= end for start, end in spans)
         for family, used in (("fira-sans", text), ("firacode-nerd", code)):
-            allowed = set(manifest["covered"][family]) | set(manifest["uncovered_by_original"][family])
-            missing = sorted(hex(c) for c in used - allowed)
-            self.assertEqual(missing, [], f"{family}: caracteres sin cubrir; correr scripts/build_font_subsets.py")
+            # Solo es regresión lo que la fuente completa tenía y el subconjunto perdió.
+            # Emoji y símbolos que Fira nunca trajo siguen saliendo de la fuente del sistema.
+            lost = sorted(hex(c) for c in used
+                          if inside(c, manifest["original_ranges"][family])
+                          and not inside(c, manifest["covered_ranges"][family]))
+            self.assertEqual(lost, [], f"{family}: el subconjunto perdió caracteres usados; correr scripts/build_font_subsets.py")
 
     def test_iconos_autohospedados(self) -> None:
         manifest = json.loads((ROOT / "assets" / "vendor" / "fontawesome" / "subset-manifest.json").read_text(encoding="utf-8"))
