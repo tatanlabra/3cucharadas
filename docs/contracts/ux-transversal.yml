@@ -25,7 +25,8 @@ falsified_by: >-
   región única reprobó contra 782dfc47 y aprobó con claude/ux-region-unica-20261017. La de
   jQuery reprobó contra e912c92b y aprobó con claude/ux-capa2a-20261017. La de
   recursos versionados reprobó contra 6136d2e8 y aprobó con claude/ux-buscador-version-20261017. La de
-  tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017.
+  tokens reprobó contra 6da271a1 y aprobó con claude/ux-capa2b-20261017. La de
+  contención de Sass se vio roja con un tercer @import y con sass-embedded 3.0.0 en el lockfile.
 invariants:
   - id: theme-color-crema
     rule: En tema claro, la barra del navegador usa el fondo crema #faf7f0, no blanco.
@@ -117,3 +118,6 @@ invariants:
   - id: tokens-de-interfaz
     rule: Los tokens --ui-* se definen en :root y se redefinen bajo academic-night; resueltos, tinta sobre papel y sobre superficie, enlace sobre superficie y texto fuerte sobre fondo fuerte cumplen 4,5:1 en los dos temas; compartir, paginación, etiquetas y chips usan solo tokens y no tienen reglas propias por tema.
     why: cada componente nuevo llevaba un par de reglas claro/oscuro con colores literales, y al chip le faltó la suya: en oscuro su borde era invisible y su texto al pasar el cursor quedaba en #123e5c sobre #161616.
+  - id: sass-import-contenido
+    rule: assets/css/main.scss conserva solo los 2 @import del tema (skin y minimal-mistakes) y Gemfile.lock resuelve sass-embedded por debajo de la versión 3, que elimina @import; subir de ahí exige migrar antes.
+    why: Dart Sass 3.0.0 elimina @import y Minimal Mistakes lo usa en todos sus parciales. Hoy jekyll-sass-converter 3.1.0 fija sass-embedded ~> 1.75 (1.104.0 instalado), así que el riesgo no puede activarse solo; migrar exige salir del tema (capa 2 completa, 3-6 semanas), y este contrato vuelve visible el momento en que deje de ser opcional.

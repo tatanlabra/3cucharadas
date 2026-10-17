@@ -785,5 +785,17 @@ class UxTransversalContract(unittest.TestCase):
             self.assertNotRegex(value, r"#[0-9a-fA-F]{3,6}\b|rgba?\(", f"{part} {prop}: color literal {value}")
 
 
+    def test_sass_import_contenido(self) -> None:
+        source = (ROOT / "assets" / "css" / "main.scss").read_text(encoding="utf-8")
+        imports = re.findall(r'^\s*@import\s+"([^"]+)"', source, re.M)
+        self.assertEqual(len(imports), 2, f"@import nuevos en main.scss: {imports}")
+        self.assertTrue(imports[0].startswith("minimal-mistakes/skins/") and imports[1] == "minimal-mistakes", imports)
+        lock = (ROOT / "Gemfile.lock").read_text(encoding="utf-8")
+        versions = re.findall(r"^\s{4}sass-embedded \((\d+)\.\d+\.\d+", lock, re.M)
+        self.assertTrue(versions, "sass-embedded no aparece resuelto en Gemfile.lock")
+        for major in versions:
+            self.assertLess(int(major), 3, "Dart Sass 3 elimina @import: migrar main.scss y salir de los parciales del tema antes de subir")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
