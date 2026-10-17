@@ -25,19 +25,14 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parents[1]
-INPUT_DIR = (
-    WORKSPACE
-    / "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence"
-)
+RESEARCH_ROOT = WORKSPACE / "incubadora/tesis_mae_mejorada"
+INPUT_DIR = RESEARCH_ROOT / "figures/post2_stylized_evidence"
 OUTPUT_DIR = ROOT / "assets/images/extender-tesis-no-es-agregar-anos"
 DATA_PATH = ROOT / "_data/thesis_extension_stylized.yml"
 MANIFEST_PATH = OUTPUT_DIR / "estilizada-manifest.json"
 MAP_DATA_PATH = ROOT / "assets/data/thesis-extension-post2/cases.json"
 AVALUOS_THEME_PATH = ROOT / "assets/src/catastro_sii/chart-theme.ts"
-AUTHOR_CASE_PATH = (
-    WORKSPACE
-    / "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml"
-)
+AUTHOR_CASE_PATH = RESEARCH_ROOT / "research/article_post2/el_salvador_author_case.yaml"
 
 INPUTS = {
     "demography": INPUT_DIR / "demographic_pressure.csv",
@@ -47,6 +42,26 @@ INPUTS = {
     "school_points": INPUT_DIR / "spatial_school_points.csv",
     "school_links": INPUT_DIR / "spatial_school_links.csv",
 }
+
+
+def configure_research_root(path: Path) -> None:
+    """Bind inputs to an explicit clean research checkout."""
+    global RESEARCH_ROOT, INPUT_DIR, AUTHOR_CASE_PATH, INPUTS
+    RESEARCH_ROOT = path.resolve()
+    INPUT_DIR = RESEARCH_ROOT / "figures/post2_stylized_evidence"
+    AUTHOR_CASE_PATH = RESEARCH_ROOT / "research/article_post2/el_salvador_author_case.yaml"
+    INPUTS = {
+        "demography": INPUT_DIR / "demographic_pressure.csv",
+        "spatial": INPUT_DIR / "spatial_case_summary.csv",
+        "trajectory": INPUT_DIR / "comparable_trajectory.csv",
+        "case_trajectory": INPUT_DIR / "case_trajectory.csv",
+        "school_points": INPUT_DIR / "spatial_school_points.csv",
+        "school_links": INPUT_DIR / "spatial_school_links.csv",
+    }
+
+
+def research_manifest_key(path: Path) -> str:
+    return f"incubadora/tesis_mae_mejorada/{path.relative_to(RESEARCH_ROOT)}"
 
 COLORS = {
     "navy": "#10121d",
@@ -1430,11 +1445,10 @@ def render_map_data(
         "generated_by": "scripts/render_thesis_extension_stylized.py",
         "basemap_manifest": "/assets/data/catastro_sii/manifest.json",
         "selection_rule": (
-            "first one strict entity-segment pair per preferred education family; within "
-            "each family, ranked by same-commune status, distance, year, and stable "
-            "identifiers; neither outcome values nor outcome availability were used"
+            "author-proposed documented case retained outside the systematic selection; "
+            "neither outcome values nor outcome availability were used to select it"
         ),
-        "cases": cases,
+        "cases": [cases[-1]],
     }
     return (
         json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True, allow_nan=False)
@@ -1918,7 +1932,7 @@ def build_outputs(
             "adaptation": "official_school_point_map",
         },
         "inputs": {
-            str(path.relative_to(WORKSPACE)): sha256_path(path)
+            research_manifest_key(path): sha256_path(path)
             for path in (*INPUTS.values(), AUTHOR_CASE_PATH)
         },
         "outputs": {
@@ -1978,8 +1992,15 @@ def main() -> int:
     parser.add_argument(
         "--check", action="store_true", help="verify generated outputs without writing"
     )
+    parser.add_argument(
+        "--research-root",
+        type=Path,
+        default=RESEARCH_ROOT,
+        help="clean tesis_mae_mejorada checkout used as the scientific source",
+    )
     args = parser.parse_args()
     try:
+        configure_research_root(args.research_root)
         outputs = build_outputs(load_data(), load_author_case())
         if args.check:
             check_outputs(outputs)

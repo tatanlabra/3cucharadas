@@ -21,19 +21,23 @@ STYLIZED_DATA_PATH = File.join(ROOT, "_data/thesis_extension_stylized.yml")
 STYLIZED_INCLUDE_PATH = File.join(ROOT, "_includes/thesis-extension-stylized-evidence.html")
 EDITORIAL_CLAIMS_PATH = File.join(ROOT, "docs/contracts/thesis-post-ii-editorial-claims.yml")
 MAP_DATA_PATH = File.join(ROOT, "assets/data/thesis-extension-post2/cases.json")
+MAP_AUDIT_PATH = File.join(ROOT, "assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson")
+MAP_AUDIT_MANIFEST_PATH = File.join(ROOT, "assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.manifest.json")
+MAP_SOURCE_PATH = File.join(ROOT, "assets/src/thesis_post2_map/main.ts")
+MAP_STYLE_PATH = File.join(ROOT, "assets/src/thesis_post2_map/styles.scss")
 RESULTS_DIR = File.join(ROOT, "assets/images/extender-tesis-no-es-agregar-anos")
 RESULTS_MANIFEST_PATH = File.join(RESULTS_DIR, "resultados-manifest.json")
 STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
-STYLIZED_MANIFEST_SHA256 = "62aa347a13235936c4aeea9f2a63289e892bcf700fa9c5d1530b41a83bf718d4"
+STYLIZED_MANIFEST_SHA256 = "0d51cddcd083d95f889286c781b55780ac79399613ec2e5a00229465348ef607"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "a53da9519d863cd565b340346e979b0cb9fad89b1a00a033d0be311f4c55e06d"
+FREEZE_SHA256 = "75ec5b91a7ff30c02934dba14159ab3e37703e4d4eed7802b9b6e4c06fba69b6"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 4_200
 EXPECTED_STYLIZED_COMMUNES = ["Lo Barnechea", "Lo Prado"].freeze
 STYLIZED_MAP_ITEM_FIELDS = %w[
-  commune asset alt caption paired_closures nearby_entries same_commune_pairs event_period
+  commune tab_label asset alt caption paired_closures nearby_entries same_commune_pairs event_period
   median_distance_km education_segment segment_family schools
 ].freeze
 STYLIZED_SCHOOL_FIELDS = %w[marker role rbd name event_year].freeze
@@ -189,9 +193,11 @@ end
 
 def check_freeze!(freeze)
   fail_unless(freeze.fetch("status") == "TECHNICAL_SNAPSHOT_WITH_OPEN_GATES", "estado del freeze científico derivó")
-  fail_unless(freeze.fetch("freeze_revision") == 9, "revisión del freeze científico derivó")
-  current = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 9 }
-  fail_unless(current && current.fetch("supersedes") == 8 && current.fetch("change").include?("no distinguible del azar") && current.fetch("change").include?("cambios de calendario posteriores"), "transición a revisión 9 ausente")
+  fail_unless(freeze.fetch("freeze_revision") == 10, "revisión del freeze científico derivó")
+  current = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 10 }
+  fail_unless(current && current.fetch("supersedes") == 9 && current.fetch("change").include?("RBD 391") && current.fetch("change").include?("mismo entorno visual"), "transición a revisión 10 ausente")
+  editorial = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 9 }
+  fail_unless(editorial && editorial.fetch("supersedes") == 8 && editorial.fetch("change").include?("no distinguible del azar") && editorial.fetch("change").include?("cambios de calendario posteriores"), "transición a revisión 9 ausente")
   historical_rollout = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 8 }
   fail_unless(historical_rollout && historical_rollout.fetch("supersedes") == 7 && historical_rollout.fetch("change").include?("14 clusters históricos") && historical_rollout.fetch("change").include?("Ñuble con Biobío"), "transición a revisión 8 ausente")
   identification = freeze.fetch("revision_history").find { |row| row.fetch("revision") == 7 }
@@ -394,7 +400,11 @@ def check_stylized!(audit, data, manifest, freeze, research_root, workspace_root
   verify_pinned_sha!(File.join(ROOT, generator.fetch("path")), generator.fetch("sha256"), "generador estilizado")
   frozen = frozen_artifact_map(freeze)
   manifest.fetch("inputs").each do |relative, expected_sha|
-    path = safe_source_path!(workspace_root, relative)
+    path = if relative.start_with?("incubadora/tesis_mae_mejorada/")
+      safe_source_path!(research_root, relative.sub(%r{\Aincubadora/tesis_mae_mejorada/}, ""))
+    else
+      safe_source_path!(workspace_root, relative)
+    end
     verify_pinned_sha!(path, expected_sha, "fuente estilizada #{relative}")
     research_relative = relative.sub(%r{\Aincubadora/tesis_mae_mejorada/}, "")
     next if research_relative == AUTHOR_CASE_RELATIVE_PATH
@@ -496,8 +506,8 @@ def check_author_case!(author_case, map_data, data, manifest, research_root)
   cases = map_data.fetch("cases")
   systematic = cases.select { |row| row.fetch("case_kind") == "systematic" }
   authored = cases.select { |row| row.fetch("case_kind") == "author_documented" }
-  fail_unless(systematic.map { |row| row.fetch("commune") } == EXPECTED_STYLIZED_COMMUNES, "selección sistemática cartográfica derivó")
-  fail_unless(authored.length == 1 && authored.first.fetch("commune") == "El Salvador", "cuarto tab autoral ausente o duplicado")
+  fail_unless(systematic.empty?, "el visor principal conserva casos sistemáticos retirados")
+  fail_unless(authored.length == 1 && authored.first.fetch("commune") == "El Salvador", "caso autoral ausente o duplicado")
   author_map = authored.first
   fail_unless(author_map.fetch("selection_rank").nil?, "El Salvador recibió ranking sistemático")
   role_by_rbd = author_map.fetch("points").to_h { |row| [row.fetch("rbd"), row.fetch("role")] }
@@ -531,15 +541,15 @@ end
 
 def check_include!(text)
   required = %w[
-    data-thesis-market-map data-market-map-tab data-market-map-canvas data-market-map-aside
+    data-thesis-market-map data-market-map-canvas data-market-map-aside
     data-market-map-panel data-market-map-fallback-grid thesis-post2-map-loader.js
-    territorial-evidence territorial-evidence__fallback-grid image-popup table--scroll
+    territorial-evidence territorial-evidence__fallback-grid documented-summary
   ]
   required.each { |token| fail_unless(text.include?(token), "include estilizado sin selector requerido: #{token}") }
   retired = %w[evidence-carousel--stylized data-evidence-carousel thesis-author-case]
   fail_unless(retired.none? { |token| text.include?(token) }, "include conserva componentes territoriales retirados")
   fail_unless(text.include?("target=\"_blank\"") && text.include?("rel=\"noopener\""), "enlace externo sin custodia de pestaña")
-  fail_unless(text.scan("scope=\"col\"").length >= 11, "tablas accesibles sin encabezados de columna")
+  fail_unless(!text.include?("data-market-map-poster"), "el include conserva enlace visible a la lámina estática")
 end
 
 def check_release_boundaries!(body, lang)
@@ -815,6 +825,41 @@ def check_custody!
   fail_unless(drafts.empty?, "custodia: persisten drafts ES/EN")
 end
 
+def check_closeout_map!(freeze, author_case, map_data, data, manifest, include_text, es_body, en_body, research_root)
+  check_freeze!(freeze)
+  check_author_case!(author_case, map_data, data, manifest, research_root)
+  check_include!(include_text)
+  cases = map_data.fetch("cases")
+  fail_unless(cases.length == 1 && cases.first.fetch("id") == "el-salvador", "el visor no contiene exclusivamente El Salvador")
+  fail_unless((cases.first.fetch("distance_km") - 1.272025).abs < 0.000001, "distancia visible de El Salvador derivó")
+  fail_unless(cases.first.fetch("points").map { |row| row.fetch("rbd") }.sort == [390, 391], "puntos del visor El Salvador derivaron")
+  [es_body, en_body].each do |body|
+    fail_unless(!body.match?(/Lo Barnechea|Lo Prado/i), "el relato conserva casos territoriales retirados")
+    fail_unless(!body.include?("estilizada-mapa-el-salvador"), "el post conserva un enlace visible a la lámina estática")
+    fail_unless(body.include?("auditoria-coordenadas-rbd"), "el enlace a la auditoría territorial está ausente")
+  end
+
+  audit = read_json(MAP_AUDIT_PATH)
+  audit_manifest = read_json(MAP_AUDIT_MANIFEST_PATH)
+  fail_unless(audit.fetch("metadata").fetch("schema_version") == 2, "GeoJSON territorial conserva esquema obsoleto")
+  fail_unless(audit.fetch("features").map { |row| row.dig("properties", "rbd") }.uniq.sort == [390, 391], "GeoJSON publica casos fuera del alcance acordado")
+  school_14 = audit.fetch("features").select { |row| row.dig("properties", "rbd") == 391 }
+  fail_unless(school_14.all? { |row| row.dig("properties", "identity_status") == "PLAUSIBLE" }, "GeoJSON sobredeclara identidad de la Escuela N° 14")
+  fail_unless(audit.dig("metadata", "sources", "osm_attribution").to_s.include?("OpenStreetMap contributors"), "GeoJSON perdió atribución OSM")
+  fail_unless(audit_manifest.dig("coverage", "expected_rbds") == [391, 390], "manifiesto territorial derivó de los dos RBD visibles")
+  fail_unless(audit_manifest.dig("epistemic_status", "official_coordinates_overwritten") == false, "manifiesto sobrescribe la observación oficial")
+  audit_manifest.fetch("inputs").each do |relative, expected_sha|
+    verify_pinned_sha!(File.join(ROOT, relative), expected_sha, "entrada de auditoría #{relative}")
+  end
+
+  source = File.read(MAP_SOURCE_PATH, encoding: "UTF-8")
+  style = File.read(MAP_STYLE_PATH, encoding: "UTF-8")
+  fail_unless(source.include?("attributionControl: false") && source.scan("new maplibregl.AttributionControl").length == 1, "el mapa no contiene una única atribución controlada")
+  fail_unless(source.include?("compact: false"), "la atribución OSM no permanece visible como línea compacta")
+  fail_unless(!source.include?("data-market-map-poster"), "el bundle conserva la lámina estática como enlace")
+  fail_unless(style.include?("@media (max-width: 52rem)") && style.include?("grid-template-columns: 1fr"), "el mapa perdió el contrato responsivo")
+end
+
 def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, en_front, en_body, research_root, author_case, map_data, stylized_manifest)
   expected = nil
   begin
@@ -900,7 +945,7 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
     when "author-separation"
       mutant = Marshal.load(Marshal.dump(map_data))
       mutant.fetch("cases").last["case_kind"] = "systematic"
-      expected = "selección sistemática cartográfica derivó"
+      expected = "el visor principal conserva casos sistemáticos retirados"
       check_author_case!(author_case, mutant, data, stylized_manifest, research_root)
     when "author-role"
       mutant = Marshal.load(Marshal.dump(map_data))
@@ -1028,6 +1073,7 @@ OptionParser.new do |parser|
   parser.on("--custody") { options[:mode] = "custody" }
   parser.on("--editorial-only") { options[:mode] = "editorial" }
   parser.on("--all") { options[:mode] = "all" }
+  parser.on("--closeout") { options[:mode] = "closeout" }
   parser.on("--self-test NAME") { |value| options[:self_test] = value }
 end.parse!
 
@@ -1100,10 +1146,13 @@ begin
     check_language!(en_front, en_body, "en", soft_warnings: soft_warnings)
     check_parity!(es_front, es_body, en_front, en_body)
     check_custody!
+  when "closeout"
+    check_closeout_map!(freeze, author_case, map_data, stylized_data, stylized_manifest, include_text, es_body, en_body, research_root)
+    check_custody!
   when "claims"
     nil
   else
-    raise VerificationError, "seleccione --claims-only, --lang es|en, --parity, --causal-language, --custody o --all"
+    raise VerificationError, "seleccione --claims-only, --lang es|en, --parity, --causal-language, --custody, --closeout o --all"
   end
   puts JSON.generate(result: "PASS", mode: options[:mode], freeze_sha256: FREEZE_SHA256, visuals: 6, stylized_visuals: 6, soft_warnings: soft_warnings)
 rescue VerificationError, KeyError, JSON::ParserError, Psych::SyntaxError, REXML::ParseException => e

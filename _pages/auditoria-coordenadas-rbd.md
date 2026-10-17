@@ -4,7 +4,7 @@ classes: [thesis-extension-post, thesis-coordinate-audit-annex]
 title: "Auditoría nacional de coordenadas escolares MINEDUC–OSM"
 subtitle: "Método, resultados agregados y límites del control usado en el Post II."
 date: 2026-10-11 19:10:00 -0300
-last_modified_at: 2026-10-17 13:40:00 -0300
+last_modified_at: 2026-10-17 17:15:00 -0300
 categories: [datos, educacion, metodologia]
 tags: [educacion, mineduc, openstreetmap, coordenadas, calidad-de-datos]
 description: "Anexo técnico reproducible de la auditoría agregada de coordenadas de establecimientos educacionales chilenos con señales de OpenStreetMap."
@@ -86,22 +86,21 @@ La auditoría nacional publica únicamente agregados por región, señal, confia
 
 El JSON nacional fija hashes de las fuentes agregadas y el snapshot OSM. No contiene nombres, RBD individuales, direcciones, coordenadas ni identificadores personales.
 
-## Auditoría específica de los seis puntos del visor
+## Auditoría específica del caso El Salvador
 
-La auditoría nacional 2025 no bastaba para validar el visor: tres de sus seis RBD estaban cerrados y un cuarto no obtuvo candidato OSM. Por eso se ejecutó un control específico, con una decisión para **cada uno de los seis puntos** y sin descartar los casos sin candidato.
+La auditoría nacional 2025 no bastaba para validar el caso mostrado en el visor: el RBD 391 estaba cerrado y quedaba fuera de ese universo. Por eso se ejecutó un control específico para los dos establecimientos de El Salvador, conservando por separado las observaciones oficiales y los candidatos OSM.
 
 | Resultado del contraste | Casos |
 |---|---:|
-| Puntos oficiales conservados | 6 |
-| Candidatos OSM retenidos para contraste | 5 |
-| Sin candidato OSM | 1 |
+| Puntos oficiales conservados | 2 |
+| Candidatos OSM retenidos para contraste | 2 |
 | Homónimos rechazados | 1 |
 | Errores oficiales confirmados | **0** |
 {: .table--compact .table--scroll}
 
-La Escuela N° 14 (RBD 391) queda como **discrepancia no resuelta**: los directorios MINEDUC 2008–2011 registran Diego Portales 500 y el objeto OSM homónimo es compatible con esa sede, pero fue creado en 2022 y no declara RBD. El visor puede mostrarlo como candidato histórico siempre que conserve la coordenada oficial 2015 como contraste.
+La Escuela N° 14 (RBD 391) queda como **discrepancia no resuelta**: los directorios MINEDUC 2008–2011 registran Diego Portales 500 y el objeto OSM homónimo es compatible con esa sede, pero fue creado en 2022 y no declara RBD. El candidato está a **825,551 m** del punto oficial 2015. Medida desde ese candidato, la Escuela N° 1 queda a **1,272025 km**; con las dos coordenadas oficiales, a **0,448903 km**. El visor conserva ambas observaciones y no afirma que OSM haya corregido a MINEDUC.
 
-- [Descargar el GeoJSON del contraste de los seis puntos](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
+- [Descargar el GeoJSON del contraste de El Salvador](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson).
 - [Descargar su manifiesto reproducible](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.manifest.json).
 
 Este archivo de alcance acotado contiene RBD, nombres y coordenadas que ya se muestran en el Post II, además de identificadores y enlaces OSM. No contiene datos de estudiantes ni identificadores personales.

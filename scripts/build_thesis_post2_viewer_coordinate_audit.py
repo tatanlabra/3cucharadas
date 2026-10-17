@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the six-point public coordinate audit used by thesis Post II."""
+"""Build the public coordinate audit for the El Salvador case in thesis Post II."""
 
 from __future__ import annotations
 
@@ -152,7 +152,7 @@ def build(contract: dict[str, Any], cases: dict[str, Any]) -> tuple[dict[str, An
         },
     }
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "audit_id": contract["audit_id"],
         "generated_by": "scripts/build_thesis_post2_viewer_coordinate_audit.py",
         "inputs": {
@@ -165,7 +165,7 @@ def build(contract: dict[str, Any], cases: dict[str, Any]) -> tuple[dict[str, An
             "official_coordinates_overwritten": preserved_dual_sources != 1,
             "dual_source_observations_preserved": preserved_dual_sources,
             "confirmed_official_errors": 0,
-            "rbd_391": "high-confidence historical-site candidate with unresolved official-coordinate discrepancy",
+            "rbd_391": "plausible historical-site candidate with unresolved official-coordinate discrepancy",
         },
     }
     return geojson, manifest

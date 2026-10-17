@@ -1,17 +1,18 @@
-schema_version: 1
-audit_id: thesis-post-ii-viewer-coordinate-audit-v1
+schema_version: 2
+audit_id: thesis-post-ii-viewer-coordinate-audit-v2
 observed_on: "2026-10-17"
 scope:
-  expected_rbds: [25077, 20428, 31422, 20440, 391, 390]
-  expected_official_observations: 6
+  expected_rbds: [391, 390]
+  expected_official_observations: 2
+  publication_rule: reviewed_and_flagged_primary_case_only
   method: >-
-    Every public point used by the Post II viewer is retained as an official
+    Every point displayed for the El Salvador case is retained as a distinct
     observation and compared with the frozen OSM education snapshot through
     institutional Nominatim. A candidate never overwrites the official point.
   limitations:
     - OSM objects can be retrospective and do not establish a historical location by themselves.
-    - No candidate is evidence of absence from OSM, not validation of MINEDUC.
-    - Name and commune agreement alone cannot distinguish distant homonyms.
+    - Name, address and commune agreement do not prove identity or historical timing.
+    - The targeted audit does not validate the unused systematic examples or the national directory.
 sources:
   cases_path: assets/data/thesis-extension-post2/cases.json
   osm_snapshot_date: "2026-08-27"
@@ -21,59 +22,6 @@ sources:
   osm_license_url: https://opendatacommons.org/licenses/odbl/1-0/
   mineduc_directory_url: https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/
 decisions:
-  - rbd: 25077
-    candidate:
-      osm_type: node
-      osm_id: 906438465
-      name: Colegio Parroquial Beato Padre Alberto Hurtado
-      address: Avenida Lo Barnechea 1174
-      latitude: -33.3573828
-      longitude: -70.5063353
-      official_distance_m: 64.161
-    identity_status: PLAUSIBLE_EXACT_NAME_ADDRESS
-    spatial_status: CONSISTENT_WITH_OFFICIAL
-    temporal_status: RETROSPECTIVE
-    final_status: PLAUSIBLE
-    rationale_es: Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.
-    rationale_en: Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.
-  - rbd: 20428
-    candidate: null
-    identity_status: NOT_EVALUABLE
-    spatial_status: NOT_EVALUABLE
-    temporal_status: NOT_EVALUABLE
-    final_status: NOT_FOUND
-    rationale_es: La consulta no recuperó un candidato OSM; esto no valida la coordenada oficial.
-    rationale_en: The query returned no OSM candidate; this does not validate the official coordinate.
-  - rbd: 31422
-    candidate:
-      osm_type: node
-      osm_id: 11417691051
-      name: Escuela Básica My Garden School Portales
-      address: Avenida Portales 6082
-      latitude: -33.4447806
-      longitude: -70.7214658
-      official_distance_m: 26.300
-    identity_status: PLAUSIBLE_EXACT_NAME_ADDRESS
-    spatial_status: CONSISTENT_WITH_OFFICIAL
-    temporal_status: RETROSPECTIVE
-    final_status: PLAUSIBLE
-    rationale_es: Nombre, dirección y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2015.
-    rationale_en: Name, address and distance are compatible; OSM does not state the RBD or prove the 2015 location.
-  - rbd: 20440
-    candidate:
-      osm_type: way
-      osm_id: 1364106474
-      name: Liceo Doctor Juan Verdaguer Planas
-      address: Purísima, Recoleta
-      latitude: -33.4308100
-      longitude: -70.6386829
-      official_distance_m: 47.956
-    identity_status: PLAUSIBLE_EXACT_NAME
-    spatial_status: CONSISTENT_WITH_OFFICIAL
-    temporal_status: RETROSPECTIVE
-    final_status: PLAUSIBLE
-    rationale_es: Nombre y distancia son compatibles; OSM no declara el RBD ni prueba la ubicación en 2019.
-    rationale_en: Name and distance are compatible; OSM does not state the RBD or prove the 2019 location.
   - rbd: 391
     candidate:
       osm_type: way
@@ -83,12 +31,12 @@ decisions:
       latitude: -26.24743105
       longitude: -69.634624116
       official_distance_m: 825.551
-    identity_status: HIGH_CONFIDENCE_HISTORICAL_SITE_CANDIDATE
+    identity_status: PLAUSIBLE
     spatial_status: OFFICIAL_COORDINATE_MISMATCH_CANDIDATE
     temporal_status: RETROSPECTIVE_UNVERIFIED
     final_status: DISCREPANCY
-    rationale_es: El nombre y la calle Avenida Diego Portales convergen; el número 500 proviene de MINEDUC y no está geolocalizado en OSM. El objeto fue creado en 2022 y no declara RBD ni fuente contemporánea.
-    rationale_en: Name and Avenida Diego Portales converge; number 500 comes from MINEDUC and is not geolocated in OSM. The object was created in 2022 and states neither an RBD nor a contemporaneous source.
+    rationale_es: El nombre y la calle Avenida Diego Portales son compatibles; el número 500 proviene de MINEDUC y no está geolocalizado en OSM. El objeto fue creado en 2022 y no declara RBD ni fuente contemporánea.
+    rationale_en: The name and Avenida Diego Portales are compatible; number 500 comes from MINEDUC and is not geolocated in OSM. The object was created in 2022 and states neither an RBD nor a contemporaneous source.
     rejected_candidates:
       - osm_type: way
         osm_id: 991314175

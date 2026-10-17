@@ -45,7 +45,7 @@
     const fallbackGrid = host.querySelector("[data-market-map-fallback-grid]");
     if (fallbackGrid) fallbackGrid.hidden = false;
     const status = host.querySelector("[data-market-map-status]");
-    if (status) status.textContent = host.dataset.fallbackMessage || "Mapa interactivo no disponible; se conserva la lámina estática.";
+    if (status) status.textContent = host.dataset.fallbackMessage || "Mapa interactivo no disponible; se conserva el resumen documentado.";
   };
   host.addEventListener("thesis-post2-map:fallback", fallback);
   entryPromise.catch(fallback);

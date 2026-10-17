@@ -10,7 +10,7 @@
   "generated_by": "scripts/render_thesis_extension_stylized.py",
   "generator": {
     "path": "scripts/render_thesis_extension_stylized.py",
-    "sha256": "d523eea36c6ae15e7f36a19f137917706d2884fad247dd0ff09837bc82d744cc"
+    "sha256": "b35827ca8425aaa38ef93fbba75e21792d8750f68c83d620df34d702b172a7d5"
   },
   "inputs": {
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/case_trajectory.csv": "97c300319c6c871583a66b801664f84d3081fc7293c55d8d314e98fd540e939a",
@@ -19,7 +19,7 @@
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_case_summary.csv": "af3c6281ea8d3ec7957dcfe77fd7795615e87971072360fc1b6a8ca51342b432",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_links.csv": "fb40b52295ac88875d1c512083e86097f90bfd5076a2f8b5a4587ee83c5886b2",
     "incubadora/tesis_mae_mejorada/figures/post2_stylized_evidence/spatial_school_points.csv": "10daceed8871bc6ddfa4b28b21a4dfe26495bcf4b404d725f51fd1825669e87f",
-    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "cfe6468f34f3c13349061ba8c1e711c9f9412c41480b1e6d6219152757beeaaf"
+    "incubadora/tesis_mae_mejorada/research/article_post2/el_salvador_author_case.yaml": "6d3d244e27804d24546deb747fdca23faa796246aad8742309f05e5dd1aa6ae8"
   },
   "outputs": {
     "_data/thesis_extension_stylized.yml": {
@@ -27,8 +27,8 @@
       "sha256": "a7ab5bceaa549c41f79dda942715a9324364de96f837205b43789bf2fa12b4d0"
     },
     "assets/data/thesis-extension-post2/cases.json": {
-      "bytes": 17947,
-      "sha256": "70fc5301c0d8b2f6cde77b65cbef3e95349b6a880a94fe0d68d13636b615ffa5"
+      "bytes": 4376,
+      "sha256": "06d910a90158a66c139a51dc18cd33c7220ded6578ec6c2a68c25104241922fc"
     },
     "assets/images/extender-tesis-no-es-agregar-anos/estilizada-demografia-en.svg": {
       "bytes": 6011,

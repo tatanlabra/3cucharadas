@@ -1,10 +1,10 @@
 ---
 layout: single
 classes: [thesis-extension-post]
-title: "Extending my thesis in three spoonfuls (part II): does education improve when schools open and close?"
-subtitle: "More evidence on school turnover, its limits, and the questions it leaves for providers and Local Public Education Services."
+title: "Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us"
+subtitle: "What the records show about school turnover, what they cannot establish, and what continuity planning requires."
 date: 2026-10-11 10:00:00 -0300
-last_modified_at: 2026-10-17 13:40:00 -0300
+last_modified_at: 2026-10-17 17:15:00 -0300
 categories: [data, education, public-policy]
 tags: [education, school-markets, school-closure, mineduc, administrative-data, replication, simce, admissions, slep, territory]
 description: "An extension of my thesis examines school closures and openings in Chile: what administrative records show and what is still needed to assess quality, coverage, and continuity."
@@ -41,7 +41,7 @@ ai_disclosure:
     hero: generated
 ---
 
-In [part I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) I confirmed a tension that still matters: in a system of closures and openings, moving provision does not by itself tell us whether opportunities to learn improved. This part asks what happens when one school leaves and another enters.
+In [part I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) I left one question open: when one school leaves and another enters, do opportunities to learn improve, or does only the register change?
 
 <span id="claim-causal-boundary"></span>**This analysis does not identify whether turnover improves or worsens educational outcomes.** That is not an elegant way of saying that the effect is zero. Some comparisons are imprecise; others lack enough comparable cases; and the records neither follow each student nor reconstruct what would have happened without the closure or opening.
 
@@ -51,7 +51,7 @@ Three results organise the account. First, the register contains **900 official 
 
 The contribution is a public question: **what continuity did the community receive, and who bore its costs?**
 
-## Spoonful 1: before evaluating a closure, establish what changed
+## Spoonful 1: before evaluating turnover, establish what actually changed
 
 ### Leaving the register does not always mean a school disappeared
 
@@ -93,38 +93,31 @@ The comparison asks whether closing schools had been performing worse than simil
 
 <span id="claim-enrolment-path"></span>Enrolment provides the clearest signal: of the 684 closures that followed activity, 665 have three complete years. **The medians for those three years fall `28 → 23 → 1` student.**
 
-The sequence describes three snapshots of the group, not every school's trajectory. Nor does it show whether families left because of education difficulties, a closure announcement, residential movement, or fewer children in the territory. These are rival explanations to test, not causes identified by the medians.
-
-Achievement has much thinner coverage:
-
-| Trajectory | Closures with three years | Coverage of 684 | Medians `t−3 → t−2 → t−1` |
-|---|---:|---:|---|
-| SIMCE | 76 | 11.1% | `−0.232 → −0.235 → −0.083` |
-| IVE-SINAE | 188 | 27.5% | `0.882 → 0.910 → 0.946` |
-{: .table--compact .table--numeric .table--scroll}
-
-IVE-SINAE is an aggregate school-vulnerability index, not individual poverty.
-{: .small}
+The sequence describes three snapshots of the group, not every school's trajectory. Nor does it show whether families left because of education difficulties, a closure announcement, residential movement, or fewer children in the territory. These are rival explanations to test, not causes identified by the medians. SIMCE has three complete years for 76 closures and moves from `−0.232` to `−0.083` standard deviations; IVE-SINAE covers 188 and rises from `0.882` to `0.946`. The latter is an aggregate school-vulnerability index, not individual poverty.
 
 ### What scores do—and do not—tell us
 
-<span id="claim-outcomes"></span>The table above describes the broad historical universe. The strict test filters out annexes, administrative changes, and different segments again. Of 330 eligible closures, only 97 have SIMCE and 46 have admissions data; exact matching leaves **21 and 8**, respectively:
+<span id="claim-outcomes"></span>The strict test filters out annexes, administrative changes, and different segments again. Of 330 eligible closures, only 97 have SIMCE and 46 have admissions data; exact matching leaves **21 and 8**, respectively.
 
-| Outcome | Primary estimate | 95% CI | Support |
-|---|---:|---:|---:|
-| Relative SIMCE | `+0.029` SD | `[−0.095, +0.158]` | 21 closures |
-| Admissions score (core), among test takers | `−0.001` SD | Not estimable | 8 closures |
+{: .table-caption}
+**Table 1.** Observed signals and the limit of each comparison
+
+| Signal | Support | Result | Limit |
+|---|---:|---:|---|
+| Enrolment before closure | 665 closures | Medians `28 → 23 → 1` | Describes prior emptying; does not identify its cause. |
+| SIMCE before closure | 76 closures | Medians `−0.232 → −0.235 → −0.083` SD | 11.1% coverage of the 684 closures from active status. |
+| IVE-SINAE before closure | 188 closures | Medians `0.882 → 0.910 → 0.946` | Aggregate school composition, not individual vulnerability. |
+| SIMCE among comparable schools | 21 closures | `+0.029` SD; 95% CI `[−0.095, +0.158]` | The interval includes differences in either direction. |
+| Admissions among test takers | 8 closures | `−0.001` SD; interval not estimable | Below the retrospective minimum of ten closures. |
 {: .table--compact .table--scroll}
 
-Among comparable schools, SIMCE shows no precise difference, and admissions does not meet the minimum of ten closures. This does not mean that closing schools are above the national average: in the broad historical universe, the SIMCE median starts at `−0.232` SD. In technical artefacts, `NOT_ESTIMABLE` does not mean zero, a tie, or equality; it means that publishing a defensible interval would require pretending the data contain more information than they do.
+Among comparable schools, SIMCE shows no precise difference, and admissions does not meet the minimum of ten closures. This does not mean that closing schools are above the national average: in the broad historical universe, the SIMCE median starts at `−0.232` SD. In the technical results, “not estimable” does not mean zero, a tie, or equality; it means that publishing a defensible interval would require pretending the data contain more information than they do.
 {: .text-justify}
 
 The `−4.3%` in part I and the `+0.029` in this instalment are not the same contrast. The first is a percentage gap relative to the commune mean in grade 4 mathematics for closing subsidised private schools across nine years from 1999 to 2011. The second uses annual standard deviations, recent strict closures, the mean from `t−3` to `t−1`, and exact controls. Period, unit, universe, and estimand all change; the signs are not directly comparable.
 {: .small}
 
-The minimum of ten is a retrospective rule to prevent adapting the threshold to the observed signs; it is not a universal statistical law.
-
-Sensitivity does not change the conclusion: weighted SIMCE is `+0.034` SD `[−0.225, +0.289]`, and admissions remains below the minimum. The preliminary signal disappears after separating annexes and markets; it does not prove equality, but dependence on a loose definition.
+The minimum of ten is a retrospective rule to prevent adapting the threshold to the observed signs; it is not a universal statistical law. Sensitivity does not change the conclusion: weighted SIMCE is `+0.034` SD `[−0.225, +0.289]`, and admissions remains below the minimum. Groups selected for an extreme score also tend to move toward the average at a later measurement; without an appropriate comparison, a before-and-after change can therefore confuse improvement with [regression to the mean](https://doi.org/10.1257/0002828054825529).
 {: .text-justify}
 
 ### An average can change without telling us how much students learned
@@ -143,33 +136,17 @@ The territorial comparison asks whether another school serving the same segment 
 
 Here “entry” is operational: activity with positive enrolment after at least two clear years in the 2013–2025 panel, with no prior active episode in that window and no registered succession. It does not prove that the school is historically new; earlier history may lie outside the panel. For recent events, the later observation window may also remain incomplete.
 
-To show variety without choosing the most striking result, I take **one case from each education family defined in advance**, ordered by commune, distance, year, and RBD. **Neither outcome values nor outcome availability enter the selection.** Nine unstable trajectories are excluded before matching, and 259 entries use a coordinate reported with a lag.
+<span id="claim-territorial"></span>Of 330 strict closures, 320 have valid coordinates. Among 414 openings, 389 have an eligible coordinate under the temporal rule. After excluding possible administrative replacements, different segments, and nine unstable trajectories, **38 closures remain linked by proximity to 29 unique openings**. This national result helps size the phenomenon; it does not show that the openings received the displaced students or offered an accessible substitute.
 
-<span id="claim-territorial"></span>Of 330 strict closures, 320 have valid coordinates. Among 414 openings, 389 have an eligible coordinate under the temporal criterion. Six candidate pairs, corresponding to four closures, are excluded in the same year and no more than 100 metres away because they may be administrative replacements; requiring the same segment excludes another 420 combinations. This leaves **38 matched closures and 29 unique openings**. No eligible secondary-education pair remained. The two systematic cases are descriptive:
-
-| Case | Segment | Closure → opening | Distance | What it reveals |
-|---|---|---|---:|---|
-| Lo Barnechea | Early transition | 2016 → 2016 | 1.046 km | The entrant's first valid coordinate is from 2019; proximity is observed, not destination. |
-| Lo Prado | Primary | 2016 → 2016 | 7.860 km | The entrant is also located with a 2019 coordinate and is outside the closure's commune. |
-{: .table--compact .table--scroll}
-
-The selection does not claim that these examples represent the country. It does something more modest: it shows how the questions change when segment, coordinate year, and identity rules are preserved. A spatial link is a proximity hypothesis, not a student trajectory or evidence of substitution.
-{: .text-justify}
-
-{% include thesis-extension-stylized-evidence.html %}
-
-<span id="claim-el-salvador"></span>I included the third case because I grew up in El Salvador; that familiarity guides questions, not explanations. School No. 14 (RBD 391) closed at the end of 2013 and merged with School No. 1 (RBD 390). The 2008–2011 directories place the former at **500 Diego Portales**; [institutional regulations](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf) place the latter at **1510 Diego Portales**. The [BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documents the transfer of grades one through six.
-{: .text-justify}
-
-School No. 14's 2015 MINEDUC point differs by 826 m from the homonymous OSM feature. The viewer uses the latter as a **historical candidate**, not a correction: it was created in 2022, states no RBD, and the [contrast GeoJSON](/assets/data/thesis-extension-post2/viewer-coordinate-audit-v1.geojson) retains both. This places School No. 1 **about 1.3 km** away; the official points yielded 0.45 km.
+<span id="claim-el-salvador"></span>I use El Salvador as the territorial example because I grew up there. That familiarity guides questions and may introduce selection bias; it neither explains the closure nor makes the case nationally representative. School No. 14 (RBD 391) closed at the end of 2013 and merged with School No. 1 (RBD 390). The 2008–2011 directories place the former at **500 Diego Portales**; [institutional regulations](https://fees.cl/wp-content/uploads/2019/12/Reglamento-de-convivencia-2019-2020.pdf) place the latter at **1510 Diego Portales**. The [BCN](https://www.bcn.cl/laborparlamentaria/documento?id=636175) documents the transfer of grades one through six.
 {: .text-justify}
 
 Combined enrolment fell from **1,399 in 2004 to 977 in 2013** (`−30.2%`). In 2014 School No. 1 rose from 432 to 738 students, a jump consistent with the documented merger. The preceding decline makes demographic contraction plausible, but **does not prove it was the administrative motive for closure**; the contemporary parliamentary intervention also discussed overcrowding and subsequent adaptations.
 {: .text-justify}
 
-Were there fewer children, did mining-linked households move, or did other provision grow? The series raises these questions; familiarity cannot answer them.
+{% include thesis-extension-stylized-evidence.html %}
 
-The viewer uses an OSM street map, MINEDUC coordinates and, for School No. 14, an adjudicated historical candidate that retains the official point for comparison. In the systematic cases, the line represents proximity, not destination; in El Salvador it represents the documented merger, not individual student trajectories. These are stylised facts for asking questions, not experiments. The exit and entry panels are separate samples.
+The map contrasts the official MINEDUC coordinate with an OpenStreetMap historical candidate for School No. 14; it does not replace one source with the other. The line represents the documented merger between establishments, not each student's route. Were there fewer children, did mining-linked households move, or did other provision grow? The series raises those questions; familiarity cannot answer them. The [coordinate audit]({{ '/datos/educacion/auditoria-coordenadas-rbd/' | relative_url }}) preserves the GeoJSON and manifest for the contrast.
 {: .small}
 
 <span id="claim-new-schools"></span>For new schools there is no conclusive answer either. Comparable cases by cohort number `4/6/8` in SIMCE and `1/1/2` in admissions. No cohort reaches ten cases. The result is therefore **not estimable under the adopted criterion**: this dataset cannot determine whether entrants perform better or worse.
@@ -191,17 +168,19 @@ Here I distinguish event, entity, annex, and segment; observe spatial renewal; a
 <span id="claim-slep-sae"></span>The staggered schedules of Local Public Education Services (SLEPs) and the School Admission System (SAE) appear to offer causal comparisons. In these data, however, neither meets sufficient conditions for attributing an effect.
 {: .text-justify}
 
-| Analysis | Hypothesis tested | Observed result | What blocks a causal reading |
+{: .table-caption}
+**Table 2.** SLEP and SAE designs: hypothesis, result, and failed test
+
+| Analysis | Hypothesis tested | Observed result | Failed test |
 |---|---|---|---|
-| Synthetic SLEP design | Transfer changes enrolment or provision relative to territories with comparable pre-transfer trajectories. | **None of the 25** territory-horizon combinations met the comparability criterion fixed in the analysis specification. | No admissible synthetic comparison existed. For later schedule changes, the Evaluation Council's [*2025 Annual Report*, pp. 35–36](https://educacionpublica.gob.cl/wp-content/uploads/2026/03/Informe-Anual-2025-Consejo-Evaluador-del-Sistema-de-Educacion-Publica.pdf#page=35), documents case-by-case adjustments based on installation progress, sustainability, and complexity; it does not identify the schedule for the cohorts analysed here. |
-| Exploratory SLEP analysis | Baseline conditions predict earlier transfer, and proximity across networks may contaminate comparisons. | Three baseline conditions showed no predictive ability distinguishable from chance: cross-validated AUC `0.53`, permutation `p=0.22`. In 53 of 70 territories there is at least one other SLEP relative to which 20% or more of its schools are within 20 km, as-the-crow-flies, of a school in that SLEP. | Failing to detect observed selection does not show that the schedule was random; the geometry shows potential interference rather than an observed spillover. |
-| SAE triple difference | In 2018, concentration changes in two of the entry grades—grades 1 and 7—relative to deferred grades, differently in four regions entering that year and ten control regions. | HHI `+0.0035` `[−0.0104, +0.0174]`; log effective number of schools `−0.0042` `[−0.0265, +0.0181]`. | With the primary equal commune-grade weighting, 4 of 4 pre-period equivalence checks pass; with equal historical-region weights, both outcomes fail in 2016–2017, the immediately preceding period. There are only four treated regions, and cross-grade effects are not ruled out. |
+| SLEP | Transfer changes enrolment or provision relative to territories with comparable pre-transfer trajectories. | None of the 25 territory-horizon combinations had an admissible synthetic comparison. The baseline diagnostic showed no predictive ability distinguishable from chance: cross-validated AUC `0.5341`, permutation `p=0.2195`. | Comparable support is absent; failure to detect observed selection does not make the schedule random, and proximity across networks permits interference. |
+| SAE | Entry in 2018 changes concentration in grades 1 and 7 relative to deferred grades, differently in four treated and ten control regions. | HHI `+0.0035` `[−0.0104, +0.0174]`; log effective number `−0.0042` `[−0.0265, +0.0181]`. | Only four regions are treated, and the immediately preceding placebos fail under the alternative historical-region weighting. |
 {: .table--compact .table--scroll}
 
-These results do not allow me to conclude that SLEPs and SAE had no effects. For SLEPs, no comparison met the conditions required to estimate one. For SAE, both 95% intervals—delete-one-region jackknife over 14 historical regions—include zero and values of both signs. With only four treated regions, nominal 95% coverage is approximate, and without identification the intervals do not bound the policy effect. The data let me diagnose the design's limits; they do not let me evaluate either policy.
+These results do not allow me to conclude that SLEPs and SAE had no effects. For SLEPs, the Evaluation Council's [*2025 Annual Report*, pp. 35–36](https://educacionpublica.gob.cl/wp-content/uploads/2026/03/Informe-Anual-2025-Consejo-Evaluador-del-Sistema-de-Educacion-Publica.pdf#page=35) documents later case-by-case schedule adjustments, but it does not identify how the order of the cohorts analysed here was set. For SAE, both intervals—delete-one-region jackknife over 14 historical regions—include zero and values of either sign. With only four treated regions, nominal 95% coverage is approximate, and without identification those intervals do not bound the policy effect. The data show why these designs do not sustain a causal reading; they do not evaluate either policy's impact.
 {: .text-justify}
 
-For SLEPs, a future evaluation would be more causally informative if the criteria setting the order of entry were documented before transfer, more treated territories accumulated, and interference, student destinations, accessibility, and outcomes were measured. For SAE, whose rollout is complete, extending the window requires pooling later cohorts with fewer not-yet-treated regions or constructing a different contrast, for example from a defensible assignment rule. These conditions would strengthen, not guarantee, a causal reading of **these designs**; until they are met, their results are exploratory signals, not impacts.
+A future SLEP evaluation would need to document entry criteria before transfer, accumulate more treated territories, and measure interference, destinations, accessibility, and outcomes. For SAE, adding years does not by itself repair the small number of treated clusters: a different contrast grounded in a defensible assignment rule is needed. Until those conditions are met, these findings diagnose the designs; they are not impacts.
 {: .text-justify}
 
 ## What public policy can use
@@ -209,21 +188,22 @@ For SLEPs, a future evaluation would be more causally informative if the criteri
 <span id="claim-policy-use"></span>This analysis provides **decision support**, not a rule for closing, merging, opening, or ranking schools. The prudent sequence is **observation → diagnosis → decision**. Falling enrolment or a nearby school justify diagnosis; they are not enough to decide on closure.
 {: .text-justify}
 
-| Decision stage | Signal supplied by this analysis | Indispensable additional evidence | Prudent use |
-|---|---|---|---|
-| Validate the event | Distinguishes closure, annex, merger, RBD change, and education segment. | Resolutions, continuity of the parent school, and provision by level. | Ask the register's custodian to correct it; do not automatically count a disappearance. |
-| Diagnose falling enrolment | Shows trajectories, operating status, and territorial differences. | Population by age, residential mobility, transfers, competition, capacity, and prior announcements. | Trigger diagnosis and support; do not use an enrolment threshold as a closure rule. |
-| Plan a transition or network | Separates levels and warns that proximity is not substitution. | Actual vacancies, accessibility and travel time, destinations, support, participation, and pedagogical continuity. | Prepare scenarios and a transition plan; do not presume that a directory alternative is usable. |
-| Evaluate results | Defines denominators, samples, and comparison limits. | Student follow-up and a credible counterfactual. | Measure outputs, outcomes, and impact separately; do not attribute learning, equity, or welfare to closure without causal identification. |
-{: .table--compact .table--scroll}
+The event must first be validated: closure, annex, merger, RBD change, and loss of a level are not interchangeable. Diagnosis then needs demography, residential mobility, capacity, transfers, and prior announcements. If the network is reorganised, the plan must verify actual vacancies, travel times, accessibility, support, and pedagogical continuity. Only then does evaluation with student follow-up and a credible counterfactual become meaningful.
+{: .text-justify}
 
-Institutional scope matters too. A SLEP plans and manages **its own network**, not establishments run by other providers. [Law 21,040, Article 18(c) and (t)](https://www.bcn.cl/leychile/navegar?idNorma=1111237) requires each SLEP to develop public provision, safeguard coverage—including areas of population growth or insufficient coverage—and ensure continuity of educational pathways. Paragraph (t) adds monitoring and support for retention and re-engagement. MINEDUC is the governing authority for the education system; the Directorate of Public Education coordinates and strategically steers the Public Education System. The [2026 Annual Local Plan](https://dep.gob.cl/pal-2026/) plans technical support, infrastructure, and staffing on the basis of course numbers and enrolment. None of these functions grants authority over other providers, turns the study into administrative authorisation, or establishes that one governance model performs better than another.
+A SLEP plans and manages **its own network**, not establishments run by other providers. [Law 21,040, Article 18(c) and (t)](https://www.bcn.cl/leychile/navegar?idNorma=1111237) requires it to develop public provision, safeguard coverage and continuity, and support retention and re-engagement. MINEDUC is the governing authority; the Directorate of Public Education provides strategic direction for the system. The [2026 Annual Local Plan](https://dep.gob.cl/pal-2026/) organises support, infrastructure, and staffing according to course numbers and enrolment. None of this grants authority over other providers or establishes that one governance model performs better than another.
+{: .text-justify}
+
+[Law 20,529, Articles 10 and 12](https://www.bcn.cl/leychile/navegar?idNorma=1028635&idParte=9173209) assigns the Education Quality Agency the tasks of evaluating and guiding the system and states that performance evaluation should strengthen institutional capacity, guide improvement plans, and promote continuous improvement. [Article 31 of the same law](https://www.bcn.cl/leychile/navegar?idNorma=1028635) provides for loss of official recognition after four years in the Insufficient Performance category. This analysis did not verify that pathway's full operational status, chronology, or applicable certificates, and it attributes none of the observed closures to it. A descriptive signal in this post may trigger diagnosis and support; on its own it neither establishes that procedure nor constitutes a closure order.
 {: .text-justify}
 
 Two errors matter. A **false positive** would deem unviable a school still needed for access; a **false negative** would miss a risky transition because aggregate enrolment looks stable. IVE-SINAE describes aggregate school composition; it neither identifies individual poverty nor decides where to intervene.
 {: .text-justify}
 
 The theory of change links **inputs**—valid events, demographics, capacity, and destinations—to diagnosis and support, transition plans, continuity, attendance, and retention, then learning and equity. It assumes actual vacancies, transfers that preserve access, and community participation. **This post proposes the chain for evaluation; it does not establish that it works.**
+{: .text-justify}
+
+Teaching capacity belongs in that chain. Lower enrolment may create opportunities to reorganise classes and reinforce support, but it also creates frictions: hard-to-replace specialisms, commuting time, the loss of established teams, and labour tensions. Counting places without checking staffing, continuity of pedagogical relationships, and working conditions can shift the cost of reorganisation onto students and workers.
 {: .text-justify}
 
 ## What would need to happen for causal inference
@@ -234,24 +214,11 @@ Each route can fail. Incompatible pre-trends invalidate an event study; a discon
 
 Demographic change makes territorial scenarios for support, expansion, reorganisation, and protection of capacity more urgent. It does not provide a closure calendar: national decline can coexist with neighbourhoods that need new schools. A future article should combine local demography, provision by level, vacancies, travel times, and student trajectories. Its useful product would not be a list of establishments destined to close.
 
-<details class="technical-disclosure" markdown="1">
-<summary>Technical note and robustness checks</summary>
+### Scope and reproducibility
 
-This section preserves the figures needed to audit the exercise without turning the main story into an execution log.
+Coverage changes with the question: 665 closures have complete enrolment trajectories, 76 have SIMCE, 188 have IVE-SINAE, and only 21 remain in the strict SIMCE comparison. Admissions describes students who reached the end of secondary education and sat an admissions test, not all pupils. Each result must be read with its own denominator; these are not one national cohort.
 
-**Coverage.** The identity registry assembled 14 official aliases and two candidate temporal successions; it does not establish that every possible recoding has been detected. The sample varies across provider type, rurality, and region, so the results describe observed cases rather than a national population effect.
-
-**SLEPs.** None of the 25 territory-horizon combinations met the defined minimum of ten eligible donors, three effective donors, and the pre-treatment fit checks. The exploratory diagnostic distinguishes 26 territories transferred by 31 December 2025 from 44 not yet transferred. Using three baseline conditions, AUC was `0.5341` and permutation `p=0.2195` over 1,999 draws: prediction was not distinguishable from chance, but this does not establish random assignment. In 53 of 70 territories, at least 20% of schools lie within 20 km of a school in another SLEP; that geometry is compatible with interference, not evidence of a spillover effect.
-
-**SAE.** The 2017–2018 triple difference compares grades 1 and 7 with deferred grades, across four regions entering in 2018 and ten not yet treated. The [MINEDUC guide](https://www.mineduc.cl/wp-content/uploads/sites/19/2018/01/guia-informativa.pdf) confirms that sequence. Inference uses a delete-one-region jackknife over 14 historical regions. HHI is `+0.003513` `[−0.010368, +0.017395]`; the log effective number is `−0.004192` `[−0.026491, +0.018106]`. All four primary placebos meet the defined margin, but historical-region weighting passes only two of four. With four treated regions, sensitive checks, and possible cross-grade effects, the comparison remains exploratory.
-
-**Results and sensitivity (MR1 and MR2).** SIMCE is `+0.029` SD `[−0.095, +0.158]` with 21 closures; the weighted variant is `+0.034` `[−0.225, +0.289]`. Admissions is `NOT_ESTIMABLE` with eight closures. Entrants are also `NOT_ESTIMABLE`: comparable cases by cohort are 4/6/8 in SIMCE and 1/1/2 in admissions. The minimum of ten was set in a retrospective protocol; it is reported as a limitation, not a universal law.
-
-**Decomposition and markets.** Official turnover contributes `−0.000105` `[−0.000346, +0.000103]` in SIMCE and `+0.000113` `[+0.000027, +0.000213]` in admissions. The accounting residual is below `1e−10`; arithmetic closure does not turn the components into causes. The H1 spatial sensitivity compares relative concentration positions under six neighbourhood definitions with the commune definition: no band excludes zero, and its thresholds are not policy rules.
-
-**Territory and reproducibility.** The spatial exercise retains 38 closures and 29 unique openings; it excludes nine unstable trajectories and records 259 entries with delayed coordinates. The national audit distinguishes 12,038 operating establishments from 78 authorised without enrolment. OSM is a secondary source, and the public product retains aggregates only. R produced the aggregates and 999 bootstrap replications; Python reconciled 112 public cells within `1e−10`. Agreement across implementations reduces calculation error; it does not solve causal identification.
-
-</details>
+Independent routes produced the principal aggregates and agreed within the specified precision. That agreement reduces calculation risk, but it does not establish the historical session, compensate for missing data, or create causal identification. Public artefacts preserve figures, sources, rules, and limits; restricted data remain outside the repository.
 
 ## Closing: evaluate the transition, do not celebrate movement
 

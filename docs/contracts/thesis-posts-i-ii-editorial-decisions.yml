@@ -1,0 +1,102 @@
+schema_version: 1
+decision_set: thesis-posts-i-ii-final-closeout
+approved_at: "2026-10-17"
+approval_mode: redline_before_final_commit
+minor_changes_without_new_question:
+  - ortografia
+  - puntuacion
+  - enlaces_rotos
+  - accesibilidad_sin_cambio_semantico
+  - diagramacion_sin_cambio_semantico
+material_changes_require_new_question:
+  - cifras_o_denominadores
+  - claims_o_estado_epistemico
+  - titulos_no_acordados
+  - secciones_tablas_o_figuras_no_acordadas
+  - fuentes_o_dependencias
+posts:
+  post_i:
+    title: "Replicar mi tesis en 3 cucharadas (parte I): qué sobrevivió y qué corrigió la evidencia"
+    subtitle: preserve
+    spanish_word_range: [3400, 3700]
+    structure: three_spoonfuls
+    include:
+      - salida_del_registro_como_termino_preciso
+      - autocritica_directa_quien_se_equivoco
+      - metafora_arqueologia
+      - tablas_auditoria_1_y_2_fusionadas
+      - figuras_movilidad_concentracion_sombra_muerte
+      - pipeline_simplificado
+      - inventarios_50_hipotesis_y_34_juicios_simplificados
+      - resultados_python_stata_sin_archivos_internos
+      - tablas_finales_de_uso_publico_y_rutas_actualizadas
+      - puente_al_post_ii_en_presente
+    exclude:
+      - broma_notas_de_version_ia
+      - tabla_nueve_casos_dudosos
+      - nombres_do_058_do_059_do_060
+      - fuentes_d2_en_pie_de_figura
+    closing_heading: "Cierre: de replicar a extender"
+  post_ii:
+    title: "Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir"
+    subtitle: "Qué muestran los registros sobre el recambio escolar, qué no permiten concluir y qué exige planificar la continuidad educativa."
+    spanish_word_range: [3600, 4000]
+    structure: three_spoonfuls
+    include:
+      - pregunta_publica_y_limite_causal_en_apertura
+      - frase_efecto_cero
+      - una_tabla_central_y_trayectorias_en_prosa
+      - slep_sae_en_dos_filas
+      - contexto_slep_con_fuentes
+      - parrafo_institucional_ley_20529
+      - articulo_31_reconocido_con_vigencia_operativa_no_verificada
+      - regresion_a_la_media_en_una_frase
+      - comparacion_reasignacion_entre_continuantes
+      - literatura_breve
+      - uso_publico_en_prosa
+      - teoria_de_cambio_compacta
+      - destruccion_creativa_como_hipotesis_no_identificada
+      - causalidad_futura_en_prosa_con_pruebas_de_falla
+      - capacidad_docente_oportunidades_fricciones_y_tension_laboral
+      - articulo_futuro_sin_parte_iii
+      - cobertura_en_un_parrafo_llano
+      - reproducibilidad_por_resultado_no_maquinaria
+      - transparencia_final_breve
+    exclude:
+      - tabla_inicial_de_promesas
+      - tabla_de_uso_publico
+      - parametros_internos_de_ejecucion
+      - maquinaria_999_replicas_112_celdas_tolerancias
+      - jerga_no_traducida_en_cuerpo
+    first_heading: "Cucharada 1: antes de evaluar el recambio, hay que saber qué cambió realmente"
+    closing_heading: "Cierre: evaluar la transición, no celebrar el movimiento"
+    final_idea: quien_conserva_continuidad_y_quien_paga_la_transicion
+territory:
+  primary_case: el_salvador
+  author_voice: first_person_cautious
+  selection_disclosure: in_body
+  remove_primary_cases: [lo_barnechea, lo_prado]
+  displayed_distance_km: 1.272025
+  official_distance_km_location: coordinate_audit_annex
+  static_sheet: no_visible_link_fallback_only
+  audit_publication: reviewed_and_flagged_cases
+  audit_formats: [geojson, manifest_json]
+  audit_link: brief_callout_after_map
+  source_caption: official_mineduc_and_historical_osm_candidate
+  osm_attribution: one_compact_visible_line_inside_map
+  public_filename_compatibility: keep_v1_filename_with_v2_audit_id
+style:
+  chicago_scope: body_titles_headings_numbers_punctuation_transitions
+  bibliography_migration: deferred
+  spanish_manual: Chicago-Deusto
+  english_manual: Chicago_18
+  english_register: institutional_hybrid
+  references_font_mobile_em: 0.95
+  references_font_desktop_em: 0.90
+  references_line_height: 1.6
+  browser_widths_px: [320, 360, 430, 768, 1280, 1440]
+delivery:
+  push: false
+  deploy: false
+  production_gate: post_deploy_after_future_authorization
+  final_state: READY_FOR_HUMAN_REVIEW_LOCAL

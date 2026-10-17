@@ -1,0 +1,55 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F1",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "53b97e63ed6483878044497750f0f86731158bff9ae37985c6be57db455cf5d8",
+  "observed_command": "cd .worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017 && make check-scientific-release-freeze",
+  "observed_command_sha256": "85bc46eea83463df8cd26d179e7ce0fba41692951d9bd651fbd51e862a07a18f",
+  "outcome": "green",
+  "setup_status": "restored",
+  "started_at": "2026-10-17T21:01:44Z",
+  "finished_at": "2026-10-17T21:01:54Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/research/article_post2/el_salvador_author_case.yaml",
+      "exists": true,
+      "sha256": "6d3d244e27804d24546deb747fdca23faa796246aad8742309f05e5dd1aa6ae8"
+    },
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/src/school_exit/scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "ad3a4d7bad2b87f281248a89f419a5fcdd9425e5e4a7d25070c01aab980a57e1"
+    },
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/tests/test_scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "70d116f9af494ecbb4015e6739336e2aef7d14d6258303438bc3bdda7d3c8106"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/research/article_post2/el_salvador_author_case.yaml",
+      "exists": true,
+      "sha256": "6d3d244e27804d24546deb747fdca23faa796246aad8742309f05e5dd1aa6ae8"
+    },
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/src/school_exit/scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "ad3a4d7bad2b87f281248a89f419a5fcdd9425e5e4a7d25070c01aab980a57e1"
+    },
+    {
+      "path": ".worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017/tests/test_scientific_release_freeze.py",
+      "exists": true,
+      "sha256": "70d116f9af494ecbb4015e6739336e2aef7d14d6258303438bc3bdda7d3c8106"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /opt/entornos/mamba312/bin/python -m pytest -q -p no:cacheprovider tests/test_scientific_release_freeze.py\n.............................                                            [100%]\nPYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /opt/entornos/mamba312/bin/python scripts/316_build_scientific_release_freeze.py --validate\nSCIENTIFIC_RELEASE_FREEZE_VALID artifacts=68 claims=18 human_approval=NOT_GRANTED r007=OPEN\n/opt/entornos/mamba312/bin/python -m ruff check --no-cache src/school_exit/scientific_release_freeze.py scripts/316_build_scientific_release_freeze.py tests/test_scientific_release_freeze.py\nAll checks passed!\ngit diff --check\n",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: 'config/paths.local.toml'\nNEGATIVE_PROBE_REJECTED tampered-hash: hash o manifest adulterado u obsoleto\nNEGATIVE_PROBE_REJECTED causal-claim: claim causal no autorizado: SRF-001\nNEGATIVE_PROBE_REJECTED r007-promoted: R-007 fue promovido indebidamente\nNEGATIVE_PROBE_REJECTED missing-mr-not-estimable: cobertura del diccionario de claims divergente\nNEGATIVE_PROBE_REJECTED freeze-as-approval: el freeze fue presentado como aprobación\nNEGATIVE_PROBE_REJECTED restorability-without-anchor: el freeze no puede declararse reproducible o restorable sin ancla Git\nNEGATIVE_PROBE_REJECTED independent-review-as-approval: la revisión independiente no puede declararse cerrada\nNEGATIVE_PROBE_REJECTED revision-history-missing: historial de revisión del freeze divergente\nNEGATIVE_PROBE_REJECTED geographic-count-tampered: conteos o límites de auditoría geográfica divergentes\nNEGATIVE_PROBE_REJECTED mr-claim-tampered: claim MR3 no coincide con signos e intervalos\nNEGATIVE_PROBE_REJECTED policy-design-claim-tampered: diccionario de claims semánticamente divergente\nCONTRACT_PROBE_EXPECTED_REJECTION author-case-old-distance: distancia cartográfica corregida divergente\nCONTRACT_PROBE_EXPECTED_REJECTION cross-host-byte-identity-promoted: la portabilidad visual fue promovida más allá de la evidencia\n"
+}

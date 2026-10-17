@@ -1,0 +1,57 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F0",
+  "target_contract_sha256": "a0f47e11ff3bad06c98482fdc0319926e6030d3c70d0b09b4df09f5e7d98b565",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "3f32c1bc7ae89c91cc5ea4847ef19795448e5810b08cd0722f095da7056f79a4",
+  "observed_command": "bash scripts/verify_handoff_governance_contract.sh --require-plan-profile --contract .worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-final-closeout.md --contract-id thesis-posts-i-ii-final-closeout --validate-only --json",
+  "observed_command_sha256": "3f32c1bc7ae89c91cc5ea4847ef19795448e5810b08cd0722f095da7056f79a4",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-10-17T21:05:01Z",
+  "finished_at": "2026-10-17T21:05:01Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-final-closeout.md",
+      "exists": true,
+      "sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+      "sha256_kind": "contract_definition"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-editorial-decisions.yml",
+      "exists": true,
+      "sha256": "cba2584b6ed6e28db8dc6d57cd7fe714319c1292cabeaa5d2d6e2212eeb64536"
+    },
+    {
+      "path": "penta-agent/specs/plan-contract.schema.json",
+      "exists": true,
+      "sha256": "948a7b245237cab5bfd9236e4450771e31f4ddf809601c87bdc04f10698a7bdf"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-final-closeout.md",
+      "exists": true,
+      "sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+      "sha256_kind": "contract_definition"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-editorial-decisions.yml",
+      "exists": true,
+      "sha256": "cba2584b6ed6e28db8dc6d57cd7fe714319c1292cabeaa5d2d6e2212eeb64536"
+    },
+    {
+      "path": "penta-agent/specs/plan-contract.schema.json",
+      "exists": true,
+      "sha256": "948a7b245237cab5bfd9236e4450771e31f4ddf809601c87bdc04f10698a7bdf"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\"plan_contract_version\": 1, \"contract_id\": \"thesis-posts-i-ii-final-closeout\", \"result\": \"VALID\", \"integral_complete\": false, \"filtered\": false, \"selected_count\": 7, \"contract_sha256\": \"a0f47e11ff3bad06c98482fdc0319926e6030d3c70d0b09b4df09f5e7d98b565\", \"definition_sha256\": \"0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c\", \"todo\": [{\"id\": \"TASK-F0\", \"phase\": \"F0\", \"status\": \"[~]\", \"step\": \"Baseline y contrato verificable.\"}, {\"id\": \"TASK-F1\", \"phase\": \"F1\", \"status\": \"[~]\", \"step\": \"Freeze científico revisión 10.\"}, {\"id\": \"TASK-F2\", \"phase\": \"F2\", \"status\": \"[~]\", \"step\": \"Cuatro posts revisados y matriz Chicago.\"}, {\"id\": \"TASK-F3\", \"phase\": \"F3\", \"status\": \"[~]\", \"step\": \"Visor de El Salvador y auditoría pública responsiva.\"}, {\"id\": \"TASK-F4\", \"phase\": \"F4\", \"status\": \"[~]\", \"step\": \"QA estática, visual y revisión independiente.\"}, {\"id\": \"TASK-F5\", \"phase\": \"F5\", \"status\": \"[!]\", \"step\": \"Decisión explícita sobre el redline.\", \"unblock\": \"Aprobación humana del diff presentado.\"}, {\"id\": \"TASK-F6\", \"phase\": \"F6\", \"status\": \"[ ]\", \"step\": \"Commits coordinados y árboles limpios.\"}], \"receipts_written\": 0}\n",
+  "stderr": ""
+}

@@ -1,0 +1,85 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F2",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "0667623a5e2444f562252e343038b4cc1e82dcc53933294c9441bd1a2316d97e",
+  "observed_command": "cd .worktrees/3cucharadas/posts-i-ii-closeout-20261017 && ruby scripts/verify_thesis_posts_i_ii_closeout.rb --research-root /home/ende/Descargas/programaciones/.worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017",
+  "observed_command_sha256": "0667623a5e2444f562252e343038b4cc1e82dcc53933294c9441bd1a2316d97e",
+  "outcome": "green",
+  "setup_status": "restored",
+  "started_at": "2026-10-17T21:01:55Z",
+  "finished_at": "2026-10-17T21:01:55Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-08-29-replica-tesis-establecimientos-educacionales.md",
+      "exists": true,
+      "sha256": "84d1a1b3bc85f2d7b163bbf91090070df47fbfc9139f150ca4e28c3a86b40bdc"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md",
+      "exists": true,
+      "sha256": "dc9d1f254739af5d50ab3745e0843cd0c29543356f78522e187b54a5a3c5e09c"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-10-11-extender-tesis-no-es-agregar-anos.md",
+      "exists": true,
+      "sha256": "e11cb79c6130382423cc0b37e5715689020da0902be448770d27ec5d63163009"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md",
+      "exists": true,
+      "sha256": "ec19c3ac8205d8286a5d476e70ae8e2f03f16978e26a76b0a68e517727c0d74c"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-editorial-decisions.yml",
+      "exists": true,
+      "sha256": "cba2584b6ed6e28db8dc6d57cd7fe714319c1292cabeaa5d2d6e2212eeb64536"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_posts_i_ii_closeout.rb",
+      "exists": true,
+      "sha256": "c2527dc35f3fe507da91f2423c998c81adcf6dec983a21d2d6ba8784073c3622"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-08-29-replica-tesis-establecimientos-educacionales.md",
+      "exists": true,
+      "sha256": "84d1a1b3bc85f2d7b163bbf91090070df47fbfc9139f150ca4e28c3a86b40bdc"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md",
+      "exists": true,
+      "sha256": "dc9d1f254739af5d50ab3745e0843cd0c29543356f78522e187b54a5a3c5e09c"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-10-11-extender-tesis-no-es-agregar-anos.md",
+      "exists": true,
+      "sha256": "e11cb79c6130382423cc0b37e5715689020da0902be448770d27ec5d63163009"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/_posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md",
+      "exists": true,
+      "sha256": "ec19c3ac8205d8286a5d476e70ae8e2f03f16978e26a76b0a68e517727c0d74c"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/docs/contracts/thesis-posts-i-ii-editorial-decisions.yml",
+      "exists": true,
+      "sha256": "cba2584b6ed6e28db8dc6d57cd7fe714319c1292cabeaa5d2d6e2212eeb64536"
+    },
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_posts_i_ii_closeout.rb",
+      "exists": true,
+      "sha256": "c2527dc35f3fe507da91f2423c998c81adcf6dec983a21d2d6ba8784073c3622"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "{\"result\":\"PASS\",\"final_commit_audit\":false,\"post_i_es_words\":3427,\"post_i_en_words\":3321,\"post_ii_es_words\":3737,\"post_ii_en_words\":3670}\n",
+  "stderr": ""
+}

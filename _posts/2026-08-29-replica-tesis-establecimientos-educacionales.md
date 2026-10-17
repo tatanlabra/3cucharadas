@@ -4,7 +4,7 @@ classes: [thesis-recreation-post]
 title: "Replicar mi tesis en 3 cucharadas (parte I): qué sobrevivió y qué corrigió la evidencia"
 subtitle: "Volví a medir mi tesis de 2014 sobre entrada y salida de colegios. La historia general resistió, varias cifras no, y los archivos de cálculo permitieron entender por qué."
 date: 2026-08-29 09:30:00 -0400
-last_modified_at: 2026-10-14 18:30:00 -0300
+last_modified_at: 2026-10-17 17:15:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [replicabilidad, educacion, mercado-escolar, voucher, mineduc, analisis-de-duracion, vulnerabilidad, auditoria]
 description: "Recreé los resultados de mi tesis de 2014 sobre establecimientos educacionales en Chile y audité 34 afirmaciones: qué se sostuvo, qué estaba mal entonces y qué todavía no puede saberse."
@@ -23,6 +23,7 @@ header:
   show_overlay_excerpt: false
   teaser_mobile: /assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-mobile-640x360.webp
 visual_id: replica-tesis-establecimientos
+table_contract: explicit-v1
 math: true
 toc: true
 toc_sticky: true
@@ -42,7 +43,7 @@ ai_disclosure:
 En abril de 2014 defendí y entregué mi tesis de magíster sobre entrada y salida de establecimientos educacionales en Chile entre 1992 y 2012.[^tesis] Doce años después estoy tratando de recrearla y extenderla hasta 2025.
 {: .text-justify}
 
-En ese intervalo cambiaron las reglas: municipalización en los ochenta; financiamiento compartido en los noventa; Subvención Escolar Preferencial en los dos mil; Inclusión y Nueva Educación Pública en los diez; y otra arquitectura estatal en los veinte.[^regimenes] El mercado mutó muy rápido: cambiaron también las relaciones que podrían explicar los cierres. La IA al menos publica notas de versión; el sistema escolar chileno no siempre.
+En ese intervalo cambiaron las reglas: municipalización en los ochenta; financiamiento compartido en los noventa; Subvención Escolar Preferencial en los dos mil; Inclusión y Nueva Educación Pública en los diez; y otra arquitectura estatal en los veinte.[^regimenes] El mercado mutó y también cambiaron las relaciones que podrían explicar los cierres.
 {: .text-justify}
 
 Antes de sumar trece años había que responder una pregunta más modesta: **¿qué resultados de 2014 podía volver a producir con exactitud?** En síntesis, quince juicios quedaron respaldados y diez errores provenían de 2014. Ninguno pasó a la versión de 2026 que uso como referencia. De los nueve restantes, uno fallaba a ambos lados, otro era una coincidencia engañosa y siete no permiten atribuir con claridad dónde estuvo el error.
@@ -79,16 +80,19 @@ También sobrevivieron varios resultados más pequeños: **10 de los 11 efectos 
 {: .text-justify}
 
 {: .table-caption}
-**Tabla 1** — Qué ocurrió con los 34 juicios auditados
+**Tabla 1.** Balance de la auditoría y diferencias que cambian la lectura
 
-| Resultado | Juicios | Lectura |
-|---|---:|---|
-| Calce correcto | 15 | Publicado y reconstruido sostienen la misma afirmación y una tercera fuente la respalda. |
-| Error de 2014 | 10 | El productor o la reejecución respalda la reconstrucción y refuta lo publicado. |
-| Error conocido en la salida 2026 | 0 | Las rutas discrepantes quedaron como sensibilidades y no entraron a la salida canónica. |
-| Error a ambos lados | 1 | Ni el documento ni la reconstrucción representan bien el estimando (la cantidad que se quería medir). |
-| Coincidencia engañosa | 1 | Ambos lados coinciden porque heredan la misma definición equivocada. |
-| Límite, afirmación no numérica o procedencia | 7 | La evidencia no autoriza un ganador, pero sí permite decir por qué. |
+| Nivel | Resultado | Evidencia | Veredicto |
+|---|---|---|---|
+| Balance | 15 calces; 10 errores de 2014; 0 errores conocidos en la salida 2026 | Los archivos productores y las nuevas ejecuciones distinguen un error publicado de uno de reconstrucción. | La historia general resiste, pero no todas sus cifras. |
+| Límite | 1 error a ambos lados; 1 coincidencia engañosa; 7 casos de procedencia o sin ganador | La evidencia explica por qué no hay una comparación válida, aunque no permita nombrar un ganador. | No se fuerza una tasa de acierto. |
+| Rezago SIMCE | Publicado: 0,003; salida productora y dos motores: 0,001 | 0,000533 redondea a 0,001. | Error de transcripción de 2014. |
+| Varianzas del modelo | Publicado: 3,82 y 2,791 | Eran log-desviaciones cruzadas | Error de interpretación de 2014. |
+| IHH comunal | Santiago ≈ 1.534 | Escala canónica ≈ 152 | Error de escala de 2014. |
+| Ciudades menores | Publicado: cerca de 80 % | Capital/no capital: 78,3 %; población: 11 % | La cifra describía otra partición. |
+| Brecha SIMCE | Publicado: −4,3 % | Hoja productora: −4,3 % | Valor productor verificado. |
+| Movilidad | Tasas 6,3; 4,5; 1,6 | Fórmulas productoras recuperan todos los puntos | Calce final correcto; lectura causal no probada. |
+{: .table--compact .table--scroll}
 
 El recuento por figura responde otra pregunta. De 26 objetos, hay doce convergencias, diez divergencias explicadas y cuatro sin prueba numérica; no queda ninguna divergencia inexplicada. No convierto ese inventario en «porcentaje de acierto»: una desigualdad, un redondeo y una igualdad literal no son la misma prueba.
 {: .small}
@@ -111,7 +115,7 @@ Por eso incorporé una tercera fuente: archivos de 2014 que conservan rastros de
       <img src="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.svg' | relative_url }}" alt="Tres clases de insumos —piezas y datos, estadística descriptiva y econometría asociacional— atraviesan una cadena compartida de custodia, ejecución, comparación y atribución antes de clasificar el resultado y declarar la frontera causal." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 2 —</strong> Cadena de recreación y control. Si una comprobación falla, la afirmación se detiene; una coincidencia aparente no reemplaza la evidencia que falta. Fuentes D2 reproducibles: <a href="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.d2' | relative_url }}">escritorio</a> y <a href="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-es-mobile.d2' | relative_url }}">móvil</a>.</figcaption>
+  <figcaption><strong>Figura 2</strong> — Cadena de recreación y control. Si una comprobación falla, la afirmación se detiene; una coincidencia aparente no reemplaza la evidencia que falta.</figcaption>
 </figure>
 
 La secuencia importa para política pública. Si cambia la definición de salida, la muestra o la precisión, un flujo administrativo puede parecer una caída del sistema. Si el modelo se ejecuta sin conservar la misma lista ordenada de valores, solo sabemos que pudo correr. El diagrama lo resume en una sola frontera: **reejecutable no significa recreable; recreable no significa coincidente; coincidente no significa correcto; correcto no significa causal**.
@@ -141,24 +145,6 @@ La planilla incluso dejó escrita la fórmula del umbral: `=C2>2.5`. En su escal
 Otro resultado casi correcto escondía una definición distinta. El texto decía que ciudades intermedias y menores de 15.000 habitantes concentraban cerca del 80 % de la movilidad de seis regiones. La receta de la figura separaba capitales regionales del resto y daba 78,3 %. Aplicado literalmente, el umbral de población daba 11 %. El número estaba cerca; la frase describía otra partición.
 {: .text-justify}
 
-### Resumen de hallazgos clave
-
-{: .table-caption}
-**Tabla 2** — Diferencias que cambian la lectura, y de quién fue el error
-
-| Objeto | Publicado en 2014 | Evidencia nueva | Veredicto |
-|---|---|---|---|
-| Rezago SIMCE, modelo jerárquico | 0,003 | Salida y dos motores: 0,001 | Error de 2014 |
-| Varianzas del modelo | 3,82 y 2,791 | Eran log-desviaciones cruzadas | Error de 2014 |
-| Coeficiente subvencionado | 1,4142 | Salida: 0,4142 | Error de 2014 |
-| IHH comunal | Santiago ≈ 1.534 | Escala canónica ≈ 152 | Error de 2014 |
-| «Menos de 15 mil habitantes» | ≈ 80 % | Capital/no capital: 78,3 %; población: 11 % | Error de 2014 |
-| Alumnos por docente | 48 celdas | Hoja `rad`: 48/48; cálculo alternativo separado | Vector productor verificado |
-| Brecha SIMCE, subvencionados que cierran | −4,3 % | Hoja productora: −4,3 % | Valor productor verificado |
-| Movilidad bruta y tasas | 6,3; 4,5; 1,6 | Fórmulas productoras: 80/80 y 40/40 puntos | Calce final correcto |
-| Movilidad neta | Entradas − salidas | Planilla y gráfico incrustado: 80/80 puntos | Calce final correcto; interpretación causal no probada |
-| Brecha PSU | ≈ 10 | Resultado final: 10,40, no 11,25 | Calce final correcto |
-
 El hallazgo nuevo más sugerente no estaba cuantificado en la tesis. La razón alumnos por docente de los establecimientos que salen cae de 17,95 a 12,22 durante los siete años previos, frente a 20,31 en los establecimientos que permanecen en el registro. No parece un derrumbe instantáneo sino un vaciamiento prolongado, visible retrospectivamente durante los siete años previos. La etiqueta es retrospectiva: marca toda la historia previa de un establecimiento que después desaparece.
 {: .text-justify}
 
@@ -174,35 +160,36 @@ Esa figura es útil para política pública precisamente porque no promete lo qu
 
 ## Cucharada 3: qué quedó listo para extender hasta 2025
 
-**Esta era la prueba que necesitaba antes de sumar trece años: no que cada cifra de 2014 sobreviviera, sino saber exactamente qué estaba extendiendo.** Todo el código disponible volvió a ejecutarse, pero no siempre produjo el mismo resultado. Reejecutable quiere decir que el código termina; recreable, que vuelve a producir algo comparable; y coincidente, que supera el criterio fijado antes de mirar el resultado. Son afirmaciones distintas.[^comparison]
+**Esta era la prueba que necesitaba antes de sumar trece años: no que cada cifra de 2014 sobreviviera, sino saber exactamente qué estaba extendiendo.** Todo el código disponible volvió a ejecutarse, pero no siempre produjo el mismo resultado. Reejecutable quiere decir que el código termina; recreable, que vuelve a producir algo comparable; y coincidente, que supera el criterio fijado antes de mirar el resultado. Son afirmaciones distintas.
 {: .text-justify}
 
 {% include evidence-carousel.html %}
 
-{: .table-caption}
-**Tabla 3** — Qué ocurrió al reabrir los nueve casos dudosos
-
-| Resultado | Casos | Qué permite decir |
-|---|---:|---|
-| Coincidencia | 3 | El Cuadro 4 reproduce 12/12 celdas; las Figuras 3 y 4 reproducen 40/40 y 80/80 puntos. |
-| Diferencia | 2 | Los Cuadros 5 y 8 no superan su criterio preespecificado. |
-| No comparable por diseño | 4 | El código se ejecutó, pero falta una serie o una lista de valores común; comparar solo la apariencia respondería otra pregunta. |
-
-El Cuadro 5 recupera *N* = 30.484 y `duracion3`, pero solo 10 de 20 coeficientes y 11 de 20 errores estándar igualan el redondeo impreso. El Cuadro 6 conserva 35 de 41 magnitudes; el 7, 10 de 11 efectos fijos, salvo 0,003 frente a 0,001. En el 8, solo 4 de 12 coinciden bajo redondeo; ocho parecen haber sido recortadas sin redondear. «Cerca» no es «igual a la precisión publicada».
+Al reabrir los nueve casos dudosos, tres coincidieron, dos mantuvieron diferencias y cuatro no tenían una base común suficiente para comparar. La reejecución actual completó las rutas recuperables y reprodujo tablas y gráficos, pero no demuestra cuál fue la sesión efectiva de 2014. En el registro quedaron 50 hipótesis técnicas y 34 juicios editoriales: las primeras contrastan explicaciones; los segundos clasifican afirmaciones publicadas. Ninguno funciona como tasa de acierto del otro.
 {: .text-justify}
 
-Python reconstruyó tablas y gráficos. Una nueva ejecución usó Stata 17 mediante `stata-mp` y completó las 14 rutas que todavía podían ejecutarse, incluida la recuperación controlada de `do_058`, `do_059` y `do_060`.[^stata17][^harvest] El resultado es una **reejecución actual trazable**, no equivalencia histórica: prueba que la cadena puede recorrerse hoy, no que esta fuera la sesión de 2014.
+Una comparación solo es informativa si ambas rutas responden la misma pregunta. El tamaño de la muestra, la definición del resultado, el orden de los valores y la precisión publicada forman parte del resultado: no son detalles que puedan acomodarse después. Por eso una cifra cercana puede ser una discrepancia real, mientras dos cifras idénticas pueden coincidir por heredar la misma definición equivocada. El criterio no es premiar la semejanza, sino establecer qué evidencia permitiría distinguir un acierto de una coincidencia engañosa.
 {: .text-justify}
 
-También separo dos inventarios que es fácil confundir. En el registro puse a prueba **50 hipótesis**: **37 quedaron refutadas, 11 sostenidas, una tuvo un resultado parcial y otra fue refutada en once de catorce términos**. El balance editorial contiene **34 juicios**. Las hipótesis cuentan explicaciones sometidas a contraste; los juicios cuentan afirmaciones y objetos publicados. Ninguno es una tasa de acierto del otro.
+En los tres casos que coincidieron, las tablas o series conservaron una base común y superaron una regla fijada antes de compararlas. En los dos que mantuvieron diferencias, volver a ejecutar el análisis no borró la discrepancia: mostró con mayor precisión dónde empezaba. Herramientas distintas reprodujeron los resultados recuperables, lo que reduce la posibilidad de que el hallazgo dependa de un programa particular. Aun así, esa convergencia acredita el cálculo actual, no reconstruye por sí sola la ejecución histórica.
 {: .text-justify}
 
-No hice esta arqueología para absolver o condenar mi trabajo de 2014. Antes de construir 2013–2025 necesitaba separar qué podía producir de nuevo, qué estaba mal, qué era una sensibilidad (un resultado alternativo bajo otra decisión) y qué no podía compararse. También quise someter a herramientas actuales una tesis que costó sacar a flote. Que no haya salido intacta hace el ejercicio más útil.
+Los cuatro casos restantes enseñan otra cosa. Cuando no sobrevive una lista común de valores, una serie o una salida suficientemente detallada, comparar solo el aspecto de dos figuras respondería una pregunta nueva. Declararlos no comparables es menos vistoso que anunciar una réplica, pero protege la interpretación. La ausencia de una prueba válida no convierte la publicación original en falsa ni la recreación en correcta; deja una deuda de evidencia que no corresponde llenar con confianza retrospectiva.
+{: .text-justify}
+
+Esta separación importa fuera de la tesis. Una administración podría usar una cifra recreada para describir un período histórico, formular una alerta o justificar una intervención. Esos usos exigen respaldos distintos. Un patrón descriptivo puede abrir una pregunta de monitoreo; una alerta necesita validación fuera de muestra y costos de error explícitos; una intervención requiere un contraste capaz de aproximar el contrafactual. Si se confunden esos niveles, la trazabilidad técnica termina prestando una autoridad causal que el diseño nunca obtuvo.
+{: .text-justify}
+
+La extensión hasta 2025 no hereda automáticamente cada variable ni cada interpretación. Hereda un conjunto acotado: definiciones que pueden sostenerse, resultados que admiten una comparación válida y preguntas cuya respuesta sigue pendiente. Ese recorte es productivo. Permite distinguir cambios reales del sistema de cambios en los registros, y obliga a preguntar si una salida representa cierre, receso, fusión, traslado o continuidad bajo otra administración antes de asociarla con desempeño, vulnerabilidad o una reforma.
+{: .text-justify}
+
+No hice esta arqueología para absolver o condenar mi trabajo de 2014. Antes de construir 2013–2025 necesitaba separar qué podía producir de nuevo, qué estaba mal, qué era una sensibilidad (un resultado alternativo bajo otra decisión) y qué no podía compararse.
+{: .text-justify}
 
 Lo importante no es reivindicar el original, sino llegar a la [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) con una base 1992–2012 auditable, errores conocidos corregidos y límites visibles. Ahora sí tiene sentido añadir trece años: no para prolongar una serie, sino para averiguar qué cambió con las reglas y qué significa que un establecimiento entre o salga del registro.
 {: .text-justify}
 
-## Cierre: preparando para 2025
+## Cierre: de replicar a extender
 
 La tesis quedó organizada en cuatro grupos: resultados que sobreviven, errores de 2014, una versión de 2026 sin errores conocidos y casos sin comparación válida. Esa separación muestra qué conservar y qué no llevar a 1992–2025.
 {: .text-justify}
@@ -211,7 +198,7 @@ Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subve
 {: .text-justify}
 
 {: .table-caption}
-**Tabla 4** — Qué uso público resiste y dónde termina la evidencia
+**Tabla 2.** Qué uso público resiste y dónde termina la evidencia
 
 | Resultado | Uso público razonable | Lo que no autoriza |
 |---|---|---|
@@ -219,6 +206,7 @@ Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subve
 | Vulnerabilidad en el Gran Santiago reconstruido | Preguntar por protección y continuidad educativa | Generalizar a Chile o atribuir efectos del cierre |
 | Razón alumnos/docente antes de la salida | Hipótesis retrospectiva para diseñar una alerta | Presentarla como clasificador actual o alerta validada |
 | IHH corregido | Describir concentración en la escala correcta | Inferir el efecto de la competencia sobre cierres o movilidad |
+{: .table--compact .table--scroll}
 
 La segunda parte no podrá sumar trece filas y fingir continuidad. Un establecimiento de los ochenta, uno de los noventa, uno posterior a la SEP, uno bajo Inclusión y uno traspasado a un Servicio Local no enfrentan el mismo mercado ni el mismo Estado. Una serie puede estar impecablemente calculada y, aun así, responder otra pregunta. Esa es una falsa señal de éxito especialmente peligrosa en política pública.
 {: .text-justify}
@@ -230,6 +218,9 @@ La recreación deja un panel capaz de describir flujos, reconocer señales de ri
 
 La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) retoma estas tres preguntas sin tratarlas como intercambiables:
 
+{: .table-caption}
+**Tabla 3.** Rutas causales y condiciones mínimas
+
 <div class="causal-routes causal-routes--es" markdown="1">
 
 | Ruta | Pregunta y diseño | Condición mínima para interpretarla |
@@ -237,6 +228,7 @@ La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar
 | **Alerta descriptiva/predictiva** | Modelar transiciones entre activo, matrícula cero, receso, cierre oficial y ausencia del registro; estimar riesgo fuera de muestra (en años o casos no usados para ajustar el modelo). | Validación temporal, calibración (que el riesgo predicho se parezca a la frecuencia observada), umbrales de decisión y auditoría distributiva. Puede orientar monitoreo; no estima efectos. |
 | **Reforma escalonada** | Evaluar cambios asociados al traspaso a Servicios Locales con diferencias en diferencias (comparar cambios entre grupos afectados y no afectados) y estudio de eventos por cohortes. | Fechas y exposición verificadas; tendencias paralelas (evolución previa semejante), anticipación, composición y derrames plausibles. Si el calendario respondió al riesgo, el diseño no es causal por decreto. |
 | **Consecuencias del cierre** | Vincular trayectorias de estudiantes y comparar continuidad, distancia, asistencia, logro y abandono mediante estudio de eventos o diferencias en diferencias emparejadas. | Causa del cierre, controles realmente comparables y variación plausiblemente exógena (no determinada por el resultado); emparejar por sí solo no elimina la selección. |
+{: .table--compact .table--scroll}
 
 </div>
 
@@ -246,7 +238,7 @@ Hay, sin embargo, una pregunta anterior al diseño econométrico. En un sistema 
 Eso cambia la pregunta de política pública. No se trata de impedir cualquier cierre ni de conservar todo establecimiento. Se trata de saber **quién absorbe el costo de la transición**: quién debe cambiarse, adónde llega, cuánto más se desplaza, qué ocurre con su asistencia, aprendizaje y permanencia, y qué pierde la comunidad. Que existan cupos es necesario; no agota esos costos.
 {: .text-justify}
 
-La parte II precisó los eventos administrativos, examinó comparaciones institucionales que no permitieron atribuir efectos y dejó pendiente el seguimiento individual. Esa frontera importa porque una base más larga no reemplaza las trayectorias de estudiantes que la tesis de 2014 casi no podía observar.
+La parte II precisa los eventos administrativos, examina comparaciones institucionales que no permiten atribuir efectos y deja pendiente el seguimiento individual. Esa frontera importa porque una base más larga no reemplaza las trayectorias de estudiantes que la tesis de 2014 casi no podía observar.
 {: .text-justify}
 
 La pregunta que queda abierta no es contar nuevamente entradas y salidas, sino **¿cuándo la destrucción creativa renueva efectivamente la oferta educativa y cuándo solo desplaza sus costos hacia estudiantes, familias y territorios con menor capacidad para absorberlos?**
@@ -276,9 +268,3 @@ Un RBD —el identificador oficial del establecimiento— puede desaparecer del 
 [^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013.
 
 [^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007.
-
-[^stata17]: Recibo técnico fijado en el commit `0e9e02d4316d120336d6c2af26434beb5d4b24e0`: 15/15 roles con cero `r(NNN)`, Stata 17 con `c(MP)=1`, `c(flavor)=IC` informado por separado y cuatro raíces históricas intactas.
-
-[^comparison]: Comparación terminal fijada en `tesis_mae_mejorada@a8ee6ac`: nueve casos reabiertos, cuatro familias inferenciales y umbrales separados para tablas, raster y equivalencia.
-
-[^harvest]: Cosecha de salidas fijada en `tesis_mae_mejorada@cd6d19b`: reejecución dirigida de `do_058`, `do_059` y `do_060`, cuatro productos de datos validados y límites separados para smoke tests y gráficos no exportados.

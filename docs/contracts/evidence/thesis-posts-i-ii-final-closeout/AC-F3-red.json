@@ -1,0 +1,35 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F3",
+  "target_contract_sha256": "d5818c3048e7b83d286c3c60d9d2b2666dbf1c54d185b7015cd8a2338f87a9b1",
+  "target_definition_sha256": "0772cba76233862bc7efc31da06fa74dfbf8ed9adbeded3605e8b190997d8a8c",
+  "criterion_command_sha256": "e3ff0bb24332c8073e3feb624332427429c154d80edbf4801320a63c00955972",
+  "observed_command": "cd .worktrees/3cucharadas/posts-i-ii-closeout-20261017 && ruby scripts/verify_thesis_extension_post_ii.rb --self-test author-separation --research-root /home/ende/Descargas/programaciones/.worktrees/tesis_mae_mejorada/postii-freeze-r10-20261017 --workspace-root /home/ende/Descargas/programaciones",
+  "observed_command_sha256": "790cadb834e74720466cd15f7fa0deab9c8d7f8b67f3fa994b427f47cfb91148",
+  "outcome": "red",
+  "setup_status": "fixture_loaded",
+  "started_at": "2026-10-17T21:01:55Z",
+  "finished_at": "2026-10-17T21:01:55Z",
+  "exit_code": 1,
+  "fixture_sha256": "e6a51fef0e38abdfa6d4c9a64e4cbb54147f3b55f13f4ebe4de0de9867ef1548",
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_extension_post_ii.rb",
+      "exists": true,
+      "sha256": "e6a51fef0e38abdfa6d4c9a64e4cbb54147f3b55f13f4ebe4de0de9867ef1548"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": ".worktrees/3cucharadas/posts-i-ii-closeout-20261017/scripts/verify_thesis_extension_post_ii.rb",
+      "exists": true,
+      "sha256": "e6a51fef0e38abdfa6d4c9a64e4cbb54147f3b55f13f4ebe4de0de9867ef1548"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "",
+  "stderr": "{\"result\":\"EXPECTED_FAIL\",\"self_test\":\"author-separation\",\"error\":\"el visor principal conserva casos sistemáticos retirados\"}\n"
+}
