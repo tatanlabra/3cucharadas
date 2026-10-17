@@ -672,5 +672,28 @@ class UxTransversalContract(unittest.TestCase):
         self.assertGreater(checked, 0)
 
 
+    def test_tablas_region_unica(self) -> None:
+        nested = re.compile(r'role="region"[^>]*>(?:\s*<div\b[^>]*>)*\s*<div class="tabla-desliza"')
+        wrapped = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            if 'class="tabla-desliza"' not in text:
+                continue
+            self.assertIsNone(nested.search(text), f"{page}: región dentro de región")
+            self.assertNotIn("width:max-content;min-width:100%", text, page)
+            for attrs, caption in re.findall(r'<div class="tabla-desliza"([^>]*)>\s*<table\b[^>]*>\s*<caption>(.*?)</caption>', text, re.S):
+                wrapped += 1
+                label = re.search(r'aria-label="([^"]*)"', attrs).group(1)
+                plain = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", caption)).strip())
+                self.assertEqual(html.unescape(label), plain, f"{page}: región sin el nombre de su leyenda")
+        self.assertGreater(wrapped, 0, "ninguna tabla con leyenda: ¿cambió el plugin?")
+        provenance = json.loads((ROOT / "assets" / "data" / "avaluos-ii-extension" / "provenance.json").read_text(encoding="utf-8"))
+        sealed = {k: v for k, v in provenance["outputs_sha256"].items() if k.startswith("avaluos-ii-extension-")}
+        self.assertTrue(sealed)
+        for name, digest in sealed.items():
+            self.assertEqual(hashlib.sha256((ROOT / "_includes" / name).read_bytes()).hexdigest(), digest,
+                             f"{name}: el include sellado cambió; la corrección va en el HTML renderizado")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
