@@ -695,5 +695,35 @@ class UxTransversalContract(unittest.TestCase):
                              f"{name}: el include sellado cambió; la corrección va en el HTML renderizado")
 
 
+    def test_sin_jquery(self) -> None:
+        self.assertFalse((SITE / "assets" / "js" / "main.min.js").exists(), "el artefacto sigue publicando main.min.js")
+        pages = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            if "<script" not in text:
+                continue
+            self.assertNotIn("main.min.js", text, page)
+            self.assertNotRegex(text, r'<script[^>]+src="[^"]*jquery', page)
+            if "/assets/js/theme-toggle.js" in text:
+                pages += 1
+                self.assertIn("/assets/js/site-core.js", text, page)
+        self.assertGreater(pages, 0)
+        core = rendered("assets/js/site-core.js")
+        for hook in (".author__urls-wrapper button", ".search-content", "nav.toc a", "header-link", "clipboard-copy-button", "showModal"):
+            self.assertIn(hook, core, f"site-core.js no cubre {hook}")
+        own = [p for p in (SITE / "assets" / "js").glob("*.js")] + [SITE / "assets" / "js" / "lunr" / "lunr-site.js"]
+        for script in own:
+            code = re.sub(r"/\*.*?\*/|//[^\n]*", "", script.read_text(encoding="utf-8", errors="ignore"), flags=re.S)
+            self.assertIsNone(re.search(r"\bjQuery\b|(?<![\w.])\$\(", code), f"{script.name} usa jQuery")
+        smooth = [m for m, sel, b in css_rules_in_context(css()) if re.search(r"scroll-behavior:\s*smooth", b) and sel.strip() == "html"]
+        self.assertTrue(smooth, "sin desplazamiento suave")
+        for media in smooth:
+            self.assertIn("prefers-reduced-motion:no-preference", " ".join(media).replace(" ", ""))
+        ui = (ROOT / "_data" / "ui-text.yml").read_text(encoding="utf-8")
+        for key in ("results_found", "results_found_one"):
+            for value in re.findall(rf"^\s*{key}\s*:\s*\"([^\"]*)\"", ui, re.M)[:2]:
+                self.assertNotIn("(s)", value)
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)

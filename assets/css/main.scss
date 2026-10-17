@@ -4685,3 +4685,101 @@ html[data-theme="academic-night"] .pagination__label {
   border-color: #1f5f8b;
   background: rgba(31, 95, 139, 0.08);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIN JQUERY (capa 2, fase A; auditoría UX 2026-10-17)
+
+   assets/js/site-core.js reemplaza al main.min.js del tema. Lo que el tema hacía
+   con plugins de JS pasa aquí a CSS cuando la plataforma ya lo resuelve:
+
+   - SmoothScroll (offset 20 px) → scroll-padding-top y scroll-behavior, este
+     último solo sin movimiento reducido;
+   - Magnific Popup → <dialog class="lightbox"> nativo: el fondo y el foco los
+     gestiona el navegador, Esc cierra sin JS propio.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-padding-top: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.lightbox {
+  max-inline-size: min(96vw, 1600px);
+  max-block-size: 94vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(9, 11, 24, 0.88);
+}
+
+.lightbox__figure {
+  margin: 0;
+}
+
+.lightbox__img {
+  display: block;
+  max-inline-size: min(96vw, 1600px);
+  max-block-size: 86vh;
+  margin-inline: auto;
+  border-radius: 0.4rem;
+  background: #fff;
+  cursor: zoom-out;
+}
+
+.lightbox__caption {
+  margin-top: 0.6rem;
+  color: #f4f6ff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border: 1px solid rgba(244, 246, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(9, 11, 24, 0.6);
+  color: #f4f6ff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox__close { inset-block-start: 1rem; inset-inline-end: 1rem; }
+.lightbox__prev { inset-block-start: 50%; inset-inline-start: 1rem; transform: translateY(-50%); }
+.lightbox__next { inset-block-start: 50%; inset-inline-end: 1rem; transform: translateY(-50%); }
+
+.lightbox :is(.lightbox__close, .lightbox__prev, .lightbox__next):hover {
+  background: #f4f6ff;
+  color: #0b1020;
+}
+
+.lightbox :is(.lightbox__close, .lightbox__prev, .lightbox__next):focus-visible {
+  outline: 3px solid #ffdb7d;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] {
+    animation: lightbox-in 160ms var(--ui-ease, ease-out);
+  }
+
+  @keyframes lightbox-in {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+}

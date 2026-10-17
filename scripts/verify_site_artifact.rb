@@ -24,7 +24,7 @@ abort "Artifact directory does not exist: #{site_dir}" unless Dir.exist?(site_di
 
 required_files = %w[
   assets/css/main.css
-  assets/js/main.min.js
+  assets/js/site-core.js
   assets/js/theme-toggle.js
   assets/js/thesis-post2-map-loader.js
   assets/js/lunr/lunr-en.js
@@ -56,6 +56,7 @@ pruned_files = %w[
   assets/js/_main.js
   assets/js/lunr/lunr-gr.js
   assets/js/lunr/lunr.js
+  assets/js/main.min.js
   assets/js/main.min.js.map
   assets/js/plugins/gumshoe.js
   assets/js/vendor/jquery/jquery-3.6.0.js

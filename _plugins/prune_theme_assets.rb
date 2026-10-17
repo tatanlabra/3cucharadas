@@ -9,6 +9,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     assets/js/_main.js
     assets/js/lunr/lunr-gr.js
     assets/js/lunr/lunr.js
+    assets/js/main.min.js
     assets/js/main.min.js.map
   ].freeze
 
