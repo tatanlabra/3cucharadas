@@ -73,11 +73,15 @@ class SiteUxTest(unittest.TestCase):
 
     def test_about_uses_current_posts(self) -> None:
         for prefix in ("", "en/"):
-            latest = re.findall(
+            # El hero de la portada es el post más reciente (D3) y la grilla sigue con los
+            # demás, así que el orden de la portada es hero + grilla.
+            home = rendered(prefix + "index.html")
+            hero = re.findall(r'id="home-latest-title"[^>]*>\s*<a href="([^"]+)"', home)
+            latest = (hero + re.findall(
                 r'<h2 class="archive__item-title[^"]*" itemprop="headline">\s*<a href="([^"]+)"',
-                rendered(prefix + "index.html"),
+                home,
                 re.DOTALL,
-            )[:3]
+            ))[:3]
             self.assertEqual(len(latest), 3)
             self.assertEqual(recent_urls(prefix + "about/index.html"), latest)
             about = rendered(prefix + "about/index.html")

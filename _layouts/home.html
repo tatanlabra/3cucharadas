@@ -14,8 +14,14 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
+{%- comment -%} El post del hero (D3) no se repite en la grilla: ver _includes/home-latest.html. {%- endcomment -%}
+{% include home-latest.html %}
+{% if home_latest %}
+  {% assign posts = posts | where_exp: "item", "item.id != home_latest.id" %}
+{% endif %}
+
 {% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="home__entries entries-{{ entries_layout }}">
+<div class="home__entries entries-{{ entries_layout }}{% if home_latest %} home__entries--after-hero{% endif %}">
   {% include documents-collection.html entries=posts type=entries_layout %}
 </div>
 

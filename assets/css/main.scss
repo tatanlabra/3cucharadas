@@ -410,13 +410,13 @@ html[data-theme="academic-night"] .page__content .reversefootnote {
   }
 }
 
-.layout--home.home-codera-hero .page__hero--overlay {
+.layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
   background-position: center right;
   background-size: cover;
 }
 
 @media (max-width: 1200px) {
-  .layout--home.home-codera-hero .page__hero--overlay {
+  .layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
     background-image:
       linear-gradient(90deg, rgba(8, 13, 16, 0.97) 0%, rgba(8, 13, 16, 0.93) 40%, rgba(8, 13, 16, 0.50) 68%, rgba(8, 13, 16, 0.16) 100%),
       url("{{ '/assets/images/home/el-salvador-codera-hero-1600x524.webp' | relative_url }}") !important;
@@ -425,7 +425,7 @@ html[data-theme="academic-night"] .page__content .reversefootnote {
 }
 
 @media (max-width: 640px) {
-  .layout--home.home-codera-hero .page__hero--overlay {
+  .layout--home.home-codera-hero .page__hero--overlay:not(.page__hero--latest) {
     background-image:
       linear-gradient(180deg, rgba(8, 13, 16, 0.95) 0%, rgba(8, 13, 16, 0.86) 52%, rgba(8, 13, 16, 0.36) 100%),
       url("{{ '/assets/images/home/el-salvador-codera-hero-mobile-1200x720.webp' | relative_url }}") !important;
@@ -4196,4 +4196,540 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
   max-inline-size: 100cqi;
   text-align: start;
   hyphens: manual;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANATOMÍA DEL POST EN ESCRITORIO (D2, auditoría UX 2026-10-17)
+
+   Con tres columnas —ficha del autor, texto e índice— la lectura quedaba
+   descentrada y la biografía se repetía arriba en cada post. Desde $large la
+   ficha pasa al final, con el MISMO reordenamiento por `order` que ya rige por
+   debajo de $large (ver «SIDEBAR EN MÓVIL»): el markup no se mueve y el
+   `itemscope Person` sigue temprano en el DOM. Arriba queda la firma compacta
+   (_includes/post-byline.html).
+
+   Convertir #main en flex anula sus floats directos, que es justo lo buscado:
+   página, ficha y relacionados se apilan. El índice no es hijo directo de #main
+   (vive dentro de .page__content), así que conserva su columna sticky.
+
+   La columna de texto se centra con un relleno inicial igual al final que el
+   tema ya reserva para el índice. Solo aplica a posts (`.main--post`).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page__byline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75em 0 0;
+  font-size: 0.85em;
+}
+
+.page__byline-avatar {
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.page__byline a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
+  color: inherit;
+  font-weight: 700;
+}
+
+@mixin post-anatomy($gutter) {
+  #main.main--post > .page {
+    padding-inline-start: $gutter;
+  }
+
+  #main.main--post > .sidebar {
+    margin-inline: $gutter;
+  }
+
+  #main.main--post > .page__related {
+    margin-inline-start: $gutter;
+  }
+}
+
+@media (min-width: 64em) {
+  #main.main--post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main.main--post > .page {
+    order: 1;
+    float: none;
+    width: 100%;
+  }
+
+  #main.main--post > .sidebar {
+    order: 2;
+    float: none;
+    width: auto;
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 1px solid $border-color;
+    opacity: 1;
+  }
+
+  #main.main--post > .sidebar.sticky {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #main.main--post > .page__related {
+    order: 3;
+    float: none;
+    width: auto;
+  }
+
+  /* La ficha al final: avatar a la izquierda, nombre, biografía y enlaces a la
+     derecha, en una sola fila de enlaces. */
+  #main.main--post > .sidebar .h-card {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  #main.main--post > .sidebar .author__avatar {
+    grid-row: 1 / span 2;
+    inline-size: 5.5rem;
+  }
+
+  #main.main--post > .sidebar .author__avatar img {
+    inline-size: 5.5rem;
+    block-size: 5.5rem;
+    max-width: none;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  #main.main--post > .sidebar .author__content,
+  #main.main--post > .sidebar .author__urls-wrapper {
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main.main--post > .sidebar .author__name {
+    margin-top: 0;
+  }
+
+  #main.main--post > .sidebar .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    margin: 0.5em 0 0;
+    padding: 0;
+  }
+
+  #main.main--post > .sidebar .author__urls li {
+    margin: 0;
+  }
+
+  @include post-anatomy($right-sidebar-width-narrow);
+}
+
+@media (min-width: 80em) {
+  @include post-anatomy($right-sidebar-width);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PORTADA: LA ÚLTIMA CUCHARADA COMO HERO (D3, auditoría UX 2026-10-17)
+
+   El hero era una marca genérica en mayúsculas espaciadas con dos botones; ahora
+   abre el post más reciente con su propia portada (_includes/home-hero-latest.html)
+   y hereda la superficie de .page__hero--editorial. La ficha del autor deja la
+   columna izquierda, así que la grilla ocupa el ancho completo.
+
+   La página 1 queda con 7 tarjetas para una grilla de 2 columnas (paginate: 8, una
+   va al hero). La primera se destaca en horizontal a todo el ancho: 1 + 6, sin
+   hueco en la última fila. La página 2 en adelante no cambia.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page__hero--overlay.page__hero--latest {
+  .page__hero-kicker {
+    margin: 0 0 0.7rem;
+    color: #9fe7f5;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .page__hero-kicker span {
+    color: #f4f6ff;
+    font-weight: 400;
+  }
+
+  .page__title {
+    margin-top: 0;
+  }
+
+  .page__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page__title a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 0.12em;
+  }
+
+  .page__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.2rem 0 0;
+  }
+
+  .page__hero-secondary {
+    border-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+}
+
+/* La ficha del autor pasa bajo la grilla con el mismo `order` que en móvil: el
+   markup y su h-card (con los rel="me") siguen en la portada. */
+@media (min-width: 64em) {
+  #main.main--home {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main.main--home > .archive {
+    order: 1;
+    float: none;
+    width: 100%;
+    padding-inline-end: 0;
+  }
+
+  #main.main--home > .sidebar {
+    order: 2;
+    float: none;
+    width: auto;
+    margin-top: 2.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid $border-color;
+    opacity: 1;
+  }
+
+  #main.main--home > .sidebar.sticky {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #main.main--home > .sidebar .h-card {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 46rem);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  #main.main--home > .sidebar .author__avatar {
+    grid-row: 1 / span 2;
+    inline-size: 5.5rem;
+  }
+
+  #main.main--home > .sidebar .author__avatar img {
+    inline-size: 5.5rem;
+    block-size: 5.5rem;
+    max-width: none;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  #main.main--home > .sidebar :is(.author__content, .author__urls-wrapper) {
+    grid-column: 2;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main.main--home > .sidebar .author__name {
+    margin-top: 0;
+  }
+
+  #main.main--home > .sidebar .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+    margin: 0.5em 0 0;
+    padding: 0;
+  }
+
+  #main.main--home > .sidebar .author__urls li {
+    margin: 0;
+  }
+}
+
+/* Las tarjetas declaraban 16:9, pero el `max-height: 120px` del tema para grillas
+   las recortaba a una franja (462 × 120 px, también en producción). Sin la ficha
+   del autor las tarjetas miden ~650 px: a 2:1 la portada se ve entera sin volver
+   cada tarjeta un póster. */
+.home-latest .home__entries.entries-grid .archive__item-teaser {
+  aspect-ratio: 2 / 1;
+  height: auto;
+  max-height: none;
+}
+
+@media (min-width: 48em) {
+  .layout--home .home__entries--after-hero > .grid__item:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(1rem, 2.4vw, 2rem);
+    align-content: start;
+  }
+
+  /* Con `aspect-ratio`, un item de grilla no se estira a lo ancho: sin el 100 %
+     la portada medía 213 px en una columna de 650. */
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-teaser {
+    grid-row: 1 / span 3;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 15rem;
+    aspect-ratio: auto;
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-title {
+    margin-top: 0.2rem;
+    font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  }
+
+  .layout--home .home__entries--after-hero > .grid__item:first-child .archive__item-excerpt {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 6;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BOTONES E INTERACCIÓN (D5, auditoría UX 2026-10-17)
+
+   Un solo lenguaje para todo lo que se pulsa. Antes convivían esquinas de 0, 4 y
+   999 px, el `transition: all 0.2s` del tema (que también anima medidas y
+   posiciones), los colores de marca de cada red en «Compartir» y un «Anterior /
+   Siguiente» sin destino visible. Reglas:
+
+   - forma: píldora en botones, controles y etiquetas; tarjeta (0,65rem) en la
+     paginación, que es contenido y no acción;
+   - transición: solo color, fondo, borde, sombra y transformación, 140 ms;
+   - foco: anillo de 2 px separado 2 px del color de enlace en claro (6,4:1 sobre
+     el crema). En oscuro rige el anillo blanco de 3 px que el tema nocturno ya
+     aplica a todo :focus-visible (más específico); el hero editorial conserva
+     su ámbar;
+   - pulsación: respuesta inmediata (1 px y 98 %) y elevación de 1 px al pasar el
+     cursor, ambas solo con `prefers-reduced-motion: no-preference`, y la
+     elevación además solo con `hover: hover`, para que el táctil no quede con un
+     botón «levantado» después de tocarlo.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ui-fast: 140ms;
+  --focus-ring: #1f5f8b;
+}
+
+.btn,
+.masthead__nav-link,
+.masthead__nav-toggle,
+.search__toggle,
+.theme-toggle,
+.subscribe-rss__all,
+.subscribe-rss__topic,
+.page__taxonomy-item,
+.pagination--pager {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--ui-fast);
+  transition-timing-function: var(--ui-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+:is(.btn, .masthead__nav-link, .masthead__nav-toggle, .search__toggle, .theme-toggle,
+    .subscribe-rss__all, .subscribe-rss__topic, .page__taxonomy-item, .pagination--pager,
+    .toc__summary):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.btn {
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :is(.btn, .masthead__nav-link, .masthead__nav-toggle, .search__toggle, .theme-toggle,
+      .subscribe-rss__all, .subscribe-rss__topic, .page__taxonomy-item, .pagination--pager):active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  @media (hover: hover) {
+    :is(.btn, .pagination--pager):hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+/* ── Hero de portada: una acción principal llena y una secundaria en texto ── */
+.page__hero--latest .page__hero-actions .btn:first-child {
+  border-color: #f4f6ff;
+  background: #f4f6ff;
+  color: #0b1020;
+}
+
+.page__hero--latest .page__hero-actions .btn:first-child:hover {
+  border-color: #9fe7f5;
+  background: #9fe7f5;
+  color: #0b1020;
+}
+
+.page__hero--latest .page__hero-secondary:hover {
+  background: transparent;
+  color: #9fe7f5;
+}
+
+/* ── Compartir: monocromo, sin los colores de cada red ─────────────────────── */
+.page__share .btn {
+  border: 1px solid rgba(27, 42, 65, 0.28);
+  background: transparent;
+  color: #1b2a41;
+}
+
+.page__share .btn:hover {
+  border-color: #1b2a41;
+  background: #1b2a41;
+  color: #faf7f0;
+}
+
+html[data-theme="academic-night"] .page__share .btn {
+  border-color: var(--night-border-strong);
+  background: transparent;
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .page__share .btn:hover {
+  border-color: var(--night-link);
+  background: var(--night-link);
+  color: var(--night-bg-dark);
+}
+
+/* ── Anterior y siguiente: tarjetas con el título del destino ──────────────── */
+.pagination--post {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  float: none;
+  width: 100%;
+  margin: 2em 0 0;
+}
+
+.pagination--post .pagination--pager {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  float: none;
+  width: auto;
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(27, 42, 65, 0.16);
+  border-radius: 0.65rem;
+  background: #fffdf8;
+  color: #1b2a41;
+  text-align: start;
+  text-decoration: none;
+}
+
+.pagination--post .pagination--next {
+  text-align: end;
+}
+
+.pagination--post .pagination--empty {
+  border: 0;
+  background: transparent;
+}
+
+.pagination__label {
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1f5f8b;
+}
+
+.pagination__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-weight: 700;
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pagination--post .pagination--pager:hover {
+  border-color: #1f5f8b;
+  background: #fffdf8;
+  box-shadow: 0 0.35rem 1rem rgba(27, 42, 65, 0.1);
+  color: #1b2a41;
+}
+
+html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty) {
+  border-color: var(--night-border-strong);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .pagination--post .pagination--pager:not(.pagination--empty):hover {
+  border-color: var(--night-link);
+  background: var(--night-layer-strong);
+  color: var(--night-text);
+}
+
+html[data-theme="academic-night"] .pagination__label {
+  color: var(--night-link);
+}
+
+@media (max-width: 47.99em) {
+  .pagination--post {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* En una sola columna, las dos tarjetas comparten el borde de lectura. */
+  .pagination--post .pagination--next {
+    text-align: start;
+  }
+
+  .pagination--post .pagination--empty {
+    display: none;
+  }
+}
+
+/* ── Etiquetas y categorías: chips ─────────────────────────────────────────── */
+.page__taxonomy-item {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 24px;
+  padding: 0.2em 0.75em;
+  border: 1px solid rgba(27, 42, 65, 0.22);
+  border-radius: 999px;
+}
+
+.page__taxonomy-item:hover {
+  border-color: #1f5f8b;
+  background: rgba(31, 95, 139, 0.08);
 }

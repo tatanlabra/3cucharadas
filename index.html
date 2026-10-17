@@ -6,11 +6,18 @@ ref: home
 # pisaba la primera y la portada terminaba mostrando el post más antiguo. Sin el
 # permalink, la paginación usa `paginate_path` y las páginas siguientes van a /page2/.
 translation_languages: [es, en]
+# D3: el hero es la última cucharada (_includes/home-hero-latest.html) y la ficha
+# del autor pasa bajo la grilla en escritorio. La ficha NO se quita: lleva los
+# enlaces rel="me" (Mastodon, LinkedIn, Bluesky) con que esos perfiles verifican el
+# sitio, y tests/test_site_ux.py exige su h-card en la portada. `header` se
+# conserva: lo usan la página 2 en adelante y la imagen social.
+home_hero: latest
 author_profile: true
 entries_layout: grid
 classes:
   - wide
   - home-codera-hero
+  - home-latest
 header:
   overlay_color: "#0a0a0a"
   overlay_image: /assets/images/home/el-salvador-codera-hero-2400x720.webp

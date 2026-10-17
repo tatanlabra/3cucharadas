@@ -543,5 +543,122 @@ class UxTransversalContract(unittest.TestCase):
         self.assertRegex(caption, r"position:\s*sticky")
 
 
+    def test_anatomia_del_post(self) -> None:
+        checked = 0
+        for lang, posts in posts_by_lang().items():
+            for post in posts:
+                url = str(post["permalink"])
+                built = ("en" + url if lang == "en" and not url.startswith("/en/") else url).strip("/")
+                text = (SITE / built / "index.html").read_text(encoding="utf-8")
+                self.assertTrue('<div id="main" role="main" class="main--post">' in text, f"{url}: #main sin main--post")
+                about = "/en/about/" if lang == "en" else "/about/"
+                byline = re.search(rf'class="page__byline">.*?<a href="{re.escape(about)}" rel="author">', text, re.S)
+                self.assertTrue(byline, f"{url}: sin firma compacta hacia {about}")
+                self.assertTrue('class="author__name p-name"' in text, f"{url}: sin h-card del autor")
+                checked += 1
+        self.assertGreater(checked, 0)
+        rules = css_rules_in_context(css())
+        def gutters(width: str) -> dict[str, str]:
+            found: dict[str, str] = {}
+            for media, selector, body in rules:
+                if not any(f"min-width: {width}" in m or f"min-width:{width}" in m for m in media):
+                    continue
+                for prop in ("padding-inline-start", "padding-inline-end"):
+                    value = re.search(rf"(?<![-\w]){prop}:\s*([\d.]+px)", body)
+                    if value and selector.strip() in ("#main.main--post>.page", "#main.main--post > .page", ".page"):
+                        found[f"{selector.strip().split()[-1].split('>')[-1]}:{prop}"] = value.group(1)
+            return found
+        for width, gutter in (("64em", "200px"), ("80em", "300px")):
+            found = gutters(width)
+            self.assertEqual(found.get(".page:padding-inline-start"), gutter, f"{width}: {found}")
+            self.assertEqual(found.get(".page:padding-inline-end"), gutter, f"{width}: el índice cambió de ancho")
+        order: dict[str, str] = {}
+        for media, selector, body in rules:
+            if any("min-width: 64em" in x for x in media):
+                key = selector.replace(" ", "")
+                order[key] = order.get(key, "") + ";" + body
+        self.assertRegex(order.get("#main.main--post>.sidebar", ""), r"order:\s*2")
+        self.assertRegex(order.get("#main.main--post", ""), r"flex-direction:\s*column")
+
+
+    def test_portada_ultima_cucharada(self) -> None:
+        grouped = posts_by_lang()
+        for lang, prefix in (("es", ""), ("en", "en/")):
+            home = rendered(prefix + "index.html")
+            hero = re.search(r'id="home-latest-title"[^>]*>\s*<a href="([^"]+)"', home)
+            self.assertIsNotNone(hero, f"{prefix}index.html sin hero de la última cucharada")
+            newest = str(grouped[lang][0]["permalink"])
+            expected = "/en" + newest if lang == "en" and not newest.startswith("/en/") else newest
+            self.assertEqual(hero.group(1), expected, f"{prefix}index.html: el hero no es el post más reciente")
+            grid = re.findall(r'<h2 class="archive__item-title[^"]*" itemprop="headline">\s*<a href="([^"]+)"', home)
+            self.assertGreater(len(grid), 0)
+            self.assertNotIn(expected, grid, "la grilla repite el post del hero")
+            self.assertEqual(len(re.findall(r'fetchpriority="high"', home)), 1, f"{prefix}index.html: más de un LCP declarado")
+            self.assertIn('class="author__name p-name"', home)
+            self.assertRegex(home, r'href="https://mastodon\.social/[^"]+"[^>]*rel="[^"]*\bme\b')
+            page2 = SITE / prefix / "page2" / "index.html"
+            if page2.is_file():
+                self.assertNotIn('id="home-latest-title"', page2.read_text(encoding="utf-8"))
+        rules = css_rules_in_context(css())
+        teaser = " ".join(b for _, sel, b in rules if sel.strip() == ".home-latest .home__entries.entries-grid .archive__item-teaser")
+        self.assertRegex(teaser, r"aspect-ratio:\s*2\s*/\s*1")
+        self.assertRegex(teaser, r"max-height:\s*none")
+        codera = [sel for _, sel, b in rules if ".home-codera-hero .page__hero--overlay" in sel and "background-image" in b]
+        self.assertTrue(codera)
+        for sel in codera:
+            self.assertIn(":not(.page__hero--latest)", sel, "la imagen de marca se descargaría bajo el hero nuevo")
+
+
+    def test_botones_interaccion(self) -> None:
+        rules = css_rules_in_context(css())
+        family = {".btn", ".masthead__nav-link", ".page__taxonomy-item", ".pagination--pager", ".subscribe-rss__topic"}
+        transition = [b for m, sel, b in rules if family <= set(selector_parts(sel)) and "transition-property" in b]
+        self.assertTrue(transition, "sin transición común para botones y controles")
+        for body in transition:
+            props = re.search(r"transition-property:\s*([^;]+)", body).group(1)
+            self.assertNotIn("all", props)
+            self.assertIn("transform", props)
+        focus = [b for _, sel, b in rules if ":focus-visible" in sel and all(f in sel for f in family)]
+        self.assertTrue(focus, "sin foco común")
+        self.assertTrue(any(re.search(r"outline:\s*([2-9])px solid", b) for b in focus))
+        for media, sel, body in rules:
+            if "transform" not in body or not any(f in sel for f in family):
+                continue
+            chain = " ".join(media).replace(" ", "")
+            if ":active" in sel or ":hover" in sel:
+                self.assertIn("prefers-reduced-motion:no-preference", chain, sel)
+            if ":hover" in sel:
+                self.assertIn("hover:hover", chain, sel)
+        self.assertTrue(any(sel.strip() == ".btn" and re.search(r"border-radius:\s*999px", b) for _, sel, b in rules))
+        checked = 0
+        for page in SITE.rglob("index.html"):
+            text = page.read_text(encoding="utf-8")
+            share = text.split('<section class="page__share">', 1)
+            if len(share) == 2:
+                block = share[1].split("</section>", 1)[0]
+                self.assertNotIn("fa-twitter\"", block, page)
+                self.assertIn("fa-x-twitter", block, page)
+            nav = text.split('<nav class="pagination pagination--post"', 1)
+            if len(nav) == 2:
+                block = nav[1].split("</nav>", 1)[0]
+                self.assertNotIn('aria-disabled="true"', block, page)
+                self.assertIn('class="pagination__title"', block, page)
+                checked += 1
+        self.assertGreater(checked, 0, "ningún post con «Anterior / Siguiente»")
+
+    def test_fechas_en_idioma(self) -> None:
+        english = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, 20\d\d")
+        spanish = re.compile(r"\d{1,2} de (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre) de 20\d\d")
+        seen = 0
+        for page in SITE.rglob("index.html"):
+            if "en" in page.relative_to(SITE).parts[:1]:
+                continue
+            text = re.sub(r"<(script|style)\b.*?</\1>", " ", page.read_text(encoding="utf-8"), flags=re.S)
+            visible = re.sub(r"<[^>]+>", " ", text)
+            self.assertIsNone(english.search(visible), f"{page}: fecha con mes en inglés")
+            seen += bool(spanish.search(visible))
+        self.assertGreater(seen, 0, "ninguna página en español muestra una fecha")
+
+
 if __name__ == "__main__":
     unittest.main(argv=[sys.argv[0]], verbosity=2)
