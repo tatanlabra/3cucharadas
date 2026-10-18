@@ -14,6 +14,10 @@ modificados en la capa 2C de la auditoría UX del 2026-10-17
   estilo global, el reset de `button::-moz-focus-inner`, vive en `_button-reset.scss`;
 - solo el skin `contrast` (el de `_config.yml`): sus variables encabezan `_variables.scss`
   y sus reglas quedan en `skins/_contrast.scss`.
+- `%tab-focus` (`_mixins.scss`) dibuja 2px con los tokens del sistema de foco del sitio
+  (`--focus-ring`, `--focus-ring-offset`) en vez de `5px auto $focus-color` con offset -2px.
+- `_forms.scss` pierde el hack `outline: thin dotted \9` de Internet Explorer en
+  `input:focus, textarea:focus`; queda `outline: 0` y el anillo de teclado del sitio.
 
 `assets/css/main.scss` lo configura con `@use "minimal-mistakes" as * with (...)`.
 `scripts/verify_sass_strict.rb` lo compila sin silenciar avisos y reprueba ante cualquiera.

@@ -747,9 +747,11 @@ class UxTransversalContract(unittest.TestCase):
             props = re.search(r"transition-property:\s*([^;]+)", body).group(1)
             self.assertNotIn("all", props)
             self.assertIn("transform", props)
-        focus = [b for _, sel, b in rules if ":focus-visible" in sel and all(f in sel for f in family)]
+        # El anillo común de la familia es el del sistema de foco (invariante foco-unico).
+        focus = [b for _, sel, b in rules if sel.strip() == ":focus-visible"]
         self.assertTrue(focus, "sin foco común")
-        self.assertTrue(any(re.search(r"outline:\s*([2-9])px solid", b) for b in focus))
+        width = resolve_token(theme_tokens(rules)["claro"], "--focus-ring-width")
+        self.assertGreaterEqual(float(width.removesuffix("px")), 2)
         for media, sel, body in rules:
             if "transform" not in body or not any(f in sel for f in family):
                 continue
@@ -1034,6 +1036,48 @@ class UxTransversalContract(unittest.TestCase):
                                 self.assertIn("num", row[col][0], f"{page}: encabezado de la columna {col} sin alinear")
         self.assertGreater(columns, 0, "ninguna columna numérica: el detector no encontró tablas")
         self.assertGreater(cells_marked, 0)
+
+    def test_foco_unico(self) -> None:
+        rules = css_rules_in_context(css())
+        system = [(m, b) for m, sel, b in rules if sel.strip() == ":focus-visible"]
+        self.assertEqual(len(system), 1, "debe haber exactamente una regla de anillo de teclado")
+        media, body = system[0]
+        self.assertEqual(media, (), "el sistema de foco no puede depender de una media query")
+        compact = re.sub(r"\s+", "", body)
+        self.assertIn("outline:var(--focus-ring-width)solidvar(--focus-ring)!important", compact)
+        self.assertIn("outline-offset:var(--focus-ring-offset)!important", compact)
+        for _, sel, body in rules:
+            declarations = re.findall(r"(?:^|;)\s*(outline(?:-[a-z]+)?)\s*:\s*([^;]+)", body)
+            if not declarations or sel.strip() == ":focus-visible":
+                continue
+            if ":focus-visible" in sel:
+                self.fail(f"{sel}: declara su propio anillo de teclado: {declarations}")
+            if ":focus" in sel:
+                for prop, value in declarations:
+                    if value.strip() in ("0", "none"):
+                        continue  # reset al pulsar; el teclado lo cubre :focus-visible
+                    literal = re.sub(r"var\(--focus-ring[\w-]*\)|\b\d+(?:\.\d+)?px\b|\bsolid\b|\s|!important", "", value)
+                    self.assertEqual(literal, "", f"{sel}: {prop} usa un valor fuera de los tokens: {value}")
+        tokens = theme_tokens(rules)
+        light = resolve_token(tokens["claro"], "--focus-ring")
+        dark = resolve_token(tokens["oscuro"], "--focus-ring")
+        on_dark = resolve_token(tokens["claro"], "--focus-ring-on-dark")
+        self.assertEqual(light.lower(), "#1b2a41", "C5: el anillo claro es el navy de la identidad")
+        self.assertEqual(dark.lower(), on_dark.lower())
+        self.assertGreaterEqual(float(resolve_token(tokens["claro"], "--focus-ring-width").removesuffix("px")), 2)
+        paper = resolve_token(tokens["claro"], "--ui-paper")
+        night = resolve_token(tokens["oscuro"], "--ui-paper")
+        for ring, ground, name in ((light, paper, "papel"), (dark, night, "fondo nocturno"), (on_dark, "#090b18", "sombra de portada")):
+            self.assertGreaterEqual(contrast(ring, ground), 3, f"anillo {ring} sobre {name} {ground}")
+        for _, sel, body in rules:
+            for prop, value in re.findall(r"(?:^|;)\s*(transition(?:-property)?)\s*:\s*([^;]+)", body):
+                names = [part.strip().split()[0] for part in value.split(",") if part.strip()]
+                self.assertFalse({"all", "outline", "outline-color", "outline-offset", "outline-width"} & set(names),
+                                 f"{sel}: {prop} anima el anillo de foco: {value}")
+        surfaces = [sel for _, sel, b in rules if "--focus-ring:var(--focus-ring-on-dark)" in re.sub(r"\s+", "", b)]
+        joined = " ".join(surfaces)
+        for surface in (".page__hero--overlay", ".page__footer", ".lightbox", "pre", "html[data-theme=academic-night]"):
+            self.assertIn(surface, joined, f"superficie oscura sin el anillo neón: {surface}")
 
 
 if __name__ == "__main__":

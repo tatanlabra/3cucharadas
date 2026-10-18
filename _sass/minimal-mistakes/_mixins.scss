@@ -8,11 +8,10 @@
    ========================================================================== */
 
 %tab-focus {
-  /* Default*/
-  outline: thin dotted $focus-color;
-  /* Webkit*/
-  outline: 5px auto $focus-color;
-  outline-offset: -2px;
+  /* 3cucharadas: confirmación de 2px al pulsar, con los tokens del sistema de
+     foco (assets/css/main.scss); el anillo de teclado lo pone :focus-visible. */
+  outline: 2px solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /*

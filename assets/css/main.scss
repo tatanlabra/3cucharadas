@@ -41,7 +41,12 @@ $site-monospace: "FiraCode Nerd Font", "Fira Code", "Fira Mono", Menlo, Monaco, 
   $h-size-1: 1.953em,
   $h-size-2: 1.5625em,
   $h-size-3: 1.25em,
-  $h-size-4: 1.125em
+  $h-size-4: 1.125em,
+  // Sin `all`: el tema animaba también el anillo de foco, que llegaba en negro y
+  // con desplazamiento 0 antes de asentarse (invariante foco-unico).
+  $global-transition: (color 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, opacity 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out)
 );
 
 /* Variable del sitio (el tema no la declara): fuente de los bloques de código. */
@@ -558,11 +563,6 @@ html[data-theme="academic-night"] #main {
 html[data-theme="academic-night"] ::selection {
   background: rgba(120, 169, 255, 0.34);
   color: #fff;
-}
-
-html[data-theme="academic-night"] :focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
 }
 
 html[data-theme="academic-night"] h1,
@@ -1857,12 +1857,8 @@ html[data-theme="academic-night"] p.table-caption {
   background-size: 2.6em 100%, 2.6em 100%, 0.9em 100%, 0.9em 100%;
   background-attachment: local, local, scroll, scroll;
 
-  /* Foco visible: el contenedor es alcanzable con teclado (tabindex="0") y
-     tiene que verse cuando lo está. */
-  &:focus-visible {
-    outline: 3px solid var(--enlace, #1b2a41);
-    outline-offset: 3px;
-  }
+  /* Foco visible: el contenedor es alcanzable con teclado (tabindex="0"); su
+     anillo lo pone el sistema de foco del final del archivo. */
 
   table {
     /* Recupera la caja tabular. Sin esto el `min-width` de abajo no gobierna
@@ -2499,13 +2495,7 @@ html[data-theme="academic-night"] .masthead__nav-toggle:hover {
 
    `outline-offset` positivo lo saca de la pildora en vez de meterlo dentro; el
    navegador respeta el `border-radius`, asi que el anillo sale redondo. */
-:root {
-  --focus-ring: #1b2a41;
-}
-
-html[data-theme="academic-night"] {
-  --focus-ring: var(--night-accent);
-}
+/* Los tokens --focus-ring* viven en el sistema de foco, al final del archivo. */
 
 .masthead__controls .lang-switcher > a:focus,
 .masthead__controls .theme-toggle:focus,
@@ -2513,18 +2503,11 @@ html[data-theme="academic-night"] {
 .masthead__nav-toggle:focus,
 .masthead__nav-link:focus {
   outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
+  outline-offset: var(--focus-ring-offset);
 }
 
-/* Al tabular, el anillo engorda: distingue «llegue con el teclado» de «acabo de
-   pulsar», sin quitarle el indicador a ninguno de los dos. */
-.masthead__controls .lang-switcher > a:focus-visible,
-.masthead__controls .theme-toggle:focus-visible,
-.masthead__controls .search__toggle:focus-visible,
-.masthead__nav-toggle:focus-visible,
-.masthead__nav-link:focus-visible {
-  outline-width: 3px;
-}
+/* Al tabular, el anillo engorda a --focus-ring-width (sistema de foco, al final):
+   distingue «llegué con el teclado» de «acabo de pulsar». */
 
 /* ── Objetivos táctiles ───────────────────────────────────────────────────── */
 
@@ -2940,7 +2923,7 @@ html[data-theme="academic-night"] ::selection {
   text-decoration: none !important;
 }
 .rag-knowledge-graph__open:hover,
-.rag-knowledge-graph__open:focus-visible { background: rgba(149, 169, 255, .18); outline: 3px solid #d5ddff; outline-offset: 2px; }
+.rag-knowledge-graph__open:focus-visible { background: rgba(149, 169, 255, .18); }
 .rag-knowledge-graph__frame { display: block; width: 100%; min-height: 44rem; border: 0; background: var(--rag-bg); }
 
 @media (max-width: 42em) {
@@ -2979,14 +2962,11 @@ html[data-theme="academic-night"] ::selection {
   .page__lead { max-width: 42ch; }
   .page__hero-caption { max-width: 100%; padding: .4em .8em; background: #10121d; color: #f4f6ff; opacity: 1; font-size: .7rem; line-height: 1.5; }
   .page__hero-caption a { color: inherit; text-decoration: underline; }
-  a:focus-visible { outline: 3px solid #ffdb7d; outline-offset: 3px; }
 }
 .ai-disclosure { margin: 0 0 1rem; font-size: .72rem; line-height: 1.6; color: #4c5668; }
 .ai-disclosure a { color: #174d8c; text-decoration: underline; text-underline-offset: .15em; }
-.ai-disclosure a:focus-visible { outline: 3px solid #1662a8; outline-offset: 3px; }
 html[data-theme="academic-night"] .ai-disclosure { color: #bdc5d8; }
 html[data-theme="academic-night"] .ai-disclosure a { color: #a8ccff; }
-html[data-theme="academic-night"] .ai-disclosure :focus-visible { outline-color: #ffdb7d; }
 @media (max-width: 1023px) {
   .page__hero--overlay.page__hero--editorial {
     min-height: 0;
@@ -3018,14 +2998,6 @@ html[data-theme="academic-night"] .page__content .capsula-audio { border-left-co
 .capsula-audio__escuchar { margin: 0.9em 0 0.7em; }
 .capsula-audio__meta { margin: 0; padding: 0; list-style: none; }
 .capsula-audio__meta li { margin: 0.2em 0; }
-.capsula-audio a:focus-visible { outline: 3px solid #ffdb7d; outline-offset: 3px; }
-
-/* Pareja nocturna. El recuadro no cambia de superficie entre temas —misma
-   decisión que `.notice` en 1154-1170, que también restituye valores idénticos
-   para que un cambio futuro en las reglas diurnas no arrastre al tema oscuro—,
-   así que aquí sólo hay una diferencia real: devolver el foco blanco global del
-   nocturno, que las reglas de arriba le ganarían por especificidad. */
-html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color: #ffffff; }
 
 /* ── Carrusel de evidencia cara a cara ─────────────────────────────────── */
 .evidence-carousel {
@@ -3087,12 +3059,6 @@ html[data-theme="academic-night"] .capsula-audio a:focus-visible { outline-color
   cursor: pointer;
 }
 .evidence-carousel__arrows button:disabled { cursor: not-allowed; opacity: 0.34; }
-.evidence-carousel__arrows button:focus-visible,
-.evidence-carousel__dots button:focus-visible,
-.evidence-carousel__viewport:focus-visible {
-  outline: 3px solid #0b62b4;
-  outline-offset: 3px;
-}
 
 .evidence-carousel__viewport {
   overflow-x: auto;
@@ -3211,11 +3177,6 @@ html[data-theme="academic-night"] .evidence-carousel__slide[data-tone="tentative
   font-weight: 700;
   line-height: 1.25;
 }
-.evidence-carousel__media:focus-visible,
-.evidence-carousel__full-size-link:focus-visible {
-  outline: 3px solid #0b62b4;
-  outline-offset: 3px;
-}
 .evidence-carousel__slide[data-slide-id="table-08-rounding"] .evidence-carousel__media {
   min-height: clamp(260px, 32vw, 390px);
 }
@@ -3277,11 +3238,6 @@ html[data-theme="academic-night"] .evidence-carousel {
   box-shadow: 0 1rem 2.8rem rgba(0, 0, 0, 0.45);
 }
 html[data-theme="academic-night"] .evidence-carousel__arrows button { color: #161616; background: #f4f4f4; }
-html[data-theme="academic-night"] .evidence-carousel__arrows button:focus-visible,
-html[data-theme="academic-night"] .evidence-carousel__dots button:focus-visible,
-html[data-theme="academic-night"] .evidence-carousel__viewport:focus-visible,
-html[data-theme="academic-night"] .evidence-carousel__media:focus-visible,
-html[data-theme="academic-night"] .evidence-carousel__full-size-link:focus-visible { outline-color: #ffdb7d; }
 
 @media (max-width: 720px) {
   .evidence-carousel {
@@ -3605,9 +3561,8 @@ html[data-theme="academic-night"] .technical-disclosure { background: #262626; b
 .evidence-carousel--stylized .thesis-stylized__hd-link:focus-visible,
 .evidence-carousel--stylized .thesis-stylized__data summary:focus-visible,
 .evidence-carousel--stylized .thesis-stylized__table-wrap:focus-visible {
-  outline: 3px solid #3e7e9e;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 6px rgba(62, 126, 158, 0.22);
+  /* El anillo lo pone el sistema de foco; sin halo propio. */
+  box-shadow: none;
 }
 
 html[data-theme="academic-night"] .evidence-carousel--stylized {
@@ -3733,10 +3688,6 @@ html[data-theme="academic-night"] .evidence-carousel--stylized .thesis-stylized_
 }
 .page__content .thesis-stylized__tabs button:nth-child(-n+3)[aria-current="true"] { border-bottom-color: var(--stylized-lime); }
 .page__content .thesis-stylized__tabs button:nth-child(n+5)[aria-current="true"] { border-bottom-color: var(--stylized-magenta); }
-.page__content .thesis-stylized__tabs button:focus-visible {
-  outline: 3px solid #ffd166;
-  outline-offset: -4px;
-}
 .page__content .evidence-carousel--stylized .thesis-stylized__toolbar {
   grid-template-columns: minmax(0, 1fr) auto auto;
   margin: 0.75rem 0 0.65rem;
@@ -4041,7 +3992,6 @@ html:not([data-theme="academic-night"]) .page__content .evidence-carousel--styli
 .cucharadas__spoon--fill svg { fill: currentColor; }
 .cucharadas__n { position: absolute; inset-block-end: -0.05rem; inset-inline-end: 0.1rem; font-size: 0.62rem; font-weight: 700; color: #26354c; }
 .cucharadas__step[aria-current="step"] { background: rgba(31, 95, 139, 0.12); }
-.cucharadas__step:focus-visible { outline: 3px solid #1f5f8b; outline-offset: 2px; }
 html[data-theme="academic-night"] .cucharadas { background: rgba(22, 22, 22, 0.9); border-color: #525252; }
 html[data-theme="academic-night"] .cucharadas__step { color: #78a9ff; }
 html[data-theme="academic-night"] .cucharadas__n { color: #f4f4f4; }
@@ -4544,7 +4494,6 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
 :root {
   --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ui-fast: 140ms;
-  --focus-ring: #1f5f8b;
   --ui-paper: #faf7f0;
   --ui-surface: #fffdf8;
   --ui-ink: #1b2a41;
@@ -4585,12 +4534,6 @@ html[data-theme="academic-night"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-:is(.btn, .masthead__nav-link, .masthead__nav-toggle, .search__toggle, .theme-toggle,
-    .subscribe-rss__all, .subscribe-rss__topic, .page__taxonomy-item, .pagination--pager,
-    .toc__summary):focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
-}
 
 .btn {
   border-radius: 999px;
@@ -4824,10 +4767,6 @@ html {
   color: #0b1020;
 }
 
-.lightbox :is(.lightbox__close, .lightbox__prev, .lightbox__next):focus-visible {
-  outline: 3px solid #ffdb7d;
-  outline-offset: 2px;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .lightbox[open] {
@@ -4838,4 +4777,44 @@ html {
     from { opacity: 0; transform: scale(0.98); }
     to { opacity: 1; transform: none; }
   }
+}
+
+/* ── Sistema de foco ─────────────────────────────────────────────────────────
+   Un solo anillo de teclado en todo el sitio (auditoría UX 2026-10-17). Antes
+   convivían 20 estilos en claro y 15 en oscuro —anillos `auto` del navegador y
+   del tema, literales #0b62b4, #ffdb7d, #ffd166, #3e7e9e, #d5ddff, blanco y
+   negro— y 25 focos quedaban bajo el 3:1 de WCAG 1.4.11 (anillo navy de los
+   enlaces de salto sobre negro, anillo negro del logo en oscuro, amarillo
+   sobre crema en la cápsula y las pestañas estilizadas).
+
+   Color según C5 (capa 1, decisión de la persona usuaria): navy de la
+   identidad en claro y el acento neón en oscuro. Una superficie oscura en
+   cualquier tema (portada con imagen, pie de página, visor ampliado, grafo,
+   código) toma el
+   neón. Un contexto que recorta su desborde (pestañas con overflow) mete el
+   anillo hacia dentro con --focus-ring-offset. Los componentes no declaran
+   anillos propios: cambian tokens. `!important` solo aquí, para que ninguna
+   regla de componente reabra la fragmentación. */
+:root {
+  --focus-ring: #1b2a41;
+  --focus-ring-on-dark: #3ddbd9;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+html[data-theme="academic-night"] {
+  --focus-ring: var(--focus-ring-on-dark);
+}
+
+:is(.page__hero--overlay, .page__footer, .lightbox, .rag-knowledge-graph, pre, .highlight) {
+  --focus-ring: var(--focus-ring-on-dark);
+}
+
+.page__content .thesis-stylized__tabs {
+  --focus-ring-offset: -4px;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring) !important;
+  outline-offset: var(--focus-ring-offset) !important;
 }
