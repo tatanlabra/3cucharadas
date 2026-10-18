@@ -165,22 +165,27 @@ CAUSAL_PROMOTIONS = {
   ]
 }.freeze
 NEGATION = /\b(?:no|not|ni|nunca|never|sin|without|cannot|incorrect[oa]?|incorrect|wrong|falso|false|err[oó]neo)\b|n't\b/
-# La negación cuenta solo en su cláusula: se corta en signos y en conjunciones
-# adversativas, y se miran las últimas seis palabras antes de la afirmación, más el
-# hueco entre verbo y objeto. Paridad: un número impar niega; uno par («not
-# incorrect») afirma. Así, «X is not descriptive, but these results are impacts» se
-# rechaza y «these findings are not impacts» se acepta (ronda 3c de Codex).
-CLAUSE_BREAK = /[.;:!?\n,()—–]|\b(?:but|however|although|yet|pero|sino|aunque|mientras)\b/
 # Modismos con forma negativa que no niegan la afirmación siguiente.
 NON_NEGATING = /\b(?:sin\s+duda|without\s+(?:a\s+)?doubt|not\s+only|no\s+s[oó]lo|no\s+obstante|nonetheless)\b/
+CLAUSE_BREAK = /[.;:!?\n,()—–]|\b(?:but|however|although|yet|pero|sino|aunque|mientras)\b/
+# Una negación cuenta solo si gobierna la afirmación (ronda 3g de Codex: una ventana de
+# N palabras con paridad deja entrar negaciones ajenas). Tres sitios:
+#   1. pegada al verbo o al sujeto: «do not show», «no muestran» (dos palabras previas);
+#   2. un marco que termina justo en la afirmación: «it would be incorrect to say»,
+#      «es falso que», «it is not true that»; «not incorrect» suma dos y afirma;
+#   3. dentro del hueco verbo–objeto: «are not impacts».
+# Un número impar niega; uno par afirma.
+DIRECT_NEGATOR = /\A(?:no|not|never|nunca|cannot|n't|don't|doesn't|didn't|can't|won't)\z/
+NEGATION_FRAME = /(?:(?<negated>\b(?:not|no\s+es|no\s+ser[ií]a|is\s+not|isn't)\s+))?\b(?<word>incorrect[oa]?|incorrect|wrong|false|falso|err[oó]neo|misleading|enga[ñn]oso|true|cierto|verdad|accurate|correct[oa]?|correct)\s+(?:to\s+(?:say|claim|conclude|state)\s+(?:that\s+)?|(?:decir|afirmar|concluir|sostener)\s+que\s+|that\s+|que\s+)\z/
+NEGATIVE_FRAME_WORD = /\A(?:incorrect[oa]?|incorrect|wrong|false|falso|err[oó]neo|misleading|enga[ñn]oso)\z/
 
-def negated_promotion?(lower, match)
-  # -1 conserva el campo vacío final: si el separador queda justo antes de la
-  # afirmación, la cláusula es vacía y no hereda la negación anterior (ronda 3d).
-  clause = lower[0...match.begin(0)].split(CLAUSE_BREAK, -1).last.to_s
-  window = clause.split.last(6).join(" ").gsub(NON_NEGATING, " ")
-  gap = (match.names.include?("gap") ? match[:gap].to_s : "").gsub(NON_NEGATING, " ")
-  (window.scan(NEGATION).size + gap.scan(NEGATION).size).odd?
+def negated_promotion?(text, match)
+  clause = text[0...match.begin(0)].split(CLAUSE_BREAK, -1).last.to_s
+  direct = clause.split.last(2).count { |word| word.match?(DIRECT_NEGATOR) }
+  frame = clause.match(NEGATION_FRAME)
+  framed = frame ? (frame[:negated] ? 1 : 0) + (frame[:word].match?(NEGATIVE_FRAME_WORD) ? 1 : 0) : 0
+  gap = match.names.include?("gap") ? match[:gap].to_s.scan(NEGATION).size : 0
+  (direct + framed + gap).odd?
 end
 
 def affirmed_promotions(lower, lang)
@@ -1194,6 +1199,66 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       $strict = false
       expected = "en: promoción causal prohibida: impactos"
       check_language!(en_front, "#{en_body}\nThese findings are without a doubt impacts.\n", "en", enforce_length: false)
+    when "matrix-promotions", "matrix-cautions"
+      # Matrices de la ronda 3g de Codex: promociones que deben rechazarse y cautelas
+      # que deben aceptarse. Una sola que falle cambia el motivo y el arnés lo marca.
+      $strict = false
+      $strict = false
+      idi_en = ["without a doubt", "not only", "nonetheless"]
+      idi_es = ["sin duda", "no solo", "no sólo", "no obstante"]
+      promo = [
+        ["en", "The analysis is not descriptive in this model and without a doubt these findings are impacts."],
+        ["es", "El análisis no es descriptivo aquí y sin duda estos resultados son impactos."],
+        ["en", "The analysis is not very descriptive and these results not only demonstrate that SLEPs and SAE had no effects but also establish it."],
+        ["es", "El análisis no es descriptivo y estos resultados no solo demostraron que los SLEP y el SAE no tuvieron efectos sino también lo establecieron."],
+        ["en", "It is not incorrect to say these findings are impacts."],
+        ["en", "It is true that these findings are impacts."],
+        ["es", "No es falso que estos resultados son impactos."],
+        ["es", "Es cierto que estos resultados son impactos."],
+        ["en", "The model is not descriptive, but these results demonstrate that SLEPs and SAE had no effects."],
+        ["en", "This model is not descriptive.\nThese findings are impacts."],
+        ["es", "El análisis no es descriptivo.Estos resultados son impactos."],
+        ["en", "These results indicated that SLEPs and SAE had no effects."],
+        ["es", "La cercanía es suficiente para decidir un cierre."],
+        ["en", "Proximity is enough to decide on closure."]
+      ] + idi_en.flat_map { |i| [["en", "These findings are #{i} impacts."], ["en", "#{i.capitalize} these findings are impacts."], ["en", "#{i.capitalize}, these results demonstrate that SLEPs and SAE had no effects."]] } +
+          idi_es.flat_map { |i| [["es", "Estos resultados son #{i} impactos."], ["es", "#{i.capitalize} estos resultados son impactos."], ["es", "#{i.capitalize}, los datos muestran que los SLEP y el SAE no tuvieron efectos."]] }
+      caut = [
+        ["en", "These results do not show that SLEPs and SAE had no effects."],
+        ["en", "These results did not demonstrate that SLEPs and SAE had no effects."],
+        ["en", "These results cannot prove that SLEPs and SAE had no effects."],
+        ["en", "It would be incorrect to say these findings are impacts."],
+        ["en", "It is false that these findings are impacts."],
+        ["en", "It is not true that these findings are impacts."],
+        ["en", "It would be misleading to say these findings are impacts."],
+        ["en", "These findings are not impacts."],
+        ["en", "Proximity is not enough to decide on closure."],
+        ["es", "Estos resultados no muestran que los SLEP y el SAE no tuvieron efectos."],
+        ["es", "Los datos no demostraron que los SLEP y el SAE no tuvieron efectos."],
+        ["es", "Es falso que estos resultados son impactos."],
+        ["es", "No es cierto que estos resultados son impactos."],
+        ["es", "Sería incorrecto decir que estos resultados son impactos."],
+        ["es", "La cercanía no basta para decidir un cierre."]
+      ] + idi_en.flat_map { |i| [["en", "#{i.capitalize}, these findings are not impacts."], ["en", "These findings are #{i} not impacts."], ["en", "#{i.capitalize}, these results do not show that SLEPs and SAE had no effects."]] } +
+          idi_es.flat_map { |i| [["es", "#{i.capitalize}, estos resultados no son impactos."], ["es", "Estos resultados son #{i} no impactos."], ["es", "#{i.capitalize}, los datos no muestran que los SLEP y el SAE no tuvieron efectos."]] }
+      run = lambda do |lang, frase|
+        front, body = lang == "es" ? [es_front, es_body] : [en_front, en_body]
+        begin
+          check_language!(front, "#{body}\n#{frase}\n", lang, enforce_length: false); :pass
+        rescue VerificationError => e
+          e.message.include?("promoción causal prohibida") ? :promo : "otro: #{e.message}"
+        end
+      end
+      if name == "matrix-promotions"
+        escapes = promo.reject { |l, f| run.call(l, f) == :promo }
+        raise VerificationError, "promoción no rechazada: #{escapes.first&.last}" unless escapes.empty?
+        expected = "#{promo.size} promociones rechazadas"
+      else
+        false_rejections = caut.reject { |l, f| run.call(l, f) == :pass }
+        raise VerificationError, "cautela rechazada: #{false_rejections.first&.last}" unless false_rejections.empty?
+        expected = "#{caut.size} cautelas aceptadas"
+      end
+      raise VerificationError, expected
     when "policy-auto-close-default"
       # Borra la cautela sin afirmar nada: falsa la frontera, no el patrón de promoción.
       $strict = false
