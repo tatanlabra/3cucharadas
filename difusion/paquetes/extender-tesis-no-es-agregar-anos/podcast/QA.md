@@ -1,6 +1,6 @@
 # QA — cápsula de audio de la serie de la tesis (Post I y Post II)
 
-Estado: **publicado en Spotify** (`https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc`, HTTP 200); **pendiente de escucha humana**.
+Estado: **publicado en Spotify** (`https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc`, HTTP 200) y **aprobado por escucha humana el 2026-10-18**: la persona usuaria declaró haberla escuchado y aprobó los cuatro puntos de abajo (respuesta nativa en la sesión de cierre).
 
 ## Comprobado por máquina (2026-10-17)
 
@@ -13,7 +13,7 @@ Estado: **publicado en Spotify** (`https://open.spotify.com/episode/7ho9naqSgAot
 | La cápsula sale en los posts ES y no en los EN | ES I = 1, ES II = 1, EN I = 0, EN II = 0 | `rg -c 'class="notice capsula-audio"'` en los cuatro artefactos |
 | La cápsula no entra al feed RSS | 0 apariciones en `feed.xml` | `rg -c capsula-audio public/feed.xml` |
 
-## Pendiente de escucha humana
+## Escucha humana (aprobada por la persona usuaria el 2026-10-18)
 
 1. Las cifras del audio coinciden con los posts: Post I (50 hipótesis, 34 juicios) y Post II (900 cierres oficiales, 330 estrictos, 665 con trayectoria, `28 → 23 → 1`).
 2. El audio conserva las salvedades del Post II: no identifica efectos causales y no es una regla para decidir qué escuelas cerrar. El título del episodio pregunta «¿cuáles cerrar?»: comprobar que el audio lo trata como pregunta y no como recomendación.
