@@ -124,6 +124,39 @@ end
 $strict = false
 $wording_warnings = []
 
+# Fronteras causales y de uso público (revisión de Codex, ronda 3): son sustancia, no
+# redacción. Si una edición las quita o las invierte, falla también sin --strict.
+CAUSAL_FRONTIERS = {
+  "es" => [
+    "estos resultados no permiten concluir que los slep y el sae no tuvieron efectos",
+    "los resultados son diagnósticos del diseño, no impactos",
+    "no como una regla para cerrar", "observación → diagnóstico → decisión",
+    "no bastan para decidir un cierre", "nada de ello entrega autoridad sobre otros sostenedores",
+    "no identifica pobreza individual ni decide dónde intervenir",
+    "este post propone evaluar esa cadena; no acredita que funcione",
+    "el mínimo de diez es una regla retrospectiva", "«no estimable» no significa cero"
+  ],
+  "en" => [
+    "these results do not allow me to conclude that sleps and sae had no effects",
+    "these findings diagnose the designs; they are not impacts",
+    "not a rule for closing", "observation → diagnosis → decision",
+    "they are not enough to decide on closure", "none of this grants authority over other providers",
+    "neither identifies individual poverty nor decides where",
+    "this post proposes the chain for evaluation; it does not establish that it works",
+    "the minimum of ten is a retrospective rule", "“not estimable” does not mean zero"
+  ]
+}.freeze
+
+def frontier?(lang, fragment)
+  CAUSAL_FRONTIERS.fetch(lang, []).include?(fragment)
+end
+
+# Exige `fragment`: error si es una frontera sustantiva; aviso (salvo --strict) si es redacción.
+def require_fragment(lower, lang, fragment, message)
+  condition = lower.include?(fragment)
+  frontier?(lang, fragment) ? fail_unless(condition, message) : fail_wording(condition, message)
+end
+
 def fail_wording(condition, message)
   return true if condition
   raise VerificationError, message if $strict
@@ -639,13 +672,13 @@ def check_policy_prose!(section, lower, lang)
                [
                  "decision support", "observation → diagnosis → decision",
                  "a slep plans and manages its own network", "not establishments run by other providers",
-                 "none of this grants authority over other providers",
+                 "they are not enough to decide on closure", "none of this grants authority over other providers",
                  "a false positive would deem unviable a school", "a false negative would miss a risky transition",
                  "ive-sinae describes aggregate school composition", "the theory of change links",
                  "this post proposes the chain for evaluation; it does not establish that it works"
                ]
              end
-  required.each { |fragment| fail_wording(lower.include?(fragment), "#{lang}: frontera de uso público ausente: #{fragment}") }
+  required.each { |fragment| require_fragment(lower, lang, fragment, "#{lang}: frontera de uso público ausente: #{fragment}") }
 end
 
 def check_policy_boundaries!(body, lang)
@@ -785,7 +818,7 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
     fail_unless(estimability_mentions(lower, lang) >= 1, "#{lang}: «no estimable» ausente")
     fail_wording(estimability_mentions(lower, lang) >= 2, "#{lang}: «no estimable» ausente o insuficiente")
     not_zero = lang == "es" ? "«no estimable» no significa cero" : "“not estimable” does not mean zero"
-    fail_wording(lower.include?(not_zero), "#{lang}: «no estimable» no se distingue de cero")
+    require_fragment(lower, lang, not_zero, "#{lang}: «no estimable» no se distingue de cero")
     required = if lang == "es"
                  [
                    "900 cierres oficiales", "330 cierres estrictos", "28 → 23 → 1", "21 y 8",
@@ -815,13 +848,15 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                    "the minimum of ten is a retrospective rule", "hhi +0.0035 [-0.0104, +0.0174]"
                  ]
                end
-    required.each { |fragment| fail_wording(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
+    required.each { |fragment| require_fragment(lower, lang, fragment, "#{lang}: evidencia o cautela ausente: #{fragment}") }
     forbidden = if lang == "es"
                   ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero",
-                   "la baja de matrícula causó el cierre", "también toda la oferta de una comuna"]
+                   "la baja de matrícula causó el cierre", "también toda la oferta de una comuna",
+                   "muestran que los slep y el sae no tuvieron efectos", "los resultados son impactos"]
                 else
                   ["closures improved", "causal effect is identified", "should close first",
-                   "falling enrolment caused the closure", "and every school in the commune"]
+                   "falling enrolment caused the closure", "and every school in the commune",
+                   "show that sleps and sae had no effects", "these findings are impacts"]
                 end
     forbidden.each { |fragment| fail_unless(!lower.include?(fragment), "#{lang}: promoción causal prohibida: #{fragment}") }
     check_release_boundaries!(body, lang, societal: true)
@@ -997,6 +1032,28 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       expected = "en: evidencia o cautela ausente: the minimum of ten is a retrospective rule"
       mutant = en_body.gsub("The minimum of ten is a retrospective rule", "The minimum of ten is a prespecified rule")
       check_language!(en_front, mutant, "en", enforce_length: false)
+    when "causal-null-default"
+      $strict = false
+      expected = "en: evidencia o cautela ausente: these results do not allow me to conclude that sleps and sae had no effects"
+      mutant = en_body.gsub(
+        "These results do not allow me to conclude that SLEPs and SAE had no effects",
+        "These results show that SLEPs and SAE had no effects"
+      )
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "impacts-default"
+      $strict = false
+      expected = "en: evidencia o cautela ausente: these findings diagnose the designs; they are not impacts"
+      mutant = en_body.gsub("these findings diagnose the designs; they are not impacts", "these findings are impacts")
+      check_language!(en_front, mutant, "en", enforce_length: false)
+    when "causal-forbidden-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: show that sleps and sae had no effects"
+      check_language!(en_front, "#{en_body}\nThe evidence does show that SLEPs and SAE had no effects.\n", "en", enforce_length: false)
+    when "policy-auto-close-default"
+      $strict = false
+      expected = "es: frontera de uso público ausente: no bastan para decidir un cierre"
+      mutant = es_body.gsub("no bastan para decidir un cierre", "bastan para decidir un cierre")
+      check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-null-interpretation"
       expected = "en: evidencia o cautela ausente: these results do not allow me to conclude that sleps and sae had no effects"
       mutant = en_body.gsub(
