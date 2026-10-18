@@ -51,6 +51,7 @@ class PublicationNotifierTests(unittest.TestCase):
             [
                 ("npm", "ci", "--ignore-scripts"),
                 ("npm", "run", "build:catastro"),
+                ("npm", "run", "build:thesis-post2-map"),
                 ("npm", "run", "build:memoria-gobernada"),
                 ("npm", "run", "check:memoria-gobernada:assets"),
                 ("bundle", "exec", "jekyll", "build", "-d", "public"),

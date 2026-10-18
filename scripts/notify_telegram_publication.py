@@ -123,6 +123,9 @@ def _verify_local_gates(repo_root: Path, commit: str) -> None:
             commands = (
                 ("npm", "ci", "--ignore-scripts"),
                 ("npm", "run", "build:catastro"),
+                # Mismo orden que build_site en .gitlab-ci.yml: sin el mapa del Post II,
+                # verify_site_artifact.rb falla con «Thesis Post II map manifest is missing».
+                ("npm", "run", "build:thesis-post2-map"),
                 ("npm", "run", "build:memoria-gobernada"),
                 ("npm", "run", "check:memoria-gobernada:assets"),
                 ("bundle", "exec", "jekyll", "build", "-d", "public"),
