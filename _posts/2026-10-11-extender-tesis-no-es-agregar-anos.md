@@ -42,9 +42,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 distribution:
-  social: false
+  social: true
   republish: []
-  skip_reason: "Difusión pausada hasta verificar la URL pública y recibir autorización específica."
 ai_disclosure:
   level: some_ai
   components:

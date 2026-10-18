@@ -30,9 +30,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 distribution:
-  social: false
+  social: true
   republish: []
-  skip_reason: "Post-publication distribution paused by editorial decision when the post was published."
 ai_disclosure:
   level: some_ai
   components:

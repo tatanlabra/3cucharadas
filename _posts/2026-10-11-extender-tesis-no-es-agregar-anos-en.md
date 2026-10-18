@@ -31,9 +31,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 distribution:
-  social: false
+  social: true
   republish: []
-  skip_reason: "Distribution paused until the public URL is verified and specific authorisation is received."
 ai_disclosure:
   level: some_ai
   components:
