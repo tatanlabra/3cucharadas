@@ -184,8 +184,11 @@ def negated_promotion?(lower, match)
 end
 
 def affirmed_promotions(lower, lang)
+  # Los modismos se quitan antes de buscar (ronda 3f): así no ocupan el hueco
+  # verbo–objeto («are without a doubt impacts») ni cuentan como negación.
+  text = lower.gsub(NON_NEGATING, " ")
   CAUSAL_PROMOTIONS.fetch(lang, []).filter_map do |name, pattern|
-    affirmed = lower.to_enum(:scan, pattern).map { Regexp.last_match }.any? { |match| !negated_promotion?(lower, match) }
+    affirmed = text.to_enum(:scan, pattern).map { Regexp.last_match }.any? { |match| !negated_promotion?(text, match) }
     name if affirmed
   end
 end
@@ -1187,6 +1190,10 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       $strict = false
       expected = "en: promoción causal prohibida: impactos"
       check_language!(en_front, "#{en_body}\nThe model (which is not descriptive) these findings are impacts.\n", "en", enforce_length: false)
+    when "idiom-without-doubt-gap-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nThese findings are without a doubt impacts.\n", "en", enforce_length: false)
     when "policy-auto-close-default"
       # Borra la cautela sin afirmar nada: falsa la frontera, no el patrón de promoción.
       $strict = false
