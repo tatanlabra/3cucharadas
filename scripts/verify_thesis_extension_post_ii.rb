@@ -148,8 +148,12 @@ def visible_text(markdown)
   markdown.gsub(/<img\b[^>]*>/mi, "").gsub(/\{%.+?%\}/m, "")
 end
 
-def public_and_technical(body)
+def public_and_technical(body, required: true)
   match = body.match(/<details\b[^>]*class=["'][^"']*technical-disclosure[^"']*["'][^>]*>.*?<\/details>/mi)
+  # El redline aprobado del 2026-10-17 (human-redline.md:38) llevó la nota técnica
+  # a «Alcance y reproducibilidad» en lenguaje llano: en societal-contribution-v1
+  # el cuerpo entero es relato público.
+  return [body, ""] if match.nil? && !required
   fail_unless(match, "nota técnica separada ausente")
   [body.sub(match[0], ""), match[0]]
 end
@@ -172,6 +176,10 @@ def visible_word_count(markdown)
     .gsub(/<[^>]+>/m, " ")
     .scan(/[\p{L}\p{N}]+(?:[.,][\p{L}\p{N}]+)*/u)
     .length
+end
+
+def estimability_mentions(lower, lang)
+  lower.scan(lang == "es" ? /\bno estimable\b/ : /\bnot estimable\b/).length
 end
 
 def normalized_text(text)
@@ -552,8 +560,8 @@ def check_include!(text)
   fail_unless(!text.include?("data-market-map-poster"), "el include conserva enlace visible a la lámina estática")
 end
 
-def check_release_boundaries!(body, lang)
-  public_body, technical_body = public_and_technical(body)
+def check_release_boundaries!(body, lang, societal: false)
+  public_body, technical_body = public_and_technical(body, required: !societal)
   public_text = normalized_text(visible_text(public_body)).gsub(/[*`]/, "")
   technical_text = normalized_text(visible_text(technical_body)).gsub(/[*`]/, "")
   public_lower = public_text.downcase
@@ -562,7 +570,15 @@ def check_release_boundaries!(body, lang)
   claim_ids.each do |claim_id|
     fail_unless(public_source.scan(%(id="#{claim_id}")).length == 1, "#{lang}: claim visible ausente o duplicado: #{claim_id}")
   end
-  selection_fragments = if lang == "es"
+  selection_fragments = if societal
+                          # El redline retiró la frase sobre selección ciega a resultados; quedan el
+                          # criterio de coordenada, las exclusiones y el conteo vinculado.
+                          if lang == "es"
+                            ["primera coordenada oficial válida entre el año de entrada y 2025", "nueve trayectorias inestables", "38 cierres vinculados por proximidad con 29 aperturas únicas"]
+                          else
+                            ["first valid official coordinate between the entry year and 2025", "nine unstable trajectories", "38 closures remain linked by proximity to 29 unique openings"]
+                          end
+                        elsif lang == "es"
                           ["ni los valores ni la disponibilidad de resultados participaron en la selección", "primera coordenada oficial válida entre el año de entrada y 2025", "nueve trayectorias inestables", "38 cierres emparejados con 29 aperturas únicas"]
                         else
                           ["neither outcome values nor outcome availability enter the selection", "first valid official coordinate between the entry year and 2025", "nine unstable trajectories", "38 matched closures and 29 unique openings"]
@@ -570,10 +586,46 @@ def check_release_boundaries!(body, lang)
   fail_unless(selection_fragments.all? { |fragment| public_lower.include?(fragment) }, "selección territorial incompletamente divulgada #{lang}")
   leaked = %w[weighted_raw MR1 MR2].select { |token| public_text.include?(token) }
   fail_unless(leaked.empty?, "relato público expone identificadores de auditoría #{lang}: #{leaked.join(', ')}")
-  fail_unless(%w[MR1 MR2].all? { |token| technical_text.include?(token) }, "nota técnica perdió identificadores auditables #{lang}")
+  # Sin nota técnica, MR1/MR2 viven en el registro y el freeze (--claims-only); los
+  # puntos MR2 sin soporte no pueden aparecer en ninguna parte del post.
+  fail_unless(%w[MR1 MR2].all? { |token| technical_text.include?(token) }, "nota técnica perdió identificadores auditables #{lang}") unless societal
   mr2_point_tokens = %w[-0.124 -0.512 -0.284 -0.030 -0.322 -0.250]
-  leaked_mr2_points = mr2_point_tokens.select { |token| technical_text.include?(token) }
+  scanned = societal ? public_text : technical_text
+  leaked_mr2_points = mr2_point_tokens.select { |token| scanned.include?(token) }
   fail_unless(leaked_mr2_points.empty?, "nota técnica expone puntos MR2 subsoportados #{lang}: #{leaked_mr2_points.join(', ')}")
+end
+
+def check_policy_prose!(section, lower, lang)
+  text = normalized_text(visible_text(section)).gsub(/[*`]/, "").downcase
+  stages = if lang == "es"
+             ["validar el evento", "diagnosticar la trayectoria", "comprobar vacantes reales", "evaluar resultados con seguimiento estudiantil"]
+           else
+             ["the event must first be validated", "diagnosis then needs", "verify actual vacancies", "evaluation with student follow-up"]
+           end
+  positions = stages.map { |stage| text.index(stage) }
+  fail_unless(positions.none?(&:nil?), "#{lang}: etapa de decisión ausente en la política")
+  fail_unless(positions == positions.sort, "#{lang}: etapas de decisión fuera de orden")
+  required = if lang == "es"
+               [
+                 "apoyo a la decisión", "observación → diagnóstico → decisión",
+                 "no bastan para decidir un cierre",
+                 "un slep planifica y gestiona su propia red", "no los establecimientos de otros sostenedores",
+                 "nada de ello entrega autoridad sobre otros sostenedores",
+                 "un falso positivo declararía inviable una escuela", "un falso negativo omitiría una transición riesgosa",
+                 "ive-sinae describe composición escolar agregada", "la teoría de cambio enlaza",
+                 "este post propone evaluar esa cadena; no acredita que funcione"
+               ]
+             else
+               [
+                 "decision support", "observation → diagnosis → decision",
+                 "a slep plans and manages its own network", "not establishments run by other providers",
+                 "none of this grants authority over other providers",
+                 "a false positive would deem unviable a school", "a false negative would miss a risky transition",
+                 "ive-sinae describes aggregate school composition", "the theory of change links",
+                 "this post proposes the chain for evaluation; it does not establish that it works"
+               ]
+             end
+  required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: frontera de uso público ausente: #{fragment}") }
 end
 
 def check_policy_boundaries!(body, lang)
@@ -581,6 +633,10 @@ def check_policy_boundaries!(body, lang)
   heading = lang == "es" ? "Qué puede usar la política pública" : "What public policy can use"
   section = body.match(/^## #{Regexp.escape(heading)}\s*$\n(.*?)(?=^## )/m)
   fail_unless(section, "#{lang}: sección de política ausente")
+  if body.include?('id="claim-policy-use"')
+    check_policy_prose!(section[1], lower, lang)
+    return
+  end
   table_lines = section[1].lines.map(&:strip).select { |line| line.start_with?("|") }
   fail_unless(table_lines.length == 6, "#{lang}: matriz de política debe tener cuatro filas")
   rows = table_lines.drop(2).map do |line|
@@ -703,35 +759,54 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
     fail_unless(!body.include?("{% include thesis-post2-coordinate-audit-box.html %}"), "#{lang}: auditoría geográfica duplicada fuera del componente unificado")
     fail_unless(!body.include?("{% include thesis-extension-results-carousel.html %}"), "#{lang}: carrusel redundante sigue montado")
     fail_unless(!text.match?(FORBIDDEN_PRIVATE), "#{lang}: ruta o identificador privado expuesto")
-    fail_unless(text.scan("NOT_ESTIMABLE").length >= 2, "#{lang}: NOT_ESTIMABLE traducido o ausente")
+    # El redline aprobado reemplaza la jerga `NOT_ESTIMABLE` por «no estimable» /
+    # «not estimable» (human-redline.md:38); lo que se exige es que el estado se
+    # nombre y se distinga de cero, no el literal técnico.
+    fail_unless(estimability_mentions(lower, lang) >= 2, "#{lang}: «no estimable» ausente o insuficiente")
+    not_zero = lang == "es" ? "«no estimable» no significa cero" : "“not estimable” does not mean zero"
+    fail_unless(lower.include?(not_zero), "#{lang}: «no estimable» no se distingue de cero")
     required = if lang == "es"
                  [
                    "900 cierres oficiales", "330 cierres estrictos", "28 → 23 → 1", "21 y 8",
                    "+0.029", "[-0.095; +0.158]", "4/6/8", "1/1/2",
-                   "38 cierres emparejados con 29 aperturas únicas", "1.046 km", "7.860 km",
+                   "38 cierres vinculados por proximidad con 29 aperturas únicas",
                    "rbd 391", "rbd 390", "1.399", "977", "432 a 738",
-                   "ninguna de las 25", "53 de 70 territorios", "hhi +0.0035",
+                   "ninguna de las 25", "auc con validación cruzada 0.5341", "ihh +0.0035",
                    "estos resultados no permiten concluir que los slep y el sae no tuvieron efectos",
-                   "observación → diagnóstico → decisión", "no como una regla para cerrar"
+                   "observación → diagnóstico → decisión", "no como una regla para cerrar",
+                   "sobre los 684 cierres desde actividad", "no identifica pobreza individual ni decide dónde intervenir",
+                   "el diagnóstico basal no mostró capacidad predictiva distinguible del azar",
+                   "los resultados son diagnósticos del diseño, no impactos",
+                   "el mínimo de diez es una regla retrospectiva", "ihh +0.0035 [-0.0104; +0.0174]"
                  ]
                else
                  [
                    "900 official closures", "330 strict closures", "28 → 23 → 1", "21 and 8",
                    "+0.029", "[-0.095, +0.158]", "4/6/8", "1/1/2",
-                   "38 matched closures and 29 unique openings", "1.046 km", "7.860 km",
+                   "38 closures remain linked by proximity to 29 unique openings",
                    "rbd 391", "rbd 390", "1.399", "977", "432 to 738",
-                   "none of the 25", "53 of 70 territories", "hhi +0.0035",
+                   "none of the 25", "cross-validated auc 0.5341", "hhi +0.0035",
                    "these results do not allow me to conclude that sleps and sae had no effects",
-                   "observation → diagnosis → decision", "not a rule for closing"
+                   "observation → diagnosis → decision", "not a rule for closing",
+                   "of the 684 closures from active status", "neither identifies individual poverty nor decides where",
+                   "the baseline diagnostic showed no predictive ability distinguishable from chance",
+                   "these findings diagnose the designs; they are not impacts",
+                   "the minimum of ten is a retrospective rule", "hhi +0.0035 [-0.0104, +0.0174]"
                  ]
                end
     required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
-    forbidden = lang == "es" ? ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero"] : ["closures improved", "causal effect is identified", "should close first"]
+    forbidden = if lang == "es"
+                  ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero",
+                   "la baja de matrícula causó el cierre", "también toda la oferta de una comuna"]
+                else
+                  ["closures improved", "causal effect is identified", "should close first",
+                   "falling enrolment caused the closure", "and every school in the commune"]
+                end
     forbidden.each { |fragment| fail_unless(!lower.include?(fragment), "#{lang}: promoción causal prohibida: #{fragment}") }
-    check_release_boundaries!(body, lang)
+    check_release_boundaries!(body, lang, societal: true)
     check_policy_boundaries!(body, lang)
     if enforce_length
-      public_body, = public_and_technical(body)
+      public_body, = public_and_technical(body, required: false)
       word_count = visible_word_count(public_body)
       fail_unless(word_count >= 3_000, "#{lang}: relato visible demasiado breve (#{word_count})")
       if word_count > EDITORIAL_WORD_TARGET
@@ -808,7 +883,10 @@ def check_parity!(es_front, es_body, en_front, en_body)
   check_identity!(es_front, "es")
   check_identity!(en_front, "en")
   fail_unless(es_body.scan(/^## /).length == en_body.scan(/^## /).length, "cantidad de secciones ES/EN difiere")
-  fail_unless(visible_text(es_body).scan("NOT_ESTIMABLE").length == visible_text(en_body).scan("NOT_ESTIMABLE").length, "cantidad NOT_ESTIMABLE ES/EN difiere")
+  es_lower = normalized_text(visible_text(es_body)).downcase
+  en_lower = normalized_text(visible_text(en_body)).downcase
+  fail_unless(es_body.scan("NOT_ESTIMABLE").length == en_body.scan("NOT_ESTIMABLE").length, "cantidad NOT_ESTIMABLE ES/EN difiere")
+  fail_unless(estimability_mentions(es_lower, "es") == estimability_mentions(en_lower, "en"), "cantidad de «no estimable» ES/EN difiere")
   numeric_tokens = lambda do |body|
     normalized_text(visible_text(body).gsub(/\]\([^)]+\)/, "]"))
       .scan(/[+-]?\d+(?:\.\d+)*(?:e[+-]?\d+)?(?:\/\d+)*(?:\s*%)?/i)
@@ -860,6 +938,13 @@ def check_closeout_map!(freeze, author_case, map_data, data, manifest, include_t
   fail_unless(style.include?("@media (max-width: 52rem)") && style.include?("grid-template-columns: 1fr"), "el mapa perdió el contrato responsivo")
 end
 
+# Sondas retiradas el 2026-10-17 al alinear el contrato societal-contribution-v1 con el
+# redline aprobado (human-redline.md); su objeto ya no existe en el Post II:
+#   - accessible-localization: el include ya no publica la tabla de distancias (body-distance-leak del cierre).
+#   - entry-series-scope: el redline retiró la nota técnica que distinguía la cohorte.
+#   - policy-design-specificity: el texto aprobado ya no dice «would strengthen, not guarantee».
+#   - policy-sae-margin-scope: el texto aprobado ya no compara con los intervalos de 2018.
+#   - policy-slep-source-scope: el texto aprobado ya no acota la fuente SLEP a cambios posteriores de calendario.
 def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, en_front, en_body, research_root, author_case, map_data, stylized_manifest)
   expected = nil
   begin
@@ -880,37 +965,16 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       expected = "SRF-016 derivó de DESIGN_REJECTED_NO_SYNTHETIC_SUPPORT"
       check_freeze!(mutant)
     when "policy-slep-predictive-null"
-      expected = "es: evidencia o cautela ausente: no mostraron capacidad predictiva distinguible del azar"
-      mutant = es_body.gsub(
-        "no mostraron capacidad predictiva distinguible del azar",
-        "predijeron qué territorios se traspasaron antes"
-      )
+      expected = "es: evidencia o cautela ausente: el diagnóstico basal no mostró capacidad predictiva distinguible del azar"
+      mutant = es_body.gsub("no mostró capacidad predictiva distinguible del azar", "predijo qué territorios se traspasaron antes")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-sae-interval-parity"
-      expected = "en: evidencia o cautela ausente: [-0.010368, +0.017395]"
-      mutant = en_body.gsub("[−0.010368, +0.017395]", "[−0.009893, +0.016919]")
+      expected = "en: evidencia o cautela ausente: hhi +0.0035 [-0.0104, +0.0174]"
+      mutant = en_body.gsub("[−0.0104, +0.0174]", "[−0.0099, +0.0169]")
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "policy-prespecified"
-      expected = "en: evidencia o cautela ausente: support rule fixed in the analysis specification"
-      mutant = en_body.gsub("support rule fixed in the analysis specification", "preregistered support")
-      check_language!(en_front, mutant, "en", enforce_length: false)
-    when "policy-slep-source-scope"
-      expected = "en: evidencia o cautela ausente: for later schedule changes"
-      mutant = en_body.gsub("For later schedule changes", "For the cohorts analysed here")
-      check_language!(en_front, mutant, "en", enforce_length: false)
-    when "policy-sae-margin-scope"
-      expected = "es: evidencia o cautela ausente: superan incluso los extremos de los intervalos de 2018"
-      mutant = es_body.gsub(
-        "superan incluso los extremos de los intervalos de 2018",
-        "son más amplios que las estimaciones puntuales"
-      )
-      check_language!(es_front, mutant, "es", enforce_length: false)
-    when "policy-design-specificity"
-      expected = "en: evidencia o cautela ausente: would strengthen, not guarantee, a causal reading of these designs"
-      mutant = en_body.gsub(
-        "would strengthen, not guarantee, a causal reading of **these designs**",
-        "are necessary for any causal result"
-      )
+      expected = "en: evidencia o cautela ausente: the minimum of ten is a retrospective rule"
+      mutant = en_body.gsub("The minimum of ten is a retrospective rule", "The minimum of ten is a prespecified rule")
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "policy-null-interpretation"
       expected = "en: evidencia o cautela ausente: these results do not allow me to conclude that sleps and sae had no effects"
@@ -961,11 +1025,8 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       expected = "es: promoción causal prohibida: la baja de matrícula causó el cierre"
       check_language!(es_front, "#{es_body}\nLa baja de matrícula causó el cierre.\n", "es", enforce_length: false)
     when "policy-auto-close"
-      expected = "es: matriz perdió una salvaguarda de acción"
-      mutant = es_body.gsub(
-        "no usar un umbral de matrícula como regla de cierre",
-        "usar un umbral de matrícula como regla de cierre"
-      )
+      expected = "es: frontera de uso público ausente: no bastan para decidir un cierre"
+      mutant = es_body.gsub("no bastan para decidir un cierre", "bastan para decidir un cierre")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-slep-scope"
       expected = "es: promoción causal prohibida: también toda la oferta de una comuna"
@@ -982,22 +1043,16 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       )
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "policy-matrix-row"
-      expected = "en: matriz de política debe tener cuatro filas"
-      mutant = en_body.gsub(/^\| Evaluate results .*\n/, "")
+      expected = "en: etapa de decisión ausente en la política"
+      mutant = en_body.gsub("evaluation with student follow-up", "evaluation")
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "policy-en-causal-safeguard"
-      expected = "en: matriz perdió una salvaguarda de acción"
-      mutant = en_body.gsub(
-        "; do not attribute learning, equity, or welfare",
-        "; attribute learning, equity, or welfare"
-      )
+      expected = "en: evidencia o cautela ausente: these findings diagnose the designs; they are not impacts"
+      mutant = en_body.gsub("these findings diagnose the designs; they are not impacts", "these findings are impacts")
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "policy-ive-sufficient"
-      expected = "es: frontera de uso público ausente: no identifica pobreza individual ni decide por sí solo dónde intervenir"
-      mutant = es_body.gsub(
-        "no identifica pobreza individual ni decide por sí solo dónde intervenir",
-        "basta para decidir dónde intervenir"
-      )
+      expected = "es: evidencia o cautela ausente: no identifica pobreza individual ni decide dónde intervenir"
+      mutant = es_body.gsub("no identifica pobreza individual ni decide dónde intervenir", "basta para decidir dónde intervenir")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-ranking"
       expected = "en: promoción causal prohibida: should close first"
@@ -1007,20 +1062,12 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       check_language!(es_front, "MR2.\n#{es_body}", "es", enforce_length: false)
     when "mr2-points-technical"
       expected = "nota técnica expone puntos MR2 subsoportados es: -0.124"
-      mutant = es_body.sub("**Entradas.**", "**Entradas.** MR2 `−0,124`.")
+      mutant = es_body.sub("### Alcance y reproducibilidad\n", "### Alcance y reproducibilidad\n\nUn punto de `−0,124`.\n")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "denominators"
-      expected = "denominadores públicos incompletos es"
-      mutant = es_body.gsub("Cobertura sobre 684", "Cobertura")
+      expected = "es: evidencia o cautela ausente: sobre los 684 cierres desde actividad"
+      mutant = es_body.gsub("sobre los 684 cierres desde actividad", "sobre los cierres")
       check_language!(es_front, mutant, "es", enforce_length: false)
-    when "entry-series-scope"
-      expected = "serie descriptiva y cohorte inferencial no se distinguen es"
-      mutant = es_body.gsub("La nota técnica usa otra cohorte", "La nota técnica usa la misma cohorte")
-      check_language!(es_front, mutant, "es", enforce_length: false)
-    when "accessible-localization"
-      expected = "tabla accesible sin localización numérica ES/EN"
-      mutant = include_text.gsub("row.median_distance_km | replace: '.', ','", "row.median_distance_km")
-      check_include!(mutant)
     when "stylized-privacy-leak"
       expected = "es: caso cartográfico contiene campos no autorizados"
       mutant = Marshal.load(Marshal.dump(data))
