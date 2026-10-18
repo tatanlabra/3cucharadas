@@ -21,8 +21,21 @@ layout: default
   {% include sidebar.html %}
 
   <div class="archive">
-    {% unless page.header.overlay_color or page.header.overlay_image %}
-      <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ page.title }}</h1>
+    {%- comment -%}
+      La portada (página 1) titula con el hero de la última cucharada; la página 2 en
+      adelante no tiene título propio y se titula con su número de página.
+    {%- endcomment -%}
+    {% unless home_latest or page.header.overlay_color or page.header.overlay_image %}
+      {% assign archive_lang = site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
+      {% assign archive_title = page.title %}
+      {% if archive_title == nil or archive_title == "" %}
+        {% if paginator and paginator.page > 1 %}
+          {% if archive_lang == "en" %}{% capture archive_title %}Recent posts · page {{ paginator.page }}{% endcapture %}{% else %}{% capture archive_title %}Publicaciones recientes · página {{ paginator.page }}{% endcapture %}{% endif %}
+        {% endif %}
+      {% endif %}
+      {% if archive_title and archive_title != "" %}
+        <h1 id="page-title" class="page__title"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>{{ archive_title }}</h1>
+      {% endif %}
     {% endunless %}
     {{ content }}
   </div>

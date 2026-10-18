@@ -727,15 +727,46 @@ class UxTransversalContract(unittest.TestCase):
             self.assertRegex(home, r'href="https://mastodon\.social/[^"]+"[^>]*rel="[^"]*\bme\b')
             page2 = SITE / prefix / "page2" / "index.html"
             if page2.is_file():
-                self.assertNotIn('id="home-latest-title"', page2.read_text(encoding="utf-8"))
+                text = page2.read_text(encoding="utf-8")
+                self.assertNotIn('id="home-latest-title"', text)
+                main = text.split('id="main"', 1)[-1].split('class="search-content', 1)[0]
+                titles = re.findall(r"<h1\b[^>]*>(.*?)</h1>", main, re.S)
+                self.assertEqual(len(titles), 1, f"{prefix}page2: debe tener un solo h1")
+                self.assertRegex(titles[0], r"\b2\b", f"{prefix}page2: el h1 no dice la página")
+                self.assertNotIn("page__hero--overlay", text, f"{prefix}page2: conserva un hero de marca")
         rules = css_rules_in_context(css())
         teaser = " ".join(b for _, sel, b in rules if sel.strip() == ".home-latest .home__entries.entries-grid .archive__item-teaser")
         self.assertRegex(teaser, r"aspect-ratio:\s*2\s*/\s*1")
         self.assertRegex(teaser, r"max-height:\s*none")
-        codera = [sel for _, sel, b in rules if ".home-codera-hero .page__hero--overlay" in sel and "background-image" in b]
+        codera = [sel for _, sel, b in rules if ".codera-hero .page__hero--overlay" in sel and "background-image" in b]
         self.assertTrue(codera)
         for sel in codera:
             self.assertIn(":not(.page__hero--latest)", sel, "la imagen de marca se descargaría bajo el hero nuevo")
+
+
+    def test_mapa_codera_acerca(self) -> None:
+        image = "el-salvador-codera-hero"
+        post = "datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/#claim-el-salvador"
+        for prefix in ("", "en/"):
+            about = rendered(prefix + "about/index.html")
+            self.assertRegex(about, r'<body class="[^"]*\bcodera-hero\b', f"{prefix}about: sin la clase codera-hero")
+            hero = re.search(r'<div class="page__hero--overlay"[^>]*style="[^"]*' + image + r'-2400x720\.webp', about)
+            self.assertIsNotNone(hero, f"{prefix}about: el mapa no es su hero")
+            caption = re.search(r'<span class="page__hero-caption">(.*?)</span>', about, re.S)
+            self.assertIsNotNone(caption, f"{prefix}about: el hero no tiene leyenda")
+            self.assertIn(f'href="/{prefix}{post}"', caption.group(1), f"{prefix}about: la leyenda no enlaza el caso de la parte II")
+            home = rendered(prefix + "index.html")
+            self.assertRegex(home, r'<meta property="og:image" content="[^"]*' + image + r'-og-1200x630\.webp"')
+        shown = []
+        for page in SITE.rglob("index.html"):
+            rel = page.relative_to(SITE).as_posix()
+            if rel in ("about/index.html", "en/about/index.html"):
+                continue
+            text = page.read_text(encoding="utf-8")
+            body = text.split("<body", 1)[-1]
+            if re.search(r'page__hero--overlay"[^>]*' + image, body):
+                shown.append(rel)
+        self.assertEqual(shown, [], f"el mapa se muestra fuera de «Acerca de»: {shown[:3]}")
 
 
     def test_botones_interaccion(self) -> None:

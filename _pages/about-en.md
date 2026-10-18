@@ -6,6 +6,16 @@ last_modified_at: 2026-10-01T00:00:00-03:00
 lang: en
 ref: about
 toc: true
+# El mapa codera de El Salvador, que antes era el hero de la portada, vive aquí: es el
+# lugar donde creció el autor y el caso territorial de la parte II.
+classes:
+  - codera-hero
+header:
+  overlay_color: "#0a0a0a"
+  overlay_image: /assets/images/home/el-salvador-codera-hero-2400x720.webp
+  image_description: "Dark codera-style map of El Salvador, Chile, with white streets on a black background"
+  overlay_filter: "linear-gradient(90deg, rgba(8,13,16,0.97) 0%, rgba(8,13,16,0.94) 38%, rgba(8,13,16,0.55) 64%, rgba(8,13,16,0.12) 100%)"
+  caption: "El Salvador (Atacama), where I grew up. [Why it appears in part II](/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/#claim-el-salvador)"
 ---
 
 Hello, I am Cristián Labra Olivares, an economist and public servant since 2012. I write about data, statistics, MLOps, biology, social policy, and programming.

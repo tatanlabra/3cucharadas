@@ -9,25 +9,16 @@ translation_languages: [es, en]
 # D3: el hero es la última cucharada (_includes/home-hero-latest.html) y la ficha
 # del autor pasa bajo la grilla en escritorio. La ficha NO se quita: lleva los
 # enlaces rel="me" (Mastodon, LinkedIn, Bluesky) con que esos perfiles verifican el
-# sitio, y tests/test_site_ux.py exige su h-card en la portada. `header` se
-# conserva: lo usan la página 2 en adelante y la imagen social.
+# sitio, y tests/test_site_ux.py exige su h-card en la portada. El mapa codera de El
+# Salvador ya no es hero de la página 2: vive en «Acerca de», donde dice de dónde
+# viene el autor; aquí queda solo como imagen social, en su variante 1200x630.
 home_hero: latest
 author_profile: true
 entries_layout: grid
 classes:
   - wide
-  - home-codera-hero
   - home-latest
 header:
-  overlay_color: "#0a0a0a"
-  overlay_image: /assets/images/home/el-salvador-codera-hero-2400x720.webp
-  image_description: "Mapa oscuro estilo codera de El Salvador, Chile, con calles blancas sobre fondo negro"
-  overlay_filter: "linear-gradient(90deg, rgba(8,13,16,0.97) 0%, rgba(8,13,16,0.94) 38%, rgba(8,13,16,0.55) 64%, rgba(8,13,16,0.12) 100%)"
-  actions:
-    - label_es: '<i class="fas fa-book-open" aria-hidden="true"></i> Publicaciones'
-      label_en: '<i class="fas fa-book-open" aria-hidden="true"></i> Posts'
-      url: /year-archive/
-    - label_es: '<i class="fas fa-user" aria-hidden="true"></i> Acerca de'
-      label_en: '<i class="fas fa-user" aria-hidden="true"></i> About'
-      url: /about/
+  og_image: /assets/images/home/el-salvador-codera-hero-og-1200x630.webp
+  og_image_alt: "Mapa oscuro estilo codera de El Salvador, Chile, con calles blancas sobre fondo negro"
 ---

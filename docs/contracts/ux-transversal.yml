@@ -97,8 +97,11 @@ invariants:
     rule: Todo post lleva firma compacta (avatar y nombre con enlace a «Acerca de») bajo su título, conserva la h-card del autor en el DOM y, desde 64em, la presenta después del artículo con la columna de texto centrada entre márgenes iguales al del índice.
     why: en escritorio la ficha del autor ocupaba la columna izquierda de cada post y descentraba la lectura; en móvil ya iba al final.
   - id: portada-ultima-cucharada
-    rule: La página 1 de la portada (ES y EN) abre con el post visible más reciente de su idioma como hero, la grilla no lo repite, el único fetchpriority alto es el del hero y la ficha del autor con sus rel="me" sigue en la portada. La página 2 en adelante conserva el hero de marca.
+    rule: La página 1 de la portada (ES y EN) abre con el post visible más reciente de su idioma como hero, la grilla no lo repite, el único fetchpriority alto es el del hero y la ficha del autor con sus rel="me" sigue en la portada. La página 2 en adelante no tiene hero: un solo h1, «Publicaciones recientes · página N» o «Recent posts · page N».
     why: el hero era una marca genérica con dos botones; el contenido nuevo no tenía lugar propio, y la ficha lleva los rel="me" con que Mastodon, LinkedIn y Bluesky verifican el sitio.
+  - id: mapa-codera-acerca
+    rule: El mapa codera de El Salvador es el hero de «Acerca de» (ES y EN), con su leyenda biográfica enlazada al caso de la parte II en el mismo idioma (#claim-el-salvador); fuera de ahí no se muestra en ninguna página y la portada solo lo usa como imagen social en su variante 1200x630. Las variantes responsivas se aplican por la clase codera-hero y nunca bajo el hero de la última cucharada.
+    why: tras el rediseño de la portada el mapa sobrevivía como hero de /page2/, una portada antigua sin explicación; la persona usuaria quiso conservarlo y eligió «Acerca de», donde dice de dónde viene el autor (2026-10-17).
   - id: botones-interaccion
     rule: Botones, controles, chips y paginación comparten un lenguaje: transición solo de color, fondo, borde, sombra y transformación (nunca `all`); anillo de foco de al menos 2 px; pulsación y elevación solo sin movimiento reducido, y la elevación solo con `hover: hover`; botones en píldora; «Compartir» monocromo con X; «Anterior / Siguiente» con el título del destino y sin enlaces deshabilitados falsos.
     why: convivían esquinas de 0, 4 y 999 px, el `transition: all` del tema, los colores de cada red social y un «Anterior / Siguiente» cuyo destino solo estaba en un `title` invisible en táctil.
