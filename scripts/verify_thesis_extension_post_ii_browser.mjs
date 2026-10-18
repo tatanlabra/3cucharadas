@@ -57,7 +57,9 @@ function evaluate(row) {
   if (row.referenceMinFontPx < 14) failures.push('references-font-too-small');
   if (row.viewportWidth >= 1024 && row.proseBlocks < 1) failures.push('prose-measure-empty');
   if (row.viewportWidth >= 1024 && row.proseMaxPx > 720 + tolerance) failures.push('prose-measure-too-wide');
-  if (row.wordCount < 3000 || row.wordCount > 4200) failures.push('visible-word-target');
+  // El techo de 4.200 es meta editorial flexible (INV-08 del contrato de publicación):
+  // superarlo solo avisa, en softWarnings. El piso sí rechaza.
+  if (row.wordCount < 3000) failures.push('visible-word-target');
   if (row.retiredComponents !== 0) failures.push('retired-component-present');
   if (row.mapState !== 'ready' || !row.mapLoaded) failures.push('market-map-not-ready');
   if (row.tabCount !== 0 || row.selectedTabCount !== 0 || !row.panelLabelled) failures.push('single-case-contract');
@@ -72,6 +74,10 @@ function evaluate(row) {
   if (!row.themeSurfaceValid) failures.push('theme-surface');
   if (row.criticalErrors.length) failures.push('critical-resource-or-console-error');
   return failures;
+}
+
+function softWarnings(row) {
+  return row.wordCount > 4200 ? ['visible-word-above-target'] : [];
 }
 
 function runFixture(name) {
@@ -93,23 +99,33 @@ function runFixture(name) {
     'fallback-resilience': { mapState: 'fallback', mapLoaded: false, staticCaseCount: 0 },
     'poster-utility': { visibleStaticSheetLinks: 1 },
     'prose-measure-empty': { proseBlocks: 0 },
-    'glyph-template': { criticalErrors: ['glyph-template-encoded:%7Bfontstack%7D'] }
+    'glyph-template': { criticalErrors: ['glyph-template-encoded:%7Bfontstack%7D'] },
+    'word-floor': { wordCount: 2999 },
+    'word-above-target': { wordCount: 4800 }
   };
   if (!mutations[name]) {
     console.error(JSON.stringify({ status: 'ERROR', error: `unknown fixture: ${name}` }));
     process.exit(2);
   }
-  const failures = evaluate({ ...baseline, ...mutations[name] });
+  const row = { ...baseline, ...mutations[name] };
+  const failures = evaluate(row);
+  const warnings = softWarnings(row);
   const expected = {
     overflow: ['document-overflow'],
     'fallback-resilience': ['market-map-not-ready', 'static-case-contract'],
     'poster-utility': ['static-fallback-contract'],
     'prose-measure-empty': ['prose-measure-empty'],
-    'glyph-template': ['critical-resource-or-console-error']
+    'glyph-template': ['critical-resource-or-console-error'],
+    'word-floor': ['visible-word-target'],
+    'word-above-target': []
   }[name];
-  const exact = JSON.stringify(failures) === JSON.stringify(expected);
-  console.log(JSON.stringify({ status: exact ? 'EXPECTED_FAIL' : 'WRONG_FAILURE', fixture: name, failures, expected }, null, 2));
-  process.exit(exact ? 1 : 2);
+  const expectedWarnings = { 'word-above-target': ['visible-word-above-target'] }[name] || [];
+  const exact = JSON.stringify(failures) === JSON.stringify(expected)
+    && JSON.stringify(warnings) === JSON.stringify(expectedWarnings);
+  // Un fixture sin fallos esperados prueba que el techo avisa sin rechazar: sale 0.
+  const soft = expected.length === 0;
+  console.log(JSON.stringify({ status: exact ? (soft ? 'EXPECTED_WARN' : 'EXPECTED_FAIL') : 'WRONG_FAILURE', fixture: name, failures, expected, warnings, expectedWarnings }, null, 2));
+  process.exit(exact ? (soft ? 0 : 1) : 2);
 }
 
 if (fixture) runFixture(fixture);
@@ -170,7 +186,9 @@ async function measurePage(browser, locale, route, theme, viewport) {
       const prose = [...(article?.querySelectorAll(':scope > :is(p, ul, ol)') || [])]
         .filter((node) => node.getBoundingClientRect().width > 0)
         .map((node) => node.getBoundingClientRect().width);
-      const wordCount = (article?.innerText.match(/\S+/g) || []).length;
+      // La cápsula de audio es un aviso de plataforma, no relato: la meta se calibró sin ella.
+      const words = (node) => (node?.innerText.match(/\S+/g) || []).length;
+      const wordCount = words(article) - words(article?.querySelector('.capsula-audio'));
       const tableFonts = tables.flatMap((table) => [...table.querySelectorAll('th, td')]
         .map((cell) => parseFloat(getComputedStyle(cell).fontSize)));
       const referenceFonts = references.map((node) => parseFloat(getComputedStyle(node).fontSize));
@@ -233,6 +251,7 @@ async function measurePage(browser, locale, route, theme, viewport) {
       headings: headingNeedles[locale], tolerance, errors: criticalErrors
     });
     row.failures = evaluate(row);
+    row.softWarnings = softWarnings(row);
     if ([430, 1280].includes(viewport.width)) {
       mkdirSync(screenshotDir, { recursive: true });
       await page.screenshot({ path: `${screenshotDir}/${locale}-${theme}-${viewport.width}.png`, fullPage: true });
@@ -455,7 +474,10 @@ const summary = {
   deepLinks: `${deepLinks.length - failures.filter((row) => row.surface === 'deep-link').length}/${deepLinks.length}`,
   postI: `${postIRows.filter((row) => row.failures.length === 0).length}/${postIRows.length}`,
   screenshots: screenshotDir,
-  failures
+  failures,
+  softWarnings: rows.flatMap((row) => row.softWarnings.map((code) => ({
+    locale: row.locale, theme: row.theme, viewport: row.viewportWidth, code, observedWords: row.wordCount, targetWords: 4200
+  })))
 };
 console.log(JSON.stringify(summaryOnly ? summary : { ...summary, rows, fallbacks, noJsRows, deepLinks, postIRows }, null, 2));
 process.exit(failures.length ? 1 : 0);
