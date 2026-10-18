@@ -15,7 +15,6 @@ header:
   overlay_image: /assets/images/home/el-salvador-codera-hero-2400x720.webp
   image_description: "Dark codera-style map of El Salvador, Chile, with white streets on a black background"
   overlay_filter: "linear-gradient(90deg, rgba(8,13,16,0.97) 0%, rgba(8,13,16,0.94) 38%, rgba(8,13,16,0.55) 64%, rgba(8,13,16,0.12) 100%)"
-  caption: "El Salvador (Atacama), where I grew up. [Why it appears in part II](/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/#claim-el-salvador)"
 ---
 
 Hello, I am Cristián Labra Olivares, an economist and public servant since 2012. I write about data, statistics, MLOps, biology, social policy, and programming.

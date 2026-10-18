@@ -30,7 +30,7 @@ assets/images/home/el-salvador-codera-hero-mobile-1200x720.webp
 
 Integracion (desde el 2026-10-17):
 
-- `_pages/about.md` y `_pages/about-en.md` usan `header.overlay_image` con el asset `2400x720`, la clase `codera-hero` y una leyenda que enlaza el caso de El Salvador de la parte II (`#claim-el-salvador`).
+- `_pages/about.md` y `_pages/about-en.md` usan `header.overlay_image` con el asset `2400x720`, la clase `codera-hero` y sin leyenda: el mapa va solo con el título y la bajada de la página (la leyenda biográfica se retiró el 2026-10-18 a pedido de la persona usuaria).
 - `assets/css/main.scss` define overrides responsivos para desktop, laptop y mobile bajo `.codera-hero`, siempre con `:not(.page__hero--latest)`.
 - `index.html` ya no lo usa como hero (la portada abre con la última cucharada y la página 2 se titula con su número); lo conserva como imagen social con la variante `og-1200x630`.
 - Contrato: `mapa-codera-acerca` en `docs/contracts/ux-transversal.yml`.

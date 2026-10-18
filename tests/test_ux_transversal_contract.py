@@ -746,15 +746,13 @@ class UxTransversalContract(unittest.TestCase):
 
     def test_mapa_codera_acerca(self) -> None:
         image = "el-salvador-codera-hero"
-        post = "datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/#claim-el-salvador"
         for prefix in ("", "en/"):
             about = rendered(prefix + "about/index.html")
             self.assertRegex(about, r'<body class="[^"]*\bcodera-hero\b', f"{prefix}about: sin la clase codera-hero")
             hero = re.search(r'<div class="page__hero--overlay"[^>]*style="[^"]*' + image + r'-2400x720\.webp', about)
             self.assertIsNotNone(hero, f"{prefix}about: el mapa no es su hero")
-            caption = re.search(r'<span class="page__hero-caption">(.*?)</span>', about, re.S)
-            self.assertIsNotNone(caption, f"{prefix}about: el hero no tiene leyenda")
-            self.assertIn(f'href="/{prefix}{post}"', caption.group(1), f"{prefix}about: la leyenda no enlaza el caso de la parte II")
+            # Sin leyenda: el mapa va solo con el título de la página (persona usuaria, 2026-10-18).
+            self.assertNotIn("page__hero-caption", about, f"{prefix}about: el hero conserva una leyenda")
             home = rendered(prefix + "index.html")
             self.assertRegex(home, r'<meta property="og:image" content="[^"]*' + image + r'-og-1200x630\.webp"')
         shown = []
