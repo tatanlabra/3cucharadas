@@ -17,6 +17,7 @@ module DiffusionCoherence
   # These limits are reported; this gate never proves every numeric claim.
   IGNORE = /\A(?:19|20)\d\d\z|\A0?\d\z|\A(?:1080|1350|1200|630|1600|900|640|360|280|300|500)\z/
   ADMIN = /\A(?:00-metadata|README|QA|AUDITORIA)(?:\.|\z)/i
+  PRESENTATIONAL = /\s(?:media|style|sizes|srcset|width|height|viewBox)\s*=\s*(?:"[^"]*"|'[^']*')/i
   # Explicit historical filename alias; post lookup always uses its exact ref.
   LEGACY_PIECE_NAMES = { "multiagente-penta-agent-memoria-gobernada-poc" => "multiagente-penta-agent-memoria-gobernada" }.freeze
   EXTENSIONS = %w[.md .html .txt .json].freeze
@@ -28,6 +29,13 @@ module DiffusionCoherence
     front = YAML.safe_load(match[1], permitted_classes: [Date, Time], aliases: false) || {}
     raise "front matter inválido: #{path}" unless front.is_a?(Hash)
     [front, raw[match.end(0)..]]
+  end
+
+  # A post body read as prose: presentational attribute values and code are
+  # markup or literals, not locale numbers (<source media="(max-width: 47.99em)">,
+  # `=C2>2.5`). alt and visible text keep counting.
+  def self.prose(body)
+    body.gsub(/^```.*?^```[^\n]*$/m, " ").gsub(/`[^`\n]*`/, " ").gsub(PRESENTATIONAL, " ")
   end
 
   def self.number(token, lang = nil)
@@ -138,7 +146,7 @@ module DiffusionCoherence
     values = posts.map do |path, front, body|
       puts "SOURCE #{path.delete_prefix(root + '/')} lang=#{front['lang']}"
       public_front = %w[title subtitle excerpt description entorno].filter_map { |key| front[key] }.join("\n")
-      numbers(body + "\n" + public_front, front["lang"]) | numbers(front.fetch("en_abstract", "").to_s, "en")
+      numbers(prose(body) + "\n" + public_front, front["lang"]) | numbers(front.fetch("en_abstract", "").to_s, "en")
     end
     package = File.join(root, "difusion", "paquetes", ref)
     lang = "es"

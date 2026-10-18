@@ -42,6 +42,49 @@ class VerifyDiffusionCoherenceTest < Minitest::Test
     assert_includes out, 'COPY difusion/paquetes/fixture/social.json'
   end
 
+  # Un <source media="(max-width: 47.99em)"> del Post I de la tesis hacía fallar
+  # el ref entero: el cuerpo se leía con sus atributos de presentación como prosa.
+  def test_presentational_attributes_are_not_prose
+    picture = '<picture><source media="(max-width: 47.99em)" srcset="{{ \'/a.svg\' | relative_url }}"><img src="/a.svg" width="1200" height="630" style="max-width: 12.5rem" alt="Figura"></picture>'
+    post('es', "Texto. #{picture}")
+    post('en', "Text. #{picture}")
+    copy('social.json', JSON.generate(es: 'Sin cifras', en: 'No figures'))
+    out, status = gate('fixture')
+    assert status.success?, out
+  end
+
+  def test_code_is_not_prose
+    post('es', "La planilla dejó la fórmula `=C2>2.5`.\n\n```\numbral = 12.75\n```\n")
+    post('en', "The sheet kept the formula `=C2>2.5`.\n\n```\nthreshold = 12.75\n```\n")
+    copy('social.json', JSON.generate(es: 'Sin cifras', en: 'No figures'))
+    out, status = gate('fixture')
+    assert status.success?, out
+  end
+
+  def test_prose_separator_is_still_rejected
+    post('es', 'Umbral de 47.99 en prosa.')
+    copy('social.json', JSON.generate(es: 'Sin cifras'))
+    out, status = gate('fixture')
+    refute status.success?, out
+    assert_includes out, 'separador incompatible'
+  end
+
+  def test_alt_text_numbers_still_cover_copy
+    post('es', '<img src="/a.svg" alt="Mapa con 937 cierres">')
+    copy('social.json', JSON.generate(es: 'Hubo 937 cierres'))
+    out, status = gate('fixture')
+    assert status.success?, out
+  end
+
+  def test_presentational_attribute_numbers_do_not_cover_copy
+    # 1234 y 937 no están en IGNORE (que excluye 1200, 900 y otros tamaños).
+    post('es', '<img src="/a.svg" width="1234" alt="Mapa">')
+    copy('social.json', JSON.generate(es: 'Hubo 1234 cierres'))
+    out, status = gate('fixture')
+    refute status.success?, out
+    assert_includes out, '1234'
+  end
+
   def test_changed_decimal_in_txt_is_rejected
     post('es', 'Tasa 0,00893')
     copy('linkedin.txt', 'Tasa 0,0893')
