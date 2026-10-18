@@ -154,25 +154,34 @@ CAUSAL_FRONTIERS = {
 # filtro léxico: reduce el riesgo, pero la lectura humana sigue siendo la última barrera.
 CAUSAL_PROMOTIONS = {
   "es" => [
-    ["efectos-nulos", /\b(?:muestran?|mostraron|demuestran?|demostraron|establecen?|prueban?|probaron|confirman?|confirmaron)\s+que\s+(?:los\s+)?slep\s+y\s+(?:el\s+)?sae\s+no\s+tuvieron\s+efectos?\b/],
-    ["impactos", /\b(?:estos|los|nuestros)\s+(?:resultados|hallazgos)\s+(?:son|constituyen|establecen|demuestran|muestran|prueban)\s+(?:[[:alpha:]]+\s+){0,2}impactos?\b/],
-    ["basta-para-cerrar", /\bbastan?\s+para\s+decidir\s+(?:un\s+)?cierre\b/]
+    ["efectos-nulos", /\b(?:muestran?|mostraron|demuestran?|demostraron|establecen?|prueban?|probaron|confirman?|confirmaron|evidencian|indican|revelan)\s+que\s+(?:los\s+)?slep\s+y\s+(?:el\s+)?sae\s+no\s+tuvieron\s+efectos?\b/],
+    ["impactos", /\b(?:estos|los|nuestros)\s+(?:resultados|hallazgos)\s+(?:son|constituyen|establecen|demuestran|muestran|prueban|evidencian|indican|revelan)\s+(?<gap>(?:[[:alpha:]]+\s+){0,2})impactos?\b/],
+    ["basta-para-cerrar", /\b(?:bastan?|(?:es|son)\s+suficientes?)\s+para\s+decidir\s+(?:un\s+)?cierre\b/]
   ],
   "en" => [
-    ["efectos-nulos", /\b(?:show|shows|showed|demonstrate|demonstrates|demonstrated|establish|establishes|established|prove|proves|proved|confirm|confirms|confirmed)\s+that\s+(?:the\s+)?sleps?\s+and\s+(?:the\s+)?sae\s+(?:had|have|has)\s+no\s+effects?\b/],
-    ["impactos", /\b(?:these|the|our)\s+(?:findings|results|estimates)\s+(?:are|constitute|establish|demonstrate|show|prove)\s+(?:[[:alpha:]]+\s+){0,2}impacts?\b/],
-    ["basta-para-cerrar", /\b(?:is|are)\s+enough\s+to\s+decide\s+(?:on\s+)?(?:a\s+)?closure\b/]
+    ["efectos-nulos", /\b(?:show|shows|showed|demonstrate|demonstrates|demonstrated|establish|establishes|established|prove|proves|proved|confirm|confirms|confirmed|indicate|indicates|reveal|reveals)\s+that\s+(?:the\s+)?sleps?\s+and\s+(?:the\s+)?sae\s+(?:had|have|has)\s+no\s+effects?\b/],
+    ["impactos", /\b(?:these|the|our)\s+(?:findings|results|estimates)\s+(?:are|constitute|establish|demonstrate|show|prove|indicate|reveal)\s+(?<gap>(?:[[:alpha:]]+\s+){0,2})impacts?\b/],
+    ["basta-para-cerrar", /\b(?:is|are)\s+(?:enough|sufficient)\s+to\s+decide\s+(?:on\s+)?(?:a\s+)?closure\b/]
   ]
 }.freeze
 NEGATION = /\b(?:no|not|ni|nunca|never|sin|without|cannot|incorrect[oa]?|incorrect|wrong|falso|false|err[oó]neo)\b|n't\b/
+# La negación cuenta solo en su cláusula: se corta en signos y en conjunciones
+# adversativas, y se miran las últimas seis palabras antes de la afirmación, más el
+# hueco entre verbo y objeto. Paridad: un número impar niega; uno par («not
+# incorrect») afirma. Así, «X is not descriptive, but these results are impacts» se
+# rechaza y «these findings are not impacts» se acepta (ronda 3c de Codex).
+CLAUSE_BREAK = /[.;:!?\n,]|\b(?:but|however|although|yet|pero|sino|aunque|mientras)\b/
+
+def negated_promotion?(lower, match)
+  clause = lower[0...match.begin(0)].split(CLAUSE_BREAK).last.to_s
+  window = clause.split.last(6).join(" ")
+  gap = match.names.include?("gap") ? match[:gap].to_s : ""
+  (window.scan(NEGATION).size + gap.scan(NEGATION).size).odd?
+end
 
 def affirmed_promotions(lower, lang)
   CAUSAL_PROMOTIONS.fetch(lang, []).filter_map do |name, pattern|
-    affirmed = lower.to_enum(:scan, pattern).any? do
-      start = Regexp.last_match.begin(0)
-      sentence_start = (lower.rindex(/[.;:!?\n]/, [start - 1, 0].max) || -1) + 1
-      !lower[sentence_start...start].match?(NEGATION)
-    end
+    affirmed = lower.to_enum(:scan, pattern).map { Regexp.last_match }.any? { |match| !negated_promotion?(lower, match) }
     name if affirmed
   end
 end
@@ -1099,9 +1108,29 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       # informa como causa equivocada.
       $strict = false
       expected = "cautelas negadas aceptadas"
-      check_language!(en_front, "#{en_body}\nThese results do not show that SLEPs and SAE had no effects. It would be incorrect to say these findings are impacts. Proximity is not enough to decide on closure.\n", "en", enforce_length: false)
+      check_language!(en_front, "#{en_body}\nThese results do not show that SLEPs and SAE had no effects. It would be incorrect to say these findings are impacts. These findings are not impacts. Proximity is not enough to decide on closure.\n", "en", enforce_length: false)
       check_language!(es_front, "#{es_body}\nEstos resultados no muestran que los SLEP y el SAE no tuvieron efectos. Sería incorrecto decir que estos resultados son impactos. La cercanía no basta para decidir un cierre.\n", "es", enforce_length: false)
       raise VerificationError, expected
+    when "foreign-negation-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: efectos-nulos"
+      check_language!(en_front, "#{en_body}\nThe model is not descriptive, but these results demonstrate that SLEPs and SAE had no effects.\n", "en", enforce_length: false)
+    when "foreign-negation-es-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: impactos"
+      check_language!(es_front, "#{es_body}\nEl análisis no es descriptivo, pero estos resultados son impactos.\n", "es", enforce_length: false)
+    when "double-negation-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nIt is not incorrect to say these findings are impacts.\n", "en", enforce_length: false)
+    when "synonym-impacts-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nThese results indicate policy impacts.\n", "en", enforce_length: false)
+    when "synonym-closure-es-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: basta-para-cerrar"
+      check_language!(es_front, "#{es_body}\nLa cercanía es suficiente para decidir un cierre.\n", "es", enforce_length: false)
     when "policy-auto-close-default"
       # Borra la cautela sin afirmar nada: falsa la frontera, no el patrón de promoción.
       $strict = false
