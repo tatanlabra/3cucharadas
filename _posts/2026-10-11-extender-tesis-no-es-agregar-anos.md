@@ -13,6 +13,17 @@ author: clabra
 lang: es
 ref: extender-tesis-no-es-agregar-anos
 permalink: /datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+audio:
+  duracion_s: 1188
+  fecha: "2026-10-17"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 header:
   teaser: /assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/extender-tesis-no-es-agregar-anos/og-1200x630.webp
@@ -39,6 +50,7 @@ ai_disclosure:
   components:
     text: assisted
     hero: generated
+    audio: generated
 ---
 
 La [parte I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) dejó una pregunta abierta: cuando una escuela sale y otra entra, ¿mejoran las oportunidades de aprender o solo cambia el registro?

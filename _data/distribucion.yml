@@ -272,3 +272,41 @@
     devto_article_id: 4584688
     url_publicada: https://dev.to/tatanlabra/nushell-in-three-spoonfuls-when-does-a-structured-shell-actually-help-an-agent-520a
     estado: publicado
+- slug: replica-tesis-establecimientos-educacionales
+  ref_interno: replica-tesis-establecimientos-educacionales
+  url_canonica: https://3cucharadas.cl/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+  titulo_usado: 'Replicar mi tesis en 3 cucharadas (parte I): qué sobrevivió y qué corrigió la evidencia'
+  publicaciones:
+  - plataforma: apple-podcasts
+    fecha: '2026-10-17'
+    url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
+    estado: publicado
+    nota: Episodio distribuido por el feed RSS de Spotify for Creators (https://anchor.fm/s/1173891c8/podcast/rss).
+      La URL registrada es la del programa, no la del episodio, igual que en los episodios
+      anteriores.
+  - plataforma: spotify
+    fecha: '2026-10-17'
+    url_publicada: https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc
+    estado: publicado
+    nota: Cápsula de audio en español, 19:48 con cortinas, compartida por el Post I y el
+      Post II de la tesis («Cerrar escuelas en los próximos años ¿cuáles cerrar? El desafío
+      demográfico de Chile»). Paquete en difusion/paquetes/extender-tesis-no-es-agregar-anos/podcast/.
+- slug: extender-tesis-no-es-agregar-anos
+  ref_interno: extender-tesis-no-es-agregar-anos
+  url_canonica: https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+  titulo_usado: 'Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir'
+  publicaciones:
+  - plataforma: apple-podcasts
+    fecha: '2026-10-17'
+    url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
+    estado: publicado
+    nota: Episodio distribuido por el feed RSS de Spotify for Creators (https://anchor.fm/s/1173891c8/podcast/rss).
+      La URL registrada es la del programa, no la del episodio, igual que en los episodios
+      anteriores.
+  - plataforma: spotify
+    fecha: '2026-10-17'
+    url_publicada: https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc
+    estado: publicado
+    nota: Cápsula de audio en español, 19:48 con cortinas, compartida por el Post I y el
+      Post II de la tesis («Cerrar escuelas en los próximos años ¿cuáles cerrar? El desafío
+      demográfico de Chile»). Paquete en difusion/paquetes/extender-tesis-no-es-agregar-anos/podcast/.

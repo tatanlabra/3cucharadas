@@ -58,11 +58,30 @@ instrucciones en voz alta.
 ### 4. El máster se custodia; nada entra al repositorio
 
 El archivo descargado va a `${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/<ref>/`, según
-`docs/gobernanza-repositorio.md`, y ahí se queda. **No hay re-encode ni binario versionado**: el
-episodio se sube tal cual a Spotify for Creators, que acepta el máster estéreo.
+`docs/gobernanza-repositorio.md`, y ahí se queda. **No hay binario versionado**: el máster se
+guarda tal cual, como `capsula-es-master-estereo.m4a`, y lo único que se re-codifica es la versión
+con cortinas del paso 4b, que es la que se sube a Spotify for Creators (`capsula-es-con-cortinas.m4a`
+en la misma carpeta).
 
 Al no haber copia en el repositorio, esa carpeta es la única copia propia y no tiene respaldo
 remoto. Conviene que entre en `git-bundle-backup` o en Borg.
+
+### 4b. Añadir las cortinas de entrada y salida
+
+Desde el 2026-09-24 cada episodio lleva una intro de 13 s y un outro de 10 s, sacados de una pista
+generada con Lyria 3. Las cortinas, las fuentes y el script viven fuera del repositorio, en
+`~/.local/state/3cucharadas/source-masters/podcast-cortinas/`:
+
+```bash
+~/.local/state/3cucharadas/source-masters/podcast-cortinas/ensamblar.py EPISODIO.m4a -o DIR_SALIDA
+```
+
+Las voces entran a los 11 s, a volumen pleno, mientras la intro se apaga. El episodio queda en
+−16 LUFS, las cortinas en −17 y el pico no pasa de −1,5 dBTP; en total suma 21,5 s. Hace falta
+porque NotebookLM no entrega un volumen estable: −22,1 y −15,7 LUFS en dos episodios. El máster
+descargado no se toca: lo que se sube a Spotify es la versión ensamblada. Cortes y decisiones en el
+`MANIFIESTO.md` de esa carpeta. La frase «bienvenido a tres cucharadas, en el capítulo de hoy» de
+la pista Lyria queda fuera mientras el episodio no parta diciendo su título.
 
 ### 5. Subir el episodio a Spotify for Creators
 
@@ -83,6 +102,11 @@ Apple lo recoge del feed solo. El feed tarda en regenerarse: hay que esperar a q
 episodio antes de registrar nada.
 
 ### 6. Encender el bloque en el post
+
+Un mismo episodio puede acompañar a varios posts: basta con el mismo mapa `audio:` en cada uno y un
+solo paquete, con el ref del post principal y `posts_asociados` en `origen.yaml`. Así se hizo con la
+serie de la tesis (Post I y Post II, 2026-10-17). Mientras la subida manual no entregue la URL del
+episodio, `plataformas` puede enlazar al programa en Spotify y en Apple; se reemplaza al subirlo.
 
 ```yaml
 audio:

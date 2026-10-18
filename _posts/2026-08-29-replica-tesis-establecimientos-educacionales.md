@@ -13,6 +13,17 @@ author: clabra
 lang: es
 ref: replica-tesis-establecimientos-educacionales
 permalink: /datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+audio:
+  duracion_s: 1188
+  fecha: "2026-10-17"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 header:
   teaser: /assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/replica-tesis-establecimientos-educacionales/og-1200x630.webp
@@ -38,6 +49,7 @@ ai_disclosure:
   components:
     text: unknown
     hero: generated
+    audio: generated
 ---
 
 En abril de 2014 defendí y entregué mi tesis de magíster sobre entrada y salida de establecimientos educacionales en Chile entre 1992 y 2012.[^tesis] Doce años después estoy tratando de recrearla y extenderla hasta 2025.

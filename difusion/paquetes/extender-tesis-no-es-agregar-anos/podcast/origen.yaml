@@ -1,0 +1,50 @@
+# Procedencia de la cápsula de audio de la serie de la tesis (Post I y Post II). No se
+# publica: difusion/ se versiona pero está excluida del build (_config.yml). Un mismo
+# episodio acompaña a los dos posts en español; el ref del paquete es el del Post II
+# porque el episodio parte de su pregunta.
+ref: extender-tesis-no-es-agregar-anos
+posts_asociados:
+  - https://3cucharadas.cl/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+  - https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+titulo_episodio: "Cerrar escuelas en los próximos años ¿cuáles cerrar? El desafío demográfico de Chile"
+generador: NotebookLM (Google), Audio Overview
+formato: deep dive conversacional, dos hablantes
+idioma_hablado: es
+fecha_generacion: "2026-10-17"
+cuaderno_url: pendiente  # la persona usuaria no lo ha entregado
+fuentes_cargadas: pendiente  # confirmar qué posts o documentos se cargaron en el cuaderno
+
+master:
+  # Fuera del repositorio, según docs/gobernanza-repositorio.md. Versión final con
+  # ajustes de la persona usuaria; reemplaza al borrador del mismo día.
+  ruta: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/extender-tesis-no-es-agregar-anos/capsula-es-master-estereo.m4a
+  nombre_original: Crisis_demográfica_y_cierre_de_escuelas_chilenas.m4a
+  bytes: 37527630
+  sha256: eae58af0d4486ae80e669d1b1bbb38363fa19dd49cd57f000ca52e8912694d5c
+  codec: aac 257 kbps estereo 44100 Hz
+  duracion_s: 1166.013243
+  loudnorm_medido: {integrated_lufs: -20.65, true_peak_dbtp: -4.01, lra: 4.7}
+
+con_cortinas:
+  # ensamblar.py (source-masters/podcast-cortinas): intro 13 s a -17 LUFS, episodio a
+  # -16 LUFS con loudnorm en dos pasadas, 0,5 s de silencio y outro de 10 s; AAC 256k.
+  ruta: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/extender-tesis-no-es-agregar-anos/capsula-es-con-cortinas.m4a
+  bytes: 34706934
+  sha256: 29c82e5f52b44ba656d74b58adbf5d67d466691780ccdd2ea490c37bf4064564
+  duracion_s: 1187.513243
+  loudnorm_medido: {integrated_lufs: -16.02, true_peak_dbtp: -1.41}
+  cortinas_sha256: {intro_wav: 8e4d4588ab39, outro_wav: ba219d5326ae}
+  verificacion_cortinas: correlación 0,99993 (intro) y 0,99994 (outro); control negativo con el máster sin cortinas 0,012 y 0,019
+
+borrador_descartado:
+  # Primer audio del 2026-10-17 («El costo real de cerrar escuelas», 684 s), reemplazado
+  # por la versión final. Se conserva fuera del repositorio con prefijo borrador-20261017-.
+  sha256_master: 7fe0231c7d2644b3ae8dfd2295e03d2da1e21717dccaa0ca02789675ed6c5b45
+
+publicado:
+  # Subido a mano a Spotify for Creators (sin API) el 2026-10-17; HTTP 200 con
+  # User-Agent de navegador. Apple lo toma del feed.
+  spotify: https://open.spotify.com/episode/7ho9naqSgAotsTfcsBmOwc
+  spotify_programa: https://open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE
+  apple: https://podcasts.apple.com/cl/podcast/id6811713988
+  feed_rss: https://anchor.fm/s/1173891c8/podcast/rss
