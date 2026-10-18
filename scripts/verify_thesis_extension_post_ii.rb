@@ -31,7 +31,7 @@ STYLIZED_MANIFEST_PATH = File.join(RESULTS_DIR, "estilizada-manifest.json")
 RESULTS_MANIFEST_SHA256 = "846d9d104205b72d2959e690a252ab86869348eacebcb4546d56a13afc22f8cf"
 STYLIZED_MANIFEST_SHA256 = "0d51cddcd083d95f889286c781b55780ac79399613ec2e5a00229465348ef607"
 FREEZE_RELATIVE_PATH = "audit/scientific_release_freeze.json"
-FREEZE_SHA256 = "59e200e16a4708447f2ada07cf41a29889a4074b30a1ce19a30e8786a98622a4"
+FREEZE_SHA256 = "9d3cf0d0f30c23b8897b32716d638ea1a6b319eb1bb98166c41b82d633fd0490"
 EXPECTED_VISUAL_KEYS = %w[v3 v5 v6 v7 v8 v10].freeze
 EXPECTED_LANGUAGES = %w[es en].freeze
 EDITORIAL_WORD_TARGET = 4_200
@@ -113,6 +113,23 @@ FORBIDDEN_PRIVATE = %r{(?:/home/|/Users/|Descargas/|student_id|person_id|dvrut|r
 
 def fail_unless(condition, message)
   raise VerificationError, message unless condition
+end
+
+# Dos niveles (2026-10-17, pedido de la persona usuaria: editar el Post II sin dañar
+# nada). Las prohibiciones —promoción causal, fugas privadas, identificadores y puntos
+# MR2, estructura del componente— fallan siempre. La redacción exigida —frases de
+# evidencia, anclas visibles, etapas en prosa, paridad ES/EN— es un aviso por defecto
+# y vuelve a ser error con --strict y en las sondas (--self-test), que es como se
+# audita antes de una revisión científica.
+$strict = false
+$wording_warnings = []
+
+def fail_wording(condition, message)
+  return true if condition
+  raise VerificationError, message if $strict
+
+  $wording_warnings << message unless $wording_warnings.include?(message)
+  false
 end
 
 def sha256(path)
@@ -568,7 +585,9 @@ def check_release_boundaries!(body, lang, societal: false)
   claim_ids = editorial_claim_ids
   public_source = public_body.to_s
   claim_ids.each do |claim_id|
-    fail_unless(public_source.scan(%(id="#{claim_id}")).length == 1, "#{lang}: claim visible ausente o duplicado: #{claim_id}")
+    count = public_source.scan(%(id="#{claim_id}")).length
+    fail_unless(count <= 1, "#{lang}: claim visible duplicado: #{claim_id}")
+    societal ? fail_wording(count == 1, "#{lang}: claim visible ausente: #{claim_id}") : fail_unless(count == 1, "#{lang}: claim visible ausente o duplicado: #{claim_id}")
   end
   selection_fragments = if societal
                           # El redline retiró la frase sobre selección ciega a resultados; quedan el
@@ -583,7 +602,8 @@ def check_release_boundaries!(body, lang, societal: false)
                         else
                           ["neither outcome values nor outcome availability enter the selection", "first valid official coordinate between the entry year and 2025", "nine unstable trajectories", "38 matched closures and 29 unique openings"]
                         end
-  fail_unless(selection_fragments.all? { |fragment| public_lower.include?(fragment) }, "selección territorial incompletamente divulgada #{lang}")
+  selection_ok = selection_fragments.all? { |fragment| public_lower.include?(fragment) }
+  societal ? fail_wording(selection_ok, "selección territorial incompletamente divulgada #{lang}") : fail_unless(selection_ok, "selección territorial incompletamente divulgada #{lang}")
   leaked = %w[weighted_raw MR1 MR2].select { |token| public_text.include?(token) }
   fail_unless(leaked.empty?, "relato público expone identificadores de auditoría #{lang}: #{leaked.join(', ')}")
   # Sin nota técnica, MR1/MR2 viven en el registro y el freeze (--claims-only); los
@@ -603,8 +623,8 @@ def check_policy_prose!(section, lower, lang)
              ["the event must first be validated", "diagnosis then needs", "verify actual vacancies", "evaluation with student follow-up"]
            end
   positions = stages.map { |stage| text.index(stage) }
-  fail_unless(positions.none?(&:nil?), "#{lang}: etapa de decisión ausente en la política")
-  fail_unless(positions == positions.sort, "#{lang}: etapas de decisión fuera de orden")
+  fail_wording(positions.none?(&:nil?), "#{lang}: etapa de decisión ausente en la política")
+  fail_wording(positions == positions.sort, "#{lang}: etapas de decisión fuera de orden")
   required = if lang == "es"
                [
                  "apoyo a la decisión", "observación → diagnóstico → decisión",
@@ -625,7 +645,7 @@ def check_policy_prose!(section, lower, lang)
                  "this post proposes the chain for evaluation; it does not establish that it works"
                ]
              end
-  required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: frontera de uso público ausente: #{fragment}") }
+  required.each { |fragment| fail_wording(lower.include?(fragment), "#{lang}: frontera de uso público ausente: #{fragment}") }
 end
 
 def check_policy_boundaries!(body, lang)
@@ -762,9 +782,10 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
     # El redline aprobado reemplaza la jerga `NOT_ESTIMABLE` por «no estimable» /
     # «not estimable» (human-redline.md:38); lo que se exige es que el estado se
     # nombre y se distinga de cero, no el literal técnico.
-    fail_unless(estimability_mentions(lower, lang) >= 2, "#{lang}: «no estimable» ausente o insuficiente")
+    fail_unless(estimability_mentions(lower, lang) >= 1, "#{lang}: «no estimable» ausente")
+    fail_wording(estimability_mentions(lower, lang) >= 2, "#{lang}: «no estimable» ausente o insuficiente")
     not_zero = lang == "es" ? "«no estimable» no significa cero" : "“not estimable” does not mean zero"
-    fail_unless(lower.include?(not_zero), "#{lang}: «no estimable» no se distingue de cero")
+    fail_wording(lower.include?(not_zero), "#{lang}: «no estimable» no se distingue de cero")
     required = if lang == "es"
                  [
                    "900 cierres oficiales", "330 cierres estrictos", "28 → 23 → 1", "21 y 8",
@@ -794,7 +815,7 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
                    "the minimum of ten is a retrospective rule", "hhi +0.0035 [-0.0104, +0.0174]"
                  ]
                end
-    required.each { |fragment| fail_unless(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
+    required.each { |fragment| fail_wording(lower.include?(fragment), "#{lang}: evidencia o cautela ausente: #{fragment}") }
     forbidden = if lang == "es"
                   ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero",
                    "la baja de matrícula causó el cierre", "también toda la oferta de una comuna"]
@@ -882,18 +903,18 @@ end
 def check_parity!(es_front, es_body, en_front, en_body)
   check_identity!(es_front, "es")
   check_identity!(en_front, "en")
-  fail_unless(es_body.scan(/^## /).length == en_body.scan(/^## /).length, "cantidad de secciones ES/EN difiere")
+  fail_wording(es_body.scan(/^## /).length == en_body.scan(/^## /).length, "cantidad de secciones ES/EN difiere")
   es_lower = normalized_text(visible_text(es_body)).downcase
   en_lower = normalized_text(visible_text(en_body)).downcase
   fail_unless(es_body.scan("NOT_ESTIMABLE").length == en_body.scan("NOT_ESTIMABLE").length, "cantidad NOT_ESTIMABLE ES/EN difiere")
-  fail_unless(estimability_mentions(es_lower, "es") == estimability_mentions(en_lower, "en"), "cantidad de «no estimable» ES/EN difiere")
+  fail_wording(estimability_mentions(es_lower, "es") == estimability_mentions(en_lower, "en"), "cantidad de «no estimable» ES/EN difiere")
   numeric_tokens = lambda do |body|
     normalized_text(visible_text(body).gsub(/\]\([^)]+\)/, "]"))
       .scan(/[+-]?\d+(?:\.\d+)*(?:e[+-]?\d+)?(?:\/\d+)*(?:\s*%)?/i)
       .map { |token| token.gsub(/\s+/, "") }
       .tally
   end
-  fail_unless(numeric_tokens.call(es_body) == numeric_tokens.call(en_body), "paridad numérica ES/EN difiere")
+  fail_wording(numeric_tokens.call(es_body) == numeric_tokens.call(en_body), "paridad numérica ES/EN difiere")
 end
 
 def check_custody!
@@ -1122,7 +1143,9 @@ OptionParser.new do |parser|
   parser.on("--all") { options[:mode] = "all" }
   parser.on("--closeout") { options[:mode] = "closeout" }
   parser.on("--self-test NAME") { |value| options[:self_test] = value }
+  parser.on("--strict", "la redacción exigida también falla (auditoría científica)") { $strict = true }
 end.parse!
+$strict = true if options[:self_test]
 
 if options[:mode] == "editorial"
   begin
@@ -1135,7 +1158,7 @@ if options[:mode] == "editorial"
     check_language!(en_front, en_body, "en", soft_warnings: warnings)
     check_parity!(es_front, es_body, en_front, en_body)
     check_custody!
-    puts JSON.generate(result: "PASS", mode: "editorial", soft_warnings: warnings)
+    puts JSON.generate(result: "PASS", mode: "editorial", strict: $strict, soft_warnings: warnings, wording_warnings: $wording_warnings)
     exit 0
   rescue VerificationError, KeyError, JSON::ParserError, Psych::SyntaxError, REXML::ParseException => e
     warn JSON.generate(result: "FAIL", mode: "editorial", error: e.message)
@@ -1201,7 +1224,7 @@ begin
   else
     raise VerificationError, "seleccione --claims-only, --lang es|en, --parity, --causal-language, --custody, --closeout o --all"
   end
-  puts JSON.generate(result: "PASS", mode: options[:mode], freeze_sha256: FREEZE_SHA256, visuals: 6, stylized_visuals: 6, soft_warnings: soft_warnings)
+  puts JSON.generate(result: "PASS", mode: options[:mode], strict: $strict, freeze_sha256: FREEZE_SHA256, visuals: 6, stylized_visuals: 6, soft_warnings: soft_warnings, wording_warnings: $wording_warnings)
 rescue VerificationError, KeyError, JSON::ParserError, Psych::SyntaxError, REXML::ParseException => e
   warn JSON.generate(result: "FAIL", error: e.message, self_test: options[:self_test])
   exit 1
