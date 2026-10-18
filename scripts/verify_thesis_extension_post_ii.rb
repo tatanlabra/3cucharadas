@@ -179,7 +179,7 @@ def negated_promotion?(lower, match)
   # afirmación, la cláusula es vacía y no hereda la negación anterior (ronda 3d).
   clause = lower[0...match.begin(0)].split(CLAUSE_BREAK, -1).last.to_s
   window = clause.split.last(6).join(" ").gsub(NON_NEGATING, " ")
-  gap = match.names.include?("gap") ? match[:gap].to_s : ""
+  gap = (match.names.include?("gap") ? match[:gap].to_s : "").gsub(NON_NEGATING, " ")
   (window.scan(NEGATION).size + gap.scan(NEGATION).size).odd?
 end
 
@@ -1163,6 +1163,30 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       $strict = false
       expected = "en: promoción causal prohibida: impactos"
       check_language!(en_front, "#{en_body}\nWithout a doubt these findings are impacts.\n", "en", enforce_length: false)
+    when "idiom-in-gap-es-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: impactos"
+      check_language!(es_front, "#{es_body}\nEstos resultados son sin duda impactos.\n", "es", enforce_length: false)
+    when "idiom-in-gap-en-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nThese findings are not only impacts.\n", "en", enforce_length: false)
+    when "idiom-no-solo-gap-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: impactos"
+      check_language!(es_front, "#{es_body}\nEstos resultados son no solo impactos.\n", "es", enforce_length: false)
+    when "inflection-es-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: efectos-nulos"
+      check_language!(es_front, "#{es_body}\nLos datos indicaron que los SLEP y el SAE no tuvieron efectos.\n", "es", enforce_length: false)
+    when "en-dash-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: efectos-nulos"
+      check_language!(en_front, "#{en_body}\nThe model is not descriptive – these results demonstrate that SLEPs and SAE had no effects.\n", "en", enforce_length: false)
+    when "parenthesis-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nThe model (which is not descriptive) these findings are impacts.\n", "en", enforce_length: false)
     when "policy-auto-close-default"
       # Borra la cautela sin afirmar nada: falsa la frontera, no el patrón de promoción.
       $strict = false
