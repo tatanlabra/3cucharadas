@@ -147,6 +147,36 @@ CAUSAL_FRONTIERS = {
   ]
 }.freeze
 
+# Afirmaciones causales prohibidas (ronda 3b de Codex): patrones, no subcadenas, porque
+# la misma idea admite otros verbos («demonstrate», «establish»). Una coincidencia
+# precedida en su propia oración por una negación («no», «not», «incorrect»…) es una
+# cautela y se acepta: «These results do not show that…» no es una promoción. Es un
+# filtro léxico: reduce el riesgo, pero la lectura humana sigue siendo la última barrera.
+CAUSAL_PROMOTIONS = {
+  "es" => [
+    ["efectos-nulos", /\b(?:muestran?|mostraron|demuestran?|demostraron|establecen?|prueban?|probaron|confirman?|confirmaron)\s+que\s+(?:los\s+)?slep\s+y\s+(?:el\s+)?sae\s+no\s+tuvieron\s+efectos?\b/],
+    ["impactos", /\b(?:estos|los|nuestros)\s+(?:resultados|hallazgos)\s+(?:son|constituyen|establecen|demuestran|muestran|prueban)\s+(?:[[:alpha:]]+\s+){0,2}impactos?\b/],
+    ["basta-para-cerrar", /\bbastan?\s+para\s+decidir\s+(?:un\s+)?cierre\b/]
+  ],
+  "en" => [
+    ["efectos-nulos", /\b(?:show|shows|showed|demonstrate|demonstrates|demonstrated|establish|establishes|established|prove|proves|proved|confirm|confirms|confirmed)\s+that\s+(?:the\s+)?sleps?\s+and\s+(?:the\s+)?sae\s+(?:had|have|has)\s+no\s+effects?\b/],
+    ["impactos", /\b(?:these|the|our)\s+(?:findings|results|estimates)\s+(?:are|constitute|establish|demonstrate|show|prove)\s+(?:[[:alpha:]]+\s+){0,2}impacts?\b/],
+    ["basta-para-cerrar", /\b(?:is|are)\s+enough\s+to\s+decide\s+(?:on\s+)?(?:a\s+)?closure\b/]
+  ]
+}.freeze
+NEGATION = /\b(?:no|not|ni|nunca|never|sin|without|cannot|incorrect[oa]?|incorrect|wrong|falso|false|err[oó]neo)\b|n't\b/
+
+def affirmed_promotions(lower, lang)
+  CAUSAL_PROMOTIONS.fetch(lang, []).filter_map do |name, pattern|
+    affirmed = lower.to_enum(:scan, pattern).any? do
+      start = Regexp.last_match.begin(0)
+      sentence_start = (lower.rindex(/[.;:!?\n]/, [start - 1, 0].max) || -1) + 1
+      !lower[sentence_start...start].match?(NEGATION)
+    end
+    name if affirmed
+  end
+end
+
 def frontier?(lang, fragment)
   CAUSAL_FRONTIERS.fetch(lang, []).include?(fragment)
 end
@@ -851,14 +881,13 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
     required.each { |fragment| require_fragment(lower, lang, fragment, "#{lang}: evidencia o cautela ausente: #{fragment}") }
     forbidden = if lang == "es"
                   ["los cierres mejoraron", "efecto causal está identificado", "deberían cerrar primero",
-                   "la baja de matrícula causó el cierre", "también toda la oferta de una comuna",
-                   "muestran que los slep y el sae no tuvieron efectos", "los resultados son impactos"]
+                   "la baja de matrícula causó el cierre", "también toda la oferta de una comuna"]
                 else
                   ["closures improved", "causal effect is identified", "should close first",
-                   "falling enrolment caused the closure", "and every school in the commune",
-                   "show that sleps and sae had no effects", "these findings are impacts"]
+                   "falling enrolment caused the closure", "and every school in the commune"]
                 end
     forbidden.each { |fragment| fail_unless(!lower.include?(fragment), "#{lang}: promoción causal prohibida: #{fragment}") }
+    affirmed_promotions(lower, lang).each { |name| fail_unless(false, "#{lang}: promoción causal prohibida: #{name}") }
     check_release_boundaries!(body, lang, societal: true)
     check_policy_boundaries!(body, lang)
     if enforce_length
@@ -1047,12 +1076,37 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       check_language!(en_front, mutant, "en", enforce_length: false)
     when "causal-forbidden-default"
       $strict = false
-      expected = "en: promoción causal prohibida: show that sleps and sae had no effects"
+      expected = "en: promoción causal prohibida: efectos-nulos"
       check_language!(en_front, "#{en_body}\nThe evidence does show that SLEPs and SAE had no effects.\n", "en", enforce_length: false)
+    when "causal-demonstrate-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: efectos-nulos"
+      check_language!(en_front, "#{en_body}\nThese results demonstrate that SLEPs and SAE had no effects.\n", "en", enforce_length: false)
+    when "impacts-establish-default"
+      $strict = false
+      expected = "en: promoción causal prohibida: impactos"
+      check_language!(en_front, "#{en_body}\nThese findings establish policy impacts.\n", "en", enforce_length: false)
+    when "impactos-es-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: impactos"
+      check_language!(es_front, "#{es_body}\nEstos resultados son impactos de política.\n", "es", enforce_length: false)
+    when "basta-cierre-default"
+      $strict = false
+      expected = "es: promoción causal prohibida: basta-para-cerrar"
+      check_language!(es_front, "#{es_body}\nLa cercanía de otra escuela basta para decidir un cierre.\n", "es", enforce_length: false)
+    when "negated-cautions-allowed"
+      # Sonda positiva: las cautelas negadas no se rechazan; si algo falla, el arnés lo
+      # informa como causa equivocada.
+      $strict = false
+      expected = "cautelas negadas aceptadas"
+      check_language!(en_front, "#{en_body}\nThese results do not show that SLEPs and SAE had no effects. It would be incorrect to say these findings are impacts. Proximity is not enough to decide on closure.\n", "en", enforce_length: false)
+      check_language!(es_front, "#{es_body}\nEstos resultados no muestran que los SLEP y el SAE no tuvieron efectos. Sería incorrecto decir que estos resultados son impactos. La cercanía no basta para decidir un cierre.\n", "es", enforce_length: false)
+      raise VerificationError, expected
     when "policy-auto-close-default"
+      # Borra la cautela sin afirmar nada: falsa la frontera, no el patrón de promoción.
       $strict = false
       expected = "es: frontera de uso público ausente: no bastan para decidir un cierre"
-      mutant = es_body.gsub("no bastan para decidir un cierre", "bastan para decidir un cierre")
+      mutant = es_body.gsub("; no bastan para decidir un cierre", "")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-null-interpretation"
       expected = "en: evidencia o cautela ausente: these results do not allow me to conclude that sleps and sae had no effects"
@@ -1103,7 +1157,7 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
       expected = "es: promoción causal prohibida: la baja de matrícula causó el cierre"
       check_language!(es_front, "#{es_body}\nLa baja de matrícula causó el cierre.\n", "es", enforce_length: false)
     when "policy-auto-close"
-      expected = "es: frontera de uso público ausente: no bastan para decidir un cierre"
+      expected = "es: promoción causal prohibida: basta-para-cerrar"
       mutant = es_body.gsub("no bastan para decidir un cierre", "bastan para decidir un cierre")
       check_language!(es_front, mutant, "es", enforce_length: false)
     when "policy-slep-scope"
