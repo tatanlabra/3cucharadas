@@ -26,7 +26,7 @@ class SiteHealthTest < Minitest::Test
       assert_empty SiteHealth.runtime_violations(dir, contract)
       path = File.join(dir, '.gitlab-ci.yml')
       original = File.read(path)
-      File.write(path, original.sub('NODE_VERSION: "26.8.1"', 'NODE_VERSION: "24.18.0"'))
+      File.write(path, original.sub('NODE_VERSION: "26.12.1"', 'NODE_VERSION: "24.18.0"'))
       assert_includes SiteHealth.runtime_violations(dir, contract), 'node CI drift'
       File.write(path, original)
       assert_empty SiteHealth.runtime_violations(dir, contract)

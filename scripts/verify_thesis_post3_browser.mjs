@@ -49,13 +49,13 @@ function evaluate(row) {
   if (row.bodyFontPx < 16) failures.push('body-font-too-small');
   if (row.tableMinFontPx < 13) failures.push('table-font-too-small');
   if (row.referenceMinFontPx < 14) failures.push('references-font-too-small');
-  if (row.figureCount !== 3 || !row.figuresValid) failures.push('figure-contract');
+  if (row.figureCount !== 4 || !row.figuresValid) failures.push('figure-contract');
   if (!row.figureThemeValid) failures.push('figure-theme-contract');
   if (!row.visualIdentityValid) failures.push('visual-identity-contract');
   if (!row.dataFallbackValid) failures.push('figure-data-fallback');
   if (!row.keyboardFocusValid) failures.push('figure-keyboard-focus');
   if (row.svgTextMinPx < 9) failures.push('svg-text-too-small');
-  if (row.tableCount !== 4 || !row.tableWrappersValid || !row.tableHeadersScoped) failures.push('table-contract');
+  if (row.tableCount !== 7 || !row.tableWrappersValid || !row.tableHeadersScoped) failures.push('table-contract');
   if (!row.idsUnique || !row.imagesNamed) failures.push('basic-a11y');
   if (!row.higherEducationAgenda) failures.push('higher-education-agenda');
   if (!row.noHigherEducationBlocker) failures.push('higher-education-blocker');
@@ -77,8 +77,8 @@ function runFixture(name) {
     bodyFontPx: 18,
     tableMinFontPx: 14,
     referenceMinFontPx: 15,
-    tableCount: 4,
-    figureCount: 3,
+    tableCount: 7,
+    figureCount: 4,
     figuresValid: true,
     figureThemeValid: true,
     visualIdentityValid: true,
@@ -100,11 +100,11 @@ function runFixture(name) {
   };
   const mutations = {
     overflow: { documentOverflow: true },
-    'missing-figure': { figureCount: 2 },
+    'missing-figure': { figureCount: 3 },
     'wrong-theme': { figureThemeValid: false },
     'zero-size': { figuresValid: false },
     'private-content': { publicContentSafe: false },
-    'missing-table': { tableCount: 3 },
+    'missing-table': { tableCount: 6 },
     'missing-visual-identity': { visualIdentityValid: false },
     'mismatched-editorial-width': { editorialGeometryValid: false },
     'off-theme-panel': { darkPanelToneValid: false },
@@ -339,6 +339,8 @@ async function inspectPage(browser, locale, route, theme, viewport) {
               semanticColumns.push('uncertainty_type_es', 'uncertainty_type_en', 'sample_scope_es', 'sample_scope_en');
             } else if (link.pathname.endsWith('missingness-bounds-data.csv')) {
               semanticColumns.push('uncertainty_type_es', 'uncertainty_type_en', 'sample_scope_es', 'sample_scope_en');
+            } else if (link.pathname.endsWith('cohort-series-infographic-data.csv')) {
+              semanticColumns.push('sample_scope_es', 'sample_scope_en');
             } else if (link.pathname.endsWith('territorial-audit-data.csv')) {
               semanticColumns.push('maximum_automatic_level', 'blocking_gaps');
             }
@@ -420,7 +422,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
           && (payload.theme === 'academic-night'
             || figure.identitySurface === payload.expectedIdentity.surface)
           && figure.identityFocus === payload.expectedIdentity.focus),
-        dataFallbackValid: figureRows.map((figure) => figure.dataLinks).join(',') === '1,2,1'
+        dataFallbackValid: figureRows.map((figure) => figure.dataLinks).join(',') === '1,2,1,1'
           && figureRows.every((figure) => figure.dataResponses.every(Boolean)),
         keyboardFocusValid: payload.keyboardRows.length === figureRows.length
           && payload.keyboardRows.every((item) => item.focusOutlineVisible && item.tabMovesToFallback),
@@ -530,7 +532,7 @@ async function inspectPrint(browser, locale, route, theme) {
   const page = await context.newPage();
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 3);
+    await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 4);
     const printFigures = page.locator('figure.post3-figure');
     for (let index = 0; index < await printFigures.count(); index += 1) {
       await printFigures.nth(index).scrollIntoViewIfNeeded();
@@ -663,7 +665,7 @@ async function inspectPreference(browser, locale, route, theme, preference) {
   const page = await context.newPage();
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 3);
+    await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 4);
     await page.locator('figure.post3-figure a.post3-theme-link').first().focus();
     return await page.evaluate((payload) => {
       const figures = [...document.querySelectorAll('figure.post3-figure')];
@@ -691,7 +693,7 @@ async function inspectPreference(browser, locale, route, theme, preference) {
           return style.borderTopStyle !== 'none' && parseFloat(style.borderTopWidth) >= 2;
         }),
         noPanelShadows: figures.every((figure) => getComputedStyle(figure).boxShadow === 'none'),
-        linksUnderlined: links.length === 7
+        linksUnderlined: links.length === 9
           && links.every((link) => getComputedStyle(link).textDecorationLine.includes('underline')),
         imagesFramed: payload.preference !== 'forced-colors'
           || images.every((image) => parseFloat(getComputedStyle(image).borderTopWidth) >= 1),
@@ -742,18 +744,18 @@ try {
 
 const liveFailures = rows.filter((row) => row.failures.length > 0);
 const noJsFailures = noJs.filter((row) =>
-  row.httpStatus !== 200 || row.figureCount !== 3 || !row.lightMobileFallbacks
-  || row.documentOverflow || row.tableCount !== 4);
+  row.httpStatus !== 200 || row.figureCount !== 4 || !row.lightMobileFallbacks
+  || row.documentOverflow || row.tableCount !== 7);
 const printFailures = print.filter((row) =>
-  row.httpStatus !== 200 || row.figureCount !== 3 || !row.figuresVisible
+  row.httpStatus !== 200 || row.figureCount !== 4 || !row.figuresVisible
   || !row.lightVariants || !row.printPaletteValid);
 const textResizeFailures = textResize.filter((row) =>
   row.httpStatus !== 200 || row.textNodesMeasured === 0 || row.minimumTextScale < 1.95
-  || row.clippedTextElements !== 0 || row.figureCount !== 3
-  || row.tableCount !== 4 || !row.figuresVisible || !row.contentPresent
+  || row.clippedTextElements !== 0 || row.figureCount !== 4
+  || row.tableCount !== 7 || !row.figuresVisible || !row.contentPresent
   || row.documentOverflow || !row.wrappersContained);
 const preferenceFailures = preferences.filter((row) =>
-  row.httpStatus !== 200 || !row.preferenceMatches || row.figureCount !== 3
+  row.httpStatus !== 200 || !row.preferenceMatches || row.figureCount !== 4
   || !row.figuresVisible || !row.strongPanelBorders || !row.noPanelShadows
   || !row.linksUnderlined || !row.imagesFramed || !row.focusVisible
   || row.documentOverflow);

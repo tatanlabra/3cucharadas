@@ -14,8 +14,10 @@ gem "minimal-mistakes-jekyll", "~> 4.28"      # 4.28.0
 
 # Plugins recomendados por el tema
 group :jekyll_plugins do
-  gem "jekyll-include-cache", "~> 0.2"        # requerido por Minimal Mistakes
-  gem "jekyll-feed", "~> 0.17"
+  gem "jekyll-include-cache", ">= 0.2", "< 1.0" # requerido por Minimal Mistakes
+  gem "jekyll-feed", ">= 0.17", "< 1.0"
+  # Evita el warning de octokit/faraday 2.x en cada build/doctor ("install faraday-retry gem")
+  gem "faraday-retry", "~> 2.0"
   # jekyll-sitemap RETIRADO. El sitio tiene su propio `_pages/sitemap.xml`, que es
   # multilingüe y emite `xhtml:link rel="alternate" hreflang`; el de la gema no
   # sabe de Polyglot. Estaba desactivado en la lista `plugins:` de `_config.yml`,

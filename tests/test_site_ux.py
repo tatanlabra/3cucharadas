@@ -52,7 +52,11 @@ class SiteUxTest(unittest.TestCase):
             self.assertRegex(home, rf'<script src="{re.escape(expected)}\?v=\d+"></script>')
             self.assertRegex(home, r'src="/assets/js/lunr/lunr-site\.js\?v=\d+"')
             self.assertNotIn('src="/assets/js/lunr/lunr-store.js"', home)
-            self.assertIn('<main id="search-main" class="search-content" tabindex="-1">', home)
+            self.assertIn(
+                '<main id="search-main" class="search-content" tabindex="-1" aria-labelledby="search-dialog-title">',
+                home,
+            )
+            self.assertIn('<h2 id="search-dialog-title" class="page__title">', home)
             self.assertIn('id="skip-content-link" href="#main"', home)
             self.assertIn('aria-controls="search-main" aria-expanded="false"', home)
             self.assertIn('class="results" data-results-found=', home)

@@ -1,0 +1,133 @@
+{
+  "accessibility": {
+    "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
+    "keyboard_checked": true,
+    "long_description": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos. Figura 4. Serie histórica 2006–2024 de cierres inferidos desde los datos (RCID v1), subagregados por régimen institucional y brechas basales NNA en G−1. Aunque el agregado de 19 cohortes (+9,11 pp) y sus cotas de Manski (+0,43 a +16,21 pp) no cruzan cero, las asimetrías institucionales y de rotación previa en G−1 impiden promover causalidad.",
+    "non_color_encoding": "Posición horizontal/vertical, marcadores diferenciados, bandas sombreadas, líneas de referencia y etiquetas directas.",
+    "table_fallback": "cohort-series-infographic-data.csv"
+  },
+  "decision": {
+    "chart_type": "Infografía en tres paneles coordinados: serie anual, subagregados por régimen y brechas basales NNA",
+    "discard_condition": "Descartar si la consistencia de signo en 19 cohortes se interpreta como prueba de exogeneidad del cierre.",
+    "rationale": "Integra la serie completa 2006–2024 con la atenuación por régimen y el diagnóstico de selección institucional en G−1.",
+    "rejected_alternatives": [
+      "Solo reportar 2016–2019: ocultaría la consistencia de signo en 19 cohortes y la atenuación histórica.",
+      "Promover el agregado como efecto causal puro: ignoraría las brechas de JEC, convenio SEP y rotación previa en G−1."
+    ]
+  },
+  "evidence": {
+    "data_cut": "Serie completa 2004–2025 bajo RCID v1 (audit/post3_full_series_did_2004_2025_v1.json).",
+    "denominator": "19 cohortes estimables de progresión (2006–2024) y 6.190 expuestos vs. 82.753 controles (2016–2019).",
+    "estimand": "ATT(g) ponderado por celda exacta, agregado Callaway y Sant'Anna y diferencia basal ponderada.",
+    "population": "56.862 observaciones expuestas y 553.630 controles en 1.028 episodios con soporte (2006–2024).",
+    "question": "¿Cómo varía la falla de progresión entre 2006 y 2024 bajo RCID v1 y qué asimetrías NNA persisten en G−1?",
+    "transformation": "Pareo exacto por celda, depuración de flujo estudiantil (RCID v1) y cotas de Manski de la serie.",
+    "uncertainty": "IC del 95 % agrupado por establecimiento, cotas de Manski (+0,43 a +16,21 pp) y desbalance institucional previo.",
+    "unit": "Cohorte anual G, subagregado por régimen institucional y brecha basal NNA en G−1."
+  },
+  "generated_at": "2026-10-25T12:00:00Z",
+  "manifest_version": "1.0.0",
+  "renderer": {
+    "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
+    "name": "336_post3_visuals",
+    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "version": "1.0.0"
+  },
+  "runtime_dependencies": {
+    "local": [
+      "assets/fonts/fira-sans",
+      "assets/images/tesis-post3"
+    ],
+    "remote": []
+  },
+  "sources": [
+    {
+      "accessed_at": "2026-10-25",
+      "id": "series",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_full_series_did_2004_2025_v1.json",
+      "sha256": "677b207d93997f5849edfc89039d84ec62b8e85133fc71efa3bfdf568fe5f3a2"
+    },
+    {
+      "accessed_at": "2026-10-25",
+      "id": "causal",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    },
+    {
+      "accessed_at": "2026-10-25",
+      "id": "identity",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_identity_audit.json",
+      "sha256": "e20c09f5248eda65525afdb3b64e997b37afa55d459267b0e41a238d703155ab"
+    }
+  ],
+  "variants": [
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-light.svg",
+      "sha256": "8a4f5aff1c0b66d400da9c7155218ba95df78ad8b10c24ff21e3f6ff39add241",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-light.png",
+      "sha256": "0b90e03a302364a9c2bea44cbe5c557d0227559c3b209d35faa15635c2187d23",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-light-mobile.svg",
+      "sha256": "b63a174edeab7eb8004c30864a8bca4e45cd92de35b347366805fe1efbc7b11b",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-light-mobile.png",
+      "sha256": "588e233aebe5064ace729311eef2233e7430da24a27036f25b71c90a03ab7cbe",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-dark.svg",
+      "sha256": "56fe3e46896d0b7f5202c06679cf2cd9d54a992e732706698540f02c58e47eeb",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-dark.png",
+      "sha256": "d8ea2f34a9082e30303594666c1fc1c7889edd931e5d248d623257625f939781",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-dark-mobile.svg",
+      "sha256": "27d2e49ea15cb24b828259738abdb4a5d74daffa91100c832b015a030cfa7371",
+      "theme": "dark",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "cohort-series-infographic-es-dark-mobile.png",
+      "sha256": "5c7fe79d62880315442090a71776067fbb60b9459b566eff4c25e442d7a94b4a",
+      "theme": "dark",
+      "viewport": "mobile"
+    }
+  ],
+  "visual_id": "post3-cohort-series-infographic-es"
+}

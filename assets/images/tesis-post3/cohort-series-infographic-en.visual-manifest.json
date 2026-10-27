@@ -1,0 +1,133 @@
+{
+  "accessibility": {
+    "alt": "Three-panel infographic under the RCID v1 rule. Panel A displays the 19 estimable annual cohorts for progression failure or grade lag from 2006 to 2024: all 19 point estimates are positive, ranging from 0.94 to 28.22 percentage points, with a median of 7.18 and a Callaway and Sant'Anna student-weighted aggregate of 9.11 points whose Manski bounds span 0.43 to 16.21. Panel B shows attenuation across institutional regimes from 12.15 points in 2006–2010 and 7.82 in 2011–2015 to 5.29 in 2016–2019, 2.70 in 2020–2022, and 2.59 in 2023–2024. Panel C shows G minus 1 baseline gaps after exact matching: individual SEP eligibility is balanced at minus 1.07 points, whereas exposed students face lower school SEP agreements at minus 10.06 points, lower full-day schooling at minus 18.54 points, lower valid record coverage at minus 19.24 points, and higher prior school switching at plus 16.52 points.",
+    "keyboard_checked": true,
+    "long_description": "Three-panel infographic under the RCID v1 rule. Panel A displays the 19 estimable annual cohorts for progression failure or grade lag from 2006 to 2024: all 19 point estimates are positive, ranging from 0.94 to 28.22 percentage points, with a median of 7.18 and a Callaway and Sant'Anna student-weighted aggregate of 9.11 points whose Manski bounds span 0.43 to 16.21. Panel B shows attenuation across institutional regimes from 12.15 points in 2006–2010 and 7.82 in 2011–2015 to 5.29 in 2016–2019, 2.70 in 2020–2022, and 2.59 in 2023–2024. Panel C shows G minus 1 baseline gaps after exact matching: individual SEP eligibility is balanced at minus 1.07 points, whereas exposed students face lower school SEP agreements at minus 10.06 points, lower full-day schooling at minus 18.54 points, lower valid record coverage at minus 19.24 points, and higher prior school switching at plus 16.52 points. Figure 4. Historical 2006–2024 series of data-inferred closures (RCID v1), regime sub-aggregates, and G−1 NNA baseline gaps. Although the 19-cohort aggregate (+9.11 pp) and its Manski bounds (+0.43 to +16.21 pp) exclude zero, institutional and prior-mobility asymmetries at G−1 still preclude causal promotion.",
+    "non_color_encoding": "Horizontal/vertical position, distinct markers, shaded bands, reference lines, and direct labels.",
+    "table_fallback": "cohort-series-infographic-data.csv"
+  },
+  "decision": {
+    "chart_type": "Three-panel coordinated infographic: annual series, regime sub-aggregates, and NNA baseline gaps",
+    "discard_condition": "Discard if sign consistency across 19 cohorts is read as proof of exogenous school closure.",
+    "rationale": "Integrates the full 2006–2024 series with regime attenuation and G−1 institutional selection diagnostics.",
+    "rejected_alternatives": [
+      "Reporting only 2016–2019: would hide sign consistency across 19 cohorts and historical attenuation.",
+      "Promoting the aggregate as a pure causal effect: would ignore JEC, SEP agreement, and prior switching gaps at G−1."
+    ]
+  },
+  "evidence": {
+    "data_cut": "Full 2004–2025 series under RCID v1 (audit/post3_full_series_did_2004_2025_v1.json).",
+    "denominator": "19 estimable progression cohorts (2006–2024) and 6,190 exposed vs. 82,753 controls (2016–2019).",
+    "estimand": "Exact-cell weighted ATT(g), Callaway and Sant'Anna student-weighted aggregate, and weighted baseline gap.",
+    "population": "56,862 exposed observations and 553,630 controls across 1,028 supported closure episodes (2006–2024).",
+    "question": "How does progression failure vary across 2006–2024 under RCID v1, and which NNA baseline gaps persist at G−1?",
+    "transformation": "Exact cell matching, student-flow depuration (RCID v1), and series-wide Manski bounds.",
+    "uncertainty": "95% school-clustered CIs, Manski bounds (+0.43 to +16.21 pp), and pre-closure institutional imbalance.",
+    "unit": "Annual cohort G, institutional regime sub-aggregate, and G−1 NNA baseline gap."
+  },
+  "generated_at": "2026-10-25T12:00:00Z",
+  "manifest_version": "1.0.0",
+  "renderer": {
+    "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
+    "name": "336_post3_visuals",
+    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "version": "1.0.0"
+  },
+  "runtime_dependencies": {
+    "local": [
+      "assets/fonts/fira-sans",
+      "assets/images/tesis-post3"
+    ],
+    "remote": []
+  },
+  "sources": [
+    {
+      "accessed_at": "2026-10-25",
+      "id": "series",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_full_series_did_2004_2025_v1.json",
+      "sha256": "677b207d93997f5849edfc89039d84ec62b8e85133fc71efa3bfdf568fe5f3a2"
+    },
+    {
+      "accessed_at": "2026-10-25",
+      "id": "causal",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    },
+    {
+      "accessed_at": "2026-10-25",
+      "id": "identity",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_identity_audit.json",
+      "sha256": "e20c09f5248eda65525afdb3b64e997b37afa55d459267b0e41a238d703155ab"
+    }
+  ],
+  "variants": [
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-light.svg",
+      "sha256": "9ef227f606f026e7c44b94c20a2bf26e899b4a8b8e89ccb289e4858e141015aa",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-light.png",
+      "sha256": "bba087d092212916842d73d123c2e2a332421010ef85dd3d3699b815d920099e",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-light-mobile.svg",
+      "sha256": "45766a6919c0e7b01b7078a0fa5d5cae0739c9bbb0248937dd35d7183fb6e652",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-light-mobile.png",
+      "sha256": "3fe933c70468b1388e5ab0ba4f269fb431b623723e9af53391717ff1c507309a",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-dark.svg",
+      "sha256": "e9f2af7c42e508d4874ad46115e09f525ed64447a7bac5c495594f1b78d81149",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-dark.png",
+      "sha256": "1852fd157e9ebf95b9940155614c1b6a3f374f4c5974637c2434bad0aa078f48",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-dark-mobile.svg",
+      "sha256": "9dccd5ceff616cba01d02a2c2cf5e1777f352ea6f2907cde22d4be0e24b46cca",
+      "theme": "dark",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "cohort-series-infographic-en-dark-mobile.png",
+      "sha256": "7d61191a407588f638a3626c0b139cbbe2970fdc7441a35de5686a416427f810",
+      "theme": "dark",
+      "viewport": "mobile"
+    }
+  ],
+  "visual_id": "post3-cohort-series-infographic-en"
+}

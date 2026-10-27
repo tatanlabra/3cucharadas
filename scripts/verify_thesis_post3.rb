@@ -19,7 +19,8 @@ class ThesisPost3Verifier
     "en" => "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md"
   }.freeze
   RECEIPT = "docs/contracts/evidence/post3-scientific-release-v3_1.json"
-  CANONICAL_FIGURES = %w[sample-flow post-pilot-reestimation territorial-audit].freeze
+  SERIES_ARTIFACT = "assets/data/tesis-post3/post3_full_series_did_2004_2025_v1.json"
+  CANONICAL_FIGURES = %w[sample-flow post-pilot-reestimation cohort-series-infographic territorial-audit].freeze
   FIGURE_VARIANTS = %w[light dark light-mobile dark-mobile].freeze
   FIGURE_FORMATS = %w[svg png].freeze
   REQUIRED_ANALYSIS_STAGE = "POST_PILOT_REESTIMATION_V3"
@@ -495,6 +496,17 @@ class ThesisPost3Verifier
                      end
     assert_match!(body, coverage_scope, "alcance de cobertura comparativa impreciso #{lang}")
     assert_match!(body, no_iv, "rechazo editorial de IV ausente #{lang}")
+
+    series_path = @root.join(SERIES_ARTIFACT)
+    raise ThesisPost3Error, "artefacto gobernado de serie 2005-2024 ausente: #{series_path}" unless series_path.file?
+
+    rcid_claims = if lang == "es"
+                    ["RCID v1", "1.981", "1.807", "1.678", "1.648", "1.141", "78.972", "734.472", "+9,11", "+0,43", "+16,21", "+5,14", "30,68 %", "47,04 %"]
+                  else
+                    ["RCID v1", "1,981", "1,807", "1,678", "1,648", "1,141", "78,972", "734,472", "+9.11", "+0.43", "+16.21", "+5.14", "30.68%", "47.04%"]
+                  end
+    missing_rcid = rcid_claims.reject { |claim| body.include?(claim) }
+    raise ThesisPost3Error, "evidencia RCID v1 o serie 2005-2024 ausente #{lang}: #{missing_rcid.join(', ')}" unless missing_rcid.empty?
   end
 
   def verify_policy_safeguards(lang, body)
@@ -574,7 +586,7 @@ class ThesisPost3Verifier
                      .gsub(/\{:[^}]+\}/, " ").gsub(/\{\{.*?\}\}/, " ")
                      .gsub(/[|#*_>`~-]/, " ")
     words = article.scan(/[[:alpha:]À-ÿ0-9]+/).length
-    raise ThesisPost3Error, "extensión visible ES fuera de 3.000–3.500 palabras: #{words}" unless (3_000..3_500).cover?(words)
+    raise ThesisPost3Error, "extensión visible ES fuera de 3.000–5.500 palabras: #{words}" unless (3_000..5_500).cover?(words)
   end
 
   def verify_pair(documents)

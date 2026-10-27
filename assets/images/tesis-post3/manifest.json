@@ -4,7 +4,8 @@
       "sample-flow-data.csv",
       "post-pilot-reestimation-data.csv",
       "missingness-bounds-data.csv",
-      "territorial-audit-data.csv"
+      "territorial-audit-data.csv",
+      "cohort-series-infographic-data.csv"
     ],
     "desktop_mobile_variants": true,
     "light_dark_variants": true,
@@ -105,6 +106,232 @@
         2019
       ]
     },
+    "series_infographic": {
+      "annual_progression": [
+        {
+          "cohort_year": 2006,
+          "estimate_pp": 9.22,
+          "high_pp": 17.19,
+          "low_pp": 1.25,
+          "treated_students": 5078
+        },
+        {
+          "cohort_year": 2007,
+          "estimate_pp": 8.83,
+          "high_pp": 12.76,
+          "low_pp": 4.91,
+          "treated_students": 5270
+        },
+        {
+          "cohort_year": 2008,
+          "estimate_pp": 4.08,
+          "high_pp": 6.11,
+          "low_pp": 2.05,
+          "treated_students": 5292
+        },
+        {
+          "cohort_year": 2009,
+          "estimate_pp": 11.98,
+          "high_pp": 15.48,
+          "low_pp": 8.49,
+          "treated_students": 3584
+        },
+        {
+          "cohort_year": 2010,
+          "estimate_pp": 28.22,
+          "high_pp": 59.6,
+          "low_pp": -3.16,
+          "treated_students": 4704
+        },
+        {
+          "cohort_year": 2011,
+          "estimate_pp": 10.67,
+          "high_pp": 15.25,
+          "low_pp": 6.1,
+          "treated_students": 3414
+        },
+        {
+          "cohort_year": 2012,
+          "estimate_pp": 10.22,
+          "high_pp": 13.35,
+          "low_pp": 7.1,
+          "treated_students": 4610
+        },
+        {
+          "cohort_year": 2013,
+          "estimate_pp": 6.24,
+          "high_pp": 9.01,
+          "low_pp": 3.47,
+          "treated_students": 8017
+        },
+        {
+          "cohort_year": 2014,
+          "estimate_pp": 6.33,
+          "high_pp": 9.91,
+          "low_pp": 2.75,
+          "treated_students": 6087
+        },
+        {
+          "cohort_year": 2015,
+          "estimate_pp": 8.2,
+          "high_pp": 11.58,
+          "low_pp": 4.82,
+          "treated_students": 2505
+        },
+        {
+          "cohort_year": 2016,
+          "estimate_pp": 10.01,
+          "high_pp": 18.88,
+          "low_pp": 1.15,
+          "treated_students": 1165
+        },
+        {
+          "cohort_year": 2017,
+          "estimate_pp": 2.1,
+          "high_pp": 8.4,
+          "low_pp": -4.21,
+          "treated_students": 1046
+        },
+        {
+          "cohort_year": 2018,
+          "estimate_pp": 2.76,
+          "high_pp": 5.95,
+          "low_pp": -0.43,
+          "treated_students": 1601
+        },
+        {
+          "cohort_year": 2019,
+          "estimate_pp": 7.18,
+          "high_pp": 13.02,
+          "low_pp": 1.34,
+          "treated_students": 1003
+        },
+        {
+          "cohort_year": 2020,
+          "estimate_pp": 3.1,
+          "high_pp": 11.81,
+          "low_pp": -5.61,
+          "treated_students": 296
+        },
+        {
+          "cohort_year": 2021,
+          "estimate_pp": 0.94,
+          "high_pp": 2.74,
+          "low_pp": -0.87,
+          "treated_students": 1771
+        },
+        {
+          "cohort_year": 2022,
+          "estimate_pp": 7.87,
+          "high_pp": 21.19,
+          "low_pp": -5.45,
+          "treated_students": 583
+        },
+        {
+          "cohort_year": 2023,
+          "estimate_pp": 3.2,
+          "high_pp": 10.99,
+          "low_pp": -4.58,
+          "treated_students": 310
+        },
+        {
+          "cohort_year": 2024,
+          "estimate_pp": 2.23,
+          "high_pp": 7.69,
+          "low_pp": -3.23,
+          "treated_students": 526
+        }
+      ],
+      "nna_gaps_pp": {
+        "commuter": 8.6,
+        "jec": -18.54,
+        "school_convenio_sep": -10.06,
+        "sep_beneficiario": -10.96,
+        "sep_eligible": -1.07,
+        "switched_m3_m1": 16.52,
+        "valid_record_m1": -19.24
+      },
+      "regimes": [
+        {
+          "manski_high_pp": 18.83,
+          "manski_low_pp": 3.49,
+          "nonenrollment_pp": 1.21,
+          "progression_high_pp": 20.52,
+          "progression_low_pp": 3.78,
+          "progression_pp": 12.15,
+          "regime_id": "pre_lge_sep_2005_2010",
+          "years": [
+            2005,
+            2010
+          ]
+        },
+        {
+          "manski_high_pp": 16.18,
+          "manski_low_pp": -2.11,
+          "nonenrollment_pp": 1.85,
+          "progression_high_pp": 9.41,
+          "progression_low_pp": 6.2,
+          "progression_pp": 7.82,
+          "regime_id": "post_lge_sac_2011_2015",
+          "years": [
+            2011,
+            2015
+          ]
+        },
+        {
+          "manski_high_pp": 10.98,
+          "manski_low_pp": -1.15,
+          "nonenrollment_pp": 0.63,
+          "progression_high_pp": 8.51,
+          "progression_low_pp": 2.08,
+          "progression_pp": 5.29,
+          "regime_id": "primary_pre_pandemic_2016_2019",
+          "years": [
+            2016,
+            2019
+          ]
+        },
+        {
+          "manski_high_pp": 4.95,
+          "manski_low_pp": 0.18,
+          "nonenrollment_pp": -0.28,
+          "progression_high_pp": 6.03,
+          "progression_low_pp": -0.63,
+          "progression_pp": 2.7,
+          "regime_id": "pandemic_covid_2020_2022",
+          "years": [
+            2020,
+            2022
+          ]
+        },
+        {
+          "manski_high_pp": 6.07,
+          "manski_low_pp": -1.7,
+          "nonenrollment_pp": -0.93,
+          "progression_high_pp": 6.73,
+          "progression_low_pp": -1.55,
+          "progression_pp": 2.59,
+          "regime_id": "post_pandemic_2023_2024",
+          "years": [
+            2023,
+            2024
+          ]
+        },
+        {
+          "manski_high_pp": 16.21,
+          "manski_low_pp": 0.43,
+          "nonenrollment_pp": 1.38,
+          "progression_high_pp": 12.88,
+          "progression_low_pp": 5.34,
+          "progression_pp": 9.11,
+          "regime_id": "full_series_2005_2024",
+          "years": [
+            2005,
+            2024
+          ]
+        }
+      ]
+    },
     "territorial": {
       "blocking_gaps": [
         "DECLINE_RULE_NOT_OPERATIONALIZED",
@@ -129,12 +356,17 @@
     }
   },
   "data_sha256_by_figure": {
+    "cohort-series-infographic": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
     "post-pilot-reestimation": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
     "sample-flow": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
     "territorial-audit": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b"
   },
   "editorial": {
     "en": {
+      "cohort-series-infographic": {
+        "alt": "Three-panel infographic under the RCID v1 rule. Panel A displays the 19 estimable annual cohorts for progression failure or grade lag from 2006 to 2024: all 19 point estimates are positive, ranging from 0.94 to 28.22 percentage points, with a median of 7.18 and a Callaway and Sant'Anna student-weighted aggregate of 9.11 points whose Manski bounds span 0.43 to 16.21. Panel B shows attenuation across institutional regimes from 12.15 points in 2006–2010 and 7.82 in 2011–2015 to 5.29 in 2016–2019, 2.70 in 2020–2022, and 2.59 in 2023–2024. Panel C shows G minus 1 baseline gaps after exact matching: individual SEP eligibility is balanced at minus 1.07 points, whereas exposed students face lower school SEP agreements at minus 10.06 points, lower full-day schooling at minus 18.54 points, lower valid record coverage at minus 19.24 points, and higher prior school switching at plus 16.52 points.",
+        "caption": "Figure 4. Historical 2006–2024 series of data-inferred closures (RCID v1), regime sub-aggregates, and G−1 NNA baseline gaps. Although the 19-cohort aggregate (+9.11 pp) and its Manski bounds (+0.43 to +16.21 pp) exclude zero, institutional and prior-mobility asymmetries at G−1 still preclude causal promotion."
+      },
       "post-pilot-reestimation": {
         "alt": "Inconclusive post-pilot re-estimation of two primary outcomes. Persistent non-enrolment is estimated at 0.63 percentage points, with a CI from minus 0.77 to 2.03; the different sample that includes receiver schools gives 0.71, from minus 0.69 to 2.12. Progression failure or grade lag is estimated at 5.29 points, from 2.08 to 8.51; the different receiver-school sample gives 5.09, from 1.94 to 8.23. Missing-data bounds span minus 1.15 to 10.98 points. These are not confirmed causal effects.",
         "caption": "Figure 2. Inconclusive post-pilot re-estimation, not causal effects. The progression CI excludes zero, but its missing-data bounds do not. The receiver-school series uses a different sample; pilot overlap and unobserved assumptions preclude a causal claim."
@@ -149,6 +381,10 @@
       }
     },
     "es": {
+      "cohort-series-infographic": {
+        "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
+        "caption": "Figura 4. Serie histórica 2006–2024 de cierres inferidos desde los datos (RCID v1), subagregados por régimen institucional y brechas basales NNA en G−1. Aunque el agregado de 19 cohortes (+9,11 pp) y sus cotas de Manski (+0,43 a +16,21 pp) no cruzan cero, las asimetrías institucionales y de rotación previa en G−1 impiden promover causalidad."
+      },
       "post-pilot-reestimation": {
         "alt": "Reestimación post-piloto inconclusa de dos resultados primarios. La no matrícula persistente se estima en 0,63 puntos porcentuales, con IC de menos 0,77 a 2,03; en la muestra distinta que incluye escuelas receptoras, 0,71, con IC de menos 0,69 a 2,12. La falla de progresión o rezago se estima en 5,29 puntos, con IC de 2,08 a 8,51; en la muestra distinta con receptoras, 5,09, con IC de 1,94 a 8,23. Sus límites por datos faltantes abarcan de menos 1,15 a 10,98 puntos. No son efectos causales confirmados.",
         "caption": "Figura 2. Reestimación post-piloto inconclusa, no efectos causales. El IC de progresión no cruza cero, pero sus límites por datos faltantes sí. La serie con escuelas receptoras usa una muestra distinta; el solapamiento con el piloto y los supuestos no observados impiden promover causalidad."
@@ -172,18 +408,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "sample-flow-es-light.svg",
-      "sha256": "91d754529c2bb7862f17a8fd908d1be4bfc7e8857723429774d23899337b4ebd",
+      "sha256": "16fa40aac30cc00e0ef2085c33b51bddffb6d329a184dd02615214ae59d5bea0",
       "theme": "light"
     },
     {
-      "bytes": 170826,
+      "bytes": 190945,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "sample-flow-es-light.png",
-      "sha256": "6a151b3e7db381a7ab53559f7ee16069932e470ec53e7d1e7262ec51602a7a18",
+      "sha256": "c36dc25e171ff918ebb8b6d558b00aa19ef22e2d95a4ff3295535b5e32c14fc5",
       "theme": "light"
     },
     {
@@ -194,18 +430,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "sample-flow-es-light-mobile.svg",
-      "sha256": "01c5fbebe83689d120b9fb6599ecc4d65e331938afe2b5cb74da81db744b81eb",
+      "sha256": "7279a6a711fb6ce5c822ccb2f9507bbe9b200c6ab34ac40776e221251c5fc903",
       "theme": "light"
     },
     {
-      "bytes": 198397,
+      "bytes": 220986,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "sample-flow-es-light-mobile.png",
-      "sha256": "3b5b64a55f2e234f11cc928c43200326ac59c176e940bc79373bfe9f9b41a724",
+      "sha256": "0d1fd34537d53d89d4f86084d5c1ab249def424c85cf351e224a2254fea74f45",
       "theme": "light"
     },
     {
@@ -216,18 +452,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "sample-flow-es-dark.svg",
-      "sha256": "36ae18d7da39cfcd0a6d9039952b276b7f7885c36c85c1584e1957721355b663",
+      "sha256": "5906b9de82dfe40944c823e1cd135f063760cdc82228b5356b18ccb888b6f90f",
       "theme": "dark"
     },
     {
-      "bytes": 170750,
+      "bytes": 191100,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "sample-flow-es-dark.png",
-      "sha256": "068028842370eacac501968b7fc72cefbd3291540917c6f7813b93d40c664bfb",
+      "sha256": "e407f2dad55a29923d105983f36a7a18291b0408d6bab94de3ee7bf5e53963c4",
       "theme": "dark"
     },
     {
@@ -238,18 +474,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "sample-flow-es-dark-mobile.svg",
-      "sha256": "cc22260d841e937d94b695181a511d338033307366628f5160165f9f214850a2",
+      "sha256": "b37bacd0f5191f8a1f1ed00e180eb36deaefc3dd4544d5eb8ae3c53dfb381633",
       "theme": "dark"
     },
     {
-      "bytes": 198071,
+      "bytes": 220995,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "sample-flow-es-dark-mobile.png",
-      "sha256": "fc026b049151ea00beabc46dc6c593136146a2da00511ade899166cb5cc9a9f6",
+      "sha256": "a05fd45daaf1f5f4bbf503f7e8b4c64701e01d4868b16b6475a9406156b14a50",
       "theme": "dark"
     },
     {
@@ -260,18 +496,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "sample-flow-en-light.svg",
-      "sha256": "9be72df38aede3e5c2f82c2b7943fbb7d7d509b647db702dae7f2169cdaa4078",
+      "sha256": "2b41eb8df8cb2b33e94b47bdbb11cad3dcc1b681231199f184f1299a22bfab92",
       "theme": "light"
     },
     {
-      "bytes": 157898,
+      "bytes": 176316,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "sample-flow-en-light.png",
-      "sha256": "117999b78d0891cf5e547e957c8ff5ce7e9612187cdc9056aa6d7ef45eb6b76c",
+      "sha256": "da02fb5d17a78672aae3eb42d993b32d63e797b4dc44da3dfc59f110cf516cbd",
       "theme": "light"
     },
     {
@@ -282,18 +518,18 @@
       "language": "en",
       "layout": "mobile",
       "path": "sample-flow-en-light-mobile.svg",
-      "sha256": "272e4559ac1d696a29f2acdcbf26e080d49ccef6936289de13a307604912348d",
+      "sha256": "fb8fa4671f64559bcb04fbd2118a74e246d558a172ebe1a7626263361492eb00",
       "theme": "light"
     },
     {
-      "bytes": 182873,
+      "bytes": 203595,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "sample-flow-en-light-mobile.png",
-      "sha256": "727d391cfddfc83121807f1ba2fddea9bc525fae71e395d88f6fd71b98547667",
+      "sha256": "da858fb5f42441df0531b802bbf9f99f23d592fa58b981b36f1f9271973958fa",
       "theme": "light"
     },
     {
@@ -304,18 +540,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "sample-flow-en-dark.svg",
-      "sha256": "8915dcf7eab7107cfce309033237f94261da4230c3e30422e74e13509b6fee25",
+      "sha256": "2eb8b519a39ba8df8e0a3e5700d4e1b59cd58b385ecd3d75d6092dfafe90719d",
       "theme": "dark"
     },
     {
-      "bytes": 158184,
+      "bytes": 176575,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "sample-flow-en-dark.png",
-      "sha256": "d557724f6044c05de31749684a57b4cc2aad76671190559a6ea7a108c220b922",
+      "sha256": "e99c961c2a5644c87e093065b2aacf8c9f203f71640077bc8a57f9932bdcf93d",
       "theme": "dark"
     },
     {
@@ -326,18 +562,18 @@
       "language": "en",
       "layout": "mobile",
       "path": "sample-flow-en-dark-mobile.svg",
-      "sha256": "81683144a9e8e70b0b16d83e259b8168bcae40c6199dd0009621cd3dfa25bdf4",
+      "sha256": "ac42a194952a23d2853c8c525851f144ab900f24e6f3ea380c06c1e22124254e",
       "theme": "dark"
     },
     {
-      "bytes": 183093,
+      "bytes": 203922,
       "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
       "figure_id": "sample-flow",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "sample-flow-en-dark-mobile.png",
-      "sha256": "88a1ca5b9fef10d0ff851b7d67948c48f41c1bea9f78ac0ae48377d3c80c1e30",
+      "sha256": "c41e62b550c8334434008e7794bc8bcc17dd25a5ab0e0f13f86716cebf991c1e",
       "theme": "dark"
     },
     {
@@ -348,18 +584,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "post-pilot-reestimation-es-light.svg",
-      "sha256": "6d0e9794d9e49865720b401cf794550f497be9bfed665e26c38d49f569e64bb2",
+      "sha256": "19ae26ebf3fa13a2535a4ab34bfff8cf46ea7b8814f417c4cf756757f96f3cb0",
       "theme": "light"
     },
     {
-      "bytes": 222764,
+      "bytes": 245839,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "post-pilot-reestimation-es-light.png",
-      "sha256": "4da11d245b0d523865ed0afb47517882b7e2b19f219de49fd34f937ea70b0dad",
+      "sha256": "47e56251fe1d1bcba347a43d394ad85877731c502d21ff46c605827c370f2146",
       "theme": "light"
     },
     {
@@ -370,18 +606,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "post-pilot-reestimation-es-light-mobile.svg",
-      "sha256": "cc256e1a0a32aa555411c88c4ab417a488717ed940b3ceb5b58423146deea182",
+      "sha256": "df8f5426089c420eab871da4e64e4a73f82fe5573c0feed2fcfe5cd921a9e6bb",
       "theme": "light"
     },
     {
-      "bytes": 236583,
+      "bytes": 260119,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "post-pilot-reestimation-es-light-mobile.png",
-      "sha256": "e68ba9bb5583727095ef05d692047625b7327705d3e9a4de3fff5ab929f97f20",
+      "sha256": "e45179eac3af075e5037c18f4f61411a334db181a80497ad777b44443cd6a506",
       "theme": "light"
     },
     {
@@ -392,18 +628,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "post-pilot-reestimation-es-dark.svg",
-      "sha256": "c349f7a9038e9a31d84e4accdb0813132643825862725e714b97758f9300847b",
+      "sha256": "a07a0c2a3a32ffecba602031c4c08d86a5e88c6999e87d02bd50c2c37af0c5c1",
       "theme": "dark"
     },
     {
-      "bytes": 223632,
+      "bytes": 247045,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "post-pilot-reestimation-es-dark.png",
-      "sha256": "4bc4044c5fc20c478a42b5e1d8bde8daea672246a05d6ed814f73a0d1fecd26b",
+      "sha256": "fd1eca6733f01dbe777a9817d96c4d14497d0c0abc9e8d958eeb7ef9d96d0fe7",
       "theme": "dark"
     },
     {
@@ -414,18 +650,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "post-pilot-reestimation-es-dark-mobile.svg",
-      "sha256": "c6592ddea3f0366e338f376f9452f19db27c84d3cadb4a42a1737d7f65e784df",
+      "sha256": "0f62a5a99268401f6f43ff6cbeb4b82b9f74a4b4ed2428c56642cc5f4617ae63",
       "theme": "dark"
     },
     {
-      "bytes": 237174,
+      "bytes": 261230,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "post-pilot-reestimation-es-dark-mobile.png",
-      "sha256": "e55a20fc29358c294cf2d1c9b4132fe94f28de1a818732942b502571bebbd2b9",
+      "sha256": "5d9cede1d82275364cfb8b237f2a270c1eae14d39fa3e49f0f5ea66dcb43adbb",
       "theme": "dark"
     },
     {
@@ -436,18 +672,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "post-pilot-reestimation-en-light.svg",
-      "sha256": "4ec47efdc080d8aab5ab5927c62695bd1cec424b6654b08fc0d4001fb0a73240",
+      "sha256": "e0ea478ea000d8c58a081e5a9459890727b50ee59c643025e906ddc2fa0596c4",
       "theme": "light"
     },
     {
-      "bytes": 216519,
+      "bytes": 237596,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "post-pilot-reestimation-en-light.png",
-      "sha256": "8ade5bcd7aabe8210596ac054fc4fef334a684652b77aeee396a0187a77d392a",
+      "sha256": "bce6df7e1dc87bdcdac59f3b9324ac65ab076cbe7e085ec050b043242dc0f227",
       "theme": "light"
     },
     {
@@ -458,18 +694,18 @@
       "language": "en",
       "layout": "mobile",
       "path": "post-pilot-reestimation-en-light-mobile.svg",
-      "sha256": "7a9faae0c0ce67519c8cc7e56cd3df82bbd7650f0e861c12f4ef839e669028cb",
+      "sha256": "835a20011d3adf2045da634839f1121568e7e90ee1181cd76ce6b0ea381e4a9d",
       "theme": "light"
     },
     {
-      "bytes": 227541,
+      "bytes": 249053,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "post-pilot-reestimation-en-light-mobile.png",
-      "sha256": "a47cb809e4d8c52f017fff8d8386ca623c65016d83cf5575fd41562a6ba38b89",
+      "sha256": "feceba5bc63949a82638d37b96e1943221584bafa47ccc879539fafd86fb6084",
       "theme": "light"
     },
     {
@@ -480,18 +716,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "post-pilot-reestimation-en-dark.svg",
-      "sha256": "cf5205f160183c15d78688b09ef243064cda67113589cc75b32ac47fb3818226",
+      "sha256": "e71fee4c469647a4fb1887c24f046ba574859d803f2f80dfe19245e0fcb09766",
       "theme": "dark"
     },
     {
-      "bytes": 217520,
+      "bytes": 238968,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "post-pilot-reestimation-en-dark.png",
-      "sha256": "64588d3b66637183fda66630e9f696b8cb9600562cc6f446f1226a171be41432",
+      "sha256": "f30b0701da9d568ff0bf56a82a72eaa158f8be00fa9c644fdc68f1aadfe5a587",
       "theme": "dark"
     },
     {
@@ -502,18 +738,18 @@
       "language": "en",
       "layout": "mobile",
       "path": "post-pilot-reestimation-en-dark-mobile.svg",
-      "sha256": "9c8a6310226d17beacdaa0ccc57ef84b6f3046828e925cfdde4e83905613b7f7",
+      "sha256": "5305c1db5e74b191c7316a1f7b07d01f443f94f3d37b333de8520ba97ebaee21",
       "theme": "dark"
     },
     {
-      "bytes": 228357,
+      "bytes": 250838,
       "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
       "figure_id": "post-pilot-reestimation",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "post-pilot-reestimation-en-dark-mobile.png",
-      "sha256": "6078ca89d5842eed158b4432eb3a07c3a8b6a3029773f7f1627a0cf4cbe0db03",
+      "sha256": "bc62d89a1e404f8ba5393fa644248d55f1a6eff0093ddd2fc1f4125d7f19e446",
       "theme": "dark"
     },
     {
@@ -524,18 +760,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "territorial-audit-es-light.svg",
-      "sha256": "0411fcc413dc15c235e11b9acb3a358e0955ba063296b125e7216b430ce1953f",
+      "sha256": "a644a7d721b0851a89508af2b72899075035ac0197413254ba355dc9431b453a",
       "theme": "light"
     },
     {
-      "bytes": 191507,
+      "bytes": 212078,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "territorial-audit-es-light.png",
-      "sha256": "c3b2c557f9135c8fe42a11f1deec3cbb1886d6660949ba5dbd46ad0408a55f28",
+      "sha256": "48f5fda35c8eef29a064f4294b2519067254efae0ef4e54d6423a5a07a4e477a",
       "theme": "light"
     },
     {
@@ -546,18 +782,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "territorial-audit-es-light-mobile.svg",
-      "sha256": "aeeb6fcbb9eccfa246fba8a9567f15e5bd154a93e83ff182e82b563e2d8126f7",
+      "sha256": "3f067936ab7fd09591344f2654f91d0926b1deb988b670c49c187601e934a024",
       "theme": "light"
     },
     {
-      "bytes": 219028,
+      "bytes": 243944,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "territorial-audit-es-light-mobile.png",
-      "sha256": "a3bafc42d551cf4f8821b1a4411f14d3d54bdb4c57dcaea0792a3d8f74e0efe7",
+      "sha256": "6a04d91c4b7ed31bbfd4e202310374bd7a474755329831ddb044536864f39ffd",
       "theme": "light"
     },
     {
@@ -568,18 +804,18 @@
       "language": "es",
       "layout": "desktop",
       "path": "territorial-audit-es-dark.svg",
-      "sha256": "26c80b2954e4c05fdd38335c99370e6427a6c0edc521c9f7b3488484bde73daa",
+      "sha256": "583c0eb24d899e5f9e5de19f58df3906a0b3a2ed129608e1caf3d7f553cd499f",
       "theme": "dark"
     },
     {
-      "bytes": 192526,
+      "bytes": 213235,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "territorial-audit-es-dark.png",
-      "sha256": "59ffb7b207094bf14f4119f8cb5d2ba670e7772f9e066aa7a05d8cb7544598af",
+      "sha256": "b17a10162de2c9079c8f078940923f5f30420565e8bb4c1b3fbe92823e31e78f",
       "theme": "dark"
     },
     {
@@ -590,18 +826,18 @@
       "language": "es",
       "layout": "mobile",
       "path": "territorial-audit-es-dark-mobile.svg",
-      "sha256": "feab8ce7c6da387f8e8713cd2aeb64a03e8ecc3ddd16831249956b976c9b0339",
+      "sha256": "dfe0a676dd8a0a48d0390103148961b5d1f81af3e3d2504a9d703fdb89fe054d",
       "theme": "dark"
     },
     {
-      "bytes": 219188,
+      "bytes": 244180,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "territorial-audit-es-dark-mobile.png",
-      "sha256": "32bde8776ca7819f22a8c194044ca6827c59c9ef37e9bd62b0d20f2e565b2083",
+      "sha256": "1a0d4d87bf04b78c8b73fb41b50e3f476cb30f8e074185a271b925101975d445",
       "theme": "dark"
     },
     {
@@ -612,18 +848,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "territorial-audit-en-light.svg",
-      "sha256": "0ca3d1645436c5a09c6fe50c89bbf4640c85326ee42850aa683f277ce0238730",
+      "sha256": "067b424d76048dbf1e17c83940a9145329053d6222ec8b80092be2995f9c9714",
       "theme": "light"
     },
     {
-      "bytes": 195169,
+      "bytes": 216470,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "territorial-audit-en-light.png",
-      "sha256": "32fbc9f9a9046d42acb354e514bbe5e2a584d836b570714c5661348bdb265bc0",
+      "sha256": "2d108d14416dc587f26e6884372c80ab3f19f639a040f509b564f03ce63a7b1e",
       "theme": "light"
     },
     {
@@ -634,18 +870,18 @@
       "language": "en",
       "layout": "mobile",
       "path": "territorial-audit-en-light-mobile.svg",
-      "sha256": "54c306feef3466ea9a7e823ba461515151983b2216987810242b6b563972062d",
+      "sha256": "a038699028b7d0892a0a5cd5008cbf3fd6b7250432ca5b206a308bc579329c76",
       "theme": "light"
     },
     {
-      "bytes": 232715,
+      "bytes": 259203,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "territorial-audit-en-light-mobile.png",
-      "sha256": "8f6e84b20ffc0ecc132e1620bb3af468a5e70a1cf144457e4157c4326ebc7557",
+      "sha256": "b0796bdcdba14ade0c9f6c9d571303ee26f6b5d33b54220be80e152ad2f55fa3",
       "theme": "light"
     },
     {
@@ -656,18 +892,18 @@
       "language": "en",
       "layout": "desktop",
       "path": "territorial-audit-en-dark.svg",
-      "sha256": "114fe2f2bc079445cb764a0b60f6c53531493ff9de36386739ab273cea54b9bf",
+      "sha256": "cc1452a0b2006f85b288874e63cc41d24d6a83b60c66b7d3ec72741918e13f86",
       "theme": "dark"
     },
     {
-      "bytes": 196155,
+      "bytes": 217343,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "territorial-audit-en-dark.png",
-      "sha256": "afcffa1299849a5609cbfa72abfbed7355ad97a7db615d7c33ba53d813b8fc61",
+      "sha256": "ce1d16513fb8f26b9cec13d51b85a7dd95f3363b2824675c06e28ab6dad7c401",
       "theme": "dark"
     },
     {
@@ -678,18 +914,194 @@
       "language": "en",
       "layout": "mobile",
       "path": "territorial-audit-en-dark-mobile.svg",
-      "sha256": "5712f4e9802c84284ebde98ce4c5bb7e72fac480b3c418c09a5edb8e8ccf890d",
+      "sha256": "97de5f55c75edc28d4069107f7beab224f399778390ad40ae66458adc288a053",
       "theme": "dark"
     },
     {
-      "bytes": 233421,
+      "bytes": 260002,
       "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
       "figure_id": "territorial-audit",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "territorial-audit-en-dark-mobile.png",
-      "sha256": "5de76f00b73f2e333efd313c26d336c85ac747fbb32c5d8c4b849ed066336ff7",
+      "sha256": "494149af7ae74d2a08451656866fb147cc8f9e2b6a396ee8d003ce43ebca207e",
+      "theme": "dark"
+    },
+    {
+      "bytes": 86984,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-es-light.svg",
+      "sha256": "8a4f5aff1c0b66d400da9c7155218ba95df78ad8b10c24ff21e3f6ff39add241",
+      "theme": "light"
+    },
+    {
+      "bytes": 335078,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-es-light.png",
+      "sha256": "0b90e03a302364a9c2bea44cbe5c557d0227559c3b209d35faa15635c2187d23",
+      "theme": "light"
+    },
+    {
+      "bytes": 86483,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-es-light-mobile.svg",
+      "sha256": "b63a174edeab7eb8004c30864a8bca4e45cd92de35b347366805fe1efbc7b11b",
+      "theme": "light"
+    },
+    {
+      "bytes": 308110,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-es-light-mobile.png",
+      "sha256": "588e233aebe5064ace729311eef2233e7430da24a27036f25b71c90a03ab7cbe",
+      "theme": "light"
+    },
+    {
+      "bytes": 86984,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-es-dark.svg",
+      "sha256": "56fe3e46896d0b7f5202c06679cf2cd9d54a992e732706698540f02c58e47eeb",
+      "theme": "dark"
+    },
+    {
+      "bytes": 336595,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-es-dark.png",
+      "sha256": "d8ea2f34a9082e30303594666c1fc1c7889edd931e5d248d623257625f939781",
+      "theme": "dark"
+    },
+    {
+      "bytes": 86483,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-es-dark-mobile.svg",
+      "sha256": "27d2e49ea15cb24b828259738abdb4a5d74daffa91100c832b015a030cfa7371",
+      "theme": "dark"
+    },
+    {
+      "bytes": 310240,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-es-dark-mobile.png",
+      "sha256": "5c7fe79d62880315442090a71776067fbb60b9459b566eff4c25e442d7a94b4a",
+      "theme": "dark"
+    },
+    {
+      "bytes": 88619,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-en-light.svg",
+      "sha256": "9ef227f606f026e7c44b94c20a2bf26e899b4a8b8e89ccb289e4858e141015aa",
+      "theme": "light"
+    },
+    {
+      "bytes": 330738,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-en-light.png",
+      "sha256": "bba087d092212916842d73d123c2e2a332421010ef85dd3d3699b815d920099e",
+      "theme": "light"
+    },
+    {
+      "bytes": 85597,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-en-light-mobile.svg",
+      "sha256": "45766a6919c0e7b01b7078a0fa5d5cae0739c9bbb0248937dd35d7183fb6e652",
+      "theme": "light"
+    },
+    {
+      "bytes": 304762,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-en-light-mobile.png",
+      "sha256": "3fe933c70468b1388e5ab0ba4f269fb431b623723e9af53391717ff1c507309a",
+      "theme": "light"
+    },
+    {
+      "bytes": 88619,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-en-dark.svg",
+      "sha256": "e9f2af7c42e508d4874ad46115e09f525ed64447a7bac5c495594f1b78d81149",
+      "theme": "dark"
+    },
+    {
+      "bytes": 332145,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "cohort-series-infographic-en-dark.png",
+      "sha256": "1852fd157e9ebf95b9940155614c1b6a3f374f4c5974637c2434bad0aa078f48",
+      "theme": "dark"
+    },
+    {
+      "bytes": 85597,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-en-dark-mobile.svg",
+      "sha256": "9dccd5ceff616cba01d02a2c2cf5e1777f352ea6f2907cde22d4be0e24b46cca",
+      "theme": "dark"
+    },
+    {
+      "bytes": 306465,
+      "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
+      "figure_id": "cohort-series-infographic",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "cohort-series-infographic-en-dark-mobile.png",
+      "sha256": "7d61191a407588f638a3626c0b139cbbe2970fdc7441a35de5686a416427f810",
       "theme": "dark"
     },
     {
@@ -717,11 +1129,17 @@
       "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
     },
     {
+      "bytes": 17567,
+      "format": "csv",
+      "path": "cohort-series-infographic-data.csv",
+      "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+    },
+    {
       "bytes": 5527,
       "format": "json",
       "kind": "visual_manifest",
       "path": "sample-flow-es.visual-manifest.json",
-      "sha256": "42d59b897a9205fe20c114e27aff9da1f6a2279140014072333f4a36465e83fd",
+      "sha256": "df72e7d8cfe84d0052c2e529292cd8a55e1d07b5eb585317dcc7aa8f6d348861",
       "visual_id": "post3-sample-flow-es"
     },
     {
@@ -729,7 +1147,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "sample-flow-en.visual-manifest.json",
-      "sha256": "045ec0a33351ac82d393e6fa76768c48c2d3865bea5707ba5516625ad74c1152",
+      "sha256": "ba669b9840f21417296e54f275dc98ce53463be45e0e56334126bdbfc3736fe5",
       "visual_id": "post3-sample-flow-en"
     },
     {
@@ -737,7 +1155,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "post-pilot-reestimation-es.visual-manifest.json",
-      "sha256": "12a300daa4c93981fc1a2cb26407084310b6a5bb07120cb277f2af4e6f157493",
+      "sha256": "b03a2fb95082bfa3617963f9fae0a4bd2a1a1408bce7e0aa40f0e187e121f3f2",
       "visual_id": "post3-post-pilot-reestimation-es"
     },
     {
@@ -745,7 +1163,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "post-pilot-reestimation-en.visual-manifest.json",
-      "sha256": "91a578d6e98155ace0f61c546a96d1337a20a9234ca83ba6683774c5d235932d",
+      "sha256": "3a8000e2ce63df6d77815087a90fb1084fb8eafe625d077e515671f8c668466e",
       "visual_id": "post3-post-pilot-reestimation-en"
     },
     {
@@ -753,7 +1171,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "territorial-audit-es.visual-manifest.json",
-      "sha256": "e1e8f4e612d638aa0db14e0248a3e12b7b07b60c011caa4090abb7338ff7fd3a",
+      "sha256": "ea7d88d6e56080077b536769034d3a957af45ea0e930c89d9b686abbe5c0fa93",
       "visual_id": "post3-territorial-audit-es"
     },
     {
@@ -761,16 +1179,32 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "territorial-audit-en.visual-manifest.json",
-      "sha256": "7774b3b77b9857eabb32e4d3b7286430f2a13d8c27ffcff497bc1ba113fbb93d",
+      "sha256": "4db98545894811cf7f1e6e5f48dc970800dc5f2395149be8120fd135ea44757f",
       "visual_id": "post3-territorial-audit-en"
+    },
+    {
+      "bytes": 7852,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "cohort-series-infographic-es.visual-manifest.json",
+      "sha256": "a86e515151853d06b69ae7a33e0de4dbd33f4ef9f54290b2dc1670524fc00da8",
+      "visual_id": "post3-cohort-series-infographic-es"
+    },
+    {
+      "bytes": 7825,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "cohort-series-infographic-en.visual-manifest.json",
+      "sha256": "0ab0979feb4ea0cc1067c61ca22b7aeefd124d29e9ac0dbb8cb3a0479e8fa357",
+      "visual_id": "post3-cohort-series-infographic-en"
     }
   ],
   "generator": {
-    "matplotlib": "3.11.1",
+    "matplotlib": "3.11.2",
     "path": "scripts/336_post3_visuals.py",
     "png_dpi": 250,
     "png_dpi_mobile": 300,
-    "sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6"
+    "sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d"
   },
   "schema_version": 2,
   "scope": {
@@ -790,6 +1224,10 @@
       "path": "audit/post3_identity_audit.json",
       "sha256": "e20c09f5248eda65525afdb3b64e997b37afa55d459267b0e41a238d703155ab"
     },
+    "series": {
+      "path": "audit/post3_full_series_did_2004_2025_v1.json",
+      "sha256": "677b207d93997f5849edfc89039d84ec62b8e85133fc71efa3bfdf568fe5f3a2"
+    },
     "territorial": {
       "path": "audit/post3_territorial_real.json",
       "sha256": "29159bb2be162f54c7ffbd38f21224f9beed8fe735fd32a3e04bccab980cf10e"
@@ -805,7 +1243,7 @@
   },
   "visual_manifest_contract": {
     "path": "penta-agent/skills/3cucharadas-visualizacion-datos/assets/visual-manifest.schema.json",
-    "records": 6,
+    "records": 8,
     "sha256": "86cf46cce2a9599e2b6a367001871356c6dc388004d9e192a2e6017893483e1d"
   }
 }

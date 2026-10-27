@@ -1,0 +1,2248 @@
+{
+  "schema_version": "post3-full-series-and-rcid-v1.0",
+  "generated_at_utc": "2026-10-27T06:30:00Z",
+  "governance": {
+    "causal_headline_promoted": false,
+    "adjudication_category_max": "OBSERVACION",
+    "flow_only_primary_change_forbidden": true,
+    "privacy_minimum_cell_size": 10,
+    "harness2_evaluation_loop": "CANDIDATE_EVALUATOR_FALSIFICATION_ACTIVE"
+  },
+  "why_2016_2019_was_originally_chosen": {
+    "question": "Why did the original primary design restrict cohorts to G in {2016, 2017, 2018, 2019} instead of estimating every cohort since 2004?",
+    "structural_reasons": [
+      {
+        "id": "R1_DIRECTORY_ESTADO_ESTAB_SCHEMA_BREAK_2015",
+        "description": "In mineduc_directorio parquet files from 2004 to 2014, the column ESTADO_ESTAB does not exist. ESTADO_ESTAB (1=activo, 2=receso, 3=cerrado, 4=autorizado sin matrícula) was introduced in 2015.parquet. Therefore, G=2016 (transition from G-1=2015 to G=2016) was the first cohort where contemporaneous transition to ESTADO_ESTAB=3 was directly observed.",
+        "resolution_for_full_series_2005_2024": "Because 2015.parquet retains historical closed establishments with ESTADO_ESTAB=3 (2,978 closed RBDs recorded in 2015), combining longitudinal enrollment cessation in foundation.core.enrollment_2004_2025 (positive enrollment in G-1 and zero enrollment across [G, 2025]) with ESTADO_ESTAB=3 confirmation in 2015/2025 and RCID v1 student-flow depuration reconstructs the entire 2005-2024 cohort series without contemporaneous schema loss."
+      },
+      {
+        "id": "R2_PRETREND_PLACEBO_HORIZON_G_MINUS_9",
+        "description": "Requiring 3 two-year non-enrollment placebos back to G-9 in a 2004-2025 panel forced G-9 >= 2004 (G >= 2013).",
+        "resolution_for_full_series_2005_2024": "Estimating cohort-specific ATT(g) for every G in 2005..2024 and reporting available pre-treatment leads per regime separates identification of ATT(g) from long-horizon pre-trend availability."
+      },
+      {
+        "id": "R3_PANDEMIC_REGIME_2020_2022",
+        "description": "Cohorts 2020-2022 experienced COVID-19 school closures, attendance measurement changes, and automatic promotion guidelines.",
+        "resolution_for_full_series_2005_2024": "Included explicitly in the 2005-2024 series as the '2020-2022 (Pandemia)' regime and separated from non-pandemic aggregates."
+      },
+      {
+        "id": "R4_RIGHT_CENSORING_2023_2025",
+        "description": "Persistent two-year non-enrollment requires observing G and G+1 (making 2024 right-censored for that outcome, and 2025 right-censored for all post-closure outcomes).",
+        "resolution_for_full_series_2005_2024": "Cohort 2023 is estimated for all 4 outcomes; cohort 2024 is estimated for grade progression, attendance, and GPA (and marked right-censored only for 2-year persistent non-enrollment)."
+      }
+    ]
+  },
+  "rcid_v1_specification": {
+    "rule_title": "Regla de Cierre Escolar Inferido desde los Datos (RCID v1)",
+    "epistemic_boundary": "Strict separation between (a) documentary/legal certainty (Resoluciones Exentas / actas of official recognition revocation or merger, which are not observed in longitudinal microdata) and (b) empirical data-inferred closure (RCID v1 = D2), which identifies effective destruction of local school supply after purging directory continuity and concentrated student-flow absorption.",
+    "nested_hierarchy": {
+      "D0_raw_closure": "Active with positive enrollment in G-1 and zero enrollment / ESTADO_ESTAB=3 from G onward (no reopening in [G, 2025]).",
+      "D1_strict_directory_exit": "D0 minus directory continuity (annexes with active main school, early-childhood administrative consolidations, and registered RBD replacements).",
+      "D2_rcid_v1_flow_depurated": "D1 minus concentrated longitudinal student-flow absorption (baseline_students >= 10, assigned_students >= 10, top_destination_share >= 0.70, destination_HHI >= 0.50, and stable top destination in G and G+1)."
+    },
+    "historical_and_contemporary_counts": {
+      "post1_historical_1992_2012": {
+        "D0_raw_directory_exits": 2069,
+        "by_dependency": {
+          "municipal": 1135,
+          "private_subsidized": 597,
+          "private_paid": 337
+        },
+        "note": "Pre-longitudinal aggregate directory panel (1992-2012); motivates why Post III requires longitudinal student-flow depuration (RCID v1) from 2004 onward."
+      },
+      "series_2005_2015": {
+        "total_permanent_closures_2005_2015": 1635,
+        "strict_role_2005_2015": 1477,
+        "flow_alerts_excluded_2005_2015": 95,
+        "eligible_strict_2005_2015": 1382
+      },
+      "series_2016_2025_post2_post3": {
+        "D0_raw_administrative_closure": 346,
+        "directory_continuity_excluded": 16,
+        "D1_strict_directory_exit": 330,
+        "strict_flow_alerts_excluded_t1": 34,
+        "right_censored_2025": 30,
+        "right_censored_2025_with_t0_flow_candidate": 2,
+        "D2_rcid_v1_conservative": 296,
+        "D2_rcid_v1_strict_clean": 266
+      },
+      "full_panel_2005_2025_totals": {
+        "D0_raw_closure": 1981,
+        "D1_strict_directory_exit": 1807,
+        "D2_rcid_v1_conservative": 1678,
+        "D2_rcid_v1_strict_clean_t1": 1648
+      }
+    },
+    "post2_market_renewal_sensitivity_d0_d1_d2": {
+      "D0_raw_administrative_closure": {
+        "closure_episodes_2016_2025": 346,
+        "mr1_simce_relative": {
+          "event_total": 346,
+          "outcome_observed": 108,
+          "supported_events": 23,
+          "estimable": true,
+          "weighted_mean": -0.010817,
+          "weighted_se_analytic": 0.060745,
+          "simple_mean": -0.01806,
+          "simple_se_analytic": 0.052619,
+          "crosses_zero_analytic_95": true
+        },
+        "mr1_admission_core": {
+          "event_total": 346,
+          "outcome_observed": 49,
+          "supported_events": 10,
+          "estimable": true,
+          "weighted_mean": 0.049543,
+          "weighted_se_analytic": 0.04275,
+          "simple_mean": 0.018793,
+          "simple_se_analytic": 0.040407,
+          "crosses_zero_analytic_95": true
+        },
+        "pre_exit_enrollment_trajectory": {
+          "t-3": {
+            "median": 49.0,
+            "mean": 134.9,
+            "p25": 18.5,
+            "p75": 152.5
+          },
+          "t-2": {
+            "median": 46.0,
+            "mean": 132.0,
+            "p25": 19.0,
+            "p75": 148.5
+          },
+          "t-1": {
+            "median": 36.5,
+            "mean": 117.5,
+            "p25": 13.0,
+            "p75": 125.5
+          },
+          "t0": {
+            "median": 0.0,
+            "mean": 2.5,
+            "p25": 0.0,
+            "p75": 0.0
+          }
+        }
+      },
+      "D1_strict_directory_exit": {
+        "closure_episodes_2016_2025": 330,
+        "mr1_simce_relative": {
+          "event_total": 330,
+          "outcome_observed": 97,
+          "supported_events": 21,
+          "estimable": true,
+          "weighted_mean": 0.029043,
+          "weighted_se_analytic": 0.067155,
+          "simple_mean": -0.011629,
+          "simple_se_analytic": 0.057206,
+          "crosses_zero_analytic_95": true
+        },
+        "mr1_admission_core": {
+          "event_total": 330,
+          "outcome_observed": 46,
+          "supported_events": 8,
+          "estimable": false,
+          "weighted_mean": -0.001453,
+          "weighted_se_analytic": 0.042276,
+          "simple_mean": -0.015728,
+          "simple_se_analytic": 0.041544,
+          "crosses_zero_analytic_95": true
+        },
+        "pre_exit_enrollment_trajectory": {
+          "t-3": {
+            "median": 47.0,
+            "mean": 123.8,
+            "p25": 16.0,
+            "p75": 139.0
+          },
+          "t-2": {
+            "median": 44.0,
+            "mean": 120.5,
+            "p25": 17.2,
+            "p75": 135.2
+          },
+          "t-1": {
+            "median": 34.0,
+            "mean": 105.4,
+            "p25": 12.0,
+            "p75": 107.0
+          },
+          "t0": {
+            "median": 0.0,
+            "mean": 2.5,
+            "p25": 0.0,
+            "p75": 0.0
+          }
+        }
+      },
+      "D2_rcid_v1_conservative": {
+        "closure_episodes_2016_2025": 296,
+        "mr1_simce_relative": {
+          "event_total": 296,
+          "outcome_observed": 79,
+          "supported_events": 17,
+          "estimable": true,
+          "weighted_mean": 0.0174,
+          "weighted_se_analytic": 0.082255,
+          "simple_mean": -0.02665,
+          "simple_se_analytic": 0.066208,
+          "crosses_zero_analytic_95": true
+        },
+        "mr1_admission_core": {
+          "event_total": 296,
+          "outcome_observed": 34,
+          "supported_events": 5,
+          "estimable": false,
+          "weighted_mean": -0.057182,
+          "weighted_se_analytic": 0.044294,
+          "simple_mean": -0.074085,
+          "simple_se_analytic": 0.038867,
+          "crosses_zero_analytic_95": true
+        },
+        "pre_exit_enrollment_trajectory": {
+          "t-3": {
+            "median": 40.0,
+            "mean": 99.7,
+            "p25": 13.0,
+            "p75": 101.2
+          },
+          "t-2": {
+            "median": 39.0,
+            "mean": 95.2,
+            "p25": 14.0,
+            "p75": 92.0
+          },
+          "t-1": {
+            "median": 31.0,
+            "mean": 79.3,
+            "p25": 9.8,
+            "p75": 75.0
+          },
+          "t0": {
+            "median": 0.0,
+            "mean": 2.8,
+            "p25": 0.0,
+            "p75": 0.0
+          }
+        }
+      },
+      "D2_rcid_v1_strict_clean": {
+        "closure_episodes_2016_2025": 266,
+        "mr1_simce_relative": {
+          "event_total": 266,
+          "outcome_observed": 68,
+          "supported_events": 17,
+          "estimable": true,
+          "weighted_mean": 0.0174,
+          "weighted_se_analytic": 0.082255,
+          "simple_mean": -0.02665,
+          "simple_se_analytic": 0.066208,
+          "crosses_zero_analytic_95": true
+        },
+        "mr1_admission_core": {
+          "event_total": 266,
+          "outcome_observed": 29,
+          "supported_events": 5,
+          "estimable": false,
+          "weighted_mean": -0.057182,
+          "weighted_se_analytic": 0.044294,
+          "simple_mean": -0.074085,
+          "simple_se_analytic": 0.038867,
+          "crosses_zero_analytic_95": true
+        },
+        "pre_exit_enrollment_trajectory": {
+          "t-3": {
+            "median": 38.0,
+            "mean": 98.4,
+            "p25": 12.2,
+            "p75": 96.8
+          },
+          "t-2": {
+            "median": 36.0,
+            "mean": 94.1,
+            "p25": 13.0,
+            "p75": 91.2
+          },
+          "t-1": {
+            "median": 27.0,
+            "mean": 78.0,
+            "p25": 9.0,
+            "p75": 70.0
+          },
+          "t0": {
+            "median": 0.0,
+            "mean": 3.1,
+            "p25": 0.0,
+            "p75": 0.0
+          }
+        }
+      }
+    }
+  },
+  "nna_baseline_characterization_2016_2019": {
+    "control": {
+      "exposure_group": "control",
+      "n_students": 82753,
+      "n_episodes": 5765,
+      "raw_age": 11.531038149674332,
+      "w_age": 11.704200323101835,
+      "raw_female": 0.4500380650852537,
+      "w_female": 0.4426494345719031,
+      "raw_rural": 0.05617923217285174,
+      "w_rural": 0.047657512116318614,
+      "raw_secondary": 0.31563810375454665,
+      "w_secondary": 0.3421647819063128,
+      "raw_overage_1yr": 0.3275047430304642,
+      "w_overage_1yr": 0.3386106623586527,
+      "raw_overage_2yr": 0.07342332000048336,
+      "w_overage_2yr": 0.08319870759289524,
+      "raw_sep_prioritario": 0.3196379587446981,
+      "w_sep_prioritario": 0.32320456249685825,
+      "raw_sep_preferente": 0.22819716505746016,
+      "w_sep_preferente": 0.23260321688430266,
+      "raw_sep_any_eligible": 0.5478351238021583,
+      "w_sep_any_eligible": 0.5558077793811673,
+      "raw_sep_beneficiario": 0.47995843051007214,
+      "w_sep_beneficiario": 0.48580364558227035,
+      "raw_school_convenio_sep": 0.54400444696869,
+      "w_school_convenio_sep": 0.5523128737357296,
+      "raw_jec": 0.7199134774570106,
+      "w_jec": 0.7250978030574634,
+      "raw_commuter": 0.2928473892185178,
+      "w_commuter": 0.29992973021295516,
+      "raw_valid_record_m1": 0.962176597827269,
+      "w_valid_record_m1": 0.9605810242735183,
+      "raw_attendance_m1": 91.79560763431002,
+      "w_attendance_m1": 91.68133299808753,
+      "raw_chronic_absence_m1": 0.10792107808045415,
+      "w_chronic_absence_m1": 0.11141188532334485,
+      "raw_gpa_m1": 5.690611460648745,
+      "w_gpa_m1": 5.666858569179881,
+      "raw_repeated_m1": 0.0423239224354466,
+      "w_repeated_m1": 0.04478076037018699,
+      "raw_switched_m2_m1": 0.16033439314518605,
+      "w_switched_m2_m1": 0.16525135657742712,
+      "raw_switched_m3_m1": 0.2958939767479695,
+      "w_switched_m3_m1": 0.3051961580887943
+    },
+    "treated": {
+      "exposure_group": "treated",
+      "n_students": 6190,
+      "n_episodes": 63,
+      "raw_age": 11.704200323101777,
+      "w_age": 11.704200323101777,
+      "raw_female": 0.44264943457189015,
+      "w_female": 0.44264943457189015,
+      "raw_rural": 0.04765751211631664,
+      "w_rural": 0.04765751211631664,
+      "raw_secondary": 0.3421647819063005,
+      "w_secondary": 0.3421647819063005,
+      "raw_overage_1yr": 0.33861066235864296,
+      "w_overage_1yr": 0.33861066235864296,
+      "raw_overage_2yr": 0.08319870759289176,
+      "w_overage_2yr": 0.08319870759289176,
+      "raw_sep_prioritario": 0.30678513731825524,
+      "w_sep_prioritario": 0.30678513731825524,
+      "raw_sep_preferente": 0.2382875605815832,
+      "w_sep_preferente": 0.2382875605815832,
+      "raw_sep_any_eligible": 0.5450726978998385,
+      "w_sep_any_eligible": 0.5450726978998385,
+      "raw_sep_beneficiario": 0.37625201938610664,
+      "w_sep_beneficiario": 0.37625201938610664,
+      "raw_school_convenio_sep": 0.4516962843295638,
+      "w_school_convenio_sep": 0.4516962843295638,
+      "raw_jec": 0.5397415185783522,
+      "w_jec": 0.5397415185783522,
+      "raw_commuter": 0.38594507269789985,
+      "w_commuter": 0.38594507269789985,
+      "raw_valid_record_m1": 0.7681744749596123,
+      "w_valid_record_m1": 0.7681744749596123,
+      "raw_attendance_m1": 90.92807570977918,
+      "w_attendance_m1": 90.92807570977918,
+      "raw_chronic_absence_m1": 0.1398527865404837,
+      "w_chronic_absence_m1": 0.1398527865404837,
+      "raw_gpa_m1": 5.6177076761303875,
+      "w_gpa_m1": 5.6177076761303875,
+      "raw_repeated_m1": 0.05488958990536277,
+      "w_repeated_m1": 0.05488958990536277,
+      "raw_switched_m2_m1": 0.2656948815636906,
+      "w_switched_m2_m1": 0.2656948815636906,
+      "raw_switched_m3_m1": 0.47036974506162416,
+      "w_switched_m3_m1": 0.47036974506162416
+    }
+  },
+  "full_series_did_2005_2024": {
+    "cohorts": [
+      {
+        "cohort_year": 2005,
+        "treated_episodes_before_support": 102,
+        "treated_episodes": 98,
+        "control_episodes": 2907,
+        "treated_students_before_support": 8229,
+        "treated_students": 7627,
+        "control_students": 55452,
+        "supported_cells": 1021,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "NOT_ESTIMABLE_PANEL_BOUNDARY"
+          },
+          "grade_progression_or_lag": {
+            "status": "NOT_ESTIMABLE_PANEL_BOUNDARY"
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.937876,
+            "standard_error": 0.340191,
+            "ci_lower": -1.613829,
+            "ci_upper": -0.261923,
+            "n_treated_students": 4538,
+            "n_control_students": 33226,
+            "n_treated_clusters": 90,
+            "n_control_clusters": 2533,
+            "effective_treated_clusters": 17.24
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.066376,
+            "standard_error": 0.04034,
+            "ci_lower": -0.14653,
+            "ci_upper": 0.013778,
+            "n_treated_students": 4538,
+            "n_control_students": 33279,
+            "n_treated_clusters": 90,
+            "n_control_clusters": 2536,
+            "effective_treated_clusters": 17.24
+          }
+        }
+      },
+      {
+        "cohort_year": 2006,
+        "treated_episodes_before_support": 100,
+        "treated_episodes": 98,
+        "control_episodes": 2963,
+        "treated_students_before_support": 6247,
+        "treated_students": 6067,
+        "control_students": 57313,
+        "supported_cells": 816,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "NOT_ESTIMABLE_PANEL_BOUNDARY"
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.0922,
+            "standard_error": 0.040163,
+            "ci_lower": 0.012487,
+            "ci_upper": 0.171913,
+            "n_treated_students": 5078,
+            "n_control_students": 48881,
+            "n_treated_clusters": 98,
+            "n_control_clusters": 2853,
+            "effective_treated_clusters": 17.747
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.796401,
+            "standard_error": 0.792668,
+            "ci_lower": -2.371915,
+            "ci_upper": 0.779112,
+            "n_treated_students": 3646,
+            "n_control_students": 45116,
+            "n_treated_clusters": 88,
+            "n_control_clusters": 2784,
+            "effective_treated_clusters": 17.081
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.126546,
+            "standard_error": 0.043783,
+            "ci_lower": -0.21357,
+            "ci_upper": -0.039522,
+            "n_treated_students": 3647,
+            "n_control_students": 45132,
+            "n_treated_clusters": 88,
+            "n_control_clusters": 2785,
+            "effective_treated_clusters": 17.09
+          }
+        }
+      },
+      {
+        "cohort_year": 2007,
+        "treated_episodes_before_support": 95,
+        "treated_episodes": 89,
+        "control_episodes": 2519,
+        "treated_students_before_support": 7336,
+        "treated_students": 6472,
+        "control_students": 57424,
+        "supported_cells": 760,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.021853,
+            "standard_error": 0.009154,
+            "ci_lower": 0.003656,
+            "ci_upper": 0.04005,
+            "n_treated_students": 4355,
+            "n_control_students": 38808,
+            "n_treated_clusters": 87,
+            "n_control_clusters": 2302,
+            "effective_treated_clusters": 17.616
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.088328,
+            "standard_error": 0.019737,
+            "ci_lower": 0.049091,
+            "ci_upper": 0.127564,
+            "n_treated_students": 5270,
+            "n_control_students": 47634,
+            "n_treated_clusters": 87,
+            "n_control_clusters": 2412,
+            "effective_treated_clusters": 17.388
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -2.470039,
+            "standard_error": 0.88244,
+            "ci_lower": -4.225817,
+            "ci_upper": -0.714261,
+            "n_treated_students": 3699,
+            "n_control_students": 40993,
+            "n_treated_clusters": 82,
+            "n_control_clusters": 2254,
+            "effective_treated_clusters": 15.789
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.104138,
+            "standard_error": 0.030819,
+            "ci_lower": -0.165459,
+            "ci_upper": -0.042817,
+            "n_treated_students": 3699,
+            "n_control_students": 41013,
+            "n_treated_clusters": 82,
+            "n_control_clusters": 2254,
+            "effective_treated_clusters": 15.789
+          }
+        }
+      },
+      {
+        "cohort_year": 2008,
+        "treated_episodes_before_support": 86,
+        "treated_episodes": 84,
+        "control_episodes": 2805,
+        "treated_students_before_support": 6668,
+        "treated_students": 6561,
+        "control_students": 55698,
+        "supported_cells": 823,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.002753,
+            "standard_error": 0.002603,
+            "ci_lower": -0.002425,
+            "ci_upper": 0.007932,
+            "n_treated_students": 4404,
+            "n_control_students": 37494,
+            "n_treated_clusters": 83,
+            "n_control_clusters": 2628,
+            "effective_treated_clusters": 22.004
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.040788,
+            "standard_error": 0.010219,
+            "ci_lower": 0.020464,
+            "ci_upper": 0.061113,
+            "n_treated_students": 5292,
+            "n_control_students": 45074,
+            "n_treated_clusters": 84,
+            "n_control_clusters": 2697,
+            "effective_treated_clusters": 20.889
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.632825,
+            "standard_error": 0.476948,
+            "ci_lower": -1.583382,
+            "ci_upper": 0.317732,
+            "n_treated_students": 4223,
+            "n_control_students": 38269,
+            "n_treated_clusters": 74,
+            "n_control_clusters": 2562,
+            "effective_treated_clusters": 13.882
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.065953,
+            "standard_error": 0.031078,
+            "ci_lower": -0.127892,
+            "ci_upper": -0.004015,
+            "n_treated_students": 4223,
+            "n_control_students": 38333,
+            "n_treated_clusters": 74,
+            "n_control_clusters": 2563,
+            "effective_treated_clusters": 13.882
+          }
+        }
+      },
+      {
+        "cohort_year": 2009,
+        "treated_episodes_before_support": 82,
+        "treated_episodes": 79,
+        "control_episodes": 2465,
+        "treated_students_before_support": 4762,
+        "treated_students": 4666,
+        "control_students": 41832,
+        "supported_cells": 717,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.024095,
+            "standard_error": 0.00881,
+            "ci_lower": 0.006549,
+            "ci_upper": 0.041641,
+            "n_treated_students": 2913,
+            "n_control_students": 26228,
+            "n_treated_clusters": 77,
+            "n_control_clusters": 2242,
+            "effective_treated_clusters": 18.559
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.119836,
+            "standard_error": 0.017567,
+            "ci_lower": 0.084856,
+            "ci_upper": 0.154817,
+            "n_treated_students": 3584,
+            "n_control_students": 32047,
+            "n_treated_clusters": 78,
+            "n_control_clusters": 2359,
+            "effective_treated_clusters": 18.08
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.177306,
+            "standard_error": 0.778294,
+            "ci_lower": -1.730787,
+            "ci_upper": 1.376176,
+            "n_treated_students": 2175,
+            "n_control_students": 30041,
+            "n_treated_clusters": 68,
+            "n_control_clusters": 2276,
+            "effective_treated_clusters": 16.306
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.036349,
+            "standard_error": 0.027904,
+            "ci_lower": -0.092045,
+            "ci_upper": 0.019347,
+            "n_treated_students": 2175,
+            "n_control_students": 30052,
+            "n_treated_clusters": 68,
+            "n_control_clusters": 2277,
+            "effective_treated_clusters": 16.306
+          }
+        }
+      },
+      {
+        "cohort_year": 2010,
+        "treated_episodes_before_support": 78,
+        "treated_episodes": 73,
+        "control_episodes": 2987,
+        "treated_students_before_support": 5623,
+        "treated_students": 5591,
+        "control_students": 66343,
+        "supported_cells": 558,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.003237,
+            "standard_error": 0.002605,
+            "ci_lower": -0.001958,
+            "ci_upper": 0.008433,
+            "n_treated_students": 4024,
+            "n_control_students": 47490,
+            "n_treated_clusters": 71,
+            "n_control_clusters": 2696,
+            "effective_treated_clusters": 5.906
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.282187,
+            "standard_error": 0.157376,
+            "ci_lower": -0.031612,
+            "ci_upper": 0.595986,
+            "n_treated_students": 4704,
+            "n_control_students": 56056,
+            "n_treated_clusters": 72,
+            "n_control_clusters": 2849,
+            "effective_treated_clusters": 5.893
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.148625,
+            "standard_error": 0.615566,
+            "ci_lower": -1.376333,
+            "ci_upper": 1.079082,
+            "n_treated_students": 3520,
+            "n_control_students": 57839,
+            "n_treated_clusters": 71,
+            "n_control_clusters": 2897,
+            "effective_treated_clusters": 11.458
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.077644,
+            "standard_error": 0.059638,
+            "ci_lower": -0.196588,
+            "ci_upper": 0.041301,
+            "n_treated_students": 3520,
+            "n_control_students": 57838,
+            "n_treated_clusters": 71,
+            "n_control_clusters": 2897,
+            "effective_treated_clusters": 11.458
+          }
+        }
+      },
+      {
+        "cohort_year": 2011,
+        "treated_episodes_before_support": 134,
+        "treated_episodes": 129,
+        "control_episodes": 3140,
+        "treated_students_before_support": 4494,
+        "treated_students": 4245,
+        "control_students": 42262,
+        "supported_cells": 907,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.045619,
+            "standard_error": 0.017317,
+            "ci_lower": 0.011341,
+            "ci_upper": 0.079897,
+            "n_treated_students": 3039,
+            "n_control_students": 30607,
+            "n_treated_clusters": 124,
+            "n_control_clusters": 2949,
+            "effective_treated_clusters": 22.294
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.106748,
+            "standard_error": 0.023122,
+            "ci_lower": 0.060988,
+            "ci_upper": 0.152508,
+            "n_treated_students": 3414,
+            "n_control_students": 34607,
+            "n_treated_clusters": 126,
+            "n_control_clusters": 3027,
+            "effective_treated_clusters": 22.147
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.237269,
+            "standard_error": 0.703271,
+            "ci_lower": -1.157503,
+            "ci_upper": 1.63204,
+            "n_treated_students": 2846,
+            "n_control_students": 32541,
+            "n_treated_clusters": 104,
+            "n_control_clusters": 2857,
+            "effective_treated_clusters": 20.149
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.099883,
+            "standard_error": 0.030646,
+            "ci_lower": -0.160663,
+            "ci_upper": -0.039104,
+            "n_treated_students": 2846,
+            "n_control_students": 32541,
+            "n_treated_clusters": 104,
+            "n_control_clusters": 2857,
+            "effective_treated_clusters": 20.149
+          }
+        }
+      },
+      {
+        "cohort_year": 2012,
+        "treated_episodes_before_support": 107,
+        "treated_episodes": 106,
+        "control_episodes": 2660,
+        "treated_students_before_support": 5920,
+        "treated_students": 5800,
+        "control_students": 49526,
+        "supported_cells": 969,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.025026,
+            "standard_error": 0.008448,
+            "ci_lower": 0.008268,
+            "ci_upper": 0.041783,
+            "n_treated_students": 3879,
+            "n_control_students": 33602,
+            "n_treated_clusters": 103,
+            "n_control_clusters": 2515,
+            "effective_treated_clusters": 31.259
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.102236,
+            "standard_error": 0.015745,
+            "ci_lower": 0.071013,
+            "ci_upper": 0.13346,
+            "n_treated_students": 4610,
+            "n_control_students": 40491,
+            "n_treated_clusters": 105,
+            "n_control_clusters": 2595,
+            "effective_treated_clusters": 33.33
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.201813,
+            "standard_error": 1.003286,
+            "ci_lower": -1.792653,
+            "ci_upper": 2.19628,
+            "n_treated_students": 3713,
+            "n_control_students": 37916,
+            "n_treated_clusters": 87,
+            "n_control_clusters": 2371,
+            "effective_treated_clusters": 30.69
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.148349,
+            "standard_error": 0.036731,
+            "ci_lower": -0.221366,
+            "ci_upper": -0.075331,
+            "n_treated_students": 3713,
+            "n_control_students": 37916,
+            "n_treated_clusters": 87,
+            "n_control_clusters": 2371,
+            "effective_treated_clusters": 30.69
+          }
+        }
+      },
+      {
+        "cohort_year": 2013,
+        "treated_episodes_before_support": 119,
+        "treated_episodes": 117,
+        "control_episodes": 2869,
+        "treated_students_before_support": 10413,
+        "treated_students": 10261,
+        "control_students": 71248,
+        "supported_cells": 1063,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.010763,
+            "standard_error": 0.003435,
+            "ci_lower": 0.003942,
+            "ci_upper": 0.01757,
+            "n_treated_students": 6660,
+            "n_control_students": 47258,
+            "n_treated_clusters": 112,
+            "n_control_clusters": 2695,
+            "effective_treated_clusters": 37.655
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.062406,
+            "standard_error": 0.013997,
+            "ci_lower": 0.034681,
+            "ci_upper": 0.090132,
+            "n_treated_students": 8017,
+            "n_control_students": 57806,
+            "n_treated_clusters": 116,
+            "n_control_clusters": 2793,
+            "effective_treated_clusters": 37.338
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.617925,
+            "standard_error": 0.436642,
+            "ci_lower": -1.483336,
+            "ci_upper": 0.247486,
+            "n_treated_students": 7348,
+            "n_control_students": 58360,
+            "n_treated_clusters": 110,
+            "n_control_clusters": 2782,
+            "effective_treated_clusters": 34.245
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.095533,
+            "standard_error": 0.022638,
+            "ci_lower": -0.140401,
+            "ci_upper": -0.050665,
+            "n_treated_students": 7348,
+            "n_control_students": 58360,
+            "n_treated_clusters": 110,
+            "n_control_clusters": 2782,
+            "effective_treated_clusters": 34.245
+          }
+        }
+      },
+      {
+        "cohort_year": 2014,
+        "treated_episodes_before_support": 100,
+        "treated_episodes": 99,
+        "control_episodes": 2747,
+        "treated_students_before_support": 8409,
+        "treated_students": 7910,
+        "control_students": 63377,
+        "supported_cells": 745,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.009223,
+            "standard_error": 0.005909,
+            "ci_lower": -0.002512,
+            "ci_upper": 0.020958,
+            "n_treated_students": 5043,
+            "n_control_students": 42781,
+            "n_treated_clusters": 94,
+            "n_control_clusters": 2537,
+            "effective_treated_clusters": 24.105
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.06329,
+            "standard_error": 0.018023,
+            "ci_lower": 0.02751,
+            "ci_upper": 0.099069,
+            "n_treated_students": 6087,
+            "n_control_students": 51939,
+            "n_treated_clusters": 96,
+            "n_control_clusters": 2661,
+            "effective_treated_clusters": 23.332
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": 1.330353,
+            "standard_error": 0.645388,
+            "ci_lower": 0.04599,
+            "ci_upper": 2.614716,
+            "n_treated_students": 5458,
+            "n_control_students": 53094,
+            "n_treated_clusters": 81,
+            "n_control_clusters": 2623,
+            "effective_treated_clusters": 22.643
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.039222,
+            "standard_error": 0.038215,
+            "ci_lower": -0.115272,
+            "ci_upper": 0.036829,
+            "n_treated_students": 5458,
+            "n_control_students": 53094,
+            "n_treated_clusters": 81,
+            "n_control_clusters": 2623,
+            "effective_treated_clusters": 22.643
+          }
+        }
+      },
+      {
+        "cohort_year": 2015,
+        "treated_episodes_before_support": 53,
+        "treated_episodes": 51,
+        "control_episodes": 2144,
+        "treated_students_before_support": 3587,
+        "treated_students": 3296,
+        "control_students": 34327,
+        "supported_cells": 500,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.01361,
+            "standard_error": 0.007509,
+            "ci_lower": -0.00148,
+            "ci_upper": 0.028701,
+            "n_treated_students": 1977,
+            "n_control_students": 21031,
+            "n_treated_clusters": 50,
+            "n_control_clusters": 1942,
+            "effective_treated_clusters": 16.048
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.081997,
+            "standard_error": 0.016814,
+            "ci_lower": 0.048209,
+            "ci_upper": 0.115785,
+            "n_treated_students": 2505,
+            "n_control_students": 26471,
+            "n_treated_clusters": 50,
+            "n_control_clusters": 2067,
+            "effective_treated_clusters": 16.269
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.93816,
+            "standard_error": 0.892576,
+            "ci_lower": -2.733791,
+            "ci_upper": 0.857471,
+            "n_treated_students": 2093,
+            "n_control_students": 25696,
+            "n_treated_clusters": 48,
+            "n_control_clusters": 1946,
+            "effective_treated_clusters": 14.186
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.091217,
+            "standard_error": 0.055465,
+            "ci_lower": -0.202798,
+            "ci_upper": 0.020365,
+            "n_treated_students": 2093,
+            "n_control_students": 25700,
+            "n_treated_clusters": 48,
+            "n_control_clusters": 1946,
+            "effective_treated_clusters": 14.186
+          }
+        }
+      },
+      {
+        "cohort_year": 2016,
+        "treated_episodes_before_support": 20,
+        "treated_episodes": 20,
+        "control_episodes": 1878,
+        "treated_students_before_support": 1585,
+        "treated_students": 1581,
+        "control_students": 21854,
+        "supported_cells": 269,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.021096,
+            "standard_error": 0.023627,
+            "ci_lower": -0.028357,
+            "ci_upper": 0.070548,
+            "n_treated_students": 879,
+            "n_control_students": 12477,
+            "n_treated_clusters": 20,
+            "n_control_clusters": 1705,
+            "effective_treated_clusters": 6.133
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.100127,
+            "standard_error": 0.042356,
+            "ci_lower": 0.011475,
+            "ci_upper": 0.188779,
+            "n_treated_students": 1165,
+            "n_control_students": 16512,
+            "n_treated_clusters": 20,
+            "n_control_clusters": 1778,
+            "effective_treated_clusters": 6.385
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.477602,
+            "standard_error": 0.72488,
+            "ci_lower": -1.051761,
+            "ci_upper": 2.006965,
+            "n_treated_students": 1067,
+            "n_control_students": 16684,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1765,
+            "effective_treated_clusters": 5.84
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.17609,
+            "standard_error": 0.034195,
+            "ci_lower": -0.248234,
+            "ci_upper": -0.103946,
+            "n_treated_students": 1067,
+            "n_control_students": 16685,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1765,
+            "effective_treated_clusters": 5.84
+          }
+        }
+      },
+      {
+        "cohort_year": 2017,
+        "treated_episodes_before_support": 11,
+        "treated_episodes": 11,
+        "control_episodes": 1281,
+        "treated_students_before_support": 1264,
+        "treated_students": 1264,
+        "control_students": 18793,
+        "supported_cells": 126,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": -0.002171,
+            "standard_error": 0.008824,
+            "ci_lower": -0.021832,
+            "ci_upper": 0.01749,
+            "n_treated_students": 770,
+            "n_control_students": 11871,
+            "n_treated_clusters": 11,
+            "n_control_clusters": 1214,
+            "effective_treated_clusters": 4.726
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.020959,
+            "standard_error": 0.027859,
+            "ci_lower": -0.042063,
+            "ci_upper": 0.083981,
+            "n_treated_students": 1046,
+            "n_control_students": 15831,
+            "n_treated_clusters": 10,
+            "n_control_clusters": 1234,
+            "effective_treated_clusters": 4.591
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -1.148115,
+            "standard_error": 0.469554,
+            "ci_lower": -2.258434,
+            "ci_upper": -0.037797,
+            "n_treated_students": 395,
+            "n_control_students": 12182,
+            "n_treated_clusters": 8,
+            "n_control_clusters": 1194,
+            "effective_treated_clusters": 3.441
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.145647,
+            "standard_error": 0.083825,
+            "ci_lower": -0.052568,
+            "ci_upper": 0.343861,
+            "n_treated_students": 395,
+            "n_control_students": 12185,
+            "n_treated_clusters": 8,
+            "n_control_clusters": 1194,
+            "effective_treated_clusters": 3.441
+          }
+        }
+      },
+      {
+        "cohort_year": 2018,
+        "treated_episodes_before_support": 18,
+        "treated_episodes": 18,
+        "control_episodes": 1227,
+        "treated_students_before_support": 2022,
+        "treated_students": 2016,
+        "control_students": 23589,
+        "supported_cells": 211,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.002167,
+            "standard_error": 0.00835,
+            "ci_lower": -0.01545,
+            "ci_upper": 0.019785,
+            "n_treated_students": 1271,
+            "n_control_students": 15088,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1146,
+            "effective_treated_clusters": 5.942
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.027586,
+            "standard_error": 0.015133,
+            "ci_lower": -0.004341,
+            "ci_upper": 0.059512,
+            "n_treated_students": 1601,
+            "n_control_students": 18817,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1202,
+            "effective_treated_clusters": 5.868
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -3.129044,
+            "standard_error": 0.535381,
+            "ci_lower": -4.2586,
+            "ci_upper": -1.999488,
+            "n_treated_students": 1522,
+            "n_control_students": 19932,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1183,
+            "effective_treated_clusters": 5.226
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.051141,
+            "standard_error": 0.050377,
+            "ci_lower": -0.157427,
+            "ci_upper": 0.055145,
+            "n_treated_students": 1522,
+            "n_control_students": 19933,
+            "n_treated_clusters": 18,
+            "n_control_clusters": 1183,
+            "effective_treated_clusters": 5.226
+          }
+        }
+      },
+      {
+        "cohort_year": 2019,
+        "treated_episodes_before_support": 15,
+        "treated_episodes": 14,
+        "control_episodes": 1379,
+        "treated_students_before_support": 1710,
+        "treated_students": 1329,
+        "control_students": 18517,
+        "supported_cells": 234,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.004488,
+            "standard_error": 0.006929,
+            "ci_lower": -0.01061,
+            "ci_upper": 0.019586,
+            "n_treated_students": 746,
+            "n_control_students": 10508,
+            "n_treated_clusters": 13,
+            "n_control_clusters": 1312,
+            "effective_treated_clusters": 4.953
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.071776,
+            "standard_error": 0.027039,
+            "ci_lower": 0.013362,
+            "ci_upper": 0.13019,
+            "n_treated_students": 1003,
+            "n_control_students": 14378,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1354,
+            "effective_treated_clusters": 5.922
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.273372,
+            "standard_error": 1.476976,
+            "ci_lower": -2.91744,
+            "ci_upper": 3.464184,
+            "n_treated_students": 887,
+            "n_control_students": 14793,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1317,
+            "effective_treated_clusters": 4.806
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.046316,
+            "standard_error": 0.078772,
+            "ci_lower": -0.216492,
+            "ci_upper": 0.123861,
+            "n_treated_students": 887,
+            "n_control_students": 14793,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1317,
+            "effective_treated_clusters": 4.806
+          }
+        }
+      },
+      {
+        "cohort_year": 2020,
+        "treated_episodes_before_support": 12,
+        "treated_episodes": 12,
+        "control_episodes": 1241,
+        "treated_students_before_support": 516,
+        "treated_students": 455,
+        "control_students": 6230,
+        "supported_cells": 133,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": -0.005482,
+            "standard_error": 0.011355,
+            "ci_lower": -0.030474,
+            "ci_upper": 0.01951,
+            "n_treated_students": 203,
+            "n_control_students": 2761,
+            "n_treated_clusters": 12,
+            "n_control_clusters": 977,
+            "effective_treated_clusters": 4.638
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.031022,
+            "standard_error": 0.039584,
+            "ci_lower": -0.056102,
+            "ci_upper": 0.118147,
+            "n_treated_students": 296,
+            "n_control_students": 4162,
+            "n_treated_clusters": 12,
+            "n_control_clusters": 1144,
+            "effective_treated_clusters": 3.941
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -17.290487,
+            "standard_error": 19.014228,
+            "ci_lower": -59.14052,
+            "ci_upper": 24.559545,
+            "n_treated_students": 271,
+            "n_control_students": 3916,
+            "n_treated_clusters": 12,
+            "n_control_clusters": 1012,
+            "effective_treated_clusters": 3.11
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.199962,
+            "standard_error": 0.054398,
+            "ci_lower": -0.31969,
+            "ci_upper": -0.080234,
+            "n_treated_students": 271,
+            "n_control_students": 3916,
+            "n_treated_clusters": 12,
+            "n_control_clusters": 1012,
+            "effective_treated_clusters": 3.11
+          }
+        }
+      },
+      {
+        "cohort_year": 2021,
+        "treated_episodes_before_support": 14,
+        "treated_episodes": 14,
+        "control_episodes": 1198,
+        "treated_students_before_support": 2151,
+        "treated_students": 2137,
+        "control_students": 24422,
+        "supported_cells": 215,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": -0.008949,
+            "standard_error": 0.004977,
+            "ci_lower": -0.019702,
+            "ci_upper": 0.001804,
+            "n_treated_students": 1428,
+            "n_control_students": 16482,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1166,
+            "effective_treated_clusters": 6.461
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.009374,
+            "standard_error": 0.008359,
+            "ci_lower": -0.008683,
+            "ci_upper": 0.027432,
+            "n_treated_students": 1771,
+            "n_control_students": 20410,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1186,
+            "effective_treated_clusters": 6.535
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -1.455635,
+            "standard_error": 1.658372,
+            "ci_lower": -5.038329,
+            "ci_upper": 2.127059,
+            "n_treated_students": 1625,
+            "n_control_students": 22149,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1187,
+            "effective_treated_clusters": 6.13
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.048608,
+            "standard_error": 0.07718,
+            "ci_lower": -0.118128,
+            "ci_upper": 0.215344,
+            "n_treated_students": 1625,
+            "n_control_students": 22149,
+            "n_treated_clusters": 14,
+            "n_control_clusters": 1187,
+            "effective_treated_clusters": 6.13
+          }
+        }
+      },
+      {
+        "cohort_year": 2022,
+        "treated_episodes_before_support": 7,
+        "treated_episodes": 7,
+        "control_episodes": 1236,
+        "treated_students_before_support": 680,
+        "treated_students": 680,
+        "control_students": 11805,
+        "supported_cells": 89,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": 0.017456,
+            "standard_error": 0.007535,
+            "ci_lower": -0.000982,
+            "ci_upper": 0.035895,
+            "n_treated_students": 461,
+            "n_control_students": 8028,
+            "n_treated_clusters": 7,
+            "n_control_clusters": 1181,
+            "effective_treated_clusters": 2.049
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.078693,
+            "standard_error": 0.054427,
+            "ci_lower": -0.054487,
+            "ci_upper": 0.211872,
+            "n_treated_students": 583,
+            "n_control_students": 10090,
+            "n_treated_clusters": 7,
+            "n_control_clusters": 1221,
+            "effective_treated_clusters": 2.045
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -9.062381,
+            "standard_error": 5.499271,
+            "ci_lower": -24.330805,
+            "ci_upper": 6.206043,
+            "n_treated_students": 482,
+            "n_control_students": 10252,
+            "n_treated_clusters": 5,
+            "n_control_clusters": 1178,
+            "effective_treated_clusters": 1.966
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": 0.015681,
+            "standard_error": 0.013044,
+            "ci_lower": -0.020535,
+            "ci_upper": 0.051897,
+            "n_treated_students": 482,
+            "n_control_students": 10251,
+            "n_treated_clusters": 5,
+            "n_control_clusters": 1178,
+            "effective_treated_clusters": 1.966
+          }
+        }
+      },
+      {
+        "cohort_year": 2023,
+        "treated_episodes_before_support": 11,
+        "treated_episodes": 10,
+        "control_episodes": 1086,
+        "treated_students_before_support": 362,
+        "treated_students": 357,
+        "control_students": 5566,
+        "supported_cells": 125,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "ESTIMATED",
+            "estimate": -0.009325,
+            "standard_error": 0.007425,
+            "ci_lower": -0.026447,
+            "ci_upper": 0.007798,
+            "n_treated_students": 271,
+            "n_control_students": 4222,
+            "n_treated_clusters": 9,
+            "n_control_clusters": 950,
+            "effective_treated_clusters": 2.703
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.032018,
+            "standard_error": 0.033755,
+            "ci_lower": -0.045822,
+            "ci_upper": 0.109859,
+            "n_treated_students": 310,
+            "n_control_students": 4870,
+            "n_treated_clusters": 9,
+            "n_control_clusters": 1000,
+            "effective_treated_clusters": 2.673
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.521371,
+            "standard_error": 4.078509,
+            "ci_lower": -10.165512,
+            "ci_upper": 9.122769,
+            "n_treated_students": 234,
+            "n_control_students": 4620,
+            "n_treated_clusters": 8,
+            "n_control_clusters": 947,
+            "effective_treated_clusters": 3.057
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.273609,
+            "standard_error": 0.055396,
+            "ci_lower": -0.404599,
+            "ci_upper": -0.142619,
+            "n_treated_students": 234,
+            "n_control_students": 4620,
+            "n_treated_clusters": 8,
+            "n_control_clusters": 947,
+            "effective_treated_clusters": 3.057
+          }
+        }
+      },
+      {
+        "cohort_year": 2024,
+        "treated_episodes_before_support": 13,
+        "treated_episodes": 12,
+        "control_episodes": 1564,
+        "treated_students_before_support": 676,
+        "treated_students": 657,
+        "control_students": 8894,
+        "supported_cells": 175,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "status": "NOT_ESTIMABLE_PANEL_BOUNDARY"
+          },
+          "grade_progression_or_lag": {
+            "status": "ESTIMATED",
+            "estimate": 0.022292,
+            "standard_error": 0.024815,
+            "ci_lower": -0.032326,
+            "ci_upper": 0.076911,
+            "n_treated_students": 526,
+            "n_control_students": 7554,
+            "n_treated_clusters": 12,
+            "n_control_clusters": 1521,
+            "effective_treated_clusters": 5.16
+          },
+          "attendance_given_performance_record": {
+            "status": "ESTIMATED",
+            "estimate": -2.717033,
+            "standard_error": 1.870389,
+            "ci_lower": -7.030157,
+            "ci_upper": 1.596092,
+            "n_treated_students": 329,
+            "n_control_students": 5878,
+            "n_treated_clusters": 9,
+            "n_control_clusters": 1328,
+            "effective_treated_clusters": 3.957
+          },
+          "grade_average_given_valid_record": {
+            "status": "ESTIMATED",
+            "estimate": -0.06909,
+            "standard_error": 0.086765,
+            "ci_lower": -0.269172,
+            "ci_upper": 0.130991,
+            "n_treated_students": 329,
+            "n_control_students": 5877,
+            "n_treated_clusters": 9,
+            "n_control_clusters": 1328,
+            "effective_treated_clusters": 3.957
+          }
+        }
+      }
+    ],
+    "regimes": [
+      {
+        "regime_id": "pre_lge_sep_2005_2010",
+        "years": [
+          2005,
+          2010
+        ],
+        "n_cohorts": 6,
+        "treated_episodes_before_support": 543,
+        "treated_episodes": 521,
+        "control_episodes": 16646,
+        "treated_students": 36984,
+        "control_students": 334062,
+        "supported_cells": 4695,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.012138,
+            "standard_error": 0.003495,
+            "ci_lower": 0.005262,
+            "ci_upper": 0.019013,
+            "n_treated_students": 15696,
+            "n_control_students": 150020,
+            "n_treated_clusters": 318,
+            "n_control_clusters": 9868,
+            "effective_treated_clusters": 47.771
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.121466,
+            "standard_error": 0.042584,
+            "ci_lower": 0.037761,
+            "ci_upper": 0.205171,
+            "n_treated_students": 23928,
+            "n_control_students": 229692,
+            "n_treated_clusters": 419,
+            "n_control_clusters": 13170,
+            "effective_treated_clusters": 64.65
+          },
+          "attendance_given_performance_record": {
+            "estimate": -0.911777,
+            "standard_error": 0.289789,
+            "ci_lower": -1.481214,
+            "ci_upper": -0.34234,
+            "n_treated_students": 21801,
+            "n_control_students": 245484,
+            "n_treated_clusters": 473,
+            "n_control_clusters": 15306,
+            "effective_treated_clusters": 86.487
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.08159,
+            "standard_error": 0.017294,
+            "ci_lower": -0.115573,
+            "ci_upper": -0.047607,
+            "n_treated_students": 21802,
+            "n_control_students": 245647,
+            "n_treated_clusters": 473,
+            "n_control_clusters": 15312,
+            "effective_treated_clusters": 86.494
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": 0.03490731729949649,
+          "effect_upper": 0.18827489111109508,
+          "crosses_zero": false,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "post_lge_sac_2011_2015",
+        "years": [
+          2011,
+          2015
+        ],
+        "n_cohorts": 5,
+        "treated_episodes_before_support": 513,
+        "treated_episodes": 502,
+        "control_episodes": 13560,
+        "treated_students": 31512,
+        "control_students": 260740,
+        "supported_cells": 4184,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.018488,
+            "standard_error": 0.003797,
+            "ci_lower": 0.011027,
+            "ci_upper": 0.025948,
+            "n_treated_students": 20598,
+            "n_control_students": 175279,
+            "n_treated_clusters": 483,
+            "n_control_clusters": 12638,
+            "effective_treated_clusters": 125.818
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.078216,
+            "standard_error": 0.008059,
+            "ci_lower": 0.062008,
+            "ci_upper": 0.094051,
+            "n_treated_students": 24633,
+            "n_control_students": 211314,
+            "n_treated_clusters": 493,
+            "n_control_clusters": 13143,
+            "effective_treated_clusters": 124.879
+          },
+          "attendance_given_performance_record": {
+            "estimate": 0.101668,
+            "standard_error": 0.325213,
+            "ci_lower": -0.537541,
+            "ci_upper": 0.740877,
+            "n_treated_students": 21458,
+            "n_control_students": 207607,
+            "n_treated_clusters": 430,
+            "n_control_clusters": 12579,
+            "effective_treated_clusters": 113.624
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.090505,
+            "standard_error": 0.01631,
+            "ci_lower": -0.122563,
+            "ci_upper": -0.058447,
+            "n_treated_students": 21458,
+            "n_control_students": 207611,
+            "n_treated_clusters": 430,
+            "n_control_clusters": 12579,
+            "effective_treated_clusters": 113.624
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": -0.021085056110898157,
+          "effect_upper": 0.1618220134348717,
+          "crosses_zero": true,
+          "includes_material_harm_and_benefit": true,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "primary_pre_pandemic_2016_2019",
+        "years": [
+          2016,
+          2019
+        ],
+        "n_cohorts": 4,
+        "treated_episodes_before_support": 64,
+        "treated_episodes": 63,
+        "control_episodes": 5765,
+        "treated_students": 6190,
+        "control_students": 82753,
+        "supported_cells": 840,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.006267,
+            "standard_error": 0.007,
+            "ci_lower": -0.007731,
+            "ci_upper": 0.020265,
+            "n_treated_students": 3666,
+            "n_control_students": 49944,
+            "n_treated_clusters": 62,
+            "n_control_clusters": 5377,
+            "effective_treated_clusters": 21.143
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.052903,
+            "standard_error": 0.016078,
+            "ci_lower": 0.020753,
+            "ci_upper": 0.085052,
+            "n_treated_students": 4815,
+            "n_control_students": 65538,
+            "n_treated_clusters": 62,
+            "n_control_clusters": 5568,
+            "effective_treated_clusters": 21.922
+          },
+          "attendance_given_performance_record": {
+            "estimate": -1.153146,
+            "standard_error": 0.624477,
+            "ci_lower": -2.40364,
+            "ci_upper": 0.097348,
+            "n_treated_students": 3871,
+            "n_control_students": 63591,
+            "n_treated_clusters": 58,
+            "n_control_clusters": 5459,
+            "effective_treated_clusters": 17.687
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.064396,
+            "standard_error": 0.036209,
+            "ci_lower": -0.136902,
+            "ci_upper": 0.008111,
+            "n_treated_students": 3871,
+            "n_control_students": 63596,
+            "n_treated_clusters": 58,
+            "n_control_clusters": 5459,
+            "effective_treated_clusters": 17.687
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": -0.011544327030639914,
+          "effect_upper": 0.10981576275581982,
+          "crosses_zero": true,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "pandemic_covid_2020_2022",
+        "years": [
+          2020,
+          2022
+        ],
+        "n_cohorts": 3,
+        "treated_episodes_before_support": 33,
+        "treated_episodes": 33,
+        "control_episodes": 3675,
+        "treated_students": 3272,
+        "control_students": 42457,
+        "supported_cells": 437,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": -0.002794,
+            "standard_error": 0.005334,
+            "ci_lower": -0.013658,
+            "ci_upper": 0.00807,
+            "n_treated_students": 2092,
+            "n_control_students": 27271,
+            "n_treated_clusters": 33,
+            "n_control_clusters": 3324,
+            "effective_treated_clusters": 10.219
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.027042,
+            "standard_error": 0.016351,
+            "ci_lower": -0.006263,
+            "ci_upper": 0.060348,
+            "n_treated_students": 2650,
+            "n_control_students": 34662,
+            "n_treated_clusters": 33,
+            "n_control_clusters": 3551,
+            "effective_treated_clusters": 10.508
+          },
+          "attendance_given_performance_record": {
+            "estimate": -4.802017,
+            "standard_error": 3.04139,
+            "ci_lower": -11.013363,
+            "ci_upper": 1.409329,
+            "n_treated_students": 2378,
+            "n_control_students": 36317,
+            "n_treated_clusters": 31,
+            "n_control_clusters": 3377,
+            "effective_treated_clusters": 9.877
+          },
+          "grade_average_given_valid_record": {
+            "estimate": 0.013607,
+            "standard_error": 0.051934,
+            "ci_lower": -0.092456,
+            "ci_upper": 0.11967,
+            "n_treated_students": 2378,
+            "n_control_students": 36316,
+            "n_treated_clusters": 31,
+            "n_control_clusters": 3377,
+            "effective_treated_clusters": 9.877
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": 0.0018122874010737724,
+          "effect_upper": 0.04946127055859071,
+          "crosses_zero": false,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "post_pandemic_2023_2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "n_cohorts": 2,
+        "treated_episodes_before_support": 24,
+        "treated_episodes": 22,
+        "control_episodes": 2650,
+        "treated_students": 1014,
+        "control_students": 14460,
+        "supported_cells": 300,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": -0.009325,
+            "standard_error": 0.007425,
+            "ci_lower": -0.026447,
+            "ci_upper": 0.007798,
+            "n_treated_students": 271,
+            "n_control_students": 4222,
+            "n_treated_clusters": 9,
+            "n_control_clusters": 950,
+            "effective_treated_clusters": 2.703
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.025899,
+            "standard_error": 0.019853,
+            "ci_lower": -0.015514,
+            "ci_upper": 0.067311,
+            "n_treated_students": 836,
+            "n_control_students": 12424,
+            "n_treated_clusters": 21,
+            "n_control_clusters": 2521,
+            "effective_treated_clusters": 7.803
+          },
+          "attendance_given_performance_record": {
+            "estimate": -1.804449,
+            "standard_error": 2.1968,
+            "ci_lower": -6.461457,
+            "ci_upper": 2.85256,
+            "n_treated_students": 563,
+            "n_control_students": 10498,
+            "n_treated_clusters": 17,
+            "n_control_clusters": 2275,
+            "effective_treated_clusters": 7.003
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.154094,
+            "standard_error": 0.072642,
+            "ci_lower": -0.308089,
+            "ci_upper": -0.0001,
+            "n_treated_students": 563,
+            "n_control_students": 10497,
+            "n_treated_clusters": 17,
+            "n_control_clusters": 2275,
+            "effective_treated_clusters": 7.003
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": -0.017001432211256495,
+          "effect_upper": 0.060707362894078847,
+          "crosses_zero": true,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "historical_pre_2016_2005_2015",
+        "years": [
+          2005,
+          2015
+        ],
+        "n_cohorts": 11,
+        "treated_episodes_before_support": 1056,
+        "treated_episodes": 1023,
+        "control_episodes": 30206,
+        "treated_students": 68496,
+        "control_students": 594802,
+        "supported_cells": 8879,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.015742,
+            "standard_error": 0.00264,
+            "ci_lower": 0.01056,
+            "ci_upper": 0.020923,
+            "n_treated_students": 36294,
+            "n_control_students": 325299,
+            "n_treated_clusters": 801,
+            "n_control_clusters": 22506,
+            "effective_treated_clusters": 154.439
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.099527,
+            "standard_error": 0.022096,
+            "ci_lower": 0.056162,
+            "ci_upper": 0.142893,
+            "n_treated_students": 48561,
+            "n_control_students": 441006,
+            "n_treated_clusters": 912,
+            "n_control_clusters": 26313,
+            "effective_treated_clusters": 171.94
+          },
+          "attendance_given_performance_record": {
+            "estimate": -0.409072,
+            "standard_error": 0.221554,
+            "ci_lower": -0.843893,
+            "ci_upper": 0.026773,
+            "n_treated_students": 43259,
+            "n_control_students": 453091,
+            "n_treated_clusters": 903,
+            "n_control_clusters": 27885,
+            "effective_treated_clusters": 195.997
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.086012,
+            "standard_error": 0.011913,
+            "ci_lower": -0.109392,
+            "ci_upper": -0.062507,
+            "n_treated_students": 43260,
+            "n_control_students": 453258,
+            "n_treated_clusters": 903,
+            "n_control_clusters": 27891,
+            "effective_treated_clusters": 196.006
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": 0.006343370791306951,
+          "effect_upper": 0.17478022144611796,
+          "crosses_zero": false,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "all_non_pandemic_2005_2019_2023_2024",
+        "years": [
+          2005,
+          2024
+        ],
+        "n_cohorts": 17,
+        "treated_episodes_before_support": 1144,
+        "treated_episodes": 1108,
+        "control_episodes": 38621,
+        "treated_students": 75700,
+        "control_students": 692015,
+        "supported_cells": 10019,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.014709,
+            "standard_error": 0.002475,
+            "ci_lower": 0.009817,
+            "ci_upper": 0.019568,
+            "n_treated_students": 40231,
+            "n_control_students": 379465,
+            "n_treated_clusters": 872,
+            "n_control_clusters": 28833,
+            "effective_treated_clusters": 176.079
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.094251,
+            "standard_error": 0.020018,
+            "ci_lower": 0.054967,
+            "ci_upper": 0.133534,
+            "n_treated_students": 54212,
+            "n_control_students": 518968,
+            "n_treated_clusters": 995,
+            "n_control_clusters": 34402,
+            "effective_treated_clusters": 197.746
+          },
+          "attendance_given_performance_record": {
+            "estimate": -0.485937,
+            "standard_error": 0.209735,
+            "ci_lower": -0.897519,
+            "ci_upper": -0.074355,
+            "n_treated_students": 47693,
+            "n_control_students": 527180,
+            "n_treated_clusters": 978,
+            "n_control_clusters": 35619,
+            "effective_treated_clusters": 217.87
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.085061,
+            "standard_error": 0.01125,
+            "ci_lower": -0.107391,
+            "ci_upper": -0.062985,
+            "n_treated_students": 47694,
+            "n_control_students": 527351,
+            "n_treated_clusters": 978,
+            "n_control_clusters": 35625,
+            "effective_treated_clusters": 217.879
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": 0.004427053953942121,
+          "effect_upper": 0.16738034146898864,
+          "crosses_zero": false,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      },
+      {
+        "regime_id": "full_series_2005_2024",
+        "years": [
+          2005,
+          2024
+        ],
+        "n_cohorts": 20,
+        "treated_episodes_before_support": 1177,
+        "treated_episodes": 1141,
+        "control_episodes": 42296,
+        "treated_students": 78972,
+        "control_students": 734472,
+        "supported_cells": 10456,
+        "outcomes": {
+          "persistent_nonenrollment_two_years": {
+            "estimate": 0.013844,
+            "standard_error": 0.002373,
+            "ci_lower": 0.009187,
+            "ci_upper": 0.018501,
+            "n_treated_students": 42323,
+            "n_control_students": 406736,
+            "n_treated_clusters": 905,
+            "n_control_clusters": 32157,
+            "effective_treated_clusters": 186.192
+          },
+          "grade_progression_or_lag": {
+            "estimate": 0.091118,
+            "standard_error": 0.019204,
+            "ci_lower": 0.053434,
+            "ci_upper": 0.128803,
+            "n_treated_students": 56862,
+            "n_control_students": 553630,
+            "n_treated_clusters": 1028,
+            "n_control_clusters": 37953,
+            "effective_treated_clusters": 208.189
+          },
+          "attendance_given_performance_record": {
+            "estimate": -0.690919,
+            "standard_error": 0.255705,
+            "ci_lower": -1.192694,
+            "ci_upper": -0.189143,
+            "n_treated_students": 50071,
+            "n_control_students": 563497,
+            "n_treated_clusters": 1009,
+            "n_control_clusters": 38996,
+            "effective_treated_clusters": 227.653
+          },
+          "grade_average_given_valid_record": {
+            "estimate": -0.080375,
+            "standard_error": 0.01095,
+            "ci_lower": -0.101863,
+            "ci_upper": -0.058888,
+            "n_treated_students": 50072,
+            "n_control_students": 563667,
+            "n_treated_clusters": 1009,
+            "n_control_clusters": 39002,
+            "effective_treated_clusters": 227.662
+          }
+        },
+        "missingness_bounds_progression": {
+          "status": "ESTIMATED",
+          "effect_lower": 0.0043093043836863205,
+          "effect_upper": 0.1620701466030526,
+          "crosses_zero": false,
+          "includes_material_harm_and_benefit": false,
+          "method": "arm-adversarial Manski-style bounds for unknown grade progression"
+        }
+      }
+    ],
+    "series_summary": {
+      "persistent_nonenrollment_two_years": {
+        "n_estimable_cohorts": 17,
+        "first_cohort": 2007,
+        "last_cohort": 2023,
+        "min_estimate": -0.009325,
+        "min_cohort_year": 2023,
+        "max_estimate": 0.045619,
+        "max_cohort_year": 2011,
+        "p25_estimate": 0.002167,
+        "median_estimate": 0.009223,
+        "p75_estimate": 0.021096,
+        "iqr_estimate": 0.018929,
+        "positive_point_estimates": 13,
+        "negative_point_estimates": 4,
+        "ci95_excludes_zero_positive": 5,
+        "ci95_excludes_zero_negative": 0,
+        "equal_cohort_weighted": {
+          "estimate": 0.010321,
+          "standard_error": 0.002403,
+          "ci_lower": 0.005611,
+          "ci_upper": 0.015031
+        },
+        "callaway_santanna_student_weighted": {
+          "estimate": 0.013844,
+          "standard_error": 0.002198,
+          "ci_lower": 0.009536,
+          "ci_upper": 0.018152
+        },
+        "inverse_variance_weighted": {
+          "estimate": 0.005389,
+          "standard_error": 0.001289,
+          "ci_lower": 0.002863,
+          "ci_upper": 0.007916,
+          "cochran_q": 41.368,
+          "degrees_of_freedom": 16,
+          "heterogeneity_p_value": 0.00049,
+          "i2_percent": 61.32
+        }
+      },
+      "grade_progression_or_lag": {
+        "n_estimable_cohorts": 19,
+        "first_cohort": 2006,
+        "last_cohort": 2024,
+        "min_estimate": 0.009374,
+        "min_cohort_year": 2021,
+        "max_estimate": 0.282187,
+        "max_cohort_year": 2010,
+        "p25_estimate": 0.03152,
+        "median_estimate": 0.071776,
+        "p75_estimate": 0.096163,
+        "iqr_estimate": 0.064643,
+        "positive_point_estimates": 19,
+        "negative_point_estimates": 0,
+        "ci95_excludes_zero_positive": 11,
+        "ci95_excludes_zero_negative": 0,
+        "equal_cohort_weighted": {
+          "estimate": 0.075466,
+          "standard_error": 0.010348,
+          "ci_lower": 0.055185,
+          "ci_upper": 0.095748
+        },
+        "callaway_santanna_student_weighted": {
+          "estimate": 0.091118,
+          "standard_error": 0.014195,
+          "ci_lower": 0.063296,
+          "ci_upper": 0.11894
+        },
+        "inverse_variance_weighted": {
+          "estimate": 0.051424,
+          "standard_error": 0.004116,
+          "ci_lower": 0.043358,
+          "ci_upper": 0.059491,
+          "cochran_q": 76.518,
+          "degrees_of_freedom": 18,
+          "heterogeneity_p_value": 0.0,
+          "i2_percent": 76.48
+        }
+      },
+      "attendance_given_performance_record": {
+        "n_estimable_cohorts": 20,
+        "first_cohort": 2005,
+        "last_cohort": 2024,
+        "min_estimate": -17.290487,
+        "min_cohort_year": 2020,
+        "max_estimate": 1.330353,
+        "max_cohort_year": 2014,
+        "p25_estimate": -1.709236,
+        "median_estimate": -0.714613,
+        "p75_estimate": -0.061016,
+        "iqr_estimate": 1.64822,
+        "positive_point_estimates": 5,
+        "negative_point_estimates": 15,
+        "ci95_excludes_zero_positive": 1,
+        "ci95_excludes_zero_negative": 4,
+        "equal_cohort_weighted": {
+          "estimate": -1.976141,
+          "standard_error": 1.02898,
+          "ci_lower": -3.992941,
+          "ci_upper": 0.040659
+        },
+        "callaway_santanna_student_weighted": {
+          "estimate": -0.690919,
+          "standard_error": 0.220798,
+          "ci_lower": -1.123683,
+          "ci_upper": -0.258155
+        },
+        "inverse_variance_weighted": {
+          "estimate": -0.770615,
+          "standard_error": 0.152057,
+          "ci_lower": -1.068647,
+          "ci_upper": -0.472584,
+          "cochran_q": 47.187,
+          "degrees_of_freedom": 19,
+          "heterogeneity_p_value": 0.000336,
+          "i2_percent": 59.73
+        }
+      },
+      "grade_average_given_valid_record": {
+        "n_estimable_cohorts": 20,
+        "first_cohort": 2005,
+        "last_cohort": 2024,
+        "min_estimate": -0.273609,
+        "min_cohort_year": 2023,
+        "max_estimate": 0.145647,
+        "max_cohort_year": 2017,
+        "p25_estimate": -0.10974,
+        "median_estimate": -0.073367,
+        "p75_estimate": -0.044542,
+        "iqr_estimate": 0.065197,
+        "positive_point_estimates": 3,
+        "negative_point_estimates": 17,
+        "ci95_excludes_zero_positive": 0,
+        "ci95_excludes_zero_negative": 9,
+        "equal_cohort_weighted": {
+          "estimate": -0.077874,
+          "standard_error": 0.011593,
+          "ci_lower": -0.100595,
+          "ci_upper": -0.055153
+        },
+        "callaway_santanna_student_weighted": {
+          "estimate": -0.080375,
+          "standard_error": 0.01053,
+          "ci_lower": -0.101014,
+          "ci_upper": -0.059737
+        },
+        "inverse_variance_weighted": {
+          "estimate": -0.057686,
+          "standard_error": 0.007464,
+          "ci_lower": -0.072315,
+          "ci_upper": -0.043057,
+          "cochran_q": 90.436,
+          "degrees_of_freedom": 19,
+          "heterogeneity_p_value": 0.0,
+          "i2_percent": 78.99
+        }
+      }
+    }
+  }
+}
