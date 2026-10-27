@@ -50,12 +50,46 @@
     });
   }
 
+  function updatePost3Visuals(theme) {
+    var isDark = theme === DARK_THEME;
+    var variant = isDark ? "dark" : "light";
+    var images = document.querySelectorAll(".post3-theme-image");
+    var sources = document.querySelectorAll(".post3-theme-source");
+    var links = document.querySelectorAll(".post3-theme-link");
+
+    Array.prototype.forEach.call(sources, function (source) {
+      var sourceSet = source.dataset[variant + "Srcset"];
+      if (sourceSet) {
+        source.setAttribute("srcset", sourceSet);
+      }
+    });
+
+    Array.prototype.forEach.call(images, function (image) {
+      var source = image.dataset[variant + "Src"];
+      var sourceSet = image.dataset[variant + "Srcset"];
+      if (source) {
+        image.setAttribute("src", source);
+      }
+      if (sourceSet) {
+        image.setAttribute("srcset", sourceSet);
+      }
+    });
+
+    Array.prototype.forEach.call(links, function (link) {
+      var target = link.dataset[variant + "Href"];
+      if (target) {
+        link.setAttribute("href", target);
+      }
+    });
+  }
+
   function applyTheme(value) {
     var theme = normalizeTheme(value);
     root.setAttribute("data-theme", theme);
     root.style.colorScheme = theme === DARK_THEME ? "dark" : "light";
     updateThemeColor(theme);
     updateButtons(theme);
+    updatePost3Visuals(theme);
     return theme;
   }
 
@@ -81,6 +115,15 @@
     var buttons = document.querySelectorAll("[data-theme-toggle]");
     Array.prototype.forEach.call(buttons, function (button) {
       button.addEventListener("click", toggleTheme);
+    });
+
+    // Las láminas oscuras pierden contraste sobre el papel blanco. La vista
+    // impresa usa temporalmente el arte claro y luego restaura el tema elegido.
+    window.addEventListener("beforeprint", function () {
+      updatePost3Visuals(LIGHT_THEME);
+    });
+    window.addEventListener("afterprint", function () {
+      updatePost3Visuals(normalizeTheme(root.getAttribute("data-theme")));
     });
   }
 

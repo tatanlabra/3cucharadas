@@ -1,8 +1,8 @@
-# Matriz de estilo para los posts I y II
+# Matriz de estilo para los posts I, II y III
 
 ## Alcance y custodia
 
-- Esta matriz aplica criterios editoriales al cuerpo, títulos, encabezados, números, puntuación y transiciones de los posts I y II.
+- Esta matriz aplica criterios editoriales al cuerpo, títulos, encabezados, números, puntuación y transiciones de los posts I, II y III.
 - Las referencias bibliográficas conservan su formato actual; una migración bibliográfica completa queda fuera de este cierre.
 - Los PDF y el corpus de búsqueda permanecen fuera del repositorio; no se versiona texto extraído de los manuales.
 - Las reglas siguientes son paráfrasis operativas, no transcripciones de los manuales.
@@ -31,22 +31,37 @@
 
 - El Post I conserva la primera persona responsable, distingue hallazgo, explicación y límite, y avanza de la reconstrucción a su uso público.
 - El Post II elimina transiciones de bitácora, mantiene paralelos los resultados iniciales y hace visible la pregunta que conduce a cada cucharada.
+- El Post III explica la secuencia I→II→III, presenta los resultados escolares antes de la cocina metodológica y mantiene juntos el efecto puntual, sus cotas de faltantes y el estado `INCONCLUSIVE`.
 - Las versiones en español e inglés mantienen el mismo universo, período, magnitudes y cautela causal, aunque varíen su ritmo y léxico.
 
 ## Consulta privada del corpus
 
 - `scripts/style_manual_corpus.py` crea un corpus consultable desde PDF locales y prefiere Docling, con `pdftotext` como fallback declarado.
 - La salida contiene texto protegido por derecho de autor: debe quedar fuera del repositorio y de `_site`.
-- Cada fragmento conserva archivo, hash de origen y páginas cuando el extractor las entrega; una página ausente se registra como `null`.
+- Cada fragmento conserva archivo, hash de origen y páginas. El backend Docling usa su pipeline PDF nativo, sin modelos ni OCR, porque estos manuales ya contienen capa textual; una extracción sin texto falla cerrada.
+
+### Recibo de ejecución del Post III
+
+| Capa | Alcance | Resultado aceptado |
+|---|---|---|
+| Docling 2.134.0, pipeline nativo | Chicago-Deusto digital principal y CMOS 18 | 732 fragmentos; 0 páginas nulas; sin fallback |
+| `pdftotext` paginado | Los tres PDF, incluido el escaneo de contraste | 1.073 fragmentos; respaldo de cobertura y localización |
+
+- El recibo versionado está en `docs/plans/20261025-thesis-post3-publication/evidence/style-manual-corpus-receipt.json`; contiene solo hashes, conteos, páginas y puntajes, no texto protegido.
+- La corrida pesada de layout/OCR quedó descartada: no produjo un manifiesto aceptable y generó presión de memoria en el host. No cuenta como consulta editorial.
+- El escaneo de contraste no se duplicó con Docling: la edición digital española con el mismo papel editorial es la autoridad primaria; el escaneo conserva su cobertura en el corpus paginado.
 
 ```bash
-python3 scripts/style_manual_corpus.py build \
+/home/ende/.local/share/3cucharadas-editorial/bin/python \
+  scripts/style_manual_corpus.py build \
   --source-dir "$STYLE_MANUAL_DIR" \
-  --output-dir /tmp/3cucharadas-style-manual-corpus
+  --output-dir /tmp/3cucharadas-style-manual-corpus-docling \
+  --backend docling
 
-python3 scripts/style_manual_corpus.py search \
+/home/ende/.local/share/3cucharadas-editorial/bin/python \
+  scripts/style_manual_corpus.py search \
   --corpus /tmp/3cucharadas-style-manual-corpus/chunks.jsonl \
   --query "tablas notas fuentes tamaño tipografía"
 ```
 
-El corpus localiza reglas; no convierte una coincidencia léxica en una decisión editorial. El constructor rechaza salidas dentro del repositorio.
+El corpus localiza reglas; no convierte una coincidencia léxica en una decisión editorial. El constructor rechaza salidas dentro del repositorio. Tanto Docling nativo como `pdftotext` conservan la página como localizador secundario; cambiar de extractor no cambia la autoridad del PDF ni habilita mezclar silenciosamente ambos resultados.

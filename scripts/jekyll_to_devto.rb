@@ -32,7 +32,31 @@ module JekyllToDevto
     "/assets/images/structured-shell/fig-d2-shell-families-en.svg" =>
       "/assets/images/structured-shell/fig-d2-shell-families-en-devto-1600x1360.png",
     "/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg" =>
-      "/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png"
+      "/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png",
+    "/assets/images/tesis-post3/sample-flow-en-light.svg" =>
+      "/assets/images/tesis-post3/sample-flow-en-light.png",
+    "/assets/images/tesis-post3/sample-flow-en-dark.svg" =>
+      "/assets/images/tesis-post3/sample-flow-en-dark.png",
+    "/assets/images/tesis-post3/sample-flow-en-light-mobile.svg" =>
+      "/assets/images/tesis-post3/sample-flow-en-light-mobile.png",
+    "/assets/images/tesis-post3/sample-flow-en-dark-mobile.svg" =>
+      "/assets/images/tesis-post3/sample-flow-en-dark-mobile.png",
+    "/assets/images/tesis-post3/post-pilot-reestimation-en-light.svg" =>
+      "/assets/images/tesis-post3/post-pilot-reestimation-en-light.png",
+    "/assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg" =>
+      "/assets/images/tesis-post3/post-pilot-reestimation-en-dark.png",
+    "/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg" =>
+      "/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.png",
+    "/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg" =>
+      "/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.png",
+    "/assets/images/tesis-post3/territorial-audit-en-light.svg" =>
+      "/assets/images/tesis-post3/territorial-audit-en-light.png",
+    "/assets/images/tesis-post3/territorial-audit-en-dark.svg" =>
+      "/assets/images/tesis-post3/territorial-audit-en-dark.png",
+    "/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg" =>
+      "/assets/images/tesis-post3/territorial-audit-en-light-mobile.png",
+    "/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg" =>
+      "/assets/images/tesis-post3/territorial-audit-en-dark-mobile.png"
   }.freeze
 
   # Tags documentados por Forem y tags de bloque que DEV.to ya admite. La lista

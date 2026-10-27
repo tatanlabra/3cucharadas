@@ -41,8 +41,10 @@ module TablasNumericas
 
   # Una cifra en notación chilena o inglesa: signo, moneda, miles con punto o
   # coma, decimales, porcentaje o unidad corta, estrellas de significancia y
-  # paréntesis de error estándar.
+  # paréntesis de error estándar. Los intervalos se reconocen aparte para no
+  # confundir la coma decimal con el separador inglés entre extremos.
   CIFRA = /\A[(\[]?\s*[−\-+±~≈<>≤≥]?\s*[$€£]?\s*\d[\d.,  ]*(?:\s?(?:%|‰|pp|p\.\s?p\.|DE|SD|pts?|x|×))?\s*[)\]]?\**\z/
+  INTERVALO = /\A[\[(]\s*(.+?)\s*(?:;|,\s+|–|—|\bto\b|\ba\b)\s*(.+?)\s*[\])]\s*(?:pp|p\.\s?p\.|pts?)?\s*\z/i
 
   module_function
 
@@ -52,7 +54,11 @@ module TablasNumericas
   end
 
   def cifra?(texto)
-    !texto.empty? && CIFRA.match?(texto)
+    return false if texto.empty?
+    return true if CIFRA.match?(texto)
+
+    intervalo = INTERVALO.match(texto)
+    intervalo && intervalo.captures.all? { |extremo| CIFRA.match?(extremo) }
   end
 
   # Índices de columna numérica, o nil si la tabla no se debe tocar.

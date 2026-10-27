@@ -68,6 +68,11 @@ begin
   run.call('test-accessible-regions', %w[python3 -m unittest discover -s tests/catastro_sii -p test_accessible_regions.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
   run.call('test-static-contrast', %w[python3 -m unittest discover -s tests/catastro_sii -p test_static_contrast.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
   run.call('test-graph-contrast', %w[python3 -m unittest tests/test_graph_contrast.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('post3-visual-tokens', %w[python3 scripts/build_post3_visual_tokens.py --check], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('test-post3-visual-tokens', %w[python3 -m unittest tests/test_post3_visual_tokens.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('post3-scientific-editorial', %w[ruby scripts/verify_thesis_post3.rb])
+  run.call('test-post3-scientific-editorial', %w[ruby tests/test_verify_thesis_post3.rb])
+  run.call('test-post3-browser-contract', %w[ruby tests/test_verify_thesis_post3_browser.rb])
 
   unless options[:profile] == 'source'
     version, status = Open3.capture2e('node', '--version')

@@ -3,6 +3,7 @@ search: false
 ---
 
 @use "sass:color";
+@use "post3-data-viz-tokens" as post3-viz;
 
 /* Pilas tipográficas del sitio. Configuran el tema en el @use de abajo; llevan prefijo
    $site- para no chocar con los miembros que el tema expone con `as *`. */
@@ -514,7 +515,7 @@ pre,
   padding: 0.3rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 999px;
-  background: transparent;
+  background: var(--c3-viz-surface);
   color: inherit;
   cursor: pointer;
   font: inherit;
@@ -1384,7 +1385,7 @@ html[data-theme="academic-night"] .page__content blockquote {
   padding: 0.1em 0 0.1em 1.1em;
   border: 0;
   border-left: 3px solid var(--quote-rule);
-  background: transparent;
+  background: var(--c3-viz-surface);
   color: var(--callout-ink);
   box-shadow: none;
 }
@@ -1783,6 +1784,146 @@ html[data-theme="academic-night"] p.table-caption {
   text-align: center;
 }
 
+/* Adaptador del contrato 3cucharadas-visualizacion-datos. Los tokens vienen
+   del módulo generado por scripts/build_post3_visual_tokens.py; esta capa solo
+   adapta layout y el selector nocturno real (`academic-night`) del sitio. */
+.thesis-extension-post .post3-figure.data-visualization {
+  @include post3-viz.light-theme;
+  box-sizing: border-box;
+  width: min(100%, var(--measure));
+  padding: 0;
+  border-block: 1px solid var(--c3-viz-grid);
+  border-inline: 0;
+  border-radius: 0;
+  color: var(--c3-viz-ink);
+  background: var(--c3-viz-surface);
+  box-shadow: none;
+  font-family: var(--c3-viz-font-family);
+}
+
+html[data-theme="academic-night"] .thesis-extension-post .post3-figure.data-visualization {
+  @include post3-viz.dark-theme;
+  /* El panel exterior usa el lienzo nocturno; `surface` queda reservado para
+     capas internas de la figura y no introduce una segunda tinta negra. */
+  background: var(--c3-viz-canvas);
+  box-shadow: none;
+}
+
+.thesis-extension-post .post3-figure.data-visualization .post3-theme-link {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+}
+
+.thesis-extension-post .post3-figure.data-visualization picture,
+.thesis-extension-post .post3-figure.data-visualization img.post3-theme-image {
+  display: block;
+  width: 100%;
+}
+
+.thesis-extension-post .post3-figure.data-visualization img.post3-theme-image {
+  height: auto;
+}
+
+.thesis-extension-post .post3-figure.data-visualization :focus-visible {
+  --focus-ring: var(--c3-viz-focus);
+  --focus-ring-offset: 3px;
+}
+
+.thesis-extension-post .post3-figure.data-visualization figcaption {
+  max-width: 100%;
+  padding: 0.75rem 0 0.2rem;
+  color: var(--c3-viz-muted);
+  font-size: var(--c3-viz-font-caption);
+  line-height: 1.5;
+  text-align: start;
+}
+
+.thesis-extension-post .post3-figure .figure-data {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.thesis-extension-post .post3-figure .figure-data a {
+  color: var(--c3-viz-accent);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thesis-extension-post .post3-figure.data-visualization,
+  .thesis-extension-post .post3-figure.data-visualization * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .thesis-extension-post .post3-figure.data-visualization,
+  html[data-theme="academic-night"] .thesis-extension-post .post3-figure.data-visualization {
+    --focus-ring-width: 4px;
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  .thesis-extension-post .post3-figure.data-visualization .post3-theme-link,
+  .thesis-extension-post .post3-figure.data-visualization .figure-data a {
+    text-decoration-line: underline;
+    text-decoration-thickness: max(0.12em, 2px);
+    text-underline-offset: 0.18em;
+  }
+
+}
+
+@media (forced-colors: active) {
+  .thesis-extension-post .post3-figure.data-visualization,
+  html[data-theme="academic-night"] .thesis-extension-post .post3-figure.data-visualization {
+    border: 2px solid CanvasText;
+    color: CanvasText;
+    background: Canvas;
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .thesis-extension-post .post3-figure.data-visualization figcaption {
+    color: CanvasText;
+  }
+
+  .thesis-extension-post .post3-figure.data-visualization .post3-theme-link,
+  .thesis-extension-post .post3-figure.data-visualization .figure-data a {
+    color: LinkText;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
+
+  .thesis-extension-post .post3-figure.data-visualization :focus-visible {
+    --focus-ring: Highlight;
+    --focus-ring-offset: 3px;
+  }
+
+  .thesis-extension-post .post3-figure.data-visualization img.post3-theme-image {
+    box-sizing: border-box;
+    border: 1px solid CanvasText;
+  }
+}
+
+@media print {
+  .thesis-extension-post .post3-figure.data-visualization,
+  html[data-theme="academic-night"] .thesis-extension-post .post3-figure.data-visualization {
+    --c3-viz-canvas: #ffffff;
+    --c3-viz-surface: #ffffff;
+    --c3-viz-ink: #000000;
+    --c3-viz-muted: #333333;
+    --c3-viz-grid: #777777;
+    background: var(--c3-viz-surface);
+    color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none;
+  }
+}
+
 .page__content table {
   width: fit-content;
   max-width: 100%;
@@ -1918,6 +2059,14 @@ html[data-theme="academic-night"] p.table-caption {
   }
 }
 
+/* Las tablas de la serie de tesis comparten la misma columna útil que la
+   prosa. Si una tabla necesita más espacio, conserva su ancho intrínseco y se
+   desplaza dentro de este contenedor; no ensancha el ritmo editorial. */
+.thesis-extension-post .page__content > .tabla-desliza {
+  inline-size: min(100%, var(--measure));
+  margin-inline: 0;
+}
+
 /* El degradado de la sombra parte del color de fondo real. En nocturno el
    valor claro dejaría dos bandas blancas en los bordes. */
 html[data-theme="academic-night"] .tabla-desliza {
@@ -1974,6 +2123,45 @@ html[data-theme="academic-night"] .tabla-desliza {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+}
+
+/* Post III — candidata "Cuaderno de evidencia".
+   En escritorio la tabla comparte exactamente la medida de la prosa. En móvil
+   conserva un suelo legible y desplaza solo su propio contenedor. */
+.post3-evidence .page__content > .tabla-desliza {
+  inline-size: min(100%, var(--measure));
+  border-block: 1px solid var(--c3-viz-grid, #cbd3d9);
+  background: none;
+}
+
+.post3-evidence .tabla-desliza table {
+  font-size: 15px;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.post3-evidence .tabla-desliza table :is(th, td) {
+  padding: 0.5rem 0.4rem;
+  vertical-align: top;
+}
+
+@media (min-width: 48em) {
+  .post3-evidence .tabla-desliza table,
+  .post3-evidence .tabla-desliza[data-perfil="narrativa"] table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    table-layout: auto;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .post3-evidence .tabla-desliza table,
+  .post3-evidence .tabla-desliza[data-perfil="narrativa"] table {
+    width: auto;
+    min-width: max(100%, calc(var(--columnas, 4) * 8.5rem));
+    font-size: 16px;
   }
 }
 
@@ -4166,6 +4354,9 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .page__byline {
+  /* `.page__meta` conserva el float del tema; sin limpiar, en móvil esta firma
+     intenta ocupar el espacio lateral restante (0 px) y sale del viewport. */
+  clear: both;
   display: flex;
   align-items: center;
   gap: 0.5rem;

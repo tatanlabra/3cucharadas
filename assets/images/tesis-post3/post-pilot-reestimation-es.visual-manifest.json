@@ -1,0 +1,119 @@
+{
+  "accessibility": {
+    "alt": "Reestimación post-piloto inconclusa de dos resultados primarios. La no matrícula persistente se estima en 0,63 puntos porcentuales, con IC de menos 0,77 a 2,03; en la muestra distinta que incluye escuelas receptoras, 0,71, con IC de menos 0,69 a 2,12. La falla de progresión o rezago se estima en 5,29 puntos, con IC de 2,08 a 8,51; en la muestra distinta con receptoras, 5,09, con IC de 1,94 a 8,23. Sus límites por datos faltantes abarcan de menos 1,15 a 10,98 puntos. No son efectos causales confirmados.",
+    "keyboard_checked": true,
+    "long_description": "Reestimación post-piloto inconclusa de dos resultados primarios. La no matrícula persistente se estima en 0,63 puntos porcentuales, con IC de menos 0,77 a 2,03; en la muestra distinta que incluye escuelas receptoras, 0,71, con IC de menos 0,69 a 2,12. La falla de progresión o rezago se estima en 5,29 puntos, con IC de 2,08 a 8,51; en la muestra distinta con receptoras, 5,09, con IC de 1,94 a 8,23. Sus límites por datos faltantes abarcan de menos 1,15 a 10,98 puntos. No son efectos causales confirmados. Figura 2. Reestimación post-piloto inconclusa, no efectos causales. El IC de progresión no cruza cero, pero sus límites por datos faltantes sí. La serie con escuelas receptoras usa una muestra distinta; el solapamiento con el piloto y los supuestos no observados impiden promover causalidad.",
+    "non_color_encoding": "Posición, formas distintas, líneas de intervalo, trazo cero y etiquetas directas duplican el color.",
+    "table_fallback": "post-pilot-reestimation-data.csv, missingness-bounds-data.csv"
+  },
+  "decision": {
+    "chart_type": "Puntos e intervalos con panel separado de cotas por faltantes",
+    "discard_condition": "Descartar si se confunden las cotas con un IC o la ruta con receptoras con la misma muestra.",
+    "rationale": "La posición común permite comparar magnitud e incertidumbre; el panel separado evita mezclar estimandos.",
+    "rejected_alternatives": [
+      "Barras: darían protagonismo al valor puntual y ocultarían el intervalo.",
+      "Semáforo de significancia: borraría faltantes, muestras distintas y límites de identificación."
+    ]
+  },
+  "evidence": {
+    "data_cut": "Reestimación post-piloto v3.1, release post3-causal-v3-1-2026-10-24.",
+    "denominator": "Muestras específicas por desenlace; la ruta con receptoras usa una muestra distinta.",
+    "estimand": "Diferencia en diferencias ponderada, expresada en puntos porcentuales.",
+    "population": "Observaciones estudiante-cohorte con soporte comparable en episodios históricos 2016–2019.",
+    "question": "¿Qué diferencias post-piloto se observan y qué incertidumbre impide una lectura causal?",
+    "transformation": "Puntos e intervalos conservadores; sensibilidad separada con receptoras y cotas de faltantes.",
+    "uncertainty": "IC del 95 %, cotas por datos faltantes, pocos episodios efectivos y promoción causal no autorizada.",
+    "unit": "Observación estudiante-cohorte agrupada por episodio de origen."
+  },
+  "generated_at": "2026-10-25T12:00:00Z",
+  "manifest_version": "1.0.0",
+  "renderer": {
+    "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
+    "name": "336_post3_visuals",
+    "source_sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6",
+    "version": "1.0.0"
+  },
+  "runtime_dependencies": {
+    "local": [
+      "assets/fonts/fira-sans",
+      "assets/images/tesis-post3"
+    ],
+    "remote": []
+  },
+  "sources": [
+    {
+      "accessed_at": "2026-10-25",
+      "id": "causal",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    }
+  ],
+  "variants": [
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-light.svg",
+      "sha256": "6d0e9794d9e49865720b401cf794550f497be9bfed665e26c38d49f569e64bb2",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-light.png",
+      "sha256": "4da11d245b0d523865ed0afb47517882b7e2b19f219de49fd34f937ea70b0dad",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-light-mobile.svg",
+      "sha256": "cc256e1a0a32aa555411c88c4ab417a488717ed940b3ceb5b58423146deea182",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-light-mobile.png",
+      "sha256": "e68ba9bb5583727095ef05d692047625b7327705d3e9a4de3fff5ab929f97f20",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-dark.svg",
+      "sha256": "c349f7a9038e9a31d84e4accdb0813132643825862725e714b97758f9300847b",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-dark.png",
+      "sha256": "4bc4044c5fc20c478a42b5e1d8bde8daea672246a05d6ed814f73a0d1fecd26b",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-dark-mobile.svg",
+      "sha256": "c6592ddea3f0366e338f376f9452f19db27c84d3cadb4a42a1737d7f65e784df",
+      "theme": "dark",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "es",
+      "path": "post-pilot-reestimation-es-dark-mobile.png",
+      "sha256": "e55a20fc29358c294cf2d1c9b4132fe94f28de1a818732942b502571bebbd2b9",
+      "theme": "dark",
+      "viewport": "mobile"
+    }
+  ],
+  "visual_id": "post3-post-pilot-reestimation-es"
+}

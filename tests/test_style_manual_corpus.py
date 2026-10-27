@@ -1,4 +1,6 @@
 import importlib.util
+import json
+import re
 import unittest
 from pathlib import Path
 
@@ -8,6 +10,10 @@ SPEC = importlib.util.spec_from_file_location("style_manual_corpus", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
 SPEC.loader.exec_module(MODULE)
+RECEIPT = (
+    Path(__file__).parents[1]
+    / "docs/plans/20261025-thesis-post3-publication/evidence/style-manual-corpus-receipt.json"
+)
 
 
 class StyleManualCorpusTest(unittest.TestCase):
@@ -28,6 +34,17 @@ class StyleManualCorpusTest(unittest.TestCase):
         root = Path("/tmp/example-repository")
         self.assertTrue(MODULE.path_is_within(root / "private-corpus", root))
         self.assertFalse(MODULE.path_is_within(Path("/tmp/private-corpus"), root))
+
+    def test_post3_receipt_proves_native_docling_without_copyrighted_text(self):
+        payload = json.loads(RECEIPT.read_text(encoding="utf-8"))
+        self.assertEqual("native-model-free", payload["docling"]["pipeline"])
+        self.assertEqual(732, payload["docling"]["chunks"])
+        self.assertEqual(0, payload["docling"]["chunks_with_null_page"])
+        self.assertFalse(payload["docling"]["fallback_used"])
+        self.assertRegex(payload["docling"]["chunks_sha256"], re.compile(r"^[0-9a-f]{64}$"))
+        serialised = json.dumps(payload, ensure_ascii=False).casefold()
+        self.assertNotIn('"text"', serialised)
+        self.assertNotIn('"excerpt"', serialised)
 
 
 if __name__ == "__main__":

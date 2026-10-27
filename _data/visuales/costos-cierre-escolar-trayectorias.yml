@@ -1,0 +1,102 @@
+slug: costos-cierre-escolar-trayectorias
+ref: costos-cierre-escolar-trayectorias
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 181044
+  sha256: a4cf8489a24b2b059891b212874dbaf84e651e26aa78db68b9420061cf384e00
+  alt: &id001
+    es: Estudiantes y pupitres recorren caminos ramificados desde una escuela cerrada hacia distintas escuelas,
+      como metáfora de una transición educativa incierta.
+    en: Students and desks follow branching paths from a closed school towards different schools, as a metaphor
+      for an uncertain educational transition.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 49aba344af9887145510ad806119a465ae9c6659f059a42ebdc01031b2d0cbcd
+    note: &id002
+      es: Ilustración conceptual; no representa estudiantes, escuelas, destinos ni efectos observados.
+      en: Conceptual illustration; it does not depict observed students, schools, destinations, or effects.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 53998
+  sha256: 577530d5619cef8467ffff60ac0d492a18bd120f0c446acc0a1cf902a4053ffb
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 49aba344af9887145510ad806119a465ae9c6659f059a42ebdc01031b2d0cbcd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 134872
+  sha256: 5786e6bd91b9a0703ec65e1c83ceb5931624c8e99210e6c9902817661252c10a
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 49aba344af9887145510ad806119a465ae9c6659f059a42ebdc01031b2d0cbcd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 41940
+  sha256: c903eca3f6daf128d4ae4a658d673bacbd13474c0579dd03f796846ccb0dd284
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 49aba344af9887145510ad806119a465ae9c6659f059a42ebdc01031b2d0cbcd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/costos-cierre-escolar-trayectorias/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 117854
+  sha256: b98edbf52fbc405473997d4fe7f80efde6d404900896581bfe572b65fe0f3e39
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 49aba344af9887145510ad806119a465ae9c6659f059a42ebdc01031b2d0cbcd
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen de OpenAI mediante Codex
+    provider: OpenAI
+    interface: Codex
+posts:
+- _posts/2026-10-23-costos-cierre-escolar-trayectorias.md
+- _posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md

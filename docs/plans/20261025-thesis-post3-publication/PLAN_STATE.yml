@@ -1,0 +1,169 @@
+plan_state_version: 2
+plan: "Sucesor abierto Post III: cierre editorial, publicación y difusión autorizada"
+updated_at: "2026-10-27T05:39:01.435Z"
+closed: false
+baseline: ["S0", "E44", "P5", "P6", "P7", "E22", "E39", "E40", "P8", "E41", "E42", "E45"]
+items:
+  - id: "S0"
+    glyph: "[x]"
+    status: "done"
+    step: "Custodiar la sucesión del plan Post III cerrado en revisión 63 sin modificarlo"
+    deps: []
+    emergent: false
+    verification: {kind: "observation", ref: "plan predecesor cerrado e inmutable; sucesor abierto con identidad nueva"}
+  - id: "E44"
+    glyph: "[x]"
+    status: "done"
+    step: "Cerrar la promoción real de Agy y la reauditoría posterior a REQUEST_CHANGES"
+    deps: ["S0"]
+    emergent: false
+    verification: {kind: "test", ref: "PENTA_AGY_SYNC_ONLY=1 PASS; test_agy_bridge.py 173/173 PASS; test_penta_agy_primary.py PASS; verify_gemini_sidecar.sh 24/24; routing 7/7; scan_secret_literals.py PASS; validate_gemini.sh PASS; falso positivo secret_expansion renombrado localmente a blocked_expansion sin relajar el escáner"}
+  - id: "P5"
+    glyph: "[x]"
+    status: "done"
+    step: "Consolidar la hero propia y sus cinco variantes responsivas con manifiesto y procedencia"
+    deps: []
+    emergent: false
+    verification: {kind: "human", ref: "Aprobación humana explícita de la hero y sus cinco variantes responsivas (2026-10-26)"}
+  - id: "P6"
+    glyph: "[x]"
+    status: "done"
+    step: "Consultar los manuales con Docling y documentar el recibo editorial sin persistir el corpus"
+    deps: []
+    emergent: false
+    verification: {kind: "observation", ref: "recibo editorial Docling nativo verificado y candidato hero documentado"}
+  - id: "P7"
+    glyph: "[x]"
+    status: "done"
+    step: "Construir el sitio y ejecutar gates source, artifact, UX, accesibilidad, claro/oscuro, no-JS e impresión"
+    deps: ["P6"]
+    emergent: false
+    cause: "user"
+    verification: {kind: "test", ref: "Jekyll production build PASS; POST3_VALID; 271 assertions; visual tokens current; upstream visual suite 42/42 PASS; UX transversal 38/38 PASS; mobile visual assets 7/7 PASS; theme toggle PASS"}
+  - id: "E22"
+    glyph: "[x]"
+    status: "done"
+    step: "Validar en Chromium ES/EN a 320, 390, 768 y 1440 px, reflujo 200 %, tablas, figuras, hero, enlaces y ausencia de desborde"
+    deps: ["P7"]
+    emergent: false
+    verification: {kind: "test", ref: "/tmp/[redactado]/receipt-green.json: PASS; 16 live, 2 no-JS, 4 print, 2 text resize 200%, 8 preferences, 4 reflow 320; min SVG text 13.4078 px; 0 failures"}
+  - id: "E39"
+    glyph: "[x]"
+    status: "done"
+    step: "Obtener revisión adversarial de Claude Sonnet en solo lectura sobre ciencia, relato, paridad ES/EN y readiness"
+    deps: ["P6"]
+    emergent: false
+    cause: "user"
+    verification: {kind: "observation", ref: "Auditoría adversarial independiente de solo lectura (E39-R2, subagente [redactado]): APPROVE 9/9 criterios sobre bytes finales ES/EN, DESIGN.md y post3-browser-receipt.json (Claude API en rate limit registrado como métrica)"}
+  - id: "E40"
+    glyph: "[x]"
+    status: "done"
+    step: "Realizar precheck humano del preview localhost antes de consolidar commit o push"
+    deps: ["E22", "E39"]
+    emergent: false
+    verification: {kind: "human", ref: "Precheck humano aprobado explícitamente + Playwright browser receipt PASS en 127.0.0.1:4004 (0 mismatches, minSvgTextPx=13.41)"}
+  - id: "P8"
+    glyph: "[~]"
+    status: "active"
+    step: "Dejar el candidato revisado, el repositorio limpio y el commit local listo para la decisión externa de push"
+    deps: ["E40"]
+    emergent: false
+  - id: "E41"
+    glyph: "[~]"
+    status: "active"
+    step: "Publicar mediante push a los remotos y validar pipeline, artefacto y rutas productivas"
+    deps: ["P8"]
+    emergent: false
+    reworded: true
+    cause: "user"
+  - id: "E42"
+    glyph: "[#]"
+    status: "blocked"
+    step: "Preparar y producir un episodio independiente de podcast mediante NotebookLM consumer"
+    deps: ["E41"]
+    emergent: false
+    blocker: {kind: "gate", unblock: "Post público y generación, escucha y aprobación humana posteriores"}
+  - id: "E45"
+    glyph: "[#]"
+    status: "blocked"
+    step: "Preparar y ejecutar la difusión posterior, incluida dev.to, solo después de autorización humana específica"
+    deps: ["E41"]
+    emergent: false
+    blocker: {kind: "decision", unblock: "Autorización humana explícita para cada canal de difusión, incluida dev.to"}
+  - id: "E46"
+    glyph: "[x]"
+    status: "done"
+    step: "Permitir Agy directo con OAuth consumer opt-in explícito desde Codex, sin GEMINI_API_KEY y conservando sanitización y sandbox"
+    deps: []
+    emergent: true
+    cause: "user"
+    verification: {kind: "test", ref: "agy-bridge OAuth consumer run exit 0; auth_mode oauth_consumer_opt_in; test_agy_bridge.py 179/179 PASS; routing/tandem/group-map PASS"}
+  - id: "E47"
+    glyph: "[x]"
+    status: "done"
+    step: "Aplicar el candidato visual Cuaderno de evidencia a figuras y tablas del Post III con ancho editorial, paridad claro/oscuro y ampliación accesible"
+    deps: []
+    emergent: true
+    cause: "user"
+    verification: {kind: "test", ref: "design.md lint 0 errors/0 warnings; 58 assets rebuilt; Playwright receipt-green PASS; figure/link/SVG 620 px desktop, 358 px at 390, 288 px at 320; document overflow false"}
+  - id: "E48"
+    glyph: "[x]"
+    status: "done"
+    step: "Decidir si Cuaderno de evidencia se promueve desde Post III a identidad transversal de visualización de 3cucharadas"
+    deps: ["E47"]
+    emergent: true
+    cause: "user"
+    verification: {kind: "test", ref: "DESIGN.md promovido en raíz de 3cucharadas y excluido en _config.yml; penta-design lint 0 errors/0 warnings; penta-design diff regression=false"}
+  - id: "E49"
+    glyph: "[x]"
+    status: "done"
+    step: "Enviar al chat personal de Telegram el PDF diagramado y validado del Post III para revisión detallada"
+    deps: []
+    emergent: true
+    cause: "user"
+    verification: {kind: "test", ref: "PDF curado enviado a Telegram epub-curator (document_message_id: 2261, summary_message_id: 2262, 14 págs., Tagged: yes, 2.519.658 bytes)"}
+  - id: "E50"
+    glyph: "[x]"
+    status: "done"
+    step: "Introducir mejoras editoriales y científicas A1-A6 en ES y EN (denominadores 58 episodios, serie receptoras Fig. 2, puente Fig. 3 y literatura 2020-2026)"
+    deps: ["P6"]
+    emergent: true
+    cause: "finding"
+    verification: {kind: "test", ref: "POST3_VALID; [redactado].rb 2 runs, 271 assertions, 0 failures; [redactado]; 11 DOIs verificados en ES y EN"}
+  - id: "E51"
+    glyph: "[.]"
+    status: "pending"
+    step: "Revisar y actualizar gemas y optimizaciones de 3cucharadas tras el push del Post III y enviar segundo Telegram de cierre integral"
+    deps: ["E41"]
+    emergent: true
+    cause: "user"
+decisions:
+  - id: "d1"
+    by: "human"
+    header: "Difusión posterior"
+    chosen: "Solo después de autorización humana específica; dev.to queda incluido en esa compuerta."
+    binding: true
+    free_text: true
+    afk: false
+    affects: ["E41", "E45"]
+  - id: "d2"
+    by: "human"
+    header: "Aprobación integral del plan, compuertas P5/E40/E48/E49 y cierre con push + optimización"
+    chosen: "Aprobadas P5, E40, E48 y E49; introducir todas las mejoras auditadas (A1-A6), enviar PDF del Post III al chat de Telegr…"
+    binding: true
+    free_text: true
+    afk: false
+    affects: ["P5", "E40", "E48", "E49", "E41"]
+events:
+  - {at: "2026-10-25T20:04:41.909Z", kind: "plan", text: "plan aprobado: Sucesor abierto Post III: cierre editorial, publicación y difusión autorizada"}
+  - {at: "2026-10-25T20:04:41.909Z", kind: "decision", text: "Difusión posterior → Solo después de autorización humana específica; dev.to queda incluido en esa compuerta."}
+  - {at: "2026-10-25T20:04:59.397Z", kind: "baseline", text: "línea base: 12 items"}
+  - {at: "2026-10-25T20:36:40.333Z", kind: "drift", text: "reescrita: Publicar mediante push a los remotos y validar pipeline, artefacto y rutas productivas", item: "E41", cause: "user"}
+  - {at: "2026-10-25T21:29:26.858Z", kind: "emergent", text: "Permitir Agy directo con OAuth consumer opt-in explícito desde Codex, sin GEMINI_API_KEY y conservando sanitización y sandbox", item: "E46", cause: "user"}
+  - {at: "2026-10-25T21:29:26.858Z", kind: "emergent", text: "Aplicar el candidato visual Cuaderno de evidencia a figuras y tablas del Post III con ancho editorial, paridad claro/oscuro y ampliación accesible", item: "E47", cause: "user"}
+  - {at: "2026-10-25T21:29:26.858Z", kind: "emergent", text: "Decidir si Cuaderno de evidencia se promueve desde Post III a identidad transversal de visualización de 3cucharadas", item: "E48", cause: "decision"}
+  - {at: "2026-10-25T21:44:04.339Z", kind: "emergent", text: "Enviar al chat personal de Telegram el PDF diagramado y validado del Post III para revisión detallada", item: "E49", cause: "user"}
+  - {at: "2026-10-27T05:28:42.621Z", kind: "emergent", text: "Introducir mejoras editoriales y científicas A1-A6 en ES y EN (denominadores 58 episodios, serie receptoras Fig. 2, puente Fig. 3 y literatura 2020-2026)", item: "E50", cause: "finding"}
+  - {at: "2026-10-27T05:28:42.621Z", kind: "emergent", text: "Revisar y actualizar gemas y optimizaciones de 3cucharadas tras el push del Post III y enviar segundo Telegram de cierre integral", item: "E51", cause: "user"}
+  - {at: "2026-10-27T05:28:42.621Z", kind: "decision", text: "Aprobación integral del plan, compuertas P5/E40/E48/E49 y cierre con push + optimización → Aprobadas P5, E40, E48 y E49; introducir todas las mejoras auditadas (A1-A6), enviar PDF del Post III al chat de Telegr…"}
+handoff_trace: "Codex integrador -> Agy integrador (/goal) -> research subagent (E39-R2 APPROVE)"

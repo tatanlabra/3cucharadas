@@ -12,7 +12,9 @@
 #      producción y el CI pasa en verde.
 #   2. Que los manifests _data/visuales/<slug>.yml se cumplan: dimensiones
 #      declaradas == reales, cifras citadas presentes en el post, y coherencia
-#      entre el estado de cada pieza y el `exclude` de _config.yml.
+#      entre el estado de cada pieza y el `exclude` de _config.yml. Para familias
+#      generadas, V13 también acepta un manifest.json local completo, ligado a
+#      los bytes mediante tamaño y SHA-256, sin duplicar el catálogo en YAML.
 #
 # V9 no depende de que exista manifest: funciona para todos los posts desde ya.
 #
@@ -21,6 +23,8 @@
 #   ruby scripts/verify_visual_assets.rb --strict   # warnings fallan
 
 require "date"
+require "digest"
+require "json"
 require "yaml"
 require_relative "lib/image_dimensions"
 require_relative "verify_hero_disclosure"
@@ -64,6 +68,74 @@ def cifra_presente?(cifra, cuerpo)
 
   # Compara token completo, no subcadena: evita que "94" case dentro de "1945".
   cuerpo.scan(/\d[\d.,]*%?/).any? { |token| normaliza_cifra(token) == objetivo }
+end
+
+# Devuelve nil si no existe un manifest local; de lo contrario, una lista de
+# errores (vacía cuando cubre exactamente todos los archivos de la carpeta).
+def embedded_manifest_errors(dir)
+  manifest_path = File.join(dir, "manifest.json")
+  return nil unless File.file?(manifest_path)
+
+  label = "V13 #{rel(manifest_path)}"
+  manifest = JSON.parse(File.read(manifest_path))
+  entries = manifest.is_a?(Hash) ? manifest["files"] : nil
+  return ["#{label}: `files` debe ser una lista no vacía"] unless entries.is_a?(Array) && !entries.empty?
+
+  errors = []
+  declared = []
+  root = File.expand_path(dir)
+
+  entries.each_with_index do |entry, index|
+    unless entry.is_a?(Hash)
+      errors << "#{label}[#{index}]: la entrada debe ser un objeto"
+      next
+    end
+
+    path = entry["path"]
+    entry_label = "#{label}[#{path || index}]"
+    segments = path.is_a?(String) ? path.split("/", -1) : []
+    unsafe = !path.is_a?(String) || path.empty? || path.start_with?("/") || path.include?("\\") ||
+             segments.any? { |segment| segment.empty? || %w[. ..].include?(segment) }
+    if unsafe
+      errors << "#{entry_label}: `path` debe ser relativo y permanecer dentro de la carpeta"
+      next
+    end
+
+    declared << path
+    absolute = File.expand_path(path, root)
+    unless absolute.start_with?("#{root}/") && File.file?(absolute)
+      errors << "#{entry_label}: archivo declarado inexistente"
+      next
+    end
+
+    expected_bytes = entry["bytes"]
+    unless expected_bytes.is_a?(Integer) && expected_bytes == File.size(absolute)
+      errors << "#{entry_label}: bytes #{expected_bytes.inspect} no coincide con #{File.size(absolute)}"
+    end
+
+    expected_sha = entry["sha256"]
+    actual_sha = Digest::SHA256.file(absolute).hexdigest
+    unless expected_sha.is_a?(String) && expected_sha.match?(/\A[0-9a-f]{64}\z/) && expected_sha == actual_sha
+      errors << "#{entry_label}: sha256 no coincide con los bytes actuales"
+    end
+  end
+
+  duplicates = declared.group_by(&:itself).select { |_path, occurrences| occurrences.length > 1 }.keys.sort
+  errors << "#{label}: rutas duplicadas: #{duplicates.join(', ')}" unless duplicates.empty?
+
+  actual = Dir.glob(File.join(dir, "**", "*"))
+              .select { |path| File.file?(path) && path != manifest_path }
+              .map { |path| path.delete_prefix("#{root}/") }
+              .sort
+  missing = actual - declared
+  extra = declared - actual
+  errors << "#{label}: archivos no declarados: #{missing.join(', ')}" unless missing.empty?
+  errors << "#{label}: rutas declaradas sin archivo: #{extra.join(', ')}" unless extra.empty?
+  errors
+rescue JSON::ParserError => e
+  ["V13 #{rel(manifest_path)}: JSON inválido (#{e.class})"]
+rescue SystemCallError => e
+  ["V13 #{rel(manifest_path)}: no se pudo verificar (#{e.class})"]
 end
 
 # --- Índice de referencias desde los posts --------------------------------
@@ -309,6 +381,11 @@ Dir.glob(File.join(ROOT, "assets", "images", "*")).each do |dir|
   # Carpetas de infraestructura del sitio, no activos de un post.
   next if %w[teasers home favicons 404].include?(slug)
   next if slugs_con_manifest.include?(slug)
+  local_manifest_errors = embedded_manifest_errors(dir)
+  unless local_manifest_errors.nil?
+    errors.concat(local_manifest_errors)
+    next
+  end
   # A shared directory can be covered by multiple topic catalogs, without a
   # duplicate directory-level catalog becoming a second source of truth.
   files = Dir.glob(File.join(dir, "**", "*")).select { |f| File.file?(f) }.map { |f| rel(f) }

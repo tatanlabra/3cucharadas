@@ -58,12 +58,17 @@ destinos:
     modo: api-borrador
     requiere:
       lang_post: es
-    activos:
-      - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png
-      - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png
+    activos_por_ref:
+      avaluos-ii-brecha-residencial:
+        - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/carousel-01-portada-1080x1350.png
+        - assets/images/avaluo-vulnerabilidad-unidad-vecinal/social/teaser-estadisticas-1080x1350.png
+      costos-cierre-escolar-trayectorias:
+        - assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-1280x720.webp
+        - assets/images/heroes-v2/costos-cierre-escolar-trayectorias/og-1200x630.webp
     nota: >-
-      Donde vive el público chileno de política pública. El carrusel se arma con
-      scripts/render-linkedin-carousel.sh; el hook sólo prepara el paquete.
+      Donde vive el público chileno de política pública. Los activos se resuelven
+      por artículo; un carrusel, cuando corresponda, se arma con
+      scripts/render-linkedin-carousel.sh. El hook sólo prepara el paquete.
 
   - id: comunidades-datos-gis-es
     lang: es

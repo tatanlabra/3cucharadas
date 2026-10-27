@@ -1,7 +1,7 @@
 {% assign active_lang = include.lang | default: site.active_lang | default: page.lang | default: site.default_lang | default: "es" %}
 {% assign ui_text = site.data.ui-text[active_lang] | default: site.data.ui-text[site.locale] %}
 <div class="search-content__inner-wrap">
-  <h1 class="page__title">{% if active_lang == "en" %}Search{% else %}Buscar{% endif %}</h1>
+  <h2 id="search-dialog-title" class="page__title">{% if active_lang == "en" %}Search{% else %}Buscar{% endif %}</h2>
   {%- assign search_provider = site.search_provider | default: "lunr" -%}
   {%- case search_provider -%}
   {%- when "lunr" -%}

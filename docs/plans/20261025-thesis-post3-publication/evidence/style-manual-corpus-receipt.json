@@ -1,0 +1,45 @@
+{
+  "schema": "style-manual-corpus-receipt-v1",
+  "generated_at": "2026-10-25T17:17:00-03:00",
+  "copyright_boundary": "Only hashes, counts, source identifiers, page ranges, and query scores are versioned; extracted text remains under /tmp.",
+  "docling": {
+    "version": "2.134.0",
+    "pipeline": "native-model-free",
+    "scope": "Chicago-Deusto primary digital edition and CMOS 18",
+    "fallback_used": false,
+    "chunks": 732,
+    "chunks_with_null_page": 0,
+    "manifest_sha256": "3cb0a3ff97a25a30fa7be9d5bd34138149a1c4ad5041e003ceb31a7f7d34aa63",
+    "chunks_sha256": "e7f416cce8800dcdda16593d9074ca8a03632c0219e2370617bcadf9915b1866"
+  },
+  "full_page_corpus": {
+    "backend": "pdftotext",
+    "scope": "Three manuals, including the OCR scan used only for visual contrast",
+    "chunks": 1073,
+    "manifest_sha256": "2e18733f201c59afad89825fdb76c59356d32af74815bbf5f747e67b1c38810f",
+    "chunks_sha256": "48b3e08ae47730bc2a77e4a487e0a2fdb884517381c94ee37c27d08dc674ca63"
+  },
+  "queries": [
+    {
+      "language": "es",
+      "query": "párrafos títulos encabezados números puntuación transiciones",
+      "top_hits": [
+        {"id": "manual-01-chunk-0325", "page_start": 951, "page_end": 953, "score": 30.6084},
+        {"id": "manual-01-chunk-0057", "page_start": 160, "page_end": 163, "score": 27.9036}
+      ]
+    },
+    {
+      "language": "en",
+      "query": "paragraphs headings numbers punctuation transitions",
+      "top_hits": [
+        {"id": "manual-02-chunk-0318", "page_start": 978, "page_end": 981, "score": 25.6811},
+        {"id": "manual-02-chunk-0367", "page_start": 1122, "page_end": 1125, "score": 21.1445}
+      ]
+    }
+  ],
+  "discarded_attempt": {
+    "pipeline": "default-layout-ocr",
+    "accepted": false,
+    "reason": "The run created no usable manifest and caused host memory pressure; it is not evidence for the editorial review."
+  }
+}

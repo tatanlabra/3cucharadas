@@ -1,0 +1,1094 @@
+{
+  "status": "PASS",
+  "engine": "playwright-local-chromium",
+  "contractVersion": "post3-visual-ux-v5",
+  "testedAt": "2026-10-27T05:34:02.689Z",
+  "baseUrl": "http://127.0.0.1:4004",
+  "inputs": {
+    "files": [
+      {
+        "path": "assets/data/tesis-post3/visual_identity_tokens_v1.json",
+        "sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa"
+      },
+      {
+        "path": "_sass/_post3-data-viz-tokens.scss",
+        "sha256": "0df3b11980188e6357e083f058072c2c32e451a1097ff1f0a95814e7ab289cb7"
+      },
+      {
+        "path": "assets/css/main.scss",
+        "sha256": "6a0a88c82cb6464ec628a9ec34aaaf0ad9b2c52c7c42b48289a7f8e4d311a561"
+      },
+      {
+        "path": "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+        "sha256": "eaaf234f6034a2de25f8d9ddfad0dec8db988bfd8d60873c6e2a49c895cdcc50"
+      },
+      {
+        "path": "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+        "sha256": "6bf675cd84dfe8e3692aadec16be4b864f57021303acec571e1c721a48974216"
+      },
+      {
+        "path": "scripts/build_post3_visual_tokens.py",
+        "sha256": "c0c5d84ec04f9ad29cd965d89ee56731fed95eaa131bf75b9cdefaa021cf9070"
+      },
+      {
+        "path": "scripts/verify_thesis_post3_browser.mjs",
+        "sha256": "ad272a17df1b647021ff6a929d1be56d0b391b094dc7c3e8f37e2e7b7766ee05"
+      },
+      {
+        "path": "assets/images/tesis-post3/manifest.json",
+        "sha256": "bf3cc01aae78b74c40348bc440e3579a1a4da48d629ca676896d665e6d183257"
+      },
+      {
+        "path": "incubadora/tesis_mae_mejorada/scripts/336_post3_visuals.py",
+        "sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6"
+      },
+      {
+        "path": "penta-agent/skills/3cucharadas-visualizacion-datos/scripts/dtcg_format.py",
+        "sha256": "a4a0436265da81cc88329740b86bc601d42e43c7f778565bb5fea050d31b8cf2"
+      },
+      {
+        "path": "penta-agent/skills/3cucharadas-visualizacion-datos/assets/dtcg/2025.10/format.json",
+        "sha256": "7f40fe678340b756e6464a0c20facfc29fe6ff055a202249132cc14eeafc7678"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light.svg",
+        "sha256": "91d754529c2bb7862f17a8fd908d1be4bfc7e8857723429774d23899337b4ebd"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light.png",
+        "sha256": "6a151b3e7db381a7ab53559f7ee16069932e470ec53e7d1e7262ec51602a7a18"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "sha256": "01c5fbebe83689d120b9fb6599ecc4d65e331938afe2b5cb74da81db744b81eb"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.png",
+        "sha256": "3b5b64a55f2e234f11cc928c43200326ac59c176e940bc79373bfe9f9b41a724"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "sha256": "36ae18d7da39cfcd0a6d9039952b276b7f7885c36c85c1584e1957721355b663"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark.png",
+        "sha256": "068028842370eacac501968b7fc72cefbd3291540917c6f7813b93d40c664bfb"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "sha256": "cc22260d841e937d94b695181a511d338033307366628f5160165f9f214850a2"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.png",
+        "sha256": "fc026b049151ea00beabc46dc6c593136146a2da00511ade899166cb5cc9a9f6"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light.svg",
+        "sha256": "9be72df38aede3e5c2f82c2b7943fbb7d7d509b647db702dae7f2169cdaa4078"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light.png",
+        "sha256": "117999b78d0891cf5e547e957c8ff5ce7e9612187cdc9056aa6d7ef45eb6b76c"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "sha256": "272e4559ac1d696a29f2acdcbf26e080d49ccef6936289de13a307604912348d"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.png",
+        "sha256": "727d391cfddfc83121807f1ba2fddea9bc525fae71e395d88f6fd71b98547667"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "sha256": "8915dcf7eab7107cfce309033237f94261da4230c3e30422e74e13509b6fee25"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark.png",
+        "sha256": "d557724f6044c05de31749684a57b4cc2aad76671190559a6ea7a108c220b922"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "sha256": "81683144a9e8e70b0b16d83e259b8168bcae40c6199dd0009621cd3dfa25bdf4"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.png",
+        "sha256": "88a1ca5b9fef10d0ff851b7d67948c48f41c1bea9f78ac0ae48377d3c80c1e30"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.svg",
+        "sha256": "6d0e9794d9e49865720b401cf794550f497be9bfed665e26c38d49f569e64bb2"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.png",
+        "sha256": "4da11d245b0d523865ed0afb47517882b7e2b19f219de49fd34f937ea70b0dad"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg",
+        "sha256": "cc256e1a0a32aa555411c88c4ab417a488717ed940b3ceb5b58423146deea182"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.png",
+        "sha256": "e68ba9bb5583727095ef05d692047625b7327705d3e9a4de3fff5ab929f97f20"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg",
+        "sha256": "c349f7a9038e9a31d84e4accdb0813132643825862725e714b97758f9300847b"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.png",
+        "sha256": "4bc4044c5fc20c478a42b5e1d8bde8daea672246a05d6ed814f73a0d1fecd26b"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg",
+        "sha256": "c6592ddea3f0366e338f376f9452f19db27c84d3cadb4a42a1737d7f65e784df"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.png",
+        "sha256": "e55a20fc29358c294cf2d1c9b4132fe94f28de1a818732942b502571bebbd2b9"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.svg",
+        "sha256": "4ec47efdc080d8aab5ab5927c62695bd1cec424b6654b08fc0d4001fb0a73240"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.png",
+        "sha256": "8ade5bcd7aabe8210596ac054fc4fef334a684652b77aeee396a0187a77d392a"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg",
+        "sha256": "7a9faae0c0ce67519c8cc7e56cd3df82bbd7650f0e861c12f4ef839e669028cb"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.png",
+        "sha256": "a47cb809e4d8c52f017fff8d8386ca623c65016d83cf5575fd41562a6ba38b89"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg",
+        "sha256": "cf5205f160183c15d78688b09ef243064cda67113589cc75b32ac47fb3818226"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.png",
+        "sha256": "64588d3b66637183fda66630e9f696b8cb9600562cc6f446f1226a171be41432"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg",
+        "sha256": "9c8a6310226d17beacdaa0ccc57ef84b6f3046828e925cfdde4e83905613b7f7"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.png",
+        "sha256": "6078ca89d5842eed158b4432eb3a07c3a8b6a3029773f7f1627a0cf4cbe0db03"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light.svg",
+        "sha256": "0411fcc413dc15c235e11b9acb3a358e0955ba063296b125e7216b430ce1953f"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light.png",
+        "sha256": "c3b2c557f9135c8fe42a11f1deec3cbb1886d6660949ba5dbd46ad0408a55f28"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.svg",
+        "sha256": "aeeb6fcbb9eccfa246fba8a9567f15e5bd154a93e83ff182e82b563e2d8126f7"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.png",
+        "sha256": "a3bafc42d551cf4f8821b1a4411f14d3d54bdb4c57dcaea0792a3d8f74e0efe7"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark.svg",
+        "sha256": "26c80b2954e4c05fdd38335c99370e6427a6c0edc521c9f7b3488484bde73daa"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark.png",
+        "sha256": "59ffb7b207094bf14f4119f8cb5d2ba670e7772f9e066aa7a05d8cb7544598af"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg",
+        "sha256": "feab8ce7c6da387f8e8713cd2aeb64a03e8ecc3ddd16831249956b976c9b0339"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.png",
+        "sha256": "32bde8776ca7819f22a8c194044ca6827c59c9ef37e9bd62b0d20f2e565b2083"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light.svg",
+        "sha256": "0ca3d1645436c5a09c6fe50c89bbf4640c85326ee42850aa683f277ce0238730"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light.png",
+        "sha256": "32fbc9f9a9046d42acb354e514bbe5e2a584d836b570714c5661348bdb265bc0"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.svg",
+        "sha256": "54c306feef3466ea9a7e823ba461515151983b2216987810242b6b563972062d"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.png",
+        "sha256": "8f6e84b20ffc0ecc132e1620bb3af468a5e70a1cf144457e4157c4326ebc7557"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark.svg",
+        "sha256": "114fe2f2bc079445cb764a0b60f6c53531493ff9de36386739ab273cea54b9bf"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark.png",
+        "sha256": "afcffa1299849a5609cbfa72abfbed7355ad97a7db615d7c33ba53d813b8fc61"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg",
+        "sha256": "5712f4e9802c84284ebde98ce4c5bb7e72fac480b3c418c09a5edb8e8ccf890d"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.png",
+        "sha256": "5de76f00b73f2e333efd313c26d336c85ac747fbb32c5d8c4b849ed066336ff7"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-data.csv",
+        "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+        "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+      },
+      {
+        "path": "assets/images/tesis-post3/missingness-bounds-data.csv",
+        "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-data.csv",
+        "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es.visual-manifest.json",
+        "sha256": "42d59b897a9205fe20c114e27aff9da1f6a2279140014072333f4a36465e83fd"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en.visual-manifest.json",
+        "sha256": "045ec0a33351ac82d393e6fa76768c48c2d3865bea5707ba5516625ad74c1152"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es.visual-manifest.json",
+        "sha256": "12a300daa4c93981fc1a2cb26407084310b6a5bb07120cb277f2af4e6f157493"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en.visual-manifest.json",
+        "sha256": "91a578d6e98155ace0f61c546a96d1337a20a9234ca83ba6683774c5d235932d"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es.visual-manifest.json",
+        "sha256": "e1e8f4e612d638aa0db14e0248a3e12b7b07b60c011caa4090abb7338ff7fd3a"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en.visual-manifest.json",
+        "sha256": "7774b3b77b9857eabb32e4d3b7286430f2a13d8c27ffcff497bc1ba113fbb93d"
+      }
+    ],
+    "assetCount": 58,
+    "mismatches": [],
+    "publishedCss": {
+      "path": "/assets/css/main.css",
+      "sha256": "76f35e7294f4518b96b61885168f76df8f5a31112562c65783d359de1d31e13c"
+    },
+    "artifactCss": {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/assets/css/main.css",
+      "sha256": "76f35e7294f4518b96b61885168f76df8f5a31112562c65783d359de1d31e13c"
+    },
+    "artifactBound": true,
+    "artifactBindings": [
+      {
+        "locale": "es",
+        "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+        "artifactHtmlPath": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/index.html",
+        "httpStatus": 200,
+        "servedSha256": "cd19f768b8ba5cc880077b2ba1635c5633fd23f781cf41c9058907d02a3138c0",
+        "artifactSha256": "cd19f768b8ba5cc880077b2ba1635c5633fd23f781cf41c9058907d02a3138c0",
+        "exactArtifact": true,
+        "stateMarker": true,
+        "readinessMarker": true,
+        "sourceClaims": {
+          "progression": 6,
+          "lowerBound": 8,
+          "upperBound": 7
+        },
+        "servedClaims": {
+          "progression": 6,
+          "lowerBound": 8,
+          "upperBound": 7
+        },
+        "criticalClaimsBound": true
+      },
+      {
+        "locale": "en",
+        "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+        "artifactHtmlPath": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/index.html",
+        "httpStatus": 200,
+        "servedSha256": "8e1a763e215ec3ee7a846461abe5dd5dc90e65a4824f853999ac6a26fc4438b9",
+        "artifactSha256": "8e1a763e215ec3ee7a846461abe5dd5dc90e65a4824f853999ac6a26fc4438b9",
+        "exactArtifact": true,
+        "stateMarker": true,
+        "readinessMarker": true,
+        "sourceClaims": {
+          "progression": 6,
+          "lowerBound": 8,
+          "upperBound": 7
+        },
+        "servedClaims": {
+          "progression": 6,
+          "lowerBound": 8,
+          "upperBound": 7
+        },
+        "criticalClaimsBound": true
+      }
+    ]
+  },
+  "reflow320": {
+    "rows": 4,
+    "noDocumentOverflow": true
+  },
+  "rows": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.40782122905028,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 16.666666666666668,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.40782122905028,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 16.666666666666668,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.40782122905028,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 16.666666666666668,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.40782122905028,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 16.666666666666668,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 4,
+      "figureCount": 3,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 15.972222222222223,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    }
+  ],
+  "no_js": [
+    {
+      "locale": "es",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "lightMobileFallbacks": true,
+      "documentOverflow": false,
+      "tableCount": 4
+    },
+    {
+      "locale": "en",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "lightMobileFallbacks": true,
+      "documentOverflow": false,
+      "tableCount": 4
+    }
+  ],
+  "print": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "httpStatus": 200,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    }
+  ],
+  "text_resize_200": [
+    {
+      "locale": "es",
+      "httpStatus": 200,
+      "textNodesMeasured": 223,
+      "minimumTextScale": 2,
+      "clippedTextElements": 0,
+      "figureCount": 3,
+      "tableCount": 4,
+      "figuresVisible": true,
+      "contentPresent": true,
+      "documentOverflow": false,
+      "wrappersContained": true
+    },
+    {
+      "locale": "en",
+      "httpStatus": 200,
+      "textNodesMeasured": 223,
+      "minimumTextScale": 2,
+      "clippedTextElements": 0,
+      "figureCount": 3,
+      "tableCount": 4,
+      "figuresVisible": true,
+      "contentPresent": true,
+      "documentOverflow": false,
+      "wrappersContained": true
+    }
+  ],
+  "preferences": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 3,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    }
+  ],
+  "failures": {
+    "live": [],
+    "no_js": [],
+    "print": [],
+    "text_resize_200": [],
+    "preferences": [],
+    "asset_hash_mismatches": [],
+    "published_css_missing": false,
+    "artifact_not_bound": false
+  }
+}

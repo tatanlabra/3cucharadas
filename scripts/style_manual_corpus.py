@@ -83,10 +83,48 @@ def chunk_pages(
 
 
 def extract_docling(pdf: Path) -> list[str]:
-    from docling.document_converter import DocumentConverter  # type: ignore
+    """Extract the PDF text layer with Docling's model-free native pipeline.
 
-    result = DocumentConverter().convert(str(pdf))
-    return [result.document.export_to_markdown()]
+    Editorial manuals already carry a searchable text layer.  Loading the full
+    layout/OCR stack adds no useful evidence here and can exhaust a desktop
+    session before the first document is written.  Native Docling keeps the
+    extractor contract while preserving page provenance and avoiding model
+    inference.  An image-only PDF fails closed instead of producing an empty
+    corpus that looks successful.
+    """
+    from docling.datamodel.base_models import InputFormat  # type: ignore
+    from docling.datamodel.pipeline_options import NativePdfPipelineOptions  # type: ignore
+    from docling.document_converter import (  # type: ignore
+        DocumentConverter,
+        NativePdfFormatOption,
+    )
+    from docling_core.types.doc.page import TextCellUnit  # type: ignore
+
+    converter = DocumentConverter(
+        format_options={
+            InputFormat.PDF: NativePdfFormatOption(
+                pipeline_options=NativePdfPipelineOptions(
+                    text_cell_unit=TextCellUnit.LINE,
+                    generate_page_images=False,
+                    generate_picture_images=False,
+                )
+            )
+        }
+    )
+    result = converter.convert(str(pdf))
+    by_page: dict[int, list[str]] = {}
+    for item, _level in result.document.iterate_items():
+        text = getattr(item, "text", None)
+        provenance = getattr(item, "prov", None) or []
+        if not isinstance(text, str) or not text.strip() or not provenance:
+            continue
+        page_number = getattr(provenance[0], "page_no", None)
+        if not isinstance(page_number, int) or page_number < 1:
+            continue
+        by_page.setdefault(page_number, []).append(text)
+    if not by_page:
+        raise RuntimeError(f"Docling native extraction returned no page text: {pdf.name}")
+    return ["\n".join(by_page.get(page, [])) for page in range(1, max(by_page) + 1)]
 
 
 def extract_pdftotext(pdf: Path) -> list[str]:
@@ -165,10 +203,6 @@ def build(args: argparse.Namespace) -> int:
         for manual_index, pdf in enumerate(pdfs, start=1):
             pages = extract_docling(pdf) if backend == "docling" else extract_pdftotext(pdf)
             chunks = chunk_pages(pages, args.chunk_words, args.overlap_words)
-            if backend == "docling":
-                for chunk in chunks:
-                    chunk["page_start"] = None
-                    chunk["page_end"] = None
             source_id = f"manual-{manual_index:02d}"
             for sequence, chunk in enumerate(chunks, start=1):
                 record = {
@@ -191,6 +225,7 @@ def build(args: argparse.Namespace) -> int:
     manifest = {
         "schema": "style-manual-corpus-v1",
         "backend": backend,
+        "docling_pipeline": "native-model-free" if backend == "docling" else None,
         "backend_requested": args.backend,
         "docling_preferred": True,
         "fallback_used": args.backend == "auto" and backend != "docling",

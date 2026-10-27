@@ -1,6 +1,6 @@
 # Flujo: de un post publicado a una cápsula de audio
 
-Fecha de revisión: 2026-09-13.
+Fecha de revisión: 2026-10-25.
 
 Una **cápsula** es una conversación de dos voces sintéticas sobre un post ya publicado, generada
 con NotebookLM, publicada como episodio de podcast y enlazada desde el artículo. No sustituye al
@@ -16,10 +16,23 @@ episodios eran 261 MB, el 25 % del límite.
 Tres cosas de este flujo no se deducen leyendo el código, y las tres cuestan una sesión si se
 ignoran.
 
-**El audio se genera a mano, y eso no es una carencia que haya que rodear.** NotebookLM no expone
-API de cuenta personal para Audio Overviews. El paso manual —abrir el cuaderno, elegir formato,
-pegar la personalización, descargar— es parte del procedimiento. No hay que automatizarlo con
-cookies exportadas ni con un navegador teledirigido.
+**Google AI Ultra mejora la cuota de la interfaz personal, pero no convierte Gemini CLI ni Agy en
+un cliente de Gemini Notebook.** La cuenta personal sigue operando en el navegador: se abre el
+cuaderno, se cargan las fuentes, se elige el formato, se pega la personalización y se descarga el
+resultado. Ultra eleva los límites de resúmenes en audio de la cuenta personal; no concede por sí
+mismo las funciones IAM ni una suscripción de Gemini Notebook Enterprise.
+
+**Sí existe una API de Audio Overviews, pero pertenece a Gemini Notebook Enterprise.** Su endpoint
+`notebooks.audioOverviews.create` está documentado como `v1alpha` y Preview: requiere un proyecto de
+Google Cloud, autenticación y los permisos del producto. Es una ruta técnicamente automatizable con
+`gcloud` y `curl`, no una capacidad del CLI de Gemini ni de la suscripción personal Ultra. No se
+adopta para este podcast mientras no exista una necesidad de lote que justifique licencias,
+custodia, términos Pre-GA y costo operativo separados.
+
+**La API independiente de podcasts no es una alternativa nueva.** Google la marcó como obsoleta el
+20 de mayo de 2026 y dejó de aceptar clientes nuevos. Por ello, el procedimiento vigente para este
+sitio sigue siendo manual y no se automatiza con cookies exportadas ni con un navegador
+teledirigido.
 
 **El producto no obedece la duración que le pidas, y la ventana ya se movió una vez.** El primer
 episodio se generó con un prompt que exigía entre 300 y 480 segundos y salió de **989 s (16:29)**,
@@ -218,6 +231,10 @@ píxel). Para subir de resolución una portada que ya existe, ampliar gana a reg
 - Custodia de binarios: `docs/gobernanza-repositorio.md`
 - Purga de caché: `docs/purga-cache-cloudflare.md`
 - Portadas y su manifiesto: `~/.local/state/3cucharadas/source-masters/podcast-portada/`
+- Límites personales y Ultra: <https://support.google.com/gemininotebook/answer/16213268>
+- Gestión vigente de límites: <https://support.google.com/gemininotebook/answer/17670842>
+- Audio Overview de Gemini Notebook Enterprise: <https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-audio-overview>
+- Deprecación de Podcast API: <https://docs.cloud.google.com/gemini/enterprise/docs/release-notes#May_20_2026>
 
 ## Mediciones que dejaron de aplicar
 

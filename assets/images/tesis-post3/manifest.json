@@ -1,0 +1,811 @@
+{
+  "accessibility": {
+    "alternative_tables": [
+      "sample-flow-data.csv",
+      "post-pilot-reestimation-data.csv",
+      "missingness-bounds-data.csv",
+      "territorial-audit-data.csv"
+    ],
+    "desktop_mobile_variants": true,
+    "light_dark_variants": true,
+    "minimum_graphical_contrast_ratio": 4.666629277682058,
+    "minimum_text_contrast_ratio": 5.893665400128726,
+    "spanish_english_variants": true,
+    "svg_font_embedded": true,
+    "svg_text_selectable": true,
+    "svg_title_desc": true
+  },
+  "data": {
+    "analysis": {
+      "causal_language_authorized": false,
+      "independent_preregistration": false,
+      "post_pilot_overlap": true,
+      "release": "post3-causal-v3-1-2026-10-24",
+      "revision": "ATTENDANCE_AND_RURALITY_SEMANTICS_V3_1",
+      "stage": "POST_PILOT_REESTIMATION_V3",
+      "status": "INCONCLUSIVE"
+    },
+    "effects": [
+      {
+        "ci_level": 0.95,
+        "ci_type": "envelope_episode_wild_cluster_and_two_way_origin_school_student_cluster_t",
+        "control_clusters": 5377,
+        "control_student_cohort_observations": 49944,
+        "estimate_pp": 0.626680683626607,
+        "high_pp": 2.02648385597376,
+        "low_pp": -0.773122488720546,
+        "outcome": "persistent_nonenrollment_two_years",
+        "route": "main",
+        "treated_clusters": 62,
+        "treated_student_cohort_observations": 3666
+      },
+      {
+        "ci_level": 0.95,
+        "ci_type": "envelope_cluster_t_and_rademacher_wild_cluster",
+        "control_clusters": 5984,
+        "control_student_cohort_observations": 59613,
+        "estimate_pp": 0.712602941506753,
+        "high_pp": 2.11999012755088,
+        "low_pp": -0.694784244537373,
+        "outcome": "persistent_nonenrollment_two_years",
+        "route": "receiver",
+        "treated_clusters": 62,
+        "treated_student_cohort_observations": 3670
+      },
+      {
+        "ci_level": 0.95,
+        "ci_type": "envelope_episode_wild_cluster_and_two_way_origin_school_student_cluster_t",
+        "control_clusters": 5568,
+        "control_student_cohort_observations": 65538,
+        "estimate_pp": 5.29028772769913,
+        "high_pp": 8.50522825808917,
+        "low_pp": 2.0753471973091,
+        "outcome": "grade_progression_or_lag",
+        "route": "main",
+        "treated_clusters": 62,
+        "treated_student_cohort_observations": 4815
+      },
+      {
+        "ci_level": 0.95,
+        "ci_type": "envelope_cluster_t_and_rademacher_wild_cluster",
+        "control_clusters": 6184,
+        "control_student_cohort_observations": 79058,
+        "estimate_pp": 5.08533583693501,
+        "high_pp": 8.23015022701716,
+        "low_pp": 1.9405214468528502,
+        "outcome": "grade_progression_or_lag",
+        "route": "receiver",
+        "treated_clusters": 62,
+        "treated_student_cohort_observations": 4822
+      }
+    ],
+    "missingness": {
+      "crosses_zero": true,
+      "high_pp": 10.981576275582,
+      "low_pp": -1.15443270306399,
+      "method": "arm-adversarial Manski-style bounds for unknown grade progression",
+      "outcome": "grade_progression_or_lag"
+    },
+    "sample_flow": {
+      "episodes": {
+        "initial": 64,
+        "retained": 63,
+        "support_excluded": 1
+      },
+      "student_cohort_observations": {
+        "controls": 82753,
+        "initial": 6581,
+        "retained": 6190,
+        "support_excluded": 391
+      },
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    },
+    "territorial": {
+      "blocking_gaps": [
+        "DECLINE_RULE_NOT_OPERATIONALIZED",
+        "DEMOGRAPHIC_CONTRACTION_NOT_OBSERVED",
+        "RECEIVING_CAPACITY_NOT_OBSERVED",
+        "SAFE_ACCESSIBILITY_NOT_OBSERVED",
+        "STRICTLY_PREDECISION_FLOW_NOT_OPERATIONALIZED"
+      ],
+      "categories": {
+        "alert": 35,
+        "censored": 30,
+        "continuity": 15,
+        "strict": 266
+      },
+      "episodes": 346,
+      "five_year_window": 323,
+      "flow_alerts": 45,
+      "geographic_breakdowns_published": false,
+      "institutional_confirmations": 0,
+      "maximum_automatic_level": "OBSERVACION",
+      "three_year_window": 339
+    }
+  },
+  "data_sha256_by_figure": {
+    "post-pilot-reestimation": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+    "sample-flow": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+    "territorial-audit": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b"
+  },
+  "editorial": {
+    "en": {
+      "post-pilot-reestimation": {
+        "alt": "Inconclusive post-pilot re-estimation of two primary outcomes. Persistent non-enrolment is estimated at 0.63 percentage points, with a CI from minus 0.77 to 2.03; the different sample that includes receiver schools gives 0.71, from minus 0.69 to 2.12. Progression failure or grade lag is estimated at 5.29 points, from 2.08 to 8.51; the different receiver-school sample gives 5.09, from 1.94 to 8.23. Missing-data bounds span minus 1.15 to 10.98 points. These are not confirmed causal effects.",
+        "caption": "Figure 2. Inconclusive post-pilot re-estimation, not causal effects. The progression CI excludes zero, but its missing-data bounds do not. The receiver-school series uses a different sample; pilot overlap and unobserved assumptions preclude a causal claim."
+      },
+      "sample-flow": {
+        "alt": "Two lanes summarise support for the 2016 to 2019 post-pilot re-estimation. Of 64 historical episodes before support screening, 63 retain at least one comparable stratum and one is fully excluded. Of 6,581 exposed student-cohort observations, 391 are excluded and 6,190 remain. The support universe contains 82,753 control student-cohort observations; final samples differ by outcome.",
+        "caption": "Figure 1. Support flow for the post-pilot re-estimation. Aggregate counts precede outcome-specific eligibility, and the two units must not be added."
+      },
+      "territorial-audit": {
+        "alt": "Of 346 episodes, 339 have a complete three-year pre-event window and 323 have five. The classification contains 266 with no contradictory signal, 15 continuity candidates, 35 unresolved alerts and 30 right-censored episodes. There are 45 post-event alerts and zero institutional confirmations; automated processing supports observation only.",
+        "caption": "Figure 3. Coverage and limits of the territorial audit. Longitudinal tracking and flow alerts do not replace evidence on capacity, access, demography or institutional decisions."
+      }
+    },
+    "es": {
+      "post-pilot-reestimation": {
+        "alt": "Reestimación post-piloto inconclusa de dos resultados primarios. La no matrícula persistente se estima en 0,63 puntos porcentuales, con IC de menos 0,77 a 2,03; en la muestra distinta que incluye escuelas receptoras, 0,71, con IC de menos 0,69 a 2,12. La falla de progresión o rezago se estima en 5,29 puntos, con IC de 2,08 a 8,51; en la muestra distinta con receptoras, 5,09, con IC de 1,94 a 8,23. Sus límites por datos faltantes abarcan de menos 1,15 a 10,98 puntos. No son efectos causales confirmados.",
+        "caption": "Figura 2. Reestimación post-piloto inconclusa, no efectos causales. El IC de progresión no cruza cero, pero sus límites por datos faltantes sí. La serie con escuelas receptoras usa una muestra distinta; el solapamiento con el piloto y los supuestos no observados impiden promover causalidad."
+      },
+      "sample-flow": {
+        "alt": "Dos carriles resumen el soporte de la reestimación post-piloto de 2016 a 2019. De 64 episodios históricos antes del soporte, 63 conservan al menos un estrato comparable y uno queda completamente fuera. De 6.581 observaciones estudiante-cohorte expuestas, 391 se excluyen y 6.190 permanecen. El universo de soporte contiene 82.753 observaciones estudiante-cohorte de control; las muestras finales cambian según el desenlace.",
+        "caption": "Figura 1. Flujo de soporte de la reestimación post-piloto. Los conteos agregados preceden la elegibilidad específica de cada desenlace y sus unidades no deben sumarse."
+      },
+      "territorial-audit": {
+        "alt": "De 346 episodios, 339 tienen tres años preevento completos y 323 tienen cinco. La clasificación contiene 266 sin señal contradictoria, 15 candidatos de continuidad, 35 alertas no resueltas y 30 censurados. Hay 45 alertas posevento y cero confirmaciones institucionales; el procesamiento automático solo permite observación.",
+        "caption": "Figura 3. Cobertura y límites de la auditoría territorial. Seguimiento longitudinal y alertas de flujo no sustituyen evidencia de capacidad, acceso, demografía o decisión institucional."
+      }
+    }
+  },
+  "files": [
+    {
+      "bytes": 38239,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "sample-flow-es-light.svg",
+      "sha256": "91d754529c2bb7862f17a8fd908d1be4bfc7e8857723429774d23899337b4ebd",
+      "theme": "light"
+    },
+    {
+      "bytes": 170826,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "sample-flow-es-light.png",
+      "sha256": "6a151b3e7db381a7ab53559f7ee16069932e470ec53e7d1e7262ec51602a7a18",
+      "theme": "light"
+    },
+    {
+      "bytes": 38731,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "sample-flow-es-light-mobile.svg",
+      "sha256": "01c5fbebe83689d120b9fb6599ecc4d65e331938afe2b5cb74da81db744b81eb",
+      "theme": "light"
+    },
+    {
+      "bytes": 198397,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "sample-flow-es-light-mobile.png",
+      "sha256": "3b5b64a55f2e234f11cc928c43200326ac59c176e940bc79373bfe9f9b41a724",
+      "theme": "light"
+    },
+    {
+      "bytes": 38239,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "sample-flow-es-dark.svg",
+      "sha256": "36ae18d7da39cfcd0a6d9039952b276b7f7885c36c85c1584e1957721355b663",
+      "theme": "dark"
+    },
+    {
+      "bytes": 170750,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "sample-flow-es-dark.png",
+      "sha256": "068028842370eacac501968b7fc72cefbd3291540917c6f7813b93d40c664bfb",
+      "theme": "dark"
+    },
+    {
+      "bytes": 38731,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "sample-flow-es-dark-mobile.svg",
+      "sha256": "cc22260d841e937d94b695181a511d338033307366628f5160165f9f214850a2",
+      "theme": "dark"
+    },
+    {
+      "bytes": 198071,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "sample-flow-es-dark-mobile.png",
+      "sha256": "fc026b049151ea00beabc46dc6c593136146a2da00511ade899166cb5cc9a9f6",
+      "theme": "dark"
+    },
+    {
+      "bytes": 38849,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "sample-flow-en-light.svg",
+      "sha256": "9be72df38aede3e5c2f82c2b7943fbb7d7d509b647db702dae7f2169cdaa4078",
+      "theme": "light"
+    },
+    {
+      "bytes": 157898,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "sample-flow-en-light.png",
+      "sha256": "117999b78d0891cf5e547e957c8ff5ce7e9612187cdc9056aa6d7ef45eb6b76c",
+      "theme": "light"
+    },
+    {
+      "bytes": 39170,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "sample-flow-en-light-mobile.svg",
+      "sha256": "272e4559ac1d696a29f2acdcbf26e080d49ccef6936289de13a307604912348d",
+      "theme": "light"
+    },
+    {
+      "bytes": 182873,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "sample-flow-en-light-mobile.png",
+      "sha256": "727d391cfddfc83121807f1ba2fddea9bc525fae71e395d88f6fd71b98547667",
+      "theme": "light"
+    },
+    {
+      "bytes": 38849,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "sample-flow-en-dark.svg",
+      "sha256": "8915dcf7eab7107cfce309033237f94261da4230c3e30422e74e13509b6fee25",
+      "theme": "dark"
+    },
+    {
+      "bytes": 158184,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "sample-flow-en-dark.png",
+      "sha256": "d557724f6044c05de31749684a57b4cc2aad76671190559a6ea7a108c220b922",
+      "theme": "dark"
+    },
+    {
+      "bytes": 39170,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "sample-flow-en-dark-mobile.svg",
+      "sha256": "81683144a9e8e70b0b16d83e259b8168bcae40c6199dd0009621cd3dfa25bdf4",
+      "theme": "dark"
+    },
+    {
+      "bytes": 183093,
+      "data_sha256": "43c68e42195456df7907ccf57953ce79f820a528278e0f9473c1082dc22bc02e",
+      "figure_id": "sample-flow",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "sample-flow-en-dark-mobile.png",
+      "sha256": "88a1ca5b9fef10d0ff851b7d67948c48f41c1bea9f78ac0ae48377d3c80c1e30",
+      "theme": "dark"
+    },
+    {
+      "bytes": 59268,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-es-light.svg",
+      "sha256": "6d0e9794d9e49865720b401cf794550f497be9bfed665e26c38d49f569e64bb2",
+      "theme": "light"
+    },
+    {
+      "bytes": 222764,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-es-light.png",
+      "sha256": "4da11d245b0d523865ed0afb47517882b7e2b19f219de49fd34f937ea70b0dad",
+      "theme": "light"
+    },
+    {
+      "bytes": 59640,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-es-light-mobile.svg",
+      "sha256": "cc256e1a0a32aa555411c88c4ab417a488717ed940b3ceb5b58423146deea182",
+      "theme": "light"
+    },
+    {
+      "bytes": 236583,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-es-light-mobile.png",
+      "sha256": "e68ba9bb5583727095ef05d692047625b7327705d3e9a4de3fff5ab929f97f20",
+      "theme": "light"
+    },
+    {
+      "bytes": 59268,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-es-dark.svg",
+      "sha256": "c349f7a9038e9a31d84e4accdb0813132643825862725e714b97758f9300847b",
+      "theme": "dark"
+    },
+    {
+      "bytes": 223632,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-es-dark.png",
+      "sha256": "4bc4044c5fc20c478a42b5e1d8bde8daea672246a05d6ed814f73a0d1fecd26b",
+      "theme": "dark"
+    },
+    {
+      "bytes": 59640,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-es-dark-mobile.svg",
+      "sha256": "c6592ddea3f0366e338f376f9452f19db27c84d3cadb4a42a1737d7f65e784df",
+      "theme": "dark"
+    },
+    {
+      "bytes": 237174,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-es-dark-mobile.png",
+      "sha256": "e55a20fc29358c294cf2d1c9b4132fe94f28de1a818732942b502571bebbd2b9",
+      "theme": "dark"
+    },
+    {
+      "bytes": 58702,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-en-light.svg",
+      "sha256": "4ec47efdc080d8aab5ab5927c62695bd1cec424b6654b08fc0d4001fb0a73240",
+      "theme": "light"
+    },
+    {
+      "bytes": 216519,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-en-light.png",
+      "sha256": "8ade5bcd7aabe8210596ac054fc4fef334a684652b77aeee396a0187a77d392a",
+      "theme": "light"
+    },
+    {
+      "bytes": 56725,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-en-light-mobile.svg",
+      "sha256": "7a9faae0c0ce67519c8cc7e56cd3df82bbd7650f0e861c12f4ef839e669028cb",
+      "theme": "light"
+    },
+    {
+      "bytes": 227541,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-en-light-mobile.png",
+      "sha256": "a47cb809e4d8c52f017fff8d8386ca623c65016d83cf5575fd41562a6ba38b89",
+      "theme": "light"
+    },
+    {
+      "bytes": 58702,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-en-dark.svg",
+      "sha256": "cf5205f160183c15d78688b09ef243064cda67113589cc75b32ac47fb3818226",
+      "theme": "dark"
+    },
+    {
+      "bytes": 217520,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "post-pilot-reestimation-en-dark.png",
+      "sha256": "64588d3b66637183fda66630e9f696b8cb9600562cc6f446f1226a171be41432",
+      "theme": "dark"
+    },
+    {
+      "bytes": 56725,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-en-dark-mobile.svg",
+      "sha256": "9c8a6310226d17beacdaa0ccc57ef84b6f3046828e925cfdde4e83905613b7f7",
+      "theme": "dark"
+    },
+    {
+      "bytes": 228357,
+      "data_sha256": "b34a75ca9e8e199f6f6d1a1c9dd012fb72e9234aeb33710db518b64ff1c96915",
+      "figure_id": "post-pilot-reestimation",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "post-pilot-reestimation-en-dark-mobile.png",
+      "sha256": "6078ca89d5842eed158b4432eb3a07c3a8b6a3029773f7f1627a0cf4cbe0db03",
+      "theme": "dark"
+    },
+    {
+      "bytes": 114960,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "territorial-audit-es-light.svg",
+      "sha256": "0411fcc413dc15c235e11b9acb3a358e0955ba063296b125e7216b430ce1953f",
+      "theme": "light"
+    },
+    {
+      "bytes": 191507,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "territorial-audit-es-light.png",
+      "sha256": "c3b2c557f9135c8fe42a11f1deec3cbb1886d6660949ba5dbd46ad0408a55f28",
+      "theme": "light"
+    },
+    {
+      "bytes": 115206,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "territorial-audit-es-light-mobile.svg",
+      "sha256": "aeeb6fcbb9eccfa246fba8a9567f15e5bd154a93e83ff182e82b563e2d8126f7",
+      "theme": "light"
+    },
+    {
+      "bytes": 219028,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "territorial-audit-es-light-mobile.png",
+      "sha256": "a3bafc42d551cf4f8821b1a4411f14d3d54bdb4c57dcaea0792a3d8f74e0efe7",
+      "theme": "light"
+    },
+    {
+      "bytes": 114960,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "es",
+      "layout": "desktop",
+      "path": "territorial-audit-es-dark.svg",
+      "sha256": "26c80b2954e4c05fdd38335c99370e6427a6c0edc521c9f7b3488484bde73daa",
+      "theme": "dark"
+    },
+    {
+      "bytes": 192526,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "es",
+      "layout": "desktop",
+      "path": "territorial-audit-es-dark.png",
+      "sha256": "59ffb7b207094bf14f4119f8cb5d2ba670e7772f9e066aa7a05d8cb7544598af",
+      "theme": "dark"
+    },
+    {
+      "bytes": 115206,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "es",
+      "layout": "mobile",
+      "path": "territorial-audit-es-dark-mobile.svg",
+      "sha256": "feab8ce7c6da387f8e8713cd2aeb64a03e8ecc3ddd16831249956b976c9b0339",
+      "theme": "dark"
+    },
+    {
+      "bytes": 219188,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "es",
+      "layout": "mobile",
+      "path": "territorial-audit-es-dark-mobile.png",
+      "sha256": "32bde8776ca7819f22a8c194044ca6827c59c9ef37e9bd62b0d20f2e565b2083",
+      "theme": "dark"
+    },
+    {
+      "bytes": 113962,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "territorial-audit-en-light.svg",
+      "sha256": "0ca3d1645436c5a09c6fe50c89bbf4640c85326ee42850aa683f277ce0238730",
+      "theme": "light"
+    },
+    {
+      "bytes": 195169,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "territorial-audit-en-light.png",
+      "sha256": "32fbc9f9a9046d42acb354e514bbe5e2a584d836b570714c5661348bdb265bc0",
+      "theme": "light"
+    },
+    {
+      "bytes": 114311,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "territorial-audit-en-light-mobile.svg",
+      "sha256": "54c306feef3466ea9a7e823ba461515151983b2216987810242b6b563972062d",
+      "theme": "light"
+    },
+    {
+      "bytes": 232715,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "territorial-audit-en-light-mobile.png",
+      "sha256": "8f6e84b20ffc0ecc132e1620bb3af468a5e70a1cf144457e4157c4326ebc7557",
+      "theme": "light"
+    },
+    {
+      "bytes": 113962,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "en",
+      "layout": "desktop",
+      "path": "territorial-audit-en-dark.svg",
+      "sha256": "114fe2f2bc079445cb764a0b60f6c53531493ff9de36386739ab273cea54b9bf",
+      "theme": "dark"
+    },
+    {
+      "bytes": 196155,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "en",
+      "layout": "desktop",
+      "path": "territorial-audit-en-dark.png",
+      "sha256": "afcffa1299849a5609cbfa72abfbed7355ad97a7db615d7c33ba53d813b8fc61",
+      "theme": "dark"
+    },
+    {
+      "bytes": 114311,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "svg",
+      "language": "en",
+      "layout": "mobile",
+      "path": "territorial-audit-en-dark-mobile.svg",
+      "sha256": "5712f4e9802c84284ebde98ce4c5bb7e72fac480b3c418c09a5edb8e8ccf890d",
+      "theme": "dark"
+    },
+    {
+      "bytes": 233421,
+      "data_sha256": "c778bba2e2fbb14d01ea0fee04b2a4848f4c78c7f61343ecf2b3e28f4c738f6b",
+      "figure_id": "territorial-audit",
+      "format": "png",
+      "language": "en",
+      "layout": "mobile",
+      "path": "territorial-audit-en-dark-mobile.png",
+      "sha256": "5de76f00b73f2e333efd313c26d336c85ac747fbb32c5d8c4b849ed066336ff7",
+      "theme": "dark"
+    },
+    {
+      "bytes": 4154,
+      "format": "csv",
+      "path": "sample-flow-data.csv",
+      "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+    },
+    {
+      "bytes": 3555,
+      "format": "csv",
+      "path": "post-pilot-reestimation-data.csv",
+      "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+    },
+    {
+      "bytes": 858,
+      "format": "csv",
+      "path": "missingness-bounds-data.csv",
+      "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+    },
+    {
+      "bytes": 5860,
+      "format": "csv",
+      "path": "territorial-audit-data.csv",
+      "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+    },
+    {
+      "bytes": 5527,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "sample-flow-es.visual-manifest.json",
+      "sha256": "42d59b897a9205fe20c114e27aff9da1f6a2279140014072333f4a36465e83fd",
+      "visual_id": "post3-sample-flow-es"
+    },
+    {
+      "bytes": 5304,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "sample-flow-en.visual-manifest.json",
+      "sha256": "045ec0a33351ac82d393e6fa76768c48c2d3865bea5707ba5516625ad74c1152",
+      "visual_id": "post3-sample-flow-en"
+    },
+    {
+      "bytes": 6024,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "post-pilot-reestimation-es.visual-manifest.json",
+      "sha256": "12a300daa4c93981fc1a2cb26407084310b6a5bb07120cb277f2af4e6f157493",
+      "visual_id": "post3-post-pilot-reestimation-es"
+    },
+    {
+      "bytes": 5865,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "post-pilot-reestimation-en.visual-manifest.json",
+      "sha256": "91a578d6e98155ace0f61c546a96d1337a20a9234ca83ba6683774c5d235932d",
+      "visual_id": "post3-post-pilot-reestimation-en"
+    },
+    {
+      "bytes": 5820,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "territorial-audit-es.visual-manifest.json",
+      "sha256": "e1e8f4e612d638aa0db14e0248a3e12b7b07b60c011caa4090abb7338ff7fd3a",
+      "visual_id": "post3-territorial-audit-es"
+    },
+    {
+      "bytes": 5726,
+      "format": "json",
+      "kind": "visual_manifest",
+      "path": "territorial-audit-en.visual-manifest.json",
+      "sha256": "7774b3b77b9857eabb32e4d3b7286430f2a13d8c27ffcff497bc1ba113fbb93d",
+      "visual_id": "post3-territorial-audit-en"
+    }
+  ],
+  "generator": {
+    "matplotlib": "3.11.1",
+    "path": "scripts/336_post3_visuals.py",
+    "png_dpi": 250,
+    "png_dpi_mobile": 300,
+    "sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6"
+  },
+  "schema_version": 2,
+  "scope": {
+    "drafts_edited": false,
+    "map_omission_reason": "NO_PUBLISHABLE_GEOGRAPHIC_BREAKDOWN_AND_NO_POLICY_VALUE_AT_NATIONAL_AGGREGATE",
+    "map_rendered": false,
+    "microdata_read": false,
+    "school_identifiers_serialized": false,
+    "student_identifiers_serialized": false
+  },
+  "sources": {
+    "causal": {
+      "path": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    },
+    "identity": {
+      "path": "audit/post3_identity_audit.json",
+      "sha256": "e20c09f5248eda65525afdb3b64e997b37afa55d459267b0e41a238d703155ab"
+    },
+    "territorial": {
+      "path": "audit/post3_territorial_real.json",
+      "sha256": "29159bb2be162f54c7ffbd38f21224f9beed8fe735fd32a3e04bccab980cf10e"
+    }
+  },
+  "status": "POST3_VISUALS_READY_POST_PILOT_REESTIMATION_INCONCLUSIVE",
+  "visual_identity": {
+    "contract": "3cucharadas-visualizacion-datos-v1",
+    "dtcg_schema_sha256": "7f40fe678340b756e6464a0c20facfc29fe6ff055a202249132cc14eeafc7678",
+    "path": "research/post3/visual_identity_tokens_v1.json",
+    "remote_runtime_dependencies": [],
+    "sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa"
+  },
+  "visual_manifest_contract": {
+    "path": "penta-agent/skills/3cucharadas-visualizacion-datos/assets/visual-manifest.schema.json",
+    "records": 6,
+    "sha256": "86cf46cce2a9599e2b6a367001871356c6dc388004d9e192a2e6017893483e1d"
+  }
+}

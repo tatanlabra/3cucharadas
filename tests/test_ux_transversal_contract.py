@@ -208,6 +208,13 @@ def related_hrefs(page_html: str) -> list[str]:
 
 def as_number(text: str) -> float | None:
     """Convierte la celda a número por otra vía que el plugin: normaliza y usa float()."""
+    interval = re.fullmatch(
+        r"\s*[\[(]\s*(.+?)\s*(?:;|,\s+|–|—|\bto\b|\ba\b)\s*(.+?)\s*[\])]\s*(?:pp|p\.\s?p\.|pts?)?\s*",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if interval and all(as_number(part) is not None for part in interval.groups()):
+        return 0.0
     value = re.sub(r"\s+", "", text.replace("\u2212", "-"))
     value = re.sub(r"^[(\[]|[)\]]$|\*+$", "", value)
     value = re.sub(r"(%|‰|pp|p\.p\.|DE|SD|pts?|x|×)$", "", value)
@@ -687,6 +694,14 @@ class UxTransversalContract(unittest.TestCase):
                 checked += 1
         self.assertGreater(checked, 0)
         rules = css_rules_in_context(css())
+        byline = " ".join(
+            body for _, selector, body in rules if selector.strip() == ".page__byline"
+        )
+        self.assertRegex(
+            byline,
+            r"(?<![-\w])clear:\s*both",
+            "la firma puede intentar fluir junto a .page__meta y desbordar en móvil",
+        )
         def gutters(width: str) -> dict[str, str]:
             found: dict[str, str] = {}
             for media, selector, body in rules:

@@ -3,6 +3,8 @@
 require 'minitest/autorun'
 require 'tmpdir'
 require 'fileutils'
+require 'digest'
+require 'json'
 require 'open3'
 require 'yaml'
 require 'rbconfig'
@@ -35,6 +37,19 @@ class VerifyVisualAssetsMobileTest < Minitest::Test
   def run_gate
     output, status = Open3.capture2e(RbConfig.ruby, File.join(@root, 'scripts/verify_visual_assets.rb'), '--strict')
     [output, status.success?]
+  end
+
+  def write_embedded_manifest(dir, entries)
+    File.write(File.join(dir, 'manifest.json'), JSON.pretty_generate({ 'files' => entries }))
+  end
+
+  def manifest_entry(path)
+    absolute = File.join(@root, 'assets/images/generated', path)
+    {
+      'path' => path,
+      'bytes' => File.size(absolute),
+      'sha256' => Digest::SHA256.file(absolute).hexdigest
+    }
   end
 
   def test_publicable_mobile_passes
@@ -72,5 +87,46 @@ class VerifyVisualAssetsMobileTest < Minitest::Test
     refute success, output
     assert_includes output, 'V6'
     assert_includes output, 'V10'
+  end
+
+  def test_complete_embedded_manifest_satisfies_v13
+    dir = File.join(@root, 'assets/images/generated')
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, 'figure.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+    write_embedded_manifest(dir, [manifest_entry('figure.svg')])
+
+    output, success = run_gate
+
+    assert success, output
+    refute_includes output, 'V13'
+  end
+
+  def test_embedded_manifest_with_stale_hash_fails_then_recovers
+    dir = File.join(@root, 'assets/images/generated')
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, 'figure.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+    write_embedded_manifest(dir, [manifest_entry('figure.svg')])
+    File.write(File.join(dir, 'figure.svg'), '<svg xmlns="http://www.w3.org/2000/svg"><title>mutated</title></svg>')
+
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'V13 assets/images/generated/manifest.json[figure.svg]: sha256'
+
+    write_embedded_manifest(dir, [manifest_entry('figure.svg')])
+    output, success = run_gate
+    assert success, output
+  end
+
+  def test_embedded_manifest_that_omits_existing_file_fails
+    dir = File.join(@root, 'assets/images/generated')
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, 'figure.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+    File.write(File.join(dir, 'orphan.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+    write_embedded_manifest(dir, [manifest_entry('figure.svg')])
+
+    output, success = run_gate
+
+    refute success, output
+    assert_includes output, 'V13 assets/images/generated/manifest.json: archivos no declarados: orphan.svg'
   end
 end

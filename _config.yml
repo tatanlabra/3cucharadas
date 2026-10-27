@@ -162,6 +162,7 @@ exclude:
   - vendor
   - public          # dir de salida de GitLab Pages; nunca tratarlo como fuente
   - research/replica-tesis # metadatos y caché privados de revisión; no se sirven
+  - docs/contracts/evidence # recibos científicos para gates; no son contenido público
   # Una copia anidada del propio sitio no debe servirse jamas: Jekyll la compila
   # como contenido y sus plantillas arrastran referencias a assets que no existen
   # en esta raiz. Medido el 2026-08-31: activos/3cucharadas-nushell-release/
@@ -245,6 +246,7 @@ exclude:
   # crudo, sin plantilla, en /SECURITY.md. LICENSE y README ya estaban fuera por
   # la misma razón; se completa el conjunto en vez de dejar una a medias.
   - SECURITY.md
+  - DESIGN.md
   # Utilidad de escritorio para regenerar los WOFF2 de Fira desde las fuentes
   # instaladas en el sistema. No es fuente del sitio ni la usa el build.
   - font_NF.sh

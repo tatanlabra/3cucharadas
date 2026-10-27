@@ -146,6 +146,25 @@ def test_destinations_declaran_idioma_y_publico(repo):
     assert rows["comunidades-datos-gis-es"]["status"] == "pendiente-verificar"
 
 
+def test_linkedin_assets_are_scoped_to_the_article_ref(repo):
+    post3 = {
+        row["destination"]: row
+        for row in destination_status(repo, "costos-cierre-escolar-trayectorias")
+    }
+    casen = {
+        row["destination"]: row
+        for row in destination_status(repo, "casen2024-julia-waffles")
+    }
+
+    post3_assets = post3["linkedin-es"]["activos"]
+    assert post3_assets == [
+        "assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-1280x720.webp",
+        "assets/images/heroes-v2/costos-cierre-escolar-trayectorias/og-1200x630.webp",
+    ]
+    assert casen["linkedin-es"]["activos"] == []
+    assert not any("avaluo-vulnerabilidad" in asset for asset in post3_assets)
+
+
 def test_post_sin_version_en_igual_alcanza_destinos_es(repo, tmp_path):
     """Antes esto lanzaba PostError y dejaba el articulo sin evaluar en ningun canal."""
     solo_es = [

@@ -1,0 +1,119 @@
+{
+  "accessibility": {
+    "alt": "Inconclusive post-pilot re-estimation of two primary outcomes. Persistent non-enrolment is estimated at 0.63 percentage points, with a CI from minus 0.77 to 2.03; the different sample that includes receiver schools gives 0.71, from minus 0.69 to 2.12. Progression failure or grade lag is estimated at 5.29 points, from 2.08 to 8.51; the different receiver-school sample gives 5.09, from 1.94 to 8.23. Missing-data bounds span minus 1.15 to 10.98 points. These are not confirmed causal effects.",
+    "keyboard_checked": true,
+    "long_description": "Inconclusive post-pilot re-estimation of two primary outcomes. Persistent non-enrolment is estimated at 0.63 percentage points, with a CI from minus 0.77 to 2.03; the different sample that includes receiver schools gives 0.71, from minus 0.69 to 2.12. Progression failure or grade lag is estimated at 5.29 points, from 2.08 to 8.51; the different receiver-school sample gives 5.09, from 1.94 to 8.23. Missing-data bounds span minus 1.15 to 10.98 points. These are not confirmed causal effects. Figure 2. Inconclusive post-pilot re-estimation, not causal effects. The progression CI excludes zero, but its missing-data bounds do not. The receiver-school series uses a different sample; pilot overlap and unobserved assumptions preclude a causal claim.",
+    "non_color_encoding": "Position, distinct shapes, interval lines, the zero line, and direct labels duplicate colour.",
+    "table_fallback": "post-pilot-reestimation-data.csv, missingness-bounds-data.csv"
+  },
+  "decision": {
+    "chart_type": "Point intervals with a separate missing-data bounds panel",
+    "discard_condition": "Discard if bounds are read as a CI or the receiver route as the same sample.",
+    "rationale": "A common position scale compares magnitude and uncertainty without merging different estimands.",
+    "rejected_alternatives": [
+      "Bars: they would privilege point estimates and obscure interval uncertainty.",
+      "Significance traffic light: it would erase missingness, sample changes, and identification limits."
+    ]
+  },
+  "evidence": {
+    "data_cut": "Post-pilot re-estimation v3.1, release post3-causal-v3-1-2026-10-24.",
+    "denominator": "Outcome-specific samples; the receiver-school route uses a different sample.",
+    "estimand": "Weighted difference in differences, in percentage points.",
+    "population": "Student-cohort observations with comparable support in historical episodes, 2016–2019.",
+    "question": "What post-pilot differences are observed, and which uncertainties preclude a causal reading?",
+    "transformation": "Points and conservative intervals; separate receiver and missing-data sensitivity analyses.",
+    "uncertainty": "95% CIs, missing-data bounds, few effective episodes, and no authorised causal promotion.",
+    "unit": "Student-cohort observation clustered by origin episode."
+  },
+  "generated_at": "2026-10-25T12:00:00Z",
+  "manifest_version": "1.0.0",
+  "renderer": {
+    "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
+    "name": "336_post3_visuals",
+    "source_sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6",
+    "version": "1.0.0"
+  },
+  "runtime_dependencies": {
+    "local": [
+      "assets/fonts/fira-sans",
+      "assets/images/tesis-post3"
+    ],
+    "remote": []
+  },
+  "sources": [
+    {
+      "accessed_at": "2026-10-25",
+      "id": "causal",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    }
+  ],
+  "variants": [
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-light.svg",
+      "sha256": "4ec47efdc080d8aab5ab5927c62695bd1cec424b6654b08fc0d4001fb0a73240",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-light.png",
+      "sha256": "8ade5bcd7aabe8210596ac054fc4fef334a684652b77aeee396a0187a77d392a",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-light-mobile.svg",
+      "sha256": "7a9faae0c0ce67519c8cc7e56cd3df82bbd7650f0e861c12f4ef839e669028cb",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-light-mobile.png",
+      "sha256": "a47cb809e4d8c52f017fff8d8386ca623c65016d83cf5575fd41562a6ba38b89",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-dark.svg",
+      "sha256": "cf5205f160183c15d78688b09ef243064cda67113589cc75b32ac47fb3818226",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-dark.png",
+      "sha256": "64588d3b66637183fda66630e9f696b8cb9600562cc6f446f1226a171be41432",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-dark-mobile.svg",
+      "sha256": "9c8a6310226d17beacdaa0ccc57ef84b6f3046828e925cfdde4e83905613b7f7",
+      "theme": "dark",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "post-pilot-reestimation-en-dark-mobile.png",
+      "sha256": "6078ca89d5842eed158b4432eb3a07c3a8b6a3029773f7f1627a0cf4cbe0db03",
+      "theme": "dark",
+      "viewport": "mobile"
+    }
+  ],
+  "visual_id": "post3-post-pilot-reestimation-en"
+}

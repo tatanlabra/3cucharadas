@@ -115,6 +115,8 @@ def destination_status(
     filas = []
     for destino in cargar_catalogo(catalogo):
         estado, razon = _evaluar(destino, pareja, todos)
+        por_ref = destino.get("activos_por_ref") or {}
+        activos = list(destino.get("activos") or []) + list(por_ref.get(ref) or [])
         filas.append(
             {
                 "destination": destino["id"],
@@ -123,7 +125,7 @@ def destination_status(
                 "modo": destino.get("modo"),
                 "status": estado,
                 "reason": razon,
-                "activos": destino.get("activos", []),
+                "activos": activos,
             }
         )
     return filas

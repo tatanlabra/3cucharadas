@@ -1,0 +1,121 @@
+{
+  "schema": "3cucharadas-post3-scientific-release-v1",
+  "frozen_at": "2026-10-25T18:45:00Z",
+  "publication_scope": {
+    "included": [
+      "school_enrolment",
+      "school_progression",
+      "school_attendance_exploratory",
+      "school_marks_exploratory",
+      "territorial_audit"
+    ],
+    "higher_education": "DEFERRED_NOT_ESTIMATED_NOT_A_PUBLICATION_GATE",
+    "new_analysis_performed_for_blog_release": false
+  },
+  "source_worktree": {
+    "logical_root": "incubadora/tesis_mae_mejorada",
+    "observed_head": "8d9a7aa5cdfb3ba1cd2b2cb05abbe2441f62b9d0",
+    "upstream_custody": "UNCOMMITTED_FILE_HASHES",
+    "files": {
+      "audit/post3_database_release_v2.json": "79c6ae37807dcb8560b4a8aa72363da0dca4778045e7372a1848b72d26063270",
+      "audit/post3_identity_audit.json": "e20c09f5248eda65525afdb3b64e997b37afa55d459267b0e41a238d703155ab",
+      "audit/post3_hmg_replication_status.json": "7a4d2abed66856223bb88979a65011944a970aa59f7e2bbccc2f3e5659e0a550",
+      "research/post3/hmg_replication_spec.yaml": "86aa5a8f59171b7b446c265a9e9f9750d4f7759594c0862abf5de96e9430735c",
+      "audit/post3_school_comparability_v1.json": "1127c9f2736d22e35e7c66311c750c8252b4346d65880bc41cfce191a4e2562b",
+      "audit/post3_identification_alternatives_v1.json": "02b594fabcebda292e89c65469bbc67cd347cc5114551e29cb1b93dc40508323",
+      "audit/post3_modern_causal_v3_1.json": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724",
+      "audit/post3_database_release_v3_1.json": "8e7da478f096ffe4f228689bf29dd6b841c63fa0f1decd1ff06a2ba1f6aa1c0e",
+      "audit/post3_territorial_real.json": "29159bb2be162f54c7ffbd38f21224f9beed8fe735fd32a3e04bccab980cf10e"
+    }
+  },
+  "evidence": {
+    "database": {
+      "status": "IMMUTABLE_FOUNDATION_RELEASE_READY_NOT_CAUSAL",
+      "source_views": [
+        {"source": "enrollment", "first_year": 2004, "last_year": 2025, "rows": 79709054},
+        {"source": "performance", "first_year": 2004, "last_year": 2025, "rows": 73873835}
+      ]
+    },
+    "identity": {
+      "universe": {"activity_closure_episodes": 346, "post2_strict_baseline_episodes": 330},
+      "interpretation": {"causal_effect_identified": false}
+    },
+    "hmg": {"counts": {"NO_COMPARABLE": 5}},
+    "hmg_spec": {
+      "tables": [
+        {"table_id": "table_7", "sample_n": 682217, "parameters": {"school_exit": {"coefficient": "0.01463"}}},
+        {"table_id": "table_8", "sample_n": 2361, "parameters": {"school_exit": {"coefficient": "0.01735"}}},
+        {"table_id": "table_14", "sample_n": 906629, "parameters": {"school_exit": {"coefficient": "0.01075"}}}
+      ]
+    },
+    "modern": {
+      "analysis_stage": "POST_PILOT_REESTIMATION_V3",
+      "analysis_revision": "ATTENDANCE_AND_RURALITY_SEMANTICS_V3_1",
+      "status": "INCONCLUSIVE",
+      "promotion": {
+        "causal_language_authorized": false,
+        "effect_null_claim_authorized": false,
+        "material_harm_claim_authorized": false
+      },
+      "estimates": [
+        {
+          "outcome_id": "persistent_nonenrollment_two_years",
+          "estimate": 0.00626680683626607,
+          "ci_lower": -0.00773122488720546,
+          "ci_upper": 0.0202648385597376,
+          "n_treated_students": 3666,
+          "n_control_students": 49944
+        },
+        {
+          "outcome_id": "grade_progression_or_lag",
+          "estimate": 0.0529028772769913,
+          "ci_lower": 0.020753471973091,
+          "ci_upper": 0.0850522825808917,
+          "n_treated_students": 4815,
+          "n_control_students": 65538
+        }
+      ],
+      "sensitivity": {
+        "informative_missingness": {
+          "status": "ESTIMATED",
+          "crosses_zero": true,
+          "effect_lower": -0.0115443270306399,
+          "effect_upper": 0.10981576275582
+        }
+      }
+    },
+    "modern_database": {
+      "analysis_stage": "POST_PILOT_REESTIMATION_V3",
+      "analysis_revision": "ATTENDANCE_AND_RURALITY_SEMANTICS_V3_1",
+      "status": "ANALYSIS_READY_CAUSAL_MARTS_V3_1"
+    },
+    "territorial": {
+      "status": "PARTIAL_COVERAGE_GAP",
+      "adjudication": {"closure_supported": false}
+    },
+    "comparability": {
+      "status": "OBSERVED_BALANCE_PARTIAL_DIFFERENTIAL_PRE_EVENT_COVERAGE",
+      "causal_certificate": false,
+      "interpretation": {"full_sociodemographic_balance": false},
+      "continuous_balance": [
+        {"variable": "age", "treated_weighted_mean": 11.704200323101777, "control_weighted_mean": 11.704200323101567},
+        {"variable": "baseline_attendance", "treated_weighted_mean": 90.92807570977918, "control_weighted_mean": 91.68133299808487},
+        {"variable": "baseline_grade_average", "treated_weighted_mean": 5.6177076761303875, "control_weighted_mean": 5.666858569179778}
+      ],
+      "summary": {"maximum_continuous_observation_share_gap": 0.1940746277919495}
+    },
+    "identification": {
+      "status": "DID_EXPLORATORY_NO_DEFENSIBLE_IV_CURRENT_RELEASE",
+      "decision": {"estimate_new_iv_now": false},
+      "instrumental_variables": {"candidate_passing_all_requirements": false, "iv_estimated": false},
+      "degrees_of_freedom": {
+        "estimates": [
+          {"outcome_id": "persistent_nonenrollment_two_years", "effective_treated_clusters": 21.1432787638325},
+          {"outcome_id": "grade_progression_or_lag", "effective_treated_clusters": 21.9219793509516},
+          {"outcome_id": "attendance_given_performance_record", "effective_treated_clusters": 17.6870236576248},
+          {"outcome_id": "grade_average_given_valid_record", "effective_treated_clusters": 17.6870236576248}
+        ]
+      }
+    }
+  }
+}

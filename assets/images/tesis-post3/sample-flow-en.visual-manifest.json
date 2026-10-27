@@ -1,0 +1,119 @@
+{
+  "accessibility": {
+    "alt": "Two lanes summarise support for the 2016 to 2019 post-pilot re-estimation. Of 64 historical episodes before support screening, 63 retain at least one comparable stratum and one is fully excluded. Of 6,581 exposed student-cohort observations, 391 are excluded and 6,190 remain. The support universe contains 82,753 control student-cohort observations; final samples differ by outcome.",
+    "keyboard_checked": true,
+    "long_description": "Two lanes summarise support for the 2016 to 2019 post-pilot re-estimation. Of 64 historical episodes before support screening, 63 retain at least one comparable stratum and one is fully excluded. Of 6,581 exposed student-cohort observations, 391 are excluded and 6,190 remain. The support universe contains 82,753 control student-cohort observations; final samples differ by outcome. Figure 1. Support flow for the post-pilot re-estimation. Aggregate counts precede outcome-specific eligibility, and the two units must not be added.",
+    "non_color_encoding": "Lanes, position, connectors, symbols, and numeric labels preserve meaning without colour.",
+    "table_fallback": "sample-flow-data.csv"
+  },
+  "decision": {
+    "chart_type": "Lane-based flow with direct counts",
+    "discard_condition": "Discard if readers interpret episodes and observations as parts of the same total.",
+    "rationale": "It separates both units and shows support losses without implying a conserved total.",
+    "rejected_alternatives": [
+      "Sankey: the units cannot be added and final samples vary by outcome.",
+      "Funnel: it would order heterogeneous counts as if they belonged to one conserved population."
+    ]
+  },
+  "evidence": {
+    "data_cut": "Post-pilot re-estimation v3.1, release post3-causal-v3-1-2026-10-24.",
+    "denominator": "64 episodes and 6,581 exposed student-cohort observations before screening.",
+    "estimand": "Descriptive counts before and after common-support screening.",
+    "population": "Historical school-closure episodes and student-cohort observations, 2016–2019.",
+    "question": "How much comparable support remains before each outcome-specific estimation?",
+    "transformation": "Comparable-stratum screen; final eligibility varies by outcome.",
+    "uncertainty": "Descriptive only: the counts are not an effect or equivalent independent cases.",
+    "unit": "Closure episode and student-cohort observation; these units cannot be added."
+  },
+  "generated_at": "2026-10-25T12:00:00Z",
+  "manifest_version": "1.0.0",
+  "renderer": {
+    "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
+    "name": "336_post3_visuals",
+    "source_sha256": "c12f05163fbc3d39009e6bd5afe99f1471dcbec2b9889867ef409899206288a6",
+    "version": "1.0.0"
+  },
+  "runtime_dependencies": {
+    "local": [
+      "assets/fonts/fira-sans",
+      "assets/images/tesis-post3"
+    ],
+    "remote": []
+  },
+  "sources": [
+    {
+      "accessed_at": "2026-10-25",
+      "id": "causal",
+      "license": "No explicit reuse licence is declared in the source aggregate; this provenance record grants no redistribution authority and the visual does not redistribute microdata.",
+      "reference": "audit/post3_modern_causal_v3_1.json",
+      "sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+    }
+  ],
+  "variants": [
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "sample-flow-en-light.svg",
+      "sha256": "9be72df38aede3e5c2f82c2b7943fbb7d7d509b647db702dae7f2169cdaa4078",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "sample-flow-en-light.png",
+      "sha256": "117999b78d0891cf5e547e957c8ff5ce7e9612187cdc9056aa6d7ef45eb6b76c",
+      "theme": "light",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "sample-flow-en-light-mobile.svg",
+      "sha256": "272e4559ac1d696a29f2acdcbf26e080d49ccef6936289de13a307604912348d",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "sample-flow-en-light-mobile.png",
+      "sha256": "727d391cfddfc83121807f1ba2fddea9bc525fae71e395d88f6fd71b98547667",
+      "theme": "light",
+      "viewport": "mobile"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "sample-flow-en-dark.svg",
+      "sha256": "8915dcf7eab7107cfce309033237f94261da4230c3e30422e74e13509b6fee25",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "sample-flow-en-dark.png",
+      "sha256": "d557724f6044c05de31749684a57b4cc2aad76671190559a6ea7a108c220b922",
+      "theme": "dark",
+      "viewport": "desktop"
+    },
+    {
+      "format": "svg",
+      "locale": "en",
+      "path": "sample-flow-en-dark-mobile.svg",
+      "sha256": "81683144a9e8e70b0b16d83e259b8168bcae40c6199dd0009621cd3dfa25bdf4",
+      "theme": "dark",
+      "viewport": "mobile"
+    },
+    {
+      "format": "png",
+      "locale": "en",
+      "path": "sample-flow-en-dark-mobile.png",
+      "sha256": "88a1ca5b9fef10d0ff851b7d67948c48f41c1bea9f78ac0ae48377d3c80c1e30",
+      "theme": "dark",
+      "viewport": "mobile"
+    }
+  ],
+  "visual_id": "post3-sample-flow-en"
+}
