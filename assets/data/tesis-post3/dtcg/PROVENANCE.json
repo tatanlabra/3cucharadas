@@ -1,0 +1,28 @@
+{
+  "source_repository": "https://github.com/design-tokens/community-group",
+  "source_commit": "882ebd6716abef9a46d8ef5fb12e82009d6cee2e",
+  "schema_base_url": "https://www.designtokens.org/schemas/2025.10/",
+  "source_path": "schemas/src/2025.10",
+  "license": "W3C 3-clause BSD License",
+  "license_url": "https://www.w3.org/Consortium/Legal/2008/03-bsd-license.html",
+  "files": {
+    "format.json": "7f40fe678340b756e6464a0c20facfc29fe6ff055a202249132cc14eeafc7678",
+    "format/group.json": "bff8d3b46f005fad4f78b50d41fde3b2fb7303c9d246d03d3691d73112654562",
+    "format/groupOrToken.json": "48f80d667161e61ffd12c26aab214cc994d866be9ee21b0ce1a806e02ef44ab4",
+    "format/token.json": "e42d903f33dd57e875bb8eef67b7401891ae50f7a22d96feb2929b795f7fef65",
+    "format/tokenType.json": "fcc4672f4fb0346cf872f6924d8fb622609f880b5f22885a5f6c543ce6aa5794",
+    "format/values/border.json": "d316b38fbb9f7657d8ba49e0d62661c1d8159a88661af87e40fc372a12953c4e",
+    "format/values/color.json": "b721abec749fb2206cc397722861cce4f109f57d7433d2089021eaf0ce5fd501",
+    "format/values/cubicBezier.json": "b99b9896fbb99fc60f0e8ddbd82b2368cb3250b10accc7008966d5d0826b9831",
+    "format/values/dimension.json": "90e6fc121a7e7cb6697959172f93b5be05397124b6eb736ee281397e61f0e869",
+    "format/values/duration.json": "ff8490104550b44258a744901b4ba24bb36a5a1761c893bbefca785d1db1c07f",
+    "format/values/fontFamily.json": "6f8082ae06eab783f4cc2790cae259488b6b3c8677ee4b660543593b5e16e173",
+    "format/values/fontWeight.json": "ff4e05a302e2e1bdd92abc2dc4b7bd3803a4ff4d3f3d47df36603c1aeae816e2",
+    "format/values/gradient.json": "77acff5dbf54c009a5d32d3c209c79797ef0212f7bfb9485cedd910b2cd9a603",
+    "format/values/number.json": "a8c0074125f0833e1cce1db28582b4d3974e1ea234bd5efbf122ca107aaa079d",
+    "format/values/shadow.json": "006827759f277106f5c2a2324f0fb597febeb8be01dbe9195d28595138f63b50",
+    "format/values/strokeStyle.json": "eee4c04cae1104853c8fd5eb742f68feadfc07d8c0204f6b19f477055c356214",
+    "format/values/transition.json": "77fcef3a44f7d817456f12cceed7c5e324a1be418f68b050e522efafd4c76c8d",
+    "format/values/typography.json": "991bb82c54166a8fba7a7d521f40e0a109fc5bdd3f5b33e2856df7669de89307"
+  }
+}

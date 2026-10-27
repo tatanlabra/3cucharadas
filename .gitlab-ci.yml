@@ -44,8 +44,9 @@ build_site:
   script:
     - ruby -v
     - apt-get update -y
-    # `xz-utils` lo necesita `tar -J` para el tarball oficial de Node.
-    - apt-get install -y --no-install-recommends ca-certificates curl python3 python3-pip python3-venv xz-utils
+    # `xz-utils` lo necesita `tar -J` para el tarball oficial de Node;
+    # `python3-jsonschema` y `python3-referencing` los usa el validador DTCG 2025.10.
+    - apt-get install -y --no-install-recommends ca-certificates curl python3 python3-jsonschema python3-pip python3-referencing python3-venv xz-utils
     # Node desde el binario oficial de nodejs.org, verificado contra el SHA256
     # fijado arriba. Se elige el tarball —y no un repositorio APT de terceros—
     # porque es el único camino en que la integridad de lo que se ejecuta queda

@@ -12,9 +12,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = ROOT.parents[1]
-SKILL_SCRIPTS = WORKSPACE / "penta-agent/skills/3cucharadas-visualizacion-datos/scripts"
-sys.path.insert(0, str(SKILL_SCRIPTS))
+sys.path.insert(0, str(ROOT / "scripts"))
 from dtcg_format import DTCGError, color_hex, metadata, validate_document  # noqa: E402
 
 DEFAULT_TOKENS = ROOT / "assets/data/tesis-post3/visual_identity_tokens_v1.json"

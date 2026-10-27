@@ -92,11 +92,10 @@ class Post3VisualTokensTest(unittest.TestCase):
             self.assertIn("schema DTCG 2025.10", result.stderr)
 
     def test_official_schema_uses_its_declared_dialect_and_offline_refs(self) -> None:
-        skill = ROOT.parents[1] / "penta-agent/skills/3cucharadas-visualizacion-datos"
-        sys.path.insert(0, str(skill / "scripts"))
+        sys.path.insert(0, str(ROOT / "scripts"))
         from dtcg_format import _schema_validator  # noqa: PLC0415
 
-        schema = json.loads((skill / "assets/dtcg/2025.10/format.json").read_text(encoding="utf-8"))
+        schema = json.loads((ROOT / "assets/data/tesis-post3/dtcg/2025.10/format.json").read_text(encoding="utf-8"))
         self.assertEqual(schema["$schema"], "http://json-schema.org/draft-07/schema#")
         self.assertIs(validator_for(schema), Draft7Validator)
         self.assertIsInstance(_schema_validator(), Draft7Validator)
