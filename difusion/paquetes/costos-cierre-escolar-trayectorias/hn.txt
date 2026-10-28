@@ -1,0 +1,31 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es un artículo analítico y metodológico con datos abiertos y CSVs accesibles; las reglas de Show HN excluyen las entradas de blog que no son herramientas interactivas autónomas.
+
+TÍTULO:
+What student trajectories show after a school closure in Chile (2004–2025)
+
+URL:
+https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=hackernews&utm_medium=referral&utm_campaign=costos-cierre-escolar-trayectorias
+
+PRIMER COMENTARIO DEL AUTOR:
+Author here. This is Part III of a series revisiting and extending my undergraduate thesis on school closures in Chile using twenty years of nationwide administrative microdata from the Ministry of Education (2004 to 2025, processed locally in DuckDB).
+
+In Part II we looked at school directories and geography and found that the nearest school on a map is rarely where displaced students actually go. In Part III we follow individual student trajectories before and after closure using exact baseline matching (year, sex, region, provider type, rurality, level, and grade) and staggered difference-in-differences (Callaway & Sant'Anna 2021).
+
+Three methodological findings stood out while building the verification gates for this piece:
+
+1. Directory exits are not the same as real closures with student dispersion. Tracking student flows shows several cases where most students move together into a single receiving school (de facto mergers or site continuations). Filtering those out via a Data-Inferred School Closure Rule (RCID v1) separates concentrated absorptions from genuine dispersion.
+
+2. Point estimates can look statistically significant while being substantively inconclusive once missing outcomes are bounded. In our primary recent window (2016–2019), progression failure or grade lag rises with a positive confidence interval, yet valid baseline performance records are missing far more often in closing schools than in control schools. Once assumption-free Manski (2003) bounds for missing progression records are computed, the interval crosses zero—making the main-window estimate formally inconclusive.
+
+3. Across the full twenty-cohort series (2005–2024), all nineteen estimable progression cohorts are positive and the gap attenuated monotonically across policy regimes from 2005–2010 and 2011–2015 to 2016–2019, while worst-case Manski bounds on the full-series Callaway & Sant'Anna aggregate remain strictly above zero. Even so, extended baseline profiling shows that nearly half of exposed students had already switched schools in the two years before closure, so the pattern is an adjusted observational association rather than a natural experiment.
+
+All four figures have light/dark responsive SVGs and open CSV data tables linked directly below each chart. Happy to answer questions about the DuckDB pipeline, the econometric bounds, or Chile's voucher and public school reforms.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “Why didn't you match on prior school switching or school-level subsidies if you saw imbalance there?” → Conditioning on prior mobility or school-level supply attributes inside exact strata rapidly shrinks common support in rural municipalities and risks conditioning on pre-closure anticipation as families leave a deteriorating school before the formal closure year. Instead of hiding that trade-off inside a propensity score, we kept the exact demographic and grade strata transparent, exposed the institutional and mobility gaps in Table 5 and Figure 3 Panel C, and paired the estimates with Rambachan & Roth (2023) pre-trend sensitivity.
+2. “Aren't Manski worst-case bounds too conservative?” → Worst-case Manski bounds are intentionally agnostic: they show what the data alone can guarantee without untestable missing-at-random assumptions. Presenting both the 2016–2019 window (where bounds cross zero) and the full 2005–2024 series (where worst-case bounds on the Callaway & Sant'Anna aggregate stay positive) lets readers see where missingness can flip the sign and where it cannot.
+3. “Couldn't you use the rollout of public education boards (SLEP) or centralized admissions (SAE) as an instrument for closure?” → We audited both candidates and rejected them in the identification gate. Both SLEP and SAE directly change school funding, seat allocation, and student sorting across the local market—violating the exclusion restriction.
+
+Recordatorios: no solicitar votos; responder en el hilo; no reenviar de inmediato si el enlace no despega.

@@ -1,0 +1,42 @@
+# Procedencia de la cápsula de audio — Extender mi tesis en 3 cucharadas (parte III).
+# No se publica directamente: difusion/ se versiona pero está excluida del build (_config.yml).
+# El audio se genera a mano en la interfaz web de NotebookLM (no existe API personal).
+ref: costos-cierre-escolar-trayectorias
+post_canonico: https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
+posts_serie_relacionados:
+  - https://3cucharadas.cl/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+  - https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+titulo_episodio_propuesto: "Cuando cierra una escuela: qué muestran veinte años de trayectorias estudiantiles en Chile"
+generador: NotebookLM (Google), Audio Overview
+etapa: preparado
+formato: deep dive conversacional, dos hablantes (longitud media)
+idioma_hablado: "es (solicitud en personalización: A conductor es-ES, B experta es-CL; sujeto a verificación por escucha humana)"
+objetivo_segundos: 1200
+ventana_segundos: [600, 1800]
+fecha_preparacion: "2026-10-28"
+cuaderno_url: pendiente_generacion_manual
+
+insumos_paquete:
+  fuente_editorial: difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/01-fuente.md
+  personalizacion: difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/personalizacion.txt
+  guion_referencia: difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/guion.md
+  prompt_plantilla: penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md
+
+master:
+  estado: pendiente_generacion_manual
+  ruta_prevista: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/costos-cierre-escolar-trayectorias/capsula-es-master-estereo.m4a
+  sha256: null
+  duracion_s: null
+
+con_cortinas:
+  estado: pendiente_generacion_manual
+  ruta_prevista: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/costos-cierre-escolar-trayectorias/capsula-es-con-cortinas.m4a
+  comando_previsto: "python3 source-masters/podcast-cortinas/ensamblar.py <master> <destino>"
+  sha256: null
+  duracion_s: null
+
+publicado:
+  estado: no_publicado
+  spotify: null
+  apple: null
+  feed_rss: https://anchor.fm/s/1173891c8/podcast/rss

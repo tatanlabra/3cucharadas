@@ -282,6 +282,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
       await figures.nth(index).scrollIntoViewIfNeeded();
       await figures.nth(index).locator('img.post3-theme-image').waitFor({ state: 'visible' });
       await figures.nth(index).locator('img.post3-theme-image').evaluate((image) => {
+        image.loading = 'eager';
         if (!image.complete || image.naturalWidth === 0) {
           return new Promise((resolveImage) => {
             image.addEventListener('load', resolveImage, { once: true });
@@ -368,7 +369,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
           src: image?.currentSrc || '',
           complete: image?.complete === true && image?.naturalWidth > 0 && image?.naturalHeight > 0,
           named: Boolean(image?.getAttribute('alt')?.trim()),
-          sized: Boolean(imageBox && imageBox.width > 0 && imageBox.height > 0),
+          sized: Boolean(imageBox && imageBox.width > 0 && imageBox.height > 180),
           insideArticle: Boolean(articleBox)
             && box.left >= articleBox.left - payload.tolerance
             && box.right <= articleBox.right + payload.tolerance,

@@ -283,7 +283,7 @@ class ThesisPost3Verifier
     revision_words = if lang == "es"
                        /reestimaci[oó]n\s+(?:v3\.1\s+)?posterior al piloto|posterior al piloto\s+v3\.1/i
                      else
-                       /v3\.1\s+post-pilot re-estimation|post-pilot\s+v3\.1\s+re-estimation/i
+                       /(?:v3\.1\s+)?post-pilot re-estimation|post-pilot\s+(?:v3\.1\s+)?re-estimation/i
                      end
     assert_match!(body, revision_words, "lectura posterior al piloto ausente #{lang}")
   end
@@ -501,9 +501,9 @@ class ThesisPost3Verifier
     raise ThesisPost3Error, "artefacto gobernado de serie 2005-2024 ausente: #{series_path}" unless series_path.file?
 
     rcid_claims = if lang == "es"
-                    ["RCID v1", "1.981", "1.807", "1.678", "1.648", "1.141", "78.972", "734.472", "+9,11", "+0,43", "+16,21", "+5,14", "30,68 %", "47,04 %"]
+                    ["RCID v1", "1.981", "1.807", "1.678", "1.648", "1.141", "78.972", "734.472", "+12,15", "+7,82", "+2,70", "+2,59", "+9,11", "+0,43", "+16,21", "+5,14", "30,68 %", "47,04 %"]
                   else
-                    ["RCID v1", "1,981", "1,807", "1,678", "1,648", "1,141", "78,972", "734,472", "+9.11", "+0.43", "+16.21", "+5.14", "30.68%", "47.04%"]
+                    ["RCID v1", "1,981", "1,807", "1,678", "1,648", "1,141", "78,972", "734,472", "+12.15", "+7.82", "+2.70", "+2.59", "+9.11", "+0.43", "+16.21", "+5.14", "30.68%", "47.04%"]
                   end
     missing_rcid = rcid_claims.reject { |claim| body.include?(claim) }
     raise ThesisPost3Error, "evidencia RCID v1 o serie 2005-2024 ausente #{lang}: #{missing_rcid.join(', ')}" unless missing_rcid.empty?
@@ -767,6 +767,8 @@ class ThesisPost3Verifier
       replace_all!(documents, "en", "21.1 effective episodes", "22.1 effective episodes", fixture)
     when "iv-promotion"
       replace_all!(documents, "es", "no se ejecuta una regresión instrumental en esta versión", "se ejecuta una regresión instrumental en esta versión", fixture)
+    when "series-regime-drift"
+      replace_all!(documents, "es", "+12,15", "+5,97", fixture)
     else
       raise ThesisPost3Error, "fixture desconocido: #{fixture}"
     end

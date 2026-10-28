@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -54,7 +54,7 @@
       "format": "svg",
       "locale": "en",
       "path": "sample-flow-en-light.svg",
-      "sha256": "2b41eb8df8cb2b33e94b47bdbb11cad3dcc1b681231199f184f1299a22bfab92",
+      "sha256": "0884bf1bb95fa3aca6a64d1f4806e74e7da2a70a3e0c40ff5863c1a1b823a8b4",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -62,7 +62,7 @@
       "format": "png",
       "locale": "en",
       "path": "sample-flow-en-light.png",
-      "sha256": "da02fb5d17a78672aae3eb42d993b32d63e797b4dc44da3dfc59f110cf516cbd",
+      "sha256": "3afb89a829d2d3a07d08500fc559e783a3d732c092bc25110e16b3998382d8c7",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -70,7 +70,7 @@
       "format": "svg",
       "locale": "en",
       "path": "sample-flow-en-light-mobile.svg",
-      "sha256": "fb8fa4671f64559bcb04fbd2118a74e246d558a172ebe1a7626263361492eb00",
+      "sha256": "d859103d3ef377d1e9b9216985b37a5e9a9fcce68a62de24eca266f92a7abe24",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -78,7 +78,7 @@
       "format": "png",
       "locale": "en",
       "path": "sample-flow-en-light-mobile.png",
-      "sha256": "da858fb5f42441df0531b802bbf9f99f23d592fa58b981b36f1f9271973958fa",
+      "sha256": "3644a5a2f760f2b87aa0c8f53bdd41053e307fd31221340816f5375646f981f5",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -86,7 +86,7 @@
       "format": "svg",
       "locale": "en",
       "path": "sample-flow-en-dark.svg",
-      "sha256": "2eb8b519a39ba8df8e0a3e5700d4e1b59cd58b385ecd3d75d6092dfafe90719d",
+      "sha256": "e795484c729add4acc58bfb23730ca3fd003da6b366dd07944944541fae1a79c",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -94,7 +94,7 @@
       "format": "png",
       "locale": "en",
       "path": "sample-flow-en-dark.png",
-      "sha256": "e99c961c2a5644c87e093065b2aacf8c9f203f71640077bc8a57f9932bdcf93d",
+      "sha256": "287463b4b513c859233baf290051ef3aea6a04aa7b5f08c9a6cada3f038d10a3",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -102,7 +102,7 @@
       "format": "svg",
       "locale": "en",
       "path": "sample-flow-en-dark-mobile.svg",
-      "sha256": "ac42a194952a23d2853c8c525851f144ab900f24e6f3ea380c06c1e22124254e",
+      "sha256": "83f2018f3cad81a138d2015513116b2fe1150ab7d50198e5f8bd9465553e3ad3",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -110,7 +110,7 @@
       "format": "png",
       "locale": "en",
       "path": "sample-flow-en-dark-mobile.png",
-      "sha256": "c41e62b550c8334434008e7794bc8bcc17dd25a5ab0e0f13f86716cebf991c1e",
+      "sha256": "195b6bd844485ac340d9f5fd35303cf5035b475e59fd71b60ee3a7af670f2db4",
       "theme": "dark",
       "viewport": "mobile"
     }

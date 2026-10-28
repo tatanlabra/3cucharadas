@@ -44,7 +44,8 @@ class VerifyThesisPost3Test < Minitest::Test
     "comparability-age-coverage" => "alcance de cobertura comparativa impreciso",
     "safeguards-causal-promotion" => "resguardos prudenciales promovidos a efecto",
     "effective-clusters-drift" => "clusters efectivos ausentes",
-    "iv-promotion" => "rechazo editorial de IV ausente"
+    "iv-promotion" => "rechazo editorial de IV ausente",
+    "series-regime-drift" => "evidencia RCID v1 o serie 2005-2024 ausente"
   }.freeze
 
   def run_gate(fixture = nil)

@@ -1,0 +1,1170 @@
+{
+  "status": "PASS",
+  "engine": "playwright-local-chromium",
+  "contractVersion": "post3-visual-ux-v5",
+  "testedAt": "2026-10-28T07:00:57.617Z",
+  "baseUrl": "http://127.0.0.1:4021",
+  "inputs": {
+    "files": [
+      {
+        "path": "assets/data/tesis-post3/visual_identity_tokens_v1.json",
+        "sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa"
+      },
+      {
+        "path": "_sass/_post3-data-viz-tokens.scss",
+        "sha256": "0df3b11980188e6357e083f058072c2c32e451a1097ff1f0a95814e7ab289cb7"
+      },
+      {
+        "path": "assets/css/main.scss",
+        "sha256": "f0482051770678ecc8bd867a22e039dd4744054aef8db59b5332d0a60f897bfa"
+      },
+      {
+        "path": "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+        "sha256": "cf4e827d04b7dbcca7db5189343d27c2fddcb9681812be369e7a0f187416b3b9"
+      },
+      {
+        "path": "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+        "sha256": "b07edc9e20d3d13ee4a2f3d8d78bd1a69107e85181c4637cc9c7031f33dcac17"
+      },
+      {
+        "path": "scripts/build_post3_visual_tokens.py",
+        "sha256": "8c0ccdcd83366f2d3d20f25caaa05c71efab1e6b1124e46df66e5252c6d7ac34"
+      },
+      {
+        "path": "scripts/verify_thesis_post3_browser.mjs",
+        "sha256": "723a4930886bb7dfa3313089c2490176f26dbe1c953822936e3ae08dc6e6639b"
+      },
+      {
+        "path": "assets/images/tesis-post3/manifest.json",
+        "sha256": "6337919e50ab4fd01fee29f5aa3679f54e5a9f38501d28ac2e6356fe9569810d"
+      },
+      {
+        "path": "incubadora/tesis_mae_mejorada/scripts/336_post3_visuals.py",
+        "sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491"
+      },
+      {
+        "path": "penta-agent/skills/3cucharadas-visualizacion-datos/scripts/dtcg_format.py",
+        "sha256": "a4a0436265da81cc88329740b86bc601d42e43c7f778565bb5fea050d31b8cf2"
+      },
+      {
+        "path": "penta-agent/skills/3cucharadas-visualizacion-datos/assets/dtcg/2025.10/format.json",
+        "sha256": "7f40fe678340b756e6464a0c20facfc29fe6ff055a202249132cc14eeafc7678"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light.svg",
+        "sha256": "1feb0d6627957fcc6685a9945ea6a2ff2fb6f0804970f764fc17a7c87f0f800c"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light.png",
+        "sha256": "74599054d962c903fecd8004c79d13f3e12535f7fc98b438496af7bb8ca4a39f"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "sha256": "c589e68f059636e66bec1eea71a6d471aed8caf646fe7379400fd42c28927352"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.png",
+        "sha256": "1ca0cf846f26581600acad47d41e789c0ab2f22bbc3c4c1ee7c1c47bc8d19b36"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "sha256": "54f62c706add16ade2ffd0f6708fecaae59ca1fea613f6040200ad00ac70ed2a"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark.png",
+        "sha256": "b737cf9e9747d337b801b12dc46a7ef226a8739aac3c7524c5488b5b27a5b1b1"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "sha256": "e78048577b3732c1f6bfdf655c4e554bf5f4519f0c2ca672f791f9c15f8bac81"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.png",
+        "sha256": "b1f1598561ae6b30f06d10ed15e9824a003ded5696bd424743c75446f4317150"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light.svg",
+        "sha256": "0884bf1bb95fa3aca6a64d1f4806e74e7da2a70a3e0c40ff5863c1a1b823a8b4"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light.png",
+        "sha256": "3afb89a829d2d3a07d08500fc559e783a3d732c092bc25110e16b3998382d8c7"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "sha256": "d859103d3ef377d1e9b9216985b37a5e9a9fcce68a62de24eca266f92a7abe24"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.png",
+        "sha256": "3644a5a2f760f2b87aa0c8f53bdd41053e307fd31221340816f5375646f981f5"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "sha256": "e795484c729add4acc58bfb23730ca3fd003da6b366dd07944944541fae1a79c"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark.png",
+        "sha256": "287463b4b513c859233baf290051ef3aea6a04aa7b5f08c9a6cada3f038d10a3"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "sha256": "83f2018f3cad81a138d2015513116b2fe1150ab7d50198e5f8bd9465553e3ad3"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.png",
+        "sha256": "195b6bd844485ac340d9f5fd35303cf5035b475e59fd71b60ee3a7af670f2db4"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.svg",
+        "sha256": "8d8a5d720595a223707fd38f0c0cfde73249ab57f65793b253c14ce9a27734a2"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.png",
+        "sha256": "823eaebd8a9f3a5a6e14db3996ef346ee60004d14b8aa6e577516d7a774e5555"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg",
+        "sha256": "a523eb06203a10de96a7fb6904bd6a78483de6818638910a3c1102e31d432053"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.png",
+        "sha256": "5a774aa0b4cb12d8c2ae64b3f86fbe126c4b7e1bc5b1d4afed53bd1824e2f784"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg",
+        "sha256": "cb49bda3ffa262f0ed10d87a17acde571734adc01cbae14eec22cb1a1a5b71e9"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.png",
+        "sha256": "b00db8a71822ebdc10712f7afaffa4ed4c19b8dd49d9aa79843563fdf816c576"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg",
+        "sha256": "689ae9aee8b56e59785eae7816ba81432323925f47f9351905672cf153fcdb7b"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.png",
+        "sha256": "fe1dc35927181b34195622042d1225de29c83adce77b77302860373270e666a1"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.svg",
+        "sha256": "e5613637c629ac18ccb3b366a3f7085bf097b56b9022cfd1c7e62687ece2c720"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.png",
+        "sha256": "6157884c4799924e5cddecb2f964c7d04d3edced18ef859f4f85a0b1fd864104"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg",
+        "sha256": "8642689994a557aaafdfdfe347abea9134ad0fd2cc77fe62a8d744f35009cd12"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.png",
+        "sha256": "a94185e45b551e8eec1318c3785abf5b61bff3672aedd98e23926bf16c4ca966"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg",
+        "sha256": "2355e50c91c2f8f659103b2de9c7b6b0885e55deb9e8d37d1ba1c498d0a9aae4"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.png",
+        "sha256": "5799234bbbcb88485b96c5ecaaf8eb549213380801bc04bad4f5ea954f63116a"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg",
+        "sha256": "f38c1764df319c0349e564eaaafa30660422f74ecac1261d2923ae9d80d2a961"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.png",
+        "sha256": "9ca0a7ba82a540db9284aafb1059dd65d6d4b932e896b64179af139917ffb1ba"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light.svg",
+        "sha256": "2947affbfd33e420b1547ee25808a4a1e9730b6d34074ae25ffe641f41a9d47a"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light.png",
+        "sha256": "51e7b1e7ff940222b778dc39d04d0fa8c1de766c543466e79fe8ad3411da3791"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.svg",
+        "sha256": "257089a237f313c0054a07495bb134334bf3ad7a87c2730f8806897a36837d9c"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.png",
+        "sha256": "8b3a733911123d0ed415804cc0fb71967228e76ab63c2f7ec588b3df26320a38"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark.svg",
+        "sha256": "fc5f955fdbd43a0622697482951224929ecac98b8dec492464bcc4dcc7568684"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark.png",
+        "sha256": "6f48d64731ab8a271a8d8f028ebd5c5f929d82240b509dcb1ff008f8ec876b8f"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg",
+        "sha256": "60a445d7541e543fbcff3c33d8745ea97fe01382bd8c9e199874abf547cc7af1"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.png",
+        "sha256": "c803a128dc36bf5c33c59b075c36d0f02d40f72790765eaf85881d8150baaf16"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light.svg",
+        "sha256": "ec7cdd5902222609855d0cdb1420878edf30dd96b88c3faf6e883c663f02c261"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light.png",
+        "sha256": "e8d95526671ef323b21981a5913cec5b5001bc38fe3fa1e2cd0ec1ab441575b1"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.svg",
+        "sha256": "29df84ac30443f398f7e558849768a8526e67140c30e5efd9948235a30f2fd24"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.png",
+        "sha256": "638c038a7cf91c3d262eefe7da62ca52f2409fc0119214f936e2c4cc4370e060"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark.svg",
+        "sha256": "75950e901c2d8a4d4f052c1eebe06512366fde61b377a3ab89e38edffb6ba9be"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark.png",
+        "sha256": "23ed5f2297081027059c493725decd14ec7e1028610dbf9c60012c1116b18871"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg",
+        "sha256": "2516aad632d61d375a1c0216bfbc8b91567fa4cf404e5df15b5233d33e564329"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.png",
+        "sha256": "2c5b48f887ecf9ff178ffb52cdb3b01558bed5fc811192218aa1adc39b586f89"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+        "sha256": "6c38eb2addefb672fe318479e4847ac82b476ed3342395a71746523d5d519c0b"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-light.png",
+        "sha256": "eca3e0fdc96b9be480098f76fff087210a2e41b6580b68ccd160777adebe7414"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "sha256": "25d8a2920efd3b6791de9b42d18d5ae4ad41441a80a93ad8957aa08052d0b3da"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.png",
+        "sha256": "c71b04233dfe4009604cc908be2ff9687c4fc1b073199702ce9a60912ff944fd"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+        "sha256": "5ce3d8ee67dcf44d3ebbe83ae52b6afb8bb67382ad0c44f9d3a1f82c96201881"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark.png",
+        "sha256": "fb1ac6940fcdde7b04eec618689994bee1ef29d555d4d0df1aa33c039ecf71cd"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+        "sha256": "c9ab733632db3e9f801bbcd99430432e21a69fc9cefe66f353e099686224d70c"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.png",
+        "sha256": "5d5a20077da936724eb9d12b340b13d69faac9b08f0e489750b7e79cfb6e92f3"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+        "sha256": "09003f6c5dc110c69137570264cf211b0afb778325315eed425fa474d6c849d5"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-light.png",
+        "sha256": "dade62450f0ddc18ceda25c11bd29afeeb6752a95fc3cde4b5db216b8506f662"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+        "sha256": "5ba29c14544ee7e8f56e57deb547dd98cf1df9252ea7223e391e6df32ffa2840"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.png",
+        "sha256": "4f0b8f387e040756e49260eadeba366e72cedacbfff8de5bdb72a9e8d47c663e"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+        "sha256": "f0a3140004f33149fc79d2b2195b63b38a20d96b12dfbd3d9ff0835fb4627f5e"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark.png",
+        "sha256": "f12f302b74ada319099a65418b7831928d182c2d5bc2e3a08a4c1d1db7c380d1"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+        "sha256": "628e66c341069b08768d8ec548da080ab7712966d5a0a828c01928e829360237"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.png",
+        "sha256": "edd8091b11c206cccffcaee8d796edc915697913fc028fb982561168d68290be"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-data.csv",
+        "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+        "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+      },
+      {
+        "path": "assets/images/tesis-post3/missingness-bounds-data.csv",
+        "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-data.csv",
+        "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-data.csv",
+        "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-es.visual-manifest.json",
+        "sha256": "1d1804299035b8df6c9b961fc1bad096fc75103590aed429b892e60c2d7f7349"
+      },
+      {
+        "path": "assets/images/tesis-post3/sample-flow-en.visual-manifest.json",
+        "sha256": "fefb8229fcacd8a02dcffe77bf769fb9ee10bbec95b8f06ed1e13bdbd3a29e21"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-es.visual-manifest.json",
+        "sha256": "628c430cc60bba5b1303c810354f395607bad4a72fece2786b4f33263bac92e7"
+      },
+      {
+        "path": "assets/images/tesis-post3/post-pilot-reestimation-en.visual-manifest.json",
+        "sha256": "7c7f56f257c83bd96b1747972abdd3271ce5b2f53c7f817dc8582d14e354b385"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-es.visual-manifest.json",
+        "sha256": "8ab849fa334a31c91a54f95ea1593b0017057ae6bd130f8420cc96c6c00979cd"
+      },
+      {
+        "path": "assets/images/tesis-post3/territorial-audit-en.visual-manifest.json",
+        "sha256": "327338bc5cb166733317567e50548f7ea30822cc5bf3ef65476c179c705f55aa"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-es.visual-manifest.json",
+        "sha256": "5dab9d6d9bce8ed90634100e5df9359ab3bbe928f82d9d88216687c96f933b8f"
+      },
+      {
+        "path": "assets/images/tesis-post3/cohort-series-infographic-en.visual-manifest.json",
+        "sha256": "6ae9ebfe6a977c0901ab084b8c02676136909f99722d099d5380e993f3635178"
+      }
+    ],
+    "assetCount": 77,
+    "mismatches": [],
+    "publishedCss": {
+      "path": "/assets/css/main.css",
+      "sha256": "e6241b1a637cca8297cbb00c241337554ddc65ccdd61f72f6c544ce61863eab9"
+    },
+    "artifactCss": {
+      "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/assets/css/main.css",
+      "sha256": "e6241b1a637cca8297cbb00c241337554ddc65ccdd61f72f6c544ce61863eab9"
+    },
+    "artifactBound": true,
+    "artifactBindings": [
+      {
+        "locale": "es",
+        "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+        "artifactHtmlPath": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/index.html",
+        "httpStatus": 200,
+        "servedSha256": "8fa74240095cdfeb9722bd020924d2847f8f2fb855502ace32be76c6676c4378",
+        "artifactSha256": "8fa74240095cdfeb9722bd020924d2847f8f2fb855502ace32be76c6676c4378",
+        "exactArtifact": true,
+        "stateMarker": true,
+        "readinessMarker": true,
+        "sourceClaims": {
+          "progression": 10,
+          "lowerBound": 11,
+          "upperBound": 10
+        },
+        "servedClaims": {
+          "progression": 10,
+          "lowerBound": 11,
+          "upperBound": 10
+        },
+        "criticalClaimsBound": true
+      },
+      {
+        "locale": "en",
+        "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+        "artifactHtmlPath": "/home/ende/Descargas/programaciones/activos/3cucharadas/_site/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/index.html",
+        "httpStatus": 200,
+        "servedSha256": "75b379686bf48e718bf49f16a85b3109ad9c12c1a2483dfd1864da47cfa0b0c8",
+        "artifactSha256": "75b379686bf48e718bf49f16a85b3109ad9c12c1a2483dfd1864da47cfa0b0c8",
+        "exactArtifact": true,
+        "stateMarker": true,
+        "readinessMarker": true,
+        "sourceClaims": {
+          "progression": 10,
+          "lowerBound": 11,
+          "upperBound": 10
+        },
+        "servedClaims": {
+          "progression": 10,
+          "lowerBound": 11,
+          "upperBound": 10
+        },
+        "criticalClaimsBound": true
+      }
+    ]
+  },
+  "reflow320": {
+    "rows": 4,
+    "noDocumentOverflow": true
+  },
+  "rows": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 10.279329608938548,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 12.777777777777779,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 10.279329608938548,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 12.777777777777779,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 10.279329608938548,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 12.777777777777779,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 320,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 10.279329608938548,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 390,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16,
+      "tableMinFontPx": 16,
+      "referenceMinFontPx": 15.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 12.777777777777779,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 768,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 16.688,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 15.8536,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "viewportWidth": 1440,
+      "httpStatus": 200,
+      "titleMatches": true,
+      "headingsPresent": true,
+      "documentOverflow": false,
+      "bodyFontPx": 18,
+      "tableMinFontPx": 15,
+      "referenceMinFontPx": 16.2,
+      "tableCount": 7,
+      "figureCount": 4,
+      "figuresValid": true,
+      "figureThemeValid": true,
+      "visualIdentityValid": true,
+      "dataFallbackValid": true,
+      "keyboardFocusValid": true,
+      "svgTextMinPx": 13.308080808080808,
+      "tableWrappersValid": true,
+      "tableHeadersScoped": true,
+      "idsUnique": true,
+      "imagesNamed": true,
+      "higherEducationAgenda": true,
+      "noHigherEducationBlocker": true,
+      "historicalCapsule": true,
+      "publicContentSafe": true,
+      "themeSurfaceValid": true,
+      "editorialGeometryValid": true,
+      "darkPanelToneValid": true,
+      "criticalErrors": [],
+      "failures": []
+    }
+  ],
+  "no_js": [
+    {
+      "locale": "es",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "lightMobileFallbacks": true,
+      "documentOverflow": false,
+      "tableCount": 7
+    },
+    {
+      "locale": "en",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "lightMobileFallbacks": true,
+      "documentOverflow": false,
+      "tableCount": 7
+    }
+  ],
+  "print": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "httpStatus": 200,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "lightVariants": true,
+      "printPaletteValid": true
+    }
+  ],
+  "text_resize_200": [
+    {
+      "locale": "es",
+      "httpStatus": 200,
+      "textNodesMeasured": 462,
+      "minimumTextScale": 2,
+      "clippedTextElements": 0,
+      "figureCount": 4,
+      "tableCount": 7,
+      "figuresVisible": true,
+      "contentPresent": true,
+      "documentOverflow": false,
+      "wrappersContained": true
+    },
+    {
+      "locale": "en",
+      "httpStatus": 200,
+      "textNodesMeasured": 462,
+      "minimumTextScale": 2,
+      "clippedTextElements": 0,
+      "figureCount": 4,
+      "tableCount": 7,
+      "figuresVisible": true,
+      "contentPresent": true,
+      "documentOverflow": false,
+      "wrappersContained": true
+    }
+  ],
+  "preferences": [
+    {
+      "locale": "es",
+      "theme": "light",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "light",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "es",
+      "theme": "academic-night",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "light",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "preference": "forced-colors",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    },
+    {
+      "locale": "en",
+      "theme": "academic-night",
+      "preference": "prefers-contrast",
+      "httpStatus": 200,
+      "preferenceMatches": true,
+      "figureCount": 4,
+      "figuresVisible": true,
+      "strongPanelBorders": true,
+      "noPanelShadows": true,
+      "linksUnderlined": true,
+      "imagesFramed": true,
+      "focusVisible": true,
+      "documentOverflow": false
+    }
+  ],
+  "failures": {
+    "live": [],
+    "no_js": [],
+    "print": [],
+    "text_resize_200": [],
+    "preferences": [],
+    "asset_hash_mismatches": [],
+    "published_css_missing": false,
+    "artifact_not_bound": false
+  }
+}

@@ -1,0 +1,93 @@
+slug: costos-cierre-escolar-trayectorias
+ref: costos-cierre-escolar-trayectorias
+canonical: https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
+canonical_en: https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
+titulo_es: "Extender mi tesis en 3 cucharadas (parte III): qué muestran las trayectorias después del cierre de una escuela"
+titulo_en: "Extending my thesis in three spoonfuls (part III): what student trajectories show after a school closure"
+tipo: datos-y-politica-publica
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-10-23
+publicado_en: 2026-10-23
+actualizado: 2026-10-28
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-10-28
+  alcance: "paquete local completo (difusión multicanal + podcast NotebookLM); sin envíos externos hasta autorización humana explícita"
+  publicaciones_externas_completadas: 0
+evidencia:
+  registros_matricula_2004_2025: 79709054
+  registros_rendimiento_2004_2025: 73873835
+  episodios_d0_2005_2025: 1981
+  episodios_d1_estrictos_2005_2025: 1807
+  episodios_d2_rcid_v1_conservador: 1678
+  episodios_d2_rcid_v1_limpio: 1648
+  ventana_principal_2016_2019:
+    episodios_con_soporte: 63
+    episodios_primarios: 62
+    expuestos_soporte: 6190
+    controles_soporte: 82753
+    no_matricula_2_anos_pp: "+0.63 [-0.77, 2.03]"
+    falla_progresion_pp: "+5.29 [2.08, 8.51]"
+    cotas_manski_progresion_pp: "[-1.15, 10.98]"
+    episodios_efectivos_progresion: 21.9
+    episodios_efectivos_no_matricula: 21.1
+    episodios_efectivos_rendimiento: 17.7
+    rotacion_previa_g3_g1_expuestos_pct: 47.04
+    rotacion_previa_g3_g1_controles_pct: 30.52
+  serie_completa_2005_2024:
+    cohortes_anuales: 20
+    episodios_con_soporte: 1141
+    expuestos_n: 78972
+    controles_n: 734472
+    callaway_santanna_progresion_pp: "+9.11 [+5.34, +12.88]"
+    cotas_manski_serie_pp: "[+0.43, +16.21]"
+    pesos_iguales_progresion_pp: "+7.55 [+5.52, +9.57]"
+    varianza_inversa_progresion_pp: "+5.14 [+4.34, +5.95]"
+    i2_heterogeneidad_pct: 76.48
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-10-29
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: bluesky
+    fecha_propuesta: 2026-10-29
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: linkedin
+    fecha_propuesta: 2026-10-30
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-10-31
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-01
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-02
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit-dataisbeautiful
+    fecha_propuesta: 2026-11-03
+    archivo: reddit-dataisbeautiful.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: podcast-notebooklm
+    fecha_propuesta: 2026-10-30
+    archivo: podcast/README.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - aprobación editorial humana antes de activar distribution.social o ejecutar cualquier envío externo
+  - generación manual del audio en NotebookLM y escucha humana completa según podcast/QA.md
+  - importar medium.md verificando el enlace canónico hacia la versión en inglés de 3cucharadas.cl
+  - revisar reglas vigentes de r/dataisbeautiful desde sesión humana antes de publicar el gráfico [OC]

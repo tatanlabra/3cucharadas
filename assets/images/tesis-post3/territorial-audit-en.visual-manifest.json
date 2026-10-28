@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -61,7 +61,7 @@
       "format": "svg",
       "locale": "en",
       "path": "territorial-audit-en-light.svg",
-      "sha256": "067b424d76048dbf1e17c83940a9145329053d6222ec8b80092be2995f9c9714",
+      "sha256": "ec7cdd5902222609855d0cdb1420878edf30dd96b88c3faf6e883c663f02c261",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -69,7 +69,7 @@
       "format": "png",
       "locale": "en",
       "path": "territorial-audit-en-light.png",
-      "sha256": "2d108d14416dc587f26e6884372c80ab3f19f639a040f509b564f03ce63a7b1e",
+      "sha256": "e8d95526671ef323b21981a5913cec5b5001bc38fe3fa1e2cd0ec1ab441575b1",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -77,7 +77,7 @@
       "format": "svg",
       "locale": "en",
       "path": "territorial-audit-en-light-mobile.svg",
-      "sha256": "a038699028b7d0892a0a5cd5008cbf3fd6b7250432ca5b206a308bc579329c76",
+      "sha256": "29df84ac30443f398f7e558849768a8526e67140c30e5efd9948235a30f2fd24",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -85,7 +85,7 @@
       "format": "png",
       "locale": "en",
       "path": "territorial-audit-en-light-mobile.png",
-      "sha256": "b0796bdcdba14ade0c9f6c9d571303ee26f6b5d33b54220be80e152ad2f55fa3",
+      "sha256": "638c038a7cf91c3d262eefe7da62ca52f2409fc0119214f936e2c4cc4370e060",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -93,7 +93,7 @@
       "format": "svg",
       "locale": "en",
       "path": "territorial-audit-en-dark.svg",
-      "sha256": "cc1452a0b2006f85b288874e63cc41d24d6a83b60c66b7d3ec72741918e13f86",
+      "sha256": "75950e901c2d8a4d4f052c1eebe06512366fde61b377a3ab89e38edffb6ba9be",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -101,7 +101,7 @@
       "format": "png",
       "locale": "en",
       "path": "territorial-audit-en-dark.png",
-      "sha256": "ce1d16513fb8f26b9cec13d51b85a7dd95f3363b2824675c06e28ab6dad7c401",
+      "sha256": "23ed5f2297081027059c493725decd14ec7e1028610dbf9c60012c1116b18871",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -109,7 +109,7 @@
       "format": "svg",
       "locale": "en",
       "path": "territorial-audit-en-dark-mobile.svg",
-      "sha256": "97de5f55c75edc28d4069107f7beab224f399778390ad40ae66458adc288a053",
+      "sha256": "2516aad632d61d375a1c0216bfbc8b91567fa4cf404e5df15b5233d33e564329",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -117,7 +117,7 @@
       "format": "png",
       "locale": "en",
       "path": "territorial-audit-en-dark-mobile.png",
-      "sha256": "494149af7ae74d2a08451656866fb147cc8f9e2b6a396ee8d003ce43ebca207e",
+      "sha256": "2c5b48f887ecf9ff178ffb52cdb3b01558bed5fc811192218aa1adc39b586f89",
       "theme": "dark",
       "viewport": "mobile"
     }

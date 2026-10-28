@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg role="img" aria-labelledby="figure-title figure-desc" preserveAspectRatio="xMidYMid meet" style="max-width:100%;height:auto" xmlns:xlink="http://www.w3.org/1999/xlink" width="446.4pt" height="410.4pt" viewBox="0 0 446.4 410.4" xmlns="http://www.w3.org/2000/svg" version="1.1"><title id="figure-title">De la elegibilidad al soporte comparable</title><desc id="figure-desc">Dos carriles resumen el soporte de la reestimación post-piloto de 2016 a 2019. De 64 episodios históricos antes del soporte, 63 conservan al menos un estrato comparable y uno queda completamente fuera. De 6.581 observaciones estudiante-cohorte expuestas, 391 se excluyen y 6.190 permanecen. El universo de soporte contiene 82.753 observaciones estudiante-cohorte de control; las muestras finales cambian según el desenlace.</desc>
+<svg role="img" aria-labelledby="figure-title figure-desc" preserveAspectRatio="xMidYMid meet" style="max-width:100%;height:auto" xmlns:xlink="http://www.w3.org/1999/xlink" width="446.4pt" height="424.8pt" viewBox="0 0 446.4 424.8" xmlns="http://www.w3.org/2000/svg" version="1.1"><title id="figure-title">De la elegibilidad al soporte comparable</title><desc id="figure-desc">Dos carriles resumen el soporte de la reestimación post-piloto de 2016 a 2019. De 64 episodios históricos antes del soporte, 63 conservan al menos un estrato comparable y uno queda completamente fuera. De 6.581 observaciones estudiante-cohorte expuestas, 391 se excluyen y 6.190 permanecen. El universo de soporte contiene 82.753 observaciones estudiante-cohorte de control; las muestras finales cambian según el desenlace.</desc>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -20,145 +20,145 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 410.4 
-L 446.4 410.4 
-L 446.4 0 
-L 0 0 
+   <path d="M 0 424.8
+L 446.4 424.8
+L 446.4 0
+L 0 0
 z
 " style="fill: #faf7f0"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 35.712 173.162323 
-L 424.08 173.162323 
-L 424.08 73.872 
-L 35.712 73.872 
+    <path d="M 35.712 178.416
+L 424.08 178.416
+L 424.08 76.464
+L 35.712 76.464
 z
 " style="fill: #faf7f0"/>
    </g>
    <g id="patch_3">
-    <path d="M 35.712 92.81071 
-L 364.837424 92.81071 
-L 364.837424 82.513935 
-L 35.712 82.513935 
+    <path d="M 35.712 94.716697
+L 364.837424 94.716697
+L 364.837424 86.165884
+L 35.712 86.165884
 z
-" clip-path="url(#p8c2c5b7df0)" style="fill: #26354c; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pc681f79781)" style="fill: #26354c; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
-    <path d="M 35.712 129.584903 
-L 40.854585 129.584903 
-L 40.854585 119.288129 
-L 35.712 119.288129 
+    <path d="M 35.712 132.5376
+L 40.854585 132.5376
+L 40.854585 123.986787
+L 35.712 123.986787
 z
-" clip-path="url(#p8c2c5b7df0)" style="fill: #9a5e00; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pc681f79781)" style="fill: #9a5e00; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 35.712 166.359097 
-L 359.694839 166.359097 
-L 359.694839 156.062323 
-L 35.712 156.062323 
+    <path d="M 35.712 170.358503
+L 359.694839 170.358503
+L 359.694839 161.80769
+L 35.712 161.80769
 z
-" clip-path="url(#p8c2c5b7df0)" style="fill: #176b7b; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pc681f79781)" style="fill: #176b7b; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="matplotlib.axis_1"/>
    <g id="matplotlib.axis_2"/>
    <g id="text_1">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="77.259984" transform="rotate(-0 35.712 77.259984)">Antes del filtro de soporte</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="80.158487" transform="rotate(-0 35.712 80.158487)">Antes del filtro de soporte</text>
    </g>
    <g id="text_2">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="373.065559" y="91.682323" transform="rotate(-0 373.065559 91.682323)">64</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="373.065559" y="94.46129" transform="rotate(-0 373.065559 94.46129)">64</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="114.034177" transform="rotate(-0 35.712 114.034177)">Excluidos: sin soporte comparable</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="117.97939" transform="rotate(-0 35.712 117.97939)">Excluidos: sin soporte comparable</text>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="49.08272" y="128.456516" transform="rotate(-0 49.08272 128.456516)">1</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="49.08272" y="132.282194" transform="rotate(-0 49.08272 132.282194)">1</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="150.808371" transform="rotate(-0 35.712 150.808371)">Con soporte comparable</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="155.800294" transform="rotate(-0 35.712 155.800294)">Con soporte comparable</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="367.922975" y="165.23071" transform="rotate(-0 367.922975 165.23071)">63</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="367.922975" y="170.103097" transform="rotate(-0 367.922975 170.103097)">63</text>
    </g>
    <g id="text_7">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="35.712" y="60.872" transform="rotate(-0 35.712 60.872)">Episodios de cierre</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="35.712" y="63.464" transform="rotate(-0 35.712 63.464)">Episodios de cierre</text>
    </g>
   </g>
   <g id="axes_2">
    <g id="patch_6">
-    <path d="M 35.712 320.112 
-L 424.08 320.112 
-L 424.08 220.821677 
-L 35.712 220.821677 
+    <path d="M 35.712 331.344
+L 424.08 331.344
+L 424.08 229.392
+L 35.712 229.392
 z
 " style="fill: #faf7f0"/>
    </g>
    <g id="patch_7">
-    <path d="M 35.712 239.760387 
-L 364.837424 239.760387 
-L 364.837424 229.463613 
-L 35.712 229.463613 
+    <path d="M 35.712 247.644697
+L 364.837424 247.644697
+L 364.837424 239.093884
+L 35.712 239.093884
 z
-" clip-path="url(#pcace7b3771)" style="fill: #26354c; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pa1a3356fb0)" style="fill: #26354c; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
-    <path d="M 35.712 276.534581 
-L 55.266481 276.534581 
-L 55.266481 266.237806 
-L 35.712 266.237806 
+    <path d="M 35.712 285.4656
+L 55.266481 285.4656
+L 55.266481 276.914787
+L 35.712 276.914787
 z
-" clip-path="url(#pcace7b3771)" style="fill: #9a5e00; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pa1a3356fb0)" style="fill: #9a5e00; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
-    <path d="M 35.712 313.308774 
-L 345.282943 313.308774 
-L 345.282943 303.012 
-L 35.712 303.012 
+    <path d="M 35.712 323.286503
+L 345.282943 323.286503
+L 345.282943 314.73569
+L 35.712 314.73569
 z
-" clip-path="url(#pcace7b3771)" style="fill: #176b7b; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pa1a3356fb0)" style="fill: #176b7b; stroke: #faf7f0; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="matplotlib.axis_3"/>
    <g id="matplotlib.axis_4"/>
    <g id="text_8">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="224.209661" transform="rotate(-0 35.712 224.209661)">Antes del filtro de soporte</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="233.086487" transform="rotate(-0 35.712 233.086487)">Antes del filtro de soporte</text>
    </g>
    <g id="text_9">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="373.065559" y="238.632" transform="rotate(-0 373.065559 238.632)">6.581</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="373.065559" y="247.38929" transform="rotate(-0 373.065559 247.38929)">6.581</text>
    </g>
    <g id="text_10">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="260.983855" transform="rotate(-0 35.712 260.983855)">Excluidos: sin soporte comparable</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="270.90739" transform="rotate(-0 35.712 270.90739)">Excluidos: sin soporte comparable</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="63.494617" y="275.406194" transform="rotate(-0 63.494617 275.406194)">391</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="63.494617" y="285.210194" transform="rotate(-0 63.494617 285.210194)">391</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="297.758048" transform="rotate(-0 35.712 297.758048)">Con soporte comparable</text>
+    <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #526176" x="35.712" y="308.728294" transform="rotate(-0 35.712 308.728294)">Con soporte comparable</text>
    </g>
    <g id="text_13">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="353.511078" y="312.180387" transform="rotate(-0 353.511078 312.180387)">6.190</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="353.511078" y="323.031097" transform="rotate(-0 353.511078 323.031097)">6.190</text>
    </g>
    <g id="text_14">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="35.712" y="207.821677" transform="rotate(-0 35.712 207.821677)">Observaciones estudiante-cohorte expuestas</text>
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="35.712" y="216.392" transform="rotate(-0 35.712 216.392)">Observaciones estudiante-cohorte expuestas</text>
    </g>
   </g>
   <g id="text_15">
-   <text style="font-weight: 700; font-size: 16px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="22.32" y="29.324" transform="rotate(-0 22.32 29.324)">De la elegibilidad al soporte comparable</text>
+   <text style="font-weight: 700; font-size: 15.5px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #26354c" x="22.32" y="28.0861" transform="rotate(-0 22.32 28.0861)">De la elegibilidad al soporte comparable</text>
   </g>
   <g id="post3-sample-flow-controls">
-   <text style="font-weight: 700; font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #3f7d3a" transform="translate(22.32 353.508)">82.753  observaciones estudiante-cohorte de control en el universo de</text>
-   <text style="font-weight: 700; font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #3f7d3a" transform="translate(22.32 367.308)">soporte</text>
+   <text style="font-weight: 700; font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #3f7d3a" transform="translate(22.32 366.396)">82.753  observaciones estudiante-cohorte de control en el universo de</text>
+   <text style="font-weight: 700; font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #3f7d3a" transform="translate(22.32 380.196)">soporte</text>
   </g>
   <g id="post3-sample-flow-note">
-   <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #526176" transform="translate(22.32 389.2128)">Cada carril usa su propia unidad. Las muestras finales cambian según la</text>
-   <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #526176" transform="translate(22.32 403.0128)">elegibilidad de cada desenlace.</text>
+   <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #526176" transform="translate(22.32 403.3536)">Cada carril usa su propia unidad. Las muestras finales cambian según la</text>
+   <text style="font-size: 11.5px; font-family: 'Cucharadas Figure'; fill: #526176" transform="translate(22.32 417.1536)">elegibilidad de cada desenlace.</text>
   </g>
  </g>
  <defs>
-  <clipPath id="p8c2c5b7df0">
-   <rect x="35.712" y="73.872" width="388.368" height="99.290323"/>
+  <clipPath id="pc681f79781">
+   <rect x="35.712" y="76.464" width="388.368" height="101.952"/>
   </clipPath>
-  <clipPath id="pcace7b3771">
-   <rect x="35.712" y="220.821677" width="388.368" height="99.290323"/>
+  <clipPath id="pa1a3356fb0">
+   <rect x="35.712" y="229.392" width="388.368" height="101.952"/>
   </clipPath>
  </defs>
 </svg>

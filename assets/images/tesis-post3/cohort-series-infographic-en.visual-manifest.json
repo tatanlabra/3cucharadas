@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -68,7 +68,7 @@
       "format": "svg",
       "locale": "en",
       "path": "cohort-series-infographic-en-light.svg",
-      "sha256": "9ef227f606f026e7c44b94c20a2bf26e899b4a8b8e89ccb289e4858e141015aa",
+      "sha256": "09003f6c5dc110c69137570264cf211b0afb778325315eed425fa474d6c849d5",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -76,7 +76,7 @@
       "format": "png",
       "locale": "en",
       "path": "cohort-series-infographic-en-light.png",
-      "sha256": "bba087d092212916842d73d123c2e2a332421010ef85dd3d3699b815d920099e",
+      "sha256": "dade62450f0ddc18ceda25c11bd29afeeb6752a95fc3cde4b5db216b8506f662",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -84,7 +84,7 @@
       "format": "svg",
       "locale": "en",
       "path": "cohort-series-infographic-en-light-mobile.svg",
-      "sha256": "45766a6919c0e7b01b7078a0fa5d5cae0739c9bbb0248937dd35d7183fb6e652",
+      "sha256": "5ba29c14544ee7e8f56e57deb547dd98cf1df9252ea7223e391e6df32ffa2840",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -92,7 +92,7 @@
       "format": "png",
       "locale": "en",
       "path": "cohort-series-infographic-en-light-mobile.png",
-      "sha256": "3fe933c70468b1388e5ab0ba4f269fb431b623723e9af53391717ff1c507309a",
+      "sha256": "4f0b8f387e040756e49260eadeba366e72cedacbfff8de5bdb72a9e8d47c663e",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -100,7 +100,7 @@
       "format": "svg",
       "locale": "en",
       "path": "cohort-series-infographic-en-dark.svg",
-      "sha256": "e9f2af7c42e508d4874ad46115e09f525ed64447a7bac5c495594f1b78d81149",
+      "sha256": "f0a3140004f33149fc79d2b2195b63b38a20d96b12dfbd3d9ff0835fb4627f5e",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -108,7 +108,7 @@
       "format": "png",
       "locale": "en",
       "path": "cohort-series-infographic-en-dark.png",
-      "sha256": "1852fd157e9ebf95b9940155614c1b6a3f374f4c5974637c2434bad0aa078f48",
+      "sha256": "f12f302b74ada319099a65418b7831928d182c2d5bc2e3a08a4c1d1db7c380d1",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -116,7 +116,7 @@
       "format": "svg",
       "locale": "en",
       "path": "cohort-series-infographic-en-dark-mobile.svg",
-      "sha256": "9dccd5ceff616cba01d02a2c2cf5e1777f352ea6f2907cde22d4be0e24b46cca",
+      "sha256": "628e66c341069b08768d8ec548da080ab7712966d5a0a828c01928e829360237",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -124,7 +124,7 @@
       "format": "png",
       "locale": "en",
       "path": "cohort-series-infographic-en-dark-mobile.png",
-      "sha256": "7d61191a407588f638a3626c0b139cbbe2970fdc7441a35de5686a416427f810",
+      "sha256": "edd8091b11c206cccffcaee8d796edc915697913fc028fb982561168d68290be",
       "theme": "dark",
       "viewport": "mobile"
     }

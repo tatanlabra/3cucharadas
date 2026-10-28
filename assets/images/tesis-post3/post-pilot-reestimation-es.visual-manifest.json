@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "085354615e9ad7fbe673be049ccf1b5c27c66035f25b95a712d8dc3b36000a3d",
+    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -54,7 +54,7 @@
       "format": "svg",
       "locale": "es",
       "path": "post-pilot-reestimation-es-light.svg",
-      "sha256": "19ae26ebf3fa13a2535a4ab34bfff8cf46ea7b8814f417c4cf756757f96f3cb0",
+      "sha256": "8d8a5d720595a223707fd38f0c0cfde73249ab57f65793b253c14ce9a27734a2",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -62,7 +62,7 @@
       "format": "png",
       "locale": "es",
       "path": "post-pilot-reestimation-es-light.png",
-      "sha256": "47e56251fe1d1bcba347a43d394ad85877731c502d21ff46c605827c370f2146",
+      "sha256": "823eaebd8a9f3a5a6e14db3996ef346ee60004d14b8aa6e577516d7a774e5555",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -70,7 +70,7 @@
       "format": "svg",
       "locale": "es",
       "path": "post-pilot-reestimation-es-light-mobile.svg",
-      "sha256": "df8f5426089c420eab871da4e64e4a73f82fe5573c0feed2fcfe5cd921a9e6bb",
+      "sha256": "a523eb06203a10de96a7fb6904bd6a78483de6818638910a3c1102e31d432053",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -78,7 +78,7 @@
       "format": "png",
       "locale": "es",
       "path": "post-pilot-reestimation-es-light-mobile.png",
-      "sha256": "e45179eac3af075e5037c18f4f61411a334db181a80497ad777b44443cd6a506",
+      "sha256": "5a774aa0b4cb12d8c2ae64b3f86fbe126c4b7e1bc5b1d4afed53bd1824e2f784",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -86,7 +86,7 @@
       "format": "svg",
       "locale": "es",
       "path": "post-pilot-reestimation-es-dark.svg",
-      "sha256": "a07a0c2a3a32ffecba602031c4c08d86a5e88c6999e87d02bd50c2c37af0c5c1",
+      "sha256": "cb49bda3ffa262f0ed10d87a17acde571734adc01cbae14eec22cb1a1a5b71e9",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -94,7 +94,7 @@
       "format": "png",
       "locale": "es",
       "path": "post-pilot-reestimation-es-dark.png",
-      "sha256": "fd1eca6733f01dbe777a9817d96c4d14497d0c0abc9e8d958eeb7ef9d96d0fe7",
+      "sha256": "b00db8a71822ebdc10712f7afaffa4ed4c19b8dd49d9aa79843563fdf816c576",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -102,7 +102,7 @@
       "format": "svg",
       "locale": "es",
       "path": "post-pilot-reestimation-es-dark-mobile.svg",
-      "sha256": "0f62a5a99268401f6f43ff6cbeb4b82b9f74a4b4ed2428c56642cc5f4617ae63",
+      "sha256": "689ae9aee8b56e59785eae7816ba81432323925f47f9351905672cf153fcdb7b",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -110,7 +110,7 @@
       "format": "png",
       "locale": "es",
       "path": "post-pilot-reestimation-es-dark-mobile.png",
-      "sha256": "5d9cede1d82275364cfb8b237f2a270c1eae14d39fa3e49f0f5ea66dcb43adbb",
+      "sha256": "fe1dc35927181b34195622042d1225de29c83adce77b77302860373270e666a1",
       "theme": "dark",
       "viewport": "mobile"
     }
