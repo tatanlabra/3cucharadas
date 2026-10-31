@@ -1,0 +1,37 @@
+plan_state_version: 2
+plan: "3cucharadas: difusión Post III, referencias PDF/DOI+Scholar, citas al pie, título jueces, saneamiento y DEV.to"
+predecessor: docs/plans/20261031-post3-auditoria-ajustes/PLAN_STATE.yml
+updated_at: "2026-10-31T18:55:00-03:00"
+closed: false
+decisions:
+  - {by: human, header: Difusión Post III, chosen: "Enviar ahora y retirar el timer"}
+  - {by: human, header: Enlaces, chosen: "PDF verificado o DOI como destino del título; Scholar como enlace secundario (Scholar no es validable en automático)"}
+  - {by: human, header: Citas, chosen: "Notas kramdown al pie, la estrategia de los posts anteriores"}
+  - {by: human, header: Título jueces, chosen: "Jueces tipo JEV en local en 3 cucharadas: …; Mastodon y Bluesky sin cambios"}
+  - {by: human, header: DEV.to, chosen: "Publicar todos los pendientes verificando la visualización"}
+  - {by: human, header: Landing, chosen: "«Leer el artículo» sin sombra en el texto"}
+  - {by: human, header: Autonomía, chosen: "Completar sin preguntar, delegar donde convenga y avisar por Telegram"}
+  - {by: agent, header: Marca de nota, chosen: "[^clave] justo después del año, también en paréntesis múltiples", refutableBy: "render defectuoso en el sitio o en DEV.to"}
+  - {by: agent, header: PDF verificado, chosen: "200 + %PDF + ≥70 % de palabras del título en pdftotext de 2 páginas", refutableBy: "un PDF verificado que resulte ser otro documento"}
+  - {by: agent, header: Feeds EN, chosen: "Agregar categorías EN a feed.categories y apuntar los temas EN a ellas; las ES siguen generándose", refutableBy: "suscriptores que dependan de /en/feed/datos.xml con contenido"}
+items:
+  - {id: P0, glyph: "[x]", status: done, step: "Difusión del Post III enviada y registrada; timer retirado", verification: {kind: command, ref: "ledger network_published + distribucion.yml (2bcfd101); pipeline #386"}}
+  - {id: P1, glyph: "[x]", status: done, step: "Registro de enlaces verificado por contenido, reescritura de entradas y gate verify_reference_links.rb", verification: {kind: test, ref: "REFERENCE_LINKS_VALID 164 entradas/30 archivos; 7 mutantes en rojo (sin Scholar, sin DOI, PDF ajeno, título a otra página, título sin enlace, entrada borrada, identificador desaparecido)"}}
+  - {id: P2, glyph: "[x]", status: done, step: "Citas a notas kramdown en 7 pares; gate verify_footnotes.rb (fuente, kramdown y build)", verification: {kind: test, ref: "FOOTNOTES_VALID 262 notas/24 posts (fuente y build); Post III 327 aserciones; navegador Post II y III PASS"}}
+  - {id: P3, glyph: "[x]", status: done, step: "Título de jueces propagado; test de convención con firma obligatoria"}
+  - {id: P4, glyph: "[x]", status: done, step: "Saneamiento: comillas, voz, fechas, taxonomía, pies de figura, notas huérfanas, cifras de avalúo EN, figuras EN de avalúo"}
+  - {id: L1, glyph: "[x]", status: done, cause: user, step: "Landing «Leer el artículo» sin sombra", verification: {kind: observation, ref: "getComputedStyle textShadow=none, claro y nocturno"}}
+  - {id: P5, glyph: "[ ]", status: pending, step: "Publicar en DEV.to los borradores 4954532 y 4954537 tras verificar"}
+  - {id: P6, glyph: "[~]", status: active, step: "Revisión par de Codex (2 rondas, 3 hallazgos atendidos), commits, push y pipelines", verification: {kind: human, ref: "archivo/handoffs/2026-10-31_RESPUESTA_p1-p6-referencias-notas-review-codex-a-claude.md"}}
+emergents:
+  - "arXiv equivocado de LongMemEval-V2 (2605.06304 → 2605.12493)"
+  - "arXiv 2602.14690 renombrado después de v4: anotado"
+  - "Esposito 2024: el DOI es de una reseña, no del libro: explicitado"
+  - "Notas descartadas por kramdown: memoria ES (bush, extended-mind), réplica ES/EN (hamermesh2007), autopoiesis IV (tabla por '|')"
+  - "Modelo HF citado en jueces no existe (401): reemplazado; afirmaciones no medidas retiradas; paquete de difusión corregido"
+  - "Avalúo: texto ES y tabla EN no recibieron la corrección del 5-ago (Valparaíso 58,3)"
+  - "Feeds temáticos EN vacíos (AI y Public policy con 0 entradas)"
+  - "Gate «ready review» del Post I ya rojo en HEAD (11 controles; contrato de borrador, no corre en CI)"
+  - "Jueces: 8,36 GiB eran GB rotulados GiB (suma 7,78 GiB); razón disco/RAM retirada"
+  - "Registro: la verificación de PDF depende de la red (Laurer 2024 alternó); CI lee el registro versionado"
+  - "Gate de coherencia de difusión no detecta cifras retiradas que reaparecen con otro sentido (5–15 ms, 60x): control por rg"
