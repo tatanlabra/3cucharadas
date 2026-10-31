@@ -1,8 +1,8 @@
 plan_state_version: 2
 plan: "3cucharadas: difusión Post III, referencias PDF/DOI+Scholar, citas al pie, título jueces, saneamiento y DEV.to"
 predecessor: docs/plans/20261031-post3-auditoria-ajustes/PLAN_STATE.yml
-updated_at: "2026-10-31T18:55:00-03:00"
-closed: false
+updated_at: "2026-10-31T19:45:00-03:00"
+closed: true
 decisions:
   - {by: human, header: Difusión Post III, chosen: "Enviar ahora y retirar el timer"}
   - {by: human, header: Enlaces, chosen: "PDF verificado o DOI como destino del título; Scholar como enlace secundario (Scholar no es validable en automático)"}
@@ -21,8 +21,8 @@ items:
   - {id: P3, glyph: "[x]", status: done, step: "Título de jueces propagado; test de convención con firma obligatoria"}
   - {id: P4, glyph: "[x]", status: done, step: "Saneamiento: comillas, voz, fechas, taxonomía, pies de figura, notas huérfanas, cifras de avalúo EN, figuras EN de avalúo"}
   - {id: L1, glyph: "[x]", status: done, cause: user, step: "Landing «Leer el artículo» sin sombra", verification: {kind: observation, ref: "getComputedStyle textShadow=none, claro y nocturno"}}
-  - {id: P5, glyph: "[ ]", status: pending, step: "Publicar en DEV.to los borradores 4954532 y 4954537 tras verificar"}
-  - {id: P6, glyph: "[~]", status: active, step: "Revisión par de Codex (2 rondas, 3 hallazgos atendidos), commits, push y pipelines", verification: {kind: human, ref: "archivo/handoffs/2026-10-31_RESPUESTA_p1-p6-referencias-notas-review-codex-a-claude.md"}}
+  - {id: P5, glyph: "[x]", status: done, step: "Publicar en DEV.to los borradores 4954532 y 4954537 tras verificar; los 9 artículos resincronizados", verification: {kind: observation, ref: "body_markdown = exportación local en los 9; páginas públicas sin HTML como código, sin CSS ni restos; jueces 9 notas, autopoiesis IV 10, avalúo 15, nushell 8; imágenes cargadas; canónicos a 3cucharadas.cl; distribucion.yml publicado (bot 5f7bf4b)"}}
+  - {id: P6, glyph: "[x]", status: done, step: "Revisión par de Codex (2 rondas, 3 hallazgos atendidos), commits, push y pipelines #388–#391 en verde", verification: {kind: human, ref: "archivo/handoffs/2026-10-31_RESPUESTA_p1-p6-referencias-notas-review-codex-a-claude.md"}}
 emergents:
   - "arXiv equivocado de LongMemEval-V2 (2605.06304 → 2605.12493)"
   - "arXiv 2602.14690 renombrado después de v4: anotado"
@@ -35,3 +35,6 @@ emergents:
   - "Jueces: 8,36 GiB eran GB rotulados GiB (suma 7,78 GiB); razón disco/RAM retirada"
   - "Registro: la verificación de PDF depende de la red (Laurer 2024 alternó); CI lee el registro versionado"
   - "Gate de coherencia de difusión no detecta cifras retiradas que reaparecen con otro sentido (5–15 ms, 60x): control por rg"
+  - "DEV.to: <picture> descartado, <style> impreso como texto, póster con dominio doble, marcas en <details> literales y HTML sangrado leído como código; corregidos en jekyll_to_devto.rb con tests (27/224)"
+  - "DEV.to: el front matter published:false prevalece sobre el atributo JSON al publicar por API"
+  - "CI #387 rojo por Date sin require en verify_footnotes.rb (enmascarado en local); corregido"
