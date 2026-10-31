@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "contract": "DESIGN.md (3cucharadas Cuaderno de Evidencia)",
+  "files": [
+    {
+      "path": "fig-d2-colapso-panel-devto-1087x723.webp",
+      "bytes": 65894,
+      "sha256": "0fc62c92a009e4dbd2f277489fc8c6962a17b481d92193a5fdcafbbebadfbb49",
+      "width": 1087,
+      "height": 723
+    },
+    {
+      "path": "fig-d2-colapso-panel-mobile-devto-535x951.webp",
+      "bytes": 47060,
+      "sha256": "da006f899b91635d0e5d47f225fee4e19a176157ea84330480d196f674c4130d",
+      "width": 535,
+      "height": 951
+    },
+    {
+      "path": "fig-d2-colapso-panel-mobile.svg",
+      "bytes": 37437,
+      "sha256": "18c581427a3277319695a581591344af66294b1a70fc277795ec84c1456b4481"
+    },
+    {
+      "path": "fig-d2-colapso-panel.svg",
+      "bytes": 40147,
+      "sha256": "fbe7feeab3b19eb2a008493bd005b2d3797587011d18c046e31fd9952e78a4af"
+    },
+    {
+      "path": "kitty-ffpoke-hardware-1280x680.webp",
+      "bytes": 55396,
+      "sha256": "5792358535a4f6f85d6cc2b396dc5dc01a6cd2a1c7eb26f1e5f905dfaa326b2b",
+      "width": 1280,
+      "height": 680
+    },
+    {
+      "path": "laya-logo-lockup-dark-1040x298.webp",
+      "bytes": 19684,
+      "sha256": "ec091550246056faa5d654bdaa97d636958c472e422a22ed316bde3293d71338",
+      "width": 1040,
+      "height": 298
+    },
+    {
+      "path": "vega-icon-64x64.webp",
+      "bytes": 1066,
+      "sha256": "f75a171dc5bfe1a08342b827e7afe1f9c9870849b13d6fa837fb5b0018b1beef",
+      "width": 64,
+      "height": 64
+    }
+  ]
+}

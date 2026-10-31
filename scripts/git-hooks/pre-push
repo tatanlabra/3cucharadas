@@ -31,6 +31,19 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   if ! gitleaks git --log-opts="$range" --redact --verbose --no-banner --log-level warn --exit-code 1 >&2; then
     status=1
   fi
+
+  # Gate de promoción Draft -> Post: audita cualquier post nuevo o modificado en _posts/ o _drafts/
+  repo_root="$(git rev-parse --show-toplevel)"
+  if [ -f "$repo_root/scripts/verify_draft_promotion.rb" ]; then
+    while IFS= read -r touched_md; do
+      [ -z "$touched_md" ] && continue
+      [ ! -f "$repo_root/$touched_md" ] && continue
+      if ! ruby "$repo_root/scripts/verify_draft_promotion.rb" "$repo_root/$touched_md" >&2; then
+        printf 'pre-push: verify_draft_promotion.rb rechazó %s; corrige atribución/frontmatter/estilo antes de empujar.\n' "$touched_md" >&2
+        status=1
+      fi
+    done < <(git log --name-only --diff-filter=AM --pretty=format: $range -- '_posts/*.md' '_drafts/*.md' | sort -u)
+  fi
 done
 
 if [ "$status" -ne 0 ]; then

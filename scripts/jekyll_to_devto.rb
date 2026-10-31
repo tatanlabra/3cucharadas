@@ -56,7 +56,11 @@ module JekyllToDevto
     "/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg" =>
       "/assets/images/tesis-post3/territorial-audit-en-light-mobile.png",
     "/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg" =>
-      "/assets/images/tesis-post3/territorial-audit-en-dark-mobile.png"
+      "/assets/images/tesis-post3/territorial-audit-en-dark-mobile.png",
+    "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel.svg" =>
+      "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-devto-1087x723.webp",
+    "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile.svg" =>
+      "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile-devto-535x951.webp"
   }.freeze
 
   # Tags documentados por Forem y tags de bloque que DEV.to ya admite. La lista

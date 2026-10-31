@@ -1,0 +1,194 @@
+slug: jueces-locales-cpu
+ref: jueces-locales-cpu-laya-vega-arc
+posts:
+- _posts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md
+- _posts/2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/jueces-locales-cpu-laya-vega-arc/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 38446
+  sha256: c73008e80fe2f0160849b594208e6985c306d7f21f643a632d4993fdf313c31f
+  alt: &id001
+    es: Ilustración editorial de un comité de tres bloques geométricos bloqueados
+      tras una barrera ámbar frente a un prisma compacto con haz esmeralda sobre fondo
+      nocturno.
+    en: Editorial illustration of a three-block geometric committee stalled behind
+      an amber barrier next to a compact prism casting an emerald beam on a dark night
+      background.
+  provenance:
+    status: generated_this_revision
+    source_sha256: 77a3f573262e1e0f4fc68d5f7849cc7a675f3c8c973e9a2e9a452882f9d5ca42
+    note: &id002
+      es: Ilustración conceptual; no representa la arquitectura técnica ni resultados
+        experimentales medidos.
+      en: Conceptual illustration; it does not represent the technical architecture
+        or measured experimental results.
+    encoding: WebP quality=82; Lanczos; deterministic derivative
+    tool: image-generator via Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/jueces-locales-cpu-laya-vega-arc/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 14592
+  sha256: 57c4b166c4a5911340931d9513062e38da55da359744d6758486a3750122146c
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 77a3f573262e1e0f4fc68d5f7849cc7a675f3c8c973e9a2e9a452882f9d5ca42
+    note: *id002
+    encoding: WebP quality=80; Lanczos; deterministic derivative
+    tool: image-generator via Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/jueces-locales-cpu-laya-vega-arc/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 28056
+  sha256: 256fead5b967b62300d1aae6bc452ac11ddb63dd0dc87559ab9ea886090ad15b
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 77a3f573262e1e0f4fc68d5f7849cc7a675f3c8c973e9a2e9a452882f9d5ca42
+    note: *id002
+    encoding: WebP quality=80; Lanczos; deterministic derivative
+    tool: image-generator via Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/jueces-locales-cpu-laya-vega-arc/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 10478
+  sha256: 4409319486ae1d891073dd98cd500febdb80eb6dc128ab9902c6a6f9f72b7bec
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 77a3f573262e1e0f4fc68d5f7849cc7a675f3c8c973e9a2e9a452882f9d5ca42
+    note: *id002
+    encoding: WebP quality=78; Lanczos; deterministic derivative
+    tool: image-generator via Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/jueces-locales-cpu-laya-vega-arc/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 27962
+  sha256: e3225a13926e9122463b609d25d5c23f04d9ee607352c17f58c996b8be6cc9d2
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: 77a3f573262e1e0f4fc68d5f7849cc7a675f3c8c973e9a2e9a452882f9d5ca42
+    note: *id002
+    encoding: WebP quality=82; Lanczos; deterministic derivative
+    tool: image-generator via Antigravity
+    provider: Google
+    interface: Antigravity
+- id: fig-d2-colapso-panel
+  rol: diagrama
+  archivo: assets/images/jueces-locales-cpu/fig-d2-colapso-panel.svg
+  estado: publicable
+  origen: codigo-propio
+  bytes: 40147
+  sha256: fbe7feeab3b19eb2a008493bd005b2d3797587011d18c046e31fd9952e78a4af
+  alt:
+    es: Diagrama D2 del colapso secuencial del panel de 3 jueces locales en CPU y
+      quórum 2-de-3.
+    en: D2 diagram of the sequential collapse of the 3-judge local CPU panel and 2-of-3
+      quorum.
+- id: fig-d2-colapso-panel-mobile
+  rol: diagrama
+  archivo: assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile.svg
+  estado: publicable
+  origen: codigo-propio
+  bytes: 37437
+  sha256: 18c581427a3277319695a581591344af66294b1a70fc277795ec84c1456b4481
+  alt:
+    es: Diagrama D2 vertical para móvil del colapso secuencial del panel de 3 jueces
+      locales en CPU.
+    en: Vertical mobile D2 diagram of the sequential collapse of the 3-judge local
+      CPU panel.
+- id: kitty-ffpoke-hardware
+  rol: figura
+  archivo: assets/images/jueces-locales-cpu/kitty-ffpoke-hardware-1280x680.webp
+  estado: publicable
+  origen: codigo-propio
+  ancho: 1280
+  alto: 680
+  bytes: 55396
+  sha256: 5792358535a4f6f85d6cc2b396dc5dc01a6cd2a1c7eb26f1e5f905dfaa326b2b
+  alt:
+    es: Terminal Kitty con ffpoke y fastfetch mostrando el hardware real del experimento
+      (Lenovo YOGA 730-15IKB con Intel Core i7-8550U, Intel UHD Graphics 620 y 23,19
+      GiB de RAM sin dGPU).
+    en: Kitty terminal with ffpoke and fastfetch showing the actual experiment hardware
+      (Lenovo YOGA 730-15IKB with Intel Core i7-8550U, Intel UHD Graphics 620, and
+      23.19 GiB of RAM without dGPU).
+- id: laya-logo-lockup-dark
+  rol: figura
+  archivo: assets/images/jueces-locales-cpu/laya-logo-lockup-dark-1040x298.webp
+  estado: publicable
+  origen: externo
+  ancho: 1040
+  alto: 298
+  bytes: 19684
+  sha256: ec091550246056faa5d654bdaa97d636958c472e422a22ed316bde3293d71338
+  alt:
+    es: Logo oficial del motor de decisión Laya (NandhaKishorM/laya).
+    en: Official logo of the Laya decision engine (NandhaKishorM/laya).
+- id: vega-icon
+  rol: figura
+  archivo: assets/images/jueces-locales-cpu/vega-icon-64x64.webp
+  estado: publicable
+  origen: externo
+  ancho: 64
+  alto: 64
+  bytes: 1066
+  sha256: f75a171dc5bfe1a08342b827e7afe1f9c9870849b13d6fa837fb5b0018b1beef
+  alt:
+    es: Ícono oficial del pozo físico de VegaML (NandhaKishorM/vegaml).
+    en: Official potential-well icon of VegaML (NandhaKishorM/vegaml).
+- id: fig-d2-colapso-panel-devto
+  rol: diagrama
+  archivo: assets/images/jueces-locales-cpu/fig-d2-colapso-panel-devto-1087x723.webp
+  estado: publicable
+  origen: codigo-propio
+  ancho: 1087
+  alto: 723
+  bytes: 65894
+  sha256: 0fc62c92a009e4dbd2f277489fc8c6962a17b481d92193a5fdcafbbebadfbb49
+  alt:
+    es: Derivado ráster WebP para DEV.to del diagrama D2 del colapso secuencial del panel de 3 jueces locales en CPU.
+    en: WebP raster derivative for DEV.to of the D2 diagram of the sequential collapse of the 3-judge local CPU panel.
+- id: fig-d2-colapso-panel-mobile-devto
+  rol: diagrama
+  archivo: assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile-devto-535x951.webp
+  estado: publicable
+  origen: codigo-propio
+  ancho: 535
+  alto: 951
+  bytes: 47060
+  sha256: da006f899b91635d0e5d47f225fee4e19a176157ea84330480d196f674c4130d
+  alt:
+    es: Derivado ráster WebP móvil para DEV.to del diagrama D2 del colapso secuencial del panel de 3 jueces locales en CPU.
+    en: Mobile WebP raster derivative for DEV.to of the D2 diagram of the sequential collapse of the 3-judge local CPU panel.

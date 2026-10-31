@@ -1,0 +1,113 @@
+direction: down
+
+classes: {
+  stage: {
+    style.fill: "#1f242d"
+    style.stroke: "#64d8e9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+  optimist: {
+    style.fill: "#1c2d33"
+    style.stroke: "#64d8e9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  pessimist: {
+    style.fill: "#3a1d28"
+    style.stroke: "#f08ca3"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  silent: {
+    style.fill: "#26231c"
+    style.stroke: "#f1c75b"
+    style.stroke-width: 2
+    style.stroke-dash: 4
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  collapse: {
+    style.fill: "#3a1d28"
+    style.stroke: "#f08ca3"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+  decision: {
+    style.fill: "#1e3528"
+    style.stroke: "#7dd89a"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+}
+
+cli_hash: "1–2. CLI simil-jev --panel + Gate SHA-256\nPrecheck >= 4 GiB RAM y hash de snapshots en disco" {
+  class: stage
+}
+
+cuello: "3. Cuello físico: 3 en serie (~31,7 s frío)" {
+  style.fill: "#22171b"
+  style.stroke: "#f08ca3"
+  style.stroke-width: 2
+  style.font-color: "#f8f8f2"
+  style.font-size: 16
+  style.border-radius: 8
+
+  laya: "Laya 0.4.11 (13,83 s · 2,26 GiB)\nAprueba: Sí en 125/160 (73 FP)" {
+    class: optimist
+  }
+  vega: "VegaML 0.11.0 (13,66 s · 4,93 GiB)\nRechaza: No en 131/160 (0/60 Sí)" {
+    class: pessimist
+  }
+  arc: "Arc 0.4B ONNX (4,21 s · 0,59 GiB)\nSilencioso: Sí en 12/160 · 0 votos No" {
+    class: silent
+  }
+
+  laya -> vega: "serie #2" {
+    style.stroke: "#90897e"
+    style.font-color: "#e8e6e3"
+    style.font-size: 15
+  }
+  vega -> arc: "serie #3" {
+    style.stroke: "#90897e"
+    style.font-color: "#e8e6e3"
+    style.font-size: 15
+  }
+}
+
+quorum: "4. Cuello lógico: Quórum 2-de-3\nLaya != VegaML en 101/160 · 0 negativos con 2 votos No\nCobertura 9,38 % (15/160) · 0/60 en No" {
+  class: collapse
+}
+
+retiro: "5. Retiro del comité\nArc solo (42,50 %) > Panel (28,75 %) ~= Indefinido (25,00 %)" {
+  class: decision
+}
+
+cli_hash -> cuello: "serie #1" {
+  style.stroke: "#90897e"
+  style.font-color: "#e8e6e3"
+  style.font-size: 16
+}
+
+cuello -> quorum: "sesgos opuestos + juez mudo" {
+  style.stroke: "#f08ca3"
+  style.font-color: "#f08ca3"
+  style.font-size: 16
+}
+
+quorum -> retiro: "15 decisiones · 10 aciertos · 3 FP" {
+  style.stroke: "#7dd89a"
+  style.font-color: "#7dd89a"
+  style.font-size: 16
+}

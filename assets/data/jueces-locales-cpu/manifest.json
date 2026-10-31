@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "contract": "DESIGN.md (3cucharadas Cuaderno de Evidencia)",
+  "source_receipt": "penta-agent/reports/simil-jev-panel/receipts/panel-evaluation-v2.json",
+  "csv": {
+    "path": "assets/data/jueces-locales-cpu/jueces-locales-panel-v2-summary.csv",
+    "sha256": "5f2d0df9a9688d1421c202e29d356ad0f4abf9755dda4ee49df8a421e3c84307"
+  },
+  "figures": {
+    "d2_desktop": {
+      "path": "assets/images/jueces-locales-cpu/fig-d2-colapso-panel.svg",
+      "sha256": "adbbd06b6f5afc2b0e1014148a96b8ea064810282df5d71bc3787c20970ce3d7"
+    },
+    "d2_mobile": {
+      "path": "assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile.svg",
+      "sha256": "7a35cf6d47b139897e3b366ec0eceb04d33122976c966792ec6d5a3be13b0e59"
+    }
+  }
+}

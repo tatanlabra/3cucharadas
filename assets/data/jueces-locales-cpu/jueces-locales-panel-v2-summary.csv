@@ -1,0 +1,6 @@
+id,label,short_label,ram_gib,cold_s,warm_p95_ms,coverage_pct,selective_acc_pct,decided,yes_correct,no_correct,indef_correct,three_way_pct,false_positives,badge
+laya_0_4_11,Laya 0.4.11 (PyTorch CPU),Laya 0.4.11,2.26,13.83,366,80.0,41.41,53/128,52,1,13,41.25,73,El que aprueba (Sí en 125/160)
+vega_0_11_0,VegaML 0.11.0 (Qwen 0.8B CPU),VegaML 0.11.0,4.93,13.66,1717,78.13,40.8,51/125,0,51,10,38.13,4,El que rechaza (No en 131/160)
+arc_0_4b_v0_2,Arc Decide 0.4B v0.2 (ONNX),Arc 0.4B ONNX,0.59,4.21,950,60.63,47.42,46/97,41,5,22,42.5,49,El silencioso en panel (12/160)
+panel_2of3,Panel 2-de-3 (Laya + Vega + Arc),Panel 2-de-3,4.93,31.7,3033,9.38,66.67,10/15,10,0,36,28.75,3,"9,38 % cobertura · 0/60 en No"
+always_indefinite,"Siempre ""Indefinido"" (baseline)",Siempre Indefinido,0.0,0.0,0,0.0,0.0,0/0,0,0,40,25.0,0,"25,00 % triclase callando siempre"

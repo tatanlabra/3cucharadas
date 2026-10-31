@@ -1,0 +1,69 @@
+slug: jueces-locales-cpu-laya-vega-arc
+ref: jueces-locales-cpu-laya-vega-arc
+language: en
+canonical: https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
+canonical_en: https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
+titulo_es: "Un comité de tres jueces pequeños en CPU: cuándo votar mejora una decisión y cuándo solo la paraliza"
+titulo_en: "A three-judge committee on CPU: when voting improves a decision and when it only paralyzes it"
+tipo: bitacora-tecnica-resultados
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-10-31
+publicado_en: 2026-10-31
+actualizado: 2026-10-31
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-10-31
+  alcance: "paquete local completo (Mastodon, Bluesky, LinkedIn, dev.to, Medium, HN, Reddit); sin envíos externos hasta autorización humana explícita tras git push"
+  publicaciones_externas_completadas: 0
+evidencia:
+  casos_totales_banco: 240
+  casos_calibracion: 80
+  casos_prueba: 160
+  aciertos_acuerdo_comite: "10/15"
+  exactitud_selectiva_comite_pct: "66,67"
+  cobertura_comite_pct: "9,38"
+  aciertos_clase_no_comite: "0/60"
+  latencia_frio_comite_s: "31,7"
+  alternativa_nli_latencia_ms: "5–15"
+  alternativa_nli_ram_mib: 140
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-10-31
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: bluesky
+    fecha_propuesta: 2026-10-31
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: linkedin
+    fecha_propuesta: 2026-11-01
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-01
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-11-02
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-02
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit
+    fecha_propuesta: 2026-11-03
+    archivo: reddit-target.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - ejecutar git push y verificar HTTP 200 en https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
+  - autorizar scripts/post_push_difusion.sh jueces-locales-cpu-laya-vega-arc --live tras revisar social.json
+  - publicar borrador en dev.to e importar medium.md verificando canonical_url hacia la versión en inglés

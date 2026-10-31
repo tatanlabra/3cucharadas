@@ -1,0 +1,113 @@
+direction: down
+
+classes: {
+  stage: {
+    style.fill: "#1f242d"
+    style.stroke: "#64d8e9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+  optimist: {
+    style.fill: "#1c2d33"
+    style.stroke: "#64d8e9"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  pessimist: {
+    style.fill: "#3a1d28"
+    style.stroke: "#f08ca3"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  silent: {
+    style.fill: "#26231c"
+    style.stroke: "#f1c75b"
+    style.stroke-width: 2
+    style.stroke-dash: 4
+    style.font-color: "#f8f8f2"
+    style.font-size: 17
+    style.border-radius: 6
+  }
+  collapse: {
+    style.fill: "#3a1d28"
+    style.stroke: "#f08ca3"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+  decision: {
+    style.fill: "#1e3528"
+    style.stroke: "#7dd89a"
+    style.stroke-width: 2
+    style.font-color: "#f8f8f2"
+    style.font-size: 18
+    style.border-radius: 6
+  }
+}
+
+entrada: "1–2. Entrada simil-jev --panel + Gate SHA-256 en disco\nPrecheck >= 4 GiB RAM libre · verifica snapshots antes de abrir subprocesos" {
+  class: stage
+}
+
+cuello: "3. Cuello físico en CPU: 3 subprocesos en serie (~31,7 s en frío al recargar pesos)" {
+  direction: right
+  style.fill: "#22171b"
+  style.stroke: "#f08ca3"
+  style.stroke-width: 2
+  style.font-color: "#f8f8f2"
+  style.font-size: 18
+  style.border-radius: 8
+
+  laya: "Laya 0.4.11 (PyTorch CPU)\n13,83 s frío · 366 ms p95 · 2,26 GiB\nAprueba: 52/60 Sí · 1/60 No (73 FP)" {
+    class: optimist
+  }
+  vega: "VegaML 0.11.0 (Qwen 0.8B CPU)\n13,66 s frío · 1.717 ms p95 · 4,93 GiB\nRechaza: 0/60 Sí · 51/60 No" {
+    class: pessimist
+  }
+  arc: "Arc Decide 0.4B (ONNX CPU)\n4,21 s frío · 950 ms p95 · 0,59 GiB\nSilencioso: vota 12/160 · 0 votos No" {
+    class: silent
+  }
+}
+
+quorum: "4. Cuello lógico: Quórum 2-de-3 sin condición de Condorcet\nLaya != VegaML en 101/160 casos · 0 negativos reúnen 2 votos No\nCobertura útil: 9,38 % (15/160) · 0/60 aciertos en clase No" {
+  class: collapse
+}
+
+retiro: "5. Veredicto y retiro del comité\nArc solo (42,50 %) > Panel 2-de-3 (28,75 %) ~= Siempre Indefinido (25,00 %)" {
+  class: decision
+}
+
+entrada -> cuello: "lanza en serie #1 -> #2 -> #3" {
+  style.stroke: "#90897e"
+  style.font-color: "#e8e6e3"
+  style.font-size: 16
+}
+
+cuello.laya -> quorum: "Sí en 125/160" {
+  style.stroke: "#64d8e9"
+  style.font-color: "#64d8e9"
+  style.font-size: 16
+}
+cuello.vega -> quorum: "No en 131/160" {
+  style.stroke: "#f08ca3"
+  style.font-color: "#f08ca3"
+  style.font-size: 16
+}
+cuello.arc -> quorum: "Sí en 12/160 (148 mudos)" {
+  style.stroke: "#f1c75b"
+  style.font-color: "#f1c75b"
+  style.font-size: 16
+}
+
+quorum -> retiro: "15 decisiones (10 aciertos · 3 FP · 36 abstenciones)" {
+  style.stroke: "#7dd89a"
+  style.font-color: "#7dd89a"
+  style.font-size: 16
+}

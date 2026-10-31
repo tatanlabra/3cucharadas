@@ -1,0 +1,19 @@
+TITLE: A three-judge committee on CPU: when voting improves a decision and when it only paralyzes it
+URL: https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
+
+AUTHOR COMMENT:
+Hi HN,
+
+Inspired by the JEV Ultrafast demo (which separates fast System 1 action selection from LLM text generation to run browser tasks in 7.1 s), I wanted to see if I could build a 100% local, open-weights equivalent (`simil-jev`) on a work laptop CPU (`Intel Core i7-8550U`, 15 W TDP, 23.19 GiB RAM, no discrete GPU) to filter verification gates (`"Yes"`, `"No"`, `"Undefined"`) without calling an LLM.
+
+Because no sub-billion-parameter classifier is reliable enough on its own, I combined three open models with very different architectures under a 2-of-3 majority quorum with abstention across 240 cases (80 calibration, 160 out-of-sample test cases: 60 `"Yes"`, 60 `"No"`, 40 `"Undefined"`):
+- **Laya 0.4.11** (non-autoregressive System 1 engine trained with strictly proper scoring rules): 2.26 GiB RAM, 13.83 s cold, 366 ms p95.
+- **VegaML 0.11.0** (`14.3M` potential-well physics engine on top of a frozen `Qwen3.5-0.8B` backbone): 4.93 GiB RAM, 13.66 s cold, 1,717 ms p95.
+- **Arc Decide 0.4B** (ONNX Runtime INT8 classifier): 0.59 GiB RAM, 4.21 s cold, 950 ms p95.
+
+What happened in the benchmark:
+1. **Why `"No"` vanished (`0/60` recall):** Laya behaved like an optimist (`125/160` `"Yes"` votes, `73` false positives, only `1` `"No"` vote on negatives). VegaML behaved like a pessimist (`131/160` `"No"` votes, `0/60` on `"Yes"`). Arc Decide stayed silent under its `0.66` threshold on `148/160` cases (`12` `"Yes"` votes, `0` `"No"` votes). Because a 2-of-3 rejection needs two `"No"` ballots, not a single negative case out of 60 was ever rejected.
+2. **The `66.67%` selective accuracy trap:** Laya and VegaML voted opposite on `101/160` cases while Arc abstained. The panel only emitted a verdict on `15/160` cases (`9.38%` coverage), getting `10/15` right (`66.67%`, after overfitting `14/14` on calibration). On overall 3-class accuracy it scored `28.75%` (`46/160`, where `36` hits were just abstentions landing on the `40` `"Undefined"` cases)—barely above a `0 ms` script that always returns `"Undefined"` (`25.00%`), while taking `~31.7 s` cold in serial CPU subprocesses.
+3. **What actually works in `5` to `15 ms` on the same CPU:** Gate verification against a rule is formally 3-class Natural Language Inference (NLI: `entailment`, `contradiction`, `neutral`). Replacing the `8.36 GiB` trio with a single bidirectional NLI cross-encoder—`MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli` (`44M` backbone parameters, `142M` total, fine-tuned on `763,913` NLI pairs, `88.0%` on MNLI-m) compiled to dynamic `INT8` in `onnxruntime`—resolves verdicts in `5` to `15 ms` on the same `i7-8550U` using `~140 MiB` of RAM (`60x` lighter).
+
+Happy to discuss the calibration failure modes, Condorcet's jury theorem assumptions (`p > 0.5` and error independence), or ONNX INT8 cross-encoders on CPU.
