@@ -201,6 +201,8 @@ module JekyllToDevto
 
   def transform_unfenced(markdown, site_url:, canonical_url:, page:, youtube_id:, warnings:)
     markdown = transform_video_figures(markdown, site_url:, canonical_url:, youtube_id:)
+    markdown = flatten_picture_elements(markdown)
+    markdown = replace_loose_videos(markdown, site_url:, canonical_url:)
     output = +""
     in_math = false
     literal_block = nil
@@ -583,6 +585,42 @@ module JekyllToDevto
       key, value = token.split("=", 2)
       [key, value] if key && value
     end.to_h
+  end
+
+  # DEV.to descarta el bloque <picture> entero, con su <img> adentro (medido el
+  # 2026-10-31: avalúo publicaba 2 de 4 figuras y nushell 0 de 1). Se conserva
+  # solo el <img>; las variantes <source> (WebP, móvil) no tienen equivalente allá.
+  PICTURE = %r{<picture\b[^>]*>(.*?)</picture>}mi.freeze
+  IMG_TAG = /<img\b[^>]*>/mi.freeze
+
+  def flatten_picture_elements(markdown)
+    markdown.gsub(PICTURE) do
+      image = Regexp.last_match(1)[IMG_TAG]
+      raise TransformError, "<picture> sin <img>: DEV.to no mostraría la figura" unless image
+
+      image
+    end
+  end
+
+  # Un <video> fuera de <figure> (por ejemplo, dentro de una ficha HTML) no
+  # depende del sanitizador de DEV.to: se usa su <img> de respaldo o el póster
+  # enlazado al canónico, igual que transform_video_figures.
+  LOOSE_VIDEO = %r{<video\b([^>]*)>(.*?)</video>}mi.freeze
+
+  def replace_loose_videos(markdown, site_url:, canonical_url:)
+    markdown.gsub(LOOSE_VIDEO) do
+      raw_attributes = Regexp.last_match(1).to_s
+      fallback = Regexp.last_match(2)[IMG_TAG]
+      attributes = raw_attributes.scan(HTML_ATTR).to_h { |key, _quote, value| [key, value] }
+      next fallback if fallback
+
+      poster = attributes["poster"].to_s
+      raise TransformError, "<video> sin <img> de respaldo ni póster: DEV.to no lo mostraría" if poster.empty?
+
+      poster = poster[/\{\{\s*['"]([^'"]+)['"]/, 1] || poster
+      alt = attributes["aria-label"] || "Video demonstration"
+      "[![#{alt}](#{absolute_url(poster, site_url, force_relative: true)})](#{canonical_url})"
+    end
   end
 
   def transform_video_figures(markdown, site_url:, canonical_url:, youtube_id:)

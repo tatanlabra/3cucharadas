@@ -41,6 +41,53 @@ class JekyllToDevtoTest < Minitest::Test
   # por las comillas invertidas ANTES de que `transform_liquid` viera el tag, y le llegaba sin
   # su `%}`. Es lo que tumbo el job build_site del pipeline 2831523259 (2026-09-09 02:10) y el
   # workflow de dev.to 34302166528, sobre _posts/2026-07-15-ai-quota-hud-kde-en.md.
+  # DEV.to descarta el bloque <picture> entero, con su <img> adentro: medido el
+  # 2026-10-31, avalúo publicaba 2 de 4 figuras y nushell 0 de 1. El conversor
+  # deja solo el <img> (con su src absoluto) y quita los <source>.
+  def test_flattens_picture_elements_to_their_img
+    source = <<~MARKDOWN
+      <figure class="align-center">
+        <a class="image-popup" href="{{ '/fig.webp' | relative_url }}">
+          <picture>
+            <source srcset="{{ '/fig.webp' | relative_url }}" type="image/webp">
+            <img src="{{ '/fig.webp' | relative_url }}" alt="Figura"
+                 loading="lazy">
+          </picture>
+        </a>
+        <figcaption>Pie</figcaption>
+      </figure>
+    MARKDOWN
+
+    result = transform(source)
+
+    refute_includes result, "<picture"
+    refute_includes result, "<source"
+    assert_includes result, "<img src=\"#{SITE_URL}/fig.webp\" alt=\"Figura\""
+    assert_includes result, "<figcaption>Pie</figcaption>"
+  end
+
+  # Un <video> fuera de <figure> no dependía de que el sanitizador de DEV.to lo
+  # aceptara: se usa su <img> de respaldo o, si no tiene, el póster enlazado.
+  def test_replaces_loose_video_with_its_fallback_image_or_poster
+    with_fallback = <<~MARKDOWN
+      <div class="demo">
+        <video width="1280" height="720" autoplay muted poster="https://example.org/p.gif">
+          <source src="https://example.org/demo.mp4" type="video/mp4">
+          <img src="https://example.org/demo.gif" alt="Demo">
+        </video>
+      </div>
+    MARKDOWN
+    result = transform(with_fallback)
+    refute_includes result, "<video"
+    refute_includes result, "<source"
+    assert_includes result, '<img src="https://example.org/demo.gif" alt="Demo">'
+
+    poster_only = %(<video poster="{{ '/poster.png' | relative_url }}" aria-label="Recorrido"><source src="/v.mp4"></video>\n)
+    result = transform(poster_only)
+    refute_includes result, "<video"
+    assert_includes result, "[![Recorrido](#{SITE_URL}/poster.png)](#{CANONICAL_URL})"
+  end
+
   def test_keeps_a_liquid_tag_whole_when_its_arguments_contain_inline_code
     source = <<~MARKDOWN
       {% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="Tooltip" caption="**Figure 2** — the `OFICIAL` badge next to the `LOCAL` one." %}
@@ -151,14 +198,18 @@ class JekyllToDevtoTest < Minitest::Test
         <img src="/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en.svg" alt="Flow">
       </picture>
       [Full size](/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources.svg)
+      <img src="/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.svg" alt="Sankey">
     MARKDOWN
 
     result = transform(source)
 
+    # <picture> se aplana a su <img> (DEV.to lo descarta entero): el <source> no
+    # sobrevive, y el mapeo SVG → ráster se exige sobre cada <img> y enlace.
+    refute_includes result, "<picture"
+    refute_includes result, "<source"
     assert_includes result, "#{SITE_URL}/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.webp"
     assert_includes result, "#{SITE_URL}/assets/images/multiagente-penta-agent-memoria/flujo-memoria-penta-agent-en-devto-1200x2172.png"
     assert_includes result, "#{SITE_URL}/assets/images/multiagente-penta-agent-memoria-gobernada/governed-sources-devto-1600x1169.png"
-    assert_includes result, 'type="image/webp"'
     refute_match(/\.svg\b/i, result)
   end
 
