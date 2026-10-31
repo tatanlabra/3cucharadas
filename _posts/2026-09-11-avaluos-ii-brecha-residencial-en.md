@@ -4,10 +4,11 @@ classes: [avaluos-ii-editorial]
 title: "Property assessments in 3 spoonfuls (part II): where to review the residential gap"
 subtitle: "Informal settlements, construction materials and assessed values: from differences by commune to a property-level review"
 date: 2026-09-11 00:00:00 -0300
-last_modified_at: 2026-09-13 00:00:00 -0300
-categories: [datos, territorio]
-tags: [catastro-sii, census-2024, property-tax, open-data, inequality]
+last_modified_at: 2026-10-31 18:28:00 -0300
+categories: [data, territory]
+tags: [cadastre, census-2024, property-tax, open-data, inequality]
 author: clabra
+author_profile: true
 lang: en
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
@@ -39,7 +40,7 @@ ai_disclosure:
     hero: generated
 ---
 
-In the [first property-assessment post](/en/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/), changing the denominator changed the map. Now I am interested in a question that comes before calculating tax: **if the Census counts more dwellings than the SII's residential cadastral records, where should a review begin?**
+In the [first property-assessment post]({{ '/datos/python/territorio/avaluo-vulnerabilidad-unidad-vecinal/' | relative_url }}), changing the denominator changed the map. Now I am interested in a question that comes before calculating tax: **if the Census counts more dwellings than the SII's residential cadastral records, where should a review begin?**
 
 A persistent discrepancy in communes whose registered properties have high assessed values may justify a tax-oriented review, under the assumption that any omitted properties would be comparable to them. If a review found such properties, the next step would be to establish whether registering them or updating their assessments creates a tax liability.
 
@@ -52,7 +53,7 @@ I examine that difference alongside residential uses recorded within properties 
 
 I compare **all private dwellings in the 2024 Census**, occupied and vacant, with **residential cadastral records—property-use code H—for the first half of 2026**. The first count concerns dwellings; the second concerns properties registered for tax purposes. SII is Chile's tax authority, and a commune is a local administrative area.
 
-There is no one-to-one correspondence. A property may contain several dwellings, and a dwelling may be on an agricultural property excluded by the residential filter. The dates also differ. Dwellings minus records is therefore a **difference between counts**, not a count of “dwellings without a cadastral record.”
+There is no one-to-one correspondence. A property may contain several dwellings, and a dwelling may be on an agricultural property excluded by the residential filter. The dates also differ. Dwellings minus records is therefore a **difference between counts**, not a count of "dwellings without a cadastral record."
 
 ### Primary use H does not exhaust recorded residential use
 
@@ -86,28 +87,28 @@ In Alto Hospicio, the initial difference is **15,368**. Subtracting the **9,136*
 
 This deduction is a sensitivity test, not an established explanation. It assumes one unit of the difference per informal-settlement household; it lacks the direct evidence of group membership and non-overlap that supports joining two groups of records within the same SII file. Several households may share a dwelling, the land may have a parent property record, and dates may differ. The layer also contains **222 polygons without a count**: missing data do not mean an absence of households. The interpretation of its `HOGARESCEN` field is detailed in the methodological notes.
 
-The deduction does not represent a tax exemption either: it is an analytical assumption. The SII provides for [the assessment of buildings whose legal status has not been regularised][sii-no-regularizadas]; each property's circumstances must be checked.
+The deduction does not represent a tax exemption either: it is an analytical assumption. The SII provides for the assessment of buildings whose legal status has not been regularised[^sii2026]; each property's circumstances must be checked.
 
 In aggregate, the sum of positive differences across communes falls from **1,588,449 to 1,516,689**, a **4.52%** reduction. This is not the net national difference: communes with negative balances do not offset those with positive ones. The result shows that the assumption changes some communes substantially and others very little; it does not establish what share of the discrepancy informal settlements explain.
 
 ### Construction materials: describe a scenario, not assess property values
 
-The second assumption asks how the residual would be distributed if it had the same composition as the dwellings observed in the commune. I use a criterion requiring **an acceptable dwelling type and acceptable wall, roof and floor materials simultaneously**, following the code in the [INE microdata manual, indicators viv04 and viv05, pp. 103–105][ine-manual].
+The second assumption asks how the residual would be distributed if it had the same composition as the dwellings observed in the commune. I use a criterion requiring **an acceptable dwelling type and acceptable wall, roof and floor materials simultaneously**, following the code in the INE microdata manual[^ine2025], indicators viv04 and viv05, pp. 103–105.
 
 In the processed data, **5,774,146 of 6,408,172** occupied private dwellings with residents present meet this criterion. The proportion is calculated for each commune, retaining incomplete observations in the denominator but outside the acceptable group.
 
 For example, a residual of 9,000 units and an acceptable share of 80% would yield **7,200 units in that scenario and 1,800 in the remainder**. This has not located 7,200 dwellings: it has applied a known proportion to a difference of unknown composition.
 
-The extrapolation has two limitations. Construction materials are observed in occupied dwellings with residents present, whereas the initial difference also includes vacant dwellings and those whose residents were absent. In addition, any dwellings missing from the cadastre could differ from those observed. **The “remainder” is not equivalent to irrecoverable dwellings either**: it includes both those that do not meet the criterion and incomplete observations.
+The extrapolation has two limitations. Construction materials are observed in occupied dwellings with residents present, whereas the initial difference also includes vacant dwellings and those whose residents were absent. In addition, any dwellings missing from the cadastre could differ from those observed. **The "remainder" is not equivalent to irrecoverable dwellings either**: it includes both those that do not meet the criterion and incomplete observations.
 
-I do not add another deduction for irrecoverable dwellings, because their overlap with informal settlements is unknown. Nor do I multiply this scenario by the share of records above the exemption threshold: we do not know the joint distribution of the two characteristics.
+I do not add another deduction for irrecoverable dwellings, because their overlap with informal settlements is unknown. Nor do I multiply this scenario by the share of records above the exemption threshold: I do not know the joint distribution of the two characteristics.
 
 <figure style="width:100%">
   <div role="region" aria-label="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
     <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-en.svg" alt="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." loading="lazy">
     <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-en-dark.svg" alt="Fifteen communes with the largest residual under the informal-settlement assumption. Each bar preserves the initial difference and separates the assumed deduction, the acceptable-type-and-materials scenario and the remainder." loading="lazy">
   </div>
-  <figcaption>Scenarios for the composition of the difference; these are not identified omitted dwellings. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/gap-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-en-dark.svg">SVG dark</a>.</figcaption>
+  <figcaption>Scenarios for the composition of the difference; these are not identified omitted dwellings. Source: own elaboration with data from the 2024 Census (INE), the SII real-estate cadastre for the first half of 2026 and MINVU's CNC 2026 informal-settlement layer. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/gap-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-en-dark.svg">SVG dark</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-top-en.html %}
@@ -118,11 +119,11 @@ The [viewer lets you explore each commune and consult the complete table](/catas
 
 ### Several dwellings on one site: another explanation worth testing
 
-Two dwellings can share a plot and be covered by one property-tax record. The Census would then count two dwellings without a property necessarily being absent from the tax register. This mechanism may contribute to the difference; measuring its contribution requires linking **dwellings, sites and property records**. The public dictionary examined and the [Census microdata manual, pp. 17–20][ine-manual], link dwellings, households and people, but do not provide a shared site or property-record identifier for this reconciliation. Several households within one dwelling are not the same as several dwellings on one site.
+Two dwellings can share a plot and be covered by one property-tax record. The Census would then count two dwellings without a property necessarily being absent from the tax register. This mechanism may contribute to the difference; measuring its contribution requires linking **dwellings, sites and property records**. The public dictionary examined and the Census microdata manual[^ine2025], pp. 17–20, link dwellings, households and people, but do not provide a shared site or property-record identifier for this reconciliation. Several households within one dwelling are not the same as several dwellings on one site.
 
-CASEN 2024 provides a narrower signal. In the question about the household's **occupancy situation for the site or plot**, categories 3 and 4 identify households reporting **an owned site shared with other dwellings**, either fully paid or being paid for. They do not ask how many dwellings occupy the site. I calculate their share among **all households with valid answers**, without filtering on main-household status (`v28`) and using one household head per household. That question is asked only in dwellings with more than one household; applying it as a general filter would incorrectly remove households in single-household dwellings. See the [official questionnaire, pp. 79 and 83][casen-cuestionario].
+CASEN 2024 provides a narrower signal. In the question about the household's **occupancy situation for the site or plot**, categories 3 and 4 identify households reporting **an owned site shared with other dwellings**, either fully paid or being paid for. They do not ask how many dwellings occupy the site. I calculate their share among **all households with valid answers**, without filtering on main-household status (`v28`) and using one household head per household. That question is asked only in dwellings with more than one household; applying it as a general filter would incorrectly remove households in single-household dwellings. See the official questionnaire[^mdsf2026], pp. 79 and 83.
 
-The national result is **1.09% of households**, with an approximate 95% interval of **0.97% to 1.21%**. It comes from 78,654 sampled households, with no missing answers to this question. National and regional estimates use `expr` and Taylor linearization with strata and clusters; the interval expresses sampling uncertainty, rather than every possible measurement error. The [official CASEN data-use note][casen-nota] distinguishes these domains from descriptive use at commune level.
+The national result is **1.09% of households**, with an approximate 95% interval of **0.97% to 1.21%**. It comes from 78,654 sampled households, with no missing answers to this question. National and regional estimates use `expr` and Taylor linearization with strata and clusters; the interval expresses sampling uncertainty, rather than every possible measurement error. The official CASEN data-use note[^mdsf2026] distinguishes these domains from descriptive use at commune level.
 
 <figure style="width:100%">
   <div role="region" aria-label="Share of households reporting an owned shared site: Chile and 16 regions with approximate intervals; Valparaíso and Viña del Mar as exploratory cases without confidence intervals." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
@@ -156,9 +157,9 @@ In a purely hypothetical example, if a share $$p_v$$ of **dwellings** belonged t
 
 The size of the difference alone does not establish its potential tax significance. The fifteen communes, assessed values and tax scenarios in this spoonful use the bars' reference population: primary-H records in the July mirror, not the new union from the direct download. For context, I examine the assessed values of those **residential properties that are already registered**: their mean, median and the share above the general exemption threshold.
 
-In the first half of 2026, that threshold was **60,030,710 Chilean pesos**, according to the [SII's official example][sii-ejemplo]. I compare each assessed value with the threshold for the same period. Exceeding it is not enough to establish an enforceable property-tax liability: applicable benefits and exemptions must also be checked.
+In the first half of 2026, that threshold was **60,030,710 Chilean pesos**, according to the SII's official example[^sii2026]. I compare each assessed value with the threshold for the same period. Exceeding it is not enough to establish an enforceable property-tax liability: applicable benefits and exemptions must also be checked.
 
-A property's assessed value for tax purposes [is not its sale price][sii-comercial]. It takes account of both the land and the building and their characteristics. Therefore, **acceptable materials do not imply a high assessed value**: a dwelling with good construction materials on less valuable land may fall below the exemption threshold, while a more modest one on expensive land may exceed it. The SII explains the components of this valuation in its [guide to assessed values][sii-avaluo].
+A property's assessed value for tax purposes is not its sale price[^sii2026]. It takes account of both the land and the building and their characteristics. Therefore, **acceptable materials do not imply a high assessed value**: a dwelling with good construction materials on less valuable land may fall below the exemption threshold, while a more modest one on expensive land may exceed it. The SII explains the components of this valuation in its guide to assessed values[^sii2026].
 
 A few very high values can raise the mean. The median shows the centre of the distribution, while the share above the threshold indicates how widespread that condition is. These are complementary summaries of the same properties, not independent evidence of omission.
 
@@ -196,7 +197,7 @@ Comparability is the hardest condition to establish. What is missing from a regi
 
 First, I calculate, **property by property**, the general tax that would result from applying the first-half 2026 brackets to each assessed value. I then calculate the mean and median of those results within each commune, **including zeros below the exemption threshold**. Applying a rate to the mean assessed value would not necessarily give the same result: exemptions and brackets change the calculation.
 
-The model uses the parameters in the [SII's official example][sii-ejemplo]: an exemption threshold of **CLP 60,030,710**, a bracket change at **CLP 214,395,361**, and annual rates of **0.893% and 1.042%**, respectively. It is a **theoretical annual-equivalent general property tax**, holding that half-year's parameters fixed. It excludes refuse charges, surtaxes and individual benefits; it does not reproduce actual tax bills or collections for the whole of 2026.
+The model uses the parameters in the SII's official example[^sii2026]: an exemption threshold of **CLP 60,030,710**, a bracket change at **CLP 214,395,361**, and annual rates of **0.893% and 1.042%**, respectively. It is a **theoretical annual-equivalent general property tax**, holding that half-year's parameters fixed. It excludes refuse charges, surtaxes and individual benefits; it does not reproduce actual tax bills or collections for the whole of 2026.
 
 I then multiply the residual under the informal-settlement assumption by each statistic:
 
@@ -212,7 +213,7 @@ I then multiply the residual under the informal-settlement assumption by each st
     <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-en.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
     <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-en-dark.svg" alt="Theoretical annual-equivalent general property-tax scenarios for the fifteen communes with a positive residual and a median assessment above the exemption threshold; comparison of mean and median." loading="lazy">
   </div>
-  <figcaption>Million Chilean pesos, assuming that each residual unit corresponded to a new comparable property. Amounts are hypothetical; they are neither established tax debt nor revenue retained by municipalities. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/monetary-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-en-dark.svg">SVG dark</a>.</figcaption>
+  <figcaption>Million Chilean pesos, assuming that each residual unit corresponded to a new comparable property. Amounts are hypothetical; they are neither established tax debt nor revenue retained by municipalities. Source: own elaboration with data from the 2024 Census (INE), the SII real-estate cadastre for the first half of 2026, MINVU's CNC 2026 informal-settlement layer and the parameters in the SII's official example. Scroll horizontally or open the SVG to zoom; values appear in the following table. <a href="/assets/images/avaluos-ii/monetary-top15-en.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-en-dark.svg">SVG dark</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-monetary-en.html %}
@@ -235,17 +236,17 @@ Comparing communes helps choose where to look. Establishing an omission with tax
 | Differences in units or periods | Dwellings per property, parent records, agricultural uses, co-ownership and comparable dates | The discrepancy persists after reconciling units and periods |
 | Source or processing error | Completeness of the extract, territorial identifiers and independent reproduction | The result is reproduced using independent sources and cross-checks |
 
-**Registering a property and updating a building's assessment are different actions.** The SII has a [procedure for adding properties to the cadastre][sii-inclusion]. It also provides for changes to assessed values. An extension can increase the assessed value of an existing property without creating another record: the difference between dwellings and records cannot, by itself, detect every outdated cadastral assessment.
+**Registering a property and updating a building's assessment are different actions.** The SII has a procedure for adding properties to the cadastre[^sii2026]. It also provides for changes to assessed values. An extension can increase the assessed value of an existing property without creating another record: the difference between dwellings and records cannot, by itself, detect every outdated cadastral assessment.
 
 ### What is missing before a scenario becomes an established liability
 
 The scenarios above give the assumption a scale, but quantifying liabilities that were actually omitted requires identifying the properties, checking their dates and assessed values, and applying the relevant benefits and exemptions. Compatible, reconciled tax-billing data are also needed to compare theoretical tax with actual bills.
 
-The [SII cadastral dictionary][sii-estructura] defines the available half-yearly field as a contribution **including refuse charges**. It is not used as net tax. The official commune-level tables reviewed distinguish components but include other non-agricultural uses: **dividing that total by residential records would produce an average drawn from incompatible populations**. The [source audit](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) retains this limitation; the rule-based calculation neither reconciles nor removes it.
+The SII cadastral dictionary[^siisf] defines the available half-yearly field as a contribution **including refuse charges**. It is not used as net tax. The official commune-level tables reviewed distinguish components but include other non-agricultural uses: **dividing that total by residential records would produce an average drawn from incompatible populations**. The [source audit](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) retains this limitation; the rule-based calculation neither reconciles nor removes it.
 
-Determining a tax liability, issuing a tax bill and collecting payment are different stages. The SII determines assessed values and issues property-tax bills; the [General Treasury of the Republic collects payment][tgr-impuestos]. Distribution through the [Municipal Common Fund][sii-fcm] also means that tax associated with a commune cannot be equated with revenue retained entirely by its municipality.
+Determining a tax liability, issuing a tax bill and collecting payment are different stages. The SII determines assessed values and issues property-tax bills; the General Treasury of the Republic collects payment[^tgrsf]. Distribution through the Municipal Common Fund[^sii2026] also means that tax associated with a commune cannot be equated with revenue retained entirely by its municipality.
 
-The [guide by Grote and Wen (2024, pp. 16–18)][fmi-guia] helps organise the problem: it distinguishes coverage, valuation and collection, and proposes cross-checking maps, field observations and records. It informs the design of a verification exercise; it does not supply a revenue coefficient that can be transferred to these communes.
+The guide by Grote and Wen (2024[^grote2024], pp. 16–18) helps organise the problem: it distinguishes coverage, valuation and collection, and proposes cross-checking maps, field observations and records. It informs the design of a verification exercise; it does not supply a revenue coefficient that can be transferred to these communes.
 
 <aside class="notice--info" markdown="1">
 **Behind the analysis: Python and reproducible geomatics**
@@ -272,9 +273,9 @@ In the next instalment, I will explore the **Continuo de Construcciones Urbanas 
 
 **Totals still awaiting reconciliation.** The cited [SII control by property-use category][sii-destino] reports 6,056,150 residential properties; the July mirror contains 6,054,808. The cited [MINVU housing-stock spreadsheets][minvu-parque] for the first half of 2026 report 6,057,949, including 1,342 in Trehuaco. The direct download contains the same 6,057,949 primary-H records and confirms the MINVU aggregate, without providing a record-level reconciliation of the mirror. Relative to the July reference, the expanded universe grows by 79,634 records: 3,141 come from the source and coverage change, and 76,493 from expanding the filter within the direct file. Thus, 79,634 is not the pure effect of expanding the filter. Differences between sources are not attributed to an unproven cause, and the totals underlying the bars are not silently replaced.
 
-**Two informal-settlement snapshots.** The [MINVU report published on 8 July 2026][minvu-campamentos], using information referring to 2024, records 1,373 settlements, 81,993 occupied dwellings and 77,399 households. The CNC 2026 layer used in this processing contains 1,345 polygons and a total of 71,760 in the `HOGARESCEN` field, with 222 polygons missing that value. These are different populations and snapshots. Interpreting the field as census households is a provisional decision supported by its name and the available documentation, rather than by a dictionary specific to the layer. The deduction depends on it.
+**Two informal-settlement snapshots.** The MINVU report published on 8 July 2026[^minvu2026], using information referring to 2024, records 1,373 settlements, 81,993 occupied dwellings and 77,399 households. The CNC 2026 layer used in this processing contains 1,345 polygons and a total of 71,760 in the `HOGARESCEN` field, with 222 polygons missing that value. These are different populations and snapshots. Interpreting the field as census households is a provisional decision supported by its name and the available documentation, rather than by a dictionary specific to the layer. The deduction depends on it.
 
-**Definition of construction materials.** The analysis uses the code in the INE manual, whose classification does not fully match its prose description: for acceptable materials, the latter allows some recoverable wall materials, whereas the code requires acceptable materials in all three components. The scenario combines that criterion with an acceptable dwelling type. Variants using complete materials responses and the broader non-irrecoverable category are retained; these are sensitivity analyses, not confidence intervals. The processing records 4,388 occupied dwellings with incomplete information.
+**Definition of construction materials.** The analysis uses the code in the INE manual[^ine2025], whose classification does not fully match its prose description: for acceptable materials, the latter allows some recoverable wall materials, whereas the code requires acceptable materials in all three components. The scenario combines that criterion with an acceptable dwelling type. Variants using complete materials responses and the broader non-irrecoverable category are retained; these are sensitivity analyses, not confidence intervals. The processing records 4,388 occupied dwellings with incomplete information.
 
 **Monetary formula and unit.** For an assessed value $$A$$, exemption threshold $$E=60\,030\,710$$ and bracket change $$T=214\,395\,361$$, the calculation is:
 
@@ -295,21 +296,21 @@ Results are aggregated by commune, including zeros, before multiplying each stat
 
 ## Sources and references
 
-Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: questionnaire and data-use note*. Site-occupancy situation and main household, pp. 79 and 83 of the [questionnaire][casen-cuestionario]; expansion factors and domains in the [data-use note][casen-nota]. Accessed September 12, 2026.
+*The external sources in the notes were accessed on 11 September 2026 unless a note gives another date. Processing results and corrections should be read alongside the methodological notes.*
 
-Grote, Martin, and Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. International Monetary Fund, September. [Full text][fmi-guia].
+[^mdsf2026]: Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: questionnaire and data-use note*. Site-occupancy situation and main household, pp. 79 and 83 of the [questionnaire][casen-cuestionario]; expansion factors and domains in the [data-use note][casen-nota]. Accessed September 12, 2026.
 
-Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicators viv04–viv06, pp. 103–106. [Manual][ine-manual].
+[^grote2024]: Grote, Martin, and Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. International Monetary Fund, September. [Full text][fmi-guia].
 
-Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Territorio. 2026. *Caracterización de campamentos en Censo 2024*. Published on 8 July. See the general results and table 1, pp. 4–5. [Report][minvu-campamentos].
+[^ine2025]: Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicators viv04–viv06, pp. 103–106. [Manual][ine-manual].
 
-Servicio de Impuestos Internos (SII). “De avalúo fiscal a contribuciones: paso a paso,” example for the first half of 2026; “¿Qué es un avalúo fiscal?”; “¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?”, updated 8 April 2026; “¿Cómo regularizo una propiedad que no tiene rol de avalúo?”, updated 7 April 2026; and “¿Para qué sirve el pago del impuesto territorial?”. [Calculation][sii-ejemplo], [assessed value][sii-avaluo], [distinction from market value][sii-comercial], [registration][sii-inclusion] and [municipal distribution][sii-fcm]. For buildings whose legal status has not been regularised, see the [documentation required for assessment][sii-no-regularizadas].
+[^minvu2026]: Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Territorio. 2026. *Caracterización de campamentos en Censo 2024*. Published on 8 July. See the general results and table 1, pp. 4–5. [Report][minvu-campamentos].
 
-Servicio de Impuestos Internos (SII). N.d. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Basic information for non-agricultural properties, fields 5–8 and the property-use table, p. 1. [Dictionary][sii-estructura].
+[^sii2026]: Servicio de Impuestos Internos (SII). "De avalúo fiscal a contribuciones: paso a paso," example for the first half of 2026; "¿Qué es un avalúo fiscal?"; "¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?", updated 8 April 2026; "¿Cómo regularizo una propiedad que no tiene rol de avalúo?", updated 7 April 2026; and "¿Para qué sirve el pago del impuesto territorial?". [Calculation][sii-ejemplo], [assessed value][sii-avaluo], [distinction from market value][sii-comercial], [registration][sii-inclusion] and [municipal distribution][sii-fcm]. For buildings whose legal status has not been regularised, see the [documentation required for assessment][sii-no-regularizadas].
 
-Tesorería General de la República (TGR). N.d. “Impuestos y tipos de impuestos.” TGR Help Centre. [Source][tgr-impuestos].
+[^siisf]: Servicio de Impuestos Internos (SII). N.d. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Basic information for non-agricultural properties, fields 5–8 and the property-use table, p. 1. [Dictionary][sii-estructura].
 
-*The external sources above were accessed on 11 September 2026. Processing results and corrections should be read alongside the methodological notes.*
+[^tgrsf]: Tesorería General de la República (TGR). N.d. "Impuestos y tipos de impuestos." TGR Help Centre. [Source][tgr-impuestos].
 
 [ine-manual]: https://censo2024.ine.gob.cl/wp-content/uploads/2025/12/manual_uso_microdatos_censo2024.pdf
 [minvu-campamentos]: https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=7e816aa9c26af8904eab01badfbfc6e6
@@ -324,6 +325,5 @@ Tesorería General de la República (TGR). N.d. “Impuestos y tipos de impuesto
 [sii-destino]: https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html
 [tgr-impuestos]: https://ayuda.tgr.gob.cl/ayuda/impuestos/impuestos-y-tipos-de-impuestos
 [fmi-guia]: https://www.imf.org/-/media/files/publications/howtonotes/2024/english/htnea2024006.pdf
-
 [casen-cuestionario]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf
 [casen-nota]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf

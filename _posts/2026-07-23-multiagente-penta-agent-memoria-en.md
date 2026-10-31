@@ -3,7 +3,7 @@ layout: single
 title: "Multi-agent work in three spoonfuls (part II): auditable memory"
 subtitle: "From handoffs to shared retrieval: what I implemented, how I measured it, and what still needs validation"
 date: 2026-07-23 00:00:00 +0000
-last_modified_at: 2026-07-24 00:00:00 +0000
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ai, productivity, development, multi-agent]
 tags: [multi-agent, rag, embeddings, agent-memory, qdrant, bm25, mcp, context-engineering, arch-linux]
 description: "The second log from a multi-agent setup: how I turned operational memory into a testable mechanism, what architecture actually shipped, and how I avoided treating a plausible match as evidence."
@@ -227,11 +227,11 @@ If you are building something similar - a multi-agent setup, a local RAG, a seco
 
 [^bush]: Vannevar Bush, "As We May Think", *The Atlantic*, July 1945. <https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/>
 
-[^extended-mind]: Andy Clark and David Chalmers, "The Extended Mind", *Analysis* 58, no. 1 (1998): 7-19. <https://doi.org/10.1111/1467-8284.00096>
+[^extended-mind]: Andy Clark and David Chalmers, ["The Extended Mind"](https://doi.org/10.1111/1467-8284.00096), *Analysis* 58, no. 1 (1998): 7-19. [Scholar](https://scholar.google.com/scholar_lookup?title=The+Extended+Mind&doi=10.1111%2F1467-8284.00096)
 
-[^rag]: Patrick Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", *Advances in Neural Information Processing Systems* 33 (2020). <https://arxiv.org/abs/2005.11401>
+[^rag]: Patrick Lewis et al., ["Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"](https://arxiv.org/pdf/2005.11401), *Advances in Neural Information Processing Systems* 33 (2020). [arXiv](https://arxiv.org/abs/2005.11401) · [Scholar](https://scholar.google.com/scholar_lookup?title=Retrieval-Augmented+Generation+for+Knowledge-Intensive+NLP+Tasks)
 
-[^bge-m3]: Jianlv Chen et al., "BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation", 2024. <https://arxiv.org/abs/2402.03216>
+[^bge-m3]: Jianlv Chen et al., ["BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation"](https://arxiv.org/pdf/2402.03216), 2024. [arXiv](https://arxiv.org/abs/2402.03216) · [Scholar](https://scholar.google.com/scholar_lookup?title=M3-Embedding%3A+Multi-Linguality%2C+Multi-Functionality%2C+Multi-Granularity+Text+Embeddings+Through+Self-Knowledge+Distillation)
 
 [^ollama-embed]: Ollama, "Generate embeddings", `/api/embed` documentation, accessed July 23, 2026. <https://docs.ollama.com/api/embed>
 
@@ -239,6 +239,6 @@ If you are building something similar - a multi-agent setup, a local RAG, a seco
 
 [^qdrant-bm25]: Qdrant, "Full-Text Search: BM25", documentation on BM25 and sparse vectors, accessed July 23, 2026. <https://qdrant.tech/documentation/search/text-search/full-text-search/>
 
-[^bm25]: Stephen Robertson and Hugo Zaragoza, "The Probabilistic Relevance Framework: BM25 and Beyond", *Foundations and Trends in Information Retrieval* 3, no. 4 (2009): 333-389. <https://doi.org/10.1561/1500000019>
+[^bm25]: Stephen Robertson and Hugo Zaragoza, ["The Probabilistic Relevance Framework: BM25 and Beyond"](https://doi.org/10.1561/1500000019), *Foundations and Trends in Information Retrieval* 3, no. 4 (2009): 333-389. [Scholar](https://scholar.google.com/scholar_lookup?title=The+Probabilistic+Relevance+Framework%3A+BM25+and+Beyond&doi=10.1561%2F1500000019)
 
-[^beir]: Nandan Thakur et al., "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models", 2021. <https://arxiv.org/abs/2104.08663>
+[^beir]: Nandan Thakur et al., ["BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models"](https://arxiv.org/pdf/2104.08663), 2021. [arXiv](https://arxiv.org/abs/2104.08663) · [Scholar](https://scholar.google.com/scholar_lookup?title=BEIR%3A+A+Heterogenous+Benchmark+for+Zero-shot+Evaluation+of+Information+Retrieval+Models)

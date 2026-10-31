@@ -3,6 +3,7 @@ layout: single
 title: "Avalúo y vulnerabilidad en 3 cucharadas (parte I): cambie el denominador, cambie el mapa"
 subtitle: "Qué ocurre al repartir el avalúo fiscal de 9,4 millones de predios entre unidades vecinales y cambiar la unidad de comparación"
 date: 2026-07-26 19:20:00 -0400
+last_modified_at: 2026-10-31 18:28:00 -0300
 categories: [datos, python, territorio]
 tags: [catastro-sii, igvust, unidad-vecinal, desigualdad, gini, theil, duckdb, geoespacial, datos-abiertos]
 description: "Cruce descriptivo entre avalúo fiscal SII e IGVUST por unidad vecinal. El resultado central no es una paradoja social: es la sensibilidad al denominador, al universo RSH, a la geometría y a la escala territorial."
@@ -40,7 +41,7 @@ ai_disclosure:
 Chile mantiene un catastro capaz de seguir millones de predios y, aun así, suele reducir toda la conversación a una cuota trimestral. El dato no nació del entusiasmo estatal por dibujar polígonos: existe porque el impuesto territorial necesita saber **qué hay, dónde está, para qué se usa y cuánto vale fiscalmente**.
 {: .text-justify}
 
-Un avalúo fiscal no es sólo una cifra en el recibo de contribuciones. Es la vara administrativa con que el Estado mide el valor de la propiedad, y esa vara importa: parte de la desigualdad urbana se juega en el valor del suelo, en quién capitaliza la plusvalía y en quién queda fuera de ella ([Sabatini, Cáceres y Cerda, 2001](https://doi.org/10.4067/S0250-71612001008200002); [López-Morales, Sanhueza, Espinoza y Órdenes, 2019](https://doi.org/10.4067/S0250-71612019000300113)).
+Un avalúo fiscal no es sólo una cifra en el recibo de contribuciones. Es la vara administrativa con que el Estado mide el valor de la propiedad, y esa vara importa: parte de la desigualdad urbana se juega en el valor del suelo, en quién capitaliza la plusvalía y en quién queda fuera de ella (Sabatini, Cáceres y Cerda 2001[^sabatini2001]; López-Morales, Sanhueza, Espinoza y Órdenes 2019[^lopezmorales2019]).
 {: .text-justify}
 
 Este post cruza ese número administrativo —el avalúo fiscal del SII— con un índice oficial de vulnerabilidad territorial, unidad vecinal por unidad vecinal. El resultado no es una revelación dramática. Depende de decisiones que casi nunca llegan al titular: **qué se suma, entre qué se divide, sobre qué territorio se agrega y qué casos quedan fuera**. Aquí quedan escritas antes de mirar el mapa.
@@ -56,7 +57,7 @@ $$
 {\text{unidad con que se lo compara}}
 $$
 
-Sumar el avalúo de una unidad vecinal responde cuánto valor administrativo fue asignado allí. Dividir ese mismo total por hogares, personas o metros cuadrados responde preguntas distintas. Ninguna es «la correcta» por naturaleza; el error aparece cuando una se presenta con el nombre de otra. La aritmética suele ser inocente. El relato, no siempre.
+Sumar el avalúo de una unidad vecinal responde cuánto valor administrativo fue asignado allí. Dividir ese mismo total por hogares, personas o metros cuadrados responde preguntas distintas. Ninguna es "la correcta" por naturaleza; el error aparece cuando una se presenta con el nombre de otra. La aritmética suele ser inocente. El relato, no siempre.
 {: .text-justify}
 
 ## Contrato de lectura
@@ -77,7 +78,7 @@ Cruzo dos registros administrativos chilenos: el catastro de bienes raíces del 
 El RSH importa porque es la fuente de hogares y personas que uso como denominador. A escala nacional es amplio —casi 16 millones de personas—, pero no cubre todas las comunas por igual. En comunas con baja presencia relativa en RSH, como puede ocurrir en Vitacura, un indicador "por hogar RSH" puede inflarse por un denominador angosto, no por más avalúo real. El visor SIVUST, aún no público, trata esa misma comparación con igual cautela.
 {: .text-justify}
 
-El avalúo fiscal tampoco es precio de mercado: el SII lo construye a partir de las características del bien y su área homogénea, no de una transacción real. Puede ser una señal territorial útil si conserva su apellido, **fiscal** — la teoría de precios hedónicos de [Rosen (1974)](https://doi.org/10.1086/260169) explica por qué el entorno pesa en la valoración de un bien diferenciado como una vivienda, pero este post no observa transacciones ni patrimonio de los hogares.
+El avalúo fiscal tampoco es precio de mercado: el SII lo construye a partir de las características del bien y su área homogénea, no de una transacción real. Puede ser una señal territorial útil si conserva su apellido, **fiscal** — la teoría de precios hedónicos de Rosen (1974[^rosen1974]) explica por qué el entorno pesa en la valoración de un bien diferenciado como una vivienda, pero este post no observa transacciones ni patrimonio de los hogares.
 {: .text-justify}
 
 **Corte de datos:** 19 de julio de 2026. **Fecha editorial:** 26 de julio de 2026. Todas las relaciones son descriptivas y dependen de la malla UV utilizada.
@@ -103,21 +104,21 @@ Agregué el avalúo fiscal de predios SII a escala UV y lo comparé con el orden
 Lo que encontré: por hogar y por persona casi no hay relación con vulnerabilidad. Por metro cuadrado aparece una relación nacional fuerte, pero se diluye al mirar sólo UV mayoritariamente urbanas. Esperaba una paradoja entre riqueza y vulnerabilidad y no apareció. Me quedé con algo más sobrio y, para mi gusto, más útil: **el denominador, el universo y la escala forman parte del resultado**.
 {: .text-justify}
 
-Una advertencia antes de seguir: nada de esto dice cuánto gana quien vive ahí, cuánto vale su casa en el mercado ni quién es su dueño. Convertir una asociación territorial en una afirmación sobre personas es exactamente la inferencia ecológica que [Robinson (1950)](https://doi.org/10.2307/2087176) advirtió hace más de setenta años.
+Una advertencia antes de seguir: nada de esto dice cuánto gana quien vive ahí, cuánto vale su casa en el mercado ni quién es su dueño. Convertir una asociación territorial en una afirmación sobre personas es exactamente la inferencia ecológica que Robinson (1950[^robinson1950]) advirtió hace más de setenta años.
 {: .text-justify}
 
 ## Antes de las cucharadas: por qué se grava lo que no se mueve
 
-El impuesto territorial tiene una lógica menos exótica que su reputación pública. La propiedad es una base visible, inmóvil y vinculada al territorio donde se prestan servicios. En Chile, las contribuciones son de beneficio municipal: una parte queda en la comuna de origen y otra alimenta el Fondo Común Municipal, que redistribuye recursos para alumbrado, áreas verdes, infraestructura y programas sociales ([SII, *Impuesto Territorial*](https://www.sii.cl/destacados/impuesto_territorial/index.html)). Sin catastro, avalúos y localización predial, esa arquitectura simplemente no funciona.
+El impuesto territorial tiene una lógica menos exótica que su reputación pública. La propiedad es una base visible, inmóvil y vinculada al territorio donde se prestan servicios. En Chile, las contribuciones son de beneficio municipal: una parte queda en la comuna de origen y otra alimenta el Fondo Común Municipal, que redistribuye recursos para alumbrado, áreas verdes, infraestructura y programas sociales (SII, *Impuesto Territorial*[^siisf] y *¿Para qué sirve el pago del impuesto territorial?*[^siisfb]). Sin catastro, avalúos y localización predial, esa arquitectura simplemente no funciona.
 {: .text-justify}
 
-Tampoco es una rareza chilena. El impuesto recurrente sobre bienes inmuebles ocupa un lugar relevante en las finanzas locales de numerosos países. La comparación reunida por el Banco Mundial muestra recaudaciones cercanas a 2%–3% del PIB en Estados Unidos, Canadá y Reino Unido, y participaciones importantes en los ingresos locales. No son copias del sistema chileno, pero comparten la misma intuición: parte del valor que se acumula en el territorio ayuda a financiar el territorio ([Banco Mundial, 2020](https://openknowledge.worldbank.org/handle/10986/34793)).
+Tampoco es una rareza chilena. El impuesto recurrente sobre bienes inmuebles ocupa un lugar relevante en las finanzas locales de numerosos países. La comparación reunida por el Banco Mundial muestra recaudaciones cercanas a 2%–3% del PIB en Estados Unidos, Canadá y Reino Unido, y participaciones importantes en los ingresos locales. No son copias del sistema chileno, pero comparten la misma intuición: parte del valor que se acumula en el territorio ayuda a financiar el territorio (Banco Mundial 2020[^bancomundial2020]).
 {: .text-justify}
 
-La evidencia comparada no dice que cualquier impuesto a la propiedad sea justo por definición. Dice algo más incómodo: **el diseño manda**. La OCDE y el FMI destacan su base poco móvil, su potencial recaudatorio y su vínculo con los servicios locales, pero recomiendan avalúos actualizados, tasas moderadas y alivios focalizados o diferidos para propietarios con baja liquidez. El propio FMI usa el *Council Tax* británico como ejemplo de cómo bandas demasiado comprimidas pueden producir un resultado regresivo ([OCDE, 2022](https://doi.org/10.1787/03dfe007-en); [FMI, 2024](https://doi.org/10.5089/9798400288753.061)). El instrumento no trae progresividad de fábrica.
+La evidencia comparada no dice que cualquier impuesto a la propiedad sea justo por definición. Dice algo más incómodo: **el diseño manda**. La OCDE y el FMI destacan su base poco móvil, su potencial recaudatorio y su vínculo con los servicios locales, pero recomiendan avalúos actualizados, tasas moderadas y alivios focalizados o diferidos para propietarios con baja liquidez. El propio FMI usa el *Council Tax* británico como ejemplo de cómo bandas demasiado comprimidas pueden producir un resultado regresivo (OCDE 2022[^ocde2022]; FMI 2024[^grote2024]). El instrumento no trae progresividad de fábrica.
 {: .text-justify}
 
-Hay, por supuesto, una vía más vistosa: borrar una línea del recibo y reconstruir el costo en otra planilla. La suma puede cerrar; la distribución no necesariamente. Cuando una exención deja de mirar ingresos o valor y la compensación reproduce la recaudación previa, el impuesto no desaparece: cambia de bolsillo, de fondo o de código postal. La contabilidad conserva la calma. El territorio quizá no.
+Hay, por supuesto, una vía más vistosa: borrar una línea del recibo y reconstruir el costo en otra planilla, como en la exención de contribuciones con compensación a los municipios que el Congreso discutió en julio de 2026 (Senado 2026[^senado2026]; Cooperativa 2026[^cooperativa2026]). La suma puede cerrar; la distribución no necesariamente. Cuando una exención deja de mirar ingresos o valor y la compensación reproduce la recaudación previa, el impuesto no desaparece: cambia de bolsillo, de fondo o de código postal. La contabilidad conserva la calma. El territorio quizá no.
 {: .text-justify}
 
 Con esa perspectiva, el catastro deja de ser una colección de roles y pasa a ser lo que realmente es: la infraestructura que permite medir la base, repartirla y discutir quién se beneficia de cada regla. Ahora sí, las tres cucharadas.
@@ -128,7 +129,7 @@ Con esa perspectiva, el catastro deja de ser una colección de roles y pasa a se
 El corte original trae **10.343.893 registros**. Registro no equivale a predio único; las bases administrativas también tienen eco. Después de deduplicar la clave catastral —comuna, manzana y número predial— quedan **9.401.277 predios**. El objetivo es repartir su avalúo sobre **6.891 UV** antes de probar denominadores. El informe oficial del IGVUST declara 6.887; trabajo con cuatro más y dejo la diferencia anotada sin adjudicarle un error a nadie, porque no tengo cómo resolverla desde acá.
 {: .text-justify}
 
-Predios y UV son polígonos, pero sus límites no coinciden. Un predio puede caer entero en una UV, cruzar varias o no tocar ninguna. Uso prorrateo por área de intersección, una forma de interpolación areal ([Goodchild, Anselin & Deichmann, 1993](https://doi.org/10.1068/a250383)):
+Predios y UV son polígonos, pero sus límites no coinciden. Un predio puede caer entero en una UV, cruzar varias o no tocar ninguna. Uso prorrateo por área de intersección, una forma de interpolación areal (Goodchild, Anselin y Deichmann 1993[^goodchild1993]):
 {: .text-justify}
 
 $$
@@ -162,12 +163,12 @@ Ese sesgo se declara, no se barre debajo de la alfombra. En comunas con muchos p
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline.webp' | relative_url }}" alt="Diagrama de flujo: 10.343.893 registros originales se separan en 942.616 duplicados y 9.401.277 predios únicos; de estos últimos, 9.130.127 tocan al menos una unidad vecinal y 271.150 no tocan ninguna." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 2</strong> — Del registro original al universo espacial. «Toca al menos una UV» no significa asignación completa: un predio puede intersectar una UV y conservar parte de su superficie fuera de la malla. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
+  <figcaption><strong>Figura 2</strong> — Del registro original al universo espacial. “Toca al menos una UV” no significa asignación completa: un predio puede intersectar una UV y conservar parte de su superficie fuera de la malla. Fuente: elaboración propia, corte 19/07/2026. Haz clic para ampliar.</figcaption>
 </figure>
 
 ## Antes del IGVUST: tamaño del avalúo observado
 
-Antes de cruzar vulnerabilidad conviene saber de qué magnitud hablamos. En las 346 comunas, el avalúo fiscal asignado suma **587,4 billones de pesos**. La Región Metropolitana concentra **286,7 billones** (**48,8%**); Valparaíso, **56,2 billones** (**9,6%**); Biobío, **39,4 billones** (**6,7%**). La concentración no es un detalle: define el tamaño del numerador que luego se divide.
+Antes de cruzar vulnerabilidad conviene saber de qué magnitud hablo. En las 346 comunas, el avalúo fiscal asignado suma **587,4 billones de pesos**. La Región Metropolitana concentra **286,7 billones** (**48,8%**); Valparaíso, **58,3 billones** (**9,9%**); Biobío, **39,4 billones** (**6,7%**). La concentración no es un detalle: define el tamaño del numerador que luego se divide.
 {: .text-justify}
 
 Por comuna, las mayores sumas asignadas son Las Condes (**38,2 billones**), Santiago (**27,1**), Providencia (**16,3**), Lo Barnechea (**16,0**) y Vitacura (**15,2**). Antofagasta también aparece arriba (**15,1 billones**), pero con una fuga UV comunal muy alta; ese es precisamente el tipo de caso donde el total, el denominador y el universo deben leerse juntos.
@@ -303,16 +304,16 @@ T = \frac{1}{n}\sum_{i=1}^{n} \frac{x_i}{\mu} \ln\!\left(\frac{x_i}{\mu}\right)
 = \underbrace{\sum_{g} w_g T_g}_{\text{intra}} + \underbrace{\sum_{g} w_g \ln\!\left(\frac{\mu_g}{\mu}\right)}_{\text{entre}}
 $$
 
-Agrupando por región, $$T = 1{,}2042$$ y 81,0% queda dentro de las regiones. Al reagrupar por comuna, la parte entre-grupos llega a 56,9%. La comuna no "revela" segregación por arte de magia: al refinar una partición, parte de la desigualdad se desplaza desde el componente intra al componente entre por construcción ([Shorrocks, 1984](https://doi.org/10.2307/1913511)).
+Agrupando por región, $$T = 1{,}2042$$ y 81,0% queda dentro de las regiones. Al reagrupar por comuna, la parte entre-grupos llega a 56,9%. La comuna no "revela" segregación por arte de magia: al refinar una partición, parte de la desigualdad se desplaza desde el componente intra al componente entre por construcción (Shorrocks 1984[^shorrocks1984]).
 {: .text-justify}
 
-Ese es el problema de la unidad areal modificable, o MAUP ([Fotheringham & Wong, 1991](https://doi.org/10.1068/a231025)). Los mismos predios pueden producir estadísticas distintas si se agrupan en regiones, comunas o UV. La escala no adorna el resultado: lo define. Por eso importa qué es la UV antes de usarla como contenedor: si la unidad no corresponde a un territorio con sentido propio, la estadística que produce hereda ese desajuste.
+Ese es el problema de la unidad areal modificable, o MAUP (Fotheringham y Wong 1991[^fotheringham1991]). Los mismos predios pueden producir estadísticas distintas si se agrupan en regiones, comunas o UV. La escala no adorna el resultado: lo define. Por eso importa qué es la UV antes de usarla como contenedor: si la unidad no corresponde a un territorio con sentido propio, la estadística que produce hereda ese desajuste.
 {: .text-justify}
 
 Segundo freno: los cuartiles IGVUST ordenan UV, no personas. El cuartil de mayor vulnerabilidad reúne 25% de las unidades, pero **2.032.893 de 15.978.644 personas RSH (12,7%)**. Una coropleta puede sobrerrepresentar territorio rural disperso aunque sus colores estén perfectamente calculados.
 {: .text-justify}
 
-Tercer freno: la literatura de *assessment ratio* muestra que la valoración fiscal puede apartarse sistemáticamente de valores de mercado y que el patrón depende del contexto institucional. [Hodge, McMillen, Sands y Skidmore (2017)](https://doi.org/10.1111/1540-6229.12126) estudian ese problema en otro mercado; no prueban que el SII tenga el mismo sesgo. Lo que sí evidencian es que usar avalúo fiscal como sinónimo de precio de mercado requiere de factores de ajuste importantes, pese a eso, los gradientes o tendencias territoriales no deberían distar tanto.
+Tercer freno: la literatura de *assessment ratio* muestra que la valoración fiscal puede apartarse sistemáticamente de valores de mercado y que el patrón depende del contexto institucional. Hodge, McMillen, Sands y Skidmore (2017[^hodge2017]) estudian ese problema en otro mercado; no prueban que el SII tenga el mismo sesgo. Lo que sí evidencian es que usar avalúo fiscal como sinónimo de precio de mercado requiere de factores de ajuste importantes, pese a eso, los gradientes o tendencias territoriales no deberían distar tanto.
 {: .text-justify}
 
 ## Cierre: las brechas también pagan contribuciones
@@ -350,23 +351,32 @@ El visor permite explorar estas brechas de lo general a lo particular: el país 
 
 ## Fuentes
 
-**Impuesto territorial y comparación internacional**
+[^siisf]: Servicio de Impuestos Internos (SII). *Impuesto Territorial*. Base de cálculo, exenciones, reavalúo y cartografía predial. [sii.cl](https://www.sii.cl/destacados/impuesto_territorial/index.html).
 
-- Servicio de Impuestos Internos (SII). *Impuesto Territorial*. Base de cálculo, exenciones, reavalúo y cartografía predial. [sii.cl](https://www.sii.cl/destacados/impuesto_territorial/index.html).
-- Servicio de Impuestos Internos (SII). *¿Para qué sirve el pago del impuesto territorial?* Destino municipal y Fondo Común Municipal. [sii.cl](https://www.sii.cl/destacados/reavaluo/contribucionesreavaluo.html).
-- OCDE (2022). *Housing Taxation in OECD Countries*. OECD Tax Policy Studies, N.º 29. [10.1787/03dfe007-en](https://doi.org/10.1787/03dfe007-en).
-- Grote, M. & Wen, J.-F. (2024). *How to Design and Implement Property Tax Reforms*. IMF How-To Notes, 2024/006. [10.5089/9798400288753.061](https://doi.org/10.5089/9798400288753.061).
-- Banco Mundial (2020). *Property Tax Diagnostic Manual*. [Repositorio institucional](https://openknowledge.worldbank.org/handle/10986/34793).
-- Senado de la República de Chile (15 de julio de 2026). *Reconstrucción nacional: ¿cuáles fueron los aspectos centrales aprobados?* Antecedente legislativo del Boletín N.º 18.216-05, consultado el 26 de julio de 2026. [senado.cl](https://www.senado.cl/comunicaciones/noticias/reconstruccion-nacional-cuales-fueron-los-aspectos-centrales-aprobados).
-- Cooperativa (22 de julio de 2026). *Megarreforma: comisión mixta aprobó compensación a municipios por exención de contribuciones*. Fórmula aprobada por la comisión mixta y estado de tramitación, consultados el 26 de julio de 2026. [cooperativa.cl](https://www.cooperativa.cl/noticias/pais/politica/agenda-legislativa/megarreforma-comision-mixta-aprobo-compensacion-a-municipios-por/2026-07-22/171256.html).
+[^siisfb]: Servicio de Impuestos Internos (SII). *¿Para qué sirve el pago del impuesto territorial?* Destino municipal y Fondo Común Municipal. [sii.cl](https://www.sii.cl/destacados/reavaluo/contribucionesreavaluo.html).
 
-**Método y teoría**
+[^ocde2022]: OCDE (2022). [*Housing Taxation in OECD Countries*](https://doi.org/10.1787/03dfe007-en). OECD Tax Policy Studies, N.º 29. [10.1787/03dfe007-en](https://doi.org/10.1787/03dfe007-en). [Scholar](https://scholar.google.com/scholar_lookup?title=Housing+Taxation+in+OECD+Countries&doi=10.1787%2F03dfe007-en)
 
-- Sabatini, F., Cáceres, G. & Cerda, J. (2001). *Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción*. EURE, 27(82), 21-42. [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008200002).
-- López-Morales, E., Sanhueza, C., Espinoza, S. & Órdenes, F. (2019). *Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011*. EURE, 45(136), 113-134. [10.4067/S0250-71612019000300113](https://doi.org/10.4067/S0250-71612019000300113).
-- Rosen, S. (1974). *Hedonic Prices and Implicit Markets*. Journal of Political Economy, 82(1), 34-55. [10.1086/260169](https://doi.org/10.1086/260169).
-- Goodchild, M. F., Anselin, L. & Deichmann, U. (1993). *A Framework for the Areal Interpolation of Socioeconomic Data*. Environment and Planning A, 25(3), 383-397. [10.1068/a250383](https://doi.org/10.1068/a250383).
-- Robinson, W. S. (1950). *Ecological Correlations and the Behavior of Individuals*. American Sociological Review, 15(3), 351-357. [10.2307/2087176](https://doi.org/10.2307/2087176).
-- Shorrocks, A. F. (1984). *Inequality Decomposition by Population Subgroups*. Econometrica, 52(6), 1369-1385. [10.2307/1913511](https://doi.org/10.2307/1913511).
-- Fotheringham, A. S. & Wong, D. W. S. (1991). *The Modifiable Areal Unit Problem in Multivariate Statistical Analysis*. Environment and Planning A, 23(7), 1025-1044. [10.1068/a231025](https://doi.org/10.1068/a231025).
-- Hodge, T. R., McMillen, D. P., Sands, G. & Skidmore, M. (2017). *Assessment Inequity in a Declining Housing Market: The Case of Detroit*. Real Estate Economics, 45(2), 237-258. [10.1111/1540-6229.12126](https://doi.org/10.1111/1540-6229.12126).
+[^grote2024]: Grote, M. & Wen, J.-F. (2024). [*How to Design and Implement Property Tax Reforms*](https://doi.org/10.5089/9798400288753.061). IMF How-To Notes, 2024/006. [10.5089/9798400288753.061](https://doi.org/10.5089/9798400288753.061). [Scholar](https://scholar.google.com/scholar_lookup?title=How+to+Design+and+Implement+Property+Tax+Reforms&doi=10.5089%2F9798400288753.061)
+
+[^bancomundial2020]: Banco Mundial (2020). *Property Tax Diagnostic Manual*. [Repositorio institucional](https://openknowledge.worldbank.org/handle/10986/34793).
+
+[^senado2026]: Senado de la República de Chile (15 de julio de 2026). *Reconstrucción nacional: ¿cuáles fueron los aspectos centrales aprobados?* Antecedente legislativo del Boletín N.º 18.216-05, consultado el 26 de julio de 2026. [senado.cl](https://www.senado.cl/comunicaciones/noticias/reconstruccion-nacional-cuales-fueron-los-aspectos-centrales-aprobados).
+
+[^cooperativa2026]: Cooperativa (22 de julio de 2026). *Megarreforma: comisión mixta aprobó compensación a municipios por exención de contribuciones*. Fórmula aprobada por la comisión mixta y estado de tramitación, consultados el 26 de julio de 2026. [cooperativa.cl](https://www.cooperativa.cl/noticias/pais/politica/agenda-legislativa/megarreforma-comision-mixta-aprobo-compensacion-a-municipios-por/2026-07-22/171256.html).
+
+[^sabatini2001]: Sabatini, F., Cáceres, G. & Cerda, J. (2001). [*Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción*](https://doi.org/10.4067/S0250-71612001008200002). EURE, 27(82), 21-42. [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008200002). [Scholar](https://scholar.google.com/scholar_lookup?title=Segregaci%C3%B3n+residencial+en+las+principales+ciudades+chilenas%3A+Tendencias+de+las+tres+%C3%BAltimas+d%C3%A9cadas+y+posibles+cursos+de+acci%C3%B3n&doi=10.4067%2FS0250-71612001008200002)
+
+[^lopezmorales2019]: López-Morales, E., Sanhueza, C., Espinoza, S. & Órdenes, F. (2019). [*Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011*](http://www.scielo.cl/pdf/eure/v45n136/0717-6236-eure-45-136-0113.pdf). EURE, 45(136), 113-134. [10.4067/S0250-71612019000300113](https://doi.org/10.4067/S0250-71612019000300113). [Scholar](https://scholar.google.com/scholar_lookup?title=Verticalizaci%C3%B3n+inmobiliaria+y+valorizaci%C3%B3n+de+renta+de+suelo+por+infraestructura+p%C3%BAblica%3A+un+an%C3%A1lisis+econom%C3%A9trico+del+Gran+Santiago%2C+2008-2011&doi=10.4067%2FS0250-71612019000300113)
+
+[^rosen1974]: Rosen, S. (1974). [*Hedonic Prices and Implicit Markets*](https://doi.org/10.1086/260169). Journal of Political Economy, 82(1), 34-55. [10.1086/260169](https://doi.org/10.1086/260169). [Scholar](https://scholar.google.com/scholar_lookup?title=Hedonic+Prices+and+Implicit+Markets%3A+Product+Differentiation+in+Pure+Competition&doi=10.1086%2F260169)
+
+[^goodchild1993]: Goodchild, M. F., Anselin, L. & Deichmann, U. (1993). [*A Framework for the Areal Interpolation of Socioeconomic Data*](https://doi.org/10.1068/a250383). Environment and Planning A, 25(3), 383-397. [10.1068/a250383](https://doi.org/10.1068/a250383). [Scholar](https://scholar.google.com/scholar_lookup?title=A+Framework+for+the+Areal+Interpolation+of+Socioeconomic+Data&doi=10.1068%2Fa250383)
+
+[^robinson1950]: Robinson, W. S. (1950). [*Ecological Correlations and the Behavior of Individuals*](https://doi.org/10.2307/2087176). American Sociological Review, 15(3), 351-357. [10.2307/2087176](https://doi.org/10.2307/2087176). [Scholar](https://scholar.google.com/scholar_lookup?title=Ecological+Correlations+and+the+Behavior+of+Individuals&doi=10.2307%2F2087176)
+
+[^shorrocks1984]: Shorrocks, A. F. (1984). [*Inequality Decomposition by Population Subgroups*](https://doi.org/10.2307/1913511). Econometrica, 52(6), 1369-1385. [10.2307/1913511](https://doi.org/10.2307/1913511). [Scholar](https://scholar.google.com/scholar_lookup?title=Inequality+Decomposition+by+Population+Subgroups&doi=10.2307%2F1913511)
+
+[^fotheringham1991]: Fotheringham, A. S. & Wong, D. W. S. (1991). [*The Modifiable Areal Unit Problem in Multivariate Statistical Analysis*](https://doi.org/10.1068/a231025). Environment and Planning A, 23(7), 1025-1044. [10.1068/a231025](https://doi.org/10.1068/a231025). [Scholar](https://scholar.google.com/scholar_lookup?title=The+Modifiable+Areal+Unit+Problem+in+Multivariate+Statistical+Analysis&doi=10.1068%2Fa231025)
+
+[^hodge2017]: Hodge, T. R., McMillen, D. P., Sands, G. & Skidmore, M. (2017). [*Assessment Inequity in a Declining Housing Market: The Case of Detroit*](https://doi.org/10.1111/1540-6229.12126). Real Estate Economics, 45(2), 237-258. [10.1111/1540-6229.12126](https://doi.org/10.1111/1540-6229.12126). [Scholar](https://scholar.google.com/scholar_lookup?title=Assessment+Inequity+in+a+Declining+Housing+Market%3A+The+Case+of+Detroit&doi=10.1111%2F1540-6229.12126)

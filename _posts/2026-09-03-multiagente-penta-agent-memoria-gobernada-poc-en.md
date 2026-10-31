@@ -3,7 +3,7 @@ layout: single
 title: "Multi-agent work in three spoonfuls (part III): a memory that leaves traces"
 subtitle: "From auditable RAG to a more governed memory: it still is not a digital clone"
 date: 2026-09-03 00:00:00 -0400
-last_modified_at: 2026-09-03 00:00:00 -0400
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ai, productivity, development, multi-agent]
 tags: [multi-agent, rag, agent-memory, provenance, privacy, governance, knowledge-graph, rag-evaluation, threejs]
 description: "Third penta-agent log: provenance, currency, evaluation, and a sanitized 3D projection of its operational memory."
@@ -250,13 +250,13 @@ The next step forward is not adding more nodes. It is closing the local answer e
 Works that guided this piece and that this version no longer cites in the body.
 They are kept because losing track of what was read is worse than declaring it.
 
-Cormack, Gordon V., Charles L. A. Clarke, and Stefan Büttcher. 2009. "Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods". In *Proceedings of the 32nd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval*, 758–59. New York: Association for Computing Machinery. <https://doi.org/10.1145/1571941.1572114>.
+Cormack, Gordon V., Charles L. A. Clarke, and Stefan Büttcher. 2009. ["Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods"](https://doi.org/10.1145/1571941.1572114). In *Proceedings of the 32nd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval*, 758–59. New York: Association for Computing Machinery. [Scholar](https://scholar.google.com/scholar_lookup?title=Reciprocal+rank+fusion+outperforms+condorcet+and+individual+rank+learning+methods&doi=10.1145%2F1571941.1572114)
 
-Wu, Di, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu. 2024. "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory". arXiv, October 14, 2024; revised March 4, 2025. Accepted at ICLR 2025. <https://arxiv.org/abs/2410.10813>.
+Wu, Di, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu. 2024. ["LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory"](https://arxiv.org/pdf/2410.10813). arXiv, October 14, 2024; revised March 4, 2025. Accepted at ICLR 2025. [arXiv](https://arxiv.org/abs/2410.10813) · [Scholar](https://scholar.google.com/scholar_lookup?title=LongMemEval%3A+Benchmarking+Chat+Assistants+on+Long-Term+Interactive+Memory)
 
-Wu, Di, Zixiang Ji, Asmi Kawatkar, Bryan Kwan, Jia-Chen Gu, Nanyun Peng, and Kai-Wei Chang. 2026. "LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues". Work in progress, arXiv, May 12, 2026. <https://arxiv.org/abs/2605.06304>.
+Wu, Di, Zixiang Ji, Asmi Kawatkar, Bryan Kwan, Jia-Chen Gu, Nanyun Peng, and Kai-Wei Chang. 2026. ["LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues"](https://arxiv.org/pdf/2605.12493). Work in progress, arXiv, May 12, 2026. [arXiv](https://arxiv.org/abs/2605.12493) · [Scholar](https://scholar.google.com/scholar_lookup?title=LongMemEval-V2%3A+Evaluating+Long-Term+Agent+Memory+Toward+Experienced+Colleagues)
 
-Zhang, Yanzhao, Mingxin Li, Dingkun Long, Xin Zhang, Huan Lin, Baosong Yang, Pengjun Xie, et al. 2025. "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models". arXiv, June 5, 2025. <https://arxiv.org/abs/2506.05176>.
+Zhang, Yanzhao, Mingxin Li, Dingkun Long, Xin Zhang, Huan Lin, Baosong Yang, Pengjun Xie, et al. 2025. ["Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models"](https://arxiv.org/pdf/2506.05176). arXiv, June 5, 2025. [arXiv](https://arxiv.org/abs/2506.05176) · [Scholar](https://scholar.google.com/scholar_lookup?title=Qwen3+Embedding%3A+Advancing+Text+Embedding+and+Reranking+Through+Foundation+Models)
 
 ### Software and technical documentation
 
@@ -283,20 +283,20 @@ Vectorize. n.d. *Hindsight: Agent Memory That Learns*. GitHub repository. Access
 > **Conflicts of interest in the sources.** The model cards, the repositories, and several of the systems papers are written by their own developers or by organizations that offer related services; LongMemEval-V2, moreover, is still declared work in progress. They are used here to document architecture, declared functions, and maintenance status, not to accept claims of superiority. `penta-agent`'s own metrics are likewise evidence produced by the project itself, and they require reproducible artifacts and independent review before they can support general comparisons.
 {: .notice--info}
 
-[^chhikara-2025]: Chhikara, Prateek, Dev Khant, Saket Aryan, Taranjeet Singh, and Deshraj Yadav. 2025. "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory". arXiv, April 28, 2025. <https://arxiv.org/abs/2504.19413>.
+[^chhikara-2025]: Chhikara, Prateek, Dev Khant, Saket Aryan, Taranjeet Singh, and Deshraj Yadav. 2025. ["Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"](https://arxiv.org/pdf/2504.19413). arXiv, April 28, 2025. [arXiv](https://arxiv.org/abs/2504.19413) · [Scholar](https://scholar.google.com/scholar_lookup?title=Mem0%3A+Building+Production-Ready+AI+Agents+with+Scalable+Long-Term+Memory)
 
-[^edge-2024]: Edge, Darren, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, Dasha Metropolitansky, Robert Osazuwa Ness, and Jonathan Larson. 2024. "From Local to Global: A GraphRAG Approach to Query-Focused Summarization". arXiv, April 24, 2024; revised February 19, 2025. <https://arxiv.org/abs/2404.16130>.
+[^edge-2024]: Edge, Darren, Ha Trinh, Newman Cheng, Joshua Bradley, Alex Chao, Apurva Mody, Steven Truitt, Dasha Metropolitansky, Robert Osazuwa Ness, and Jonathan Larson. 2024. ["From Local to Global: A GraphRAG Approach to Query-Focused Summarization"](https://arxiv.org/pdf/2404.16130). arXiv, April 24, 2024; revised February 19, 2025. [arXiv](https://arxiv.org/abs/2404.16130) · [Scholar](https://scholar.google.com/scholar_lookup?title=From+Local+to+Global%3A+A+Graph+RAG+Approach+to+Query-Focused+Summarization)
 
-[^hu-2025]: Hu, Yuyang, Shichun Liu, Yanwei Yue, Guibin Zhang, Boyang Liu, Fangyi Zhu, Jiahang Lin, et al. 2025. "Memory in the Age of AI Agents". arXiv, December 15, 2025. <https://arxiv.org/abs/2512.13564>.
+[^hu-2025]: Hu, Yuyang, Shichun Liu, Yanwei Yue, Guibin Zhang, Boyang Liu, Fangyi Zhu, Jiahang Lin, et al. 2025. ["Memory in the Age of AI Agents"](https://arxiv.org/pdf/2512.13564). arXiv, December 15, 2025. [arXiv](https://arxiv.org/abs/2512.13564) · [Scholar](https://scholar.google.com/scholar_lookup?title=Memory+in+the+Age+of+AI+Agents)
 
-[^latimer-2025]: Latimer, Chris, Nicoló Boschi, Andrew Neeser, Chris Bartholomew, Gaurav Srivastava, Xuan Wang, and Naren Ramakrishnan. 2025. "Hindsight Is 20/20: Building Agent Memory That Retains, Recalls, and Reflects". arXiv, December 16, 2025. <https://arxiv.org/abs/2512.12818>.
+[^latimer-2025]: Latimer, Chris, Nicoló Boschi, Andrew Neeser, Chris Bartholomew, Gaurav Srivastava, Xuan Wang, and Naren Ramakrishnan. 2025. ["Hindsight Is 20/20: Building Agent Memory That Retains, Recalls, and Reflects"](https://arxiv.org/pdf/2512.12818). arXiv, December 16, 2025. [arXiv](https://arxiv.org/abs/2512.12818) · [Scholar](https://scholar.google.com/scholar_lookup?title=Hindsight+is+20%2F20%3A+Building+Agent+Memory+that+Retains%2C+Recalls%2C+and+Reflects)
 
 [^lebo-2013]: Lebo, Timothy, Satya Sahoo, and Deborah McGuinness, eds. 2013. *PROV-O: The PROV Ontology*. W3C Recommendation, April 30, 2013. <https://www.w3.org/TR/prov-o/>.
 
 [^nissenbaum-2004]: Nissenbaum, Helen. 2004. "Privacy as Contextual Integrity". *Washington Law Review* 79, no. 1: 119–58. <https://digitalcommons.law.uw.edu/wlr/vol79/iss1/10/>.
 
-[^packer-2023]: Packer, Charles, Sarah Wooders, Kevin Lin, Vivian Fang, Shishir G. Patil, Ion Stoica, and Joseph E. Gonzalez. 2023. "MemGPT: Towards LLMs as Operating Systems". arXiv, October 12, 2023; revised February 12, 2024. <https://doi.org/10.48550/arXiv.2310.08560>.
+[^packer-2023]: Packer, Charles, Sarah Wooders, Kevin Lin, Vivian Fang, Shishir G. Patil, Ion Stoica, and Joseph E. Gonzalez. 2023. ["MemGPT: Towards LLMs as Operating Systems"](https://arxiv.org/pdf/2310.08560). arXiv, October 12, 2023; revised February 12, 2024. [DOI](https://doi.org/10.48550/arXiv.2310.08560) · [Scholar](https://scholar.google.com/scholar_lookup?title=MemGPT%3A+Towards+LLMs+as+Operating+Systems&doi=10.48550%2FarXiv.2310.08560)
 
-[^park-2023]: Park, Joon Sung, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. "Generative Agents: Interactive Simulacra of Human Behavior". In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, article 2, 1–22. New York: Association for Computing Machinery. <https://doi.org/10.1145/3586183.3606763>.
+[^park-2023]: Park, Joon Sung, Joseph C. O'Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and Michael S. Bernstein. 2023. ["Generative Agents: Interactive Simulacra of Human Behavior"](https://arxiv.org/pdf/2304.03442). In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology*, article 2, 1–22. New York: Association for Computing Machinery. [DOI](https://doi.org/10.1145/3586183.3606763) · [Scholar](https://scholar.google.com/scholar_lookup?title=Generative+Agents%3A+Interactive+Simulacra+of+Human+Behavior&doi=10.1145%2F3586183.3606763)
 
-[^rasmussen-2025]: Rasmussen, Preston, Pavlo Paliychuk, Travis Beauvais, Jack Ryan, and Daniel Chalef. 2025. "Zep: A Temporal Knowledge Graph Architecture for Agent Memory". arXiv, January 20, 2025. <https://arxiv.org/abs/2501.13956>.
+[^rasmussen-2025]: Rasmussen, Preston, Pavlo Paliychuk, Travis Beauvais, Jack Ryan, and Daniel Chalef. 2025. ["Zep: A Temporal Knowledge Graph Architecture for Agent Memory"](https://arxiv.org/pdf/2501.13956). arXiv, January 20, 2025. [arXiv](https://arxiv.org/abs/2501.13956) · [Scholar](https://scholar.google.com/scholar_lookup?title=Zep%3A+A+Temporal+Knowledge+Graph+Architecture+for+Agent+Memory)

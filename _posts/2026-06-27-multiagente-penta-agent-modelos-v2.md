@@ -2,7 +2,9 @@
 layout: single
 title: "Multiagentes en 3 cucharadas (parte I): lo que me funcionó y lo que no"
 subtitle: "Una bitácora práctica sobre Codex, Claude, Gemini/Antigravity, Copilot, MCP, skills y handoffs en mi flujo diario"
+excerpt: "Una experiencia situada con penta-agent: qué me ha servido para coordinar agentes en minutas, normativa, estadística, automatización doméstica, nube propia y seguridad local, sin venderlo como receta universal."
 date: 2026-06-27 00:00:00 +0000
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ia, productividad, desarrollo, multiagente]
 tags: [multiagente, agentic-coding, context-engineering, codex, claude-code, gemini, antigravity, copilot, litellm, deepseek, zai, mcp, skills, agents-md, vscode, arch-linux]
 description: "Una experiencia situada con penta-agent: qué me ha servido para coordinar agentes en minutas, normativa, estadística, automatización doméstica, nube propia y seguridad local, sin venderlo como receta universal."
@@ -288,18 +290,18 @@ Y queda un frente que no es de roles sino de **memoria**: el sistema coordina bi
 
 [^gemini-agent]: Google Developers, “Use the Gemini Code Assist agent mode”, consultado el 21 de junio de 2026. Describe agent mode en IDE, uso de herramientas, MCP y aprobación de acciones. <https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer>
 
-[^galster-config]: Matthias Galster et al., “Configuring Agentic AI Coding Tools: An Exploratory Study”, arXiv:2602.14690, 2026. Analiza mecanismos como context files, skills, subagentes, hooks, settings y MCP. <https://arxiv.org/abs/2602.14690>
+[^galster-config]: Matthias Galster et al., [“Configuring Agentic AI Coding Tools: An Exploratory Study”](https://arxiv.org/pdf/2602.14690), arXiv:2602.14690, 2026 (versiones 1 a 4; la versión vigente se titula "Harness Engineering for Agentic AI Coding Tools: An Exploratory Study"). Analiza mecanismos como context files, skills, subagentes, hooks, settings y MCP. [arXiv](https://arxiv.org/abs/2602.14690) · [Scholar](https://scholar.google.com/scholar_lookup?title=Harness+Engineering+for+Agentic+AI+Coding+Tools%3A+An+Exploratory+Study)
 
-[^agents-md-eval]: Thibaud Gloaguen et al., “Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?”, arXiv:2602.11988, 2026. Reporta que context files pueden reducir éxito y elevar costo cuando agregan requisitos innecesarios. <https://arxiv.org/abs/2602.11988>
+[^agents-md-eval]: Thibaud Gloaguen et al., [“Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?”](https://arxiv.org/pdf/2602.11988), arXiv:2602.11988, 2026. Reporta que context files pueden reducir éxito y elevar costo cuando agregan requisitos innecesarios. [arXiv](https://arxiv.org/abs/2602.11988) · [Scholar](https://scholar.google.com/scholar_lookup?title=Evaluating+AGENTS.md%3A+Are+Repository-Level+Context+Files+Helpful+for+Coding+Agents%3F)
 
-[^instructions-code]: Ali Arabat y Mohammed Sayagh, “Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests”, arXiv:2606.13449, 2026. Analiza pull requests agenticos y concluye que las instrucciones no mejoran automáticamente el desempeño. <https://arxiv.org/abs/2606.13449>
+[^instructions-code]: Ali Arabat y Mohammed Sayagh, [“Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests”](https://arxiv.org/pdf/2606.13449), arXiv:2606.13449, 2026. Analiza pull requests agenticos y concluye que las instrucciones no mejoran automáticamente el desempeño. [arXiv](https://arxiv.org/abs/2606.13449) · [Scholar](https://scholar.google.com/scholar_lookup?title=Toward+Instructions-as-Code%3A+Understanding+the+Impact+of+Instruction+Files+on+Agentic+Pull+Requests)
 
-[^skilljuror]: Zhiyu Chen et al., “SkillJuror: Measuring How Agent Skill Organization Changes Runtime Behavior”, arXiv:2606.11543, 2026. Evalúa organización de skills y carga progresiva. <https://arxiv.org/abs/2606.11543>
+[^skilljuror]: Zhiyu Chen et al., [“SkillJuror: Measuring How Agent Skill Organization Changes Runtime Behavior”](https://arxiv.org/pdf/2606.11543), arXiv:2606.11543, 2026. Evalúa organización de skills y carga progresiva. [arXiv](https://arxiv.org/abs/2606.11543) · [Scholar](https://scholar.google.com/scholar_lookup?title=SkillJuror%3A+Measuring+How+Agent+Skill+Organization+Changes+Runtime+Behavior)
 
-[^skill-supply-chain]: Shoumik Saha, Kazem Faghih y Soheil Feizi, “Under the Hood of SKILL.md: Semantic Supply-chain Attacks on AI Agent Skill Registry”, arXiv:2605.11418, 2026. Advierte que la metadata e instrucciones de `SKILL.md` pueden manipular descubrimiento, selección y gobernanza de skills. <https://arxiv.org/abs/2605.11418>
+[^skill-supply-chain]: Shoumik Saha, Kazem Faghih y Soheil Feizi, [“Under the Hood of SKILL.md: Semantic Supply-chain Attacks on AI Agent Skill Registry”](https://arxiv.org/pdf/2605.11418), arXiv:2605.11418, 2026. Advierte que la metadata e instrucciones de `SKILL.md` pueden manipular descubrimiento, selección y gobernanza de skills. [arXiv](https://arxiv.org/abs/2605.11418) · [Scholar](https://scholar.google.com/scholar_lookup?title=Under+the+Hood+of+SKILL.md%3A+Semantic+Supply-chain+Attacks+on+AI+Agent+Skill+Registry)
 
 [^mcp-security]: Model Context Protocol, “Security Best Practices”, consultado el 21 de junio de 2026. Enumera riesgos y mitigaciones para implementaciones MCP. <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>
 
-[^mcp-threat]: Charoes Huang, Xin Huang, Ngoc Phu Tran y Amin Milani Fard, “Model Context Protocol Threat Modeling and Analyzing Vulnerabilities to Prompt Injection with Tool Poisoning”, arXiv:2603.22489, 2026. Aplica STRIDE/DREAD a MCP y destaca tool poisoning como vulnerabilidad crítica del lado cliente. <https://arxiv.org/abs/2603.22489>
+[^mcp-threat]: Charoes Huang, Xin Huang, Ngoc Phu Tran y Amin Milani Fard, [“Model Context Protocol Threat Modeling and Analyzing Vulnerabilities to Prompt Injection with Tool Poisoning”](https://arxiv.org/pdf/2603.22489), arXiv:2603.22489, 2026. Aplica STRIDE/DREAD a MCP y destaca tool poisoning como vulnerabilidad crítica del lado cliente. [arXiv](https://arxiv.org/abs/2603.22489) · [Scholar](https://scholar.google.com/scholar_lookup?title=Model+Context+Protocol+Threat+Modeling+and+Analyzing+Vulnerabilities+to+Prompt+Injection+with+Tool+Poisoning)
 
 ---

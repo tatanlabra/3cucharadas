@@ -3,7 +3,7 @@ layout: single
 title: "Multiagentes en 3 cucharadas (parte II): una memoria que se puede auditar"
 subtitle: "De los handoffs a una recuperación compartida: qué implementé, cómo lo medí y qué falta validar"
 date: 2026-07-23 00:00:00 +0000
-last_modified_at: 2026-07-24 00:00:00 +0000
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ia, productividad, desarrollo, multiagente]
 tags: [multiagente, rag, embeddings, memoria-agentes, qdrant, bm25, mcp, context-engineering, arch-linux]
 description: "Segunda bitácora de un sistema multiagente: cómo convertí su memoria operativa en un mecanismo evaluable, qué arquitectura quedó realmente implementada y cómo evité confundir una coincidencia plausible con evidencia."
@@ -64,6 +64,9 @@ Al cerrar esa primera publicación ya tenía mecanismos de continuidad: handoffs
 Esta segunda parte no trata, por tanto, de inventar una memoria desde cero. Trata de convertir una continuidad operativa todavía frágil en un mecanismo **trazable, evaluable y reconstruible**.
 {: .text-justify}
 
+La idea de una memoria de trabajo externa no es nueva. Recoge la vieja ambición de Bush de ampliar el recuerdo con un archivo personal y la intuición de la mente extendida, según la cual las notas y las herramientas pueden llegar a formar parte de la cognición.[^bush][^extended-mind] Mi afirmación aquí es más acotada: las trazas locales sirven solo si puedo recuperarlas con su procedencia y auditar cómo se usaron.
+{: .text-justify}
+
 ## Cucharada 1: el problema no era guardar, sino recuperar bien
 
 Guardar información es fácil. Lo difícil, creo, es recuperar la pieza correcta cuando existen decisiones sucesivas, nombres parecidos, versiones contradictorias y explicaciones repartidas entre varios archivos.
@@ -98,7 +101,7 @@ El flujo real quedó así:
 Un modelo de lenguaje guarda parte de lo aprendido durante el entrenamiento en sus parámetros. Esa memoria no incluye necesariamente lo que decidí ayer en un repositorio local. La *Retrieval-Augmented Generation* o RAG agrega una memoria externa: antes de responder, un recuperador busca pasajes pertinentes y se los entrega al modelo generativo como contexto.[^rag]
 {: .text-justify}
 
-En mi implementación, `experience-memory` hace de recuperador: consulta Qdrant, fusiona señales con los registros canónicos y entrega candidatos mediante MCP. Después Codex, Claude o Gemini usan ese contexto según el flujo. Por eso prefiero describirlo como **recuperación aumentada para agentes** antes que como un «RAG autónomo»: almacenar y ordenar fragmentos no equivale a razonar sobre ellos.
+En mi implementación, `experience-memory` hace de recuperador: consulta Qdrant, fusiona señales con los registros canónicos y entrega candidatos mediante MCP. Después Codex, Claude o Gemini usan ese contexto según el flujo. Por eso prefiero describirlo como **recuperación aumentada para agentes** antes que como un "RAG autónomo": almacenar y ordenar fragmentos no equivale a razonar sobre ellos.
 {: .text-justify}
 
 ### Buscar por significado y por palabras
@@ -239,20 +242,20 @@ Si estás construyendo algo parecido —un multiagente, un RAG local, un *second
 
 ## Referencias
 
-[^bush]: Vannevar Bush, «As We May Think», *The Atlantic*, julio de 1945. <https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/>
+[^bush]: Vannevar Bush, "As We May Think", *The Atlantic*, julio de 1945. <https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/>
 
-[^extended-mind]: Andy Clark y David Chalmers, «The Extended Mind», *Analysis* 58, n.º 1 (1998): 7-19. <https://doi.org/10.1111/1467-8284.00096>
+[^extended-mind]: Andy Clark y David Chalmers, ["The Extended Mind"](https://doi.org/10.1111/1467-8284.00096), *Analysis* 58, n.º 1 (1998): 7-19. [Scholar](https://scholar.google.com/scholar_lookup?title=The+Extended+Mind&doi=10.1111%2F1467-8284.00096)
 
-[^rag]: Patrick Lewis et al., «Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks», *Advances in Neural Information Processing Systems* 33 (2020). <https://arxiv.org/abs/2005.11401>
+[^rag]: Patrick Lewis et al., ["Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"](https://arxiv.org/pdf/2005.11401), *Advances in Neural Information Processing Systems* 33 (2020). [arXiv](https://arxiv.org/abs/2005.11401) · [Scholar](https://scholar.google.com/scholar_lookup?title=Retrieval-Augmented+Generation+for+Knowledge-Intensive+NLP+Tasks)
 
-[^bge-m3]: Jianlv Chen et al., «BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation», 2024. <https://arxiv.org/abs/2402.03216>
+[^bge-m3]: Jianlv Chen et al., ["BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation"](https://arxiv.org/pdf/2402.03216), 2024. [arXiv](https://arxiv.org/abs/2402.03216) · [Scholar](https://scholar.google.com/scholar_lookup?title=M3-Embedding%3A+Multi-Linguality%2C+Multi-Functionality%2C+Multi-Granularity+Text+Embeddings+Through+Self-Knowledge+Distillation)
 
-[^ollama-embed]: Ollama, «Generate embeddings», documentación de `/api/embed`, consultada el 23 de julio de 2026. <https://docs.ollama.com/api/embed>
+[^ollama-embed]: Ollama, "Generate embeddings", documentación de `/api/embed`, consultada el 23 de julio de 2026. <https://docs.ollama.com/api/embed>
 
-[^qdrant-vectors]: Qdrant, «Vectors», documentación sobre named vectors y sparse vectors, consultada el 23 de julio de 2026. <https://qdrant.tech/documentation/manage-data/vectors/>
+[^qdrant-vectors]: Qdrant, "Vectors", documentación sobre named vectors y sparse vectors, consultada el 23 de julio de 2026. <https://qdrant.tech/documentation/manage-data/vectors/>
 
-[^qdrant-bm25]: Qdrant, «Full-Text Search: BM25», documentación sobre BM25 y sparse vectors, consultada el 23 de julio de 2026. <https://qdrant.tech/documentation/search/text-search/full-text-search/>
+[^qdrant-bm25]: Qdrant, "Full-Text Search: BM25", documentación sobre BM25 y sparse vectors, consultada el 23 de julio de 2026. <https://qdrant.tech/documentation/search/text-search/full-text-search/>
 
-[^bm25]: Stephen Robertson y Hugo Zaragoza, «The Probabilistic Relevance Framework: BM25 and Beyond», *Foundations and Trends in Information Retrieval* 3, n.º 4 (2009): 333-389. <https://doi.org/10.1561/1500000019>
+[^bm25]: Stephen Robertson y Hugo Zaragoza, ["The Probabilistic Relevance Framework: BM25 and Beyond"](https://doi.org/10.1561/1500000019), *Foundations and Trends in Information Retrieval* 3, n.º 4 (2009): 333-389. [Scholar](https://scholar.google.com/scholar_lookup?title=The+Probabilistic+Relevance+Framework%3A+BM25+and+Beyond&doi=10.1561%2F1500000019)
 
-[^beir]: Nandan Thakur et al., «BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models», 2021. <https://arxiv.org/abs/2104.08663>
+[^beir]: Nandan Thakur et al., ["BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models"](https://arxiv.org/pdf/2104.08663), 2021. [arXiv](https://arxiv.org/abs/2104.08663) · [Scholar](https://scholar.google.com/scholar_lookup?title=BEIR%3A+A+Heterogenous+Benchmark+for+Zero-shot+Evaluation+of+Information+Retrieval+Models)

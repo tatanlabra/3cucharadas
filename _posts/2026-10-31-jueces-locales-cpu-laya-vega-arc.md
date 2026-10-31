@@ -2,10 +2,10 @@
 layout: single
 classes:
   - post-editorial-hero-v2
-title: "Un comité de tres jueces pequeños en CPU: cuándo votar mejora una decisión y cuándo solo la paraliza"
+title: "Jueces tipo JEV en local en 3 cucharadas: cuándo votar mejora una decisión y cuándo solo la paraliza"
 subtitle: 'Inspirado en JEV Ultrafast, probé un panel 2-de-3 con Laya, VegaML y Arc Decide para decidir gates sin invocar a un LLM. Cuando hubo acuerdo acertó 10 de 15, pero solo decidió en el 9,38 % de los casos y nunca reconoció un "No".'
 date: 2026-10-31 11:00:00 -0300
-last_modified_at: 2026-10-31 16:15:00 -0300
+last_modified_at: 2026-10-31 18:30:00 -0300
 categories:
   - ia-herramientas
   - datos-codigo
@@ -16,8 +16,8 @@ tags:
   - toma-de-decisiones
   - benchmarks
   - onnx
-description: "Prueba de concepto de un comité 2-de-3 en CPU (Laya, VegaML y Arc Decide) frente a un cross-encoder NLI en ONNX INT8 (DeBERTa-v3-small) sobre un Intel i7-8550U."
-excerpt: 'Inspirado en JEV Ultrafast, armé un comité de tres clasificadores locales (Laya, VegaML y Arc Decide) para filtrar decisiones antes de llamar a un LLM. Aquí muestro con sus repositorios, arquitectura, papeletas de votación y mi propio hardware cuándo un comité tipo "jueces olímpicos" funciona, por qué el mío quedó paralizado en CPU y qué modelo libre sí resuelve la tarea en milisegundos.'
+description: "Prueba de concepto de un comité 2-de-3 en CPU (Laya, VegaML y Arc Decide) sobre un Intel i7-8550U, con un cross-encoder NLI en ONNX INT8 (DeBERTa-v3-small) como alternativa todavía por medir."
+excerpt: 'Inspirado en JEV Ultrafast, armé un comité de tres clasificadores locales (Laya, VegaML y Arc Decide) para filtrar decisiones antes de llamar a un LLM. Aquí muestro con sus repositorios, arquitectura, papeletas de votación y mi propio hardware cuándo un comité tipo "jueces olímpicos" funciona, por qué el mío quedó paralizado en CPU y qué modelo libre propongo medir a continuación.'
 author: clabra
 author_profile: true
 published: true
@@ -45,14 +45,14 @@ en_abstract: >
   negatives, 73 false positives), VegaML voted No on 131/160 (51/60 on No), and
   Arc Decide abstained on 148/160 with zero negative ("No") votes, leaving the
   committee paralyzed on 90.62% of cases (101/160 Laya-VegaML clashes) and
-  taking ~31.7 seconds on a cold CPU run across an 8.36 GiB combined footprint.
+  taking ~31.7 seconds on a cold CPU run with about 7.8 GiB of RAM across the three judges (2.26 + 4.93 + 0.59 GiB).
   Drawing on Condorcet's Jury Theorem (1785, p > 0.5 / 50%), Dietterich (2000),
-  and Guo et al. (2017), this post shows why uncalibrated committee voting fails
-  when judges carry opposite priors, and demonstrates how a single compact NLI
-  cross-encoder—DeBERTa-v3-small (44M backbone, 142M total, 763,913 NLI pairs,
-  88.0% on MNLI-m) compiled to ONNX INT8—solves three-class entailment and
-  contradiction gates in 5 to 15 ms (~140 MiB, 60x lighter) on the exact same
-  8-thread CPU.
+  and Guo et al. (2017), I use these measured votes to explain why uncalibrated
+  committee voting fails when judges carry opposite priors. As an untested
+  hypothesis, I propose replacing the committee with a single compact
+  three-class NLI cross-encoder (DeBERTa-v3-small, 44M backbone parameters,
+  ONNX INT8); I did not measure its latency, memory use, or accuracy on this
+  bank, so whether it fixes the missing "No" votes remains open.
 distribution:
   social: true
   republish: []
@@ -573,13 +573,13 @@ header:
 
 Cuando automatizo flujos de código y auditoría técnica, muchas validaciones no piden redactar texto: piden decidir rápido entre **"Sí"** (la evidencia alcanza), **"No"** (hay un fallo duro) o **"Indefinido"** (conviene abstenerse y escalar). Llamar a un LLM generativo en cada compuerta intermedia suma latencia, gasto de tokens y variabilidad innecesaria.
 
-Por eso armé una prueba de concepto (*PoC*) llamada `simil-jev`: un **"comité de jueces olímpicos"** (`2-de-3`) corriendo en la CPU de mi portátil con tres modelos pequeños de `0,4B` a `0,8B` parámetros (**Laya**, **VegaML** y **Arc Decide**). Aquí muestro el precursor que inspiró la idea, la arquitectura de cada juez y por qué el comité acertó más cuando lograba acuerdo (`10` de `15`), pero terminó paralizado en el `90,62 %` de los casos.
+Por eso armé una prueba de concepto (*PoC*) llamada `simil-jev`: un **"comité de jueces olímpicos"** (`2-de-3`) corriendo en la CPU de mi portátil con tres modelos pequeños de `0,4B` a `0,8B` parámetros (**Laya**[^nandhakishorm2026a], **VegaML**[^nandhakishorm2026b] y **Arc Decide**[^arc532025]). Aquí muestro el precursor que inspiró la idea, la arquitectura de cada juez y por qué el comité acertó más cuando lograba acuerdo (`10` de `15`), pero terminó paralizado en el `90,62 %` de los casos.
 
 ---
 
 ## Cucharada 1: El precursor JEV y la promesa del "comité de jueces olímpicos"
 
-La chispa de este prototipo vino de **[JEV Ultrafast](https://github.com/browser-use/jev-ultrafast)**, un experimento del equipo de *Browser Use* junto a *TypeSafe AI*. En vez de pedirle a un LLM pesado que mire capturas de pantalla o redacte párrafos en cada paso del navegador, `jev-ultrafast` convierte la página en una tabla indexada de controles y delega la elección en **[Jev](https://docs.typesafe.ai/introduction)**, un modelo especializado de decisión (*System 1*) que escoge la acción atómica (`CLICK`, `SELECT`, `WAIT`, `BLOCKED`) en milisegundos y solo llama a un LLM pequeño cuando necesita escribir texto (`TYPE_TEXT`).
+La chispa de este prototipo vino de **JEV Ultrafast**[^browseruse2026], un experimento del equipo de *Browser Use* junto a *TypeSafe AI*. En vez de pedirle a un LLM pesado que mire capturas de pantalla o redacte párrafos en cada paso del navegador, `jev-ultrafast` convierte la página en una tabla indexada de controles y delega la elección en **[Jev](https://docs.typesafe.ai/introduction)**, un modelo especializado de decisión (*System 1*) que escoge la acción atómica (`CLICK`, `SELECT`, `WAIT`, `BLOCKED`) en milisegundos y solo llama a un LLM pequeño cuando necesita escribir texto (`TYPE_TEXT`).
 
 <div class="jev-showcase">
   <div class="jev-showcase__top">
@@ -591,9 +591,9 @@ La chispa de este prototipo vino de **[JEV Ultrafast](https://github.com/browser
       <a class="jev-chip jev-chip--amber" href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener">TypeSafe Jev Docs</a>
     </div>
   </div>
-  <video class="jev-showcase__video" width="1280" height="720" autoplay loop muted playsinline controls preload="metadata" poster="https://raw.githubusercontent.com/browser-use/jev-ultrafast/main/docs/demo.gif">
-    <source src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/main/docs/demo.mp4" type="video/mp4">
-    <img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/main/docs/demo.gif" alt="Demostración de Jev Ultrafast buscando un vuelo Zúrich a Londres en Google Flights en 7,1 segundos">
+  <video class="jev-showcase__video" width="1280" height="720" autoplay loop muted playsinline controls preload="metadata" poster="https://raw.githubusercontent.com/browser-use/jev-ultrafast/8251e272398011cdef648965204d1c20cd838333/docs/demo.gif">
+    <source src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/8251e272398011cdef648965204d1c20cd838333/docs/demo.mp4" type="video/mp4">
+    <img src="https://raw.githubusercontent.com/browser-use/jev-ultrafast/8251e272398011cdef648965204d1c20cd838333/docs/demo.gif" alt="Demostración de Jev Ultrafast buscando un vuelo Zúrich a Londres en Google Flights en 7,1 segundos">
   </video>
   <p class="jev-showcase__caption">
     <strong>Precursor en acción:</strong> búsqueda Zúrich → Londres en Google Flights resuelta en <code>7,1 s</code> separando decisión atómica (Jev) de generación de texto (activo servido desde el repositorio oficial).
@@ -602,7 +602,7 @@ La chispa de este prototipo vino de **[JEV Ultrafast](https://github.com/browser
 
 Como el motor *Jev* de TypeSafe opera detrás de una API remota y cerrada, quise comprobar si podía construir un equivalente 100 % local y abierto (`simil-jev`, *"símil de JEV"*) para mis compuertas de auditoría. Y como ningún modelo de menos de mil millones de parámetros es infalible por sí solo, decidí combinarlos bajo una arquitectura de **"comité de jueces olímpicos"** (`2-de-3` con derecho a abstención):
 
-* **La promesa (Condorcet 1785; Dietterich 2000):** según el teorema del jurado de Condorcet, si cada juez acierta más de la mitad de las veces (`p > 0,5`) y sus errores son independientes, la mayoría se equivoca menos que cualquier juez individual.
+* **La promesa (Condorcet 1785[^condorcet1785]; Dietterich 2000[^dietterich2000]):** según el teorema del jurado de Condorcet, si cada juez acierta más de la mitad de las veces (`p > 0,5`) y sus errores son independientes, la mayoría se equivoca menos que cualquier juez individual.
 * **La trampa olímpica:** en gimnasia o clavados el panel descarta las notas extremas sobre una escala continua, porque un juez sistemáticamente generoso o severo distorsiona el promedio. En un voto binario (`"Sí"` / `"No"` / `"Indefinido"`), en cambio, **un comité promedia ruido pero no corrige sesgos**: si dos jueces tiran hacia extremos opuestos, el comité no converge en la verdad, sino en la parálisis por falta de quórum.
 
 ---
@@ -858,58 +858,62 @@ Esas tres papeletas resumen todo el experimento mejor que una sábana de número
 
 ---
 
-## Cierre de investigación: qué modelo libre sí corre en milisegundos en mi i7-8550U
+## Cierre de investigación: qué modelo libre podría correr en milisegundos en mi i7-8550U
 
-¿Cuándo tendría sentido armar un comité de clasificadores tipo JEV? Cuando cada juez supere el `50 %` de acierto en cada clase sobre datos fuera de muestra (Condorcet 1785), cuando sus errores estén desacoplados (Dietterich 2000), cuando sus probabilidades estén calibradas (Guo et al. 2017) y cuando al menos dos jueces tengan sensibilidad real para votar `"No"`. Juntar en CPU a un juez que aprueba casi todo, otro que rechaza casi todo y un tercero que casi no habla no produce sabiduría colectiva: produce abstención cara. Por eso retiré el prototipo.
+¿Cuándo tendría sentido armar un comité de clasificadores tipo JEV? Cuando cada juez supere el `50 %` de acierto en cada clase sobre datos fuera de muestra (Condorcet 1785[^condorcet1785]), cuando sus errores estén desacoplados (Dietterich 2000[^dietterich2000]), cuando sus probabilidades estén calibradas (Guo et al. 2017[^guo2017]) y cuando al menos dos jueces tengan sensibilidad real para votar `"No"`. Juntar en CPU a un juez que aprueba casi todo, otro que rechaza casi todo y un tercero que casi no habla no produce sabiduría colectiva: produce abstención cara. Por eso retiré el prototipo.
 
-Pero retirar ese comité deja abierta la pregunta práctica: **¿existe hoy un modelo local, 100 % libre y gratuito, que sí pueda decidir compuertas de tres clases (`"Sí"`, `"No"`, `"Indefinido"`) en milisegundos sobre un `Intel Core i7-8550U` sin GPU?** Sí existe, siempre que cambie de familia arquitectónica y deje de tratar una verificación lógica como si fuera un problema de generación de texto.
+Pero retirar ese comité deja abierta la pregunta práctica: **¿existe hoy un modelo local, 100 % libre y gratuito, que sí pueda decidir compuertas de tres clases (`"Sí"`, `"No"`, `"Indefinido"`) en milisegundos sobre un `Intel Core i7-8550U` sin GPU?** Creo que sí, siempre que cambie de familia arquitectónica y deje de tratar una verificación lógica como si fuera un problema de generación de texto; pero es una hipótesis que este experimento no puso a prueba.
 
-Cuando una compuerta evalúa si una evidencia observada respalda, contradice o resulta insuficiente frente a una regla, el problema formal no es *causal language modeling*, sino **inferencia de lenguaje natural (*Natural Language Inference*, NLI)** de tres clases: *entailment* (`"Sí"`), *contradiction* (`"No"`) y *neutral* (`"Indefinido"`). En esa categoría, el modelo abierto que mejor equilibra precisión y velocidad en una CPU portátil con `AVX2` es **[`MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli`](https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli)** (Laurer et al. 2024), basado en la arquitectura **DeBERTaV3** (He, Gao y Chen 2023) y compilado a **ONNX INT8** mediante [`optimum`](https://github.com/huggingface/optimum) y [`onnxruntime`](https://onnxruntime.ai/):
+Cuando una compuerta evalúa si una evidencia observada respalda, contradice o resulta insuficiente frente a una regla, el problema formal no es *causal language modeling*, sino **inferencia de lenguaje natural (*Natural Language Inference*, NLI)** de tres clases: *entailment* (`"Sí"`), *contradiction* (`"No"`) y *neutral* (`"Indefinido"`). En esa categoría, el candidato que propongo medir a continuación es **[`cross-encoder/nli-deberta-v3-small`](https://huggingface.co/cross-encoder/nli-deberta-v3-small)**, basado en la arquitectura **DeBERTaV3** (He, Gao y Chen 2023[^he2023]); su repositorio publica además una versión **ONNX INT8** para CPU con `AVX2` que corre con [`onnxruntime`](https://onnxruntime.ai/), y [`optimum`](https://github.com/huggingface/optimum) permite exportar otras. La idea de reutilizar un modelo NLI como clasificador viene de Laurer et al. (2024[^laurer2024]), cuya familia incluye una variante más grande, [`MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli`](https://huggingface.co/MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli). Todavía no medí ninguno de los dos en mi banco de `160` casos:
 
-<div class="nli-solution-card" role="region" aria-label="Ficha técnica del modelo libre recomendado para CPU: MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli en ONNX INT8">
+<div class="nli-solution-card" role="region" aria-label="Ficha técnica del modelo libre que propongo medir en CPU: cross-encoder/nli-deberta-v3-small en ONNX INT8">
   <div class="nli-solution-card__top">
-    <h3 class="nli-solution-card__title">✅ Alternativa viable en CPU: DeBERTa-v3-small-mnli-fever-anli (ONNX INT8)</h3>
+    <h3 class="nli-solution-card__title">Hipótesis por medir en CPU: nli-deberta-v3-small (ONNX INT8)</h3>
     <div class="jev-chips">
-      <a class="jev-chip" href="https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli" target="_blank" rel="noopener">HF Model (MIT)</a>
+      <a class="jev-chip" href="https://huggingface.co/cross-encoder/nli-deberta-v3-small" target="_blank" rel="noopener">HF Model (Apache)</a>
       <a class="jev-chip jev-chip--amber" href="https://arxiv.org/abs/2111.09543" target="_blank" rel="noopener">Paper DeBERTaV3</a>
       <a class="jev-chip" href="https://onnxruntime.ai/" target="_blank" rel="noopener">ONNX Runtime</a>
     </div>
   </div>
   <p class="nli-solution-card__desc">
-    <em>Cross-encoder</em> bidireccional con <strong>atención desenredada</strong> (<em>disentangled attention</em>, que separa contenido y posición relativa) entrenado mediante <em>replaced token detection</em> (ELECTRA) y ajustado sobre <strong>763.913 pares NLI</strong> (<code>MultiNLI</code> + <code>FEVER-NLI</code> + <code>ANLI</code> R1–R3). Evalúa premisa e hipótesis juntas en una sola pasada hacia adelante sin cargar PyTorch.
+    <em>Cross-encoder</em> bidireccional con <strong>atención desenredada</strong> (<em>disentangled attention</em>, que separa contenido y posición relativa) preentrenado mediante <em>replaced token detection</em> (ELECTRA) y ajustado sobre <code>SNLI</code> + <code>MultiNLI</code>. Evalúa premisa e hipótesis juntas en una sola pasada hacia adelante sin cargar PyTorch.
   </p>
   <div class="nli-solution-card__grid">
     <div class="nli-solution-card__metric">
-      <strong>5 a 15 ms por veredicto</strong>
-      En un procesador portátil con <code>AVX2</code> sobre <code>onnxruntime</code> (<code>INT8</code> dinámico), frente a los <code>366–1.717 ms</code> en caliente y <code>~31,7 s</code> en frío del comité.
+      <strong>Latencia por medir</strong>
+      No lo corrí en este banco. Como decide en una sola pasada y sin generar texto, mi hipótesis es que quede muy por debajo de los <code>366–1.717 ms</code> en caliente y los <code>~31,7 s</code> en frío del comité.
     </div>
     <div class="nli-solution-card__metric">
-      <strong>~140 MiB en disco y RAM</strong>
-      <code>44M</code> de parámetros en el <em>backbone</em> (<code>142M</code> totales con vocabulario), casi <code>60 veces</code> más liviano que los <code>8,36 GiB</code> que ocupaban los tres jueces.
+      <strong>~165 MiB en disco (ONNX INT8 para AVX2)</strong>
+      <code>44M</code> de parámetros en el <em>backbone</em> (<code>142M</code> totales con vocabulario); el archivo <code>model_quint8_avx2.onnx</code> ocupa unos <code>165 MiB</code> en disco. Su RAM en ejecución está por medir, así que todavía no lo comparo con los cerca de <code>7,8 GiB</code> de RAM de los tres jueces.
     </div>
     <div class="nli-solution-card__metric">
       <strong>3 clases nativas ("Sí" / "No" / "Indefinido")</strong>
-      Emite logits directos para <code>entailment</code>, <code>contradiction</code> (<code>88,0 %</code> en MNLI-m) y <code>neutral</code>, eliminando de raíz la ceguera al <code>"No"</code> (<code>0/60</code>).
+      Emite logits directos para <code>contradiction</code>, <code>entailment</code> y <code>neutral</code> (<code>87,55 %</code> en MNLI <em>mismatched</em>, según su ficha). Falta medir si eso corrige la ceguera al <code>"No"</code> (<code>0/60</code>) en mis compuertas.
     </div>
   </div>
 </div>
 
-La lección que me llevo de esta prueba de concepto es simple: en un portátil de trabajo sin aceleradora dedicada, **un único *cross-encoder* NLI pequeño, bien calibrado y compilado a ONNX INT8 supera en velocidad, huella de memoria y sensibilidad para decir `"No"` a cualquier comité de modelos mal acoplados**. Cuando la verificación es determinista (un hash, un esquema JSON o un código de salida), una regla de código en `0 ms` sigue siendo imbatible; y cuando realmente hace falta juzgar implicación o contradicción semántica en local, la respuesta no estaba en sumar tres jueces en serie, sino en elegir la arquitectura correcta para una CPU.
+La lección que me llevo de esta prueba de concepto tiene una parte medida y otra por medir. Lo medido: en un portátil de trabajo sin aceleradora dedicada, **un comité de modelos mal acoplados no superó a su mejor juez individual en exactitud de tres clases y nunca logró decir `"No"`**. Lo que queda como hipótesis: que un único *cross-encoder* NLI pequeño, calibrado y compilado a ONNX INT8, lo supere en velocidad, huella de memoria y sensibilidad para decir `"No"`. Cuando la verificación es determinista (un hash, un esquema JSON o un código de salida), una regla de código en `0 ms` sigue siendo imbatible; y cuando realmente hace falta juzgar implicación o contradicción semántica en local, mi siguiente paso no es sumar tres jueces en serie, sino medir primero una arquitectura diseñada para esa tarea.
 
 ---
 
 ## Referencias
 
-<div class="post-references" markdown="1">
+[^arc532025]: Arc53. 2025. *"arc-decide-0.4b-v0.2: Compact ONNX Decision Classifier"*. Repositorio de modelo en Hugging Face. [https://huggingface.co/Arc53/arc-decide-0.4b-v0.2](https://huggingface.co/Arc53/arc-decide-0.4b-v0.2).
 
-- Arc53. 2025. *"arc-decide-0.4b-v0.2: Compact ONNX Decision Classifier"*. Repositorio de modelo en Hugging Face. [https://huggingface.co/Arc53/arc-decide-0.4b-v0.2](https://huggingface.co/Arc53/arc-decide-0.4b-v0.2).
-- Browser Use y TypeSafe AI. 2026. *"JEV Ultrafast: Sub-Second Browser Agent Actions with Jev Decision Models"*. Repositorio oficial en GitHub. [https://github.com/browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast).
-- Condorcet, Jean-Antoine-Nicolas de Caritat, Marqués de. 1785. [*Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix*](https://gallica.bnf.fr/ark:/12148/bpt6k417181). París: Imprimerie Royale.
-- Dietterich, Thomas G. 2000. ["Ensemble Methods in Machine Learning"](https://doi.org/10.1007/3-540-45014-9_1). En *Multiple Classifier Systems (MCS 2000)*, Lecture Notes in Computer Science, vol. 1857, 1–15. Berlín: Springer.
-- Guo, Chuan, Geoff Pleiss, Yu Sun y Kilian Q. Weinberger. 2017. ["On Calibration of Modern Neural Networks"](https://proceedings.mlr.press/v70/guo17a.html). En *Proceedings of the 34th International Conference on Machine Learning (ICML)*, PMLR 70: 1321–1330.
-- He, Pengcheng, Jianfeng Gao y Weizhu Chen. 2023. ["DeBERTaV3: Improving DeBERTa using ELECTRA-Style Pre-Training with Gradient-Disentangled Embedding Sharing"](https://arxiv.org/abs/2111.09543). En *International Conference on Learning Representations (ICLR 2023)*.
-- Laurer, Moritz, Wouter van Atteveldt, Andreu Casas y Kasper Welbers. 2024. ["Less Annotating, More Classifying: Addressing the Data Scarcity Issue of Supervised Machine Learning with Deep Transfer Learning and BERT-NLI"](https://doi.org/10.1017/pan.2023.20). *Political Analysis* 32 (1): 84–100. Modelo: [https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli](https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli).
-- NandhaKishorM (ConvAI Innovations). 2026a. *"Laya: System 1 Non-Autoregressive Multilingual Decision Engine"*. Repositorio en GitHub. [https://github.com/NandhaKishorM/laya](https://github.com/NandhaKishorM/laya).
-- NandhaKishorM. 2026b. *"VegaML: Potential-Well Physics Decision Engine over Frozen Language Backbones"*. Repositorio en GitHub. [https://github.com/NandhaKishorM/vegaml](https://github.com/NandhaKishorM/vegaml).
+[^browseruse2026]: Browser Use y TypeSafe AI. 2026. *"JEV Ultrafast: Sub-Second Browser Agent Actions with Jev Decision Models"*. Repositorio oficial en GitHub. [https://github.com/browser-use/jev-ultrafast](https://github.com/browser-use/jev-ultrafast).
 
-</div>
+[^condorcet1785]: Condorcet, Jean-Antoine-Nicolas de Caritat, Marqués de. 1785. [*Essai sur l'application de l'analyse à la probabilité des décisions rendues à la pluralité des voix*](https://gallica.bnf.fr/ark:/12148/bpt6k417181). París: Imprimerie Royale.
+
+[^dietterich2000]: Dietterich, Thomas G. 2000. ["Ensemble Methods in Machine Learning"](https://doi.org/10.1007/3-540-45014-9_1). En *Multiple Classifier Systems (MCS 2000)*, Lecture Notes in Computer Science, vol. 1857, 1–15. Berlín: Springer. [Scholar](https://scholar.google.com/scholar_lookup?title=Ensemble+Methods+in+Machine+Learning&doi=10.1007%2F3-540-45014-9_1)
+
+[^guo2017]: Guo, Chuan, Geoff Pleiss, Yu Sun y Kilian Q. Weinberger. 2017. ["On Calibration of Modern Neural Networks"](https://proceedings.mlr.press/v70/guo17a.html). En *Proceedings of the 34th International Conference on Machine Learning (ICML)*, PMLR 70: 1321–1330.
+
+[^he2023]: He, Pengcheng, Jianfeng Gao y Weizhu Chen. 2023. ["DeBERTaV3: Improving DeBERTa using ELECTRA-Style Pre-Training with Gradient-Disentangled Embedding Sharing"](https://arxiv.org/pdf/2111.09543). En *International Conference on Learning Representations (ICLR 2023)*. [arXiv](https://arxiv.org/abs/2111.09543) · [Scholar](https://scholar.google.com/scholar_lookup?title=DeBERTaV3%3A+Improving+DeBERTa+using+ELECTRA-Style+Pre-Training+with+Gradient-Disentangled+Embedding+Sharing)
+
+[^laurer2024]: Laurer, Moritz, Wouter van Atteveldt, Andreu Casas y Kasper Welbers. 2024. ["Less Annotating, More Classifying: Addressing the Data Scarcity Issue of Supervised Machine Learning with Deep Transfer Learning and BERT-NLI"](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/05BB05555241762889825B080E097C27/S1047198723000207a.pdf/div-class-title-less-annotating-more-classifying-addressing-the-data-scarcity-issue-of-supervised-machine-learning-with-deep-transfer-learning-and-bert-nli-div.pdf). *Political Analysis* 32 (1): 84–100. Modelo de la misma familia: [https://huggingface.co/MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli](https://huggingface.co/MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli). [DOI](https://doi.org/10.1017/pan.2023.20) · [Scholar](https://scholar.google.com/scholar_lookup?title=Less+Annotating%2C+More+Classifying%3A+Addressing+the+Data+Scarcity+Issue+of+Supervised+Machine+Learning+with+Deep+Transfer+Learning+and+BERT-NLI&doi=10.1017%2Fpan.2023.20)
+
+[^nandhakishorm2026a]: NandhaKishorM (ConvAI Innovations). 2026a. *"Laya: System 1 Non-Autoregressive Multilingual Decision Engine"*. Repositorio en GitHub. [https://github.com/NandhaKishorM/laya](https://github.com/NandhaKishorM/laya).
+
+[^nandhakishorm2026b]: NandhaKishorM. 2026b. *"VegaML: Potential-Well Physics Decision Engine over Frozen Language Backbones"*. Repositorio en GitHub. [https://github.com/NandhaKishorM/vegaml](https://github.com/NandhaKishorM/vegaml).

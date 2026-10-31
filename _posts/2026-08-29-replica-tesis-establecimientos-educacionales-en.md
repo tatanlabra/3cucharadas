@@ -4,7 +4,7 @@ classes: [thesis-recreation-post]
 title: "Replicating my thesis in three spoonfuls (part I): what survived and what the evidence corrected"
 subtitle: "I measured my 2014 thesis on school entry and exit again. The overall story survived, several numbers did not, and the working files helped explain why."
 date: 2026-08-29 09:30:00 -0400
-last_modified_at: 2026-10-17 17:15:00 -0300
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [data, education, public-policy]
 tags: [replicability, education, school-market, voucher, mineduc, duration-analysis, vulnerability, audit]
 description: "I rebuilt the results of my 2014 thesis on Chilean schools and audited 34 claims: what held, what was wrong then, and what still cannot be known."
@@ -63,7 +63,7 @@ The first conclusion held. Between 1992 and 2012, Chile did not merely have more
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp' | relative_url }}" title="Figure 1 — Mobility by sector" aria-label="Open Figure 1 enlarged">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp' | relative_url }}" alt="At left, the school-mobility figure published in 2014. At right, the 2026 reconstruction: municipal 346 entries and 1,135 exits, subsidised private 1,468 and 597, fee-paying private 354 and 337." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figure 1</strong> — Mobility by sector. The reconstruction totals 2,168 entries and 2,069 exits; my 2014 workbook, 2,160 and 2,065. The substantive pattern—municipal exit and subsidised-private entry—survives.</figcaption>
+  <figcaption><strong>Figure 1</strong> — Mobility by sector. The reconstruction totals 2,168 entries and 2,069 exits; my 2014 workbook, 2,160 and 2,065. The substantive pattern—municipal exit and subsidised-private entry—survives. Source: Labra Olivares (2014), master's thesis (left), and my 2026 recreation on the 1992–2012 school directory (right).</figcaption>
 </figure>
 
 The totals are not identical, but they tell the same story. My 2014 working spreadsheet is 3.05 percentage points from the reconstruction and 13.41 from the published prose: the reconstruction resembles the file that produced the figure more closely than the document I signed.
@@ -101,7 +101,7 @@ Counting by display answers a different question. Of 26 objects, twelve converge
 A discrepancy between 2014 and 2026 does not identify who was wrong. It may come from transcription, code, sample, or estimand; with only “published” and “rebuilt,” each explanation can be invented after seeing the result.
 {: .text-justify}
 
-Clemens proposes a conservative rule: “follow-up studies should be considered robustness checks until proven to be replications” (p. 4).[^clemens2015] This matters: Herndon, Ash, and Pollin isolated exclusion, coding, and weighting errors with Reinhart and Rogoff’s working spreadsheet.[^herndon2013] Christensen and Miguel argue that open data and materials make credibility assessable.[^christensen2018]
+Clemens proposes a conservative rule: “follow-up studies should be considered robustness checks until proven to be replications” (p. 4).[^clemens2015] This matters: Herndon, Ash, and Pollin isolated exclusion, coding, and weighting errors with Reinhart and Rogoff’s working spreadsheet.[^herndon2013] Christensen and Miguel argue that open data and materials make credibility assessable.[^christensen2018] Hamermesh separates pure replication, which checks a published paper with its own data, from scientific replication, which tests the result on a different population, and notes that both are scarce in economics: an activity most economists applaud but few perform.[^hamermesh2007]
 {: .text-justify}
 
 I therefore added a third source: 2014 files that preserve traces of the calculation, including Stata output, spreadsheets, and charts, plus a new run where feasible. Before attributing a difference, I checked where each file came from, recorded the evidence, and fixed the comparison rule. The three sources stay separate so a technical repair cannot rewrite historical evidence. The third did not always favour the present.
@@ -114,10 +114,10 @@ I therefore added a third source: 2014 files that preserve traces of the calcula
       <img src="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-en.svg' | relative_url }}" alt="Three input classes—pieces and data, descriptive statistics, and associational econometrics—pass through one shared chain of custody, execution, comparison, and attribution before the result is classified and the causal boundary declared." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figure 2</strong> — Reconstruction and verification chain. If a check fails, the claim stops; an apparent match cannot replace missing evidence.</figcaption>
+  <figcaption><strong>Figure 2</strong> — Reconstruction and verification chain. If a check fails, the claim stops; an apparent match cannot replace missing evidence. Source: my own elaboration.</figcaption>
 </figure>
 
-The sequence matters for public policy. Change the definition of exit, the sample, or the comparison precision, and an administrative flow can resemble system decline. If a model runs without preserving the same ordered list of values, all we know is that it could run. The diagram condenses the boundary: **rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal**.
+The sequence matters for public policy. Change the definition of exit, the sample, or the comparison precision, and an administrative flow can resemble system decline. If a model runs without preserving the same ordered list of values, all I know is that it could run. The diagram condenses the boundary: **rerunnable does not mean rebuildable; rebuildable does not mean matching; matching does not mean correct; correct does not mean causal**.
 {: .text-justify}
 
 ### Where my 2014 self was wrong
@@ -135,7 +135,7 @@ The concentration index produced the error with the largest interpretive consequ
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp' | relative_url }}" title="Figure 3 — Concentration and mobility" aria-label="Open Figure 3 enlarged">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp' | relative_url }}" alt="At left, the 2014 concentration figure on an axis from 0 to 100. At right, the reconstruction on the canonical 0 to 10,000 scale, with a negative slope and p equal to 0.084." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figure 3</strong> — Concentration and mobility. The negative sign survives, but the slope is no longer distinguishable from zero at 5% (p = 0.084; under the model, the p-value summarises how incompatible the data are with a zero slope). The published scale would label 318 of 337 municipalities highly concentrated; the canonical scale labels 66.</figcaption>
+  <figcaption><strong>Figure 3</strong> — Concentration and mobility. The negative sign survives, but the slope is no longer distinguishable from zero at 5% (p = 0.084; under the model, the p-value summarises how incompatible the data are with a zero slope). The published scale would label 318 of 337 municipalities highly concentrated; the canonical scale labels 66. Source: Labra Olivares (2014), master's thesis (left), and my 2026 recreation (right).</figcaption>
 </figure>
 
 The spreadsheet even preserved the threshold formula: `=C2>2.5`. On its scale that means 250 canonical points, not 2,500, and selects 330 of 346 municipalities. A filter that passes 95% of cases is not filtering very much.
@@ -151,7 +151,7 @@ The most suggestive new finding was not quantified in the thesis. The pupil–te
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp' | relative_url }}" title="Figure 4 — The shadow of death" aria-label="Open Figure 4 enlarged">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp' | relative_url }}" alt="Series with confidence intervals for pupils per classroom teacher among exiting schools: a fall from 17.95 to 12.22 over seven years, against 20.31 among incumbents." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figure 4</strong> — The “shadow of death”: fewer pupils per teacher during the seven years before exit. This is a descriptive pattern conditioned by the timing-marker problem, not a causal estimate.</figcaption>
+  <figcaption><strong>Figure 4</strong> — The “shadow of death”: fewer pupils per teacher during the seven years before exit. This is a descriptive pattern conditioned by the timing-marker problem, not a causal estimate. Source: my own elaboration with the 2026 recreation of the thesis data (1992–2012).</figcaption>
 </figure>
 
 That figure is relevant to public policy precisely because it does not promise what it cannot observe. A gradual deterioration raises questions about early warning, enrolment, staffing, and institutional response; it does not show that a particular intervention prevents closure or that closure causes the deterioration.
@@ -253,18 +253,18 @@ An RBD—the school's official identifier—may disappear from the register. **A
 
 [^tesis]: Labra Olivares, Cristián A. *Patrones de entrada y salida de establecimientos educacionales en Chile (1992-2012)*, master's thesis, Universidad de Chile, 2014. Advisor: Daniel Hojman T.
 
-[^grau2018]: Grau, N.; Hojman, D.; Labra, C.; Mizala, A. [*Destructive Creation: School Turnover and Educational Attainment*]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), working paper 396, 2014; Grau, Hojman, and Mizala, [*School closure and educational attainment*](https://doi.org/10.1016/j.econedurev.2018.05.003), 2018.
+[^grau2018]: Grau, N.; Hojman, D.; Labra, C.; Mizala, A. [*Destructive Creation: School Turnover and Educational Attainment*]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), working paper 396, 2014; Grau, Hojman, and Mizala, [*School closure and educational attainment*](http://www.econ.uchile.cl/uploads/publicacion/b5a96b0864935586496a4959e10220c588993d2b.pdf), 2018. [DOI](https://doi.org/10.1016/j.econedurev.2018.05.003) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closure+and+educational+attainment%3A+Evidence+from+a+market-based+system&doi=10.1016%2Fj.econedurev.2018.05.003)
 
 [^paredes2018]: Paredes, Ricardo D.; Fresard, Matías. *Voucher y cierre de escuelas en Chile*, *Estudios Públicos* 151, 7–27, 2018.
 
-[^nunez2014]: Núñez, Carmen Gloria; Solís, Camila; Soto, Rodrigo. [¿Qué sucede en las comunidades cuando se cierra la escuela rural?](https://doi.org/10.11144/Javeriana.UPSY13-2.qscc), *Universitas Psychologica* 13(2), 615–625, 2014.
+[^nunez2014]: Núñez, Carmen Gloria; Solís, Camila; Soto, Rodrigo. [¿Qué sucede en las comunidades cuando se cierra la escuela rural?](https://revistas.javeriana.edu.co/index.php/revPsycho/article/download/3602/8527), *Universitas Psychologica* 13(2), 615–625, 2014. [DOI](https://doi.org/10.11144/Javeriana.UPSY13-2.qscc) · [Scholar](https://scholar.google.com/scholar_lookup?title=%C2%BFQu%C3%A9+sucede+en+las+comunidades+cuando+se+cierra+la+escuela+rural%3F+Un+An%C3%A1lisis+Psicosocial+de+la+Pol%C3%ADtica+de+Cierre+de+las+Escuelas+Rurales+en+Chile&doi=10.11144%2FJaveriana.UPSY13-2.qscc)
 
 [^regimenes]: Biblioteca del Congreso Nacional de Chile. [History of Law No. 3,063](https://www.bcn.cl/historiadelaley/historia-de-la-ley/vista-expandida/8363/); [Law No. 19,247](https://www.bcn.cl/leychile/navegar?idNorma=127911); [Law No. 20,248](https://www.bcn.cl/leychile/Navegar/index_html?idNorma=269001&idVersion=); [Law No. 20,845](https://www.bcn.cl/leychile/Navegar?idNorma=1078172&idParte=9605200&idVersion=2222-02-02); [Law No. 21,040](https://www.bcn.cl/leychile/Navegar?idNorma=1111237&idParte=9853075).
 
-[^christensen2018]: Christensen, Garret; Miguel, Edward. [Transparency, Reproducibility, and the Credibility of Economics Research](https://doi.org/10.1257/jel.20171350), *Journal of Economic Literature* 56(3), 920–980, 2018.
+[^christensen2018]: Christensen, Garret; Miguel, Edward. [Transparency, Reproducibility, and the Credibility of Economics Research](https://doi.org/10.1257/jel.20171350), *Journal of Economic Literature* 56(3), 920–980, 2018. [Scholar](https://scholar.google.com/scholar_lookup?title=Transparency%2C+Reproducibility%2C+and+the+Credibility+of+Economics+Research&doi=10.1257%2Fjel.20171350)
 
-[^clemens2015]: Clemens, Michael A. [The Meaning of Failed Replications: A Review and Proposal](https://doi.org/10.1111/joes.12139), *Journal of Economic Surveys* 31(1), 326–342, 2015.
+[^clemens2015]: Clemens, Michael A. [The Meaning of Failed Replications: A Review and Proposal](https://doi.org/10.1111/joes.12139), *Journal of Economic Surveys* 31(1), 326–342, 2015. [Scholar](https://scholar.google.com/scholar_lookup?title=THE+MEANING+OF+FAILED+REPLICATIONS%3A+A+REVIEW+AND+PROPOSAL&doi=10.1111%2Fjoes.12139)
 
-[^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013.
+[^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013. [Scholar](https://scholar.google.com/scholar_lookup?title=Does+high+public+debt+consistently+stifle+economic+growth%3F+A+critique+of+Reinhart+and+Rogoff&doi=10.1093%2Fcje%2Fbet075)
 
-[^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007.
+[^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007. [Scholar](https://scholar.google.com/scholar_lookup?title=Viewpoint%3A+Replication+in+economics&doi=10.1111%2Fj.1365-2966.2007.00428.x)

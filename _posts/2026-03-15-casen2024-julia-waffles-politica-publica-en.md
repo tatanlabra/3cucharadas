@@ -1,8 +1,10 @@
 ---
 layout: single
 title: "CASEN 2024 in 3 spoonfuls: without a fine-grained territorial reading, social policy moves blind"
+subtitle: "Official validation against BIDAT, national composition, and regional gaps with Julia"
+excerpt: "A reproducible analysis of CASEN 2024 in Julia: official validation against BIDAT data, national composition via waffle charts, and regional gaps in education, health and poverty for territorial prioritization."
 date: 2026-03-15
-categories: [datos, politica-publica, julia, casen]
+categories: [data, public-policy, julia, casen]
 tags: [casen2024, julia, expansion, sampling-design, waffle, dotplot, public-policy, bidat, territorial-gap]
 description: "A reproducible analysis of CASEN 2024 in Julia: official validation against BIDAT data, national composition via waffle charts, and regional gaps in education, health and poverty for territorial prioritization."
 author: clabra

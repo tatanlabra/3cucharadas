@@ -4,7 +4,7 @@ classes: [thesis-recreation-post]
 title: "Replicar mi tesis en 3 cucharadas (parte I): qué sobrevivió y qué corrigió la evidencia"
 subtitle: "Volví a medir mi tesis de 2014 sobre entrada y salida de colegios. La historia general resistió, varias cifras no, y los archivos de cálculo permitieron entender por qué."
 date: 2026-08-29 09:30:00 -0400
-last_modified_at: 2026-10-17 17:15:00 -0300
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [replicabilidad, educacion, mercado-escolar, voucher, mineduc, analisis-de-duracion, vulnerabilidad, auditoria]
 description: "Recreé los resultados de mi tesis de 2014 sobre establecimientos educacionales en Chile y audité 34 afirmaciones: qué se sostuvo, qué estaba mal entonces y qué todavía no puede saberse."
@@ -63,7 +63,7 @@ Antes de sumar trece años había que responder una pregunta más modesta: **¿q
 No quería convertir esto en una pelea entre herramientas: la historia no es que Python derrotara a Stata ni que mi antiguo MacBook perdiera ante el Lenovo actual. Es qué sobrevivió al contraste, con más evidencia y experiencia —y el sesgo inevitable de auditarse a uno mismo. La tesis es mía y la auditoría también: no es una réplica independiente.
 {: .text-justify}
 
-Nada de lo que sigue es causal. «Entrada» y «salida» significan aparecer o desaparecer del registro, no observar la decisión de abrir, cerrar o quebrar. «IVE» es vulnerabilidad escolar agregada, no pobreza ni vulnerabilidad individual. Y «recreado» significa producido otra vez desde los datos y el código disponible, no haber recuperado la sesión exacta de 2014.
+Nada de lo que sigue es causal. "Entrada" y "salida" significan aparecer o desaparecer del registro, no observar la decisión de abrir, cerrar o quebrar. "IVE" es vulnerabilidad escolar agregada, no pobreza ni vulnerabilidad individual. Y "recreado" significa producido otra vez desde los datos y el código disponible, no haber recuperado la sesión exacta de 2014.
 {: .small}
 
 ## Cucharada 1: qué sobrevivió
@@ -75,7 +75,7 @@ La primera conclusión sí resistió: entre 1992 y 2012 no hubo simplemente más
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp' | relative_url }}" title="Figura 1 — Movilidad por dependencia" aria-label="Abrir la Figura 1 ampliada">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-movilidad.webp' | relative_url }}" alt="A la izquierda, la figura de movilidad total por dependencia administrativa publicada en 2014. A la derecha, la réplica de 2026: municipal 346 entradas y 1.135 salidas, particular subvencionado 1.468 y 597, particular pagado 354 y 337." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figura 1</strong> — Movilidad por dependencia. La reconstrucción totaliza 2.168 entradas y 2.069 salidas; la planilla de 2014, 2.160 y 2.065. El patrón —salida municipal y entrada subvencionada— sobrevive.</figcaption>
+  <figcaption><strong>Figura 1</strong> — Movilidad por dependencia. La reconstrucción totaliza 2.168 entradas y 2.069 salidas; la planilla de 2014, 2.160 y 2.065. El patrón —salida municipal y entrada subvencionada— sobrevive. Fuente: Labra Olivares (2014), tesis de magíster (izquierda), y recreación propia de 2026 sobre el directorio de establecimientos 1992–2012 (derecha).</figcaption>
 </figure>
 
 Los totales no son idénticos, pero cuentan la misma historia. Mi planilla de 2014 está a 3,05 puntos porcentuales de la reconstrucción y a 13,41 del texto publicado: la recreación se parece más al archivo productor que a la prosa que firmé.
@@ -105,15 +105,15 @@ También sobrevivieron varios resultados más pequeños: **10 de los 11 efectos 
 | Movilidad | Tasas 6,3; 4,5; 1,6 | Fórmulas productoras recuperan todos los puntos | Calce final correcto; lectura causal no probada. |
 {: .table--compact .table--scroll}
 
-El recuento por figura responde otra pregunta. De 26 objetos, hay doce convergencias, diez divergencias explicadas y cuatro sin prueba numérica; no queda ninguna divergencia inexplicada. No convierto ese inventario en «porcentaje de acierto»: una desigualdad, un redondeo y una igualdad literal no son la misma prueba.
+El recuento por figura responde otra pregunta. De 26 objetos, hay doce convergencias, diez divergencias explicadas y cuatro sin prueba numérica; no queda ninguna divergencia inexplicada. No convierto ese inventario en "porcentaje de acierto": una desigualdad, un redondeo y una igualdad literal no son la misma prueba.
 {: .small}
 
 ## Cucharada 2: quién se equivocó
 
-Una discrepancia entre 2014 y 2026 no identifica por sí sola al equivocado. Puede nacer en una transcripción, el código, la muestra o un cambio del estimando; con solo «publicado» y «reconstruido», esas explicaciones se inventan después de conocer el resultado.
+Una discrepancia entre 2014 y 2026 no identifica por sí sola al equivocado. Puede nacer en una transcripción, el código, la muestra o un cambio del estimando; con solo "publicado" y "reconstruido", esas explicaciones se inventan después de conocer el resultado.
 {: .text-justify}
 
-Clemens propone una regla conservadora: “follow-up studies should be considered robustness checks until proven to be replications” (p. 4).[^clemens2015] En castellano: un seguimiento es una prueba de robustez hasta demostrar que es una réplica. No es semántica: Herndon, Ash y Pollin solo aislaron exclusiones, errores de código y ponderaciones al obtener la planilla de trabajo de Reinhart y Rogoff.[^herndon2013] Para Christensen y Miguel, abrir datos y materiales permite someter la credibilidad de la evidencia a examen.[^christensen2018]
+Clemens propone una regla conservadora: “follow-up studies should be considered robustness checks until proven to be replications” (p. 4).[^clemens2015] En castellano: un seguimiento es una prueba de robustez hasta demostrar que es una réplica. No es semántica: Herndon, Ash y Pollin solo aislaron exclusiones, errores de código y ponderaciones al obtener la planilla de trabajo de Reinhart y Rogoff.[^herndon2013] Para Christensen y Miguel, abrir datos y materiales permite someter la credibilidad de la evidencia a examen.[^christensen2018] Hamermesh distingue la réplica pura, que revisa un trabajo publicado con sus propios datos, de la réplica científica, que prueba el resultado con otra población, y advierte que ambas escasean en economía: es una actividad que casi todos aplauden y pocos practican.[^hamermesh2007]
 {: .text-justify}
 
 Por eso incorporé una tercera fuente: archivos de 2014 que conservan rastros del cálculo, como salidas de Stata, planillas y gráficos, y, cuando fue posible, una nueva ejecución. Antes de atribuir una diferencia, verifiqué de dónde provenía cada archivo, dejé constancia y definí la comparación. Las tres fuentes permanecen separadas para que una reparación técnica no reescriba la evidencia histórica. La tercera no siempre favoreció al presente.
@@ -126,10 +126,10 @@ Por eso incorporé una tercera fuente: archivos de 2014 que conservan rastros de
       <img src="{{ '/assets/images/replica-tesis-establecimientos/pipeline-recreacion-es.svg' | relative_url }}" alt="Tres clases de insumos —piezas y datos, estadística descriptiva y econometría asociacional— atraviesan una cadena compartida de custodia, ejecución, comparación y atribución antes de clasificar el resultado y declarar la frontera causal." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figura 2</strong> — Cadena de recreación y control. Si una comprobación falla, la afirmación se detiene; una coincidencia aparente no reemplaza la evidencia que falta.</figcaption>
+  <figcaption><strong>Figura 2</strong> — Cadena de recreación y control. Si una comprobación falla, la afirmación se detiene; una coincidencia aparente no reemplaza la evidencia que falta. Fuente: elaboración propia.</figcaption>
 </figure>
 
-La secuencia importa para política pública. Si cambia la definición de salida, la muestra o la precisión, un flujo administrativo puede parecer una caída del sistema. Si el modelo se ejecuta sin conservar la misma lista ordenada de valores, solo sabemos que pudo correr. El diagrama lo resume en una sola frontera: **reejecutable no significa recreable; recreable no significa coincidente; coincidente no significa correcto; correcto no significa causal**.
+La secuencia importa para política pública. Si cambia la definición de salida, la muestra o la precisión, un flujo administrativo puede parecer una caída del sistema. Si el modelo se ejecuta sin conservar la misma lista ordenada de valores, solo sé que pudo correr. El diagrama lo resume en una sola frontera: **reejecutable no significa recreable; recreable no significa coincidente; coincidente no significa correcto; correcto no significa causal**.
 {: .text-justify}
 
 ### Donde me equivoqué en 2014
@@ -137,7 +137,7 @@ La secuencia importa para política pública. Si cambia la definición de salida
 El caso más limpio está en el modelo jerárquico. El cuadro publica **0,003** para el rezago del SIMCE de matemáticas; la salida de Stata que produjo la tabla imprime **0,001**. Una reestimación da 0,000533 en Stata y Python, que redondea a 0,001. Siete explicaciones alternativas quedaron refutadas. No fue traducción ni precisión: fue transcripción.
 {: .text-justify}
 
-En la misma familia de modelos, dos filas rotuladas como varianzas (medidas de dispersión) eran los logaritmos de desviaciones estándar que Stata imprime, sin transformar y además cruzados. El cuadro publicó 3,82 como «varianza del intercepto» y 2,791 como «varianza residual»; las varianzas correspondientes eran 2.079,7 y 265,6. En otra celda, 0,4142 se convirtió en 1,4142. A veces la arqueología encuentra un mecanismo sofisticado; otras, un triste error al copiar y pegar.
+En la misma familia de modelos, dos filas rotuladas como varianzas (medidas de dispersión) eran los logaritmos de desviaciones estándar que Stata imprime, sin transformar y además cruzados. El cuadro publicó 3,82 como "varianza del intercepto" y 2,791 como "varianza residual"; las varianzas correspondientes eran 2.079,7 y 265,6. En otra celda, 0,4142 se convirtió en 1,4142. A veces la arqueología encuentra un mecanismo sofisticado; otras, un triste error al copiar y pegar.
 {: .text-justify}
 
 El índice de concentración produjo el error con mayor consecuencia interpretativa para la política pública. El Herfindahl-Hirschman (IHH, una medida de cuán concentrada está la oferta) va de 0 a 10.000 y usa 2.500 como umbral de alta concentración. Mi planilla guardó el índice por cien; el texto lo leyó como si estuviera por mil. Así, Santiago aparece con 1.534 cuando la escala correcta es aproximadamente 152.
@@ -147,7 +147,7 @@ El índice de concentración produjo el error con mayor consecuencia interpretat
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp' | relative_url }}" title="Figura 3 — Concentración y movilidad" aria-label="Abrir la Figura 3 ampliada">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/cara-a-cara-ihh.webp' | relative_url }}" alt="A la izquierda, la figura publicada en 2014 con un índice de concentración entre 0 y 100. A la derecha, la recreación sobre la escala canónica de 0 a 10.000, con pendiente negativa y p igual a 0,084." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figura 3</strong> — Concentración y movilidad. El signo negativo sobrevive, pero la pendiente deja de distinguirse de cero al 5 % (p = 0,084; el valor p resume, bajo el modelo, cuán incompatibles son los datos con una pendiente nula). La escala publicada habría clasificado 318 de 337 comunas como altamente concentradas; la canónica clasifica 66.</figcaption>
+  <figcaption><strong>Figura 3</strong> — Concentración y movilidad. El signo negativo sobrevive, pero la pendiente deja de distinguirse de cero al 5 % (p = 0,084; el valor p resume, bajo el modelo, cuán incompatibles son los datos con una pendiente nula). La escala publicada habría clasificado 318 de 337 comunas como altamente concentradas; la canónica clasifica 66. Fuente: Labra Olivares (2014), tesis de magíster (izquierda), y recreación propia de 2026 (derecha).</figcaption>
 </figure>
 
 La planilla incluso dejó escrita la fórmula del umbral: `=C2>2.5`. En su escala eso equivale a 250 puntos canónicos, no 2.500, y selecciona 330 de 346 comunas. Un filtro que aprueba al 95 % de los casos no está filtrando mucho.
@@ -163,7 +163,7 @@ El hallazgo nuevo más sugerente no estaba cuantificado en la tesis. La razón a
   <a class="image-popup" href="{{ '/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp' | relative_url }}" title="Figura 4 — La sombra de la muerte" aria-label="Abrir la Figura 4 ampliada">
     <img src="{{ '/assets/images/replica-tesis-establecimientos/sombra-de-la-muerte.webp' | relative_url }}" alt="Serie con intervalos de confianza de la razón alumnos por docente de establecimientos que salen: cae de 17,95 a 12,22 durante los siete años previos, frente a 20,31 entre incumbentes." loading="lazy" decoding="async">
   </a>
-  <figcaption><strong>Figura 4</strong> — La «sombra de la muerte»: menos alumnos por docente durante los siete años anteriores a la salida. Es un patrón descriptivo condicionado por el problema del marcador temporal, no una estimación causal.</figcaption>
+  <figcaption><strong>Figura 4</strong> — La “sombra de la muerte”: menos alumnos por docente durante los siete años anteriores a la salida. Es un patrón descriptivo condicionado por el problema del marcador temporal, no una estimación causal. Fuente: elaboración propia con la recreación de 2026 de los datos de la tesis (1992–2012).</figcaption>
 </figure>
 
 Esa figura es útil para política pública precisamente porque no promete lo que no observa. Un deterioro gradual abre preguntas sobre alertas tempranas, matrícula, dotación y respuesta institucional; no demuestra que una intervención específica evite el cierre ni que el cierre cause el deterioro.
@@ -205,7 +205,7 @@ Lo importante no es reivindicar el original, sino llegar a la [parte II]({{ '/da
 La tesis quedó organizada en cuatro grupos: resultados que sobreviven, errores de 2014, una versión de 2026 sin errores conocidos y casos sin comparación válida. Esa separación muestra qué conservar y qué no llevar a 1992–2025.
 {: .text-justify}
 
-Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subvencionada. También sobrevive, **solo para el universo reconstruido del Gran Santiago**, la mayor vulnerabilidad de quienes después salen del registro. No sobreviven la escala del IHH, la lectura de «menos de 15 mil habitantes», dos varianzas, varios rótulos ni una definición temporal clave. Las discrepancias de la ruta actual se corrigieron hasta dejar una salida canónica de 2026 sin errores conocidos; las alternativas siguen visibles como sensibilidades, no como recreación.
+Sobrevive la reasignación de 1992–2012: pérdida municipal y expansión subvencionada. También sobrevive, **solo para el universo reconstruido del Gran Santiago**, la mayor vulnerabilidad de quienes después salen del registro. No sobreviven la escala del IHH, la lectura de "menos de 15 mil habitantes", dos varianzas, varios rótulos ni una definición temporal clave. Las discrepancias de la ruta actual se corrigieron hasta dejar una salida canónica de 2026 sin errores conocidos; las alternativas siguen visibles como sensibilidades, no como recreación.
 {: .text-justify}
 
 {: .table-caption}
@@ -244,7 +244,7 @@ La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar
 
 </div>
 
-Hay, sin embargo, una pregunta anterior al diseño econométrico. En un sistema donde abren y cierran establecimientos, la llamada **«destrucción creativa»** (reemplazo de quienes salen por establecimientos nuevos) puede renovar la oferta, desplazar escuelas de menor desempeño o llevar estudiantes hacia alternativas mejores. Pero el balance no puede hacerse mirando solo qué establecimiento desaparece y cuál ocupa su lugar. En Chile existe también evidencia de costos del cierre sobre repitencia y abandono, y de efectos comunitarios que difícilmente caben en una cuenta de matrícula.[^grau2018][^nunez2014]
+Hay, sin embargo, una pregunta anterior al diseño econométrico. En un sistema donde abren y cierran establecimientos, la llamada **"destrucción creativa"** (reemplazo de quienes salen por establecimientos nuevos) puede renovar la oferta, desplazar escuelas de menor desempeño o llevar estudiantes hacia alternativas mejores. Pero el balance no puede hacerse mirando solo qué establecimiento desaparece y cuál ocupa su lugar. En Chile existe también evidencia de costos del cierre sobre repitencia y abandono, y de efectos comunitarios que difícilmente caben en una cuenta de matrícula.[^grau2018][^nunez2014]
 {: .text-justify}
 
 Eso cambia la pregunta de política pública. No se trata de impedir cualquier cierre ni de conservar todo establecimiento. Se trata de saber **quién absorbe el costo de la transición**: quién debe cambiarse, adónde llega, cuánto más se desplaza, qué ocurre con su asistencia, aprendizaje y permanencia, y qué pierde la comunidad. Que existan cupos es necesario; no agota esos costos.
@@ -265,18 +265,18 @@ Un RBD —el identificador oficial del establecimiento— puede desaparecer del 
 
 [^tesis]: Labra Olivares, Cristián A. *Patrones de entrada y salida de establecimientos educacionales en Chile (1992-2012)*, tesis de magíster, Universidad de Chile, 2014. Profesor guía: Daniel Hojman T.
 
-[^grau2018]: Grau, N.; Hojman, D.; Labra, C.; Mizala, A. [*Destructive Creation: School Turnover and Educational Attainment*]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), DT 396, 2014; Grau, Hojman y Mizala, [*School closure and educational attainment*](https://doi.org/10.1016/j.econedurev.2018.05.003), 2018.
+[^grau2018]: Grau, N.; Hojman, D.; Labra, C.; Mizala, A. [*Destructive Creation: School Turnover and Educational Attainment*]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), DT 396, 2014; Grau, Hojman y Mizala, [*School closure and educational attainment*](http://www.econ.uchile.cl/uploads/publicacion/b5a96b0864935586496a4959e10220c588993d2b.pdf), 2018. [DOI](https://doi.org/10.1016/j.econedurev.2018.05.003) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closure+and+educational+attainment%3A+Evidence+from+a+market-based+system&doi=10.1016%2Fj.econedurev.2018.05.003)
 
 [^paredes2018]: Paredes, Ricardo D.; Fresard, Matías. *Voucher y cierre de escuelas en Chile*, *Estudios Públicos* 151, 7–27, 2018.
 
-[^nunez2014]: Núñez, Carmen Gloria; Solís, Camila; Soto, Rodrigo. [¿Qué sucede en las comunidades cuando se cierra la escuela rural?](https://doi.org/10.11144/Javeriana.UPSY13-2.qscc), *Universitas Psychologica* 13(2), 615–625, 2014.
+[^nunez2014]: Núñez, Carmen Gloria; Solís, Camila; Soto, Rodrigo. [¿Qué sucede en las comunidades cuando se cierra la escuela rural?](https://revistas.javeriana.edu.co/index.php/revPsycho/article/download/3602/8527), *Universitas Psychologica* 13(2), 615–625, 2014. [DOI](https://doi.org/10.11144/Javeriana.UPSY13-2.qscc) · [Scholar](https://scholar.google.com/scholar_lookup?title=%C2%BFQu%C3%A9+sucede+en+las+comunidades+cuando+se+cierra+la+escuela+rural%3F+Un+An%C3%A1lisis+Psicosocial+de+la+Pol%C3%ADtica+de+Cierre+de+las+Escuelas+Rurales+en+Chile&doi=10.11144%2FJaveriana.UPSY13-2.qscc)
 
 [^regimenes]: Biblioteca del Congreso Nacional de Chile. [Historia de la Ley N.º 3.063](https://www.bcn.cl/historiadelaley/historia-de-la-ley/vista-expandida/8363/); [Ley N.º 19.247](https://www.bcn.cl/leychile/navegar?idNorma=127911); [Ley N.º 20.248](https://www.bcn.cl/leychile/Navegar/index_html?idNorma=269001&idVersion=); [Ley N.º 20.845](https://www.bcn.cl/leychile/Navegar?idNorma=1078172&idParte=9605200&idVersion=2222-02-02); [Ley N.º 21.040](https://www.bcn.cl/leychile/Navegar?idNorma=1111237&idParte=9853075).
 
-[^christensen2018]: Christensen, Garret; Miguel, Edward. [Transparency, Reproducibility, and the Credibility of Economics Research](https://doi.org/10.1257/jel.20171350), *Journal of Economic Literature* 56(3), 920–980, 2018.
+[^christensen2018]: Christensen, Garret; Miguel, Edward. [Transparency, Reproducibility, and the Credibility of Economics Research](https://doi.org/10.1257/jel.20171350), *Journal of Economic Literature* 56(3), 920–980, 2018. [Scholar](https://scholar.google.com/scholar_lookup?title=Transparency%2C+Reproducibility%2C+and+the+Credibility+of+Economics+Research&doi=10.1257%2Fjel.20171350)
 
-[^clemens2015]: Clemens, Michael A. [The Meaning of Failed Replications: A Review and Proposal](https://doi.org/10.1111/joes.12139), *Journal of Economic Surveys* 31(1), 326–342, 2015.
+[^clemens2015]: Clemens, Michael A. [The Meaning of Failed Replications: A Review and Proposal](https://doi.org/10.1111/joes.12139), *Journal of Economic Surveys* 31(1), 326–342, 2015. [Scholar](https://scholar.google.com/scholar_lookup?title=THE+MEANING+OF+FAILED+REPLICATIONS%3A+A+REVIEW+AND+PROPOSAL&doi=10.1111%2Fjoes.12139)
 
-[^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013.
+[^herndon2013]: Herndon, Thomas; Ash, Michael; Pollin, Robert. [Does high public debt consistently stifle economic growth?](https://doi.org/10.1093/cje/bet075), *Cambridge Journal of Economics* 38(2), 257–279, 2013. [Scholar](https://scholar.google.com/scholar_lookup?title=Does+high+public+debt+consistently+stifle+economic+growth%3F+A+critique+of+Reinhart+and+Rogoff&doi=10.1093%2Fcje%2Fbet075)
 
-[^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007.
+[^hamermesh2007]: Hamermesh, Daniel S. [Viewpoint: Replication in economics](https://doi.org/10.1111/j.1365-2966.2007.00428.x), *Canadian Journal of Economics* 40(3), 715–733, 2007. [Scholar](https://scholar.google.com/scholar_lookup?title=Viewpoint%3A+Replication+in+economics&doi=10.1111%2Fj.1365-2966.2007.00428.x)

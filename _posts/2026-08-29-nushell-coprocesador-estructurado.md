@@ -3,7 +3,7 @@ layout: single
 title: "Nushell en 3 cucharadas: ¿cuándo una shell estructurada le saca jugo a un agente?"
 subtitle: "R, microbenchmarks y 380 ejecuciones para distinguir mejora, empeoramiento e indiferencia"
 date: 2026-08-29 00:00:00 -0400
-last_modified_at: 2026-09-05 00:00:00 -0400
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ia, productividad, desarrollo, multiagente]
 tags: [nushell, shell, agentes, claude-code, codex, routing, context-engineering, docker, arch-linux, benchmark, r]
 description: "Probé con evidencia si una ruta selectiva hacia Nushell ayuda a agentes de código: mejoró algunos aciertos, elevó tiempo y tokens, y fue indiferente en un caso real agregado."
@@ -98,7 +98,7 @@ Antes de comparar resultados, conviene ubicar las familias. Que varias herramien
 <figure>
   <picture>
     <source media="(max-width: 40em)" srcset="/assets/images/structured-shell/fig-d2-familias-shell-mobile.svg">
-    <img src="/assets/images/structured-shell/fig-d2-familias-shell.svg"
+    <img src="/assets/images/structured-shell/fig-d2-familias-shell.svg" width="1000" height="850"
          alt="Diagrama D2. Las shells de texto sh, Bash y zsh pasan texto entre programas; fish es una shell interactiva no POSIX; Nushell transporta registros, columnas, números y fechas; PowerShell encadena objetos .NET. El experimento compara solamente la ruta selectiva entre zsh y Nushell."
          loading="lazy">
   </picture>
@@ -215,7 +215,7 @@ Así queda mi regla después de medir:
 
 > **Nushell merece una prueba cuando la consulta combina datos estructurados, varias transformaciones y un riesgo concreto de error silencioso.** Para una operación nativa, una transformación única o un análisis de mayor escala, normalmente hay una herramienta más simple o más apropiada.
 
-No quiero convertirla en mi shell principal ni pedirle al agente que la use «cuando pueda». El objetivo es exactamente el contrario: **que pueda justificar cuándo entrar y cuándo no**.
+No quiero convertirla en mi shell principal ni pedirle al agente que la use "cuando pueda". El objetivo es exactamente el contrario: **que pueda justificar cuándo entrar y cuándo no**.
 
 Tampoco veo todavía razones para convertir esta ruta en un servidor MCP. Una consulta merecería promoverse a herramienta dedicada si aparece reiteradamente, tiene una interfaz estable, admite parámetros tipados, puede reutilizarse entre agentes y mejora de forma verificable la seguridad u observabilidad. Estos casos aún no cumplen todas esas condiciones.
 
@@ -232,18 +232,18 @@ Seguramente hay mejores rutas. Si están usando Nushell, DuckDB, `jq`, Python, M
 > **Conflictos de interés y procedencia.** Las métricas de `penta-agent` y del caso de tesis fueron producidas por el mismo proyecto que implementó la *skill*. La documentación de Nushell también proviene de quienes desarrollan la herramienta. Se usa para documentar su contrato y comportamiento declarado, no como prueba independiente de superioridad.
 {: .notice--info}
 
-[^greenberg-2020]: Greenberg, Michael, y Austin J. Blatt. 2020. «Executable Formal Semantics for the POSIX Shell». *Proceedings of the ACM on Programming Languages* 4 (POPL), artículo 43, 1–30. <https://doi.org/10.1145/3371111>.
+[^greenberg-2020]: Greenberg, Michael, y Austin J. Blatt. 2020. ["Executable Formal Semantics for the POSIX Shell"](https://arxiv.org/pdf/1907.05308). *Proceedings of the ACM on Programming Languages* 4 (POPL), artículo 43, 1–30. [DOI](https://doi.org/10.1145/3371111) · [Scholar](https://scholar.google.com/scholar_lookup?title=Executable+formal+semantics+for+the+POSIX+shell&doi=10.1145%2F3371111)
 
-[^nushell]: Nushell. s. f. «Nushell: A New Type of Shell». Consultado el 5 de septiembre de 2026. <https://www.nushell.sh/>.
+[^nushell]: Nushell. s. f. "Nushell: A New Type of Shell". Consultado el 5 de septiembre de 2026. <https://www.nushell.sh/>.
 
-[^r-fisher]: R Core Team. s. f. «Fisher's Exact Test for Count Data». *R Documentation*. Consultado el 5 de septiembre de 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/fisher.test.html>.
+[^r-fisher]: R Core Team. s. f. "Fisher's Exact Test for Count Data". *R Documentation*. Consultado el 5 de septiembre de 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/fisher.test.html>.
 
-[^clopper-1934]: Clopper, C. J., y E. S. Pearson. 1934. «The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial». *Biometrika* 26, n.º 4: 404–413. <https://doi.org/10.1093/biomet/26.4.404>.
+[^clopper-1934]: Clopper, C. J., y E. S. Pearson. 1934. ["The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial"](https://doi.org/10.1093/biomet/26.4.404). *Biometrika* 26, n.º 4: 404–413. [Scholar](https://scholar.google.com/scholar_lookup?title=THE+USE+OF+CONFIDENCE+OR+FIDUCIAL+LIMITS+ILLUSTRATED+IN+THE+CASE+OF+THE+BINOMIAL&doi=10.1093%2Fbiomet%2F26.4.404)
 
-[^r-binom]: R Core Team. s. f. «Exact Binomial Test». *R Documentation*. Consultado el 5 de septiembre de 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html>.
+[^r-binom]: R Core Team. s. f. "Exact Binomial Test". *R Documentation*. Consultado el 5 de septiembre de 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html>.
 
 [^efron-1993]: Efron, Bradley, y Robert J. Tibshirani. 1993. *An Introduction to the Bootstrap*. Nueva York: Chapman & Hall. <https://www.routledge.com/An-Introduction-to-the-Bootstrap/Efron-Tibshirani/p/book/9780412042317>.
 
-[^fd]: sharkdp. s. f. «fd: A Simple, Fast and User-Friendly Alternative to `find`». Repositorio de GitHub. Consultado el 5 de septiembre de 2026. <https://github.com/sharkdp/fd>.
+[^fd]: sharkdp. s. f. "fd: A Simple, Fast and User-Friendly Alternative to `find`". Repositorio de GitHub. Consultado el 5 de septiembre de 2026. <https://github.com/sharkdp/fd>.
 
-[^nushell-stdin]: Nushell. s. f. «Scripts». *The Nushell Book*. Consultado el 5 de septiembre de 2026. <https://www.nushell.sh/book/scripts.html>.
+[^nushell-stdin]: Nushell. s. f. "Scripts". *The Nushell Book*. Consultado el 5 de septiembre de 2026. <https://www.nushell.sh/book/scripts.html>.

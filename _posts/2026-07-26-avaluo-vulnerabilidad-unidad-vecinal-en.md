@@ -3,6 +3,7 @@ layout: single
 title: "Appraisal and vulnerability in 3 spoonfuls (part I): change the denominator, change the map"
 subtitle: "What happens when you spread the assessed value of 9.4 million parcels across neighbourhood units and then change the unit of comparison"
 date: 2026-07-26 19:20:00 -0400
+last_modified_at: 2026-10-31 18:28:00 -0300
 categories: [data, python, territory]
 tags: [cadastre, property-tax, territorial-vulnerability, inequality, gini, theil, duckdb, python, geo, geospatial, open-data]
 description: "A descriptive crosswalk between Chile's fiscal appraisal records and an official territorial vulnerability index. The stable finding is not a social paradox: it is how much the reading depends on the denominator, the universe, the geometry and the territorial scale."
@@ -43,6 +44,9 @@ Most countries tax immovable property, and most of them argue about it badly. Th
 This post works through that problem with Chilean data, because Chile happens to publish the pieces needed to do it honestly: a national cadastre of every taxable property, and an official index that ranks small civic territories by socio-territorial vulnerability. The mechanics, though, are not Chilean. Any jurisdiction that assesses property for tax and then maps the result against a deprivation measure faces exactly the same four choices.
 {: .text-justify}
 
+A fiscal appraisal is not just a figure on a property-tax bill. It is the administrative yardstick the state uses to measure property value, and that yardstick matters: part of urban inequality is played out in land value, in who captures the land-value uplift and in who is left out of it (Sabatini, Cáceres and Cerda 2001[^sabatini2001]; López-Morales, Sanhueza, Espinoza and Órdenes 2019[^lopezmorales2019]).
+{: .text-justify}
+
 The question fits in one small fraction:
 {: .text-justify}
 
@@ -53,7 +57,7 @@ $$
 {\text{the unit you compare it against}}
 $$
 
-Adding up the assessed value inside a territory answers how much administrative value was allocated there. Dividing that same total by households, by residents or by square metres answers different questions. None of them is «the correct one» by nature; the error appears when one is presented under another's name. The arithmetic is usually innocent. The narrative is not always.
+Adding up the assessed value inside a territory answers how much administrative value was allocated there. Dividing that same total by households, by residents or by square metres answers different questions. None of them is "the correct one" by nature; the error appears when one is presented under another's name. The arithmetic is usually innocent. The narrative is not always.
 {: .text-justify}
 
 ## Reading contract
@@ -74,10 +78,10 @@ A word on that unit, because it has no clean equivalent elsewhere and it drives 
 | **Neighbourhood unit (UV)** | Territory defined for neighbourhood organisation and participation. | An exhaustive mesh covering all of Chile parcel by parcel. |
 | **Denominator** | The magnitude the allocated appraisal is divided by. | Small print added afterwards: it defines the question. |
 
-The RSH matters because it is the source of the households and people I use as denominators. Nationally it is broad —around 85% of the population— but it does not cover every municipality equally. In municipalities with low relative RSH enrolment, as can happen in the wealthiest districts of Santiago, an indicator «per RSH household» can inflate because the denominator is narrow, not because there is more appraised value. That is a coverage artefact, not a finding.
+The RSH matters because it is the source of the households and people I use as denominators. Nationally it is broad —around 85% of the population— but it does not cover every municipality equally. In municipalities with low relative RSH enrolment, as can happen in the wealthiest districts of Santiago, an indicator "per RSH household" can inflate because the denominator is narrow, not because there is more appraised value. That is a coverage artefact, not a finding.
 {: .text-justify}
 
-Fiscal appraisal is also not market price: the SII builds it from the characteristics of the property and its homogeneous valuation zone, not from an observed transaction. It can be a useful territorial signal as long as it keeps its surname, **fiscal** — [Rosen's (1974)](https://doi.org/10.1086/260169) hedonic price theory explains why surroundings weigh on the valuation of a differentiated good such as housing, but this post observes neither transactions nor household wealth.
+Fiscal appraisal is also not market price: the SII builds it from the characteristics of the property and its homogeneous valuation zone, not from an observed transaction. It can be a useful territorial signal as long as it keeps its surname, **fiscal** — Rosen's (1974[^rosen1974]) hedonic price theory explains why surroundings weigh on the valuation of a differentiated good such as housing, but this post observes neither transactions nor household wealth.
 {: .text-justify}
 
 One note on notation for readers used to the short scale: Chilean Spanish uses *billón* for 10¹². Throughout this English version I write **trillion** for that same quantity. Chilean pesos traded around 980 CLP per US dollar in July 2026, so the national total below —587.4 trillion CLP— is on the order of US$600 billion.
@@ -98,24 +102,29 @@ I aggregated the fiscal appraisal of SII parcels to UV scale and compared it aga
 | Appraisal per RSH person | How much corresponds to each registered person? |
 | Appraisal per m² of parcel area | How much corresponds to each square metre of allocated parcel surface? |
 
+<figure class="align-center">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/numerador-tres-denominadores-1200x900.webp' | relative_url }}" alt="The same total fiscal appraisal is divided by households, residents and square metres, producing three different territorial patterns. Labels in Spanish." width="1200" height="900" loading="lazy" decoding="async">
+  <figcaption><strong>Figure 1</strong> — I drew the same total divided three ways. It does not come from the processing: it is there to see the fraction before looking at the map. The figure's labels are in Spanish (hogares = households, personas = residents, m² = square metres).</figcaption>
+</figure>
+
 The short answer: per household and per person there is almost no relationship with vulnerability. Per square metre a strong national relationship appears, but it dissolves when you look only at predominantly urban UVs. This is not a glamorous paradox between wealth and vulnerability. It is more sober, and therefore more useful: **the denominator, the universe and the scale are part of the result**.
 {: .text-justify}
 
-A warning before continuing: none of this says how much the people living there earn, what their house is worth on the market, or who owns it. Turning a territorial association into a statement about persons is precisely the ecological inference [Robinson (1950)](https://doi.org/10.2307/2087176) warned about more than seventy years ago.
+A warning before continuing: none of this says how much the people living there earn, what their house is worth on the market, or who owns it. Turning a territorial association into a statement about persons is precisely the ecological inference Robinson (1950[^robinson1950]) warned about more than seventy years ago.
 {: .text-justify}
 
 ## Before the spoonfuls: why we tax what cannot move
 
-The property tax has a less exotic logic than its public reputation suggests. Property is a visible base, immobile, and tied to the territory where services are delivered. In Chile, property tax revenue is municipal: part stays in the municipality of origin and part feeds the **Fondo Común Municipal**, an equalisation fund that redistributes resources for street lighting, green areas, infrastructure and social programmes ([SII, *Impuesto Territorial*](https://www.sii.cl/destacados/impuesto_territorial/index.html)). Without a cadastre, appraisals and parcel-level location, that architecture simply does not work.
+The property tax has a less exotic logic than its public reputation suggests. Property is a visible base, immobile, and tied to the territory where services are delivered. In Chile, property tax revenue is municipal: part stays in the municipality of origin and part feeds the **Fondo Común Municipal**, an equalisation fund that redistributes resources for street lighting, green areas, infrastructure and social programmes (SII, *Impuesto Territorial*[^siisf] and *¿Para qué sirve el pago del impuesto territorial?*[^siisfb]). Without a cadastre, appraisals and parcel-level location, that architecture simply does not work.
 {: .text-justify}
 
-None of this is a Chilean peculiarity. Recurrent taxes on immovable property hold a relevant place in local finance across many countries. The comparison assembled by the World Bank shows collections close to 2%–3% of GDP in the United States, Canada and the United Kingdom, and significant shares of local revenue. These are not copies of the Chilean system, but they share the same intuition: part of the value that accumulates in a territory helps finance that territory ([World Bank, 2020](https://openknowledge.worldbank.org/handle/10986/34793)).
+None of this is a Chilean peculiarity. Recurrent taxes on immovable property hold a relevant place in local finance across many countries. The comparison assembled by the World Bank shows collections close to 2%–3% of GDP in the United States, Canada and the United Kingdom, and significant shares of local revenue. These are not copies of the Chilean system, but they share the same intuition: part of the value that accumulates in a territory helps finance that territory (World Bank 2020[^bancomundial2020]).
 {: .text-justify}
 
-The comparative evidence does not say that any property tax is fair by definition. It says something more uncomfortable: **design rules**. The OECD and the IMF highlight its immobile base, its revenue potential and its link to local services, but they recommend up-to-date valuations, moderate rates, and targeted or deferred relief for owners with low liquidity. The IMF itself uses the British *Council Tax* as an example of how overly compressed bands can produce a regressive outcome ([OECD, 2022](https://doi.org/10.1787/03dfe007-en); [IMF, 2024](https://doi.org/10.5089/9798400288753.061)). The instrument does not arrive progressive from the factory.
+The comparative evidence does not say that any property tax is fair by definition. It says something more uncomfortable: **design rules**. The OECD and the IMF highlight its immobile base, its revenue potential and its link to local services, but they recommend up-to-date valuations, moderate rates, and targeted or deferred relief for owners with low liquidity. The IMF itself uses the British *Council Tax* as an example of how overly compressed bands can produce a regressive outcome (OECD 2022[^ocde2022]; IMF 2024[^grote2024]). The instrument does not arrive progressive from the factory.
 {: .text-justify}
 
-There is, of course, a flashier route: delete a line from the bill and rebuild the cost on another spreadsheet. The sum can balance; the distribution need not. When an exemption stops looking at income or value and the compensation reproduces prior revenue, the tax does not disappear: it changes pocket, fund, or postcode. The accounting stays calm. The territory may not.
+There is, of course, a flashier route: delete a line from the bill and rebuild the cost on another spreadsheet, as in the property-tax exemption with compensation to municipalities that Chile's Congress debated in July 2026 (Senate 2026[^senado2026]; Cooperativa 2026[^cooperativa2026]). The sum can balance; the distribution need not. When an exemption stops looking at income or value and the compensation reproduces prior revenue, the tax does not disappear: it changes pocket, fund, or postcode. The accounting stays calm. The territory may not.
 {: .text-justify}
 
 Seen that way, the cadastre stops being a collection of tax rolls and becomes what it actually is: the infrastructure that lets you measure the base, divide it, and argue about who benefits from each rule. Now, the three spoonfuls.
@@ -126,7 +135,7 @@ Seen that way, the cadastre stops being a collection of tax rolls and becomes wh
 The original extract holds **10,343,893 records**. A record is not the same as a unique parcel; administrative databases have echoes too. After deduplicating the cadastral key —municipality, block and parcel number— **9,401,277 parcels** remain. The goal is to distribute their appraised value across **6,891 UVs** before testing any denominator.
 {: .text-justify}
 
-Parcels and UVs are both polygons, but their boundaries do not coincide. A parcel can fall entirely inside one UV, straddle several, or touch none. I use areal apportionment by intersection area, a form of areal interpolation ([Goodchild, Anselin & Deichmann, 1993](https://doi.org/10.1068/a250383)):
+Parcels and UVs are both polygons, but their boundaries do not coincide. A parcel can fall entirely inside one UV, straddle several, or touch none. I use areal apportionment by intersection area, a form of areal interpolation (Goodchild, Anselin and Deichmann 1993[^goodchild1993]):
 {: .text-justify}
 
 $$
@@ -160,12 +169,12 @@ That bias gets declared, not swept under the rug. In municipalities with many pa
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/sankey-pipeline-en.webp' | relative_url }}" alt="Flow diagram: 10,343,893 original records split into 942,616 duplicates and 9,401,277 unique parcels; of the latter, 9,130,127 touch at least one neighbourhood unit and 271,150 touch none." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figure 1</strong> — From the original register to the spatial universe. «Touches at least one UV» does not mean full allocation: a parcel can intersect a UV and still keep part of its surface outside the mesh. Source: own elaboration, data cut 19/07/2026. Click to enlarge.</figcaption>
+  <figcaption><strong>Figure 2</strong> — From the original register to the spatial universe. “Touches at least one UV” does not mean full allocation: a parcel can intersect a UV and still keep part of its surface outside the mesh. Source: own elaboration, data cut 19/07/2026. Click to enlarge.</figcaption>
 </figure>
 
 ## Before the IGVUST: the size of the observed appraisal
 
-Before crossing anything with vulnerability, it helps to know the order of magnitude. Across the 346 municipalities, allocated fiscal appraisal sums **587.4 trillion pesos** (≈US$600 billion). The Santiago Metropolitan Region concentrates **286.7 trillion** (**48.8%**); Valparaíso, **56.2 trillion** (**9.6%**); Biobío, **39.4 trillion** (**6.7%**). The concentration is not a detail: it sets the size of the numerator that later gets divided.
+Before crossing anything with vulnerability, it helps to know the order of magnitude. Across the 346 municipalities, allocated fiscal appraisal sums **587.4 trillion pesos** (≈US$600 billion). The Santiago Metropolitan Region concentrates **286.7 trillion** (**48.8%**); Valparaíso, **58.3 trillion** (**9.9%**); Biobío, **39.4 trillion** (**6.7%**). The concentration is not a detail: it sets the size of the numerator that later gets divided.
 {: .text-justify}
 
 {: .table-caption}
@@ -174,17 +183,17 @@ Before crossing anything with vulnerability, it helps to know the order of magni
 | Level | Territory | Allocated appraisal (trillion CLP) | National share |
 |---|---|---:|---:|
 | Region | Metropolitana | 286.7 | 48.8% |
-| Region | Valparaíso | 56.2 | 9.6% |
+| Region | Valparaíso | 58.3 | 9.9% |
 | Region | Biobío | 39.4 | 6.7% |
-| Region | La Araucanía | 28.2 | 4.8% |
-| Region | Maule | 26.4 | 4.5% |
+| Region | La Araucanía | 27.9 | 4.8% |
+| Region | Maule | 26.5 | 4.5% |
 | Municipality | Las Condes | 38.2 | 6.5% |
 | Municipality | Santiago | 27.1 | 4.6% |
 | Municipality | Providencia | 16.3 | 2.8% |
 | Municipality | Lo Barnechea | 16.0 | 2.7% |
 | Municipality | Vitacura | 15.2 | 2.6% |
 
-Shares are computed over the national allocated total of 587.4 trillion. The amounts for La Araucanía and Maule are derived from that published share, not from a separately measured figure. In municipalities with UV leakage or low relative coverage of the RSH denominator, this size should not be confused with a complete reading of the territory or its residents.
+Shares are computed over the national allocated total of 587.4 trillion. All amounts are measured from the processing. I corrected this table on 5 August: I had derived La Araucanía and Maule from the rounded share instead of the measured figure, and Valparaíso was missing Quillota, whose region was spelled with an accent in the source and fell outside the regional grouping. On 31 October I brought this English version in line with that correction. In municipalities with UV leakage or low relative coverage of the RSH denominator, this size should not be confused with a complete reading of the territory or its residents.
 {: .small}
 
 The five municipalities in the table add up to **112.8 trillion**: **19.2% of the entire allocated base of the country**, in five municipalities out of 346, all of them in the eastern districts of Santiago. That is the concentration that later disappears from view once you divide by households or by square metres. Antofagasta also ranks high (**15.1 trillion**), but with very high municipal UV leakage; that is exactly the kind of case where the total, the denominator and the universe have to be read together.
@@ -197,6 +206,11 @@ The viewer carries this raw reading in the **Appraisals** tab of its denominator
 
 The IGVUST ranks neighbourhood units by socio-territorial vulnerability. I keep its four official quartiles because they are that source's analytical contract — and note the direction, because it is easy to reverse: **`q1` is the most vulnerable quartile** and `q4` the least. On the appraisal axis, each UV is compared against the median of **its own region**, not against a fixed national cut: it lands below or above that regional median. The result is a 4×2 matrix —four IGVUST rows by two appraisal columns— which avoids two problems at once: a finer partition would make the bivariate map hard to read and, in regions with few UVs such as Arica y Parinacota, would suggest a precision the aggregated data do not deliver; and a fixed national cut would ignore that typical appraisal levels differ sharply between regions. A quartile indicates relative order, not distance.
 {: .text-justify}
+
+<figure class="align-center">
+  <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/figures/bivariado-clasificacion-4x2-1200x1685.webp' | relative_url }}" alt="Four-row by two-column matrix: rows are the national IGVUST vulnerability quartiles, from q1 as highest vulnerability to q4 as lowest; columns separate low and high fiscal appraisal per square metre. Labels in Spanish." width="1200" height="1685" loading="lazy" decoding="async">
+  <figcaption><strong>Figure 3</strong> — The 4×2 classification, still without colours. Four IGVUST quartile rows by two columns of appraisal per m². Each cell names the combination it corresponds to by definition; it does not report how many neighbourhood units fall in it or how frequent it is. In the viewer, the column splits at the region's own median, not at a national cut. The figure's labels are in Spanish. Own elaboration.</figcaption>
+</figure>
 
 In the bivariate map the main reading uses **appraisal per m² of parcel area**. It is the clearest signal for drawing attention where high unit appraisal coincides with high territorial vulnerability. In the palette those cells are darker, with a transparent layer so as not to cover the basemap or turn the map into a chromatic alarm. The counterintuitive should draw attention; the obvious does not need a megaphone. The indicator remains descriptive and national; restricting to UVs with $$p_\text{urban} > 50$$ attenuates the per-m² association sharply.
 {: .text-justify}
@@ -259,7 +273,7 @@ The next table uses two summaries between -1 and +1. **Pearson** summarises a li
 Per household and per person, the association is close to nil. Per square metre, the national pattern looks strong. Restricting to predominantly urban UVs it flips to roughly +0.08. The prudent reading is that the national per-m² result contains a great deal of urban–rural contrast; not that a neighbourhood-level mechanism has been identified.
 {: .text-justify}
 
-The violins in Figure 2 show the full distribution. Their width indicates where more UVs concentrate; the internal lines show median and interquartile range. They are smoothed densities, not literal silhouettes of the territory.
+The violins in Figure 4 show the full distribution. Their width indicates where more UVs concentrate; the internal lines show median and interquartile range. They are smoothed densities, not literal silhouettes of the territory.
 {: .text-justify}
 
 <figure class="align-center">
@@ -269,7 +283,7 @@ The violins in Figure 2 show the full distribution. Their width indicates where 
       <img src="{{ '/assets/images/avaluo-vulnerabilidad-unidad-vecinal/violin-denominadores-en.webp' | relative_url }}" alt="Three violin plots compare the distributions of appraisal per household, appraisal per square metre nationally, and appraisal per square metre in predominantly urban neighbourhood units, across the four national vulnerability quartiles." loading="lazy" decoding="async">
     </picture>
   </a>
-  <figcaption><strong>Figure 2</strong> — The same appraisal produces different distributions once the denominator and the universe change. The violins show estimated densities; their shape depends on the bandwidth and proves neither natural groupings nor causality. The internal lines summarise median and interquartile range. Source: own elaboration, data cut 19/07/2026. Click to enlarge.</figcaption>
+  <figcaption><strong>Figure 4</strong> — The same appraisal produces different distributions once the denominator and the universe change. The violins show estimated densities; their shape depends on the bandwidth and proves neither natural groupings nor causality. The internal lines summarise median and interquartile range. Source: own elaboration, data cut 19/07/2026. Click to enlarge.</figcaption>
 </figure>
 
 ### 4. What is robust is the sensitivity
@@ -293,16 +307,16 @@ T = \frac{1}{n}\sum_{i=1}^{n} \frac{x_i}{\mu} \ln\!\left(\frac{x_i}{\mu}\right)
 = \underbrace{\sum_{g} w_g T_g}_{\text{within}} + \underbrace{\sum_{g} w_g \ln\!\left(\frac{\mu_g}{\mu}\right)}_{\text{between}}
 $$
 
-Grouping by region, $$T = 1.2042$$ and 81.0% stays within regions. Regrouping by municipality, the between-group part reaches 56.9%. The municipality does not «reveal» segregation by magic: when you refine a partition, part of the inequality shifts from the within component to the between component by construction ([Shorrocks, 1984](https://doi.org/10.2307/1913511)).
+Grouping by region, $$T = 1.2042$$ and 81.0% stays within regions. Regrouping by municipality, the between-group part reaches 56.9%. The municipality does not "reveal" segregation by magic: when you refine a partition, part of the inequality shifts from the within component to the between component by construction (Shorrocks 1984[^shorrocks1984]).
 {: .text-justify}
 
-That is the modifiable areal unit problem, or MAUP ([Fotheringham & Wong, 1991](https://doi.org/10.1068/a231025)). The same parcels can produce different statistics depending on whether they are grouped into regions, municipalities or UVs. Scale does not decorate the result: it defines it. Which is why it matters what the UV actually is before using it as a container: if the unit does not correspond to a territory with its own meaning, the statistic it produces inherits that mismatch.
+That is the modifiable areal unit problem, or MAUP (Fotheringham and Wong 1991[^fotheringham1991]). The same parcels can produce different statistics depending on whether they are grouped into regions, municipalities or UVs. Scale does not decorate the result: it defines it. Which is why it matters what the UV actually is before using it as a container: if the unit does not correspond to a territory with its own meaning, the statistic it produces inherits that mismatch.
 {: .text-justify}
 
 Second brake: IGVUST quartiles order UVs, not people. The most vulnerable quartile gathers 25% of the units, but **2,032,893 of 15,978,644 RSH people (12.7%)**. A choropleth can over-represent dispersed rural territory even when its colours are perfectly computed.
 {: .text-justify}
 
-Third brake: the *assessment ratio* literature shows that fiscal valuation can depart systematically from market values, and that the pattern depends on institutional context. [Hodge, McMillen, Sands and Skidmore (2017)](https://doi.org/10.1111/1540-6229.12126) study that problem in another market; they do not prove the SII carries the same bias. What they do show is that using fiscal appraisal as a synonym for market price requires substantial adjustment factors — although, even so, territorial gradients and trends should not diverge that much.
+Third brake: the *assessment ratio* literature shows that fiscal valuation can depart systematically from market values, and that the pattern depends on institutional context. Hodge, McMillen, Sands and Skidmore (2017[^hodge2017]) study that problem in another market; they do not prove the SII carries the same bias. What they do show is that using fiscal appraisal as a synonym for market price requires substantial adjustment factors — although, even so, territorial gradients and trends should not diverge that much.
 {: .text-justify}
 
 ## Closing: gaps pay property tax too
@@ -343,23 +357,32 @@ The viewer's interface is in Spanish, but its charts, tables and downloadable Pa
 
 ## Sources
 
-**Property tax and international comparison**
+[^siisf]: Servicio de Impuestos Internos (SII). *Impuesto Territorial*. Tax base, exemptions, reassessment and cadastral mapping. [sii.cl](https://www.sii.cl/destacados/impuesto_territorial/index.html).
 
-- Servicio de Impuestos Internos (SII). *Impuesto Territorial*. Tax base, exemptions, reassessment and cadastral mapping. [sii.cl](https://www.sii.cl/destacados/impuesto_territorial/index.html).
-- Servicio de Impuestos Internos (SII). *¿Para qué sirve el pago del impuesto territorial?* Municipal destination and the Fondo Común Municipal. [sii.cl](https://www.sii.cl/destacados/reavaluo/contribucionesreavaluo.html).
-- OECD (2022). *Housing Taxation in OECD Countries*. OECD Tax Policy Studies, No. 29. [10.1787/03dfe007-en](https://doi.org/10.1787/03dfe007-en).
-- Grote, M. & Wen, J.-F. (2024). *How to Design and Implement Property Tax Reforms*. IMF How-To Notes, 2024/006. [10.5089/9798400288753.061](https://doi.org/10.5089/9798400288753.061).
-- World Bank (2020). *Property Tax Diagnostic Manual*. [Institutional repository](https://openknowledge.worldbank.org/handle/10986/34793).
-- Senate of the Republic of Chile (15 July 2026). *Reconstrucción nacional: ¿cuáles fueron los aspectos centrales aprobados?* Legislative background to Bill No. 18.216-05, accessed 26 July 2026. [senado.cl](https://www.senado.cl/comunicaciones/noticias/reconstruccion-nacional-cuales-fueron-los-aspectos-centrales-aprobados).
-- Cooperativa (22 July 2026). *Megarreforma: comisión mixta aprobó compensación a municipios por exención de contribuciones*. Formula approved by the joint committee and status of the bill, accessed 26 July 2026. [cooperativa.cl](https://www.cooperativa.cl/noticias/pais/politica/agenda-legislativa/megarreforma-comision-mixta-aprobo-compensacion-a-municipios-por/2026-07-22/171256.html).
+[^siisfb]: Servicio de Impuestos Internos (SII). *¿Para qué sirve el pago del impuesto territorial?* Municipal destination and the Fondo Común Municipal. [sii.cl](https://www.sii.cl/destacados/reavaluo/contribucionesreavaluo.html).
 
-**Method and theory**
+[^ocde2022]: OECD (2022). [*Housing Taxation in OECD Countries*](https://doi.org/10.1787/03dfe007-en). OECD Tax Policy Studies, No. 29. [10.1787/03dfe007-en](https://doi.org/10.1787/03dfe007-en). [Scholar](https://scholar.google.com/scholar_lookup?title=Housing+Taxation+in+OECD+Countries&doi=10.1787%2F03dfe007-en)
 
-- Sabatini, F., Cáceres, G. & Cerda, J. (2001). *Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción*. EURE, 27(82), 21-42. [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008200002).
-- López-Morales, E., Sanhueza, C., Espinoza, S. & Órdenes, F. (2019). *Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011*. EURE, 45(136), 113-134. [10.4067/S0250-71612019000300113](https://doi.org/10.4067/S0250-71612019000300113).
-- Rosen, S. (1974). *Hedonic Prices and Implicit Markets*. Journal of Political Economy, 82(1), 34-55. [10.1086/260169](https://doi.org/10.1086/260169).
-- Goodchild, M. F., Anselin, L. & Deichmann, U. (1993). *A Framework for the Areal Interpolation of Socioeconomic Data*. Environment and Planning A, 25(3), 383-397. [10.1068/a250383](https://doi.org/10.1068/a250383).
-- Robinson, W. S. (1950). *Ecological Correlations and the Behavior of Individuals*. American Sociological Review, 15(3), 351-357. [10.2307/2087176](https://doi.org/10.2307/2087176).
-- Shorrocks, A. F. (1984). *Inequality Decomposition by Population Subgroups*. Econometrica, 52(6), 1369-1385. [10.2307/1913511](https://doi.org/10.2307/1913511).
-- Fotheringham, A. S. & Wong, D. W. S. (1991). *The Modifiable Areal Unit Problem in Multivariate Statistical Analysis*. Environment and Planning A, 23(7), 1025-1044. [10.1068/a231025](https://doi.org/10.1068/a231025).
-- Hodge, T. R., McMillen, D. P., Sands, G. & Skidmore, M. (2017). *Assessment Inequity in a Declining Housing Market: The Case of Detroit*. Real Estate Economics, 45(2), 237-258. [10.1111/1540-6229.12126](https://doi.org/10.1111/1540-6229.12126).
+[^grote2024]: Grote, M. & Wen, J.-F. (2024). [*How to Design and Implement Property Tax Reforms*](https://doi.org/10.5089/9798400288753.061). IMF How-To Notes, 2024/006. [10.5089/9798400288753.061](https://doi.org/10.5089/9798400288753.061). [Scholar](https://scholar.google.com/scholar_lookup?title=How+to+Design+and+Implement+Property+Tax+Reforms&doi=10.5089%2F9798400288753.061)
+
+[^bancomundial2020]: World Bank (2020). *Property Tax Diagnostic Manual*. [Institutional repository](https://openknowledge.worldbank.org/handle/10986/34793).
+
+[^senado2026]: Senate of the Republic of Chile (15 July 2026). *Reconstrucción nacional: ¿cuáles fueron los aspectos centrales aprobados?* Legislative background to Bill No. 18.216-05, accessed 26 July 2026. [senado.cl](https://www.senado.cl/comunicaciones/noticias/reconstruccion-nacional-cuales-fueron-los-aspectos-centrales-aprobados).
+
+[^cooperativa2026]: Cooperativa (22 July 2026). *Megarreforma: comisión mixta aprobó compensación a municipios por exención de contribuciones*. Formula approved by the joint committee and status of the bill, accessed 26 July 2026. [cooperativa.cl](https://www.cooperativa.cl/noticias/pais/politica/agenda-legislativa/megarreforma-comision-mixta-aprobo-compensacion-a-municipios-por/2026-07-22/171256.html).
+
+[^sabatini2001]: Sabatini, F., Cáceres, G. & Cerda, J. (2001). [*Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción*](https://doi.org/10.4067/S0250-71612001008200002). EURE, 27(82), 21-42. [10.4067/S0250-71612001008200002](https://doi.org/10.4067/S0250-71612001008200002). [Scholar](https://scholar.google.com/scholar_lookup?title=Segregaci%C3%B3n+residencial+en+las+principales+ciudades+chilenas%3A+Tendencias+de+las+tres+%C3%BAltimas+d%C3%A9cadas+y+posibles+cursos+de+acci%C3%B3n&doi=10.4067%2FS0250-71612001008200002)
+
+[^lopezmorales2019]: López-Morales, E., Sanhueza, C., Espinoza, S. & Órdenes, F. (2019). [*Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011*](http://www.scielo.cl/pdf/eure/v45n136/0717-6236-eure-45-136-0113.pdf). EURE, 45(136), 113-134. [10.4067/S0250-71612019000300113](https://doi.org/10.4067/S0250-71612019000300113). [Scholar](https://scholar.google.com/scholar_lookup?title=Verticalizaci%C3%B3n+inmobiliaria+y+valorizaci%C3%B3n+de+renta+de+suelo+por+infraestructura+p%C3%BAblica%3A+un+an%C3%A1lisis+econom%C3%A9trico+del+Gran+Santiago%2C+2008-2011&doi=10.4067%2FS0250-71612019000300113)
+
+[^rosen1974]: Rosen, S. (1974). [*Hedonic Prices and Implicit Markets*](https://doi.org/10.1086/260169). Journal of Political Economy, 82(1), 34-55. [10.1086/260169](https://doi.org/10.1086/260169). [Scholar](https://scholar.google.com/scholar_lookup?title=Hedonic+Prices+and+Implicit+Markets%3A+Product+Differentiation+in+Pure+Competition&doi=10.1086%2F260169)
+
+[^goodchild1993]: Goodchild, M. F., Anselin, L. & Deichmann, U. (1993). [*A Framework for the Areal Interpolation of Socioeconomic Data*](https://doi.org/10.1068/a250383). Environment and Planning A, 25(3), 383-397. [10.1068/a250383](https://doi.org/10.1068/a250383). [Scholar](https://scholar.google.com/scholar_lookup?title=A+Framework+for+the+Areal+Interpolation+of+Socioeconomic+Data&doi=10.1068%2Fa250383)
+
+[^robinson1950]: Robinson, W. S. (1950). [*Ecological Correlations and the Behavior of Individuals*](https://doi.org/10.2307/2087176). American Sociological Review, 15(3), 351-357. [10.2307/2087176](https://doi.org/10.2307/2087176). [Scholar](https://scholar.google.com/scholar_lookup?title=Ecological+Correlations+and+the+Behavior+of+Individuals&doi=10.2307%2F2087176)
+
+[^shorrocks1984]: Shorrocks, A. F. (1984). [*Inequality Decomposition by Population Subgroups*](https://doi.org/10.2307/1913511). Econometrica, 52(6), 1369-1385. [10.2307/1913511](https://doi.org/10.2307/1913511). [Scholar](https://scholar.google.com/scholar_lookup?title=Inequality+Decomposition+by+Population+Subgroups&doi=10.2307%2F1913511)
+
+[^fotheringham1991]: Fotheringham, A. S. & Wong, D. W. S. (1991). [*The Modifiable Areal Unit Problem in Multivariate Statistical Analysis*](https://doi.org/10.1068/a231025). Environment and Planning A, 23(7), 1025-1044. [10.1068/a231025](https://doi.org/10.1068/a231025). [Scholar](https://scholar.google.com/scholar_lookup?title=The+Modifiable+Areal+Unit+Problem+in+Multivariate+Statistical+Analysis&doi=10.1068%2Fa231025)
+
+[^hodge2017]: Hodge, T. R., McMillen, D. P., Sands, G. & Skidmore, M. (2017). [*Assessment Inequity in a Declining Housing Market: The Case of Detroit*](https://doi.org/10.1111/1540-6229.12126). Real Estate Economics, 45(2), 237-258. [10.1111/1540-6229.12126](https://doi.org/10.1111/1540-6229.12126). [Scholar](https://scholar.google.com/scholar_lookup?title=Assessment+Inequity+in+a+Declining+Housing+Market%3A+The+Case+of+Detroit&doi=10.1111%2F1540-6229.12126)

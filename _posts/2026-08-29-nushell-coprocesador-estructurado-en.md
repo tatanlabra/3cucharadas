@@ -3,7 +3,7 @@ layout: single
 title: "Nushell in three spoonfuls: when does a structured shell actually help an agent?"
 subtitle: "R, microbenchmarks, and 380 runs to separate improvement, regression, and no material difference"
 date: 2026-08-29 00:00:00 -0400
-last_modified_at: 2026-09-05 00:00:00 -0400
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ai, productivity, development, multi-agent]
 tags: [nushell, shell, agents, claude-code, codex, routing, context-engineering, docker, arch-linux, benchmark, r]
 description: "I tested whether selectively routing coding-agent tasks through Nushell helps: it improved accuracy on some tasks, increased latency and output tokens, and made no accuracy difference in a real aggregate case."
@@ -86,7 +86,7 @@ Before comparing results, it helps to locate the shell families. Sharing the wor
 <figure>
   <picture>
     <source media="(max-width: 40em)" srcset="/assets/images/structured-shell/fig-d2-shell-families-mobile-en.svg">
-    <img src="/assets/images/structured-shell/fig-d2-shell-families-en.svg"
+    <img src="/assets/images/structured-shell/fig-d2-shell-families-en.svg" width="1000" height="850"
          alt="D2 diagram. Text shells sh, Bash, and zsh pass text between programs; fish is an interactive non-POSIX shell; Nushell carries records, columns, numbers, and dates; PowerShell pipes .NET objects. The experiment compares only selective routing between zsh and Nushell."
          loading="lazy">
   </picture>
@@ -213,20 +213,20 @@ The result is not that Nushell wins. It improved accuracy on the tuned corpus; i
 
 The most interesting finding was not Nushell either. It was discovering that a *skill* might never activate, that a rule about hidden files might be incomplete, and that a pipeline could return `null` with apparent success. The benchmark ended up testing both the tool and my assumptions.
 
-There are probably better routes. If you use Nushell, DuckDB, `jq`, Python, MCP, *skills*, or another strategy that gives an agent a concrete advantage, I would like to know **what problem it solves, what baseline you compared it against, and how you verified that it actually improved the workflow**. Rather than collecting tools, we should start collecting evidence about when they are worth using and what they measurably improve.
+There are probably better routes. If you use Nushell, DuckDB, `jq`, Python, MCP, *skills*, or another strategy that gives an agent a concrete advantage, I would like to know **what problem it solves, what baseline you compared it against, and how you verified that it actually improved the workflow**. Rather than collecting tools, it would be good to start collecting evidence about when they are worth using and what they measurably improve.
 
 ## References and notes
 
 > **Conflicts of interest and provenance.** The `penta-agent` metrics and the thesis case were produced by the same project that implemented the *skill*. The Nushell documentation also comes from the tool's developers. I use it to document the declared contract and behaviour, not as independent evidence of superiority.
 {: .notice--info}
 
-[^greenberg-2020]: Greenberg, Michael, and Austin J. Blatt. 2020. “Executable Formal Semantics for the POSIX Shell.” *Proceedings of the ACM on Programming Languages* 4 (POPL), article 43, 1–30. <https://doi.org/10.1145/3371111>.
+[^greenberg-2020]: Greenberg, Michael, and Austin J. Blatt. 2020. [“Executable Formal Semantics for the POSIX Shell.”](https://arxiv.org/pdf/1907.05308) *Proceedings of the ACM on Programming Languages* 4 (POPL), article 43, 1–30. [DOI](https://doi.org/10.1145/3371111) · [Scholar](https://scholar.google.com/scholar_lookup?title=Executable+formal+semantics+for+the+POSIX+shell&doi=10.1145%2F3371111)
 
 [^nushell]: Nushell. n.d. “Nushell: A New Type of Shell.” Accessed September 5, 2026. <https://www.nushell.sh/>.
 
 [^r-fisher]: R Core Team. n.d. “Fisher's Exact Test for Count Data.” *R Documentation*. Accessed September 5, 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/fisher.test.html>.
 
-[^clopper-1934]: Clopper, C. J., and E. S. Pearson. 1934. “The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial.” *Biometrika* 26, no. 4: 404–413. <https://doi.org/10.1093/biomet/26.4.404>.
+[^clopper-1934]: Clopper, C. J., and E. S. Pearson. 1934. [“The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial.”](https://doi.org/10.1093/biomet/26.4.404) *Biometrika* 26, no. 4: 404–413. [Scholar](https://scholar.google.com/scholar_lookup?title=THE+USE+OF+CONFIDENCE+OR+FIDUCIAL+LIMITS+ILLUSTRATED+IN+THE+CASE+OF+THE+BINOMIAL&doi=10.1093%2Fbiomet%2F26.4.404)
 
 [^r-binom]: R Core Team. n.d. “Exact Binomial Test.” *R Documentation*. Accessed September 5, 2026. <https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html>.
 

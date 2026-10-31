@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "CASEN 2024 en 3 cucharadas: sin lectura territorial a baja escala, la política social avanza a ciegas"
+subtitle: "Validación oficial contra BIDAT, composición nacional y brechas regionales con Julia"
+excerpt: "Análisis reproducible de CASEN 2024 en Julia: validación oficial con datos en el BIDAT, composición nacional por waffle chart y brechas regionales en educación, salud y pobreza para priorización territorial."
 date: 2026-03-15
 categories: [datos, politica-publica, julia, casen]
 tags: [casen2024, julia, expansion, diseno-muestral, waffle, dotplot, politica-publica, bidat, brecha-territorial]

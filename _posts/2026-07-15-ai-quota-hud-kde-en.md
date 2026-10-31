@@ -4,6 +4,7 @@ classes: [ai-quota-hud-post]
 title: "AI quotas in three spoonfuls: a HUD for the KDE panel"
 subtitle: "Claude, Codex, Gemini, and DeepSeek, before one of them declares itself out of service"
 date: 2026-07-15 00:00:00 +0000
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ai, productivity, development, kde]
 tags: [kde, plasma, plasmoid, qml, python, systemd, mcp, claude-code, codex, gemini, deepseek, arch-linux, quota, rate-limit, local-first]
 description: "A local KDE Plasma 6 widget that shows the available quota for Claude, Codex, Gemini, and DeepSeek. How it works and what happened when Codex changed its usage windows."
@@ -55,7 +56,7 @@ That is how I ended up building a viewer, or HUD, for the KDE panel: five indica
 
 ## First spoonful: the token-week
 
-Each provider invented its own way of measuring how much we can use it.
+Each provider invented its own way of measuring how much I can use it.
 {: .text-justify}
 
 Claude speaks in windows of hours and days. Codex reports the windows available for the plan. Gemini requires a local estimate of requests. Copilot counts premium requests against a calendar cutoff. DeepSeek, by contrast, speaks in monetary balance.
@@ -265,8 +266,8 @@ What interests me most about this failure is why all 93 tests stayed green. A bl
 silhouette has exactly the same width, the same height and the same aperture as a
 tinted one, so no geometric invariant could see it: the absence of a colour check
 *was* the reason it went unnoticed. And it had been written down in the repository
-since 6 September —«software rendering alone did not show SVG mask colours
-faithfully»— two days before a commit switched the flow to offscreen and shipped the
+since 6 September —"software rendering alone did not show SVG mask colours
+faithfully"— two days before a commit switched the flow to offscreen and shipped the
 defect.
 {: .text-justify}
 

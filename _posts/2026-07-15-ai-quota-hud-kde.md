@@ -4,6 +4,7 @@ classes: [ai-quota-hud-post]
 title: "Cuotas de IA en 3 cucharadas: un HUD para el panel de KDE"
 subtitle: "Claude, Codex, Gemini y DeepSeek, antes de que alguno se declare fuera de servicio"
 date: 2026-07-15 00:00:00 +0000
+last_modified_at: 2026-10-31 18:21:00 -0300
 categories: [ia, productividad, desarrollo, kde]
 tags: [kde, plasma, plasmoid, qml, python, systemd, mcp, claude-code, codex, gemini, deepseek, arch-linux, cuota, rate-limit, local-first]
 description: "Un plasmoide local para KDE Plasma 6 que muestra la cuota disponible de Claude, Codex, Gemini y DeepSeek. Cómo funciona y qué ocurrió cuando Codex cambió sus ventanas de uso."
@@ -44,7 +45,7 @@ Así terminé armando un visor o HUD en el panel/barra de KDE: cinco indicadores
 
 ## Primera cucharada: la semana-token
 
-Cada proveedor inventó su propia forma de medir cuánto podemos usarlo.
+Cada proveedor inventó su propia forma de medir cuánto puedo usarlo.
 {: .text-justify}
 
 Claude habla en ventanas de horas y días. Codex presenta las ventanas disponibles para el plan. Gemini requiere una estimación local de solicitudes. Copilot cuenta solicitudes premium con corte de calendario. DeepSeek, en cambio, habla en saldo monetario.
@@ -93,7 +94,7 @@ Mi código las interpretaba por posición:
 Era sencillo, hasta que Codex cambió el esquema.
 {: .text-justify}
 
-Un día el widget mostró un 5 % disponible en la supuesta ventana de «5 h», pero con un reinicio programado para seis días después. Incluso para una empresa tecnológica, cinco horas que duran casi una semana parecían demasiada innovación.
+Un día el widget mostró un 5 % disponible en la supuesta ventana de "5 h", pero con un reinicio programado para seis días después. Incluso para una empresa tecnológica, cinco horas que duran casi una semana parecían demasiada innovación.
 {: .text-justify}
 
 La respuesta cruda contenía una sola ventana:
@@ -106,7 +107,7 @@ La respuesta cruda contenía una sola ventana:
 Eso equivale a siete días.
 {: .text-justify}
 
-Codex había dejado de informar la ventana corta, pero mi código seguía llamando «5 h» a cualquier cosa que apareciera primero. Al mismo tiempo, la antigua ventana semanal permanecía congelada en la caché, porque la lógica de «conservar el último valor bueno» no sabía distinguir entre una consulta fallida y una ventana que había dejado de existir. 👻
+Codex había dejado de informar la ventana corta, pero mi código seguía llamando "5 h" a cualquier cosa que apareciera primero. Al mismo tiempo, la antigua ventana semanal permanecía congelada en la caché, porque la lógica de "conservar el último valor bueno" no sabía distinguir entre una consulta fallida y una ventana que había dejado de existir. 👻
 {: .text-justify}
 
 La corrección tuvo dos partes.
@@ -205,7 +206,7 @@ video de la figura 4 sigue siendo de julio y se conserva porque el recorrido
 Qué es distinto:
 {: .text-justify}
 
-- **Cinco agentes en vez de cuatro.** Se sumó Copilot, que cuenta solicitudes premium con corte de calendario. El texto del post decía «cuatro» en siete lugares y quedó corregido.
+- **Cinco agentes en vez de cuatro.** Se sumó Copilot, que cuenta solicitudes premium con corte de calendario. El texto del post decía "cuatro" en siete lugares y quedó corregido.
 - **Otro visor emergente.** Antes resumía los cinco agentes en una lista apretada. Ahora muestra el detalle del agente sobre el que está el cursor, con una insignia por línea que dice si la cifra la reporta el proveedor (`OFICIAL`) o es un conteo local (`LOCAL`).
 - **Otra vista al hacer clic.** Los cinco agentes pasaron a una fila de selectores con su margen más ajustado, y debajo van las ventanas del que se elija. Antes eran cinco columnas simultáneas que no cabían.
 - **Trazo y logotipos un punto más grandes.** El arco de cuota pasó de 0,055 a 0,060 del diámetro y los logotipos crecieron un 3 %, medido en ejecución. La apertura central se recuperó apretando la separación entre anillos, porque ensanchar el trazo la encogía.
@@ -215,7 +216,7 @@ Y dos cosas que aparecieron justo al preparar estas capturas, que valen más que
 las capturas mismas:
 {: .text-justify}
 
-- Las fechas salían en inglés en un escritorio en español. `Qt.formatDate` con un formato escrito a mano usa el locale C, no el del sistema: con todo lo demás ya traducido, seguía diciendo «Sat 12 Sep» donde correspondía «sáb 12 sept». Medido con `QLocale("es_CL")` sobre la misma fecha.
+- Las fechas salían en inglés en un escritorio en español. `Qt.formatDate` con un formato escrito a mano usa el locale C, no el del sistema: con todo lo demás ya traducido, seguía diciendo "Sat 12 Sep" donde correspondía "sáb 12 sept". Medido con `QLocale("es_CL")` sobre la misma fecha.
 - Cuatro etiquetas las escribía el recolector en español y llegaban a pantalla sin pasar por el catálogo, así que en un escritorio en inglés se leían en español entre cadenas traducidas.
 
 Las capturas se generan con un script del repositorio, no a mano, y de ahí
@@ -254,8 +255,8 @@ Lo que más me interesa de este fallo es por qué las 93 pruebas seguían verdes
 silueta negra tiene exactamente la misma anchura, la misma altura y la misma
 apertura que una teñida, así que ningún invariante de geometría podía verlo: la
 ausencia de una comprobación de color *era* la razón de que pasara inadvertido. Y
-estaba anotado desde el 6 de septiembre en el propio repositorio —«el renderizado
-por software no muestra fielmente los colores de máscara»—, dos días antes de que un
+estaba anotado desde el 6 de septiembre en el propio repositorio —"el renderizado
+por software no muestra fielmente los colores de máscara"—, dos días antes de que un
 commit cambiara el flujo a offscreen y publicara el defecto.
 {: .text-justify}
 

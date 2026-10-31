@@ -4,10 +4,11 @@ classes: [avaluos-ii-editorial]
 title: "Avalúos en 3 cucharadas (parte II): dónde revisar la brecha residencial"
 subtitle: "Campamentos, materialidad y avalúos para pasar de una diferencia comunal a una revisión predial"
 date: 2026-09-11 00:00:00 -0300
-last_modified_at: 2026-09-13 00:00:00 -0300
+last_modified_at: 2026-10-31 18:28:00 -0300
 categories: [datos, territorio]
 tags: [catastro-sii, censo-2024, contribuciones, datos-abiertos, desigualdad]
 author: clabra
+author_profile: true
 lang: es
 ref: avaluos-ii-brecha-residencial
 permalink: /datos/territorio/avaluos-ii-brecha-residencial/
@@ -56,7 +57,7 @@ En el [primer post de avalúos](/datos/python/territorio/avaluo-vulnerabilidad-u
 
 Una discrepancia persistente en comunas cuyos predios registrados presentan avalúos altos puede justificar una revisión tributaria, bajo el supuesto de que los eventuales inmuebles omitidos fueran comparables a ellos. Si una revisión los encontrara, correspondería comprobar si su incorporación o actualización genera una obligación tributaria.
 
-Cruzo esa diferencia con los usos residenciales registrados dentro de roles de otro destino, campamentos, sitios compartidos, materialidad y avalúos. El recorrido tiene tres pasos: entender qué estamos comparando y cuánto cambia al ampliar correctamente el filtro SII, dimensionar su posible interés tributario mediante escenarios en pesos y precisar qué evidencia permitiría comprobarlo.
+Cruzo esa diferencia con los usos residenciales registrados dentro de roles de otro destino, campamentos, sitios compartidos, materialidad y avalúos. El recorrido tiene tres pasos: entender qué estoy comparando y cuánto cambia al ampliar correctamente el filtro SII, dimensionar su posible interés tributario mediante escenarios en pesos y precisar qué evidencia permitiría comprobarlo.
 
 **Cómo leer las barras.** Orientan una revisión; no cuentan inmuebles omitidos ni contribuciones adeudadas.
 {: .notice--info}
@@ -65,7 +66,7 @@ Cruzo esa diferencia con los usos residenciales registrados dentro de roles de o
 
 Comparo **todas las viviendas particulares del Censo 2024**, ocupadas y desocupadas, con los **roles de destino habitacional —código H— del primer semestre de 2026**. El primer recuento corresponde a viviendas; el segundo, a bienes raíces registrados para fines tributarios.
 
-No hay una equivalencia uno a uno. Un predio puede contener varias viviendas y una vivienda puede estar en un predio agrícola, excluido por el filtro habitacional. Tampoco coinciden las fechas. Por eso, viviendas menos roles es una **diferencia entre recuentos**, no un conteo de «viviendas sin rol».
+No hay una equivalencia uno a uno. Un predio puede contener varias viviendas y una vivienda puede estar en un predio agrícola, excluido por el filtro habitacional. Tampoco coinciden las fechas. Por eso, viviendas menos roles es una **diferencia entre recuentos**, no un conteo de "viviendas sin rol".
 
 ### El destino principal H no agota el uso residencial registrado
 
@@ -99,28 +100,28 @@ En Alto Hospicio, la diferencia inicial es de **15.368**. Si se descuentan los *
 
 Este descuento es una prueba de sensibilidad, no una explicación demostrada. Supone una unidad de diferencia por hogar de campamento; no tiene la evidencia de pertenencia y no superposición que sí permite unir dos grupos de roles del mismo archivo SII. Varios hogares pueden compartir vivienda, el terreno puede tener un rol matriz y las fechas pueden diferir. Además, la capa utilizada tiene **222 polígonos sin conteo**: dato faltante no significa ausencia de hogares. La interpretación de su campo `HOGARESCEN` se detalla en las notas metodológicas.
 
-El descuento tampoco representa una exención tributaria: es un supuesto analítico. El SII contempla la [tasación de construcciones no regularizadas][sii-no-regularizadas]; la situación de cada inmueble debe verificarse.
+El descuento tampoco representa una exención tributaria: es un supuesto analítico. El SII contempla la tasación de construcciones no regularizadas[^sii2026]; la situación de cada inmueble debe verificarse.
 
 En el agregado, la suma de las diferencias comunales positivas pasa de **1.588.449 a 1.516.689**, un descenso del **4,52 %**. No es la diferencia nacional neta: las comunas con saldo negativo no compensan las positivas. El resultado muestra que el supuesto altera mucho algunas comunas y poco otras; no demuestra qué proporción de la discrepancia explican los campamentos.
 
 ### Materialidad: describir un escenario, no tasar viviendas
 
-El segundo supuesto pregunta cómo se repartiría el residuo si tuviera la misma composición que las viviendas observadas en la comuna. Para ello uso un criterio de **tipo de vivienda aceptable y materiales aceptables en paredes, techo y piso simultáneamente**, siguiendo el código del [manual de microdatos del INE, indicadores viv04 y viv05, pp. 103–105][ine-manual].
+El segundo supuesto pregunta cómo se repartiría el residuo si tuviera la misma composición que las viviendas observadas en la comuna. Para ello uso un criterio de **tipo de vivienda aceptable y materiales aceptables en paredes, techo y piso simultáneamente**, siguiendo el código del manual de microdatos del INE[^ine2025], indicadores viv04 y viv05, pp. 103–105.
 
 En el procesamiento, **5.774.146 de 6.408.172** viviendas particulares ocupadas con moradores presentes cumplen ese criterio. La proporción se calcula por comuna, manteniendo los datos incompletos en el denominador, pero fuera del grupo aceptable.
 
 Por ejemplo, un residuo de 9.000 unidades y una proporción aceptable del 80 % producirían **7.200 unidades en ese escenario y 1.800 en el resto**. No se han localizado 7.200 viviendas: se ha aplicado una proporción conocida a una diferencia de composición desconocida.
 
-La extrapolación tiene dos límites. La materialidad se observa en viviendas ocupadas con moradores presentes, mientras la diferencia inicial incluye también viviendas desocupadas y con moradores ausentes. Además, las viviendas que eventualmente faltaran del catastro podrían ser distintas de las observadas. **«Resto» tampoco equivale a viviendas irrecuperables**: incluye lo que no cumple el criterio y los datos incompletos.
+La extrapolación tiene dos límites. La materialidad se observa en viviendas ocupadas con moradores presentes, mientras la diferencia inicial incluye también viviendas desocupadas y con moradores ausentes. Además, las viviendas que eventualmente faltaran del catastro podrían ser distintas de las observadas. **"Resto" tampoco equivale a viviendas irrecuperables**: incluye lo que no cumple el criterio y los datos incompletos.
 
-No agrego otro descuento por viviendas irrecuperables, porque desconozco su superposición con campamentos. Tampoco multiplico este escenario por la proporción de roles sobre el monto exento: no conocemos la distribución conjunta de ambas características.
+No agrego otro descuento por viviendas irrecuperables, porque desconozco su superposición con campamentos. Tampoco multiplico este escenario por la proporción de roles sobre el monto exento: no conozco la distribución conjunta de ambas características.
 
 <figure style="width:100%">
   <div role="region" aria-label="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
     <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-es.svg" alt="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." loading="lazy">
     <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/gap-top15-es-dark.svg" alt="Quince comunas con mayor residuo bajo el supuesto de campamentos. La barra conserva la diferencia inicial y separa el descuento supuesto, el escenario de tipo y materiales aceptables y el resto." loading="lazy">
   </div>
-  <figcaption>Escenarios de composición de la diferencia; no son viviendas omitidas identificadas. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/gap-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
+  <figcaption>Escenarios de composición de la diferencia; no son viviendas omitidas identificadas. Fuente: elaboración propia con datos del Censo 2024 (INE), el catastro de bienes raíces del SII del primer semestre de 2026 y la capa de campamentos CNC 2026 del MINVU. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/gap-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/gap-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-top-es.html %}
@@ -131,11 +132,11 @@ El [visor permite explorar cada comuna y consultar la tabla completa](/catastro_
 
 ### Varias viviendas en un sitio: una explicación adicional que sí merece contrastarse
 
-Dos viviendas pueden compartir un terreno y estar consideradas en un mismo rol. En ese caso, el Censo cuenta dos viviendas sin que necesariamente falte un predio en el registro tributario. Este mecanismo puede contribuir a la diferencia; demostrar cuánto aporta exige vincular **vivienda, sitio y rol**. El diccionario público examinado y el [manual de microdatos del Censo, pp. 17–20][ine-manual], permiten enlazar vivienda, hogar y persona, pero no proporcionan un identificador común de sitio o rol para esta conciliación. Varios hogares dentro de una vivienda tampoco equivalen a varias viviendas dentro de un sitio.
+Dos viviendas pueden compartir un terreno y estar consideradas en un mismo rol. En ese caso, el Censo cuenta dos viviendas sin que necesariamente falte un predio en el registro tributario. Este mecanismo puede contribuir a la diferencia; demostrar cuánto aporta exige vincular **vivienda, sitio y rol**. El diccionario público examinado y el manual de microdatos del Censo[^ine2025], pp. 17–20, permiten enlazar vivienda, hogar y persona, pero no proporcionan un identificador común de sitio o rol para esta conciliación. Varios hogares dentro de una vivienda tampoco equivalen a varias viviendas dentro de un sitio.
 
-CASEN 2024 permite observar una señal más acotada. En la pregunta sobre la **situación de ocupación del sitio o terreno**, las categorías 3 y 4 identifican hogares que declaran **sitio propio compartido con otras viviendas**, pagado o pagándose. No preguntan cuántas viviendas hay en el sitio. Calculo su proporción entre **todos los hogares con respuesta válida**, sin filtrar por la condición de hogar principal (`v28`) y usando una jefatura por hogar. Esa última pregunta solo se aplica a viviendas con más de un hogar; usarla como filtro general eliminaría indebidamente hogares de viviendas unihogar. Véase el [cuestionario oficial, pp. 79 y 83][casen-cuestionario].
+CASEN 2024 permite observar una señal más acotada. En la pregunta sobre la **situación de ocupación del sitio o terreno**, las categorías 3 y 4 identifican hogares que declaran **sitio propio compartido con otras viviendas**, pagado o pagándose. No preguntan cuántas viviendas hay en el sitio. Calculo su proporción entre **todos los hogares con respuesta válida**, sin filtrar por la condición de hogar principal (`v28`) y usando una jefatura por hogar. Esa última pregunta solo se aplica a viviendas con más de un hogar; usarla como filtro general eliminaría indebidamente hogares de viviendas unihogar. Véase el cuestionario oficial[^mdsf2026], pp. 79 y 83.
 
-El resultado nacional es **1,09 % de los hogares**, con un intervalo aproximado del 95 % de **0,97 % a 1,21 %**. Procede de 78.654 hogares muestrales, sin respuestas faltantes en esa pregunta. La estimación nacional y las regionales usan `expr` y linealización de Taylor con estratos y conglomerados; el intervalo expresa incertidumbre muestral, no todos los posibles errores de medición. La [nota oficial de uso de CASEN][casen-nota] distingue estos dominios del uso descriptivo comunal.
+El resultado nacional es **1,09 % de los hogares**, con un intervalo aproximado del 95 % de **0,97 % a 1,21 %**. Procede de 78.654 hogares muestrales, sin respuestas faltantes en esa pregunta. La estimación nacional y las regionales usan `expr` y linealización de Taylor con estratos y conglomerados; el intervalo expresa incertidumbre muestral, no todos los posibles errores de medición. La nota oficial de uso de CASEN[^mdsf2026] distingue estos dominios del uso descriptivo comunal.
 
 <figure style="width:100%">
   <div role="region" aria-label="Proporción de hogares que declaran sitio propio compartido: Chile y 16 regiones con intervalos aproximados; Valparaíso y Viña del Mar como casos exploratorios sin IC." tabindex="0" style="max-width:100%;overflow-x:auto;border:1px solid currentColor;border-radius:.4rem">
@@ -169,9 +170,9 @@ En un ejemplo puramente hipotético, si una proporción $$p_v$$ de las **viviend
 
 El tamaño de la diferencia no basta para anticipar su relevancia tributaria. Las quince comunas, sus avalúos y los escenarios de impuesto de esta cucharada usan el mismo universo de referencia de las barras: roles de destino principal H del espejo de julio, no la nueva unión de la descarga directa. Para añadir contexto, observo los avalúos de esos **predios habitacionales que sí están registrados**: su media, su mediana y la proporción que supera el monto exento general.
 
-En el primer semestre de 2026, ese monto era de **60.030.710 pesos**, según el [ejemplo oficial del SII][sii-ejemplo]. Comparo cada avalúo con el umbral del mismo período. Superarlo no basta para determinar una contribución exigible: deben revisarse los beneficios y las exenciones aplicables.
+En el primer semestre de 2026, ese monto era de **60.030.710 pesos**, según el ejemplo oficial del SII[^sii2026]. Comparo cada avalúo con el umbral del mismo período. Superarlo no basta para determinar una contribución exigible: deben revisarse los beneficios y las exenciones aplicables.
 
-El avalúo fiscal [no es el precio de venta][sii-comercial]. Considera tanto el terreno como la construcción y sus características. Por eso, **materiales aceptables no significan avalúo alto**: una vivienda de buena materialidad en suelo de menor valor puede quedar bajo el monto exento, mientras otra más modesta en suelo caro puede superarlo. El SII explica los componentes de esta valoración en su [guía de avalúo fiscal][sii-avaluo].
+El avalúo fiscal no es el precio de venta[^sii2026]. Considera tanto el terreno como la construcción y sus características. Por eso, **materiales aceptables no significan avalúo alto**: una vivienda de buena materialidad en suelo de menor valor puede quedar bajo el monto exento, mientras otra más modesta en suelo caro puede superarlo. El SII explica los componentes de esta valoración en su guía de avalúo fiscal[^sii2026].
 
 La media puede subir por unos pocos valores muy altos. La mediana muestra el centro de la distribución, y el porcentaje sobre el umbral indica qué tan extendida está esa condición. Son resúmenes complementarios de los mismos predios, no pruebas independientes de omisión.
 
@@ -209,7 +210,7 @@ La condición de semejanza es la más difícil. Lo que falta en un registro pued
 
 Primero calculo, **predio por predio**, el impuesto general que resultaría de aplicar a su avalúo los tramos del primer semestre de 2026. Después obtengo la media y la mediana comunales de esos resultados, **incluidos los ceros bajo el monto exento**. Aplicar una tasa al avalúo promedio no daría necesariamente el mismo resultado: las exenciones y los tramos cambian el cálculo.
 
-El modelo sigue los parámetros del [ejemplo oficial del SII][sii-ejemplo]: monto exento de **$60.030.710**, cambio de tramo en **$214.395.361** y tasas anuales de **0,893 % y 1,042 %**, respectivamente. Es un **impuesto general teórico anual equivalente**, manteniendo fijos los parámetros de ese semestre. Excluye aseo, sobretasas y beneficios individuales; no reproduce los giros efectivos ni la recaudación de todo 2026.
+El modelo sigue los parámetros del ejemplo oficial del SII[^sii2026]: monto exento de **$60.030.710**, cambio de tramo en **$214.395.361** y tasas anuales de **0,893 % y 1,042 %**, respectivamente. Es un **impuesto general teórico anual equivalente**, manteniendo fijos los parámetros de ese semestre. Excluye aseo, sobretasas y beneficios individuales; no reproduce los giros efectivos ni la recaudación de todo 2026.
 
 Luego multiplico el residuo bajo el supuesto de campamentos por cada estadístico:
 
@@ -225,7 +226,7 @@ Luego multiplico el residuo bajo el supuesto de campamentos por cada estadístic
     <img class="avaluos-ii-monetary-light" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-es.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
     <img class="avaluos-ii-monetary-dark" width="1152" height="1027" style="width:100%;min-width:1000px;max-width:none;height:auto" src="/assets/images/avaluos-ii/monetary-top15-es-dark.svg" alt="Escenarios de impuesto general teórico anual equivalente para las quince comunas con residuo positivo y avalúo mediano sobre el monto exento; comparación de media y mediana." loading="lazy">
   </div>
-  <figcaption>Millones de pesos bajo el supuesto de que cada unidad del residuo correspondiera a un nuevo predio comparable. Los montos son hipotéticos; no son deuda constatada ni ingresos municipales retenidos. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/monetary-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
+  <figcaption>Millones de pesos bajo el supuesto de que cada unidad del residuo correspondiera a un nuevo predio comparable. Los montos son hipotéticos; no son deuda constatada ni ingresos municipales retenidos. Fuente: elaboración propia con datos del Censo 2024 (INE), el catastro de bienes raíces del SII del primer semestre de 2026, la capa de campamentos CNC 2026 del MINVU y los parámetros del ejemplo oficial del SII. Desplaza horizontalmente o abre el SVG para ampliar; los valores están en la tabla siguiente. <a href="/assets/images/avaluos-ii/monetary-top15-es.svg">SVG</a> · <a href="/assets/images/avaluos-ii/monetary-top15-es-dark.svg">SVG oscuro</a>.</figcaption>
 </figure>
 
 {% include avaluos-ii-monetary-es.html %}
@@ -248,17 +249,17 @@ La comparación comunal permite elegir dónde mirar. Para comprobar una omisión
 | Diferencia de unidades o períodos | Viviendas por predio, roles matrices, destinos agrícolas, copropiedad y fechas comparables | La discrepancia persiste después de conciliar unidades y períodos |
 | Error de fuente o procesamiento | Integridad del extracto, claves territoriales y reproducción independiente | El resultado se reproduce con fuentes y cruces independientes |
 
-**Incorporar un predio y actualizar una construcción no son lo mismo.** El SII dispone de un [procedimiento de inclusión de bienes raíces][sii-inclusion]. También contempla modificaciones del avalúo. Una ampliación puede aumentar el valor de un rol existente sin crear otro: la diferencia entre viviendas y roles no detecta por sí sola toda desactualización del catastro.
+**Incorporar un predio y actualizar una construcción no son lo mismo.** El SII dispone de un procedimiento de inclusión de bienes raíces[^sii2026]. También contempla modificaciones del avalúo. Una ampliación puede aumentar el valor de un rol existente sin crear otro: la diferencia entre viviendas y roles no detecta por sí sola toda desactualización del catastro.
 
 ### Qué falta para pasar del escenario a una obligación comprobada
 
 Los escenarios anteriores dan escala al supuesto, pero para cuantificar obligaciones efectivamente omitidas hay que identificar los predios, verificar sus fechas y avalúos, y aplicar los beneficios y exenciones que les correspondan. También se necesita información compatible y conciliada de los giros para contrastar el impuesto teórico con el efectivo.
 
-El [diccionario catastral del SII][sii-estructura] define el campo semestral disponible como contribución **con aseo**. No se lo usa como impuesto neto. Los cuadros comunales oficiales revisados distinguen componentes, pero abarcan otros destinos no agrícolas: **dividir ese total por roles habitacionales produciría un promedio de universos incompatibles**. La [auditoría de fuentes](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) conserva este límite; el cálculo normativo no lo concilia ni lo elimina.
+El diccionario catastral del SII[^siisf] define el campo semestral disponible como contribución **con aseo**. No se lo usa como impuesto neto. Los cuadros comunales oficiales revisados distinguen componentes, pero abarcan otros destinos no agrícolas: **dividir ese total por roles habitacionales produciría un promedio de universos incompatibles**. La [auditoría de fuentes](/catastro_sii_brecha/data/fiscal-gap/source-audit.json) conserva este límite; el cálculo normativo no lo concilia ni lo elimina.
 
-Determinar un impuesto, girarlo y recaudarlo son etapas distintas. El SII determina los avalúos y giros; la [Tesorería General de la República recauda][tgr-impuestos]. Además, la distribución mediante el [Fondo Común Municipal][sii-fcm] impide equiparar el impuesto asociado a una comuna con ingresos retenidos íntegramente por su municipio.
+Determinar un impuesto, girarlo y recaudarlo son etapas distintas. El SII determina los avalúos y giros; la Tesorería General de la República recauda[^tgrsf]. Además, la distribución mediante el Fondo Común Municipal[^sii2026] impide equiparar el impuesto asociado a una comuna con ingresos retenidos íntegramente por su municipio.
 
-La [guía de Grote y Wen (2024, pp. 16–18)][fmi-guia] ayuda a ordenar el problema: distingue cobertura, valoración y cobro, y propone contrastar cartografía, terreno y registros. Sirve para diseñar una verificación, no para importar un coeficiente de recaudación a estas comunas.
+La guía de Grote y Wen (2024[^grote2024], pp. 16–18) ayuda a ordenar el problema: distingue cobertura, valoración y cobro, y propone contrastar cartografía, terreno y registros. Sirve para diseñar una verificación, no para importar un coeficiente de recaudación a estas comunas.
 
 <aside class="notice--info" markdown="1">
 **Detrás del análisis: Python y geomática reproducible**
@@ -285,9 +286,9 @@ En la próxima entrega exploraré el **Continuo de Construcciones Urbanas (CCU)*
 
 **Totales todavía no conciliados.** El control [SII por destino][sii-destino] citado informa 6.056.150 predios habitacionales; el espejo de julio reúne 6.054.808. Las [planillas MINVU de parque habitacional][minvu-parque] citadas para 2026S1 informan 6.057.949, incluidos 1.342 de Trehuaco. La descarga directa contiene esos mismos 6.057.949 roles principales H y confirma el total agregado MINVU, sin constituir una conciliación individual del espejo. Frente a la referencia de julio, el universo ampliado crece en 79.634 roles: 3.141 corresponden al cambio de fuente y cobertura, y 76.493 a la ampliación del filtro dentro del archivo directo. Por eso, 79.634 no es el efecto puro de ampliar el filtro. No se atribuyen las diferencias entre fuentes a una causa no comprobada ni se sustituyen silenciosamente los totales de las barras.
 
-**Dos cortes de campamentos.** El informe [MINVU publicado el 8 de julio de 2026][minvu-campamentos], con información referida a 2024, registra 1.373 campamentos, 81.993 viviendas ocupadas y 77.399 hogares. La capa CNC 2026 utilizada en este procesamiento contiene 1.345 polígonos y suma 71.760 en el campo `HOGARESCEN`, con 222 polígonos sin dato. Son universos y cortes diferentes. Interpretar ese campo como hogares censales es una decisión provisional, apoyada en su nombre y la documentación disponible, no en un diccionario específico de la capa. El descuento depende de ella.
+**Dos cortes de campamentos.** El informe MINVU publicado el 8 de julio de 2026[^minvu2026], con información referida a 2024, registra 1.373 campamentos, 81.993 viviendas ocupadas y 77.399 hogares. La capa CNC 2026 utilizada en este procesamiento contiene 1.345 polígonos y suma 71.760 en el campo `HOGARESCEN`, con 222 polígonos sin dato. Son universos y cortes diferentes. Interpretar ese campo como hogares censales es una decisión provisional, apoyada en su nombre y la documentación disponible, no en un diccionario específico de la capa. El descuento depende de ella.
 
-**Definición de materialidad.** Se utiliza el código del manual INE, cuya clasificación no coincide por completo con la descripción en prosa: para materialidad aceptable, esta última admite algunas paredes recuperables, mientras el código exige materiales aceptables en los tres componentes. El escenario combina ese criterio con el tipo aceptable de vivienda. Se conservan variantes con materiales completos y con la categoría más amplia de no irrecuperables; son análisis de sensibilidad, no intervalos de confianza. El procesamiento registra 4.388 viviendas ocupadas con información incompleta.
+**Definición de materialidad.** Se utiliza el código del manual INE[^ine2025], cuya clasificación no coincide por completo con la descripción en prosa: para materialidad aceptable, esta última admite algunas paredes recuperables, mientras el código exige materiales aceptables en los tres componentes. El escenario combina ese criterio con el tipo aceptable de vivienda. Se conservan variantes con materiales completos y con la categoría más amplia de no irrecuperables; son análisis de sensibilidad, no intervalos de confianza. El procesamiento registra 4.388 viviendas ocupadas con información incompleta.
 
 **Fórmula monetaria y unidad.** Para un avalúo $$A$$, monto exento $$E=60\,030\,710$$ y cambio de tramo $$T=214\,395\,361$$, se calcula:
 
@@ -308,21 +309,21 @@ Se agregan los resultados por comuna, incluidos los ceros, antes de multiplicar 
 
 ## Fuentes y referencias
 
-Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: cuestionario y nota de uso de bases de datos*. Situación de ocupación del sitio y hogar principal, pp. 79 y 83 del [cuestionario][casen-cuestionario]; factores de expansión y dominios en la [nota de uso][casen-nota]. Consultados el 12 de septiembre de 2026.
+*Fuentes externas de las notas consultadas el 11 de septiembre de 2026, salvo que la nota indique otra fecha. Los resultados del procesamiento y sus correcciones deben leerse junto con las notas metodológicas.*
 
-Grote, Martin, y Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. Fondo Monetario Internacional, septiembre. [Texto completo][fmi-guia].
+[^mdsf2026]: Ministerio de Desarrollo Social y Familia. 2026. *CASEN 2024: cuestionario y nota de uso de bases de datos*. Situación de ocupación del sitio y hogar principal, pp. 79 y 83 del [cuestionario][casen-cuestionario]; factores de expansión y dominios en la [nota de uso][casen-nota]. Consultados el 12 de septiembre de 2026.
 
-Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicadores viv04–viv06, 103–106. [Manual][ine-manual].
+[^grote2024]: Grote, Martin, y Jean-François Wen. 2024. *How to Design and Implement Property Tax Reforms*. How to Note 2024/006. Fondo Monetario Internacional, septiembre. [Texto completo][fmi-guia].
 
-Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Territorio. 2026. *Caracterización de campamentos en Censo 2024*. Publicado el 8 de julio. Véanse los resultados generales y la tabla 1, 4–5. [Informe][minvu-campamentos].
+[^ine2025]: Instituto Nacional de Estadísticas (INE). 2025. *Manual de uso de microdatos censales: Censo de Población y Vivienda 2024*. Indicadores viv04–viv06, 103–106. [Manual][ine-manual].
 
-Servicio de Impuestos Internos (SII). «De avalúo fiscal a contribuciones: paso a paso», ejemplo del primer semestre de 2026; «¿Qué es un avalúo fiscal?»; «¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?», actualización del 8 de abril de 2026; «¿Cómo regularizo una propiedad que no tiene rol de avalúo?», actualización del 7 de abril de 2026; y «¿Para qué sirve el pago del impuesto territorial?». [Cálculo][sii-ejemplo], [avalúo][sii-avaluo], [distinción del valor comercial][sii-comercial], [inclusión][sii-inclusion] y [distribución municipal][sii-fcm]. Para construcciones no regularizadas, véanse los [documentos requeridos para tasación][sii-no-regularizadas].
+[^minvu2026]: Ministerio de Vivienda y Urbanismo (MINVU), Centro de Estudios de Ciudad y Territorio. 2026. *Caracterización de campamentos en Censo 2024*. Publicado el 8 de julio. Véanse los resultados generales y la tabla 1, 4–5. [Informe][minvu-campamentos].
 
-Servicio de Impuestos Internos (SII). S. f. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Información básica de la serie no agrícola, campos 5–8 y tabla de destinos, p. 1. [Diccionario][sii-estructura].
+[^sii2026]: Servicio de Impuestos Internos (SII). "De avalúo fiscal a contribuciones: paso a paso", ejemplo del primer semestre de 2026; "¿Qué es un avalúo fiscal?"; "¿El avalúo fiscal corresponde a una tasación comercial de la propiedad?", actualización del 8 de abril de 2026; "¿Cómo regularizo una propiedad que no tiene rol de avalúo?", actualización del 7 de abril de 2026; y "¿Para qué sirve el pago del impuesto territorial?". [Cálculo][sii-ejemplo], [avalúo][sii-avaluo], [distinción del valor comercial][sii-comercial], [inclusión][sii-inclusion] y [distribución municipal][sii-fcm]. Para construcciones no regularizadas, véanse los [documentos requeridos para tasación][sii-no-regularizadas].
 
-Tesorería General de la República (TGR). S. f. «Impuestos y tipos de impuestos». Centro de Ayuda TGR. [Fuente][tgr-impuestos].
+[^siisf]: Servicio de Impuestos Internos (SII). S. f. *Estructura de archivo para Detalle Catastral de Bienes Raíces*. Información básica de la serie no agrícola, campos 5–8 y tabla de destinos, p. 1. [Diccionario][sii-estructura].
 
-*Fuentes externas anteriores consultadas el 11 de septiembre de 2026. Los resultados del procesamiento y sus correcciones deben leerse junto con las notas metodológicas.*
+[^tgrsf]: Tesorería General de la República (TGR). S. f. "Impuestos y tipos de impuestos". Centro de Ayuda TGR. [Fuente][tgr-impuestos].
 
 [ine-manual]: https://censo2024.ine.gob.cl/wp-content/uploads/2025/12/manual_uso_microdatos_censo2024.pdf
 [minvu-campamentos]: https://catalogo.minvu.cl/cgi-bin/koha/opac-retrieve-file.pl?id=7e816aa9c26af8904eab01badfbfc6e6
@@ -337,6 +338,5 @@ Tesorería General de la República (TGR). S. f. «Impuestos y tipos de impuesto
 [sii-destino]: https://www.sii.cl/sobre_el_sii/estadisticas/ebbrrn_bbrr_por_destino.html
 [tgr-impuestos]: https://ayuda.tgr.gob.cl/ayuda/impuestos/impuestos-y-tipos-de-impuestos
 [fmi-guia]: https://www.imf.org/-/media/files/publications/howtonotes/2024/english/htnea2024006.pdf
-
 [casen-cuestionario]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Cuestionario_Casen_2024.pdf
 [casen-nota]: https://observatorio.ministeriodesarrollosocial.gob.cl/storage/docs/casen/2024/Nota_uso_bases_de_datos_Casen_2024.pdf

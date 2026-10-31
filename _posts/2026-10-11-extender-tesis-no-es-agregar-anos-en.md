@@ -4,7 +4,7 @@ classes: [thesis-extension-post]
 title: "Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us"
 subtitle: "What the records show about school turnover, what they cannot establish, and what continuity planning requires."
 date: 2026-10-11 10:00:00 -0300
-last_modified_at: 2026-10-17 17:15:00 -0300
+last_modified_at: 2026-10-31 18:30:00 -0300
 categories: [data, education, public-policy]
 tags: [education, school-markets, school-closure, mineduc, administrative-data, replication, simce, admissions, slep, territory]
 description: "An extension of my thesis examines school closures and openings in Chile: what administrative records show and what is still needed to assess quality, coverage, and continuity."
@@ -82,10 +82,10 @@ Yet those 346 cases are not automatically 346 schools that disappeared. After re
 
 ### Nearby provision does not necessarily serve the same need
 
-Provision matters too. A nursery does not compete for the same population as a primary school or a secondary school. Official codes let us separate early childhood education into nursery, middle, transition, and mixed levels; I then distinguish primary and secondary education. From here on, a “market” means **commune and exact education segment**, not every institution in the same territory.
+Provision matters too. A nursery does not compete for the same population as a primary school or a secondary school. Official codes let me separate early childhood education into nursery, middle, transition, and mixed levels; I then distinguish primary and secondary education. From here on, a “market” means **commune and exact education segment**, not every institution in the same territory.
 {: .text-justify}
 
-That is an operational definition, not a claim that families choose only within their commune. We must also distinguish establishments, enrolment, and capacity: a school with students does not necessarily have vacancies. Assessing coverage requires knowing which levels it serves, how many places it can offer, and whether it is accessible to those who need it.
+That is an operational definition, not a claim that families choose only within their commune; other studies measure competition between schools with distance buffers rather than commune boundaries (Quintero-Fragozo, Cortés, and Sarrias 2023[^quinterofragozo2023]). I must also distinguish establishments, enrolment, and capacity: a school with students does not necessarily have vacancies. Assessing coverage requires knowing which levels it serves, how many places it can offer, and whether it is accessible to those who need it.
 {: .text-justify}
 
 <span id="claim-demography"></span>According to the [INE projection based on the 2024 Census](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion), the population aged 6–17 falls from **3,081,791 in 2025** to **1,366,155 in 2050**, a `55.7%` decline. The figure excludes early childhood education and describes population, not enrolment or closures; it does require territorial planning of capacity, transport, and continuity.
@@ -132,12 +132,12 @@ Among comparable schools, SIMCE shows no precise difference, and admissions does
 The `−4.3%` in part I and the `+0.029` in this instalment are not the same contrast. The first is a percentage gap relative to the commune mean in grade 4 mathematics for closing subsidised private schools across nine years from 1999 to 2011. The second uses annual standard deviations, recent strict closures, the mean from `t−3` to `t−1`, and exact controls. Period, unit, universe, and estimand all change; the signs are not directly comparable.
 {: .small}
 
-The minimum of ten is a retrospective rule to prevent adapting the threshold to the observed signs; it is not a universal statistical law. Sensitivity does not change the conclusion: weighted SIMCE is `+0.034` SD `[−0.225, +0.289]`, and admissions remains below the minimum. Applying the student-flow depuration **`RCID v1` (D2)** and removing the 34 concentrated absorptions reduces common support from 21 to **17 closures in SIMCE** (`+0.017` SD, whose interval still crosses zero) and from 8 to **5 closures in admissions** (`−0.057` SD, below the minimum of ten closures), while the prior-enrolment median in the evaluated subset drops from `44 → 34 → 0` (D1) to `39 → 31 → 0` (conservative D2) and `36 → 27 → 0` (clean D2), confirming that block-absorbed schools were larger and that purging them reinforces the lack of empirical support for turnover-driven improvement. Groups selected for an extreme score also tend to move toward the average at a later measurement; without an appropriate comparison, a before-and-after change can therefore confuse improvement with [regression to the mean](https://doi.org/10.1257/0002828054825529).
+The minimum of ten is a retrospective rule to prevent adapting the threshold to the observed signs; it is not a universal statistical law. Sensitivity does not change the conclusion: weighted SIMCE is `+0.034` SD `[−0.225, +0.289]`, and admissions remains below the minimum. Applying the student-flow depuration **`RCID v1` (D2)** and removing the 34 concentrated absorptions reduces common support from 21 to **17 closures in SIMCE** (`+0.017` SD, whose interval still crosses zero) and from 8 to **5 closures in admissions** (`−0.057` SD, below the minimum of ten closures), while the prior-enrolment median in the evaluated subset drops from `44 → 34 → 0` (D1) to `39 → 31 → 0` (conservative D2) and `36 → 27 → 0` (clean D2), confirming that block-absorbed schools were larger and that purging them reinforces the lack of empirical support for turnover-driven improvement. Groups selected for an extreme score also tend to move toward the average at a later measurement; without an appropriate comparison, a before-and-after change can therefore confuse improvement with regression to the mean (Chay, McEwan, and Urquiola 2005[^chay2005]).
 {: .text-justify}
 
-### An average can change without telling us how much students learned
+### An average can change without revealing how much students learned
 
-The accounting separates continuation, reallocation, and entry or exit. An average can rise after excluding a low-scoring group without that group improving, or remain stable while access and journeys change.
+The accounting separates continuation, reallocation, and entry or exit. An average can rise after excluding a low-scoring group without that group improving, or remain stable while access and journeys change. A similar risk appears in the evaluation of Chile's voucher system: generalised choice increased stratification across sectors without evidence of better average outcomes (Hsieh and Urquiola 2006[^hsieh2006]).
 {: .text-justify}
 
 ## Spoonful 3: from the average to each territory's education network
@@ -177,13 +177,13 @@ The map contrasts the official MINEDUC coordinate with an OpenStreetMap historic
 
 ### How this result relates to earlier studies
 
-[Iocco (2024)](https://doi.org/10.2139/ssrn.4808834) follows displaced students in Chile: it reports average effects near zero and better outcomes when the receiving school performs better. It is a preprint; prolonged RBD disappearance may mix closures, mergers, or identifier changes. [Grau, Hojman, and Mizala (2018)](https://doi.org/10.1016/j.econedurev.2018.05.003), by contrast, estimate increases of `1.8–2.5` percentage points in high-school dropout and `3.9–4.4` points in fifth-grade retention among affected students. [Elacqua and colleagues](https://doi.org/10.4067/S0718-52862012000200005) examine the alternatives available to pupils affected by a closure. Their units, periods, and designs differ from this school-level descriptive analysis, so the estimates are neither averaged nor presented as an automatic contradiction.
+Iocco (2024[^iocco2024]) follows displaced students in Chile: it reports average effects near zero and better outcomes when the receiving school performs better. It is a preprint; prolonged RBD disappearance may mix closures, mergers, or identifier changes. Grau, Hojman, and Mizala (2018[^grau2018]), by contrast, estimate increases of `1.8–2.5` percentage points in high-school dropout and `3.9–4.4` points in fifth-grade retention among affected students. Elacqua and colleagues (2012[^elacqua2012]) examine the alternatives available to pupils affected by a closure. Paredes and Fresard (2018[^paredes2018]) link the probability of closure mainly to the number of pupils per grade and find that students from closed schools tend to move to better schools. In Sweden, Taghizadeh (2020[^taghizadeh2020]) finds no effects of closures on achievement, with similar results for displaced students and later cohorts. Their units, periods, and designs differ from this school-level descriptive analysis, so the estimates are neither averaged nor presented as an automatic contradiction.
 {: .text-justify}
 
 Here I distinguish event, entity, annex, and segment; observe spatial renewal; and extend through 2025. Without individual trajectories I do not identify destination, accessibility, or welfare.
 {: .text-justify}
 
-### What we know about SAE and SLEPs
+### What I know about SAE and SLEPs
 
 <span id="claim-slep-sae"></span>The staggered schedules of Local Public Education Services (SLEPs) and the School Admission System (SAE) appear to offer causal comparisons. In these data, however, neither meets sufficient conditions for attributing an effect.
 {: .text-justify}
@@ -228,7 +228,7 @@ Teaching capacity belongs in that chain. Lower enrolment may create opportunitie
 
 ## What would need to happen for causal inference
 
-A causal result requires more than adding years. For closures, we need to follow students, know their destinations, and compare their trajectories with a credible group before families anticipate the change. For SLEPs, we need to document why each territory transferred when it did, accumulate more treated units, and measure interference across nearby networks. For SAE, a longer window does not by itself solve the small number of treated clusters or placebos that depend on weighting: a different contrast must rest on a defensible assignment rule.
+A causal result requires more than adding years. For closures, it is necessary to follow students, know their destinations, and compare their trajectories with a credible group before families anticipate the change. For SLEPs, it is necessary to document why each territory transferred when it did, accumulate more treated units, and measure interference across nearby networks. For SAE, a longer window does not by itself solve the small number of treated clusters or placebos that depend on weighting: a different contrast must rest on a defensible assignment rule.
 {: .text-justify}
 
 Each route can fail. Incompatible pre-trends invalidate an event study; a discontinuity requires a rule that cannot be manipulated; an instrumental variable needs a clear first stage and credible exclusion; and individual follow-up can be biased when links fail selectively. Stating these conditions before estimation is part of the result, not a formality.
@@ -258,7 +258,7 @@ The creative-destruction hypothesis is attractive; that is why it requires a str
 
 ### Transparency and scope of the sources
 
-The thesis and its extension are my own work; they are not an independent replication. I was also a co-author of [*Destructive Creation* (Working Paper 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), a predecessor to the Grau, Hojman, and Mizala (2018) article cited here. El Salvador was selected because of my biographical connection to the town. Making these relationships explicit helps recognise possible confirmation and selection bias.
+The thesis and its extension are my own work; they are not an independent replication. I was also a co-author of [*Destructive Creation* (Working Paper 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), a predecessor to the Grau, Hojman, and Mizala (2018[^grau2018]) article cited here. El Salvador was selected because of my biographical connection to the town. Making these relationships explicit helps recognise possible confirmation and selection bias.
 {: .text-justify}
 
 I received no funding for this work and declare no conflicts of interest. My sole institutional affiliation is Chile's Ministry of Social Development and Family, which did not fund, commission, supervise, or review this work; its positions are not represented by these conclusions. I used artificial-intelligence assistants to support programming, quality control, prose review, and adversarial review. The methodological and editorial decisions, source verification, and responsibility for every claim and result are mine.
@@ -268,22 +268,18 @@ I received no funding for this work and declare no conflicts of interest. My sol
 
 ## References
 
-<div class="post-references" markdown="1">
+[^chay2005]: Chay, K. Y., McEwan, P. J., & Urquiola, M. (2005). [The central role of noise in evaluating interventions that use test scores to rank schools](http://papers.nber.org/papers/w10118.pdf). *American Economic Review, 95*(4), 1237–1258. [DOI](https://doi.org/10.1257/0002828054825529) · [Scholar](https://scholar.google.com/scholar_lookup?title=The+Central+Role+of+Noise+in+Evaluating+Interventions+That+Use+Test+Scores+to+Rank+Schools&doi=10.1257%2F0002828054825529)
 
-Chay, K. Y., McEwan, P. J., & Urquiola, M. (2005). [The central role of noise in evaluating interventions that use test scores to rank schools](https://doi.org/10.1257/0002828054825529). *American Economic Review, 95*(4), 1237–1258.
+[^elacqua2012]: Elacqua, G., Martínez, M., Santos, H., & Urbina, D. R. (2012). [School closures in Chile: Access to quality alternatives in a school choice system](http://www.scielo.cl/pdf/ede/v39n2/art05.pdf). *Estudios de Economía, 39*(2), 179–202. [DOI](https://doi.org/10.4067/S0718-52862012000200005) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closures+in+Chile%3A+Access+to+quality+alternatives+in+a+school+choice+system&doi=10.4067%2FS0718-52862012000200005)
 
-Elacqua, G., Martínez, M., Santos, H., & Urbina, D. R. (2012). [School closures in Chile: Access to quality alternatives in a school choice system](https://doi.org/10.4067/S0718-52862012000200005). *Estudios de Economía, 39*(2), 179–202.
+[^grau2018]: Grau, N., Hojman, D., & Mizala, A. (2018). [School closure and educational attainment: Evidence from a market-based system](http://www.econ.uchile.cl/uploads/publicacion/b5a96b0864935586496a4959e10220c588993d2b.pdf). *Economics of Education Review, 65*, 1–17. [DOI](https://doi.org/10.1016/j.econedurev.2018.05.003) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closure+and+educational+attainment%3A+Evidence+from+a+market-based+system&doi=10.1016%2Fj.econedurev.2018.05.003)
 
-Grau, N., Hojman, D., & Mizala, A. (2018). [School closure and educational attainment: Evidence from a market-based system](https://doi.org/10.1016/j.econedurev.2018.05.003). *Economics of Education Review, 65*, 1–17.
+[^hsieh2006]: Hsieh, C.-T., & Urquiola, M. (2006). [The effects of generalized school choice on achievement and stratification](https://doi.org/10.1016/j.jpubeco.2005.11.002). *Journal of Public Economics, 90*(8–9), 1477–1503. [Scholar](https://scholar.google.com/scholar_lookup?title=The+effects+of+generalized+school+choice+on+achievement+and+stratification%3A+Evidence+from+Chile%27s+voucher+program&doi=10.1016%2Fj.jpubeco.2005.11.002)
 
-Hsieh, C.-T., & Urquiola, M. (2006). [The effects of generalized school choice on achievement and stratification](https://doi.org/10.1016/j.jpubeco.2005.11.002). *Journal of Public Economics, 90*(8–9), 1477–1503.
+[^iocco2024]: Iocco, M. P. (2024). [Impact of planned school closures on academic performance: Evidence from Chile](https://doi.org/10.2139/ssrn.4808834). *SSRN preprint*. [Scholar](https://scholar.google.com/scholar_lookup?title=Impact+of+Planned+School+Closures+on+Academic+Performance%3A+Evidence+from+Chile&doi=10.2139%2Fssrn.4808834)
 
-Iocco, M. P. (2024). [Impact of planned school closures on academic performance: Evidence from Chile](https://doi.org/10.2139/ssrn.4808834). *SSRN preprint*.
+[^paredes2018]: Paredes, R. D., & Fresard, M. (2018). [Voucher y cierre de escuelas en Chile](https://estudiospublicos.cl/index.php/cep/article/download/62/68). *Estudios Públicos*, (151). [DOI](https://doi.org/10.38178/cep.vi151.62) · [Scholar](https://scholar.google.com/scholar_lookup?title=Voucher+y+cierre+de+escuelas+en+Chile&doi=10.38178%2Fcep.vi151.62)
 
-Paredes, R. D., & Fresard, M. (2018). [Voucher y cierre de escuelas en Chile](https://doi.org/10.38178/cep.vi151.62). *Estudios Públicos*, (151).
+[^quinterofragozo2023]: Quintero-Fragozo, C., Cortés, Y., & Sarrias, M. (2023). [Effects of spatial competition on public educational efficiency](https://doi.org/10.1080/02680939.2021.1966102). *Journal of Education Policy, 38*(1), 115–140. [Scholar](https://scholar.google.com/scholar_lookup?title=Effects+of+spatial+competition+on+public+educational+efficiency%3A+an+analysis+for+the+Chilean+Metropolitan+Region&doi=10.1080%2F02680939.2021.1966102)
 
-Quintero-Fragozo, C., Cortés, Y., & Sarrias, M. (2023). [Effects of spatial competition on public educational efficiency](https://doi.org/10.1080/02680939.2021.1966102). *Journal of Education Policy, 38*(1), 115–140.
-
-Taghizadeh, J. L. (2020). [Effects of school closures on displaced students and future cohorts](https://doi.org/10.1016/j.labeco.2020.101910). *Labour Economics, 67*, 101910.
-
-</div>
+[^taghizadeh2020]: Taghizadeh, J. L. (2020). [Effects of school closures on displaced students and future cohorts](https://doi.org/10.1016/j.labeco.2020.101910). *Labour Economics, 67*, 101910. [Scholar](https://scholar.google.com/scholar_lookup?title=Effects+of+school+closures+on+displaced+students+and+future+cohorts&doi=10.1016%2Fj.labeco.2020.101910)

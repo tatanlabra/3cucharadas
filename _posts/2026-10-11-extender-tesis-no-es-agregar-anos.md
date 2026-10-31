@@ -4,7 +4,7 @@ classes: [thesis-extension-post]
 title: "Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir"
 subtitle: "Qué muestran los registros sobre el recambio escolar, qué no permiten concluir y qué exige planificar la continuidad educativa."
 date: 2026-10-11 10:00:00 -0300
-last_modified_at: 2026-10-17 17:15:00 -0300
+last_modified_at: 2026-10-31 18:30:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [educacion, mercado-escolar, cierre-escolar, mineduc, datos-administrativos, replicabilidad, simce, admision, slep, territorio]
 description: "Una extensión de mi tesis examina cierres y aperturas escolares en Chile: qué muestran los registros y qué falta para evaluar calidad, cobertura y continuidad educativa."
@@ -68,7 +68,7 @@ El registro contiene **900 cierres oficiales**, pero la definición estricta dej
 
 ### Una salida del registro no siempre es una escuela que desaparece
 
-En la primera entrega, «entrada» y «salida» describían apariciones y desapariciones en los archivos. Para estudiar el período reciente necesito distinguirlas de los cambios administrativos y de la interrupción efectiva de la oferta educativa.
+En la primera entrega, "entrada" y "salida" describían apariciones y desapariciones en los archivos. Para estudiar el período reciente necesito distinguirlas de los cambios administrativos y de la interrupción efectiva de la oferta educativa.
 {: .text-justify}
 
 Un establecimiento puede cerrar; entrar en receso; fusionarse con otro; cambiar de identificador; perder una sede o dejar de impartir un nivel. También puede cambiar de sostenedor —la entidad responsable de administrarlo— sin dejar de funcionar. Ninguna de esas situaciones debería convertirse automáticamente en la misma clase de cierre.
@@ -88,7 +88,7 @@ Pero esos 346 tampoco son automáticamente 346 escuelas que desaparecieron. Al r
 
 ### No toda oferta cercana atiende la misma necesidad
 
-Una sala cuna no atiende la misma población que una escuela básica o un liceo. Separo educación inicial —sala cuna, nivel medio, transición y heterogéneo—, básica y media. Desde aquí, «mercado» significa **comuna y segmento educativo exacto**. Es una definición operativa, no una afirmación sobre dónde eligen las familias. Cobertura, además, exige distinguir matrícula de vacantes y accesibilidad.
+Una sala cuna no atiende la misma población que una escuela básica o un liceo. Separo educación inicial —sala cuna, nivel medio, transición y heterogéneo—, básica y media. Desde aquí, "mercado" significa **comuna y segmento educativo exacto**. Es una definición operativa, no una afirmación sobre dónde eligen las familias; otros estudios miden la competencia entre escuelas con radios de distancia y no con límites comunales (Quintero-Fragozo, Cortés y Sarrias 2023[^quinterofragozo2023]). Cobertura, además, exige distinguir matrícula de vacantes y accesibilidad.
 {: .text-justify}
 
 <span id="claim-demography"></span>Según la proyección del [INE con base en el Censo 2024](https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estimaciones-y-proyecciones-de-poblacion), la población de 6 a 17 años pasa de **3.081.791 en 2025** a **1.366.155 en 2050**: `55,7 %` menos. La cifra no incluye la educación parvularia y describe población, no matrícula ni cierres; sí obliga a planificar capacidad, transporte y continuidad por territorio.
@@ -129,18 +129,18 @@ La secuencia describe tres cortes del conjunto, no la trayectoria de cada escuel
 | Admisión entre quienes rinden | 8 cierres | `−0,001` DE; intervalo no estimable | No alcanza el mínimo retrospectivo de diez cierres. |
 {: .table--compact .table--scroll}
 
-Entre escuelas comparables, SIMCE no muestra una diferencia precisa y admisión no alcanza el mínimo de diez cierres. Esto no dice que las escuelas que cierran estén sobre el promedio nacional: en el universo histórico amplio, la mediana SIMCE parte en `−0,232` DE. En los resultados técnicos, «no estimable» no significa cero, empate ni igualdad; significa que publicar un intervalo defendible exigiría fingir más información de la disponible.
+Entre escuelas comparables, SIMCE no muestra una diferencia precisa y admisión no alcanza el mínimo de diez cierres. Esto no dice que las escuelas que cierran estén sobre el promedio nacional: en el universo histórico amplio, la mediana SIMCE parte en `−0,232` DE. En los resultados técnicos, "no estimable" no significa cero, empate ni igualdad; significa que publicar un intervalo defendible exigiría fingir más información de la disponible.
 {: .text-justify}
 
 El `−4,3 %` de la parte I, para particulares subvencionados que cierran, y el `+0,029` reciente no son comparables. El primero es la brecha respecto del promedio comunal en matemática de 4° básico para nueve años entre 1999 y 2011; el segundo usa desviaciones estándar anuales, cierres estrictos, la media entre `t−3` y `t−1` y controles exactos. Cambian período, unidad, universo y estimando; tampoco son comparables los signos.
 {: .small}
 
-El mínimo de diez es una regla retrospectiva para no ajustar el umbral a los signos observados; no es una ley estadística universal. La sensibilidad no cambia la conclusión: SIMCE ponderado da `+0,034` DE `[−0,225; +0,289]` y admisión sigue bajo el mínimo. Al aplicar además la depuración de flujos estudiantiles **`RCID v1` (D2)** y retirar las 34 absorciones concentradas, el soporte común pasa de 21 a **17 cierres en SIMCE** (`+0,017` DE, cuyo intervalo sigue cruzando cero) y de 8 a **5 cierres en admisión** (`−0,057` DE, bajo el mínimo de diez cierres), mientras la mediana de matrícula previa en el subconjunto evaluado baja de `44 → 34 → 0` (D1) a `39 → 31 → 0` (D2 conservador) y `36 → 27 → 0` (D2 limpio), confirmando que las escuelas absorbidas en bloque tenían mayor tamaño y que depurarlas ratifica la falta de respaldo empírico para una mejora por recambio. Además, los grupos elegidos por un puntaje extremo tienden a acercarse al promedio en una medición posterior; por eso un cambio antes-después, sin comparación adecuada, puede confundir mejora con [regresión a la media](https://doi.org/10.1257/0002828054825529).
+El mínimo de diez es una regla retrospectiva para no ajustar el umbral a los signos observados; no es una ley estadística universal. La sensibilidad no cambia la conclusión: SIMCE ponderado da `+0,034` DE `[−0,225; +0,289]` y admisión sigue bajo el mínimo. Al aplicar además la depuración de flujos estudiantiles **`RCID v1` (D2)** y retirar las 34 absorciones concentradas, el soporte común pasa de 21 a **17 cierres en SIMCE** (`+0,017` DE, cuyo intervalo sigue cruzando cero) y de 8 a **5 cierres en admisión** (`−0,057` DE, bajo el mínimo de diez cierres), mientras la mediana de matrícula previa en el subconjunto evaluado baja de `44 → 34 → 0` (D1) a `39 → 31 → 0` (D2 conservador) y `36 → 27 → 0` (D2 limpio), confirmando que las escuelas absorbidas en bloque tenían mayor tamaño y que depurarlas ratifica la falta de respaldo empírico para una mejora por recambio. Además, los grupos elegidos por un puntaje extremo tienden a acercarse al promedio en una medición posterior; por eso un cambio antes-después, sin comparación adecuada, puede confundir mejora con regresión a la media (Chay, McEwan y Urquiola 2005[^chay2005]).
 {: .text-justify}
 
-### Un promedio puede cambiar sin que sepamos cuánto aprendieron los estudiantes
+### Un promedio puede cambiar sin revelar cuánto aprendieron los estudiantes
 
-La contabilidad separa permanencia, redistribución y entradas o salidas. Un promedio puede subir al excluir un grupo con puntajes bajos sin que ese grupo mejore, o permanecer estable mientras cambian el acceso y los traslados.
+La contabilidad separa permanencia, redistribución y entradas o salidas. Un promedio puede subir al excluir un grupo con puntajes bajos sin que ese grupo mejore, o permanecer estable mientras cambian el acceso y los traslados. Un riesgo análogo aparece en la evaluación del sistema de vouchers chileno: la elección generalizada aumentó la estratificación entre sectores sin evidencia de mejores resultados promedio (Hsieh y Urquiola 2006[^hsieh2006]).
 {: .text-justify}
 
 ## Cucharada 3: del promedio a la red educativa de cada territorio
@@ -155,7 +155,7 @@ La utilidad inmediata no es construir un ranking de escuelas que deberían cerra
 La comparación territorial pregunta: ante un cierre estricto, ¿aparece cerca otra escuela que atiende el mismo segmento? Busqué una apertura dentro de 10 km y entre `t` y `t+2`. La ubicación del cierre corresponde a `t−1`; la ubicación de la entrada usa la **primera coordenada oficial válida entre el año de entrada y 2025**. Este criterio recupera registros tardíos sin fingir que la escuela estaba físicamente allí desde el primer año.
 {: .text-justify}
 
-Uso «entrada» en un sentido operativo: actividad con matrícula positiva después de al menos dos años previos sin actividad registrada en el panel 2013–2025, sin episodio activo anterior en esa ventana ni sucesión registrada. No demuestra que la escuela sea históricamente nueva; puede quedar historia anterior fuera del panel. Para los eventos recientes, además, la ventana posterior todavía puede estar incompleta.
+Uso "entrada" en un sentido operativo: actividad con matrícula positiva después de al menos dos años previos sin actividad registrada en el panel 2013–2025, sin episodio activo anterior en esa ventana ni sucesión registrada. No demuestra que la escuela sea históricamente nueva; puede quedar historia anterior fuera del panel. Para los eventos recientes, además, la ventana posterior todavía puede estar incompleta.
 {: .text-justify}
 
 <span id="claim-territorial"></span>De 330 cierres estrictos, 320 tienen coordenada válida. Entre 414 aperturas, 389 tienen una coordenada elegible bajo el criterio temporal. Después de excluir posibles reemplazos administrativos, segmentos distintos y nueve trayectorias inestables, quedan **38 cierres vinculados por proximidad con 29 aperturas únicas**. Es un resultado nacional útil para dimensionar el fenómeno; no demuestra que esas aperturas recibieran a los estudiantes ni que fueran sustitutos accesibles.
@@ -180,13 +180,13 @@ El mapa contrasta la coordenada oficial MINEDUC con un candidato histórico de O
 
 ### Cómo conversa este resultado con estudios anteriores
 
-[Iocco (2024)](https://doi.org/10.2139/ssrn.4808834) sigue estudiantes desplazados en Chile: encuentra efectos medios cercanos a cero y mejores resultados cuando la escuela receptora rinde más. Es un preprint; su cierre por desaparición prolongada del RBD puede mezclar cierres, fusiones o cambios de identificador. [Grau, Hojman y Mizala (2018)](https://doi.org/10.1016/j.econedurev.2018.05.003), en cambio, estiman para estudiantes afectados aumentos de `1,8–2,5` puntos porcentuales en deserción de enseñanza media y de `3,9–4,4` puntos en repitencia de quinto básico. [Elacqua y colaboradores](https://doi.org/10.4067/S0718-52862012000200005) estudian las alternativas disponibles para quienes enfrentan un cierre. Sus unidades, períodos y diseños son distintos de este análisis descriptivo por escuela; por eso no se promedian ni se presentan como una contradicción automática.
+Iocco (2024[^iocco2024]) sigue estudiantes desplazados en Chile: encuentra efectos medios cercanos a cero y mejores resultados cuando la escuela receptora rinde más. Es un preprint; su cierre por desaparición prolongada del RBD puede mezclar cierres, fusiones o cambios de identificador. Grau, Hojman y Mizala (2018[^grau2018]), en cambio, estiman para estudiantes afectados aumentos de `1,8–2,5` puntos porcentuales en deserción de enseñanza media y de `3,9–4,4` puntos en repitencia de quinto básico. Elacqua y colaboradores (2012[^elacqua2012]) estudian las alternativas disponibles para quienes enfrentan un cierre. Paredes y Fresard (2018[^paredes2018]) asocian la probabilidad de cierre sobre todo al número de alumnos por nivel y encuentran que los estudiantes de escuelas cerradas tienden a moverse hacia escuelas mejores. En Suecia, Taghizadeh (2020[^taghizadeh2020]) no encuentra efectos de los cierres sobre el logro, con resultados similares para desplazados y cohortes posteriores. Sus unidades, períodos y diseños son distintos de este análisis descriptivo por escuela; por eso no se promedian ni se presentan como una contradicción automática.
 {: .text-justify}
 
 Este ejercicio distingue evento, entidad, anexo y segmento, observa la renovación espacial y extiende el panel hasta 2025. Sin trayectorias individuales no identifica destino, accesibilidad ni bienestar.
 {: .text-justify}
 
-### Qué sabemos sobre SAE y SLEP
+### Qué sé sobre SAE y SLEP
 
 <span id="claim-slep-sae"></span>Los calendarios escalonados de los Servicios Locales de Educación Pública (SLEP) y del Sistema de Admisión Escolar (SAE) parecen ofrecer comparaciones causales. En estos datos, sin embargo, ninguna de las dos cumple condiciones suficientes para atribuir un efecto.
 {: .text-justify}
@@ -250,7 +250,7 @@ Los principales agregados se calcularon por rutas independientes y coincidieron 
 
 ## Cierre: evaluar la transición, no celebrar el movimiento
 
-Extender la tesis reveló que «cierre» escondía recuentos acumulados, eventos, escuelas vacías, anexos y reemplazos de RBD; «mercado» mezclaba sala cuna, básica y media; «renovación» confundía cercanía con destino.
+Extender la tesis reveló que "cierre" escondía recuentos acumulados, eventos, escuelas vacías, anexos y reemplazos de RBD; "mercado" mezclaba sala cuna, básica y media; "renovación" confundía cercanía con destino.
 {: .text-justify}
 
 La hipótesis de destrucción creativa es atractiva; por eso hay que exigirle una prueba estricta. Hoy hay señales, vacíos y presión demográfica, pero **este análisis no aporta evidencia para celebrar el recambio**.
@@ -261,7 +261,7 @@ La hipótesis de destrucción creativa es atractiva; por eso hay que exigirle un
 
 ### Transparencia y alcance de las fuentes
 
-La tesis y su extensión son de mi autoría; no constituyen una réplica independiente. También fui coautor de [*Destructive Creation* (DT 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), antecedente del artículo de Grau, Hojman y Mizala (2018) citado aquí. El Salvador fue seleccionado por mi vínculo biográfico con la localidad. Hacer explícitas estas relaciones permite reconocer posibles sesgos de confirmación y selección.
+La tesis y su extensión son de mi autoría; no constituyen una réplica independiente. También fui coautor de [*Destructive Creation* (DT 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }}), antecedente del artículo de Grau, Hojman y Mizala (2018[^grau2018]) citado aquí. El Salvador fue seleccionado por mi vínculo biográfico con la localidad. Hacer explícitas estas relaciones permite reconocer posibles sesgos de confirmación y selección.
 {: .text-justify}
 
 No recibí financiamiento para este trabajo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó, supervisó ni revisó este trabajo; sus posiciones no están representadas por estas conclusiones. Utilicé asistentes de inteligencia artificial para apoyar programación, control de calidad, revisión de prosa y revisión adversarial. Las decisiones metodológicas y editoriales, la verificación de fuentes y la responsabilidad por todas las afirmaciones y resultados son mías.
@@ -271,22 +271,18 @@ No recibí financiamiento para este trabajo y declaro no tener conflictos de int
 
 ## Referencias
 
-<div class="post-references" markdown="1">
+[^chay2005]: Chay, K. Y., McEwan, P. J., & Urquiola, M. (2005). [The central role of noise in evaluating interventions that use test scores to rank schools](http://papers.nber.org/papers/w10118.pdf). *American Economic Review, 95*(4), 1237–1258. [DOI](https://doi.org/10.1257/0002828054825529) · [Scholar](https://scholar.google.com/scholar_lookup?title=The+Central+Role+of+Noise+in+Evaluating+Interventions+That+Use+Test+Scores+to+Rank+Schools&doi=10.1257%2F0002828054825529)
 
-Chay, K. Y., McEwan, P. J., & Urquiola, M. (2005). [The central role of noise in evaluating interventions that use test scores to rank schools](https://doi.org/10.1257/0002828054825529). *American Economic Review, 95*(4), 1237–1258.
+[^elacqua2012]: Elacqua, G., Martínez, M., Santos, H., & Urbina, D. R. (2012). [School closures in Chile: Access to quality alternatives in a school choice system](http://www.scielo.cl/pdf/ede/v39n2/art05.pdf). *Estudios de Economía, 39*(2), 179–202. [DOI](https://doi.org/10.4067/S0718-52862012000200005) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closures+in+Chile%3A+Access+to+quality+alternatives+in+a+school+choice+system&doi=10.4067%2FS0718-52862012000200005)
 
-Elacqua, G., Martínez, M., Santos, H., & Urbina, D. R. (2012). [School closures in Chile: Access to quality alternatives in a school choice system](https://doi.org/10.4067/S0718-52862012000200005). *Estudios de Economía, 39*(2), 179–202.
+[^grau2018]: Grau, N., Hojman, D., & Mizala, A. (2018). [School closure and educational attainment: Evidence from a market-based system](http://www.econ.uchile.cl/uploads/publicacion/b5a96b0864935586496a4959e10220c588993d2b.pdf). *Economics of Education Review, 65*, 1–17. [DOI](https://doi.org/10.1016/j.econedurev.2018.05.003) · [Scholar](https://scholar.google.com/scholar_lookup?title=School+closure+and+educational+attainment%3A+Evidence+from+a+market-based+system&doi=10.1016%2Fj.econedurev.2018.05.003)
 
-Grau, N., Hojman, D., & Mizala, A. (2018). [School closure and educational attainment: Evidence from a market-based system](https://doi.org/10.1016/j.econedurev.2018.05.003). *Economics of Education Review, 65*, 1–17.
+[^hsieh2006]: Hsieh, C.-T., & Urquiola, M. (2006). [The effects of generalized school choice on achievement and stratification](https://doi.org/10.1016/j.jpubeco.2005.11.002). *Journal of Public Economics, 90*(8–9), 1477–1503. [Scholar](https://scholar.google.com/scholar_lookup?title=The+effects+of+generalized+school+choice+on+achievement+and+stratification%3A+Evidence+from+Chile%27s+voucher+program&doi=10.1016%2Fj.jpubeco.2005.11.002)
 
-Hsieh, C.-T., & Urquiola, M. (2006). [The effects of generalized school choice on achievement and stratification](https://doi.org/10.1016/j.jpubeco.2005.11.002). *Journal of Public Economics, 90*(8–9), 1477–1503.
+[^iocco2024]: Iocco, M. P. (2024). [Impact of planned school closures on academic performance: Evidence from Chile](https://doi.org/10.2139/ssrn.4808834). *SSRN preprint*. [Scholar](https://scholar.google.com/scholar_lookup?title=Impact+of+Planned+School+Closures+on+Academic+Performance%3A+Evidence+from+Chile&doi=10.2139%2Fssrn.4808834)
 
-Iocco, M. P. (2024). [Impact of planned school closures on academic performance: Evidence from Chile](https://doi.org/10.2139/ssrn.4808834). *SSRN preprint*.
+[^paredes2018]: Paredes, R. D., & Fresard, M. (2018). [Voucher y cierre de escuelas en Chile](https://estudiospublicos.cl/index.php/cep/article/download/62/68). *Estudios Públicos*, (151). [DOI](https://doi.org/10.38178/cep.vi151.62) · [Scholar](https://scholar.google.com/scholar_lookup?title=Voucher+y+cierre+de+escuelas+en+Chile&doi=10.38178%2Fcep.vi151.62)
 
-Paredes, R. D., & Fresard, M. (2018). [Voucher y cierre de escuelas en Chile](https://doi.org/10.38178/cep.vi151.62). *Estudios Públicos*, (151).
+[^quinterofragozo2023]: Quintero-Fragozo, C., Cortés, Y., & Sarrias, M. (2023). [Effects of spatial competition on public educational efficiency](https://doi.org/10.1080/02680939.2021.1966102). *Journal of Education Policy, 38*(1), 115–140. [Scholar](https://scholar.google.com/scholar_lookup?title=Effects+of+spatial+competition+on+public+educational+efficiency%3A+an+analysis+for+the+Chilean+Metropolitan+Region&doi=10.1080%2F02680939.2021.1966102)
 
-Quintero-Fragozo, C., Cortés, Y., & Sarrias, M. (2023). [Effects of spatial competition on public educational efficiency](https://doi.org/10.1080/02680939.2021.1966102). *Journal of Education Policy, 38*(1), 115–140.
-
-Taghizadeh, J. L. (2020). [Effects of school closures on displaced students and future cohorts](https://doi.org/10.1016/j.labeco.2020.101910). *Labour Economics, 67*, 101910.
-
-</div>
+[^taghizadeh2020]: Taghizadeh, J. L. (2020). [Effects of school closures on displaced students and future cohorts](https://doi.org/10.1016/j.labeco.2020.101910). *Labour Economics, 67*, 101910. [Scholar](https://scholar.google.com/scholar_lookup?title=Effects+of+school+closures+on+displaced+students+and+future+cohorts&doi=10.1016%2Fj.labeco.2020.101910)
