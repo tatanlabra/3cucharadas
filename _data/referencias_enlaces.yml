@@ -1,0 +1,1488 @@
+# Generado por scripts/build_reference_links.py. No editar a mano: volver a correr.
+arxiv:1910.06403:
+  arxiv_abs: https://arxiv.org/abs/1910.06403
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '1910.06403'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/1910.06403
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=BoTorch%3A+A+Framework+for+Efficient+Monte-Carlo+Bayesian+Optimization
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: 'BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization'
+  title_match: 1.0
+  year: 2019
+arxiv:2005.11401:
+  arxiv_abs: https://arxiv.org/abs/2005.11401
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2005.11401'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2005.11401
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Retrieval-Augmented+Generation+for+Knowledge-Intensive+NLP+Tasks
+  seen:
+  - 2026-07-23-multiagente-penta-agent-memoria-en.md
+  - 2026-07-23-multiagente-penta-agent-memoria.md
+  title: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
+  title_match: 1.0
+  year: 2020
+arxiv:2104.08663:
+  arxiv_abs: https://arxiv.org/abs/2104.08663
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2104.08663'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 0.9
+  pdf_url: https://arxiv.org/pdf/2104.08663
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=BEIR%3A+A+Heterogenous+Benchmark+for+Zero-shot+Evaluation+of+Information+Retrieval+Models
+  seen:
+  - 2026-07-23-multiagente-penta-agent-memoria-en.md
+  - 2026-07-23-multiagente-penta-agent-memoria.md
+  title: 'BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models'
+  title_match: 1.0
+  year: 2021
+arxiv:2109.08215:
+  arxiv_abs: https://arxiv.org/abs/2109.08215
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2109.08215'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2109.08215
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Pre-trained+Gaussian+Processes+for+Bayesian+Optimization
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: Pre-trained Gaussian Processes for Bayesian Optimization
+  title_match: 1.0
+  year: 2021
+arxiv:2111.09543:
+  arxiv_abs: https://arxiv.org/abs/2111.09543
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2111.09543'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2111.09543
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=DeBERTaV3%3A+Improving+DeBERTa+using+ELECTRA-Style+Pre-Training+with+Gradient-Disentangled+Embedding+Sharing
+  seen:
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc.md
+  title: 'DeBERTaV3: Improving DeBERTa using ELECTRA-Style Pre-Training with Gradient-Disentangled Embedding Sharing'
+  title_match: 1.0
+  year: 2021
+arxiv:2310.05166:
+  arxiv_abs: https://arxiv.org/abs/2310.05166
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2310.05166'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2310.05166
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=A+Corrected+Expected+Improvement+Acquisition+Function+Under+Noisy+Observations
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: A Corrected Expected Improvement Acquisition Function Under Noisy Observations
+  title_match: 1.0
+  year: 2023
+arxiv:2310.20708:
+  arxiv_abs: https://arxiv.org/abs/2310.20708
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2310.20708'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2310.20708
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Unexpected+Improvements+to+Expected+Improvement+for+Bayesian+Optimization
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: Unexpected Improvements to Expected Improvement for Bayesian Optimization
+  title_match: 1.0
+  year: 2023
+arxiv:2402.03216:
+  arxiv_abs: https://arxiv.org/abs/2402.03216
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2402.03216'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2402.03216
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=M3-Embedding%3A+Multi-Linguality%2C+Multi-Functionality%2C+Multi-Granularity+Text+Embeddings+Through+Self-Knowledge+Distillation
+  seen:
+  - 2026-07-23-multiagente-penta-agent-memoria-en.md
+  - 2026-07-23-multiagente-penta-agent-memoria.md
+  title: 'M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation'
+  title_match: 1.0
+  year: 2024
+arxiv:2402.03921:
+  arxiv_abs: https://arxiv.org/abs/2402.03921
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2402.03921'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2402.03921
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Large+Language+Models+to+Enhance+Bayesian+Optimization
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: Large Language Models to Enhance Bayesian Optimization
+  title_match: 1.0
+  year: 2024
+arxiv:2404.16130:
+  arxiv_abs: https://arxiv.org/abs/2404.16130
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2404.16130'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2404.16130
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=From+Local+to+Global%3A+A+Graph+RAG+Approach+to+Query-Focused+Summarization
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'From Local to Global: A Graph RAG Approach to Query-Focused Summarization'
+  title_match: 1.0
+  year: 2024
+arxiv:2410.10813:
+  arxiv_abs: https://arxiv.org/abs/2410.10813
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2410.10813'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2410.10813
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=LongMemEval%3A+Benchmarking+Chat+Assistants+on+Long-Term+Interactive+Memory
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory'
+  title_match: 1.0
+  year: 2024
+arxiv:2501.13956:
+  arxiv_abs: https://arxiv.org/abs/2501.13956
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2501.13956'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2501.13956
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Zep%3A+A+Temporal+Knowledge+Graph+Architecture+for+Agent+Memory
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'Zep: A Temporal Knowledge Graph Architecture for Agent Memory'
+  title_match: 1.0
+  year: 2025
+arxiv:2504.19413:
+  arxiv_abs: https://arxiv.org/abs/2504.19413
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2504.19413'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2504.19413
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Mem0%3A+Building+Production-Ready+AI+Agents+with+Scalable+Long-Term+Memory
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory'
+  title_match: 1.0
+  year: 2025
+arxiv:2506.05176:
+  arxiv_abs: https://arxiv.org/abs/2506.05176
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2506.05176'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2506.05176
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Qwen3+Embedding%3A+Advancing+Text+Embedding+and+Reranking+Through+Foundation+Models
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models'
+  title_match: 1.0
+  year: 2025
+arxiv:2512.12818:
+  arxiv_abs: https://arxiv.org/abs/2512.12818
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2512.12818'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2512.12818
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Hindsight+is+20%2F20%3A+Building+Agent+Memory+that+Retains%2C+Recalls%2C+and+Reflects
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects'
+  title_match: 1.0
+  year: 2025
+arxiv:2512.13564:
+  arxiv_abs: https://arxiv.org/abs/2512.13564
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2512.13564'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2512.13564
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Memory+in+the+Age+of+AI+Agents
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: Memory in the Age of AI Agents
+  title_match: 1.0
+  year: 2025
+arxiv:2602.08774:
+  arxiv_abs: https://arxiv.org/abs/2602.08774
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2602.08774'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2602.08774
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Default+Machine+Learning+Hyperparameters+Do+Not+Provide+Informative+Initialization+for+Bayesian+Optimization
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: Default Machine Learning Hyperparameters Do Not Provide Informative Initialization for Bayesian Optimization
+  title_match: 1.0
+  year: 2026
+arxiv:2602.11988:
+  arxiv_abs: https://arxiv.org/abs/2602.11988
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2602.11988'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2602.11988
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Evaluating+AGENTS.md%3A+Are+Repository-Level+Context+Files+Helpful+for+Coding+Agents%3F
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: 'Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?'
+  title_match: 1.0
+  year: 2026
+arxiv:2602.14690:
+  arxiv_abs: https://arxiv.org/abs/2602.14690
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2602.14690'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2602.14690
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Harness+Engineering+for+Agentic+AI+Coding+Tools%3A+An+Exploratory+Study
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: 'Harness Engineering for Agentic AI Coding Tools: An Exploratory Study'
+  title_match: 1.0
+  year: 2026
+arxiv:2603.22489:
+  arxiv_abs: https://arxiv.org/abs/2603.22489
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2603.22489'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2603.22489
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Model+Context+Protocol+Threat+Modeling+and+Analyzing+Vulnerabilities+to+Prompt+Injection+with+Tool+Poisoning
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: Model Context Protocol Threat Modeling and Analyzing Vulnerabilities to Prompt Injection with Tool Poisoning
+  title_match: 1.0
+  year: 2026
+arxiv:2605.11418:
+  arxiv_abs: https://arxiv.org/abs/2605.11418
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2605.11418'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2605.11418
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Under+the+Hood+of+SKILL.md%3A+Semantic+Supply-chain+Attacks+on+AI+Agent+Skill+Registry
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: 'Under the Hood of SKILL.md: Semantic Supply-chain Attacks on AI Agent Skill Registry'
+  title_match: 1.0
+  year: 2026
+arxiv:2605.12493:
+  arxiv_abs: https://arxiv.org/abs/2605.12493
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2605.12493'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2605.12493
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=LongMemEval-V2%3A+Evaluating+Long-Term+Agent+Memory+Toward+Experienced+Colleagues
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'LongMemEval-V2: Evaluating Long-Term Agent Memory Toward Experienced Colleagues'
+  title_match: 1.0
+  year: 2026
+arxiv:2606.11543:
+  arxiv_abs: https://arxiv.org/abs/2606.11543
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2606.11543'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2606.11543
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=SkillJuror%3A+Measuring+How+Agent+Skill+Organization+Changes+Runtime+Behavior
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: 'SkillJuror: Measuring How Agent Skill Organization Changes Runtime Behavior'
+  title_match: 1.0
+  year: 2026
+arxiv:2606.13449:
+  arxiv_abs: https://arxiv.org/abs/2606.13449
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2606.13449'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2606.13449
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Toward+Instructions-as-Code%3A+Understanding+the+Impact+of+Instruction+Files+on+Agentic+Pull+Requests
+  seen:
+  - 2026-06-27-multiagente-penta-agent-modelos-v2-en.md
+  - 2026-06-27-multiagente-penta-agent-modelos-v2.md
+  title: 'Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests'
+  title_match: 1.0
+  year: 2026
+arxiv:2610.14224:
+  arxiv_abs: https://arxiv.org/abs/2610.14224
+  checked_at: '2026-10-31'
+  doi_url: null
+  id: '2610.14224'
+  kind: arxiv
+  metadata_found: true
+  metadata_source: arxiv
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2610.14224
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Harness%5E2%3A+Recursive+Agent+Harnessing+for+an+Open+World
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: 'Harness^2: Recursive Agent Harnessing for an Open World'
+  title_match: 1.0
+  year: 2026
+doi:10.1002/widm.1484:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1002/widm.1484
+  id: 10.1002/widm.1484
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/widm.1484
+  pdf_title_match: 1.0
+  pdf_url: https://epub.ub.uni-muenchen.de/108819/1/WIREs_Data_Min___Knowl_-_2023_-_Bischl_-_Hyperparameter_optimization__Foundations__algorithms__best_practices__and_open.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Hyperparameter+optimization%3A+Foundations%2C+algorithms%2C+best+practices%2C+and+open+challenges&doi=10.1002%2Fwidm.1484
+  seen:
+  - 2026-06-20-bayes_hiperparametros-en.md
+  - 2026-06-20-bayes_hiperparametros.md
+  title: 'Hyperparameter optimization: Foundations, algorithms, best practices, and open challenges'
+  title_match: 1.0
+  year: 2023
+doi:10.1007/3-540-45014-9_1:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1007/3-540-45014-9_1
+  id: 10.1007/3-540-45014-9_1
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Ensemble+Methods+in+Machine+Learning&doi=10.1007%2F3-540-45014-9_1
+  seen:
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc.md
+  title: Ensemble Methods in Machine Learning
+  title_match: 1.0
+  year: 2000
+doi:10.1007/b97478:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1007/b97478
+  id: 10.1007/b97478
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Partial+Identification+of+Probability+Distributions&doi=10.1007%2Fb97478
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: Partial Identification of Probability Distributions
+  title_match: 1.0
+  year: 2003
+doi:10.1016/j.econedurev.2018.05.003:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2018.05.003
+  id: 10.1016/j.econedurev.2018.05.003
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://www.econ.uchile.cl/uploads/publicacion/b5a96b0864935586496a4959e10220c588993d2b.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=School+closure+and+educational+attainment%3A+Evidence+from+a+market-based+system&doi=10.1016%2Fj.econedurev.2018.05.003
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'School closure and educational attainment: Evidence from a market-based system'
+  title_match: 1.0
+  year: 2018
+doi:10.1016/j.econedurev.2018.05.004:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2018.05.004
+  id: 10.1016/j.econedurev.2018.05.004
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+short-term+effects+of+school+consolidation+on+student+achievement%3A+Evidence+of+disruption%3F&doi=10.1016%2Fj.econedurev.2018.05.004
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'The short-term effects of school consolidation on student achievement: Evidence of disruption?'
+  title_match: 1.0
+  year: 2018
+doi:10.1016/j.econedurev.2018.12.005:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2018.12.005
+  id: 10.1016/j.econedurev.2018.12.005
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+effects+of+closing+urban+schools+on+students%E2%80%99+academic+and+behavioral+outcomes%3A+Evidence+from+Philadelphia&doi=10.1016%2Fj.econedurev.2018.12.005
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'The effects of closing urban schools on students’ academic and behavioral outcomes: Evidence from Philadelphia'
+  title_match: 1.0
+  year: 2019
+doi:10.1016/j.econedurev.2020.101980:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2020.101980
+  id: 10.1016/j.econedurev.2020.101980
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Does+closing+schools+close+doors%3F+The+effect+of+high+school+closings+on+achievement+and+attainment&doi=10.1016%2Fj.econedurev.2020.101980
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: Does closing schools close doors? The effect of high school closings on achievement and attainment
+  title_match: 1.0
+  year: 2020
+doi:10.1016/j.econedurev.2020.102020:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2020.102020
+  id: 10.1016/j.econedurev.2020.102020
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Are+students+in+receiving+schools+hurt+by+the+closing+of+low-Performing+schools%3F+Effects+of+school+closures+on+receiving+schools+in+Sweden+2000%E2%80%932016&doi=10.1016%2Fj.econedurev.2020.102020
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: Are students in receiving schools hurt by the closing of low-Performing schools? Effects of school closures on receiving schools in Sweden 2000–2016
+  title_match: 1.0
+  year: 2020
+doi:10.1016/j.econedurev.2023.102368:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.econedurev.2023.102368
+  id: 10.1016/j.econedurev.2023.102368
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+effects+of+performance-based+school+closure+and+restart+on+student+performance&doi=10.1016%2Fj.econedurev.2023.102368
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: The effects of performance-based school closure and restart on student performance
+  title_match: 1.0
+  year: 2023
+doi:10.1016/j.jeconom.2020.09.006:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jeconom.2020.09.006
+  id: 10.1016/j.jeconom.2020.09.006
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Estimating+dynamic+treatment+effects+in+event+studies+with+heterogeneous+treatment+effects&doi=10.1016%2Fj.jeconom.2020.09.006
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: Estimating dynamic treatment effects in event studies with heterogeneous treatment effects
+  title_match: 1.0
+  year: 2020
+doi:10.1016/j.jeconom.2020.12.001:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jeconom.2020.12.001
+  id: 10.1016/j.jeconom.2020.12.001
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://arxiv.org/pdf/1803.09015
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Difference-in-Differences+with+multiple+time+periods&doi=10.1016%2Fj.jeconom.2020.12.001
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: Difference-in-Differences with multiple time periods
+  title_match: 1.0
+  year: 2020
+doi:10.1016/j.jeconom.2023.03.008:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jeconom.2023.03.008
+  id: 10.1016/j.jeconom.2023.03.008
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2201.01194
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=What%E2%80%99s+trending+in+difference-in-differences%3F+A+synthesis+of+the+recent+econometrics+literature&doi=10.1016%2Fj.jeconom.2023.03.008
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: What’s trending in difference-in-differences? A synthesis of the recent econometrics literature
+  title_match: 1.0
+  year: 2023
+doi:10.1016/j.jpubeco.2005.11.002:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jpubeco.2005.11.002
+  id: 10.1016/j.jpubeco.2005.11.002
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+effects+of+generalized+school+choice+on+achievement+and+stratification%3A+Evidence+from+Chile%27s+voucher+program&doi=10.1016%2Fj.jpubeco.2005.11.002
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: 'The effects of generalized school choice on achievement and stratification: Evidence from Chile''s voucher program'
+  title_match: 1.0
+  year: 2006
+doi:10.1016/j.jpubeco.2014.06.010:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jpubeco.2014.06.010
+  id: 10.1016/j.jpubeco.2014.06.010
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+effect+of+school+closings+on+student+achievement&doi=10.1016%2Fj.jpubeco.2014.06.010
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: The effect of school closings on student achievement
+  title_match: 1.0
+  year: 2014
+doi:10.1016/j.jue.2011.10.001:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.jue.2011.10.001
+  id: 10.1016/j.jue.2011.10.001
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Closing+schools+in+a+shrinking+district%3A+Do+student+outcomes+depend+on+which+schools+are+closed%3F&doi=10.1016%2Fj.jue.2011.10.001
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'Closing schools in a shrinking district: Do student outcomes depend on which schools are closed?'
+  title_match: 1.0
+  year: 2011
+doi:10.1016/j.labeco.2020.101910:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1016/j.labeco.2020.101910
+  id: 10.1016/j.labeco.2020.101910
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://www.sciencedirect.com/science/article/pii/S0927537120301147/pdf
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Effects+of+school+closures+on+displaced+students+and+future+cohorts&doi=10.1016%2Fj.labeco.2020.101910
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: Effects of school closures on displaced students and future cohorts
+  title_match: 1.0
+  year: 2020
+doi:10.1017/pan.2023.20:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1017/pan.2023.20
+  id: 10.1017/pan.2023.20
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/05BB05555241762889825B080E097C27/S1047198723000207a.pdf/div-class-title-less-annotating-more-classifying-addressing-the-data-scarcity-issue-of-supervised-machine-learning-with-deep-transfer-learning-and-bert-nli-div.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Less+Annotating%2C+More+Classifying%3A+Addressing+the+Data+Scarcity+Issue+of+Supervised+Machine+Learning+with+Deep+Transfer+Learning+and+BERT-NLI&doi=10.1017%2Fpan.2023.20
+  seen:
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md
+  - 2026-10-31-jueces-locales-cpu-laya-vega-arc.md
+  title: 'Less Annotating, More Classifying: Addressing the Data Scarcity Issue of Supervised Machine Learning with Deep Transfer Learning and BERT-NLI'
+  title_match: 1.0
+  year: 2023
+doi:10.1068/a231025:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1068/a231025
+  id: 10.1068/a231025
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+Modifiable+Areal+Unit+Problem+in+Multivariate+Statistical+Analysis&doi=10.1068%2Fa231025
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: The Modifiable Areal Unit Problem in Multivariate Statistical Analysis
+  title_match: 1.0
+  year: 1991
+doi:10.1068/a250383:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1068/a250383
+  id: 10.1068/a250383
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=A+Framework+for+the+Areal+Interpolation+of+Socioeconomic+Data&doi=10.1068%2Fa250383
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: A Framework for the Areal Interpolation of Socioeconomic Data
+  title_match: 1.0
+  year: 1993
+doi:10.1080/02680939.2021.1966102:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1080/02680939.2021.1966102
+  id: 10.1080/02680939.2021.1966102
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Effects+of+spatial+competition+on+public+educational+efficiency%3A+an+analysis+for+the+Chilean+Metropolitan+Region&doi=10.1080%2F02680939.2021.1966102
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: 'Effects of spatial competition on public educational efficiency: an analysis for the Chilean Metropolitan Region'
+  title_match: 1.0
+  year: 2021
+doi:10.1086/260169:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1086/260169
+  id: 10.1086/260169
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Hedonic+Prices+and+Implicit+Markets%3A+Product+Differentiation+in+Pure+Competition&doi=10.1086%2F260169
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: 'Hedonic Prices and Implicit Markets: Product Differentiation in Pure Competition'
+  title_match: 1.0
+  year: 1974
+doi:10.1093/biomet/26.4.404:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1093/biomet/26.4.404
+  id: 10.1093/biomet/26.4.404
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=THE+USE+OF+CONFIDENCE+OR+FIDUCIAL+LIMITS+ILLUSTRATED+IN+THE+CASE+OF+THE+BINOMIAL&doi=10.1093%2Fbiomet%2F26.4.404
+  seen:
+  - 2026-08-29-nushell-coprocesador-estructurado-en.md
+  - 2026-08-29-nushell-coprocesador-estructurado.md
+  title: THE USE OF CONFIDENCE OR FIDUCIAL LIMITS ILLUSTRATED IN THE CASE OF THE BINOMIAL
+  title_match: 1.0
+  year: 1934
+doi:10.1093/cje/bet075:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1093/cje/bet075
+  id: 10.1093/cje/bet075
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Does+high+public+debt+consistently+stifle+economic+growth%3F+A+critique+of+Reinhart+and+Rogoff&doi=10.1093%2Fcje%2Fbet075
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: Does high public debt consistently stifle economic growth? A critique of Reinhart and Rogoff
+  title_match: 1.0
+  year: 2013
+doi:10.1093/restud/rdad018:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1093/restud/rdad018
+  id: 10.1093/restud/rdad018
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=A+More+Credible+Approach+to+Parallel+Trends&doi=10.1093%2Frestud%2Frdad018
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: A More Credible Approach to Parallel Trends
+  title_match: 1.0
+  year: 2023
+doi:10.1111/1467-8284.00096:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1111/1467-8284.00096
+  id: 10.1111/1467-8284.00096
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+Extended+Mind&doi=10.1111%2F1467-8284.00096
+  seen:
+  - 2026-07-23-multiagente-penta-agent-memoria-en.md
+  - 2026-07-23-multiagente-penta-agent-memoria.md
+  title: The Extended Mind
+  title_match: 1.0
+  year: 1998
+doi:10.1111/1540-6229.12126:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1111/1540-6229.12126
+  id: 10.1111/1540-6229.12126
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Assessment+Inequity+in+a+Declining+Housing+Market%3A+The+Case+of+Detroit&doi=10.1111%2F1540-6229.12126
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: 'Assessment Inequity in a Declining Housing Market: The Case of Detroit'
+  title_match: 1.0
+  year: 2016
+doi:10.1111/j.1365-2966.2007.00428.x:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1111/j.1365-2966.2007.00428.x
+  id: 10.1111/j.1365-2966.2007.00428.x
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Viewpoint%3A+Replication+in+economics&doi=10.1111%2Fj.1365-2966.2007.00428.x
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: 'Viewpoint: Replication in economics'
+  title_match: 1.0
+  year: 2007
+doi:10.1111/joes.12139:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1111/joes.12139
+  id: 10.1111/joes.12139
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=THE+MEANING+OF+FAILED+REPLICATIONS%3A+A+REVIEW+AND+PROPOSAL&doi=10.1111%2Fjoes.12139
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: 'THE MEANING OF FAILED REPLICATIONS: A REVIEW AND PROPOSAL'
+  title_match: 1.0
+  year: 2015
+doi:10.11144/javeriana.upsy13-2.qscc:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.11144/Javeriana.UPSY13-2.qscc
+  id: 10.11144/Javeriana.UPSY13-2.qscc
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://revistas.javeriana.edu.co/index.php/revPsycho/article/download/3602/8527
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=%C2%BFQu%C3%A9+sucede+en+las+comunidades+cuando+se+cierra+la+escuela+rural%3F+Un+An%C3%A1lisis+Psicosocial+de+la+Pol%C3%ADtica+de+Cierre+de+las+Escuelas+Rurales+en+Chile&doi=10.11144%2FJaveriana.UPSY13-2.qscc
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: ¿Qué sucede en las comunidades cuando se cierra la escuela rural? Un Análisis Psicosocial de la Política de Cierre de las Escuelas Rurales en Chile
+  title_match: 0.87
+  year: 2014
+doi:10.1145/1571941.1572114:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1145/1571941.1572114
+  id: 10.1145/1571941.1572114
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Reciprocal+rank+fusion+outperforms+condorcet+and+individual+rank+learning+methods&doi=10.1145%2F1571941.1572114
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: Reciprocal rank fusion outperforms condorcet and individual rank learning methods
+  title_match: 1.0
+  year: 2009
+doi:10.1145/3371111:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1145/3371111
+  id: 10.1145/3371111
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://dl.acm.org/doi/pdf/10.1145/3371111
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/1907.05308
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Executable+formal+semantics+for+the+POSIX+shell&doi=10.1145%2F3371111
+  seen:
+  - 2026-08-29-nushell-coprocesador-estructurado-en.md
+  - 2026-08-29-nushell-coprocesador-estructurado.md
+  title: Executable formal semantics for the POSIX shell
+  title_match: 1.0
+  year: 2019
+doi:10.1145/3586183.3606763:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1145/3586183.3606763
+  id: 10.1145/3586183.3606763
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://dl.acm.org/doi/pdf/10.1145/3586183.3606763
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2304.03442
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Generative+Agents%3A+Interactive+Simulacra+of+Human+Behavior&doi=10.1145%2F3586183.3606763
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'Generative Agents: Interactive Simulacra of Human Behavior'
+  title_match: 1.0
+  year: 2023
+doi:10.1257/0002828054825529:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1257/0002828054825529
+  id: 10.1257/0002828054825529
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://papers.nber.org/papers/w10118.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+Central+Role+of+Noise+in+Evaluating+Interventions+That+Use+Test+Scores+to+Rank+Schools&doi=10.1257%2F0002828054825529
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: The Central Role of Noise in Evaluating Interventions That Use Test Scores to Rank Schools
+  title_match: 1.0
+  year: 2005
+doi:10.1257/jel.20171350:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1257/jel.20171350
+  id: 10.1257/jel.20171350
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://www.aeaweb.org/articles/pdf/doi/10.1257/jel.20171350
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Transparency%2C+Reproducibility%2C+and+the+Credibility+of+Economics+Research&doi=10.1257%2Fjel.20171350
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: Transparency, Reproducibility, and the Credibility of Economics Research
+  title_match: 1.0
+  year: 2018
+doi:10.1504/ijisd.2011.043070:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1504/IJISD.2011.043070
+  id: 10.1504/IJISD.2011.043070
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Technology+as+system%3A+towards+an+autopoietic+theory+of+technology&doi=10.1504%2FIJISD.2011.043070
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: 'Technology as system: towards an autopoietic theory of technology'
+  title_match: 1.0
+  year: 2011
+doi:10.1515/zfsoz-2017-1014:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1515/zfsoz-2017-1014
+  id: 10.1515/zfsoz-2017-1014
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://www.degruyter.com/downloadpdf/journals/zfsoz/46/4/article-p249.pdf
+  - title_match: 0.0
+    url: https://iris.unimore.it/bitstream/11380/1144080/1/%5bZeitschrift%20fr%20Soziologie%5d%20Artificial%20Communication%20The%20Production%20of%20Contingency%20by%20Algorithms.pdf
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Artificial+Communication%3F+The+Production+of+Contingency+by+Algorithms&doi=10.1515%2Fzfsoz-2017-1014
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: Artificial Communication? The Production of Contingency by Algorithms
+  title_match: 1.0
+  year: 2017
+doi:10.1561/1500000019:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1561/1500000019
+  id: 10.1561/1500000019
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+Probabilistic+Relevance+Framework%3A+BM25+and+Beyond&doi=10.1561%2F1500000019
+  seen:
+  - 2026-07-23-multiagente-penta-agent-memoria-en.md
+  - 2026-07-23-multiagente-penta-agent-memoria.md
+  title: 'The Probabilistic Relevance Framework: BM25 and Beyond'
+  title_match: 1.0
+  year: 2009
+doi:10.1787/03dfe007-en:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.1787/03dfe007-en
+  id: 10.1787/03dfe007-en
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Housing+Taxation+in+OECD+Countries&doi=10.1787%2F03dfe007-en
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: Housing Taxation in OECD Countries
+  title_match: 1.0
+  year: 2022
+doi:10.21240/merz/2024.4.20:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.21240/merz/2024.4.20
+  id: 10.21240/merz/2024.4.20
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://www.merz-zeitschrift.de/article/download/2950/2744
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Esposito%2C+Elena+%282024%29.+Kommunikation+mit+unverst%C3%A4ndlichen+Maschinen+%28Unruhe+bewahren%29.+Wien%2C+Salzburg%3A+Residenz+Verlag%2C+96+S.%2C+20%2C00+%E2%82%AC.&doi=10.21240%2Fmerz%2F2024.4.20
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: 'Esposito, Elena (2024). Kommunikation mit unverständlichen Maschinen (Unruhe bewahren). Wien, Salzburg: Residenz Verlag, 96 S., 20,00 €.'
+  title_match: 0.92
+  year: 2024
+doi:10.2139/ssrn.4808834:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.2139/ssrn.4808834
+  id: 10.2139/ssrn.4808834
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Impact+of+Planned+School+Closures+on+Academic+Performance%3A+Evidence+from+Chile&doi=10.2139%2Fssrn.4808834
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'Impact of Planned School Closures on Academic Performance: Evidence from Chile'
+  title_match: 1.0
+  year: 2024
+doi:10.2307/1913511:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.2307/1913511
+  id: 10.2307/1913511
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Inequality+Decomposition+by+Population+Subgroups&doi=10.2307%2F1913511
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: Inequality Decomposition by Population Subgroups
+  title_match: 1.0
+  year: 1984
+doi:10.2307/2087176:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.2307/2087176
+  id: 10.2307/2087176
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Ecological+Correlations+and+the+Behavior+of+Individuals&doi=10.2307%2F2087176
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: Ecological Correlations and the Behavior of Individuals
+  title_match: 1.0
+  year: 1950
+doi:10.26300/ax4m-3z14:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.26300/AX4M-3Z14
+  id: 10.26300/AX4M-3Z14
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=The+Long+Shadow+of+School+Closures%3A+Impacts+on+Students%27+Educational+and+Labor+Market+Outcomes&doi=10.26300%2FAX4M-3Z14
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'The Long Shadow of School Closures: Impacts on Students'' Educational and Labor Market Outcomes'
+  title_match: 1.0
+  year: 2023
+doi:10.3386/w34936:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.3386/w34936
+  id: 10.3386/w34936
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://doi.org/10.3386/w34936
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Who+Gets+What+in+Education%3A+Can+School+Matching+Improve+Student+Achievement%3F&doi=10.3386%2Fw34936
+  seen:
+  - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
+  - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  title: 'Who Gets What in Education: Can School Matching Improve Student Achievement?'
+  title_match: 1.0
+  year: 2026
+doi:10.3389/fcomm.2025.1585321:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.3389/fcomm.2025.1585321
+  id: 10.3389/fcomm.2025.1585321
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2025.1585321/pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=From+intelligence+to+autopoiesis%3A+rethinking+artificial+intelligence+through+systems+theory&doi=10.3389%2Ffcomm.2025.1585321
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: 'From intelligence to autopoiesis: rethinking artificial intelligence through systems theory'
+  title_match: 1.0
+  year: 2025
+doi:10.38178/cep.vi151.62:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.38178/cep.vi151.62
+  id: 10.38178/cep.vi151.62
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://estudiospublicos.cl/index.php/cep/article/download/62/68
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Voucher+y+cierre+de+escuelas+en+Chile&doi=10.38178%2Fcep.vi151.62
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: Voucher y cierre de escuelas en Chile
+  title_match: 1.0
+  year: 2018
+doi:10.4067/s0250-71612001008200002:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.4067/S0250-71612001008200002
+  id: 10.4067/S0250-71612001008200002
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Segregaci%C3%B3n+residencial+en+las+principales+ciudades+chilenas%3A+Tendencias+de+las+tres+%C3%BAltimas+d%C3%A9cadas+y+posibles+cursos+de+acci%C3%B3n&doi=10.4067%2FS0250-71612001008200002
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: 'Segregación residencial en las principales ciudades chilenas: Tendencias de las tres últimas décadas y posibles cursos de acción'
+  title_match: 1.0
+  year: 2001
+doi:10.4067/s0250-71612019000300113:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.4067/S0250-71612019000300113
+  id: 10.4067/S0250-71612019000300113
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://www.scielo.cl/pdf/eure/v45n136/0717-6236-eure-45-136-0113.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Verticalizaci%C3%B3n+inmobiliaria+y+valorizaci%C3%B3n+de+renta+de+suelo+por+infraestructura+p%C3%BAblica%3A+un+an%C3%A1lisis+econom%C3%A9trico+del+Gran+Santiago%2C+2008-2011&doi=10.4067%2FS0250-71612019000300113
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: 'Verticalización inmobiliaria y valorización de renta de suelo por infraestructura pública: un análisis econométrico del Gran Santiago, 2008-2011'
+  title_match: 1.0
+  year: 2019
+doi:10.4067/s0718-52862012000200005:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.4067/S0718-52862012000200005
+  id: 10.4067/S0718-52862012000200005
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://www.scielo.cl/pdf/ede/v39n2/art05.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=School+closures+in+Chile%3A+Access+to+quality+alternatives+in+a+school+choice+system&doi=10.4067%2FS0718-52862012000200005
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: 'School closures in Chile: Access to quality alternatives in a school choice system'
+  title_match: 1.0
+  year: 2012
+doi:10.48550/arxiv.2310.08560:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.48550/arXiv.2310.08560
+  id: 10.48550/arXiv.2310.08560
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2310.08560
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=MemGPT%3A+Towards+LLMs+as+Operating+Systems&doi=10.48550%2FarXiv.2310.08560
+  seen:
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc-en.md
+  - 2026-09-03-multiagente-penta-agent-memoria-gobernada-poc.md
+  title: 'MemGPT: Towards LLMs as Operating Systems'
+  title_match: 1.0
+  year: 2023
+doi:10.5089/9798400288753.061:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.5089/9798400288753.061
+  id: 10.5089/9798400288753.061
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=How+to+Design+and+Implement+Property+Tax+Reforms&doi=10.5089%2F9798400288753.061
+  seen:
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal-en.md
+  - 2026-07-26-avaluo-vulnerabilidad-unidad-vecinal.md
+  title: How to Design and Implement Property Tax Reforms
+  title_match: 1.0
+  year: 2024
+doi:10.7551/mitpress/14189.001.0001:
+  arxiv_abs: null
+  checked_at: '2026-10-31'
+  doi_url: https://doi.org/10.7551/mitpress/14189.001.0001
+  id: 10.7551/mitpress/14189.001.0001
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://direct.mit.edu/books/book/chapter-pdf/2023749/f000200_9780262368865.pdf
+  - title_match: 0.0
+    url: https://cris.unibo.it/bitstream/11585/898041/17/Artificial%20Communication%3a%20How%20Algorithms%20Produce%20Social%20Intelligence.pdf
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Artificial+Communication&doi=10.7551%2Fmitpress%2F14189.001.0001
+  seen:
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md
+  - 2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+  title: Artificial Communication
+  title_match: 1.0
+  year: 2022
