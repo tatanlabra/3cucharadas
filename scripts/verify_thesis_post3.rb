@@ -575,11 +575,32 @@ class ThesisPost3Verifier
     end
   end
 
+  # Desde el 2026-10-31 las referencias son notas kramdown: cada cita del cuerpo lleva
+  # [^clave] y cada entrada es una definición [^clave]: bajo «## Referencias». kramdown
+  # descarta en silencio la definición que nadie cita, así que una huérfana es un error,
+  # igual que una marca sin definición.
+  def footnote_parts(body)
+    heading = body.match(/^## (?:Referencias|References)\s*$/)
+    raise ThesisPost3Error, "sección de referencias ausente" unless heading
+
+    text = body[0...heading.begin(0)]
+    refs = body[heading.end(0)..]
+    definitions = refs.scan(/^\[\^([^\]]+)\]:\s*(.+)$/)
+    [text.scan(/\[\^([^\]]+)\](?!:)/).flatten, definitions]
+  end
+
   def verify_references(lang, body)
-    unless body.include?('<div class="post-references" markdown="1">')
-      raise ThesisPost3Error, "contenedor de referencias ausente #{lang}"
-    end
-    dois = body.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
+    marks, definitions = footnote_parts(body)
+    keys = definitions.map(&:first)
+    raise ThesisPost3Error, "referencias sin formato de nota #{lang}" if keys.empty?
+    raise ThesisPost3Error, "clave de nota duplicada #{lang}" unless keys.uniq.length == keys.length
+
+    orphans = keys - marks
+    raise ThesisPost3Error, "nota sin cita en el texto #{lang}: #{orphans.join(', ')}" unless orphans.empty?
+    missing = marks.uniq - keys
+    raise ThesisPost3Error, "cita sin nota #{lang}: #{missing.join(', ')}" unless missing.empty?
+
+    dois = definitions.map(&:last).join("\n").scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
     raise ThesisPost3Error, "bibliografía insuficiente #{lang}: #{dois.length} DOI" if dois.length < 9
 
     responsive_tables = body.scan("{: .table--compact .table--scroll}").length
@@ -627,7 +648,7 @@ class ThesisPost3Verifier
   end
 
   def visible_word_count(text)
-    text.gsub(/<!--.*?-->/m, " ").gsub(/<[^>]+>/, " ")
+    text.gsub(/<!--.*?-->/m, " ").gsub(/<[^>]+>/, " ").gsub(/\[\^[^\]]+\]/, " ")
         .gsub(/\{:[^}]+\}/, " ").gsub(/\{\{.*?\}\}/, " ")
         .gsub(/[|#*_>`~-]/, " ")
         .scan(/[[:alpha:]À-ÿ0-9]+/).length
@@ -643,6 +664,11 @@ class ThesisPost3Verifier
     es_dois = spanish.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq.sort
     en_dois = english.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq.sort
     raise ThesisPost3Error, "referencias bilingües divergentes" unless es_dois == en_dois
+    es_marks, es_definitions = footnote_parts(spanish)
+    en_marks, en_definitions = footnote_parts(english)
+    unless es_definitions.map(&:first).sort == en_definitions.map(&:first).sort && es_marks.sort == en_marks.sort
+      raise ThesisPost3Error, "notas bilingües divergentes"
+    end
 
     figure_families = lambda do |body|
       body.scan(%r{/assets/images/tesis-post3/([a-z0-9-]+)-(?:es|en)-(?:light|dark)}).flatten.uniq.sort
@@ -762,6 +788,12 @@ class ThesisPost3Verifier
       replace_all!(documents, "en", /post-pilot-reestimation-en-(?=light|dark)/, "pilot-estimates-en-", fixture)
     when "figure-contract-drift"
       replace_all!(documents, "en", /data-dark-srcset=/, "data-dark-srcset-broken=", fixture)
+    when "footnote-orphan"
+      replace_all!(documents, "es", /\[\^manski2003\](?!:)/, "", fixture)
+    when "footnote-missing-definition"
+      replace_once!(documents, "en", "2014[^brummet2014]", "2014[^brummet2014][^brummet2015]", fixture)
+    when "footnote-parity-drift"
+      replace_once!(documents, "en", "2012[^engberg2012]", "2012[^engberg2012][^engberg2012]", fixture)
     when "reference-drift"
       replace_once!(documents, "en", %r{https://doi\.org/[^\s)\]"<]+}i, "https://doi.org/10.0000/drift", fixture)
     when "pilot-number"

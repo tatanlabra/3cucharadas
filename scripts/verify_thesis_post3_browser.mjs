@@ -49,6 +49,8 @@ function evaluate(row) {
   if (row.bodyFontPx < 16) failures.push('body-font-too-small');
   if (row.tableMinFontPx < 13) failures.push('table-font-too-small');
   if (row.referenceMinFontPx < 14) failures.push('references-font-too-small');
+  // 18 notas kramdown (2026-10-31): una definición que nadie cita desaparece del pie.
+  if (row.referenceCount !== 18) failures.push('references-footnote-count');
   if (row.figureCount !== 4 || !row.figuresValid) failures.push('figure-contract');
   if (!row.figureThemeValid) failures.push('figure-theme-contract');
   if (!row.visualIdentityValid) failures.push('visual-identity-contract');
@@ -77,6 +79,7 @@ function runFixture(name) {
     bodyFontPx: 18,
     tableMinFontPx: 14,
     referenceMinFontPx: 15,
+    referenceCount: 18,
     tableCount: 7,
     figureCount: 4,
     figuresValid: true,
@@ -109,7 +112,8 @@ function runFixture(name) {
     'mismatched-editorial-width': { editorialGeometryValid: false },
     'off-theme-panel': { darkPanelToneValid: false },
     'missing-he-agenda': { higherEducationAgenda: false },
-    'he-blocker': { noHigherEducationBlocker: false }
+    'he-blocker': { noHigherEducationBlocker: false },
+    'missing-footnote': { referenceCount: 17 }
   };
   const expected = {
     overflow: ['document-overflow'],
@@ -122,7 +126,8 @@ function runFixture(name) {
     'mismatched-editorial-width': ['editorial-width-mismatch'],
     'off-theme-panel': ['dark-panel-tone-mismatch'],
     'missing-he-agenda': ['higher-education-agenda'],
-    'he-blocker': ['higher-education-blocker']
+    'he-blocker': ['higher-education-blocker'],
+    'missing-footnote': ['references-footnote-count']
   };
   if (!mutations[name]) {
     console.error(JSON.stringify({ status: 'ERROR', error: `unknown fixture: ${name}` }));
@@ -338,7 +343,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
       const wrappers = [...(article?.querySelectorAll('.tabla-desliza') || [])];
       const anchorParagraph = article?.querySelector(':scope > p:not(.table-caption)');
       const anchorParagraphBox = anchorParagraph?.getBoundingClientRect();
-      const references = [...(article?.querySelectorAll('.post-references p') || [])];
+      const references = [...(article?.querySelectorAll('.footnotes li') || [])];
       const tableFonts = tables.flatMap((table) => [...table.querySelectorAll('th, td')]
         .map((cell) => parseFloat(getComputedStyle(cell).fontSize)));
       const referenceFonts = references.map((node) => parseFloat(getComputedStyle(node).fontSize));
@@ -429,6 +434,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
         bodyFontPx: article ? parseFloat(getComputedStyle(article).fontSize) : 0,
         tableMinFontPx: tableFonts.length ? Math.min(...tableFonts) : 0,
         referenceMinFontPx: referenceFonts.length ? Math.min(...referenceFonts) : 0,
+        referenceCount: references.length,
         tableCount: tables.length,
         figureCount: figureRows.length,
         figuresValid: figureRows.every((figure) =>

@@ -49,7 +49,10 @@ class VerifyThesisPost3Test < Minitest::Test
     "random-effects-drift" => "agregado de efectos aleatorios ausente",
     "fixed-effect-reintroduced" => "agregado de efecto fijo reintroducido",
     "appendix-removed" => "apéndice metodológico ausente o duplicado",
-    "appendix-overflow" => "apéndice metodológico fuera de extensión"
+    "appendix-overflow" => "apéndice metodológico fuera de extensión",
+    "footnote-orphan" => "nota sin cita en el texto es: manski2003",
+    "footnote-missing-definition" => "cita sin nota en: brummet2015",
+    "footnote-parity-drift" => "notas bilingües divergentes"
   }.freeze
 
   def run_gate(fixture = nil)

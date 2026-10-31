@@ -96,6 +96,12 @@ build_site:
     - ruby scripts/verify_site_health.rb --profile source --report /tmp/site-health-source/report.json
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public
+    # Referencias y citas (2026-10-31): cada entrada científica enlaza su DOI, su
+    # PDF verificado y Scholar según _data/referencias_enlaces.yml; cada nota al pie
+    # se cita y llega al HTML (kramdown descarta en silencio la que nadie cita).
+    - ruby scripts/verify_reference_links.rb
+    - bundle exec ruby scripts/verify_footnotes.rb --site public
+    - ruby tests/test_series_title_convention.rb
     - ruby scripts/verify_sass_strict.rb
     - python3 tests/test_site_ux.py public
     # Invariantes de UX transversales (docs/contracts/ux-transversal.yml): rojo si

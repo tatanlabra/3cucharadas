@@ -134,7 +134,7 @@ CAUSAL_FRONTIERS = {
     "no bastan para decidir un cierre", "nada de ello entrega autoridad sobre otros sostenedores",
     "no identifica pobreza individual ni decide dónde intervenir",
     "este post propone evaluar esa cadena; no acredita que funcione",
-    "el mínimo de diez es una regla retrospectiva", "«no estimable» no significa cero"
+    "el mínimo de diez es una regla retrospectiva", '"no estimable" no significa cero'
   ],
   "en" => [
     "these results do not allow me to conclude that sleps and sae had no effects",
@@ -868,7 +868,7 @@ def check_language!(front, body, lang, enforce_length: true, soft_warnings: [])
     # nombre y se distinga de cero, no el literal técnico.
     fail_unless(estimability_mentions(lower, lang) >= 1, "#{lang}: «no estimable» ausente")
     fail_wording(estimability_mentions(lower, lang) >= 2, "#{lang}: «no estimable» ausente o insuficiente")
-    not_zero = lang == "es" ? "«no estimable» no significa cero" : "“not estimable” does not mean zero"
+    not_zero = lang == "es" ? '"no estimable" no significa cero' : "“not estimable” does not mean zero"
     require_fragment(lower, lang, not_zero, "#{lang}: «no estimable» no se distingue de cero")
     required = if lang == "es"
                  [

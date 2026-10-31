@@ -176,7 +176,8 @@ module DraftPromotionCheck
         errors << "references: missing '## Referencias' or '## References' section"
       else
         ref_section = ref_match[2].gsub(/<style\b[^>]*>.*?<\/style>/im, "")
-        ref_items = ref_section.lines.map(&:strip).select { |l| l.start_with?("- ") || l.match?(/\A[A-ZÁÉÍÓÚÑÜ][a-záéíóúñüA-Z-]+,\s+.*\b(1[789]\d{2}|20\d{2})\b/) }
+        # Desde el 2026-10-31 las entradas pueden ser notas kramdown `[^clave]: …`.
+        ref_items = ref_section.lines.map(&:strip).select { |l| l.start_with?("- ") || l.match?(/\A\[\^[^\]]+\]:\s+\S/) || l.match?(/\A[A-ZÁÉÍÓÚÑÜ][a-záéíóúñüA-Z-]+,\s+.*\b(1[789]\d{2}|20\d{2})\b/) }
         if ref_items.empty?
           errors << "references: section '## Referencias' has no bibliography entries"
         else
