@@ -31,9 +31,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 distribution:
-  social: false
+  social: true
   republish: []
-  skip_reason: "Local candidate: distribution is enabled only after human editorial approval and canonical publication."
 ai_disclosure:
   level: some_ai
   components:

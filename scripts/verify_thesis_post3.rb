@@ -263,8 +263,12 @@ class ThesisPost3Verifier
   end
 
   def verify_front_matter(lang, front)
-    unless front.dig("distribution", "social") == false && front.dig("distribution", "republish") == []
-      raise ThesisPost3Error, "distribución externa habilitada #{lang}"
+    # Hasta el 2026-10-31 la guarda exigía social: false (candidata local). La persona
+    # usuaria aprobó la difusión social de la versión corregida; la republicación en
+    # otras plataformas sigue cerrada y sin skip_reason residual que contradiga el estado.
+    unless front.dig("distribution", "social") == true && front.dig("distribution", "republish") == [] &&
+           !front.fetch("distribution", {}).key?("skip_reason")
+      raise ThesisPost3Error, "estado de distribución inesperado #{lang}"
     end
     unless front["editorial_contract"] == "societal-contribution-v1"
       raise ThesisPost3Error, "contrato editorial ausente #{lang}"

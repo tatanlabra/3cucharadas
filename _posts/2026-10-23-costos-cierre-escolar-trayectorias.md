@@ -31,9 +31,8 @@ toc_sticky: true
 comments: true
 author_profile: true
 distribution:
-  social: false
+  social: true
   republish: []
-  skip_reason: "Candidata local: la difusión se habilita solo después del check editorial humano y de la publicación canónica."
 ai_disclosure:
   level: some_ai
   components:
