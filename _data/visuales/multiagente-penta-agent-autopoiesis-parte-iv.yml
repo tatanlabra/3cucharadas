@@ -173,6 +173,30 @@ piezas:
     en: Diagram of the closed local autopoiesis loop in Penta Agent with Harness2 in a vertical mobile layout.
   bytes: 39375
   sha256: cd1b40f3b5b7c0ff34a018b2502d38b650c8d2bed6af3c5080bc7b554da68c74
+- id: circuito-autopoiesis-h2-desktop-devto
+  rol: diagrama
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-devto-1001x954.webp
+  estado: publicable
+  origen: codigo-propio
+  ancho: 1001
+  alto: 954
+  bytes: 68480
+  sha256: d83190f1157aeaba34a36f55cfbab9675435e812f1625594cc30c06ebb6ba64b
+  alt:
+    es: Derivado ráster WebP para sindicación en DEV.to del diagrama del circuito cerrado de autopoiesis local en Penta Agent con Harness2.
+    en: WebP raster derivative for DEV.to syndication of the closed local autopoiesis loop diagram in Penta Agent with Harness2.
+- id: circuito-autopoiesis-h2-mobile-devto
+  rol: diagrama
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-mobile-devto-368x1617.webp
+  estado: publicable
+  origen: codigo-propio
+  ancho: 368
+  alto: 1617
+  bytes: 47718
+  sha256: 498ea5830d3ae8dd0ae9f75ed1e8d023479d6201be89ee71e73b54d46bbe3806
+  alt:
+    es: Derivado ráster WebP móvil para sindicación en DEV.to del diagrama del circuito cerrado de autopoiesis local en Penta Agent con Harness2.
+    en: Mobile WebP raster derivative for DEV.to syndication of the closed local autopoiesis loop diagram in Penta Agent with Harness2.
 posts:
 - _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
 - _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md

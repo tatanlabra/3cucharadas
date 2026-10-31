@@ -223,6 +223,7 @@ class PublicationNotifierTests(unittest.TestCase):
             # Desde el 2026-10-04 el instalador tambien instala pre-push (gitleaks) y falla si
             # falta su fuente: un checkout sin el hook de seguridad no debe saltarlo en silencio.
             shutil.copy2(SCRIPTS_DIR / "git-hooks" / "pre-push", hooks_source / "pre-push")
+            shutil.copy2(SCRIPTS_DIR / "git-hooks" / "pre-commit", hooks_source / "pre-commit")
             subprocess.run(["git", "init", "-q"], cwd=root, check=True)
             installer = root / "scripts" / "install_git_hooks.sh"
 

@@ -60,7 +60,11 @@ module JekyllToDevto
     "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel.svg" =>
       "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-devto-1087x723.webp",
     "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile.svg" =>
-      "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile-devto-535x951.webp"
+      "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel-mobile-devto-535x951.webp",
+    "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2.svg" =>
+      "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-devto-1001x954.webp",
+    "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-mobile.svg" =>
+      "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-mobile-devto-368x1617.webp"
   }.freeze
 
   # Tags documentados por Forem y tags de bloque que DEV.to ya admite. La lista

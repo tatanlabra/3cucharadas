@@ -354,7 +354,7 @@ class JekyllToDevtoTest < Minitest::Test
 
       assert status.success?, "export falló: #{stdout}\n#{stderr}"
       assert_equal expected, File.read(File.join(dir, "#{slug}.md"))
-      assert_equal 7, Dir.glob(File.join(dir, "*.md")).length
+      assert_equal 9, Dir.glob(File.join(dir, "*.md")).length
       Dir.glob(File.join(dir, "*.md")).each do |artifact|
         contents = File.read(artifact)
         front = YAML.safe_load(contents.split(/^---\s*$/, 3)[1])
