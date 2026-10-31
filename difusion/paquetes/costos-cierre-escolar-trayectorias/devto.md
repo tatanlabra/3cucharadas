@@ -16,7 +16,7 @@ In [Part III of my thesis extension series on *3 Cucharadas*](https://3cucharada
 
 ## 1. Filtering *De Facto* Mergers with a Data-Inferred Closure Rule (`RCID v1`)
 
-In panel data, a school identifier (`RBD`) dropping from positive enrolment in year $t-1$ to zero in year $t$ (**D0**: **1,981** episodes across 2005–2025) does not mean students were dispersed. Even after removing reopenings and site continuities (**D1**: **1,807** strict closures, including **330** in 2016–2025), student-flow matrices reveal cases where a single receiving school absorbs almost the entire cohort.
+In panel data, a school identifier (`RBD`) dropping from positive enrolment in year $t-1$ to zero in year $t$ (**D0**: **1,981** episodes across 2005–2025) does not mean students were dispersed. Even after removing annexes, secondary sites, and registered RBD successors (**D1**: **1,807** strict closures, including **330** in 2016–2025), student-flow matrices reveal cases where a single receiving school absorbs almost the entire cohort.
 
 We formalised the **Data-Inferred School Closure Rule (`RCID v1`, D2)** as a deterministic SQL/DuckDB filter over student transition graphs:
 
@@ -106,7 +106,7 @@ Rather than relying on a two-way fixed-effects regression that mixes already-tre
 | **2023–2024** (Post-pandemic) | 22 | 1,014 | 14,460 | **+2.59** | [−1.55, +6.73] |
 | **Callaway & Sant'Anna (exposed-weighted)** | **1,141** | **78,972** | **734,472** | **+9.11** | **[+5.34, +12.88]** (Manski: [+0.43, +16.21]) |
 | **Equal annual cohort weights** | **1,141** | **78,972** | **734,472** | **+7.55** | **[+5.52, +9.57]** |
-| **Inverse-variance precision ($I^2 = 76.48\%$)** | **1,141** | **78,972** | **734,472** | **+5.14** | **[+4.34, +5.95]** |
+| **Random effects ($I^2 = 76.5\%$, $\tau = 2.81$ pp)** | **1,141** | **78,972** | **734,472** | **+6.29** | **[+4.49, +8.09]** |
 
 Even when all 19 estimable annual progression cohorts are positive, extended $G-1$ profiling shows why observational DiD cannot be promoted to a randomized trial: while individual poverty eligibility (`SEP`) is balanced (**30.68%** priority students vs. **32.32%**), exposed students came from schools with fewer `SEP` agreements (**−10.06 pp**), less full-day schooling (**−18.54 pp**), and **47.04%** had already switched schools between $G-3$ and $G-1$ (vs. **30.52%** of controls).
 

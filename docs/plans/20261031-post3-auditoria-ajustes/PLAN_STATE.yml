@@ -1,0 +1,36 @@
+plan_state_version: 2
+plan: "Post III tesis: auditoría crítica y ajustes finales (F0–F6)"
+predecessor: docs/plans/20261025-thesis-post3-publication/PLAN_STATE.yml
+updated_at: "2026-10-31T19:45:00-03:00"
+closed: false
+decisions:
+  - {by: human, header: Alcance, chosen: "Post III + gate de enlaces y hechos en drafts"}
+  - {by: human, header: Análisis, chosen: "Correcciones + análisis livianos; HonestDiD e ITT G−2 a agenda"}
+  - {by: human, header: Encuadre, chosen: "Doble lectura honesta; INCONCLUSIVE se mantiene"}
+  - {by: human, header: Estructura, chosen: "Apéndice plegable <details> en el mismo post"}
+  - {by: human, header: Carril Agy, chosen: "OAuth opt-in también para --caller claude"}
+items:
+  - {id: F0, glyph: "[x]", status: done, step: "Reconciliación de hechos contra código y artefactos", verification: {kind: observation, ref: "evidence/f0-reconciliacion.json"}}
+  - {id: F0b, glyph: "[x]", status: done, cause: finding, step: "Custodia verbatim de los scripts de Agy (serie 2005–2024, RCID, NNA)", verification: {kind: command, ref: "tesis_mae_mejorada@429958c; MANIFEST.json con sha256"}}
+  - {id: F0d, glyph: "[x]", status: done, cause: user, step: "Reproducir la cadena de Agy y commitear la custodia", verification: {kind: command, ref: "serie idéntica byte a byte; NNA 0/86 y artefacto 0/1.736 diferencias de contenido"}}
+  - {id: F0c, glyph: "[x]", status: done, cause: finding, step: "Retirar la pretendencia −1,49 sin fuente", verification: {kind: observation, ref: "reemplazada por los placebos de la ventana principal"}}
+  - {id: F1, glyph: "[x]", status: done, step: "Análisis livianos: efectos aleatorios, tasa base, faltantes, embudo, actas", verification: {kind: test, ref: "pytest tests/test_post3_audit_light_v1.py 7/7; rojo observado y verde restaurado"}}
+  - {id: F1r, glyph: "[x]", status: done, cause: decision, step: "Revisión par de Codex sobre F1", verification: {kind: human, ref: "archivo/handoffs/2026-10-31_RESPUESTA_post3-f1-review-codex-a-claude.md"}}
+  - {id: V1, glyph: "[x]", status: done, cause: user, step: "Doble validación con Agy y recall-context", verification: {kind: command, ref: ".agents/runs/agy-20261031T191001Z-920546; archivo/handoffs/2026-10-31_RESPUESTA_post3-validacion-agy-a-claude.md"}}
+  - {id: H1, glyph: "[x]", status: done, cause: user, step: "Handoffs con Agy bidireccionales y eficientes (JSON oficial, reply, carril Claude)", verification: {kind: test, ref: "penta-agent tests/test_agy_bridge.py 146/146; mutantes en rojo; corrida real exit 0"}}
+  - {id: F2, glyph: "[x]", status: done, step: "Correcciones científicas S1+S2 ES/EN", verification: {kind: test, ref: "verify_thesis_post3.rb POST3_VALID; test_verify_thesis_post3.rb 306 aserciones"}}
+  - {id: F3, glyph: "[x]", status: done, step: "Relato, apéndice, glosario, enlaces, nota de actualización", verification: {kind: test, ref: "cuerpo 4.367 + apéndice 1.967 palabras; fixtures de apéndice en rojo; evidence/f4-post3-enlaces.json"}}
+  - {id: F4, glyph: "[x]", status: done, step: "Paridad EN, build aislado y QA de navegador", verification: {kind: test, ref: "verify_thesis_post3_browser.mjs PASS; mutantes M1/M2 en rojo"}}
+  - {id: E1, glyph: "[x]", status: done, cause: test, step: "CSS del apéndice, impresión sin transiciones, apertura al imprimir", verification: {kind: test, ref: "editorial-width-mismatch y printPaletteValid rojos antes, verdes después"}}
+  - {id: E2, glyph: "[x]", status: done, cause: test, step: "Prueba de theme-toggle desactualizada desde el 27-oct (3 figuras → 4)", verification: {kind: test, ref: "rojo en HEAD sin cambios propios; verde tras actualizar"}}
+  - {id: F5, glyph: "[x]", status: done, cause: constraint, step: "Gate de enlaces en drafts de Agy, solo reporte", verification: {kind: command, ref: "evidence/f5-drafts-enlaces.json: 166 enlaces, 0 rotos"}}
+  - {id: F6a, glyph: "[x]", status: done, step: "Corregir el paquete de difusión", verification: {kind: command, ref: "verify_difusion_coherente.rb --all-declared PASS"}}
+  - {id: F6b, glyph: "[*]", status: active, step: "Revisión par final de Codex sobre el diff completo"}
+  - {id: F6c, glyph: "[ ]", status: pending, step: "Aprobación humana con tabla antes/después y commit; push solo con autorización"}
+pending_agenda:
+  - "HonestDiD (Rambachan-Roth) y robustez ITT en G−2"
+  - "Placebos propios para la serie 2005–2024"
+  - "Sensibilidad de umbrales RCID"
+  - "A8: 69 archivos del pipeline Post III sin versionar en tesis_mae_mejorada (custodia por hashes)"
+  - "Partes I y II usan comillas angulares, contra la skill 3cucharadas-relato-didactico"
+  - "Draft de jueces: modelo HF DeBERTa-v3-small-mnli-fever-anli probablemente inexistente (401)"

@@ -1,0 +1,118 @@
+{
+ "schema": "post3-audit-f0-reconciliation-v1",
+ "generated_at": "2026-10-31T15:35:00-03:00",
+ "post": "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+ "sources": {
+  "series_json": "assets/data/tesis-post3/post3_full_series_did_2004_2025_v1.json",
+  "series_generator_unversioned": "~/.gemini/antigravity-cli/brain/23caa6f1-0e1f-40ad-9d8d-ef8404007ffa/scratch/compute_full_series_2004_2025.py",
+  "series_artifact_builder_unversioned": "~/.gemini/antigravity-cli/brain/23caa6f1-0e1f-40ad-9d8d-ef8404007ffa/scratch/build_governed_series_and_rcid_artifact.py",
+  "main_window_audit": "incubadora/tesis_mae_mejorada/audit/post3_modern_causal_v3_1.json",
+  "identity_spec": "incubadora/tesis_mae_mejorada/research/post3/identity_audit_v3.yaml"
+ },
+ "rows": [
+  {
+   "id": "A1",
+   "valor_post": "varianza inversa +5,14 [4,34; 5,95], 'converge', 'descuenta heterogeneidad'",
+   "valor_fuente": "efecto fijo; Q=76,518, gl=18, p~0, I2=76,48 %; sin tau2",
+   "ruta": "series_json:full_series_did_2005_2024.series_summary.grade_progression_or_lag.inverse_variance_weighted; series_generator_unversioned:861-905",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A2a",
+   "valor_post": "D2 exige >=5 estudiantes seguibles, >=70 % y >=15 estudiantes",
+   "valor_fuente": "baseline>=10, assigned>=10, top share>=0,70, HHI>=0,50, destino estable en t y t+1 cuando t+1 es observable",
+   "ruta": "identity_spec:13-18; src/school_exit/post3_identity_audit.py:300-318; series_generator_unversioned:104-215",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A2b",
+   "valor_post": "D0 'no vuelve a registrar actividad'; D1 'retira de D0 las reaperturas'; Tabla 2 'depura 158 reaperturas'",
+   "valor_fuente": "D0 ya excluye reaperturas en [G, 2025] y exige ESTADO_ESTAB=3 en 2015 o 2025; D1 retira anexos/sedes y sucesores de RBD registrados",
+   "ruta": "series_generator_unversioned:80-101; series_json:rcid_v1_specification.nested_hierarchy",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A3",
+   "valor_post": "sin explicacion del paso 1.648 -> 1.141",
+   "valor_fuente": "D2 limpio 1.648; antes de soporte 1.177; con soporte 1.141. Reciente: 266 -> 121 -> 118. Filtro deductivo principal: el marco DiD solo incluye estudiantes de educacion regular basica 1-8 y media 1-3 (codigos 110 y 310-910), edad 5-22, una sola matricula en G-1; las escuelas sin estudiantes elegibles salen. La hipotesis inicial (celda minima 10) queda descartada por lectura del codigo; falta cuantificar por tipo de escuela (F1)",
+   "ruta": "post3_modern_causal_v3.py:427-484; series_generator_unversioned:305-345",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A4",
+   "valor_post": "Tabla 4 'muestra ponderada': registro valido 76,8 % vs 96,2 %, brecha -19,4; l.172 3,8 % en controles; l.150 76,8 % de controles con acta en ambos periodos",
+   "valor_fuente": "expuestos 76,82 %; controles ponderados 96,06 % (crudo 96,22 %); brecha ponderada -19,24 (la que usa la Fig. 3). 63.591/82.753=76,84 % es otra cantidad (ambos periodos)",
+   "ruta": "series_json:nna_baseline_characterization_2016_2019.{treated,control}.w_valid_record_m1",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A5",
+   "valor_post": "Rambachan y Roth presentado como complemento del calculo",
+   "valor_fuente": "sin implementacion en 3cucharadas, tesis_mae_mejorada ni scratch de Agy",
+   "ruta": "rg -i 'rambachan|honestdid' (sin coincidencias fuera de posts y difusion)",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "A6",
+   "valor_post": "serie 2005-2024, RCID y Tabla 5 presentadas como resultados reproducibles",
+   "valor_fuente": "generadas por scripts de Agy en scratch, fuera de todo repositorio; el JSON en tesis_mae_mejorada/audit/ esta sin versionar",
+   "ruta": "series_generator_unversioned; git status tesis_mae_mejorada (?? audit/post3_full_series_did_2004_2025_v1.json)",
+   "veredicto": "CORRIGE",
+   "nota": "hallazgo emergente de F0"
+  },
+  {
+   "id": "A7",
+   "valor_post": "'pequena desviacion pre-tendencia media en G-2 de -1,49 puntos en la serie larga' (l.235)",
+   "valor_fuente": "ningun artefacto contiene ese valor ni placebos de la serie larga. La ventana principal si tiene placebos: progresion +0,16/+0,30/+0,40 pp (IC incluyen 0); no matricula +0,08/+0,21/+0,41 pp (el tercero [0,01; 0,80])",
+   "ruta": "main_window_audit:placebos.results; rg -e '1,49' -e '-1.49' sin fuente",
+   "veredicto": "CORRIGE",
+   "nota": "hallazgo emergente de F0"
+  },
+  {
+   "id": "B4",
+   "valor_post": "solo cotas 2016-2019 y serie",
+   "valor_fuente": "cotas Manski por regimen: 2005-2010 [3,49; 18,83]; 2011-2015 [-2,11; 16,18]; 2016-2019 [-1,15; 10,98]; 2020-2022 [0,18; 4,95]; 2023-2024 [-1,70; 6,07]; serie [0,43; 16,21]",
+   "ruta": "series_json:full_series_did_2005_2024.regimes[].missingness_bounds_progression",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "B7",
+   "valor_post": "pareo por ano, sexo, region, dependencia, ruralidad, nivel y curso",
+   "valor_fuente": "celda exacta: ano, region, dependencia, ruralidad, codigo de ensenanza, curso, sexo y EDAD; los controles se reponderan a la celda (por eso edad y sobreedad coinciden)",
+   "ruta": "series_generator_unversioned:322-331; post3_modern_causal_v3.py baseline cell",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "B8",
+   "valor_post": "Tabla 6 fila 2016-2019 N expuestos 6.190 junto a +5,29",
+   "valor_fuente": "6.190 es soporte; la estimacion de progresion usa 4.815 expuestos",
+   "ruta": "assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "S4-cita",
+   "valor_post": "Abdulkadiroglu, Pathak y Walters 2026",
+   "valor_fuente": "abstract verificado (OpenAlex): analiza cierres y reconstitucion en NYC; pertinente",
+   "ruta": "paper-search get_verified_abstract 10.3386/w34936",
+   "veredicto": "CONFIRMA"
+  },
+  {
+   "id": "C3-urls",
+   "valor_post": "sin enlaces a fuentes de datos",
+   "valor_fuente": "directorio, matricula por estudiante y rendimiento por estudiante en datosabiertos.mineduc.cl",
+   "ruta": "tesis_mae_mejorada/data_sources/contracts/mineduc_{directorio,matricula,rendimiento_estudiante}.yaml",
+   "veredicto": "CORRIGE"
+  },
+  {
+   "id": "Fig3",
+   "valor_post": "alt -19,24",
+   "valor_fuente": "consistente con datos ponderados; la Fig. 3 no requiere re-render por A4",
+   "ruta": "incubadora/tesis_mae_mejorada/scripts/336_post3_visuals.py",
+   "veredicto": "CONFIRMA"
+  }
+ ],
+ "acceptance": {
+  "s1_indeterminados": 0,
+  "constraint_emergente": "Agy edita en vivo la Parte IV (ya en _posts) y el draft de jueces: F5 queda en modo reporte, sin escritura en esos archivos"
+ }
+}

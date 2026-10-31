@@ -1,0 +1,1504 @@
+{
+  "checked": 166,
+  "counts": {
+    "OK": 154,
+    "NOMBRE_DISTINTO": 8,
+    "NO_CONCLUYENTE": 4
+  },
+  "results": [
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "parte I",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "parte II",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "parte III de esta serie",
+      "url": "/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 62,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 65,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 68,
+      "text": "2025",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 71,
+      "text": "2025, 8–10",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "GraphRAG",
+      "url": "https://github.com/microsoft/graphrag",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "Graphiti",
+      "url": "https://github.com/getzep/graphiti",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "Hindsight",
+      "url": "https://github.com/vectorize-io/hindsight",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "Letta",
+      "url": "https://github.com/letta-ai/letta",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "Mem0",
+      "url": "https://github.com/mem0ai/mem0",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 76,
+      "text": "deja-vu",
+      "url": "https://github.com/vshulcz/deja-vu",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 81,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 81,
+      "text": "`Qwen3-Embedding-0.6B`",
+      "url": "https://github.com/QwenLM/Qwen3-Embedding",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 86,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 89,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 89,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 89,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 89,
+      "text": "skills",
+      "url": "https://github.com/anthropics/skills",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 96,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 96,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 107,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 108,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 109,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 119,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 119,
+      "text": "`foot` en Codeberg",
+      "url": "https://codeberg.org/dnkl/foot",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 119,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 124,
+      "text": "",
+      "url": "/assets/videos/kitty-tmux-plan-board-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 125,
+      "text": "",
+      "url": "/assets/videos/kitty-tmux-plan-board-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/starship/starship",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 144,
+      "text": "2025, 6–8",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 149,
+      "text": "`ripgrep`",
+      "url": "https://github.com/BurntSushi/ripgrep",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 152,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 156,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 156,
+      "text": "`Qwen3-Embedding-0.6B`",
+      "url": "https://github.com/QwenLM/Qwen3-Embedding",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "Anthropic Skills",
+      "url": "https://github.com/anthropics/skills",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "Docling",
+      "url": "https://github.com/docling-project/docling",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "D2",
+      "url": "https://github.com/terrastruct/d2",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "Nushell",
+      "url": "https://github.com/nushell/nushell",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "Playwright",
+      "url": "https://github.com/microsoft/playwright",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 163,
+      "text": "`glab` en GitLab",
+      "url": "https://gitlab.com/gitlab-org/cli",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 166,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 178,
+      "text": "2025, 7–9",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 181,
+      "text": "2025, 7",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 186,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 192,
+      "text": "",
+      "url": "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2.svg",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 207,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 207,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 212,
+      "text": "",
+      "url": "/assets/videos/kitty-harness2-autopoiesis-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 213,
+      "text": "",
+      "url": "/assets/videos/kitty-harness2-autopoiesis-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 215,
+      "text": "",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 215,
+      "text": "",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 222,
+      "text": "parte I",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 222,
+      "text": "parte II",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 222,
+      "text": "parte III",
+      "url": "/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 225,
+      "text": "2025, 9–10",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 233,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 233,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 233,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 234,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md",
+      "line": 238,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "part I",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "part II",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "part III of this series",
+      "url": "/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 62,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 65,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 68,
+      "text": "2025",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 71,
+      "text": "2025, 8–10",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "GraphRAG",
+      "url": "https://github.com/microsoft/graphrag",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "Graphiti",
+      "url": "https://github.com/getzep/graphiti",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "Hindsight",
+      "url": "https://github.com/vectorize-io/hindsight",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "Letta",
+      "url": "https://github.com/letta-ai/letta",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "Mem0",
+      "url": "https://github.com/mem0ai/mem0",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 76,
+      "text": "deja-vu",
+      "url": "https://github.com/vshulcz/deja-vu",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 81,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 81,
+      "text": "`Qwen3-Embedding-0.6B`",
+      "url": "https://github.com/QwenLM/Qwen3-Embedding",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 86,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 89,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 89,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 89,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 89,
+      "text": "skills",
+      "url": "https://github.com/anthropics/skills",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 96,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 96,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 107,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 108,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 109,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 119,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 119,
+      "text": "`foot` on Codeberg",
+      "url": "https://codeberg.org/dnkl/foot",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 119,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 124,
+      "text": "",
+      "url": "/assets/videos/kitty-tmux-plan-board-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 125,
+      "text": "",
+      "url": "/assets/videos/kitty-tmux-plan-board-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 127,
+      "text": "",
+      "url": "https://github.com/starship/starship",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 144,
+      "text": "2025, 6–8",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 149,
+      "text": "`ripgrep`",
+      "url": "https://github.com/BurntSushi/ripgrep",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 152,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 156,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 156,
+      "text": "`Qwen3-Embedding-0.6B`",
+      "url": "https://github.com/QwenLM/Qwen3-Embedding",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "Anthropic Skills",
+      "url": "https://github.com/anthropics/skills",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "Docling",
+      "url": "https://github.com/docling-project/docling",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "D2",
+      "url": "https://github.com/terrastruct/d2",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "Nushell",
+      "url": "https://github.com/nushell/nushell",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "Playwright",
+      "url": "https://github.com/microsoft/playwright",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 163,
+      "text": "`glab` on GitLab",
+      "url": "https://gitlab.com/gitlab-org/cli",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 166,
+      "text": "MCP",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "kind": "external",
+      "status": "NOMBRE_DISTINTO",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 178,
+      "text": "2025, 7–9",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 181,
+      "text": "2025, 7",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 186,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 192,
+      "text": "",
+      "url": "/assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2.svg",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 207,
+      "text": "`kitty`",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 207,
+      "text": "`tmux`",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 212,
+      "text": "",
+      "url": "/assets/videos/kitty-harness2-autopoiesis-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 213,
+      "text": "",
+      "url": "/assets/videos/kitty-harness2-autopoiesis-1280x800.webm",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 215,
+      "text": "",
+      "url": "https://github.com/kovidgoyal/kitty",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 215,
+      "text": "",
+      "url": "https://github.com/tmux/tmux",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 222,
+      "text": "part I",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-modelos/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 222,
+      "text": "part II",
+      "url": "/ia/productividad/desarrollo/multiagente-penta-agent-memoria/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 222,
+      "text": "part III",
+      "url": "/ia/productividad/desarrollo/multiagente-memoria-gobernada-poc/",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 225,
+      "text": "2025, 9–10",
+      "url": "https://doi.org/10.3389/fcomm.2025.1585321",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 233,
+      "text": "Claude Code",
+      "url": "https://github.com/anthropics/claude-code",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 233,
+      "text": "Codex CLI",
+      "url": "https://github.com/openai/codex",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 233,
+      "text": "Gemini CLI",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 234,
+      "text": "Qdrant",
+      "url": "https://github.com/qdrant/qdrant",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md",
+      "line": 238,
+      "text": "`penta-agent`",
+      "url": "https://github.com/tatanlabra/penta-agent",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 613,
+      "text": "JEV Ultrafast",
+      "url": "https://github.com/browser-use/jev-ultrafast",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 613,
+      "text": "Jev",
+      "url": "https://docs.typesafe.ai/introduction",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 621,
+      "text": "",
+      "url": "https://github.com/browser-use/jev-ultrafast",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 622,
+      "text": "",
+      "url": "https://docs.typesafe.ai/introduction",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 626,
+      "text": "",
+      "url": "https://raw.githubusercontent.com/browser-use/jev-ultrafast/main/docs/demo.mp4",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 627,
+      "text": "",
+      "url": "https://raw.githubusercontent.com/browser-use/jev-ultrafast/main/docs/demo.gif",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 650,
+      "text": "",
+      "url": "https://raw.githubusercontent.com/NandhaKishorM/laya/main/assets/logo-lockup-dark.png",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 658,
+      "text": "",
+      "url": "https://github.com/NandhaKishorM/laya",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 659,
+      "text": "",
+      "url": "https://huggingface.co/convaiinnovations/laya-multilingual",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 660,
+      "text": "",
+      "url": "https://huggingface.co/spaces/convaiinnovations/laya-demo",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 678,
+      "text": "",
+      "url": "https://raw.githubusercontent.com/NandhaKishorM/vegaml/main/assets/vega-icon.svg",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 686,
+      "text": "",
+      "url": "https://github.com/NandhaKishorM/vegaml",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 687,
+      "text": "",
+      "url": "https://pypi.org/project/vegaml/",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 688,
+      "text": "",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 714,
+      "text": "",
+      "url": "https://huggingface.co/Arc53/arc-decide-0.4b-v0.2",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 715,
+      "text": "",
+      "url": "https://onnxruntime.ai/",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 735,
+      "text": "",
+      "url": "/assets/images/jueces-locales-cpu/fig-d2-colapso-panel.svg",
+      "kind": "internal",
+      "status": "OK",
+      "detail": null
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 925,
+      "text": "`MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli`",
+      "url": "https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli",
+      "kind": "external",
+      "status": "NO_CONCLUYENTE",
+      "detail": "HTTP 401"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 925,
+      "text": "`optimum`",
+      "url": "https://github.com/huggingface/optimum",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 925,
+      "text": "`onnxruntime`",
+      "url": "https://onnxruntime.ai/",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 931,
+      "text": "",
+      "url": "https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli",
+      "kind": "external",
+      "status": "NO_CONCLUYENTE",
+      "detail": "HTTP 401"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 932,
+      "text": "",
+      "url": "https://arxiv.org/abs/2111.09543",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 933,
+      "text": "",
+      "url": "https://onnxruntime.ai/",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 963,
+      "text": "https://huggingface.co/Arc53/arc-decide-0.4b-v0.2",
+      "url": "https://huggingface.co/Arc53/arc-decide-0.4b-v0.2",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 964,
+      "text": "https://github.com/browser-use/jev-ultrafast",
+      "url": "https://github.com/browser-use/jev-ultrafast",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 966,
+      "text": "\"Ensemble Methods in Machine Learning\"",
+      "url": "https://doi.org/10.1007/3-540-45014-9_1",
+      "kind": "external",
+      "status": "NO_CONCLUYENTE",
+      "detail": "HTTP 302"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 967,
+      "text": "\"On Calibration of Modern Neural Networks\"",
+      "url": "https://proceedings.mlr.press/v70/guo17a.html",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 968,
+      "text": "\"DeBERTaV3: Improving DeBERTa using ELECTRA-Style Pre-Training with Gradient-Disentangled Embedding Sharing\"",
+      "url": "https://arxiv.org/abs/2111.09543",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 969,
+      "text": "\"Less Annotating, More Classifying: Addressing the Data Scarcity Issue of Supervised Machine Learning with Deep Transfer Learning and BERT-NLI\"",
+      "url": "https://doi.org/10.1017/pan.2023.20",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 969,
+      "text": "https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli",
+      "url": "https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli",
+      "kind": "external",
+      "status": "NO_CONCLUYENTE",
+      "detail": "HTTP 401"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 970,
+      "text": "https://github.com/NandhaKishorM/laya",
+      "url": "https://github.com/NandhaKishorM/laya",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    },
+    {
+      "file": "_drafts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md",
+      "line": 971,
+      "text": "https://github.com/NandhaKishorM/vegaml",
+      "url": "https://github.com/NandhaKishorM/vegaml",
+      "kind": "external",
+      "status": "OK",
+      "detail": "HTTP 200"
+    }
+  ]
+}

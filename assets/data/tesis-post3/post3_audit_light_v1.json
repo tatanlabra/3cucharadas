@@ -1,0 +1,246 @@
+{
+  "schema_version": "post3-audit-light-v1",
+  "inputs": {
+    "series_json": "post3_full_series_did_2004_2025_v1.json",
+    "series_json_sha256": "677b207d93997f5849edfc89039d84ec62b8e85133fc71efa3bfdf568fe5f3a2",
+    "causal_db_sha256": "cae81db7688c622f704e6bf4e62998188cd712ed1bcfce86eac5410ebc5128dc",
+    "identity_parquet_sha256": "dc8208a197a80054964d131132bfdc8e20ed1fcf20ee6e9e9bfe48dbc4f5e2ae"
+  },
+  "meta_analysis": {
+    "grade_progression_or_lag": {
+      "fixed_effect_reproduced": {
+        "estimate": 0.0514242805,
+        "cochran_q": 76.5184521282,
+        "degrees_of_freedom": 18,
+        "i2_percent": 76.4762622618
+      },
+      "random_effects_pm": {
+        "method": "random effects (PM tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+        "k": 19,
+        "estimate": 0.0629318223,
+        "ci_lower": 0.0449441521,
+        "ci_upper": 0.0809194926,
+        "tau2": 0.0007899269,
+        "tau": 0.0281056388,
+        "prediction_interval_lower": 0.0009437561,
+        "prediction_interval_upper": 0.1249198886,
+        "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)"
+      },
+      "random_effects_dl": {
+        "method": "random effects (DL tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+        "k": 19,
+        "estimate": 0.0634475248,
+        "ci_lower": 0.0452851064,
+        "ci_upper": 0.0816099431,
+        "tau2": 0.0011228601,
+        "tau": 0.0335091042,
+        "prediction_interval_lower": -0.0101357921,
+        "prediction_interval_upper": 0.1370308416,
+        "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)"
+      }
+    },
+    "persistent_nonenrollment_two_years": {
+      "fixed_effect_reproduced": {
+        "estimate": 0.0053894059,
+        "cochran_q": 41.3677957976,
+        "degrees_of_freedom": 16,
+        "i2_percent": 61.3225706337
+      },
+      "random_effects_pm": {
+        "method": "random effects (PM tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+        "k": 17,
+        "estimate": 0.0078596398,
+        "ci_lower": 0.0015531077,
+        "ci_upper": 0.0141661719,
+        "tau2": 9.09484e-05,
+        "tau": 0.0095366885,
+        "prediction_interval_lower": -0.0134333736,
+        "prediction_interval_upper": 0.0291526532,
+        "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)"
+      },
+      "random_effects_dl": {
+        "method": "random effects (DL tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+        "k": 17,
+        "estimate": 0.0073419663,
+        "ci_lower": 0.0013343213,
+        "ci_upper": 0.0133496113,
+        "tau2": 4.97629e-05,
+        "tau": 0.0070542849,
+        "prediction_interval_lower": -0.0085815825,
+        "prediction_interval_upper": 0.0232655152,
+        "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)"
+      }
+    }
+  },
+  "base_rate_main_window": {
+    "reproduced_att": 0.0529028773,
+    "n_treated_students": 4815,
+    "n_control_students": 65538,
+    "treated_rate_pre_g_minus_2": 0.0224299065,
+    "treated_rate_post_g_plus_1": 0.158463136,
+    "control_rate_pre_reweighted": 0.0132239597,
+    "control_rate_post_reweighted": 0.0963543119,
+    "counterfactual_treated_post_if_parallel": 0.1055602588,
+    "relative_gap_vs_counterfactual": 0.501162823,
+    "students_equivalent_if_causal": 254.7273540887,
+    "route_counts": {
+      "treated_students_before_support": 6581,
+      "treated_episodes_before_support": 64,
+      "receiver_controls_available": 34326,
+      "locally_exposed_controls_available": 27537,
+      "unsupported_treated_students_excluded": 391,
+      "unsupported_treated_episodes_affected": 7,
+      "treated_students": 6190,
+      "control_students": 82753,
+      "treated_episodes": 63,
+      "control_episodes": 5765,
+      "supported_cells": 840
+    },
+    "reading_limit": "Equivalencia condicional: solo sería un número de estudiantes afectados si la diferencia fuese causal, cosa que este diseño no establece."
+  },
+  "missingness_main_window": {
+    "bounds_reproduced": {
+      "lower": -0.011544327,
+      "upper": 0.1098157628
+    },
+    "missing_by_group": {
+      "treated": {
+        "students_in_bounds_sample": 4996,
+        "missing_progression_share": 0.0360288231
+      },
+      "control": {
+        "students_in_bounds_sample": 67288,
+        "missing_progression_share": 0.0215194388
+      }
+    },
+    "zero_crossing_lambda": 0.9048754244,
+    "lambda_semantics": {
+      "lambda_0": "cota superior: faltantes expuestos con rezago y faltantes control sin rezago",
+      "lambda_1": "cota inferior: faltantes expuestos sin rezago y faltantes control con rezago"
+    },
+    "zero_crossing_reading": "Con bound(lambda) = lambda*inferior + (1-lambda)*superior, la diferencia llega a cero en lambda*; lambda* cercano a 1 significa que hace falta una asignación de faltantes casi tan benigna para el cierre como la cota inferior."
+  },
+  "acta_pattern_main_window": {
+    "definition": "promovido o reprobado observable y asistencia entre 1 y 100 en G-1",
+    "treated_valid_share_reproduced": 0.768174475,
+    "episodes": 63,
+    "episodes_without_any_record": 4,
+    "episodes_with_less_than_half_records": 3,
+    "episodes_with_half_or_more_but_incomplete": 41,
+    "episodes_with_complete_records": 15,
+    "missing_share_in_episodes_without_any_record": 0.1721254355,
+    "missing_share_in_episodes_below_half": 0.3463414634,
+    "missing_share_in_episodes_half_or_more": 0.481533101,
+    "reading": "Si casi toda la falta se concentra en escuelas sin ninguna acta, la vía administrativa gana peso; si está dispersa dentro de escuelas con actas, gana la movilidad individual o el cierre a mitad de año."
+  },
+  "funnel_recent_window": {
+    "d2_clean_events_2016_2024": 266,
+    "events_in_did_frame_2016_2024": 121,
+    "events_excluded_before_frame_2016_2024": 145,
+    "excluded_by_category": {
+      "predominio_educacion_especial": {
+        "episodes": 4,
+        "median_students_g_minus_1": 132.5,
+        "rural_episodes": 0
+      },
+      "predominio_parvularia": {
+        "episodes": 1,
+        "median_students_g_minus_1": 38.0,
+        "rural_episodes": 0
+      },
+      "solo_adultos": {
+        "episodes": 13,
+        "median_students_g_minus_1": 39.0,
+        "rural_episodes": 1
+      },
+      "solo_cuarto_medio": {
+        "episodes": 1,
+        "median_students_g_minus_1": 69.0,
+        "rural_episodes": 0
+      },
+      "solo_educacion_especial": {
+        "episodes": 57,
+        "median_students_g_minus_1": 33.0,
+        "rural_episodes": 3
+      },
+      "solo_parvularia": {
+        "episodes": 69,
+        "median_students_g_minus_1": 23.0,
+        "rural_episodes": 1
+      }
+    },
+    "included_median_students_g_minus_1": 25.0,
+    "route_counts": {
+      "2016_2019": {
+        "treated_students_before_support": 6581,
+        "treated_episodes_before_support": 64,
+        "receiver_controls_available": 34326,
+        "locally_exposed_controls_available": 27537,
+        "unsupported_treated_students_excluded": 391,
+        "unsupported_treated_episodes_affected": 7,
+        "treated_students": 6190,
+        "control_students": 82753,
+        "treated_episodes": 63,
+        "control_episodes": 5765,
+        "supported_cells": 840
+      },
+      "2016_2024": {
+        "treated_students_before_support": 10966,
+        "treated_episodes_before_support": 121,
+        "receiver_controls_available": 54164,
+        "locally_exposed_controls_available": 43693,
+        "unsupported_treated_students_excluded": 490,
+        "unsupported_treated_episodes_affected": 13,
+        "treated_students": 10476,
+        "control_students": 139670,
+        "treated_episodes": 118,
+        "control_episodes": 12090,
+        "supported_cells": 1577
+      }
+    },
+    "frame_rule": "estudiantes en G-1 con (education_code = 110 AND grade_code BETWEEN 1 AND 8) OR (education_code IN (310,410,510,610,710,810,910) AND grade_code BETWEEN 1 AND 3), edad 5-22 y una sola matrícula"
+  },
+  "regime_manski_bounds": {
+    "pre_lge_sep_2005_2010": {
+      "lower": 0.0349073173,
+      "upper": 0.1882748911,
+      "crosses_zero": false
+    },
+    "post_lge_sac_2011_2015": {
+      "lower": -0.0210850561,
+      "upper": 0.1618220134,
+      "crosses_zero": true
+    },
+    "primary_pre_pandemic_2016_2019": {
+      "lower": -0.011544327,
+      "upper": 0.1098157628,
+      "crosses_zero": true
+    },
+    "pandemic_covid_2020_2022": {
+      "lower": 0.0018122874,
+      "upper": 0.0494612706,
+      "crosses_zero": false
+    },
+    "post_pandemic_2023_2024": {
+      "lower": -0.0170014322,
+      "upper": 0.0607073629,
+      "crosses_zero": true
+    },
+    "historical_pre_2016_2005_2015": {
+      "lower": 0.0063433708,
+      "upper": 0.1747802214,
+      "crosses_zero": false
+    },
+    "all_non_pandemic_2005_2019_2023_2024": {
+      "lower": 0.004427054,
+      "upper": 0.1673803415,
+      "crosses_zero": false
+    },
+    "full_series_2005_2024": {
+      "lower": 0.0043093044,
+      "upper": 0.1620701466,
+      "crosses_zero": false
+    }
+  },
+  "privacy_minimum_cell": 10
+}

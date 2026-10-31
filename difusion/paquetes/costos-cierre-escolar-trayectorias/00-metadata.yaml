@@ -43,8 +43,8 @@ evidencia:
     callaway_santanna_progresion_pp: "+9.11 [+5.34, +12.88]"
     cotas_manski_serie_pp: "[+0.43, +16.21]"
     pesos_iguales_progresion_pp: "+7.55 [+5.52, +9.57]"
-    varianza_inversa_progresion_pp: "+5.14 [+4.34, +5.95]"
-    i2_heterogeneidad_pct: 76.48
+    efectos_aleatorios_progresion_pp: "+6.29 [+4.49, +8.09]; prediccion [+0.09, +12.49]"
+    i2_heterogeneidad_pct: 76.5
 destinos:
   - plataforma: mastodon
     fecha_propuesta: 2026-10-29

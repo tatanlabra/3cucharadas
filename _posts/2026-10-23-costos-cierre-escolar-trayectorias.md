@@ -2,13 +2,13 @@
 layout: single
 classes: [thesis-extension-post, post3-evidence]
 title: "Extender mi tesis en 3 cucharadas (parte III): qué muestran las trayectorias después del cierre de una escuela"
-subtitle: "Seguir a los estudiantes permite observar la transición, pero todavía no separa con certeza el cierre de las trayectorias que ya venían cambiando."
+subtitle: "En 19 de 19 cohortes, el rezago o la salida del registro de quienes perdieron su escuela creció más que el de sus pares. Todavía no puedo atribuir esa brecha al cierre."
 date: 2026-10-23 10:00:00 -0300
-last_modified_at: 2026-10-28 04:00:00 -0300
+last_modified_at: 2026-10-31 18:00:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [educacion, cierre-escolar, trayectorias, causalidad, mineduc, datos-administrativos, duckdb, politica-publica]
 description: "Trayectorias estudiantiles y cierres escolares en Chile: resultados post-piloto, límites causales y condiciones mínimas para una transición educativa responsable."
-excerpt: "La comparación encuentra una diferencia en progresión, pero las cotas para los datos faltantes abarcan ambos signos. La evidencia sirve para diseñar transiciones; aún no para atribuir daños o beneficios al cierre."
+excerpt: "En todas las cohortes medibles, la brecha de progresión es positiva; en la ventana principal, las cotas para los datos faltantes abarcan ambos signos. La evidencia sirve para diseñar transiciones; aún no para atribuir daños o beneficios al cierre."
 author: clabra
 lang: es
 ref: costos-cierre-escolar-trayectorias
@@ -44,10 +44,13 @@ ai_disclosure:
 Cuando una escuela cierra, la pregunta pública no termina al encontrar otro colegio en el mapa. Importa saber si sus estudiantes siguieron matriculados, pasaron de curso y mantuvieron una asistencia regular. Y, sobre todo, importa distinguir qué parte de un tropiezo posterior se debe al cierre y qué parte venía gestándose desde antes.
 {: .text-justify}
 
-La comparación principal estima que el cambio entre antes y después en la **proporción observada sin matrícula o con avance inferior al curso esperado al año siguiente —indicador resumido como «falla de progresión o rezago»— fue 5,29 puntos porcentuales mayor entre los estudiantes expuestos que en el grupo de comparación**, con un intervalo de confianza conservador del 95 % de **2,08 a 8,51 puntos**. Sin embargo, como no todos los estudiantes tienen ese registro al año siguiente, al calcular cotas sin supuestos para los datos faltantes (Manski 2003) el rango posible va de **−1,15 a 10,98 puntos porcentuales**. Como ese intervalo cruza cero, el resultado de la ventana principal es **inconcluso**: no demuestra por sí solo daño, beneficio ni ausencia de efecto.
+Para responderlo seguí **78.972 trayectorias estudiantiles** en **1.141 escuelas regulares** que cerraron entre 2005 y 2024, cada uno frente a estudiantes comparables de escuelas que seguían abiertas. El resultado admite dos lecturas que conviene sostener juntas. La primera: en las **19 cohortes** que se pueden medir, la falla de progresión o rezago de quienes perdieron su escuela aumentó más que la de sus pares, y esa brecha es positiva en las 19. La segunda: todavía no puedo atribuir esa brecha al cierre, porque esas escuelas ya venían más frágiles y sus estudiantes, más rotativos.
 {: .text-justify}
 
-Este ejercicio presenta una **reestimación posterior al piloto** sobre **79.709.054 registros de matrícula** y **73.873.835 de rendimiento** entre 2004 y 2025. La escala del panel permite reconstruir trayectorias individuales que los promedios por escuela ocultan, pero no fabrica el contrafactual —qué habría pasado con esos mismos niños, niñas y adolescentes (NNA) si su escuela hubiese seguido abierta— necesario para proclamar causalidad.
+En la ventana que fijé antes de mirar la serie completa, 2016–2019, la **proporción sin matrícula o con avance inferior al curso esperado al año siguiente —lo que llamo "falla de progresión o rezago"— subió 5,29 puntos porcentuales más entre los estudiantes expuestos que en el grupo de comparación**, con un intervalo de confianza conservador del 95 % de **2,08 a 8,51 puntos**. Pero no todos los estudiantes tienen ese registro al año siguiente, y al calcular cotas sin supuestos para los datos faltantes (Manski 2003) el rango posible va de **−1,15 a 10,98 puntos porcentuales**. Como ese intervalo cruza cero, el resultado de la ventana principal es **inconcluso**: no demuestra por sí solo daño, beneficio ni ausencia de efecto. Para dimensionarlo: la falla pasó de 2,2 % a 15,8 % entre los expuestos, cuando lo esperable según sus controles era 10,6 %.
+{: .text-justify}
+
+Este ejercicio presenta una **reestimación posterior al piloto** sobre **79.709.054 registros de matrícula** y **73.873.835 de rendimiento** entre 2004 y 2025. Y aquí está la paradoja: en la ventana principal, tantos millones de registros pesan como unas **21 o 22 escuelas independientes**, porque unas pocas concentran gran parte de los estudiantes. La escala permite reconstruir trayectorias individuales que los promedios por escuela ocultan, pero no fabrica el contrafactual —qué habría pasado con esos mismos niños, niñas y adolescentes (NNA) si su escuela hubiese seguido abierta— necesario para proclamar causalidad.
 {: .text-justify}
 
 <!-- scientific-state: POST_PILOT_REESTIMATION_V3; result: INCONCLUSIVE -->
@@ -55,6 +58,12 @@ Este ejercicio presenta una **reestimación posterior al piloto** sobre **79.709
 
 La [parte I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) reconstruyó la evidencia histórica y separó qué hallazgos resistían. La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) verificó qué establecimientos cerraron en la década reciente y mostró que la escuela más cercana rara vez es el destino principal. Esta tercera entrega pasa de los edificios a las trayectorias estudiantiles en tres pasos: **qué cerró realmente**, **qué ocurrió después con los estudiantes** y **cómo proteger una transición escolar en la práctica**.
 {: .text-justify}
+
+**Actualización del 31 de octubre de 2026.** Una auditoría propia, revisada por otros dos modelos, me llevó a corregir esta entrega. Corregí la descripción de la regla de cierre (umbrales de 10 estudiantes y de concentración de destinos) y reemplacé un promedio de efecto fijo por uno de efectos aleatorios. Retiré una cifra de pretendencia que no tenía respaldo reproducible. Agregué la tasa base, el universo que queda fuera y una lectura más cauta de las actas faltantes, y dejé explícito que la sensibilidad a tendencias previas sigue pendiente. El resultado principal no cambia: sigue siendo inconcluso.
+{: .notice--warning .text-justify}
+
+**Guía rápida.** Llamo **G** al primer año en que la escuela ya no tiene matrícula; **G−1** es su último año abierto y **G+1**, el siguiente. En la progresión de curso, el "antes" se mide dos años antes del cierre (G−2) y el "después", en G+1. **pp** son puntos porcentuales; **RBD** es el código de cada escuela; **SEP**, la Subvención Escolar Preferencial; **JEC**, la Jornada Escolar Completa; **RCID**, la regla de cierre que construí desde los datos.
+{: .notice--info .text-justify}
 
 ## Cucharada 1: ¿qué cerró y quién quedó expuesto?
 
@@ -77,30 +86,15 @@ En el período reciente (2016–2025) existen **346 episodios** donde una escuel
 Cada uno de los 346 episodios entra en una sola fila de la tabla 1. Las **45 alertas por destino concentrado** son un corte transversal que se superpone con esas categorías y no se suma a ellas; sin contar aún con **confirmaciones institucionales independientes** (**cero** en este corte), los 330 cierres estrictos se mantienen como base de referencia.
 {: .text-justify}
 
-### De la certeza documental a la Regla de Cierre Escolar Inferido desde los Datos (RCID v1)
+### De la certeza documental a una regla construida desde los datos
 
-En la normativa educacional chilena no existe un documento llamado «acta de cierre» que decrete el fin de un colegio. Que un establecimiento quede jurídicamente cerrado —en lenguaje legal, a través de un acto firme y ejecutoriado, es decir, una decisión oficial definitiva contra la cual ya no caben recursos— exige una **Resolución Exenta** dictada por la Secretaría Regional Ministerial (SEREMI) de Educación respectiva que extinga o suspenda su permiso para funcionar (el Reconocimiento Oficial). Esa resolución opera bajo cuatro figuras: receso temporal por un año lectivo, renuncia tácita al Reconocimiento Oficial si el plantel no retoma sus clases tras ese receso, renuncia voluntaria total o parcial al Reconocimiento Oficial (**artículos 25 y 26 del Decreto Supremo N° 315 de 2010 del MINEDUC**; Castro Paredes 2013) o ejecución de la sanción de revocación del Reconocimiento Oficial ordenada por la Superintendencia de Educación (**artículo 73, letra f), de la Ley N° 20.529**).
+En Chile, el cierre jurídico de un colegio exige una resolución exenta de la SEREMI de Educación, pero no existe un registro público y completo de esas resoluciones: lo comprobé en Transparencia Activa (detalle en las notas metodológicas al final). Por eso construí una regla empírica y falsable, la **Regla de Cierre Escolar Inferido desde los Datos (RCID v1)**, que funciona como tres coladores sucesivos. El primero detecta la matrícula que desaparece; el segundo descarta anexos y cambios de código; el tercero aparta los traslados en bloque a un solo colegio. En simple: no es lo mismo que un curso entero se mude junto a otro edificio a que cada familia deba buscar cupo por su cuenta. Aplicar RCID v1 (D2) deja **1.648 cierres limpios** con ventana posterior observada en toda la serie 2005–2025 (**266** en la ventana reciente) y constituye el punto de partida para evaluar trayectorias sin mezclar fusiones de hecho con cierres dispersos.
 {: .text-justify}
 
-¿Están publicadas esas resoluciones para cada colegio del país? Para comprobarlo empíricamente, revisamos el Portal de Transparencia Activa de la Subsecretaría de Educación (organismo AJ001, sección «Actos y resoluciones con efectos sobre terceras personas»). Entre las **12.509 resoluciones administrativas** y **4.735 resoluciones sancionatorias** disponibles, el repositorio histórico previo a 2018 se encuentra fuera de servicio y, entre 2018 y 2025, las 16 secretarías regionales solo registran **22 resoluciones administrativas** sobre renuncia, receso o cierre de establecimientos —varias de ellas declarando inadmisibles las solicitudes por falta de documentación o regularizando «cierres tácitos» años después de que el colegio dejó de funcionar— y **21 resoluciones sancionatorias únicas** que revocan el Reconocimiento Oficial. Mientras ese catastro nacional no se consolide mediante una solicitud de acceso a la información pública (**Ley N° 20.285**), analizar veinte años de historia escolar exige una regla empírica transparente y falsable —la **Regla de Cierre Escolar Inferido desde los Datos (RCID v1)**— que funciona como tres coladores sucesivos (D0 ⊃ D1 ⊃ D2):
-{: .text-justify}
 
-- **D0 (salida administrativa bruta):** el primer colador detecta toda escuela con matrícula positiva en un año (t−1) que cae a cero al año siguiente (t) y no vuelve a registrar actividad docente.
-- **D1 (cierre estricto de oferta):** el segundo colador retira de D0 las reaperturas posteriores, los simples cambios de código identificador —el Rol Base de Datos (RBD)— dentro del mismo local y las continuidades administrativas.
-- **D2 = RCID v1 (cierre depurado por flujo estudiantil):** el tercer colador exige al menos 5 estudiantes seguibles antes del cierre y aparta los traslados en bloque donde un único colegio receptor absorbe al menos el **70 %** de los alumnos trasladados y un mínimo de **15 estudiantes** al año siguiente, como ocurre en una fusión de hecho.
 
-{: .table-caption}
-**Tabla 2.** Jerarquía de la Regla de Cierre Escolar Inferido desde los Datos (RCID v1, D0 ⊃ D1 ⊃ D2) en las tres entregas (2005–2025)
 
-| Estrato de la regla | Ventana histórica (2005–2015) | Ventana reciente (2016–2025) | Serie longitudinal (2005–2025) | Qué depura y cómo se usa en las partes I, II y III |
-|---|---:|---:|---:|---|
-| D0: salida administrativa o de actividad bruta | 1.635 | 346 | 1.981 | Cese de matrícula en t; contrasta con las 2.069 salidas brutas de directorio de 1992–2012 en la parte I. |
-| D1: cierre estricto de oferta educativa | 1.477 | 330 | 1.807 | Depura 158 reaperturas o continuidades históricas y 16 continuidades candidatas o anexos recientes (base de la parte II). |
-| D2 = RCID v1 (conservador, incluye censurados de 2025) | 1.382 | 296 | 1.678 | Depura además 95 absorciones históricas y 34 absorciones o alertas de flujo concentradas recientes (≥ 70 % y ≥ 15 alumnos). |
-| D2 = RCID v1 (limpio con ventana t+1 observada) | 1.382 | 266 | 1.648 | Exige además observar el año t+1 completo (excluye los 30 episodios de 2025 censurados a la derecha); base principal de la parte III. |
-{: .table--compact .table--scroll}
-
-En simple: no es lo mismo que un curso entero se mude junto a otro edificio a que cada familia deba buscar cupo por su cuenta. Aplicar RCID v1 (D2) deja **1.648 cierres limpios** con ventana posterior observada en toda la serie 2005–2025 (**266** en la ventana reciente) y constituye el punto de partida para evaluar trayectorias sin mezclar fusiones de hecho con cierres dispersos.
+No todos esos cierres pueden seguirse con trayectorias de curso. Solo **1.177** tenían estudiantes de educación regular, básica de 1.° a 8.° o media de 1.° a 3.°, y **1.141** encontraron controles comparables. En la ventana reciente, **145 de los 266** cierres eran escuelas solo de párvulos (69), solo de educación especial (57), solo de adultos (13) o solo de cuarto medio (1), o tenían predominio de esas ofertas (5). Allí no se puede medir la progresión de curso, así que los resultados de esta entrega hablan de escuelas regulares, no de todo cierre.
 {: .text-justify}
 
 <figure class="post3-figure data-visualization" id="fig-post3-1">
@@ -113,17 +107,43 @@ En simple: no es lo mismo que un curso entero se mude junto a otro edificio a qu
   <figcaption><strong>Figura 1</strong> — Cómo se forma la muestra comparable de la reestimación post-piloto (2016–2019). Los conteos agregados preceden la elegibilidad específica de cada resultado y sus unidades no deben sumarse. <span class="figure-source">Fuente: elaboración propia a partir de la reestimación post-piloto.</span> <span class="figure-data"><a href="{{ '/assets/images/tesis-post3/sample-flow-data.csv' | relative_url }}">Datos tabulares accesibles (CSV)</a>.</span></figcaption>
 </figure>
 
-La figura 1 distingue entre escuelas cerradas (episodios) y observaciones «estudiante-cohorte» (cada alumno contado dentro de su cohorte de cierre). Además, la información publicada es estrictamente agregada: por resguardo de privacidad, no expone nombres, direcciones ni códigos individuales de estudiantes o establecimientos.
+La figura 1 distingue entre escuelas cerradas (episodios) y observaciones "estudiante-cohorte" (cada alumno contado dentro de su cohorte de cierre). Además, la información publicada es estrictamente agregada: por resguardo de privacidad, no expone nombres, direcciones ni códigos individuales de estudiantes o establecimientos.
+{: .text-justify}
+
+### Quiénes eran los estudiantes expuestos
+
+Antes de mirar qué les pasó, conviene saber quiénes eran. La tabla 2 resume, entre tres años y un año antes del cierre (G−3 a G−1), ocho características de los niños, niñas y adolescentes (NNA) y de sus escuelas de origen.
+{: .text-justify}
+
+{: .table-caption}
+**Tabla 2.** Caracterización ampliada de niños, niñas y adolescentes (NNA) en G−1 (cohortes 2016–2019, 6.190 expuestos y 82.753 controles)
+
+| Descriptor previo en G−1 | Estudiantes expuestos | Grupo de comparación | Brecha (pp) | Lectura sustantiva para la identificación |
+|---|---:|---:|---:|---|
+| Estudiante prioritario SEP | 30,68 % | 32,32 % | −1,64 | Equilibrio cercano en pobreza y vulnerabilidad prioritaria tras el pareo. |
+| Elegibilidad SEP total (prioritario o preferente) | 54,51 % | 55,58 % | −1,07 | Composición similar en esta medida binaria de vulnerabilidad. |
+| Beneficiario efectivo SEP | 37,63 % | 48,58 % | −10,95 | Se explica casi por completo por el menor convenio SEP de la escuela (fila siguiente). |
+| Escuela de origen con convenio SEP | 45,17 % | 55,23 % | −10,06 | Los cierres se concentran en sostenedores con menor adscripción a la SEP. |
+| Escuela de origen con Jornada Escolar Completa (JEC) | 53,97 % | 72,51 % | −18,54 | Menor dotación de jornada completa en las escuelas que cerrarán. |
+| Conmutación intercomunal (residencia ≠ comuna escolar) | 38,59 % | 29,99 % | +8,60 | Mayor proporción de NNA que ya viajaban fuera de su comuna antes del cierre. |
+| Sobreedad ≥ 1 año respecto de la norma del curso | 33,86 % | 33,86 % | 0,00 | Equilibrio exacto por construcción del emparejamiento en G−1. |
+| Al menos un cambio de escuela entre G−3 y G−1 | 47,04 % | 30,52 % | +16,52 | Casi la mitad de los expuestos ya venía rotando de colegio antes del cierre. |
+{: .table--compact .table--scroll}
+
+La radiografía de la tabla 2 explica por qué hay que ser cautelosos: los estudiantes expuestos y sus controles tienen la misma edad, el mismo rezago previo (33,86 %) y prácticamente la misma vulnerabilidad individual elegible para la Subvención Escolar Preferencial (54,51 % frente a 55,58 %, con **30,68 %** de alumnos prioritarios), pero asistían a colegios institucionalmente más frágiles —con menos convenio SEP (−10,06 pp) y menos Jornada Escolar Completa (−18,54 pp)— y casi la mitad (**47,04 %** frente a 30,52 %) ya había cambiado de colegio en los dos años previos. Una parte del desgaste escolar y de la rotación familiar ya estaba en marcha antes del cierre.
 {: .text-justify}
 
 ## Cucharada 2: ¿qué ocurrió después del cierre?
 
 ### Dos resultados primarios y una conclusión incómoda
 
-Para medir qué pasó después del cierre en la ventana principal **2016–2019**, seguimos a los estudiantes de los **63 episodios con soporte comparable** de la figura 1 (de los cuales **62 episodios** tienen ventana observable para los dos resultados primarios y **58** para asistencia y notas). El primer resultado primario mira cuántos estudiantes quedan **sin matrícula durante dos años seguidos**: no lo llamamos «deserción» porque salir del registro administrativo chileno no aclara si el alumno abandonó los estudios, salió del país o pasó a una modalidad no cubierta. Allí el cambio del grupo expuesto supera en **+0,63 puntos porcentuales** al del grupo de comparación, con un intervalo conservador del 95 % de **−0,77 a 2,03 puntos** (sobre **3.666** observaciones expuestas y **49.944** controles).
+Para medir qué pasó después del cierre en la ventana principal **2016–2019**, seguí a los estudiantes de los **63 episodios con soporte comparable** de la figura 1 (de los cuales **62 episodios** tienen ventana observable para los dos resultados primarios y **58** para asistencia y notas). El primer resultado primario mira cuántos estudiantes quedan **sin matrícula durante dos años seguidos**: no lo llamo "deserción" porque salir del registro administrativo chileno no aclara si el alumno abandonó los estudios, salió del país o pasó a una modalidad no cubierta. Allí el cambio del grupo expuesto supera en **+0,63 puntos porcentuales** al del grupo de comparación, con un intervalo conservador del 95 % de **−0,77 a 2,03 puntos** (sobre **3.666** observaciones expuestas y **49.944** controles).
 {: .text-justify}
 
-El segundo resultado primario mide la proporción **sin matrícula o bajo el curso esperado al año siguiente**, resumida como **falla de progresión o rezago**. Aquí la brecha antes-después sube en **+5,29 puntos porcentuales** entre los expuestos frente a sus controles (intervalo conservador de **2,08 a 8,51 puntos**, sobre **4.815** observaciones expuestas y **65.538** controles), pero al aplicar las **cotas de Manski** (Manski 2003) a los alumnos cuyo avance no quedó registrado el rango posible va de **−1,15 a 10,98 puntos porcentuales**. Esas cotas funcionan como una prueba de esfuerzo sin optimismo que calcula el mejor escenario posible (si todos los alumnos con dato faltante hubiesen avanzado de curso sin tropiezos) y el peor escenario posible (si todos hubiesen sufrido rezago): como el abanico incluye tanto una leve mejora como un rezago de casi once puntos, la estimación puntual no basta por sí sola para adjudicar un efecto causal.
+El segundo resultado primario mide la proporción **sin matrícula o bajo el curso esperado al año siguiente**, resumida como **falla de progresión o rezago**. Aquí la brecha antes-después sube en **+5,29 puntos porcentuales** entre los expuestos frente a sus controles (intervalo conservador de **2,08 a 8,51 puntos**, sobre **4.815** observaciones expuestas y **65.538** controles), pero al aplicar las **cotas de Manski** (Manski 2003) a los alumnos cuyo avance no quedó registrado el rango posible va de **−1,15 a 10,98 puntos porcentuales**. Esas cotas funcionan como una prueba de esfuerzo sin optimismo: a los alumnos sin dato les asignan el peor desenlace en un grupo y el mejor en el otro, y luego al revés. El dato falta para el **3,6 %** de los expuestos y el **2,2 %** de los controles. Como el abanico incluye tanto una leve mejora como un rezago de casi once puntos, la estimación puntual no basta por sí sola para adjudicar un efecto causal. Aun así, la brecha solo llega a cero cuando los datos faltantes se acercan en más de un **90 %** a la asignación más benigna para el cierre.
+{: .text-justify}
+
+Para dimensionar la cifra: entre los expuestos, la falla de progresión o rezago pasa de **2,2 %** dos años antes del cierre a **15,8 %** el año siguiente. Si hubiesen seguido el cambio de sus controles, habrían llegado a **10,6 %**. La brecha equivale, entonces, a un **50 %** más que ese contrafactual y, solo si fuese causal, a unos **255 estudiantes** en la ventana 2016–2019. El indicador junta dos cosas distintas, salir del registro y quedar atrasado de curso, así que esa cifra no distingue deserción de repitencia.
 {: .text-justify}
 
 {: .table-caption}
@@ -147,75 +167,28 @@ El segundo resultado primario mide la proporción **sin matrícula o bajo el cur
   <figcaption><strong>Figura 2</strong> — Reestimación post-piloto inconclusa, no efectos causales. El intervalo de progresión no cruza cero, pero sus cotas por datos faltantes sí; el solapamiento con el piloto y los supuestos no observados impiden atribuir causalidad. <span class="figure-source">Fuente: elaboración propia a partir de la reestimación post-piloto.</span> <span class="figure-data">Datos tabulares accesibles: <a href="{{ '/assets/images/tesis-post3/post-pilot-reestimation-data.csv' | relative_url }}">estimaciones</a> y <a href="{{ '/assets/images/tesis-post3/missingness-bounds-data.csv' | relative_url }}">cotas por datos faltantes</a>.</span></figcaption>
 </figure>
 
-La asistencia y el promedio de notas en la tabla 3 son **exploratorias y condicionadas**: solo pueden medirse entre quienes tienen acta anual válida en ambos períodos (**3.871** observaciones expuestas en **58 episodios**, equivalentes al **62,5 %** del soporte expuesto frente al **76,8 %** de los controles, con **63.591** y **63.596** observaciones de comparación). En la figura 2, además, la barra alternativa que incluye a las escuelas receptoras en el grupo de control entrega **+0,71 puntos porcentuales** en no matrícula ([−0,69; 2,12], con 3.670 expuestos y 59.613 controles) y **+5,09 puntos** en falla de progresión ([1,94; 8,23], con 4.822 expuestos y 79.058 controles): cambiar qué escuelas entran al control modifica la muestra, pero no despeja las cotas de **−1,15 a 10,98 puntos** asociadas al +5,29 pp principal.
+La asistencia y el promedio de notas en la tabla 3 son **exploratorias y condicionadas**: solo pueden medirse entre quienes tienen acta anual válida en ambos períodos. Eso deja **3.871** observaciones expuestas en **58 episodios**, el **62,5 %** del soporte expuesto, frente a **63.591** de los **82.753** controles en asistencia (63.596 en notas). En la figura 2, además, la barra alternativa que incluye a las escuelas receptoras en el grupo de control entrega **+0,71 puntos porcentuales** en no matrícula ([−0,69; 2,12], con 3.670 expuestos y 59.613 controles) y **+5,09 puntos** en falla de progresión ([1,94; 8,23], con 4.822 expuestos y 79.058 controles): cambiar qué escuelas entran al control modifica la muestra, pero no despeja las cotas de **−1,15 a 10,98 puntos** asociadas al +5,29 pp principal.
 {: .text-justify}
 
-Hay un límite estadístico adicional que conviene explicar como una **sala de reuniones**. Aunque la estimación principal reúne 62 escuelas cerradas, unas pocas concentran gran parte del alumnado. Escuchar esos 62 cierres se parece menos a oír 62 voces independientes del mismo volumen y más a oír unas **21,1 episodios efectivos** en no matrícula, **21,9** en progresión y apenas **17,7** en asistencia y notas. Del mismo modo, la exploración entre zonas urbanas y rurales descansa en aún menos episodios rurales, por lo que no permite hacer recomendaciones territoriales sin incorporar antes tiempos de viaje por red vial y transporte escolar.
+Hay un límite estadístico adicional que conviene explicar como una **sala de reuniones**. Aunque la estimación principal reúne 62 escuelas cerradas, unas pocas concentran gran parte del alumnado. Escuchar esos 62 cierres se parece menos a oír 62 voces independientes del mismo volumen y más a oír unos **21,1 episodios efectivos** en no matrícula, **21,9** en progresión y apenas **17,7** en asistencia y notas. Del mismo modo, la exploración entre zonas urbanas y rurales descansa en aún menos episodios rurales, por lo que no permite hacer recomendaciones territoriales sin incorporar antes tiempos de viaje por red vial y transporte escolar.
 {: .text-justify}
 
-### ¿Estamos comparando peras con peras?
+### ¿Se comparan peras con peras?
 
-El diseño utiliza **diferencias en diferencias**, que compara dos películas en lugar de dos fotografías sueltas: primero empareja a cada alumno de una escuela que cerrará con estudiantes de control idénticos un año antes del cierre (G−1) en año calendario, sexo, región, dependencia del sostenedor, ruralidad, nivel de enseñanza y curso, y luego mide cuánto cambió la trayectoria del primer grupo antes y después del evento frente al cambio de sus pares. En simple: buscamos comparar peras con peras en todo lo que el registro permite ver, midiendo su cercanía mediante la **diferencia estandarizada** (distancia en unidades de dispersión donde cero equivale a igualdad).
+El diseño utiliza **diferencias en diferencias**, que compara dos películas en lugar de dos fotografías sueltas: primero empareja a cada alumno de una escuela que cerrará con estudiantes de control idénticos un año antes del cierre (G−1) en año calendario, sexo, edad, región, dependencia del sostenedor, ruralidad, nivel de enseñanza y curso, y luego mide cuánto cambió la trayectoria del primer grupo antes y después del evento frente al cambio de sus pares. En simple: busco comparar peras con peras en todo lo que el registro permite ver, midiendo su cercanía mediante la **diferencia estandarizada** (distancia en unidades de dispersión donde cero equivale a igualdad).
 {: .text-justify}
 
-{: .table-caption}
-**Tabla 4.** Similitud observada antes del cierre en la muestra ponderada (2016–2019)
-
-| Característica previa | Estudiantes expuestos | Grupo de comparación | Lectura |
-|---|---:|---:|---|
-| Edad promedio | 11,70 años | 11,70 años | Diferencia estandarizada: 0,000. |
-| Asistencia promedio | 90,93 % | 91,68 % | Diferencia estandarizada: −0,079. |
-| Promedio de notas | 5,62 | 5,67 | Diferencia estandarizada: −0,072. |
-| Registro válido de asistencia y notas | 76,8 % | 96,2 % | Brecha de cobertura: −19,4 pp. |
-{: .table--compact .table--scroll}
-
-La edad se observa en toda la muestra. La asistencia y las notas, en cambio, solo pueden compararse entre quienes tienen esos registros; allí la cobertura es 76,8 % entre los expuestos y 96,2 % en el grupo de comparación (una brecha de −19,4 puntos porcentuales). Aquí aparece un vínculo directo con la norma: el **artículo 27, inciso 2°, del Decreto Supremo N° 315 de 2010** (y el numeral noveno de la Circular N° 1 de 2013 de la Superintendencia de Educación; Castro Paredes 2013) establece que la SEREMI *solo podrá pronunciarse* sobre una solicitud de receso o renuncia al Reconocimiento Oficial una vez que el sostenedor entregue las **actas de evaluación y promoción escolar de todos los alumnos y alumnas**, es decir, la planilla oficial de cierre de año que certifica las notas, la asistencia y quién pasó de curso. Que casi uno de cada cuatro estudiantes expuestos (23,2 % frente a 3,8 % en los controles) carezca de esa planilla en el año previo al cierre sugiere que el desorden administrativo o el abandono del sostenedor interrumpen con frecuencia la entrega de las actas de promoción, explicando tanto los rechazos documentales y «cierres tácitos» observados en Transparencia Activa como la pérdida selectiva de cobertura en la tabla 4, que por ello no certifica aleatorización ni comparabilidad sociodemográfica completa.
+En lo observable, los grupos quedan casi idénticos en edad, asistencia y notas, con diferencias estandarizadas menores a 0,08. Pero los expuestos tienen muchas menos actas anuales válidas el año previo al cierre: 76,8 % frente a 96,2 %. El detalle, y lo que esa falta puede y no puede significar, está en las notas metodológicas.
 {: .text-justify}
 
-¿Qué pasa si abrimos el foco hacia la vulnerabilidad social y la historia escolar previa entre tres años y un año antes del cierre (G−3 a G−1)? La tabla 5 resume ocho características de los niños, niñas y adolescentes (NNA) y de sus escuelas de origen.
+
+
+
+### ¿Qué muestra la serie completa 2005–2024?
+
+Aun así, ¿qué ocurre si se miran las veinte cohortes anuales entre 2005 y 2024? Cuando los colegios cierran en años distintos, mezclarlos en un promedio simple cometería el error de usar escuelas recién cerradas como si fueran controles estables de las que cierran después. Los estimadores modernos de **diferencias en diferencias escalonadas** (Callaway y Sant'Anna 2021; Sun y Abraham 2021; Roth et al. 2023) evitan esa distorsión comparando cada cohorte anual únicamente contra establecimientos que aún no han cerrado. Aquí se calculan además cotas por datos faltantes (Manski 2003); la sensibilidad formal a tendencias previas no paralelas (Rambachan y Roth 2023) sigue pendiente. Bajo la regla RCID v1 (D2), la serie completa abarca **20 cohortes anuales**, **1.141 episodios con soporte empírico**, **78.972 observaciones expuestas** y **734.472 controles**; el detalle año a año está disponible en el [CSV abierto de la figura 3]({{ '/assets/images/tesis-post3/cohort-series-infographic-data.csv' | relative_url }}), y la tabla 7 de las notas metodológicas sintetiza los cinco períodos institucionales, el rango anual y tres formas distintas de promediar la serie.
 {: .text-justify}
 
-{: .table-caption}
-**Tabla 5.** Caracterización ampliada de niños, niñas y adolescentes (NNA) en G−1 (cohortes 2016–2019, 6.190 expuestos y 82.753 controles)
-
-| Descriptor previo en G−1 | Estudiantes expuestos | Grupo de comparación | Brecha (pp) | Lectura sustantiva para la identificación |
-|---|---:|---:|---:|---|
-| Estudiante prioritario SEP | 30,68 % | 32,32 % | −1,64 | Equilibrio cercano en pobreza y vulnerabilidad prioritaria tras el pareo. |
-| Elegibilidad SEP total (prioritario o preferente) | 54,51 % | 55,58 % | −1,07 | Composición socioeconómica individual equivalente en G−1. |
-| Beneficiario efectivo SEP | 37,63 % | 48,58 % | −10,95 | Pese a igual elegibilidad individual, los expuestos reciben menor cobertura SEP efectiva. |
-| Escuela de origen con convenio SEP | 45,17 % | 55,23 % | −10,06 | Los cierres se concentran en sostenedores con menor adscripción a la SEP. |
-| Escuela de origen con Jornada Escolar Completa (JEC) | 53,97 % | 72,51 % | −18,54 | Menor dotación de jornada completa en las escuelas que cerrarán. |
-| Conmutación intercomunal (residencia ≠ comuna escolar) | 38,59 % | 29,99 % | +8,60 | Mayor proporción de NNA que ya viajaban fuera de su comuna antes del cierre. |
-| Sobreedad ≥ 1 año respecto de la norma del curso | 33,86 % | 33,86 % | 0,00 | Equilibrio exacto por construcción del emparejamiento en G−1. |
-| Al menos un cambio de escuela entre G−3 y G−1 | 47,04 % | 30,52 % | +16,52 | Casi la mitad de los expuestos ya venía rotando de colegio antes del cierre. |
-{: .table--compact .table--scroll}
-
-La radiografía de la tabla 5 explica por qué hay que ser cautelosos: los estudiantes expuestos y sus controles tienen la misma edad, el mismo rezago previo (33,86 %) y prácticamente la misma vulnerabilidad individual elegible para la Subvención Escolar Preferencial (54,51 % frente a 55,58 %, con **30,68 %** de alumnos prioritarios), pero asistían a colegios institucionalmente más frágiles —con menos convenio SEP (−10,06 pp) y menos Jornada Escolar Completa (−18,54 pp)— y casi la mitad (**47,04 %** frente a 30,52 %) ya había cambiado de colegio en los dos años previos. Una parte del desgaste escolar y de la rotación familiar ya estaba en marcha antes del cierre.
-{: .text-justify}
-
-### ¿Por qué se eligió 2016–2019 y qué muestra la serie completa 2005–2024?
-
-Concentrar el corte principal en **2016–2019** no fue una elección arbitraria: responde a que el estado de funcionamiento del directorio oficial se estandarizó desde 2015, a que observar varios años de historia previa dentro de un panel iniciado en 2004 empuja hacia mediados de la década de 2010, a que **2020–2022** estuvo distorsionado por la pandemia de COVID-19 y la promoción flexible, y a que **2024–2025** aún no cuenta con dos años posteriores completos para medir la ausencia persistente de matrícula.
-{: .text-justify}
-
-Aun así, ¿qué ocurre si miramos las veinte cohortes anuales entre 2005 y 2024? Cuando los colegios cierran en años distintos, mezclarlos en un promedio simple cometería el error de usar escuelas recién cerradas como si fueran controles estables de las que cierran después. Los estimadores modernos de **diferencias en diferencias escalonadas** (Callaway y Sant'Anna 2021; Sun y Abraham 2021; Roth et al. 2023) evitan esa distorsión comparando cada cohorte anual únicamente contra establecimientos que aún no han cerrado, y complementan el cálculo con cotas formales de sensibilidad (Manski 2003; Rambachan y Roth 2023). Bajo la regla RCID v1 (D2), la serie completa abarca **20 cohortes anuales**, **1.141 episodios con soporte empírico**, **78.972 observaciones expuestas** y **734.472 controles**; el detalle año a año está disponible en el [CSV abierto de la figura 3]({{ '/assets/images/tesis-post3/cohort-series-infographic-data.csv' | relative_url }}), y la tabla 6 sintetiza los cinco períodos institucionales, el rango anual y tres formas distintas de promediar la serie.
-{: .text-justify}
-
-{: .table-caption}
-**Tabla 6.** Síntesis de la serie completa 2005–2024 por régimen institucional, rango anual y esquemas de agregación (RCID v1)
-
-| Régimen institucional / Rango / Agregado | Episodios con soporte | Expuestos (N) | Controles (N) | Falla de progresión o rezago (pp) | IC 95 % progresión (pp) | No matrícula persistente 2 años (pp) | IC 95 % no matrícula (pp) |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Subagregado 2005–2010 (régimen LOCE e inicio SEP) | 521 | 36.984 | 334.062 | +12,15 | [+3,78; +20,52] | +1,21 | [+0,53; +1,90] |
-| Subagregado 2011–2015 (puesta en marcha LGE y SAC) | 502 | 31.512 | 260.740 | +7,82 | [+6,20; +9,41] | +1,85 | [+1,10; +2,59] |
-| Subagregado 2016–2019 (ventana principal; cotas [−1,15; 10,98] pp) | 63 | 6.190 | 82.753 | +5,29 | [+2,08; +8,51] | +0,63 | [−0,77; +2,03] |
-| Subagregado 2020–2022 (pandemia COVID-19 y promoción flexible) | 33 | 3.272 | 42.457 | +2,70 | [−0,63; +6,03] | −0,28 | [−1,37; +0,81] |
-| Subagregado 2023–2024 (reactivación post-pandemia; 2024 censurado en 2 años) | 22 | 1.014 | 14.460 | +2,59 | [−1,55; +6,73] | −0,93 | [−2,64; +0,78] |
-| **Rango anual (19 cohortes en progresión; 17 en no matrícula)** | **7 a 129** | **357 a 10.261** | **5.566 a 71.248** | **+0,94 a +28,22 (mediana: +7,18)** | **[+3,15; +9,62] (RIQ)** | **−0,93 a +4,56 (mediana: +0,92)** | **[+0,22; +2,11] (RIQ)** |
-| **Agregado serie 2005–2024 (Callaway y Sant'Anna, ponderado por expuestos)** | **1.141** | **78.972** | **734.472** | **+9,11** | **[+5,34; +12,88]** | **+1,38** | **[+0,92; +1,85]** |
-| **Agregado serie 2005–2024 (pesos iguales por cohorte anual)** | **1.141** | **78.972** | **734.472** | **+7,55** | **[+5,52; +9,57]** | **+1,03** | **[+0,56; +1,50]** |
-| **Agregado serie 2005–2024 (precisión por varianza inversa; I² = 76,48 %)** | **1.141** | **78.972** | **734.472** | **+5,14** | **[+4,34; +5,95]** | **+0,54** | **[+0,29; +0,79]** |
-{: .table--compact .table--scroll}
 
 <figure class="post3-figure data-visualization" id="fig-post3-4">
   <a class="image-popup post3-theme-link" href="{{ '/assets/images/tesis-post3/cohort-series-infographic-es-light.svg' | relative_url }}" data-light-href="{{ '/assets/images/tesis-post3/cohort-series-infographic-es-light.svg' | relative_url }}" data-dark-href="{{ '/assets/images/tesis-post3/cohort-series-infographic-es-dark.svg' | relative_url }}">
@@ -227,15 +200,13 @@ Aun así, ¿qué ocurre si miramos las veinte cohortes anuales entre 2005 y 2024
   <figcaption><strong>Figura 3</strong> — Serie completa 2005–2024 bajo la regla RCID v1: estimaciones anuales (2006–2024), atenuación por régimen institucional y brechas de caracterización de NNA en G−1. <span class="figure-source">Fuente: elaboración propia a partir del panel longitudinal 2004–2025 del MINEDUC.</span> <span class="figure-data"><a href="{{ '/assets/images/tesis-post3/cohort-series-infographic-data.csv' | relative_url }}">Datos tabulares accesibles (CSV)</a>.</span></figcaption>
 </figure>
 
-La serie larga de la tabla 6 y la figura 3 deja tres lecciones claras:
+La serie larga (figura 3 y tabla 7) deja tres lecciones:
 {: .text-justify}
 
-- **La ventana 2016–2019 no fue elegida para inflar el resultado:** de hecho, muestra una atenuación progresiva de la brecha de progresión a medida que se desplegaron la SEP, el Sistema de Aseguramiento de la Calidad (SAC) y la Ley de Inclusión, bajando desde **+12,15 puntos porcentuales** en 2005–2010 y **+7,82 puntos** en 2011–2015 hasta **+5,29 puntos porcentuales** en 2016–2019 (con sus cotas de **−1,15 a 10,98 puntos**), **+2,70 puntos** en 2020–2022 y **+2,59 puntos** en 2023–2024.
-- **En la serie completa las 19 cohortes estimables de progresión son positivas, sea cual sea la forma de promediarlas:** al dar más peso a los años con mayor número de alumnos afectados (agregado de Callaway y Sant'Anna), la diferencia media es de **+9,11 puntos porcentuales** ([+5,34; +12,88]) y sus cotas de Manski (**+0,43 a +16,21 puntos**) no cruzan cero; al dar el mismo peso a cada año calendario, es de **+7,55 puntos** ([+5,52; +9,57]); y al dar más peso a las cohortes medidas con menor ruido estadístico (varianza inversa, que descuenta una heterogeneidad real entre épocas de I² = 76,48 %), converge a **+5,14 puntos** ([+4,34; +5,95]).
-- **Mayor volumen de datos no reemplaza un experimento aleatorio:** como muestran la alta rotación previa en G−1 (47,04 %) y una pequeña desviación pre-tendencia media en G−2 de −1,49 puntos en la serie larga, cualquier lectura causal estricta requiere evaluar cuánto cambiaría la conclusión si las trayectorias previas de ambos grupos no fuesen perfectamente paralelas (Rambachan y Roth 2023).
+- **La ventana 2016–2019 se fijó antes de ver la serie larga, y no es la que más brecha muestra:** quedó fijada en el diseño de la estimación principal, y la serie larga se estimó después. La brecha de progresión baja de **+12,15 puntos porcentuales** en 2005–2010 y **+7,82** en 2011–2015 a **+5,29** en 2016–2019 (cotas de **−1,15 a 10,98**), **+2,70** en 2020–2022 y **+2,59** en 2023–2024. Esa caída coincide en el tiempo con la SEP, el Sistema de Aseguramiento de la Calidad (SAC) y la Ley de Inclusión, pero no se les puede atribuir: también cambiaron el tipo de escuelas que cierran y la forma de registrar el estado de los colegios en 2015, la promoción flexible de 2020–2022 reduce el rezago de forma mecánica y las muestras se achican.
+- **En la serie completa las 19 cohortes estimables de progresión son positivas, se promedien como se promedien, aunque con mucha heterogeneidad:** al dar más peso a los años con más alumnos afectados (Callaway y Sant'Anna), la diferencia media es de **+9,11 puntos** ([+5,34; +12,88]) y sus cotas de Manski (**+0,43 a +16,21**) apenas excluyen el cero. Con el mismo peso para cada año, es de **+7,55 puntos** ([+5,52; +9,57]). Un modelo de efectos aleatorios, que admite que la brecha varía entre épocas (I² = 76,5 %), da **+6,29 puntos** ([+4,49; +8,09]); su intervalo de predicción, **+0,09 a +12,49**, indica dónde podría caer la brecha de una cohorte nueva. Por régimen, las cotas excluyen el cero en 2005–2010 y 2020–2022, pero lo incluyen en 2011–2015, 2016–2019 y 2023–2024.
+- **Mayor volumen de datos no reemplaza un experimento aleatorio:** en la ventana principal, tres pruebas placebo anteriores al cierre dan diferencias de +0,16, +0,30 y +0,40 puntos en progresión, todas con intervalos que incluyen cero. Eso no prueba que las trayectorias fuesen paralelas, y la serie larga todavía no tiene placebos propios. Además, la exposición se mide un año antes del cierre: quien se fue antes del anuncio queda fuera, y con una rotación previa de 47,04 % esa selección puede pesar. Una lectura causal estricta exige medir cuánto cambiaría la conclusión sin tendencias paralelas (Rambachan y Roth 2023) y con la exposición fijada dos años antes. Ambos análisis siguen pendientes.
 
-¿Podríamos resolver esa selección previa usando una **variable instrumental** —es decir, un empujón externo parecido a un sorteo, como la entrada en operación de los Servicios Locales de Educación Pública (SLEP), el Sistema de Admisión Escolar (SAE) o las caídas demográficas comunales—? No en este diseño: para que un instrumento sea válido debe cumplir la llamada **restricción de exclusión**, que exige que ese factor externo afecte la progresión del alumno *únicamente* porque gatilló el cierre de su escuela y por ninguna otra vía. Esas reformas y cambios demográficos alteran al mismo tiempo los recursos locales, las vacantes disponibles y las decisiones cotidianas de las familias, incumpliendo esa condición. Sin un sorteo o umbral administrativo externo que supere relevancia y exclusión, forzar un modelo instrumental solo fabricaría falsa precisión. Por eso no se ejecuta una regresión instrumental en esta versión.
-{: .text-justify}
 
 ### Qué agrega —y qué no agrega— la literatura
 
@@ -259,6 +230,58 @@ Para quienes cursaban enseñanza media, la trayectoria no termina en la última 
 Que el efecto causal exacto sea inconcluso en la ventana reciente no justifica quedarse de brazos cruzados cuando una escuela cierra. Al contrario: el diagnóstico longitudinal muestra exactamente dónde se pierde el rastro de los estudiantes y qué garantías operativas deben exigirse antes, durante y después de reorganizar una red escolar.
 {: .text-justify}
 
+
+{: .table-caption}
+**Tabla 4.** Información mínima para decidir y evaluar una transición
+
+| Antes de decidir | Durante la transición | Después del cambio |
+|---|---|---|
+| Distinguir establecimiento, sede, nivel, fusión y cambio de Rol Base de Datos (RBD). | Asignar vacantes reales y apoyos a cada estudiante. | Seguir matrícula, asistencia, progresión, notas y bienestar. |
+| Registrar fecha de anuncio y participación de la comunidad. | Medir tiempo de viaje, accesibilidad y continuidad de compañeros. | Observar también a estudiantes y equipos de las receptoras. |
+| Verificar capacidad, dotación y calidad previa de los destinos. | Financiar la carga receptora y la continuidad pedagógica. | Publicar alertas, correcciones y responsabilidades con plazos. |
+{: .table--compact .table--scroll}
+
+La tabla 4 invierte la carga de la prueba frente a un vacío procedimental concreto: cuando la Biblioteca del Congreso Nacional consultó a la Unidad de Reconocimiento Oficial de la SEREMI Metropolitana en qué consistía la "constancia de reubicación de los alumnos" exigida en la pauta administrativa de cierre voluntario, la autoridad precisó que dicho requisito —ausente de la ley y del Decreto Supremo N° 315 de 2010— consistía únicamente en "haber informado a los alumnos alternativas de reubicación de su matrícula", sin verificar si esos establecimientos contaban con vacantes reales ni si los estudiantes lograban matricularse en ellos (Castro Paredes 2013, pág. 2 y nota 1). La autoridad no puede dar por garantizada la continuidad educativa solo porque el sostenedor saliente entregó una lista de colegios cercanos o porque parte del alumnado reapareció matriculado: debe acreditar de antemano vacantes efectivas, transporte seguro, apoyos para estudiantes prioritarios y soporte pedagógico en las escuelas receptoras, y monitorear nominalmente qué pasa con cada estudiante durante al menos dos años.
+{: .text-justify}
+
+## Cierre: seguir trayectorias cambia la pregunta pública
+
+La parte I reconstruyó los cimientos históricos; la parte II depuró qué escuelas cerraron y qué oferta existía alrededor; esta tercera parte siguió a los estudiantes más allá del mapa. El resultado principal de la ventana reciente —un aumento de **5,29 puntos porcentuales** en falla de progresión o rezago— debe leerse siempre junto a sus cotas por datos faltantes de **−1,15 a 10,98 puntos**, y la brecha acumulada de la serie larga (+9,11 puntos en Callaway y Sant'Anna; +6,29 con efectos aleatorios) debe leerse junto a la mayor movilidad y precariedad institucional previa de las escuelas que cierran.
+{: .text-justify}
+
+Un resultado inconcluso sí permite fijar resguardos prudenciales hoy: no tratar la cercanía ni una constancia meramente informativa como continuidad, no reorganizar una red sin verificar cupos y apoyos, y seguir a cada estudiante durante la transición. Estos resguardos no son efectos estimados de esas decisiones. Son el estándar mínimo de cuidado público mientras se consolidan las Resoluciones Exentas de término del Reconocimiento Oficial, las fechas de anuncio, la capacidad receptora y la entrega íntegra de las actas de evaluación y promoción escolar.
+{: .text-justify}
+
+
+<details markdown="1" class="post3-methods">
+<summary>Notas metodológicas: regla de cierre, comparabilidad, serie completa y fuentes</summary>
+
+### Cómo se define un cierre: de la certeza documental a la RCID v1
+
+En la normativa educacional chilena no existe una figura normativa llamada "acta de cierre" que decrete el fin de un colegio. Que un establecimiento quede jurídicamente cerrado —en lenguaje legal, a través de un acto firme y ejecutoriado, es decir, una decisión oficial definitiva contra la cual ya no caben recursos— exige una **Resolución Exenta** dictada por la Secretaría Regional Ministerial (SEREMI) de Educación respectiva que extinga o suspenda su permiso para funcionar (el Reconocimiento Oficial). Esa resolución opera bajo cuatro figuras: receso temporal por un año lectivo, renuncia tácita al Reconocimiento Oficial si el plantel no retoma sus clases tras ese receso, renuncia voluntaria total o parcial al Reconocimiento Oficial (**artículos 25 y 26 del Decreto Supremo N° 315 de 2010 del MINEDUC**; Castro Paredes 2013) o ejecución de la sanción de revocación del Reconocimiento Oficial ordenada por la Superintendencia de Educación (**artículo 73, letra f), de la [Ley N° 20.529](https://www.bcn.cl/leychile/navegar?idNorma=1028635)**).
+{: .text-justify}
+
+¿Están publicadas esas resoluciones para cada colegio del país? Para comprobarlo empíricamente, revisé, en octubre de 2026, el [Portal de Transparencia Activa](https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=AJ001) de la Subsecretaría de Educación (organismo AJ001, sección "Actos y resoluciones con efectos sobre terceras personas"). Entre las **12.509 resoluciones administrativas** y **4.735 resoluciones sancionatorias** disponibles, el repositorio histórico previo a 2018 se encuentra fuera de servicio y, entre 2018 y 2025, las 16 secretarías regionales solo registran **22 resoluciones administrativas** sobre renuncia, receso o cierre de establecimientos —varias de ellas declarando inadmisibles las solicitudes por falta de documentación o regularizando "cierres tácitos" años después de que el colegio dejó de funcionar— y **21 resoluciones sancionatorias únicas** que revocan el Reconocimiento Oficial. Mientras ese catastro nacional no se consolide mediante una solicitud de acceso a la información pública (**Ley N° 20.285**), analizar veinte años de historia escolar exige una regla empírica transparente y falsable —la **Regla de Cierre Escolar Inferido desde los Datos (RCID v1)**— que funciona como tres coladores sucesivos (D0 ⊃ D1 ⊃ D2):
+{: .text-justify}
+
+- **D0 (salida administrativa bruta):** el primer colador detecta toda escuela con matrícula positiva en un año (t−1) que deja de tener matrícula desde t, no reabre hasta 2025 y figura como cerrada en el directorio oficial.
+- **D1 (cierre estricto de oferta):** el segundo colador retira de D0 los anexos o sedes secundarias y los cambios de código identificador —el Rol Base de Datos (RBD)— registrados como sucesores: es decir, las continuidades de directorio.
+- **D2 = RCID v1 (cierre depurado por flujo estudiantil):** el tercer colador aparta los traslados concentrados: escuelas con al menos **10 estudiantes** de base y **10** seguidos al año siguiente, donde un único colegio receptor recibe al menos el **70 %** de los trasladados, con un índice de concentración de destinos (HHI) de al menos **0,50** y el mismo destino principal en t y t+1. Son candidatos a fusión de hecho que piden revisión documental, no pruebas de fusión.
+
+{: .table-caption}
+**Tabla 5.** Jerarquía de la Regla de Cierre Escolar Inferido desde los Datos (RCID v1, D0 ⊃ D1 ⊃ D2) en las tres entregas (2005–2025)
+
+| Estrato de la regla | Ventana histórica (2005–2015) | Ventana reciente (2016–2025) | Serie longitudinal (2005–2025) | Qué depura y cómo se usa en las partes I, II y III |
+|---|---:|---:|---:|---|
+| D0: salida administrativa o de actividad bruta | 1.635 | 346 | 1.981 | Cese de matrícula en t; contrasta con las 2.069 salidas brutas de directorio de 1992–2012 en la parte I. |
+| D1: cierre estricto de oferta educativa | 1.477 | 330 | 1.807 | Depura 158 anexos, sedes o sucesores de RBD históricos y 16 continuidades de directorio recientes (base de la parte II). |
+| D2 = RCID v1 (conservador, incluye censurados de 2025) | 1.382 | 296 | 1.678 | Depura además 95 absorciones históricas y 34 absorciones o alertas de flujo concentradas recientes (≥ 10 estudiantes de base y asignados, ≥ 70 % al destino principal y HHI ≥ 0,50). |
+| D2 = RCID v1 (limpio con ventana t+1 observada) | 1.382 | 266 | 1.648 | Exige además observar el año t+1 completo (excluye los 30 episodios de 2025 censurados a la derecha); base principal de la parte III. |
+{: .table--compact .table--scroll}
+
+La figura 4 resume la cobertura de la auditoría territorial de los 346 episodios de la tabla 1: cuántos tienen historia previa suficiente y cuántas alertas de flujo quedan sin confirmación institucional.
+{: .text-justify}
+
 <figure class="post3-figure data-visualization" id="fig-post3-3">
   <a class="image-popup post3-theme-link" href="{{ '/assets/images/tesis-post3/territorial-audit-es-light.svg' | relative_url }}" data-light-href="{{ '/assets/images/tesis-post3/territorial-audit-es-light.svg' | relative_url }}" data-dark-href="{{ '/assets/images/tesis-post3/territorial-audit-es-dark.svg' | relative_url }}">
     <picture class="post3-theme-picture">
@@ -269,30 +292,63 @@ Que el efecto causal exacto sea inconcluso en la ventana reciente no justifica q
   <figcaption><strong>Figura 4</strong> — Cobertura y límites de la auditoría territorial. Seguimiento longitudinal y alertas de flujo no sustituyen evidencia sobre capacidad, acceso, demografía o decisiones institucionales. <span class="figure-source">Fuente: elaboración propia a partir de directorios MINEDUC y la auditoría longitudinal.</span> <span class="figure-data"><a href="{{ '/assets/images/tesis-post3/territorial-audit-data.csv' | relative_url }}">Datos tabulares accesibles (CSV)</a>.</span></figcaption>
 </figure>
 
-{: .table-caption}
-**Tabla 7.** Información mínima para decidir y evaluar una transición
+### Comparabilidad antes del cierre
 
-| Antes de decidir | Durante la transición | Después del cambio |
-|---|---|---|
-| Distinguir establecimiento, sede, nivel, fusión y cambio de Rol Base de Datos (RBD). | Asignar vacantes reales y apoyos a cada estudiante. | Seguir matrícula, asistencia, progresión, notas y bienestar. |
-| Registrar fecha de anuncio y participación de la comunidad. | Medir tiempo de viaje, accesibilidad y continuidad de compañeros. | Observar también a estudiantes y equipos de las receptoras. |
-| Verificar capacidad, dotación y calidad previa de los destinos. | Financiar la carga receptora y la continuidad pedagógica. | Publicar alertas, correcciones y responsabilidades con plazos. |
+{: .table-caption}
+**Tabla 6.** Similitud observada antes del cierre en la muestra ponderada (2016–2019)
+
+| Característica previa | Estudiantes expuestos | Grupo de comparación | Lectura |
+|---|---:|---:|---|
+| Edad promedio | 11,70 años | 11,70 años | Diferencia estandarizada: 0,000. |
+| Asistencia promedio | 90,93 % | 91,68 % | Diferencia estandarizada: −0,079. |
+| Promedio de notas | 5,62 | 5,67 | Diferencia estandarizada: −0,072. |
+| Registro válido de asistencia y notas | 76,8 % | 96,2 % | Brecha de cobertura: −19,4 pp (proporción observada, sin ponderar). |
 {: .table--compact .table--scroll}
 
-La figura 4 y la tabla 7 invierten la carga de la prueba frente a un vacío procedimental concreto: cuando la Biblioteca del Congreso Nacional consultó a la Unidad de Reconocimiento Oficial de la SEREMI Metropolitana en qué consistía la «constancia de reubicación de los alumnos» exigida en la pauta administrativa de cierre voluntario, la autoridad precisó que dicho requisito —ausente de la ley y del Decreto Supremo N° 315 de 2010— consistía únicamente en «haber informado a los alumnos alternativas de reubicación de su matrícula», sin verificar si esos establecimientos contaban con vacantes reales ni si los estudiantes lograban matricularse en ellos (Castro Paredes 2013, pág. 2 y nota 1). La autoridad no puede dar por garantizada la continuidad educativa solo porque el sostenedor saliente entregó una lista de colegios cercanos o porque parte del alumnado reapareció matriculado: debe acreditar de antemano vacantes efectivas, transporte seguro, convenio SEP activo y soporte pedagógico en las escuelas receptoras, y monitorear nominalmente qué pasa con cada estudiante durante al menos dos años.
+La edad se observa en toda la muestra y coincide por construcción, porque forma parte del pareo exacto. La asistencia y las notas, en cambio, solo pueden compararse entre quienes tienen esos registros; allí la cobertura es 76,8 % entre los expuestos y 96,2 % en el grupo de comparación (una brecha de −19,4 puntos porcentuales; con los controles reponderados al pareo, la brecha es de −19,2, la cifra que usa la figura 3). Aquí aparece un vínculo directo con la norma: el **artículo 27, inciso 2°, del Decreto Supremo N° 315 de 2010** (y el numeral noveno de la Circular N° 1 de 2013 de la Superintendencia de Educación; Castro Paredes 2013) establece que la SEREMI *solo podrá pronunciarse* sobre una solicitud de receso o renuncia al Reconocimiento Oficial una vez que el sostenedor entregue las **actas de evaluación y promoción escolar de todos los alumnos y alumnas**, es decir, la planilla oficial de cierre de año que certifica las notas, la asistencia y quién pasó de curso. Casi uno de cada cuatro estudiantes expuestos (23,2 % frente a 3,8 % en los controles) carece de esa planilla en el año previo al cierre. Es tentador leer ahí un sostenedor que abandona el trámite, pero el patrón no lo confirma por sí solo. El **17 %** de los estudiantes sin acta está en 4 escuelas que no entregaron ninguna, y el **35 %**, en 3 escuelas que entregaron menos de la mitad. Eso es compatible con un cierre administrativo desordenado, como los "cierres tácitos" de Transparencia Activa. El **48 %** restante está disperso en escuelas que sí entregaron la mayoría de sus actas, lo que calza mejor con traslados o retiros a mitad de año. Ninguna de las dos explicaciones está probada, y la tabla 6 no certifica aleatorización ni comparabilidad sociodemográfica completa.
 {: .text-justify}
 
-## Cierre: seguir trayectorias cambia la pregunta pública
+### Por qué la ventana principal es 2016–2019
 
-La parte I reconstruyó los cimientos históricos; la parte II depuró qué escuelas cerraron y qué oferta existía alrededor; esta tercera parte siguió las trayectorias estudiantiles y demostró por qué el mapa no bastaba. El resultado principal de la ventana reciente —un aumento de **5,29 puntos porcentuales** en falla de progresión o rezago— debe leerse siempre junto a sus cotas por datos faltantes de **−1,15 a 10,98 puntos**, y la brecha acumulada de la serie larga (+9,11 puntos en Callaway y Sant'Anna; +5,14 puntos por varianza inversa) debe leerse junto a la mayor movilidad y precariedad institucional previa de las escuelas que cierran.
+Concentrar el corte principal en **2016–2019** no fue una elección arbitraria: responde a que el estado de funcionamiento del directorio oficial se estandarizó desde 2015, a que observar varios años de historia previa dentro de un panel iniciado en 2004 empuja hacia mediados de la década de 2010, a que **2020–2022** estuvo distorsionado por la pandemia de COVID-19 y la promoción flexible, y a que **2024–2025** aún no cuenta con dos años posteriores completos para medir la ausencia persistente de matrícula.
 {: .text-justify}
 
-Un resultado inconcluso sí permite fijar resguardos prudenciales hoy: no tratar la cercanía ni una constancia meramente informativa como continuidad, no reorganizar una red sin verificar cupos y apoyos, y seguir a cada estudiante durante la transición. Estos resguardos no son efectos estimados de esas decisiones. Son el estándar mínimo de cuidado público mientras se consolidan las Resoluciones Exentas de término del Reconocimiento Oficial, las fechas de anuncio, la capacidad receptora y la entrega íntegra de las actas de evaluación y promoción escolar.
+### La serie completa por régimen
+
+{: .table-caption}
+**Tabla 7.** Síntesis de la serie completa 2005–2024 por régimen institucional, rango anual y esquemas de agregación (RCID v1)
+
+| Régimen institucional / Rango / Agregado | Episodios con soporte | Expuestos (N) | Controles (N) | Falla de progresión o rezago (pp) | IC 95 % progresión (pp) | No matrícula persistente 2 años (pp) | IC 95 % no matrícula (pp) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Subagregado 2005–2010 (régimen LOCE e inicio SEP) | 521 | 36.984 | 334.062 | +12,15 | [+3,78; +20,52] | +1,21 | [+0,53; +1,90] |
+| Subagregado 2011–2015 (puesta en marcha LGE y SAC) | 502 | 31.512 | 260.740 | +7,82 | [+6,20; +9,41] | +1,85 | [+1,10; +2,59] |
+| Subagregado 2016–2019 (ventana principal; cotas [−1,15; 10,98] pp) | 63 | 6.190 | 82.753 | +5,29 | [+2,08; +8,51] | +0,63 | [−0,77; +2,03] |
+| Subagregado 2020–2022 (pandemia COVID-19 y promoción flexible) | 33 | 3.272 | 42.457 | +2,70 | [−0,63; +6,03] | −0,28 | [−1,37; +0,81] |
+| Subagregado 2023–2024 (reactivación post-pandemia; 2024 censurado en 2 años) | 22 | 1.014 | 14.460 | +2,59 | [−1,55; +6,73] | −0,93 | [−2,64; +0,78] |
+| **Rango anual (19 cohortes en progresión; 17 en no matrícula)** | **7 a 129** | **357 a 10.261** | **5.566 a 71.248** | **+0,94 a +28,22 (mediana: +7,18)** | **RIQ: +3,15 a +9,62** | **−0,93 a +4,56 (mediana: +0,92)** | **RIQ: +0,22 a +2,11** |
+| **Agregado serie 2005–2024 (Callaway y Sant'Anna, ponderado por expuestos)** | **1.141** | **78.972** | **734.472** | **+9,11** | **[+5,34; +12,88]** | **+1,38** | **[+0,92; +1,85]** |
+| **Agregado serie 2005–2024 (pesos iguales por cohorte anual)** | **1.141** | **78.972** | **734.472** | **+7,55** | **[+5,52; +9,57]** | **+1,03** | **[+0,56; +1,50]** |
+| **Agregado serie 2005–2024 (efectos aleatorios; I² = 76,5 %, τ = 2,81 pp)** | **1.141** | **78.972** | **734.472** | **+6,29** | **[+4,49; +8,09]; predicción [+0,09; +12,49]** | **+0,79** | **[+0,16; +1,42]; predicción [−1,34; +2,92]** |
+{: .table--compact .table--scroll}
+
+Los N de la tabla 7 corresponden al soporte; cada estimación usa el subconjunto con desenlace observable (por ejemplo, 4.815 expuestos en progresión 2016–2019). El agregado de efectos aleatorios (Paule-Mandel, con intervalo de Hartung-Knapp) reemplaza al de varianza inversa de la versión anterior. Ese agregado suponía un efecto común a todas las cohortes, lo que con una heterogeneidad de 76,5 % produce un intervalo artificialmente estrecho. Como las cohortes comparten controles, incluso estos intervalos pueden quedar algo cortos.
 {: .text-justify}
+
+### Por qué no uso una variable instrumental
+
+¿Podría resolverse esa selección previa usando una **variable instrumental** —es decir, un empujón externo parecido a un sorteo, como la entrada en operación de los Servicios Locales de Educación Pública (SLEP), el Sistema de Admisión Escolar (SAE) o las caídas demográficas comunales—? No en este diseño: para que un instrumento sea válido debe cumplir la llamada **restricción de exclusión**, que exige que ese factor externo afecte la progresión del alumno *únicamente* porque gatilló el cierre de su escuela y por ninguna otra vía. Esas reformas y cambios demográficos alteran al mismo tiempo los recursos locales, las vacantes disponibles y las decisiones cotidianas de las familias, incumpliendo esa condición. Sin un sorteo o umbral administrativo externo que supere relevancia y exclusión, forzar un modelo instrumental solo fabricaría falsa precisión. Por eso no se ejecuta una regresión instrumental en esta versión.
+{: .text-justify}
+
+### Fuentes de datos y herramientas
+
+Las bases provienen de los datos abiertos del MINEDUC: [directorio de establecimientos](https://datosabiertos.mineduc.cl/directorio-de-establecimientos-educacionales/), [matrícula por estudiante](https://datosabiertos.mineduc.cl/matricula-por-estudiante-2/) y [rendimiento por estudiante](https://datosabiertos.mineduc.cl/rendimiento-por-estudiante-2/). Las procesé con [DuckDB](https://duckdb.org/) sobre archivos [Apache Parquet/Arrow](https://arrow.apache.org/), y estimé en Python con [pandas](https://pandas.pydata.org/), [SciPy](https://scipy.org/) y [statsmodels](https://www.statsmodels.org/stable/index.html), incluido el meta-análisis de efectos aleatorios. El marco legal de la SEP y de la Ley de Inclusión está en las leyes [N° 20.248](https://www.bcn.cl/leychile/Navegar/index_html?idNorma=269001&idVersion=) y [N° 20.845](https://www.bcn.cl/leychile/Navegar?idNorma=1078172&idParte=9605200&idVersion=2222-02-02).
+{: .text-justify}
+
+</details>
 
 ### Transparencia y alcance de las fuentes
 
-La tesis original y esta serie de extensión son de mi autoría, al igual que la coautoría del documento de trabajo de 2014; por ello no constituyen una réplica externa independiente y mantienen separadas la reconstrucción histórica y la reestimación actual. No recibí financiamiento externo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó ni revisó este análisis; las opiniones y conclusiones son de mi exclusiva responsabilidad. Utilicé asistentes de inteligencia artificial para apoyar programación reproducible, búsqueda bibliográfica, validación estadística y edición; toda decisión metodológica y verificación factual es propia.
+La tesis original y esta serie de extensión son de mi autoría, al igual que la coautoría del documento de trabajo de 2014; por ello no constituyen una réplica externa independiente y mantienen separadas la reconstrucción histórica y la reestimación actual. No recibí financiamiento externo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó ni revisó este análisis; las opiniones y conclusiones son de mi exclusiva responsabilidad. Utilicé asistentes de inteligencia artificial para apoyar programación reproducible, búsqueda bibliográfica, validación estadística y edición; toda decisión metodológica y verificación factual es propia. El código del análisis vive en un repositorio privado de la tesis y todavía no es público; las cifras agregadas de cada figura están en los CSV abiertos que acompañan a cada una.
 {: .text-justify}
 
 ---

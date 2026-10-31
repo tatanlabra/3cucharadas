@@ -21,9 +21,9 @@ What emerged is a lesson in why honest bounds matter more than tidy point estima
 
 Before measuring what happens to students after a closure, you have to make sure the school genuinely closed. In massive administrative directories, school identifiers—called `RBD` (*Rol Base de Datos*) in Chile—often vanish because of paperwork changes, annex consolidations, or *de facto* mergers where an entire student body walks into a new building together.
 
-Across the full 2005–2025 panel, **1,981 schools** recorded positive enrolment one year and zero the next (**D0**). Filtering out subsequent reopenings and administrative continuities leaves **1,807 strict closures** (**D1**, including **330** in the 2016–2025 decade).
+Across the full 2005–2025 panel, **1,981 schools** recorded positive enrolment one year and zero the next (**D0**). Filtering out annexes, secondary sites, and registered RBD successors leaves **1,807 strict closures** (**D1**, including **330** in the 2016–2025 decade).
 
-To separate genuine student dispersion from reorganisations where classmates move together, we introduced the **Data-Inferred School Closure Rule (`RCID v1`, D2)**: a school exit counts as a dispersed data-inferred closure only if it had at least 5 trackable students prior to closure and no single receiving school absorbed **70% or more** (and at least **15 students**) of its displaced pupils. That rule leaves **1,678 closures** across twenty years (**1,648** with a fully observed post-closure year).
+To separate genuine student dispersion from reorganisations where classmates move together, we introduced the **Data-Inferred School Closure Rule (`RCID v1`, D2)**: a school exit counts as a dispersed data-inferred closure unless it shows a concentrated transfer: at least **10** baseline and **10** tracked students, **70% or more** of them going to a single receiving school, a destination concentration index (HHI) of at least **0.50**, and the same main destination two years running. That rule leaves **1,678 closures** across twenty years (**1,648** with a fully observed post-closure year).
 
 ---
 
@@ -62,9 +62,9 @@ Nearly half of displaced students were already experiencing school instability b
 Was the 2016–2019 window an outlier? Using **Callaway and Sant'Anna (2021)** staggered difference-in-differences across all **20 annual cohorts from 2005 to 2024** under `RCID v1` (**1,141** supported closures, **78,972** exposed observations, and **734,472** controls), we found the exact opposite:
 - Across Chile’s successive institutional regimes, the post-closure progression gap attenuated steadily: from **+12.15 percentage points** in **2005–2010** (521 closures) and **+7.82 points** in **2011–2015** (502 closures) to **+5.29 points** in **2016–2019** (63 closures; bounds **−1.15 to 10.98 pp**), **+2.70 points** during the **2020–2022** pandemic, and **+2.59 points** in **2023–2024**.
 - All **19 estimable annual progression cohorts (2006–2024)** are positive (ranging from **+0.94** to **+28.22 points**, median **+7.18**).
-- The full-series Callaway and Sant'Anna exposed-weighted aggregate is **+9.11 percentage points** (95% CI: **+5.34 to +12.88**), with Manski bounds of **+0.43 to +16.21 points** that do not cross zero, while inverse-variance precision weighting (*I*² = 76.48%) yields **+5.14 points** (**+4.34 to +5.95**).
+- The full-series Callaway and Sant'Anna exposed-weighted aggregate is **+9.11 percentage points** (95% CI: **+5.34 to +12.88**), with Manski bounds of **+0.43 to +16.21 points** that barely exclude zero, while a random-effects model (*I*² = 76.5%) yields **+6.29 points** (**+4.49 to +8.09**; prediction interval **+0.09 to +12.49**).
 
-Even so, because closing schools already suffered from higher prior turnover and a **−1.49 point** pre-trend gap at *G*−2 in the long series (**Rambachan and Roth 2023**), and because policy reforms like Local Public Education Services (`SLEP`) or centralized admissions (`SAE`) directly affect seats and resources (failing the instrumental-variable exclusion restriction, so no instrumental-variable regression is run in this version), observational scale cannot substitute for a randomised design.
+Even so, because closing schools already suffered from higher prior turnover and the long series still lacks placebo tests (formal sensitivity to non-parallel trends, **Rambachan and Roth 2023**, remains pending), and because policy reforms like Local Public Education Services (`SLEP`) or centralized admissions (`SAE`) directly affect seats and resources (failing the instrumental-variable exclusion restriction, so no instrumental-variable regression is run in this version), observational scale cannot substitute for a randomised design.
 
 ---
 
