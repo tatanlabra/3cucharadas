@@ -63,6 +63,9 @@ navegadores. Cambiar la URL sí, porque una URL nueva no está cacheada en ningu
 parte. El HTML se sirve con `max-age=600` y sin caché de borde, de modo que la
 referencia nueva se propaga en minutos.
 {%- endcomment -%}
+<link rel="preload" href="{{ '/assets/fonts/fira-sans/FiraSans-Regular-sub.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/fira-sans/FiraSans-Medium-sub.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/fira-sans/FiraSans-Bold-sub.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {%- comment -%}Font Awesome Free 6.7.2 autohospedado y reducido a los íconos usados
 (scripts/build_fontawesome_subset.py; antes ~315 KB desde cdnjs). Hoja de ~9 KB:
