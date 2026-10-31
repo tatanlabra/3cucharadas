@@ -348,11 +348,16 @@
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mz73hicfga2l
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mz73hk7ljs2n
     resultado_30d:
+  - plataforma: devto
+    fecha: '2026-10-31'
+    devto_article_id: 4954537
+    url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-part-iv-from-a-terminal-trident-to-an-autopoietic-loop-13fk-temp-slug-1627559
+    estado: borrador
 - slug: jueces-locales-cpu-laya-vega-arc
   ref_interno: jueces-locales-cpu-laya-vega-arc
   url_canonica: https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
-  titulo_usado: 'Tres jueces locales en CPU en 3 cucharadas: cuando uno miente, dos
-    votan'
+  titulo_usado: 'Un comité de tres jueces pequeños en CPU: cuándo votar mejora una
+    decisión y cuándo solo la paraliza'
   publicaciones:
   - plataforma: mastodon
     fecha: 2026-10-31
@@ -364,3 +369,8 @@
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mz73kmfrps2i
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mz73knyw5y2o
     resultado_30d:
+  - plataforma: devto
+    fecha: '2026-10-31'
+    devto_article_id: 4954532
+    url_publicada: https://dev.to/tatanlabra/a-three-judge-committee-on-cpu-when-voting-improves-a-decision-and-when-it-only-paralyzes-it-3922-temp-slug-9212715
+    estado: borrador
