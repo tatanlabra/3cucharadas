@@ -202,6 +202,7 @@ module JekyllToDevto
   def transform_unfenced(markdown, site_url:, canonical_url:, page:, youtube_id:, warnings:)
     markdown = transform_video_figures(markdown, site_url:, canonical_url:, youtube_id:)
     markdown = flatten_picture_elements(markdown)
+    markdown = strip_footnote_marks_in_details(markdown)
     markdown = replace_loose_videos(markdown, site_url:, canonical_url:)
     output = +""
     in_math = false
@@ -590,6 +591,15 @@ module JekyllToDevto
   # DEV.to descarta el bloque <picture> entero, con su <img> adentro (medido el
   # 2026-10-31: avalúo publicaba 2 de 4 figuras y nushell 0 de 1). Se conserva
   # solo el <img>; las variantes <source> (WebP, móvil) no tienen equivalente allá.
+  # DEV.to procesa el Markdown de un <details> aparte, sin las definiciones de las
+  # notas, y la marca queda literal. Se quita la marca y se conserva la cita.
+  DETAILS = %r{<details\b[^>]*>.*?</details>}mi.freeze
+  FOOTNOTE_MARK = /\[\^[^\]\s]+\](?!:)/.freeze
+
+  def strip_footnote_marks_in_details(markdown)
+    markdown.gsub(DETAILS) { |block| block.gsub(FOOTNOTE_MARK, "") }
+  end
+
   PICTURE = %r{<picture\b[^>]*>(.*?)</picture>}mi.freeze
   IMG_TAG = /<img\b[^>]*>/mi.freeze
 
@@ -607,6 +617,12 @@ module JekyllToDevto
   # enlazado al canónico, igual que transform_video_figures.
   LOOSE_VIDEO = %r{<video\b([^>]*)>(.*?)</video>}mi.freeze
 
+  # «{{ '/ruta' | relative_url }}» → «/ruta». Sin esto, absolute_url anteponía el
+  # dominio al Liquid y, al resolverse después, quedaba duplicado.
+  def liquid_path(value)
+    value.to_s[/\A\s*\{\{\s*['"]([^'"]+)['"]\s*\|\s*(?:relative|absolute)_url\s*\}\}\s*\z/, 1] || value
+  end
+
   def replace_loose_videos(markdown, site_url:, canonical_url:)
     markdown.gsub(LOOSE_VIDEO) do
       raw_attributes = Regexp.last_match(1).to_s
@@ -617,7 +633,7 @@ module JekyllToDevto
       poster = attributes["poster"].to_s
       raise TransformError, "<video> sin <img> de respaldo ni póster: DEV.to no lo mostraría" if poster.empty?
 
-      poster = poster[/\{\{\s*['"]([^'"]+)['"]/, 1] || poster
+      poster = liquid_path(poster)
       alt = attributes["aria-label"] || "Video demonstration"
       "[![#{alt}](#{absolute_url(poster, site_url, force_relative: true)})](#{canonical_url})"
     end
@@ -633,7 +649,7 @@ module JekyllToDevto
       if youtube_id
         parts << "{% youtube #{youtube_id} %}"
       elsif poster
-        poster_url = absolute_url(poster, site_url, force_relative: true)
+        poster_url = absolute_url(liquid_path(poster), site_url, force_relative: true)
         parts << "[![#{alt}](#{poster_url})](#{canonical_url})"
         parts << "*Watch the full video demo on [3cucharadas.cl](#{canonical_url}).*"
       end

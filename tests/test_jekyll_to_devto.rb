@@ -88,6 +88,44 @@ class JekyllToDevtoTest < Minitest::Test
     assert_includes result, "[![Recorrido](#{SITE_URL}/poster.png)](#{CANONICAL_URL})"
   end
 
+  # El póster de un <figure><video> venía como Liquid y salía con el dominio dos
+  # veces (https://3cucharadas.cl/https://3cucharadas.cl/…): medido el 2026-10-31
+  # en autopoiesis IV, dos imágenes rotas en DEV.to.
+  def test_video_figure_poster_with_liquid_is_absolutized_once
+    source = <<~MARKDOWN
+      <figure class="video">
+        <video controls poster="{{ '/assets/poster.webp' | relative_url }}" aria-label="Recorrido">
+          <source src="{{ '/assets/v.mp4' | relative_url }}" type="video/mp4">
+        </video>
+        <figcaption>Pie</figcaption>
+      </figure>
+    MARKDOWN
+    result = transform(source)
+    assert_includes result, "[![Recorrido](#{SITE_URL}/assets/poster.webp)](#{CANONICAL_URL})"
+    refute_includes result, "#{SITE_URL}/#{SITE_URL}"
+    refute_match(%r{3cucharadas\.cl/https?:}, result)
+  end
+
+  # DEV.to procesa el Markdown de un <details> aparte, sin las definiciones de las
+  # notas: la marca quedaba literal («2026[^xu2026]»). Dentro de <details> se quita
+  # la marca y se conserva la cita autor-año.
+  def test_footnote_marks_inside_details_are_removed
+    source = <<~MARKDOWN
+      Texto (Xu et al. 2026[^xu2026]).
+
+      <details markdown="1">
+      <summary>Más</summary>
+      Repaso (Xu et al. 2026[^xu2026]).
+      </details>
+
+      [^xu2026]: Xu. 2026. Título.
+    MARKDOWN
+    result = transform(source)
+    assert_includes result, "Texto (Xu et al. 2026[^xu2026])."
+    assert_includes result, "Repaso (Xu et al. 2026)."
+    assert_includes result, "[^xu2026]: Xu. 2026. Título."
+  end
+
   def test_keeps_a_liquid_tag_whole_when_its_arguments_contain_inline_code
     source = <<~MARKDOWN
       {% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="Tooltip" caption="**Figure 2** — the `OFICIAL` badge next to the `LOCAL` one." %}
