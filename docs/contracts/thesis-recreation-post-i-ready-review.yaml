@@ -2,6 +2,18 @@ id: thesis-recreation-post-i-ready-review
 version: 10
 authorization: "Publicación bilingüe autorizada por el autor el 2026-09-27: commit selectivo, push explícito a GitLab y GitHub y despliegue; difusión social y hooks de post-publicación en pausa."
 status_target: READY_FOR_PUBLICATION_NO_DISTRIBUTION
+lifecycle:
+  status: complete
+  closed_by_commit: 81c7449b
+  closed_at: 2026-09-27
+  reason: >-
+    Contrato de la etapa de borrador: validó el estado listo para publicar del
+    2026-09-27. El post siguió evolucionando por cambios editoriales autorizados
+    (cápsula de audio b366563e, apertura de difusión 8f5e29eb, regla RCID v1
+    a3551775, CI cddc7df5, referencias y notas al pie fbc9d87a), así que comparar
+    el árbol actual con este contrato mide deriva esperada, no un defecto. Para
+    evaluar igual el árbol actual: --current. Rebasar el contrato a una v11 es una
+    decisión editorial pendiente del autor.
 scope:
   documents:
     es: _posts/2026-08-29-replica-tesis-establecimientos-educacionales.md

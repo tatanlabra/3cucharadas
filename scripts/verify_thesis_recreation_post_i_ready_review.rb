@@ -11,7 +11,7 @@ require "tmpdir"
 require "yaml"
 
 def options
-  result = { root: Pathname.pwd, staged: false, external_papers: nil, thesis_root: nil, self_test: false }
+  result = { root: Pathname.pwd, staged: false, external_papers: nil, thesis_root: nil, self_test: false, current: false }
   OptionParser.new do |parser|
     parser.banner = "Usage: verify_thesis_recreation_post_i_ready_review.rb [options]"
     parser.on("--root PATH") { |value| result[:root] = Pathname(value) }
@@ -19,6 +19,7 @@ def options
     parser.on("--external-papers PATH") { |value| result[:external_papers] = Pathname(value).expand_path }
     parser.on("--thesis-root PATH") { |value| result[:thesis_root] = Pathname(value).expand_path }
     parser.on("--self-test") { result[:self_test] = true }
+    parser.on("--current", "Evaluar el árbol actual aunque el contrato esté completo") { result[:current] = true }
   end.parse!
   result
 end
@@ -976,6 +977,17 @@ if settings.fetch(:self_test)
     self_test(root, thesis_root: settings.fetch(:thesis_root))
   end
   puts JSON.pretty_generate(result)
+  exit 0
+end
+# Un contrato completo validó un estado ya cerrado (lifecycle.closed_by_commit).
+# Sin --current no se compara contra el árbol actual: eso mide deriva esperada.
+lifecycle = yaml(root.join("docs/contracts/thesis-recreation-post-i-ready-review.yaml")).fetch("lifecycle", {}) || {}
+if lifecycle["status"] == "complete" && !settings.fetch(:current) && !settings.fetch(:staged)
+  closed = lifecycle["closed_by_commit"].to_s
+  raise "contrato completo sin closed_by_commit" unless closed.match?(/\A\h{7,40}\z/)
+
+  puts JSON.pretty_generate({ "contract" => "docs/contracts/thesis-recreation-post-i-ready-review.yaml", "status" => "complete",
+                              "closed_by_commit" => closed, "note" => "contrato de etapa cerrada; usar --current para evaluar el árbol actual" })
   exit 0
 end
 errors = if settings.fetch(:staged)
