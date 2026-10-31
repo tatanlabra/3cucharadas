@@ -1,32 +1,32 @@
 {
  "schema": "font-subsets-v1",
  "generated_by": "scripts/build_font_subsets.py",
- "text_ranges": "U+0000-00FF,U+0100-017F,U+0131,U+0152-0153,U+02B0-02FF,U+0300-036F,U+0370-03FF,U+2000-206F,U+2070-209F,U+20AC,U+2100-214F,U+2190-21FF,U+2200-22FF,U+2300-23FF,U+25A0-25FF,U+2600-26FF,U+2700-27BF,U+2900-297F",
+ "text_ranges": "U+0000-00FF,U+0100-017F,U+0131,U+0152-0153,U+02B0-02FF,U+0300-036F,U+0370-03FF,U+2000-206F,U+2070-209F,U+20AC,U+2100-214F,U+2190-21FF,U+2200-22FF,U+2300-23FF,U+25A0-25FF,U+2600-26FF,U+2700-27BF,U+2900-297F,U+1F310",
  "code_ranges": "U+0000-00FF,U+0100-017F,U+0300-036F,U+2000-206F,U+2190-21FF,U+2200-22FF,U+2500-257F,U+2580-259F,U+25A0-25FF",
  "files": {
   "assets/fonts/fira-sans/FiraSans-Light-sub.woff2": {
-   "sha256": "5a8489d53e6a1294aaaa1b6498f6e7743befd66949740ff7ac0585f6115142c8",
-   "bytes": 61660,
+   "sha256": "aaa145c83035be983e9dd73f2a9c17075113ec775412421cf5820863571baef2",
+   "bytes": 64292,
    "source_bytes": 151008
   },
   "assets/fonts/fira-sans/FiraSans-Regular-sub.woff2": {
-   "sha256": "88549f2785ee2a726a21c70f91abd13ceec765e341a1ba94b4e4e1f562a9b9f2",
-   "bytes": 61812,
+   "sha256": "19d43e0b79b85d9ff1991dc5bea01dcd5991ae08376b23d442c2571096decf74",
+   "bytes": 64472,
    "source_bytes": 150596
   },
   "assets/fonts/fira-sans/FiraSans-Italic-sub.woff2": {
-   "sha256": "74d9df412e9422db3f94321517ec5628b8c932875bd4b86198ba73d7fa3d3bff",
-   "bytes": 65924,
+   "sha256": "c37b0de8a8ef49474831f71da492b17023194c01d2eddfcefb4d43bae685bb91",
+   "bytes": 68388,
    "source_bytes": 157932
   },
   "assets/fonts/fira-sans/FiraSans-Medium-sub.woff2": {
-   "sha256": "a288ee1eb6c6d0c1cc5f3cfa9d3c1a60d31096bd3941fa556e1d7df648338735",
-   "bytes": 63104,
+   "sha256": "8158c07d7d748baf820fd8c05710a522abb17ebab69855e0d83b040d5e794698",
+   "bytes": 65824,
    "source_bytes": 155208
   },
   "assets/fonts/fira-sans/FiraSans-Bold-sub.woff2": {
-   "sha256": "00955c633aff6cafd554cf287668568745fe205ca190c9644918c357acda9db7",
-   "bytes": 65660,
+   "sha256": "3461685b86f99fc33d6cbda1bbc3aec317a7382a0307d15e7d1e8f43fe301d62",
+   "bytes": 68072,
    "source_bytes": 162064
   },
   "assets/fonts/firacode-nerd/FiraCodeNerdFont-Regular-sub.woff2": {
@@ -376,6 +376,10 @@
    [
     10145,
     10145
+   ],
+   [
+    127760,
+    127760
    ]
   ],
   "firacode-nerd": [
