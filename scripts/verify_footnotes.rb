@@ -15,6 +15,8 @@
 #
 # Uso: bundle exec ruby scripts/verify_footnotes.rb [--site _site] [archivo.md ...]
 
+require "date"
+require "time"
 require "kramdown"
 require "kramdown-parser-gfm"
 require "yaml"
