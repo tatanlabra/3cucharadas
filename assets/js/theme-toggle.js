@@ -119,11 +119,21 @@
 
     // Las láminas oscuras pierden contraste sobre el papel blanco. La vista
     // impresa usa temporalmente el arte claro y luego restaura el tema elegido.
+    // El apéndice metodológico plegado también se imprime: se abre antes de imprimir y
+    // se restaura después solo si estaba cerrado.
+    var appendicesOpenedForPrint = [];
     window.addEventListener("beforeprint", function () {
       updatePost3Visuals(LIGHT_THEME);
+      appendicesOpenedForPrint = Array.prototype.filter.call(
+        document.querySelectorAll("details.post3-methods"),
+        function (node) { return !node.open; }
+      );
+      appendicesOpenedForPrint.forEach(function (node) { node.open = true; });
     });
     window.addEventListener("afterprint", function () {
       updatePost3Visuals(normalizeTheme(root.getAttribute("data-theme")));
+      appendicesOpenedForPrint.forEach(function (node) { node.open = false; });
+      appendicesOpenedForPrint = [];
     });
   }
 

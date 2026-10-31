@@ -45,7 +45,11 @@ class VerifyThesisPost3Test < Minitest::Test
     "safeguards-causal-promotion" => "resguardos prudenciales promovidos a efecto",
     "effective-clusters-drift" => "clusters efectivos ausentes",
     "iv-promotion" => "rechazo editorial de IV ausente",
-    "series-regime-drift" => "evidencia RCID v1 o serie 2005-2024 ausente"
+    "series-regime-drift" => "evidencia RCID v1 o serie 2005-2024 ausente",
+    "random-effects-drift" => "agregado de efectos aleatorios ausente",
+    "fixed-effect-reintroduced" => "agregado de efecto fijo reintroducido",
+    "appendix-removed" => "apéndice metodológico ausente o duplicado",
+    "appendix-overflow" => "apéndice metodológico fuera de extensión"
   }.freeze
 
   def run_gate(fixture = nil)

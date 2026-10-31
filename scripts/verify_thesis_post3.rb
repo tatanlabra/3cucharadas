@@ -20,6 +20,10 @@ class ThesisPost3Verifier
   }.freeze
   RECEIPT = "docs/contracts/evidence/post3-scientific-release-v3_1.json"
   SERIES_ARTIFACT = "assets/data/tesis-post3/post3_full_series_did_2004_2025_v1.json"
+  # Auditoría 2026-10-31: el agregado de varianza inversa (efecto fijo, I² 76,5 %) se
+  # reemplazó por efectos aleatorios; las cifras se leen del artefacto, no se escriben aquí.
+  AUDIT_LIGHT_ARTIFACT = "assets/data/tesis-post3/post3_audit_light_v1.json"
+  APPENDIX_WORD_RANGE = (800..2_600).freeze
   CANONICAL_FIGURES = %w[sample-flow post-pilot-reestimation cohort-series-infographic territorial-audit].freeze
   FIGURE_VARIANTS = %w[light dark light-mobile dark-mobile].freeze
   FIGURE_FORMATS = %w[svg png].freeze
@@ -501,12 +505,32 @@ class ThesisPost3Verifier
     raise ThesisPost3Error, "artefacto gobernado de serie 2005-2024 ausente: #{series_path}" unless series_path.file?
 
     rcid_claims = if lang == "es"
-                    ["RCID v1", "1.981", "1.807", "1.678", "1.648", "1.141", "78.972", "734.472", "+12,15", "+7,82", "+2,70", "+2,59", "+9,11", "+0,43", "+16,21", "+5,14", "30,68 %", "47,04 %"]
+                    ["RCID v1", "1.981", "1.807", "1.678", "1.648", "1.141", "78.972", "734.472", "+12,15", "+7,82", "+2,70", "+2,59", "+9,11", "+0,43", "+16,21", "30,68 %", "47,04 %"]
                   else
-                    ["RCID v1", "1,981", "1,807", "1,678", "1,648", "1,141", "78,972", "734,472", "+12.15", "+7.82", "+2.70", "+2.59", "+9.11", "+0.43", "+16.21", "+5.14", "30.68%", "47.04%"]
+                    ["RCID v1", "1,981", "1,807", "1,678", "1,648", "1,141", "78,972", "734,472", "+12.15", "+7.82", "+2.70", "+2.59", "+9.11", "+0.43", "+16.21", "30.68%", "47.04%"]
                   end
     missing_rcid = rcid_claims.reject { |claim| body.include?(claim) }
     raise ThesisPost3Error, "evidencia RCID v1 o serie 2005-2024 ausente #{lang}: #{missing_rcid.join(', ')}" unless missing_rcid.empty?
+
+    verify_random_effects_pooling(lang, body)
+  end
+
+  def verify_random_effects_pooling(lang, body)
+    light_path = @root.join(AUDIT_LIGHT_ARTIFACT)
+    raise ThesisPost3Error, "artefacto de análisis livianos ausente: #{light_path}" unless light_path.file?
+
+    meta = JSON.parse(light_path.read).dig("meta_analysis", "grade_progression_or_lag")
+    random = meta.fetch("random_effects_pm")
+    claims = %w[estimate ci_lower ci_upper prediction_interval_lower prediction_interval_upper].map do |key|
+      localized_decimal(random.fetch(key) * 100, lang, decimals: 2)
+    end
+    missing = claims.reject { |claim| body.match?(/(?<![\d.,])#{Regexp.escape(claim)}(?!\d)/) }
+    raise ThesisPost3Error, "agregado de efectos aleatorios ausente #{lang}: #{missing.join(', ')}" unless missing.empty?
+
+    fixed = localized_decimal(meta.dig("fixed_effect_reproduced", "estimate") * 100, lang, decimals: 2)
+    if body.match?(/(?<![\d.,])#{Regexp.escape(fixed)}(?!\d)/)
+      raise ThesisPost3Error, "agregado de efecto fijo reintroducido #{lang}: #{fixed}"
+    end
   end
 
   def verify_policy_safeguards(lang, body)
@@ -582,11 +606,27 @@ class ThesisPost3Verifier
     return unless lang == "es"
 
     article = body.sub(/\n## Referencias\n.*/m, "")
-    article = article.gsub(/<!--.*?-->/m, " ").gsub(/<[^>]+>/, " ")
-                     .gsub(/\{:[^}]+\}/, " ").gsub(/\{\{.*?\}\}/, " ")
-                     .gsub(/[|#*_>`~-]/, " ")
-    words = article.scan(/[[:alpha:]À-ÿ0-9]+/).length
+    # El detalle metodológico va en un único apéndice plegable con su propio
+    # presupuesto: el cuerpo conserva el techo de 5.500 palabras y el apéndice no
+    # puede crecer sin límite ni vaciarse.
+    appendices = article.scan(/<details\b.*?<\/details>/mi)
+    raise ThesisPost3Error, "apéndice metodológico ausente o duplicado #{lang}" unless appendices.length == 1
+
+    main = article.gsub(/<details\b.*?<\/details>/mi, " ")
+    words = visible_word_count(main)
     raise ThesisPost3Error, "extensión visible ES fuera de 3.000–5.500 palabras: #{words}" unless (3_000..5_500).cover?(words)
+
+    appendix_words = visible_word_count(appendices.first)
+    unless APPENDIX_WORD_RANGE.cover?(appendix_words)
+      raise ThesisPost3Error, "apéndice metodológico fuera de extensión #{lang}: #{appendix_words}"
+    end
+  end
+
+  def visible_word_count(text)
+    text.gsub(/<!--.*?-->/m, " ").gsub(/<[^>]+>/, " ")
+        .gsub(/\{:[^}]+\}/, " ").gsub(/\{\{.*?\}\}/, " ")
+        .gsub(/[|#*_>`~-]/, " ")
+        .scan(/[[:alpha:]À-ÿ0-9]+/).length
   end
 
   def verify_pair(documents)
@@ -760,7 +800,7 @@ class ThesisPost3Verifier
     when "progression-definition-narrowing"
       replace_all!(documents, "es", /sin matrícula o (?:con avance inferior|bajo) al? curso esperado al año siguiente/i, "no promoción o rezago escolar", fixture)
     when "comparability-age-coverage"
-      replace_all!(documents, "en", /Age is observed for the full sample\./i, "Age is observed only for students with performance records.", fixture)
+      replace_all!(documents, "en", /Age is observed for the full sample/i, "Age is observed only for students with performance records", fixture)
     when "safeguards-causal-promotion"
       replace_all!(documents, "es", /Estos resguardos no son efectos estimados de esas decisiones\./i, "Estas decisiones reducen los efectos del cierre.", fixture)
     when "effective-clusters-drift"
@@ -769,6 +809,16 @@ class ThesisPost3Verifier
       replace_all!(documents, "es", "no se ejecuta una regresión instrumental en esta versión", "se ejecuta una regresión instrumental en esta versión", fixture)
     when "series-regime-drift"
       replace_all!(documents, "es", "+12,15", "+5,97", fixture)
+    when "random-effects-drift"
+      replace_all!(documents, "es", /\+6,29(?!\d)/, "+6,92", fixture)
+      replace_all!(documents, "en", /\+6\.29(?!\d)/, "+6.92", fixture)
+    when "fixed-effect-reintroduced"
+      replace_all!(documents, "es", /reemplaza al de varianza inversa de la versión anterior/, "reemplaza al de varianza inversa (+5,14) de la versión anterior", fixture)
+    when "appendix-removed"
+      replace_all!(documents, "es", /<details\b[^>]*>/, "", fixture)
+      replace_all!(documents, "es", %r{</details>}, "", fixture)
+    when "appendix-overflow"
+      replace_all!(documents, "es", "<summary>", "<summary>#{'relleno ' * 3_000}", fixture)
     else
       raise ThesisPost3Error, "fixture desconocido: #{fixture}"
     end

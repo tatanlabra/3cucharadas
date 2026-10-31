@@ -29,8 +29,8 @@ const titles = {
   en: 'Extending my thesis in three spoonfuls (part III)'
 };
 const headingNeedles = {
-  es: ['Cucharada 1', 'Cucharada 2', '¿Estamos comparando peras con peras?', 'Educación superior: una pregunta que queda abierta', 'Cucharada 3', 'Referencias'],
-  en: ['Spoonful 1', 'Spoonful 2', 'Are we comparing like with like?', 'Higher education: an open question', 'Spoonful 3', 'References']
+  es: ['Cucharada 1', 'Cucharada 2', '¿Se comparan peras con peras?', 'Educación superior: una pregunta que queda abierta', 'Cucharada 3', 'Referencias'],
+  en: ['Spoonful 1', 'Spoonful 2', 'Is like being compared with like?', 'Higher education: an open question', 'Spoonful 3', 'References']
 };
 const viewports = [
   { width: 320, height: 800 },
@@ -255,6 +255,22 @@ const playwright = createRequire(import.meta.url)(playwrightPath);
 const browserExecutable = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
   || ['/usr/bin/chromium', '/usr/bin/brave', '/usr/bin/google-chrome-stable'].find(existsSync);
 
+// Auditoría 2026-10-31: el detalle metodológico (con la figura 4) vive en un único
+// <details class="post3-methods"> plegado. El contrato visual se evalúa con el apéndice
+// abierto, y en pantalla debe venir cerrado por defecto: si no, no es un apéndice.
+async function openMethodsAppendix(page) {
+  const appendix = page.locator('details.post3-methods');
+  if (await appendix.count() !== 1) return { present: false, closedByDefault: false };
+  const closedByDefault = await page.locator('details.post3-methods[open]').count() === 0;
+  // Teclado, no ratón: un clic deja a Chromium sin :focus-visible para el resto de
+  // las comprobaciones de foco. Enter sobre <summary> abre el <details> sin JavaScript.
+  // Se abre fijando el atributo: un clic o un Enter cambian el foco y el scroll, y
+  // con ello la estabilidad de las figuras y el :focus-visible que se mide después.
+  if (closedByDefault) await appendix.evaluate((node) => { node.open = true; });
+  await page.locator('details.post3-methods[open]').waitFor({ state: 'attached' });
+  return { present: true, closedByDefault };
+}
+
 async function inspectPage(browser, locale, route, theme, viewport) {
   const context = await browser.newContext({ viewport, reducedMotion: 'reduce' });
   await context.addInitScript(
@@ -277,6 +293,9 @@ async function inspectPage(browser, locale, route, theme, viewport) {
       timeout: 30_000
     });
     await page.evaluate(() => document.fonts.ready);
+    const appendix = await openMethodsAppendix(page);
+    if (!appendix.present) criticalErrors.push('appendix:missing');
+    else if (!appendix.closedByDefault) criticalErrors.push('appendix:open-by-default');
     const figures = page.locator('figure.post3-figure');
     for (let index = 0; index < await figures.count(); index += 1) {
       await figures.nth(index).scrollIntoViewIfNeeded();
@@ -502,6 +521,7 @@ async function inspectNoJs(browser, locale, route) {
   const page = await context.newPage();
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
+    await openMethodsAppendix(page);
     const figures = page.locator('figure.post3-figure');
     for (let index = 0; index < await figures.count(); index += 1) {
       await figures.nth(index).scrollIntoViewIfNeeded();
@@ -534,6 +554,9 @@ async function inspectPrint(browser, locale, route, theme) {
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 4);
+    // La impresión debe abrir el apéndice por sí sola (theme-toggle.js, beforeprint).
+    await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+    await page.locator('details.post3-methods[open]').waitFor({ state: 'attached', timeout: 5_000 });
     const printFigures = page.locator('figure.post3-figure');
     for (let index = 0; index < await printFigures.count(); index += 1) {
       await printFigures.nth(index).scrollIntoViewIfNeeded();
@@ -584,6 +607,7 @@ async function inspectTextResize(browser, locale, route) {
   const page = await context.newPage();
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
+    await openMethodsAppendix(page);
     const baseline = await page.evaluate(() => {
       const article = document.querySelector('.page__content');
       if (!article) return [];
@@ -666,6 +690,7 @@ async function inspectPreference(browser, locale, route, theme, preference) {
   const page = await context.newPage();
   try {
     const response = await page.goto(baseUrl + route, { waitUntil: 'domcontentloaded' });
+    await openMethodsAppendix(page);
     await page.waitForFunction(() => document.querySelectorAll('figure.post3-figure').length === 4);
     await page.locator('figure.post3-figure a.post3-theme-link').first().focus();
     return await page.evaluate((payload) => {

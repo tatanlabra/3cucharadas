@@ -1921,6 +1921,9 @@ html[data-theme="academic-night"] .thesis-extension-post .post3-figure.data-visu
     color-adjust: exact;
     print-color-adjust: exact;
     box-shadow: none;
+    /* Sin transiciones en papel: una figura que no pasó por `motion-pending` (la del
+       apéndice plegable) interpolaba su color al cambiar a impresión. */
+    transition: none !important;
   }
 }
 
@@ -2131,6 +2134,27 @@ html[data-theme="academic-night"] .tabla-desliza {
    conserva un suelo legible y desplaza solo su propio contenedor. */
 .post3-evidence .page__content > .tabla-desliza {
   inline-size: min(100%, var(--measure));
+  border-block: 1px solid var(--c3-viz-grid, #cbd3d9);
+  background: none;
+}
+
+/* Auditoría 2026-10-31: notas metodológicas plegables del Post III. El apéndice
+   comparte la medida de la prosa, y sus tablas la misma columna que en el cuerpo. */
+.post3-evidence .page__content > details.post3-methods {
+  inline-size: min(100%, var(--measure));
+  margin-block: 2rem;
+  padding-block: 0.75rem;
+  border-block: 1px solid var(--c3-viz-grid, #cbd3d9);
+}
+
+.post3-evidence .page__content > details.post3-methods > summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.post3-evidence .page__content > details.post3-methods > .tabla-desliza {
+  inline-size: 100%;
+  margin-inline: 0;
   border-block: 1px solid var(--c3-viz-grid, #cbd3d9);
   background: none;
 }

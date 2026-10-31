@@ -125,13 +125,13 @@ for (const post of [
       /<figure class="[^"]*\bpost3-figure\b[^"]*"[^>]*>([\s\S]*?)<\/figure>/g,
     ),
   ];
-  assert.equal(figures.length, 3, `${post}: debe integrar tres figuras Post III`);
+  assert.equal(figures.length, 4, `${post}: debe integrar cuatro figuras Post III`);
   const identified = [
     ...markdown.matchAll(
       /<figure class="[^"]*\bpost3-figure\b[^"]*\bdata-visualization\b[^"]*"/g,
     ),
   ];
-  assert.equal(identified.length, 3, `${post}: las tres figuras usan identidad visual`);
+  assert.equal(identified.length, 4, `${post}: las cuatro figuras usan identidad visual`);
   for (const [, figure] of figures) {
     assert.equal((figure.match(/<img\b/g) ?? []).length, 1, `${post}: un solo img ODT-safe`);
     assert.equal(
