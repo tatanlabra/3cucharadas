@@ -204,6 +204,7 @@ module JekyllToDevto
     markdown = markdown.gsub(STYLE_OR_SCRIPT, "")
     markdown = flatten_picture_elements(markdown)
     markdown = strip_footnote_marks_in_details(markdown)
+    markdown = dedent_html_div_blocks(markdown)
     markdown = replace_loose_videos(markdown, site_url:, canonical_url:)
     output = +""
     in_math = false
@@ -595,6 +596,22 @@ module JekyllToDevto
   # DEV.to imprime como texto el contenido de <style> y <script> (el post de
   # jueces abrió el 2026-10-31 con todo su CSS a la vista). Allá no aplican.
   STYLE_OR_SCRIPT = %r{<(style|script)\b[^>]*>.*?</\1>\s*}mi.freeze
+
+  # DEV.to lee como bloque de código las líneas de HTML con 4+ espacios dentro de
+  # un <div> (la ficha de jueces mostró su <span> y sus <a> como código el
+  # 2026-10-31). Dentro de un <div> abierto en la columna 0, y hasta su cierre
+  # balanceado, la sangría es cosmética y se quita.
+  def dedent_html_div_blocks(markdown)
+    depth = 0
+    markdown.each_line.map do |line|
+      if depth.zero?
+        next line unless line.start_with?("<div")
+      end
+      depth += line.scan(/<div\b/i).length - line.scan(%r{</div>}i).length
+      depth = 0 if depth.negative?
+      line.lstrip.empty? ? line : line.lstrip
+    end.join
+  end
 
   # DEV.to procesa el Markdown de un <details> aparte, sin las definiciones de las
   # notas, y la marca queda literal. Se quita la marca y se conserva la cita.

@@ -145,6 +145,27 @@ class JekyllToDevtoTest < Minitest::Test
     assert_includes result, "Texto visible."
   end
 
+  # DEV.to leía como bloque de código las líneas de HTML con 4+ espacios dentro
+  # de un <div> (la ficha de jueces mostró su <span> y sus <a> como código el
+  # 2026-10-31). Dentro de un <div> abierto en la columna 0 se quita la sangría;
+  # fuera de él, una lista con contenido sangrado queda intacta.
+  def test_dedents_html_inside_top_level_div_blocks
+    source = <<~MARKDOWN
+      <div class="card">
+        <div class="card__top">
+            <span>Título</span>
+        </div>
+      </div>
+
+      - Ítem
+          con continuación sangrada
+    MARKDOWN
+    result = transform(source)
+    assert_includes result, "\n<span>Título</span>\n"
+    refute_match(/^ {4,}</, result)
+    assert_includes result, "- Ítem\n    con continuación sangrada"
+  end
+
   def test_keeps_a_liquid_tag_whole_when_its_arguments_contain_inline_code
     source = <<~MARKDOWN
       {% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="Tooltip" caption="**Figure 2** — the `OFICIAL` badge next to the `LOCAL` one." %}
