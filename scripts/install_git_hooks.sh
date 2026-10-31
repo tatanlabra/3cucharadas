@@ -38,6 +38,25 @@ else
   printf 'installed hook chain: %s\n' "$target_hook"
 fi
 
+# pre-commit: valida el paso de draft a post (verify_draft_promotion.rb + verify_visual_assets.rb)
+pre_commit_source="$repo_root/scripts/git-hooks/pre-commit"
+pre_commit_target="$(git rev-parse --git-path hooks/pre-commit)"
+if [ ! -f "$pre_commit_source" ]; then
+  printf 'missing hook source: %s\n' "$pre_commit_source" >&2
+  exit 1
+fi
+if [ -e "$pre_commit_target" ] && cmp -s "$pre_commit_source" "$pre_commit_target"; then
+  printf 'pre-commit already installed: %s\n' "$pre_commit_target"
+else
+  if [ -e "$pre_commit_target" ]; then
+    backup="$pre_commit_target.backup-$(date +%Y%m%d%H%M%S)"
+    cp "$pre_commit_target" "$backup"
+    printf 'backed up existing hook: %s\n' "$backup"
+  fi
+  install -m 0755 "$pre_commit_source" "$pre_commit_target"
+  printf 'installed pre-commit: %s\n' "$pre_commit_target"
+fi
+
 # pre-push: frena secretos antes de que el push salga hacia GitLab y GitHub (ver el hook).
 push_source="$repo_root/scripts/git-hooks/pre-push"
 push_target="$(git rev-parse --git-path hooks/pre-push)"

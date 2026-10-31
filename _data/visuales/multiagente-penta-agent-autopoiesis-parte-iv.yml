@@ -1,0 +1,178 @@
+slug: multiagente-penta-agent-autopoiesis-parte-iv
+ref: multiagente-penta-agent-autopoiesis-parte-iv
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-autopoiesis-parte-iv/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 99792
+  sha256: b18040a40aa3f10310f08d6f7179ea36c191c10778b53e9915b1db987d38f447
+  alt: &id001
+    es: Esfera de red con tres nodos agentes dentro de un anillo orbital Harness2 que filtra un pulso regresivo
+      ante un umbral de resistencia interna y realimenta la estructura con el flujo verificado.
+    en: Network sphere with three agent nodes inside a Harness2 orbital ring that halts a regressive pulse at an
+      internal resistance threshold while feeding the verified flow back into the structure.
+  provenance:
+    status: generated_this_revision
+    source_sha256: e3e53869fdec8ac8351727ccd59ef17b3742c4b8ec27e5cdf79aa2ea78a3c4b2
+    note: &id002
+      es: Ilustración conceptual; no representa la arquitectura técnica ni resultados experimentales medidos.
+      en: Conceptual illustration; it does not represent the technical architecture or measured experimental results.
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen mediante Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-autopoiesis-parte-iv/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 37596
+  sha256: 2c88f53d1fc76a161936a616713799235aebda5683e2db94a68d4b36d40b3be0
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e3e53869fdec8ac8351727ccd59ef17b3742c4b8ec27e5cdf79aa2ea78a3c4b2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen mediante Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-autopoiesis-parte-iv/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 80986
+  sha256: 63a23df1060ff81203e10591999b2fc82201ae9fc0e8fdceb253d673d2491395
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e3e53869fdec8ac8351727ccd59ef17b3742c4b8ec27e5cdf79aa2ea78a3c4b2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen mediante Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-autopoiesis-parte-iv/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 29226
+  sha256: 3aeb27fa902562e05885b95230bab0b697791b21509b927f23e86196f66ba31c
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e3e53869fdec8ac8351727ccd59ef17b3742c4b8ec27e5cdf79aa2ea78a3c4b2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen mediante Antigravity
+    provider: Google
+    interface: Antigravity
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/multiagente-penta-agent-autopoiesis-parte-iv/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 72566
+  sha256: 5b8abba5239fd297753897a3c94965d5879e4149e9deba389bf90404c75d6f8a
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: e3e53869fdec8ac8351727ccd59ef17b3742c4b8ec27e5cdf79aa2ea78a3c4b2
+    note: *id002
+    encoding: WebP quality=88; Lanczos; deterministic derivative
+    tool: ImageGen mediante Antigravity
+    provider: Google
+    interface: Antigravity
+- id: kitty-tmux-plan-board-video
+  rol: figura
+  archivo: assets/videos/kitty-tmux-plan-board-1280x800.webm
+  estado: publicable
+  origen: captura-real
+  bytes: 162721
+  sha256: 4f1dc286ef00e0d98dab2ecd73abe015ccf8d2df6718e4687660638bb94055d3
+  alt:
+    es: Demostración en consola Kitty dividida con tmux donde el panel superior ejecuta la delegación multiagente,
+      pasa por un decision-gate y valida un gate falsable, mientras el panel inferior actualiza el plan-board en
+      vivo hasta cerrar 4 de 4 pasos.
+    en: Kitty terminal split in tmux showing multi-agent delegation, a decision-gate, and a falsifiable gate in
+      the top pane while the bottom pane updates the live plan-board to 4 of 4 verified steps.
+- id: kitty-tmux-plan-board-poster
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/kitty-tmux-plan-board-poster-1280x800.webp
+  estado: publicable
+  origen: captura-real
+  ancho: 1280
+  alto: 800
+  bytes: 83402
+  sha256: 20f2006f20a0581752e8fdd326b9cd0d8f6523395fe48a2c4a43fd650c579430
+  alt:
+    es: Cuadro final de la terminal Kitty con split tmux mostrando los 4 pasos del plan-board verificados al 100
+      por ciento.
+    en: Final frame of the Kitty terminal split in tmux showing all 4 plan-board steps 100 percent verified.
+- id: kitty-harness2-autopoiesis-video
+  rol: figura
+  archivo: assets/videos/kitty-harness2-autopoiesis-1280x800.webm
+  estado: publicable
+  origen: captura-real
+  bytes: 164792
+  sha256: 1e7e4f88952c1d3aba800912e614334b4e964433c9929bb14ddcc2e67467e5a8
+  alt:
+    es: Demostración en consola Kitty dividida con tmux ejecutando penta-harness2-shadow local-cycle con 9 de 9
+      casos en routing, memory y skills sin llamadas a modelo, aplicando resistencia interna para descartar un regresor
+      y conservar el candidato sano.
+    en: Kitty terminal split in tmux running penta-harness2-shadow local-cycle across 9 of 9 cases in routing, memory,
+      and skills with zero model calls, applying internal resistance to discard a regression and keep the healthy
+      candidate.
+- id: kitty-harness2-autopoiesis-poster
+  rol: figura
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/kitty-harness2-autopoiesis-poster-1280x800.webp
+  estado: publicable
+  origen: captura-real
+  ancho: 1280
+  alto: 800
+  bytes: 80044
+  sha256: a8809c295479261d973ecdacc5ae6cd0578246c861a4478d7287bbf2aeac1b60
+  alt:
+    es: Cuadro final de la terminal Kitty mostrando la corrida del circuito de autopoiesis local-cycle con 82 pruebas
+      en verde y estado fresh.
+    en: Final frame of the Kitty terminal showing the local-cycle autopoiesis run with 82 passing tests and fresh
+      status.
+- id: circuito-autopoiesis-h2-desktop
+  rol: diagrama
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2.svg
+  estado: publicable
+  origen: codigo-propio
+  alt:
+    es: Diagrama del circuito cerrado de autopoiesis local en Penta Agent con Harness2 en disposición horizontal
+      de tres columnas.
+    en: Diagram of the closed local autopoiesis loop in Penta Agent with Harness2 in a three-column horizontal layout.
+  bytes: 40394
+  sha256: b64b77f023ab3b4d6f132fcadd661aa5cd5d3f150fa9604d9d707dac4e9dfd1b
+- id: circuito-autopoiesis-h2-mobile
+  rol: diagrama
+  archivo: assets/images/multiagente-penta-agent-autopoiesis/circuito-autopoiesis-h2-mobile.svg
+  estado: publicable
+  origen: codigo-propio
+  alt:
+    es: Diagrama del circuito cerrado de autopoiesis local en Penta Agent con Harness2 en disposición vertical para
+      móvil.
+    en: Diagram of the closed local autopoiesis loop in Penta Agent with Harness2 in a vertical mobile layout.
+  bytes: 39375
+  sha256: cd1b40f3b5b7c0ff34a018b2502d38b650c8d2bed6af3c5080bc7b554da68c74
+posts:
+- _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md
+- _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md

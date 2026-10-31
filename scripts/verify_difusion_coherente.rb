@@ -35,7 +35,7 @@ module DiffusionCoherence
   # markup or literals, not locale numbers (<source media="(max-width: 47.99em)">,
   # `=C2>2.5`). alt and visible text keep counting.
   def self.prose(body)
-    body.gsub(/^```.*?^```[^\n]*$/m, " ").gsub(/`[^`\n]*`/, " ").gsub(PRESENTATIONAL, " ")
+    body.gsub(/<(style|script)\b[^>]*>.*?<\/\1>/im, " ").gsub(/^```.*?^```[^\n]*$/m, " ").gsub(/`[^`\n]*`/, " ").gsub(PRESENTATIONAL, " ")
   end
 
   def self.number(token, lang = nil)

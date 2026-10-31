@@ -1,0 +1,139 @@
+direction: down
+
+classes: {
+  observe: {
+    style.fill: "#0d2440"
+    style.stroke: "#24c8ff"
+    style.stroke-width: 3
+    style.font-color: "#f2fbff"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  gate: {
+    style.fill: "#332817"
+    style.stroke: "#ffca5c"
+    style.stroke-width: 3
+    style.font-color: "#fff8e8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  reject: {
+    style.fill: "#321b28"
+    style.stroke: "#ff6f91"
+    style.stroke-width: 3
+    style.font-color: "#fff3f7"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  sync: {
+    style.fill: "#102b21"
+    style.stroke: "#39f59a"
+    style.stroke-width: 3
+    style.font-color: "#f1fff8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+}
+
+paso1: "PASO 1 · OBSERVAR SIN ESPIAR (CSI v2 — Re-entry de fricciones locales)" {
+  grid-columns: 3
+  grid-gap: 48
+  style.fill: "#09182b"
+  style.stroke: "#24c8ff"
+  style.stroke-width: 2
+  style.font-color: "#cdefff"
+  style.font-size: 18
+  style.border-radius: 14
+
+  sesiones: "1a. Sesiones de los 3 agentes\n414 Codex · 211 Claude · 57 Gemini\n980 eventos sin egress" {
+    class: observe
+  }
+  catalogo: "1b. Catálogo de 32 skills\n17 en router · 15 bajo demanda\n82/82 tests en verde" {
+    class: observe
+  }
+  puente: "1c. Puente --from-csi\nDetecta fricción real\ny empaqueta CaseSpec" {
+    class: observe
+  }
+
+  sesiones -> catalogo: {
+    style.stroke: "#24c8ff"
+    style.stroke-width: 3
+  }
+  catalogo -> puente: {
+    style.stroke: "#24c8ff"
+    style.stroke-width: 3
+  }
+}
+
+paso2: "PASO 2 · RESISTENCIA INTERNA (Harness2 local-cycle · model_calls = 0)" {
+  grid-columns: 3
+  grid-gap: 48
+  style.fill: "#221a0f"
+  style.stroke: "#ffca5c"
+  style.stroke-width: 2
+  style.font-color: "#ffe8b3"
+  style.font-size: 18
+  style.border-radius: 14
+
+  sondas: "2a. 9 casos en 3 dominios\nrouting · memory · skills\n0 llamadas a la nube (CPU)" {
+    class: gate
+  }
+  semaforo: "2b. Compuerta ROJO -> VERDE\nHoldout intacto (9/9 PASS)\nVeredicto: KEEP (+0,250)" {
+    class: gate
+  }
+  bloqueo: "2c. DISCARD cerrado (exit 1)\nSi falla el holdout,\nse descarta la mutación" {
+    class: reject
+  }
+
+  sondas -> semaforo: {
+    style.stroke: "#ffca5c"
+    style.stroke-width: 3
+  }
+  semaforo -> bloqueo: {
+    style.stroke: "#ff6f91"
+    style.stroke-dash: 4
+    style.stroke-width: 3
+  }
+}
+
+paso3: "PASO 3 · PROMOCIÓN HUMANA Y SINCRONÍA TRI-AGENTE (INV-004)" {
+  grid-columns: 3
+  grid-gap: 48
+  style.fill: "#081a14"
+  style.stroke: "#39f59a"
+  style.stroke-width: 2
+  style.font-color: "#caffdf"
+  style.font-size: 18
+  style.border-radius: 14
+
+  experiencia: "3a. Recibo auditable\nclaims-status: fresh\nPropuesta en staging" {
+    class: sync
+  }
+  proyeccion: "3b. Proyección tri-agente\n.codex/ · .claude/\n.agents/ (Antigravity)" {
+    class: sync
+  }
+  rollback: "3c. Rollback SHA-256\napply-local / rollback-local\nSin auto-merge ciego" {
+    class: sync
+  }
+
+  experiencia -> proyeccion: {
+    style.stroke: "#39f59a"
+    style.stroke-width: 3
+  }
+  proyeccion -> rollback: {
+    style.stroke: "#39f59a"
+    style.stroke-width: 3
+  }
+}
+
+paso1 -> paso2: "entrega CaseSpec (model_calls = 0)" {
+  style.stroke: "#ffca5c"
+  style.stroke-width: 3
+  style.font-color: "#ffe4a3"
+}
+
+paso2 -> paso3: "solo con KEEP (9/9 en VERDE)" {
+  style.stroke: "#39f59a"
+  style.stroke-width: 3
+  style.font-color: "#bdfbd7"
+}

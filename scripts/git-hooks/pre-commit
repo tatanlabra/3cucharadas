@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Gate pre-commit para validar el paso de _drafts/ a _posts/ y los manifiestos visuales
+# antes de que el commit quede registrado.
+#
+# Instalar con scripts/install_git_hooks.sh; ver scripts/git-hooks/README.md.
+set -uo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+status=0
+
+# 1. Si se tocan posts en _posts/*.md o borradores en _drafts/*.md, auditar con verify_draft_promotion.rb
+if [ -f "$repo_root/scripts/verify_draft_promotion.rb" ]; then
+  while IFS= read -r touched_md; do
+    [ -z "$touched_md" ] && continue
+    [ ! -f "$repo_root/$touched_md" ] && continue
+    if ! ruby "$repo_root/scripts/verify_draft_promotion.rb" "$repo_root/$touched_md" >&2; then
+      printf 'pre-commit: verify_draft_promotion.rb rechazó %s; corrige atribución/frontmatter/justificado/referencias antes de commitear.\n' "$touched_md" >&2
+      status=1
+    fi
+  done < <(git diff --cached --name-only --diff-filter=AM -- '_posts/*.md' '_drafts/*.md' | sort -u)
+fi
+
+# 2. Si se tocan posts en _posts/*.md o manifiestos en _data/visuales/*.yml, correr verify_visual_assets.rb
+touched_visuals="$(git diff --cached --name-only --diff-filter=AM -- '_posts/*.md' '_data/visuales/*.yml' 'assets/images/**/manifest.json')"
+if [ -n "$touched_visuals" ] && [ -f "$repo_root/scripts/verify_visual_assets.rb" ]; then
+  if ! (cd "$repo_root" && ruby scripts/verify_visual_assets.rb --strict >&2); then
+    printf 'pre-commit: verify_visual_assets.rb --strict falló; sincroniza hashes/dimensiones/manifest antes de commitear.\n' >&2
+    status=1
+  fi
+fi
+
+exit "$status"

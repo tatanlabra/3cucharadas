@@ -3,11 +3,12 @@
 `.git/hooks/` no se versiona, así que los hooks vivos de este repo se guardan acá
 y se instalan con un symlink o una copia.
 
-| Hook | Qué hace | ¿Puede fallar el commit? |
+| Hook | Qué hace | ¿Puede fallar el commit/push? |
 |---|---|---|
+| `pre-commit` | Ejecuta `scripts/verify_draft_promotion.rb` (`verify_post_publication_readiness.rb`) y `scripts/verify_visual_assets.rb --strict` cuando el commit toca `_posts/*.md`, `_drafts/*.md` o `_data/visuales/*.yml`, validando atribución (`author: clabra` + `author_profile: true`), paridad bilingüe ES/EN (`ref`), justificado (`{: .text-justify}`), referencias, videos/imágenes y manifiesto visual (`V1`–`V13`) | **Sí**, el commit |
 | `post-commit` | Termina en silencio: un commit no confirma publicación | No |
 | `post-commit-difusion` | Resuelve a qué destinos de difusión corresponde cada post tocado y deja la traza en `difusion/state/destinos/<ref>.json` | No |
-| `pre-push` | Escanea con gitleaks solo los commits que salen y detiene el push si encuentra un posible secreto, antes de GitLab y de GitHub | **Sí**, el push |
+| `pre-push` | Escanea con `gitleaks` los commits que salen y ejecuta `scripts/verify_draft_promotion.rb` sobre cualquier post tocado en `_posts/*.md` o `_drafts/*.md`, deteniendo el push antes de GitLab y de GitHub si falta atribución (`author: clabra`), metadatos, justificado, referencias o si hay violaciones editoriales (`mathjax: true`, `« »`, 1.ª persona plural) | **Sí**, el push |
 
 ## Instalar
 

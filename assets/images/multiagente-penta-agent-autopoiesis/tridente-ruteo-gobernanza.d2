@@ -1,0 +1,121 @@
+direction: down
+
+classes: {
+  trident: {
+    style.fill: "#102b21"
+    style.stroke: "#39f59a"
+    style.stroke-width: 3
+    style.font-color: "#f1fff8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  board: {
+    style.fill: "#0d2440"
+    style.stroke: "#24c8ff"
+    style.stroke-width: 3
+    style.font-color: "#f2fbff"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  router: {
+    style.fill: "#332817"
+    style.stroke: "#ffca5c"
+    style.stroke-width: 3
+    style.font-color: "#fff8e8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  human: {
+    style.fill: "#102737"
+    style.stroke: "#75f5bd"
+    style.stroke-width: 4
+    style.font-color: "#f3fffb"
+    style.font-size: 17
+    style.border-radius: 12
+  }
+}
+
+pares: "1. EL TRIDENTE OPERATIVO · PARIDAD DE ROLES\nQuien recibe la tarea integra; los otros dos actúan como pares" {
+  direction: right
+  style.fill: "#081a14"
+  style.stroke: "#39f59a"
+  style.stroke-width: 2
+  style.font-color: "#caffdf"
+  style.font-size: 18
+  style.border-radius: 14
+
+  codex: "Codex\nVS Code · CLI · MCP\nEjecución y parches" {
+    class: trident
+  }
+  claude: "Claude\nCLI · Revisión cruzada\nArquitectura y auditoría" {
+    class: trident
+  }
+  gemini: "Gemini / Antigravity\npenta-agy directo · agy-bridge\nExploración e integración" {
+    class: trident
+  }
+  sidecars: "Apoyos acotados\nCopilot (canary)\nDeepSeek / Z.ai (litellm-bridge)" {
+    class: router
+  }
+
+  codex <-> claude: "puente MCP / CLI" {
+    style.stroke: "#39f59a"
+    style.stroke-width: 2
+    style.font-color: "#bdfbd7"
+  }
+  claude <-> gemini: "revisión par" {
+    style.stroke: "#39f59a"
+    style.stroke-width: 2
+    style.font-color: "#bdfbd7"
+  }
+  gemini -> sidecars: "tareas chicas" {
+    style.stroke: "#ffca5c"
+    style.stroke-dash: 4
+    style.stroke-width: 2
+    style.font-color: "#ffe4a3"
+  }
+}
+
+coordinacion: "2. PIZARRA VIVA EN CONSOLA Y CONTROL DE MODELOS\nUn solo escritor por archivo y trazabilidad en tiempo real" {
+  direction: right
+  style.fill: "#09182b"
+  style.stroke: "#24c8ff"
+  style.stroke-width: 2
+  style.font-color: "#cdefff"
+  style.font-size: 18
+  style.border-radius: 14
+
+  planboard: "plan-board en tmux\nPLAN_STATE v2 vivo\nVerificación tipada y supuestos" {
+    class: board
+  }
+  dgate: "decision-gate\nPregunta solo ante bloqueo\nOpción recomendada + evidencia" {
+    class: board
+  }
+  mrouter: "model_router + quota-guard\n42/42 pruebas · deriva ratio 1,00\nSonda degradada != proveedor caído" {
+    class: router
+  }
+  humano: "Persona usuaria\nAutoridad final de promoción\nRevisión de cierres y riesgos" {
+    class: human
+  }
+
+  planboard -> dgate: "si hay duda material" {
+    style.stroke: "#24c8ff"
+    style.stroke-width: 2
+    style.font-color: "#bfeaff"
+  }
+  mrouter -> planboard: "salud y cuota" {
+    style.stroke: "#ffca5c"
+    style.stroke-width: 2
+    style.font-color: "#ffe4a3"
+  }
+  dgate -> humano: "decisión trazable" {
+    style.stroke: "#75f5bd"
+    style.stroke-width: 3
+    style.font-color: "#d1ffec"
+  }
+}
+
+pares -> coordinacion: "sincronizan avances y handoffs (HANDOFF-TRACE)" {
+  style.stroke: "#24c8ff"
+  style.stroke-width: 3
+  style.font-color: "#bfeaff"
+}

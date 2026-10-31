@@ -1,0 +1,126 @@
+direction: down
+
+classes: {
+  observe: {
+    style.fill: "#0d2440"
+    style.stroke: "#24c8ff"
+    style.stroke-width: 3
+    style.font-color: "#f2fbff"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  gate: {
+    style.fill: "#332817"
+    style.stroke: "#ffca5c"
+    style.stroke-width: 3
+    style.font-color: "#fff8e8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  reject: {
+    style.fill: "#321b28"
+    style.stroke: "#ff6f91"
+    style.stroke-width: 3
+    style.font-color: "#fff3f7"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+  sync: {
+    style.fill: "#102b21"
+    style.stroke: "#39f59a"
+    style.stroke-width: 3
+    style.font-color: "#f1fff8"
+    style.font-size: 16
+    style.border-radius: 10
+  }
+}
+
+paso1: "1. OBSERVAR SIN ESPIAR (CSI v2)" {
+  direction: down
+  style.fill: "#09182b"
+  style.stroke: "#24c8ff"
+  style.stroke-width: 2
+  style.font-color: "#cdefff"
+  style.font-size: 18
+  style.border-radius: 14
+
+  sesiones: "Sesiones de los 3 agentes\n414 Codex · 211 Claude · 57 Gemini\n(980 eventos sin egress)" {
+    class: observe
+  }
+  catalogo: "Catálogo de 32 skills\n82/82 casos óptimos + --from-csi" {
+    class: observe
+  }
+
+  sesiones -> catalogo: "mide uso real" {
+    style.stroke: "#24c8ff"
+    style.stroke-width: 2
+    style.font-color: "#bfeaff"
+  }
+}
+
+paso2: "2. BANCO DE PRUEBAS 0-CUOTA (HARNESS2)" {
+  direction: down
+  style.fill: "#221a0f"
+  style.stroke: "#ffca5c"
+  style.stroke-width: 2
+  style.font-color: "#ffe8b3"
+  style.font-size: 18
+  style.border-radius: 14
+
+  sondas: "9 sondas en los 4 pilares\nINV · DOM · COMPOSE (0 llamadas)" {
+    class: gate
+  }
+  semaforo: "Compuerta ROJO -> VERDE\nBase falla (0,0) · Candidata 9/9 (1,0)" {
+    class: gate
+  }
+  bloqueo: "Rechazo cerrado (exit 1)\nSi falla, no toca el repo" {
+    class: reject
+  }
+
+  sondas -> semaforo: "evalúa par" {
+    style.stroke: "#ffca5c"
+    style.stroke-width: 2
+    style.font-color: "#ffe4a3"
+  }
+  semaforo -> bloqueo: "si falla gate" {
+    style.stroke: "#ff6f91"
+    style.stroke-dash: 4
+    style.stroke-width: 2
+    style.font-color: "#ffc2d1"
+  }
+}
+
+paso3: "3. SINCRONIZAR EN LOS 3 AGENTES" {
+  direction: down
+  style.fill: "#081a14"
+  style.stroke: "#39f59a"
+  style.stroke-width: 2
+  style.font-color: "#caffdf"
+  style.font-size: 18
+  style.border-radius: 14
+
+  proyeccion: "Extrae <experience> y proyecta a\n.codex · .claude · .agents" {
+    class: sync
+  }
+  rollback: "apply-local / rollback-local\nRestauración exacta SHA-256" {
+    class: sync
+  }
+
+  proyeccion -> rollback: "respaldo previo" {
+    style.stroke: "#39f59a"
+    style.stroke-width: 2
+    style.font-color: "#bdfbd7"
+  }
+}
+
+paso1 -> paso2: "model_calls = 0" {
+  style.stroke: "#ffca5c"
+  style.stroke-width: 3
+  style.font-color: "#ffe4a3"
+}
+
+paso2 -> paso3: "solo 9/9 VERDE" {
+  style.stroke: "#39f59a"
+  style.stroke-width: 3
+  style.font-color: "#bdfbd7"
+}

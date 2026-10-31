@@ -1,0 +1,27 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es un artículo técnico de ingeniería con evidencia experimental y código abierto reproducible; las reglas de Show HN excluyen las entradas de blog.
+
+TÍTULO:
+Multi-agent work in three spoonfuls (part IV): from a terminal trident to an autopoietic loop
+
+URL:
+https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-penta-agent-autopoiesis-parte-iv/?utm_source=hackernews&utm_medium=referral&utm_campaign=multiagente-penta-agent-autopoiesis-parte-iv
+
+PRIMER COMENTARIO DEL AUTOR:
+Author here. This is Part IV of my engineering log on `penta-agent`, a local multi-agent harness I run on Arch Linux (`kitty` + `tmux`) to coordinate Claude Code, Codex CLI, and Gemini CLI / Antigravity.
+
+After months of daily use, I noticed that having three CLI agents talking in the terminal does not produce a system that learns: without governed memory, quota-aware routing, and falsifiable verification gates, each new session repeats past failures or burns quota blindly.
+
+In this post I use a systems-theory lens (Maturana & Varela 1984; Luhmann 1995, 1998; Spencer-Brown 1969; Zönnchen, Dzhimova & Socher 2025) to explain why a standalone LLM lacks genuine re-entry and internal resistance against error, and how I built a deterministic socio-technical harness around the models in three layers:
+
+1. Quota-governed routing (`quota-guard`), structured trade-off gates (`decision-gate`), and a live `plan-board` in `tmux`—plus two negative results where simple baselines won (purging unused local LLM weights after 60 days with 0 real routing invocations, and archiving a local ONNX neural classifier after deterministic lexical rules achieved perfect accuracy in sub-millisecond latency).
+2. A 70 ms hybrid memory (`experience-memory`) combining SQLite FTS5 with Qdrant dense vectors, paired with modular on-demand skills and 7 MCP servers.
+3. A zero-token local autopoiesis loop adapted from Google's Harness2 (Xu et al. 2026): instead of giving an agent `--dangerously-skip-permissions` to rewrite its own repo with live model calls, I constrained it to offline shadow mode (0 model calls) over 9 seed cases in 3 domains (`routing`, `memory`, `skills`) and 82 deterministic tests. Real operational friction turns into holdout test cases, and any candidate patch that regresses a single invariant is rejected before human review.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “Isn't calling a test suite 'autopoiesis' just pretentious terminology?” → A static test suite is not autopoietic. Following Zönnchen, Dzhimova, and Socher (2025) and Reichel (2011), what makes the socio-technical loop autopoietic is the closed operational cycle: real execution traces produce friction signals, those signals generate new holdout cases and candidate modifications in Harness2, deterministic internal resistance filters out regressions, and only surviving modifications update the rules that govern the next execution.
+2. “Why not fine-tune a small router model with more data instead of keeping regex rules?” → When the domain is explicit routing commands and local governance contracts, lexical rules are transparent, auditable in git diff, and achieve perfect accuracy on the benchmark in sub-millisecond time without an ONNX runtime dependency.
+3. “Does zero model calls in Harness2 mean it can only test trivial edits?” → The shadow loop evaluates structural invariants, schema contracts, routing policies, and holdout regressions deterministically; human review remains mandatory before promoting any candidate to the live harness.
+
+Recordatorios: no solicitar votos; responder en el hilo; no reenviar de inmediato si el enlace no despega.

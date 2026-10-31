@@ -1,0 +1,69 @@
+slug: multiagente-penta-agent-autopoiesis-parte-iv
+ref: multiagente-penta-agent-autopoiesis-parte-iv
+canonical: https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-autopoiesis-parte-iv/
+canonical_en: https://3cucharadas.cl/en/ia/productividad/desarrollo/multiagente-penta-agent-autopoiesis-parte-iv/
+titulo_es: "Multiagentes en 3 cucharadas (parte IV): del tridente en consola a un circuito de autopoiesis"
+titulo_en: "Multi-agent work in three spoonfuls (part IV): from a terminal trident to an autopoietic loop"
+tipo: ia-y-arquitectura-sistemas
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-10-31
+publicado_en: 2026-10-31
+actualizado: 2026-10-31
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-10-31
+  alcance: "paquete local completo (Mastodon, Bluesky, LinkedIn, dev.to, Medium, HN, Reddit); sin envíos externos hasta autorización humana explícita tras git push"
+  publicaciones_externas_completadas: 0
+evidencia:
+  agentes_tridente: 3
+  latencia_memoria_hibrida_ms: 70
+  espacio_liberado_modelos_locales_gib: "36,3"
+  piloto_clasificador_onnx_accuracy_pct: 78
+  piloto_clasificador_onnx_latencia_ms: "3,80"
+  reglas_lexicas_accuracy_pct: 100
+  reglas_lexicas_latencia_ms: "0,05"
+  harness2_casos_semilla: 9
+  harness2_dominios: 3
+  harness2_model_calls: 0
+  harness2_pruebas_deterministas: 82
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-10-31
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: bluesky
+    fecha_propuesta: 2026-10-31
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: linkedin
+    fecha_propuesta: 2026-11-01
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-01
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-11-02
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-02
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit
+    fecha_propuesta: 2026-11-03
+    archivo: reddit-target.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - ejecutar git push y verificar HTTP 200 en https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-autopoiesis-parte-iv/
+  - autorizar scripts/post_push_difusion.sh multiagente-penta-agent-autopoiesis-parte-iv --live tras revisar social.json
+  - publicar borrador en dev.to e importar medium.md verificando canonical_url hacia la versión en inglés
