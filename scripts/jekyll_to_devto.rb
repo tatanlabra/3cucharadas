@@ -201,6 +201,7 @@ module JekyllToDevto
 
   def transform_unfenced(markdown, site_url:, canonical_url:, page:, youtube_id:, warnings:)
     markdown = transform_video_figures(markdown, site_url:, canonical_url:, youtube_id:)
+    markdown = markdown.gsub(STYLE_OR_SCRIPT, "")
     markdown = flatten_picture_elements(markdown)
     markdown = strip_footnote_marks_in_details(markdown)
     markdown = replace_loose_videos(markdown, site_url:, canonical_url:)
@@ -591,6 +592,10 @@ module JekyllToDevto
   # DEV.to descarta el bloque <picture> entero, con su <img> adentro (medido el
   # 2026-10-31: avalúo publicaba 2 de 4 figuras y nushell 0 de 1). Se conserva
   # solo el <img>; las variantes <source> (WebP, móvil) no tienen equivalente allá.
+  # DEV.to imprime como texto el contenido de <style> y <script> (el post de
+  # jueces abrió el 2026-10-31 con todo su CSS a la vista). Allá no aplican.
+  STYLE_OR_SCRIPT = %r{<(style|script)\b[^>]*>.*?</\1>\s*}mi.freeze
+
   # DEV.to procesa el Markdown de un <details> aparte, sin las definiciones de las
   # notas, y la marca queda literal. Se quita la marca y se conserva la cita.
   DETAILS = %r{<details\b[^>]*>.*?</details>}mi.freeze

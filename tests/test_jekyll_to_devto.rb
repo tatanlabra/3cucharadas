@@ -126,6 +126,25 @@ class JekyllToDevtoTest < Minitest::Test
     assert_includes result, "[^xu2026]: Xu. 2026. Título."
   end
 
+  # DEV.to imprime como texto el contenido de <style> y <script>: el post de
+  # jueces abrió el 2026-10-31 con todo su CSS a la vista. Se eliminan.
+  def test_removes_style_and_script_blocks
+    source = <<~MARKDOWN
+      <style>
+      :root { --jev-ink: #1b2a41; }
+      </style>
+
+      Texto visible.
+
+      <script>console.log("x")</script>
+    MARKDOWN
+    result = transform(source)
+    refute_includes result, "<style"
+    refute_includes result, "--jev-ink"
+    refute_includes result, "<script"
+    assert_includes result, "Texto visible."
+  end
+
   def test_keeps_a_liquid_tag_whole_when_its_arguments_contain_inline_code
     source = <<~MARKDOWN
       {% include figure popup=true image_path="/assets/images/ai-quota-hud/tooltip-en.png" alt="Tooltip" caption="**Figure 2** — the `OFICIAL` badge next to the `LOCAL` one." %}
