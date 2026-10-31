@@ -12,10 +12,10 @@ publicado_es: 2026-10-31
 publicado_en: 2026-10-31
 actualizado: 2026-10-31
 aprobacion:
-  estado: preparado_local
+  estado: social_publicado
   fecha: 2026-10-31
-  alcance: "paquete local completo (Mastodon, Bluesky, LinkedIn, dev.to, Medium, HN, Reddit); sin envíos externos hasta autorización humana explícita tras git push"
-  publicaciones_externas_completadas: 0
+  alcance: "Mastodon y Bluesky publicados y verificados (ES/EN); LinkedIn, dev.to, Medium, HN y Reddit preparados en local para difusión posterior"
+  publicaciones_externas_completadas: 2
 evidencia:
   casos_totales_banco: 240
   casos_calibracion: 80
@@ -31,13 +31,15 @@ destinos:
   - plataforma: mastodon
     fecha_propuesta: 2026-10-31
     archivo: social-corto.md
-    estado: preparado
-    url_publicada: null
+    estado: publicado
+    url_publicada: https://mastodon.social/@asiole/117537301369480670
+    url_publicada_en: https://mastodon.social/@asiole/117537301419485275
   - plataforma: bluesky
     fecha_propuesta: 2026-10-31
     archivo: social-corto.md
-    estado: preparado
-    url_publicada: null
+    estado: publicado
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mz73kmfrps2i
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mz73knyw5y2o
   - plataforma: linkedin
     fecha_propuesta: 2026-11-01
     archivo: linkedin.md
@@ -64,6 +66,5 @@ destinos:
     estado: preparado
     url_publicada: null
 verificaciones_pendientes:
-  - ejecutar git push y verificar HTTP 200 en https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
-  - autorizar scripts/post_push_difusion.sh jueces-locales-cpu-laya-vega-arc --live tras revisar social.json
   - publicar borrador en dev.to e importar medium.md verificando canonical_url hacia la versión en inglés
+  - publicar piezas de LinkedIn, Hacker News y Reddit según calendario editorial

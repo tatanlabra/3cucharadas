@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import re
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -343,8 +344,18 @@ class BlueskyClient:
     def _download_card_image(url: str, timeout: float = 15.0) -> bytes:
         if not url.startswith("https://"):
             raise PublishError("La tarjeta de Bluesky requiere una imagen OG https")
-        request = urllib.request.Request(url, headers={"User-Agent": "3cucharadas-difusion/0.1"})
-        with urllib.request.urlopen(request, timeout=timeout) as response:
+        headers = {"User-Agent": "3cucharadas-difusion/0.1"}
+        try:
+            request = urllib.request.Request(url, headers=headers)
+            response = urllib.request.urlopen(request, timeout=timeout)
+        except urllib.error.HTTPError as exc:
+            if exc.code != 404:
+                raise
+            sep = "&" if "?" in url else "?"
+            bust_url = f"{url}{sep}_cb={int(time.time())}"
+            request = urllib.request.Request(bust_url, headers=headers)
+            response = urllib.request.urlopen(request, timeout=timeout)
+        with response:
             content_type = response.headers.get_content_type()
             if not content_type.startswith("image/"):
                 raise PublishError(f"La imagen OG devolvio {content_type}, no image/*")
