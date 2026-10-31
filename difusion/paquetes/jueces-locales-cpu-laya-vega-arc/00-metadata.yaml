@@ -3,8 +3,8 @@ ref: jueces-locales-cpu-laya-vega-arc
 language: en
 canonical: https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
 canonical_en: https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
-titulo_es: "Un comité de tres jueces pequeños en CPU: cuándo votar mejora una decisión y cuándo solo la paraliza"
-titulo_en: "A three-judge committee on CPU: when voting improves a decision and when it only paralyzes it"
+titulo_es: "Jueces tipo JEV en local en 3 cucharadas: cuándo votar mejora una decisión y cuándo solo la paraliza"
+titulo_en: "JEV-style local judges in three spoonfuls: when voting improves a decision and when it only stalls it"
 tipo: bitacora-tecnica-resultados
 valor_seo: alto
 sindicacion_textual_permitida: true
@@ -25,8 +25,9 @@ evidencia:
   cobertura_comite_pct: "9,38"
   aciertos_clase_no_comite: "0/60"
   latencia_frio_comite_s: "31,7"
-  alternativa_nli_latencia_ms: "5–15"
-  alternativa_nli_ram_mib: 140
+  alternativa_nli_modelo: "cross-encoder/nli-deberta-v3-small"
+  alternativa_nli_estado: "hipótesis no medida (latencia, RAM y exactitud por medir)"
+  alternativa_nli_disco_mib: 165
 destinos:
   - plataforma: mastodon
     fecha_propuesta: 2026-10-31

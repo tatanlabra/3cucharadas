@@ -1,4 +1,4 @@
-# A three-judge committee on CPU: when voting improves a decision and when it only paralyzes it
+# JEV-style local judges in three spoonfuls: when voting improves a decision and when it only stalls it
 
 *Originally published at [3cucharadas.cl](https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/). When importing into Medium, set the canonical link to `https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/`.*
 
@@ -8,7 +8,9 @@ Inspired by **JEV Ultrafast** (`7.1 s` browser automation by separating fast Sys
 
 - **Why opposite biases cause paralysis instead of wisdom:** in a discrete vote (`"Yes"`, `"No"`, `"Undefined"`), a committee averages out random noise but cannot cancel opposite priors. Laya voted `"Yes"` on `125/160` test cases (`73` false positives), VegaML voted `"No"` on `131/160` (`0/60` on `"Yes"`), and Arc Decide stayed silent under its `0.66` threshold on `148/160` cases (`12` `"Yes"` votes and `0` `"No"` votes). Because Laya voted `"No"` only once and Arc never voted `"No"`, the committee scored **`0` out of `60` on negative cases**: the strict judge did not lose the vote—it simply had no ally.
 - **The `66.67%` selective accuracy trap:** when the `2-of-3` panel did reach quorum, it got `10` out of `15` right (`66.67%`), yet it abstained on `90.62%` of the test bank (`9.38%` coverage) while taking `~31.7 s` cold in serial CPU subprocesses. Its `28.75%` overall three-class accuracy (`46/160`, of which `36` were abstentions landing on the `40` `"Undefined"` cases) barely beat a `0 ms` one-liner that always answers `"Undefined"` (`25.00%`).
-- **Switching from committee voting to a single NLI cross-encoder:** checking whether observed evidence supports, contradicts, or remains insufficient against a rule is three-class Natural Language Inference (NLI). Replacing the `8.36 GiB` trio with `MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli` (`44M` backbone parameters, `142M` total, trained on `763,913` NLI pairs, `88.0%` on MNLI-m) compiled to dynamic `INT8` in `onnxruntime` resolves three-class verdicts in **`5` to `15 ms`** on the exact same `i7-8550U` using **`~140 MiB`** of RAM.
+- **What I propose to measure next: a single NLI cross-encoder instead of a committee.** Checking whether observed evidence supports, contradicts, or remains insufficient against a rule is three-class Natural Language Inference (NLI). The candidate is `cross-encoder/nli-deberta-v3-small`, an Apache-licensed DeBERTaV3 cross-encoder fine-tuned on SNLI + MultiNLI (`44M` backbone parameters), whose repository ships an ONNX INT8 build for `AVX2` CPUs of about `165 MiB` on disk. I have not run it on this bank: its latency, its runtime RAM, and whether it can finally say `"No"` on these gates are a hypothesis to test, not a result.
+
+The measured part is narrower: on a work laptop without a dedicated accelerator, a committee of mismatched models did not beat its best individual judge on three-class accuracy and never managed to say `"No"`. And when a check is deterministic—a hash, a JSON schema, an exit code—a `0 ms` code rule remains unbeatable.
 
 Read the complete article with real jury ballots, responsive D2 architecture diagrams, and the `kitty` + `ffpoke` hardware breakdown at:
 https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/

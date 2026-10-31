@@ -33,8 +33,21 @@ class SeriesTitleConventionTest < Minitest::Test
     '_posts/2026-10-11-extender-tesis-no-es-agregar-anos.md' =>
       'Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir',
     '_posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md' =>
-      'Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us'
+      'Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us',
+    '_posts/2026-10-23-costos-cierre-escolar-trayectorias.md' =>
+      'Extender mi tesis en 3 cucharadas (parte III): qué muestran las trayectorias después del cierre de una escuela',
+    '_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md' =>
+      'Extending my thesis in three spoonfuls (part III): what student trajectories show after a school closure',
+    '_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md' =>
+      'Multiagentes en 3 cucharadas (parte IV): del tridente en consola a un circuito de autopoiesis',
+    '_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md' =>
+      'Multi-agent work in three spoonfuls (part IV): from a terminal trident to an autopoietic loop',
+    '_posts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md' =>
+      'Jueces tipo JEV en local en 3 cucharadas: cuándo votar mejora una decisión y cuándo solo la paraliza',
+    '_posts/2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md' =>
+      'JEV-style local judges in three spoonfuls: when voting improves a decision and when it only stalls it'
   }.freeze
+  SIGNATURE = /\s(?:en 3 cucharadas|in (?:3|three) spoonfuls)\b/i
   BARE_ROMAN = /(?:3 cucharadas|(?:3|three) spoonfuls)\s+[IVX]+:/i
 
   def front_title(relative)
@@ -49,7 +62,7 @@ class SeriesTitleConventionTest < Minitest::Test
   def actual_titles
     titles = EXPECTED.to_h { |relative, _title| [relative, front_title(relative)] }
     case ENV['SERIES_TITLE_NEGATIVE_FIXTURE']
-    when nil, ''
+    when nil, '', 'missing-signature'
       titles
     when 'bare-roman'
       titles.merge(EXPECTED.keys.first => titles.fetch(EXPECTED.keys.first).sub('(parte I)', 'I'))
@@ -67,6 +80,20 @@ class SeriesTitleConventionTest < Minitest::Test
     EXPECTED.each do |relative, expected|
       assert_equal expected, titles.fetch(relative), relative
     end
+  end
+
+  # Convención del sitio: todo post publicado lleva la firma «en 3 cucharadas» /
+  # «in three spoonfuls» en el título. El post de jueces salió sin ella el 2026-10-31.
+  def test_every_published_title_carries_the_spoonfuls_signature
+    titles = Dir.glob(File.join(ROOT, '_posts', '*.md')).sort.to_h do |path|
+      relative = path.delete_prefix("#{ROOT}/")
+      [relative, front_title(relative)]
+    end
+    if ENV['SERIES_TITLE_NEGATIVE_FIXTURE'] == 'missing-signature'
+      key = '_posts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md'
+      titles[key] = titles.fetch(key).sub(' en 3 cucharadas', '')
+    end
+    titles.each { |relative, title| assert_match SIGNATURE, title, relative }
   end
 
   def test_no_published_title_uses_a_bare_roman_after_the_spoonfuls_signature

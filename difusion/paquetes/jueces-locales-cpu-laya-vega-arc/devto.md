@@ -1,7 +1,7 @@
 ---
-title: "A three-judge committee on CPU: when voting improves a decision and when it only paralyzes it"
+title: "JEV-style local judges in three spoonfuls: when voting improves a decision and when it only stalls it"
 published: false
-description: "Why a 2-of-3 local classifier committee (Laya, VegaML, Arc Decide) deadlocked on 90.62% of gates on an Intel i7-8550U, and how DeBERTa-v3-small in ONNX INT8 solves them in 5 to 15 ms."
+description: "Why a 2-of-3 local classifier committee (Laya, VegaML, Arc Decide) deadlocked on 90.62% of gates on an Intel i7-8550U, and which ONNX INT8 NLI cross-encoder I propose to measure next."
 tags: ai, machinelearning, onnx, linux
 canonical_url: https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
 ---
@@ -21,9 +21,11 @@ I wired three open sub-billion-parameter engines behind `simil-jev --panel` and 
 1. **Zero recall on `"No"` (`0/60`):** VegaML voted `"No"` `53` times on the `60` negative cases, but Laya voted `"No"` only `1` time and Arc `0` times. No negative test case ever gathered two `"No"` ballots.
 2. **The `66.67%` selective accuracy illusion:** Laya and VegaML clashed on `101/160` cases while Arc abstained on `148`. The panel decided on only `15` cases (`9.38%` coverage), hitting `10/15` (`66.67%`, Wilson 95% CI `41.7%` to `84.8%`) after overfitting `14/14` on calibration. Its `28.75%` 3-class accuracy (`46/160`, `36` of them abstentions) barely beat a `0 ms` script that always answers `"Undefined"` (`25.00%`, `40/160`), while costing `~31.7 s` cold in serial subprocesses.
 
-## 3. What actually runs in `5` to `15 ms` on an `i7-8550U`: `DeBERTa-v3-small` in ONNX INT8
+## 3. What I propose to measure next: an NLI cross-encoder in ONNX INT8 (hypothesis)
 
-Gate verification against a rule is three-class Natural Language Inference (NLI: `entailment`, `contradiction`, `neutral`). Switching to [`MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli`](https://huggingface.co/MoritzLaurer/DeBERTa-v3-small-mnli-fever-anli) (`44M` backbone parameters, `142M` total, fine-tuned on `763,913` NLI pairs, `88.0%` on MNLI-m) compiled to dynamic `INT8` in `onnxruntime` resolves each gate in **`5` to `15 ms`** on the same `AVX2` laptop CPU using **`~140 MiB`** of RAM (`60` times lighter than the `8.36 GiB` footprint of the three judges).
+Gate verification against a rule can be framed as three-class Natural Language Inference (NLI: `entailment` → `"Yes"`, `contradiction` → `"No"`, `neutral` → `"Undefined"`). The candidate I propose to measure next is [`cross-encoder/nli-deberta-v3-small`](https://huggingface.co/cross-encoder/nli-deberta-v3-small): an Apache-licensed DeBERTaV3 cross-encoder fine-tuned on SNLI + MultiNLI (`44M` backbone parameters, `142M` total with vocabulary embeddings), whose repository also ships an ONNX INT8 build for `AVX2` CPUs (`model_quint8_avx2.onnx`, about `165 MiB` on disk). Its model card reports `87.55%` on MNLI mismatched.
+
+**I have not measured it on this bank yet.** Its latency, runtime RAM, and accuracy on the `160` test cases are open, and so is the question that matters most here: whether it can say `"No"` where the committee scored `0/60`. My hypothesis is that a single forward pass without text generation lands well below the committee's `366–1,717 ms` warm p95 and `~31.7 s` cold; that is the next experiment, not a result. And when a check is deterministic (a hash, a JSON schema, an exit code), a `0 ms` code rule remains unbeatable.
 
 Read the full interactive article (with voting ballots, D2 pipeline diagrams, and the `kitty` + `ffpoke` hardware profile) at the canonical URL:
 https://3cucharadas.cl/en/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/

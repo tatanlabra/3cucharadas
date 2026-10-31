@@ -1,6 +1,6 @@
-# Un comité de tres jueces pequeños en CPU — Paquete de difusión
+# Jueces tipo JEV en local en 3 cucharadas — Paquete de difusión
 
-Estado: **preparado y verificado localmente el 2026-10-31** (`publicaciones_externas_completadas: 0`). El post canónico declara `distribution.social: true` (y `republish: [dev, medium]` en EN); ningún envío externo se ejecuta sin orden humana explícita posterior al push.
+Estado: **preparado y verificado localmente el 2026-10-31** (`publicaciones_externas_completadas: 2`, Mastodon y Bluesky el 2026-10-31). El post canónico declara `distribution.social: true` (y `republish: [dev, medium]` en EN); ningún envío externo se ejecuta sin orden humana explícita posterior al push.
 
 | Canal / Pieza | Archivo | Estado | Observaciones |
 |---|---|---|---|
