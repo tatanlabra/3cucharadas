@@ -11,10 +11,10 @@ publicado_es: 2026-10-31
 publicado_en: 2026-10-31
 actualizado: 2026-10-31
 aprobacion:
-  estado: preparado_local
+  estado: social_publicado
   fecha: 2026-10-31
-  alcance: "paquete local completo (Mastodon, Bluesky, LinkedIn, dev.to, Medium, HN, Reddit); sin envíos externos hasta autorización humana explícita tras git push"
-  publicaciones_externas_completadas: 0
+  alcance: "hilos ES/EN publicados y verificados en Mastodon y Bluesky vía post_push_difusion.sh --live; piezas LinkedIn, dev.to, Medium, HN y Reddit listas localmente"
+  publicaciones_externas_completadas: 2
 evidencia:
   agentes_tridente: 3
   latencia_memoria_hibrida_ms: 70
@@ -31,13 +31,15 @@ destinos:
   - plataforma: mastodon
     fecha_propuesta: 2026-10-31
     archivo: social-corto.md
-    estado: preparado
-    url_publicada: null
+    estado: publicado
+    url_publicada: https://mastodon.social/@asiole/117537294486748197
+    url_publicada_en: https://mastodon.social/@asiole/117537294518259540
   - plataforma: bluesky
     fecha_propuesta: 2026-10-31
     archivo: social-corto.md
-    estado: preparado
-    url_publicada: null
+    estado: publicado
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mz73hicfga2l
+    url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mz73hk7ljs2n
   - plataforma: linkedin
     fecha_propuesta: 2026-11-01
     archivo: linkedin.md
