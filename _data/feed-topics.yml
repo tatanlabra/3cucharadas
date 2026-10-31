@@ -21,14 +21,15 @@ es:
     path: /feed-julia.xml
 
 en:
+  # Categorías EN propias (2026-10-31): las ES dejaban vacíos estos feeds en /en/.
   - label: "Data"
-    path: /feed/datos.xml
+    path: /feed/data.xml
   - label: "AI"
-    path: /feed/ia.xml
+    path: /feed/ai.xml
   - label: "MLOps"
     path: /feed/mlops.xml
   - label: "Public policy"
-    path: /feed/politica-publica.xml
+    path: /feed/public-policy.xml
   - label: "Julia"
     path: /feed-julia.xml
   # Sólo en inglés: recoge lo sindicado a dev.to.

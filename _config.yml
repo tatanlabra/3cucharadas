@@ -49,11 +49,17 @@ atom_feed:
 # Feeds por categoría (jekyll-feed): genera /feed/<categoria>.xml para los temas principales,
 # de modo que cada línea temática que publico tenga su propio RSS suscribible.
 feed:
+  # Los posts EN usan categorías en inglés (data, ai, public-policy); sin ellas los
+  # feeds temáticos EN salían vacíos (medido el 2026-10-31: AI y Public policy con
+  # 0 entradas). Las categorías ES siguen generándose para no romper suscripciones.
   categories:
     - datos
     - politica-publica
     - mlops
     - ia
+    - data
+    - public-policy
+    - ai
 
 # SEO
 google_site_verification: "MAUpzyqJl1OD67CWrwjWmHhK6oj_N7OvFtcAB9GUWKo"

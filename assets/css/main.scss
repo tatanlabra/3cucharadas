@@ -316,6 +316,28 @@ html[data-theme="academic-night"] .page__content .reversefootnote {
   color: var(--night-link);
 }
 
+/* Destino resaltado (2026-10-31): las citas llevan al pie y la vuelta lleva a la
+   cita. La nota o la marca de destino se distingue con fondo y borde lateral, no
+   solo con color, para encontrarla de un vistazo en una lista de veinte notas. */
+.page__content .footnotes li:target,
+.page__content sup:target {
+  background: #fff4cc;
+  border-radius: 2px;
+}
+
+.page__content .footnotes li:target {
+  box-shadow: -0.6rem 0 0 #fff4cc, -0.85rem 0 0 #004e8c;
+}
+
+html[data-theme="academic-night"] .page__content .footnotes li:target,
+html[data-theme="academic-night"] .page__content sup:target {
+  background: rgba(255, 214, 102, 0.16);
+}
+
+html[data-theme="academic-night"] .page__content .footnotes li:target {
+  box-shadow: -0.6rem 0 0 rgba(255, 214, 102, 0.16), -0.85rem 0 0 var(--night-link);
+}
+
 /* ── Botón de compartir X/Twitter ────────────────────────────────────────
    El azul heredado del tema (#55acee) deja texto blanco en 2,46:1. Se oscurece
    la superficie sin cambiar el significado del control: blanco sobre #0f6698
@@ -4555,6 +4577,13 @@ html:not([data-theme="academic-night"]) .archive__item-title a:focus-visible {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 1.2rem 0 0;
+  }
+
+  /* Botones sin sombra de texto (pedido del 2026-10-31): el tema aplica
+     text-shadow a todo .btn sobre un hero, y en el botón contorneado la letra
+     se veía borrosa. El contraste lo da la sombra del hero, no la letra. */
+  .page__hero-actions .btn {
+    text-shadow: none;
   }
 
   .page__hero-secondary {
