@@ -26,3 +26,20 @@
 - [ ] **Borrador en dev.to (`devto.md`):** crear o actualizar cuando el autor habilite la distribución externa.
 - [ ] **Reglas en vivo de `r/dataisbeautiful` (`reddit-dataisbeautiful.md`):** revisar desde sesión de navegador humana antes de publicar el gráfico `[OC]`.
 - [ ] **Envío a Mastodon y Bluesky (`social.json`):** requiere aprobación humana en el flujo de `3cucharadas-site`.
+
+## Reddit (2026-11-01)
+
+Investigación de solo lectura, sin publicar. La API pública de Reddit respondió 403 en los 17 subs
+probados y la lectura automática está bloqueada: **ninguna regla oficial quedó verificada**. Los
+tamaños son de GummySearch (2026-11-01). Copys en `reddit-hilos.md`.
+
+| Orden | Sub | Tamaño | Tipo de envío | Riesgo principal |
+|---|---|---|---|---|
+| ES 1 | r/chile | ~921 mil | enlace, con flair "Análisis de Actualidad" o "Cultura / Sociedad" | autopromoción (no verificado) |
+| ES 2 | r/RepublicadeChile | ~128 mil | enlace o texto, con flair "Debate & Opinión" | autopromoción (no verificado) |
+| EN 1 | r/dataisbeautiful | ~21,8 millones | imagen [OC] (`assets/images/tesis-post3/cohort-series-infographic-en-light.png`) y comentario de fuente | quitan el post si falta el comentario de fuente o si el título exagera |
+| EN 2 | r/econometrics | ~46 mil | texto que pide crítica del diseño | autopromoción (no verificado) |
+| EN 3 | r/education | ~247 mil | enlace | audiencia mayoritariamente de EE. UU. |
+
+Descartados: r/AskEconomics (solo preguntas), r/statistics (tema periférico), r/CausalInference
+(~2 mil) y r/Universidad (no encontrado). En reserva: r/Santiago, r/latinoamerica y r/publicpolicy.
