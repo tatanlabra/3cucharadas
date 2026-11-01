@@ -192,6 +192,15 @@ for n in $(seq 1 "$slide_count"); do
 done
 
 "${image_cmd[@]}" "${slides[@]}" "$pdf_path"
+# El PDF sale de capturas PNG, así que los <a href> del HTML se pierden. Si alguna
+# lámina trae enlaces, se miden en el navegador y se reponen como anotaciones /Link.
+links_count=0
+if grep -qE '<a [^>]*href=' "$workdir"/slide-*.html; then
+  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  node "$script_dir/carousel-link-rects.mjs" "$workdir" "$width" "$height" >"$workdir/links.json"
+  links_count="$(python3 "$script_dir/carousel_pdf_links.py" "$pdf_path" "$workdir/links.json" "$width" "$height")"
+  links_count="${links_count#links=}"
+fi
 # La miniatura estaba fijada a 500x625, que es la proporcion de la lamina
 # vertical. Con una apaisada de 1600x900 ImageMagick no la deforma --respeta el
 # aspecto-- pero deja cada celda con 200 px de banda muerta arriba y abajo, y el
@@ -216,4 +225,5 @@ fi
 
 printf 'slides=%s\n' "$slide_count"
 printf 'pdf=%s\n' "$pdf_path"
+printf 'links=%s\n' "$links_count"
 printf 'preview=%s\n' "$preview_path"

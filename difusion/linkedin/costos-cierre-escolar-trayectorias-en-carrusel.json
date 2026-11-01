@@ -234,12 +234,25 @@
   },
   {
    "type": "cta",
-   "kicker": "To read at your own pace",
-   "title": "The full analysis, with open data and all its caveats",
-   "url": "3cucharadas.cl",
-   "path": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+   "kicker": "Keep going",
    "series": "Extending My Thesis in Three Spoonfuls · Part III",
-   "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
+   "links": [
+    {
+     "kicker": "Read the full analysis",
+     "title": "What student trajectories show after a school closes",
+     "href": "https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post3_en",
+     "display": "3cucharadas.cl",
+     "path": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+     "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
+    },
+    {
+     "kicker": "Listen to the episode",
+     "title": "When a school closes, what happens to its students?",
+     "href": "https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7",
+     "display": "Spotify · 3 Cucharadas podcast",
+     "path": "A conversation in Spanish, with synthetic voices"
+    }
+   ]
   }
  ]
 }
