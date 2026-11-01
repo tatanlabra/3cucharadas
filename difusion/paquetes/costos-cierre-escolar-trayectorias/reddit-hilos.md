@@ -24,7 +24,7 @@ si se busca crítica del diseño.
 
 ## r/PublicPolicy
 
-Publicado por el autor el 2026-11-01, con título propio:
+Publicado por el autor el 1 de noviembre de 2026, con título propio:
 https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
 
 **Título:** School closures in Chile, 2005–2024: in all 19 cohorts, students who lost their school fell behind more than their peers. What should a closure protocol require?
@@ -33,7 +33,7 @@ https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
 
 ## Descartado: r/latinoamerica
 
-Descartado por el autor el 2026-11-01: no es pertinente. Se conserva el texto como borrador para
+Descartado por el autor el 1 de noviembre de 2026: no es pertinente. Se conserva el texto como borrador para
 un sub en español que esté por confirmar. Decisión inicial del autor: además de r/PublicPolicy, un sub en español. No se encontró un sub hispano de
 política pública verificable; r/latinoamerica es la comunidad regional en español de mayor alcance y
 no es chilena. Revisar sus reglas en la barra lateral antes de enviar.
