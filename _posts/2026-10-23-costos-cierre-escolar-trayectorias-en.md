@@ -4,7 +4,7 @@ classes: [thesis-extension-post, post3-evidence]
 title: "Extending my thesis in three spoonfuls (part III): what student trajectories show after a school closure"
 subtitle: "In all 19 cohorts, grade lag or exit from the register rose more among students who lost their school than among their peers. I cannot yet attribute that gap to the closure."
 date: 2026-10-23 10:00:00 -0300
-last_modified_at: 2026-10-31 18:21:00 -0300
+last_modified_at: 2026-11-01 16:40:00 -0300
 categories: [data, education, public-policy]
 tags: [education, school-closure, trajectories, causality, mineduc, administrative-data, duckdb, public-policy]
 description: "Student trajectories and school closures in Chile: post-pilot results, causal limits, and minimum conditions for a responsible school transition."
@@ -57,9 +57,6 @@ This exercise reports a **post-pilot re-estimation** across **79,709,054 enrolme
 
 [Part I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) reconstructed the historical evidence and separated the findings that held up. [Part II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) verified which schools closed in the recent decade and showed that the nearest school is rarely the main destination. This third instalment shifts from buildings to student trajectories in three steps: **what actually closed**, **what happened next to students**, and **how to protect a school transition in practice**.
 {: .text-justify}
-
-**Update of 31 October 2026.** A self-audit, reviewed by two other models, led me to correct this instalment. I corrected the description of the closure rule (10-student and destination-concentration thresholds) and replaced a fixed-effect average with a random-effects one. I removed a pre-trend figure that had no reproducible support. I added the base rate, the universe that falls outside the analysis, and a more cautious reading of missing records, and I made explicit that sensitivity to prior trends remains pending. The main result does not change: it is still inconclusive.
-{: .notice--warning .text-justify}
 
 **Quick guide.** I call **G** the first year in which the school has no enrolment; **G−1** is its last open year and **G+1** the following one. For grade progression, “before” is measured two years before closure (G−2) and “after” at G+1. **pp** are percentage points; **RBD** is each school's code; **SEP**, the Preferential School Subsidy; **JEC**, the Full School Day; **RCID**, the closure rule I built from the data.
 {: .notice--info .text-justify}
@@ -212,9 +209,6 @@ The long series (Figure 3 and Table 7) yields three takeaways:
 International evidence agrees that the impact of closing a school depends jointly on the transition process and on the quality of the receiving school: students often experience disruption during the announcement and first post-closure year, followed by partial recovery when they transfer to higher-value-added schools, but lasting setbacks in attendance or secondary graduation when relocated into congested or similarly weak schools (Engberg et al. 2012[^engberg2012]; Brummet 2014[^brummet2014]; Beuchert et al. 2018[^beuchert2018]; Steinberg and MacDonald 2019[^steinberg2019]; Larsen 2020[^larsen2020]; Taghizadeh 2020[^taghizadeh2020]; Bross, Harris, and Liu 2023[^bross2023]; Kim 2024[^kim2024]; Abdulkadiroğlu, Pathak, and Walters 2026[^abdulkadiroglu2026]). In Chile, Grau, Hojman, and Mizala (2018[^grau2018]) estimated increases in repetition and dropout in an earlier period, whereas Iocco (2024[^iocco2024]), in a preprint on planned closures, finds near-zero average score differences with heterogeneity by destination quality. Because of differences in period, treatment definition, and outcome, the 5.29-point estimate—bounded between −1.15 and 10.98 points—complements rather than mechanically replicates or refutes those studies.
 {: .text-justify}
 
-**Historical reconstruction capsule.** The closest Chilean antecedent is [*Destructive Creation* (Working Paper 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }})[^grau2014], which I coauthored. Its Table 7 reported a **+1.46 percentage-point** difference in absence from the official register for at least two years, among 682,217 students. Table 8 reported +1.74 points in a restricted comparison of 2,361 students, and Table 14 reported +1.08 points in an expanded sample of 906,629. These are published marginal effects from probit models, not results from the current re-estimation. Causal Tables 5, 6, 7, 8, and 14 remain **not comparable**: the original estimation file, exact analytical input, and full transformation rule were not recovered, and the equation and notes disagree about fixed effects. The figures therefore describe the paper, but do not now confirm or correct its execution.
-{: .notice--info .text-justify}
-
 ### Higher education: an open question
 
 <!-- higher-education-agenda:start -->
@@ -345,10 +339,8 @@ The data come from MINEDUC open data: the [school directory](https://datosabiert
 
 </details>
 
-### Transparency and scope of the sources
-
-The original thesis and this extension series are my own work, as is my coauthorship of the 2014 working paper; they therefore do not constitute an independent external replication, and they keep the historical reconstruction separate from the current re-estimation. I received no external funding and declare no conflicts of interest. My sole institutional affiliation is Chile’s Ministry of Social Development and Family, which did not fund, commission, or review this analysis; the views and conclusions are my sole responsibility. I used artificial-intelligence assistants to support reproducible programming, literature search, statistical validation, and editing; all methodological decisions and factual verifications are my own. The analysis code lives in a private thesis repository and is not yet public; the aggregate figures behind each chart are in the open CSV files that accompany it.
-{: .text-justify}
+**Transparency and scope of the sources.** The original thesis and this extension series are my own work, as is my coauthorship of the [2014 working paper]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }})[^grau2014]; they therefore do not constitute an independent external replication, and they keep the historical reconstruction separate from the current re-estimation. I received no external funding and declare no conflicts of interest. My sole institutional affiliation is Chile’s Ministry of Social Development and Family, which did not fund, commission, or review this analysis; the views and conclusions are my sole responsibility. I used artificial-intelligence assistants to support reproducible programming, literature search, statistical validation, and editing; all methodological decisions and factual verifications are my own. The analysis code lives in a private thesis repository and is not yet public; the aggregate figures behind each chart are in the open CSV files that accompany it.
+{: .notice--info .text-justify}
 
 ---
 

@@ -475,11 +475,16 @@ async function inspectPage(browser, locale, route, theme, viewport) {
             && body.includes('neither estimates nor suggests postsecondary effects')
             && body.includes('does not condition publication'),
         noHigherEducationBlocker: !/BLOCKED_MISSING_INDIVIDUAL_SIES|no está listo para publicación|not publication-ready|required outcome|resultado obligatorio/i.test(body),
-        historicalCapsule: payload.locale === 'es'
-          ? ['+1,46', '682.217', '+1,74', '2.361', '+1,08', '906.629', 'no comparables']
-            .every((needle) => body.includes(needle))
-          : ['+1.46', '682,217', '+1.74', '2,361', '+1.08', '906,629', 'not comparable']
-            .every((needle) => body.includes(needle)),
+        // Decisión del autor del 2026-11-01: sin cápsula histórica ni nota de actualización;
+        // la transparencia se muestra como cápsula (.notice--info) con la nota grau2014.
+        historicalCapsule: (payload.locale === 'es'
+          ? ['Cápsula de reconstrucción histórica', 'Actualización del 31 de octubre', '682.217', '906.629']
+          : ['Historical reconstruction capsule', 'Update of 31 October', '682,217', '906,629'])
+          .every((needle) => !body.includes(needle))
+          && [...(article?.querySelectorAll('.notice--info') || [])].some((notice) =>
+            notice.textContent.includes(payload.locale === 'es' ? 'Transparencia y alcance de las fuentes' : 'Transparency and scope of the sources')
+            && Boolean(notice.querySelector('a[href*="doc_trabajo_destruccion"]'))
+            && Boolean(notice.querySelector('a[href^="#fn:grau2014"]'))),
         publicContentSafe: !/(?:\/home\/|\/mnt\/|\bMRUN\s*\d|\bRBD\s*\d)/i.test(body),
         themeSurfaceValid: payload.theme === 'academic-night' ? isDarkSurface : isLightSurface,
         editorialGeometryValid: Boolean(anchorParagraphBox) && wrappers.every((wrapper) => {

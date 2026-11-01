@@ -305,13 +305,6 @@ class ThesisPost3Verifier
     ]
     missing = required_numbers.reject { |number| body.include?(number) }
     raise ThesisPost3Error, "evidencia estructural faltante #{lang}: #{missing.join(', ')}" unless missing.empty?
-
-    historical_label = if lang == "es"
-                         /tablas?.{0,80}\b5\b.{0,30}\b6\b.{0,30}\b7\b.{0,30}\b8\b.{0,30}\b14\b.{0,180}no comparables?/im
-                       else
-                         /tables?.{0,80}\b5\b.{0,30}\b6\b.{0,30}\b7\b.{0,30}\b8\b.{0,30}\b14\b.{0,180}not comparable/im
-                       end
-    assert_match!(body, historical_label, "límite histórico HMG ausente #{lang}")
   end
 
   def verify_primary_results(lang, body, front)
@@ -389,26 +382,34 @@ class ThesisPost3Verifier
     end || raise(ThesisPost3Error, "tabla HMG ausente: #{table_id}")
   end
 
+  # Decisión del autor del 2026-11-01: el Post III ya no lleva la cápsula de reconstrucción
+  # histórica (la cubre el Post I) ni la nota de actualización del 31 de octubre, y la
+  # transparencia pasa a ser una cápsula que conserva la cita y el PDF del documento de 2014.
+  RETIRED_LABELS = {
+    "es" => [/Cápsula de reconstrucción histórica/i, /Actualización del 31 de octubre de 2026/i],
+    "en" => [/Historical reconstruction capsule/i, /Update of 31 October 2026/i]
+  }.freeze
+  TRANSPARENCY_CAPSULE = {
+    "es" => /^\*\*Transparencia y alcance de las fuentes\.\*\*[^\n]*doc_trabajo_destruccion[^\n]*\[\^grau2014\][^\n]*\n\{: \.notice--info/,
+    "en" => /^\*\*Transparency and scope of the sources\.\*\*[^\n]*doc_trabajo_destruccion[^\n]*\[\^grau2014\][^\n]*\n\{: \.notice--info/
+  }.freeze
+
   def verify_historical_capsule(lang, body)
+    if RETIRED_LABELS.fetch(lang).any? { |label| body.match?(label) }
+      raise ThesisPost3Error, "contenido retirado reintroducido #{lang}"
+    end
     %w[table_7 table_8 table_14].each do |table_id|
-      row = hmg_table(table_id)
       effect = numeric_pattern(
-        row.fetch("parameters").fetch("school_exit").fetch("coefficient"),
+        hmg_table(table_id).fetch("parameters").fetch("school_exit").fetch("coefficient"),
         lang,
         scale: 100,
         positive_sign: :optional
       )
-      sample = Regexp.escape(localized_integer(row.fetch("sample_n"), lang))
-      assert_near!(
-        body,
-        /#{effect}\s*(?:puntos?(?: porcentuales?)?|percentage[- ]points?|points?)/i,
-        /#{sample}/,
-        max_distance: 420,
-        message: "cápsula HMG sin efecto o muestra publicados #{lang}: #{table_id}"
-      )
+      if body.match?(/#{effect}\s*(?:puntos?(?: porcentuales?)?|percentage[- ]points?|points?)/i)
+        raise ThesisPost3Error, "contenido retirado reintroducido #{lang}: efecto HMG #{table_id}"
+      end
     end
-    label = lang == "es" ? /cifras describen lo publicado/i : /figures therefore describe the paper/i
-    assert_match!(body, label, "cápsula HMG no separa publicación y reconstrucción #{lang}")
+    assert_match!(body, TRANSPARENCY_CAPSULE.fetch(lang), "transparencia sin cápsula, cita o PDF de 2014 #{lang}")
   end
 
   def verify_higher_education_agenda(lang, body)
@@ -799,8 +800,17 @@ class ThesisPost3Verifier
     when "pilot-number"
       document = documents.fetch("en")
       documents["en"] = document.with(body: "#{document.body}\nLegacy estimate: +3.91 pp.\n")
-    when "hmg-number-drift"
-      replace_all!(documents, "es", /\+1,46\s+puntos porcentuales/i, "+1,47 puntos porcentuales", fixture)
+    when "hmg-capsule-reintroduced"
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\n**Cápsula de reconstrucción histórica.** Antecedente de 2014.\n")
+    when "hmg-effect-reintroduced"
+      document = documents.fetch("en")
+      documents["en"] = document.with(body: "#{document.body}\nIts Table 7 reported a +1.46 percentage-point difference.\n")
+    when "update-note-reintroduced"
+      document = documents.fetch("en")
+      documents["en"] = document.with(body: "#{document.body}\n**Update of 31 October 2026.** A self-audit.\n")
+    when "transparency-capsule-drop"
+      replace_once!(documents, "es", "**Transparencia y alcance de las fuentes.** ", "### Transparencia y alcance de las fuentes\n\n", fixture)
     when "he-blocker-reintroduced"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nEl borrador no está listo para publicación.\n")

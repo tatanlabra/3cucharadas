@@ -390,3 +390,16 @@
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mz76bawm4u2s
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mz76bd4g7f2c
     resultado_30d:
+  - plataforma: apple-podcasts
+    fecha: '2026-11-01'
+    url_publicada: https://podcasts.apple.com/cl/podcast/id6811713988
+    estado: publicado
+    nota: Episodio distribuido por el feed RSS de Spotify for Creators (https://anchor.fm/s/1173891c8/podcast/rss).
+      La URL registrada es la del programa, no la del episodio, igual que en los episodios
+      anteriores.
+  - plataforma: spotify
+    fecha: '2026-11-01'
+    url_publicada: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+    estado: publicado
+    nota: Cápsula de audio en español del Post III, 9:51 con cortinas («Cuando cierra un colegio, ¿qué ocurre con sus estudiantes?»).
+      Paquete en difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/.

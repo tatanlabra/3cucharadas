@@ -4,7 +4,7 @@ classes: [thesis-extension-post, post3-evidence]
 title: "Extender mi tesis en 3 cucharadas (parte III): qué muestran las trayectorias después del cierre de una escuela"
 subtitle: "En 19 de 19 cohortes, el rezago o la salida del registro de quienes perdieron su escuela creció más que el de sus pares. Todavía no puedo atribuir esa brecha al cierre."
 date: 2026-10-23 10:00:00 -0300
-last_modified_at: 2026-10-31 18:21:00 -0300
+last_modified_at: 2026-11-01 16:40:00 -0300
 categories: [datos, educacion, politica-publica]
 tags: [educacion, cierre-escolar, trayectorias, causalidad, mineduc, datos-administrativos, duckdb, politica-publica]
 description: "Trayectorias estudiantiles y cierres escolares en Chile: resultados post-piloto, límites causales y condiciones mínimas para una transición educativa responsable."
@@ -13,6 +13,17 @@ author: clabra
 lang: es
 ref: costos-cierre-escolar-trayectorias
 permalink: /datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
+audio:
+  duracion_s: 591
+  fecha: "2026-11-01"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 header:
   teaser: /assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/costos-cierre-escolar-trayectorias/og-1200x630.webp
@@ -38,6 +49,7 @@ ai_disclosure:
   components:
     text: assisted
     hero: generated
+    audio: generated
 ---
 
 Cuando una escuela cierra, la pregunta pública no termina al encontrar otro colegio en el mapa. Importa saber si sus estudiantes siguieron matriculados, pasaron de curso y mantuvieron una asistencia regular. Y, sobre todo, importa distinguir qué parte de un tropiezo posterior se debe al cierre y qué parte venía gestándose desde antes.
@@ -57,9 +69,6 @@ Este ejercicio presenta una **reestimación posterior al piloto** sobre **79.709
 
 La [parte I]({{ '/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/' | relative_url }}) reconstruyó la evidencia histórica y separó qué hallazgos resistían. La [parte II]({{ '/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/' | relative_url }}) verificó qué establecimientos cerraron en la década reciente y mostró que la escuela más cercana rara vez es el destino principal. Esta tercera entrega pasa de los edificios a las trayectorias estudiantiles en tres pasos: **qué cerró realmente**, **qué ocurrió después con los estudiantes** y **cómo proteger una transición escolar en la práctica**.
 {: .text-justify}
-
-**Actualización del 31 de octubre de 2026.** Una auditoría propia, revisada por otros dos modelos, me llevó a corregir esta entrega. Corregí la descripción de la regla de cierre (umbrales de 10 estudiantes y de concentración de destinos) y reemplacé un promedio de efecto fijo por uno de efectos aleatorios. Retiré una cifra de pretendencia que no tenía respaldo reproducible. Agregué la tasa base, el universo que queda fuera y una lectura más cauta de las actas faltantes, y dejé explícito que la sensibilidad a tendencias previas sigue pendiente. El resultado principal no cambia: sigue siendo inconcluso.
-{: .notice--warning .text-justify}
 
 **Guía rápida.** Llamo **G** al primer año en que la escuela ya no tiene matrícula; **G−1** es su último año abierto y **G+1**, el siguiente. En la progresión de curso, el "antes" se mide dos años antes del cierre (G−2) y el "después", en G+1. **pp** son puntos porcentuales; **RBD** es el código de cada escuela; **SEP**, la Subvención Escolar Preferencial; **JEC**, la Jornada Escolar Completa; **RCID**, la regla de cierre que construí desde los datos.
 {: .notice--info .text-justify}
@@ -212,9 +221,6 @@ La serie larga (figura 3 y tabla 7) deja tres lecciones:
 La evidencia internacional coincide en que el impacto de cerrar una escuela depende crítica y conjuntamente del proceso de transición y de la calidad del establecimiento receptor: suele haber pérdidas durante el anuncio y el primer año, seguidas de recuperación parcial cuando los estudiantes acceden a escuelas de mayor valor agregado, pero con costos duraderos en asistencia o graduación secundaria cuando la reubicación ocurre hacia planteles congestionados o de desempeño similar (Engberg et al. 2012[^engberg2012]; Brummet 2014[^brummet2014]; Beuchert et al. 2018[^beuchert2018]; Steinberg y MacDonald 2019[^steinberg2019]; Larsen 2020[^larsen2020]; Taghizadeh 2020[^taghizadeh2020]; Bross, Harris y Liu 2023[^bross2023]; Kim 2024[^kim2024]; Abdulkadiroğlu, Pathak y Walters 2026[^abdulkadiroglu2026]). En Chile, Grau, Hojman y Mizala (2018[^grau2018]) estimaron aumentos en repitencia y deserción en un período anterior, mientras que Iocco (2024[^iocco2024]), en un preprint sobre cierres planificados, reporta efectos promedio nulos en puntajes con heterogeneidad según la escuela de destino. Por diferencias de período, definición de tratamiento y variable dependiente, la estimación de 5,29 puntos —con cotas de −1,15 a 10,98 puntos— complementa pero no replica ni refuta mecánicamente esos trabajos.
 {: .text-justify}
 
-**Cápsula de reconstrucción histórica.** El antecedente chileno más cercano es [*Destructive Creation* (Documento de Trabajo 396, 2014)]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }})[^grau2014], del que fui coautor. Su tabla 7 reportó una diferencia de **+1,46 puntos porcentuales** en ausencia del registro oficial por al menos dos años, sobre 682.217 estudiantes. La tabla 8 informó +1,74 puntos en una comparación restringida de 2.361 estudiantes y la tabla 14, +1,08 puntos en una muestra ampliada de 906.629. Son efectos marginales publicados de modelos probit, no resultados de la reestimación actual. Las tablas causales 5, 6, 7, 8 y 14 siguen **no comparables**: no se recuperaron el archivo original de estimación, el insumo analítico exacto ni la regla completa de transformaciones; además, la ecuación y las notas discrepan sobre los efectos fijos. Por eso estas cifras describen lo publicado, pero hoy no confirman ni corrigen su ejecución.
-{: .notice--info .text-justify}
-
 ### Educación superior: una pregunta que queda abierta
 
 <!-- higher-education-agenda:start -->
@@ -345,10 +351,8 @@ Las bases provienen de los datos abiertos del MINEDUC: [directorio de establecim
 
 </details>
 
-### Transparencia y alcance de las fuentes
-
-La tesis original y esta serie de extensión son de mi autoría, al igual que la coautoría del documento de trabajo de 2014; por ello no constituyen una réplica externa independiente y mantienen separadas la reconstrucción histórica y la reestimación actual. No recibí financiamiento externo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó ni revisó este análisis; las opiniones y conclusiones son de mi exclusiva responsabilidad. Utilicé asistentes de inteligencia artificial para apoyar programación reproducible, búsqueda bibliográfica, validación estadística y edición; toda decisión metodológica y verificación factual es propia. El código del análisis vive en un repositorio privado de la tesis y todavía no es público; las cifras agregadas de cada figura están en los CSV abiertos que acompañan a cada una.
-{: .text-justify}
+**Transparencia y alcance de las fuentes.** La tesis original y esta serie de extensión son de mi autoría, al igual que la coautoría del [documento de trabajo de 2014]({{ '/assets/docs/doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf' | relative_url }})[^grau2014]; por ello no constituyen una réplica externa independiente y mantienen separadas la reconstrucción histórica y la reestimación actual. No recibí financiamiento externo y declaro no tener conflictos de interés. Mi única afiliación institucional es el Ministerio de Desarrollo Social y Familia de Chile, que no financió, encargó ni revisó este análisis; las opiniones y conclusiones son de mi exclusiva responsabilidad. Utilicé asistentes de inteligencia artificial para apoyar programación reproducible, búsqueda bibliográfica, validación estadística y edición; toda decisión metodológica y verificación factual es propia. El código del análisis vive en un repositorio privado de la tesis y todavía no es público; las cifras agregadas de cada figura están en los CSV abiertos que acompañan a cada una.
+{: .notice--info .text-justify}
 
 ---
 

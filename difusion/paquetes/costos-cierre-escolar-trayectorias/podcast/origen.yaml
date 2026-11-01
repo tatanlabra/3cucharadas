@@ -8,7 +8,7 @@ posts_serie_relacionados:
   - https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
 titulo_episodio_propuesto: "Cuando cierra una escuela: qué muestran veinte años de trayectorias estudiantiles en Chile"
 generador: NotebookLM (Google), Audio Overview
-etapa: ensamblado
+etapa: publicado
 formato: deep dive conversacional, dos hablantes (longitud media)
 idioma_hablado: "es (solicitud en personalización: A conductor es-ES, B experta es-CL; sujeto a verificación por escucha humana)"
 objetivo_segundos: 1200
@@ -44,7 +44,9 @@ con_cortinas:
   sonoridad_lufs: -16.0
 
 publicado:
-  estado: no_publicado
-  spotify: null
-  apple: null
+  estado: publicado
+  fecha: "2026-11-01"
+  titulo_publicado: "Cuando cierra un colegio, ¿qué ocurre con sus estudiantes?"
+  spotify: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+  apple: https://podcasts.apple.com/cl/podcast/id6811713988
   feed_rss: https://anchor.fm/s/1173891c8/podcast/rss

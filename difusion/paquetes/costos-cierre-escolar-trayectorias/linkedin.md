@@ -4,18 +4,58 @@
 
 ---
 > Texto plano: LinkedIn no interpreta Markdown, así que no lleva asteriscos. Límite del post en LinkedIn: tres mil caracteres por versión.
-> Formato: publicación de documento. Adjuntar el carrusel PDF (ES: `costos-cierre-escolar-trayectorias-carrusel.pdf`; EN: `costos-cierre-escolar-trayectorias-en-carrusel.pdf`), generado desde `difusion/linkedin/*-carrusel.json` con la skill `publicacion-externa`. Antes de publicar, reemplazar `PODCAST_URL` por el enlace del episodio.
+> Formato: publicación de documento. Adjuntar el carrusel PDF (ES: `costos-cierre-escolar-trayectorias-carrusel.pdf`; EN: `costos-cierre-escolar-trayectorias-en-carrusel.pdf`), generado desde `difusion/linkedin/*-carrusel.json` con la skill `publicacion-externa`.
 
 ---
 
-## Versión nativa en español (principal)
+## Versión corta en español (recomendada)
+
+> Base: propuesta de ChatGPT, con cinco ajustes. (1) La cifra aproximada de trayectorias pasa a 78.972, la del post y del carrusel. (2) "una evolución más desfavorable" se precisa como falla de progresión o rezago. (3) Se quita "para que sus costos no recaigan sobre las familias", que presupone un costo causal justo después de decir que no se puede atribuir. (4) "estimaciones cuasiexperimentales" pasa a "comparaciones con estudiantes similares", porque el post las presenta como diferencias observadas y no como efectos causales. (5) Se agregan el enlace con UTM y el del episodio: el original anunciaba la cápsula sin enlazarla.
+
+Un colegio cierra. Sus estudiantes encuentran otra escuela. ¿Problema resuelto?
+
+No necesariamente.
+
+Seguí 78.972 trayectorias estudiantiles en 1.141 cierres escolares entre 2005 y 2024. En las 19 cohortes medibles, la falla de progresión o el rezago de quienes perdieron su escuela creció más que el de estudiantes comparables.
+
+Todavía no puedo atribuir esa diferencia al cierre: esas escuelas ya venían más frágiles. Pero sí plantea una tarea concreta: anticipar dónde se reorganizará la oferta escolar y preparar cada transición, con vacantes, transporte, apoyos y seguimiento, antes de cerrar y no después.
+
+Es la tercera parte de mi serie "Extender mi tesis en 3 cucharadas", ahora con trayectorias individuales, comparaciones con estudiantes similares y sus límites.
+
+🔗 https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3
+🎧 Cápsula de audio, con voces sintéticas: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+
+#Educación #PolíticasPúblicas #InvestigaciónEducativa #Chile
+
+---
+
+## Short English version (recommended)
+
+A school closes. Its students find another school. Problem solved?
+
+Not necessarily.
+
+I followed 78,972 student trajectories across 1,141 school closures in Chile between 2005 and 2024. In all 19 measurable cohorts, progression failure or grade lag rose more among students who lost their school than among comparable peers.
+
+I cannot yet attribute that gap to the closure: those schools were already more fragile. But it does set a concrete task: anticipate where the school supply will be reorganised and prepare each transition, with vacancies, transport, support and follow-up, before closing rather than after.
+
+This is Part III of my series "Extending My Thesis in Three Spoonfuls", now with individual trajectories, comparisons with similar students, and their limits.
+
+🔗 https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3_en
+🎧 Audio capsule in Spanish, with synthetic voices: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+
+#Education #PublicPolicy #EducationResearch #Chile
+
+---
+
+## Versión nativa en español (larga, alternativa)
 
 Cuando cierra una escuela, la discusión suele terminar en un mapa: si hay otro colegio con cupos a un par de kilómetros, la transición se da por resuelta. Pero un mapa muestra edificios, no trayectorias.
 
 En la parte III de "Extender mi tesis en 3 cucharadas" seguí, con registros administrativos del MINEDUC, a 78.972 estudiantes que perdieron su escuela en 1.141 cierres entre 2005 y 2024, frente a 734.472 pares comparables de escuelas que seguían abiertas.
 
 🔗 https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3
-🎧 Si prefieres escucharlo, el episodio del podcast: PODCAST_URL
+🎧 Si prefieres escucharlo, el episodio del podcast: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
 
 Lo que muestra la ventana completa de años:
 
@@ -42,7 +82,7 @@ When a school closes, the discussion often ends at a map: if another school with
 In Part III of "Extending My Thesis in Three Spoonfuls" I used Chilean Ministry of Education administrative records to follow 78,972 students who lost their school in 1,141 closures between 2005 and 2024, against 734,472 comparable peers from schools that stayed open.
 
 🔗 https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3_en
-🎧 Prefer to listen? The podcast episode (in Spanish): PODCAST_URL
+🎧 Prefer to listen? The podcast episode (in Spanish): https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
 
 What the full window of years shows:
 
