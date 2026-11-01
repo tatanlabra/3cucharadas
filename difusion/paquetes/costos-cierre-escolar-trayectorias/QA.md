@@ -43,3 +43,16 @@ tamaños son de GummySearch (2026-11-01). Copys en `reddit-hilos.md`.
 
 Descartados: r/AskEconomics (solo preguntas), r/statistics (tema periférico), r/CausalInference
 (~2 mil) y r/Universidad (no encontrado). En reserva: r/Santiago, r/latinoamerica y r/publicpolicy.
+
+### Reorientación (2026-11-01, decisión del autor)
+
+Solo subs en inglés de datos, política pública y cambio demográfico; r/chile y r/RepublicadeChile
+quedan fuera porque su temática no es pertinente.
+
+| Orden | Sub | Evidencia de existencia y tamaño | Riesgo principal |
+|---|---|---|---|
+| 1 | r/dataisbeautiful | ~21,8 millones (GummySearch) | quitan el post si falta el comentario de fuente o si el título exagera |
+| 2 | r/demography | espejos públicos: "a community for all those who want to discuss and share topics associated with demography and demographic change"; activo, con gráficos de fecundidad de 2025–2026; tamaño no verificado | reglas sobre enlaces propios no verificadas |
+| 3 | r/PublicPolicy | ~23 mil (GummySearch, caché de 2026-06-20; el servicio cerró y la cifra puede estar desactualizada) | autopromoción no verificada |
+| reserva | r/econometrics | ~46 mil (GummySearch) | autopromoción no verificada |
+
