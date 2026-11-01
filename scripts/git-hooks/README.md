@@ -103,6 +103,16 @@ Lo que sigue se verificó al difundir el Post III de la tesis.
 | LinkedIn | Publicación de tipo documento con el PDF del carrusel y un copy corto con gancho; los enlaces van en el cuerpo. La lámina final puede llevar dos enlaces (post y podcast), que `render-linkedin-carousel.sh` repone en el PDF como anotaciones `/Link` | El visor de LinkedIn puede no hacer clicables los enlaces del PDF; las fuentes no coinciden. Por eso cada mitad de la lámina muestra también su dirección |
 | Podcast (Spotify) | La URL `open.spotify.com/episode/<ID>` sale del botón Compartir o de la página pública del programa renderizada con `agent-browser` | El RSS de Spotify for Creators no la trae (su enlace es de creators.spotify.com) y tarda en listar un episodio que Spotify ya muestra. Detalle en `docs/flujo-podcast.md` |
 
+Para registrar lo publicado: `scripts/registrar_publicacion.py <ref> <enlace> [--lang en]`
+resuelve el enlace (lnkd.in, t.co), le quita el rastreo, comprueba que el post exista y sea
+del autor (perfiles de `social.links` en `_config.yml`) y lo agrega a `_data/distribucion.yml`.
+Con `--descubrir` encuentra solos los posts de Mastodon y Bluesky que enlazan el artículo. Qué se
+puede comprobar sin sesión: Mastodon y Bluesky, por API pública; LinkedIn, en la página pública
+del post, que trae el texto completo (el perfil responde 999 y no deja descubrir posts); X, por
+oEmbed (el timeline exige API de pago); Spotify, con User-Agent de navegador. Reddit no deja
+verificar nada, así que el enlace queda registrado como declarado por el autor. No hacen falta
+extractores de terceros: un `curl` lee el post de LinkedIn sin entregarle el enlace a nadie.
+
 El gate `verify_difusion_coherente.rb` también lee el HTML del carrusel y las notas
 de cada paquete. Cualquier cifra que no esté en el post lo reprueba: un «79 mil»
 redondeado, una fecha dentro de una nota o una entidad numérica como `&#8599;`.
