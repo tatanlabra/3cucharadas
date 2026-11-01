@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
+    "source_sha256": "45ef87566dd2945d4333821a194111345e5214a6608e742729a30ec03a2fe404",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -54,7 +54,7 @@
       "format": "svg",
       "locale": "en",
       "path": "post-pilot-reestimation-en-light.svg",
-      "sha256": "e5613637c629ac18ccb3b366a3f7085bf097b56b9022cfd1c7e62687ece2c720",
+      "sha256": "2328f1dad5cfdc33057355cbd19cabc8848c0376da52542e613b0c9d6f8b34db",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -62,7 +62,7 @@
       "format": "png",
       "locale": "en",
       "path": "post-pilot-reestimation-en-light.png",
-      "sha256": "6157884c4799924e5cddecb2f964c7d04d3edced18ef859f4f85a0b1fd864104",
+      "sha256": "30183efd217c78f5319047ac36a5a9cebc7d721748e991d90c73a5a307e3903e",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -70,7 +70,7 @@
       "format": "svg",
       "locale": "en",
       "path": "post-pilot-reestimation-en-light-mobile.svg",
-      "sha256": "8642689994a557aaafdfdfe347abea9134ad0fd2cc77fe62a8d744f35009cd12",
+      "sha256": "38bfd27933000b9c977a0a4ef096e1d57922fa883201e2d8bb88e17160551081",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -78,7 +78,7 @@
       "format": "png",
       "locale": "en",
       "path": "post-pilot-reestimation-en-light-mobile.png",
-      "sha256": "a94185e45b551e8eec1318c3785abf5b61bff3672aedd98e23926bf16c4ca966",
+      "sha256": "c15a46c9b38f4e0df043cbd7dc4aab202790e746c5847d759789a0559de0d310",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -86,7 +86,7 @@
       "format": "svg",
       "locale": "en",
       "path": "post-pilot-reestimation-en-dark.svg",
-      "sha256": "2355e50c91c2f8f659103b2de9c7b6b0885e55deb9e8d37d1ba1c498d0a9aae4",
+      "sha256": "9d7f1052e9d215427dad6f33c4e459b5d265e0f9c9c8d4085f8b16d4b6765a9d",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -94,7 +94,7 @@
       "format": "png",
       "locale": "en",
       "path": "post-pilot-reestimation-en-dark.png",
-      "sha256": "5799234bbbcb88485b96c5ecaaf8eb549213380801bc04bad4f5ea954f63116a",
+      "sha256": "ad9748b92762d96c8774c084c1b28a68c51fc80c47c5bffc8197dec9a8c29b58",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -102,7 +102,7 @@
       "format": "svg",
       "locale": "en",
       "path": "post-pilot-reestimation-en-dark-mobile.svg",
-      "sha256": "f38c1764df319c0349e564eaaafa30660422f74ecac1261d2923ae9d80d2a961",
+      "sha256": "591fbf519857f197e0304dccb7692ffede0cd5d9a2ada2a64b378db594dffd43",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -110,7 +110,7 @@
       "format": "png",
       "locale": "en",
       "path": "post-pilot-reestimation-en-dark-mobile.png",
-      "sha256": "9ca0a7ba82a540db9284aafb1059dd65d6d4b932e896b64179af139917ffb1ba",
+      "sha256": "90592f59974f82366c86bbd2ec522e9099bab4daf6e2bfe1ef9d4dcb68a3b835",
       "theme": "dark",
       "viewport": "mobile"
     }

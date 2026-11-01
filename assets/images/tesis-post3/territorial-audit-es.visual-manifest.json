@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "3a8000f82ab5c5e346ba68f4cf8c28fcfef78562ef958602fcad82fe6ba14491",
+    "source_sha256": "45ef87566dd2945d4333821a194111345e5214a6608e742729a30ec03a2fe404",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -61,7 +61,7 @@
       "format": "svg",
       "locale": "es",
       "path": "territorial-audit-es-light.svg",
-      "sha256": "2947affbfd33e420b1547ee25808a4a1e9730b6d34074ae25ffe641f41a9d47a",
+      "sha256": "8f0f37987bbbef1a6edb24940535fcdc87e777a89d24b181323bb4d0a2e4a67f",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -69,7 +69,7 @@
       "format": "png",
       "locale": "es",
       "path": "territorial-audit-es-light.png",
-      "sha256": "51e7b1e7ff940222b778dc39d04d0fa8c1de766c543466e79fe8ad3411da3791",
+      "sha256": "92a3fa66e1dd947217415227c6b8b4b09ca941dc03bf7430628a19a8e985edee",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -77,7 +77,7 @@
       "format": "svg",
       "locale": "es",
       "path": "territorial-audit-es-light-mobile.svg",
-      "sha256": "257089a237f313c0054a07495bb134334bf3ad7a87c2730f8806897a36837d9c",
+      "sha256": "d8a48d01fcc6daaddac80cae76dfa3146da89d047e24cb253a0c55ae54a38770",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -85,7 +85,7 @@
       "format": "png",
       "locale": "es",
       "path": "territorial-audit-es-light-mobile.png",
-      "sha256": "8b3a733911123d0ed415804cc0fb71967228e76ab63c2f7ec588b3df26320a38",
+      "sha256": "bb575ec13fe194f1337cce1c3b22bd771cd1c2d34ad522bf7c30b4dd8c50afb5",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -93,7 +93,7 @@
       "format": "svg",
       "locale": "es",
       "path": "territorial-audit-es-dark.svg",
-      "sha256": "fc5f955fdbd43a0622697482951224929ecac98b8dec492464bcc4dcc7568684",
+      "sha256": "1840e0fa50c3bb867b6aa5383c7c8faf0d82d20166c27410b043929b747e49f5",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -101,7 +101,7 @@
       "format": "png",
       "locale": "es",
       "path": "territorial-audit-es-dark.png",
-      "sha256": "6f48d64731ab8a271a8d8f028ebd5c5f929d82240b509dcb1ff008f8ec876b8f",
+      "sha256": "ab346787d07d946a0f0eebf2ee471843c216dfaf67a831e1660e089b82c1a2c0",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -109,7 +109,7 @@
       "format": "svg",
       "locale": "es",
       "path": "territorial-audit-es-dark-mobile.svg",
-      "sha256": "60a445d7541e543fbcff3c33d8745ea97fe01382bd8c9e199874abf547cc7af1",
+      "sha256": "138ae704b4bfad67bc674cca9a9fba75994ae61cd4fe49f9f8ad178d9fc42c3a",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -117,7 +117,7 @@
       "format": "png",
       "locale": "es",
       "path": "territorial-audit-es-dark-mobile.png",
-      "sha256": "c803a128dc36bf5c33c59b075c36d0f02d40f72790765eaf85881d8150baaf16",
+      "sha256": "3abb0c800f20c70fdb7793d983fbdef66e27abbda8f275fee9e9e9a38b25f462",
       "theme": "dark",
       "viewport": "mobile"
     }
