@@ -28,6 +28,16 @@ si se busca crítica del diseño.
 
 **Texto:** Using Chilean Ministry of Education records, I compared 78,972 students who lost their school (1,141 closures) with 734,472 comparable peers. Pooled gap in progression failure or grade lag: +6.29 percentage points (95% CI +4.49 to +8.09). It is not yet a causal estimate, because the closed schools were already more fragile. Still, a list of nearby schools is not continuity: I argue for verified vacancies, safe transport, support at receiving schools and tracking every student for at least two years, plus assessing in advance where the next closures will happen. Article and open data: https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=reddit&utm_medium=social&utm_campaign=tesis_post3_en
 
+## r/latinoamerica (equivalente en español)
+
+Decisión del autor: además de r/PublicPolicy, un sub en español. No se encontró un sub hispano de
+política pública verificable; r/latinoamerica es la comunidad regional en español de mayor alcance y
+no es chilena. Revisar sus reglas en la barra lateral antes de enviar.
+
+**Título:** Cuando cierra un colegio, ¿qué pasa con sus estudiantes? Seguí 78.972 trayectorias en 1.141 cierres escolares en Chile (2005–2024)
+
+**Texto:** Con registros administrativos del Ministerio de Educación de Chile comparé a 78.972 estudiantes que perdieron su escuela (1.141 cierres) con 734.472 pares comparables de escuelas que siguieron abiertas. En las 19 cohortes medibles, la falla de progresión o el rezago creció más entre quienes perdieron su escuela; la brecha conjunta es de +6,29 puntos porcentuales (IC 95 %: +4,49 a +8,09). Todavía no puedo atribuirla al cierre: esas escuelas ya venían más frágiles y el 47,04 % de sus estudiantes ya se había cambiado de colegio antes. Con la caída de la natalidad, varios países de la región van a cerrar o fusionar escuelas. Mi conclusión: evaluar con anticipación dónde ocurrirán los cierres y exigir vacantes verificadas, transporte seguro, apoyo en las escuelas receptoras y seguimiento de cada estudiante por al menos dos años. ¿Cómo se está planificando esto en sus países? Artículo y datos abiertos: https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=reddit&utm_medium=social&utm_campaign=tesis_post3_es
+
 ## r/econometrics (reserva)
 
 **Título:** Feedback welcome: staggered DiD (Callaway–Sant'Anna) with exact matching and Manski bounds on 1,141 school closures in Chile, where pre-closure gaps limit causal claims
