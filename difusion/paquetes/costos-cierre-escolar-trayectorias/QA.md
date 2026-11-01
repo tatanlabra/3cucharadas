@@ -55,4 +55,3 @@ quedan fuera porque su temática no es pertinente.
 | 2 | r/demography | espejos públicos: "a community for all those who want to discuss and share topics associated with demography and demographic change"; activo, con gráficos de fecundidad de 2025–2026; tamaño no verificado | reglas sobre enlaces propios no verificadas |
 | 3 | r/PublicPolicy | ~23 mil (GummySearch, caché de 2026-06-20; el servicio cerró y la cifra puede estar desactualizada) | autopromoción no verificada |
 | reserva | r/econometrics | ~46 mil (GummySearch) | autopromoción no verificada |
-
