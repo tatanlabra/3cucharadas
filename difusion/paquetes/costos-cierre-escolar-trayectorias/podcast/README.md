@@ -7,6 +7,7 @@ Paquete local preparado para generar el episodio conversacional de dos voces en 
 | Fuente editorial autónoma para cargar en NotebookLM | `01-fuente.md` | completo y verificado |
 | Texto literal para el campo de personalización de Audio Overview | `personalizacion.txt` | completo (1.248 caracteres) |
 | Guion conversacional de referencia (hablantes A `es-ES` y B `es-CL`) | `guion.md` | completo (~2.950 palabras pronunciables) |
+| Guion breve centrado en el efecto global 2005–2024, con cierre sobre dónde ocurrirán los próximos cierres (pedido del autor, 2026-11-01); su recomendación territorial no está en `01-fuente.md`, así que conviene cargarlo como fuente | `guion-breve.md` + `guion-breve-QA.md` | completo (2.426 palabras; cada cifra con su línea en el post) |
 | Procedencia, parámetros y rutas de custodia | `origen.yaml` | preparado (`etapa: preparado`, pendiente máster) |
 | Registro de evidencia (`EV-01` a `EV-12`) y checklist de escucha humana | `QA.md` | QA documental en verde; escucha pendiente de audio |
 
