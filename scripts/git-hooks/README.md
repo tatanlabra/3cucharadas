@@ -85,9 +85,9 @@ lee el YAML. Si el destino necesita una condición que hoy no existe (`lang_post
 `tags_min` mide historial: sirve para agregadores que piden varios posts del tema.
 Una comunidad como un subreddit no pide historial, sino que el artículo sea de su
 tema. Para eso está `tags_any`: el post evaluado tiene que llevar al menos una de
-las etiquetas, en el idioma del destino. Así el hook nombra `reddit-publicpolicy-en`
-y `reddit-latinoamerica-es` para el Post III de la tesis, que lleva `public-policy`
-y `politica-publica`, y ninguno de los dos para un post técnico. Desde el
+las etiquetas, en el idioma del destino. Así el hook nombra `reddit-publicpolicy-en` para el
+Post III de la tesis, que lleva `public-policy`, y no lo nombra para un post técnico.
+r/latinoamerica se probó y se descartó por no ser pertinente. Desde el
 2026-11-01 el hook muestra todo destino `listo` o `pendiente-verificar`, no solo
 Mastodon y Bluesky. Por eso `econacademics` y `comunidades-datos-gis-es` también
 filtran por tema: sin ese filtro, aparecían pendientes en todos los posts.

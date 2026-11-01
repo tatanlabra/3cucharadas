@@ -417,3 +417,9 @@
     estado: publicado
     nota: "Verificado con registrar_publicacion.py: oEmbed público 200 con el
       autor."
+  - plataforma: reddit
+    fecha: '2026-11-01'
+    url_publicada_en: https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
+    estado: publicado
+    nota: "Verificado con registrar_publicacion.py: r/PublicPolicy; declarado
+      por el autor (Reddit bloquea la verificación automática)."

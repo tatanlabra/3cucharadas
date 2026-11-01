@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SECTION = re.compile(r"^## r/([A-Za-z0-9_]+)[^\n]*\n(.*?)(?=^## |\Z)", re.M | re.S)
 TITLE = re.compile(r"^\*\*T[ií]tulo:\*\* (.+)$", re.M)
 BODY = re.compile(r"^\*\*Texto:\*\* (.+)$", re.M)
+# Una sección con "Publicado por el autor" ya se envió: abrirla de nuevo invita a un doble post.
+PUBLISHED = re.compile(r"^Publicado por el autor", re.M)
 
 
 def threads(path: Path) -> list[tuple[str, str | None, str | None]]:
@@ -63,7 +65,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Subreddits sin sección en el paquete: {sorted(wanted - {t[0].lower() for t in found})}", file=sys.stderr)
         return 1
     urls = 0
+    publicados = {sub for sub, block in SECTION.findall(path.read_text(encoding="utf-8")) if PUBLISHED.search(block)}
     for sub, title, body in found:
+        if sub in publicados:
+            print(f"PUBLICADO r/{sub}: ya enviado según reddit-hilos.md; no se vuelve a abrir")
+            continue
         if not title or not body:
             print(f"OMITIDO r/{sub}: sin **Título:** y **Texto:** de una línea (envío de enlace o imagen: va a mano)")
             continue

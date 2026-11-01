@@ -93,20 +93,8 @@ destinos:
       reglas. Se mantiene en "pendiente-verificar" a propósito: declararlo listo
       sin confirmar la política de cada comunidad es cómo se termina spameando.
 
-  - id: reddit-latinoamerica-es
-    lang: es
-    audiencia: [politica-publica, general]
-    modo: prefill
-    requiere:
-      lang_post: es
-      tags_any: [politica-publica, educacion, demografia]
-      verificado: false
-    nota: >-
-      r/latinoamerica: comunidad regional en español, equivalente hispano de
-      r/PublicPolicy (no se encontró un sub de política pública en español). Los
-      subs chilenos no son pertinentes para estos temas, por decisión del autor.
-      Texto en difusion/paquetes/<ref>/reddit-hilos.md, cerrado con una pregunta
-      comparativa entre países. Revisar la barra lateral y pasar a verificado.
+  # r/latinoamerica se descartó (decisión del autor, 2026-11-01): no es pertinente.
+  # Falta elegir un subreddit en español; no se agrega hasta confirmar que existe.
 
   # ─────────────────────────── Inglés ───────────────────────────
 

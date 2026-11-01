@@ -100,8 +100,8 @@ def _evaluar(
     # `tags_any` elige la comunidad por tema: basta una de las etiquetas, pero el
     # post evaluado tiene que llevarla. Sirve para destinos como un subreddit,
     # donde no importa el historial del blog sino que el artículo sea del tema de
-    # esa comunidad (decidido el 2026-11-01 tras elegir r/PublicPolicy y
-    # r/latinoamerica para el Post III de la tesis).
+    # esa comunidad (decidido el 2026-11-01 al elegir r/PublicPolicy para el
+    # Post III de la tesis).
     tags_any = [str(tag).lower() for tag in (requiere.get("tags_any") or [])]
     if tags_any:
         post_tema = pareja.get(idioma)

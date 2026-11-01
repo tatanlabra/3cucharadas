@@ -24,13 +24,17 @@ si se busca crítica del diseño.
 
 ## r/PublicPolicy
 
+Publicado por el autor el 2026-11-01, con título propio:
+https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
+
 **Título:** School closures in Chile, 2005–2024: in all 19 cohorts, students who lost their school fell behind more than their peers. What should a closure protocol require?
 
 **Texto:** Using Chilean Ministry of Education records, I compared 78,972 students who lost their school (1,141 closures) with 734,472 comparable peers. Pooled gap in progression failure or grade lag: +6.29 percentage points (95% CI +4.49 to +8.09). It is not yet a causal estimate, because the closed schools were already more fragile. Still, a list of nearby schools is not continuity: I argue for verified vacancies, safe transport, support at receiving schools and tracking every student for at least two years, plus assessing in advance where the next closures will happen. Article and open data: https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=reddit&utm_medium=social&utm_campaign=tesis_post3_en
 
-## r/latinoamerica (equivalente en español)
+## Descartado: r/latinoamerica
 
-Decisión del autor: además de r/PublicPolicy, un sub en español. No se encontró un sub hispano de
+Descartado por el autor el 2026-11-01: no es pertinente. Se conserva el texto como borrador para
+un sub en español que esté por confirmar. Decisión inicial del autor: además de r/PublicPolicy, un sub en español. No se encontró un sub hispano de
 política pública verificable; r/latinoamerica es la comunidad regional en español de mayor alcance y
 no es chilena. Revisar sus reglas en la barra lateral antes de enviar.
 

@@ -178,7 +178,7 @@ def test_post_sin_version_en_igual_alcanza_destinos_es(repo, tmp_path):
 def test_reddit_se_elige_por_tema_con_tags_any(repo):
     """Un subreddit se elige por el tema del post, no por el historial del blog."""
     post3 = {row["destination"]: row for row in destination_status(repo, "costos-cierre-escolar-trayectorias")}
-    for destino in ("reddit-publicpolicy-en", "reddit-latinoamerica-es"):
+    for destino in ("reddit-publicpolicy-en",):
         assert post3[destino]["modo"] == "prefill"
         # Tema correcto, pero las reglas del sub no están confirmadas: nunca "listo" solo.
         assert post3[destino]["status"] == "pendiente-verificar", post3[destino]
