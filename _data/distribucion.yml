@@ -411,3 +411,9 @@
       copy corto revisado por el autor (enlace al post y al episodio). Enlace
       corto de origen https://lnkd.in/p/dDN3D8NP; se registra la URL resuelta
       sin parámetros de rastreo.
+  - plataforma: x
+    fecha: '2026-11-01'
+    url_publicada: https://x.com/tatanlabra/status/2116991976646082665
+    estado: publicado
+    nota: "Verificado con registrar_publicacion.py: oEmbed público 200 con el
+      autor."

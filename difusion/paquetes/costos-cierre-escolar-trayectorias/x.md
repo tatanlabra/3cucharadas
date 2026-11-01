@@ -24,3 +24,9 @@ El análisis completo, con datos abiertos y todas sus cautelas:
 https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=x&utm_medium=social&utm_campaign=tesis_post3
 
 #PolíticasPúblicas #Chile
+
+## Publicado (2026-11-01)
+
+https://x.com/tatanlabra/status/2116991976646082665, con el texto final del autor (leído por oEmbed):
+
+🎧 Cierra un colegio: ¿qué pasa con sus estudiantes? Con datos de @mineduc de 78 mil trayectorias (19 cohortes), los afectados se rezagaron + que sus pares. ¿Fue el cierre? Se abre un desafío. Escúchalo (voces IA) 👇 [enlace al episodio] @ciae_uchile @cppublicasuc
