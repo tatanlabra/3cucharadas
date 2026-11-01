@@ -60,11 +60,16 @@ destinos:
     archivo: hn.txt
     estado: preparado
     url_publicada: null
-  - plataforma: reddit
-    fecha_propuesta: 2026-11-03
-    archivo: reddit-target.md
-    estado: preparado
-    url_publicada: null
+  - plataforma: reddit-ai_agents
+    fecha_propuesta: 2026-11-01
+    archivo: reddit-hilos.md
+    estado: publicado
+    url_publicada: https://www.reddit.com/r/AI_Agents/comments/1xleo4g/
+  - plataforma: reddit-localllama
+    fecha_propuesta: 2026-11-01
+    archivo: reddit-hilos.md
+    estado: publicado
+    url_publicada: https://www.reddit.com/r/LocalLLaMA/comments/1xlepxp/
 verificaciones_pendientes:
   - ejecutar git push y verificar HTTP 200 en https://3cucharadas.cl/ia/productividad/desarrollo/multiagente-penta-agent-autopoiesis-parte-iv/
   - autorizar scripts/post_push_difusion.sh multiagente-penta-agent-autopoiesis-parte-iv --live tras revisar social.json

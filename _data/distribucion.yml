@@ -353,6 +353,18 @@
     devto_article_id: 4954537
     url_publicada: https://dev.to/tatanlabra/multi-agent-work-in-three-spoonfuls-part-iv-from-a-terminal-trident-to-an-autopoietic-loop-2jh
     estado: publicado
+  - plataforma: reddit
+    fecha: '2026-11-01'
+    url_publicada_en: https://www.reddit.com/r/AI_Agents/comments/1xleo4g/
+    estado: publicado
+    nota: "Verificado con registrar_publicacion.py: r/AI_Agents; declarado por
+      el autor (Reddit bloquea la verificación automática)."
+  - plataforma: reddit
+    fecha: '2026-11-01'
+    url_publicada_en: https://www.reddit.com/r/LocalLLaMA/comments/1xlepxp/
+    estado: publicado
+    nota: "Verificado con registrar_publicacion.py: r/LocalLLaMA; declarado
+      por el autor (Reddit bloquea la verificación automática)."
 - slug: jueces-locales-cpu-laya-vega-arc
   ref_interno: jueces-locales-cpu-laya-vega-arc
   url_canonica: https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
