@@ -78,4 +78,47 @@ preguntarse por qué un artículo nunca llegó a OSGeo.
 
 Editar `difusion/config/destinos.yml`. No hay que tocar código: `destinations.py`
 lee el YAML. Si el destino necesita una condición que hoy no existe (`lang_post`,
-`republish`, `tags_min`, `verificado`), eso sí requiere extender `_evaluar()`.
+`republish`, `tags_min`, `tags_any`, `verificado`), eso sí requiere extender `_evaluar()`.
+
+### Elegir la comunidad correcta (`tags_any`)
+
+`tags_min` mide historial: sirve para agregadores que piden varios posts del tema.
+Una comunidad como un subreddit no pide historial, sino que el artículo sea de su
+tema. Para eso está `tags_any`: el post evaluado tiene que llevar al menos una de
+las etiquetas, en el idioma del destino. Así el hook nombra `reddit-publicpolicy-en`
+y `reddit-latinoamerica-es` para el Post III de la tesis, que lleva `public-policy`
+y `politica-publica`, y ninguno de los dos para un post técnico. Desde el
+2026-11-01 el hook muestra todo destino `listo` o `pendiente-verificar`, no solo
+Mastodon y Bluesky. Por eso `econacademics` y `comunidades-datos-gis-es` también
+filtran por tema: sin ese filtro, aparecían pendientes en todos los posts.
+
+## Canales sin API: lo aprendido con el Post III (2026-11-01)
+
+El hook nombra el destino; la publicación en estos canales la hace una persona.
+Lo que sigue se verificó al difundir el Post III de la tesis.
+
+| Canal | Qué funciona | Qué no |
+|---|---|---|
+| Reddit (`modo: prefill`) | `scripts/reddit_prefill_urls.py <ref> --open` abre el formulario de old.reddit con título y texto prellenados (`/r/<sub>/submit?selftext=true&title=…&text=…`), en el navegador habitual y con la sesión de la persona, que revisa la barra lateral y envía | La API y los navegadores automatizados reciben «blocked by network security». Ir más lento no lo evita: Reddit detecta el navegador automatizado, no el ritmo. Esquivarlo arriesga la cuenta. El script solo prellena posts de texto: r/dataisbeautiful (envío de enlace con primer comentario de fuentes) va a mano |
+| LinkedIn | Publicación de tipo documento con el PDF del carrusel y un copy corto con gancho; los enlaces van en el cuerpo. La lámina final puede llevar dos enlaces (post y podcast), que `render-linkedin-carousel.sh` repone en el PDF como anotaciones `/Link` | El visor de LinkedIn puede no hacer clicables los enlaces del PDF; las fuentes no coinciden. Por eso cada mitad de la lámina muestra también su dirección |
+| Podcast (Spotify) | La URL `open.spotify.com/episode/<ID>` sale del botón Compartir o de la página pública del programa renderizada con `agent-browser` | El RSS de Spotify for Creators no la trae (su enlace es de creators.spotify.com) y tarda en listar un episodio que Spotify ya muestra. Detalle en `docs/flujo-podcast.md` |
+
+El gate `verify_difusion_coherente.rb` también lee el HTML del carrusel y las notas
+de cada paquete. Cualquier cifra que no esté en el post lo reprueba: un «79 mil»
+redondeado, una fecha dentro de una nota o una entidad numérica como `&#8599;`.
+Hay que copiar las cifras exactas del post y escribir los símbolos como caracteres
+literales.
+
+## Push a dos remotos y el bot de DEV.to
+
+`origin` empuja primero a GitLab y después a GitHub, y el push no es atómico. El bot
+de GitHub Actions que registra la sindicación de DEV.to commitea en `main` de GitHub
+y reescribe `_data/distribucion.yml` con su propio ancho de línea: vuelve a cortar
+las `nota:` largas en torno a 80 columnas, sin partir palabras ni rutas (medido el
+2026-11-01: una línea quedó de 85 caracteres y otra, con una ruta, de 127). Si eso
+ocurre entre dos pushes, GitLab acepta el siguiente y GitHub lo rechaza. Se resuelve
+como en `81444990` y `d4c38ba3`: `git fetch` de GitHub, un merge `--no-ff` firmado
+por tatan (`merge: integra el reformateo YAML del bot…`) y un push que avanza en los
+dos remotos. Nunca con `--force`. Escribir notas cortas reduce el riesgo, pero no lo
+elimina: el bot vuelve a fluir el texto a su manera. Lo que sí evita la sorpresa es
+hacer `git ls-remote` a los dos remotos después de cada push.

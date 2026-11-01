@@ -173,3 +173,31 @@ def test_post_sin_version_en_igual_alcanza_destinos_es(repo, tmp_path):
     assert solo_es, "el fixture necesita al menos un post ES"
     rows = {row["destination"]: row for row in destination_status(repo, "casen2024-julia-waffles")}
     assert rows["mastodon-es"]["status"] == "listo"
+
+
+def test_reddit_se_elige_por_tema_con_tags_any(repo):
+    """Un subreddit se elige por el tema del post, no por el historial del blog."""
+    post3 = {row["destination"]: row for row in destination_status(repo, "costos-cierre-escolar-trayectorias")}
+    for destino in ("reddit-publicpolicy-en", "reddit-latinoamerica-es"):
+        assert post3[destino]["modo"] == "prefill"
+        # Tema correcto, pero las reglas del sub no están confirmadas: nunca "listo" solo.
+        assert post3[destino]["status"] == "pendiente-verificar", post3[destino]
+
+    nushell = {row["destination"]: row for row in destination_status(repo, "nushell-coprocesador-estructurado")}
+    assert nushell["reddit-publicpolicy-en"]["status"] == "bloqueado"
+    assert "ninguno de los tags" in nushell["reddit-publicpolicy-en"]["reason"]
+
+
+def test_tags_any_bloquea_si_el_post_no_lleva_ninguna(repo, tmp_path):
+    catalogo = tmp_path / "destinos.yml"
+    catalogo.write_text(
+        "destinos:\n"
+        "  - id: sub-tema\n    lang: en\n    modo: prefill\n"
+        "    requiere: {lang_post: en, tags_any: [tema-que-no-existe]}\n"
+        "  - id: sub-ok\n    lang: en\n    modo: prefill\n"
+        "    requiere: {lang_post: en, tags_any: [Public-Policy]}\n",
+        encoding="utf-8",
+    )
+    rows = {row["destination"]: row for row in destination_status(repo, "costos-cierre-escolar-trayectorias", catalogo)}
+    assert rows["sub-tema"]["status"] == "bloqueado"
+    assert rows["sub-ok"]["status"] == "listo"

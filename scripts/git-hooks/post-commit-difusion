@@ -56,7 +56,9 @@ while IFS= read -r ref; do
       --repo "$repo_root" destinations record "$ref" 2>&1
   )"; then
     printf 'difusion: elegibilidad resuelta para %s; este hook NO publica.\n' "$ref"
-    printf '%s\n' "$salida" | grep -E '\*\*(mastodon-es|bluesky-es)\*\*' || true
+    # Todo destino elegible o por verificar, no solo Mastodon y Bluesky: así el
+    # hook también nombra la comunidad de Reddit y el canal manual que corresponden.
+    printf '%s\n' "$salida" | grep -E -- '— (listo|pendiente-verificar):' || true
     printf 'difusion: después del despliegue, ejecutar scripts/post_push_difusion.sh %s (simulacro por defecto).\n' "$ref"
     printf 'difusion: runbook y recuperación: docs/flujo-difusion.md#runbook-reproducible-para-un-lanzamiento-social\n'
   else

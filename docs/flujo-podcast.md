@@ -114,6 +114,24 @@ aplica a los recientes.
 Apple lo recoge del feed solo. El feed tarda en regenerarse: hay que esperar a que muestre el
 episodio antes de registrar nada.
 
+**La URL del episodio no sale del feed.** Medido el 2026-11-01 con el Post III. El `link` de cada
+ítem del RSS apunta a creators.spotify.com y el `guid` es un UUID: ninguno trae el
+`open.spotify.com/episode/<ID>` que piden el bloque `audio:` y `_data/distribucion.yml`. El HTML
+estático de la página del programa tampoco lo trae, porque es una SPA. Hay dos vías: el botón
+Compartir del episodio, sin el parámetro `?si=`, o la página pública del programa
+(`open.spotify.com/show/4MY43EJ64aZ3LB15HbZTcE`) renderizada con `agent-browser`, leyendo los
+enlaces `a[href*="/episode/"]` y emparejando por título. Además, el feed puede tardar en listar un
+episodio que Spotify ya muestra: ese día la URL respondía 200 y el RSS seguía con 4 episodios. Una
+URL de episodio inventada responde 500, no 404, con el User-Agent de navegador.
+
+El cierre toca cuatro archivos: el bloque `audio:` en la versión **en español** (los posts en
+inglés de la serie no lo llevan, porque el audio es en español), `_data/distribucion.yml`, el
+`origen.yaml` del paquete y el copy de LinkedIn que enlaza el episodio. Con el Post III se hizo con
+un script que escribe los cuatro solo si todos sus reemplazos aplican, y con 13 comprobaciones
+falsadas en un worktree antes de tocar `main`. Los dos viven fuera del repo, en
+`~/.local/state/3cucharadas/renders/costos-cierre-escolar-trayectorias/`, y sirven de molde para el
+próximo episodio.
+
 ### 6. Encender el bloque en el post
 
 Un mismo episodio puede acompañar a varios posts: basta con el mismo mapa `audio:` en cada uno y un

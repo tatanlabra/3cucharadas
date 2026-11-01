@@ -15,6 +15,10 @@
 #               pública chilena a un agregador de programadores y viceversa.
 #   modo        "api"     el CLI puede publicar (hay cliente en networks.py)
 #               "manual"  se prepara el paquete y publica una persona
+#               "prefill" scripts/reddit_prefill_urls.py abre el formulario de
+#                         envío ya lleno en el navegador de la persona, que
+#                         revisa y envía. Nunca un navegador automatizado
+#                         (verificado el 2026-11-01; ver scripts/git-hooks/README.md)
 #               "feed"    el destino consume un feed; no se empuja nada
 #   requiere    condiciones verificables. Se evalúan todas (AND):
 #     lang_post       el par debe incluir una versión en ese idioma
@@ -22,6 +26,8 @@
 #     republish       el valor debe estar en distribution.republish del post
 #     tags_min        {etiqueta: n} — n posts de ese idioma con esa etiqueta,
 #                     contando el post evaluado
+#     tags_any        [etiquetas] — el post evaluado lleva al menos una. Elige
+#                     la comunidad por tema (subreddits), sin exigir historial
 #     verificado      si es false, el destino nunca pasa a "listo": queda en
 #                     "pendiente-verificar" hasta confirmar sus reglas de envío
 #   nota        qué hay que hacer o qué falta, en texto para el humano.
@@ -69,6 +75,9 @@ destinos:
       Donde vive el público chileno de política pública. Los activos se resuelven
       por artículo; un carrusel, cuando corresponda, se arma con
       scripts/render-linkedin-carousel.sh. El hook sólo prepara el paquete.
+      Publicación de tipo documento con el PDF del carrusel y un copy corto con
+      gancho; los enlaces van en el cuerpo, porque el visor de LinkedIn puede no
+      hacer clicables los del PDF aunque el render los reponga como /Link.
 
   - id: comunidades-datos-gis-es
     lang: es
@@ -76,6 +85,7 @@ destinos:
     modo: manual
     requiere:
       lang_post: es
+      tags_any: [datos-abiertos, geoespacial, geo, territorio, brecha-territorial]
       verificado: false
     nota: >-
       Agregadores y comunidades hispanohablantes de datos abiertos y SIG. Encaje
@@ -83,7 +93,36 @@ destinos:
       reglas. Se mantiene en "pendiente-verificar" a propósito: declararlo listo
       sin confirmar la política de cada comunidad es cómo se termina spameando.
 
+  - id: reddit-latinoamerica-es
+    lang: es
+    audiencia: [politica-publica, general]
+    modo: prefill
+    requiere:
+      lang_post: es
+      tags_any: [politica-publica, educacion, demografia]
+      verificado: false
+    nota: >-
+      r/latinoamerica: comunidad regional en español, equivalente hispano de
+      r/PublicPolicy (no se encontró un sub de política pública en español). Los
+      subs chilenos no son pertinentes para estos temas, por decisión del autor.
+      Texto en difusion/paquetes/<ref>/reddit-hilos.md, cerrado con una pregunta
+      comparativa entre países. Revisar la barra lateral y pasar a verificado.
+
   # ─────────────────────────── Inglés ───────────────────────────
+
+  - id: reddit-publicpolicy-en
+    lang: en
+    audiencia: [politica-publica]
+    modo: prefill
+    requiere:
+      lang_post: en
+      tags_any: [public-policy, education-policy]
+      verificado: false
+    nota: >-
+      r/PublicPolicy: post de texto con la pregunta de política al frente y el
+      enlace al final. Un sub por día y respondiendo comentarios. r/dataisbeautiful
+      va como envío de enlace con el primer comentario de fuentes (skill
+      publicacion-externa); el script solo prellena posts de texto.
 
   - id: dev
     lang: en
@@ -172,6 +211,7 @@ destinos:
     modo: manual
     requiere:
       lang_post: en
+      tags_any: [economics, econometrics, repec]
       verificado: false
     nota: >-
       Requiere un post económico con referencia RePEc sustantiva. Ningún post
