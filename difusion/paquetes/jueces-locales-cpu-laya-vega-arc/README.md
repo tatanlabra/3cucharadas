@@ -2,7 +2,7 @@
 
 Estado: **preparado y verificado localmente el 2026-10-31** (`publicaciones_externas_completadas: 2`, Mastodon y Bluesky el 2026-10-31). El post canónico declara `distribution.social: true` (y `republish: [dev, medium]` en EN); ningún envío externo se ejecuta sin orden humana explícita posterior al push.
 
-**Pendiente de decisión del autor:** el copy ya publicado en Mastodon y Bluesky afirma una comparación con el cross-encoder NLI que no se midió; la corrección propuesta, sin enviar, está en `correccion-social-PENDIENTE.md`.
+**Decisión del autor (2026-11-01):** el copy ya publicado en Mastodon y Bluesky afirma una comparación con el cross-encoder NLI que no se midió; la corrección quedó en los posts canónicos y la respuesta en los hilos se descartó (registro en `correccion-social-DESCARTADA.md`).
 
 | Canal / Pieza | Archivo | Estado | Observaciones |
 |---|---|---|---|

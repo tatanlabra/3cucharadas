@@ -1,6 +1,6 @@
-# Corrección propuesta para Mastodon y Bluesky (NO ENVIADA)
+# Corrección propuesta para Mastodon y Bluesky (DESCARTADA, NO ENVIADA)
 
-Estado: **borrador pendiente de aprobación humana**.
+Estado: **descartada por el autor el 2026-11-01**: la corrección vive en los posts canónicos ES/EN, que es lo que importa; no se responde en los hilos. Se conserva como registro.
 
 **Por qué.** El copy ya publicado (`social.json`, `social-corto.md`) dice que el comité se puso
 a prueba «frente a un cross-encoder NLI» / «benchmarked … against an NLI cross-encoder». Esa comparación no se
