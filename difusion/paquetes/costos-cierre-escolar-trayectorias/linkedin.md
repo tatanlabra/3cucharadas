@@ -4,6 +4,7 @@
 
 ---
 > Texto plano: LinkedIn no interpreta Markdown, así que no lleva asteriscos. Límite del post en LinkedIn: tres mil caracteres por versión.
+> Formato: publicación de documento. Adjuntar el carrusel PDF (ES: `costos-cierre-escolar-trayectorias-carrusel.pdf`; EN: `costos-cierre-escolar-trayectorias-en-carrusel.pdf`), generado desde `difusion/linkedin/*-carrusel.json` con la skill `publicacion-externa`. Antes de publicar, reemplazar `PODCAST_URL` por el enlace del episodio.
 
 ---
 
@@ -14,6 +15,7 @@ Cuando cierra una escuela, la discusión suele terminar en un mapa: si hay otro 
 En la parte III de "Extender mi tesis en 3 cucharadas" seguí, con registros administrativos del MINEDUC, a 78.972 estudiantes que perdieron su escuela en 1.141 cierres entre 2005 y 2024, frente a 734.472 pares comparables de escuelas que seguían abiertas.
 
 🔗 https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3
+🎧 Si prefieres escucharlo, el episodio del podcast: PODCAST_URL
 
 Lo que muestra la ventana completa de años:
 
@@ -27,7 +29,7 @@ Lo que muestra la ventana completa de años:
 
 Lo que sí queda claro: si la transición demográfica trae nuevos cierres y fusiones, es crítico evaluar desde ya los lugares donde ocurrirán, para diseñar a tiempo los planes de mitigación del impacto y de acompañamiento a estudiantes y familias, y el diseño de esa transición en el sistema escolar. Antes de cerrar, la autoridad debe acreditar vacantes efectivas, transporte seguro y apoyos en las escuelas receptoras, y seguir a cada estudiante durante al menos dos años.
 
-En el post están las tablas, las figuras interactivas y los datos abiertos.
+En el carrusel va la historia en nueve láminas; en el post, las tablas, las figuras interactivas y los datos abiertos.
 
 #Educación #PolíticaPública #DatosAbiertos #InferenciaCausal #Chile
 
@@ -40,6 +42,7 @@ When a school closes, the discussion often ends at a map: if another school with
 In Part III of "Extending My Thesis in Three Spoonfuls" I used Chilean Ministry of Education administrative records to follow 78,972 students who lost their school in 1,141 closures between 2005 and 2024, against 734,472 comparable peers from schools that stayed open.
 
 🔗 https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=social&utm_campaign=tesis_post3_en
+🎧 Prefer to listen? The podcast episode (in Spanish): PODCAST_URL
 
 What the full window of years shows:
 
@@ -53,6 +56,6 @@ What the full window of years shows:
 
 What is clear: if the demographic transition brings new closures and mergers, it is critical to assess now the places where they will happen, so that impact-mitigation and student-and-family support plans, and the design of that transition in the school system, are ready in time. Before closing a school, the authority must verify real vacancies, safe transport and support at the receiving schools, and track every displaced student for at least two years.
 
-The post has the tables, interactive figures and open data.
+The carousel tells the story in nine slides; the post has the tables, interactive figures and open data.
 
 #EducationPolicy #CausalInference #OpenData #PublicPolicy #Chile
