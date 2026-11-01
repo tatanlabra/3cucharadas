@@ -19,11 +19,20 @@ Qué se puede comprobar sin sesión (medido el 2026-11-01):
   - Reddit: bloquea la lectura automática; el enlace se registra como declarado por el autor.
 Los perfiles del autor salen de `social.links` en _config.yml. No se usa un navegador con la
 sesión de la persona: en LinkedIn, X y Reddit eso infringe sus términos y arriesga la cuenta.
+
+Vinculación (2026-11-01): en Mastodon, Bluesky, X y LinkedIn, además del autor, se comprueba que
+el post enlace el artículo del `ref` o su episodio (bloque `audio:` del post). Los acortadores se
+resuelven: t.co responde 301 si no se envía un User-Agent de navegador, y lnkd.in muestra una
+página intermedia con el destino en `external_url_click`. Sin ese vínculo, el registro se rechaza
+salvo con --sin-vinculo. Descubrir posts en X o LinkedIn sin sesión no es posible: xcancel (Nitter)
+responde 451, el puente de X de RSS-Bridge responde 500, los buscadores no indexan los posts del día
+y AUR no tiene herramientas que funcionen sin cuenta.
 """
 from __future__ import annotations
 
 import argparse
 import datetime as dt
+import html
 import json
 import re
 import sys
@@ -152,6 +161,73 @@ def verificar(url: str, yo: dict[str, str]) -> tuple[str, str, str]:
     raise Rechazo(f"plataforma no reconocida: {host}")
 
 
+def objetivos(ref: str) -> tuple[str, set[str]]:
+    """Marca del artículo (`/<ref>/`) y URLs de episodio declaradas en el bloque audio: del post."""
+    episodios = set()
+    for post in (ROOT / "_posts").glob("*.md"):
+        texto = post.read_text(encoding="utf-8")
+        if not re.search(rf"^ref:\s*{re.escape(ref)}\s*$", texto, re.M):
+            continue
+        front = yaml.safe_load(texto.split("\n---\n", 1)[0].lstrip("-\n")) or {}
+        for plataforma in ((front.get("audio") or {}).get("plataformas") or []):
+            if "/episode/" in str(plataforma.get("url", "")):
+                episodios.add(str(plataforma["url"]).split("?")[0])
+    return f"/{ref}/", episodios
+
+
+def resolver(url: str) -> str:
+    host = urllib.parse.urlsplit(url).netloc.lower()
+    if host == "t.co":
+        return fetch(url, ua=False)[1]  # sin User-Agent de navegador, t.co responde 301
+    if host == "lnkd.in":
+        _, _, page = fetch(url)
+        m = re.search(r'data-tracking-control-name="external_url_click"[^>]*href="([^"]+)"', page)
+        return html.unescape(m.group(1)) if m else url
+    return url
+
+
+def enlaces(plataforma: str, url: str) -> list[str]:
+    """URLs a las que apunta el post, con los acortadores ya resueltos."""
+    path = urllib.parse.urlsplit(url).path
+    crudos: list[str] = []
+    if plataforma == "mastodon":
+        host = urllib.parse.urlsplit(url).netloc
+        _, _, body = fetch(f"https://{host}/api/v1/statuses/{path.rstrip('/').rsplit('/', 1)[-1]}", ua=False)
+        st = json.loads(body)
+        crudos = re.findall(r'href="([^"]+)"', st.get("content", "")) + [((st.get("card") or {}).get("url") or "")]
+    elif plataforma == "bluesky":
+        actor, rkey = re.match(r"/profile/([^/]+)/post/([a-z0-9]+)", path).groups()
+        uri = urllib.parse.quote(f"at://{actor}/app.bsky.feed.post/{rkey}", safe="")
+        _, _, body = fetch(f"https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?depth=0&uri={uri}", ua=False)
+        post = json.loads(body)["thread"]["post"]
+        for facet in post["record"].get("facets") or []:
+            crudos += [f.get("uri", "") for f in facet.get("features", [])]
+        crudos.append(((post.get("embed") or {}).get("external") or {}).get("uri", ""))
+    elif plataforma == "x":
+        _, _, body = fetch("https://publish.x.com/oembed?omit_script=true&url=" + urllib.parse.quote(url, safe=""))
+        crudos = re.findall(r"https://t\.co/[A-Za-z0-9]+", json.loads(body).get("html", ""))
+    elif plataforma == "linkedin":
+        _, _, page = fetch(url)
+        for bloque in re.findall(r'<script type="application/ld\+json">(.*?)</script>', page, re.S):
+            try:
+                datos = json.loads(bloque)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(datos, dict):
+                crudos += re.findall(r"https?://\S+", str(datos.get("articleBody") or ""))
+    return [resolver(u) for u in dict.fromkeys(c for c in crudos if c)]
+
+
+def vinculo(ref: str, urls: list[str]) -> list[str]:
+    marca, episodios = objetivos(ref)
+    out = []
+    if any(marca in u and "3cucharadas.cl" in u for u in urls):
+        out.append("artículo")
+    if any(u.split("?")[0] in episodios for u in urls):
+        out.append("episodio")
+    return out
+
+
 def bloque_ref(texto: str, ref: str) -> tuple[int, int]:
     inicio = texto.find(f"\n- slug: {ref}\n")
     if inicio < 0:
@@ -239,6 +315,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--fecha", default=dt.date.today().isoformat())
     ap.add_argument("--descubrir", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--sin-vinculo", action="store_true", help="registrar aunque el post no enlace el artículo ni el episodio")
     args = ap.parse_args(argv)
     if bool(args.enlace) == args.descubrir:
         ap.error("pasar un enlace o --descubrir, no ambos")
@@ -252,6 +329,12 @@ def main(argv: list[str] | None = None) -> int:
                 print(registrar(args.ref, plataforma, url, "descubierto en la API pública", lang, args.fecha, args.dry_run))
             return 0
         plataforma, url, como = verificar(args.enlace, yo)
+        if plataforma in {"mastodon", "bluesky", "x", "linkedin"}:
+            urls = enlaces(plataforma, url)
+            vinc = vinculo(args.ref, urls)
+            if not vinc and not args.sin_vinculo:
+                raise Rechazo(f"el post no enlaza el artículo ni el episodio de {args.ref} (enlaces: {urls or 'ninguno'})")
+            como += f"; enlaza {', '.join(vinc) or 'nada del ref (--sin-vinculo)'}"
         print(registrar(args.ref, plataforma, url, como, args.lang, args.fecha, args.dry_run))
         return 0
     except Rechazo as exc:

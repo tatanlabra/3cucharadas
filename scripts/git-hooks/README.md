@@ -113,6 +113,20 @@ oEmbed (el timeline exige API de pago); Spotify, con User-Agent de navegador. Re
 verificar nada, así que el enlace queda registrado como declarado por el autor. No hacen falta
 extractores de terceros: un `curl` lee el post de LinkedIn sin entregarle el enlace a nadie.
 
+Además del autor, el script comprueba el **vínculo**: que el post enlace el artículo del `ref` o
+su episodio (bloque `audio:`). Resuelve `t.co`, que responde 301 si no se manda un User-Agent de
+navegador, y `lnkd.in`, cuya página intermedia trae el destino en `external_url_click`. Sin vínculo,
+el registro se rechaza, salvo con `--sin-vinculo`. Probado el 2026-11-01 con los seis posts del
+Post III (X, LinkedIn y Mastodon y Bluesky en ES y EN): todos quedaron vinculados, y se rechazaron
+un post de Mastodon de otro artículo y el post de X asociado a un `ref` que no correspondía.
+
+Herramientas evaluadas para descubrir posts en X y LinkedIn sin sesión, sin instalar ninguna:
+xcancel (Nitter) responde 451, porque el servicio está suspendido; el puente de X de RSS-Bridge
+(AUR `rss-bridge`, 4 votos) responde 500 y no tiene puente para perfiles personales de LinkedIn;
+los buscadores no indexan los posts del día; y AUR no tiene twscrape, snscrape ni nitter. En los
+repositorios oficiales, `toot` (Mastodon) no agrega nada a la API pública que ya se usa. Para X y
+LinkedIn, el enlace lo pasa la persona y el script lo verifica y lo vincula.
+
 El gate `verify_difusion_coherente.rb` también lee el HTML del carrusel y las notas
 de cada paquete. Cualquier cifra que no esté en el post lo reprueba: un «79 mil»
 redondeado, una fecha dentro de una nota o una entidad numérica como `&#8599;`.
