@@ -1,0 +1,93 @@
+slug: extender-tesis-no-es-agregar-anos
+ref: extender-tesis-no-es-agregar-anos
+canonical: https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+canonical_en: https://3cucharadas.cl/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+titulo_es: "Extender mi tesis en 3 cucharadas (parte II): lo que el recambio escolar todavía no permite concluir"
+titulo_en: "Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us"
+tipo: datos-y-politica-publica
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-10-11
+publicado_en: 2026-10-11
+actualizado: 2026-11-07
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-11-07
+  alcance: "paquete local completo (difusión multicanal + podcast NotebookLM); Mastodon y Bluesky ya publicados y verificados el 2026-10-18; resto sin envíos externos hasta autorización humana explícita"
+  publicaciones_externas_completadas: 2
+evidencia:
+  ventana_directorios_transiciones: "2015-2025 (transiciones 2016-2025; panel de entradas 2013-2025)"
+  cierres_oficiales_codigo_3: 900
+  cierres_desde_actividad: 684
+  cierres_con_estudiantes: 346
+  cierres_matricula_cero: 338
+  cierres_estrictos_d1: 330
+  alertas_absorcion_en_bloque: 34
+  cierres_rcid_v1_d2_conservador: 296
+  cierres_rcid_v1_d2_limpio: 266
+  mediana_matricula_previa_665_cierres: "28 -> 23 -> 1"
+  cobertura_simce_3_anos_cierres_activos_pct: 11.1
+  pareo_comunal_exacto_simce_n: 21
+  pareo_comunal_exacto_simce_de: "+0.029 [-0.095, +0.158]"
+  pareo_comunal_exacto_admision_n: 8
+  bayes_empirico_morris_simce_n: "95 de 97 (97.9%)"
+  bayes_empirico_morris_simce_de: "+0.0061 [-0.1467, +0.1715]"
+  bayes_empirico_morris_admision_n: "44 de 46 (95.7%)"
+  bayes_empirico_morris_admision_de: "-0.0420 [-0.1352, +0.0616]"
+  proximidad_10km_cierres_vinculados: 38
+  proximidad_10km_aperturas_unicas: 29
+  mcfadden_logit_traslados_n: 9093
+  mcfadden_logit_cierres_n: 101
+  mcfadden_distancia_mediana_km: 1.83
+  mcfadden_misma_comuna_pct: 73.4
+  slep_synthetic_did_pares: 25
+  slep_synthetic_did_log_matricula: "-0.0004 [-0.0526, +0.0966]"
+  sae_regiones_tratadas_vs_control: "4 de 14"
+  sae_fisher_permutaciones_exactas: 1001
+  sae_ihh_fisher_p: 0.7133
+  sae_ihh_wcb_ic: "[-0.0160, +0.0267]"
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-10-18
+    archivo: social-corto.md
+    estado: publicado_verificado
+    url_publicada: https://mastodon.social/@asiole/117459743632695677
+  - plataforma: bluesky
+    fecha_propuesta: 2026-10-18
+    archivo: social-corto.md
+    estado: publicado_verificado
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3my4nfiis7r2y
+  - plataforma: linkedin
+    fecha_propuesta: 2026-11-08
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-11-09
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-10
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-11
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit-dataisbeautiful
+    fecha_propuesta: 2026-11-12
+    archivo: reddit-dataisbeautiful.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: podcast-notebooklm
+    fecha_propuesta: 2026-10-17
+    archivo: podcast/README.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - aprobación editorial humana antes de ejecutar envíos pendientes (LinkedIn, Medium, dev.to, HN, Reddit)
+  - importar medium.md verificando el enlace canónico hacia la versión en inglés de 3cucharadas.cl
+  - revisar reglas vigentes de r/dataisbeautiful, r/PublicPolicy y r/econometrics desde sesión humana antes de publicar

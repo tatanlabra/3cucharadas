@@ -9,12 +9,12 @@ valor_seo: alto
 sindicacion_textual_permitida: true
 publicado_es: 2026-10-23
 publicado_en: 2026-10-23
-actualizado: 2026-10-28
+actualizado: 2026-11-06
 aprobacion:
   estado: preparado_local
-  fecha: 2026-10-28
-  alcance: "paquete local completo (difusión multicanal + podcast NotebookLM); sin envíos externos hasta autorización humana explícita"
-  publicaciones_externas_completadas: 0
+  fecha: 2026-11-06
+  alcance: "paquete local completo (difusión multicanal liderada por la ventana macro 2005–2024, los 5 regímenes institucionales y el zoom pre-registrado 2016–2019 con sus pruebas de estrés); sin nuevos envíos externos hasta autorización humana explícita"
+  publicaciones_externas_completadas: 2
 evidencia:
   registros_matricula_2004_2025: 79709054
   registros_rendimiento_2004_2025: 73873835
@@ -22,7 +22,53 @@ evidencia:
   episodios_d1_estrictos_2005_2025: 1807
   episodios_d2_rcid_v1_conservador: 1678
   episodios_d2_rcid_v1_limpio: 1648
-  ventana_principal_2016_2019:
+  serie_completa_2005_2024:
+    cohortes_anuales: 20
+    cohortes_estimables_progresion: 19
+    cohortes_estimables_no_matricula: 17
+    episodios_con_soporte: 1141
+    expuestos_n: 78972
+    controles_n: 734472
+    rango_anual_progresion_pp: "+0.94 to +28.22 (median +7.18; IQR [+3.15, +9.62])"
+    callaway_santanna_progresion_pp: "+9.11 [+5.34, +12.88]"
+    cotas_manski_serie_pp: "[+0.43, +16.21]"
+    pesos_iguales_progresion_pp: "+7.55 [+5.52, +9.57]"
+    efectos_aleatorios_progresion_pp: "+6.29 [+4.49, +8.09]; prediccion [+0.09, +12.49]"
+    i2_heterogeneidad_pct: 76.5
+    regimenes_institucionales:
+      regimen_2005_2010_loce_sep_temprana:
+        episodios: 521
+        expuestos: 36984
+        controles: 334062
+        progresion_pp: "+12.15 [+3.78, +20.52]; Manski [+3.49, +18.83]"
+        no_matricula_2_anos_pp: "+1.21 [+0.53, +1.90]"
+      regimen_2011_2015_lge_sac:
+        episodios: 502
+        expuestos: 31512
+        controles: 260740
+        progresion_pp: "+7.82 [+6.20, +9.41]; Manski [-2.11, +16.18]"
+        no_matricula_2_anos_pp: "+1.85 [+1.10, +2.59]"
+      regimen_2016_2019_inclusion_zoom:
+        episodios: 63
+        expuestos: 6190
+        controles: 82753
+        progresion_pp: "+5.29 [+2.08, +8.51]; Manski [-1.15, +10.98]"
+        no_matricula_2_anos_pp: "+0.63 [-0.77, +2.03]"
+      regimen_2020_2022_pandemia:
+        episodios: 33
+        expuestos: 3272
+        controles: 42457
+        progresion_pp: "+2.70 [-0.63, +6.03]; Manski [+0.18, +4.95]"
+        no_matricula_2_anos_pp: "-0.28 [-1.37, +0.81]"
+      regimen_2023_2024_postpandemia:
+        episodios: 22
+        expuestos: 1014
+        controles: 14460
+        progresion_pp: "+2.59 [-1.55, +6.73]; Manski [-1.70, +6.07]"
+        no_matricula_2_anos_pp: "-0.93 [-2.64, +0.78]"
+  zoom_preregistrado_2016_2019:
+    peso_en_cierres_serie_pct: 5.5
+    peso_en_expuestos_serie_pct: 7.8
     episodios_con_soporte: 63
     episodios_primarios: 62
     expuestos_soporte: 6190
@@ -30,21 +76,32 @@ evidencia:
     no_matricula_2_anos_pp: "+0.63 [-0.77, 2.03]"
     falla_progresion_pp: "+5.29 [2.08, 8.51]"
     cotas_manski_progresion_pp: "[-1.15, 10.98]"
+    subconjunto_cobertura_g1_90_pct:
+      expuestos_con_resultado: 1822
+      progresion_pp: "+4.26"
+      cotas_manski_pp: "[+0.09, +7.84]"
+      lambda_umbral: 1.0114
+    sensibilidad_pretendencias_rambachan_roth:
+      placebos_pp: "+0.16, +0.30, +0.40"
+      cota_superior_placebo_pp: 0.81
+      umbral_ruptura_pp: 2.07
+      multiplo_cota_placebo: 2.54
+      continuos_stayers_n: 3556
+      continuos_progresion_pp: "+3.87 [+1.04, +6.69]"
+      entrantes_recientes_n: 1033
+      entrantes_recientes_progresion_pp: "+9.58 [+5.06, +14.10]"
+    calidad_previa_escuela_receptora:
+      reubicados_en_g_n: 4362
+      receptor_mayor_promocion_n: 2099
+      receptor_mayor_promocion_pp: "+2.03"
+      receptor_igual_o_menor_promocion_n: 2263
+      receptor_igual_o_menor_promocion_pp: "+5.38"
+      diferencia_descriptiva_pp: "-3.35"
     episodios_efectivos_progresion: 21.9
     episodios_efectivos_no_matricula: 21.1
     episodios_efectivos_rendimiento: 17.7
     rotacion_previa_g3_g1_expuestos_pct: 47.04
     rotacion_previa_g3_g1_controles_pct: 30.52
-  serie_completa_2005_2024:
-    cohortes_anuales: 20
-    episodios_con_soporte: 1141
-    expuestos_n: 78972
-    controles_n: 734472
-    callaway_santanna_progresion_pp: "+9.11 [+5.34, +12.88]"
-    cotas_manski_serie_pp: "[+0.43, +16.21]"
-    pesos_iguales_progresion_pp: "+7.55 [+5.52, +9.57]"
-    efectos_aleatorios_progresion_pp: "+6.29 [+4.49, +8.09]; prediccion [+0.09, +12.49]"
-    i2_heterogeneidad_pct: 76.5
 destinos:
   - plataforma: mastodon
     fecha_propuesta: 2026-10-29
@@ -61,6 +118,11 @@ destinos:
     archivo: linkedin.md
     estado: preparado
     url_publicada: null
+  - plataforma: x
+    fecha_propuesta: 2026-11-01
+    archivo: x.md
+    estado: publicado
+    url_publicada: https://x.com/tatanlabra/status/2116991976646082665
   - plataforma: medium
     fecha_propuesta: 2026-10-31
     archivo: medium.md
@@ -81,13 +143,17 @@ destinos:
     archivo: reddit-dataisbeautiful.md
     estado: preparado
     url_publicada: null
+  - plataforma: reddit-publicpolicy
+    fecha_propuesta: 2026-11-01
+    archivo: reddit-hilos.md
+    estado: publicado
+    url_publicada: https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
   - plataforma: podcast-notebooklm
     fecha_propuesta: 2026-10-30
     archivo: podcast/README.md
-    estado: preparado
-    url_publicada: null
+    estado: publicado
+    url_publicada: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
 verificaciones_pendientes:
-  - aprobación editorial humana antes de activar distribution.social o ejecutar cualquier envío externo
-  - generación manual del audio en NotebookLM y escucha humana completa según podcast/QA.md
+  - aprobación editorial humana antes de ejecutar cualquier envío externo pendiente
   - importar medium.md verificando el enlace canónico hacia la versión en inglés de 3cucharadas.cl
-  - revisar reglas vigentes de r/dataisbeautiful desde sesión humana antes de publicar el gráfico [OC]
+  - revisar reglas vigentes de r/dataisbeautiful y r/econometrics desde sesión humana antes de publicar

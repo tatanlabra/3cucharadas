@@ -15,7 +15,7 @@
    "type": "cover",
    "kicker": "Extender mi tesis en 3 cucharadas · parte III",
    "title": "Cuando cierra una escuela, ¿qué les pasa a sus estudiantes?",
-   "body": "Seguí veinte años de datos del Ministerio de Educación para averiguarlo.",
+   "body": "Seguí veinte años de datos del Ministerio de Educación (2005–2024) para averiguarlo.",
    "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
   },
   {
@@ -36,30 +36,30 @@
   },
   {
    "type": "stats",
-   "kicker": "Lo que hice",
-   "title": "Seguí a cada estudiante, año a año",
+   "kicker": "Lo que hice (2005–2024)",
+   "title": "Seguí a cada estudiante, año a año, en veinte cohortes",
    "stats": [
     {
      "value": "78.972",
-     "label": "estudiantes que perdieron su escuela"
+     "label": "estudiantes que perdieron su escuela entre 2005 y 2024"
     },
     {
      "value": "1.141",
-     "label": "escuelas que cerraron entre 2005 y 2024"
+     "label": "escuelas regulares cerradas con grupo de comparación (de 1.648 cierres limpios RCID v1)"
     },
     {
      "value": "734.472",
      "label": "estudiantes parecidos, de escuelas que siguieron abiertas, para comparar"
     }
    ],
-   "note": "Comparé a cada estudiante con otros del mismo año, edad, curso, sexo, región y tipo de escuela."
+   "note": "Reconstruí 79.709.054 registros de matrícula y 73.873.835 de rendimiento (2004–2025), emparejando por año, sexo, edad, región, dependencia, ruralidad, nivel y curso."
   },
   {
    "type": "vbars",
    "kicker": "Lo primero que aparece",
-   "title": "19 de 19 años, la misma dirección",
-   "body": "Cada barra es un año: cuántos estudiantes más, por cada cien, quedaron atrasados de curso o dejaron de aparecer matriculados al año siguiente, frente a sus pares.",
-   "note": "Algunos años tienen pocos casos y mucha incertidumbre. Por eso importa mirar todos juntos.",
+   "title": "En las 19 cohortes medibles, la brecha apunta en la misma dirección",
+   "body": "Cada barra es una cohorte anual: cuánto más subió, por cada cien estudiantes, la proporción que quedó atrasada de curso o sin matrícula al año siguiente, frente a sus pares.",
+   "note": "Rango anual de +0,94 a +28,22 puntos porcentuales (mediana +7,18). Varios años tienen pocos cierres y mucha incertidumbre; por eso importa mirar la serie completa.",
    "values": [
     [
      2006,
@@ -159,62 +159,62 @@
   },
   {
    "type": "dots",
-   "kicker": "El efecto global, 2005–2024",
-   "big": "+6",
+   "kicker": "La brecha en toda la serie, 2005–2024",
+   "big": "+9",
    "unit": "de cada cien",
-   "highlight": 6,
-   "body": "De cada cien estudiantes que perdieron su escuela, unos 6 más que entre sus pares quedaron atrasados o fuera del registro al año siguiente.",
-   "note": "Promedio de todos los años: +6,29 puntos porcentuales (entre +4,49 y +8,09). Para una tanda nueva de cierres, lo esperable va de +0,09 a +12,49."
+   "highlight": 9,
+   "body": "Ponderando por estudiantes expuestos (Callaway y Sant'Anna), unos 9 más de cada cien quedaron atrasados o fuera del registro al año siguiente, frente a sus pares (+6 bajo efectos aleatorios). Es una brecha ajustada, no un efecto causal confirmado.",
+   "note": "Callaway y Sant'Anna: +9,11 puntos porcentuales (+5,34 a +12,88; cotas de Manski +0,43 a +16,21) y +1,38 en no matrícula por dos años. Efectos aleatorios: +6,29 (+4,49 a +8,09; predicción +0,09 a +12,49)."
   },
   {
    "type": "hbars",
-   "kicker": "Con el tiempo",
-   "title": "La brecha se fue achicando",
-   "subtitle": "Estudiantes más por cada cien, promedio de cada periodo.",
-   "note": "No puedo atribuirlo a una política: también cambiaron las escuelas que cierran, la forma de registrar los datos y, en pandemia, las reglas para pasar de curso.",
+   "kicker": "Cinco etapas institucionales (2005–2024)",
+   "title": "El 89,7 % de los cierres ocurrió hasta 2015 y la brecha se atenuó después",
+   "subtitle": "Estudiantes más por cada cien, frente a sus pares, en cada etapa; 2016–2019 es la subventana principal (5,5 % de los cierres).",
+   "note": "2005–2010 (521 cierres) y 2011–2015 (502) reúnen el 86,7 % de los expuestos; solo 2005–2010 excluye el cero en intervalo y cotas de Manski a la vez. En 2016–2019 (63 cierres) las cotas van de −1,15 a 10,98 puntos.",
    "max": 14,
    "color": "cyan",
    "items": [
     {
-     "label": "2005–2010",
+     "label": "2005–2010 (LOCE e inicio SEP)",
      "value": 12.15
     },
     {
-     "label": "2011–2015",
+     "label": "2011–2015 (LGE y SAC)",
      "value": 7.82
     },
     {
-     "label": "2016–2019",
+     "label": "2016–2019 (subventana Inclusión)",
      "value": 5.29
     },
     {
-     "label": "2020–2022",
+     "label": "2020–2022 (pandemia)",
      "value": 2.7
     },
     {
-     "label": "2023–2024",
+     "label": "2023–2024 (pospandemia)",
      "value": 2.59
     }
    ]
   },
   {
    "type": "hbars",
-   "kicker": "La letra chica que importa",
-   "title": "Todavía no puedo decir que el cierre sea la causa",
-   "body": "Las escuelas que cerraron ya venían más frágiles, con menos Jornada Escolar Completa y menos convenios de apoyo. Y muchos de sus estudiantes ya venían cambiándose de colegio:",
-   "note": "Ya se habían cambiado de colegio al menos una vez en los dos años anteriores (ventana 2016–2019).",
+   "kicker": "La letra chica y las pruebas de estrés (2016–2019)",
+   "title": "Todavía no puedo decir que el cierre sea la causa por sí solo",
+   "body": "El rezago sube +3,87 puntos entre alumnos estables desde dos años antes (+9,58 en entrantes tardíos) y resiste 2,54 veces la cota previa de tendencias (0,81 puntos). Pero esas escuelas ya eran más frágiles y casi la mitad de sus alumnos ya rotaba de colegio antes del cierre:",
+   "note": "Con al menos 90 % de actas válidas la brecha es +4,26 puntos (cotas +0,09 a +7,84). Llegar a una receptora de mayor aprobación previa amortigua −3,35 puntos (+2,03 frente a +5,38), diferencia descriptiva sin intervalo propio.",
    "max": 60,
    "kind": "share",
    "sign": "",
    "unit": " %",
    "items": [
     {
-     "label": "Perdieron su escuela",
+     "label": "Expuestos con al menos un cambio de colegio previo (G−3 a G−1)",
      "value": 47.04,
      "color": "amber"
     },
     {
-     "label": "Grupo de comparación",
+     "label": "Grupo de comparación con al menos un cambio previo",
      "value": 30.52,
      "color": "muted"
     }
@@ -223,13 +223,14 @@
   {
    "type": "checklist",
    "kicker": "¿Y ahora qué?",
-   "title": "Si vienen más cierres, hay que mirar antes dónde ocurrirán",
-   "body": "La transición demográfica puede traer nuevos cierres y fusiones. Saber dónde ocurrirán permite planificar a tiempo:",
+   "title": "Un resultado con límites causales ya permite fijar resguardos mínimos",
+   "body": "No son efectos estimados: son el estándar mínimo de cuidado antes de reorganizar una red escolar:",
    "items": [
-    "Vacantes reales y transporte seguro hacia la nueva escuela",
-    "Apoyos para la escuela que recibe a los estudiantes",
-    "Acompañamiento a estudiantes y familias durante el cambio",
-    "Seguimiento de cada estudiante por al menos dos años"
+    "Ni la cercanía ni una constancia informativa de reubicación equivalen a continuidad",
+    "Vacantes reales y transporte seguro verificados antes de decidir",
+    "Apoyos y financiamiento para la escuela que recibe a los estudiantes",
+    "Acompañamiento a estudiantes prioritarios y familias durante el cambio",
+    "Seguimiento nominal de cada estudiante por al menos dos años"
    ]
   },
   {

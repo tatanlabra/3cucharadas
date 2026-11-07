@@ -1,0 +1,82 @@
+slug: replica-tesis-establecimientos-educacionales
+ref: replica-tesis-establecimientos-educacionales
+canonical: https://3cucharadas.cl/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+canonical_en: https://3cucharadas.cl/en/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+titulo_es: "Replicar mi tesis en 3 cucharadas (parte I): qué sobrevivió y qué corrigió la evidencia"
+titulo_en: "Replicating my thesis in three spoonfuls (part I): what survived and what the evidence corrected"
+tipo: datos-y-politica-publica
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-08-29
+publicado_en: 2026-08-29
+actualizado: 2026-11-07
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-11-07
+  alcance: "paquete local completo (difusión multicanal); Mastodon y Bluesky ya publicados y verificados el 2026-10-18; resto sin envíos externos hasta autorización humana explícita"
+  publicaciones_externas_completadas: 2
+evidencia:
+  ventana_historica: "1992-2012"
+  juicios_editoriales_auditados: 34
+  hipotesis_tecnicas_contrastadas: 50
+  objetos_auditados: 26
+  juicios_respaldados: 15
+  errores_documento_2014: 10
+  errores_conocidos_salida_2026: 0
+  entradas_reconstruidas_1992_2012: 2168
+  salidas_reconstruidas_1992_2012: 2069
+  mundlak_chamberlain_n_obs: 14704
+  mundlak_chamberlain_escuelas: 2640
+  mundlak_beta_entre_simce: "0.012131 (t = 16.27)"
+  mundlak_beta_dentro_simce: "-0.000048 (t = -0.53)"
+  sombra_muerte_obs_2004_2011: 59808
+  sombra_muerte_razon_alumnos_docente: "17.95 -> 12.22 (vs 20.31)"
+  alerta_cloglog_auc_fuera_de_muestra: 0.8517
+  alerta_cloglog_brier: "0.008196 (vs 0.008324 sin modelo)"
+  alerta_cloglog_decil_superior_pct: 43.7
+  alerta_cloglog_quintil_superior_pct: 69.5
+  rcid_v1_2005_2025:
+    d0_salidas_brutas: 1981
+    d1_cierres_estrictos: 1807
+    d2_conservador: 1678
+    d2_limpio_t1_observado: 1648
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-10-18
+    archivo: social-corto.md
+    estado: publicado_verificado
+    url_publicada: https://mastodon.social/@asiole/117459741937996739
+  - plataforma: bluesky
+    fecha_propuesta: 2026-10-18
+    archivo: social-corto.md
+    estado: publicado_verificado
+    url_publicada: https://bsky.app/profile/labra.bsky.social/post/3my4neqrfdj2j
+  - plataforma: linkedin
+    fecha_propuesta: 2026-11-08
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-11-09
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-10
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-11
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit-dataisbeautiful
+    fecha_propuesta: 2026-11-12
+    archivo: reddit-dataisbeautiful.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - aprobación editorial humana antes de ejecutar envíos pendientes (LinkedIn, Medium, dev.to, HN, Reddit)
+  - importar medium.md verificando el enlace canónico hacia la versión en inglés de 3cucharadas.cl
+  - revisar reglas vigentes de r/dataisbeautiful, r/PublicPolicy y r/econometrics desde sesión humana antes de publicar

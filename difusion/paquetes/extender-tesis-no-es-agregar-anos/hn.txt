@@ -1,0 +1,29 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es un análisis empírico y econométrico con datos administrativos longitudinales, mapas y código reproducible; las reglas de Show HN excluyen las entradas de blog que no son herramientas interactivas autónomas.
+
+TÍTULO:
+Extending a research panel is not just adding years: school turnover in Chile (2013–2025)
+
+URL:
+https://3cucharadas.cl/en/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/?utm_source=hackernews&utm_medium=referral&utm_campaign=extender-tesis-no-es-agregar-anos
+
+PRIMER COMENTARIO DEL AUTOR:
+Author here. This is Part II of a series revisiting and extending my 2014 thesis on school entry and exit in Chile. After auditing the original 1992–2012 results in Part I, I built the 2013–2025 extension to test whether school turnover ("creative destruction") replaces lower-performing schools with better nearby alternatives.
+
+Four methodological findings stood out while building the verification gates for this extension:
+
+1. Administrative exits vs. real closures (RCID v1): Nearly half of active schools transitioning into official closed status already had zero enrolment in their final active year. Filtering out empty shells, annexes, identifier replacements, and de facto mergers (where at least seven-tenths of displaced students move together as a block into a single receiving school) cuts the raw official closure count by more than two-thirds.
+
+2. Test-score missingness and Empirical Bayes shrinkage (Morris 1983): Because closing schools experience a sharp multi-year enrolment contraction before shutting down, standardised test-score coverage is sparse, and exact six-variable commune matching discards nearly four-fifths of eligible closures. Relaxing blocking to the regional level with Morris (1983) parametric Empirical Bayes shrinkage recovers over ninety-five percent of eligible closures in both standardised tests and university admissions—showing that confidence intervals still span zero and market-level accounting decompositions are practically nil.
+
+3. Spatial proximity vs. actual student destinations (McFadden 1974 conditional logit): Only a small fraction of strict closures have a new opening serving the same education segment within ten kilometres. Linking individual student rosters across clean closures and estimating a McFadden (1974) conditional discrete-choice model over all active schools within fifteen kilometres shows that students relocate to nearby, larger schools within the same municipality and administrative sector, with no systematic migration toward higher-scoring schools.
+
+4. Why staggered policy rollouts fail diagnostic gates (Synthetic DiD & Webb 2023 Wild Cluster Bootstrap): Evaluating public-sector de-municipalisation (SLEP) via Arkhangelsky et al. (2021) Synthetic Difference-in-Differences reveals that treated networks lie outside the convex hull of donor municipalities, while evaluating centralised school admissions (SAE, rolled out in four of fourteen historical regions) via exact Fisher permutation across all regional assignments and Webb (2023) six-point wild cluster bootstrap yields wide intervals spanning zero and pre-trend placebo failures under regional weighting.
+
+Happy to discuss the Empirical Bayes shrinkage implementation, the conditional logit relocation model, or small-cluster inference when staggered policies treat only a handful of regions.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “If Empirical Bayes shrinkage changes the sign of the unshrunken regional gap in SIMCE, isn't that an artifact of weighting larger schools more heavily?” → Yes, and I state that explicitly in the methodological note. Parametric Empirical Bayes weights each closure in inverse proportion to its sampling variance, which gives greater weight to larger closures measured with less noise. Neither the unshrunken nor the shrunken interval distinguishes a pre-closure disadvantage from zero.
+2. “Doesn't McFadden's conditional logit rely on Independence of Irrelevant Alternatives (IIA)?” → Yes, and I highlight that limitation directly. Moreover, after centralised admissions (SAE) began, observed student destinations reflect the joint outcome of family preferences, seat capacity, and the assignment algorithm rather than pure unconstrained household demand.
+3. “Why not pool more years of SAE to fix the four-region cluster problem?” → Adding time periods increases within-cluster observations but does not increase the number of treated clusters (four out of fourteen historical regions), which is the binding constraint on asymptotic coverage and permutation power.

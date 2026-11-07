@@ -1,0 +1,184 @@
+{
+ "lang": "es",
+ "theme": "dark",
+ "title": "Post IV carrusel es",
+ "source": "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md; assets/images/tesis-post4/selection-ladder-data.csv; assets/images/tesis-post4/longitudinal-regimes-data.csv; assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+ "brand": {
+  "name": "3 Cucharadas",
+  "tagline": "Directo al grano",
+  "logo": "../../assets/images/3cucharadas-logo-128.webp"
+ },
+ "author": "Cristián Labra Olivares",
+ "swipe": "Desliza →",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Extender mi tesis en 3 cucharadas · parte IV",
+   "title": "¿Cierran los cierres escolares la puerta de la educación superior?",
+   "body": "Crucé veinte años de registros escolares con matrícula, titulación y pruebas de admisión a la educación superior para averiguarlo.",
+   "image": "../../assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp"
+  },
+  {
+   "type": "trajectories",
+   "kicker": "El punto de partida",
+   "title": "Mirar solo la brecha final confunde el hospital con la enfermedad",
+   "body": "Quienes perdieron su liceo en enseñanza media entran menos a la educación superior (50,61 % frente a 65,24 %, −14,64 puntos). Pero más de cuatro quintos de esa distancia (−12,00 puntos, el 82,0 %) ya existía en la generación que estudió allí cuatro años antes (G−5).",
+   "labels": {
+    "map": "brecha bruta (−14,64 pp)",
+    "live": "lo que ocurre al separar las trayectorias",
+    "paths": [
+     "entra a la universidad",
+     "entra a un IP o CFT",
+     "entra, pero no persiste al 2.º año",
+     "no ingresa en dos años"
+    ]
+   }
+  },
+  {
+   "type": "stats",
+   "kicker": "Los datos y el método (2004–2026)",
+   "title": "Del colegio a la educación superior, cohorte por cohorte",
+   "stats": [
+    {
+     "value": "62.153",
+     "label": "estudiantes en la escalera causal 2016–2019 (38.525 en enseñanza media y 23.628 en básica superior)"
+    },
+    {
+     "value": "13.835",
+     "label": "estudiantes de media expuestos a cierres limpios en las 14 cohortes de 2009 a 2022"
+    },
+    {
+     "value": "29.218",
+     "label": "estudiantes seguidos en 6 procesos de admisión PAES/PDT (2021–2026, licencia CC-BY)"
+    }
+   ],
+   "note": "Crucé 79.709.054 matrículas escolares con 20 nóminas SIES de Matrícula (2007–2026) y 19 de Titulados (2007–2025) con DiD, Double ML y Orthogonal R-Learner."
+  },
+  {
+   "type": "hbars",
+   "kicker": "La escalera causal en enseñanza media (2016–2019)",
+   "title": "El promedio general converge a cero, pero el canal IP/CFT se contrae",
+   "subtitle": "Brecha estimada en el ingreso a la educación superior a 2 años, enseñanza media (puntos porcentuales).",
+   "note": "Básica superior: sin caída detectable (+1,21 pp DiD; +1,02 DML). Media: universidad (+1,98 pp) y top 20 % PAES (+1,75 pp) no caen; IP/CFT se contrae −2,09 pp (p = 0,0037), con sustitución hacia universidades aún abierta.",
+   "max": 15,
+   "sign": "−",
+   "unit": " pp",
+   "items": [
+    {
+     "label": "1. Solo controles demográficos (DML)",
+     "value": 13.24,
+     "color": "muted"
+    },
+    {
+     "label": "2. + Mochila académica individual (G−1 y G−2)",
+     "value": 5.63,
+     "color": "amber"
+    },
+    {
+     "label": "3a. DiD de cohortes repetidas (G−1 vs. G−5)",
+     "value": 2.64,
+     "color": "purple"
+    },
+    {
+     "label": "3b. DML completo (+ historia G−5): acceso total (IC cruza 0)",
+     "value": 0.29,
+     "color": "cyan"
+    },
+    {
+     "label": "3c. DML completo (+ historia G−5): canal IP/CFT",
+     "value": 2.09,
+     "color": "pink"
+    }
+   ]
+  },
+  {
+   "type": "dots",
+   "kicker": "Heterogeneidad Causal ML (BLP, GATE y CLAN)",
+   "big": "−12",
+   "unit": "de cada cien en el quintil más frágil (G1)",
+   "highlight": 12,
+   "body": "En el quintil de mayor daño predicho (G1: 99,5 % en enseñanza media, 77,2 % técnico-profesional, 87,1 % de asistencia previa), unos 12 menos de cada cien entran a la educación superior cuando solo se controla su mochila individual; al sumar la historia previa del liceo, esa caída se absorbe (−0,26 pp).",
+   "note": "GATE en G1 con controles estudiantiles: −12,26 pp en acceso total (−17,79 a −6,74; BLP +0,634, p = 0,0243), −11,48 pp en persistencia y −8,02 pp en IP/CFT (p = 0,0007). Con la historia G−5 del liceo, G1 en acceso total pasa a −0,26 pp, pero la heterogeneidad en IP/CFT persiste (BLP +0,425, p = 0,0177)."
+  },
+  {
+   "type": "hbars",
+   "kicker": "Catorce cohortes (2009–2022) y regla de cierre limpio",
+   "title": "Sin separar mudanzas en bloque, el cierre se confunde con fusiones",
+   "subtitle": "Tasa de ingreso a la educación superior en 2 años según tipo de episodio.",
+   "note": "En media, el DiD pasa de +0,55 pp en 2009–2015 (10.934 expuestos) a −2,64 pp en 2016–2019 (−2,59 en IP/CFT) y −3,79 pp en pandemia 2020–2022 (−4,33 en IP/CFT, −4,72 en persistencia); con 7 a 12 liceos por régimen, ninguno se distingue de cero.",
+   "max": 90,
+   "kind": "share",
+   "sign": "",
+   "unit": " %",
+   "items": [
+    {
+     "label": "Cierres reales en media (D2, 2016–2019)",
+     "value": 50.61,
+     "color": "pink"
+    },
+    {
+     "label": "Colegios abiertos de control, media (2016–2019)",
+     "value": 65.24,
+     "color": "cyan"
+    },
+    {
+     "label": "Traslados en bloque excluidos, media (D1 \\ D2)",
+     "value": 71.6,
+     "color": "purple"
+    },
+    {
+     "label": "Traslados en bloque excluidos, básica (D1 \\ D2)",
+     "value": 81.1,
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "type": "checklist",
+   "kicker": "La letra chica y las pruebas de sensibilidad",
+   "title": "Qué resiste las pruebas de estrés y qué aún no concluyo",
+   "body": "Antes de recomendar políticas, sometí los hallazgos a cuatro pruebas de límites y sensibilidad:",
+   "items": [
+    "Deuda saldada (parte III): el rezago (+5,29 pp) resiste 2,54 veces el tope previo de tendencias (0,81 pp) y marca +3,87 pp en estables desde G−2",
+    "Cinelli y Hazlett (2020): anular el −2,09 pp en IP/CFT exige un confusor oculto más del doble de fuerte que la historia G−5 (Valor de Robustez 6,16 %; 2,33 % al 95 %)",
+    "Sustitución vs. pérdida neta: la universidad marca +1,98 pp (−0,22 a +4,19); parte del −2,09 pp en IP/CFT puede ser desvío y la prueba individual sigue pendiente",
+    "PAES/PDT (2021–2026): a igual historial, rendir (−10,98 pp), matricularse (−7,46) y top 20 % (−2,54) dejan de distinguirse de cero (+0,75, +2,87 y +1,75 pp)"
+   ]
+  },
+  {
+   "type": "checklist",
+   "kicker": "¿Y ahora qué para la política pública?",
+   "title": "Cuando cierra un liceo, reubicar no termina con un pupitre en marzo",
+   "body": "La receta depende del nivel donde ocurre el cierre; son resguardos prudenciales, no efectos estimados:",
+   "items": [
+    "Básica superior (7.º a 8.º): vacantes cercanas, transporte y acogida pedagógica para amortiguar el rezago inmediato",
+    "Enseñanza media (1.º a 3.º): alerta temprana nominal para estudiantes técnico-profesionales con baja asistencia previa (perfil G1)",
+    "Articulación técnico-profesional: convalidación de especialidades y orientación directa hacia IP y CFT acreditados",
+    "Puente financiero: inscripción oportuna al FUAS (Gratuidad y becas) y seguimiento en los dos primeros años postsecundarios"
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Para seguir",
+   "series": "Extender mi tesis en 3 cucharadas · parte IV",
+   "links": [
+    {
+     "kicker": "Lee el análisis completo (parte IV)",
+     "title": "¿Cierran los cierres escolares la puerta de la educación superior?",
+     "href": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post4",
+     "display": "3cucharadas.cl",
+     "path": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+     "image": "../../assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp"
+    },
+    {
+     "kicker": "Revisa antes la parte III",
+     "title": "Qué muestran las trayectorias después del cierre de una escuela",
+     "href": "https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post4",
+     "display": "3cucharadas.cl",
+     "path": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+     "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
+    }
+   ]
+  }
+ ]
+}

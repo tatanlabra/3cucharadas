@@ -1,0 +1,27 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es una auditoría empírica y metodológica de replicabilidad sobre datos administrativos chilenos; las reglas de Show HN excluyen las entradas de blog que no son herramientas interactivas autónomas.
+
+TÍTULO:
+Replicating my 2014 thesis on school entry and exit in Chile: what survived and what failed
+
+URL:
+https://3cucharadas.cl/en/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/?utm_source=hackernews&utm_medium=referral&utm_campaign=replica-tesis-establecimientos-educacionales
+
+PRIMER COMENTARIO DEL AUTOR:
+Author here. Twelve years after defending my 2014 master's thesis on school entry and exit in Chile (1992–2012), I set out to extend the panel through 2025. Before appending thirteen years of new administrative records, I audited the original thesis claims against both the surviving 2014 producer files (Stata logs, Excel workbooks, chart formulas) and present-day re-estimations in Stata and Python.
+
+Separating those three layers (published text, historical producer output, and modern rerun) turned out to be essential, because a two-way comparison between an old PDF and a new script makes it too easy to invent post-hoc explanations:
+
+1. Rerunnable != Rebuildable != Matching != Correct != Causal: While the macro story of sectoral reallocation (public municipal exit vs. voucher subsidised-private entry) and higher vulnerability among exiting schools in Greater Santiago held up, several published numbers differed from the very spreadsheets and Stata logs that produced them—including a transcription typo in a lagged test-score coefficient, two rows labelled as variances that were actually untransformed and crossed log standard deviations from Stata, and a tenfold scale error in the Herfindahl-Hirschman concentration index.
+
+2. Collapsed random slopes vs. Mundlak–Chamberlain Correlated Random Effects (CRE): In the Greater Santiago panel model for log enrolment, the 2014 random-slope variance had collapsed onto the numerical boundary, blending cross-sectional sorting between schools with longitudinal change within schools. Re-estimating with the Mundlak (1978) and Chamberlain (1982) between-within decomposition shows that the positive association with lagged mathematics test scores comes entirely from permanent differences between schools; within the same school over time, annual score changes have no detectable association with next year's enrolment (and the point estimate flips sign).
+
+3. Out-of-sample temporal validation (AUC vs. Brier skill): In 2014, the discrete-time hazard model (cloglog) for school closure was only evaluated in-sample. Training it on 2007–2008 transitions and testing out-of-sample on 2009–2011 shows strong rank discrimination (the top risk decile captures over two-fifths of closures and the top quintile nearly seven-tenths), but poor probability calibration because the baseline closure rate shifted between periods. It works for ranking monitoring priorities, not as an automatic closure rule.
+
+To be clear about scope: this is a self-audit, not an independent replication, and nothing in it is causal. Happy to discuss the forensic audit workflow, the Mundlak–Chamberlain decomposition, or how I built the three-tier Data-Inferred School Closure Rule (RCID v1) for the 2005–2025 extension in Parts II–IV.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “Why not use school fixed effects directly instead of Mundlak–Chamberlain CRE?” → For the time-varying covariates in linear pooled OLS, the within-school coefficient in Mundlak–Chamberlain CRE is algebraically identical to the fixed-effects estimator, while simultaneously reporting the between-school sorting coefficient and allowing time-invariant school descriptors to stay in the specification.
+2. “Is auditing your own thesis really a replication?” → No, and I state that explicitly in the introduction. Following Clemens (2015) and Hamermesh (2007), this is an internal forensic verification and robustness audit using the original producer files, not an independent external replication.
+3. “Why did the Brier skill score improve so little if the AUC is high?” → Because Brier measures both discrimination and calibration against a very low annual base rate of closure. When the average closure rate rises between the training window (2007–2008) and the test window (2009–2011), a model trained on the earlier window systematically underpredicts the level even while ranking relative risk accurately.

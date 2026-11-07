@@ -1,0 +1,184 @@
+{
+ "lang": "en",
+ "theme": "dark",
+ "title": "Post IV carrusel en",
+ "source": "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md; assets/images/tesis-post4/selection-ladder-data.csv; assets/images/tesis-post4/longitudinal-regimes-data.csv; assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+ "brand": {
+  "name": "3 Cucharadas",
+  "tagline": "Straight to the point",
+  "logo": "../../assets/images/3cucharadas-logo-128.webp"
+ },
+ "author": "Cristián Labra Olivares",
+ "swipe": "Swipe →",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "Extending My Thesis in Three Spoonfuls · Part IV",
+   "title": "Do school closures close the door to higher education?",
+   "body": "I linked twenty years of school records with higher-education enrollment, graduation and admission tests to find out.",
+   "image": "../../assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp"
+  },
+  {
+   "type": "trajectories",
+   "kicker": "The starting point",
+   "title": "Looking only at the final gap confuses the hospital with the disease",
+   "body": "Students who lost their high school enter higher education less often (50.61% versus 65.24%, −14.64 points). Yet over four-fifths of that distance (−12.00 points, or 82.0%) already existed in the cohort that studied there four years earlier (G−5).",
+   "labels": {
+    "map": "the raw gap (−14.64 pp)",
+    "live": "what happens when trajectories are unpacked",
+    "paths": [
+     "enters a university",
+     "enters an IP or CFT",
+     "enters, but does not persist to year 2",
+     "does not enter within two years"
+    ]
+   }
+  },
+  {
+   "type": "stats",
+   "kicker": "Data and method (2004–2026)",
+   "title": "From school into higher education, cohort by cohort",
+   "stats": [
+    {
+     "value": "62,153",
+     "label": "students in the 2016–2019 causal ladder (38,525 in secondary and 23,628 in upper elementary)"
+    },
+    {
+     "value": "13,835",
+     "label": "secondary students exposed to clean closures across 14 cohorts from 2009 to 2022"
+    },
+    {
+     "value": "29,218",
+     "label": "students tracked across 6 PAES/PDT admission cycles (2021–2026, open CC-BY license)"
+    }
+   ],
+   "note": "I linked 79,709,054 school enrollment records with 20 SIES Enrollment rosters (2007–2026) and 19 Graduation rosters (2007–2025) using DiD, Double ML and the Orthogonal R-Learner."
+  },
+  {
+   "type": "hbars",
+   "kicker": "The causal ladder in secondary school (2016–2019)",
+   "title": "The overall average converges to zero, but the IP/CFT channel contracts",
+   "subtitle": "Estimated gap in 2-year higher-education entry, secondary school (percentage points).",
+   "note": "Upper elementary: no detectable drop (+1.21 pp DiD; +1.02 DML). Secondary: university entry (+1.98 pp) and top-20% PAES (+1.75 pp) do not fall; IP/CFT contracts by −2.09 pp (p = 0.0037), with substitution toward universities still open.",
+   "max": 15,
+   "sign": "−",
+   "unit": " pp",
+   "items": [
+    {
+     "label": "1. Demographic controls only (DML)",
+     "value": 13.24,
+     "color": "muted"
+    },
+    {
+     "label": "2. + Student academic backpack (G−1 and G−2)",
+     "value": 5.63,
+     "color": "amber"
+    },
+    {
+     "label": "3a. Repeated-cohort DiD (G−1 vs. G−5)",
+     "value": 2.64,
+     "color": "purple"
+    },
+    {
+     "label": "3b. Full DML (+ G−5 history): overall entry (CI crosses 0)",
+     "value": 0.29,
+     "color": "cyan"
+    },
+    {
+     "label": "3c. Full DML (+ G−5 history): IP/CFT channel",
+     "value": 2.09,
+     "color": "pink"
+    }
+   ]
+  },
+  {
+   "type": "dots",
+   "kicker": "Causal ML heterogeneity (BLP, GATE and CLAN)",
+   "big": "−12",
+   "unit": "in every hundred in the most fragile quintile (G1)",
+   "highlight": 12,
+   "body": "In the quintile with the largest predicted harm (G1: 99.5% in secondary school, 77.2% vocational-technical, 87.1% prior attendance), about 12 fewer in every hundred enter higher education when only their individual backpack is controlled for; once the school's prior history is added, that drop is absorbed (−0.26 pp).",
+   "note": "GATE in G1 with student controls: −12.26 pp in overall entry (−17.79 to −6.74; BLP +0.634, p = 0.0243), −11.48 pp in persistence and −8.02 pp in IP/CFT (p = 0.0007). With G−5 school history, G1 overall entry moves to −0.26 pp, yet IP/CFT heterogeneity persists (BLP +0.425, p = 0.0177)."
+  },
+  {
+   "type": "hbars",
+   "kicker": "Fourteen cohorts (2009–2022) and the clean closure rule",
+   "title": "Without filtering block transfers, closures get mixed with mergers",
+   "subtitle": "2-year higher-education entry rate by episode classification.",
+   "note": "In secondary, the DiD effect moves from +0.55 pp in 2009–2015 (10,934 exposed) to −2.64 pp in 2016–2019 (−2.59 in IP/CFT) and −3.79 pp in the 2020–2022 pandemic (−4.33 in IP/CFT, −4.72 in persistence); with 7 to 12 high schools per regime, none is distinguishable from zero.",
+   "max": 90,
+   "kind": "share",
+   "sign": "",
+   "unit": "%",
+   "items": [
+    {
+     "label": "Genuine closures in secondary (D2, 2016–2019)",
+     "value": 50.61,
+     "color": "pink"
+    },
+    {
+     "label": "Open control schools, secondary (2016–2019)",
+     "value": 65.24,
+     "color": "cyan"
+    },
+    {
+     "label": "Excluded block transfers, secondary (D1 \\ D2)",
+     "value": 71.6,
+     "color": "purple"
+    },
+    {
+     "label": "Excluded block transfers, elementary (D1 \\ D2)",
+     "value": 81.1,
+     "color": "green"
+    }
+   ]
+  },
+  {
+   "type": "checklist",
+   "kicker": "Fine print and sensitivity checks",
+   "title": "What survives the stress tests and what remains open",
+   "body": "Before drawing policy lessons, I subjected the findings to four boundary and sensitivity checks:",
+   "items": [
+    "Part III debt settled: grade lag (+5.29 pp) withstands 2.54 times the prior trend bound (0.81 pp) and holds at +3.87 pp among G−2 stayers",
+    "Cinelli and Hazlett (2020): erasing the −2.09 pp IP/CFT drop requires a hidden confounder over twice as strong as G−5 history (Robustness Value 6.16%; 2.33% at 95%)",
+    "Substitution vs. net loss: university entry is +1.98 pp (−0.22 to +4.19); part of the −2.09 pp IP/CFT drop may be diversion, and the individual-trajectory test is still pending",
+    "PAES/PDT (2021–2026): with equal history, test-taking (−10.98 pp), enrolling (−7.46) and top 20% (−2.54) cease to differ from zero (+0.75, +2.87 and +1.75 pp)"
+   ]
+  },
+  {
+   "type": "checklist",
+   "kicker": "So what now for public policy?",
+   "title": "When a high school closes, relocation does not end with a seat in March",
+   "body": "The recipe depends on the grade level at closure; these are precautionary safeguards, not estimated effects:",
+   "items": [
+    "Upper elementary (Grades 7 to 8): nearby seats, transport and pedagogical welcome to cushion the immediate grade lag",
+    "Secondary school (Grades 9 to 11): named early-warning support for vocational-technical students with low prior attendance (G1 profile)",
+    "Vocational-technical articulation: specialty credit recognition and direct guidance into accredited IPs and CFTs",
+    "Financial bridge: timely FUAS completion (tuition-free aid and scholarships) and follow-up across the first two postsecondary years"
+   ]
+  },
+  {
+   "type": "cta",
+   "kicker": "Keep going",
+   "series": "Extending My Thesis in Three Spoonfuls · Part IV",
+   "links": [
+    {
+     "kicker": "Read the full analysis (Part IV)",
+     "title": "Do school closures close the door to higher education?",
+     "href": "https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post4_en",
+     "display": "3cucharadas.cl",
+     "path": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+     "image": "../../assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp"
+    },
+    {
+     "kicker": "Read Part III first",
+     "title": "What student trajectories show after a school closes",
+     "href": "https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post4_en",
+     "display": "3cucharadas.cl",
+     "path": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+     "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
+    }
+   ]
+  }
+ ]
+}

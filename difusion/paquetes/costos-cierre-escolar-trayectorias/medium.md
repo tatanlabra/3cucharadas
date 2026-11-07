@@ -2,10 +2,10 @@
 # 1. Usar "Import a story" con la URL canónica en inglés:
 #    https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
 #    o pegar el cuerpo de abajo y fijar manualmente el Canonical Link en Advanced Settings hacia esa misma URL.
-# 2. Subtítulo sugerido: Linking 79.7 million enrolment records in Chile shows why a nearby school on a map is not educational continuity—and why missing-data bounds matter.
+# 2. Subtítulo sugerido: Across 20 years and 78,972 displaced students in Chile, the point estimate of grade lag was higher in every measurable cohort than among matched peers—yet pre-closure fragility and missing-data bounds show why maps and simple averages are not enough.
 # 3. Tags sugeridos: Education Policy, Causal Inference, Data Science, Econometrics, Public Policy
 
-# When a School Closes, What Actually Happens to Its Students?
+# When a School Closes, What Actually Happens to Its Students Across Twenty Years?
 
 When a school shuts down, the administrative response usually begins and ends with a map. If another school with empty desks sits a mile away, planners tend to assume the problem is solved.
 
@@ -13,63 +13,33 @@ Maps, however, track buildings rather than children. They do not tell us whether
 
 In the third instalment of my [*Extending My Thesis in Three Spoonfuls*](https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/) series, I shifted the unit of analysis from school buildings to individual student trajectories across twenty years of nationwide administrative microdata from Chile’s Ministry of Education (`MINEDUC`), linking **79,709,054 enrolment records** and **73,873,835 annual performance records** from 2004 to 2025.
 
-What emerged is a lesson in why honest bounds matter more than tidy point estimates.
+---
+
+## First: The Twenty-Year Macro Picture (2005–2024) and Five Institutional Regimes
+
+Before looking at any single reform period, I reconstructed the full twenty-year series of regular school closures from **2005 to 2024**. First, I separated genuine closures with student dispersion from annex consolidations, code changes, and *de facto* mergers using the **Data-Inferred School Closure Rule (`RCID v1`, D2)**: out of **1,981** raw administrative exits (**D0**) and **1,807** strict closures (**D1**), `RCID v1` sets aside concentrated block transfers (where at least **10** baseline and **10** tracked students move with **70% or more** going to a single receiving school and destination **HHI ≥ 0.50**), leaving **1,678** conservative `D2` closures and **1,648** clean `D2` closures with an observed post-closure year (**1,382** in 2005–2015 and **266** in 2016–2024).
+
+Following the **1,141 regular school closures** with exact baseline matching support (**78,972** exposed student-cohort observations matched one year before closure against **734,472** controls of the same calendar year, sex, region, school ownership type, rurality, education level, and starting grade) using **Callaway and Sant'Anna (2021)** staggered difference-in-differences reveals two foundational facts:
+- **Every measurable cohort has a positive point estimate (not every interval excludes zero):** Across all **19 estimable annual cohorts (`2006–2024`)**, the before-and-after increase in **progression failure or grade lag** (having no enrolment record or being enrolled below the expected grade one year later) was larger among displaced students than among matched peers, ranging from **+0.94** to **+28.22 percentage points** (median **+7.18**). Weighting by exposed students yields a full-series **Callaway and Sant'Anna aggregate of +9.11 percentage points** (95% CI: **+5.34 to +12.88**), whose worst-case **Manski (2003) missing-data bounds ([+0.43, +16.21] pp)** remain strictly above zero, alongside **+7.55 points** (**+5.52 to +9.57**) under equal cohort weights, **+6.29 points** (**+4.49 to +8.09**; prediction interval **+0.09 to +12.49**, *I*² = **76.5%**) under random effects, and **+1.38 points** (**+0.92 to +1.85**) in two-year persistent non-enrolment.
+- **Closure volume and progression gaps attenuate across five regulatory stages:** Nearly nine in ten closures (**1,023 of 1,141**, **89.7%**) and **86.7%** of exposed students (**68,496 of 78,972**) took place in the first two stages: **2005–2010** (`LOCE` and early `SEP` subsidies; **521** closures, **36,984** exposed, **+12.15 pp** **[+3.78, +20.52]**, with Manski bounds **[+3.49, +18.83]** excluding zero) and **2011–2015** (`LGE` and `SAC` quality assurance rollout; **502** closures, **31,512** exposed, **+7.82 pp** **[+6.20, +9.41]**, and a series-high **+1.85 pp** in two-year non-enrolment). The gap then attenuates to **+5.29 pp** in **2016–2019** (**63** closures, **6,190** exposed; 95% CI **2.08 to 8.51**, Manski bounds **−1.15 to 10.98 pp**), **+2.70 pp** in **2020–2022** (**33** closures), and **+2.59 pp** in **2023–2024** (**22** closures).
 
 ---
 
-## First: Not Every “Closed” School Actually Closed
+## Second: Inside the Pre-Registered 2016–2019 Zoom—and Why Missing Records Matter
 
-Before measuring what happens to students after a closure, you have to make sure the school genuinely closed. In massive administrative directories, school identifiers—called `RBD` (*Rol Base de Datos*) in Chile—often vanish because of paperwork changes, annex consolidations, or *de facto* mergers where an entire student body walks into a new building together.
+Against that twenty-year backdrop, my pre-registered **2016–2019** window represents just **5.5% of closures** (**63** of **1,141**) and **7.8% of exposed students** (**6,190** of **78,972**), carrying the statistical weight of only **21.9 effective episodes** in progression (**21.1** in non-enrolment and **17.7** in attendance and marks).
 
-Across the full 2005–2025 panel, **1,981 schools** recorded positive enrolment one year and zero the next (**D0**). Filtering out annexes, secondary sites, and registered RBD successors leaves **1,807 strict closures** (**D1**, including **330** in the 2016–2025 decade).
+Across its **62 episodes** with observable primary follow-up, two-year persistent non-enrolment changed by **+0.63 percentage points** (**−0.77 to 2.03**, across **3,666** exposed and **49,944** controls), while one-year progression failure or grade lag rose by **+5.29 percentage points** (**2.08 to 8.51**, across **4,815** exposed and **65,538** controls). Yet valid baseline records at *G*−1 were available for **96.2%** of controls versus only **76.8%** of exposed students (**−19.4 pp** gap), and post-closure progression is missing for **3.60%** of exposed students versus **2.15%** of controls. Across the full `2016–2019` subwindow, assumption-free **Manski bounds span −1.15 to 10.98 percentage points**, crossing zero and making the subwindow **inconclusive on its own**.
 
-To separate genuine student dispersion from reorganisations where classmates move together, we introduced the **Data-Inferred School Closure Rule (`RCID v1`, D2)**: a school exit counts as a dispersed data-inferred closure unless it shows a concentrated transfer: at least **10** baseline and **10** tracked students, **70% or more** of them going to a single receiving school, a destination concentration index (HHI) of at least **0.50**, and the same main destination two years running. That rule leaves **1,678 closures** across twenty years (**1,648** with a fully observed post-closure year).
-
----
-
-## Second: A +5.29 Percentage-Point Gap—and Why Missing Records Make It Inconclusive
-
-In our primary recent window (**2016–2019**), **63 closures** retain exact matching support (**6,190** exposed student-cohort observations matched one year prior to closure against **82,753** controls of the same calendar year, sex, region, school ownership type, rurality, education level, and starting grade).
-
-Across the **62 episodes** with complete follow-up windows, we tracked two primary outcomes:
-1. **Two-year persistent non-enrolment:** We avoid calling this “dropout” because disappearing from national school rolls does not by itself distinguish school abandonment from emigration or unrecorded modalities. The before-and-after change among exposed students exceeded controls by **+0.63 percentage points** (conservative 95% confidence interval: **−0.77 to 2.03 points**, across **3,666** exposed and **49,944** control observations).
-2. **Progression failure or grade lag (one year later):** Defined as having no enrolment record or being enrolled below the expected grade the following year. Here the before-and-after change was **+5.29 percentage points** higher among exposed students than among controls, with a conservative 95% confidence interval from **2.08 to 8.51 points** (across **4,815** exposed and **65,538** control observations).
-
-If we stopped at the confidence interval, the headline would write itself.
-
-But progression is not observed for every student. And in baseline records one year before closure (*G*−1), valid attendance and grade records were available for **96.2%** of control students, compared with only **76.8%** of exposed students—a **−19.4 percentage-point** visibility gap. When we compute assumption-free **Manski (2003) bounds** for the missing progression records, the plausible range runs from **−1.15 to 10.98 percentage points**. Because those bounds cross zero, the 2016–2019 result is **inconclusive**.
-
-There is also a concentration problem that standard sample sizes hide. Think of those 62 closed schools as a **meeting room**: because a few large closures account for a disproportionate share of students, listening to the student-weighted average is less like hearing 62 independent voices and more like hearing **21.9 effective episodes** for progression (**21.1** for non-enrolment, and just **17.7** for exploratory attendance and grade marks).
+However, three mechanism stress tests inside `2016–2019` sharpen what the data can and cannot establish:
+1. **When prior-year record coverage reaches 90%, the bounds exclude zero:** In `2016–2019` closures with at least **90%** valid *G*−1 records (**1,822** exposed students with an outcome, **38%** of exposed support), missingness equalises (**2.31%** vs. **2.15%**), the progression gap is **+4.26 pp**, and **Manski bounds run from +0.09 to +7.84 pp** (strictly above zero; threshold **λ* = 1.0114**).
+2. **Pre-trend sensitivity and continuous stayers vs. late entrants:** Three pre-closure placebos (**+0.16**, **+0.30**, **+0.40 pp**; largest 95% upper bound **0.81 pp**) imply that post-closure bias would have to reach **2.07 pp** (**2.54** times that upper bound, following **Rambachan and Roth 2023**) to push the confidence interval around **+5.29 pp** (bounds **[−1.15, 10.98] pp**) across zero. And while **47.04%** of exposed students had switched schools between *G*−3 and *G*−1 (vs. **30.52%** of controls), splitting exposed students into continuous stayers (**3,556** students) and late entrants (**1,033**) shows that three-quarters of the gap remains among stayers (**+3.87 pp** **[+1.04, +6.69]** vs. **+9.58 pp** **[+5.06, +14.10]** among late entrants).
+3. **Receiving-school quality matters descriptively:** Among **4,362** exposed students who re-enrolled in another school in the closure year (*G*), those entering a school with a higher historical promotion rate at *G*−1 (**2,099** students) experienced a **+2.03 pp** progression gap, compared with **+5.38 pp** among those entering a school with an equal or lower prior promotion rate (**2,263** students; difference **−3.35 pp**). Families choose the destination and the contrast has no confidence interval of its own yet, so it is a descriptive pattern, not an estimated effect of receiving-school quality.
 
 ---
 
-## Third: Comparing Like with Like Reveals Pre-Existing Fragility
+## Third: Protecting Transitions Before Causality Is Settled
 
-Why were records already missing more often in schools that were about to close? To find out, we audited extended baseline descriptors for all **6,190** exposed and **82,753** control observations between *G*−3 and *G*−1.
-
-On individual demographics and poverty, exact matching worked: both groups averaged **11.70 years** of age, had identical baseline grade lag (**33.86%**), and had virtually the same share of low-income priority students under Chile’s Preferential School Subsidy (`SEP`: **30.68%** among exposed vs. **32.32%** among controls; **54.51%** vs. **55.58%** total `SEP` eligibility).
-
-On institutional stability, however, the two groups lived in different worlds:
-- Exposed students attended schools with **−10.06 percentage points** lower `SEP` agreement participation (**45.17%** vs. **55.23%**) and **−18.54 percentage points** lower Full School Day (`JEC`) coverage (**53.97%** vs. **72.51%**).
-- **47.04%** of exposed students had already switched schools at least once during the two years *before* closure (*G*−3 to *G*−1), compared with **30.52%** of controls (**+16.52 percentage points**).
-
-Nearly half of displaced students were already experiencing school instability before their school closed.
-
----
-
-## Fourth: What the Full 20-Year Staggered Series (2005–2024) Shows
-
-Was the 2016–2019 window an outlier? Using **Callaway and Sant'Anna (2021)** staggered difference-in-differences across all **20 annual cohorts from 2005 to 2024** under `RCID v1` (**1,141** supported closures, **78,972** exposed observations, and **734,472** controls), we found the exact opposite:
-- Across Chile’s successive institutional regimes, the post-closure progression gap attenuated steadily: from **+12.15 percentage points** in **2005–2010** (521 closures) and **+7.82 points** in **2011–2015** (502 closures) to **+5.29 points** in **2016–2019** (63 closures; bounds **−1.15 to 10.98 pp**), **+2.70 points** during the **2020–2022** pandemic, and **+2.59 points** in **2023–2024**.
-- All **19 estimable annual progression cohorts (2006–2024)** are positive (ranging from **+0.94** to **+28.22 points**, median **+7.18**).
-- The full-series Callaway and Sant'Anna exposed-weighted aggregate is **+9.11 percentage points** (95% CI: **+5.34 to +12.88**), with Manski bounds of **+0.43 to +16.21 points** that barely exclude zero, while a random-effects model (*I*² = 76.5%) yields **+6.29 points** (**+4.49 to +8.09**; prediction interval **+0.09 to +12.49**).
-
-Even so, because closing schools already suffered from higher prior turnover and the long series still lacks placebo tests (formal sensitivity to non-parallel trends, **Rambachan and Roth 2023**, remains pending), and because policy reforms like Local Public Education Services (`SLEP`) or centralized admissions (`SAE`) directly affect seats and resources (failing the instrumental-variable exclusion restriction, so no instrumental-variable regression is run in this version), observational scale cannot substitute for a randomised design.
-
----
-
-## Protecting Transitions Before Causality Is Settled
-
-An inconclusive bound is not a license for administrative complacency—it shifts the burden of proof. Before closing or consolidating a school, authorities should verify real receiving-school seats, active `SEP` subsidies, Full School Day provision, and safe transport travel times, and then track every displaced student by name for at least two years. Those precautionary safeguards are not estimated causal effects; they are the baseline duty of care owed to students when a school closes.
+Because closing schools already had lower `SEP` agreement participation (**45.17%** vs. **55.23%**, **−10.06 pp**), lower Full School Day (`JEC`) coverage (**53.97%** vs. **72.51%**, **−18.54 pp**), and higher prior student mobility (**47.04%** vs. **30.52%**), observational scale cannot substitute for a randomised design. Yet that uncertainty is an argument for precaution, not passivity: before closing a school, authorities should verify real seats, active `SEP` subsidies, Full School Day provision, and safe transport travel times in higher-performing receiving schools, and track every displaced student by name for at least two years.
 
 *Read the full bilingual article, interactive light/dark SVG figures, and open CSV datasets at [3cucharadas.cl](https://3cucharadas.cl/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/).*

@@ -1,6 +1,6 @@
-# Extender mi tesis (parte II) — paquete de difusión social
+# Extender mi tesis (parte II) — paquete de difusión (`extender-tesis-no-es-agregar-anos`)
 
-Estado: **publicado y verificado el 2026-10-18** con `closeout --live`, tras la aprobación humana de la copia en el chat (borrador revisión 3, aprobaciones `true` en ambas redes). Verificación por API: texto, idioma, orden del hilo, tarjetas y facets en verde, sin checks en `false`.
+Estado de redes cortas: **publicado y verificado el 2026-10-18** con `closeout --live`, tras la aprobación humana de la copia en el chat (borrador revisión 3, aprobaciones `true` en ambas redes). Verificación por API: texto, idioma, orden del hilo, tarjetas y facets en verde, sin checks en `false`.
 
 | Red | Raíz ES | Respuesta EN |
 |---|---|---|
@@ -9,26 +9,26 @@ Estado: **publicado y verificado el 2026-10-18** con `closeout --live`, tras la 
 
 `social.json` contiene el texto base exacto que se publicó.
 
-`social.json` contiene el texto base del borrador (`base_copy`): raíz ES y respuesta EN. Mastodon agrega la URL UTM del artículo al final; Bluesky usa la tarjeta OG del artículo. El borrador operativo y su ledger viven en el state dir XDG, fuera del repositorio. Se generó con `--provider manual`, se editó por la API de storage con revisión esperada (revisión 2) y la aprobación humana lo llevó a la revisión 3.
+## Archivos del paquete completo (12 artefactos + `social.json` + `podcast/`)
+
+- `00-metadata.yaml`: metadatos canónicos, evidencia dura y estado por canal.
+- `01-en-source.md`: fuente transcreada maestra al inglés.
+- `social.json` y `social-corto.md`: copias para Mastodon y Bluesky (ES/EN, publicadas el 2026-10-18).
+- `linkedin.md` y `x.md`: copias nativas para LinkedIn y X.
+- `medium.md` y `devto.md`: adaptaciones diferenciadas con enlace canónico.
+- `hn.txt`: título y comentario técnico inicial para Hacker News.
+- `reddit-dataisbeautiful.md` y `reddit-hilos.md`: borradores para `r/dataisbeautiful`, `r/PublicPolicy` y `r/econometrics`.
+- `QA.md`: lista de control verificada.
+- `podcast/`: guion y metadatos de la cápsula de audio en Spotify (episodio `7ho9naqSgAotsTfcsBmOwc`, compartido con la parte I; es el único ID verificado en `podcast/origen.yaml`).
+
+## Edición adversarial del 2026-11-07
+
+- Mejoras econométricas destacadas en todas las piezas largas: M4 (encogimiento de Bayes empírico de Morris 1983 con soporte regional), M5 (permutación exacta de Fisher y *wild cluster bootstrap* de Webb en SAE; *Synthetic DiD* en SLEP) y M6 (logit condicional de McFadden sobre destinos de reubicación).
+- Correcciones: ID de Spotify inventado en `linkedin.md` (sustituido por el verificado), rutas de imagen inexistentes en `reddit-dataisbeautiful.md`, voz autoral en singular en `devto.md` y `medium.md`, hilo de `x.md` dentro del límite.
+- Pendiente humano: reejecutar los dos gates listados en `QA.md` antes de cualquier envío.
 
 ## Criterio editorial
 
-- Contrato epistémico del Post II: no identifica efectos causales de los cierres ni ofrece una regla para decidir qué escuelas cerrar. La copia solo dice lo que el post dice en su apertura y cierre.
-- Sin cifras: la CLI solo admite números presentes en título, descripción o URL del post, y las cifras del cuerpo (900, 330, 38, etc.) quedan fuera a propósito para que ninguna se lea sin su denominador.
-- Sin casos individuales: El Salvador no se menciona; Lo Prado, Lo Barnechea y «parte III» están retirados del post.
-- Sin enlace a la cápsula de audio: el episodio se titula «¿Cerrar escuelas en los próximos años? ¿cuáles cerrar?…» y la tarjeta de Spotify desplazaría a la del artículo en Mastodon, mostrando esa pregunta como encabezado. Si se quisiera añadir, solo la raíz ES y con la URL declarada en `audio.plataformas`.
-- La respuesta EN no menciona audio.
-
-## Respaldo de cada afirmación (Post II, `_posts/2026-10-11-extender-tesis-no-es-agregar-anos.md`)
-
-| Afirmación de la copia | Sección del post |
-|---|---|
-| «cierres y aperturas de escuelas en Chile» | `description` del front matter: «examina cierres y aperturas escolares en Chile» |
-| «Los registros precisan el recambio» | `excerpt`: «Los registros permiten precisar el recambio» |
-| «no permiten saber si mejoró o empeoró los resultados educativos» | Apertura, `claim-causal-boundary`: «no identifica si el recambio mejora o empeora los resultados educativos» |
-| «qué continuidad recibió la comunidad y quién absorbió los costos» | Apertura: «qué continuidad recibió la comunidad y quién absorbió sus costos»; Cierre, `claim-open-question`: «quién conserva continuidad y quién termina pagando la transición» |
-
-## Controles
-
+- Contrato epistémico del Post II: no identifica efectos causales de los cierres sobre los estudiantes ni ofrece una regla automática para decidir qué escuelas cerrar.
+- Paridad numérica estricta verificada con `scripts/verify_difusion_coherente.rb extender-tesis-no-es-agregar-anos`.
 - Frases prohibidas y `affirmed_promotions` de `scripts/verify_thesis_extension_post_ii.rb` aplicadas a ES y EN: sin coincidencias.
-- Validación de la CLI: Bluesky 276 (ES) y 281 (EN) caracteres sobre 300; Mastodon 467 y 475 sobre 500 contando la URL completa.

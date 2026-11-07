@@ -15,7 +15,7 @@
    "type": "cover",
    "kicker": "Extending My Thesis in Three Spoonfuls · Part III",
    "title": "When a school closes, what happens to its students?",
-   "body": "I followed twenty years of Ministry of Education records to find out.",
+   "body": "I followed twenty years of Ministry of Education records (2005–2024) to find out.",
    "image": "../../assets/images/heroes-v2/costos-cierre-escolar-trayectorias/hero-1600x900.webp"
   },
   {
@@ -36,30 +36,30 @@
   },
   {
    "type": "stats",
-   "kicker": "What I did",
-   "title": "I followed every student, year by year",
+   "kicker": "What I did (2005–2024)",
+   "title": "I followed every student, year by year, across twenty cohorts",
    "stats": [
     {
      "value": "78,972",
-     "label": "students who lost their school"
+     "label": "students who lost their school between 2005 and 2024"
     },
     {
      "value": "1,141",
-     "label": "schools that closed between 2005 and 2024"
+     "label": "closed regular schools with matched controls (out of 1,648 clean RCID v1 closures)"
     },
     {
      "value": "734,472",
      "label": "similar students from schools that stayed open, for comparison"
     }
    ],
-   "note": "Each student was compared with others of the same year, age, grade, sex, region and type of school."
+   "note": "I reconstructed 79,709,054 enrolment records and 73,873,835 performance records (2004–2025), matching by year, sex, age, region, provider type, rurality, level and grade."
   },
   {
    "type": "vbars",
    "kicker": "The first thing that shows up",
-   "title": "19 out of 19 years, the same direction",
-   "body": "Each bar is one year: how many more students, per hundred, fell behind a grade or stopped appearing as enrolled the next year, compared with their peers.",
-   "note": "Some years have few cases and a lot of uncertainty. That is why looking at all of them together matters.",
+   "title": "Across all 19 measurable cohorts, the gap points the same way",
+   "body": "Each bar is one annual cohort: how much more the share of students who fell behind a grade or had no enrolment the next year rose, per hundred students, relative to their peers.",
+   "note": "Annual range from +0.94 to +28.22 percentage points (median +7.18). Several years have few closures and wide uncertainty; that is why the full series matters.",
    "values": [
     [
      2006,
@@ -159,62 +159,62 @@
   },
   {
    "type": "dots",
-   "kicker": "The overall effect, 2005–2024",
-   "big": "+6",
+   "kicker": "The gap across the full series, 2005–2024",
+   "big": "+9",
    "unit": "in every hundred",
-   "highlight": 6,
-   "body": "For every hundred students who lost their school, about 6 more than among their peers fell behind or left the register the next year.",
-   "note": "Average across all years: +6.29 percentage points (between +4.49 and +8.09). For a new round of closures, the expected range is +0.09 to +12.49."
+   "highlight": 9,
+   "body": "Weighting by exposed students (Callaway and Sant'Anna), about 9 more in every hundred fell behind or left the register the next year, relative to their peers (+6 under random effects). This is an adjusted gap, not a confirmed causal effect.",
+   "note": "Callaway and Sant'Anna: +9.11 percentage points (+5.34 to +12.88; Manski bounds +0.43 to +16.21) and +1.38 in two-year non-enrolment. Random effects: +6.29 (+4.49 to +8.09; prediction +0.09 to +12.49)."
   },
   {
    "type": "hbars",
-   "kicker": "Over time",
-   "title": "The gap kept shrinking",
-   "subtitle": "Additional students per hundred, average for each period.",
-   "note": "I cannot credit any one policy: the schools that close also changed, as did the way records are kept and, during the pandemic, the rules for moving up a grade.",
+   "kicker": "Five institutional stages (2005–2024)",
+   "title": "89.7% of closures occurred by 2015, and the gap attenuated afterwards",
+   "subtitle": "Additional students per hundred, relative to peers, by stage; 2016–2019 is the primary subwindow (5.5% of closures).",
+   "note": "2005–2010 (521 closures) and 2011–2015 (502) hold 86.7% of exposed students; only 2005–2010 excludes zero in both the confidence interval and the Manski bounds. In 2016–2019 (63 closures) the bounds span −1.15 to 10.98 points.",
    "max": 14,
    "color": "cyan",
    "items": [
     {
-     "label": "2005–2010",
+     "label": "2005–2010 (LOCE & early SEP)",
      "value": 12.15
     },
     {
-     "label": "2011–2015",
+     "label": "2011–2015 (LGE & SAC)",
      "value": 7.82
     },
     {
-     "label": "2016–2019",
+     "label": "2016–2019 (Inclusion subwindow)",
      "value": 5.29
     },
     {
-     "label": "2020–2022",
+     "label": "2020–2022 (pandemic)",
      "value": 2.7
     },
     {
-     "label": "2023–2024",
+     "label": "2023–2024 (post-pandemic)",
      "value": 2.59
     }
    ]
   },
   {
    "type": "hbars",
-   "kicker": "The fine print that matters",
-   "title": "I cannot yet say the closure is the cause",
-   "body": "The schools that closed were already more fragile, with less full-day schooling and fewer support agreements. And many of their students were already switching schools:",
-   "note": "Had already switched schools at least once in the previous two years (2016–2019 window).",
+   "kicker": "Fine print and stress tests (2016–2019)",
+   "title": "I still cannot say the closure is the cause on its own",
+   "body": "Grade lag rises +3.87 points among stayers from two years prior (+9.58 among late entrants) and withstands 2.54 times the prior trend bound (0.81 points). Yet those schools were already more fragile, and nearly half of their students were already switching schools before closure:",
+   "note": "With at least 90% valid records the gap is +4.26 points (bounds +0.09 to +7.84). Moving to a receiving school with higher prior promotion cushions −3.35 points (+2.03 versus +5.38), a descriptive difference without its own interval.",
    "max": 60,
    "kind": "share",
    "sign": "",
    "unit": "%",
    "items": [
     {
-     "label": "Lost their school",
+     "label": "Exposed students with at least one prior school switch (G−3 to G−1)",
      "value": 47.04,
      "color": "amber"
     },
     {
-     "label": "Comparison group",
+     "label": "Comparison group with at least one prior switch",
      "value": 30.52,
      "color": "muted"
     }
@@ -223,13 +223,14 @@
   {
    "type": "checklist",
    "kicker": "So what now?",
-   "title": "If more closures are coming, look first at where they will happen",
-   "body": "The demographic transition may bring new closures and mergers. Knowing where they will happen makes it possible to plan in time:",
+   "title": "A result with causal limits already supports minimum safeguards",
+   "body": "These are not estimated effects: they are the minimum standard of care before reorganising a school network:",
    "items": [
-    "Real vacancies and safe transport to the new school",
-    "Support for the school that receives the students",
-    "Guidance for students and families through the change",
-    "Tracking every student for at least two years"
+    "Neither proximity nor an informative relocation notice counts as continuity",
+    "Real vacancies and safe transport verified before deciding",
+    "Support and funding for the school that receives the students",
+    "Guidance for priority students and families through the change",
+    "Tracking every student by name for at least two years"
    ]
   },
   {
