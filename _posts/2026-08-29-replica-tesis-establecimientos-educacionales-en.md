@@ -290,4 +290,4 @@ An RBD—the school's official identifier—may disappear from the register. **A
 
 [^mundlak1978]: Mundlak, Yair. [On the Pooling of Time Series and Cross Section Data](https://doi.org/10.2307/1913646), *Econometrica* 46(1), 69–85, 1978. [Scholar](https://scholar.google.com/scholar_lookup?title=On+the+Pooling+of+Time+Series+and+Cross+Section+Data&doi=10.2307%2F1913646)
 
-[^chamberlain1982]: Chamberlain, Gary. [Multivariate Regression Models for Panel Data](https://doi.org/10.1016/0304-4076(82)90094-X), *Journal of Econometrics* 18(1), 5–46, 1982. [Scholar](https://scholar.google.com/scholar_lookup?title=Multivariate+Regression+Models+for+Panel+Data&doi=10.1016%2F0304-4076%2882%2990094-X)
+[^chamberlain1982]: Chamberlain, Gary. [Multivariate Regression Models for Panel Data](https://doi.org/10.1016/0304-4076(82)90094-X), *Journal of Econometrics* 18(1), 5–46, 1982. [Scholar](https://scholar.google.com/scholar_lookup?title=Multivariate+regression+models+for+panel+data&doi=10.1016%2F0304-4076%2882%2990094-X)

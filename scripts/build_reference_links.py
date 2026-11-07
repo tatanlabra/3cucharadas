@@ -35,7 +35,7 @@ from pathlib import Path
 
 import yaml
 
-DOI_RE = re.compile(r"doi\.org/(10\.\d{4,9}/[^\s)>\]\"'<]+)", re.I)
+DOI_RE = re.compile(r"doi\.org/(10\.\d{4,9}/(?:[^\s()>\]{}\"'<]|\([^\s()>\]{}\"'<]*\))+)", re.I)
 ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?", re.I)
 UA = "3cucharadas-reference-links/1.0 (+https://3cucharadas.cl)"
 
@@ -225,11 +225,25 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--posts", type=Path, default=Path("_posts"))
     parser.add_argument("--out", type=Path, default=Path("_data/referencias_enlaces.yml"))
+    parser.add_argument("--refresh", action="store_true", help="Re-query all identifiers instead of reusing existing entries")
     args = parser.parse_args()
+
+    existing: dict[str, dict] = {}
+    if not args.refresh and args.out.exists():
+        loaded = yaml.safe_load(args.out.read_text(encoding="utf-8"))
+        if isinstance(loaded, dict):
+            existing = loaded
 
     identifiers = collect_identifiers(args.posts)
     registry: dict[str, dict] = {}
     for key, item in sorted(identifiers.items()):
+        if key in existing and existing[key].get("metadata_found"):
+            cached = dict(existing[key])
+            title = cached.get("title") or ""
+            cached["seen"] = sorted(item["seen"])
+            cached["title_match"] = title_in_lines(title, item["lines"]) if title else 0.0
+            registry[key] = cached
+            continue
         meta = openalex(item["id"]) if item["kind"] == "doi" else arxiv(item["id"])
         title = meta.get("title", "")
         pdf_url, pdf_match, rejected = None, 0.0, []

@@ -32,7 +32,7 @@ REF_HEAD = re.compile(
     re.I,
 )
 ANY_HEAD = re.compile(r"^#{1,4}\s")
-DOI_URL = r"https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/[^\s)>\]\"'<]+)"
+DOI_URL = r"https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/(?:[^\s()>\]{}\"'<]|\([^\s()>\]{}\"'<]*\))+)"
 ARXIV_URL = r"https?://(?:www\.)?arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?"
 ID_RE = re.compile(f"{DOI_URL}|{ARXIV_URL}", re.I)
 SCHOLAR = "scholar.google.com/scholar_lookup"

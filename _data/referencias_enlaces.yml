@@ -474,6 +474,25 @@ arxiv:2610.14224:
   title: 'Harness^2: Recursive Agent Harnessing for an Open World'
   title_match: 1.0
   year: 2026
+doi:10.1002/jae.2508:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1002/jae.2508
+  id: 10.1002/jae.2508
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Wild+Bootstrap+Inference+for+Wildly+Different+Cluster+Sizes&doi=10.1002%2Fjae.2508
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Wild Bootstrap Inference for Wildly Different Cluster Sizes
+  title_match: 1.0
+  year: 2016
 doi:10.1002/widm.1484:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -530,9 +549,30 @@ doi:10.1007/b97478:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: Partial Identification of Probability Distributions
   title_match: 1.0
   year: 2003
+doi:10.1016/0304-4076(82)90094-x:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1016/0304-4076(82)90094-X
+  id: 10.1016/0304-4076(82)90094-X
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Multivariate+regression+models+for+panel+data&doi=10.1016%2F0304-4076%2882%2990094-X
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: Multivariate regression models for panel data
+  title_match: 1.0
+  year: 1982
 doi:10.1016/j.econedurev.2018.05.003:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -553,6 +593,8 @@ doi:10.1016/j.econedurev.2018.05.003:
   - 2026-10-11-extender-tesis-no-es-agregar-anos.md
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: 'School closure and educational attainment: Evidence from a market-based system'
   title_match: 1.0
   year: 2018
@@ -572,6 +614,8 @@ doi:10.1016/j.econedurev.2018.05.004:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: 'The short-term effects of school consolidation on student achievement: Evidence of disruption?'
   title_match: 1.0
   year: 2018
@@ -610,6 +654,8 @@ doi:10.1016/j.econedurev.2020.101980:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: Does closing schools close doors? The effect of high school closings on achievement and attainment
   title_match: 1.0
   year: 2020
@@ -648,6 +694,8 @@ doi:10.1016/j.econedurev.2023.102368:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: The effects of performance-based school closure and restart on student performance
   title_match: 1.0
   year: 2023
@@ -686,6 +734,8 @@ doi:10.1016/j.jeconom.2020.12.001:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: Difference-in-Differences with multiple time periods
   title_match: 1.0
   year: 2020
@@ -705,6 +755,8 @@ doi:10.1016/j.jeconom.2023.03.008:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: What’s trending in difference-in-differences? A synthesis of the recent econometrics literature
   title_match: 1.0
   year: 2023
@@ -743,6 +795,8 @@ doi:10.1016/j.jpubeco.2014.06.010:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: The effect of school closings on student achievement
   title_match: 1.0
   year: 2014
@@ -762,6 +816,8 @@ doi:10.1016/j.jue.2011.10.001:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: 'Closing schools in a shrinking district: Do student outcomes depend on which schools are closed?'
   title_match: 1.0
   year: 2011
@@ -786,6 +842,25 @@ doi:10.1016/j.labeco.2020.101910:
   title: Effects of school closures on displaced students and future cohorts
   title_match: 1.0
   year: 2020
+doi:10.1017/cbo9781139025751:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1017/CBO9781139025751
+  id: 10.1017/CBO9781139025751
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Causal+Inference+for+Statistics%2C+Social%2C+and+Biomedical+Sciences&doi=10.1017%2FCBO9781139025751
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Causal Inference for Statistics, Social, and Biomedical Sciences
+  title_match: 1.0
+  year: 2015
 doi:10.1017/pan.2023.20:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -843,6 +918,25 @@ doi:10.1068/a250383:
   title: A Framework for the Areal Interpolation of Socioeconomic Data
   title_match: 1.0
   year: 1993
+doi:10.1080/01621459.1983.10477920:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1080/01621459.1983.10477920
+  id: 10.1080/01621459.1983.10477920
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Parametric+Empirical+Bayes+Inference%3A+Theory+and+Applications&doi=10.1080%2F01621459.1983.10477920
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: 'Parametric Empirical Bayes Inference: Theory and Applications'
+  title_match: 1.0
+  year: 1983
 doi:10.1080/02680939.2021.1966102:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -900,6 +994,25 @@ doi:10.1093/biomet/26.4.404:
   title: THE USE OF CONFIDENCE OR FIDUCIAL LIMITS ILLUSTRATED IN THE CASE OF THE BINOMIAL
   title_match: 1.0
   year: 1934
+doi:10.1093/biomet/asaa076:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1093/biomet/asaa076
+  id: 10.1093/biomet/asaa076
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/1712.04912
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Quasi-oracle+estimation+of+heterogeneous+treatment+effects&doi=10.1093%2Fbiomet%2Fasaa076
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Quasi-oracle estimation of heterogeneous treatment effects
+  title_match: 1.0
+  year: 2020
 doi:10.1093/cje/bet075:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -935,6 +1048,8 @@ doi:10.1093/restud/rdad018:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: A More Credible Approach to Parallel Trends
   title_match: 1.0
   year: 2023
@@ -976,6 +1091,44 @@ doi:10.1111/1540-6229.12126:
   title: 'Assessment Inequity in a Declining Housing Market: The Case of Detroit'
   title_match: 1.0
   year: 2016
+doi:10.1111/caje.12661:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1111/caje.12661
+  id: 10.1111/caje.12661
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Reworking+wild+bootstrap%E2%80%90based+inference+for+clustered+errors&doi=10.1111%2Fcaje.12661
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: Reworking wild bootstrap‐based inference for clustered errors
+  title_match: 0.86
+  year: 2023
+doi:10.1111/ectj.12097:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1111/ectj.12097
+  id: 10.1111/ectj.12097
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Double%2Fdebiased+machine+learning+for+treatment+and+structural+parameters&doi=10.1111%2Fectj.12097
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Double/debiased machine learning for treatment and structural parameters
+  title_match: 1.0
+  year: 2017
 doi:10.1111/j.1365-2966.2007.00428.x:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1014,6 +1167,27 @@ doi:10.1111/joes.12139:
   title: 'THE MEANING OF FAILED REPLICATIONS: A REVIEW AND PROPOSAL'
   title_match: 1.0
   year: 2015
+doi:10.1111/rssb.12348:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1111/rssb.12348
+  id: 10.1111/rssb.12348
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/rssb.12348
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Making+Sense+of+Sensitivity%3A+Extending+Omitted+Variable+Bias&doi=10.1111%2Frssb.12348
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: 'Making Sense of Sensitivity: Extending Omitted Variable Bias'
+  title_match: 1.0
+  year: 2019
 doi:10.11144/javeriana.upsy13-2.qscc:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1094,6 +1268,65 @@ doi:10.1145/3586183.3606763:
   title: 'Generative Agents: Interactive Simulacra of Human Behavior'
   title_match: 1.0
   year: 2023
+doi:10.1162/rest.90.3.414:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1162/rest.90.3.414
+  id: 10.1162/rest.90.3.414
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://www.nber.org/papers/t0344.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Bootstrap-Based+Improvements+for+Inference+with+Clustered+Errors&doi=10.1162%2Frest.90.3.414
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Bootstrap-Based Improvements for Inference with Clustered Errors
+  title_match: 1.0
+  year: 2008
+doi:10.1201/9781003484080:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1201/9781003484080
+  id: 10.1201/9781003484080
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://api.taylorfrancis.com/content/books/mono/download?identifierName=doi&identifierValue=10.1201/9781003484080&type=googlepdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=A+First+Course+in+Causal+Inference&doi=10.1201%2F9781003484080
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: A First Course in Causal Inference
+  title_match: 1.0
+  year: 2024
+doi:10.1214/18-aos1709:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1214/18-AOS1709
+  id: 10.1214/18-AOS1709
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected:
+  - title_match: 0.0
+    url: https://projecteuclid.org/journals/annals-of-statistics/volume-47/issue-2/Generalized-random-forests/10.1214/18-AOS1709.pdf
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/1610.01271
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Generalized+random+forests&doi=10.1214%2F18-AOS1709
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Generalized random forests
+  title_match: 1.0
+  year: 2019
 doi:10.1257/0002828054825529:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1113,6 +1346,25 @@ doi:10.1257/0002828054825529:
   title: The Central Role of Noise in Evaluating Interventions That Use Test Scores to Rank Schools
   title_match: 1.0
   year: 2005
+doi:10.1257/aer.20190159:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1257/aer.20190159
+  id: 10.1257/aer.20190159
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/1812.09970
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Synthetic+Difference-in-Differences&doi=10.1257%2Faer.20190159
+  seen:
+  - 2026-10-11-extender-tesis-no-es-agregar-anos-en.md
+  - 2026-10-11-extender-tesis-no-es-agregar-anos.md
+  title: Synthetic Difference-in-Differences
+  title_match: 1.0
+  year: 2021
 doi:10.1257/jel.20171350:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1153,6 +1405,25 @@ doi:10.1504/ijisd.2011.043070:
   title: 'Technology as system: towards an autopoietic theory of technology'
   title_match: 1.0
   year: 2011
+doi:10.1515/9781400829828:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1515/9781400829828
+  id: 10.1515/9781400829828
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Mostly+Harmless+Econometrics&doi=10.1515%2F9781400829828
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Mostly Harmless Econometrics
+  title_match: 1.0
+  year: 2008
 doi:10.1515/zfsoz-2017-1014:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1195,6 +1466,25 @@ doi:10.1561/1500000019:
   title: 'The Probabilistic Relevance Framework: BM25 and Beyond'
   title_match: 1.0
   year: 2009
+doi:10.1596/978-1-4648-0888-3:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.1596/978-1-4648-0888-3
+  id: 10.1596/978-1-4648-0888-3
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=La+evaluaci%C3%B3n+de+impacto+en+la+pr%C3%A1ctica%2C+Segunda+edici%C3%B3n&doi=10.1596%2F978-1-4648-0888-3
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: La evaluación de impacto en la práctica, Segunda edición
+  title_match: 0.6
+  year: 2017
 doi:10.1787/03dfe007-en:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1273,6 +1563,25 @@ doi:10.2307/1913511:
   title: Inequality Decomposition by Population Subgroups
   title_match: 1.0
   year: 1984
+doi:10.2307/1913646:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.2307/1913646
+  id: 10.2307/1913646
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 0.0
+  pdf_url: null
+  pdf_verified: false
+  scholar_url: https://scholar.google.com/scholar_lookup?title=On+the+Pooling+of+Time+Series+and+Cross+Section+Data&doi=10.2307%2F1913646
+  seen:
+  - 2026-08-29-replica-tesis-establecimientos-educacionales-en.md
+  - 2026-08-29-replica-tesis-establecimientos-educacionales.md
+  title: On the Pooling of Time Series and Cross Section Data
+  title_match: 1.0
+  year: 1978
 doi:10.2307/2087176:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1308,9 +1617,30 @@ doi:10.26300/ax4m-3z14:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: 'The Long Shadow of School Closures: Impacts on Students'' Educational and Labor Market Outcomes'
   title_match: 1.0
   year: 2023
+doi:10.3386/w24678:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.3386/w24678
+  id: 10.3386/w24678
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: http://www.nber.org/papers/w24678.pdf
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Generic+Machine+Learning+Inference+on+Heterogeneous+Treatment+Effects+in+Randomized+Experiments%2C+with+an+Application+to+Immunization+in+India&doi=10.3386%2Fw24678
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Generic Machine Learning Inference on Heterogeneous Treatment Effects in Randomized Experiments, with an Application to Immunization in India
+  title_match: 1.0
+  year: 2018
 doi:10.3386/w34936:
   arxiv_abs: null
   checked_at: '2026-10-31'
@@ -1327,6 +1657,8 @@ doi:10.3386/w34936:
   seen:
   - 2026-10-23-costos-cierre-escolar-trayectorias-en.md
   - 2026-10-23-costos-cierre-escolar-trayectorias.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
   title: 'Who Gets What in Education: Can School Matching Improve Student Achievement?'
   title_match: 1.0
   year: 2026
@@ -1444,6 +1776,25 @@ doi:10.48550/arxiv.2310.08560:
   title: 'MemGPT: Towards LLMs as Operating Systems'
   title_match: 1.0
   year: 2023
+doi:10.48550/arxiv.2403.02467:
+  arxiv_abs: null
+  checked_at: '2026-11-07'
+  doi_url: https://doi.org/10.48550/arXiv.2403.02467
+  id: 10.48550/arXiv.2403.02467
+  kind: doi
+  metadata_found: true
+  metadata_source: openalex
+  pdf_rejected: []
+  pdf_title_match: 1.0
+  pdf_url: https://arxiv.org/pdf/2403.02467
+  pdf_verified: true
+  scholar_url: https://scholar.google.com/scholar_lookup?title=Applied+Causal+Inference+Powered+by+ML+and+AI&doi=10.48550%2FarXiv.2403.02467
+  seen:
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md
+  - 2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+  title: Applied Causal Inference Powered by ML and AI
+  title_match: 1.0
+  year: 2024
 doi:10.5089/9798400288753.061:
   arxiv_abs: null
   checked_at: '2026-10-31'

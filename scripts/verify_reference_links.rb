@@ -19,9 +19,9 @@ require "yaml"
 module ReferenceLinks
   REF_HEAD = /^\#{2,4}\s+(Referencias|References|Fuentes|Sources|Lectura complementaria|Further reading|Software y documentaci|Software and (technical )?documentation|Bibliograf|Bibliography)/i
   ANY_HEAD = /^\#{1,4}\s/
-  DOI_URL = %r{https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/[^\s)>\]"'<]+)}i
+  DOI_URL = %r{https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/(?:[^\s()>\]{}"'<]|\([^\s()>\]{}"'<]*\))+)}i
   ARXIV_URL = %r{https?://(?:www\.)?arxiv\.org/(?:abs|pdf)/(\d{4}\.\d{4,5})(?:v\d+)?}i
-  LINK = /\[([^\]]*)\]\(([^)\s]+)\)/
+  LINK = /\[([^\]]*)\]\(((?:[^()\s]|\([^()\s]*\))+)\)/
   SCHOLAR = "scholar.google.com/scholar_lookup"
 
   module_function
