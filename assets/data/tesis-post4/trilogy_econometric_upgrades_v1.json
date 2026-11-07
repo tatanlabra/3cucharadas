@@ -1,0 +1,421 @@
+{
+  "frozen_receipts_untouched": {
+    "post3_audit_light_v1_sha256": "2247d58e0f5f84929eb553859626d59607183c48db5e34599241c3464bb62030",
+    "post3_modern_causal_v3_1_sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724",
+    "sae_entry_grade_ddd_v1_sha256": "cee6d5e45852e19d480690ecf005e31affb0132c6d0802172ed28202c0b28e90",
+    "scientific_release_freeze_sha256": "c030d9c186b23dc649e12410fb3272d8929cb6246dcb24346387163eaf070e98",
+    "slep_identification_v2_sha256": "08da67ac2df829e8a52685a0abb122be36a078f106da65fd633d54d148a7c5ab"
+  },
+  "generated_at_utc": "2026-11-06T10:30:32.402666+00:00",
+  "post_i_upgrades": {
+    "m7_mundlak_cre_and_cluster_inference": {
+      "cuadro3_sombra_de_la_muerte": {
+        "municipal": {
+          "between_school_permanent_gap": -5.9,
+          "excess_within_contraction_per_yr": -0.216,
+          "n_exiting_schools": 475,
+          "n_obs": 36493,
+          "n_staying_schools": 4732,
+          "within_slope_exiting_per_yr": -0.849,
+          "within_slope_staying_per_yr": -0.632
+        },
+        "private_subsidized": {
+          "between_school_permanent_gap": -6.23,
+          "excess_within_contraction_per_yr": -0.148,
+          "n_exiting_schools": 249,
+          "n_obs": 23315,
+          "n_staying_schools": 3110,
+          "within_slope_exiting_per_yr": -0.565,
+          "within_slope_staying_per_yr": -0.417
+        }
+      },
+      "cuadro7_hlm_mundlak": {
+        "dynamic_mundlak_cre": {
+          "n_clusters_rbd": 2640,
+          "n_obs": 14704,
+          "terms": {
+            "anio_within": {
+              "beta": -0.003182,
+              "se_cluster_rbd": 0.000843,
+              "t_stat": -3.77
+            },
+            "gse": {
+              "beta": 0.004913,
+              "se_cluster_rbd": 0.002176,
+              "t_stat": 2.26
+            },
+            "hhi_n_alumnos_bar": {
+              "beta": 0.085797,
+              "se_cluster_rbd": 0.04469,
+              "t_stat": 1.92
+            },
+            "hhi_n_alumnos_within": {
+              "beta": -0.061083,
+              "se_cluster_rbd": 0.318227,
+              "t_stat": -0.19
+            },
+            "lagged_lnalumnos_bar": {
+              "beta": 0.99412,
+              "se_cluster_rbd": 0.002296,
+              "t_stat": 432.93
+            },
+            "lagged_lnalumnos_within": {
+              "beta": 0.581505,
+              "se_cluster_rbd": 0.015799,
+              "t_stat": 36.81
+            },
+            "lagged_simce_mate4im_bar": {
+              "beta": 0.000543,
+              "se_cluster_rbd": 7.5e-05,
+              "t_stat": 7.26
+            },
+            "lagged_simce_mate4im_within": {
+              "beta": 0.000174,
+              "se_cluster_rbd": 7.1e-05,
+              "t_stat": 2.44
+            },
+            "repet_total": {
+              "beta": 0.045581,
+              "se_cluster_rbd": 0.015977,
+              "t_stat": 2.85
+            }
+          },
+          "time_invariant_in_panel": [
+            "gse",
+            "repet_total",
+            "prees_total"
+          ]
+        },
+        "static_mundlak_cre": {
+          "n_clusters_rbd": 2640,
+          "n_obs": 14704,
+          "terms": {
+            "anio_within": {
+              "beta": 0.003434,
+              "se_cluster_rbd": 0.001606,
+              "t_stat": 2.14
+            },
+            "gse": {
+              "beta": 0.042663,
+              "se_cluster_rbd": 0.022862,
+              "t_stat": 1.87
+            },
+            "hhi_n_alumnos_bar": {
+              "beta": 2.482351,
+              "se_cluster_rbd": 0.548987,
+              "t_stat": 4.52
+            },
+            "hhi_n_alumnos_within": {
+              "beta": -0.564456,
+              "se_cluster_rbd": 0.506912,
+              "t_stat": -1.11
+            },
+            "lagged_simce_mate4im_bar": {
+              "beta": 0.012131,
+              "se_cluster_rbd": 0.000745,
+              "t_stat": 16.27
+            },
+            "lagged_simce_mate4im_within": {
+              "beta": -4.8e-05,
+              "se_cluster_rbd": 9.1e-05,
+              "t_stat": -0.53
+            },
+            "repet_total": {
+              "beta": -0.199146,
+              "se_cluster_rbd": 0.156976,
+              "t_stat": -1.27
+            }
+          },
+          "time_invariant_in_panel": [
+            "gse",
+            "repet_total",
+            "prees_total"
+          ]
+        }
+      }
+    },
+    "m8_out_of_sample_hazard_calibration": {
+      "post1_cuadro10_forward_validation_2009_2011": {
+        "brier_null": 0.008324,
+        "brier_score": 0.008196,
+        "mean_observed_risk_pct": 0.84,
+        "mean_predicted_risk_pct": 0.6,
+        "roc_auc": 0.8517,
+        "test_events": 151,
+        "test_rows_2009_2011": 17989,
+        "top_decile_capture_pct": 43.7,
+        "top_quintile_capture_pct": 69.5,
+        "total_clusters_rbd": 7460,
+        "total_events": 237,
+        "total_rows": 30484,
+        "train_events": 86,
+        "train_rows_2007_2008": 12495
+      },
+      "post2_h1_temporal_validation_2015_2025": {
+        "max_abs_decile_calibration_gap_pp": 2.64,
+        "models_converged": 21,
+        "roc_auc_range": [
+          0.7595,
+          0.8495
+        ],
+        "total_events": 155,
+        "total_rows": 81586
+      }
+    }
+  },
+  "post_ii_upgrades": {
+    "m4_full_support_eb_renewal": {
+      "admission_core": {
+        "eb_shrunk_ci95_sd": [
+          -0.1352,
+          0.0616
+        ],
+        "eb_shrunk_estimate_sd": -0.042,
+        "preclosure_slope_diff_sd_per_year": -0.0199,
+        "recovered_closures": 44,
+        "strict_exact_cell_closures": 8,
+        "weighted_raw_estimate_sd": -0.0987
+      },
+      "simce_relative": {
+        "eb_shrunk_ci95_sd": [
+          -0.1467,
+          0.1715
+        ],
+        "eb_shrunk_estimate_sd": 0.0061,
+        "preclosure_slope_diff_sd_per_year": 0.0273,
+        "recovered_closures": 95,
+        "strict_exact_cell_closures": 21,
+        "weighted_raw_estimate_sd": -0.0751
+      }
+    },
+    "m5_sae_exact_fisher_and_slep_sdid": {
+      "sae_ddd": {
+        "hhi": {
+          "estimate_equal_region": 0.005251,
+          "exact_fisher_p_value": 0.7133,
+          "exact_fisher_permutations": 1001,
+          "webb_6point_wcb_ci95": [
+            -0.016014,
+            0.026674
+          ]
+        },
+        "log_effective_schools": {
+          "estimate_equal_region": -0.014238,
+          "exact_fisher_p_value": 0.6703,
+          "exact_fisher_permutations": 1001,
+          "webb_6point_wcb_ci95": [
+            -0.05801,
+            0.029224
+          ]
+        }
+      },
+      "slep_sdid": {
+        "log1p_active_public_schools": {
+          "mean_demeaned_pre_rmspe_sdid": 0.0127,
+          "mean_pre_rmspe_sc": 0.0143,
+          "synthetic_control_mean": 0.0072,
+          "synthetic_did_distribution_95": [
+            -0.0289,
+            0.0431
+          ],
+          "synthetic_did_mean": 0.0041,
+          "territory_horizons": 25
+        },
+        "log1p_public_enrollment": {
+          "mean_demeaned_pre_rmspe_sdid": 0.014,
+          "mean_pre_rmspe_sc": 0.0134,
+          "synthetic_control_mean": -0.0016,
+          "synthetic_did_distribution_95": [
+            -0.0526,
+            0.0966
+          ],
+          "synthetic_did_mean": -0.0004,
+          "territory_horizons": 25
+        }
+      }
+    },
+    "m6_mcfadden_spatial_choice_logit": {
+      "conditional_logit_parameters": {
+        "dest_simce_z": {
+          "beta": -0.2311,
+          "odds_ratio": 0.794,
+          "se_cluster": 0.1355,
+          "z_stat": -1.71
+        },
+        "distance_km": {
+          "beta": -0.4029,
+          "odds_ratio": 0.668,
+          "se_cluster": 0.0754,
+          "z_stat": -5.34
+        },
+        "log_dest_enrollment": {
+          "beta": 0.6751,
+          "odds_ratio": 1.964,
+          "se_cluster": 0.0835,
+          "z_stat": 8.08
+        },
+        "same_commune": {
+          "beta": 1.2229,
+          "odds_ratio": 3.397,
+          "se_cluster": 0.2333,
+          "z_stat": 5.24
+        },
+        "same_dependency": {
+          "beta": 0.7715,
+          "odds_ratio": 2.163,
+          "se_cluster": 0.1618,
+          "z_stat": 4.77
+        }
+      },
+      "mean_realized_delta_simce_z": -0.0351,
+      "mean_transfer_distance_km": 2.89,
+      "median_transfer_distance_km": 1.83,
+      "n_choice_sets_15km": 101,
+      "n_matched_student_transfers": 9093,
+      "same_commune_retention_pct": 73.4
+    }
+  },
+  "post_iii_upgrades": {
+    "m1_honest_did_and_g2_anchor": {
+      "g_minus_2_stayer_anchor": {
+        "control_stayer_share_pct": 82.66,
+        "persistence_stayers_g2_att_pp": 0.34,
+        "progression_full_g1_att_pp": 5.29,
+        "progression_late_entrants_g1_att_pp": 9.58,
+        "progression_late_entrants_g1_ci95_pp": [
+          5.06,
+          14.1
+        ],
+        "progression_late_entrants_n_treated": 1033,
+        "progression_stayers_g2_att_pp": 3.87,
+        "progression_stayers_g2_ci95_pp": [
+          1.04,
+          6.69
+        ],
+        "progression_stayers_n_treated": 3556,
+        "treated_stayer_share_pct": 70.58
+      },
+      "honest_did_persistence": {
+        "att_pp": 0.63,
+        "breakdown_m_star_rm_ci95": 0.0,
+        "breakdown_m_star_rm_point": 0.0,
+        "ci95_pp": [
+          -0.77,
+          2.03
+        ]
+      },
+      "honest_did_progression": {
+        "att_pp": 5.29,
+        "breakdown_m_star_rm_ci95": 2.5444,
+        "breakdown_m_star_rm_point": 5.205,
+        "breakdown_m_star_sd_smooth": 14.2432,
+        "ci95_pp": [
+          2.08,
+          8.51
+        ],
+        "max_abs_pre_pp": 0.4
+      }
+    },
+    "m2_stratified_manski_and_lee_bounds": {
+      "compliant_56_episodes_ge50pct": {
+        "att_pp": 6.1,
+        "excess_missing_trim_pct": 1.87,
+        "lee_monotonic_bounds_pp": [
+          4.23,
+          7.96
+        ],
+        "manski_bounds_pp": [
+          -0.9,
+          12.18
+        ],
+        "missing_control_pct": 2.15,
+        "missing_treated_pct": 3.94,
+        "n_treated_supported": 4188,
+        "zero_crossing_lambda": 0.9312
+      },
+      "excl_4_zero_acta_episodes": {
+        "att_pp": 5.71,
+        "excess_missing_trim_pct": 1.59,
+        "lee_monotonic_bounds_pp": [
+          4.11,
+          7.3
+        ],
+        "manski_bounds_pp": [
+          -0.87,
+          11.48
+        ],
+        "missing_control_pct": 2.15,
+        "missing_treated_pct": 3.69,
+        "n_treated_supported": 4598,
+        "zero_crossing_lambda": 0.9296
+      },
+      "full_63_episodes": {
+        "att_pp": 5.29,
+        "excess_missing_trim_pct": 1.51,
+        "lee_monotonic_bounds_pp": [
+          3.79,
+          6.8
+        ],
+        "manski_bounds_pp": [
+          -1.15,
+          10.98
+        ],
+        "missing_control_pct": 2.15,
+        "missing_treated_pct": 3.6,
+        "n_treated_supported": 4815,
+        "zero_crossing_lambda": 0.9049
+      },
+      "high_compliance_episodes_ge90pct": {
+        "att_pp": 4.26,
+        "excess_missing_trim_pct": 0.16,
+        "lee_monotonic_bounds_pp": [
+          4.1,
+          4.42
+        ],
+        "manski_bounds_pp": [
+          0.09,
+          7.84
+        ],
+        "missing_control_pct": 2.15,
+        "missing_treated_pct": 2.31,
+        "n_treated_supported": 1822,
+        "zero_crossing_lambda": 1.0114
+      }
+    },
+    "m3_receiving_school_quality_dose": {
+      "attendance_rate_jump": {
+        "att_quality_non_upgrade_pp": 4.66,
+        "att_quality_upgrade_pp": 2.61,
+        "cushion_difference_pp": -2.05,
+        "mean_jump": 3.1793,
+        "n_observed_destination": 4362,
+        "n_quality_non_upgrade": 2456,
+        "n_quality_upgrade": 1906
+      },
+      "gpa_jump": {
+        "att_quality_non_upgrade_pp": 4.95,
+        "att_quality_upgrade_pp": 2.52,
+        "cushion_difference_pp": -2.43,
+        "mean_jump": 0.2514,
+        "n_observed_destination": 4362,
+        "n_quality_non_upgrade": 2239,
+        "n_quality_upgrade": 2123
+      },
+      "promotion_rate_jump": {
+        "att_quality_non_upgrade_pp": 5.38,
+        "att_quality_upgrade_pp": 2.03,
+        "cushion_difference_pp": -3.35,
+        "mean_jump": 0.0878,
+        "n_observed_destination": 4362,
+        "n_quality_non_upgrade": 2263,
+        "n_quality_upgrade": 2099
+      }
+    }
+  },
+  "privacy": {
+    "contains_school_identifiers": false,
+    "contains_student_identifiers": false,
+    "contains_student_rows": false
+  },
+  "schema_version": "trilogy-econometric-upgrades-v1"
+}

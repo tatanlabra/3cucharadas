@@ -1386,6 +1386,9 @@ html[data-theme="academic-night"] tbody tr:nth-child(even) {
   --accent-success: #2e7d4f;
   --accent-danger: #b42318;
   --accent-audio: #8a2b6d;
+  --inline-code-bg: #ebe4d4;
+  --inline-code-ink: #1b2a41;
+  --inline-code-border: rgba(27, 42, 65, 0.22);
 }
 
 html[data-theme="academic-night"] {
@@ -1399,6 +1402,9 @@ html[data-theme="academic-night"] {
   --accent-success: #42be65;
   --accent-danger: #ff8389;
   --accent-audio: #ff7eb6;
+  --inline-code-bg: #343746;
+  --inline-code-ink: #f8f8f2;
+  --inline-code-border: #6272a4;
 }
 
 .page__content blockquote,
@@ -1442,12 +1448,13 @@ html[data-theme="academic-night"] .page__content :is(.notice, .notice--primary, 
   color: var(--ui-link);
 }
 
-/* Código: Dracula Classic en claro y nocturno para evitar dos gramáticas visuales. */
+/* Código inline: pastilla cálida de bajo salto sobre papel en tema claro (#ebe4d4 sobre #faf7f0,
+   contraste de texto #1b2a41 = 11,71:1 AAA) y Dracula suave en modo nocturno (#343746 sobre #161616). */
 .page__content :not(pre) > code,
 .page__content kbd {
-  border-color: #6272a4;
-  background: #343746;
-  color: #f8f8f2;
+  border-color: var(--inline-code-border);
+  background: var(--inline-code-bg);
+  color: var(--inline-code-ink);
 }
 
 .page__content pre,
@@ -1667,15 +1674,15 @@ html[data-theme="academic-night"] .page__footer a:hover {
   border: 1px solid #d7d0c4;
   border-radius: 0.45rem;
   box-shadow: 0 0.18rem 0.7rem rgba(33, 39, 51, 0.07);
-  font-size: clamp(13px, 0.8rem, 0.88rem);
-  line-height: 1.42;
+  font-size: clamp(13px, 0.72rem, 14px);
+  line-height: 1.36;
 }
 
 .page__content table thead th {
   border: 0;
   background-color: #e8e2d8;
   color: #26354c;
-  padding: 0.58em 0.75em;
+  padding: 0.48em 0.65em;
   /* Sin `font-size` a propósito: se anidaba dentro del 0.84em de la tabla y el
      producto dejaba los encabezados en 9,5 px en móvil. Heredan el de la tabla,
      y la jerarquía la da el peso y el fondo, no un tamaño aún menor. */
@@ -1686,7 +1693,7 @@ html[data-theme="academic-night"] .page__footer a:hover {
 
 .page__content table :is(th, td) {
   border-bottom: 1px solid #e8e8e8;
-  padding: 0.55em 0.75em;
+  padding: 0.45em 0.65em;
   text-align: start;
   vertical-align: top;
   overflow-wrap: break-word;
@@ -1697,7 +1704,7 @@ html[data-theme="academic-night"] .page__footer a:hover {
 }
 
 .page__content table.table--compact :is(th, td) {
-  padding: 0.42em 0.62em;
+  padding: 0.36em 0.54em;
 }
 
 .page__content table.table--numeric :is(td, th:not(:first-child)) {
@@ -2182,13 +2189,13 @@ html[data-theme="academic-night"] .tabla-desliza {
 }
 
 .post3-evidence .tabla-desliza table {
-  font-size: 15px;
-  line-height: 1.35;
+  font-size: 13.5px;
+  line-height: 1.32;
   font-variant-numeric: tabular-nums;
 }
 
 .post3-evidence .tabla-desliza table :is(th, td) {
-  padding: 0.5rem 0.4rem;
+  padding: 0.42rem 0.38rem;
   vertical-align: top;
 }
 
@@ -2207,7 +2214,7 @@ html[data-theme="academic-night"] .tabla-desliza {
   .post3-evidence .tabla-desliza[data-perfil="narrativa"] table {
     width: auto;
     min-width: max(100%, calc(var(--columnas, 4) * 8.5rem));
-    font-size: 16px;
+    font-size: 13.5px;
   }
 }
 

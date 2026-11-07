@@ -154,12 +154,12 @@ CAUSAL_FRONTIERS = {
 # filtro léxico: reduce el riesgo, pero la lectura humana sigue siendo la última barrera.
 CAUSAL_PROMOTIONS = {
   "es" => [
-    ["efectos-nulos", /\b(?:muestran?|mostraron|demuestran?|demostraron|establecen?|prueban?|probaron|confirman?|confirmaron|evidencian|evidenciaron|indican|indicaron|revelan|revelaron)\s+que\s+(?:los\s+)?slep\s+y\s+(?:el\s+)?sae\s+no\s+tuvieron\s+efectos?\b/],
+    ["efectos-nulos", /\b(?:(?:muestran?|mostraron|demuestran?|demostraron|establecen?|prueban?|probaron|confirman?|confirmaron|evidencian|evidenciaron|indican|indicaron|revelan|revelaron)\s+que\s+(?:los\s+)?slep\s+y\s+(?:el\s+)?sae\s+no\s+tuvieron\s+efectos?|confirm\w*\s+(?:variaciones|cambios|efectos)\s+nul\w*)\b/],
     ["impactos", /\b(?:estos|los|nuestros)\s+(?:resultados|hallazgos)\s+(?:son|constituyen|establecen|demuestran|muestran|prueban|evidencian|indican|revelan)\s+(?<gap>(?:[[:alpha:]]+\s+){0,2})impactos?\b/],
     ["basta-para-cerrar", /\b(?:bastan?|(?:es|son)\s+suficientes?)\s+para\s+decidir\s+(?:un\s+)?cierre\b/]
   ],
   "en" => [
-    ["efectos-nulos", /\b(?:show|shows|showed|demonstrate|demonstrates|demonstrated|establish|establishes|established|prove|proves|proved|confirm|confirms|confirmed|indicate|indicates|indicated|reveal|reveals|revealed)\s+that\s+(?:the\s+)?sleps?\s+and\s+(?:the\s+)?sae\s+(?:had|have|has)\s+no\s+effects?\b/],
+    ["efectos-nulos", /\b(?:(?:show|shows|showed|demonstrate|demonstrates|demonstrated|establish|establishes|established|prove|proves|proved|confirm|confirms|confirmed|indicate|indicates|indicated|reveal|reveals|revealed)\s+that\s+(?:the\s+)?sleps?\s+and\s+(?:the\s+)?sae\s+(?:had|have|has)\s+no\s+effects?|confirm\w*\s+null\s+(?:changes|variations|effects))\b/],
     ["impactos", /\b(?:these|the|our)\s+(?:findings|results|estimates)\s+(?:are|constitute|establish|demonstrate|show|prove|indicate|reveal)\s+(?<gap>(?:[[:alpha:]]+\s+){0,2})impacts?\b/],
     ["basta-para-cerrar", /\b(?:is|are)\s+(?:enough|sufficient)\s+to\s+decide\s+(?:on\s+)?(?:a\s+)?closure\b/]
   ]
@@ -1219,6 +1219,8 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
         ["en", "This model is not descriptive.\nThese findings are impacts."],
         ["es", "El análisis no es descriptivo.Estos resultados son impactos."],
         ["en", "These results indicated that SLEPs and SAE had no effects."],
+        ["es", "El estimador confirma variaciones nulas en matrícula pública."],
+        ["en", "The estimator confirms null changes in public enrolment."],
         ["es", "La cercanía es suficiente para decidir un cierre."],
         ["en", "Proximity is enough to decide on closure."]
       ] + idi_en.flat_map { |i| [["en", "These findings are #{i} impacts."], ["en", "#{i.capitalize} these findings are impacts."], ["en", "#{i.capitalize}, these results demonstrate that SLEPs and SAE had no effects."]] } +
@@ -1227,6 +1229,7 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
         ["en", "These results do not show that SLEPs and SAE had no effects."],
         ["en", "These results did not demonstrate that SLEPs and SAE had no effects."],
         ["en", "These results cannot prove that SLEPs and SAE had no effects."],
+        ["en", "The estimator does not confirm null changes in public enrolment."],
         ["en", "It would be incorrect to say these findings are impacts."],
         ["en", "It is false that these findings are impacts."],
         ["en", "It is not true that these findings are impacts."],
@@ -1235,6 +1238,7 @@ def run_self_test!(name, freeze, audit, data, include_text, es_front, es_body, e
         ["en", "Proximity is not enough to decide on closure."],
         ["es", "Estos resultados no muestran que los SLEP y el SAE no tuvieron efectos."],
         ["es", "Los datos no demostraron que los SLEP y el SAE no tuvieron efectos."],
+        ["es", "El estimador no confirma variaciones nulas en matrícula pública."],
         ["es", "Es falso que estos resultados son impactos."],
         ["es", "No es cierto que estos resultados son impactos."],
         ["es", "Sería incorrecto decir que estos resultados son impactos."],
