@@ -1,0 +1,72 @@
+slug: cierre-escolar-educacion-superior-causal-ml
+ref: cierre-escolar-educacion-superior-causal-ml
+canonical: https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/
+canonical_en: https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/
+titulo_es: "Extender mi tesis en 3 cucharadas (parte IV): ¿cierran los cierres escolares la puerta de la educación superior?"
+titulo_en: "Extending my thesis in 3 spoonfuls (part IV): do school closures close the door to higher education?"
+tipo: datos-y-politica-publica
+valor_seo: alto
+sindicacion_textual_permitida: true
+publicado_es: 2026-11-04
+publicado_en: 2026-11-04
+actualizado: 2026-11-07
+aprobacion:
+  estado: preparado_local
+  fecha: 2026-11-07
+  alcance: "paquete local completo (difusión multicanal); sin envíos externos hasta autorización humana explícita"
+  publicaciones_externas_completadas: 0
+evidencia:
+  nominas_matricula_sies_2007_2026: 20
+  nominas_titulados_sies_2007_2025: 19
+  procesos_admision_paes_pdt_2021_2026: 6
+  muestra_ventana_2016_2019_n: 62153
+  brecha_demografica_media_dml_pp: "-13.24"
+  brecha_demografica_media_celdas_pp: "-14.64"
+  brecha_con_mochila_individual_dml_pp: "-5.63"
+  brecha_did_g1_vs_g5_media_pp: "-2.64"
+  brecha_dml_completo_g5_media_pp: "-0.29"
+  contraccion_ipcft_dml_completo_pp: "-2.09 [-3.50, -0.68]"
+  contraccion_ipcft_did_2016_2019_pp: "-2.59"
+  contraccion_ipcft_did_pandemia_pp: "-4.33"
+  quintil_g1_acceso_sin_g5_pp: "-12.26"
+  quintil_g1_acceso_con_g5_pp: "-0.26"
+destinos:
+  - plataforma: mastodon
+    fecha_propuesta: 2026-11-07
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: bluesky
+    fecha_propuesta: 2026-11-07
+    archivo: social-corto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: linkedin
+    fecha_propuesta: 2026-11-08
+    archivo: linkedin.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: medium
+    fecha_propuesta: 2026-11-09
+    archivo: medium.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: devto
+    fecha_propuesta: 2026-11-10
+    archivo: devto.md
+    estado: preparado
+    url_publicada: null
+  - plataforma: hackernews
+    fecha_propuesta: 2026-11-11
+    archivo: hn.txt
+    estado: preparado
+    url_publicada: null
+  - plataforma: reddit-dataisbeautiful
+    fecha_propuesta: 2026-11-12
+    archivo: reddit-dataisbeautiful.md
+    estado: preparado
+    url_publicada: null
+verificaciones_pendientes:
+  - aprobación editorial humana antes de ejecutar post_push_difusion.sh --live o envíos externos
+  - importar medium.md verificando el enlace canónico hacia la versión en inglés de 3cucharadas.cl
+  - revisar reglas vigentes de r/dataisbeautiful y r/PublicPolicy desde sesión humana antes de publicar

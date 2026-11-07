@@ -1,0 +1,28 @@
+TIPO DE ENVÍO: envío normal
+JUSTIFICACIÓN: el destino es un artículo empírico y metodológico con microdatos administrativos longitudinales, código reproducible y CSVs abiertos; las reglas de Show HN excluyen las entradas de blog que no son herramientas interactivas autónomas.
+
+TÍTULO:
+Do school closures close the door to higher education? Evidence from Chile (2007–2026)
+
+URL:
+https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=hackernews&utm_medium=referral&utm_campaign=cierre-escolar-educacion-superior-causal-ml
+
+PRIMER COMENTARIO DEL AUTOR:
+Author here. This is Part IV (and the conclusion) of a series revisiting and extending my thesis on school closures in Chile. In Part III I tracked school-age trajectories across twenty years of closures (2005–2024) and left open whether losing a school in secondary grades affects postsecondary entry, institution type, persistence, and graduation.
+
+To answer that question without violating data-governance boundaries, I linked twenty years of Ministry of Education school enrollment records (2004–2025) with twenty official annual SIES Higher Education Enrollment rosters (2007–2026), nineteen SIES Graduation rosters (2007–2025), and six open-access PAES/PDT centralized university admission cycles (2021–2026) in DuckDB and Apache Parquet.
+
+Three methodological and substantive findings stood out when combining repeated-cohort difference-in-differences with Double/Debiased Machine Learning (Chernozhukov et al. 2018) and an Orthogonal R-Learner (Nie & Wager 2021; Chernozhukov et al. 2025):
+
+1. Selection dominates the overall average: A naive comparison within exact demographic strata shows a large apparent drop in higher-education entry among displaced secondary students. Adding the student's prior academic backpack (pre-closure marks, attendance, prior repetition, and school stability) cuts more than half of that gap. Comparing the closing cohort against an earlier cohort from the exact same school four years before closure reveals that over four-fifths of the raw gap already existed before closure, bringing the overall average secondary effect close to zero across Double ML, Explainable Boosting Machines, and Doubly Robust Hájek estimators.
+
+2. A specific contraction in vocational-technical higher education (IP/CFT): Beneath that near-zero overall average, entry into Professional Institutes and Technical Training Centers contracts significantly in both the pre-pandemic window (2016–2019) and the pandemic closures (2020–2022), whereas university entry via centralized admissions does not fall. Sensitivity analysis (Cinelli & Hazlett 2020) shows that an omitted confounder would have to be more than twice as strong as four-year school history to nullify the vocational-technical contraction.
+
+3. Where heterogeneity lives (BLP / GATE / CLAN): Generic ML heterogeneity tests on the Orthogonal R-Learner show a significant slope when controlling for individual student history. The most vulnerable quintile (composed overwhelmingly of vocational-track secondary students with lower prior attendance) experiences a sharp drop in both overall entry and persistence when only individual trajectory is controlled for—a gap that is absorbed once the closing school's structural fragility four years earlier is netted out.
+
+All three figures have light/dark responsive SVGs and open CSV data tables linked directly below each chart. Happy to answer questions about the DuckDB/Parquet pipeline, the repeated-cohort identification ladder, or the Orthogonal R-Learner implementation.
+
+NOTAS INTERNAS — NO PUBLICAR
+Objeciones probables y respuesta preparada:
+1. “Could the vocational-technical (IP/CFT) contraction reflect upward substitution into universities when displaced students move to academically stronger receiving high schools?” → Yes, I explicitly test and discuss this rival mechanism in Spoonful 2. Because the aggregate point estimates in vocational-technical and university entry nearly offset each other while the university confidence interval still spans zero, I frame the finding strictly as a contraction of the vocational-technical channel rather than proven net human-capital loss.
+2. “Why use a cohort four years before closure as the pre-closure school baseline instead of two years before?” → Because a student in early secondary grades two years before closure has not yet graduated when the school closes, so their higher-education entry is already partially exposed to the school's terminal decline or closure. Choosing a cohort four years earlier guarantees that secondary cohorts reached their normal graduation year before the school closed.

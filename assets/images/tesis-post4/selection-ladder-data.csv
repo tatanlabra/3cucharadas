@@ -1,0 +1,9 @@
+education_level,step,estimator,estimate_pp,se_pp,ci95_low_pp,ci95_high_pp
+secondary,step1_demographics_only,DML_PLR_HGB,-13.24,2.94,-19.0,-7.48
+secondary,step2_plus_student_academic_g1_g2,DML_PLR_HGB,-5.63,2.12,-9.78,-1.47
+secondary,step3_plus_school_pre_g5_history,DML_PLR_HGB,-0.29,1.2,-2.64,2.06
+secondary,repeated_cohort_did_g1_vs_g5,Exact_Cell_DiD,-2.64,2.22,-7.54,2.25
+basic,step1_demographics_only,DML_PLR_HGB,-4.06,1.73,-7.44,-0.67
+basic,step2_plus_student_academic_g1_g2,DML_PLR_HGB,-1.51,1.67,-4.78,1.76
+basic,step3_plus_school_pre_g5_history,DML_PLR_HGB,1.02,1.76,-2.44,4.47
+basic,repeated_cohort_did_g1_vs_g5,Exact_Cell_DiD,1.21,2.06,-3.39,5.81

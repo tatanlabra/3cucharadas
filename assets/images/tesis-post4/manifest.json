@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "status": "POST4_VISUALS_READY",
+  "source_sha256": "08004fcb6512be7c94bf1ba810df1bf0a6b895282fba7326f582016ca5cd0d4f",
+  "figures": [
+    "selection-ladder",
+    "longitudinal-regimes",
+    "causal-ml-heterogeneity-paes"
+  ],
+  "csv_tables": [
+    "selection-ladder-data.csv",
+    "longitudinal-regimes-data.csv",
+    "causal-ml-heterogeneity-paes-data.csv"
+  ],
+  "files": [
+    {
+      "path": "selection-ladder-es-light.svg",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "05018f66919b803e2167028de2fd33b28827195980dcfa8f1d273a7e7f04a978",
+      "bytes": 70101
+    },
+    {
+      "path": "selection-ladder-es-light.png",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "3cd3b052b28ff580cef75d009a9af2166fe8e66bccebb33cd42cf582b2c8e450",
+      "bytes": 345965
+    },
+    {
+      "path": "selection-ladder-es-light-mobile.svg",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "eefb383460a24fb6446f74e32a4214c916cd6689e34973bc5e76dfdf02b5a2b1",
+      "bytes": 72021
+    },
+    {
+      "path": "selection-ladder-es-light-mobile.png",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "bb47e2c6905da21de0f2febda11ab8df3a4fbc4a7cc8862e74033c051838f0dc",
+      "bytes": 528580
+    },
+    {
+      "path": "selection-ladder-es-dark.svg",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "38c1b35bf0d793bb925fcbb984ee0c1a5bcf9516965f30b57b9d15eed00c5c7a",
+      "bytes": 70101
+    },
+    {
+      "path": "selection-ladder-es-dark.png",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "a29fd6038ffb1e306837fa6ff8778e044b2f1b39efe3d42a03af907e4bbcdb90",
+      "bytes": 347381
+    },
+    {
+      "path": "selection-ladder-es-dark-mobile.svg",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "911592dbdf9ed79919c8bb59a0fe2ba403c726ef870a52cb07bd90586cc428b1",
+      "bytes": 72021
+    },
+    {
+      "path": "selection-ladder-es-dark-mobile.png",
+      "figure_id": "selection-ladder",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "72729efcf85db91ae11e14325c60ae23f55bd60845930edd2eaf445121a725c6",
+      "bytes": 530983
+    },
+    {
+      "path": "selection-ladder-en-light.svg",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "b7deaf3a82df905e6b71b6aa0d7498b23a168d5f47ab71b4fe2ca79dcbaffa92",
+      "bytes": 66315
+    },
+    {
+      "path": "selection-ladder-en-light.png",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "c68a9906455084c66c58ce584c588fc2cbc2375a2348f831917558d42893e4b0",
+      "bytes": 334372
+    },
+    {
+      "path": "selection-ladder-en-light-mobile.svg",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "54a15c9fed208876eb562445e2932185cccafb9cc211abcdc4afe9e9e90c5028",
+      "bytes": 68214
+    },
+    {
+      "path": "selection-ladder-en-light-mobile.png",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "8d4b5685a59d1d92f7edb785353321c3a355dabb4390a039e005dab239be750d",
+      "bytes": 518268
+    },
+    {
+      "path": "selection-ladder-en-dark.svg",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "9286ad5fb4d0c085e98b5bd647c94db7ff85607f8a3eeb5a6e854c08517a0867",
+      "bytes": 66315
+    },
+    {
+      "path": "selection-ladder-en-dark.png",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "90de7ef2520e00a1514b6278ffc8c2586eba64eea094da7951ecfb48f51a909e",
+      "bytes": 335500
+    },
+    {
+      "path": "selection-ladder-en-dark-mobile.svg",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "17318d2e446a4d73ef597f3be09baf0060b686587997ecb71891b3cf2cacc5f5",
+      "bytes": 68214
+    },
+    {
+      "path": "selection-ladder-en-dark-mobile.png",
+      "figure_id": "selection-ladder",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "ef5ef7c42561c26d7b132e883a614bf929eb0311766c505ca0975e5527e6157b",
+      "bytes": 520597
+    },
+    {
+      "path": "longitudinal-regimes-es-light.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "61793474f7d7d5499c8652af2fc966816fb7ca6a4bda623b706edbd52d570f57",
+      "bytes": 73038
+    },
+    {
+      "path": "longitudinal-regimes-es-light.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "3cd81df1a0a97182907b86e2abc7894b82c9af7c249d4f8a8a44eccf1caecbd8",
+      "bytes": 336226
+    },
+    {
+      "path": "longitudinal-regimes-es-light-mobile.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "46ac2ce87813c32f0230a0f69584dd517849ec15287fc312f911191b22f54f2e",
+      "bytes": 72585
+    },
+    {
+      "path": "longitudinal-regimes-es-light-mobile.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "1927c8343310819cbb8a83805d741ff0937ced4e7c3ef2738b9f675750f6734c",
+      "bytes": 402401
+    },
+    {
+      "path": "longitudinal-regimes-es-dark.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "2bc45cdf55ba3476c61732c26f41cc9745680fdcc1f0f4fa17c00f7e97a87141",
+      "bytes": 73038
+    },
+    {
+      "path": "longitudinal-regimes-es-dark.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "2205d6e23e957f73fadeeee0ef7d93abdaa9b3df87c1decb1289586c5f198cd5",
+      "bytes": 339279
+    },
+    {
+      "path": "longitudinal-regimes-es-dark-mobile.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "2a539316368d23eb7ca1a002d82b6fdaa0b202bda8899666a9c5da8ce334355e",
+      "bytes": 72585
+    },
+    {
+      "path": "longitudinal-regimes-es-dark-mobile.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "8d3e5789ea09b3e0dc8b63d38c55ca71bfb29588f56a5ea30050acdbdb9609fa",
+      "bytes": 404853
+    },
+    {
+      "path": "longitudinal-regimes-en-light.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "9731078975ff7cc7bfa11d8b2b496343855f0674302c98ceac42f2f386e5789a",
+      "bytes": 73027
+    },
+    {
+      "path": "longitudinal-regimes-en-light.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "31d9c4097d23ecd0eeedc86c1a36341cb0a4ad49035fdf3d92c26aa9785f27f4",
+      "bytes": 327147
+    },
+    {
+      "path": "longitudinal-regimes-en-light-mobile.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "4f2fbe3c77444c1616d88c6a758ad7ae0e95bbda30bb588bbd8fbf2effbc7e8d",
+      "bytes": 72560
+    },
+    {
+      "path": "longitudinal-regimes-en-light-mobile.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "ea53792e66e46db68209d08afc882f1ab1c96d9a5b21a1f63bfc470df62aff04",
+      "bytes": 386416
+    },
+    {
+      "path": "longitudinal-regimes-en-dark.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "8c9b1ab90b8d53440a1da9022f082d5916369b588c7232a5f309a429c3072167",
+      "bytes": 73027
+    },
+    {
+      "path": "longitudinal-regimes-en-dark.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "32f709019755ed0bb35ed3cef2180cd575f2034026b0dca3479cb9dee4713e8e",
+      "bytes": 331137
+    },
+    {
+      "path": "longitudinal-regimes-en-dark-mobile.svg",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "469311051ba212ccadfe155e599cbeecdedbea18f36dbf73dfe99da1a6299bb9",
+      "bytes": 72560
+    },
+    {
+      "path": "longitudinal-regimes-en-dark-mobile.png",
+      "figure_id": "longitudinal-regimes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "a0a145987f74c49a302a8a3724bca707ceee3c8a4515716e9d8cefad2093f5c0",
+      "bytes": 390281
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-light.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "624877306b18384050c25c21bd13068432a11dd4b1400f038d7066f285bc1d05",
+      "bytes": 82917
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-light.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "7effa15e61b52284b876aa8184c279bd677a0b9d01b77d4f3b04d4c4f72bc242",
+      "bytes": 412676
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-light-mobile.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "6daac6252f2e156f536ba22665d7fb68c12198ba8d1ac93a41f155ad3da364b3",
+      "bytes": 82538
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-light-mobile.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "8a96f5875a50574f1be0a22f5cb81a65621e41873a92cbbfb9712535b1a6e712",
+      "bytes": 487495
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-dark.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "9906fa92262fcb88d479d939a5636ab1c68dc3dce731d37ec4d2770c7eada15d",
+      "bytes": 82917
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-dark.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "930cb703844855b8e89e083442c8b6c6ceccf69f42c9586a71998f95ee115a15",
+      "bytes": 415503
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-dark-mobile.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "bcb68a42c9e85156d1b090c597d4400c407550f8a4aac5676b2b97eb5909a559",
+      "bytes": 82538
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-es-dark-mobile.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "5fb349778c9fdafd51986b4150d3cdb93fad991afe8670ab6110dae537868716",
+      "bytes": 490974
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-light.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "44d36562be1f7d527e9a76215ddcbc2375ecee6d86ef4e630f69cdff5bb5ce04",
+      "bytes": 82521
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-light.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "6eec8264bbbe252b5be15774121d5d83da58a8f16caabe317e4985477396613a",
+      "bytes": 411104
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-light-mobile.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "d44e3c50726a25f2b9b3d619d98f51c154184951071084c28a322a6f2b2e1990",
+      "bytes": 82065
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-light-mobile.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "53a7a75a4b8836d159ecbe2b84c6aa74e7f4c141ce47493f9b5c992119e702d3",
+      "bytes": 485812
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-dark.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "svg",
+      "sha256": "bf0c40cc1e8f0f503a4d8bd29b1878d85676045dcad0c00fcb261afb1ba2be64",
+      "bytes": 82521
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-dark.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop",
+      "format": "png",
+      "sha256": "aa7c1929eecc0555cbfaca2f652378f36a0e6ef5a7d7faeb9b8c9c8b64963f8c",
+      "bytes": 414089
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-dark-mobile.svg",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "svg",
+      "sha256": "38ec2980167918e6ca85285dd60604efa69efc1bd2b2e3dae6a2571ab7bf7319",
+      "bytes": 82065
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-en-dark-mobile.png",
+      "figure_id": "causal-ml-heterogeneity-paes",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile",
+      "format": "png",
+      "sha256": "43f3b87fbd23fec566b8de5c84089ac3cf92d7b2935dfb3de4d17d8194323165",
+      "bytes": 488435
+    },
+    {
+      "path": "causal-ml-heterogeneity-paes-data.csv",
+      "format": "csv",
+      "bytes": 2074,
+      "sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    },
+    {
+      "path": "longitudinal-regimes-data.csv",
+      "format": "csv",
+      "bytes": 571,
+      "sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1"
+    },
+    {
+      "path": "selection-ladder-data.csv",
+      "format": "csv",
+      "bytes": 666,
+      "sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633"
+    }
+  ]
+}

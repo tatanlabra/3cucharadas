@@ -1,0 +1,106 @@
+slug: cierre-escolar-educacion-superior-causal-ml
+ref: cierre-escolar-educacion-superior-causal-ml
+piezas:
+- id: editorial-v2-hero
+  rol: hero
+  archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1600
+  alto: 900
+  bytes: 31220
+  sha256: d9f0b7a038fd516ef7bbc116a70fe7d988689105df94341547420aeb3e71d4d9
+  alt: &id001
+    es: Ilustración nocturna de trayectorias estudiantiles que parten desde un liceo
+      cerrado y se bifurcan hacia campus universitarios e institutos técnico-profesionales,
+      representando la separación entre selección previa y efecto causal.
+    en: Nocturnal illustration of student trajectories branching from a closed secondary
+      school towards university campuses and vocational-technical institutes, depicting
+      the separation between prior selection and causal effect.
+  provenance:
+    status: generated_this_revision
+    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
+    note: &id002
+      es: Ilustración conceptual generada de forma determinista; no representa estudiantes,
+        liceos ni instituciones específicas.
+      en: Deterministic conceptual illustration; it does not depict specific students,
+        schools, or higher-education institutions.
+    encoding: WebP quality=86; Lanczos; deterministic derivative
+    tool: Antigravity Editorial Canvas v2
+    provider: Google DeepMind
+    interface: Antigravity CLI
+- id: editorial-v2-hero-mobile
+  rol: hero
+  archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 800
+  alto: 450
+  bytes: 13520
+  sha256: 115587efd3f1dc8e93570768d0a56070ebf69aff9a789085b94ad4a7ba3ba59c
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
+    note: *id002
+    encoding: WebP quality=86; Lanczos; deterministic derivative
+    tool: Antigravity Editorial Canvas v2
+    provider: Google DeepMind
+    interface: Antigravity CLI
+- id: editorial-v2-teaser
+  rol: teaser
+  archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-1280x720.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1280
+  alto: 720
+  bytes: 23456
+  sha256: a2c96a6a3e470b45515bcb431ef54b28a1dcb93ba9ad773b6316f10d8102a0a9
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
+    note: *id002
+    encoding: WebP quality=86; Lanczos; deterministic derivative
+    tool: Antigravity Editorial Canvas v2
+    provider: Google DeepMind
+    interface: Antigravity CLI
+- id: editorial-v2-teaser-mobile
+  rol: teaser
+  archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-mobile-640x360.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 640
+  alto: 360
+  bytes: 10498
+  sha256: 39380e4a40ae3c543f14e89d7d6bf327ec980397e2162e29424b276885c77c70
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
+    note: *id002
+    encoding: WebP quality=86; Lanczos; deterministic derivative
+    tool: Antigravity Editorial Canvas v2
+    provider: Google DeepMind
+    interface: Antigravity CLI
+- id: editorial-v2-og
+  rol: og
+  archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/og-1200x630.webp
+  estado: publicable
+  origen: ia-integrada
+  ancho: 1200
+  alto: 630
+  bytes: 21978
+  sha256: 1af2e82aa718610676bf2858fb46f8f1145c0cb5476af39d94691de2fd035f08
+  alt: *id001
+  provenance:
+    status: generated_this_revision
+    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
+    note: *id002
+    encoding: WebP quality=86; Lanczos; deterministic derivative
+    tool: Antigravity Editorial Canvas v2
+    provider: Google DeepMind
+    interface: Antigravity CLI
+posts:
+- _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
+- _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md

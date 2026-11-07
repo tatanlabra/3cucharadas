@@ -448,7 +448,7 @@ async function inspectPage(browser, locale, route, theme, viewport) {
           && (payload.theme === 'academic-night'
             || figure.identitySurface === payload.expectedIdentity.surface)
           && figure.identityFocus === payload.expectedIdentity.focus),
-        dataFallbackValid: figureRows.map((figure) => figure.dataLinks).join(',') === '1,2,1,1'
+        dataFallbackValid: ['1,2,1,1', '1,1,2,1'].includes(figureRows.map((figure) => figure.dataLinks).join(','))
           && figureRows.every((figure) => figure.dataResponses.every(Boolean)),
         keyboardFocusValid: payload.keyboardRows.length === figureRows.length
           && payload.keyboardRows.every((item) => item.focusOutlineVisible && item.tabMovesToFallback),

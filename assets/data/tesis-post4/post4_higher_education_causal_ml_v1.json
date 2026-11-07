@@ -1,0 +1,2244 @@
+{
+  "schema_version": "post4-higher-education-causal-ml-v1.0",
+  "generated_at_utc": "2026-11-05T03:08:17Z",
+  "status": "ESTIMATED_ECONOMETRICS_AND_CAUSAL_ML_VERIFIED",
+  "design_contract": {
+    "path": "research/post4/higher_education_design_v2.yaml",
+    "sha256": "3e10f48d4ac1933d7b23760752540fafa65a1a9e41b9fb3f82509a80ea7e3627"
+  },
+  "custody_receipts": {
+    "sies_2011_2025_receipt_sha256": "0915f9617d05efb2ff5a82dfdcb12058574a7413f8404e88ee0c00a23f3d2049",
+    "sies_2007_2026_and_paes_2021_2026_receipt_sha256": "735a06b0715cb82b185193c4eddf42cd5d1efd12f1f64e40d3233e03cf42f337",
+    "retrospective_post3_audit_sha256": "1d504e970d27a053e20323e1518dc28065846321c679e40843922021a15ba723"
+  },
+  "governance": {
+    "adr_188_legacy_demre_2014_2020_respected": true,
+    "mineduc_paes_2021_2026_cc_by_only": true,
+    "post3_frozen_artifacts_untouched": true,
+    "privacy_public_safe": true
+  },
+  "track_a_and_b_econometrics": {
+    "retrospective_audit_of_post3_he1_module": {
+      "module_path": "src/school_exit/post3_higher_education.py",
+      "findings": [
+        {
+          "id": "HE1_RETRO_1_SQL_BINDER_ERROR",
+          "severity": "HIGH",
+          "description": "En post3_higher_education.py:828-831, la subconsulta '(SELECT DISTINCT treatment_year FROM anchor_events) a' no proyectaba 'origin_school_id', pero el JOIN exigía 'AND c.origin_school_id <> a.origin_school_id', causando Binder Error en DuckDB al ejecutar por primera vez con las nóminas oficiales SIES."
+        },
+        {
+          "id": "HE1_RETRO_2_UNFILTERED_BASELINE_SPELLS_SCAN",
+          "severity": "MEDIUM",
+          "description": "En post3_higher_education.py:833-860, 'baseline_spells' agrupaba los ~35 millones de registros de enrollment_2004_2025 antes de filtrar a escuelas candidatas, y escaneaba los CSV de SIES con un EXISTS correlacionado sin caché Parquet."
+        },
+        {
+          "id": "HE1_RETRO_3_NOT_YET_TREATED_8VAR_SUPPORT_COLLAPSE",
+          "severity": "HIGH",
+          "description": "En 2016-2019 solo existen 19 liceos tratados elegibles (D2) y 12 liceos de control not-yet-treated (cerrados en 2021-2025). Exigir simultáneamente emparejamiento exacto en 8 variables y >=2 escuelas + >=5 estudiantes en los 4 brazos (treated/control x pre/post) deja exactamente 0 celdas con soporte común (0% de retención). Al usar controles limpios never-treated (como en el diseño principal v3.1 del Post III) el soporte sube a 273 celdas y 2.953 estudiantes tratados en enseñanza media.",
+          "not_yet_treated_raw_counts": {
+            "treated_schools": 19,
+            "control_future_closing_schools": 12,
+            "treated_post_students": 2259,
+            "treated_pre_students": 3383,
+            "control_post_students": 2903,
+            "control_pre_students": 3391,
+            "treated_post_he_2yr_pct": 50.26,
+            "treated_pre_he_2yr_pct": 49.16,
+            "control_post_he_2yr_pct": 64.64,
+            "control_pre_he_2yr_pct": 67.9,
+            "unmatched_school_cohort_did_he_2yr_pp": 4.37,
+            "exact_8var_2school_supported_cells": 0
+          }
+        }
+      ]
+    },
+    "primary_2016_2019_repeated_cohort_did": {
+      "secondary": {
+        "treated_post_students": 2223,
+        "supported_cells": 188,
+        "treated_post_he_2yr_pct": 50.61,
+        "control_post_he_2yr_pct": 65.24,
+        "treated_pre_g5_he_2yr_pct": 51.78,
+        "control_pre_g5_he_2yr_pct": 63.78,
+        "cross_sectional_post_gap_pp": -14.64,
+        "cross_sectional_pre_g5_gap_pp": -12.0,
+        "outcomes": {
+          "any_he_two_year": {
+            "estimate": -0.02641,
+            "estimate_pp": -2.64,
+            "se": 0.022242,
+            "se_pp": 2.22,
+            "ci95_low_pp": -7.54,
+            "ci95_high_pp": 2.25,
+            "p_value": 0.2601,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          },
+          "any_he_exact": {
+            "estimate": -0.016523,
+            "estimate_pp": -1.65,
+            "se": 0.020642,
+            "se_pp": 2.06,
+            "ci95_low_pp": -6.2,
+            "ci95_high_pp": 2.89,
+            "p_value": 0.4404,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          },
+          "university_two_year": {
+            "estimate": -0.00344,
+            "estimate_pp": -0.34,
+            "se": 0.020643,
+            "se_pp": 2.06,
+            "ci95_low_pp": -4.89,
+            "ci95_high_pp": 4.2,
+            "p_value": 0.8707,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          },
+          "ip_cft_two_year": {
+            "estimate": -0.025937,
+            "estimate_pp": -2.59,
+            "se": 0.022876,
+            "se_pp": 2.29,
+            "ci95_low_pp": -7.63,
+            "ci95_high_pp": 2.44,
+            "p_value": 0.281,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          },
+          "persistence_two_year": {
+            "estimate": -0.017198,
+            "estimate_pp": -1.72,
+            "se": 0.020921,
+            "se_pp": 2.09,
+            "ci95_low_pp": -6.32,
+            "ci95_high_pp": 2.88,
+            "p_value": 0.4285,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          },
+          "graduation_by_2025": {
+            "estimate": 0.044274,
+            "estimate_pp": 4.43,
+            "se": 0.03351,
+            "se_pp": 3.35,
+            "ci95_low_pp": -2.95,
+            "ci95_high_pp": 11.8,
+            "p_value": 0.2133,
+            "clusters": 12,
+            "supported_cells": 188,
+            "treated_post_students": 2223
+          }
+        }
+      },
+      "basic": {
+        "treated_post_students": 935,
+        "supported_cells": 123,
+        "treated_post_he_2yr_pct": 63.32,
+        "control_post_he_2yr_pct": 65.7,
+        "treated_pre_g5_he_2yr_pct": 58.57,
+        "control_pre_g5_he_2yr_pct": 62.16,
+        "cross_sectional_post_gap_pp": -2.38,
+        "cross_sectional_pre_g5_gap_pp": -3.59,
+        "outcomes": {
+          "any_he_two_year": {
+            "estimate": 0.012114,
+            "estimate_pp": 1.21,
+            "se": 0.020649,
+            "se_pp": 2.06,
+            "ci95_low_pp": -3.39,
+            "ci95_high_pp": 5.81,
+            "p_value": 0.5704,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          },
+          "any_he_exact": {
+            "estimate": 0.012215,
+            "estimate_pp": 1.22,
+            "se": 0.024465,
+            "se_pp": 2.45,
+            "ci95_low_pp": -4.23,
+            "ci95_high_pp": 6.67,
+            "p_value": 0.6284,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          },
+          "university_two_year": {
+            "estimate": 0.024277,
+            "estimate_pp": 2.43,
+            "se": 0.022337,
+            "se_pp": 2.23,
+            "ci95_low_pp": -2.55,
+            "ci95_high_pp": 7.4,
+            "p_value": 0.3026,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          },
+          "ip_cft_two_year": {
+            "estimate": -0.004524,
+            "estimate_pp": -0.45,
+            "se": 0.023483,
+            "se_pp": 2.35,
+            "ci95_low_pp": -5.68,
+            "ci95_high_pp": 4.78,
+            "p_value": 0.8511,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          },
+          "persistence_two_year": {
+            "estimate": 0.019152,
+            "estimate_pp": 1.92,
+            "se": 0.021994,
+            "se_pp": 2.2,
+            "ci95_low_pp": -2.99,
+            "ci95_high_pp": 6.82,
+            "p_value": 0.4043,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          },
+          "graduation_by_2025": {
+            "estimate": 0.018395,
+            "estimate_pp": 1.84,
+            "se": 0.028392,
+            "se_pp": 2.84,
+            "ci95_low_pp": -4.49,
+            "ci95_high_pp": 8.17,
+            "p_value": 0.5317,
+            "clusters": 11,
+            "supported_cells": 123,
+            "treated_post_students": 935
+          }
+        }
+      }
+    },
+    "longitudinal_2009_2022_by_regime": [
+      {
+        "regime": "2009_2015_pre_gratuidad",
+        "education_level": "secondary",
+        "treated_post_students": 10934,
+        "supported_cells": 670,
+        "cross_sectional_post_gap_pp": -14.79,
+        "cross_sectional_pre_g5_gap_pp": -15.35,
+        "selection_share_of_post_gap_pct": 100.0,
+        "did_any_he_two_year": {
+          "estimate": 0.005545,
+          "estimate_pp": 0.55,
+          "se": 0.012949,
+          "se_pp": 1.29,
+          "ci95_low_pp": -2.07,
+          "ci95_high_pp": 3.18,
+          "p_value": 0.6709,
+          "clusters": 39,
+          "supported_cells": 670,
+          "treated_post_students": 10934
+        },
+        "did_university_two_year": {
+          "estimate": 0.003496,
+          "estimate_pp": 0.35,
+          "se": 0.012819,
+          "se_pp": 1.28,
+          "ci95_low_pp": -2.25,
+          "ci95_high_pp": 2.94,
+          "p_value": 0.7866,
+          "clusters": 39,
+          "supported_cells": 670,
+          "treated_post_students": 10934
+        },
+        "did_ip_cft_two_year": {
+          "estimate": 0.002195,
+          "estimate_pp": 0.22,
+          "se": 0.010196,
+          "se_pp": 1.02,
+          "ci95_low_pp": -1.84,
+          "ci95_high_pp": 2.28,
+          "p_value": 0.8307,
+          "clusters": 39,
+          "supported_cells": 670,
+          "treated_post_students": 10934
+        },
+        "did_persistence_two_year": {
+          "estimate": 0.000797,
+          "estimate_pp": 0.08,
+          "se": 0.011441,
+          "se_pp": 1.14,
+          "ci95_low_pp": -2.24,
+          "ci95_high_pp": 2.4,
+          "p_value": 0.9449,
+          "clusters": 39,
+          "supported_cells": 670,
+          "treated_post_students": 10934
+        },
+        "did_graduation_by_2025": {
+          "estimate": 0.00277,
+          "estimate_pp": 0.28,
+          "se": 0.010335,
+          "se_pp": 1.03,
+          "ci95_low_pp": -1.82,
+          "ci95_high_pp": 2.37,
+          "p_value": 0.7901,
+          "clusters": 39,
+          "supported_cells": 670,
+          "treated_post_students": 10934
+        }
+      },
+      {
+        "regime": "2009_2015_pre_gratuidad",
+        "education_level": "basic",
+        "treated_post_students": 7061,
+        "supported_cells": 868,
+        "cross_sectional_post_gap_pp": -9.13,
+        "cross_sectional_pre_g5_gap_pp": -7.67,
+        "selection_share_of_post_gap_pct": 84.0,
+        "did_any_he_two_year": {
+          "estimate": -0.01466,
+          "estimate_pp": -1.47,
+          "se": 0.008594,
+          "se_pp": 0.86,
+          "ci95_low_pp": -3.18,
+          "ci95_high_pp": 0.25,
+          "p_value": 0.0921,
+          "clusters": 77,
+          "supported_cells": 868,
+          "treated_post_students": 7061
+        },
+        "did_university_two_year": {
+          "estimate": -0.011501,
+          "estimate_pp": -1.15,
+          "se": 0.008853,
+          "se_pp": 0.89,
+          "ci95_low_pp": -2.91,
+          "ci95_high_pp": 0.61,
+          "p_value": 0.1978,
+          "clusters": 77,
+          "supported_cells": 868,
+          "treated_post_students": 7061
+        },
+        "did_ip_cft_two_year": {
+          "estimate": -0.003691,
+          "estimate_pp": -0.37,
+          "se": 0.006274,
+          "se_pp": 0.63,
+          "ci95_low_pp": -1.62,
+          "ci95_high_pp": 0.88,
+          "p_value": 0.558,
+          "clusters": 77,
+          "supported_cells": 868,
+          "treated_post_students": 7061
+        },
+        "did_persistence_two_year": {
+          "estimate": -0.015009,
+          "estimate_pp": -1.5,
+          "se": 0.007531,
+          "se_pp": 0.75,
+          "ci95_low_pp": -3.0,
+          "ci95_high_pp": -0.0,
+          "p_value": 0.0499,
+          "clusters": 77,
+          "supported_cells": 868,
+          "treated_post_students": 7061
+        },
+        "did_graduation_by_2025": {
+          "estimate": 0.001665,
+          "estimate_pp": 0.17,
+          "se": 0.00754,
+          "se_pp": 0.75,
+          "ci95_low_pp": -1.34,
+          "ci95_high_pp": 1.67,
+          "p_value": 0.8259,
+          "clusters": 77,
+          "supported_cells": 868,
+          "treated_post_students": 7061
+        }
+      },
+      {
+        "regime": "2016_2019_gratuidad_inclusion",
+        "education_level": "secondary",
+        "treated_post_students": 2223,
+        "supported_cells": 188,
+        "cross_sectional_post_gap_pp": -14.64,
+        "cross_sectional_pre_g5_gap_pp": -12.0,
+        "selection_share_of_post_gap_pct": 82.0,
+        "did_any_he_two_year": {
+          "estimate": -0.02641,
+          "estimate_pp": -2.64,
+          "se": 0.022242,
+          "se_pp": 2.22,
+          "ci95_low_pp": -7.54,
+          "ci95_high_pp": 2.25,
+          "p_value": 0.2601,
+          "clusters": 12,
+          "supported_cells": 188,
+          "treated_post_students": 2223
+        },
+        "did_university_two_year": {
+          "estimate": -0.00344,
+          "estimate_pp": -0.34,
+          "se": 0.020643,
+          "se_pp": 2.06,
+          "ci95_low_pp": -4.89,
+          "ci95_high_pp": 4.2,
+          "p_value": 0.8707,
+          "clusters": 12,
+          "supported_cells": 188,
+          "treated_post_students": 2223
+        },
+        "did_ip_cft_two_year": {
+          "estimate": -0.025937,
+          "estimate_pp": -2.59,
+          "se": 0.022876,
+          "se_pp": 2.29,
+          "ci95_low_pp": -7.63,
+          "ci95_high_pp": 2.44,
+          "p_value": 0.281,
+          "clusters": 12,
+          "supported_cells": 188,
+          "treated_post_students": 2223
+        },
+        "did_persistence_two_year": {
+          "estimate": -0.017198,
+          "estimate_pp": -1.72,
+          "se": 0.020921,
+          "se_pp": 2.09,
+          "ci95_low_pp": -6.32,
+          "ci95_high_pp": 2.88,
+          "p_value": 0.4285,
+          "clusters": 12,
+          "supported_cells": 188,
+          "treated_post_students": 2223
+        },
+        "did_graduation_by_2025": {
+          "estimate": 0.044274,
+          "estimate_pp": 4.43,
+          "se": 0.03351,
+          "se_pp": 3.35,
+          "ci95_low_pp": -2.95,
+          "ci95_high_pp": 11.8,
+          "p_value": 0.2133,
+          "clusters": 12,
+          "supported_cells": 188,
+          "treated_post_students": 2223
+        }
+      },
+      {
+        "regime": "2016_2019_gratuidad_inclusion",
+        "education_level": "basic",
+        "treated_post_students": 935,
+        "supported_cells": 123,
+        "cross_sectional_post_gap_pp": -2.38,
+        "cross_sectional_pre_g5_gap_pp": -3.59,
+        "selection_share_of_post_gap_pct": 100.0,
+        "did_any_he_two_year": {
+          "estimate": 0.012114,
+          "estimate_pp": 1.21,
+          "se": 0.020649,
+          "se_pp": 2.06,
+          "ci95_low_pp": -3.39,
+          "ci95_high_pp": 5.81,
+          "p_value": 0.5704,
+          "clusters": 11,
+          "supported_cells": 123,
+          "treated_post_students": 935
+        },
+        "did_university_two_year": {
+          "estimate": 0.024277,
+          "estimate_pp": 2.43,
+          "se": 0.022337,
+          "se_pp": 2.23,
+          "ci95_low_pp": -2.55,
+          "ci95_high_pp": 7.4,
+          "p_value": 0.3026,
+          "clusters": 11,
+          "supported_cells": 123,
+          "treated_post_students": 935
+        },
+        "did_ip_cft_two_year": {
+          "estimate": -0.004524,
+          "estimate_pp": -0.45,
+          "se": 0.023483,
+          "se_pp": 2.35,
+          "ci95_low_pp": -5.68,
+          "ci95_high_pp": 4.78,
+          "p_value": 0.8511,
+          "clusters": 11,
+          "supported_cells": 123,
+          "treated_post_students": 935
+        },
+        "did_persistence_two_year": {
+          "estimate": 0.019152,
+          "estimate_pp": 1.92,
+          "se": 0.021994,
+          "se_pp": 2.2,
+          "ci95_low_pp": -2.99,
+          "ci95_high_pp": 6.82,
+          "p_value": 0.4043,
+          "clusters": 11,
+          "supported_cells": 123,
+          "treated_post_students": 935
+        },
+        "did_graduation_by_2025": {
+          "estimate": 0.018395,
+          "estimate_pp": 1.84,
+          "se": 0.028392,
+          "se_pp": 2.84,
+          "ci95_low_pp": -4.49,
+          "ci95_high_pp": 8.17,
+          "p_value": 0.5317,
+          "clusters": 11,
+          "supported_cells": 123,
+          "treated_post_students": 935
+        }
+      },
+      {
+        "regime": "2020_2022_pandemia",
+        "education_level": "secondary",
+        "treated_post_students": 678,
+        "supported_cells": 89,
+        "cross_sectional_post_gap_pp": -5.62,
+        "cross_sectional_pre_g5_gap_pp": -1.83,
+        "selection_share_of_post_gap_pct": 32.6,
+        "did_any_he_two_year": {
+          "estimate": -0.037869,
+          "estimate_pp": -3.79,
+          "se": 0.018098,
+          "se_pp": 1.81,
+          "ci95_low_pp": -8.22,
+          "ci95_high_pp": 0.64,
+          "p_value": 0.0813,
+          "clusters": 7,
+          "supported_cells": 89,
+          "treated_post_students": 678
+        },
+        "did_university_two_year": {
+          "estimate": -0.002392,
+          "estimate_pp": -0.24,
+          "se": 0.022599,
+          "se_pp": 2.26,
+          "ci95_low_pp": -5.77,
+          "ci95_high_pp": 5.29,
+          "p_value": 0.9191,
+          "clusters": 7,
+          "supported_cells": 89,
+          "treated_post_students": 678
+        },
+        "did_ip_cft_two_year": {
+          "estimate": -0.043304,
+          "estimate_pp": -4.33,
+          "se": 0.028752,
+          "se_pp": 2.88,
+          "ci95_low_pp": -11.37,
+          "ci95_high_pp": 2.7,
+          "p_value": 0.1827,
+          "clusters": 7,
+          "supported_cells": 89,
+          "treated_post_students": 678
+        },
+        "did_persistence_two_year": {
+          "estimate": -0.047246,
+          "estimate_pp": -4.72,
+          "se": 0.026029,
+          "se_pp": 2.6,
+          "ci95_low_pp": -11.09,
+          "ci95_high_pp": 1.64,
+          "p_value": 0.1194,
+          "clusters": 7,
+          "supported_cells": 89,
+          "treated_post_students": 678
+        },
+        "did_graduation_by_2025": {
+          "estimate": -0.000394,
+          "estimate_pp": -0.04,
+          "se": 0.016106,
+          "se_pp": 1.61,
+          "ci95_low_pp": -3.98,
+          "ci95_high_pp": 3.9,
+          "p_value": 0.9813,
+          "clusters": 7,
+          "supported_cells": 89,
+          "treated_post_students": 678
+        }
+      },
+      {
+        "regime": "2020_2022_pandemia",
+        "education_level": "basic",
+        "treated_post_students": 156,
+        "supported_cells": 17,
+        "cross_sectional_post_gap_pp": -1.56,
+        "cross_sectional_pre_g5_gap_pp": -3.69,
+        "selection_share_of_post_gap_pct": 100.0,
+        "did_any_he_two_year": {
+          "estimate": 0.021327,
+          "estimate_pp": 2.13,
+          "se": 0.062249,
+          "se_pp": 6.22,
+          "ci95_low_pp": -17.68,
+          "ci95_high_pp": 21.94,
+          "p_value": 0.7545,
+          "clusters": 4,
+          "supported_cells": 17,
+          "treated_post_students": 156
+        },
+        "did_university_two_year": {
+          "estimate": 0.070947,
+          "estimate_pp": 7.09,
+          "se": 0.123942,
+          "se_pp": 12.39,
+          "ci95_low_pp": -32.35,
+          "ci95_high_pp": 46.54,
+          "p_value": 0.6071,
+          "clusters": 4,
+          "supported_cells": 17,
+          "treated_post_students": 156
+        },
+        "did_ip_cft_two_year": {
+          "estimate": -0.051699,
+          "estimate_pp": -5.17,
+          "se": 0.071997,
+          "se_pp": 7.2,
+          "ci95_low_pp": -28.08,
+          "ci95_high_pp": 17.74,
+          "p_value": 0.5246,
+          "clusters": 4,
+          "supported_cells": 17,
+          "treated_post_students": 156
+        },
+        "did_persistence_two_year": {
+          "estimate": -0.031095,
+          "estimate_pp": -3.11,
+          "se": 0.013174,
+          "se_pp": 1.32,
+          "ci95_low_pp": -7.3,
+          "ci95_high_pp": 1.08,
+          "p_value": 0.0994,
+          "clusters": 4,
+          "supported_cells": 17,
+          "treated_post_students": 156
+        },
+        "did_graduation_by_2025": {
+          "estimate": -0.039249,
+          "estimate_pp": -3.92,
+          "se": 0.027773,
+          "se_pp": 2.78,
+          "ci95_low_pp": -12.76,
+          "ci95_high_pp": 4.91,
+          "p_value": 0.2525,
+          "clusters": 4,
+          "supported_cells": 17,
+          "treated_post_students": 156
+        }
+      }
+    ],
+    "pooled_2009_2022_d2_vs_d1": {
+      "secondary": {
+        "d2_rcid_v1": {
+          "treated_post_students": 13835,
+          "cross_sectional_post_gap_pp": -14.32,
+          "cross_sectional_pre_g5_gap_pp": -14.15,
+          "did_any_he_two_year": {
+            "estimate": -0.001717,
+            "estimate_pp": -0.17,
+            "se": 0.011027,
+            "se_pp": 1.1,
+            "ci95_low_pp": -2.38,
+            "ci95_high_pp": 2.04,
+            "p_value": 0.8768,
+            "clusters": 58,
+            "supported_cells": 947,
+            "treated_post_students": 13835
+          },
+          "did_university_two_year": {
+            "estimate": 0.002093,
+            "estimate_pp": 0.21,
+            "se": 0.010574,
+            "se_pp": 1.06,
+            "ci95_low_pp": -1.91,
+            "ci95_high_pp": 2.33,
+            "p_value": 0.8438,
+            "clusters": 58,
+            "supported_cells": 947,
+            "treated_post_students": 13835
+          },
+          "did_ip_cft_two_year": {
+            "estimate": -0.004555,
+            "estimate_pp": -0.46,
+            "se": 0.009511,
+            "se_pp": 0.95,
+            "ci95_low_pp": -2.36,
+            "ci95_high_pp": 1.45,
+            "p_value": 0.6338,
+            "clusters": 58,
+            "supported_cells": 947,
+            "treated_post_students": 13835
+          },
+          "did_persistence_two_year": {
+            "estimate": -0.004449,
+            "estimate_pp": -0.44,
+            "se": 0.009772,
+            "se_pp": 0.98,
+            "ci95_low_pp": -2.4,
+            "ci95_high_pp": 1.51,
+            "p_value": 0.6506,
+            "clusters": 58,
+            "supported_cells": 947,
+            "treated_post_students": 13835
+          }
+        },
+        "d1_minus_d2_flow_alert_absorptions": {
+          "treated_post_students": 2282,
+          "treated_post_he_2yr_pct": 71.6,
+          "cross_sectional_post_gap_pp": 4.06,
+          "cross_sectional_pre_g5_gap_pp": 6.64,
+          "did_any_he_two_year_pp": -2.58
+        }
+      },
+      "basic": {
+        "d2_rcid_v1": {
+          "treated_post_students": 8152,
+          "cross_sectional_post_gap_pp": -8.22,
+          "cross_sectional_pre_g5_gap_pp": -7.13,
+          "did_any_he_two_year": {
+            "estimate": -0.010901,
+            "estimate_pp": -1.09,
+            "se": 0.007999,
+            "se_pp": 0.8,
+            "ci95_low_pp": -2.68,
+            "ci95_high_pp": 0.5,
+            "p_value": 0.1763,
+            "clusters": 92,
+            "supported_cells": 1008,
+            "treated_post_students": 8152
+          },
+          "did_university_two_year": {
+            "estimate": -0.00582,
+            "estimate_pp": -0.58,
+            "se": 0.008643,
+            "se_pp": 0.86,
+            "ci95_low_pp": -2.3,
+            "ci95_high_pp": 1.13,
+            "p_value": 0.5025,
+            "clusters": 92,
+            "supported_cells": 1008,
+            "treated_post_students": 8152
+          },
+          "did_ip_cft_two_year": {
+            "estimate": -0.004706,
+            "estimate_pp": -0.47,
+            "se": 0.006164,
+            "se_pp": 0.62,
+            "ci95_low_pp": -1.69,
+            "ci95_high_pp": 0.75,
+            "p_value": 0.4472,
+            "clusters": 92,
+            "supported_cells": 1008,
+            "treated_post_students": 8152
+          },
+          "did_persistence_two_year": {
+            "estimate": -0.011398,
+            "estimate_pp": -1.14,
+            "se": 0.007216,
+            "se_pp": 0.72,
+            "ci95_low_pp": -2.57,
+            "ci95_high_pp": 0.29,
+            "p_value": 0.1177,
+            "clusters": 92,
+            "supported_cells": 1008,
+            "treated_post_students": 8152
+          }
+        },
+        "d1_minus_d2_flow_alert_absorptions": {
+          "treated_post_students": 1434,
+          "treated_post_he_2yr_pct": 81.1,
+          "cross_sectional_post_gap_pp": 7.28,
+          "cross_sectional_pre_g5_gap_pp": 7.06,
+          "did_any_he_two_year_pp": 0.22
+        }
+      }
+    }
+  },
+  "track_c_causal_ml": {
+    "cross_fitting_contract": {
+      "strategy": "GroupKFold",
+      "cluster_unit": "origin_episode_school",
+      "n_splits": 5,
+      "propensity_clip": [
+        0.01,
+        0.85
+      ],
+      "nuisance_learners": [
+        "HistGradientBoostingRegressor",
+        "ExplainableBoostingRegressor_EBM"
+      ]
+    },
+    "selection_purging_ladder": {
+      "secondary": {
+        "n_students": 38525,
+        "n_treated": 3238,
+        "n_schools": 1167,
+        "steps": {
+          "step1_demographics_only": {
+            "plr_hgb_pp": -13.24,
+            "plr_hgb_se_pp": 2.94,
+            "plr_hgb_ci95_pp": [
+              -19.0,
+              -7.48
+            ],
+            "plr_ebm_glassbox_pp": -12.15,
+            "plr_ebm_glassbox_se_pp": 3.06,
+            "dr_att_hajek_pp": -12.74,
+            "dr_att_hajek_se_pp": 2.96,
+            "dr_att_hajek_ci95_pp": [
+              -18.55,
+              -6.94
+            ],
+            "propensity_min": 0.0112,
+            "propensity_p99": 0.1453
+          },
+          "step2_plus_student_academic_g1_g2": {
+            "plr_hgb_pp": -5.63,
+            "plr_hgb_se_pp": 2.12,
+            "plr_hgb_ci95_pp": [
+              -9.78,
+              -1.47
+            ],
+            "plr_ebm_glassbox_pp": -7.05,
+            "plr_ebm_glassbox_se_pp": 2.38,
+            "dr_att_hajek_pp": -5.48,
+            "dr_att_hajek_se_pp": 2.1,
+            "dr_att_hajek_ci95_pp": [
+              -9.6,
+              -1.35
+            ],
+            "propensity_min": 0.01,
+            "propensity_p99": 0.244
+          },
+          "step3_plus_school_pre_g5_history": {
+            "plr_hgb_pp": -0.29,
+            "plr_hgb_se_pp": 1.2,
+            "plr_hgb_ci95_pp": [
+              -2.64,
+              2.06
+            ],
+            "plr_ebm_glassbox_pp": -0.91,
+            "plr_ebm_glassbox_se_pp": 1.03,
+            "dr_att_hajek_pp": 0.19,
+            "dr_att_hajek_se_pp": 1.34,
+            "dr_att_hajek_ci95_pp": [
+              -2.44,
+              2.82
+            ],
+            "propensity_min": 0.01,
+            "propensity_p99": 0.364
+          }
+        }
+      },
+      "basic": {
+        "n_students": 23628,
+        "n_treated": 1554,
+        "n_schools": 2218,
+        "steps": {
+          "step1_demographics_only": {
+            "plr_hgb_pp": -4.06,
+            "plr_hgb_se_pp": 1.73,
+            "plr_hgb_ci95_pp": [
+              -7.44,
+              -0.67
+            ],
+            "plr_ebm_glassbox_pp": -2.99,
+            "plr_ebm_glassbox_se_pp": 1.85,
+            "dr_att_hajek_pp": -3.64,
+            "dr_att_hajek_se_pp": 1.75,
+            "dr_att_hajek_ci95_pp": [
+              -7.06,
+              -0.22
+            ],
+            "propensity_min": 0.0205,
+            "propensity_p99": 0.1556
+          },
+          "step2_plus_student_academic_g1_g2": {
+            "plr_hgb_pp": -1.51,
+            "plr_hgb_se_pp": 1.67,
+            "plr_hgb_ci95_pp": [
+              -4.78,
+              1.76
+            ],
+            "plr_ebm_glassbox_pp": -1.64,
+            "plr_ebm_glassbox_se_pp": 1.81,
+            "dr_att_hajek_pp": -1.18,
+            "dr_att_hajek_se_pp": 1.7,
+            "dr_att_hajek_ci95_pp": [
+              -4.51,
+              2.15
+            ],
+            "propensity_min": 0.0127,
+            "propensity_p99": 0.154
+          },
+          "step3_plus_school_pre_g5_history": {
+            "plr_hgb_pp": 1.02,
+            "plr_hgb_se_pp": 1.76,
+            "plr_hgb_ci95_pp": [
+              -2.44,
+              4.47
+            ],
+            "plr_ebm_glassbox_pp": 0.86,
+            "plr_ebm_glassbox_se_pp": 1.81,
+            "dr_att_hajek_pp": 1.32,
+            "dr_att_hajek_se_pp": 1.74,
+            "dr_att_hajek_ci95_pp": [
+              -2.1,
+              4.73
+            ],
+            "propensity_min": 0.01,
+            "propensity_p99": 0.2027
+          }
+        }
+      }
+    },
+    "orthogonal_r_learner_heterogeneity": {
+      "student_academic_baseline_controls": {
+        "any_he_two_year": {
+          "blp": {
+            "ate_beta1_pp": -4.88,
+            "ate_se_pp": 1.68,
+            "ate_ci95_pp": [
+              -8.18,
+              -1.58
+            ],
+            "ate_p_value": 0.0037,
+            "het_beta2": 0.634,
+            "het_se": 0.282,
+            "het_p_value": 0.0243,
+            "heterogeneity_detected_05": true
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": -12.26,
+              "se_pp": 2.82,
+              "ci95_pp": [
+                -17.79,
+                -6.74
+              ]
+            },
+            "G2": {
+              "gate_pp": -3.15,
+              "se_pp": 2.99,
+              "ci95_pp": [
+                -9.02,
+                2.72
+              ]
+            },
+            "G3": {
+              "gate_pp": -3.31,
+              "se_pp": 3.35,
+              "ci95_pp": [
+                -9.89,
+                3.26
+              ]
+            },
+            "G4": {
+              "gate_pp": -1.5,
+              "se_pp": 1.87,
+              "ci95_pp": [
+                -5.16,
+                2.17
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -3.03,
+              "se_pp": 1.47,
+              "ci95_pp": [
+                -5.92,
+                -0.14
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.9949,
+              "G5_least_harmed_mean": 0.1375,
+              "diff_G1_minus_G5": 0.8575
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.7717,
+              "G5_least_harmed_mean": 0.0028,
+              "diff_G1_minus_G5": 0.7689
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.3274,
+              "G5_least_harmed_mean": 5.6312,
+              "diff_G1_minus_G5": -0.3038
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 87.1285,
+              "G5_least_harmed_mean": 93.073,
+              "diff_G1_minus_G5": -5.9445
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.7712,
+              "G5_least_harmed_mean": 0.6487,
+              "diff_G1_minus_G5": 0.1225
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0171,
+              "G5_least_harmed_mean": 0.1509,
+              "diff_G1_minus_G5": -0.1339
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.5717,
+              "G5_least_harmed_mean": 0.6663,
+              "diff_G1_minus_G5": -0.0945
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0898,
+              "G5_least_harmed_mean": 0.0621,
+              "diff_G1_minus_G5": 0.0277
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00548,
+            "robustness_value_q1_pct": 7.16,
+            "robustness_value_q1_alpha05_pct": 3.36,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 4e-05,
+                "partial_r2_y_given_dx": 0.01728,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.14,
+                    "adjusted_lower_pp": -6.25,
+                    "adjusted_upper_pp": -5.97
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.28,
+                    "adjusted_lower_pp": -6.39,
+                    "adjusted_upper_pp": -5.83
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00016,
+                "partial_r2_y_given_dx": 0.00227,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.1,
+                    "adjusted_lower_pp": -6.21,
+                    "adjusted_upper_pp": -6.01
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.2,
+                    "adjusted_lower_pp": -6.31,
+                    "adjusted_upper_pp": -5.91
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "univ_two_year": {
+          "blp": {
+            "ate_beta1_pp": -3.78,
+            "ate_se_pp": 2.21,
+            "ate_ci95_pp": [
+              -8.11,
+              0.55
+            ],
+            "ate_p_value": 0.0868,
+            "het_beta2": -0.53,
+            "het_se": 0.431,
+            "het_p_value": 0.2191,
+            "heterogeneity_detected_05": false
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": 0.21,
+              "se_pp": 2.35,
+              "ci95_pp": [
+                -4.4,
+                4.82
+              ]
+            },
+            "G2": {
+              "gate_pp": -4.11,
+              "se_pp": 3.71,
+              "ci95_pp": [
+                -11.38,
+                3.17
+              ]
+            },
+            "G3": {
+              "gate_pp": -6.96,
+              "se_pp": 2.51,
+              "ci95_pp": [
+                -11.89,
+                -2.03
+              ]
+            },
+            "G4": {
+              "gate_pp": -3.91,
+              "se_pp": 3.59,
+              "ci95_pp": [
+                -10.96,
+                3.13
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -4.1,
+              "se_pp": 2.22,
+              "ci95_pp": [
+                -8.45,
+                0.24
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.9998,
+              "G5_least_harmed_mean": 0.064,
+              "diff_G1_minus_G5": 0.9358
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.2011,
+              "G5_least_harmed_mean": 0.0073,
+              "diff_G1_minus_G5": 0.1938
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.7884,
+              "G5_least_harmed_mean": 5.3185,
+              "diff_G1_minus_G5": 0.4699
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 90.2652,
+              "G5_least_harmed_mean": 91.4459,
+              "diff_G1_minus_G5": -1.1807
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.577,
+              "G5_least_harmed_mean": 0.929,
+              "diff_G1_minus_G5": -0.352
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0426,
+              "G5_least_harmed_mean": 0.0377,
+              "diff_G1_minus_G5": 0.005
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.6825,
+              "G5_least_harmed_mean": 0.6652,
+              "diff_G1_minus_G5": 0.0173
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0609,
+              "G5_least_harmed_mean": 0.1134,
+              "diff_G1_minus_G5": -0.0525
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00122,
+            "robustness_value_q1_pct": 3.43,
+            "robustness_value_q1_alpha05_pct": 0.0,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 4e-05,
+                "partial_r2_y_given_dx": 0.03516,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.19,
+                    "adjusted_lower_pp": -3.96,
+                    "adjusted_upper_pp": -3.57
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.38,
+                    "adjusted_lower_pp": -4.15,
+                    "adjusted_upper_pp": -3.38
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00016,
+                "partial_r2_y_given_dx": 1e-05,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.01,
+                    "adjusted_lower_pp": -3.77,
+                    "adjusted_upper_pp": -3.76
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.01,
+                    "adjusted_lower_pp": -3.78,
+                    "adjusted_upper_pp": -3.75
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ipcft_two_year": {
+          "blp": {
+            "ate_beta1_pp": -1.62,
+            "ate_se_pp": 1.16,
+            "ate_ci95_pp": [
+              -3.9,
+              0.66
+            ],
+            "ate_p_value": 0.1644,
+            "het_beta2": 0.8,
+            "het_se": 0.237,
+            "het_p_value": 0.0007,
+            "heterogeneity_detected_05": true
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": -8.02,
+              "se_pp": 2.24,
+              "ci95_pp": [
+                -12.42,
+                -3.63
+              ]
+            },
+            "G2": {
+              "gate_pp": -0.86,
+              "se_pp": 1.65,
+              "ci95_pp": [
+                -4.09,
+                2.37
+              ]
+            },
+            "G3": {
+              "gate_pp": 1.54,
+              "se_pp": 2.71,
+              "ci95_pp": [
+                -3.77,
+                6.84
+              ]
+            },
+            "G4": {
+              "gate_pp": -0.48,
+              "se_pp": 1.46,
+              "ci95_pp": [
+                -3.35,
+                2.39
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": 0.73,
+              "se_pp": 1.25,
+              "ci95_pp": [
+                -1.71,
+                3.18
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.9554,
+              "G5_least_harmed_mean": 0.5771,
+              "diff_G1_minus_G5": 0.3782
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.7724,
+              "G5_least_harmed_mean": 0.0055,
+              "diff_G1_minus_G5": 0.767
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.2185,
+              "G5_least_harmed_mean": 5.8695,
+              "diff_G1_minus_G5": -0.651
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 86.5862,
+              "G5_least_harmed_mean": 93.4959,
+              "diff_G1_minus_G5": -6.9097
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.774,
+              "G5_least_harmed_mean": 0.4097,
+              "diff_G1_minus_G5": 0.3643
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0115,
+              "G5_least_harmed_mean": 0.1763,
+              "diff_G1_minus_G5": -0.1648
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.5617,
+              "G5_least_harmed_mean": 0.6854,
+              "diff_G1_minus_G5": -0.1237
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.115,
+              "G5_least_harmed_mean": 0.0483,
+              "diff_G1_minus_G5": 0.0666
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00189,
+            "robustness_value_q1_pct": 4.26,
+            "robustness_value_q1_alpha05_pct": 0.34,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 4e-05,
+                "partial_r2_y_given_dx": 0.00272,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.05,
+                    "adjusted_lower_pp": -2.53,
+                    "adjusted_upper_pp": -2.42
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.1,
+                    "adjusted_lower_pp": -2.58,
+                    "adjusted_upper_pp": -2.37
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00016,
+                "partial_r2_y_given_dx": 0.00219,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.09,
+                    "adjusted_lower_pp": -2.56,
+                    "adjusted_upper_pp": -2.38
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.18,
+                    "adjusted_lower_pp": -2.66,
+                    "adjusted_upper_pp": -2.29
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "persist_2yr": {
+          "blp": {
+            "ate_beta1_pp": -5.02,
+            "ate_se_pp": 1.9,
+            "ate_ci95_pp": [
+              -8.76,
+              -1.29
+            ],
+            "ate_p_value": 0.0083,
+            "het_beta2": 0.58,
+            "het_se": 0.258,
+            "het_p_value": 0.0247,
+            "heterogeneity_detected_05": true
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": -11.48,
+              "se_pp": 3.26,
+              "ci95_pp": [
+                -17.87,
+                -5.1
+              ]
+            },
+            "G2": {
+              "gate_pp": -2.52,
+              "se_pp": 3.18,
+              "ci95_pp": [
+                -8.75,
+                3.7
+              ]
+            },
+            "G3": {
+              "gate_pp": -5.09,
+              "se_pp": 2.98,
+              "ci95_pp": [
+                -10.94,
+                0.75
+              ]
+            },
+            "G4": {
+              "gate_pp": -0.01,
+              "se_pp": 2.6,
+              "ci95_pp": [
+                -5.11,
+                5.09
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -5.49,
+              "se_pp": 1.82,
+              "ci95_pp": [
+                -9.06,
+                -1.92
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.994,
+              "G5_least_harmed_mean": 0.0766,
+              "diff_G1_minus_G5": 0.9174
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.784,
+              "G5_least_harmed_mean": 0.0,
+              "diff_G1_minus_G5": 0.784
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.34,
+              "G5_least_harmed_mean": 5.5673,
+              "diff_G1_minus_G5": -0.2273
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 87.1332,
+              "G5_least_harmed_mean": 92.9336,
+              "diff_G1_minus_G5": -5.8004
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.7458,
+              "G5_least_harmed_mean": 0.774,
+              "diff_G1_minus_G5": -0.0283
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.03,
+              "G5_least_harmed_mean": 0.1207,
+              "diff_G1_minus_G5": -0.0907
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.5679,
+              "G5_least_harmed_mean": 0.6704,
+              "diff_G1_minus_G5": -0.1024
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0865,
+              "G5_least_harmed_mean": 0.0662,
+              "diff_G1_minus_G5": 0.0204
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00489,
+            "robustness_value_q1_pct": 6.77,
+            "robustness_value_q1_alpha05_pct": 2.95,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 4e-05,
+                "partial_r2_y_given_dx": 0.01643,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.13,
+                    "adjusted_lower_pp": -6.66,
+                    "adjusted_upper_pp": -6.39
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.27,
+                    "adjusted_lower_pp": -6.8,
+                    "adjusted_upper_pp": -6.26
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00016,
+                "partial_r2_y_given_dx": 0.00197,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.09,
+                    "adjusted_lower_pp": -6.62,
+                    "adjusted_upper_pp": -6.43
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.18,
+                    "adjusted_lower_pp": -6.71,
+                    "adjusted_upper_pp": -6.34
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "full_student_and_school_g5_controls": {
+        "any_he_two_year": {
+          "blp": {
+            "ate_beta1_pp": 0.57,
+            "ate_se_pp": 0.99,
+            "ate_ci95_pp": [
+              -1.38,
+              2.51
+            ],
+            "ate_p_value": 0.569,
+            "het_beta2": -0.12,
+            "het_se": 0.271,
+            "het_p_value": 0.6583,
+            "heterogeneity_detected_05": false
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": -0.26,
+              "se_pp": 1.26,
+              "ci95_pp": [
+                -2.73,
+                2.21
+              ]
+            },
+            "G2": {
+              "gate_pp": 0.87,
+              "se_pp": 2.49,
+              "ci95_pp": [
+                -4.0,
+                5.75
+              ]
+            },
+            "G3": {
+              "gate_pp": 1.57,
+              "se_pp": 2.3,
+              "ci95_pp": [
+                -2.93,
+                6.07
+              ]
+            },
+            "G4": {
+              "gate_pp": 1.49,
+              "se_pp": 1.94,
+              "ci95_pp": [
+                -2.32,
+                5.3
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -0.66,
+              "se_pp": 1.55,
+              "ci95_pp": [
+                -3.7,
+                2.38
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.9124,
+              "G5_least_harmed_mean": 0.3707,
+              "diff_G1_minus_G5": 0.5417
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.5179,
+              "G5_least_harmed_mean": 0.0274,
+              "diff_G1_minus_G5": 0.4905
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.7853,
+              "G5_least_harmed_mean": 5.1967,
+              "diff_G1_minus_G5": 0.5886
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 85.0401,
+              "G5_least_harmed_mean": 93.3532,
+              "diff_G1_minus_G5": -8.3131
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.8534,
+              "G5_least_harmed_mean": 0.5889,
+              "diff_G1_minus_G5": 0.2645
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0187,
+              "G5_least_harmed_mean": 0.1233,
+              "diff_G1_minus_G5": -0.1045
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.6325,
+              "G5_least_harmed_mean": 0.6493,
+              "diff_G1_minus_G5": -0.0168
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0631,
+              "G5_least_harmed_mean": 0.1209,
+              "diff_G1_minus_G5": -0.0578
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00038,
+            "robustness_value_q1_pct": 1.94,
+            "robustness_value_q1_alpha05_pct": 0.0,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 0.0,
+                "partial_r2_y_given_dx": 0.01512,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.03,
+                    "adjusted_lower_pp": -0.98,
+                    "adjusted_upper_pp": -0.92
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.06,
+                    "adjusted_lower_pp": -1.01,
+                    "adjusted_upper_pp": -0.89
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00043,
+                "partial_r2_y_given_dx": 0.00154,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.13,
+                    "adjusted_lower_pp": -1.08,
+                    "adjusted_upper_pp": -0.82
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.27,
+                    "adjusted_lower_pp": -1.22,
+                    "adjusted_upper_pp": -0.68
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "school_pre_he_2yr",
+                "partial_r2_d_given_x": 0.00915,
+                "partial_r2_y_given_dx": 0.00305,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.87,
+                    "adjusted_lower_pp": -1.82,
+                    "adjusted_upper_pp": -0.08
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 1.75,
+                    "adjusted_lower_pp": -2.7,
+                    "adjusted_upper_pp": 0.8
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "univ_two_year": {
+          "blp": {
+            "ate_beta1_pp": 1.98,
+            "ate_se_pp": 1.12,
+            "ate_ci95_pp": [
+              -0.22,
+              4.19
+            ],
+            "ate_p_value": 0.0779,
+            "het_beta2": 0.025,
+            "het_se": 0.356,
+            "het_p_value": 0.9451,
+            "heterogeneity_detected_05": false
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": 0.54,
+              "se_pp": 1.36,
+              "ci95_pp": [
+                -2.13,
+                3.22
+              ]
+            },
+            "G2": {
+              "gate_pp": 4.11,
+              "se_pp": 2.21,
+              "ci95_pp": [
+                -0.23,
+                8.45
+              ]
+            },
+            "G3": {
+              "gate_pp": 1.96,
+              "se_pp": 1.82,
+              "ci95_pp": [
+                -1.61,
+                5.54
+              ]
+            },
+            "G4": {
+              "gate_pp": 3.05,
+              "se_pp": 1.87,
+              "ci95_pp": [
+                -0.62,
+                6.71
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": 0.78,
+              "se_pp": 1.56,
+              "ci95_pp": [
+                -2.29,
+                3.84
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.6079,
+              "G5_least_harmed_mean": 0.6653,
+              "diff_G1_minus_G5": -0.0574
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.3243,
+              "G5_least_harmed_mean": 0.0259,
+              "diff_G1_minus_G5": 0.2984
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.8312,
+              "G5_least_harmed_mean": 5.0799,
+              "diff_G1_minus_G5": 0.7512
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 86.5531,
+              "G5_least_harmed_mean": 92.7032,
+              "diff_G1_minus_G5": -6.1501
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.4099,
+              "G5_least_harmed_mean": 0.965,
+              "diff_G1_minus_G5": -0.5551
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.1751,
+              "G5_least_harmed_mean": 0.0031,
+              "diff_G1_minus_G5": 0.1721
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.6139,
+              "G5_least_harmed_mean": 0.6994,
+              "diff_G1_minus_G5": -0.0855
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0445,
+              "G5_least_harmed_mean": 0.1324,
+              "diff_G1_minus_G5": -0.088
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00045,
+            "robustness_value_q1_pct": 2.11,
+            "robustness_value_q1_alpha05_pct": 0.0,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 0.0,
+                "partial_r2_y_given_dx": 0.02804,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.04,
+                    "adjusted_lower_pp": 1.14,
+                    "adjusted_upper_pp": 1.21
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.07,
+                    "adjusted_lower_pp": 1.1,
+                    "adjusted_upper_pp": 1.24
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00043,
+                "partial_r2_y_given_dx": 5e-05,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.02,
+                    "adjusted_lower_pp": 1.15,
+                    "adjusted_upper_pp": 1.19
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.05,
+                    "adjusted_lower_pp": 1.13,
+                    "adjusted_upper_pp": 1.22
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "school_pre_he_2yr",
+                "partial_r2_d_given_x": 0.00915,
+                "partial_r2_y_given_dx": 0.00157,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.59,
+                    "adjusted_lower_pp": 0.58,
+                    "adjusted_upper_pp": 1.76
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 1.18,
+                    "adjusted_lower_pp": -0.01,
+                    "adjusted_upper_pp": 2.36
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ipcft_two_year": {
+          "blp": {
+            "ate_beta1_pp": -2.09,
+            "ate_se_pp": 0.72,
+            "ate_ci95_pp": [
+              -3.5,
+              -0.68
+            ],
+            "ate_p_value": 0.0037,
+            "het_beta2": 0.425,
+            "het_se": 0.179,
+            "het_p_value": 0.0177,
+            "heterogeneity_detected_05": true
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": -2.57,
+              "se_pp": 1.59,
+              "ci95_pp": [
+                -5.68,
+                0.54
+              ]
+            },
+            "G2": {
+              "gate_pp": -2.94,
+              "se_pp": 1.5,
+              "ci95_pp": [
+                -5.87,
+                -0.01
+              ]
+            },
+            "G3": {
+              "gate_pp": -3.92,
+              "se_pp": 1.78,
+              "ci95_pp": [
+                -7.41,
+                -0.42
+              ]
+            },
+            "G4": {
+              "gate_pp": 0.17,
+              "se_pp": 1.29,
+              "ci95_pp": [
+                -2.36,
+                2.71
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -0.93,
+              "se_pp": 0.98,
+              "ci95_pp": [
+                -2.86,
+                0.99
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.9887,
+              "G5_least_harmed_mean": 0.3729,
+              "diff_G1_minus_G5": 0.6157
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.4494,
+              "G5_least_harmed_mean": 0.0281,
+              "diff_G1_minus_G5": 0.4214
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.7009,
+              "G5_least_harmed_mean": 5.3243,
+              "diff_G1_minus_G5": 0.3766
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 87.3472,
+              "G5_least_harmed_mean": 91.7898,
+              "diff_G1_minus_G5": -4.4425
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.9846,
+              "G5_least_harmed_mean": 0.4181,
+              "diff_G1_minus_G5": 0.5666
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0014,
+              "G5_least_harmed_mean": 0.1879,
+              "diff_G1_minus_G5": -0.1865
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.6608,
+              "G5_least_harmed_mean": 0.6391,
+              "diff_G1_minus_G5": 0.0218
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0619,
+              "G5_least_harmed_mean": 0.1071,
+              "diff_G1_minus_G5": -0.0452
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00403,
+            "robustness_value_q1_pct": 6.16,
+            "robustness_value_q1_alpha05_pct": 2.33,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 0.0,
+                "partial_r2_y_given_dx": 0.00126,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.01,
+                    "adjusted_lower_pp": -2.25,
+                    "adjusted_upper_pp": -2.23
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.02,
+                    "adjusted_lower_pp": -2.26,
+                    "adjusted_upper_pp": -2.22
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00043,
+                "partial_r2_y_given_dx": 0.00229,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.16,
+                    "adjusted_lower_pp": -2.39,
+                    "adjusted_upper_pp": -2.08
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.31,
+                    "adjusted_lower_pp": -2.55,
+                    "adjusted_upper_pp": -1.93
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "school_pre_he_2yr",
+                "partial_r2_d_given_x": 0.00915,
+                "partial_r2_y_given_dx": 0.0003,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.26,
+                    "adjusted_lower_pp": -2.5,
+                    "adjusted_upper_pp": -1.98
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.52,
+                    "adjusted_lower_pp": -2.76,
+                    "adjusted_upper_pp": -1.72
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "persist_2yr": {
+          "blp": {
+            "ate_beta1_pp": 1.13,
+            "ate_se_pp": 1.13,
+            "ate_ci95_pp": [
+              -1.08,
+              3.34
+            ],
+            "ate_p_value": 0.317,
+            "het_beta2": -0.144,
+            "het_se": 0.294,
+            "het_p_value": 0.6256,
+            "heterogeneity_detected_05": false
+          },
+          "gates_by_quintile": {
+            "G1_most_harmed": {
+              "gate_pp": 0.11,
+              "se_pp": 1.57,
+              "ci95_pp": [
+                -2.96,
+                3.18
+              ]
+            },
+            "G2": {
+              "gate_pp": 1.28,
+              "se_pp": 2.23,
+              "ci95_pp": [
+                -3.08,
+                5.65
+              ]
+            },
+            "G3": {
+              "gate_pp": 2.45,
+              "se_pp": 2.17,
+              "ci95_pp": [
+                -1.8,
+                6.71
+              ]
+            },
+            "G4": {
+              "gate_pp": 3.58,
+              "se_pp": 1.73,
+              "ci95_pp": [
+                0.2,
+                6.97
+              ]
+            },
+            "G5_least_harmed": {
+              "gate_pp": -1.36,
+              "se_pp": 1.62,
+              "ci95_pp": [
+                -4.53,
+                1.81
+              ]
+            }
+          },
+          "clan_g1_vs_g5": {
+            "is_secondary": {
+              "G1_most_harmed_mean": 0.8408,
+              "G5_least_harmed_mean": 0.509,
+              "diff_G1_minus_G5": 0.3318
+            },
+            "is_tp": {
+              "G1_most_harmed_mean": 0.6512,
+              "G5_least_harmed_mean": 0.0059,
+              "diff_G1_minus_G5": 0.6453
+            },
+            "gpa_g1": {
+              "G1_most_harmed_mean": 5.5892,
+              "G5_least_harmed_mean": 5.2601,
+              "diff_G1_minus_G5": 0.329
+            },
+            "att_g1": {
+              "G1_most_harmed_mean": 84.6449,
+              "G5_least_harmed_mean": 94.7995,
+              "diff_G1_minus_G5": -10.1546
+            },
+            "stayer_g2": {
+              "G1_most_harmed_mean": 0.7321,
+              "G5_least_harmed_mean": 0.7439,
+              "diff_G1_minus_G5": -0.0119
+            },
+            "prior_failures": {
+              "G1_most_harmed_mean": 0.0776,
+              "G5_least_harmed_mean": 0.0421,
+              "diff_G1_minus_G5": 0.0355
+            },
+            "school_pre_he_2yr": {
+              "G1_most_harmed_mean": 0.5818,
+              "G5_least_harmed_mean": 0.6863,
+              "diff_G1_minus_G5": -0.1045
+            },
+            "progression_lag_post": {
+              "G1_most_harmed_mean": 0.0636,
+              "G5_least_harmed_mean": 0.1225,
+              "diff_G1_minus_G5": -0.0589
+            }
+          },
+          "cinelli_hazlett_ovb": {
+            "partial_r2_y_d_given_x": 0.00039,
+            "robustness_value_q1_pct": 1.96,
+            "robustness_value_q1_alpha05_pct": 0.0,
+            "benchmarks": [
+              {
+                "benchmark_covariate": "gpa_g1",
+                "partial_r2_d_given_x": 0.0,
+                "partial_r2_y_given_dx": 0.01429,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.03,
+                    "adjusted_lower_pp": -1.12,
+                    "adjusted_upper_pp": -1.07
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.05,
+                    "adjusted_lower_pp": -1.15,
+                    "adjusted_upper_pp": -1.04
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "att_g1",
+                "partial_r2_d_given_x": 0.00043,
+                "partial_r2_y_given_dx": 0.00126,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.12,
+                    "adjusted_lower_pp": -1.21,
+                    "adjusted_upper_pp": -0.97
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 0.24,
+                    "adjusted_lower_pp": -1.33,
+                    "adjusted_upper_pp": -0.85
+                  }
+                }
+              },
+              {
+                "benchmark_covariate": "school_pre_he_2yr",
+                "partial_r2_d_given_x": 0.00915,
+                "partial_r2_y_given_dx": 0.00323,
+                "bounds": {
+                  "k_1x": {
+                    "max_bias_pp": 0.89,
+                    "adjusted_lower_pp": -1.98,
+                    "adjusted_upper_pp": -0.2
+                  },
+                  "k_2x": {
+                    "max_bias_pp": 1.79,
+                    "adjusted_lower_pp": -2.88,
+                    "adjusted_upper_pp": 0.7
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "g_minus_2_stayer_vs_late_entrant_moderation": {
+      "secondary": {
+        "stayer_from_g_minus_2": {
+          "n_students": 29683,
+          "n_treated": 1974,
+          "treated_he_2yr_pct": 59.07,
+          "control_he_2yr_pct": 72.3,
+          "raw_gap_pp": -13.23,
+          "dml_plr_full_pp": -1.5,
+          "dml_plr_full_se_pp": 1.59
+        },
+        "late_entrant_at_g_minus_1": {
+          "n_students": 8842,
+          "n_treated": 1264,
+          "treated_he_2yr_pct": 43.28,
+          "control_he_2yr_pct": 50.98,
+          "raw_gap_pp": -7.7,
+          "dml_plr_full_pp": 1.5,
+          "dml_plr_full_se_pp": 2.02
+        }
+      },
+      "basic": {
+        "stayer_from_g_minus_2": {
+          "n_students": 20783,
+          "n_treated": 1313,
+          "treated_he_2yr_pct": 51.18,
+          "control_he_2yr_pct": 53.23,
+          "raw_gap_pp": -2.04,
+          "dml_plr_full_pp": 0.37,
+          "dml_plr_full_se_pp": 1.93
+        },
+        "late_entrant_at_g_minus_1": {
+          "n_students": 2845,
+          "n_treated": 241,
+          "treated_he_2yr_pct": 44.4,
+          "control_he_2yr_pct": 42.97,
+          "raw_gap_pp": 1.43,
+          "dml_plr_full_pp": 5.43,
+          "dml_plr_full_se_pp": 4.14
+        }
+      }
+    },
+    "paes_2021_2026_centralized_admission_and_selectivity": {
+      "authority": "MINEDUC_DATOS_ABIERTOS_CC_BY_2021_2026_ADR_188_RESPECTED",
+      "legacy_demre_2014_2020_used": false,
+      "n_students": 29218,
+      "n_treated": 2347,
+      "n_schools": 2079,
+      "outcomes": {
+        "paes_rendered": {
+          "treated_mean_pct": 61.27,
+          "control_mean_pct": 72.25,
+          "raw_gap_pp": -10.98,
+          "dml_estimates": {
+            "student_acad_controls": {
+              "plr_pp": -3.09,
+              "se_pp": 2.73,
+              "ci95_pp": [
+                -8.44,
+                2.25
+              ]
+            },
+            "full_with_school_pre_controls": {
+              "plr_pp": 0.75,
+              "se_pp": 1.73,
+              "ci95_pp": [
+                -2.65,
+                4.15
+              ]
+            }
+          }
+        },
+        "paes_applied": {
+          "treated_mean_pct": 41.63,
+          "control_mean_pct": 48.38,
+          "raw_gap_pp": -6.75,
+          "dml_estimates": {
+            "student_acad_controls": {
+              "plr_pp": -0.15,
+              "se_pp": 2.67,
+              "ci95_pp": [
+                -5.39,
+                5.09
+              ]
+            },
+            "full_with_school_pre_controls": {
+              "plr_pp": 4.3,
+              "se_pp": 1.66,
+              "ci95_pp": [
+                1.05,
+                7.55
+              ]
+            }
+          }
+        },
+        "paes_enrolled": {
+          "treated_mean_pct": 33.28,
+          "control_mean_pct": 40.74,
+          "raw_gap_pp": -7.46,
+          "dml_estimates": {
+            "student_acad_controls": {
+              "plr_pp": -1.44,
+              "se_pp": 2.63,
+              "ci95_pp": [
+                -6.6,
+                3.72
+              ]
+            },
+            "full_with_school_pre_controls": {
+              "plr_pp": 2.87,
+              "se_pp": 1.68,
+              "ci95_pp": [
+                -0.43,
+                6.17
+              ]
+            }
+          }
+        },
+        "paes_high_sel_q5": {
+          "treated_mean_pct": 12.14,
+          "control_mean_pct": 14.68,
+          "raw_gap_pp": -2.54,
+          "dml_estimates": {
+            "student_acad_controls": {
+              "plr_pp": -0.62,
+              "se_pp": 1.52,
+              "ci95_pp": [
+                -3.6,
+                2.36
+              ]
+            },
+            "full_with_school_pre_controls": {
+              "plr_pp": 1.75,
+              "se_pp": 1.46,
+              "ci95_pp": [
+                -1.12,
+                4.62
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Transcreated English Source — Part IV: Do School Closures Close the Door to Higher Education?
+
+> Canonical URL: `https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/`
+
+When a secondary school closes mid-stream, families worry about much more than finding a seat for the next academic year. Does losing one's high school also close the door to higher education two, three, or five years later? And how much of the post-graduation gap we observe at the end of the road was actually caused by the school closure itself, versus how much was already written years earlier in the structural fragility of the school and the student's prior academic trajectory?
+
+To answer that question in Chile, I linked 20 years of school enrollment records (`79,709,054` enrollment records and `73,873,835` academic performance records from `2004` to `2025`) with **20** annual Higher Education Information Service (`SIES`) Enrollment rosters (`2007–2026`), **19** SIES Graduation rosters (`2007–2025`), and **6** open-access centralized university admission cycles (`PAES/PDT`, `2021–2026`).
+
+## 1. The Three-Rung Identification Ladder (`2016–2019`, `N = 62,153`)
+
+If I compare displaced secondary students (`1.°` to `3.° Medio` at `G−1`) only against peers of the same sex, age, grade, region, rurality, and school provider type, higher-education entry within two years of theoretical high-school graduation (`t₀` or `t₀ + 1`) appears to plunge by **−13.24 percentage points** (`SE 2.94 pp`) in Double/Debiased Machine Learning (`DML PLR`, **−14.64 pp** in exact demographic cells).
+
+Once I climb three rungs of causal control, the picture changes:
+- **Rung 2 (+ Student's prior academic backpack at `G−1` and `G−2`):** Controlling for pre-closure grade point average (`NEM`), attendance, prior grade repetition, and school stability cuts the gap by **57.5%** to **−5.63 pp** (`SE 2.12 pp`).
+- **Rung 3 (+ School's prior baseline at `G−5`, four years before closure):** Comparing the closing cohort (`G−1`) against an earlier cohort (`G−5`) from the exact same school four years before closure shows that **82.0%** of the raw gap (**−12.00 pp**) already existed at `G−5`, reducing the repeated-cohort difference-in-differences estimate to **−2.64 pp** (`SE 2.22 pp`) and the full `DML PLR` estimate to **−0.29 pp** (`SE 1.20 pp`; Explainable Boosting Machine `EBM`: **−0.91 pp**; Hájek Doubly Robust `DR-ATT`: **+0.19 pp**). In upper primary (`7.°` and `8.° Básico`), the point estimate is **+1.21 pp** in DiD and **+1.02 pp** in full `DML`.
+
+## 2. Where the Harm Concentrates: Vocational-Technical Higher Education (`IP/CFT`) and Vulnerable Trajectories (`G1`)
+
+A near-zero overall average does not mean nothing happened:
+- **Contraction of the vocational-technical channel (`IP/CFT`):** While university entry does not fall (**+1.98 pp**, `[−0.22, +4.19]`), 2-year entry into Professional Institutes and Technical Training Centers (`IP/CFT`) contracts by **−2.09 pp** (`SE 0.72 pp`, `95% CI [−3.50, −0.68]`, `p = 0.0037`) as the `β₁` Best Linear Predictor on the full `DML` residuals, **−2.59 pp** in `2016–2019` DiD (`SE 2.29`), and **−4.33 pp** (`SE 2.88`) during the `2020–2022` pandemic closures. In Cinelli & Hazlett (2020) sensitivity analysis, an omitted confounder would require a Robustness Value of **6.16%** (**2.33%** at the 5% significance threshold) to explain away this contraction.
+- **Heterogeneity (`Orthogonal R-Learner` `BLP / GATE / CLAN`):** When controlling only for the student's individual backpack, the `BLP` heterogeneity slope is statistically significant for overall entry (`β₂ = +0.634`, `p = 0.0243`), 2-year persistence (`β₂ = +0.580`, `p = 0.0247`), and `IP/CFT` entry (`β₂ = +0.800`, `p = 0.0007`, remaining significant at `β₂ = +0.425`, `p = 0.0177` even after adding `G−5` school history). The most vulnerable quintile (`G1`: **99.5%** secondary students, **77.2%** vocational track, **87.1%** prior attendance) drops **−12.26 pp** in overall entry (**−8.02 pp** in `IP/CFT` and **−11.48 pp** in 2-year persistence) before school history is added—a drop absorbed to **−0.26 pp** once the school's `G−5` baseline is controlled for.
+
+Full interactive article, methodology, and open CSV tables: https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/

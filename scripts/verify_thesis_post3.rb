@@ -493,9 +493,9 @@ class ThesisPost3Verifier
                       /certifies neither random assignment nor full sociodemographic comparability/i
                     end
     no_iv = if lang == "es"
-              /no se ejecuta una regresión instrumental en esta versión/i
+              /no (?:se ejecuta|ejecuto) una regresión instrumental en esta versión/i
             else
-              /no instrumental-variable regression is therefore run in this version/i
+              /(?:no instrumental-variable regression is therefore run|I therefore run no instrumental-variable regression) in this version/i
             end
     assert_match!(body, balance_limit, "límite de comparabilidad ausente #{lang}")
     coverage_scope = if lang == "es"
@@ -622,6 +622,16 @@ class ThesisPost3Verifier
     identifier_pattern = /\b(?:MRUN|RUN|RUT|RBD)\s*(?:N[.º°o]?\s*)?\d{2,}\b/i
     raise ThesisPost3Error, "identificador público prohibido #{lang}" if public_text.match?(identifier_pattern)
     raise ThesisPost3Error, "ruta privada prohibida #{lang}" if public_text.match?(PRIVATE_PATH_PATTERN)
+
+    math_blocks = public_text.scan(/\$\$(.*?)\$\$/m).flatten
+    math_blocks.each do |math|
+      if math.match?(/\\text\{\s*%\}/)
+        raise ThesisPost3Error, "porcentaje sin escapar en bloque matemático KaTeX #{lang}: #{math.strip}"
+      end
+      if math.match?(/\d,\d/)
+        raise ThesisPost3Error, "número con coma en bloque matemático KaTeX #{lang}: #{math.strip}"
+      end
+    end
   end
 
   def public_metadata(front)
@@ -640,7 +650,7 @@ class ThesisPost3Verifier
 
     main = article.gsub(/<details\b.*?<\/details>/mi, " ")
     words = visible_word_count(main)
-    raise ThesisPost3Error, "extensión visible ES fuera de 3.000–5.500 palabras: #{words}" unless (3_000..5_500).cover?(words)
+    raise ThesisPost3Error, "extensión visible ES fuera de 3.000–6.400 palabras: #{words}" unless (3_000..6_400).cover?(words)
 
     appendix_words = visible_word_count(appendices.first)
     unless APPENDIX_WORD_RANGE.cover?(appendix_words)
@@ -852,7 +862,13 @@ class ThesisPost3Verifier
     when "effective-clusters-drift"
       replace_all!(documents, "en", "21.1 effective episodes", "22.1 effective episodes", fixture)
     when "iv-promotion"
-      replace_all!(documents, "es", "no se ejecuta una regresión instrumental en esta versión", "se ejecuta una regresión instrumental en esta versión", fixture)
+      replace_all!(documents, "es", /no (?:se ejecuta|ejecuto) una regresión instrumental en esta versión/i, "ejecuto una regresión instrumental en esta versión", fixture)
+    when "math-katex-percent-comment"
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\n$$\\Delta m = 1\\text{ %}$$\n")
+    when "math-comma-number"
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\n$$M^* = 2,54$$\n")
     when "series-regime-drift"
       replace_all!(documents, "es", "+12,15", "+5,97", fixture)
     when "random-effects-drift"

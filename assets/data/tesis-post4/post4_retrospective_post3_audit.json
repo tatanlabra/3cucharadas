@@ -1,0 +1,966 @@
+{
+  "editorial_hygiene_posts_i_iii": {
+    "post_i_ai_disclosure_fixed": true,
+    "post_i_files": [
+      "_posts/2026-08-29-replica-tesis-establecimientos-educacionales.md",
+      "_posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md"
+    ],
+    "post_iii_frozen_artifacts_untouched": true
+  },
+  "g_minus_2_anticipation_anchor": {
+    "composition_at_g_minus_2": {
+      "control_stayer_from_g_minus_2_share": 0.826626,
+      "control_switched_m2_to_m1_share": 0.157467,
+      "control_total_students": 83173,
+      "treated_stayer_from_g_minus_2_share": 0.70582,
+      "treated_switched_m2_to_m1_share": 0.265461,
+      "treated_total_students": 6581
+    },
+    "outcomes": {
+      "grade_progression_or_lag": {
+        "anchored_g_minus_2_stayers": {
+          "ci_lower": 0.0104216,
+          "ci_upper": 0.06688642,
+          "degrees_of_freedom": 59,
+          "estimate": 0.03865401,
+          "n_control_episodes": 5208,
+          "n_control_students": 53392,
+          "n_treated_episodes": 60,
+          "n_treated_students": 3556,
+          "standard_error": 0.01410918,
+          "status": "ESTIMATED",
+          "supported_cells": 563,
+          "wild_ci_lower": 0.01150661,
+          "wild_ci_upper": 0.0656794
+        },
+        "baseline_g_minus_1_full": {
+          "ci_lower": 0.02075347,
+          "ci_upper": 0.08505228,
+          "degrees_of_freedom": 61,
+          "estimate": 0.05290288,
+          "n_control_episodes": 5568,
+          "n_control_students": 65538,
+          "n_treated_episodes": 62,
+          "n_treated_students": 4815,
+          "standard_error": 0.01607773,
+          "status": "ESTIMATED",
+          "supported_cells": 668,
+          "wild_ci_lower": 0.02184994,
+          "wild_ci_upper": 0.08448781
+        },
+        "difference_stayers_minus_full_pp": -1.4249,
+        "late_entrants_switched_m2_to_m1": {
+          "ci_lower": 0.0506264,
+          "ci_upper": 0.14102252,
+          "degrees_of_freedom": 37,
+          "estimate": 0.09582446,
+          "n_control_episodes": 2573,
+          "n_control_students": 7704,
+          "n_treated_episodes": 38,
+          "n_treated_students": 1033,
+          "standard_error": 0.02230689,
+          "status": "ESTIMATED",
+          "supported_cells": 273,
+          "wild_ci_lower": 0.05279452,
+          "wild_ci_upper": 0.13934611
+        }
+      },
+      "persistent_nonenrollment_two_years": {
+        "anchored_g_minus_2_stayers": {
+          "ci_lower": -0.00596597,
+          "ci_upper": 0.01283994,
+          "degrees_of_freedom": 58,
+          "estimate": 0.00343699,
+          "n_control_episodes": 4954,
+          "n_control_students": 39794,
+          "n_treated_episodes": 59,
+          "n_treated_students": 2604,
+          "standard_error": 0.00469745,
+          "status": "ESTIMATED",
+          "supported_cells": 460,
+          "wild_ci_lower": -0.00433596,
+          "wild_ci_upper": 0.01142318
+        },
+        "baseline_g_minus_1_full": {
+          "ci_lower": -0.00773122,
+          "ci_upper": 0.02026484,
+          "degrees_of_freedom": 61,
+          "estimate": 0.00626681,
+          "n_control_episodes": 5377,
+          "n_control_students": 49944,
+          "n_treated_episodes": 62,
+          "n_treated_students": 3666,
+          "standard_error": 0.00700033,
+          "status": "ESTIMATED",
+          "supported_cells": 548,
+          "wild_ci_lower": -0.00630606,
+          "wild_ci_upper": 0.01908157
+        },
+        "difference_stayers_minus_full_pp": -0.283,
+        "late_entrants_switched_m2_to_m1": {
+          "ci_lower": -0.01141109,
+          "ci_upper": 0.05033129,
+          "degrees_of_freedom": 35,
+          "estimate": 0.0194601,
+          "n_control_episodes": 2314,
+          "n_control_students": 6529,
+          "n_treated_episodes": 36,
+          "n_treated_students": 889,
+          "standard_error": 0.01520667,
+          "status": "ESTIMATED",
+          "supported_cells": 221,
+          "wild_ci_lower": -0.00981995,
+          "wild_ci_upper": 0.04883117
+        }
+      }
+    }
+  },
+  "generated_at_utc": "2026-11-05T02:18:38.551402+00:00",
+  "honest_did_rambachan_roth_2023": {
+    "grade_progression_or_lag": {
+      "breakdown_m_star": {
+        "rm_honest_upper95_zero": 2.5444,
+        "rm_point_sesoi_2pp": 0.1757,
+        "rm_point_zero": 5.205,
+        "sd_smoothness_zero": 14.2432
+      },
+      "grid": [
+        {
+          "m_bar": 0.0,
+          "rm_honest_ci95": [
+            0.02069861,
+            0.08510714
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.02069861,
+            0.08510714
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.05290288,
+            0.05290288
+          ],
+          "sd_smoothness_ci95": [
+            0.02069861,
+            0.08510714
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 0.25,
+          "rm_honest_ci95": [
+            0.0186649,
+            0.08714085
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01970444,
+            0.08610132
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.0519087,
+            0.05389705
+          ],
+          "sd_smoothness_ci95": [
+            0.0203353,
+            0.08547045
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 0.5,
+          "rm_honest_ci95": [
+            0.01663119,
+            0.08917456
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01871026,
+            0.08709549
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.05091453,
+            0.05489123
+          ],
+          "sd_smoothness_ci95": [
+            0.019972,
+            0.08583376
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 0.75,
+          "rm_honest_ci95": [
+            0.01459748,
+            0.09120827
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01771609,
+            0.08808967
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04992035,
+            0.0558854
+          ],
+          "sd_smoothness_ci95": [
+            0.01960869,
+            0.08619706
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 1.0,
+          "rm_honest_ci95": [
+            0.01256378,
+            0.09324198
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01672191,
+            0.08908384
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04892618,
+            0.05687957
+          ],
+          "sd_smoothness_ci95": [
+            0.01924538,
+            0.08656037
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 1.25,
+          "rm_honest_ci95": [
+            0.01053007,
+            0.09527569
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01572774,
+            0.09007802
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04793201,
+            0.05787375
+          ],
+          "sd_smoothness_ci95": [
+            0.01888208,
+            0.08692368
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 1.5,
+          "rm_honest_ci95": [
+            0.00849636,
+            0.0973094
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01473357,
+            0.09107219
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04693783,
+            0.05886792
+          ],
+          "sd_smoothness_ci95": [
+            0.01851877,
+            0.08728699
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 2.0,
+          "rm_honest_ci95": [
+            0.00442894,
+            0.10137682
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01274522,
+            0.09306054
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04494948,
+            0.06085627
+          ],
+          "sd_smoothness_ci95": [
+            0.01779215,
+            0.0880136
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 2.5,
+          "rm_honest_ci95": [
+            0.00036152,
+            0.10544423
+          ],
+          "rm_honest_excludes_zero": true,
+          "rm_point_ci95": [
+            0.01075687,
+            0.09504889
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04296113,
+            0.06284462
+          ],
+          "sd_smoothness_ci95": [
+            0.01706554,
+            0.08874021
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 3.0,
+          "rm_honest_ci95": [
+            -0.0037059,
+            0.10951165
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            0.00876852,
+            0.09703724
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.04097279,
+            0.06483297
+          ],
+          "sd_smoothness_ci95": [
+            0.01633893,
+            0.08946683
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 4.0,
+          "rm_honest_ci95": [
+            -0.01184073,
+            0.11764649
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            0.00479182,
+            0.10101393
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.03699609,
+            0.06880967
+          ],
+          "sd_smoothness_ci95": [
+            0.0148857,
+            0.09092006
+          ],
+          "sd_smoothness_excludes_zero": true
+        },
+        {
+          "m_bar": 5.0,
+          "rm_honest_ci95": [
+            -0.01997557,
+            0.12578132
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            0.00081512,
+            0.10499063
+          ],
+          "rm_point_excludes_zero": true,
+          "rm_point_identified_set": [
+            0.03301939,
+            0.07278636
+          ],
+          "sd_smoothness_ci95": [
+            0.01343247,
+            0.09237329
+          ],
+          "sd_smoothness_excludes_zero": true
+        }
+      ],
+      "max_abs_pre_point": 0.0039767,
+      "max_abs_pre_upper95": 0.00813484,
+      "max_pre_slope_change": 0.00145323,
+      "outcome_id": "grade_progression_or_lag",
+      "post_ci95": [
+        0.020753471973091,
+        0.0850522825808917
+      ],
+      "post_estimate": 0.0529028772769913,
+      "post_half_width_envelope": 0.03220427,
+      "post_standard_error": 0.0161051641857286,
+      "pre_placebo_estimates": [
+        0.00157934219933038,
+        0.00303257061209168,
+        0.0039766973340571
+      ],
+      "pre_placebo_standard_errors": [
+        0.00242635705416985,
+        0.00199784790828709,
+        0.00249019543358914
+      ]
+    },
+    "persistent_nonenrollment_two_years": {
+      "breakdown_m_star": {
+        "rm_honest_upper95_zero": 0.0,
+        "rm_point_sesoi_2pp": 0.0,
+        "rm_point_zero": 0.0,
+        "sd_smoothness_zero": 0.0
+      },
+      "grid": [
+        {
+          "m_bar": 0.0,
+          "rm_honest_ci95": [
+            -0.00773689,
+            0.0202705
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.00773689,
+            0.0202705
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00626681,
+            0.00626681
+          ],
+          "sd_smoothness_ci95": [
+            -0.00773689,
+            0.0202705
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 0.25,
+          "rm_honest_ci95": [
+            -0.00958175,
+            0.02211536
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.00875463,
+            0.02128824
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00524907,
+            0.00728454
+          ],
+          "sd_smoothness_ci95": [
+            -0.0082242,
+            0.02075781
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 0.5,
+          "rm_honest_ci95": [
+            -0.01142661,
+            0.02396022
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.00977236,
+            0.02230597
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00423134,
+            0.00830228
+          ],
+          "sd_smoothness_ci95": [
+            -0.00871151,
+            0.02124512
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 0.75,
+          "rm_honest_ci95": [
+            -0.01327146,
+            0.02580508
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.0107901,
+            0.02332371
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.0032136,
+            0.00932001
+          ],
+          "sd_smoothness_ci95": [
+            -0.00919882,
+            0.02173243
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 1.0,
+          "rm_honest_ci95": [
+            -0.01511632,
+            0.02764994
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.01180783,
+            0.02434144
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00219587,
+            0.01033775
+          ],
+          "sd_smoothness_ci95": [
+            -0.00968612,
+            0.02221974
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 1.25,
+          "rm_honest_ci95": [
+            -0.01696118,
+            0.02949479
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.01282557,
+            0.02535918
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00117813,
+            0.01135548
+          ],
+          "sd_smoothness_ci95": [
+            -0.01017343,
+            0.02270705
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 1.5,
+          "rm_honest_ci95": [
+            -0.01880604,
+            0.03133965
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.0138433,
+            0.02637692
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            0.00016039,
+            0.01237322
+          ],
+          "sd_smoothness_ci95": [
+            -0.01066074,
+            0.02319435
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 2.0,
+          "rm_honest_ci95": [
+            -0.02249575,
+            0.03502937
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.01587877,
+            0.02841239
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            -0.00187508,
+            0.01440869
+          ],
+          "sd_smoothness_ci95": [
+            -0.01163536,
+            0.02416897
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 2.5,
+          "rm_honest_ci95": [
+            -0.02618547,
+            0.03871908
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.01791424,
+            0.03044786
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            -0.00391055,
+            0.01644416
+          ],
+          "sd_smoothness_ci95": [
+            -0.01260997,
+            0.02514359
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 3.0,
+          "rm_honest_ci95": [
+            -0.02987518,
+            0.0424088
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.01994971,
+            0.03248333
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            -0.00594602,
+            0.01847963
+          ],
+          "sd_smoothness_ci95": [
+            -0.01358459,
+            0.0261182
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 4.0,
+          "rm_honest_ci95": [
+            -0.03725462,
+            0.04978823
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.02402066,
+            0.03655427
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            -0.01001696,
+            0.02255057
+          ],
+          "sd_smoothness_ci95": [
+            -0.01553382,
+            0.02806744
+          ],
+          "sd_smoothness_excludes_zero": false
+        },
+        {
+          "m_bar": 5.0,
+          "rm_honest_ci95": [
+            -0.04463405,
+            0.05716766
+          ],
+          "rm_honest_excludes_zero": false,
+          "rm_point_ci95": [
+            -0.0280916,
+            0.04062521
+          ],
+          "rm_point_excludes_zero": false,
+          "rm_point_identified_set": [
+            -0.0140879,
+            0.02662151
+          ],
+          "sd_smoothness_ci95": [
+            -0.01748306,
+            0.03001667
+          ],
+          "sd_smoothness_excludes_zero": false
+        }
+      ],
+      "max_abs_pre_point": 0.00407094,
+      "max_abs_pre_upper95": 0.00737943,
+      "max_pre_slope_change": 0.00194923,
+      "outcome_id": "persistent_nonenrollment_two_years",
+      "post_ci95": [
+        -0.00773122488720546,
+        0.0202648385597376
+      ],
+      "post_estimate": 0.00626680683626607,
+      "post_half_width_envelope": 0.0140037,
+      "post_standard_error": 0.00700316638906226,
+      "pre_placebo_estimates": [
+        0.000843056099262967,
+        0.00212170788885129,
+        0.00407094143518068
+      ],
+      "pre_placebo_standard_errors": [
+        0.00354021812170122,
+        0.00170802040481292,
+        0.00197872782761344
+      ]
+    }
+  },
+  "long_series_2005_2024_synthesis": {
+    "random_effects_meta_analysis": {
+      "grade_progression_or_lag": {
+        "fixed_effect_reproduced": {
+          "cochran_q": 76.5184521282,
+          "degrees_of_freedom": 18,
+          "estimate": 0.0514242805,
+          "i2_percent": 76.4762622618
+        },
+        "random_effects_dl": {
+          "ci_lower": 0.0452851064,
+          "ci_upper": 0.0816099431,
+          "estimate": 0.0634475248,
+          "k": 19,
+          "method": "random effects (DL tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+          "prediction_interval_lower": -0.0101357921,
+          "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)",
+          "prediction_interval_upper": 0.1370308416,
+          "tau": 0.0335091042,
+          "tau2": 0.0011228601
+        },
+        "random_effects_pm": {
+          "ci_lower": 0.0449441521,
+          "ci_upper": 0.0809194926,
+          "estimate": 0.0629318223,
+          "k": 19,
+          "method": "random effects (PM tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+          "prediction_interval_lower": 0.0009437561,
+          "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)",
+          "prediction_interval_upper": 0.1249198886,
+          "tau": 0.0281056388,
+          "tau2": 0.0007899269
+        }
+      },
+      "persistent_nonenrollment_two_years": {
+        "fixed_effect_reproduced": {
+          "cochran_q": 41.3677957976,
+          "degrees_of_freedom": 16,
+          "estimate": 0.0053894059,
+          "i2_percent": 61.3225706337
+        },
+        "random_effects_dl": {
+          "ci_lower": 0.0013343213,
+          "ci_upper": 0.0133496113,
+          "estimate": 0.0073419663,
+          "k": 17,
+          "method": "random effects (DL tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+          "prediction_interval_lower": -0.0085815825,
+          "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)",
+          "prediction_interval_upper": 0.0232655152,
+          "tau": 0.0070542849,
+          "tau2": 4.97629e-05
+        },
+        "random_effects_pm": {
+          "ci_lower": 0.0015531077,
+          "ci_upper": 0.0141661719,
+          "estimate": 0.0078596398,
+          "k": 17,
+          "method": "random effects (PM tau2) with Hartung-Knapp-Sidik-Jonkman CI",
+          "prediction_interval_lower": -0.0134333736,
+          "prediction_interval_method": "Higgins-Thompson-Spiegelhalter 2009, t(k-2)",
+          "prediction_interval_upper": 0.0291526532,
+          "tau": 0.0095366885,
+          "tau2": 9.09484e-05
+        }
+      }
+    },
+    "rcid_v1_funnel_2005_2025": {
+      "D0_raw_closure": 1981,
+      "D1_strict_directory_exit": 1807,
+      "D2_rcid_v1_conservative": 1678,
+      "D2_rcid_v1_strict_clean_t1": 1648
+    },
+    "regime_estimates": [
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.037761,
+          "ci_upper": 0.205171,
+          "estimate": 0.121466,
+          "n_treated_students": 23928,
+          "standard_error": 0.042584
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": 0.005262,
+          "ci_upper": 0.019013,
+          "estimate": 0.012138,
+          "n_treated_students": 15696,
+          "standard_error": 0.003495
+        },
+        "regime_id": "pre_lge_sep_2005_2010",
+        "years": [
+          2005,
+          2010
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.062008,
+          "ci_upper": 0.094051,
+          "estimate": 0.078216,
+          "n_treated_students": 24633,
+          "standard_error": 0.008059
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": 0.011027,
+          "ci_upper": 0.025948,
+          "estimate": 0.018488,
+          "n_treated_students": 20598,
+          "standard_error": 0.003797
+        },
+        "regime_id": "post_lge_sac_2011_2015",
+        "years": [
+          2011,
+          2015
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.020753,
+          "ci_upper": 0.085052,
+          "estimate": 0.052903,
+          "n_treated_students": 4815,
+          "standard_error": 0.016078
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": -0.007731,
+          "ci_upper": 0.020265,
+          "estimate": 0.006267,
+          "n_treated_students": 3666,
+          "standard_error": 0.007
+        },
+        "regime_id": "primary_pre_pandemic_2016_2019",
+        "years": [
+          2016,
+          2019
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": -0.006263,
+          "ci_upper": 0.060348,
+          "estimate": 0.027042,
+          "n_treated_students": 2650,
+          "standard_error": 0.016351
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": -0.013658,
+          "ci_upper": 0.00807,
+          "estimate": -0.002794,
+          "n_treated_students": 2092,
+          "standard_error": 0.005334
+        },
+        "regime_id": "pandemic_covid_2020_2022",
+        "years": [
+          2020,
+          2022
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": -0.015514,
+          "ci_upper": 0.067311,
+          "estimate": 0.025899,
+          "n_treated_students": 836,
+          "standard_error": 0.019853
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": -0.026447,
+          "ci_upper": 0.007798,
+          "estimate": -0.009325,
+          "n_treated_students": 271,
+          "standard_error": 0.007425
+        },
+        "regime_id": "post_pandemic_2023_2024",
+        "years": [
+          2023,
+          2024
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.056162,
+          "ci_upper": 0.142893,
+          "estimate": 0.099527,
+          "n_treated_students": 48561,
+          "standard_error": 0.022096
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": 0.01056,
+          "ci_upper": 0.020923,
+          "estimate": 0.015742,
+          "n_treated_students": 36294,
+          "standard_error": 0.00264
+        },
+        "regime_id": "historical_pre_2016_2005_2015",
+        "years": [
+          2005,
+          2015
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.054967,
+          "ci_upper": 0.133534,
+          "estimate": 0.094251,
+          "n_treated_students": 54212,
+          "standard_error": 0.020018
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": 0.009817,
+          "ci_upper": 0.019568,
+          "estimate": 0.014709,
+          "n_treated_students": 40231,
+          "standard_error": 0.002475
+        },
+        "regime_id": "all_non_pandemic_2005_2019_2023_2024",
+        "years": [
+          2005,
+          2024
+        ]
+      },
+      {
+        "grade_progression_or_lag": {
+          "ci_lower": 0.053434,
+          "ci_upper": 0.128803,
+          "estimate": 0.091118,
+          "n_treated_students": 56862,
+          "standard_error": 0.019204
+        },
+        "persistent_nonenrollment_two_years": {
+          "ci_lower": 0.009187,
+          "ci_upper": 0.018501,
+          "estimate": 0.013844,
+          "n_treated_students": 42323,
+          "standard_error": 0.002373
+        },
+        "regime_id": "full_series_2005_2024",
+        "years": [
+          2005,
+          2024
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "contains_school_identifiers": false,
+    "contains_student_identifiers": false,
+    "contains_student_rows": false
+  },
+  "schema_version": "post4-retrospective-post3-v1",
+  "upstream_bindings": {
+    "post3_audit_light_v1_sha256": "2247d58e0f5f84929eb553859626d59607183c48db5e34599241c3464bb62030",
+    "post3_full_series_2004_2025_sha256": "677b207d93997f5849edfc89039d84ec62b8e85133fc71efa3bfdf568fe5f3a2",
+    "post3_modern_causal_v3_1_sha256": "deba23f78b67595f86ad076ed03d623117b6411305a1d24107e211c6b068a724"
+  }
+}

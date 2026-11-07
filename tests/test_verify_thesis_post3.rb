@@ -55,7 +55,9 @@ class VerifyThesisPost3Test < Minitest::Test
     "appendix-overflow" => "apéndice metodológico fuera de extensión",
     "footnote-orphan" => "nota sin cita en el texto es: manski2003",
     "footnote-missing-definition" => "cita sin nota en: brummet2015",
-    "footnote-parity-drift" => "notas bilingües divergentes"
+    "footnote-parity-drift" => "notas bilingües divergentes",
+    "math-katex-percent-comment" => "porcentaje sin escapar en bloque matemático KaTeX es",
+    "math-comma-number" => "número con coma en bloque matemático KaTeX es"
   }.freeze
 
   def run_gate(fixture = nil)
