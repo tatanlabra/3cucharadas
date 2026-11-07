@@ -357,14 +357,14 @@
     fecha: '2026-11-01'
     url_publicada_en: https://www.reddit.com/r/AI_Agents/comments/1xleo4g/
     estado: publicado
-    nota: "Verificado con registrar_publicacion.py: r/AI_Agents; declarado por
-      el autor (Reddit bloquea la verificación automática)."
+    nota: 'Verificado con registrar_publicacion.py: r/AI_Agents; declarado por el
+      autor (Reddit bloquea la verificación automática).'
   - plataforma: reddit
     fecha: '2026-11-01'
     url_publicada_en: https://www.reddit.com/r/LocalLLaMA/comments/1xlepxp/
     estado: publicado
-    nota: "Verificado con registrar_publicacion.py: r/LocalLLaMA; declarado
-      por el autor (Reddit bloquea la verificación automática)."
+    nota: 'Verificado con registrar_publicacion.py: r/LocalLLaMA; declarado por el
+      autor (Reddit bloquea la verificación automática).'
 - slug: jueces-locales-cpu-laya-vega-arc
   ref_interno: jueces-locales-cpu-laya-vega-arc
   url_canonica: https://3cucharadas.cl/ia-herramientas/datos-codigo/jueces-locales-cpu-laya-vega-arc/
@@ -419,22 +419,21 @@
     fecha: '2026-11-01'
     url_publicada: https://www.linkedin.com/posts/cristianlabra_carrusel-efectos-de-los-cierres-ugcPost-7522753696963649538-ADHa/
     estado: publicado
-    nota: Publicación de documento con el carrusel PDF de nueve láminas y el
-      copy corto revisado por el autor (enlace al post y al episodio). Enlace
-      corto de origen https://lnkd.in/p/dDN3D8NP; se registra la URL resuelta
-      sin parámetros de rastreo.
+    nota: Publicación de documento con el carrusel PDF de nueve láminas y el copy
+      corto revisado por el autor (enlace al post y al episodio). Enlace corto de
+      origen https://lnkd.in/p/dDN3D8NP; se registra la URL resuelta sin parámetros
+      de rastreo.
   - plataforma: x
     fecha: '2026-11-01'
     url_publicada: https://x.com/tatanlabra/status/2116991976646082665
     estado: publicado
-    nota: "Verificado con registrar_publicacion.py: oEmbed público 200 con el
-      autor."
+    nota: 'Verificado con registrar_publicacion.py: oEmbed público 200 con el autor.'
   - plataforma: reddit
     fecha: '2026-11-01'
     url_publicada_en: https://www.reddit.com/r/PublicPolicy/comments/1xle8rs/
     estado: publicado
-    nota: "Verificado con registrar_publicacion.py: r/PublicPolicy; declarado
-      por el autor (Reddit bloquea la verificación automática)."
+    nota: 'Verificado con registrar_publicacion.py: r/PublicPolicy; declarado por
+      el autor (Reddit bloquea la verificación automática).'
 - slug: cierre-escolar-educacion-superior-causal-ml
   ref_interno: cierre-escolar-educacion-superior-causal-ml
   url_canonica: https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/
