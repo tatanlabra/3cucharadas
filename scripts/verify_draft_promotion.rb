@@ -163,10 +163,18 @@ module DraftPromotionCheck
         errors << "editorial: first-person plural pronoun (nosotros/nuestro) detected; use first-person singular (yo/mi)"
       end
 
-      # 5c. Justificado tipográfico
+      # 5c. Justificado general; III–IV tienen alineación natural aprobada y
+      # comprobada en navegador, acotada a sus refs y dos clases de presentación.
       has_justify_css = body.match?(/text-align\s*:\s*justify/i)
       has_justify_kramdown = body.include?("{: .text-justify}")
-      unless has_justify_css || has_justify_kramdown
+      natural_refs = %w[costos-cierre-escolar-trayectorias cierre-escolar-educacion-superior-causal-ml]
+      stylesheet = File.join(root, "assets/css/main.scss")
+      has_scoped_natural = natural_refs.include?(front["ref"]) &&
+        (%w[thesis-extension-post post3-evidence] - Array(front["classes"])).empty? &&
+        File.file?(stylesheet) && File.read(stylesheet).match?(
+          /\.thesis-extension-post\.post3-evidence\s+\.page__content\s+:is\(p,\s*li\)\s*\{\s*text-align:\s*start;/
+        )
+      unless has_justify_css || has_justify_kramdown || has_scoped_natural
         errors << "layout: missing text justification (add text-align: justify in CSS or {: .text-justify})"
       end
 

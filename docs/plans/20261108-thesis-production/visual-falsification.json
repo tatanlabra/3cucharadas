@@ -1,0 +1,35 @@
+{
+  "status": "EXPECTED_FAIL",
+  "fixture": "low-contrast",
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 104,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": []
+  },
+  "mutant": {
+    "failures": [
+      "text-contrast"
+    ],
+    "minimum": 1,
+    "samples": [
+      {
+        "tag": "p",
+        "id": "",
+        "excerpt": "Cuando una escuela cierra, encontrar otro edificio no basta.",
+        "ratio": 1,
+        "required": 4.5,
+        "fontPx": 16,
+        "foreground": "rgb(255, 255, 255)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "uncertain": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "case": "green",
+    "exit_code": 0,
+    "stdout": "EDITORIAL_DELIVERY_VALID check=baseline fixture=none\n",
+    "stderr": ""
+  },
+  {
+    "case": "red",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "EDITORIAL_DELIVERY_REJECTED: Identity changed: _posts/2026-10-23-costos-cierre-escolar-trayectorias.md:ref\n"
+  }
+]

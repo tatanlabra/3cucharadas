@@ -1,0 +1,55 @@
+{
+  "source_sha256": "fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed",
+  "variants": [
+    {
+      "file": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp",
+      "bytes": 165484,
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "cf613c8d980b36714d3b8051014d5e664596142f9b8abaf2ad274ca53bfc987b",
+      "quality": 88
+    },
+    {
+      "file": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp",
+      "bytes": 53940,
+      "size": [
+        800,
+        450
+      ],
+      "sha256": "064051cf8a0fd8975fe4fe2b5ee5a40c30eae62a1c3be41e22464ce077c36b24",
+      "quality": 88
+    },
+    {
+      "file": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-1280x720.webp",
+      "bytes": 161278,
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "67584a0c255a7be70d59ba7412d661b407452f246db4d15820057e15c87912d7",
+      "quality": 88
+    },
+    {
+      "file": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-mobile-640x360.webp",
+      "bytes": 52702,
+      "size": [
+        640,
+        360
+      ],
+      "sha256": "864d17b423f1e7397cf553dadd45579971aaf0e13fda84ee0aa29ea783b2b6d7",
+      "quality": 88
+    },
+    {
+      "file": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/og-1200x630.webp",
+      "bytes": 141406,
+      "size": [
+        1200,
+        630
+      ],
+      "sha256": "dc98d584a24e0433f4fdcac3cecb7c9a45889538535a287d52c2840b0149b0ef",
+      "quality": 88
+    }
+  ]
+}

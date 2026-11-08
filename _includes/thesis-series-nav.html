@@ -1,0 +1,16 @@
+{% assign series_lang = page.lang | default: site.active_lang | default: 'es' %}
+{% assign part_one = site.posts | where: 'ref', 'replica-tesis-establecimientos-educacionales' | where: 'lang', series_lang | first %}
+{% assign part_two = site.posts | where: 'ref', 'extender-tesis-no-es-agregar-anos' | where: 'lang', series_lang | first %}
+{% assign part_three = site.posts | where: 'ref', 'costos-cierre-escolar-trayectorias' | where: 'lang', series_lang | first %}
+{% assign part_four = site.posts | where: 'ref', 'cierre-escolar-educacion-superior-causal-ml' | where: 'lang', series_lang | first %}
+{% assign current_is_annex = false %}
+{% if page.ref contains 'anexo-metodologico' %}{% assign current_is_annex = true %}{% endif %}
+<nav class="thesis-series-nav" aria-label="{% if series_lang == 'en' %}Thesis extension series{% else %}Serie de extensión de la tesis{% endif %}">
+  <p class="thesis-series-nav__title">{% if series_lang == 'en' %}The complete series{% else %}Serie completa{% endif %}</p>
+  <ol>
+    <li>{% if part_one %}<a href="{{ part_one.url | relative_url }}"{% if include.current == 1 %} aria-current="{% if current_is_annex %}step{% else %}page{% endif %}"{% endif %}>{% if series_lang == 'en' %}I · What the evidence corrected{% else %}I · Qué corrigió la evidencia{% endif %}</a>{% endif %}</li>
+    <li>{% if part_two %}<a href="{{ part_two.url | relative_url }}"{% if include.current == 2 %} aria-current="{% if current_is_annex %}step{% else %}page{% endif %}"{% endif %}>{% if series_lang == 'en' %}II · Which schools closed{% else %}II · Qué escuelas cerraron{% endif %}</a>{% endif %}</li>
+    <li>{% if part_three %}<a href="{{ part_three.url | relative_url }}"{% if include.current == 3 %} aria-current="{% if current_is_annex %}step{% else %}page{% endif %}"{% endif %}>{% if series_lang == 'en' %}III · School trajectories{% else %}III · Trayectorias escolares{% endif %}</a>{% endif %}</li>
+    <li>{% if part_four %}<a href="{{ part_four.url | relative_url }}"{% if include.current == 4 %} aria-current="{% if current_is_annex %}step{% else %}page{% endif %}"{% endif %}>{% if series_lang == 'en' %}IV · Higher education{% else %}IV · Educación superior{% endif %}</a>{% endif %}</li>
+  </ol>
+</nav>

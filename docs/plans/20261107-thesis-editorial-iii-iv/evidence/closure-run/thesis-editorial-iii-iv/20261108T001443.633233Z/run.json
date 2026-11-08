@@ -1,0 +1,111 @@
+{
+  "plan_contract_version": 1,
+  "contract_id": "thesis-editorial-iii-iv",
+  "contract_sha256": "8079b36fdc14fcc71232b3a544b1f1b6d887208501fc568e30c089a1de69d989",
+  "definition_sha256": "0fc4d7fd4ad184babf8d8369bff3fb9ad4d95464ea1984f6971f0724c582123f",
+  "result": "COMPLETE",
+  "integral_complete": true,
+  "filtered": false,
+  "selected_count": 6,
+  "failures": 0,
+  "skips": 0,
+  "authorized_exclusions": [],
+  "unresolved_skips": [],
+  "mandatory_not_done": [],
+  "mandatory_phases_not_done": [],
+  "todo": [
+    {
+      "id": "T0",
+      "phase": "F0",
+      "status": "[x]",
+      "step": "Baseline e identidad",
+      "evidence": [
+        "AC-F0"
+      ]
+    },
+    {
+      "id": "T1",
+      "phase": "F1",
+      "status": "[x]",
+      "step": "ES condensado, anexos y evidencia",
+      "evidence": [
+        "AC-F1"
+      ]
+    },
+    {
+      "id": "T2",
+      "phase": "F2",
+      "status": "[x]",
+      "step": "Revision adversarial ES vigente",
+      "evidence": [
+        "AC-F2"
+      ]
+    },
+    {
+      "id": "T3",
+      "phase": "F3",
+      "status": "[x]",
+      "step": "Paridad ES/EN y PDF integrado",
+      "evidence": [
+        "AC-F3"
+      ]
+    },
+    {
+      "id": "T4",
+      "phase": "F4",
+      "status": "[x]",
+      "step": "Ocho rutas responsive y navegables",
+      "evidence": [
+        "AC-F4"
+      ]
+    },
+    {
+      "id": "T5",
+      "phase": "F5",
+      "status": "[x]",
+      "step": "Integridad final y cierre local",
+      "evidence": [
+        "AC-F5"
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-F0",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F0.json"
+    },
+    {
+      "id": "AC-F1",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F1.json"
+    },
+    {
+      "id": "AC-F2",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F2.json"
+    },
+    {
+      "id": "AC-F3",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F3.json"
+    },
+    {
+      "id": "AC-F4",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F4.json"
+    },
+    {
+      "id": "AC-F5",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z/AC-F5.json"
+    }
+  ],
+  "evidence_dir": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/closure-run/thesis-editorial-iii-iv/20261108T001443.633233Z"
+}

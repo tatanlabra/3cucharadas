@@ -8,6 +8,7 @@ require "pathname"
 require "yaml"
 
 class ThesisPost3Error < StandardError; end
+class ThesisPost3UsageError < ThesisPost3Error; end
 
 Post3Document = Data.define(:path, :front_matter, :body)
 
@@ -18,12 +19,27 @@ class ThesisPost3Verifier
     "es" => "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
     "en" => "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md"
   }.freeze
+  ANNEXES = {
+    "es" => "_pages/tesis-post3-anexo-metodologico.md",
+    "en" => "_pages/tesis-post3-anexo-metodologico-en.md"
+  }.freeze
+  BILINGUAL_ONLY_FIXTURES = %w[
+    reference-drift footnote-parity-drift table-number-parity-drift figure-number-parity-drift
+  ].freeze
+  EN_ONLY_FIXTURES = %w[
+    en-causal-promotion scientific-state-duplicate bounds-drop bounds-unpaired-rounded
+    figure-path-drift figure-contract-drift footnote-missing-definition pilot-number
+    hmg-effect-reintroduced update-note-reintroduced he-effect-outside-agenda
+    front-matter-tags-causal-promotion comparability-age-coverage effective-clusters-drift
+  ].freeze
+  BOTH_LANGUAGE_FIXTURES = %w[random-effects-drift].freeze
   RECEIPT = "docs/contracts/evidence/post3-scientific-release-v3_1.json"
   SERIES_ARTIFACT = "assets/data/tesis-post3/post3_full_series_did_2004_2025_v1.json"
   # Auditoría 2026-10-31: el agregado de varianza inversa (efecto fijo, I² 76,5 %) se
   # reemplazó por efectos aleatorios; las cifras se leen del artefacto, no se escriben aquí.
   AUDIT_LIGHT_ARTIFACT = "assets/data/tesis-post3/post3_audit_light_v1.json"
-  APPENDIX_WORD_RANGE = (800..2_600).freeze
+  APPENDIX_WORD_RANGE = (800..10_000).freeze
+  MAIN_WORD_RANGE = (2_500..3_200).freeze
   CANONICAL_FIGURES = %w[sample-flow post-pilot-reestimation cohort-series-infographic territorial-audit].freeze
   FIGURE_VARIANTS = %w[light dark light-mobile dark-mobile].freeze
   FIGURE_FORMATS = %w[svg png].freeze
@@ -71,18 +87,36 @@ class ThesisPost3Verifier
     verify_optional_upstream!
   end
 
-  def verify(fixture: nil)
-    documents = FILES.transform_values { |relative| read_document(@root.join(relative)) }
-    inject_fixture!(documents, fixture) if fixture
-    verify_identity(documents)
-    documents.each { |lang, document| verify_document(lang, document) }
-    verify_pair(documents)
+  def verify(fixture: nil, lang: nil)
+    raise ThesisPost3UsageError, "idioma inválido: #{lang}" if lang && !FILES.key?(lang)
+    validate_fixture_scope!(fixture, lang)
+    languages = lang ? [lang] : FILES.keys
+    documents = FILES.slice(*languages).transform_values { |relative| read_document(@root.join(relative)) }
+    annexes = ANNEXES.slice(*languages).transform_values { |relative| read_document(@root.join(relative)) }
+    inject_fixture!(documents, annexes, fixture) if fixture
+    lang ? verify_identity_single(lang, documents.fetch(lang)) : verify_identity(documents)
+    languages.each { |locale| raise ThesisPost3Error, "anexo metodológico ausente #{locale}" unless annexes.key?(locale) }
+    documents.each { |lang, document| verify_document(lang, document, annexes.fetch(lang)) }
+    verify_pair(documents, annexes) unless lang
     true
   end
 
   private
 
+  def validate_fixture_scope!(fixture, lang)
+    return unless fixture && lang
+
+    if BILINGUAL_ONLY_FIXTURES.include?(fixture)
+      raise ThesisPost3UsageError, "fixture requiere comparación bilingüe: #{fixture}"
+    end
+    expected_lang = EN_ONLY_FIXTURES.include?(fixture) ? "en" : "es"
+    return if BOTH_LANGUAGE_FIXTURES.include?(fixture) || expected_lang == lang
+
+    raise ThesisPost3UsageError, "fixture #{fixture} requiere --lang #{expected_lang} o modo bilingüe"
+  end
+
   def read_document(path)
+    raise ThesisPost3Error, "borrador o anexo ausente: #{path}" unless path.file?
     source = path.read(encoding: "UTF-8")
     match = source.match(/\A---\s*\n(.*?)\n---\s*\n(.*)\z/m)
     raise ThesisPost3Error, "front matter ausente: #{path}" unless match
@@ -243,23 +277,74 @@ class ThesisPost3Verifier
     end
   end
 
-  def verify_document(lang, document)
+  def verify_identity_single(lang, document)
     front = document.front_matter
-    body = document.body
+    unless front["lang"] == lang && front["ref"] == "costos-cierre-escolar-trayectorias" &&
+           front["permalink"] == "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/"
+      raise ThesisPost3Error, "identidad de artículo inválida #{lang}"
+    end
+  end
+
+  def verify_document(lang, document, annex)
+    front = document.front_matter
+    main = document.body
+    appendix = annex.body
+    body = "#{main}\n\n#{appendix}"
 
     verify_front_matter(lang, front)
+    verify_annex_identity(lang, front, annex.front_matter)
+    verify_didactic_structure(lang, main, appendix)
     verify_scientific_state(lang, body)
     verify_core_evidence(lang, body)
     verify_historical_capsule(lang, body)
-    verify_higher_education_agenda(lang, body)
+    verify_higher_education_agenda(lang, main)
     verify_primary_results(lang, body, front)
     verify_comparability_and_identification(lang, body)
     verify_policy_safeguards(lang, body)
     verify_secondary_labels(lang, body)
     verify_figures(lang, body)
-    verify_references(lang, body)
+    verify_references(lang, main, appendix)
     verify_forbidden_content(lang, body, front)
-    verify_visible_length(lang, body)
+    verify_visible_length(lang, main, appendix)
+  end
+
+  def verify_annex_identity(lang, post, annex)
+    expected_route = "#{post.fetch('permalink')}anexo-metodologico/"
+    unless annex["layout"] == "single" && annex["lang"] == lang &&
+           annex["ref"] == "tesis-post3-anexo-metodologico" && annex["ref"] != post["ref"] &&
+           annex["permalink"] == expected_route
+      raise ThesisPost3Error, "identidad o ruta del anexo inválida #{lang}"
+    end
+    raise ThesisPost3Error, "anexo sin clase de evidencia #{lang}" unless Array(annex["classes"]).include?("post3-evidence")
+    raise ThesisPost3Error, "contrato explícito de tablas ausente en anexo #{lang}" unless annex["table_contract"] == "explicit-v1"
+  end
+
+  def verify_didactic_structure(lang, main, appendix)
+    heading = lang == "es" ? "Cucharada" : "Spoonful"
+    (1..3).each do |number|
+      assert_match!(main, /^## #{heading} #{number}\b/, "estructura de tres cucharadas incompleta #{lang}: #{number}")
+    end
+    closing = lang == "es" ? /^## Cierre\b/ : /^## Closing\b/
+    assert_match!(main, closing, "cierre ausente #{lang}")
+    reader_label = /\bELI5\b|\b(?:En simple|In simple terms|Simply put|Put simply)\s*:/i
+    raise ThesisPost3Error, "rótulo ELI5 o En simple expuesto #{lang}" if "#{main}\n#{appendix}".match?(reader_label)
+    raise ThesisPost3Error, "detalle metodológico embebido #{lang}" if main.match?(/<details\b[^>]*class="post3-methods"/i)
+    primary = main.scan(/<aside\b[^>]*class="notice--primary"[^>]*markdown="1"/i).length
+    raise ThesisPost3Error, "resumen editorial único ausente #{lang}" unless primary == 1 && main.scan(/<aside\b/i).length == 1
+    raise ThesisPost3Error, "navegación de serie ausente #{lang}" unless main.include?("{% include thesis-series-nav.html current=3 %}")
+    raise ThesisPost3Error, "navegación de anexo ausente #{lang}" unless appendix.include?("{% include thesis-series-nav.html current=3 %}")
+    { "artículo" => main, "anexo" => appendix }.each do |part, text|
+      raise ThesisPost3Error, "etiquetas details desbalanceadas #{lang} en #{part}" unless details_balanced?(text)
+    end
+  end
+
+  def details_balanced?(text)
+    depth = 0
+    text.scan(%r{</?details\b[^>]*>}i).each do |tag|
+      depth += tag.start_with?("</") ? -1 : 1
+      return false if depth.negative?
+    end
+    depth.zero?
   end
 
   def verify_front_matter(lang, front)
@@ -390,8 +475,8 @@ class ThesisPost3Verifier
     "en" => [/Historical reconstruction capsule/i, /Update of 31 October 2026/i]
   }.freeze
   TRANSPARENCY_CAPSULE = {
-    "es" => /^\*\*Transparencia y alcance de las fuentes\.\*\*[^\n]*doc_trabajo_destruccion[^\n]*\[\^grau2014\][^\n]*\n\{: \.notice--info/,
-    "en" => /^\*\*Transparency and scope of the sources\.\*\*[^\n]*doc_trabajo_destruccion[^\n]*\[\^grau2014\][^\n]*\n\{: \.notice--info/
+    "es" => /(?:transparencia|fuentes).{0,700}doc_trabajo_destruccion.{0,400}\[\^grau2014\]/im,
+    "en" => /(?:transparency|sources).{0,700}doc_trabajo_destruccion.{0,400}\[\^grau2014\]/im
   }.freeze
 
   def verify_historical_capsule(lang, body)
@@ -409,34 +494,23 @@ class ThesisPost3Verifier
         raise ThesisPost3Error, "contenido retirado reintroducido #{lang}: efecto HMG #{table_id}"
       end
     end
-    assert_match!(body, TRANSPARENCY_CAPSULE.fetch(lang), "transparencia sin cápsula, cita o PDF de 2014 #{lang}")
+    assert_match!(body, TRANSPARENCY_CAPSULE.fetch(lang), "transparencia sin cita o PDF de 2014 #{lang}")
   end
 
   def verify_higher_education_agenda(lang, body)
-    blocks = body.scan(/<!-- higher-education-agenda:start -->(.*?)<!-- higher-education-agenda:end -->/m).flatten
-    raise ThesisPost3Error, "agenda de educación superior ausente o duplicada #{lang}" unless blocks.length == 1
-
-    agenda = blocks.first
-    words = agenda.gsub(/<[^>]+>|\{:[^}]+\}/, " ").scan(/[[:alpha:]À-ÿ]+/).length
-    raise ThesisPost3Error, "agenda de educación superior fuera de extensión #{lang}" unless (60..130).cover?(words)
-    raise ThesisPost3Error, "agenda de educación superior contiene una cifra estimada #{lang}" if agenda.match?(/\d/)
-
-    required = if lang == "es"
-                 [/educación superior/i, /entrega posterior/i, /SIES/i, /DEMRE/i, /aquí no se estiman ni se sugieren efectos postsecundarios/i, /no condiciona la publicación/i]
-               else
-                 [/higher education/i, /later instalment/i, /SIES/i, /DEMRE/i, /neither estimates nor suggests postsecondary effects/i, /does not condition publication/i]
-               end
-    required.each { |pattern| assert_match!(agenda, pattern, "agenda de educación superior incompleta #{lang}") }
+    route = "cierre-escolar-educacion-superior-causal-ml/"
+    assert_match!(body, /#{Regexp.escape(route)}/, "enlace a parte IV ausente #{lang}")
+    scope = lang == "es" ? /(?:este (?:artículo|post)|aquí).{0,120}(?:no estim|sin estim).{0,100}(?:educación superior|postsecundari)/im : /(?:this (?:article|post)|here).{0,120}(?:does not estimate|no estimate).{0,100}(?:higher education|postsecondary)/im
+    assert_match!(body, scope, "límite de alcance postsecundario ausente #{lang}")
     forbidden = /BLOCKED_MISSING_INDIVIDUAL_SIES|no está listo para publicación|not publication-ready|required outcome|resultado obligatorio|(?:publicación|publication).{0,120}(?:bloquead|blocked).{0,200}(?:SIES|DEMRE)|(?:SIES|DEMRE).{0,200}(?:bloquead|blocked)/im
     raise ThesisPost3Error, "bloqueo de educación superior reintroducido #{lang}" if body.match?(forbidden)
 
-    outside_agenda = body.gsub(/<!-- higher-education-agenda:start -->.*?<!-- higher-education-agenda:end -->/m, "")
     he_effect = if lang == "es"
                   /\b(?:el cierre|los cierres)\b.{0,80}\b(?:reduce|aumenta|afecta|perjudica|mejora)\b.{0,100}\b(?:ingreso|acceso)\b.{0,40}\beducación superior\b/im
                 else
                   /\b(?:a school closure|school closures)\b.{0,80}\b(?:reduces?|increases?|affects?|harms?|improves?)\b.{0,100}\b(?:entry|access)\b.{0,40}\bhigher education\b/im
                 end
-    raise ThesisPost3Error, "efecto postsecundario no autorizado #{lang}" if outside_agenda.match?(he_effect)
+    raise ThesisPost3Error, "efecto postsecundario no autorizado #{lang}" if body.match?(he_effect)
   end
 
   def verify_secondary_labels(lang, body)
@@ -587,25 +661,33 @@ class ThesisPost3Verifier
     text = body[0...heading.begin(0)]
     refs = body[heading.end(0)..]
     definitions = refs.scan(/^\[\^([^\]]+)\]:\s*(.+)$/)
-    [text.scan(/\[\^([^\]]+)\](?!:)/).flatten, definitions]
+    # Una cita inline seguida de dos puntos sigue siendo uso; solo una línea
+    # anclada al inicio bajo Referencias puede definir la nota.
+    [text.scan(/\[\^([^\]]+)\]/).flatten, definitions]
   end
 
-  def verify_references(lang, body)
-    marks, definitions = footnote_parts(body)
-    keys = definitions.map(&:first)
-    raise ThesisPost3Error, "referencias sin formato de nota #{lang}" if keys.empty?
-    raise ThesisPost3Error, "clave de nota duplicada #{lang}" unless keys.uniq.length == keys.length
-
-    orphans = keys - marks
-    raise ThesisPost3Error, "nota sin cita en el texto #{lang}: #{orphans.join(', ')}" unless orphans.empty?
-    missing = marks.uniq - keys
-    raise ThesisPost3Error, "cita sin nota #{lang}: #{missing.join(', ')}" unless missing.empty?
-
-    dois = definitions.map(&:last).join("\n").scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
+  def verify_references(lang, main, appendix)
+    all_definitions = [main, appendix].flat_map do |part|
+      marks, definitions = footnote_parts(part)
+      keys = definitions.map(&:first)
+      raise ThesisPost3Error, "referencias sin formato de nota #{lang}" if keys.empty?
+      raise ThesisPost3Error, "clave de nota duplicada #{lang}" unless keys.uniq.length == keys.length
+      orphans = keys - marks
+      raise ThesisPost3Error, "nota sin cita en el texto #{lang}: #{orphans.join(', ')}" unless orphans.empty?
+      missing = marks.uniq - keys
+      raise ThesisPost3Error, "cita sin nota #{lang}: #{missing.join(', ')}" unless missing.empty?
+      definitions
+    end
+    definitions_by_key = all_definitions.group_by(&:first)
+    raise ThesisPost3Error, "conjunto bibliográfico incompleto #{lang}: #{definitions_by_key.length}" unless definitions_by_key.length == 18
+    definitions_by_key.each do |key, entries|
+      raise ThesisPost3Error, "referencia contradictoria #{lang}: #{key}" unless entries.map(&:last).uniq.length == 1
+    end
+    dois = all_definitions.map(&:last).join("\n").scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
     raise ThesisPost3Error, "bibliografía insuficiente #{lang}: #{dois.length} DOI" if dois.length < 9
 
-    responsive_tables = body.scan("{: .table--compact .table--scroll}").length
-    raise ThesisPost3Error, "tablas responsivas insuficientes #{lang}" if responsive_tables < 2
+    responsive_tables = [main, appendix].sum { |part| part.scan("{: .table--compact .table--scroll}").length }
+    raise ThesisPost3Error, "tablas responsivas incompletas #{lang}: #{responsive_tables}" unless responsive_tables == 7
   end
 
   def verify_forbidden_content(lang, body, front)
@@ -638,21 +720,12 @@ class ThesisPost3Verifier
     PUBLIC_METADATA_KEYS.flat_map { |key| Array(front[key]) }.compact.join("\n")
   end
 
-  def verify_visible_length(lang, body)
-    return unless lang == "es"
+  def verify_visible_length(lang, main, appendix)
+    article = main.sub(/\n## (?:Referencias|References)\n.*/m, "")
+    words = visible_word_count(article)
+    raise ThesisPost3Error, "extensión visible #{lang.upcase} fuera de #{MAIN_WORD_RANGE}: #{words}" unless MAIN_WORD_RANGE.cover?(words)
 
-    article = body.sub(/\n## Referencias\n.*/m, "")
-    # El detalle metodológico va en un único apéndice plegable con su propio
-    # presupuesto: el cuerpo conserva el techo de 5.500 palabras y el apéndice no
-    # puede crecer sin límite ni vaciarse.
-    appendices = article.scan(/<details\b.*?<\/details>/mi)
-    raise ThesisPost3Error, "apéndice metodológico ausente o duplicado #{lang}" unless appendices.length == 1
-
-    main = article.gsub(/<details\b.*?<\/details>/mi, " ")
-    words = visible_word_count(main)
-    raise ThesisPost3Error, "extensión visible ES fuera de 3.000–6.400 palabras: #{words}" unless (3_000..6_400).cover?(words)
-
-    appendix_words = visible_word_count(appendices.first)
+    appendix_words = visible_word_count(appendix.sub(/\n## (?:Referencias|References)\n.*/m, ""))
     unless APPENDIX_WORD_RANGE.cover?(appendix_words)
       raise ThesisPost3Error, "apéndice metodológico fuera de extensión #{lang}: #{appendix_words}"
     end
@@ -665,9 +738,9 @@ class ThesisPost3Verifier
         .scan(/[[:alpha:]À-ÿ0-9]+/).length
   end
 
-  def verify_pair(documents)
-    spanish = documents.fetch("es").body
-    english = documents.fetch("en").body
+  def verify_pair(documents, annexes)
+    spanish = "#{documents.fetch('es').body}\n#{annexes.fetch('es').body}"
+    english = "#{documents.fetch('en').body}\n#{annexes.fetch('en').body}"
     es_tables = spanish.scan(/^\|/).length
     en_tables = english.scan(/^\|/).length
     raise ThesisPost3Error, "número de filas de tablas divergente" unless es_tables == en_tables
@@ -675,9 +748,11 @@ class ThesisPost3Verifier
     es_dois = spanish.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq.sort
     en_dois = english.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq.sort
     raise ThesisPost3Error, "referencias bilingües divergentes" unless es_dois == en_dois
-    es_marks, es_definitions = footnote_parts(spanish)
-    en_marks, en_definitions = footnote_parts(english)
-    unless es_definitions.map(&:first).sort == en_definitions.map(&:first).sort && es_marks.sort == en_marks.sort
+    es_marks = [documents.fetch('es'), annexes.fetch('es')].flat_map { |doc| footnote_parts(doc.body).first }
+    en_marks = [documents.fetch('en'), annexes.fetch('en')].flat_map { |doc| footnote_parts(doc.body).first }
+    es_definitions = [documents.fetch('es'), annexes.fetch('es')].flat_map { |doc| footnote_parts(doc.body).last }
+    en_definitions = [documents.fetch('en'), annexes.fetch('en')].flat_map { |doc| footnote_parts(doc.body).last }
+    unless es_definitions.map(&:first).uniq.sort == en_definitions.map(&:first).uniq.sort && es_marks.uniq.sort == en_marks.uniq.sort
       raise ThesisPost3Error, "notas bilingües divergentes"
     end
 
@@ -737,8 +812,25 @@ class ThesisPost3Verifier
     documents[lang] = document.with(body: changed)
   end
 
-  def inject_fixture!(documents, fixture)
+  def replace_all_across!(documents, annexes, lang, pattern, replacement, fixture)
+    changed_any = false
+    [documents, annexes].each do |collection|
+      document = collection.fetch(lang)
+      changed = document.body.gsub(pattern, replacement)
+      next if changed == document.body
+      changed_any = true
+      collection[lang] = document.with(body: changed)
+    end
+    raise ThesisPost3Error, "fixture no pudo aplicarse: #{fixture}" unless changed_any
+  end
+
+  def inject_fixture!(documents, annexes, fixture)
     case fixture
+    when "annex-removed"
+      annexes.delete("es")
+    when "annex-table-contract-drop"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(front_matter: document.front_matter.reject { |key, _| key == "table_contract" })
     when "causal-promotion"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nLos cierres causan una pérdida comprobada.\n")
@@ -765,13 +857,11 @@ class ThesisPost3Verifier
       document = documents.fetch("en")
       documents["en"] = document.with(body: "#{document.body}\n<!-- scientific-state: POST_PILOT_REESTIMATION_V3; result: CONCLUSIVE -->\n")
     when "primary-number-drift"
-      progression = estimate("grade_progression_or_lag")
-      pattern = /#{numeric_pattern(progression.fetch('estimate'), 'es', scale: 100)}\s*(?:pp|puntos porcentuales?)/i
-      replace_all!(documents, "es", pattern, "+5,30 pp", fixture)
+      replace_all_across!(documents, annexes, "es", /(?<!\d)5,29(?!\d)/, "5,30", fixture)
     when "missingness-drift"
       missingness = @evidence.fetch("modern").dig("sensitivity", "informative_missingness")
       pattern = /#{numeric_pattern(missingness.fetch('effect_upper'), 'es', scale: 100, positive_sign: :optional)}/i
-      replace_all!(documents, "es", pattern, "10,99", fixture)
+      replace_all_across!(documents, annexes, "es", pattern, "10,99", fixture)
     when "missingness-unpaired"
       missingness = @evidence.fetch("modern").dig("sensitivity", "informative_missingness")
       low = /#{numeric_pattern(missingness.fetch('effect_lower'), 'es', scale: 100, positive_sign: :optional)}/i
@@ -782,8 +872,8 @@ class ThesisPost3Verifier
       moved = "#{document.body}\n#{'x' * 2_200}\nCotas de datos faltantes: −1,15 a 10,98 pp.\n"
       documents["es"] = document.with(body: moved)
     when "bounds-drop"
-      replace_all!(documents, "en", /[−-]1\.15/, "−1.14", fixture)
-      replace_all!(documents, "en", /10\.98/, "10.99", fixture)
+      replace_all_across!(documents, annexes, "en", /[−-]1\.15/, "−1.14", fixture)
+      replace_all_across!(documents, annexes, "en", /10\.98/, "10.99", fixture)
     when "bounds-unpaired-extra"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nResultado adicional: +5,29 pp.\n")
@@ -794,7 +884,7 @@ class ThesisPost3Verifier
       document = documents.fetch("en")
       documents["en"] = document.with(body: "#{document.body}\nAdditional result: 5.3 percentage points.\n")
     when "secondary-label-drop"
-      replace_all!(documents, "es", /exploratori[oa]s?/i, "descriptivos", fixture)
+      replace_all_across!(documents, annexes, "es", /exploratori[oa]s?/i, "descriptivos", fixture)
     when "figure-path-drift"
       replace_all!(documents, "en", /post-pilot-reestimation-en-(?=light|dark)/, "pilot-estimates-en-", fixture)
     when "figure-contract-drift"
@@ -802,9 +892,9 @@ class ThesisPost3Verifier
     when "footnote-orphan"
       replace_all!(documents, "es", /\[\^manski2003\](?!:)/, "", fixture)
     when "footnote-missing-definition"
-      replace_once!(documents, "en", "2014[^brummet2014]", "2014[^brummet2014][^brummet2015]", fixture)
+      replace_once!(annexes, "en", "2014[^brummet2014]", "2014[^brummet2014][^brummet2015]", fixture)
     when "footnote-parity-drift"
-      replace_once!(documents, "en", "2012[^engberg2012]", "2012[^engberg2012][^engberg2012]", fixture)
+      replace_all!(annexes, "en", "[^engberg2012]", "[^engberg2012_en]", fixture)
     when "reference-drift"
       replace_once!(documents, "en", %r{https://doi\.org/[^\s)\]"<]+}i, "https://doi.org/10.0000/drift", fixture)
     when "pilot-number"
@@ -820,7 +910,7 @@ class ThesisPost3Verifier
       document = documents.fetch("en")
       documents["en"] = document.with(body: "#{document.body}\n**Update of 31 October 2026.** A self-audit.\n")
     when "transparency-capsule-drop"
-      replace_once!(documents, "es", "**Transparencia y alcance de las fuentes.** ", "### Transparencia y alcance de las fuentes\n\n", fixture)
+      replace_all!(annexes, "es", "doc_trabajo_destruccion_labra_mizala_hojman_grau.pdf", "fuente-sin-pdf.pdf", fixture)
     when "he-blocker-reintroduced"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nEl borrador no está listo para publicación.\n")
@@ -831,11 +921,10 @@ class ThesisPost3Verifier
       document = documents.fetch("en")
       documents["en"] = document.with(body: "#{document.body}\nSchool closures reduce access to higher education.\n")
     when "he-effect-invented"
-      replace_once!(documents, "es", "<!-- higher-education-agenda:end -->", "Se estima un efecto postsecundario de 4,2 puntos.\n<!-- higher-education-agenda:end -->", fixture)
-    when "he-agenda-duplicate"
-      document = documents.fetch("en")
-      duplicate = "<!-- higher-education-agenda:start -->Future higher education agenda.<!-- higher-education-agenda:end -->"
-      documents["en"] = document.with(body: "#{document.body}\n#{duplicate}\n")
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\nEl cierre reduce el acceso a educación superior en 4,2 puntos.\n")
+    when "he-scope-drop"
+      replace_once!(documents, "es", "Este artículo no estima resultados de educación superior.", "Este artículo describe resultados escolares.", fixture)
     when "front-matter-causal-promotion"
       document = documents.fetch("es")
       changed = document.front_matter.merge("excerpt" => "Los cierres causan daño educativo.")
@@ -848,21 +937,21 @@ class ThesisPost3Verifier
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nEl Estado debe suspender todo cierre.\n")
     when "table-number-parity-drift"
-      replace_once!(documents, "es", "| Sin señal contradictoria | 266 |", "| Sin señal contradictoria | 267 |", fixture)
+      replace_once!(annexes, "es", "| Sin señal contradictoria | 266 |", "| Sin señal contradictoria | 267 |", fixture)
     when "figure-number-parity-drift"
-      replace_once!(documents, "es", "391 se excluyen y 6.190 permanecen", "391 se excluyen y 6.191 permanecen", fixture)
+      replace_once!(annexes, "es", "391 se excluyen y 6.190 permanecen", "391 se excluyen y 6.191 permanecen", fixture)
     when "comparability-coverage-drift"
-      replace_all!(documents, "es", /19,4(?:\s+pp|\s+puntos porcentuales)/, "19,5 pp", fixture)
+      replace_all_across!(documents, annexes, "es", /19,4(?:\s+pp|\s+puntos porcentuales)/, "19,5 pp", fixture)
     when "progression-definition-narrowing"
       replace_all!(documents, "es", /sin matrícula o (?:con avance inferior|bajo) al? curso esperado al año siguiente/i, "no promoción o rezago escolar", fixture)
     when "comparability-age-coverage"
-      replace_all!(documents, "en", /Age is observed for the full sample/i, "Age is observed only for students with performance records", fixture)
+      replace_all_across!(documents, annexes, "en", /Age is observed for the full sample/i, "Age is observed only for students with performance records", fixture)
     when "safeguards-causal-promotion"
-      replace_all!(documents, "es", /Estos resguardos no son efectos estimados de esas decisiones\./i, "Estas decisiones reducen los efectos del cierre.", fixture)
+      replace_all!(documents, "es", /resguardos prudenciales no son efectos estimados de esas decisiones/i, "decisiones reducen los efectos del cierre", fixture)
     when "effective-clusters-drift"
-      replace_all!(documents, "en", "21.1 effective episodes", "22.1 effective episodes", fixture)
+      replace_all_across!(documents, annexes, "en", "21.1 effective episodes", "22.1 effective episodes", fixture)
     when "iv-promotion"
-      replace_all!(documents, "es", /no (?:se ejecuta|ejecuto) una regresión instrumental en esta versión/i, "ejecuto una regresión instrumental en esta versión", fixture)
+      replace_all_across!(documents, annexes, "es", /no (?:se ejecuta|ejecuto) una regresión instrumental en esta versión/i, "ejecuto una regresión instrumental en esta versión", fixture)
     when "math-katex-percent-comment"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\n$$\\Delta m = 1\\text{ %}$$\n")
@@ -870,19 +959,34 @@ class ThesisPost3Verifier
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\n$$M^* = 2,54$$\n")
     when "series-regime-drift"
-      replace_all!(documents, "es", "+12,15", "+5,97", fixture)
+      replace_all_across!(documents, annexes, "es", "+12,15", "+5,97", fixture)
     when "random-effects-drift"
-      replace_all!(documents, "es", /\+6,29(?!\d)/, "+6,92", fixture)
-      replace_all!(documents, "en", /\+6\.29(?!\d)/, "+6.92", fixture)
+      replace_all_across!(documents, annexes, "es", /\+6,29(?!\d)/, "+6,92", fixture) if documents.key?("es")
+      replace_all_across!(documents, annexes, "en", /\+6\.29(?!\d)/, "+6.92", fixture) if documents.key?("en")
     when "fixed-effect-reintroduced"
-      replace_all!(documents, "es", /reemplaza al de varianza inversa de la versión anterior/, "reemplaza al de varianza inversa (+5,14) de la versión anterior", fixture)
+      replace_all_across!(documents, annexes, "es", /reemplaza al de varianza inversa de la versión anterior/, "reemplaza al de varianza inversa (+5,14) de la versión anterior", fixture)
     when "appendix-removed"
-      replace_all!(documents, "es", /<details\b[^>]*>/, "", fixture)
-      replace_all!(documents, "es", %r{</details>}, "", fixture)
+      annexes.delete("es")
     when "appendix-overflow"
-      replace_all!(documents, "es", "<summary>", "<summary>#{'relleno ' * 3_000}", fixture)
+      document = annexes.fetch("es")
+      marker = "\n## Referencias\n"
+      raise ThesisPost3Error, "fixture no pudo aplicarse: #{fixture}" unless document.body.include?(marker)
+
+      annexes["es"] = document.with(body: document.body.sub(marker, "\n#{'relleno ' * 15_000}\n#{marker}"))
+    when "eli5-label-annex"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\nEn simple: explicación del resultado.\n")
+    when "orphan-details-close"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\n</details>\n")
+    when "colon-citation-missing-definition"
+      document = documents.fetch("es")
+      marker = "\n## Referencias\n"
+      raise ThesisPost3Error, "fixture no pudo aplicarse: #{fixture}" unless document.body.include?(marker)
+
+      documents["es"] = document.with(body: document.body.sub(marker, "\nCita pendiente[^guard_colon_missing]: contexto.\n#{marker}"))
     else
-      raise ThesisPost3Error, "fixture desconocido: #{fixture}"
+      raise ThesisPost3UsageError, "fixture desconocido: #{fixture}"
     end
   end
 end
@@ -890,13 +994,23 @@ end
 if $PROGRAM_NAME == __FILE__
   root = Pathname(__dir__).parent
   fixture = ENV["POST3_NEGATIVE_FIXTURE"]
-
+  lang = nil
   begin
+    until ARGV.empty?
+      flag = ARGV.shift
+      value = ARGV.shift
+      raise ThesisPost3UsageError, "argumento inválido: #{flag}" unless %w[--fixture --lang].include?(flag) && value
+      flag == "--fixture" ? fixture = value : lang = value
+    end
+
     verifier = ThesisPost3Verifier.new(root:)
-    verifier.verify(fixture: fixture)
+    verifier.verify(fixture: fixture, lang: lang)
     warn "POST3_WARNING: upstream_custody=#{verifier.upstream_custody}; el recibo prueba post↔proyección, no custodia científica en un commit upstream"
-    puts "POST3_VALID"
+    puts "POST3_VALID lang=#{lang || 'both'}"
     exit 0
+  rescue ThesisPost3UsageError => e
+    warn "POST3_USAGE_ERROR: #{e.message}"
+    exit 2
   rescue ThesisPost3Error => e
     warn "POST3_INVALID: #{e.message}"
     exit 1

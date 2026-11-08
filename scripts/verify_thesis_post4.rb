@@ -8,6 +8,7 @@ require "pathname"
 require "yaml"
 
 class ThesisPost4Error < StandardError; end
+class ThesisPost4UsageError < ThesisPost4Error; end
 
 Post4Document = Data.define(:path, :front_matter, :body)
 
@@ -16,10 +17,16 @@ class ThesisPost4Verifier
     "es" => "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
     "en" => "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md"
   }.freeze
+  ANNEXES = {
+    "es" => "_pages/tesis-post4-anexo-metodologico.md",
+    "en" => "_pages/tesis-post4-anexo-metodologico-en.md"
+  }.freeze
+  BILINGUAL_ONLY_FIXTURES = %w[table-parity-drift].freeze
+  EN_ONLY_FIXTURES = %w[figure-contract-drift first-person-plural].freeze
   CAUSAL_ARTIFACT = "assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json"
   RETRO_ARTIFACT = "assets/data/tesis-post4/post4_retrospective_post3_audit.json"
-  APPENDIX_WORD_RANGE = (800..2_800).freeze
-  MAIN_WORD_RANGE = (3_000..10_000).freeze
+  APPENDIX_WORD_RANGE = (800..15_000).freeze
+  MAIN_WORD_RANGE = (2_800..3_500).freeze
   CANONICAL_FIGURES = %w[selection-ladder longitudinal-regimes causal-ml-heterogeneity-paes].freeze
   FIGURE_VARIANTS = %w[light dark light-mobile dark-mobile].freeze
   FIGURE_FORMATS = %w[svg png].freeze
@@ -38,7 +45,8 @@ class ThesisPost4Verifier
       /[−-]2,85\b/,
       /\b0,0038\b/,
       /\b126\s+celdas\b/i,
-      /\b(?:vemos|dejamos|entremos|detengámonos|separamos|llegamos|sabemos|nuestro|nuestra|nuestros|nuestras)\b|\bnos\s+(?:da|queda)\b/i
+      /\b(?:la ca[ií]da|el descenso)\s+en\s+IP\/CFT\s+(?:demuestra|prueba|confirma)\s+(?:una\s+)?p[eé]rdida\s+neta\s+de\s+acceso\b/i,
+      /\b(?:vemos|dejamos|entremos|detengámonos|separamos|llegamos|nuestro|nuestra|nuestros|nuestras)\b|\bnos\s+(?:da|queda)\b/i
     ],
     "en" => [
       /\b(?:closing a high school|school closure|school closures)\s+causally\s+(?:destroys?|reduces?|cuts?)\s+13[,.]24\b/i,
@@ -48,6 +56,7 @@ class ThesisPost4Verifier
       /[−-]2\.85\b/,
       /\b0\.0038\b/,
       /\b126\s+cells\b/i,
+      /\b(?:the\s+)?(?:fall|decline)\s+in\s+IP\/CFT\s+(?:proves|shows|confirms)\s+(?:a\s+)?net\s+loss\s+of\s+access\b/i,
       /\b(?:we|our|us)\b/i
     ]
   }.freeze
@@ -59,16 +68,33 @@ class ThesisPost4Verifier
     validate_artifacts!
   end
 
-  def verify(fixture: nil)
-    documents = FILES.transform_values { |relative| read_document(@root.join(relative)) }
-    inject_fixture!(documents, fixture) if fixture
-    verify_identity(documents)
-    documents.each { |lang, document| verify_document(lang, document) }
-    verify_pair(documents)
+  def verify(fixture: nil, lang: nil)
+    raise ThesisPost4UsageError, "idioma inválido: #{lang}" if lang && !FILES.key?(lang)
+    validate_fixture_scope!(fixture, lang)
+    languages = lang ? [lang] : FILES.keys
+    documents = FILES.slice(*languages).transform_values { |relative| read_document(@root.join(relative)) }
+    annexes = ANNEXES.slice(*languages).transform_values { |relative| read_document(@root.join(relative)) }
+    inject_fixture!(documents, annexes, fixture) if fixture
+    lang ? verify_identity_single(lang, documents.fetch(lang)) : verify_identity(documents)
+    languages.each { |locale| raise ThesisPost4Error, "anexo metodológico ausente #{locale}" unless annexes.key?(locale) }
+    documents.each { |lang, document| verify_document(lang, document, annexes.fetch(lang)) }
+    verify_pair(documents, annexes) unless lang
     true
   end
 
   private
+
+  def validate_fixture_scope!(fixture, lang)
+    return unless fixture && lang
+
+    if BILINGUAL_ONLY_FIXTURES.include?(fixture)
+      raise ThesisPost4UsageError, "fixture requiere comparación bilingüe: #{fixture}"
+    end
+    expected_lang = EN_ONLY_FIXTURES.include?(fixture) ? "en" : "es"
+    return if expected_lang == lang
+
+    raise ThesisPost4UsageError, "fixture #{fixture} requiere --lang #{expected_lang} o modo bilingüe"
+  end
 
   def load_json(relative)
     path = @root.join(relative)
@@ -142,18 +168,41 @@ class ThesisPost4Verifier
     end
   end
 
-  def verify_document(lang, document)
+  def verify_identity_single(lang, document)
     front = document.front_matter
-    body = document.body
+    unless front["lang"] == lang && front["ref"] == "cierre-escolar-educacion-superior-causal-ml" &&
+           front["permalink"] == "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/"
+      raise ThesisPost4Error, "identidad de artículo inválida #{lang}"
+    end
+  end
+
+  def verify_document(lang, document, annex)
+    front = document.front_matter
+    main = document.body
+    appendix = annex.body
+    body = "#{main}\n\n#{appendix}"
 
     verify_front_matter(lang, front)
-    verify_scientific_state(lang, body)
-    verify_didactic_structure(lang, body)
+    verify_annex_identity(lang, front, annex.front_matter)
+    verify_scientific_state(lang, main)
+    verify_didactic_structure(lang, main, appendix)
     verify_core_numbers(lang, body)
     verify_figures(lang, body)
-    verify_references(lang, body)
+    verify_references(lang, main, appendix)
     verify_forbidden_content(lang, body, front)
-    verify_visible_length(lang, body)
+    verify_visible_length(lang, main, appendix)
+  end
+
+  def verify_annex_identity(lang, post, annex)
+    expected_ref = "tesis-post4-anexo-metodologico"
+    expected_route = "#{post.fetch('permalink')}anexo-metodologico/"
+    unless annex["layout"] == "single" && annex["lang"] == lang &&
+           annex["ref"] == expected_ref && annex["ref"] != post["ref"] &&
+           annex["permalink"] == expected_route
+      raise ThesisPost4Error, "identidad o ruta del anexo inválida #{lang}"
+    end
+    raise ThesisPost4Error, "anexo sin clase de evidencia #{lang}" unless Array(annex["classes"]).include?("post3-evidence")
+    raise ThesisPost4Error, "contrato explícito de tablas ausente en anexo #{lang}" unless annex["table_contract"] == "explicit-v1"
   end
 
   def verify_front_matter(lang, front)
@@ -190,7 +239,7 @@ class ThesisPost4Verifier
     end
   end
 
-  def verify_didactic_structure(lang, body)
+  def verify_didactic_structure(lang, body, appendix)
     headings = if lang == "es"
                  [
                    /^## Cucharada 1:/,
@@ -212,33 +261,75 @@ class ThesisPost4Verifier
       assert_match!(body, pattern, "estructura de 3 cucharadas + cierre incompleta #{lang}: #{pattern.inspect}")
     end
 
-    eli5_guide = lang == "es" ? /\*\*Guía rápida en lenguaje sencillo \(ELI5\)/ : /\*\*Plain-language quick guide \(ELI5\)/
-    assert_match!(body, eli5_guide, "guía ELI5 ausente #{lang}")
+    reader_label = /\bELI5\b|\b(?:En simple|In simple terms|Simply put|Put simply)\s*:/i
+    raise ThesisPost4Error, "rótulo ELI5 o En simple expuesto #{lang}" if "#{body}\n#{appendix}".match?(reader_label)
+    raise ThesisPost4Error, "detalle metodológico embebido #{lang}" if body.match?(/<details\b[^>]*class="post3-methods"/i)
+    primary = body.scan(/<aside\b[^>]*class="notice--primary"[^>]*markdown="1"/i).length
+    raise ThesisPost4Error, "resumen editorial único ausente #{lang}" unless primary == 1 && body.scan(/<aside\b/i).length == 1
+    raise ThesisPost4Error, "navegación de serie ausente #{lang}" unless body.include?("{% include thesis-series-nav.html current=4 %}")
+    raise ThesisPost4Error, "navegación de anexo ausente #{lang}" unless appendix.include?("{% include thesis-series-nav.html current=4 %}")
+    { "artículo" => body, "anexo" => appendix }.each do |part, text|
+      raise ThesisPost4Error, "etiquetas details desbalanceadas #{lang} en #{part}" unless details_balanced?(text)
+    end
 
-    callout_notes = body.scan(/<aside class="notice--info" markdown="1">/).length
-    raise ThesisPost4Error, "notas metodológicas destacadas (<aside class=\"notice--info\">) insuficientes #{lang}: #{callout_notes}" if callout_notes < 6
+    display_math_blocks = appendix.scan(/^\s*\$\$\n.+?\n\s*\$\$/m).length
+    raise ThesisPost4Error, "ecuaciones metodológicas en anexo insuficientes #{lang}: #{display_math_blocks}" if display_math_blocks < 4
 
-    assert_match!(body, /<details markdown="1" class="post3-methods">/, "clase post3-methods ausente en <details> #{lang}")
-
-    display_math_blocks = body.scan(/^\s*\$\$\n.+?\n\s*\$\$/m).length
-    raise ThesisPost4Error, "ecuaciones KaTeX en bloque ($$...$$) insuficientes #{lang}: #{display_math_blocks}" if display_math_blocks < 4
-
-    math_spans = body.scan(/\$\$(.+?)\$\$/m).flatten
+    math_spans = "#{body}\n#{appendix}".scan(/\$\$(.+?)\$\$/m).flatten
     if math_spans.any? { |span| span.include?(",") || span.include?("\\text{ %}") }
       raise ThesisPost4Error, "coma o \\text{ %} dentro de $$...$$ en #{lang}"
     end
 
-    raise ThesisPost4Error, "símbolo de grado (°) en lugar de ordinal (º) en #{lang}" if body.include?("°")
+    raise ThesisPost4Error, "símbolo de grado (°) en lugar de ordinal (º) en #{lang}" if "#{body}\n#{appendix}".include?("°")
 
-    if body.scan(/<figcaption>.*?<\/figcaption>/mi).any? { |cap| cap.include?("$$") }
+    if "#{body}\n#{appendix}".scan(/<figcaption>.*?<\/figcaption>/mi).any? { |cap| cap.include?("$$") }
       raise ThesisPost4Error, "no usar $$ dentro de <figcaption> HTML crudo (Kramdown no lo procesa) #{lang}"
     end
 
+    # El artículo y las tablas/leyendas deben leerse como prosa. El anexo puede
+    # mostrar identificadores del JSON público para que una cifra sea rastreable;
+    # cada identificador queda limitado a su párrafo de enlace público.
     inline_backticks = body.scan(/`[^`\n]+`/).length
-    raise ThesisPost4Error, "uso de código inline (`...`) en prosa/tablas contamina el tema claro #{lang}: #{inline_backticks} ocurrencias" if inline_backticks > 0
+    appendix.lines.each do |line|
+      codes = line.scan(/`([^`\n]+)`/).flatten
+      next if codes.empty?
+
+      authorized = line.match?(/\bJSON\b/i) && line.include?("post4_higher_education_causal_ml_v1.json") &&
+                   !line.lstrip.start_with?("|") && !line.include?("<figcaption") &&
+                   codes.all? { |code| code.match?(/\A[a-z][a-z0-9_.]*\z/i) && public_json_path_exists?(code) }
+      inline_backticks += codes.length unless authorized
+    end
+    raise ThesisPost4Error, "uso de código inline (`...`) en prosa/tablas contamina el tema claro #{lang}: #{inline_backticks} ocurrencias" if inline_backticks.positive?
 
     adr_compliance = /ADR-188/
-    assert_match!(body, adr_compliance, "declaración de cumplimiento ADR-188 ausente #{lang}")
+    assert_match!(appendix, adr_compliance, "declaración de cumplimiento ADR-188 ausente del anexo #{lang}")
+  end
+
+  def details_balanced?(text)
+    depth = 0
+    text.scan(%r{</?details\b[^>]*>}i).each do |tag|
+      depth += tag.start_with?("</") ? -1 : 1
+      return false if depth.negative?
+    end
+    depth.zero?
+  end
+
+  def public_json_path_exists?(path)
+    parts = path.split(".")
+    walk = lambda do |node, remaining|
+      return true if remaining.empty?
+      case node
+      when Hash
+        return true if node.key?(remaining.first) && walk.call(node.fetch(remaining.first), remaining.drop(1))
+
+        node.values.any? { |value| walk.call(value, remaining) }
+      when Array
+        node.any? { |value| walk.call(value, remaining) }
+      else
+        false
+      end
+    end
+    walk.call(@causal, parts)
   end
 
   def verify_core_numbers(lang, body)
@@ -334,25 +425,33 @@ class ThesisPost4Verifier
     text = body[0...heading.begin(0)]
     refs = body[heading.end(0)..]
     definitions = refs.scan(/^\[\^([^\]]+)\]:\s*(.+)$/)
-    [text.scan(/\[\^([^\]]+)\](?!:)/).flatten, definitions]
+    # Una cita inline seguida de dos puntos sigue siendo uso; solo una línea
+    # anclada al inicio bajo Referencias puede definir la nota.
+    [text.scan(/\[\^([^\]]+)\]/).flatten, definitions]
   end
 
-  def verify_references(lang, body)
-    marks, definitions = footnote_parts(body)
-    keys = definitions.map(&:first)
-    raise ThesisPost4Error, "referencias sin formato de nota #{lang}" if keys.empty?
-    raise ThesisPost4Error, "clave de nota duplicada #{lang}" unless keys.uniq.length == keys.length
-
-    orphans = keys - marks
-    raise ThesisPost4Error, "nota sin cita en el texto #{lang}: #{orphans.join(', ')}" unless orphans.empty?
-    missing = marks.uniq - keys
-    raise ThesisPost4Error, "cita sin nota #{lang}: #{missing.join(', ')}" unless missing.empty?
-
-    dois = definitions.map(&:last).join("\n").scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
+  def verify_references(lang, main, appendix)
+    all_definitions = [main, appendix].flat_map do |part|
+      marks, definitions = footnote_parts(part)
+      keys = definitions.map(&:first)
+      raise ThesisPost4Error, "referencias sin formato de nota #{lang}" if keys.empty?
+      raise ThesisPost4Error, "clave de nota duplicada #{lang}" unless keys.uniq.length == keys.length
+      orphans = keys - marks
+      raise ThesisPost4Error, "nota sin cita en el texto #{lang}: #{orphans.join(', ')}" unless orphans.empty?
+      missing = marks.uniq - keys
+      raise ThesisPost4Error, "cita sin nota #{lang}: #{missing.join(', ')}" unless missing.empty?
+      definitions
+    end
+    definitions_by_key = all_definitions.group_by(&:first)
+    raise ThesisPost4Error, "conjunto bibliográfico incompleto #{lang}: #{definitions_by_key.length}" unless definitions_by_key.length == 27
+    definitions_by_key.each do |key, entries|
+      raise ThesisPost4Error, "referencia contradictoria #{lang}: #{key}" unless entries.map(&:last).uniq.length == 1
+    end
+    dois = all_definitions.map(&:last).join("\n").scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq
     raise ThesisPost4Error, "bibliografía insuficiente #{lang}: #{dois.length} DOI" if dois.length < 12
 
-    responsive_tables = body.scan("{: .table--compact .table--scroll}").length
-    raise ThesisPost4Error, "tablas responsivas insuficientes #{lang}: #{responsive_tables}" if responsive_tables < 6
+    responsive_tables = [main, appendix].sum { |part| part.scan("{: .table--compact .table--scroll}").length }
+    raise ThesisPost4Error, "tablas responsivas incompletas #{lang}: #{responsive_tables}" unless responsive_tables == 6
   end
 
   def verify_forbidden_content(lang, body, front)
@@ -372,18 +471,14 @@ class ThesisPost4Verifier
     PUBLIC_METADATA_KEYS.flat_map { |key| Array(front[key]) }.compact.join("\n")
   end
 
-  def verify_visible_length(lang, body)
-    article = body.sub(/\n## (?:Referencias|References)\n.*/m, "")
-    appendices = article.scan(/<details\b.*?<\/details>/mi)
-    raise ThesisPost4Error, "apéndice metodológico ausente o duplicado #{lang}" unless appendices.length == 1
-
-    main = article.gsub(/<details\b.*?<\/details>/mi, " ")
-    words = visible_word_count(main)
+  def verify_visible_length(lang, main, appendix)
+    article = main.sub(/\n## (?:Referencias|References)\n.*/m, "")
+    words = visible_word_count(article)
     unless MAIN_WORD_RANGE.cover?(words)
       raise ThesisPost4Error, "extensión visible #{lang.upcase} fuera de #{MAIN_WORD_RANGE}: #{words}"
     end
 
-    appendix_words = visible_word_count(appendices.first)
+    appendix_words = visible_word_count(appendix.sub(/\n## (?:Referencias|References)\n.*/m, ""))
     unless APPENDIX_WORD_RANGE.cover?(appendix_words)
       raise ThesisPost4Error, "apéndice metodológico fuera de #{APPENDIX_WORD_RANGE} #{lang}: #{appendix_words}"
     end
@@ -396,9 +491,9 @@ class ThesisPost4Verifier
         .scan(/[[:alpha:]À-ÿ0-9]+/).length
   end
 
-  def verify_pair(documents)
-    spanish = documents.fetch("es").body
-    english = documents.fetch("en").body
+  def verify_pair(documents, annexes)
+    spanish = "#{documents.fetch('es').body}\n#{annexes.fetch('es').body}"
+    english = "#{documents.fetch('en').body}\n#{annexes.fetch('en').body}"
     es_tables = spanish.scan(/^\|/).length
     en_tables = english.scan(/^\|/).length
     raise ThesisPost4Error, "número de filas de tablas divergente (#{es_tables} vs #{en_tables})" unless es_tables == en_tables
@@ -407,9 +502,11 @@ class ThesisPost4Verifier
     en_dois = english.scan(%r{https://doi\.org/([^\s)\]"<]+)}i).flatten.map(&:downcase).uniq.sort
     raise ThesisPost4Error, "referencias bilingües divergentes" unless es_dois == en_dois
 
-    es_marks, es_definitions = footnote_parts(spanish)
-    en_marks, en_definitions = footnote_parts(english)
-    unless es_definitions.map(&:first).sort == en_definitions.map(&:first).sort && es_marks.sort == en_marks.sort
+    es_marks = [documents.fetch('es'), annexes.fetch('es')].flat_map { |doc| footnote_parts(doc.body).first }
+    en_marks = [documents.fetch('en'), annexes.fetch('en')].flat_map { |doc| footnote_parts(doc.body).first }
+    es_definitions = [documents.fetch('es'), annexes.fetch('es')].flat_map { |doc| footnote_parts(doc.body).last }
+    en_definitions = [documents.fetch('en'), annexes.fetch('en')].flat_map { |doc| footnote_parts(doc.body).last }
+    unless es_definitions.map(&:first).uniq.sort == en_definitions.map(&:first).uniq.sort && es_marks.uniq.sort == en_marks.uniq.sort
       raise ThesisPost4Error, "notas bilingües divergentes"
     end
 
@@ -472,8 +569,28 @@ class ThesisPost4Verifier
     documents[lang] = document.with(body: changed)
   end
 
-  def inject_fixture!(documents, fixture)
+  def replace_all_across!(documents, annexes, lang, pattern, replacement, fixture)
+    changed_any = false
+    [documents, annexes].each do |collection|
+      document = collection.fetch(lang)
+      changed = document.body.gsub(pattern, replacement)
+      next if changed == document.body
+      changed_any = true
+      collection[lang] = document.with(body: changed)
+    end
+    raise ThesisPost4Error, "fixture no pudo aplicarse: #{fixture}" unless changed_any
+  end
+
+  def inject_fixture!(documents, annexes, fixture)
     case fixture
+    when "annex-removed"
+      annexes.delete("es")
+    when "annex-table-contract-drop"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(front_matter: document.front_matter.reject { |key, _| key == "table_contract" })
+    when "net-access-promotion"
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\nLa caída en IP/CFT demuestra una pérdida neta de acceso.\n")
     when "causal-naive-promotion"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nCerrar un liceo destruye causalmente 13,24 puntos.\n")
@@ -486,11 +603,11 @@ class ThesisPost4Verifier
     when "state-drift"
       replace_all!(documents, "es", REQUIRED_RESULT_STATE, "UNVERIFIED_STATE", fixture)
     when "primary-number-drift"
-      replace_all!(documents, "es", /−2,09/, "−9,99", fixture)
+      replace_all_across!(documents, annexes, "es", /−2,09/, "−9,99", fixture)
     when "figure-contract-drift"
       replace_all!(documents, "en", /data-dark-srcset=/, "data-dark-srcset-broken=", fixture)
     when "footnote-orphan"
-      replace_all!(documents, "es", /\[\^manski2003\](?!:)/, "", fixture)
+      replace_all_across!(documents, annexes, "es", /\[\^manski2003\](?!:)/, "", fixture)
     when "table-parity-drift"
       replace_all!(documents, "en", /\+0\.634/, "+0.999", fixture)
     when "demre-2014-violation"
@@ -505,22 +622,51 @@ class ThesisPost4Verifier
     when "unbacked-number-drift"
       document = documents.fetch("es")
       documents["es"] = document.with(body: "#{document.body}\nLa caída fue de −2,85 pp con p = 0,0038 en 126 celdas.\n")
+    when "inline-code-article"
+      document = documents.fetch("es")
+      documents["es"] = document.with(body: "#{document.body}\nEl `resultado` tiene una interpretación prudente.\n")
+    when "inline-code-unscoped-annex"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\nLa ruta `resultado_no_publicado` queda sin respaldo público.\n")
+    when "inline-code-fake-json-key"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\nEl JSON público [JSON]({{ '/assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json' | relative_url }}) declara `nonexistent_key`.\n")
+    when "eli5-label-annex"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\nEn simple: explicación del resultado.\n")
+    when "orphan-details-close"
+      document = annexes.fetch("es")
+      annexes["es"] = document.with(body: "#{document.body}\n</details>\n")
+    when "colon-citation-missing-definition"
+      document = documents.fetch("es")
+      marker = "\n## Referencias\n"
+      raise ThesisPost4Error, "fixture no pudo aplicarse: #{fixture}" unless document.body.include?(marker)
+
+      documents["es"] = document.with(body: document.body.sub(marker, "\nCita pendiente[^guard_colon_missing]: contexto.\n#{marker}"))
     else
-      raise ThesisPost4Error, "fixture desconocida: #{fixture}"
+      raise ThesisPost4UsageError, "fixture desconocida: #{fixture}"
     end
   end
 end
 
 if $PROGRAM_NAME == __FILE__
-  fixture = nil
-  ARGV.each_slice(2) do |flag, value|
-    raise ThesisPost4Error, "argumento inválido: #{flag}" unless flag == "--fixture" && value
+  begin
+    fixture = nil
+    lang = nil
+    ARGV.each_slice(2) do |flag, value|
+      raise ThesisPost4UsageError, "argumento inválido: #{flag}" unless %w[--fixture --lang].include?(flag) && value
+      flag == "--fixture" ? fixture = value : lang = value
+    end
 
-    fixture = value
+    root = Pathname(__dir__).parent
+    verifier = ThesisPost4Verifier.new(root:)
+    verifier.verify(fixture:, lang:)
+    puts "THESIS_POST4_VERIFIED lang=#{lang || 'both'} fixture=#{fixture || 'none'}"
+  rescue ThesisPost4UsageError => e
+    warn "THESIS_POST4_USAGE_ERROR: #{e.message}"
+    exit 2
+  rescue ThesisPost4Error => e
+    warn "THESIS_POST4_INVALID: #{e.message}"
+    exit 1
   end
-
-  root = Pathname(__dir__).parent
-  verifier = ThesisPost4Verifier.new(root:)
-  verifier.verify(fixture:)
-  puts "THESIS_POST4_VERIFIED fixture=#{fixture || 'none'}"
 end

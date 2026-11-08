@@ -1,0 +1,235 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F2",
+  "target_contract_sha256": "2576659537e9e0009b9b964e84fda5b239452055bce162e94b15b4dc51968f33",
+  "target_definition_sha256": "0fc4d7fd4ad184babf8d8369bff3fb9ad4d95464ea1984f6971f0724c582123f",
+  "criterion_command_sha256": "e6a1b225e3550b3ae29394c4ba900391ff2935d79664d5fbacf4806d07505708",
+  "observed_command": "cd activos/3cucharadas && python3 scripts/verify_thesis_editorial_delivery.py --check review",
+  "observed_command_sha256": "e6a1b225e3550b3ae29394c4ba900391ff2935d79664d5fbacf4806d07505708",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-11-07T23:53:50Z",
+  "finished_at": "2026-11-07T23:53:50Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json",
+      "exists": true,
+      "sha256": "b95ebc41b44e6fd38e8965aa5d63cbebc522b8bbb43a421434bfdddb044ccb3a"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r3.json",
+      "exists": true,
+      "sha256": "41c5ffe482c06e800d78ab57b681ecb070b3b48a92a85e62d6061da424ac42e8"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r4.json",
+      "exists": true,
+      "sha256": "e930d77f6db737360fde159853c0fc22878c7c17ff336bb0ce094ced6a9587ca"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r5.json",
+      "exists": true,
+      "sha256": "f587ba816c0cd3992c60ba4f91284c1d1c44866c1dceba29045510c2e9a77ade"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r1.json",
+      "exists": true,
+      "sha256": "ddfac766cde62aeab83a550ecfe59dbcd4e45e21052d9f10b9456746b2c32608"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r2.json",
+      "exists": true,
+      "sha256": "09b820897fe06093e1890bc2527d06b67a55530ec8629a5d433214592f64a54b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r3.json",
+      "exists": true,
+      "sha256": "0e425f6fa8c00b91ab4beb04af80c187112a9f03772a022237e9ef53fe26a686"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r4.json",
+      "exists": true,
+      "sha256": "ad03e8b150f85fff7fb3dfdedad307bc5f039f621701e3acaee946f27d5cf086"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r5.json",
+      "exists": true,
+      "sha256": "1489473c5c8fdf391f11518f59263146d0d773f1be7179842fc50163061235d7"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r1.md",
+      "exists": true,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r2.md",
+      "exists": true,
+      "sha256": "59f5f3a4c6605ada8264e102e90cdfcf179fc1b628af2874d1d511db1fa96885"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r3.md",
+      "exists": true,
+      "sha256": "252c3f1e52fcd5b1de92f6898b872b3f5ffe07134ee397014d902c7fa93964d7"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r4.md",
+      "exists": true,
+      "sha256": "a07a16a5ffd4a784110650daa8357bdbe88a84ae7e5bd4a5615b6faeff0c982d"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r5.md",
+      "exists": true,
+      "sha256": "59e3a29f745ba2d68aa1f8ca779fd71710a30c89aa80934ca653e3736f7553c6"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json",
+      "exists": true,
+      "sha256": "9c3726048021a1cf5ac697cd92a119173863ab06e0ebc479eedc78635991c436"
+    },
+    {
+      "path": "activos/3cucharadas/assets/data/tesis-post4/post4_retrospective_post3_audit.json",
+      "exists": true,
+      "sha256": "1d504e970d27a053e20323e1518dc28065846321c679e40843922021a15ba723"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json",
+      "exists": true,
+      "sha256": "b95ebc41b44e6fd38e8965aa5d63cbebc522b8bbb43a421434bfdddb044ccb3a"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r3.json",
+      "exists": true,
+      "sha256": "41c5ffe482c06e800d78ab57b681ecb070b3b48a92a85e62d6061da424ac42e8"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r4.json",
+      "exists": true,
+      "sha256": "e930d77f6db737360fde159853c0fc22878c7c17ff336bb0ce094ced6a9587ca"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/inputs-r5.json",
+      "exists": true,
+      "sha256": "f587ba816c0cd3992c60ba4f91284c1d1c44866c1dceba29045510c2e9a77ade"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r1.json",
+      "exists": true,
+      "sha256": "ddfac766cde62aeab83a550ecfe59dbcd4e45e21052d9f10b9456746b2c32608"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r2.json",
+      "exists": true,
+      "sha256": "09b820897fe06093e1890bc2527d06b67a55530ec8629a5d433214592f64a54b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r3.json",
+      "exists": true,
+      "sha256": "0e425f6fa8c00b91ab4beb04af80c187112a9f03772a022237e9ef53fe26a686"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r4.json",
+      "exists": true,
+      "sha256": "ad03e8b150f85fff7fb3dfdedad307bc5f039f621701e3acaee946f27d5cf086"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r5.json",
+      "exists": true,
+      "sha256": "1489473c5c8fdf391f11518f59263146d0d773f1be7179842fc50163061235d7"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r1.md",
+      "exists": true,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r2.md",
+      "exists": true,
+      "sha256": "59f5f3a4c6605ada8264e102e90cdfcf179fc1b628af2874d1d511db1fa96885"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r3.md",
+      "exists": true,
+      "sha256": "252c3f1e52fcd5b1de92f6898b872b3f5ffe07134ee397014d902c7fa93964d7"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r4.md",
+      "exists": true,
+      "sha256": "a07a16a5ffd4a784110650daa8357bdbe88a84ae7e5bd4a5615b6faeff0c982d"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r5.md",
+      "exists": true,
+      "sha256": "59e3a29f745ba2d68aa1f8ca779fd71710a30c89aa80934ca653e3736f7553c6"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json",
+      "exists": true,
+      "sha256": "9c3726048021a1cf5ac697cd92a119173863ab06e0ebc479eedc78635991c436"
+    },
+    {
+      "path": "activos/3cucharadas/assets/data/tesis-post4/post4_retrospective_post3_audit.json",
+      "exists": true,
+      "sha256": "1d504e970d27a053e20323e1518dc28065846321c679e40843922021a15ba723"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "EDITORIAL_DELIVERY_VALID check=review fixture=none\n",
+  "stderr": ""
+}

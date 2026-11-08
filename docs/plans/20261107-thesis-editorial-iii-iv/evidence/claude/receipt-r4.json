@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "provider": "claude",
+  "backend": "cli",
+  "mode": "review",
+  "cli_profile": "standard",
+  "status": "OK",
+  "classification": "COMPLETED",
+  "reason": "COMPLETED",
+  "raw_exit": 0,
+  "normalized_exit": 0,
+  "requested_model": "sonnet",
+  "fallback_models": [
+    "opus"
+  ],
+  "effective_model": "claude-sonnet-5-5",
+  "session_id": "ae0d2b2a-2ecf-459a-882d-c203256a2500",
+  "started_at": "2026-11-07T23:46:40.657Z",
+  "finished_at": "2026-11-07T23:48:51.609Z",
+  "duration_ms": 130951,
+  "prompt_sha256": "d4e1b9644bc0d5d84fd88beac63ed497daa96974ba922fd6dd80f1fa0358231a",
+  "system_prompt_sha256": null,
+  "response_sha256": "a07a16a5ffd4a784110650daa8357bdbe88a84ae7e5bd4a5615b6faeff0c982d",
+  "retry_policy": {
+    "transient_retries": 0,
+    "retry_delay_seconds": 5,
+    "handoff_contract_retries": 1,
+    "handoff_contract_retry_used": false
+  },
+  "markers": {
+    "PLAN_STATE v2": true,
+    "HANDOFF-TRACE:": true,
+    "MODEL-REPORT:": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "backend": "cli",
+      "classification": "COMPLETED",
+      "raw_exit": 0,
+      "normalized_exit": 0,
+      "requested_model": "sonnet",
+      "fallback_models": [
+        "opus"
+      ],
+      "effective_model": "claude-sonnet-5-5",
+      "session_id": "ae0d2b2a-2ecf-459a-882d-c203256a2500",
+      "started_at": "2026-11-07T23:46:40.657Z",
+      "finished_at": "2026-11-07T23:48:51.578Z",
+      "duration_ms": 130950,
+      "stdout_sha256": "7946489ac4c66f2544e2403e7736b0936b6794ef5ccb14a29d00fa2f2f460b27",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_sha256": "7946489ac4c66f2544e2403e7736b0936b6794ef5ccb14a29d00fa2f2f460b27",
+      "retry_decision": "stop",
+      "markers": {
+        "PLAN_STATE v2": true,
+        "HANDOFF-TRACE:": true,
+        "MODEL-REPORT:": true
+      },
+      "prompt_sha256": "d4e1b9644bc0d5d84fd88beac63ed497daa96974ba922fd6dd80f1fa0358231a",
+      "response_file": "response-attempt.1.txt"
+    }
+  ]
+}

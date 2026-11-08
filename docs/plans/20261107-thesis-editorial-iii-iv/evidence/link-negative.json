@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python3",
+    "scripts/verify_thesis_editorial_delivery.py",
+    "--check",
+    "links",
+    "--artifact-root",
+    "/tmp/codex-thesis-editorial-site",
+    "--fixture",
+    "broken-anchor"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "EDITORIAL_DELIVERY_REJECTED: Broken anchor: /datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/ -> /datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/#editorial-nonexistent-anchor-probe\n"
+}

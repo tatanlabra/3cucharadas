@@ -47,6 +47,7 @@ require "rexml/document"
 module TablaDesplazable
   CLASE = "tabla-desliza"
   CONTRATO_EXPLICITO = "explicit-v1"
+  ANEXOS_TESIS = %w[tesis-post3-anexo-metodologico tesis-post4-anexo-metodologico].freeze
 
   # Una celda con mas de este numero de caracteres convierte la tabla en
   # narrativa. El umbral sale del inventario real de 62 tablas en 12 posts: las
@@ -177,9 +178,11 @@ module TablaDesplazable
   end
 end
 
-Jekyll::Hooks.register :documents, :post_render do |doc|
+Jekyll::Hooks.register [:documents, :pages], :post_render do |doc|
   next unless doc.output.is_a?(String)
-  next unless doc.collection&.label == "posts"
+  es_post = doc.respond_to?(:collection) && doc.collection&.label == "posts"
+  es_anexo = TablaDesplazable::ANEXOS_TESIS.include?(doc.data["ref"])
+  next unless es_post || es_anexo
 
   doc.output = TablaDesplazable.envolver(doc.output, doc.data["lang"], doc.data["table_contract"])
 end

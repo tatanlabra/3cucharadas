@@ -1,0 +1,12 @@
+{
+  "red": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "REFERENCE_LINKS_INVALID tesis-post3-anexo-metodologico.md:233: entrada con enlace a Scholar y sin DOI ni arXiv\nREFERENCE_LINKS_INVALID tesis-post3-anexo-metodologico.md: doi:10.3386/w34936 figura en el registro y ya no est\u00e1 en el post; reponerlo o volver a correr scripts/build_reference_links.py\n2 errores en 13 entradas\n"
+  },
+  "green": {
+    "exit": 0,
+    "stdout": "REFERENCE_LINKS_VALID 235 entradas en 36 archivos\n",
+    "stderr": ""
+  }
+}

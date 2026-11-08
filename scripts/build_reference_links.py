@@ -78,7 +78,9 @@ def collect_identifiers(posts_dir: Path) -> dict[str, dict]:
     los números cambian con cada edición y el registro no debe depender de ellos)."""
 
     found: dict[str, dict] = {}
-    for path in sorted(posts_dir.glob("*.md")):
+    annexes = [posts_dir.parent / "_pages" / f"tesis-post{part}-anexo-metodologico{lang}.md"
+               for part in (3, 4) for lang in ("", "-en")]
+    for path in sorted([*posts_dir.glob("*.md"), *(p for p in annexes if p.is_file())]):
         for line in entry_lines(path.read_text(encoding="utf-8")):
             dois = [clean_doi(match.group(1)) for match in DOI_RE.finditer(line)]
             for doi in dois:

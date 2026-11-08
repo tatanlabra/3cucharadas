@@ -1,0 +1,231 @@
+{
+  "status": "PASS",
+  "scope": "ES interim after Claude r3; not bilingual",
+  "tested_at": "2026-11-07T23:47:43.527636+00:00",
+  "source_sha256": {
+    "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a",
+    "_pages/tesis-post3-anexo-metodologico.md": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921",
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "a59d4c45868c07199090f315a5dae223fd5bf7b55a55962291f0b569eeac608e",
+    "_pages/tesis-post4-anexo-metodologico.md": "4e202135ad227e01312c3033cc5f80b5abb97cd42179865c3ee16b14e71a00ce",
+    "scripts/verify_thesis_post3.rb": "a2444667be8899214cbacfa275035791b3fb5225ab1a2b00af88d5aaf3cf63ca",
+    "scripts/verify_thesis_post4.rb": "3b8f9b09b7c648d5ce577ccf4e987a92ce9f0584b866825618db0266843647c7"
+  },
+  "cases": [
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es",
+      "expected_exit": 0,
+      "exit": 0,
+      "expected_text": "POST3_VALID lang=es",
+      "stdout": "POST3_VALID lang=es\n",
+      "stderr": "POST3_WARNING: upstream_custody=UNCOMMITTED_FILE_HASHES; el recibo prueba post↔proyección, no custodia científica en un commit upstream\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es",
+      "expected_exit": 0,
+      "exit": 0,
+      "expected_text": "THESIS_POST4_VERIFIED lang=es fixture=none",
+      "stdout": "THESIS_POST4_VERIFIED lang=es fixture=none\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture annex-removed",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "anexo metodológico ausente es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: anexo metodológico ausente es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture annex-table-contract-drop",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "contrato explícito de tablas ausente en anexo es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: contrato explícito de tablas ausente en anexo es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture primary-number-drift",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "estimación principal v3.1 faltante es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: estimación principal v3.1 faltante es: grade_progression_or_lag\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture missingness-drift",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "cotas de datos faltantes ausentes es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: cotas de datos faltantes ausentes es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture secondary-label-drop",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "etiqueta exploratoria secundaria ausente es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: etiqueta exploratoria secundaria ausente es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture series-regime-drift",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "evidencia RCID v1 o serie 2005-2024 ausente es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: evidencia RCID v1 o serie 2005-2024 ausente es: +12,15\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture footnote-orphan",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "nota sin cita en el texto es: manski2003",
+      "stdout": "",
+      "stderr": "POST3_INVALID: nota sin cita en el texto es: manski2003\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture colon-citation-missing-definition",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "cita sin nota es: guard_colon_missing",
+      "stdout": "",
+      "stderr": "POST3_INVALID: cita sin nota es: guard_colon_missing\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture orphan-details-close",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "etiquetas details desbalanceadas es en anexo",
+      "stdout": "",
+      "stderr": "POST3_INVALID: etiquetas details desbalanceadas es en anexo\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture eli5-label-annex",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "rótulo ELI5 o En simple expuesto es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: rótulo ELI5 o En simple expuesto es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture appendix-overflow",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "apéndice metodológico fuera de extensión es",
+      "stdout": "",
+      "stderr": "POST3_INVALID: apéndice metodológico fuera de extensión es: 20670\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture annex-removed",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "anexo metodológico ausente es",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: anexo metodológico ausente es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture annex-table-contract-drop",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "contrato explícito de tablas ausente en anexo es",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: contrato explícito de tablas ausente en anexo es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture primary-number-drift",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "cifras gobernadas ausentes es: −2,09",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: cifras gobernadas ausentes es: −2,09\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture net-access-promotion",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "promoción causal ingenua o violación normativa es",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: promoción causal ingenua o violación normativa es: /\\b(?:la ca[i\\u00ED]da|el descenso)\\s+en\\s+IP\\/CFT\\s+(?:demuestra|prueba|confirma)\\s+(?:una\\s+)?p[e\\u00E9]rdida\\s+neta\\s+de\\s+acceso\\b/i\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture footnote-orphan",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "nota sin cita en el texto es: manski2003",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: nota sin cita en el texto es: manski2003\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture colon-citation-missing-definition",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "cita sin nota es: guard_colon_missing",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: cita sin nota es: guard_colon_missing\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture orphan-details-close",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "etiquetas details desbalanceadas es en anexo",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: etiquetas details desbalanceadas es en anexo\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture eli5-label-annex",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "rótulo ELI5 o En simple expuesto es",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: rótulo ELI5 o En simple expuesto es\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture inline-code-fake-json-key",
+      "expected_exit": 1,
+      "exit": 1,
+      "expected_text": "uso de código inline (`...`) en prosa/tablas contamina el tema claro es",
+      "stdout": "",
+      "stderr": "THESIS_POST4_INVALID: uso de código inline (`...`) en prosa/tablas contamina el tema claro es: 1 ocurrencias\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture table-number-parity-drift",
+      "expected_exit": 2,
+      "exit": 2,
+      "expected_text": "USAGE_ERROR: fixture requiere comparación bilingüe",
+      "stdout": "",
+      "stderr": "POST3_USAGE_ERROR: fixture requiere comparación bilingüe: table-number-parity-drift\n",
+      "passed": true
+    },
+    {
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture table-parity-drift",
+      "expected_exit": 2,
+      "exit": 2,
+      "expected_text": "USAGE_ERROR: fixture requiere comparación bilingüe",
+      "stdout": "",
+      "stderr": "THESIS_POST4_USAGE_ERROR: fixture requiere comparación bilingüe: table-parity-drift\n",
+      "passed": true
+    }
+  ]
+}

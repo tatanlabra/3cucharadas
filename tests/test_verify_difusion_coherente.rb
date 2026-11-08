@@ -26,6 +26,27 @@ class VerifyDiffusionCoherenceTest < Minitest::Test
     File.write(File.join(@root, 'difusion/paquetes/fixture', name), text)
   end
 
+  def thesis_post(lang, body)
+    ref = 'costos-cierre-escolar-trayectorias'
+    File.write(File.join(@root, "_posts/#{ref}-#{lang}.md"),
+               "---\nref: #{ref}\nlang: #{lang}\npermalink: /costos-cierre-escolar-trayectorias/\ntitle: Fixture\n---\n#{body}\n")
+  end
+
+  def thesis_annex(lang, body, front_override: nil)
+    suffix = lang == 'en' ? '-en' : ''
+    path = File.join(@root, "_pages/tesis-post3-anexo-metodologico#{suffix}.md")
+    FileUtils.mkdir_p(File.dirname(path))
+    front = front_override || "ref: tesis-post3-anexo-metodologico\nlang: #{lang}\npermalink: /costos-cierre-escolar-trayectorias/anexo-metodologico/"
+    File.write(path, "---\n#{front}\n---\n#{body}\n")
+    path
+  end
+
+  def thesis_copy(text)
+    dir = File.join(@root, 'difusion/paquetes/costos-cierre-escolar-trayectorias')
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, 'linkedin.txt'), text)
+  end
+
   def gate(*args)
     out, err, status = Open3.capture3('ruby', File.join(@root, 'scripts/verify_difusion_coherente.rb'), *args)
     [out + err, status]
@@ -282,6 +303,64 @@ class VerifyDiffusionCoherenceTest < Minitest::Test
     out, status = gate('fixture')
     refute status.success?, out
     assert_includes out, 'sección publicable vacía'
+  end
+
+  def test_thesis_copy_can_use_annex_only_number_with_bilingual_corpus_parity
+    thesis_post('es', 'Resultado 7654.')
+    thesis_post('en', 'Result 7654.')
+    thesis_annex('es', 'Detalle 9377.')
+    thesis_annex('en', 'Detail 9377.')
+    thesis_copy('Detalle 9377.')
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    assert status.success?, out
+    assert_includes out, '2 posts, 2 anexos'
+    assert_includes out, 'SOURCE _pages/tesis-post3-anexo-metodologico-en.md'
+
+    thesis_annex('en', 'Detail 9378.')
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    refute status.success?, out
+    assert_includes out, 'paridad corpus post+anexo'
+    assert_includes out, '9378'
+  end
+
+  def test_thesis_annex_missing_or_wrong_identity_fails_closed
+    thesis_post('es', 'Resultado 7654.')
+    thesis_post('en', 'Result 7654.')
+    thesis_annex('es', 'Detalle 9377.')
+    thesis_copy('Detalle 9377.')
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    refute status.success?, out
+    assert_includes out, 'anexo ausente'
+
+    thesis_annex('en', 'Detail 9377.', front_override: "ref: otro-anexo\nlang: en\npermalink: /costos-cierre-escolar-trayectorias/anexo-metodologico/")
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    refute status.success?, out
+    assert_includes out, 'identidad o ruta del anexo inválida'
+  end
+
+  def test_thesis_unrelated_page_and_orphaned_copy_cannot_grant_coverage
+    thesis_post('es', 'Resultado 7654.')
+    thesis_post('en', 'Result 7654.')
+    thesis_annex('es', 'Detalle 9377.')
+    thesis_annex('en', 'Detail 9377.')
+    File.write(File.join(@root, '_pages/otro-anexo.md'), 'Cifra 9988.')
+    thesis_copy('Detalle 9988.')
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    refute status.success?, out
+    assert_includes out, 'cifras ausentes del corpus canónico: 9988'
+  end
+
+  def test_thesis_annex_symlink_is_not_trusted_as_canonical_source
+    thesis_post('es', 'Resultado 7654.')
+    thesis_post('en', 'Result 7654.')
+    thesis_annex('es', 'Detalle 9377.')
+    path = thesis_annex('en', 'Detail 9377.')
+    FileUtils.mv(path, "#{path}.target")
+    File.symlink("#{path}.target", path)
+    thesis_copy('Detalle 9377.')
+    out, status = gate('costos-cierre-escolar-trayectorias')
+    refute status.success?, out
+    assert_includes out, 'anexo ausente o enlace simbólico'
   end
 
 end

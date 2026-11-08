@@ -1,0 +1,15 @@
+{
+  "expected_sha": "0000000000000000000000000000000000000000",
+  "remote_refs": {
+    "gitlab": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4",
+    "github": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4"
+  },
+  "pages": [],
+  "assets": [],
+  "failures": [
+    "gitlab: remote SHA differs",
+    "github: remote SHA differs",
+    "Remote commit mismatch; deployment verification cannot proceed"
+  ],
+  "status": "FAIL"
+}

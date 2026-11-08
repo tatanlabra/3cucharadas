@@ -166,7 +166,8 @@ if $PROGRAM_NAME == __FILE__
     registry = args.delete_at(index + 1)
     args.delete_at(index)
   end
-  files = args.empty? ? Dir.glob("_posts/*.md").sort : args
+  annexes = [3, 4].product(["", "-en"]).map { |part, lang| "_pages/tesis-post#{part}-anexo-metodologico#{lang}.md" }
+  files = args.empty? ? (Dir.glob("_posts/*.md") + annexes.select { |path| File.file?(path) }).sort : args
   begin
     checked, errors = ReferenceLinks.run(files, registry)
   rescue StandardError => e

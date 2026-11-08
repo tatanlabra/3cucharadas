@@ -1,0 +1,46 @@
+{
+  "expected_sha": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4",
+  "remote_refs": {
+    "gitlab": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4",
+    "github": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4"
+  },
+  "pages": [
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "article_dom_equal": false
+    }
+  ],
+  "assets": [],
+  "failures": [
+    "Public article DOM differs: /datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+    "HTTP Error 404: Not Found"
+  ],
+  "pipeline": {
+    "id": 3040766283,
+    "iid": 422,
+    "project_id": 57339918,
+    "sha": "a97b1c8fd37e41e9349dbfd5b0c6e988a053c9a4",
+    "ref": "main",
+    "status": "success",
+    "source": "push",
+    "created_at": "2026-11-07T22:19:01.122Z",
+    "updated_at": "2026-11-07T22:23:21.539Z",
+    "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/3040766283",
+    "name": null
+  },
+  "jobs": [
+    {
+      "id": 17835989882,
+      "name": "pages",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/17835989882"
+    },
+    {
+      "id": 17835989881,
+      "name": "build_site",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/17835989881"
+    }
+  ],
+  "status": "FAIL"
+}

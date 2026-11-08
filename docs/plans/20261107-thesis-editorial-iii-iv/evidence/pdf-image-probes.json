@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "python3",
+      "scripts/verify_thesis_editorial_delivery.py",
+      "--check",
+      "pdf"
+    ],
+    "exit": 0,
+    "stdout": "EDITORIAL_DELIVERY_VALID check=pdf fixture=none\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/verify_thesis_editorial_delivery.py",
+      "--check",
+      "pdf",
+      "--fixture",
+      "pdf-image-stale"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "EDITORIAL_DELIVERY_REJECTED: Stale PDF figure: assets/images/tesis-post4/selection-ladder-es-light.png\n"
+  }
+]

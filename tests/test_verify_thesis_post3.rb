@@ -26,17 +26,17 @@ class VerifyThesisPost3Test < Minitest::Test
     "secondary-label-drop" => "etiqueta exploratoria secundaria ausente",
     "figure-path-drift" => "figura canónica no referenciada",
     "figure-contract-drift" => "contrato visual de figura incompleto",
-    "reference-drift" => "referencias bilingües divergentes",
+    "reference-drift" => "referencia contradictoria en: callaway2021",
     "pilot-number" => "cifra piloto obsoleta",
     "hmg-capsule-reintroduced" => "contenido retirado reintroducido es",
     "hmg-effect-reintroduced" => "contenido retirado reintroducido en: efecto HMG table_7",
     "update-note-reintroduced" => "contenido retirado reintroducido en",
-    "transparency-capsule-drop" => "transparencia sin cápsula, cita o PDF de 2014 es",
+    "transparency-capsule-drop" => "transparencia sin cita o PDF de 2014 es",
     "he-blocker-reintroduced" => "bloqueo de educación superior reintroducido",
     "he-blocker-paraphrase" => "bloqueo de educación superior reintroducido",
     "he-effect-outside-agenda" => "efecto postsecundario no autorizado",
-    "he-effect-invented" => "agenda de educación superior contiene una cifra estimada",
-    "he-agenda-duplicate" => "agenda de educación superior ausente o duplicada",
+    "he-effect-invented" => "efecto postsecundario no autorizado es",
+    "he-scope-drop" => "límite de alcance postsecundario ausente es",
     "front-matter-causal-promotion" => "promoción causal no autorizada",
     "front-matter-tags-causal-promotion" => "promoción causal no autorizada",
     "strong-policy-promotion" => "promoción causal no autorizada",
@@ -51,8 +51,12 @@ class VerifyThesisPost3Test < Minitest::Test
     "series-regime-drift" => "evidencia RCID v1 o serie 2005-2024 ausente",
     "random-effects-drift" => "agregado de efectos aleatorios ausente",
     "fixed-effect-reintroduced" => "agregado de efecto fijo reintroducido",
-    "appendix-removed" => "apéndice metodológico ausente o duplicado",
+    "appendix-removed" => "anexo metodológico ausente es",
+    "annex-table-contract-drop" => "contrato explícito de tablas ausente en anexo es",
     "appendix-overflow" => "apéndice metodológico fuera de extensión",
+    "eli5-label-annex" => "rótulo ELI5 o En simple expuesto es",
+    "orphan-details-close" => "etiquetas details desbalanceadas es en anexo",
+    "colon-citation-missing-definition" => "cita sin nota es: guard_colon_missing",
     "footnote-orphan" => "nota sin cita en el texto es: manski2003",
     "footnote-missing-definition" => "cita sin nota en: brummet2015",
     "footnote-parity-drift" => "notas bilingües divergentes",
@@ -70,6 +74,12 @@ class VerifyThesisPost3Test < Minitest::Test
     assert status.success?, output
     assert_includes output, "POST3_VALID"
     assert_includes output, "upstream_custody=UNCOMMITTED_FILE_HASHES"
+  end
+
+  def test_bilingual_fixture_cannot_claim_red_in_spanish_only_mode
+    output, status = Open3.capture2e("ruby", SCRIPT, "--lang", "es", "--fixture", "table-number-parity-drift", chdir: ROOT)
+    assert_equal 2, status.exitstatus, output
+    assert_includes output, "POST3_USAGE_ERROR: fixture requiere comparación bilingüe"
   end
 
   def test_each_negative_fixture_reaches_its_specific_red

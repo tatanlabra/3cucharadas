@@ -1,0 +1,285 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F3",
+  "target_contract_sha256": "2576659537e9e0009b9b964e84fda5b239452055bce162e94b15b4dc51968f33",
+  "target_definition_sha256": "0fc4d7fd4ad184babf8d8369bff3fb9ad4d95464ea1984f6971f0724c582123f",
+  "criterion_command_sha256": "edb455768b1064b771dc942176bca12655ddfdc2f42e5df4c15994cca8148095",
+  "observed_command": "cd activos/3cucharadas && ruby scripts/verify_thesis_post3.rb && ruby scripts/verify_thesis_post4.rb && python3 scripts/verify_thesis_editorial_delivery.py --check pdf",
+  "observed_command_sha256": "edb455768b1064b771dc942176bca12655ddfdc2f42e5df4c15994cca8148095",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-11-08T00:11:50Z",
+  "finished_at": "2026-11-08T00:11:51Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "b462848699003c5035109b1ba89448c57d6170e83dcbbf1df8efd0e8d0c55e1d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "2c157cf2b90763969a0d160e4494143133b5a473e072f36d1a7cc3f831f425a4"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "0f714f711852619dbb6f412b4027b527b6625fdba482eafb8c244ed17da0ea73"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "40394806ba3a1c6ed7c9a7c6abc1523c63371135378719759cc6c037a1d07e0a"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post3.rb",
+      "exists": true,
+      "sha256": "a435df4a3477f75bb634e21feae214419d9b6119530082771109f2444667ffb4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post4.rb",
+      "exists": true,
+      "sha256": "3b8f9b09b7c648d5ce577ccf4e987a92ce9f0584b866825618db0266843647c7"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/cohort-series-infographic-data.csv",
+      "exists": true,
+      "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/missingness-bounds-data.csv",
+      "exists": true,
+      "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+      "exists": true,
+      "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/sample-flow-data.csv",
+      "exists": true,
+      "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/territorial-audit-data.csv",
+      "exists": true,
+      "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+      "exists": true,
+      "sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-data.csv",
+      "exists": true,
+      "sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-data.csv",
+      "exists": true,
+      "sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/pdf-delivery.json",
+      "exists": true,
+      "sha256": "ce0558357f321296a8b04da59aea2bb43b08c4e963b7dba891084c0260efb18a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+      "exists": true,
+      "sha256": "63402f66538e65d6b947cd206849ba1e5a06fc89bf034b8369560c253f5a9848"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+      "exists": true,
+      "sha256": "c35375a79f4671ed1b8410d1bb731a01167f46d099eb9dfc566253dd1e736f37"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-es-light.png",
+      "exists": true,
+      "sha256": "0bd68340903392aad2b22aa556a9ee9861062f9ec23d72f05ebcb25d564451da"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/scripts/353_render_and_send_post4_pdf.py",
+      "exists": true,
+      "sha256": "f61289f65c53fd397e63b69a8ab671dfb512d9913ff48b0917427bd89539b0b0"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.pdf",
+      "exists": true,
+      "sha256": "75dac714c3cb5beb0718a35909c6d22ec77668111181eb0e85a3e44b8566edc8"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.manifest.json",
+      "exists": true,
+      "sha256": "35675bef2bb1735def4a837ebe2a25806e0708c7fbe0da989e9321691bd2e1ba"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "b462848699003c5035109b1ba89448c57d6170e83dcbbf1df8efd0e8d0c55e1d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "2c157cf2b90763969a0d160e4494143133b5a473e072f36d1a7cc3f831f425a4"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "0f714f711852619dbb6f412b4027b527b6625fdba482eafb8c244ed17da0ea73"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "40394806ba3a1c6ed7c9a7c6abc1523c63371135378719759cc6c037a1d07e0a"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post3.rb",
+      "exists": true,
+      "sha256": "a435df4a3477f75bb634e21feae214419d9b6119530082771109f2444667ffb4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post4.rb",
+      "exists": true,
+      "sha256": "3b8f9b09b7c648d5ce577ccf4e987a92ce9f0584b866825618db0266843647c7"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/cohort-series-infographic-data.csv",
+      "exists": true,
+      "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/missingness-bounds-data.csv",
+      "exists": true,
+      "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+      "exists": true,
+      "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/sample-flow-data.csv",
+      "exists": true,
+      "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/territorial-audit-data.csv",
+      "exists": true,
+      "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+      "exists": true,
+      "sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-data.csv",
+      "exists": true,
+      "sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-data.csv",
+      "exists": true,
+      "sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633"
+    },
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/pdf-delivery.json",
+      "exists": true,
+      "sha256": "ce0558357f321296a8b04da59aea2bb43b08c4e963b7dba891084c0260efb18a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+      "exists": true,
+      "sha256": "63402f66538e65d6b947cd206849ba1e5a06fc89bf034b8369560c253f5a9848"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+      "exists": true,
+      "sha256": "c35375a79f4671ed1b8410d1bb731a01167f46d099eb9dfc566253dd1e736f37"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-es-light.png",
+      "exists": true,
+      "sha256": "0bd68340903392aad2b22aa556a9ee9861062f9ec23d72f05ebcb25d564451da"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/scripts/353_render_and_send_post4_pdf.py",
+      "exists": true,
+      "sha256": "f61289f65c53fd397e63b69a8ab671dfb512d9913ff48b0917427bd89539b0b0"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.pdf",
+      "exists": true,
+      "sha256": "75dac714c3cb5beb0718a35909c6d22ec77668111181eb0e85a3e44b8566edc8"
+    },
+    {
+      "path": "incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.manifest.json",
+      "exists": true,
+      "sha256": "35675bef2bb1735def4a837ebe2a25806e0708c7fbe0da989e9321691bd2e1ba"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "POST3_VALID lang=both\nTHESIS_POST4_VERIFIED lang=both fixture=none\nEDITORIAL_DELIVERY_VALID check=pdf fixture=none\n",
+  "stderr": "POST3_WARNING: upstream_custody=UNCOMMITTED_FILE_HASHES; el recibo prueba post↔proyección, no custodia científica en un commit upstream\n"
+}

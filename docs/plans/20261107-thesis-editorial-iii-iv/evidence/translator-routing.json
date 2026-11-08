@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-11-07T23:22:53Z",
+  "policy_version": 1,
+  "policy_status": "provisional_external_evidence",
+  "objective": "credits_per_verified_resolution",
+  "matched_rule": "complex_or_high_risk",
+  "route": "complex",
+  "rationale": "Diagnóstico o síntesis compleja: subir esfuerzo antes de pagar el salto a Astra.",
+  "confidence": "provisional_external_evidence",
+  "context": {
+    "task_kind": "general",
+    "complexity": "compleja",
+    "risk": "medium",
+    "error_cost": "high",
+    "deterministic_validator": false,
+    "evidence_conflict": false,
+    "prior_verified_failure": false,
+    "gate_falsification": false,
+    "agentic_hard": false,
+    "quality_first": false
+  },
+  "selected_model": "gpt-6-sol",
+  "reasoning_effort": "high",
+  "service_tier": "standard",
+  "spawn_agent_override": {
+    "model": "gpt-6-sol",
+    "reasoning_effort": "high"
+  },
+  "fallback_routes": [
+    {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    }
+  ],
+  "availability_fallback": true,
+  "unavailable_preferred_candidates": [
+    {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high"
+    }
+  ],
+  "availability_source": "collaboration_spawn_agent_contract",
+  "available_models": [
+    "gpt-6-astra",
+    "gpt-6-sol",
+    "gpt-6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-5.6-luna"
+  ],
+  "requires_local_evaluation": true
+}

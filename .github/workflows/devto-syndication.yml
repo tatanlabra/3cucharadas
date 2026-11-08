@@ -48,6 +48,10 @@ concurrency:
 
 jobs:
   syndicate:
+    # Una entrega del sitio puede dejar la difusión pendiente por decisión humana.
+    # El marcador afecta sólo ese push; workflow_dispatch conserva su comportamiento.
+    if: >-
+      ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '3c-release: diffusion-deferred') }}
     runs-on: ubuntu-latest
     steps:
       # Pinneado a SHA de commit, no a etiqueta. Este es el único workflow del

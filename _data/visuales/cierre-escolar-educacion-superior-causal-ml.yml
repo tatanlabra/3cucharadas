@@ -8,27 +8,26 @@ piezas:
   origen: ia-integrada
   ancho: 1600
   alto: 900
-  bytes: 31220
-  sha256: d9f0b7a038fd516ef7bbc116a70fe7d988689105df94341547420aeb3e71d4d9
-  alt: &id001
-    es: Ilustración nocturna de trayectorias estudiantiles que parten desde un liceo
-      cerrado y se bifurcan hacia campus universitarios e institutos técnico-profesionales,
-      representando la separación entre selección previa y efecto causal.
-    en: Nocturnal illustration of student trajectories branching from a closed secondary
-      school towards university campuses and vocational-technical institutes, depicting
-      the separation between prior selection and causal effect.
+  bytes: 165484
+  sha256: cf613c8d980b36714d3b8051014d5e664596142f9b8abaf2ad274ca53bfc987b
+  alt:
+    es: Ilustración conceptual nocturna de estudiantes ante caminos abiertos hacia
+      un instituto técnico y un campus universitario; al fondo queda su liceo.
+    en: Conceptual night-time illustration of students facing open paths towards a
+      technical institute and a university campus, with their secondary school behind
+      them.
   provenance:
     status: generated_this_revision
-    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
-    note: &id002
-      es: Ilustración conceptual generada de forma determinista; no representa estudiantes,
-        liceos ni instituciones específicas.
-      en: Deterministic conceptual illustration; it does not depict specific students,
-        schools, or higher-education institutions.
-    encoding: WebP quality=86; Lanczos; deterministic derivative
-    tool: Antigravity Editorial Canvas v2
-    provider: Google DeepMind
-    interface: Antigravity CLI
+    source_sha256: fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed
+    source_file: docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png
+    tool: image_gen
+    interface: Codex built-in image generation
+    note:
+      es: Ilustración conceptual generada con ImageGen mediante Codex; no representa
+        instituciones específicas ni un efecto causal demostrado.
+      en: Conceptual illustration generated with ImageGen through Codex; it does not
+        depict specific institutions or an established causal effect.
+    encoding: WebP quality=88; Lanczos; compact_crop=False
 - id: editorial-v2-hero-mobile
   rol: hero
   archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp
@@ -36,17 +35,26 @@ piezas:
   origen: ia-integrada
   ancho: 800
   alto: 450
-  bytes: 13520
-  sha256: 115587efd3f1dc8e93570768d0a56070ebf69aff9a789085b94ad4a7ba3ba59c
-  alt: *id001
+  bytes: 53940
+  sha256: 064051cf8a0fd8975fe4fe2b5ee5a40c30eae62a1c3be41e22464ce077c36b24
+  alt:
+    es: Ilustración conceptual nocturna de estudiantes ante caminos abiertos hacia
+      un instituto técnico y un campus universitario; al fondo queda su liceo.
+    en: Conceptual night-time illustration of students facing open paths towards a
+      technical institute and a university campus, with their secondary school behind
+      them.
   provenance:
     status: generated_this_revision
-    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
-    note: *id002
-    encoding: WebP quality=86; Lanczos; deterministic derivative
-    tool: Antigravity Editorial Canvas v2
-    provider: Google DeepMind
-    interface: Antigravity CLI
+    source_sha256: fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed
+    source_file: docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png
+    tool: image_gen
+    interface: Codex built-in image generation
+    note:
+      es: Ilustración conceptual generada con ImageGen mediante Codex; no representa
+        instituciones específicas ni un efecto causal demostrado.
+      en: Conceptual illustration generated with ImageGen through Codex; it does not
+        depict specific institutions or an established causal effect.
+    encoding: WebP quality=88; Lanczos; compact_crop=False
 - id: editorial-v2-teaser
   rol: teaser
   archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-1280x720.webp
@@ -54,17 +62,26 @@ piezas:
   origen: ia-integrada
   ancho: 1280
   alto: 720
-  bytes: 23456
-  sha256: a2c96a6a3e470b45515bcb431ef54b28a1dcb93ba9ad773b6316f10d8102a0a9
-  alt: *id001
+  bytes: 161278
+  sha256: 67584a0c255a7be70d59ba7412d661b407452f246db4d15820057e15c87912d7
+  alt:
+    es: Ilustración conceptual nocturna de estudiantes ante caminos abiertos hacia
+      un instituto técnico y un campus universitario; al fondo queda su liceo.
+    en: Conceptual night-time illustration of students facing open paths towards a
+      technical institute and a university campus, with their secondary school behind
+      them.
   provenance:
     status: generated_this_revision
-    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
-    note: *id002
-    encoding: WebP quality=86; Lanczos; deterministic derivative
-    tool: Antigravity Editorial Canvas v2
-    provider: Google DeepMind
-    interface: Antigravity CLI
+    source_sha256: fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed
+    source_file: docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png
+    tool: image_gen
+    interface: Codex built-in image generation
+    note:
+      es: Ilustración conceptual generada con ImageGen mediante Codex; no representa
+        instituciones específicas ni un efecto causal demostrado.
+      en: Conceptual illustration generated with ImageGen through Codex; it does not
+        depict specific institutions or an established causal effect.
+    encoding: WebP quality=88; Lanczos; compact_crop=True
 - id: editorial-v2-teaser-mobile
   rol: teaser
   archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-mobile-640x360.webp
@@ -72,17 +89,26 @@ piezas:
   origen: ia-integrada
   ancho: 640
   alto: 360
-  bytes: 10498
-  sha256: 39380e4a40ae3c543f14e89d7d6bf327ec980397e2162e29424b276885c77c70
-  alt: *id001
+  bytes: 52702
+  sha256: 864d17b423f1e7397cf553dadd45579971aaf0e13fda84ee0aa29ea783b2b6d7
+  alt:
+    es: Ilustración conceptual nocturna de estudiantes ante caminos abiertos hacia
+      un instituto técnico y un campus universitario; al fondo queda su liceo.
+    en: Conceptual night-time illustration of students facing open paths towards a
+      technical institute and a university campus, with their secondary school behind
+      them.
   provenance:
     status: generated_this_revision
-    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
-    note: *id002
-    encoding: WebP quality=86; Lanczos; deterministic derivative
-    tool: Antigravity Editorial Canvas v2
-    provider: Google DeepMind
-    interface: Antigravity CLI
+    source_sha256: fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed
+    source_file: docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png
+    tool: image_gen
+    interface: Codex built-in image generation
+    note:
+      es: Ilustración conceptual generada con ImageGen mediante Codex; no representa
+        instituciones específicas ni un efecto causal demostrado.
+      en: Conceptual illustration generated with ImageGen through Codex; it does not
+        depict specific institutions or an established causal effect.
+    encoding: WebP quality=88; Lanczos; compact_crop=True
 - id: editorial-v2-og
   rol: og
   archivo: assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/og-1200x630.webp
@@ -90,17 +116,26 @@ piezas:
   origen: ia-integrada
   ancho: 1200
   alto: 630
-  bytes: 21978
-  sha256: 1af2e82aa718610676bf2858fb46f8f1145c0cb5476af39d94691de2fd035f08
-  alt: *id001
+  bytes: 141406
+  sha256: dc98d584a24e0433f4fdcac3cecb7c9a45889538535a287d52c2840b0149b0ef
+  alt:
+    es: Ilustración conceptual nocturna de estudiantes ante caminos abiertos hacia
+      un instituto técnico y un campus universitario; al fondo queda su liceo.
+    en: Conceptual night-time illustration of students facing open paths towards a
+      technical institute and a university campus, with their secondary school behind
+      them.
   provenance:
     status: generated_this_revision
-    source_sha256: b71546f52a51235dc5ea6ac9ef5c6be295d212c932f20fde65f2d17a5bf655cd
-    note: *id002
-    encoding: WebP quality=86; Lanczos; deterministic derivative
-    tool: Antigravity Editorial Canvas v2
-    provider: Google DeepMind
-    interface: Antigravity CLI
+    source_sha256: fa0c3df89dbd15e1085d88f9e2a61829150bfeeef836e6b215dc1eb78b04e0ed
+    source_file: docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png
+    tool: image_gen
+    interface: Codex built-in image generation
+    note:
+      es: Ilustración conceptual generada con ImageGen mediante Codex; no representa
+        instituciones específicas ni un efecto causal demostrado.
+      en: Conceptual illustration generated with ImageGen through Codex; it does not
+        depict specific institutions or an established causal effect.
+    encoding: WebP quality=88; Lanczos; compact_crop=True
 posts:
 - _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md
 - _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md

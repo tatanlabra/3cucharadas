@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "provider": "claude",
+  "backend": "cli",
+  "mode": "review",
+  "cli_profile": "standard",
+  "status": "FAILED",
+  "classification": "UNEXPECTED_RESPONSE",
+  "reason": "UNEXPECTED_RESPONSE",
+  "raw_exit": 0,
+  "normalized_exit": 1,
+  "requested_model": "sonnet",
+  "fallback_models": [
+    "opus"
+  ],
+  "effective_model": "claude-sonnet-5-5",
+  "session_id": "01ef6aee-7bc7-4819-865e-fe9e7d71e842",
+  "started_at": "2026-11-07T23:21:25.904Z",
+  "finished_at": "2026-11-07T23:23:22.140Z",
+  "duration_ms": 116235,
+  "prompt_sha256": "8f6f9bfaf84ebcef4e29d14e597b5d34502bc8b40206f41d2af98b42b6044dae",
+  "system_prompt_sha256": null,
+  "response_sha256": "59f5f3a4c6605ada8264e102e90cdfcf179fc1b628af2874d1d511db1fa96885",
+  "retry_policy": {
+    "transient_retries": 0,
+    "retry_delay_seconds": 5,
+    "handoff_contract_retries": 1,
+    "handoff_contract_retry_used": false
+  },
+  "markers": {
+    "PLAN_STATE v2": true,
+    "HANDOFF-TRACE:": true,
+    "MODEL-REPORT:": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "backend": "cli",
+      "classification": "UNEXPECTED_RESPONSE",
+      "raw_exit": 0,
+      "normalized_exit": 1,
+      "requested_model": "sonnet",
+      "fallback_models": [
+        "opus"
+      ],
+      "effective_model": "claude-sonnet-5-5",
+      "session_id": "01ef6aee-7bc7-4819-865e-fe9e7d71e842",
+      "started_at": "2026-11-07T23:21:25.904Z",
+      "finished_at": "2026-11-07T23:23:22.123Z",
+      "duration_ms": 116234,
+      "stdout_sha256": "20446e4877ef11fcf70b02b37c7e0819490186fbd78da8160f28344663e61f15",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_sha256": "20446e4877ef11fcf70b02b37c7e0819490186fbd78da8160f28344663e61f15",
+      "retry_decision": "fail_fast",
+      "markers": {
+        "PLAN_STATE v2": true,
+        "HANDOFF-TRACE:": true,
+        "MODEL-REPORT:": true
+      },
+      "prompt_sha256": "8f6f9bfaf84ebcef4e29d14e597b5d34502bc8b40206f41d2af98b42b6044dae",
+      "response_file": "response-attempt.1.txt"
+    }
+  ]
+}

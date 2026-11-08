@@ -1,8 +1,8 @@
-# Matriz de estilo para los posts I, II y III
+# Matriz de estilo para los posts I, II, III y IV
 
 ## Alcance y custodia
 
-- Esta matriz aplica criterios editoriales al cuerpo, títulos, encabezados, números, puntuación y transiciones de los posts I, II y III.
+- Esta matriz aplica criterios editoriales al cuerpo, títulos, encabezados, números, puntuación y transiciones de los posts I, II, III y IV y sus anexos.
 - Las referencias bibliográficas conservan su formato actual; una migración bibliográfica completa queda fuera de este cierre.
 - Los PDF y el corpus de búsqueda permanecen fuera del repositorio; no se versiona texto extraído de los manuales.
 - Las reglas siguientes son paráfrasis operativas, no transcripciones de los manuales.
@@ -34,6 +34,16 @@
 - El Post II elimina transiciones de bitácora, mantiene paralelos los resultados iniciales y hace visible la pregunta que conduce a cada cucharada.
 - El Post III explica la secuencia I→II→III, presenta los resultados escolares antes de la cocina metodológica y mantiene juntos el efecto puntual, sus cotas de faltantes y el estado `INCONCLUSIVE`.
 - Las versiones en español e inglés mantienen el mismo universo, período, magnitudes y cautela causal, aunque varíen su ritmo y léxico.
+
+## Revisión editorial III–IV del 2026-11-07
+
+- Público adulto no especialista: motivación y pregunta al inicio; un único destacado con hallazgo, comparación y límite; tres cucharadas que avanzan el argumento; cierre con recapitulación y desafíos comprobables.
+- El cuerpo III apunta a 2.500–3.200 palabras y el IV a 2.800–3.500, sin referencias ni anexos. Estos presupuestos, los párrafos breves y la alineación natural son decisiones aprobadas del blog, no reglas atribuidas a Chicago.
+- Los anexos metodológicos son páginas abiertas y bilingües, con índice, referencias locales y enlace de retorno. Las limitaciones que cambian la interpretación permanecen junto al resultado principal.
+- La revisión conserva paralelismo y precisión de sujeto/verbo (Chicago-Deusto §5.136; CMOS18 §§5.249–5.251), sin convertir etiquetas como ELI5 en estilo público.
+- No confundir observaciones estudiante-cohorte con personas únicas, porcentajes con puntos porcentuales, muestras distintas con peldaños aditivos, ni ausencia de significación con equivalencia.
+- Las diferencias entre receptoras son descriptivas; la subventana escolar 2016–2019 mantiene la inconclusión por faltantes; G1 identifica un ranking predicho dependiente de especificación; IP/CFT identifica un canal cuyo mecanismo y sustitución siguen abiertos.
+- Se consultó el corpus privado existente; no se regeneró OCR ni se incorporaron extractos protegidos al repositorio. El recibo de la extracción histórica siguiente conserva su alcance original y no se usa como recuento del corpus actual.
 
 ## Consulta privada del corpus
 

@@ -21,6 +21,19 @@ module DiffusionCoherence
   # Explicit historical filename alias; post lookup always uses its exact ref.
   LEGACY_PIECE_NAMES = { "multiagente-penta-agent-memoria-gobernada-poc" => "multiagente-penta-agent-memoria-gobernada" }.freeze
   EXTENSIONS = %w[.md .html .txt .json].freeze
+  # These are the only methodological annexes authorized as numeric source for
+  # their respective diffusion packages. The annex has its own ref, so a broad
+  # ref lookup would silently miss it (or admit unrelated pages).
+  THESIS_ANNEXES = {
+    "costos-cierre-escolar-trayectorias" => {
+      ref: "tesis-post3-anexo-metodologico",
+      paths: { "es" => "_pages/tesis-post3-anexo-metodologico.md", "en" => "_pages/tesis-post3-anexo-metodologico-en.md" }
+    },
+    "cierre-escolar-educacion-superior-causal-ml" => {
+      ref: "tesis-post4-anexo-metodologico",
+      paths: { "es" => "_pages/tesis-post4-anexo-metodologico.md", "en" => "_pages/tesis-post4-anexo-metodologico-en.md" }
+    }
+  }.freeze
 
   def self.front_and_body(path)
     raw = File.read(path)
@@ -135,6 +148,34 @@ module DiffusionCoherence
     end.to_set
   end
 
+  def self.source_numbers(front, body)
+    public_front = %w[title subtitle excerpt description entorno].filter_map { |key| front[key] }.join("\n")
+    numbers(prose(body) + "\n" + public_front, front["lang"]) | numbers(front.fetch("en_abstract", "").to_s, "en")
+  end
+
+  def self.annex_sources(root, ref, posts)
+    contract = THESIS_ANNEXES[ref]
+    return [] unless contract
+
+    grouped = posts.group_by { |_path, front, _body| front["lang"] }
+    unless grouped.keys.sort == %w[en es] && grouped.values.all? { |entries| entries.size == 1 }
+      raise "corpus incompleto: se requiere un post ES y uno EN para #{ref}"
+    end
+    contract[:paths].map do |lang, relative|
+      path = File.join(root, relative)
+      raise "anexo ausente o enlace simbólico: #{relative}" unless File.file?(path) && !File.symlink?(path)
+
+      front, body = front_and_body(path)
+      post_front = grouped.fetch(lang).first[1]
+      expected_route = "#{post_front.fetch('permalink')}anexo-metodologico/"
+      unless front["ref"] == contract[:ref] && front["lang"] == lang && front["permalink"] == expected_route
+        raise "identidad o ruta del anexo inválida: #{relative}"
+      end
+      puts "SOURCE #{relative} lang=#{lang} annex_of=#{ref}"
+      [lang, front, body, source_numbers(front, body)]
+    end
+  end
+
   def self.check(root, ref)
     raise "ref inválida" unless ref.match?(/\A[a-zA-Z0-9_-]+\z/)
     posts = Dir.glob(File.join(root, "_posts", "*.md")).filter_map do |path|
@@ -145,9 +186,16 @@ module DiffusionCoherence
     puts "REF #{ref}"
     values = posts.map do |path, front, body|
       puts "SOURCE #{path.delete_prefix(root + '/')} lang=#{front['lang']}"
-      public_front = %w[title subtitle excerpt description entorno].filter_map { |key| front[key] }.join("\n")
-      numbers(prose(body) + "\n" + public_front, front["lang"]) | numbers(front.fetch("en_abstract", "").to_s, "en")
+      source_numbers(front, body)
     end
+    annexes = annex_sources(root, ref, posts)
+    parity_values = if annexes.empty?
+                      values
+                    else
+                      posts.map.with_index do |(_path, front, _body), index|
+                        values[index] | annexes.find { |lang, _front, _body, _set| lang == front["lang"] }.last
+                      end
+                    end
     package = File.join(root, "difusion", "paquetes", ref)
     lang = "es"
     metadata = Dir.glob(File.join(package, "00-metadata.{json,yaml,yml}"))
@@ -165,21 +213,25 @@ module DiffusionCoherence
     pieces = pieces.uniq.select { |path| File.file?(path) && EXTENSIONS.include?(File.extname(path)) && !File.basename(path).match?(ADMIN) }.sort
     raise "sin cobertura: no hay piezas para #{ref}" if pieces.empty?
     errors = []
-    values.drop(1).each_with_index do |set, index|
-      difference = (values[0] - set) | (set - values[0])
-      errors << "paridad entre #{File.basename(posts[0][0])} y #{File.basename(posts[index + 1][0])}: #{difference.to_a.sort.first(12).join(', ')}" unless difference.empty?
+    parity_values.drop(1).each_with_index do |set, index|
+      difference = (parity_values[0] - set) | (set - parity_values[0])
+      scope = annexes.empty? ? "paridad entre" : "paridad corpus post+anexo entre"
+      errors << "#{scope} #{File.basename(posts[0][0])} y #{File.basename(posts[index + 1][0])}: #{difference.to_a.sort.first(12).join(', ')}" unless difference.empty?
     end
-    universe = values.reduce(:|)
-    source_ms = posts.flat_map { |_path, front, body| milliseconds(body, front["lang"]) }
+    universe = parity_values.reduce(:|)
+    source_ms = posts.flat_map { |_path, front, body| milliseconds(body, front["lang"]) } +
+                annexes.flat_map { |lang, _front, body, _set| milliseconds(body, lang) }
     pieces.each do |path|
       puts "COPY #{path.delete_prefix(root + '/')}"
       orphaned = copy_parts(path, lang).flat_map do |copy, locale|
         (numbers(copy, locale) - universe - rounded_seconds(copy, locale, source_ms)).to_a
       end.uniq
-      errors << "#{path.delete_prefix(root + '/')}: cifras ausentes del post: #{orphaned.first(12).join(', ')}" unless orphaned.empty?
+      source = annexes.empty? ? "post" : "corpus canónico"
+      errors << "#{path.delete_prefix(root + '/')}: cifras ausentes del #{source}: #{orphaned.first(12).join(', ')}" unless orphaned.empty?
     end
     errors.each { |error| warn "- #{error}" }
-    puts "COVERAGE #{ref}: #{posts.size} posts, #{pieces.size} piezas, #{universe.size} cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown"
+    source_count = annexes.empty? ? "#{posts.size} posts" : "#{posts.size} posts, #{annexes.size} anexos"
+    puts "COVERAGE #{ref}: #{source_count}, #{pieces.size} piezas, #{universe.size} cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown"
     errors.empty?
   end
 

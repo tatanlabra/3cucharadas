@@ -40,6 +40,10 @@ local_residue_paths:
   - assets/dist/memoria_gobernada
   - assets/data/catastro_sii/local
 owned_large_files:
+  docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png:
+    owner: editorial-tesis-post4
+    role: maestro-editorial-v2-con-procedencia-y-variantes-reproducibles
+    retention: conservar-con-el-contrato-y-sus-hashes-hasta-migracion-de-custodia-verificada
   catastro_sii_brecha/data/fiscal-gap/communes.json:
     owner: analisis-avaluos-ii
     role: agregados-comunales-del-visor-con-procedencia

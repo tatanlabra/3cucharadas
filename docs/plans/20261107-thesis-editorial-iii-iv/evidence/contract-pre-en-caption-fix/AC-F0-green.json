@@ -1,0 +1,165 @@
+{
+  "receipt_version": 1,
+  "kind": "falsification_observation",
+  "criterion_id": "AC-F0",
+  "target_contract_sha256": "2576659537e9e0009b9b964e84fda5b239452055bce162e94b15b4dc51968f33",
+  "target_definition_sha256": "0fc4d7fd4ad184babf8d8369bff3fb9ad4d95464ea1984f6971f0724c582123f",
+  "criterion_command_sha256": "944b680213f5fca5b9da854292335f0ce46b17951f17539e257a03df49ec6f15",
+  "observed_command": "cd activos/3cucharadas && python3 scripts/verify_thesis_editorial_delivery.py --check baseline",
+  "observed_command_sha256": "944b680213f5fca5b9da854292335f0ce46b17951f17539e257a03df49ec6f15",
+  "outcome": "green",
+  "setup_status": "stable_tree",
+  "started_at": "2026-11-08T00:06:27Z",
+  "finished_at": "2026-11-08T00:06:28Z",
+  "exit_code": 0,
+  "fixture_sha256": null,
+  "restoration_sha256": null,
+  "restored_matches_expected": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/baseline.json",
+      "exists": true,
+      "sha256": "9358bfa61678eec8c7498a213bfb42f42f7384210c9597319e8920fa0183d8ef"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "e1f8955c6bb5513ad014f2ea6976acd90a7cda69c361dadff4ab295fa98c6202"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "88237524bc69d81b226b9141efaa3f729f96cbad60b00f6f53dcc8ffe8cc9505"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/cohort-series-infographic-data.csv",
+      "exists": true,
+      "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/missingness-bounds-data.csv",
+      "exists": true,
+      "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+      "exists": true,
+      "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/sample-flow-data.csv",
+      "exists": true,
+      "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/territorial-audit-data.csv",
+      "exists": true,
+      "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+      "exists": true,
+      "sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-data.csv",
+      "exists": true,
+      "sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-data.csv",
+      "exists": true,
+      "sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/docs/plans/20261107-thesis-editorial-iii-iv/evidence/baseline.json",
+      "exists": true,
+      "sha256": "9358bfa61678eec8c7498a213bfb42f42f7384210c9597319e8920fa0183d8ef"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "e1f8955c6bb5513ad014f2ea6976acd90a7cda69c361dadff4ab295fa98c6202"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "88237524bc69d81b226b9141efaa3f729f96cbad60b00f6f53dcc8ffe8cc9505"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/cohort-series-infographic-data.csv",
+      "exists": true,
+      "sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/missingness-bounds-data.csv",
+      "exists": true,
+      "sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+      "exists": true,
+      "sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/sample-flow-data.csv",
+      "exists": true,
+      "sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/territorial-audit-data.csv",
+      "exists": true,
+      "sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+      "exists": true,
+      "sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-data.csv",
+      "exists": true,
+      "sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-data.csv",
+      "exists": true,
+      "sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "EDITORIAL_DELIVERY_VALID check=baseline fixture=none\n",
+  "stderr": ""
+}

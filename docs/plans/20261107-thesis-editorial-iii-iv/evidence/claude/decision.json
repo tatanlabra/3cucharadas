@@ -1,0 +1,16 @@
+{
+  "verdict": "APPROVE",
+  "inputs": {
+    "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a",
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d",
+    "_pages/tesis-post3-anexo-metodologico.md": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921",
+    "_pages/tesis-post4-anexo-metodologico.md": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689",
+    "assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json": "9c3726048021a1cf5ac697cd92a119173863ab06e0ebc479eedc78635991c436",
+    "assets/data/tesis-post4/post4_retrospective_post3_audit.json": "1d504e970d27a053e20323e1518dc28065846321c679e40843922021a15ba723"
+  },
+  "original_response": "docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r5.md",
+  "original_sha256": "59e3a29f745ba2d68aa1f8ca779fd71710a30c89aa80934ca653e3736f7553c6",
+  "prior_full_review": "docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/result-r4.md",
+  "receipt": "docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/receipt-r5.json",
+  "scope": "r4 full ES approval plus r5 targeted minor delta; EN/PDF/browser excluded"
+}

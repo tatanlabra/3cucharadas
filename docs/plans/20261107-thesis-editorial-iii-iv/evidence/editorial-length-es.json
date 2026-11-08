@@ -1,0 +1,18 @@
+{
+  "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": {
+    "baseline": 8172,
+    "current": 2664,
+    "reduction_percent": 67.4,
+    "method": "Ruby visible-word counter shared with post gates; references and markup excluded; original inline annex included",
+    "baseline_without_details": 6318,
+    "main_reduction_percent": 57.8
+  },
+  "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": {
+    "baseline": 12154,
+    "current": 3024,
+    "reduction_percent": 75.1,
+    "method": "Ruby visible-word counter shared with post gates; references and markup excluded; original inline annex included",
+    "baseline_without_details": 9549,
+    "main_reduction_percent": 68.3
+  }
+}

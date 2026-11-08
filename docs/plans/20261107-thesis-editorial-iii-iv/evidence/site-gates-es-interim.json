@@ -1,0 +1,108 @@
+{
+  "schema": "thesis-series-gates-es-interim-v1",
+  "recorded_at_utc": "2026-11-07T23:18:15.521789+00:00",
+  "phase": "ES sources active; EN pending",
+  "source_sha256": {
+    "scripts/verify_thesis_post3.rb": "ce4af7c536cc071c5d9643944b32a5de85f762eeef95b7e785d71d0a70d65d76",
+    "scripts/verify_thesis_post4.rb": "04791f4f276516b904a125f76600700f8a57a1272a402abe4b8146f0e657371f",
+    "scripts/verify_thesis_series_browser.mjs": "ef1e713c8d8ad3c3100e4231f1990a2595ce44715aa3a5bbb4d8f6b3010a7383"
+  },
+  "cases": [
+    {
+      "name": "green-post3-es",
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "POST3_WARNING: upstream_custody=UNCOMMITTED_FILE_HASHES; el recibo prueba post↔proyección, no custodia científica en un commit upstream\nPOST3_VALID lang=es",
+      "match": true
+    },
+    {
+      "name": "green-post4-es",
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "THESIS_POST4_VERIFIED lang=es fixture=none",
+      "match": true
+    },
+    {
+      "name": "red-post3-annex",
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture annex-removed",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "POST3_INVALID: anexo metodológico ausente es",
+      "match": true
+    },
+    {
+      "name": "red-post3-number",
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture primary-number-drift",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "POST3_INVALID: estimación principal v3.1 faltante es: grade_progression_or_lag",
+      "match": true
+    },
+    {
+      "name": "red-post3-footnote",
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture footnote-orphan",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "POST3_INVALID: nota sin cita en el texto es: manski2003",
+      "match": true
+    },
+    {
+      "name": "red-post3-bounds",
+      "command": "ruby scripts/verify_thesis_post3.rb --lang es --fixture bounds-unpaired-extra",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "POST3_INVALID: cada mención de progresión debe conservar sus dos cotas es",
+      "match": true
+    },
+    {
+      "name": "red-post4-annex",
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture annex-removed",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "THESIS_POST4_INVALID: anexo metodológico ausente es",
+      "match": true
+    },
+    {
+      "name": "red-post4-number",
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture primary-number-drift",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "THESIS_POST4_INVALID: cifras gobernadas ausentes es: −2,09",
+      "match": true
+    },
+    {
+      "name": "red-post4-footnote",
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture footnote-orphan",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "THESIS_POST4_INVALID: nota sin cita en el texto es: manski2003",
+      "match": true
+    },
+    {
+      "name": "red-post4-promotion",
+      "command": "ruby scripts/verify_thesis_post4.rb --lang es --fixture net-access-promotion",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "THESIS_POST4_INVALID: promoción causal ingenua o violación normativa es: /\\b(?:la ca[i\\u00ED]da|el descenso)\\s+en\\s+IP\\/CFT\\s+(?:demuestra|prueba|confirma)\\s+(?:una\\s+)?p[e\\u00E9]rdida\\s+neta\\s+de\\s+acceso\\b/i",
+      "match": true
+    },
+    {
+      "name": "red-browser3-missing-annex-synthetic",
+      "command": "node scripts/verify_thesis_post3_browser.mjs --fixture missing-annex",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "{\"status\":\"EXPECTED_FAIL\",\"fixture\":\"missing-annex\",\"failures\":[\"route-artifact-binding\"],\"expected\":\"route-artifact-binding\"}",
+      "match": true
+    },
+    {
+      "name": "red-browser4-overflow-synthetic",
+      "command": "node scripts/verify_thesis_post4_browser.mjs --fixture overflow",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "{\"status\":\"EXPECTED_FAIL\",\"fixture\":\"overflow\",\"failures\":[\"document-overflow\"],\"expected\":\"document-overflow\"}",
+      "match": true
+    }
+  ]
+}
