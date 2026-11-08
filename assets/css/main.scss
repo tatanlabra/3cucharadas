@@ -2213,13 +2213,54 @@ html[data-theme="academic-night"] .tabla-desliza {
   hyphens: none;
 }
 
-/* Figura principal IV: aprovechar la columna disponible sin invadir el TOC. */
-.thesis-extension-post.post3-evidence #fig-post4-1 {
+/* Figuras III–IV: usar toda la columna disponible; la medida de lectura de
+   los párrafos no debe estrechar las escalas ni las etiquetas del gráfico. */
+.thesis-extension-post.post3-evidence .post3-figure.data-visualization {
   width: 100%;
 }
 
+/* A 320 px, 12 px laterales dejan 296 px al SVG móvil (mínimo 294).
+   Entre 1024 y 1343 px el margen de autor vacío comprimía las figuras;
+   se conserva el espacio derecho del índice y la medida de la prosa. */
+@media screen and (max-width: 22.5em) {
+  body.thesis-extension-post.post3-evidence #main {
+    padding-inline: 12px;
+  }
+}
+
+@media screen and (min-width: 64em) and (max-width: 83.99em) {
+  body.thesis-extension-post.post3-evidence #main.main--post > .page {
+    padding-inline-start: 0;
+  }
+
+  /* Los anexos conservaban una segunda barra lateral de autor. Apilarla
+     después del artículo libera el mismo ancho que en el relato. */
+  body.thesis-extension-post.post3-evidence #main:not(.main--post) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.thesis-extension-post.post3-evidence #main:not(.main--post) > .page {
+    order: 1;
+    float: none;
+    width: 100%;
+    padding-inline-start: 0;
+  }
+
+  body.thesis-extension-post.post3-evidence #main:not(.main--post) > .sidebar {
+    order: 2;
+    float: none;
+    position: static;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    margin-top: 2em;
+  }
+}
+
 .post3-evidence .tabla-desliza table {
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.32;
   font-variant-numeric: tabular-nums;
 }
@@ -2244,7 +2285,7 @@ html[data-theme="academic-night"] .tabla-desliza {
   .post3-evidence .tabla-desliza[data-perfil="narrativa"] table {
     width: auto;
     min-width: max(100%, calc(var(--columnas, 4) * 8.5rem));
-    font-size: 13.5px;
+    font-size: 14px;
   }
 }
 
@@ -2537,6 +2578,26 @@ $nav-control-height: 1.55rem;
 
 .no-js .masthead__nav-link {
   padding: 0.35rem 0.6rem;
+}
+
+/* Con JavaScript desactivado, el menú queda en flujo. A 320 px su ancho junto
+   a idioma, tema y búsqueda supera la cabecera y expulsa la marca. Repartir
+   marca, controles y enlaces en filas conserva todos los destinos visibles. */
+@media (max-width: 26em) {
+  .no-js .masthead__inner-wrap {
+    flex-wrap: wrap;
+  }
+
+  .no-js .masthead__brand,
+  .no-js .masthead__controls,
+  .no-js .masthead__nav {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .no-js .masthead__controls {
+    flex-wrap: wrap;
+  }
 }
 
 html[data-theme="academic-night"] .masthead__nav .masthead__nav-list {

@@ -4,7 +4,8 @@
 // This observes browser output; the scientific and artifact contracts live in
 // verify_thesis_post{3,4}.rb and verify_thesis_series_browser.mjs.
 import { createRequire } from 'node:module';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,11 +22,14 @@ const routes = [
 ];
 const locales = ['es', 'en'];
 const themes = ['light', 'academic-night'];
-const widths = [320, 390, 768, 1440];
+const widths = [320, 390, 768, 1024, 1440];
 const readOption = (args, flag) => {
   const index = args.indexOf(flag);
   return index < 0 ? null : args[index + 1];
 };
+const readOptions = (args, flag) => args.flatMap((arg, index) =>
+  arg === flag && args[index + 1] ? [args[index + 1]] : []);
+const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 const routePath = (entry, locale) => `${locale === 'en' ? '/en' : ''}${prefix}${entry.slug}/`
   + (entry.kind === 'annex' ? 'anexo-metodologico/' : '');
 const round = (number) => Math.round(number * 100) / 100;
@@ -418,12 +422,630 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
   } finally { await context.close(); }
 }
 
+// Scientific-reset SVGs use renderer-owned role IDs. This independent preflight
+// also works before the F3 pages exist; it never promotes a draft to PASS.
+async function inspectResetSvg(page, markup, renderedWidth, expectedRoles, mutation = null,
+  expectedIds = null, expectedRates = null, expectedRows = null, expectedSensitivity = null,
+  expectedIvSensitivity = null) {
+  await page.setContent(`<main style="margin:0;width:${renderedWidth}px">${markup}</main>`);
+  await page.evaluate(() => document.fonts.ready);
+  return page.evaluate(({ renderedWidth, expectedRoles, mutation, expectedIds,
+    expectedRates, expectedRows, expectedSensitivity, expectedIvSensitivity }) => {
+    const svg = document.querySelector('svg');
+    if (!svg) return { failures: ['svg-missing'], minTextPx: 0, labels: 0, marks: 0 };
+    svg.style.width = `${renderedWidth}px`;
+    svg.style.height = 'auto';
+    const labels = [...svg.querySelectorAll('text')].filter((node) => node.textContent.trim());
+    const markSelector = '[id^="interval-"],[id^="estimate-"],[id^="fill-"],[id^="point-"]'
+      + (expectedSensitivity ? ',[id^="bound-"],[id^="lower_pp-"],[id^="upper_pp-"],'
+        + '[id^="zero-reference-"]' : expectedIvSensitivity ? ',[id^="zero-"]' : '');
+    const marks = [...svg.querySelectorAll(markSelector)];
+    if (mutation === 'missing-mark') marks.find((node) => node.id.startsWith('estimate-'))?.remove();
+    if (mutation === 'anticipation-missing-mark')
+      marks.find((node) => node.id.startsWith('fill-anticipation-'))?.remove();
+    if (mutation === 'anticipation-wrong-rate-mark') {
+      const fill = svg.querySelector('[id^="fill-anticipation-"] path');
+      fill?.setAttribute('d', 'M 60 50 L 90 50');
+    }
+    if (mutation === 'anticipation-description-leak') {
+      const description = svg.querySelector(':scope > desc');
+      if (description) description.textContent = description.textContent.replace('suppressed', '77.7%');
+    }
+    if (mutation === 'anticipation-private-mark') {
+      const privateRow = svg.querySelector('[id^="status-"]');
+      const match = privateRow?.id.match(/^status-(treated|control)-(\d{4})$/);
+      if (match) {
+        const namespace = 'http://www.w3.org/2000/svg';
+        const group = document.createElementNS(namespace, 'g');
+        group.id = `point-anticipation-${match[1]}-${match[2]}`;
+        const path = document.createElementNS(namespace, 'path');
+        path.setAttribute('d', 'M 70 60 L 74 60');
+        path.setAttribute('stroke', '#111111');
+        path.setAttribute('stroke-width', '3');
+        group.append(path);
+        svg.append(group);
+      }
+    }
+    if (mutation === 'sensitivity-wrong-ci-geometry') {
+      const path = svg.querySelector('#interval-school-0 path');
+      path?.setAttribute('d', 'M 30 142.74 L 60 142.74');
+    }
+    if (mutation === 'sensitivity-missing-zero-reference')
+      svg.querySelector('#zero-reference-0')?.remove();
+    if (mutation === 'sensitivity-bounds-false-point') {
+      const node = svg.querySelector('#bound-0');
+      const point = node?.cloneNode(true);
+      if (point) { point.id = 'estimate-0'; node.after(point); }
+    }
+    if (mutation === 'sensitivity-bounds-wrong-label') {
+      const node = [...svg.querySelectorAll('text')].find((text) =>
+        /No escolarización real|Actual non-enrollment/.test(text.textContent));
+      if (node) node.textContent = 'Sin registro escolar en dos años';
+    }
+    if (mutation === 'sensitivity-d1-wrong-period') {
+      const node = [...svg.querySelectorAll('text')].find((text) => text.textContent.includes('2016–2024'));
+      if (node) node.textContent = node.textContent.replace('2016–2024', '2016–2019');
+    }
+    if (mutation === 'iv-sensitivity-wrong-ci')
+      svg.querySelector('[id^="interval-"] path')?.setAttribute('d','M 10 150 L 20 150');
+    if (mutation === 'iv-sensitivity-missing-zero')
+      svg.querySelector('[id^="zero-"]')?.remove();
+    if (mutation === 'iv-sensitivity-private-label') {
+      const node = svg.querySelector('text');
+      if (node) node.textContent = `${node.textContent} · N=7`;
+    }
+    if (mutation === 'small-text') labels[0]?.style.setProperty('font-size', '8px', 'important');
+    if (mutation === 'low-contrast') labels[0]?.style.setProperty('fill',
+      getComputedStyle(svg.querySelector('#patch_1 path,#patch_1 rect')).fill, 'important');
+    if (mutation === 'text-overlap' && labels.length > 1) {
+      const first = labels[0].getBoundingClientRect();
+      const second = labels[1].getBoundingClientRect();
+      labels[1].style.transform = `translate(${first.left - second.left}px,${first.top - second.top}px)`;
+    }
+    if (mutation === 'text-mark' && labels.length && marks.length) {
+      const label = labels[0].getBoundingClientRect();
+      const mark = marks.find((node) => node.id.startsWith('estimate-')) || marks[0];
+      const box = mark.getBoundingClientRect();
+      labels[0].style.transform = `translate(${box.left + box.width / 2 - label.left - label.width / 2}px,`
+        + `${box.top + box.height / 2 - label.top - label.height / 2}px)`;
+    }
+    const rect = (node) => node.getBoundingClientRect();
+    const overlap = (a, b) => ({ x: Math.min(a.right, b.right) - Math.max(a.left, b.left),
+      y: Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) });
+    const failures = [];
+    const box = rect(svg);
+    const viewBox = svg.viewBox.baseVal;
+    const scale = box.width / viewBox.width;
+    const textRows = labels.map((node) => ({ node, id: node.closest('[id]')?.id || 'text',
+      box: rect(node), px: parseFloat(getComputedStyle(node).fontSize) * scale }));
+    const rgb = (value) => {
+      const hex = value?.match(/^#([0-9a-f]{6})$/i);
+      if (hex) return [0, 2, 4].map((index) => parseInt(hex[1].slice(index, index + 2), 16));
+      const match = value?.match(/^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
+      return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : null;
+    };
+    const luminance = (color) => color.map((component) => {
+      const normalized = component / 255;
+      return normalized <= 0.04045 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
+    }).reduce((sum, component, index) => sum + component * [0.2126, 0.7152, 0.0722][index], 0);
+    const canvas = rgb(getComputedStyle(svg.querySelector('#patch_1 path,#patch_1 rect')).fill);
+    const contrastRatios = textRows.map((row) => {
+      const ink = rgb(getComputedStyle(row.node).fill);
+      if (!ink || !canvas) return null;
+      const a = luminance(ink), b = luminance(canvas);
+      return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+    });
+    const minContrast = Math.min(...contrastRatios.filter((ratio) => ratio !== null));
+    if (contrastRatios.some((ratio) => ratio === null)) failures.push('svg-contrast-unmeasured');
+    else if (minContrast < 4.5) failures.push('svg-text-contrast');
+    const minTextPx = Math.min(...textRows.map((row) => row.px));
+    if (!Number.isFinite(minTextPx) || minTextPx < 14 - 0.01) failures.push('svg-text-under-14px');
+    if (!viewBox.width || !viewBox.height || labels.length === 0) failures.push('svg-unmeasured');
+    const actualMarks = [...svg.querySelectorAll(markSelector)];
+    const roleCounts = Object.fromEntries(['interval', 'estimate', 'fill', 'point']
+      .map((role) => [role, actualMarks.filter((node) => node.id.startsWith(`${role}-`)).length]));
+    const trackIds = [...svg.querySelectorAll('[id^="track-anticipation-"]')]
+      .map((node) => node.id);
+    const present = actualMarks.filter((node) => {
+      const path = node.matches('path') ? node : node.querySelector('path');
+      const r = rect(node);
+      return path && Math.max(r.width, r.height) > 0.5;
+    });
+    if (!expectedSensitivity && !expectedIvSensitivity && (Object.entries(expectedRoles).some(([role, count]) =>
+      present.filter((node) => node.id.startsWith(`${role}-`)).length !== count)
+      || present.length !== Object.values(expectedRoles).reduce((sum, count) => sum + count, 0)))
+      failures.push('svg-mark-missing');
+    if (expectedIds) {
+      const actualIds = actualMarks.map((node) => node.id);
+      if (actualIds.length !== expectedIds.marks.length
+        || expectedIds.marks.some((id) => !actualIds.includes(id))
+        || new Set(actualIds).size !== actualIds.length)
+        failures.push('svg-mark-identity');
+      if (trackIds.length !== expectedIds.tracks.length
+        || expectedIds.tracks.some((id) => !trackIds.includes(id))
+        || new Set(trackIds).size !== trackIds.length)
+        failures.push('svg-track-identity');
+      const statusIds = [...svg.querySelectorAll('[id^="status-"]')].map((node) => node.id);
+      if (statusIds.length !== expectedIds.statuses.length
+        || expectedIds.statuses.some((id) => !statusIds.includes(id)
+          || !svg.querySelector(`[id="${id}"]`)?.textContent.trim())
+        || new Set(statusIds).size !== statusIds.length)
+        failures.push('svg-status-label');
+      if (expectedIds.statuses.some((id) => {
+        const value = svg.querySelector(`[id="${id}"]`)?.textContent || '';
+        return /\d+(?:[.,]\d+)?\s*%|\b(?:n|schools|escuelas)\s*[=:]\s*\d+/i.test(value);
+      })) failures.push('svg-status-private-value');
+    }
+    if (expectedSensitivity) {
+      const { kind, rows, axisBound, locale } = expectedSensitivity;
+      const plotted = kind === 'd1_d2' ? rows.filter((row) => row.era === 'modern') : rows;
+      const roles = kind === 'did'
+        ? ['zero-reference','interval-school','estimate-school','interval-two-way','estimate-two-way']
+        : kind === 'bounds' ? ['zero-reference','bound','lower_pp','upper_pp']
+          : ['zero-reference','interval','estimate'];
+      const expected = plotted.flatMap((_, index) => roles.map((role) => `${role}-${index}`));
+      const observed = actualMarks.map((node) => node.id);
+      if (observed.length !== expected.length || new Set(observed).size !== observed.length
+        || expected.some((id) => !observed.includes(id)))
+        failures.push('svg-sensitivity-mark-identity');
+      const xFor = (value) => viewBox.width * (0.08 + (value + axisBound) / (2 * axisBound) * 0.66);
+      const path = (id) => svg.querySelector(`[id="${id}"] path`);
+      const start = (id) => path(id)?.getPointAtLength(0);
+      const end = (id) => {
+        const item = path(id);
+        return item?.getPointAtLength(item.getTotalLength());
+      };
+      const near = (actual, expected) => Number.isFinite(actual)
+        && Math.abs(actual - expected) <= 0.75;
+      const check = (id, x, label) => {
+        if (!near(start(id)?.x, x)) failures.push(`svg-sensitivity-${label}:${id}`);
+      };
+      const checkInterval = (id, low, high) => {
+        if (!near(start(id)?.x, xFor(low)) || !near(end(id)?.x, xFor(high)))
+          failures.push(`svg-sensitivity-interval-geometry:${id}`);
+      };
+      const number = (value) => `${value < 0 ? '−' : '+'}${Math.abs(value).toFixed(1)
+        .replace('.', locale === 'es' ? ',' : '.')}`;
+      const text = [...svg.querySelectorAll('text')].map((node) => node.textContent.trim());
+      for (let index = 0; index < plotted.length; index += 1) {
+        const row = plotted[index];
+        check(`zero-reference-${index}`, xFor(0), 'zero-reference');
+        const zeroPath = path(`zero-reference-${index}`);
+        const zeroLow = Math.min(start(`zero-reference-${index}`)?.y ?? NaN,
+          end(`zero-reference-${index}`)?.y ?? NaN);
+        const zeroHigh = Math.max(start(`zero-reference-${index}`)?.y ?? NaN,
+          end(`zero-reference-${index}`)?.y ?? NaN);
+        const lineIds = kind === 'did' ? [`interval-school-${index}`,`interval-two-way-${index}`]
+          : kind === 'bounds' ? [`bound-${index}`] : [`interval-${index}`];
+        if (!zeroPath || lineIds.some((id) => {
+          const y = start(id)?.y;
+          return !Number.isFinite(y) || y < zeroLow - 1 || y > zeroHigh + 1;
+        })) failures.push(`svg-sensitivity-row-zero:${index}`);
+        let expectedText;
+        if (kind === 'did') {
+          checkInterval(`interval-school-${index}`,row.school_ci_low_pp,row.school_ci_high_pp);
+          checkInterval(`interval-two-way-${index}`,row.two_way_ci_low_pp,row.two_way_ci_high_pp);
+          check(`estimate-school-${index}`,xFor(row.estimate_pp),'estimate-geometry');
+          check(`estimate-two-way-${index}`,xFor(row.estimate_pp),'estimate-geometry');
+          expectedText = number(row.estimate_pp);
+        } else if (kind === 'bounds') {
+          checkInterval(`bound-${index}`,row.lower_pp,row.upper_pp);
+          check(`lower_pp-${index}`,xFor(row.lower_pp),'bound-endpoint');
+          check(`upper_pp-${index}`,xFor(row.upper_pp),'bound-endpoint');
+          expectedText = `${number(row.lower_pp)} ${locale === 'es' ? 'a' : 'to'} ${number(row.upper_pp)}`;
+        } else {
+          checkInterval(`interval-${index}`,row.ci_low_pp,row.ci_high_pp);
+          check(`estimate-${index}`,xFor(row.estimate_pp),'estimate-geometry');
+          expectedText = number(row.estimate_pp);
+        }
+        const valueNode = svg.querySelector(`[id="value-${index}"]`);
+        const renderedValues = [...(valueNode?.querySelectorAll('text') || [])]
+          .map((node) => node.textContent.trim());
+        const expectedValues = kind === 'bounds' && renderedValues.length === 2
+          ? [number(row.lower_pp), number(row.upper_pp)] : [expectedText];
+        if (renderedValues.length !== expectedValues.length
+          || expectedValues.some((value, position) => renderedValues[position] !== value))
+          failures.push(`svg-sensitivity-value-label:${index}`);
+        const period = `${row.cohort_start}–${row.cohort_end}`;
+        const era = locale === 'es' ? row.era === 'historical' ? 'histórica' : 'moderna' : row.era;
+        const rowLabels = [...svg.querySelectorAll('text')]
+          .filter((node) => Boolean(valueNode && (node.compareDocumentPosition(valueNode) & Node.DOCUMENT_POSITION_FOLLOWING)))
+          .slice(-2).map((node) => node.textContent.trim()).join(' ').toLowerCase();
+        const contrast = kind === 'd1_d2' ? (row.contrast?.startsWith('main') ? 'D2' : 'D1')
+          + (row.contrast?.endsWith('common') ? locale === 'es' ? ' común' : ' common'
+            : locale === 'es' ? ' completa' : ' full') : null;
+        if (!rowLabels.includes(period) || !(kind === 'd1_d2'
+          ? rowLabels.includes(contrast.toLowerCase()) : rowLabels.includes(era)))
+          failures.push(`svg-sensitivity-period-label:${index}`);
+      }
+      if (kind === 'bounds') {
+        const label = locale === 'es' ? 'No escolarización real' : 'Actual non-enrollment';
+        if (text.filter((value) => value.includes(label)).length !== 2)
+          failures.push('svg-sensitivity-true-schooling-label');
+      }
+      if (kind === 'd1_d2' && !text.some((value) =>
+        value.includes('2005–2015') && value.includes('D1 = D2')))
+        failures.push('svg-sensitivity-historical-status');
+    }
+    if (expectedIvSensitivity) {
+      const { rows, axisBound, locale } = expectedIvSensitivity;
+      const roleIds = rows.flatMap((row) => [`zero-${row.variant}`,
+        `interval-${row.variant}`,`estimate-${row.variant}`]);
+      const observed = actualMarks.map((node) => node.id);
+      if (observed.length !== roleIds.length || new Set(observed).size !== observed.length
+        || roleIds.some((id) => !observed.includes(id)))
+        failures.push('svg-iv-sensitivity-mark-identity');
+      const xFor = (value) => viewBox.width * (0.08 + (value + axisBound)/(2*axisBound)*0.64);
+      const at = (id) => svg.querySelector(`[id="${id}"] path`);
+      const pt = (path, final = false) => path?.getPointAtLength(final ? path.getTotalLength() : 0);
+      const near = (a,b) => Number.isFinite(a) && Math.abs(a-b) <= 0.75;
+      for (const row of rows) {
+        const zero = at(`zero-${row.variant}`), interval = at(`interval-${row.variant}`);
+        const estimateGroup = svg.querySelector(`[id="estimate-${row.variant}"]`);
+        const estimateUse = estimateGroup?.querySelector('use');
+        const estimatePath = estimateGroup?.querySelector('path');
+        const estimateX = estimateUse ? Number(estimateUse.getAttribute('x'))
+          : pt(estimatePath)?.x;
+        if (!near(pt(zero)?.x,xFor(0)) || !near(pt(zero,true)?.x,xFor(0)))
+          failures.push(`svg-iv-sensitivity-zero:${row.variant}`);
+        if (!near(pt(interval)?.x,xFor(row.ci_low_pp))
+          || !near(pt(interval,true)?.x,xFor(row.ci_high_pp)))
+          failures.push(`svg-iv-sensitivity-ci:${row.variant}`);
+        if (!near(estimateX,xFor(row.estimate_pp)))
+          failures.push(`svg-iv-sensitivity-point:${row.variant}`);
+        if (!Number.isFinite(pt(zero)?.y) || !Number.isFinite(pt(interval)?.y)
+          || pt(interval)?.y < Math.min(pt(zero)?.y,pt(zero,true)?.y)-1
+          || pt(interval)?.y > Math.max(pt(zero)?.y,pt(zero,true)?.y)+1)
+          failures.push(`svg-iv-sensitivity-row-zero:${row.variant}`);
+        const value = `${row.estimate_pp < 0 ? '−' : '+'}${Math.abs(row.estimate_pp)
+          .toFixed(1).replace('.',locale === 'es' ? ',' : '.')}`;
+        if (svg.querySelector(`[id="value-${row.variant}"]`)?.textContent.trim() !== value)
+          failures.push(`svg-iv-sensitivity-value:${row.variant}`);
+      }
+      if (svg.querySelector('#axis-guide') == null)
+        failures.push('svg-iv-sensitivity-axis-guide');
+      const visible = [...svg.querySelectorAll('text,title,desc')]
+        .map((node) => node.textContent).join(' ');
+      if (/\b(?:n_treated|n_control|treated_post|control_post|treated_pre|control_pre)\b|\bN\s*[=:]\s*\d/i.test(visible))
+        failures.push('svg-iv-sensitivity-private-value');
+    }
+    if (expectedRates) for (const row of expectedRates) {
+      const id = `anticipation-${row.arm}-${row.year}`;
+      const track = svg.querySelector(`[id="track-${id}"] path`);
+      const fill = svg.querySelector(`[id="fill-${id}"] path`);
+      const point = svg.querySelector(`[id="point-${id}"] use`);
+      if (!track || !fill || !point) {
+        failures.push(`svg-rate-unmeasured:${id}`); continue;
+      }
+      const trackLength = track.getTotalLength();
+      const fillLength = fill.getTotalLength();
+      const observedRate = trackLength > 0 ? 100 * fillLength / trackLength : NaN;
+      if (!Number.isFinite(observedRate) || Math.abs(observedRate - row.rate) > 0.15)
+        failures.push(`svg-rate-mismatch:${id}`);
+      const end = fill.getPointAtLength(fillLength);
+      const pointX = Number(point.getAttribute('x'));
+      const pointY = Number(point.getAttribute('y'));
+      if (!Number.isFinite(pointX) || !Number.isFinite(pointY)
+        || Math.hypot(end.x - pointX, end.y - pointY) * scale > 1.5)
+        failures.push(`svg-rate-point:${id}`);
+    }
+    if (expectedRows) {
+      const description = svg.querySelector(':scope > desc')?.textContent || '';
+      const described = [...description.matchAll(/\b(\d{4})\s+([^:;]+):\s*([^;]+)/g)];
+      if (described.length !== expectedRows.length) failures.push('svg-description-row-count');
+      for (let index = 0; index < Math.min(described.length, expectedRows.length); index += 1) {
+        const row = expectedRows[index];
+        const phrase = described[index][3].split(/\. (?=[A-ZÁÉÍÓÚ])/)[0];
+        const percent = phrase.match(/(\d{1,3}(?:[.,]\d+)?)\s*%/);
+        if (Number(described[index][1]) !== Number(row.cohort_year))
+          failures.push(`svg-description-cohort:${index}`);
+        if (row.display_status === 'OBSERVED') {
+          if (!percent || Math.abs(Number(percent[1].replace(',', '.')) - row.rate_pp) > 0.01)
+            failures.push(`svg-description-rate:${index}`);
+        } else if (percent || /\b(?:n|schools|escuelas)\s*[=:]\s*\d+/i.test(phrase))
+          failures.push(`svg-description-private-rate:${index}`);
+      }
+    }
+    for (const row of textRows) {
+      if (row.box.width < 1 || row.box.height < 1 || row.box.left < box.left - 1
+        || row.box.right > box.right + 1 || row.box.top < box.top - 1
+        || row.box.bottom > box.bottom + 1) failures.push(`svg-text-clipped:${row.id}`);
+    }
+    for (let i = 0; i < textRows.length; i += 1) for (let j = i + 1; j < textRows.length; j += 1) {
+      const hit = overlap(textRows[i].box, textRows[j].box);
+      if (hit.x > 2 && hit.y > 2) failures.push(`svg-text-overlap:${textRows[i].id}:${textRows[j].id}`);
+    }
+    for (const row of textRows) for (const mark of present) {
+      const path = mark.matches('path') ? mark : mark.querySelector('path');
+      if (!path) continue;
+      if (mark.id.startsWith('fill-')) {
+        const hit = overlap(row.box, rect(mark));
+        if (hit.x > 2 && hit.y > 1.5) failures.push(`svg-text-mark:${row.id}:${mark.id}`);
+      } else if (typeof path.getTotalLength === 'function' && path.getScreenCTM()) {
+        const length = path.getTotalLength();
+        const steps = Math.max(2, Math.ceil(length * scale / 2));
+        for (let i = 0; i <= steps; i += 1) {
+          const point = path.getPointAtLength(length * i / steps);
+          const screen = new DOMPoint(point.x, point.y).matrixTransform(path.getScreenCTM());
+          if (screen.x > row.box.left - 1.5 && screen.x < row.box.right + 1.5
+            && screen.y > row.box.top - 1.5 && screen.y < row.box.bottom + 1.5) {
+            failures.push(`svg-text-mark:${row.id}:${mark.id}`);
+            break;
+          }
+        }
+      }
+    }
+    return { failures: [...new Set(failures)].slice(0, 50), minTextPx: Math.round(minTextPx * 100) / 100,
+      minContrast: Math.round(minContrast * 100) / 100,
+      labels: labels.length, marks: present.length, roleCounts,
+      trackCount: trackIds.length, renderedWidth };
+  }, { renderedWidth, expectedRoles, mutation, expectedIds, expectedRates, expectedRows,
+    expectedSensitivity, expectedIvSensitivity });
+}
+
+function sensitivitySvgFixture(fixture) {
+  const kind = fixture.includes('bounds') ? 'bounds' : fixture.includes('d1-') ? 'd1_d2' : 'did';
+  const axisBound = 10;
+  const x = (value) => 400 * (0.08 + (value + axisBound) / (2 * axisBound) * 0.66);
+  const line = (id, x0, y0, x1, y1) => `<g id="${id}"><path d="M ${x0} ${y0} L ${x1} ${y1}" stroke="#111111" stroke-width="2"/></g>`;
+  const text = (value, y, id = '') => `${id ? `<g id="${id}">` : ''}<text x="20" y="${y}" style="font-size:16px;fill:#111111">${value}</text>${id ? '</g>' : ''}`;
+  let rows;
+  let height;
+  let content = '';
+  if (kind === 'did') {
+    rows = [{ era: 'historical', cohort_start: 2008, cohort_end: 2015,
+      estimate_pp: 2, school_ci_low_pp: 1, school_ci_high_pp: 3,
+      two_way_ci_low_pp: 0, two_way_ci_high_pp: 4 }];
+    height = 250;
+    content += text('Historical · 2008–2015', 75) + text('+2.0', 105, 'value-0');
+    content += line('zero-reference-0',x(0),140,x(0),170);
+    content += line('interval-school-0',x(1),150,x(3),150);
+    content += line('estimate-school-0',x(2),150,x(2)+2,150);
+    content += line('interval-two-way-0',x(0),160,x(4),160);
+    content += line('estimate-two-way-0',x(2),160,x(2)+2,160);
+  } else if (kind === 'bounds') {
+    rows = Array.from({ length: 4 }, (_, index) => ({
+      era: index % 2 ? 'modern' : 'historical',
+      cohort_start: index % 2 ? 2016 : 2005,
+      cohort_end: index === 3 ? 2023 : index === 1 ? 2024 : 2015,
+      lower_pp: index - 2, upper_pp: index + 2
+    }));
+    height = 680;
+    for (let index = 0; index < rows.length; index += 1) {
+      const row = rows[index];
+      const y = 135 + 130 * index;
+      const label = index < 2 ? 'Progression' : 'No escolarización real';
+      const era = row.era === 'modern' ? 'moderna' : 'histórica';
+      const sign = (value) => `${value < 0 ? '−' : '+'}${Math.abs(value).toFixed(1).replace('.',',')}`;
+      content += text(`${label} · ${era} · ${row.cohort_start}–${row.cohort_end}`, y - 55);
+      content += text(`${sign(row.lower_pp)} a ${sign(row.upper_pp)}`, y - 30, `value-${index}`);
+      content += line(`zero-reference-${index}`,x(0),y-10,x(0),y+10);
+      content += line(`bound-${index}`,x(row.lower_pp),y,x(row.upper_pp),y);
+      content += line(`lower_pp-${index}`,x(row.lower_pp),y,x(row.lower_pp)+2,y);
+      content += line(`upper_pp-${index}`,x(row.upper_pp),y,x(row.upper_pp)+2,y);
+    }
+  } else {
+    rows = [{ era: 'historical', cohort_start: 2005, cohort_end: 2015,
+      status: 'NON_DISCRIMINATING_IDENTICAL_EXPOSURE_FLAGS' },
+    { era: 'modern', contrast: 'main_full', cohort_start: 2016, cohort_end: 2024,
+      estimate_pp: 2, ci_low_pp: 1, ci_high_pp: 3 }];
+    height = 300;
+    content += text('D2 full · 2016–2024', 75) + text('+2.0', 105, 'value-0');
+    content += line('zero-reference-0',x(0),140,x(0),160);
+    content += line('interval-0',x(1),150,x(3),150);
+    content += line('estimate-0',x(2),150,x(2)+2,150);
+    content += text('Historical 2005–2015: D1 = D2', 235);
+  }
+  const markup = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 ${height}">`
+    + `<g id="patch_1"><rect width="400" height="${height}" fill="#ffffff"/></g>`
+    + text('Sensitivity fixture',30) + content + '</svg>';
+  return { markup, expected: { kind, rows, axisBound, locale: kind === 'bounds' ? 'es' : 'en' } };
+}
+
+function ivSensitivitySvgFixture() {
+  const axisBound = 10;
+  const x = (value) => 400 * (0.08 + (value + axisBound)/(2*axisBound)*0.64);
+  const row = { variant: 'primary', estimate_pp: 2, ci_low_pp: 1, ci_high_pp: 3 };
+  const line = (id,x0,y0,x1,y1) => `<g id="${id}"><path d="M ${x0} ${y0} L ${x1} ${y1}" stroke="#111111" stroke-width="2"/></g>`;
+  const markup = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">'
+    + '<g id="patch_1"><rect width="400" height="260" fill="#ffffff"/></g>'
+    + '<text x="20" y="30" style="font-size:16px;fill:#111111">IV sensitivity</text>'
+    + '<text x="20" y="75" style="font-size:16px;fill:#111111">Primary reference</text>'
+    + '<g id="value-primary"><text x="20" y="105" style="font-size:16px;fill:#111111">+2.0</text></g>'
+    + line('zero-primary',x(0),140,x(0),160)
+    + line('interval-primary',x(1),150,x(3),150)
+    + line('estimate-primary',x(2),150,x(2)+2,150)
+    + line('axis-guide',x(-10),220,x(10),220) + '</svg>';
+  return { markup, expected: { kind: 'comparison', rows: [row], axisBound, locale: 'en' } };
+}
+
+async function runScientificReset(args) {
+  const fixture = readOption(args, '--reset-fixture');
+  const manifestPaths = readOptions(args, '--reset-manifest');
+  const reportPath = readOption(args, '--report');
+  const playwright = createRequire(import.meta.url)(playwrightPath);
+  const executable = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+    || ['/usr/bin/chromium', '/usr/bin/brave', '/usr/bin/google-chrome-stable'].find(existsSync);
+  const browser = await playwright.chromium.launch({ headless: true,
+    ...(executable ? { executablePath: executable } : {}), args: ['--no-sandbox'] });
+  let report;
+  try {
+    const page = await browser.newPage();
+    if (fixture) {
+      const anticipationFixture = fixture.startsWith('anticipation-');
+      const ivSensitivityFixture = fixture.startsWith('iv-sensitivity-')
+        ? ivSensitivitySvgFixture() : null;
+      const sensitivityFixture = fixture.startsWith('sensitivity-')
+        ? sensitivitySvgFixture(fixture) : null;
+      const synthetic = ivSensitivityFixture ? ivSensitivityFixture.markup
+        : sensitivityFixture ? sensitivityFixture.markup : anticipationFixture
+        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 100">'
+          + '<desc>Prior enrollment; 2006 treated: 50.0%; 2005 treated: suppressed.</desc>'
+          + '<g id="patch_1"><rect width="140" height="100" fill="#ffffff"/></g>'
+          + '<text id="title" x="5" y="18" style="font-size:16px">Prior enrollment</text>'
+          + '<g id="track-anticipation-treated-2006"><path d="M 60 50 L 100 50" stroke="#cccccc"/></g>'
+          + '<g id="fill-anticipation-treated-2006"><path d="M 60 50 L 80 50" stroke="#224466" stroke-width="3"/></g>'
+          + '<g id="point-anticipation-treated-2006"><defs><path id="dot" d="M -2 0 L 2 0" stroke="#224466" stroke-width="3"/></defs><use href="#dot" x="80" y="50"/></g>'
+          + '<text id="status-treated-2005" x="5" y="78" style="font-size:16px">Suppressed</text>'
+          + '</svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80">'
+        + '<g id="patch_1"><rect width="100" height="80" fill="#ffffff"/></g>'
+        + '<text id="title" x="5" y="18" style="font-size:16px">Title</text>'
+        + '<text id="value-0" x="5" y="42" style="font-size:16px">Value</text>'
+        + '<g id="estimate-0"><path d="M 60 60 L 64 60" stroke="black" stroke-width="3"/></g>'
+        + '</svg>';
+      const expectedIds = anticipationFixture ? {
+        marks: ['fill-anticipation-treated-2006', 'point-anticipation-treated-2006'],
+        tracks: ['track-anticipation-treated-2006'], statuses: ['status-treated-2005']
+      } : null;
+      const expectedRates = anticipationFixture ? [{ arm: 'treated', year: 2006, rate: 50 }] : null;
+      const expectedRows = anticipationFixture ? [
+        { cohort_year: 2006, display_status: 'OBSERVED', rate_pp: 50 },
+        { cohort_year: 2005, display_status: 'NOT_ESTIMABLE_PANEL_BOUNDARY', rate_pp: null }
+      ] : null;
+      const size = sensitivityFixture || ivSensitivityFixture ? 400 : anticipationFixture ? 140 : 100;
+      const roles = sensitivityFixture || ivSensitivityFixture
+        ? {} : anticipationFixture ? { fill: 1, point: 1 } : { estimate: 1 };
+      const baseline = await inspectResetSvg(page, synthetic, size, roles, null,
+        expectedIds, expectedRates, expectedRows, sensitivityFixture?.expected,
+        ivSensitivityFixture?.expected);
+      const mutated = await inspectResetSvg(page, synthetic, size, roles, fixture,
+        expectedIds, expectedRates, expectedRows, sensitivityFixture?.expected,
+        ivSensitivityFixture?.expected);
+      const expected = { 'missing-mark': 'svg-mark-missing', 'small-text': 'svg-text-under-14px',
+        'low-contrast': 'svg-text-contrast',
+        'text-overlap': 'svg-text-overlap', 'text-mark': 'svg-text-mark',
+        'anticipation-missing-mark': 'svg-mark-missing',
+        'anticipation-private-mark': 'svg-mark-identity',
+        'anticipation-wrong-rate-mark': 'svg-rate-mismatch',
+        'anticipation-description-leak': 'svg-description-private-rate',
+        'sensitivity-wrong-ci-geometry': 'svg-sensitivity-interval-geometry',
+        'sensitivity-missing-zero-reference': 'svg-sensitivity-mark-identity',
+        'sensitivity-bounds-false-point': 'svg-sensitivity-mark-identity',
+        'sensitivity-bounds-wrong-label': 'svg-sensitivity-true-schooling-label',
+        'sensitivity-d1-wrong-period': 'svg-sensitivity-period-label',
+        'iv-sensitivity-wrong-ci': 'svg-iv-sensitivity-ci',
+        'iv-sensitivity-missing-zero': 'svg-iv-sensitivity-mark-identity',
+        'iv-sensitivity-private-label': 'svg-iv-sensitivity-private-value'
+      }[fixture];
+      const discriminates = Boolean(expected) && baseline.failures.length === 0
+        && mutated.failures.some((failure) => failure.startsWith(expected));
+      report = { status: discriminates ? 'EXPECTED_FAIL' : 'WRONG_FAILURE', fixture,
+        baseline, mutated, expected };
+      process.exitCode = discriminates ? 1 : 2;
+    } else {
+      if (!manifestPaths.length || manifestPaths.some((path) => !existsSync(path)))
+        throw new Error('--reset-manifest missing for one or more families');
+      const manifests = manifestPaths.map((path) => ({ path,
+        manifest: JSON.parse(readFileSync(path, 'utf8')) }));
+      if (manifests.some(({ manifest }) => !Array.isArray(manifest.figures)
+        || !manifest.figures.length || !Array.isArray(manifest.files)))
+        throw new Error('reset manifest lacks figures/files');
+      const rows = [];
+      const familyCounts = Object.fromEntries(['primary', 'anticipation', 'sensitivity'].map((family) =>
+        [family, manifests.filter(({ manifest }) =>
+          (manifest.family === 'post4_primary_projected' ? 'primary'
+            : manifest.family || 'primary') === family).length]));
+      const isIII = manifests.some(({ manifest }) => manifest.family === 'anticipation'
+        || (manifest.family === 'sensitivity' && manifest.series !== 'IV')
+        || manifest.series === 'III'
+        || manifest.figures.some((figure) => !figure.kind && Boolean(figure.outcome)));
+      const inventoryFailures = [];
+      if (familyCounts.primary !== 1 || (isIII && (familyCounts.anticipation !== 1
+        || familyCounts.sensitivity !== 1))
+        || (!isIII && (familyCounts.anticipation !== 0 || familyCounts.sensitivity !== 1)))
+        inventoryFailures.push('manifest-family-inventory');
+      for (const { path: manifestPath, manifest } of manifests) {
+        const family = manifest.family || 'primary';
+        const folder = dirname(resolve(manifestPath));
+        for (const figure of manifest.figures) {
+          const ivSensitivity = family === 'sensitivity' && manifest.series === 'IV';
+          const stem = ivSensitivity ? `post4-sensitivity-${figure.kind}-${figure.era}`
+            : family === 'sensitivity' ? figure.stem : family === 'anticipation'
+            ? `post3-anticipation-${figure.outcome}-${figure.era}`
+            : figure.kind ? `post4-${figure.kind}-${figure.era}`
+              : `post3-${figure.outcome}-${figure.era}`;
+          const observed = family === 'anticipation' ? figure.source_rows.filter((row) =>
+            row.display_status === 'OBSERVED') : [];
+          const suppressed = family === 'anticipation' ? figure.source_rows.filter((row) =>
+            row.display_status !== 'OBSERVED') : [];
+          const expectedRoles = family === 'sensitivity'
+            ? {} : family === 'anticipation'
+            ? { fill: observed.length, point: observed.length }
+            : figure.kind === 'access' ? { fill: 4, point: 4 }
+              : { interval: figure.source_rows.length, estimate: figure.source_rows.length };
+          const expectedIds = family === 'anticipation' ? {
+            marks: observed.flatMap((row) => ['fill', 'point'].map((role) =>
+              `${role}-anticipation-${row.arm}-${row.cohort_year}`)),
+            tracks: observed.map((row) => `track-anticipation-${row.arm}-${row.cohort_year}`),
+            statuses: suppressed.map((row) => `status-${row.arm}-${row.cohort_year}`)
+          } : null;
+          const expectedRates = family === 'anticipation' ? observed.map((row) => ({
+            arm: row.arm, year: row.cohort_year, rate: row.rate_pp })) : null;
+          const expectedRows = family === 'anticipation' ? figure.source_rows : null;
+          const expectedSensitivity = family === 'sensitivity' && !ivSensitivity ? {
+            kind: figure.kind, rows: figure.source_rows, axisBound: figure.axis_bound_pp
+          } : null;
+          const expectedIvSensitivity = ivSensitivity ? {
+            kind: figure.kind, rows: figure.source_rows, axisBound: figure.axis_bound_pp
+          } : null;
+        for (const locale of locales) for (const theme of ['light', 'dark'])
+          for (const width of widths) {
+            const layout = width < 768 ? 'mobile' : 'desktop';
+            const name = `${stem}-${locale}-${theme}-${layout}.svg`;
+            const item = manifest.files.find((entry) => entry.name === name);
+            if (!item || !existsSync(resolve(folder, name))) {
+              rows.push({ name, width, failures: ['svg-file-missing'] });
+              continue;
+            }
+            const bytes = readFileSync(resolve(folder, name));
+            if (sha256(bytes) !== item.sha256) {
+              rows.push({ name, width, failures: ['svg-source-hash'] });
+              continue;
+            }
+            const renderedWidth = width < 768 ? (width === 320 ? 294 : 358) : 672;
+            const measured = await inspectResetSvg(page, bytes.toString('utf8'),
+              renderedWidth, expectedRoles, null, expectedIds, expectedRates, expectedRows,
+              expectedSensitivity ? { ...expectedSensitivity, locale } : null,
+              expectedIvSensitivity ? { ...expectedIvSensitivity, locale } : null);
+            rows.push({ family, name, width, ...measured });
+          }
+        }
+      }
+      const readiness = manifests.every(({ manifest }) => manifest.f2_complete === true
+        && manifest.publication_authorized === true);
+      const geometryPass = rows.every((row) => row.failures.length === 0)
+        && inventoryFailures.length === 0;
+      report = { status: geometryPass ? 'PREFLIGHT_ONLY' : 'FAIL', geometryPass,
+        manifest: manifestPaths.map((path) => resolve(path)),
+        familyCounts, inventoryFailures, scientificReady: readiness, draft: !readiness,
+        rows: rows.length, failedRows: rows.filter((row) => row.failures.length),
+        minTextPx: Math.min(...rows.map((row) => row.minTextPx ?? 0)),
+        minContrast: Math.min(...rows.map((row) => row.minContrast ?? 0)) };
+      process.exitCode = 1;
+    }
+  } finally { await browser.close(); }
+  if (reportPath) { mkdirSync(dirname(resolve(reportPath)), { recursive: true });
+    writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`); }
+  console.log(JSON.stringify(report));
+}
+
 async function main() {
   const args = process.argv.slice(2);
+  if (args.includes('--reset-manifest') || args.includes('--reset-fixture')) {
+    await runScientificReset(args);
+    return;
+  }
   const baseUrl = (readOption(args, '--base-url') || 'http://127.0.0.1:4004').replace(/\/$/, '');
   const reportPath = readOption(args, '--report');
   const screenshotDir = readOption(args, '--screenshot-dir');
   const fixture = readOption(args, '--fixture');
+  if (!fixture) {
+    console.error(JSON.stringify({ status: 'ERROR', error:
+      '--reset-manifest is required; legacy III/IV geometry IDs and 9 px threshold are obsolete' }));
+    process.exitCode = 2;
+    return;
+  }
   const ivFigureOnly = args.includes('--iv-figure-only');
   const ivOnly = args.includes('--iv-only');
   if (!/^https?:\/\//.test(baseUrl) || !existsSync(playwrightPath)

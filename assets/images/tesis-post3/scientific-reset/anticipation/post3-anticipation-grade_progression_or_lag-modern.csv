@@ -1,0 +1,19 @@
+outcome,era,cohort_year,baseline_year,transition_year,arm,n,schools,rate_pp,display_status,reason_es,reason_en
+grade_progression_or_lag,modern,2016,2014,2015,control,2467572,8295,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2016,2014,2015,treated,1791,20,96.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2017,2015,2016,control,2548491,8618,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2017,2015,2016,treated,1995,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2018,2016,2017,control,2466910,8242,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2018,2016,2017,treated,2101,18,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2019,2017,2018,control,2527872,8295,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2019,2017,2018,treated,2208,15,94.2,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2020,2018,2019,control,2606235,8360,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2020,2018,2019,treated,637,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2021,2019,2020,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,modern,2021,2019,2020,treated,2550,14,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2022,2020,2021,control,2635872,8347,98.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2022,2020,2021,treated,,,,PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP,Suprimido: pocas escuelas,Suppressed: few schools
+grade_progression_or_lag,modern,2023,2021,2022,control,2714830,8194,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2023,2021,2022,treated,455,12,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2024,2022,2023,control,2703960,7904,97.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2024,2022,2023,treated,818,14,94.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate

@@ -52,6 +52,29 @@ class VerifyVisualAssetsMobileTest < Minitest::Test
     }
   end
 
+  def scientific_package_fixture(slug)
+    root = File.join(@root, 'assets/images', slug)
+    FileUtils.mkdir_p(root)
+    legacy = File.join(root, 'legacy.svg')
+    File.write(legacy, '<svg>legacy</svg>')
+    write_embedded_manifest(root, [{ 'path' => 'legacy.svg', 'bytes' => File.size(legacy),
+      'sha256' => Digest::SHA256.file(legacy).hexdigest }])
+    package_paths = slug == 'tesis-post3' ? %w[
+      scientific-reset/manifest.json scientific-reset/anticipation/manifest.json
+      scientific-reset/sensitivity/manifest.json
+    ] : %w[scientific-reset/manifest.json scientific-reset/sensitivity/manifest.json]
+    package_paths.each do |relative|
+      dir = File.dirname(File.join(root, relative))
+      FileUtils.mkdir_p(dir)
+      figure = File.join(dir, 'figure.svg')
+      File.write(figure, "<svg>#{relative}</svg>")
+      File.write(File.join(root, relative), JSON.pretty_generate({ 'files' => [
+        { 'name' => 'figure.svg', 'sha256' => Digest::SHA256.file(figure).hexdigest }
+      ] }))
+    end
+    root
+  end
+
   def test_publicable_mobile_passes
     output, success = run_gate
     assert success, output
@@ -128,5 +151,66 @@ class VerifyVisualAssetsMobileTest < Minitest::Test
 
     refute success, output
     assert_includes output, 'V13 assets/images/generated/manifest.json: archivos no declarados: orphan.svg'
+  end
+
+  def test_scientific_subpackages_are_exact_and_do_not_change_legacy_manifest
+    post3 = scientific_package_fixture('tesis-post3')
+    scientific_package_fixture('tesis-post4')
+    legacy_sha = Digest::SHA256.file(File.join(post3, 'manifest.json')).hexdigest
+    output, success = run_gate
+    assert success, output
+
+    orphan = File.join(post3, 'scientific-reset/sensitivity/orphan.svg')
+    File.write(orphan, '<svg>new unlisted file</svg>')
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'archivos no declarados: scientific-reset/sensitivity/orphan.svg'
+    File.unlink(orphan)
+
+    hidden = File.join(post3, 'scientific-reset/sensitivity/.hidden.svg')
+    File.write(hidden, '<svg>unlisted hidden file</svg>')
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'archivos no declarados: scientific-reset/sensitivity/.hidden.svg'
+    File.unlink(hidden)
+
+    figure = File.join(post3, 'scientific-reset/sensitivity/figure.svg')
+    original = File.read(figure)
+    File.write(figure, '<svg>changed</svg>')
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'scientific-reset/sensitivity/manifest.json[figure.svg]: sha256'
+    File.write(figure, original)
+
+    manifest = File.join(post3, 'scientific-reset/anticipation/manifest.json')
+    manifest_bytes = File.read(manifest)
+    File.unlink(manifest)
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'manifest obligatorio ausente'
+    File.write(manifest, manifest_bytes)
+
+    File.unlink(figure)
+    File.symlink(File.join(@root, @asset), figure)
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'enlace simbólico'
+    File.unlink(figure)
+    File.write(figure, original)
+
+    parent_manifest = File.join(post3, 'manifest.json')
+    parent_bytes = File.read(parent_manifest)
+    duplicate = JSON.parse(parent_bytes)
+    duplicate['files'] << { 'path' => 'scientific-reset/sensitivity/figure.svg',
+      'bytes' => File.size(figure), 'sha256' => Digest::SHA256.file(figure).hexdigest }
+    File.write(parent_manifest, JSON.pretty_generate(duplicate))
+    output, success = run_gate
+    refute success, output
+    assert_includes output, 'rutas reclamadas por más de un manifest'
+    File.write(parent_manifest, parent_bytes)
+
+    output, success = run_gate
+    assert success, output
+    assert_equal legacy_sha, Digest::SHA256.file(File.join(post3, 'manifest.json')).hexdigest
   end
 end

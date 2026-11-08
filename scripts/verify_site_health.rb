@@ -60,6 +60,8 @@ begin
   run.call('visual-assets', %w[ruby scripts/verify_visual_assets.rb --strict])
   run.call('diffusion-coherence', %w[ruby scripts/verify_difusion_coherente.rb --all-declared] + ['--root', root])
   run.call('diffusion-coherence-legacy', %w[ruby scripts/verify_difusion_coherente.rb multiagente-penta-agent-memoria-gobernada-poc] + ['--root', root])
+  run.call('thesis-historical-diffusion', %w[python3 scripts/verify_thesis_historical_diffusion.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
+  run.call('test-thesis-historical-diffusion', %w[python3 -m unittest discover -s tests -p test_verify_thesis_historical_diffusion.py], { 'PYTHONDONTWRITEBYTECODE' => '1' })
   run.call('distribution-policy', %w[ruby scripts/verify_distribution_done.rb --policy-only])
   %w[verify_difusion_coherente verify_visual_assets_mobile site_health polyglot_doctor math_keyboard jekyll_to_devto verify_distribution_done reconciliar_distribucion verify_repo_governance devto_draft_policy devto_noop ai_disclosure series_title_convention].each do |test|
     run.call("test-#{test}", ['ruby', "tests/test_#{test}.rb"])
@@ -73,6 +75,9 @@ begin
   run.call('post3-scientific-editorial', %w[ruby scripts/verify_thesis_post3.rb])
   run.call('test-post3-scientific-editorial', %w[ruby tests/test_verify_thesis_post3.rb])
   run.call('test-post3-browser-contract', %w[ruby tests/test_verify_thesis_post3_browser.rb])
+  run.call('post4-scientific-editorial', %w[ruby scripts/verify_thesis_post4.rb])
+  run.call('test-post4-scientific-editorial', %w[ruby tests/test_verify_thesis_post4.rb])
+  run.call('test-post4-browser-contract', %w[ruby tests/test_verify_thesis_post4_browser.rb])
 
   unless options[:profile] == 'source'
     version, status = Open3.capture2e('node', '--version')

@@ -1,0 +1,23 @@
+outcome,era,cohort_year,baseline_year,transition_year,arm,n,schools,rate_pp,display_status,reason_es,reason_en
+grade_progression_or_lag,historical,2005,,,control,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+grade_progression_or_lag,historical,2005,,,treated,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+grade_progression_or_lag,historical,2006,2004,2005,control,2390502,7004,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2006,2004,2005,treated,6699,99,92.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2007,2005,2006,control,2218954,6879,96.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2007,2005,2006,treated,8258,91,92.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2008,2006,2007,control,2374354,6910,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2008,2006,2007,treated,7332,85,96.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2009,2007,2008,control,2462217,7350,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2009,2007,2008,treated,5355,79,88.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2010,2008,2009,control,2562469,7705,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2010,2008,2009,treated,5521,79,97.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2011,2009,2010,control,2346124,6798,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2011,2009,2010,treated,6632,134,95.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2012,2010,2011,control,2163228,6698,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2012,2010,2011,treated,7911,106,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2013,2011,2012,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,historical,2013,2011,2012,treated,11699,115,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2014,2012,2013,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,historical,2014,2012,2013,treated,10078,102,94.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2015,2013,2014,control,2249439,7428,97.9,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2015,2013,2014,treated,4227,53,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate

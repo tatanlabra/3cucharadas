@@ -93,6 +93,14 @@ class SiteHealthTest < Minitest::Test
       assert_equal ['ruby', 'scripts/verify_difusion_coherente.rb',
                     'multiagente-penta-agent-memoria-gobernada-poc', '--root', ROOT],
                    checks.fetch('diffusion-coherence-legacy').fetch('command')
+      assert_equal ['python3', 'scripts/verify_thesis_historical_diffusion.py'],
+                   checks.fetch('thesis-historical-diffusion').fetch('command')
+      assert_equal ['ruby', 'scripts/verify_thesis_post4.rb'],
+                   checks.fetch('post4-scientific-editorial').fetch('command')
+      assert_equal ['ruby', 'tests/test_verify_thesis_post4.rb'],
+                   checks.fetch('test-post4-scientific-editorial').fetch('command')
+      assert_equal ['ruby', 'tests/test_verify_thesis_post4_browser.rb'],
+                   checks.fetch('test-post4-browser-contract').fetch('command')
     end
   end
 end

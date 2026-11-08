@@ -33,6 +33,17 @@ ROOT = File.expand_path("..", __dir__)
 STRICT = ARGV.include?("--strict")
 MIN_OG_IMAGE_WIDTH = 1200
 ROLES_CON_ALT = %w[hero figura og].freeze
+SCIENTIFIC_PACKAGE_MANIFESTS = {
+  'tesis-post3' => %w[
+    scientific-reset/manifest.json
+    scientific-reset/anticipation/manifest.json
+    scientific-reset/sensitivity/manifest.json
+  ],
+  'tesis-post4' => %w[
+    scientific-reset/manifest.json
+    scientific-reset/sensitivity/manifest.json
+  ]
+}.freeze
 
 errors = []
 warnings = []
@@ -68,6 +79,80 @@ def cifra_presente?(cifra, cuerpo)
 
   # Compara token completo, no subcadena: evita que "94" case dentro de "1945".
   cuerpo.scan(/\d[\d.,]*%?/).any? { |token| normaliza_cifra(token) == objetivo }
+end
+
+# Los subpaquetes científicos tienen inventarios propios. Sólo los cinco paths
+# fijados aquí pueden ampliar el manifest histórico de tesis-post3/4; el gate
+# científico del sitio comprueba además sus fuentes y su semántica.
+def safe_package_file?(root, relative)
+  return false if File.symlink?(root)
+  segments = relative.split('/', -1)
+  return false if segments.empty? || segments.any? { |part| part.empty? || %w[. ..].include?(part) }
+
+  current = root
+  segments.each do |part|
+    current = File.join(current, part)
+    return false if File.symlink?(current)
+  end
+  File.file?(current) && File.realpath(current).start_with?("#{File.realpath(root)}/")
+rescue SystemCallError
+  false
+end
+
+def scientific_package_entries(dir)
+  required = SCIENTIFIC_PACKAGE_MANIFESTS.fetch(File.basename(dir), [])
+  return [[], []] if required.empty?
+
+  errors = []
+  declared = []
+  root = File.expand_path(dir)
+  required.each do |relative_manifest|
+    label = "V13 #{rel(File.join(dir, relative_manifest))}"
+    declared << relative_manifest
+    unless safe_package_file?(root, relative_manifest)
+      errors << "#{label}: manifest obligatorio ausente o enlace simbólico"
+      next
+    end
+    begin
+      manifest = JSON.parse(File.read(File.join(root, relative_manifest)))
+    rescue JSON::ParserError
+      errors << "#{label}: JSON inválido"
+      next
+    end
+    entries = manifest.is_a?(Hash) ? manifest['files'] : nil
+    unless entries.is_a?(Array) && !entries.empty?
+      errors << "#{label}: `files` debe ser una lista no vacía"
+      next
+    end
+    names = []
+    entries.each_with_index do |entry, index|
+      name = entry.is_a?(Hash) ? entry['name'] : nil
+      item_label = "#{label}[#{name || index}]"
+      unless name.is_a?(String) && name.match?(/\A[a-z0-9_-]+\.(?:csv|svg|png|json|html)\z/)
+        errors << "#{item_label}: `name` debe ser un archivo simple de datos, tabla o figura"
+        next
+      end
+      names << name
+      relative = File.join(File.dirname(relative_manifest), name)
+      declared << relative
+      unless safe_package_file?(root, relative)
+        errors << "#{item_label}: archivo ausente, fuera de carpeta o enlace simbólico"
+        next
+      end
+      actual_sha = Digest::SHA256.file(File.join(root, relative)).hexdigest
+      unless entry['sha256'].is_a?(String) &&
+             entry['sha256'].match?(/\A[0-9a-f]{64}\z/) &&
+             entry['sha256'] == actual_sha
+        errors << "#{item_label}: sha256 no coincide con los bytes actuales"
+      end
+    end
+    duplicates = names.group_by(&:itself).select { |_name, occurrences| occurrences.length > 1 }.keys.sort
+    errors << "#{label}: nombres duplicados: #{duplicates.join(', ')}" unless duplicates.empty?
+  end
+  symlinks = Dir.glob(File.join(root, 'scientific-reset', '**', '*'), File::FNM_DOTMATCH)
+                .select { |path| File.symlink?(path) }
+  errors << "V13 #{rel(dir)}: enlaces simbólicos en subpaquetes científicos" unless symlinks.empty?
+  [errors, declared]
 end
 
 # Devuelve nil si no existe un manifest local; de lo contrario, una lista de
@@ -123,7 +208,13 @@ def embedded_manifest_errors(dir)
   duplicates = declared.group_by(&:itself).select { |_path, occurrences| occurrences.length > 1 }.keys.sort
   errors << "#{label}: rutas duplicadas: #{duplicates.join(', ')}" unless duplicates.empty?
 
-  actual = Dir.glob(File.join(dir, "**", "*"))
+  package_errors, package_declared = scientific_package_entries(dir)
+  errors.concat(package_errors)
+  declared.concat(package_declared)
+  overlaps = declared.group_by(&:itself).select { |_path, occurrences| occurrences.length > 1 }.keys.sort
+  errors << "#{label}: rutas reclamadas por más de un manifest: #{overlaps.join(', ')}" unless overlaps.empty?
+
+  actual = Dir.glob(File.join(dir, "**", "*"), File::FNM_DOTMATCH)
               .select { |path| File.file?(path) && path != manifest_path }
               .map { |path| path.delete_prefix("#{root}/") }
               .sort

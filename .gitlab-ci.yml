@@ -93,6 +93,12 @@ build_site:
     # Nadie lo habria notado: el paquete no se construye desde el post.
     # El mismo transformador que usa GitHub debe aceptar el post II de la serie
     # multiagente y rechazar Liquid Jekyll residual antes de tocar la API DEV.to.
+    # La custodia de la edición anterior requiere su commit aun en clones
+    # superficiales. Obtener solo ese objeto histórico si queda fuera de GIT_DEPTH.
+    - |
+      if ! git cat-file -e f45d34f355636a41b1ac514c8115517b0b394d0d^{commit}; then
+        git fetch --no-tags --depth=1 origin f45d34f355636a41b1ac514c8115517b0b394d0d
+      fi
     - ruby scripts/verify_site_health.rb --profile source --report /tmp/site-health-source/report.json
     - bundle exec jekyll build -d public
     - ruby scripts/verify_site_artifact.rb public

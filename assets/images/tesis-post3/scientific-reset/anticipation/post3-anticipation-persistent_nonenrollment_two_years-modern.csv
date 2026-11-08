@@ -1,0 +1,17 @@
+outcome,era,cohort_year,baseline_year,transition_year,arm,n,schools,rate_pp,display_status,reason_es,reason_en
+persistent_nonenrollment_two_years,modern,2016,2014,2015,control,2464123,8275,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2016,2014,2015,treated,1791,20,96.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2017,2015,2016,control,2543408,8597,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2017,2015,2016,treated,1995,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2018,2016,2017,control,2462894,8219,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2018,2016,2017,treated,2101,18,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2019,2017,2018,control,2526786,8282,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2019,2017,2018,treated,2208,15,94.2,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2020,2018,2019,control,2604980,8350,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2020,2018,2019,treated,637,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2021,2019,2020,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+persistent_nonenrollment_two_years,modern,2021,2019,2020,treated,2550,14,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2022,2020,2021,control,2635068,8337,98.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2022,2020,2021,treated,,,,PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP,Suprimido: pocas escuelas,Suppressed: few schools
+persistent_nonenrollment_two_years,modern,2023,2021,2022,control,2708597,8032,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2023,2021,2022,treated,455,12,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate

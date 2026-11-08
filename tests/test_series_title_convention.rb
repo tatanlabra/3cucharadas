@@ -35,9 +35,13 @@ class SeriesTitleConventionTest < Minitest::Test
     '_posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md' =>
       'Extending my thesis in three spoonfuls (part II): what school turnover still cannot tell us',
     '_posts/2026-10-23-costos-cierre-escolar-trayectorias.md' =>
-      'Extender mi tesis en 3 cucharadas (parte III): qué muestran las trayectorias después del cierre de una escuela',
+      'Extender mi tesis en 3 cucharadas (parte III): seguir la trayectoria escolar después de perder la escuela',
     '_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md' =>
-      'Extending my thesis in three spoonfuls (part III): what student trajectories show after a school closure',
+      'Extending my thesis in 3 spoonfuls (part III): tracking school trajectories after a school loses provision',
+    '_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md' =>
+      'Extender mi tesis en 3 cucharadas (parte IV): matrícula superior después de la escuela de origen',
+    '_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md' =>
+      "Extending my thesis in 3 spoonfuls (part IV): higher education enrollment traced from students' school of origin",
     '_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md' =>
       'Multiagentes en 3 cucharadas (parte IV): del tridente en consola a un circuito de autopoiesis',
     '_posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md' =>
@@ -70,6 +74,10 @@ class SeriesTitleConventionTest < Minitest::Test
       titles.merge(EXPECTED.keys.first => titles.fetch(EXPECTED.keys.first).sub(' (parte I)', ''))
     when 'wrong-language'
       titles.merge(EXPECTED.keys.first => titles.fetch(EXPECTED.keys.first).sub('(parte I)', '(part I)'))
+    when 'thesis-iv-wrong-claim'
+      key = '_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md'
+      titles.merge(key => titles.fetch(key).sub('matrícula superior después de la escuela de origen',
+        'el cierre escolar reduce la matrícula superior'))
     else
       flunk "fixture negativo desconocido: #{ENV['SERIES_TITLE_NEGATIVE_FIXTURE']}"
     end

@@ -1,0 +1,1600 @@
+{
+  "status": "RELEASE_CANDIDATE_APPROVED",
+  "family": "post4_primary_projected",
+  "source_sha256": "c06aaae2dd8ddf7165e826f10e2f5d39140b1bf19da46cd9dc9fc985f33e99c0",
+  "source_file": "public-combined-projection.json",
+  "private_source_sha256": {
+    "primary": "8d53186740353a50bf6af82254356ffc2fea39bf2f76c9bfb810700d1189f763",
+    "sensitivity": "3bb9129e31a2ff1143c86b8b7b9af34c7da96542578c6c00e440f547eb2088a7"
+  },
+  "projection_code_sha256": "62d564549acfbecf39afc28e0e4eb7ec06395b85ef685d396c9ba84e97420031",
+  "projection_validated": true,
+  "approval_receipt_sha256": "2ae6604f2bdf19f6536bac27c8931d65300d7fc2940762809e10ff02a08655d2",
+  "approval_scope": "post_iv_sensitivities",
+  "f2_complete": true,
+  "publication_authorized": true,
+  "producer_sha256": "052f8c720133168bad5aa3187a390a374188cd4108c5b10de47c20aeffe40552",
+  "protocol_sha256": "099afeec717ba08f0d962cfbdc44acd444ba5224f714a0391cdee7c057edf07f",
+  "renderer_sha256": "f078fba589b5e8f2a78a5acfc96ecc7c8d2a0fe0bb9309fc03ec70c54dbc20ce",
+  "identity_sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa",
+  "font_sha256": {
+    "FiraSans-Regular.woff2": "6e858a4cd38a13ae0de6dd58203715f19e3283d4321541737289cc9d049dacbe",
+    "FiraSans-Bold.woff2": "06be591b00c1419617943dd22b2279ed699e758d983d8b4f2071146a908b6d3d"
+  },
+  "all_result_rows": 138,
+  "coverage_rows": 48,
+  "outcome_coverage_rows": 384,
+  "figures": [
+    {
+      "kind": "access",
+      "era": "historical",
+      "outcomes": [
+        "any_he_2yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "any_he_2yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -2.30797,
+          "ci_low_pp": -5.25645,
+          "ci_high_pp": 0.28868,
+          "confidence_level": 0.975,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [
+            "LINKAGE_BOUNDS_VACUOUS"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "linkage_bounds": {
+            "low_pp": -80.95356,
+            "high_pp": 74.0322,
+            "vacuous_source_capacity": true,
+            "capacity_scope": "national_invalid_identifier_rows_not_arm_error_rate"
+          },
+          "variant": "primary",
+          "rates": {
+            "treated_post": 48.56133,
+            "treated_pre": 45.87058,
+            "control_post": 65.42826,
+            "control_pre": 60.42955
+          },
+          "n_treated": 10183,
+          "n_control": 1208182
+        }
+      ],
+      "common_bound_pp": null,
+      "caption": {
+        "es": "Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Registro de matrícula pregrado SIES en los dos años siguientes al egreso escolar esperado, no primer ingreso. Generación anterior y posterior designan cohortes basales G−5 y G−1, con G como año del evento. La ventana comienza en año basal+5−grado: en 1.º medio de la generación anterior abarca G−1 y G. Las cuatro tasas usan los mismos pesos que el punto de comparación de cambios; su diferencia de cambios lo reproduce salvo redondeo. El intervalo de incertidumbre corresponde solo a esa comparación, no a cada tasa. El número de estudiantes por grupo en el CSV corresponde solo a la generación posterior; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cota de enlace no informativa. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2009–2015; students with valid ID and complete observed window. SIES undergraduate enrollment in the two years after expected school completion, not first entry. Earlier and later cohorts refer to baseline generations G−5 and G−1, where G is the event year. The window starts in baseline year+5−grade: for grade 1 of the earlier cohort it spans G−1 and G. The four rates use the same weights as the comparison-of-changes point; their difference in changes reproduces it, apart from rounding. The uncertainty interval applies only to that comparison, not to each rate. Student counts by group in CSV cover only the later cohort; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Linkage bound uninformative. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Acceso SIES, histórica. pérdida posterior de oferta, generación anterior: 45,9 %; pérdida de oferta, generación posterior: 48,6 %; comparación, generación anterior: 60,4 %; comparación, generación posterior: 65,4 %; Registro SIES en 2 años tras egreso escolar esperado (2009–2015): −2,3 pp [−5,3; +0,3]. Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Registro de matrícula pregrado SIES en los dos años siguientes al egreso escolar esperado, no primer ingreso. Generación anterior y posterior designan cohortes basales G−5 y G−1, con G como año del evento. La ventana comienza en año basal+5−grado: en 1.º medio de la generación anterior abarca G−1 y G. Las cuatro tasas usan los mismos pesos que el punto de comparación de cambios; su diferencia de cambios lo reproduce salvo redondeo. El intervalo de incertidumbre corresponde solo a esa comparación, no a cada tasa. El número de estudiantes por grupo en el CSV corresponde solo a la generación posterior; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cota de enlace no informativa. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES access, historical. later lost provision, earlier cohort: 45.9 %; lost provision, later cohort: 48.6 %; comparison, earlier cohort: 60.4 %; comparison, later cohort: 65.4 %; SIES record in 2 years after expected school completion (2009–2015): −2.3 pp [−5.3; +0.3]. School cohorts 2009–2015; students with valid ID and complete observed window. SIES undergraduate enrollment in the two years after expected school completion, not first entry. Earlier and later cohorts refer to baseline generations G−5 and G−1, where G is the event year. The window starts in baseline year+5−grade: for grade 1 of the earlier cohort it spans G−1 and G. The four rates use the same weights as the comparison-of-changes point; their difference in changes reproduces it, apart from rounding. The uncertainty interval applies only to that comparison, not to each rate. Student counts by group in CSV cover only the later cohort; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Linkage bound uninformative. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-access-historical"
+    },
+    {
+      "kind": "access",
+      "era": "modern",
+      "outcomes": [
+        "any_he_2yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "any_he_2yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2024
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -2.42706,
+          "ci_low_pp": -5.67265,
+          "ci_high_pp": 1.26656,
+          "confidence_level": 0.975,
+          "treated_schools": 27,
+          "control_schools": 1256,
+          "strata": 70,
+          "effective_treated_schools": 16.946,
+          "max_treated_school_share": 0.12689,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "LINKAGE_BOUNDS_VACUOUS",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "linkage_bounds": {
+            "low_pp": -71.70256,
+            "high_pp": 66.1826,
+            "vacuous_source_capacity": true,
+            "capacity_scope": "national_invalid_identifier_rows_not_arm_error_rate"
+          },
+          "variant": "primary",
+          "rates": {
+            "treated_post": 55.00686,
+            "treated_pre": 55.9339,
+            "control_post": 67.675,
+            "control_pre": 66.17497
+          },
+          "n_treated": 2916,
+          "n_control": 806153
+        }
+      ],
+      "common_bound_pp": null,
+      "caption": {
+        "es": "Cohortes escolares 2016–2024; estudiantes con identificación válida y ventana observada completa. Registro de matrícula pregrado SIES en los dos años siguientes al egreso escolar esperado, no primer ingreso. Generación anterior y posterior designan cohortes basales G−5 y G−1, con G como año del evento. La ventana comienza en año basal+5−grado: en 1.º medio de la generación anterior abarca G−1 y G. Las cuatro tasas usan los mismos pesos que el punto de comparación de cambios; su diferencia de cambios lo reproduce salvo redondeo. El intervalo de incertidumbre corresponde solo a esa comparación, no a cada tasa. El número de estudiantes por grupo en el CSV corresponde solo a la generación posterior; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Cota de enlace no informativa; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2016–2024; students with valid ID and complete observed window. SIES undergraduate enrollment in the two years after expected school completion, not first entry. Earlier and later cohorts refer to baseline generations G−5 and G−1, where G is the event year. The window starts in baseline year+5−grade: for grade 1 of the earlier cohort it spans G−1 and G. The four rates use the same weights as the comparison-of-changes point; their difference in changes reproduces it, apart from rounding. The uncertainty interval applies only to that comparison, not to each rate. Student counts by group in CSV cover only the later cohort; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Linkage bound uninformative; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Acceso SIES, moderna. pérdida posterior de oferta, generación anterior: 55,9 %; pérdida de oferta, generación posterior: 55,0 %; comparación, generación anterior: 66,2 %; comparación, generación posterior: 67,7 %; Registro SIES en 2 años tras egreso escolar esperado (2016–2024): −2,4 pp [−5,7; +1,3]. Cohortes escolares 2016–2024; estudiantes con identificación válida y ventana observada completa. Registro de matrícula pregrado SIES en los dos años siguientes al egreso escolar esperado, no primer ingreso. Generación anterior y posterior designan cohortes basales G−5 y G−1, con G como año del evento. La ventana comienza en año basal+5−grado: en 1.º medio de la generación anterior abarca G−1 y G. Las cuatro tasas usan los mismos pesos que el punto de comparación de cambios; su diferencia de cambios lo reproduce salvo redondeo. El intervalo de incertidumbre corresponde solo a esa comparación, no a cada tasa. El número de estudiantes por grupo en el CSV corresponde solo a la generación posterior; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Cota de enlace no informativa; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES access, modern. later lost provision, earlier cohort: 55.9 %; lost provision, later cohort: 55.0 %; comparison, earlier cohort: 66.2 %; comparison, later cohort: 67.7 %; SIES record in 2 years after expected school completion (2016–2024): −2.4 pp [−5.7; +1.3]. School cohorts 2016–2024; students with valid ID and complete observed window. SIES undergraduate enrollment in the two years after expected school completion, not first entry. Earlier and later cohorts refer to baseline generations G−5 and G−1, where G is the event year. The window starts in baseline year+5−grade: for grade 1 of the earlier cohort it spans G−1 and G. The four rates use the same weights as the comparison-of-changes point; their difference in changes reproduces it, apart from rounding. The uncertainty interval applies only to that comparison, not to each rate. Student counts by group in CSV cover only the later cohort; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Linkage bound uninformative; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-access-modern"
+    },
+    {
+      "kind": "destinations",
+      "era": "historical",
+      "outcomes": [
+        "none_2yr",
+        "university_only_2yr",
+        "ip_cft_only_2yr",
+        "both_2yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "none_2yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": 2.30797,
+          "ci_low_pp": -0.61349,
+          "ci_high_pp": 5.57597,
+          "confidence_level": 0.9875,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "university_only_2yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -2.06643,
+          "ci_low_pp": -4.17875,
+          "ci_high_pp": -0.22575,
+          "confidence_level": 0.9875,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "ip_cft_only_2yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -0.30972,
+          "ci_low_pp": -2.96775,
+          "ci_high_pp": 2.40069,
+          "confidence_level": 0.9875,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "both_2yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": 0.06818,
+          "ci_low_pp": -0.3314,
+          "ci_high_pp": 0.43387,
+          "confidence_level": 0.9875,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        }
+      ],
+      "common_bound_pp": 6.952037499999999,
+      "caption": {
+        "es": "Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Destinos SIES mutuamente excluyentes en esos dos años; se excluye tipo de institución desconocido. Los intervalos de incertidumbre corresponden a diferencias ajustadas de cambios, no a tasas. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2009–2015; students with valid ID and complete observed window. Mutually exclusive SIES destinations in those two years; unknown institution type excluded. Uncertainty intervals apply to adjusted differences in changes, not rates. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Destinos SIES, histórica. Sin registro SIES observado (2009–2015): +2,3 pp [−0,6; +5,6]; Solo universidad (2009–2015): −2,1 pp [−4,2; −0,2]; Solo IP/CFT (2009–2015): −0,3 pp [−3,0; +2,4]; Universidad e IP/CFT (2009–2015): +0,1 pp [−0,3; +0,4]. Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Destinos SIES mutuamente excluyentes en esos dos años; se excluye tipo de institución desconocido. Los intervalos de incertidumbre corresponden a diferencias ajustadas de cambios, no a tasas. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES destinations, historical. No observed SIES record (2009–2015): +2.3 pp [−0.6; +5.6]; University only (2009–2015): −2.1 pp [−4.2; −0.2]; IP/CFT only (2009–2015): −0.3 pp [−3.0; +2.4]; University and IP/CFT (2009–2015): +0.1 pp [−0.3; +0.4]. School cohorts 2009–2015; students with valid ID and complete observed window. Mutually exclusive SIES destinations in those two years; unknown institution type excluded. Uncertainty intervals apply to adjusted differences in changes, not rates. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-destinations-historical"
+    },
+    {
+      "kind": "destinations",
+      "era": "modern",
+      "outcomes": [
+        "none_2yr",
+        "university_only_2yr",
+        "ip_cft_only_2yr",
+        "both_2yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "none_2yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2024
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": 2.42706,
+          "ci_low_pp": -1.68078,
+          "ci_high_pp": 6.04525,
+          "confidence_level": 0.9875,
+          "treated_schools": 27,
+          "control_schools": 1256,
+          "strata": 70,
+          "effective_treated_schools": 16.946,
+          "max_treated_school_share": 0.12689,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "university_only_2yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2024
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": 0.82592,
+          "ci_low_pp": -2.59126,
+          "ci_high_pp": 3.8812,
+          "confidence_level": 0.9875,
+          "treated_schools": 27,
+          "control_schools": 1256,
+          "strata": 70,
+          "effective_treated_schools": 16.946,
+          "max_treated_school_share": 0.12689,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "ip_cft_only_2yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2024
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -2.61482,
+          "ci_low_pp": -5.51283,
+          "ci_high_pp": 1.00331,
+          "confidence_level": 0.9875,
+          "treated_schools": 27,
+          "control_schools": 1256,
+          "strata": 70,
+          "effective_treated_schools": 16.946,
+          "max_treated_school_share": 0.12689,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "both_2yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2024
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -0.63816,
+          "ci_low_pp": -1.92641,
+          "ci_high_pp": 0.17652,
+          "confidence_level": 0.9875,
+          "treated_schools": 27,
+          "control_schools": 1256,
+          "strata": 70,
+          "effective_treated_schools": 16.946,
+          "max_treated_school_share": 0.12689,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        }
+      ],
+      "common_bound_pp": 6.952037499999999,
+      "caption": {
+        "es": "Cohortes escolares 2016–2024; estudiantes con identificación válida y ventana observada completa. Destinos SIES mutuamente excluyentes en esos dos años; se excluye tipo de institución desconocido. Los intervalos de incertidumbre corresponden a diferencias ajustadas de cambios, no a tasas. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2016–2024; students with valid ID and complete observed window. Mutually exclusive SIES destinations in those two years; unknown institution type excluded. Uncertainty intervals apply to adjusted differences in changes, not rates. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Destinos SIES, moderna. Sin registro SIES observado (2016–2024): +2,4 pp [−1,7; +6,0]; Solo universidad (2016–2024): +0,8 pp [−2,6; +3,9]; Solo IP/CFT (2016–2024): −2,6 pp [−5,5; +1,0]; Universidad e IP/CFT (2016–2024): −0,6 pp [−1,9; +0,2]. Cohortes escolares 2016–2024; estudiantes con identificación válida y ventana observada completa. Destinos SIES mutuamente excluyentes en esos dos años; se excluye tipo de institución desconocido. Los intervalos de incertidumbre corresponden a diferencias ajustadas de cambios, no a tasas. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES destinations, modern. No observed SIES record (2016–2024): +2.4 pp [−1.7; +6.0]; University only (2016–2024): +0.8 pp [−2.6; +3.9]; IP/CFT only (2016–2024): −2.6 pp [−5.5; +1.0]; University and IP/CFT (2016–2024): −0.6 pp [−1.9; +0.2]. School cohorts 2016–2024; students with valid ID and complete observed window. Mutually exclusive SIES destinations in those two years; unknown institution type excluded. Uncertainty intervals apply to adjusted differences in changes, not rates. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-destinations-modern"
+    },
+    {
+      "kind": "followup",
+      "era": "historical",
+      "outcomes": [
+        "persistence_3yr",
+        "graduation_6yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "persistence_3yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -3.12527,
+          "ci_low_pp": -5.30036,
+          "ci_high_pp": -1.20072,
+          "confidence_level": 0.95,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "graduation_6yr",
+          "era": "historical",
+          "cohort": null,
+          "cohort_range": [
+            2009,
+            2015
+          ],
+          "candidate_range": [
+            2009,
+            2015
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -1.47228,
+          "ci_low_pp": -2.6938,
+          "ci_high_pp": -0.27661,
+          "confidence_level": 0.95,
+          "treated_schools": 73,
+          "control_schools": 1561,
+          "strata": 150,
+          "effective_treated_schools": 41.187,
+          "max_treated_school_share": 0.05598,
+          "flags": [],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        }
+      ],
+      "common_bound_pp": 6.3928614999999995,
+      "caption": {
+        "es": "Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Matrícula en al menos dos años distintos, no necesariamente consecutivos, de los tres posteriores al egreso escolar esperado; título pregrado registrado en los seis años posteriores. Ambas tasas usan toda la cohorte escolar elegible, no solo ingresantes a SIES. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2009–2015; students with valid ID and complete observed window. Enrollment in at least two distinct, not necessarily consecutive, years among the three after expected school completion; an undergraduate degree recorded within six years. Both use the entire eligible school cohort, not only SIES entrants. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Seguimiento SIES, histórica. Matrícula en al menos 2 de 3 años (2009–2015): −3,1 pp [−5,3; −1,2]; Título pregrado en 6 años (2009–2015): −1,5 pp [−2,7; −0,3]. Cohortes escolares 2009–2015; estudiantes con identificación válida y ventana observada completa. Matrícula en al menos dos años distintos, no necesariamente consecutivos, de los tres posteriores al egreso escolar esperado; título pregrado registrado en los seis años posteriores. Ambas tasas usan toda la cohorte escolar elegible, no solo ingresantes a SIES. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES follow-up, historical. Enrollment in at least 2 of 3 years (2009–2015): −3.1 pp [−5.3; −1.2]; Undergraduate degree within 6 years (2009–2015): −1.5 pp [−2.7; −0.3]. School cohorts 2009–2015; students with valid ID and complete observed window. Enrollment in at least two distinct, not necessarily consecutive, years among the three after expected school completion; an undergraduate degree recorded within six years. Both use the entire eligible school cohort, not only SIES entrants. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-followup-historical"
+    },
+    {
+      "kind": "followup",
+      "era": "modern",
+      "outcomes": [
+        "persistence_3yr",
+        "graduation_6yr"
+      ],
+      "source_rows": [
+        {
+          "outcome": "persistence_3yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2023
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -1.90427,
+          "ci_low_pp": -5.00975,
+          "ci_high_pp": 1.30944,
+          "confidence_level": 0.95,
+          "treated_schools": 26,
+          "control_schools": 1244,
+          "strata": 67,
+          "effective_treated_schools": 15.873,
+          "max_treated_school_share": 0.13252,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        },
+        {
+          "outcome": "graduation_6yr",
+          "era": "modern",
+          "cohort": null,
+          "cohort_range": [
+            2016,
+            2019
+          ],
+          "candidate_range": [
+            2016,
+            2024
+          ],
+          "estimand": "student_weighted_within_stratum_repeated_cohort_did",
+          "estimate_pp": -2.2792,
+          "ci_low_pp": -5.55901,
+          "ci_high_pp": 0.70957,
+          "confidence_level": 0.95,
+          "treated_schools": 16,
+          "control_schools": 852,
+          "strata": 33,
+          "effective_treated_schools": 9.324,
+          "max_treated_school_share": 0.21752,
+          "flags": [
+            "WEAK_CLUSTER_PRECISION",
+            "CONTROL_EVENT_WINDOW_UNVERIFIED"
+          ],
+          "data_status": "READY_EXTRACT_BOUNDED",
+          "estimation_status": "ESTIMABLE_DESCRIPTIVE",
+          "identification_status": "DESCRIPTIVE_ONLY",
+          "limitation": "parallel trends, taxonomy and interference remain unverified",
+          "variant": "primary",
+          "rates": null,
+          "n_treated": null,
+          "n_control": null
+        }
+      ],
+      "common_bound_pp": 6.3928614999999995,
+      "caption": {
+        "es": "Cohortes escolares 2016–2023; estudiantes con identificación válida y ventana observada completa. Matrícula en al menos dos años distintos, no necesariamente consecutivos, de los tres posteriores al egreso escolar esperado; título pregrado registrado en los seis años posteriores. Ambas tasas usan toda la cohorte escolar elegible, no solo ingresantes a SIES. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "School cohorts 2016–2023; students with valid ID and complete observed window. Enrollment in at least two distinct, not necessarily consecutive, years among the three after expected school completion; an undergraduate degree recorded within six years. Both use the entire eligible school cohort, not only SIES entrants. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "alt": {
+        "es": "Seguimiento SIES, moderna. Matrícula en al menos 2 de 3 años (2016–2023): −1,9 pp [−5,0; +1,3]; Título pregrado en 6 años (2016–2019): −2,3 pp [−5,6; +0,7]. Cohortes escolares 2016–2023; estudiantes con identificación válida y ventana observada completa. Matrícula en al menos dos años distintos, no necesariamente consecutivos, de los tres posteriores al egreso escolar esperado; título pregrado registrado en los seis años posteriores. Ambas tasas usan toda la cohorte escolar elegible, no solo ingresantes a SIES. Los conteos de personas se omiten por privacidad; las escuelas cubren ambas generaciones. El soporte varía por cohorte, grado y desenlace; consulte coverage-all.csv y outcome-coverage-all.csv. Cierres posteriores en escuelas de comparación sin verificar; Precisión limitada por escuelas. Definiciones de cierre distintas: no juntar períodos. Tendencias paralelas e interferencia sin verificar; estos contrastes descriptivos no identifican un efecto causal.",
+        "en": "SIES follow-up, modern. Enrollment in at least 2 of 3 years (2016–2023): −1.9 pp [−5.0; +1.3]; Undergraduate degree within 6 years (2016–2019): −2.3 pp [−5.6; +0.7]. School cohorts 2016–2023; students with valid ID and complete observed window. Enrollment in at least two distinct, not necessarily consecutive, years among the three after expected school completion; an undergraduate degree recorded within six years. Both use the entire eligible school cohort, not only SIES entrants. Person counts are omitted for privacy; school counts cover both cohorts. Support varies by cohort, grade and outcome; see coverage-all.csv and outcome-coverage-all.csv. Later closures in comparison schools were not verified; Limited school-level precision. Closure definitions differ: do not pool periods. Parallel trends and interference remain unverified; these descriptive contrasts do not identify a causal effect."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC y del SIES. Definiciones, cobertura y límites en el anexo metodológico; cifras del gráfico en la tabla de datos.",
+        "en": "Source: author’s calculations using MINEDUC and SIES records. Definitions, coverage, and limitations are in the methodological annex; chart values are in the data table."
+      },
+      "stem": "post4-followup-modern"
+    }
+  ],
+  "files": [
+    {
+      "name": "public-combined-projection.json",
+      "sha256": "c06aaae2dd8ddf7165e826f10e2f5d39140b1bf19da46cd9dc9fc985f33e99c0",
+      "section": "source_projection"
+    },
+    {
+      "name": "results-all.csv",
+      "sha256": "eda2420ed940df1fcabc0583fe0862a165c4c233da27b8232b166b75134f9de2",
+      "section": "results",
+      "rows": 138
+    },
+    {
+      "name": "coverage-all.csv",
+      "sha256": "0b892d2496922c8821ef92c2dc28687674159ec60556311e4dd877bfe27eac99",
+      "section": "coverage",
+      "rows": 48
+    },
+    {
+      "name": "outcome-coverage-all.csv",
+      "sha256": "d992a9e7173c703e0a323c3346938f2be3c693cbf985cfd6355361e4345526b7",
+      "section": "outcome-coverage",
+      "rows": 384
+    },
+    {
+      "name": "post4-access-historical.csv",
+      "sha256": "067851103fb58b26686bc599d919afe539ed46ccea3bc2bdda5d9ada0ac80697",
+      "kind": "access",
+      "era": "historical",
+      "rows": 1
+    },
+    {
+      "name": "post4-access-historical-es-light-desktop.svg",
+      "sha256": "4f362f7917948ba93b3803c674eb332ad808131e94cef2d5551480d1e935d981",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-es-light-desktop.png",
+      "sha256": "54770ee2ff9adf77697511c4584b09e4a935b2192a25d77254133536ae2b4e97",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-es-light-mobile.svg",
+      "sha256": "9fb58876674db8fad010a8309ecf6f45f32a7fd1ee40e720c928fbe5ffe207ba",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-es-light-mobile.png",
+      "sha256": "a08c8bbbaf891223d8130bc2e154698addc74c2a553581b3d5cf6f39ac90849f",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-es-dark-desktop.svg",
+      "sha256": "6040437a96c99fa8ba933ceadc5d2cb09d4613266c0f5ab0237286543c19290d",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-es-dark-desktop.png",
+      "sha256": "008acb671ee98a1ed101c1081c35153d7eca661e6b59238e779d9de7de086300",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-es-dark-mobile.svg",
+      "sha256": "bcd35764c51fa14747d8d8bb93f99ef348778abb4bb5b66a60ac2e356822e6b3",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-es-dark-mobile.png",
+      "sha256": "63e6b8341301d84953520699013091a36776d0d5ce0328d3a2288726a27de50e",
+      "kind": "access",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-en-light-desktop.svg",
+      "sha256": "a7b49f308bb61ff111e28a3687da41ec5a30ae62fdce67e9ce41e38458c9d1e6",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-en-light-desktop.png",
+      "sha256": "4d7cc3e2082b825bccf041f6ece3030002159517705dfb3cfc2ac92d56ecc8f3",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-en-light-mobile.svg",
+      "sha256": "6f73c34988d11efbad7b8cab65f8689b0ecfdd370ff1e80ef0537f8b6b2541a3",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-en-light-mobile.png",
+      "sha256": "c8e902d64fe98e420cbbc237d3a361c65ecf60612a2ea11c3e0828a76d91bafb",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-en-dark-desktop.svg",
+      "sha256": "2ccbda110bdea3da9ac872fec3704dbb9ca1874f9c75902f254f3d779d7475c2",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-en-dark-desktop.png",
+      "sha256": "b566bd0cd00428faf8b3ea943a6ece5d932716f9f0ca74f9670171a34daaf62f",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-historical-en-dark-mobile.svg",
+      "sha256": "981de41318a59542aaffc13b7b7f8bb4b3321423cf612048963c4c88458a72c9",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-historical-en-dark-mobile.png",
+      "sha256": "187ef8988012c5e00a7f4232ad3a84905f7d8291088c5cbb68bde8dd7f400a51",
+      "kind": "access",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern.csv",
+      "sha256": "df2e3e20ffbe398c8cfcf2cff0cfe5f73ae0f027054a0a449a706ca1401a63d6",
+      "kind": "access",
+      "era": "modern",
+      "rows": 1
+    },
+    {
+      "name": "post4-access-modern-es-light-desktop.svg",
+      "sha256": "e07fb9ade50c68eecc0e6e17cde1bc6d60a392a97f78a326c478f6289e8eff5f",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-es-light-desktop.png",
+      "sha256": "b576520d0fefd76ce84f96ba20f681659dafab234d01391baba7d17f3957dc82",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-es-light-mobile.svg",
+      "sha256": "61e701aa96595d513db0fa9d773336e31d2299fda43d0d29e9c8b522b6600558",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-es-light-mobile.png",
+      "sha256": "9f261921b981cdcb2ec038fa7d85cafb16a0ebf4dcd3698e37deccba1fe4121b",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-es-dark-desktop.svg",
+      "sha256": "723c4c8b9c6be0f0e94d2be3d4ed54e304cb9efa2432d375df6f163281997329",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-es-dark-desktop.png",
+      "sha256": "5dd8a5339f669c83760dfabe12b2b57212438738708f01f523075aee528c1457",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-es-dark-mobile.svg",
+      "sha256": "6caa2431129323da2e6df21bf9190e5ecfc6bc101904c31f57f99633d88f81a6",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-es-dark-mobile.png",
+      "sha256": "f193833c3e1268cd3e793c0aa4250d280f621bff37f7c422c9012befab21e7ef",
+      "kind": "access",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-en-light-desktop.svg",
+      "sha256": "e5e93f88e2b760d4ac7146143eeec9a3506dafc463ade791fee80ec1207266f6",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-en-light-desktop.png",
+      "sha256": "c549268a8d90ee1a5df9c82672c577357d76e13523492ea11a565596bd574b3e",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-en-light-mobile.svg",
+      "sha256": "18543617f2f01dc40668d08df1f46589c7b4a74feabc6d82f4c069f1ab4dec46",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-en-light-mobile.png",
+      "sha256": "341e907b3ec8ce614ddb4ee22674839bc0fc2d6601d25bfa532688364abc6b4f",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-en-dark-desktop.svg",
+      "sha256": "f297f3d083190df8900242026c3294405505eb488c4c4c0404cd7e0f9b8e54f2",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-en-dark-desktop.png",
+      "sha256": "0accaa1386c1e848e21f40cbe9609e205cfd14140363f1b7cae8a14e6f33cdc5",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-access-modern-en-dark-mobile.svg",
+      "sha256": "f0df9e90a30a633e4880e4dddc9d8e5cd804903c31d7d8430538169f858df713",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-access-modern-en-dark-mobile.png",
+      "sha256": "026a00a46ef34e5471f222cb22b4ad332bf08e2eae041366392580c8dc758b14",
+      "kind": "access",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical.csv",
+      "sha256": "bd432b4cc2a18da4a88bcc1fce47b10dfb120b7c511b06d74fdf07f1245c4db6",
+      "kind": "destinations",
+      "era": "historical",
+      "rows": 4
+    },
+    {
+      "name": "post4-destinations-historical-es-light-desktop.svg",
+      "sha256": "76cc73915be3be1e62496349664ec01a1c21cde54fee62b2230c444db87d253a",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-es-light-desktop.png",
+      "sha256": "e99b621bf615bf3b995b49109274e7c84d16aa85cac1c34caf764a38d1f73672",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-es-light-mobile.svg",
+      "sha256": "a3921656019e64d346f89ba23701812aeb940316ee7a18271e44388ded33c631",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-es-light-mobile.png",
+      "sha256": "9c21f4b0de99614dbbf8fc9032eac16e322eb905274127e9376d55872f1c107b",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-es-dark-desktop.svg",
+      "sha256": "4646c12eda007f9824ae5dc94120fc0d776a0fefae6f1f1f44f9e1d111bced14",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-es-dark-desktop.png",
+      "sha256": "e41bdcd004f570cdea196b420f97a5ae7c5124720a269492999810d860739b2f",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-es-dark-mobile.svg",
+      "sha256": "b3d1e1a9daeda807532950890254a5bf0e886ce3a34984c24e214a1010decb2d",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-es-dark-mobile.png",
+      "sha256": "4a29d304ca063ea4cf15f0ac4c78b4caaea4ea714b1a89eb2b58d527edde18f5",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-en-light-desktop.svg",
+      "sha256": "8a934a4a81057d5662e1c07cb2cc1bdc9be7bbf4a1b40b100548b29599cef636",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-en-light-desktop.png",
+      "sha256": "5a109fa1cc9788987b8606e9d7e62f3bea60a321a9dde06256012e3bb7998736",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-en-light-mobile.svg",
+      "sha256": "5291c98f47eb02b19fd6c285dbfe212530ed57ce9f156168d620889f2fad0259",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-en-light-mobile.png",
+      "sha256": "613bc099db34f1c5271f6529d4093d0470976ed269f59471a88443a6225698fb",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-en-dark-desktop.svg",
+      "sha256": "9a8dbe08775c3579b458b9e96b43081752dcefccae8e3c5670e8f59bc16913e8",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-en-dark-desktop.png",
+      "sha256": "096a1a5724218769fd8abd1f0d0adf8ed629c2c0c77b5c5cb4b8d7b4eabdf800",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-historical-en-dark-mobile.svg",
+      "sha256": "e55fd040edccc2655cd1e94643c144d7a3d5981e0f6969aaead3e8274a8c86e9",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-historical-en-dark-mobile.png",
+      "sha256": "fec7e7cb048210d01dd20907d457566d9cbfa8796eaf71b4c39ec4aa3480ff39",
+      "kind": "destinations",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern.csv",
+      "sha256": "01cc27d783667a47cfed573680c44c0abd51f80f7bda0c4debf46a6257868c9d",
+      "kind": "destinations",
+      "era": "modern",
+      "rows": 4
+    },
+    {
+      "name": "post4-destinations-modern-es-light-desktop.svg",
+      "sha256": "3899b9022dad56e5d4b44ec21f880cc5f613e6c35dce8e7703ec5506d147f6b1",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-es-light-desktop.png",
+      "sha256": "2bec2f76e68aee16d563761ba8441e8c47110be87e512160f8c535d259312cdb",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-es-light-mobile.svg",
+      "sha256": "6e1c5a62f9685089e012c2a6b33f979347265951e71510fea098271706cc0b2b",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-es-light-mobile.png",
+      "sha256": "173cb18bfc1b0488665f6eaddd2d3d5809d7f1956f99526b26fae6750052723b",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-es-dark-desktop.svg",
+      "sha256": "0025c93c019a4e16a2b39d1d2a640be872252dc94c9b402d98aceb347402c409",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-es-dark-desktop.png",
+      "sha256": "7d49c767d390f080cc83bd744eb76c77323e6bbe98bafe2da0c070ed66f5b695",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-es-dark-mobile.svg",
+      "sha256": "53ade637ab60d0795ed7b94dc13f1e26ac21bb5eee4d2f508db5df679350e11a",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-es-dark-mobile.png",
+      "sha256": "fb9de0ce628aa7e334e9ef204ccf80a27282d2c2b60bf127f4f7b7ac50318b3f",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-en-light-desktop.svg",
+      "sha256": "78dd1cd14fc6534e280b22ddc5faccbc15577f578880a85af06882fcefcd95f7",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-en-light-desktop.png",
+      "sha256": "e99bf97a1425e6ea813ed8f48fd99cbbc1ca0a7d158edcf243075fcdadcbdec2",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-en-light-mobile.svg",
+      "sha256": "4a4e409d46a598a24f5e836b7dc232545af92466f7ac5909d0bd3571629b71ba",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-en-light-mobile.png",
+      "sha256": "c90862f20492548bd8bd1b6e7fb4335e2187ee3e2d6f9be9de0691c401a4487e",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-en-dark-desktop.svg",
+      "sha256": "0efdaa12049498e21c5307c11aeb5ed3eeef6716cfe8922739d6d568c60cbf34",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-en-dark-desktop.png",
+      "sha256": "86db815780dc498b596adf9605659b863ede1c42f817f7dd4cf9285f10b70b74",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-destinations-modern-en-dark-mobile.svg",
+      "sha256": "b6148babf619ebf4e6cd09df937e5d2030a322ec64952cd92a7dfa5936971faa",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-destinations-modern-en-dark-mobile.png",
+      "sha256": "03b5fc6ad200adf45142732c0e89ec738b168ee342817b463cc2d392d1099821",
+      "kind": "destinations",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical.csv",
+      "sha256": "fecec88c78c6dfafe0833a105f42b8093fc6a7105c3aa199f9a646eedc1615ab",
+      "kind": "followup",
+      "era": "historical",
+      "rows": 2
+    },
+    {
+      "name": "post4-followup-historical-es-light-desktop.svg",
+      "sha256": "7dda939d0ab73dc5e6234abc0e39144fa0cdc8bdd40fe3e1d05691711c5478bc",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-es-light-desktop.png",
+      "sha256": "e27f1a1068bf730d78bf72bf9536d14c087a96436628b1186f92606a1dd899ad",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-es-light-mobile.svg",
+      "sha256": "31bb86a6e05c153a6b3d5674b0aabcfb4c4a9aa50e1394a05c9b850d5c3449d6",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-es-light-mobile.png",
+      "sha256": "a9c3acffb9b675955c4a8ee9cbbf4ee8813a303cb10f860e220ad1d0c3c8a68a",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-es-dark-desktop.svg",
+      "sha256": "33dd9f9a94971ff34bc3c81183e85b31d5c784f9f82a74efbc8c5de837b39dc3",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-es-dark-desktop.png",
+      "sha256": "99ac766a779ab2929ccce6d8be7f1174f3e2cc67a79d91647c8a77d0acae1459",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-es-dark-mobile.svg",
+      "sha256": "2e45344a46ff34e9264cd16d383e7a8a2687613a1099bddb41914c0f61fe6bac",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-es-dark-mobile.png",
+      "sha256": "9d0e88fc4a4e93c8850ce43189de3128e0ed4a70411611768286ff3e7b2ea965",
+      "kind": "followup",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-en-light-desktop.svg",
+      "sha256": "b5f628b8cbf936295148acd8980a2cb7efed8fe994e86404127bd76a0b78874a",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-en-light-desktop.png",
+      "sha256": "6853256a3d101af715a3d2528cd82af2e52d8e2a453a8caf40354e30b87eba17",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-en-light-mobile.svg",
+      "sha256": "b8953b3672a737601225a44e53f97ab0e7a98a0818f99fbde2835886167c0d3c",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-en-light-mobile.png",
+      "sha256": "8bc2bd9f7e22d7941213a2e9f4a9776074134b59acb3b08fb8da7f94c9523ab8",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-en-dark-desktop.svg",
+      "sha256": "dc674734875604a4575fe1b370a4d04129e2da2662669bf43e3fc382d3aaf1d7",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-en-dark-desktop.png",
+      "sha256": "9931d76d83b306370c83eed83eeff27dcb1bd688959de48b436a57ed634b9968",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-historical-en-dark-mobile.svg",
+      "sha256": "b7e5875a60a8f681b2329cfeadf060ac7ebc4a2510c1fff5b4c0177c23d1d105",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-historical-en-dark-mobile.png",
+      "sha256": "cd709dcd68362dc63460668ed17aa6c4c46b1cbf93578809bbf7fdaa3750e485",
+      "kind": "followup",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern.csv",
+      "sha256": "b1f3aff60cb50b11d04d48f7f354da9689e8aa23c1eb6e0db95d460d58bca06f",
+      "kind": "followup",
+      "era": "modern",
+      "rows": 2
+    },
+    {
+      "name": "post4-followup-modern-es-light-desktop.svg",
+      "sha256": "e70086e7d70c21ea0ed0cff0ccbd9feacefe49c36a829f4689ceed5d1fab03d4",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-es-light-desktop.png",
+      "sha256": "d1b0a4bc5c4ebc7c8d61a624442b3845421c27fa7c63c2068393c6151292afcc",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-es-light-mobile.svg",
+      "sha256": "00e24b8f875fac54b6b622c197d7d0c44f8d85aecd680ccce4f090909e16e787",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-es-light-mobile.png",
+      "sha256": "bd42f26010f193f9a3aae8402441a280948e3c5cc86f0554b03c9a1970136a67",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-es-dark-desktop.svg",
+      "sha256": "ee352f7c1cabeed91f64f627a0f14f7d059557a1bb40fec0be4db2fe667d0a85",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-es-dark-desktop.png",
+      "sha256": "ee5838cb81f645cdbe305e95f60af1df69b3492735cc6ea6198ba70b1b1807c1",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-es-dark-mobile.svg",
+      "sha256": "49835c98e9b9f6f1a89c870a783dae3d552910fb80e80a92e5227d958f5628df",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-es-dark-mobile.png",
+      "sha256": "79e3c0e525b059af08d2ff741482fdefeba610b8d7112b6edf2a4197b981a860",
+      "kind": "followup",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-en-light-desktop.svg",
+      "sha256": "823b9bb93248e0a1146698c3a2915a80d85a878a8547b9dd15927a65ec1d017e",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-en-light-desktop.png",
+      "sha256": "4b860d26f8247f197535e6fc616c978c437a294ec1a515288fb08ff991ee7ad8",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-en-light-mobile.svg",
+      "sha256": "f7824679f4c9b6712b4d451dd35bb0b33c9b9ea3a05b7a0894f0c7ab944d7686",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-en-light-mobile.png",
+      "sha256": "0dc4f4cf9af4ae44faf32e474da981c37c418c20eb49f5b870debbf6fb62c266",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-en-dark-desktop.svg",
+      "sha256": "b4d8d4c524fb330de741bda4fc08db86c07f5116edce3d7eb0b5810d5eae8082",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-en-dark-desktop.png",
+      "sha256": "acb05db903c8ab6927777cd24bf9a5ebe40eaebf2f902ccc754b4ae7d60aca97",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post4-followup-modern-en-dark-mobile.svg",
+      "sha256": "5e18e79073fe3878fe79fff89a4d5493aac3894ea81d39a681088c661bc06a7c",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post4-followup-modern-en-dark-mobile.png",
+      "sha256": "52143ab0b788041fcfa41c7b4995b1daae517430e2f9c544548c2ef6689d6aef",
+      "kind": "followup",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    }
+  ]
+}

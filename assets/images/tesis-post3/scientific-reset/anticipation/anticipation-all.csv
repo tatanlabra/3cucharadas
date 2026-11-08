@@ -1,0 +1,79 @@
+outcome,era,cohort_year,baseline_year,transition_year,arm,n,schools,rate_pp,display_status,reason_es,reason_en
+grade_progression_or_lag,historical,2005,,,control,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+grade_progression_or_lag,historical,2005,,,treated,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+grade_progression_or_lag,historical,2006,2004,2005,control,2390502,7004,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2006,2004,2005,treated,6699,99,92.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2007,2005,2006,control,2218954,6879,96.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2007,2005,2006,treated,8258,91,92.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2008,2006,2007,control,2374354,6910,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2008,2006,2007,treated,7332,85,96.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2009,2007,2008,control,2462217,7350,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2009,2007,2008,treated,5355,79,88.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2010,2008,2009,control,2562469,7705,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2010,2008,2009,treated,5521,79,97.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2011,2009,2010,control,2346124,6798,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2011,2009,2010,treated,6632,134,95.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2012,2010,2011,control,2163228,6698,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2012,2010,2011,treated,7911,106,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2013,2011,2012,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,historical,2013,2011,2012,treated,11699,115,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2014,2012,2013,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,historical,2014,2012,2013,treated,10078,102,94.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2015,2013,2014,control,2249439,7428,97.9,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,historical,2015,2013,2014,treated,4227,53,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2016,2014,2015,control,2467572,8295,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2016,2014,2015,treated,1791,20,96.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2017,2015,2016,control,2548491,8618,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2017,2015,2016,treated,1995,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2018,2016,2017,control,2466910,8242,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2018,2016,2017,treated,2101,18,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2019,2017,2018,control,2527872,8295,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2019,2017,2018,treated,2208,15,94.2,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2020,2018,2019,control,2606235,8360,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2020,2018,2019,treated,637,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2021,2019,2020,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+grade_progression_or_lag,modern,2021,2019,2020,treated,2550,14,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2022,2020,2021,control,2635872,8347,98.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2022,2020,2021,treated,,,,PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP,Suprimido: pocas escuelas,Suppressed: few schools
+grade_progression_or_lag,modern,2023,2021,2022,control,2714830,8194,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2023,2021,2022,treated,455,12,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2024,2022,2023,control,2703960,7904,97.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+grade_progression_or_lag,modern,2024,2022,2023,treated,818,14,94.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2005,,,control,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+persistent_nonenrollment_two_years,historical,2005,,,treated,,,,NOT_ESTIMABLE_PANEL_BOUNDARY,No estimable: límite inicial del panel,Not estimable: first panel boundary
+persistent_nonenrollment_two_years,historical,2006,2004,2005,control,2383596,6947,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2006,2004,2005,treated,6699,99,92.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2007,2005,2006,control,2214155,6829,96.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2007,2005,2006,treated,8258,91,92.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2008,2006,2007,control,2370771,6863,96.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2008,2006,2007,treated,7332,85,96.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2009,2007,2008,control,2456418,7270,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2009,2007,2008,treated,5355,79,88.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2010,2008,2009,control,2555344,7626,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2010,2008,2009,treated,5521,79,97.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2011,2009,2010,control,2335976,6721,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2011,2009,2010,treated,6632,134,95.6,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2012,2010,2011,control,2153155,6639,97.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2012,2010,2011,treated,7911,106,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2013,2011,2012,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+persistent_nonenrollment_two_years,historical,2013,2011,2012,treated,11699,115,95.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2014,2012,2013,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+persistent_nonenrollment_two_years,historical,2014,2012,2013,treated,10078,102,94.8,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2015,2013,2014,control,2246246,7409,97.9,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,historical,2015,2013,2014,treated,4227,53,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2016,2014,2015,control,2464123,8275,98.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2016,2014,2015,treated,1791,20,96.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2017,2015,2016,control,2543408,8597,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2017,2015,2016,treated,1995,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2018,2016,2017,control,2462894,8219,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2018,2016,2017,treated,2101,18,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2019,2017,2018,control,2526786,8282,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2019,2017,2018,treated,2208,15,94.2,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2020,2018,2019,control,2604980,8350,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2020,2018,2019,treated,637,12,97.0,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2021,2019,2020,control,,,,PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY,Dato reservado para evitar revelar grupos pequeños al combinar tablas,Withheld to prevent small-group disclosure when tables are combined
+persistent_nonenrollment_two_years,modern,2021,2019,2020,treated,2550,14,95.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2022,2020,2021,control,2635068,8337,98.5,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2022,2020,2021,treated,,,,PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP,Suprimido: pocas escuelas,Suppressed: few schools
+persistent_nonenrollment_two_years,modern,2023,2021,2022,control,2708597,8032,98.1,OBSERVED,Tasa descriptiva observada,Observed descriptive rate
+persistent_nonenrollment_two_years,modern,2023,2021,2022,treated,455,12,97.4,OBSERVED,Tasa descriptiva observada,Observed descriptive rate

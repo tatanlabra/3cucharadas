@@ -1,0 +1,49 @@
+# Procedencia de la cápsula de audio — Extender mi tesis en 3 cucharadas (parte IV).
+# No se publica directamente: difusion/ se versiona pero está excluida del build (_config.yml).
+# El audio se genera a mano en la interfaz web de NotebookLM (no existe API personal).
+ref: cierre-escolar-educacion-superior-causal-ml
+post_canonico: https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/
+posts_serie_relacionados:
+  - https://3cucharadas.cl/datos/educacion/politica-publica/replica-tesis-establecimientos-educacionales/
+  - https://3cucharadas.cl/datos/educacion/politica-publica/extender-tesis-no-es-agregar-anos/
+  - https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/
+titulo_episodio_propuesto: "Cuando cierra un liceo: ¿se cierra también la puerta de la educación superior?"
+generador: NotebookLM (Google), Audio Overview
+etapa: preparado
+formato: deep dive conversacional, dos hablantes (longitud media)
+idioma_hablado: "es (solicitud en personalización: conversación en español de Chile entre dos voces; sujeto a verificación por escucha humana)"
+objetivo_segundos: 1200
+ventana_segundos: [600, 1800]
+fecha_preparacion: "2026-11-07"
+cuaderno_url: pendiente_generacion_manual
+
+insumos_paquete:
+  fuente_editorial: difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml/podcast/01-fuente.md
+  personalizacion: difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml/podcast/personalizacion.txt
+  guion_referencia: difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml/podcast/guion.md
+  guion_breve: difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml/podcast/guion-breve.md
+  guion_breve_qa: difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml/podcast/guion-breve-QA.md
+  prompt_plantilla: penta-agent/skills/publicacion-externa/references/notebooklm-podcast.md
+
+master:
+  estado: pendiente
+  ruta_prevista: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/cierre-escolar-educacion-superior-causal-ml/capsula-es-master-estereo.m4a
+  sha256: null
+  duracion_s: null
+  sonoridad_lufs: null
+
+con_cortinas:
+  estado: pendiente
+  ruta_prevista: ${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/cierre-escolar-educacion-superior-causal-ml/capsula-es-con-cortinas.m4a
+  comando: "~/.local/state/3cucharadas/source-masters/podcast-cortinas/ensamblar.py <master> -o <destino>"
+  sha256: null
+  duracion_s: null
+  sonoridad_lufs: null
+
+publicado:
+  estado: pendiente
+  fecha: null
+  titulo_publicado: null
+  spotify: null
+  apple: https://podcasts.apple.com/cl/podcast/id6811713988
+  feed_rss: https://anchor.fm/s/1173891c8/podcast/rss

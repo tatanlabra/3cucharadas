@@ -1,0 +1,30 @@
+{%- assign reset_figure = include.figure -%}
+{%- assign reset_lang = page.lang | default: 'es' -%}
+{%- assign reset_path = include.base | append: '/' | append: reset_figure.stem -%}
+{%- assign reset_light = reset_path | append: '-' | append: reset_lang | append: '-light-desktop.svg' -%}
+{%- assign reset_dark = reset_path | append: '-' | append: reset_lang | append: '-dark-desktop.svg' -%}
+{%- assign reset_mobile_light = reset_path | append: '-' | append: reset_lang | append: '-light-mobile.svg' -%}
+{%- assign reset_mobile_dark = reset_path | append: '-' | append: reset_lang | append: '-dark-mobile.svg' -%}
+{%- assign reset_csv = reset_path | append: '.csv' -%}
+{%- if include.csv -%}
+  {%- assign reset_csv = include.base | append: '/' | append: include.csv -%}
+{%- endif -%}
+{%- assign reset_png_light = reset_path | append: '-' | append: reset_lang | append: '-light-desktop.png' -%}
+{%- assign reset_png_dark = reset_path | append: '-' | append: reset_lang | append: '-dark-desktop.png' -%}
+<figure class="post3-figure data-visualization" id="{{ reset_figure.stem | escape }}">
+  <a class="image-popup post3-theme-link" href="{{ reset_light | relative_url }}" data-light-href="{{ reset_light | relative_url }}" data-dark-href="{{ reset_dark | relative_url }}">
+    <picture class="post3-theme-picture">
+      <source class="post3-theme-source" media="(max-width: 47.99em)" srcset="{{ reset_mobile_light | relative_url }}" data-light-srcset="{{ reset_mobile_light | relative_url }}" data-dark-srcset="{{ reset_mobile_dark | relative_url }}">
+      <img class="post3-theme-image" src="{{ reset_light | relative_url }}" data-light-src="{{ reset_light | relative_url }}" data-dark-src="{{ reset_dark | relative_url }}" alt="{{ reset_figure.alt[reset_lang] | escape }}" loading="lazy" decoding="async">
+    </picture>
+  </a>
+  <figcaption>
+    {{ reset_figure.caption[reset_lang] | escape }}
+    <span class="figure-source">{{ reset_figure.source_citation[reset_lang] | escape }}</span>
+    <span class="figure-data">
+      <a href="{{ reset_csv | relative_url }}">{% if reset_lang == 'en' %}Data table (CSV){% else %}Tabla de datos (CSV){% endif %}</a> ·
+      <a href="{{ reset_png_light | relative_url }}">PNG {% if reset_lang == 'en' %}light{% else %}claro{% endif %}</a> ·
+      <a href="{{ reset_png_dark | relative_url }}">PNG {% if reset_lang == 'en' %}dark{% else %}oscuro{% endif %}</a>
+    </span>
+  </figcaption>
+</figure>

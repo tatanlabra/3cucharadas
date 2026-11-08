@@ -1,0 +1,1993 @@
+{
+  "status": "RELEASE_CANDIDATE_APPROVED",
+  "family": "anticipation",
+  "source_sha256": "b89e143e3283052a1681478ad014ab607679b82b0c7be5f80dae443481a421ff",
+  "source_status": "PRE_EVENT_ANTICIPATION_QA_NO_EFFECTS",
+  "source_files": [
+    {
+      "name": "2005_grade_progression_or_lag.json",
+      "sha256": "f6b9c5507b8294ccf08d0d2ad32fd51bb03e3585fccf14f37e6985e6ce5e5ae6"
+    },
+    {
+      "name": "2005_persistent_nonenrollment_two_years.json",
+      "sha256": "8019eb6357c5240eeddb41d9c0b26b8a8ae91393e6b8963979cef6cfe12c46c8"
+    },
+    {
+      "name": "2006_grade_progression_or_lag.json",
+      "sha256": "399cd7abd103acd6b27186f60d272ecaeb2c96586a50da5a1342f2512b160b00"
+    },
+    {
+      "name": "2006_persistent_nonenrollment_two_years.json",
+      "sha256": "2724fa92afba71a91a0123482149827f1e8dceb14fbd7b754e70ab8d20134c59"
+    },
+    {
+      "name": "2007_grade_progression_or_lag.json",
+      "sha256": "fb0f27a53fd228aa07fd8c653bb8096b4bae203cde77a3fc753643119e5126f8"
+    },
+    {
+      "name": "2007_persistent_nonenrollment_two_years.json",
+      "sha256": "b33964c2befc265fc72418fd3311f3a3c1776101f60d62717495c6e9a6a93e6d"
+    },
+    {
+      "name": "2008_grade_progression_or_lag.json",
+      "sha256": "c6efd085abdc32d9a28134a10783c9b390188d6a0ce6415470d4d19ef5d1aac1"
+    },
+    {
+      "name": "2008_persistent_nonenrollment_two_years.json",
+      "sha256": "697db438e466c207a104f0ee0795aaf08382e702ccd885528787d8da3967e3b9"
+    },
+    {
+      "name": "2009_grade_progression_or_lag.json",
+      "sha256": "d23b5a448b63f9ee40df3aedadf51038e30b0f9dd2de81573968d8958103e613"
+    },
+    {
+      "name": "2009_persistent_nonenrollment_two_years.json",
+      "sha256": "565a841475214e751c01ccd6efcc46a04a2f31f072bb8121e146af28207c2c63"
+    },
+    {
+      "name": "2010_grade_progression_or_lag.json",
+      "sha256": "97f9466c5d0c71b2d8ccf8c077b0dcf4ba2d7b00f446b081caf6af51bcad4aca"
+    },
+    {
+      "name": "2010_persistent_nonenrollment_two_years.json",
+      "sha256": "a12a6a15eb999905f201cbc207a4d586e07b42f1310faec87e81a97e453bb0f1"
+    },
+    {
+      "name": "2011_grade_progression_or_lag.json",
+      "sha256": "f3d7933bf4313c94e7318c03570755e01379ba78c325dd449d60736d43dc7000"
+    },
+    {
+      "name": "2011_persistent_nonenrollment_two_years.json",
+      "sha256": "19686f94540f132612d835adf8d9721f96fc27e65c7172bd90c09a9d485a9e2c"
+    },
+    {
+      "name": "2012_grade_progression_or_lag.json",
+      "sha256": "c9e53e9547f16e9d359edd37ab56b41321e459f3e134b12d49e51afdb2e00ff7"
+    },
+    {
+      "name": "2012_persistent_nonenrollment_two_years.json",
+      "sha256": "7a911e1cdf727001a4e82d67ef139b4c1c6d3101df7d606aa722a1ee7e7413fd"
+    },
+    {
+      "name": "2013_grade_progression_or_lag.json",
+      "sha256": "460f56f3ab93e7f4fa9c35868e4067bbd8cb41b415c1ab652d62a13a84badc89"
+    },
+    {
+      "name": "2013_persistent_nonenrollment_two_years.json",
+      "sha256": "07f937543ca139d712630b5322a3a4d8317657057daf52bc74c4c37f3e17e8fd"
+    },
+    {
+      "name": "2014_grade_progression_or_lag.json",
+      "sha256": "1df2f89e50c8244ab5854ba7010efd03cc8b4561b17aacb6877e6a3499d74e64"
+    },
+    {
+      "name": "2014_persistent_nonenrollment_two_years.json",
+      "sha256": "0f1918c19024feadf69ef9feeb9b66ac30d4463edfe3a9fa4875d5026cdb1811"
+    },
+    {
+      "name": "2015_grade_progression_or_lag.json",
+      "sha256": "d4da15bf9ab57b4b84becc2750fdb70f67bfd53b9eb79dc1384e6c8172063b9f"
+    },
+    {
+      "name": "2015_persistent_nonenrollment_two_years.json",
+      "sha256": "876506777fbfde904f4b651feab9ce09fd06032e32964eb0d2f28aba4b01a64c"
+    },
+    {
+      "name": "2016_grade_progression_or_lag.json",
+      "sha256": "33fa4fc195b195659d4caf0daf8a482daa933e237da869cdc3bf172e28def690"
+    },
+    {
+      "name": "2016_persistent_nonenrollment_two_years.json",
+      "sha256": "4b3526edc67be2542fbfd9c82f1d9a413fedc77e5c1a92fa8184a5b2c9b7f433"
+    },
+    {
+      "name": "2017_grade_progression_or_lag.json",
+      "sha256": "f3a14eb927466d7dbff608f6c4c0091915d59e2825956194405e64859e01cbc3"
+    },
+    {
+      "name": "2017_persistent_nonenrollment_two_years.json",
+      "sha256": "72ee942a8ec569ae9d1d252e0736055b7a0b87c93279423df1fc529369ffe1bf"
+    },
+    {
+      "name": "2018_grade_progression_or_lag.json",
+      "sha256": "8c7c178655d4b78959620787ebc80f6490d8429ff3741e4bd6012240e3e2bdd0"
+    },
+    {
+      "name": "2018_persistent_nonenrollment_two_years.json",
+      "sha256": "910efbfd48c7adebe92b5fa86695c1f3c79f851a6dd1c7cefad8ff5b9b517350"
+    },
+    {
+      "name": "2019_grade_progression_or_lag.json",
+      "sha256": "25fb56ea0d6ebdedbe39024b075515fe269e29d0442483d09bb36868fd91f4b4"
+    },
+    {
+      "name": "2019_persistent_nonenrollment_two_years.json",
+      "sha256": "f50ccab0ac1da1841705abde1e5bb2a6ed5f8f385bdbd62b0f82d1d2a8cb090c"
+    },
+    {
+      "name": "2020_grade_progression_or_lag.json",
+      "sha256": "79713939ebb13755537a71a3153eb9bff88e844a8f6eaa21e625ba4daf25c081"
+    },
+    {
+      "name": "2020_persistent_nonenrollment_two_years.json",
+      "sha256": "88d1f58e3fe045c667be0e91fab57e62e480579324d66430e861ab2209d0f2a0"
+    },
+    {
+      "name": "2021_grade_progression_or_lag.json",
+      "sha256": "eb7946351f413478250af2ec7ded11f9b13b97a7f91988dfc7fbf5527c96044a"
+    },
+    {
+      "name": "2021_persistent_nonenrollment_two_years.json",
+      "sha256": "863e0f62f150411e11de38f189379668a1a45c19987954401b9f1b4860480938"
+    },
+    {
+      "name": "2022_grade_progression_or_lag.json",
+      "sha256": "864e916470189da1c49024b5030bbea8f1168104256894f03d9173a7e12754cb"
+    },
+    {
+      "name": "2022_persistent_nonenrollment_two_years.json",
+      "sha256": "a079d426d7cbf4344388842a9e0c130c7ba33090c934a1008912a2940dabb21c"
+    },
+    {
+      "name": "2023_grade_progression_or_lag.json",
+      "sha256": "a2c4a659e837575d3e5daf09b0f07c07caaf2ad62cc226aeef0bd3873cf1e91e"
+    },
+    {
+      "name": "2023_persistent_nonenrollment_two_years.json",
+      "sha256": "193b663759c9aed3bedd20fa7dc968819c110c5f15e9d9c85b4f0306afae82f6"
+    },
+    {
+      "name": "2024_grade_progression_or_lag.json",
+      "sha256": "0bbba510bc5fae4dff99a023e2d3aa3754a58dd9abef15a4084ca8cf7828918c"
+    }
+  ],
+  "approval_scope": "PRE_EVENT_QA_ONLY_UNREVIEWED",
+  "f2_complete": true,
+  "publication_authorized": true,
+  "qa": {
+    "status": "ANTICIPATION_QA_PASSED",
+    "files": 39,
+    "statuses": [
+      "NOT_ESTIMABLE_PANEL_BOUNDARY",
+      "OBSERVED_PRE_EVENT_ARM_LEVELS_ONLY"
+    ],
+    "producer_sha256": "cbdb0ce2b4f5a5e1fb8c62b654bd60dd2ea05b2bff7625da341983df334e6383"
+  },
+  "producer_sha256": "cbdb0ce2b4f5a5e1fb8c62b654bd60dd2ea05b2bff7625da341983df334e6383",
+  "protocol_sha256": "a8eac2b940eb83b7208b57de84b3295db7d851c09cccd5e65afd425e60d04694",
+  "renderer_sha256": "03773ff780b37cdae971d948bcbbe5fd565d73a3a6fee3c1958503eb90bd2de1",
+  "identity_sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa",
+  "font_sha256": {
+    "FiraSans-Regular.woff2": "6e858a4cd38a13ae0de6dd58203715f19e3283d4321541737289cc9d049dacbe",
+    "FiraSans-Bold.woff2": "06be591b00c1419617943dd22b2279ed699e758d983d8b4f2071146a908b6d3d"
+  },
+  "rows": 78,
+  "observed_rows": 66,
+  "status_counts": {
+    "NOT_ESTIMABLE_PANEL_BOUNDARY": 4,
+    "OBSERVED": 66,
+    "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY": 6,
+    "PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP": 2
+  },
+  "figures": [
+    {
+      "family": "anticipation",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "stem": "post3-anticipation-grade_progression_or_lag-historical",
+      "axis_min_pct": 0,
+      "axis_max_pct": 100,
+      "caption": {
+        "es": "Estudiantes de cohortes escolares elegibles para progresión o rezago; generación del evento 2005–2015 (definición histórica). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. La cohorte 2005 no es estimable por el límite inicial del panel; otros valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "Students in school cohorts eligible for progression or grade-lag analysis; event cohorts 2005–2015 (historical definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. The 2005 cohort is not estimable at the first panel boundary; other unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "alt": {
+        "es": "Registro escolar antes del evento; 2005 escuelas de comparación: no estimable: límite inicial del panel; 2005 escuelas con pérdida posterior de oferta: no estimable: límite inicial del panel; 2006 escuelas de comparación: 96,5 %; 2006 escuelas con pérdida posterior de oferta: 92,0 %; 2007 escuelas de comparación: 96,6 %; 2007 escuelas con pérdida posterior de oferta: 92,1 %; 2008 escuelas de comparación: 96,5 %; 2008 escuelas con pérdida posterior de oferta: 96,4 %; 2009 escuelas de comparación: 97,0 %; 2009 escuelas con pérdida posterior de oferta: 88,8 %; 2010 escuelas de comparación: 98,0 %; 2010 escuelas con pérdida posterior de oferta: 97,6 %; 2011 escuelas de comparación: 97,8 %; 2011 escuelas con pérdida posterior de oferta: 95,6 %; 2012 escuelas de comparación: 97,8 %; 2012 escuelas con pérdida posterior de oferta: 95,5 %; 2013 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2013 escuelas con pérdida posterior de oferta: 95,5 %; 2014 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2014 escuelas con pérdida posterior de oferta: 94,8 %; 2015 escuelas de comparación: 97,9 %; 2015 escuelas con pérdida posterior de oferta: 95,1 %. Estudiantes de cohortes escolares elegibles para progresión o rezago; generación del evento 2005–2015 (definición histórica). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. La cohorte 2005 no es estimable por el límite inicial del panel; otros valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "School records before the event; 2005 comparison schools: not estimable: first panel boundary; 2005 schools that later lost provision: not estimable: first panel boundary; 2006 comparison schools: 96.5 %; 2006 schools that later lost provision: 92.0 %; 2007 comparison schools: 96.6 %; 2007 schools that later lost provision: 92.1 %; 2008 comparison schools: 96.5 %; 2008 schools that later lost provision: 96.4 %; 2009 comparison schools: 97.0 %; 2009 schools that later lost provision: 88.8 %; 2010 comparison schools: 98.0 %; 2010 schools that later lost provision: 97.6 %; 2011 comparison schools: 97.8 %; 2011 schools that later lost provision: 95.6 %; 2012 comparison schools: 97.8 %; 2012 schools that later lost provision: 95.5 %; 2013 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2013 schools that later lost provision: 95.5 %; 2014 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2014 schools that later lost provision: 94.8 %; 2015 comparison schools: 97.9 %; 2015 schools that later lost provision: 95.1 %. Students in school cohorts eligible for progression or grade-lag analysis; event cohorts 2005–2015 (historical definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. The 2005 cohort is not estimable at the first panel boundary; other unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "source_rows": [
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2005,
+          "baseline_year": null,
+          "transition_year": null,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "NOT_ESTIMABLE_PANEL_BOUNDARY",
+          "reason_es": "No estimable: límite inicial del panel",
+          "reason_en": "Not estimable: first panel boundary"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2005,
+          "baseline_year": null,
+          "transition_year": null,
+          "arm": "treated",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "NOT_ESTIMABLE_PANEL_BOUNDARY",
+          "reason_es": "No estimable: límite inicial del panel",
+          "reason_en": "Not estimable: first panel boundary"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2006,
+          "baseline_year": 2004,
+          "transition_year": 2005,
+          "arm": "control",
+          "n": 2390502,
+          "schools": 7004,
+          "rate_pp": 96.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2006,
+          "baseline_year": 2004,
+          "transition_year": 2005,
+          "arm": "treated",
+          "n": 6699,
+          "schools": 99,
+          "rate_pp": 92.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2007,
+          "baseline_year": 2005,
+          "transition_year": 2006,
+          "arm": "control",
+          "n": 2218954,
+          "schools": 6879,
+          "rate_pp": 96.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2007,
+          "baseline_year": 2005,
+          "transition_year": 2006,
+          "arm": "treated",
+          "n": 8258,
+          "schools": 91,
+          "rate_pp": 92.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2008,
+          "baseline_year": 2006,
+          "transition_year": 2007,
+          "arm": "control",
+          "n": 2374354,
+          "schools": 6910,
+          "rate_pp": 96.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2008,
+          "baseline_year": 2006,
+          "transition_year": 2007,
+          "arm": "treated",
+          "n": 7332,
+          "schools": 85,
+          "rate_pp": 96.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2009,
+          "baseline_year": 2007,
+          "transition_year": 2008,
+          "arm": "control",
+          "n": 2462217,
+          "schools": 7350,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2009,
+          "baseline_year": 2007,
+          "transition_year": 2008,
+          "arm": "treated",
+          "n": 5355,
+          "schools": 79,
+          "rate_pp": 88.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2010,
+          "baseline_year": 2008,
+          "transition_year": 2009,
+          "arm": "control",
+          "n": 2562469,
+          "schools": 7705,
+          "rate_pp": 98.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2010,
+          "baseline_year": 2008,
+          "transition_year": 2009,
+          "arm": "treated",
+          "n": 5521,
+          "schools": 79,
+          "rate_pp": 97.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2011,
+          "baseline_year": 2009,
+          "transition_year": 2010,
+          "arm": "control",
+          "n": 2346124,
+          "schools": 6798,
+          "rate_pp": 97.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2011,
+          "baseline_year": 2009,
+          "transition_year": 2010,
+          "arm": "treated",
+          "n": 6632,
+          "schools": 134,
+          "rate_pp": 95.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2012,
+          "baseline_year": 2010,
+          "transition_year": 2011,
+          "arm": "control",
+          "n": 2163228,
+          "schools": 6698,
+          "rate_pp": 97.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2012,
+          "baseline_year": 2010,
+          "transition_year": 2011,
+          "arm": "treated",
+          "n": 7911,
+          "schools": 106,
+          "rate_pp": 95.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2013,
+          "baseline_year": 2011,
+          "transition_year": 2012,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2013,
+          "baseline_year": 2011,
+          "transition_year": 2012,
+          "arm": "treated",
+          "n": 11699,
+          "schools": 115,
+          "rate_pp": 95.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2014,
+          "baseline_year": 2012,
+          "transition_year": 2013,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2014,
+          "baseline_year": 2012,
+          "transition_year": 2013,
+          "arm": "treated",
+          "n": 10078,
+          "schools": 102,
+          "rate_pp": 94.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2015,
+          "baseline_year": 2013,
+          "transition_year": 2014,
+          "arm": "control",
+          "n": 2249439,
+          "schools": 7428,
+          "rate_pp": 97.9,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_year": 2015,
+          "baseline_year": 2013,
+          "transition_year": 2014,
+          "arm": "treated",
+          "n": 4227,
+          "schools": 53,
+          "rate_pp": 95.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        }
+      ],
+      "placement": "post"
+    },
+    {
+      "family": "anticipation",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "stem": "post3-anticipation-grade_progression_or_lag-modern",
+      "axis_min_pct": 0,
+      "axis_max_pct": 100,
+      "caption": {
+        "es": "Estudiantes de cohortes escolares elegibles para progresión o rezago; generación del evento 2016–2024 (definición moderna). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. Los valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "Students in school cohorts eligible for progression or grade-lag analysis; event cohorts 2016–2024 (modern definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. Unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "alt": {
+        "es": "Registro escolar antes del evento; 2016 escuelas de comparación: 98,0 %; 2016 escuelas con pérdida posterior de oferta: 96,1 %; 2017 escuelas de comparación: 98,1 %; 2017 escuelas con pérdida posterior de oferta: 97,0 %; 2018 escuelas de comparación: 98,1 %; 2018 escuelas con pérdida posterior de oferta: 97,4 %; 2019 escuelas de comparación: 98,1 %; 2019 escuelas con pérdida posterior de oferta: 94,2 %; 2020 escuelas de comparación: 98,1 %; 2020 escuelas con pérdida posterior de oferta: 97,0 %; 2021 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2021 escuelas con pérdida posterior de oferta: 95,1 %; 2022 escuelas de comparación: 98,5 %; 2022 escuelas con pérdida posterior de oferta: suprimido: pocas escuelas; 2023 escuelas de comparación: 98,1 %; 2023 escuelas con pérdida posterior de oferta: 97,4 %; 2024 escuelas de comparación: 97,5 %; 2024 escuelas con pérdida posterior de oferta: 94,6 %. Estudiantes de cohortes escolares elegibles para progresión o rezago; generación del evento 2016–2024 (definición moderna). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. Los valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "School records before the event; 2016 comparison schools: 98.0 %; 2016 schools that later lost provision: 96.1 %; 2017 comparison schools: 98.1 %; 2017 schools that later lost provision: 97.0 %; 2018 comparison schools: 98.1 %; 2018 schools that later lost provision: 97.4 %; 2019 comparison schools: 98.1 %; 2019 schools that later lost provision: 94.2 %; 2020 comparison schools: 98.1 %; 2020 schools that later lost provision: 97.0 %; 2021 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2021 schools that later lost provision: 95.1 %; 2022 comparison schools: 98.5 %; 2022 schools that later lost provision: suppressed: few schools; 2023 comparison schools: 98.1 %; 2023 schools that later lost provision: 97.4 %; 2024 comparison schools: 97.5 %; 2024 schools that later lost provision: 94.6 %. Students in school cohorts eligible for progression or grade-lag analysis; event cohorts 2016–2024 (modern definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. Unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "source_rows": [
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2016,
+          "baseline_year": 2014,
+          "transition_year": 2015,
+          "arm": "control",
+          "n": 2467572,
+          "schools": 8295,
+          "rate_pp": 98.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2016,
+          "baseline_year": 2014,
+          "transition_year": 2015,
+          "arm": "treated",
+          "n": 1791,
+          "schools": 20,
+          "rate_pp": 96.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2017,
+          "baseline_year": 2015,
+          "transition_year": 2016,
+          "arm": "control",
+          "n": 2548491,
+          "schools": 8618,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2017,
+          "baseline_year": 2015,
+          "transition_year": 2016,
+          "arm": "treated",
+          "n": 1995,
+          "schools": 12,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2018,
+          "baseline_year": 2016,
+          "transition_year": 2017,
+          "arm": "control",
+          "n": 2466910,
+          "schools": 8242,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2018,
+          "baseline_year": 2016,
+          "transition_year": 2017,
+          "arm": "treated",
+          "n": 2101,
+          "schools": 18,
+          "rate_pp": 97.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2019,
+          "baseline_year": 2017,
+          "transition_year": 2018,
+          "arm": "control",
+          "n": 2527872,
+          "schools": 8295,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2019,
+          "baseline_year": 2017,
+          "transition_year": 2018,
+          "arm": "treated",
+          "n": 2208,
+          "schools": 15,
+          "rate_pp": 94.2,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2020,
+          "baseline_year": 2018,
+          "transition_year": 2019,
+          "arm": "control",
+          "n": 2606235,
+          "schools": 8360,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2020,
+          "baseline_year": 2018,
+          "transition_year": 2019,
+          "arm": "treated",
+          "n": 637,
+          "schools": 12,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2021,
+          "baseline_year": 2019,
+          "transition_year": 2020,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2021,
+          "baseline_year": 2019,
+          "transition_year": 2020,
+          "arm": "treated",
+          "n": 2550,
+          "schools": 14,
+          "rate_pp": 95.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2022,
+          "baseline_year": 2020,
+          "transition_year": 2021,
+          "arm": "control",
+          "n": 2635872,
+          "schools": 8347,
+          "rate_pp": 98.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2022,
+          "baseline_year": 2020,
+          "transition_year": 2021,
+          "arm": "treated",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP",
+          "reason_es": "Suprimido: pocas escuelas",
+          "reason_en": "Suppressed: few schools"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2023,
+          "baseline_year": 2021,
+          "transition_year": 2022,
+          "arm": "control",
+          "n": 2714830,
+          "schools": 8194,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2023,
+          "baseline_year": 2021,
+          "transition_year": 2022,
+          "arm": "treated",
+          "n": 455,
+          "schools": 12,
+          "rate_pp": 97.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2024,
+          "baseline_year": 2022,
+          "transition_year": 2023,
+          "arm": "control",
+          "n": 2703960,
+          "schools": 7904,
+          "rate_pp": 97.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_year": 2024,
+          "baseline_year": 2022,
+          "transition_year": 2023,
+          "arm": "treated",
+          "n": 818,
+          "schools": 14,
+          "rate_pp": 94.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        }
+      ],
+      "placement": "post"
+    },
+    {
+      "family": "anticipation",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "stem": "post3-anticipation-persistent_nonenrollment_two_years-historical",
+      "axis_min_pct": 0,
+      "axis_max_pct": 100,
+      "caption": {
+        "es": "Estudiantes de cohortes escolares elegibles para ausencia de registro; generación del evento 2005–2015 (definición histórica). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. La cohorte 2005 no es estimable por el límite inicial del panel; otros valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "Students in school cohorts eligible for missing-record analysis; event cohorts 2005–2015 (historical definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. The 2005 cohort is not estimable at the first panel boundary; other unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "alt": {
+        "es": "Registro escolar antes del evento; 2005 escuelas de comparación: no estimable: límite inicial del panel; 2005 escuelas con pérdida posterior de oferta: no estimable: límite inicial del panel; 2006 escuelas de comparación: 96,5 %; 2006 escuelas con pérdida posterior de oferta: 92,0 %; 2007 escuelas de comparación: 96,6 %; 2007 escuelas con pérdida posterior de oferta: 92,1 %; 2008 escuelas de comparación: 96,5 %; 2008 escuelas con pérdida posterior de oferta: 96,4 %; 2009 escuelas de comparación: 97,0 %; 2009 escuelas con pérdida posterior de oferta: 88,8 %; 2010 escuelas de comparación: 98,0 %; 2010 escuelas con pérdida posterior de oferta: 97,6 %; 2011 escuelas de comparación: 97,8 %; 2011 escuelas con pérdida posterior de oferta: 95,6 %; 2012 escuelas de comparación: 97,8 %; 2012 escuelas con pérdida posterior de oferta: 95,5 %; 2013 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2013 escuelas con pérdida posterior de oferta: 95,5 %; 2014 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2014 escuelas con pérdida posterior de oferta: 94,8 %; 2015 escuelas de comparación: 97,9 %; 2015 escuelas con pérdida posterior de oferta: 95,1 %. Estudiantes de cohortes escolares elegibles para ausencia de registro; generación del evento 2005–2015 (definición histórica). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. La cohorte 2005 no es estimable por el límite inicial del panel; otros valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "School records before the event; 2005 comparison schools: not estimable: first panel boundary; 2005 schools that later lost provision: not estimable: first panel boundary; 2006 comparison schools: 96.5 %; 2006 schools that later lost provision: 92.0 %; 2007 comparison schools: 96.6 %; 2007 schools that later lost provision: 92.1 %; 2008 comparison schools: 96.5 %; 2008 schools that later lost provision: 96.4 %; 2009 comparison schools: 97.0 %; 2009 schools that later lost provision: 88.8 %; 2010 comparison schools: 98.0 %; 2010 schools that later lost provision: 97.6 %; 2011 comparison schools: 97.8 %; 2011 schools that later lost provision: 95.6 %; 2012 comparison schools: 97.8 %; 2012 schools that later lost provision: 95.5 %; 2013 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2013 schools that later lost provision: 95.5 %; 2014 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2014 schools that later lost provision: 94.8 %; 2015 comparison schools: 97.9 %; 2015 schools that later lost provision: 95.1 %. Students in school cohorts eligible for missing-record analysis; event cohorts 2005–2015 (historical definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. The 2005 cohort is not estimable at the first panel boundary; other unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "source_rows": [
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2005,
+          "baseline_year": null,
+          "transition_year": null,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "NOT_ESTIMABLE_PANEL_BOUNDARY",
+          "reason_es": "No estimable: límite inicial del panel",
+          "reason_en": "Not estimable: first panel boundary"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2005,
+          "baseline_year": null,
+          "transition_year": null,
+          "arm": "treated",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "NOT_ESTIMABLE_PANEL_BOUNDARY",
+          "reason_es": "No estimable: límite inicial del panel",
+          "reason_en": "Not estimable: first panel boundary"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2006,
+          "baseline_year": 2004,
+          "transition_year": 2005,
+          "arm": "control",
+          "n": 2383596,
+          "schools": 6947,
+          "rate_pp": 96.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2006,
+          "baseline_year": 2004,
+          "transition_year": 2005,
+          "arm": "treated",
+          "n": 6699,
+          "schools": 99,
+          "rate_pp": 92.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2007,
+          "baseline_year": 2005,
+          "transition_year": 2006,
+          "arm": "control",
+          "n": 2214155,
+          "schools": 6829,
+          "rate_pp": 96.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2007,
+          "baseline_year": 2005,
+          "transition_year": 2006,
+          "arm": "treated",
+          "n": 8258,
+          "schools": 91,
+          "rate_pp": 92.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2008,
+          "baseline_year": 2006,
+          "transition_year": 2007,
+          "arm": "control",
+          "n": 2370771,
+          "schools": 6863,
+          "rate_pp": 96.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2008,
+          "baseline_year": 2006,
+          "transition_year": 2007,
+          "arm": "treated",
+          "n": 7332,
+          "schools": 85,
+          "rate_pp": 96.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2009,
+          "baseline_year": 2007,
+          "transition_year": 2008,
+          "arm": "control",
+          "n": 2456418,
+          "schools": 7270,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2009,
+          "baseline_year": 2007,
+          "transition_year": 2008,
+          "arm": "treated",
+          "n": 5355,
+          "schools": 79,
+          "rate_pp": 88.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2010,
+          "baseline_year": 2008,
+          "transition_year": 2009,
+          "arm": "control",
+          "n": 2555344,
+          "schools": 7626,
+          "rate_pp": 98.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2010,
+          "baseline_year": 2008,
+          "transition_year": 2009,
+          "arm": "treated",
+          "n": 5521,
+          "schools": 79,
+          "rate_pp": 97.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2011,
+          "baseline_year": 2009,
+          "transition_year": 2010,
+          "arm": "control",
+          "n": 2335976,
+          "schools": 6721,
+          "rate_pp": 97.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2011,
+          "baseline_year": 2009,
+          "transition_year": 2010,
+          "arm": "treated",
+          "n": 6632,
+          "schools": 134,
+          "rate_pp": 95.6,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2012,
+          "baseline_year": 2010,
+          "transition_year": 2011,
+          "arm": "control",
+          "n": 2153155,
+          "schools": 6639,
+          "rate_pp": 97.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2012,
+          "baseline_year": 2010,
+          "transition_year": 2011,
+          "arm": "treated",
+          "n": 7911,
+          "schools": 106,
+          "rate_pp": 95.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2013,
+          "baseline_year": 2011,
+          "transition_year": 2012,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2013,
+          "baseline_year": 2011,
+          "transition_year": 2012,
+          "arm": "treated",
+          "n": 11699,
+          "schools": 115,
+          "rate_pp": 95.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2014,
+          "baseline_year": 2012,
+          "transition_year": 2013,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2014,
+          "baseline_year": 2012,
+          "transition_year": 2013,
+          "arm": "treated",
+          "n": 10078,
+          "schools": 102,
+          "rate_pp": 94.8,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2015,
+          "baseline_year": 2013,
+          "transition_year": 2014,
+          "arm": "control",
+          "n": 2246246,
+          "schools": 7409,
+          "rate_pp": 97.9,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_year": 2015,
+          "baseline_year": 2013,
+          "transition_year": 2014,
+          "arm": "treated",
+          "n": 4227,
+          "schools": 53,
+          "rate_pp": 95.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        }
+      ],
+      "placement": "annex"
+    },
+    {
+      "family": "anticipation",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "stem": "post3-anticipation-persistent_nonenrollment_two_years-modern",
+      "axis_min_pct": 0,
+      "axis_max_pct": 100,
+      "caption": {
+        "es": "Estudiantes de cohortes escolares elegibles para ausencia de registro; generación del evento 2016–2023 (definición moderna). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. Los valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "Students in school cohorts eligible for missing-record analysis; event cohorts 2016–2023 (modern definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. Unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "alt": {
+        "es": "Registro escolar antes del evento; 2016 escuelas de comparación: 98,0 %; 2016 escuelas con pérdida posterior de oferta: 96,1 %; 2017 escuelas de comparación: 98,1 %; 2017 escuelas con pérdida posterior de oferta: 97,0 %; 2018 escuelas de comparación: 98,1 %; 2018 escuelas con pérdida posterior de oferta: 97,4 %; 2019 escuelas de comparación: 98,1 %; 2019 escuelas con pérdida posterior de oferta: 94,2 %; 2020 escuelas de comparación: 98,1 %; 2020 escuelas con pérdida posterior de oferta: 97,0 %; 2021 escuelas de comparación: dato reservado para evitar revelar grupos pequeños al combinar tablas; 2021 escuelas con pérdida posterior de oferta: 95,1 %; 2022 escuelas de comparación: 98,5 %; 2022 escuelas con pérdida posterior de oferta: suprimido: pocas escuelas; 2023 escuelas de comparación: 98,1 %; 2023 escuelas con pérdida posterior de oferta: 97,4 %. Estudiantes de cohortes escolares elegibles para ausencia de registro; generación del evento 2016–2023 (definición moderna). Tasa observada de cualquier registro escolar entre el segundo y el primer año anteriores al evento (G−2 a G−1), por escuelas con pérdida posterior de oferta y escuelas de comparación; escala 0–100 %. El conjunto de estudiantes difiere del análisis principal que parte en G−1. Cada par de tasas describe brazos distintos; no representa una trayectoria individual. No hay ajuste, intervalo de incertidumbre ni prueba de anticipación o tendencias paralelas. Los valores ausentes se suprimen por privacidad. Algunas tasas se reservan para evitar revelar grupos pequeños al combinar las tablas de los dos desenlaces. El CSV conserva cada cohorte y brazo, denominadores/escuelas divulgables y razones de ausencia; no incluye identificadores ni cuartiles.",
+        "en": "School records before the event; 2016 comparison schools: 98.0 %; 2016 schools that later lost provision: 96.1 %; 2017 comparison schools: 98.1 %; 2017 schools that later lost provision: 97.0 %; 2018 comparison schools: 98.1 %; 2018 schools that later lost provision: 97.4 %; 2019 comparison schools: 98.1 %; 2019 schools that later lost provision: 94.2 %; 2020 comparison schools: 98.1 %; 2020 schools that later lost provision: 97.0 %; 2021 comparison schools: withheld to prevent small-group disclosure when tables are combined; 2021 schools that later lost provision: 95.1 %; 2022 comparison schools: 98.5 %; 2022 schools that later lost provision: suppressed: few schools; 2023 comparison schools: 98.1 %; 2023 schools that later lost provision: 97.4 %. Students in school cohorts eligible for missing-record analysis; event cohorts 2016–2023 (modern definition). Observed rate of any school record between the second and first years before the event (G−2 to G−1), for schools that later lost provision and comparison schools; 0–100% scale. The student set differs from the primary analysis, which starts at G−1. Each rate pair describes different arms, not an individual trajectory. There is no adjustment, uncertainty interval, or test of anticipation or parallel trends. Unavailable rates are privacy suppressed. Some rates are withheld to prevent small-group disclosure when the two outcome tables are combined. The CSV retains every cohort and arm, disclosable student/school denominators and absence reasons; no identifiers or quantiles."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "source_rows": [
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2016,
+          "baseline_year": 2014,
+          "transition_year": 2015,
+          "arm": "control",
+          "n": 2464123,
+          "schools": 8275,
+          "rate_pp": 98.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2016,
+          "baseline_year": 2014,
+          "transition_year": 2015,
+          "arm": "treated",
+          "n": 1791,
+          "schools": 20,
+          "rate_pp": 96.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2017,
+          "baseline_year": 2015,
+          "transition_year": 2016,
+          "arm": "control",
+          "n": 2543408,
+          "schools": 8597,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2017,
+          "baseline_year": 2015,
+          "transition_year": 2016,
+          "arm": "treated",
+          "n": 1995,
+          "schools": 12,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2018,
+          "baseline_year": 2016,
+          "transition_year": 2017,
+          "arm": "control",
+          "n": 2462894,
+          "schools": 8219,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2018,
+          "baseline_year": 2016,
+          "transition_year": 2017,
+          "arm": "treated",
+          "n": 2101,
+          "schools": 18,
+          "rate_pp": 97.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2019,
+          "baseline_year": 2017,
+          "transition_year": 2018,
+          "arm": "control",
+          "n": 2526786,
+          "schools": 8282,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2019,
+          "baseline_year": 2017,
+          "transition_year": 2018,
+          "arm": "treated",
+          "n": 2208,
+          "schools": 15,
+          "rate_pp": 94.2,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2020,
+          "baseline_year": 2018,
+          "transition_year": 2019,
+          "arm": "control",
+          "n": 2604980,
+          "schools": 8350,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2020,
+          "baseline_year": 2018,
+          "transition_year": 2019,
+          "arm": "treated",
+          "n": 637,
+          "schools": 12,
+          "rate_pp": 97.0,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2021,
+          "baseline_year": 2019,
+          "transition_year": 2020,
+          "arm": "control",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_CROSS_ELIGIBILITY",
+          "reason_es": "Dato reservado para evitar revelar grupos pequeños al combinar tablas",
+          "reason_en": "Withheld to prevent small-group disclosure when tables are combined"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2021,
+          "baseline_year": 2019,
+          "transition_year": 2020,
+          "arm": "treated",
+          "n": 2550,
+          "schools": 14,
+          "rate_pp": 95.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2022,
+          "baseline_year": 2020,
+          "transition_year": 2021,
+          "arm": "control",
+          "n": 2635068,
+          "schools": 8337,
+          "rate_pp": 98.5,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2022,
+          "baseline_year": 2020,
+          "transition_year": 2021,
+          "arm": "treated",
+          "n": null,
+          "schools": null,
+          "rate_pp": null,
+          "display_status": "PRIVACY_SUPPRESSED_SMALL_SCHOOL_GROUP",
+          "reason_es": "Suprimido: pocas escuelas",
+          "reason_en": "Suppressed: few schools"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2023,
+          "baseline_year": 2021,
+          "transition_year": 2022,
+          "arm": "control",
+          "n": 2708597,
+          "schools": 8032,
+          "rate_pp": 98.1,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_year": 2023,
+          "baseline_year": 2021,
+          "transition_year": 2022,
+          "arm": "treated",
+          "n": 455,
+          "schools": 12,
+          "rate_pp": 97.4,
+          "display_status": "OBSERVED",
+          "reason_es": "Tasa descriptiva observada",
+          "reason_en": "Observed descriptive rate"
+        }
+      ],
+      "placement": "annex"
+    }
+  ],
+  "files": [
+    {
+      "name": "anticipation-all.csv",
+      "sha256": "465092b2ed0c9b68f70a853c6437ff01cd653da730a24cc9c2aae52f96bd2a57",
+      "section": "anticipation",
+      "rows": 78
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical.csv",
+      "sha256": "e01f855d35d50f8c5310d5b9e197375e1c8a73de8db4bc445daab43abab57b42",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "rows": 22
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-light-desktop.svg",
+      "sha256": "44d1273e81863cbc33a533abf81427841807c2d2ac455c65bf229e46fa6a6229",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-light-desktop.png",
+      "sha256": "e8723bc4203f787d25851002819a543508e53498dc35c7199815aaba88837b30",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-light-mobile.svg",
+      "sha256": "80567abc3970af3803aa19844864a8d42d85532a67dfc8cacb1c0aab7cdcda6d",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-light-mobile.png",
+      "sha256": "f5ce63865e693b7085ec097dbb101169d3b132543bc5b123517bfd7e7fa3ffe0",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-dark-desktop.svg",
+      "sha256": "4793fe6e74587fad6d02358e742030ff9f2ccceddfaaac2828bb974fd384714f",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-dark-desktop.png",
+      "sha256": "4af63bd08b9e95496df535374995a444660a9c4520427103bd7bd3476d1b72bc",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-dark-mobile.svg",
+      "sha256": "4ac9001b2fb67de3be7c18fbdede3067c6092ec0cb26496a35d9c433e6ca5a12",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-es-dark-mobile.png",
+      "sha256": "0e7eba4826a5e119d41d65533fa339d663ebaca818a140805e71387679a5df50",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-light-desktop.svg",
+      "sha256": "be72603438fa3747e662c993f056fda379b06f2e1053934b6d6307d7d34dbce8",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-light-desktop.png",
+      "sha256": "3727acd06347fbd635d97e174ef94c655a1ebb0fc1c003abdae27fdb83b5a5c6",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-light-mobile.svg",
+      "sha256": "60f05a57959221e788669fe28a1a83cfc706151ea279837b4055b6809a5e8c59",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-light-mobile.png",
+      "sha256": "92c8f77c4ded41d964ad56a42cb1899f640a9fba55bea8afd7ec17f03b41000a",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-dark-desktop.svg",
+      "sha256": "4cd88ce7d8e47f74787dd9e5a2c867d30a166059c9ed5900f809ed26a88f3882",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-dark-desktop.png",
+      "sha256": "23d3d58bce2a237fcc7f859d709c4dbee732fdc07b9fc848efb71c153cd7c24c",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-dark-mobile.svg",
+      "sha256": "b827ab4b46c05ebc8fd905b7e4faa2e0d48bc07d65a011256e4c76e04f69431e",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-historical-en-dark-mobile.png",
+      "sha256": "ffd204f2163c60169cd36571cead48d9e393d3c1ea5cc6a15954f7bf9b1e5c7b",
+      "outcome": "grade_progression_or_lag",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern.csv",
+      "sha256": "f222508dde78c7dd6cf06cf584b33da9c486749d3a503156f6b0acf685e0246c",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "rows": 18
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-light-desktop.svg",
+      "sha256": "006cddce2571e5a5e483f7549c46c9b7bba670a69eb674b751ca8626c099ee20",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-light-desktop.png",
+      "sha256": "b81e579a9674245c766a8879cd0cf24552d95847ffada7dce36d3bd6d9ca5920",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-light-mobile.svg",
+      "sha256": "98ec3f39d37e9b4578f3ae466a190793d19fc7cbded2abe5f9ee5a6f2a39e001",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-light-mobile.png",
+      "sha256": "ed2be63cc5a980a7a6b85cc2772c7c5bf8558b41d54f1d4b7d94862ecff5e02d",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-dark-desktop.svg",
+      "sha256": "e99ff3fb99e62607a303a1689865eddaff65c287b34f465768d6e24c0aebe82d",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-dark-desktop.png",
+      "sha256": "42d45a7a669fd66a0699c18b50016b26493b26e5f19b40b04f52bddbe0a50aa1",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-dark-mobile.svg",
+      "sha256": "bdd8c16bbdf70c9ac92b869c8d682eea827b00ee7ca1b531babec50ecc1dc646",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-es-dark-mobile.png",
+      "sha256": "1a53e853819a17f7834a32d15efb2e78f0becefb72164fa006cdae9e4e6c57ad",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-light-desktop.svg",
+      "sha256": "5570dd5dc50304b93084d1708cb6405402048e11f7da970595a9dd69c1cca142",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-light-desktop.png",
+      "sha256": "cda895848adee5aa3a1dc4d78d6ef62c6f244d8f2d55050abf8d04aee576b54f",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-light-mobile.svg",
+      "sha256": "ae0fd61db72f8366a2092dbb8fadf4f8af5bcb1392adab753bf54654c0d841aa",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-light-mobile.png",
+      "sha256": "0ae9ba9ac7cd648c22056e0374b995e2e276309b4bacb747377ee7a43254a810",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-dark-desktop.svg",
+      "sha256": "dc139664d01c7be45f9f8b3bcde8edc7725d217d144cc2d5f9460df9a234d4a6",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-dark-desktop.png",
+      "sha256": "e0ff1f823240c1fef647f944eb03e3d6cdba80827be2cd87029e2494ce351197",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-dark-mobile.svg",
+      "sha256": "5a8307ec20214142975f672acd59605fa4fff73e8681392f7d811ecb2e87251c",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-grade_progression_or_lag-modern-en-dark-mobile.png",
+      "sha256": "e5ca0c81accdd01ff5954c9c5493a5d41b3847f58044ae8b5d82280812816914",
+      "outcome": "grade_progression_or_lag",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical.csv",
+      "sha256": "12f76f2394d2a1e86f6c7d28315448268081e0daac5cb8bab572d68142f3adb6",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "rows": 22
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-light-desktop.svg",
+      "sha256": "39957054144ee0c794067899602bc744c94d82b3ae602d375e303bde02ca53ef",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-light-desktop.png",
+      "sha256": "16b1d259aeaf68577c18c47461ac9538d28200abd5f377595f3d586977119f51",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-light-mobile.svg",
+      "sha256": "203a318bd8e93b341271497f034efe3c5e653685a8884b13a1bf060e3bdd131c",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-light-mobile.png",
+      "sha256": "b8c7bbeb74e08c5f74030199d67489ed0d78b370f39a18ef817896cc2a4a7a7a",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-dark-desktop.svg",
+      "sha256": "36881d1bdc57bf38d55cfc4a996ffa24bed05d671c06397d2182ec538cae5d60",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-dark-desktop.png",
+      "sha256": "088922c12aa967f2dcecd0f1afe203890c7b0a32340b2b38ca3539f0b5a82091",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-dark-mobile.svg",
+      "sha256": "60603dcb1d2382acf5fd893f1f3b560a4dfbcfe1ab3bd55a3948c5af201364a1",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-es-dark-mobile.png",
+      "sha256": "2a1c70bbd5fa8f66681a1acd36b3a64ff39fce67b9bd6469a558d75eeae6e813",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-light-desktop.svg",
+      "sha256": "3cd469e5355af52a34ee53673fe433033fe22f74189698fcb4eedaff0395a367",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-light-desktop.png",
+      "sha256": "3ef81c76f8d172eaf18d50c520cbabfba692d228af14cd27fc3e0ff9abc6101f",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-light-mobile.svg",
+      "sha256": "b1d77aab31302ae33ae72a541173b4022f0840c163cc4f7210348832bc99f513",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-light-mobile.png",
+      "sha256": "29b1fef3b0ac710f9bd533d5800efba2d3ef42edbed03bd0d8fd626215cf552d",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-dark-desktop.svg",
+      "sha256": "72b8673b7157706beb1cb49fc3a136b66a6bb5ca9a47ba061b572bec6d0725a5",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-dark-desktop.png",
+      "sha256": "d04eab0b230534ae456577cd2b8c661dbffed31710a3f7a5af642f24eb2156f9",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-dark-mobile.svg",
+      "sha256": "95eefbfb7742ca1e750044e345ddcb467cc642051d0b1682728fda05b1838af4",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-historical-en-dark-mobile.png",
+      "sha256": "2b5dffe0b9257ac1a5a5ae452ca68e446bfc2490dcab06514edf720698754e11",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "historical",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern.csv",
+      "sha256": "1b83df03cd58f64a0946b9314f5a2a2779ad401e0d19cf7490960cdd6383698e",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "rows": 16
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-light-desktop.svg",
+      "sha256": "907f90dc2a460defd6f79bb5f272ba8455b66cc3c6b252f7520294bf0d6dc5a6",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-light-desktop.png",
+      "sha256": "93c99be7b86b3225dc3ac3e93cc0adc37cffae9d7395b249e998a0eabae87c4e",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-light-mobile.svg",
+      "sha256": "24f9cb739084a56ad41796aa792770865f7abed826ecc47f1ce147dff726b068",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-light-mobile.png",
+      "sha256": "8ea964eb414a8baecbf05f3296d8bc706426b7bc9db0a4bd6877e9377f4c5143",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-dark-desktop.svg",
+      "sha256": "db8fb3f262f5631a4b34e8cf0d89dafdbb6d32ddb43b5dfdef1b434f0b6fe48e",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-dark-desktop.png",
+      "sha256": "782db3a4f103356a2d29392a3b65d1448009624b28ad56fc77e5bebb47670a76",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-dark-mobile.svg",
+      "sha256": "113b970b7d0be9097d93da8616624de7d75264e8a457f6cb67d6ac6555a0bc41",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-es-dark-mobile.png",
+      "sha256": "54637b6f2fad67408433acbe83476bbabb975cd7373e66a5d974bba4d382aed3",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-light-desktop.svg",
+      "sha256": "98c0c6a49e56b51d058f41dd59ecc784b695fa13029313b500c43005c7a261bf",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-light-desktop.png",
+      "sha256": "3c849ce50414b7f84425ab4ea14e8a4041e97ec5f808bb356357d1bbcc4fd853",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-light-mobile.svg",
+      "sha256": "89b447cff613120996eae0aee75321839f7ea36802cd0ae97012cccb56b0be7a",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-light-mobile.png",
+      "sha256": "92a7d5149edc03b5f8fc8d00e0b54499c33862e7d7e1a92cbf3dea4c97e3a739",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-dark-desktop.svg",
+      "sha256": "8038a869b2be6aa0575e9c5991c92e44c7de5501509b3700a19bfe0f8e9eac81",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-dark-desktop.png",
+      "sha256": "de7497d50974f86ac32bb6b63fdae09cd4785d4160975776488463b34a6eb201",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-dark-mobile.svg",
+      "sha256": "df0a64659f8b74d6fa3f593848f31122596dddd7174e322c081e7ce53a02676e",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-anticipation-persistent_nonenrollment_two_years-modern-en-dark-mobile.png",
+      "sha256": "d2f914524486ef44cc3c8b331e1c23f2d97a85ded2cf5fdef482a5ec7abea71d",
+      "outcome": "persistent_nonenrollment_two_years",
+      "era": "modern",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    }
+  ],
+  "source_manifest_sha256": "74730daeb2bfd81f4aff42a44c81e5727f7c6b46dcb3a3e8310299ae1c7cf9c5",
+  "editorial_metadata_sha256": "b122a8b23884ebcb1708c74379497adcbf9bd1dbca01b8cf50fd3444743296ab",
+  "figure_data_sha256": "ad6b0d85714ddfeafd84372dbb623ae386aa3ca633870a8f677236869de19263"
+}

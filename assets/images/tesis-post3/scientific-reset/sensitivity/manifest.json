@@ -1,0 +1,810 @@
+{
+  "status": "RELEASE_CANDIDATE_APPROVED",
+  "family": "sensitivity",
+  "source_status": "SENSITIVITIES_ESTIMATED_CLAIMS_PENDING_REVIEW",
+  "source_sha256": "edcc575f08d4caf3a08b74bf7ffb5fdb807ce1d813ce2bed6cb58631ab638aea",
+  "approval_receipt_sha256": "de872f5e0ee1ab0429d07d01132332c88bab0ab75e87c39e500ca86451ad8c18",
+  "approval_scope": "POST3_R2_2_REQUIRED_SENSITIVITIES_ONLY",
+  "f2_complete": true,
+  "publication_authorized": true,
+  "producer_sha256": "4173f0c76716bbee9dca60749c7d611a7103c3c0fc5826b7f95ac6685e9a1893",
+  "protocol_sha256": "a8eac2b940eb83b7208b57de84b3295db7d851c09cccd5e65afd425e60d04694",
+  "schema_sha256": "32b3f19104f95a6592e55d39fc8558816dfd2a0bd9d3f8ab749b4ae0787d0193",
+  "primary_source_sha256": "966d243fad4f2864ed552151fe9341dd88d6fb59540d113042046466039bc27f",
+  "validator_sha256": "a685df57bf64e28e2ca36342efb279ea085e51aebf2cba2062ad93139d23bcaf",
+  "renderer_sha256": "4e9a747d03e7fd8683826b6dd6c9f8bce7ccfcf72a9d0e6c5bafe273b6d93416",
+  "identity_sha256": "59290dee4ff62e0f0bd39b9edb0097c835e0028a7806ccfeddd9114e6a5868fa",
+  "font_sha256": {
+    "FiraSans-Regular.woff2": "6e858a4cd38a13ae0de6dd58203715f19e3283d4321541737289cc9d049dacbe",
+    "FiraSans-Bold.woff2": "06be591b00c1419617943dd22b2279ed699e758d983d8b4f2071146a908b6d3d"
+  },
+  "units": {
+    "did": {
+      "estimate_pp": "percentage_points",
+      "school_ci_low_pp": "percentage_points",
+      "school_ci_high_pp": "percentage_points",
+      "two_way_ci_low_pp": "percentage_points",
+      "two_way_ci_high_pp": "percentage_points"
+    },
+    "bounds": {
+      "lower_pp": "percentage_points",
+      "upper_pp": "percentage_points"
+    },
+    "d1_d2": {
+      "estimate_pp": "percentage_points",
+      "ci_low_pp": "percentage_points",
+      "ci_high_pp": "percentage_points",
+      "main_sample_shift_pp": "percentage_points",
+      "definition_on_common_sample_shift_pp": "percentage_points",
+      "alternative_sample_shift_pp": "percentage_points",
+      "overall_alternative_minus_main_pp": "percentage_points"
+    }
+  },
+  "all_source_rows": 49,
+  "all_did_rows": 37,
+  "figures": [
+    {
+      "family": "sensitivity",
+      "kind": "did",
+      "stem": "post3-sensitivity-did",
+      "units": {
+        "estimate_pp": "percentage_points",
+        "school_ci_low_pp": "percentage_points",
+        "school_ci_high_pp": "percentage_points",
+        "two_way_ci_low_pp": "percentage_points",
+        "two_way_ci_high_pp": "percentage_points"
+      },
+      "interval_type": "two_nominal_95pct_methods",
+      "source_rows": [
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "cohort_start": 2008,
+          "cohort_end": 2015,
+          "estimate_pp": 4.355979571447896,
+          "school_ci_low_pp": 2.071649012403529,
+          "school_ci_high_pp": 8.599551932566738,
+          "two_way_ci_low_pp": 0.8979163215836701,
+          "two_way_ci_high_pp": 7.814042821312106,
+          "confidence_level": 0.95,
+          "school_precision_flag": "SCHOOL_CLUSTER_CI",
+          "two_way_status": "TWO_WAY_ASYMPTOTIC_DIAGNOSTIC_WEAK_CLUSTER_PRECISION",
+          "status": "ESTIMABLE_DESCRIPTIVE"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "estimate_pp": 0.4000918714812595,
+          "school_ci_low_pp": -1.7378059214012598,
+          "school_ci_high_pp": 2.4959153544360984,
+          "two_way_ci_low_pp": -1.7846375755031902,
+          "two_way_ci_high_pp": 2.584821318465708,
+          "confidence_level": 0.95,
+          "school_precision_flag": "SCHOOL_CLUSTER_CI",
+          "two_way_status": "TWO_WAY_ASYMPTOTIC_DIAGNOSTIC_WEAK_CLUSTER_PRECISION",
+          "status": "ESTIMABLE_DESCRIPTIVE"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "cohort_start": 2008,
+          "cohort_end": 2015,
+          "estimate_pp": 0.4453549062934285,
+          "school_ci_low_pp": -0.3018908376521505,
+          "school_ci_high_pp": 1.2282956278335584,
+          "two_way_ci_low_pp": -0.3076618157570891,
+          "two_way_ci_high_pp": 1.1983716283439443,
+          "confidence_level": 0.95,
+          "school_precision_flag": "SCHOOL_CLUSTER_CI",
+          "two_way_status": "TWO_WAY_ASYMPTOTIC_DIAGNOSTIC_WEAK_CLUSTER_PRECISION",
+          "status": "ESTIMABLE_DESCRIPTIVE"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "estimate_pp": 0.2830196351146931,
+          "school_ci_low_pp": -0.47276539563339026,
+          "school_ci_high_pp": 1.1379808870119184,
+          "two_way_ci_low_pp": -0.48881322667952526,
+          "two_way_ci_high_pp": 1.054852496908911,
+          "confidence_level": 0.95,
+          "school_precision_flag": "SCHOOL_CLUSTER_CI",
+          "two_way_status": "TWO_WAY_ASYMPTOTIC_DIAGNOSTIC_WEAK_CLUSTER_PRECISION",
+          "status": "ESTIMABLE_DESCRIPTIVE"
+        }
+      ],
+      "caption": {
+        "es": "Comparación secundaria descriptiva de cambios de cohortes repetidas (pp): histórica 2008–2015; moderna 2016–2024 para progresión y 2016–2023 para ausencia. Cada punto muestra IC nominal 95 % por bootstrap de escuelas y diagnóstico normal escuela+estudiante. El diagnóstico tiene precisión débil; el bootstrap omite dependencia de estudiantes entre escuelas. Estimando y muestra difieren del primario: restar puntos no atribuye causalidad. Selección previa y tendencias paralelas sin verificar.",
+        "en": "Secondary descriptive comparison of changes in repeated cohorts (percentage points): historical 2008–2015; modern 2016–2024 for progression and 2016–2023 for absence. Each point shows a nominal 95% school-bootstrap interval and a normal school-plus-student diagnostic. The diagnostic has weak precision; the bootstrap omits cross-school student dependence. Estimand and sample differ from the primary result: subtracting points does not attribute causality. Prior selection and parallel trends remain unverified."
+      },
+      "alt": {
+        "es": "Cuatro contrastes secundarios descriptivos, cada uno con dos intervalos nominales del 95 %: bootstrap por escuelas y diagnóstico escuela+estudiante. Progresión y ausencia en eras histórica y moderna; puntos, años e intervalos exactos en CSV.",
+        "en": "Four secondary descriptive contrasts, each with two nominal 95% intervals: school bootstrap and school-plus-student diagnostic. Progression and absence in historical and modern eras; exact points, years and intervals in CSV."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "axis_bound_pp": 9.975480241777415,
+      "placement": "post"
+    },
+    {
+      "family": "sensitivity",
+      "kind": "bounds",
+      "stem": "post3-sensitivity-bounds",
+      "units": {
+        "lower_pp": "percentage_points",
+        "upper_pp": "percentage_points"
+      },
+      "interval_type": "partial_identification_not_ci",
+      "source_rows": [
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "lower_pp": 5.995160252908459,
+          "upper_pp": 12.904094102174884,
+          "cohort_start": 2005,
+          "cohort_end": 2015,
+          "status": "PARTIAL_IDENTIFICATION_DESCRIPTIVE",
+          "target_population": "fixed_baseline_cells_before_outcome_missingness",
+          "bound_interpretation": "Missing grade success/failure under fixed baseline sample",
+          "directly_comparable_to_primary_point": false
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "lower_pp": 3.0216889281113586,
+          "upper_pp": 7.185488226988293,
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "status": "PARTIAL_IDENTIFICATION_DESCRIPTIVE",
+          "target_population": "fixed_baseline_cells_before_outcome_missingness",
+          "bound_interpretation": "Missing grade success/failure under fixed baseline sample",
+          "directly_comparable_to_primary_point": false
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "lower_pp": -2.8221767432636784,
+          "upper_pp": 4.757462686567164,
+          "cohort_start": 2005,
+          "cohort_end": 2015,
+          "status": "PARTIAL_IDENTIFICATION_DESCRIPTIVE",
+          "target_population": "fixed_baseline_cells_before_outcome_missingness",
+          "bound_interpretation": "True nonparticipation could range from zero to no-record plus unresolved risk",
+          "directly_comparable_to_primary_point": false
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "lower_pp": -1.763320821969382,
+          "upper_pp": 2.8937682447011044,
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "status": "PARTIAL_IDENTIFICATION_DESCRIPTIVE",
+          "target_population": "fixed_baseline_cells_before_outcome_missingness",
+          "bound_interpretation": "True nonparticipation could range from zero to no-record plus unresolved risk",
+          "directly_comparable_to_primary_point": false
+        }
+      ],
+      "caption": {
+        "es": "Cuatro cotas descriptivas sobre celdas basales fijas (Sin registro o grado bajo el esperado, histórica 2005–2015; Sin registro o grado bajo el esperado, moderna 2016–2024; No escolarización real, histórica 2005–2015; No escolarización real, moderna 2016–2023), en puntos porcentuales; los extremos son límites de identificación, no intervalos de confianza ni estimaciones puntuales. La población incluye estudiantes antes de excluir desenlaces faltantes y no coincide necesariamente con la muestra primaria. En progresión se acota el éxito o fracaso de grados desconocidos; en no escolarización real se acota la participación verdadera, distinta de no observar registro. Las definiciones histórica y moderna difieren; no unir sus extremos como una serie causal.",
+        "en": "Four descriptive bounds for fixed baseline cells (No record or grade below expected level, historical 2005–2015; No record or grade below expected level, modern 2016–2024; Actual non-enrollment, historical 2005–2015; Actual non-enrollment, modern 2016–2023), percentage points; endpoints are identification limits, not confidence intervals or point estimates. The population includes students before missing outcomes are excluded and need not match the primary sample. Progression bounds unknown-grade success or failure; actual non-enrollment bounds true participation, which differs from no observed record. Historical and modern definitions differ; do not join endpoints as a causal series."
+      },
+      "alt": {
+        "es": "Cuatro segmentos de cotas descriptivas para población basal fija anterior a desenlaces faltantes: progresión y no escolarización real en eras histórica y moderna. Los extremos no son estimaciones puntuales ni intervalos de confianza; valores exactos en CSV.",
+        "en": "Four descriptive bound segments for the fixed baseline population before missing outcomes: progression and actual non-enrollment in historical and modern eras. Endpoints are neither point estimates nor confidence intervals; exact values in CSV."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "axis_bound_pp": 14.968749158522865,
+      "placement": "post"
+    },
+    {
+      "family": "sensitivity",
+      "kind": "d1_d2",
+      "stem": "post3-sensitivity-d1-d2",
+      "units": {
+        "estimate_pp": "percentage_points",
+        "ci_low_pp": "percentage_points",
+        "ci_high_pp": "percentage_points",
+        "main_sample_shift_pp": "percentage_points",
+        "definition_on_common_sample_shift_pp": "percentage_points",
+        "alternative_sample_shift_pp": "percentage_points",
+        "overall_alternative_minus_main_pp": "percentage_points"
+      },
+      "interval_type": "nominal_98_75pct_full_d2_otherwise_95pct",
+      "source_rows": [
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "historical",
+          "contrast": null,
+          "cohort_start": 2005,
+          "cohort_end": 2015,
+          "estimate_pp": null,
+          "ci_low_pp": null,
+          "ci_high_pp": null,
+          "status": "NON_DISCRIMINATING_IDENTICAL_EXPOSURE_FLAGS"
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "contrast": "main_full",
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "estimate_pp": 4.97796490839622,
+          "ci_low_pp": 2.6502174087822556,
+          "ci_high_pp": 8.16193885230234,
+          "confidence_level": 0.9875,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01644471847760709,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -3.0820478741591466,
+          "overall_alternative_minus_main_pp": -3.0984925926367537
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "contrast": "main_common",
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "estimate_pp": 4.9615201899186125,
+          "ci_low_pp": 3.110173595010322,
+          "ci_high_pp": 7.368637251644522,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01644471847760709,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -3.0820478741591466,
+          "overall_alternative_minus_main_pp": -3.0984925926367537
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "contrast": "alternative_common",
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "estimate_pp": 4.9615201899186125,
+          "ci_low_pp": 3.110173595010322,
+          "ci_high_pp": 7.368637251644522,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01644471847760709,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -3.0820478741591466,
+          "overall_alternative_minus_main_pp": -3.0984925926367537
+        },
+        {
+          "outcome": "grade_progression_or_lag",
+          "era": "modern",
+          "contrast": "alternative_full",
+          "cohort_start": 2016,
+          "cohort_end": 2024,
+          "estimate_pp": 1.879472315759466,
+          "ci_low_pp": 0.3957102575326172,
+          "ci_high_pp": 3.675827534859223,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01644471847760709,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -3.0820478741591466,
+          "overall_alternative_minus_main_pp": -3.0984925926367537
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "historical",
+          "contrast": null,
+          "cohort_start": 2005,
+          "cohort_end": 2015,
+          "estimate_pp": null,
+          "ci_low_pp": null,
+          "ci_high_pp": null,
+          "status": "NON_DISCRIMINATING_IDENTICAL_EXPOSURE_FLAGS"
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "contrast": "main_full",
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "estimate_pp": 1.1304474227317223,
+          "ci_low_pp": 0.23018123121681294,
+          "ci_high_pp": 2.5624691581384313,
+          "confidence_level": 0.9875,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01933381801200862,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -0.785781069071831,
+          "overall_alternative_minus_main_pp": -0.8051148870838396
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "contrast": "main_common",
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "estimate_pp": 1.1111136047197137,
+          "ci_low_pp": 0.3686119371924651,
+          "ci_high_pp": 2.1462256284119383,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01933381801200862,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -0.785781069071831,
+          "overall_alternative_minus_main_pp": -0.8051148870838396
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "contrast": "alternative_common",
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "estimate_pp": 1.1111136047197137,
+          "ci_low_pp": 0.3686119371924651,
+          "ci_high_pp": 2.1462256284119383,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01933381801200862,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -0.785781069071831,
+          "overall_alternative_minus_main_pp": -0.8051148870838396
+        },
+        {
+          "outcome": "persistent_nonenrollment_two_years",
+          "era": "modern",
+          "contrast": "alternative_full",
+          "cohort_start": 2016,
+          "cohort_end": 2023,
+          "estimate_pp": 0.32533253564788267,
+          "ci_low_pp": -0.17765079945714124,
+          "ci_high_pp": 0.9808907248869857,
+          "confidence_level": 0.95,
+          "status": "ESTIMABLE_DESCRIPTIVE",
+          "main_sample_shift_pp": -0.01933381801200862,
+          "definition_on_common_sample_shift_pp": 0.0,
+          "alternative_sample_shift_pp": -0.785781069071831,
+          "overall_alternative_minus_main_pp": -0.8051148870838396
+        }
+      ],
+      "caption": {
+        "es": "D1/D2 en era moderna, progresión 2016–2024 y ausencia 2016–2023: cuatro contrastes descriptivos por desenlace, en puntos porcentuales; el D2 completo usa IC nominal 98,75 % y los otros tres usan 95 %, todos por escuelas. D2 completo, D2 muestra común, D1 muestra común y D1 completo separan composición de definición. Descomposición progreso: −0,02 + +0,00 + −3,08 = −3,10 pp; ausencia: −0,02 + +0,00 + −0,79 = −0,81 pp. Las sumas usan cifras sin redondear; puede haber discrepancia de centésimas visibles. Histórica 2005–2015: D1 y D2 clasifican los mismos eventos, por lo que no hay contraste discriminante ni punto que graficar. La muestra común y la completa no son idénticas; las diferencias entre puntos carecen de intervalo conjunto y no se interpretan como efecto causal.",
+        "en": "Modern D1/D2, progression 2016–2024 and absence 2016–2023: four descriptive contrasts per outcome, percentage points; full D2 uses a nominal 98.75% interval and the other three use 95%, all clustered by school. Full D2, common-sample D2, common-sample D1 and full D1 separate composition from definition. Progression decomposition: −0.02 + +0.00 + −3.08 = −3.10 pp; absence: −0.02 + +0.00 + −0.79 = −0.81 pp. Sums use unrounded values; displayed hundredths may differ. Historical 2005–2015 D1 and D2 classify the same events, so there is no discriminating contrast or plotted point. Common and full samples differ; point differences have no joint interval and are not interpreted as causal effects."
+      },
+      "alt": {
+        "es": "Ocho puntos modernos: D2 completa y común, D1 común y completa, para progresión y ausencia. Histórica 2005–2015 no discrimina D1 y D2 y carece de punto; intervalos y descomposición en CSV.",
+        "en": "Eight modern points: full and common D2, common and full D1, for progression and absence. Historical 2005–2015 does not discriminate D1 from D2 and has no point; intervals and decomposition in CSV."
+      },
+      "source_citation": {
+        "es": "Fuente: elaboración propia con registros del MINEDUC. Definiciones, cobertura y límites en el anexo metodológico; cifras de este gráfico en la tabla CSV.",
+        "en": "Source: author’s calculations using MINEDUC records. Definitions, coverage, and limitations are in the methodological annex; this chart’s values are in the CSV table."
+      },
+      "axis_bound_pp": 9.467849068670713,
+      "placement": "post"
+    }
+  ],
+  "files": [
+    {
+      "name": "sensitivity-inventory-all.csv",
+      "sha256": "04de381fc7da2efedefd34b746423577e7789cde6c2640009fea7483e6363711",
+      "section": "inventory",
+      "rows": 49
+    },
+    {
+      "name": "sensitivity-did-all.csv",
+      "sha256": "1d64764ded048875b48a492ba18e893d867e50c5a7f1286d12cdb162ffd0c6e7",
+      "section": "did_all",
+      "rows": 37
+    },
+    {
+      "name": "post3-sensitivity-did.csv",
+      "sha256": "aeec3e459a5712221b764879a645712d97394108ea126a80e287249d4c2cb95e",
+      "family": "did",
+      "rows": 4
+    },
+    {
+      "name": "post3-sensitivity-did-es-light-desktop.svg",
+      "sha256": "27923e08028649fe1e8770ec281c3ebc672c27312ffd288ecdea7c009e38d947",
+      "family": "did",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-es-light-desktop.png",
+      "sha256": "9e000c84b793dbca17bbb8d28a832ffef6317dda5b242d09fbbbe7e0038b1ae7",
+      "family": "did",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-es-light-mobile.svg",
+      "sha256": "6315b5506cde0cd9f95587e04e91da5df2558c4c8d96f779e90c2b63ac317dbb",
+      "family": "did",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-es-light-mobile.png",
+      "sha256": "e3c42f185efe53e9c14a3d1056b48e21359476f5066b39ec403490b000925705",
+      "family": "did",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-es-dark-desktop.svg",
+      "sha256": "6acbf589eadad1fb701bf0203e08bddeba75639a0067d7f6ff45e8baae94b63e",
+      "family": "did",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-es-dark-desktop.png",
+      "sha256": "b96f232a13a0a58a2da3568a8db3b7ce5c83a55685f5a9841aa26ad6184cd5c9",
+      "family": "did",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-es-dark-mobile.svg",
+      "sha256": "93ec245fe14359eb32fc50d18bff5e4fabb0111dece04ffd5bd44a430b65857e",
+      "family": "did",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-es-dark-mobile.png",
+      "sha256": "d316d4ec28fb5217cba55103c2cc03d591469d8fadbf634b07dac9ca6e6ed1db",
+      "family": "did",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-en-light-desktop.svg",
+      "sha256": "f9242e4c0b450a07916537f22a93afb0d56bf59083d081e12bb18ed6a820b6a0",
+      "family": "did",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-en-light-desktop.png",
+      "sha256": "23b1dd55b464b1bd63be2a984a34a44826ea2d213e988fa3719c75296d7ba62f",
+      "family": "did",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-en-light-mobile.svg",
+      "sha256": "c03af2c5ce5bde3756d44efbfd0268544e4b4648de612370a405cd4a00736ec3",
+      "family": "did",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-en-light-mobile.png",
+      "sha256": "d1f44fbe9318f8ff14ddec4bb79941a835c90fe5e4146d6f8d9eb2109cee7781",
+      "family": "did",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-en-dark-desktop.svg",
+      "sha256": "efab2a0e2f1f0988b0196ed420bedab674b270cc33139c2f959cb37a669710ce",
+      "family": "did",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-en-dark-desktop.png",
+      "sha256": "24b2b01b06ac34f35c78e3bc48b0435b880c2209088eaca7a7ee0a134bdbe8e5",
+      "family": "did",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-did-en-dark-mobile.svg",
+      "sha256": "43bc54c918a455007c0157a13ef5440a6fab6b7c0e0f8ca7c05d83f0fa72fb37",
+      "family": "did",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-did-en-dark-mobile.png",
+      "sha256": "a68c4f658974885620cb9c9962eccd5f887e2c803f287c0f1d836542d73b69e9",
+      "family": "did",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds.csv",
+      "sha256": "c61b8b7a21a14a72f480ac5c805006ded0e47f42a557df6ff9913dcffb730522",
+      "family": "bounds",
+      "rows": 4
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-light-desktop.svg",
+      "sha256": "a0f549e90a6e62eb17e0e821b916a9cf4bb4c23defe1591567b9e55efd6f3380",
+      "family": "bounds",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-light-desktop.png",
+      "sha256": "8dee17f5b62bba807adf2aa561136b918667d76760ced3592cc630a58e77aa14",
+      "family": "bounds",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-light-mobile.svg",
+      "sha256": "290ab6aea2cc918a77125692ee9a2d70cae55d5633589d296156dee2e83d1427",
+      "family": "bounds",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-light-mobile.png",
+      "sha256": "49d5d7b16fdfd4c5759c23198788d4e5e6eca5d6cf1e040406310bc68814a888",
+      "family": "bounds",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-dark-desktop.svg",
+      "sha256": "648f405ab3bb4e21cffdb7b9e622a4bf6488779d1b38804ecfa689890e517e22",
+      "family": "bounds",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-dark-desktop.png",
+      "sha256": "0e495616be27661b10f2fc6ce393bf3c36ec2c1ae32ec2eeb69ae54d5d3d0654",
+      "family": "bounds",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-dark-mobile.svg",
+      "sha256": "164e53cf1c1b35132169159ace8689801b2eb607eb98dd145a8f58e901193059",
+      "family": "bounds",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-es-dark-mobile.png",
+      "sha256": "2b276d393be3e586553984e66cd7907980ab55ff66389bb84dce4bffcd787a69",
+      "family": "bounds",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-light-desktop.svg",
+      "sha256": "aed83114869c35240d81425a4a66a85d30bb0f22a9e4f8fa0967b296b3cbc178",
+      "family": "bounds",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-light-desktop.png",
+      "sha256": "4452be1008bca2123c90f616a666249507b5977b93ea87de4dac77f4720c2e41",
+      "family": "bounds",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-light-mobile.svg",
+      "sha256": "0a4d451addff42797f272c2b8fdf5f51964b1e2d0449d0896c941b18c7ccb9ec",
+      "family": "bounds",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-light-mobile.png",
+      "sha256": "edce2b2f8d8f713099d1fbd9fffa4c5fa7f9d3ed40586f57cbe0b11f5e8b4008",
+      "family": "bounds",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-dark-desktop.svg",
+      "sha256": "4eb20eefe6f6acda47cc1fcf36c58a5ea1133a877cb0bcd30d4b3dd143538415",
+      "family": "bounds",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-dark-desktop.png",
+      "sha256": "3d7939853c2b938dc188ee7267a9130357baec7b285f675c5755c0d26215deb2",
+      "family": "bounds",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-dark-mobile.svg",
+      "sha256": "dfa624f5457591e78f5c41334c3eb6a94c4014e5b61b33ea8ab1774b792a9883",
+      "family": "bounds",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-bounds-en-dark-mobile.png",
+      "sha256": "6c93636ab76f8487aab64fc5235269449405e80385fbebbe990407e054f484dd",
+      "family": "bounds",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2.csv",
+      "sha256": "495199528984c9ac665c0eb562b0cf28b0d2d3bd00f807ec47aab23ea478ca7f",
+      "family": "d1_d2",
+      "rows": 10
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-light-desktop.svg",
+      "sha256": "93e90f61934531e3a115501f7850229bc2a979ae8761c44a75ef4205370d8f35",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-light-desktop.png",
+      "sha256": "6e4fdb2533b3ac02ba7477b829a26c2dcffac9694a09ea50c6bff2479b07a071",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-light-mobile.svg",
+      "sha256": "438af346ee708318422c434cde1040f9ca9b265b6e110657708b2dbd95b45417",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-light-mobile.png",
+      "sha256": "25b103598320858bdb7c9ccc0f5fd6367c7bb5d8e846309d7d9f758721acf70f",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-dark-desktop.svg",
+      "sha256": "64b916e38984bb06f7fc88257df1efe1e0c3e7fd5cc4cd81b9430e3aa75b61a0",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-dark-desktop.png",
+      "sha256": "b5a8da756f73e76d35919c7747e08c749cd5a56f60c572ea3c7263dace627dc9",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-dark-mobile.svg",
+      "sha256": "576d7740c5ff7fb0addf5013ed39e6ecf298d5421b00531df9cdc422d978315f",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-es-dark-mobile.png",
+      "sha256": "94a9f2cdb234c3dd9e83cd20c3e5c56b5f44c977f1a082f0f5345d88dd646282",
+      "family": "d1_d2",
+      "language": "es",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-light-desktop.svg",
+      "sha256": "e286f1c08dad7bcd92ba73a7279f20d626aa48a582f8b95f8b9c42c2e9076c4d",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-light-desktop.png",
+      "sha256": "f4cc5893b9e54ed3f5177922d21e5ed3c2ea5bbc72786fd15f316071fd266b2b",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "light",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-light-mobile.svg",
+      "sha256": "b1402dea8a1494ceff9fd0be431cc835fb129cb9032eab0530b6ff672e40a827",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-light-mobile.png",
+      "sha256": "bcf4d216500b99bbcd31ba9f76390bba7a770e998dd5262e52339ad7f8373005",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "light",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-dark-desktop.svg",
+      "sha256": "2c6472218179a474b54b192c96d20dd602c861b95fd0f22df62e5da5b8f547fc",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-dark-desktop.png",
+      "sha256": "fa28871e02bd5d6086eeec4ef9427cfe964c51a237aa793706f2f2d2462b5bc9",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "dark",
+      "layout": "desktop"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-dark-mobile.svg",
+      "sha256": "c1d7c3be3957353d798c55a99f2534afbfec68e419175bf80c7057a8c178328a",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    },
+    {
+      "name": "post3-sensitivity-d1-d2-en-dark-mobile.png",
+      "sha256": "045de796a761414cf4d650261711db39f676383dfb3eaa92e13e3a3465a584ab",
+      "family": "d1_d2",
+      "language": "en",
+      "theme": "dark",
+      "layout": "mobile"
+    }
+  ],
+  "source_manifest_sha256": "a66ea7d9ce3048c296c14b1ff6cb9dc49cdba3ab5ea115abb963405245829d2d",
+  "editorial_metadata_sha256": "b122a8b23884ebcb1708c74379497adcbf9bd1dbca01b8cf50fd3444743296ab",
+  "figure_data_sha256": "ad6b0d85714ddfeafd84372dbb623ae386aa3ca633870a8f677236869de19263"
+}

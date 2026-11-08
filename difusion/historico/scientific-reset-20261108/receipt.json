@@ -1,0 +1,225 @@
+{
+  "derivatives": {
+    "difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-carrusel.html": {
+      "archive_sha256": "0ec86bd460f8a31a5c86fe28a27db4ca3e10ae958c0d8db070c7976c3da8e08e",
+      "source_sha256": "0ec86bd460f8a31a5c86fe28a27db4ca3e10ae958c0d8db070c7976c3da8e08e"
+    },
+    "difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-carrusel.json": {
+      "archive_sha256": "f1c1ece47666828bec4337eb3ad411cefcbb4ea1a78526c64aebd61a7dc0d6f9",
+      "source_sha256": "f1c1ece47666828bec4337eb3ad411cefcbb4ea1a78526c64aebd61a7dc0d6f9"
+    },
+    "difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-en-carrusel.html": {
+      "archive_sha256": "cb602f422fa626400403b153cfd58ccfe7af27031cec53eca6e6c6e1b9f80fd6",
+      "source_sha256": "cb602f422fa626400403b153cfd58ccfe7af27031cec53eca6e6c6e1b9f80fd6"
+    },
+    "difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-en-carrusel.json": {
+      "archive_sha256": "59c2d88ada5fe07867cd3dc2dcd45342081ffb8401d039f0bd9022e1b4ff4d2f",
+      "source_sha256": "59c2d88ada5fe07867cd3dc2dcd45342081ffb8401d039f0bd9022e1b4ff4d2f"
+    },
+    "difusion/linkedin/costos-cierre-escolar-trayectorias-carrusel.html": {
+      "archive_sha256": "8c17f5aaabfec43b173c97562757519babbd9e2e23a264b69cf0a1f9629fcedc",
+      "source_sha256": "8c17f5aaabfec43b173c97562757519babbd9e2e23a264b69cf0a1f9629fcedc"
+    },
+    "difusion/linkedin/costos-cierre-escolar-trayectorias-carrusel.json": {
+      "archive_sha256": "4e2b54fdfb80b8d090c9a02c21950b3ad86e7fdd8ab6215035afc16b99531b46",
+      "source_sha256": "4e2b54fdfb80b8d090c9a02c21950b3ad86e7fdd8ab6215035afc16b99531b46"
+    },
+    "difusion/linkedin/costos-cierre-escolar-trayectorias-en-carrusel.html": {
+      "archive_sha256": "504e58f5f8c7b20faa5ead0178d283646bfb71b6f1555c6a202ec2da38c640b8",
+      "source_sha256": "504e58f5f8c7b20faa5ead0178d283646bfb71b6f1555c6a202ec2da38c640b8"
+    },
+    "difusion/linkedin/costos-cierre-escolar-trayectorias-en-carrusel.json": {
+      "archive_sha256": "3218fe64fd1a1b8def797d1200869a43aa9ff123161b3dbd881d66d00f73d71c",
+      "source_sha256": "3218fe64fd1a1b8def797d1200869a43aa9ff123161b3dbd881d66d00f73d71c"
+    }
+  },
+  "diffusion_deferred": true,
+  "note": "Edición anterior: las cifras y textos no son vigentes para la corrección científica III/IV. Los hashes acreditan custodia, no validez científica. No reutilizar para difusión.",
+  "packages": {
+    "cierre-escolar-educacion-superior-causal-ml": {
+      "00-metadata.yaml": {
+        "archive_sha256": "8302c043e5e9a0c843787c87058ac61eb00cd1bff81bcd4d18a75f5ecba4b9ac",
+        "source_sha256": "8302c043e5e9a0c843787c87058ac61eb00cd1bff81bcd4d18a75f5ecba4b9ac"
+      },
+      "01-en-source.md": {
+        "archive_sha256": "0ae5f6d4aa8e5d78c808f7447eeef5fefa27c17f84cc00f8a5d524998fb9b1ac",
+        "source_sha256": "0ae5f6d4aa8e5d78c808f7447eeef5fefa27c17f84cc00f8a5d524998fb9b1ac"
+      },
+      "QA.md": {
+        "archive_sha256": "b78b6bf2f4dc1f34dc57477ce5075832cf5b1d69ec602e70785c48b51f0ababb",
+        "source_sha256": "b78b6bf2f4dc1f34dc57477ce5075832cf5b1d69ec602e70785c48b51f0ababb"
+      },
+      "README.md": {
+        "archive_sha256": "5522bb313604d997d5f1d300f5808d994dcb19ff710ebe8a191bb497c1f1944e",
+        "source_sha256": "5522bb313604d997d5f1d300f5808d994dcb19ff710ebe8a191bb497c1f1944e"
+      },
+      "devto.md": {
+        "archive_sha256": "24e154868eadca861f4bbe160701baac699963d8b1ef687115dba174e56c807f",
+        "source_sha256": "24e154868eadca861f4bbe160701baac699963d8b1ef687115dba174e56c807f"
+      },
+      "hn.txt": {
+        "archive_sha256": "df34c2f1ebb77342dacbacdeac581b08a15f66a6bf36f64925f47ac9077291de",
+        "source_sha256": "df34c2f1ebb77342dacbacdeac581b08a15f66a6bf36f64925f47ac9077291de"
+      },
+      "linkedin.md": {
+        "archive_sha256": "31bd726c6ef191a3345d0558ff676dcfd90b1b4ea56f31bc2fc2e87e8e41cad5",
+        "source_sha256": "31bd726c6ef191a3345d0558ff676dcfd90b1b4ea56f31bc2fc2e87e8e41cad5"
+      },
+      "medium.md": {
+        "archive_sha256": "be77b1c6a7afa0ea8ecf873260405e22d3a8c6d45867ec08d3952a5ca228a085",
+        "source_sha256": "be77b1c6a7afa0ea8ecf873260405e22d3a8c6d45867ec08d3952a5ca228a085"
+      },
+      "podcast/01-fuente.md": {
+        "archive_sha256": "c501ef441108ad3fe1d40729ea19e8d6762e86124e980d04c86c4d8b962c2ba7",
+        "source_sha256": "c501ef441108ad3fe1d40729ea19e8d6762e86124e980d04c86c4d8b962c2ba7"
+      },
+      "podcast/QA.md": {
+        "archive_sha256": "191a72f12713c678975e880fab6f6ac514b884d7dd29d29b4e563d025c179de5",
+        "source_sha256": "191a72f12713c678975e880fab6f6ac514b884d7dd29d29b4e563d025c179de5"
+      },
+      "podcast/README.md": {
+        "archive_sha256": "7fb0727eacdc15bb7c7bbbb6b2a09fecddd6286239faaa5fcdec965a8b37a7ae",
+        "source_sha256": "7fb0727eacdc15bb7c7bbbb6b2a09fecddd6286239faaa5fcdec965a8b37a7ae"
+      },
+      "podcast/guion-breve-QA.md": {
+        "archive_sha256": "01dcbafc395a011178b866ca785b34c4dc68e17cabbac1a2bcd9496510997587",
+        "source_sha256": "01dcbafc395a011178b866ca785b34c4dc68e17cabbac1a2bcd9496510997587"
+      },
+      "podcast/guion-breve.md": {
+        "archive_sha256": "6bbdf7488647c2d53889597f12f578ffbc1b597945edc3c4f746aec709a6bb46",
+        "source_sha256": "6bbdf7488647c2d53889597f12f578ffbc1b597945edc3c4f746aec709a6bb46"
+      },
+      "podcast/guion.md": {
+        "archive_sha256": "6cbfa1cb95160d1b66a00966a4249dd76f8eb54e8d432cb277fa4f8ec39d5692",
+        "source_sha256": "6cbfa1cb95160d1b66a00966a4249dd76f8eb54e8d432cb277fa4f8ec39d5692"
+      },
+      "podcast/origen.yaml": {
+        "archive_sha256": "d6ab7e52e292d51c554eb8f54681dc3314ec1addfd7b4a13293efd428c0fac37",
+        "source_sha256": "4a34f84b953778e0a0d60998e8d37945dac4891e84a09ff4796925526a76d1b8"
+      },
+      "podcast/personalizacion.txt": {
+        "archive_sha256": "e030577811b720ec1559668ad9d2b394f1299dd668fb7dfc95fecdb09836f9cf",
+        "source_sha256": "e030577811b720ec1559668ad9d2b394f1299dd668fb7dfc95fecdb09836f9cf"
+      },
+      "reddit-dataisbeautiful.md": {
+        "archive_sha256": "a63ec6e36a00ad22cbd72e383d6e89f22846e58a74f9c33be49d38570a8f33ba",
+        "source_sha256": "a63ec6e36a00ad22cbd72e383d6e89f22846e58a74f9c33be49d38570a8f33ba"
+      },
+      "reddit-hilos.md": {
+        "archive_sha256": "964da170d8cfd1d76b3aa92ae046c6355d7d39a33e40439518504766460e2012",
+        "source_sha256": "964da170d8cfd1d76b3aa92ae046c6355d7d39a33e40439518504766460e2012"
+      },
+      "social-corto.md": {
+        "archive_sha256": "efc02c794dd5cf298fa3facc13d8f0d055cc34d95c77f7b6c55f8072f5c02df8",
+        "source_sha256": "efc02c794dd5cf298fa3facc13d8f0d055cc34d95c77f7b6c55f8072f5c02df8"
+      },
+      "social.json": {
+        "archive_sha256": "caa94b0bc02ed5280430dd2e20e6fc2b3bcbdf9f9e20c133de22cdca75e32137",
+        "source_sha256": "caa94b0bc02ed5280430dd2e20e6fc2b3bcbdf9f9e20c133de22cdca75e32137"
+      },
+      "x.md": {
+        "archive_sha256": "30f70f48a75eace398cb931eb017ac24de0aebe4f7e06641ade9c30f9bfab1ee",
+        "source_sha256": "30f70f48a75eace398cb931eb017ac24de0aebe4f7e06641ade9c30f9bfab1ee"
+      }
+    },
+    "costos-cierre-escolar-trayectorias": {
+      "00-metadata.yaml": {
+        "archive_sha256": "7b1bdd7a532531c6a82e030c1bf3023003fd3a6d79d7f3544be0bfe89b021088",
+        "source_sha256": "7b1bdd7a532531c6a82e030c1bf3023003fd3a6d79d7f3544be0bfe89b021088"
+      },
+      "01-en-source.md": {
+        "archive_sha256": "b49ad0c54c2bf545373dd855ff8c96dc054ba1f98af3513242a122cd428097c0",
+        "source_sha256": "b49ad0c54c2bf545373dd855ff8c96dc054ba1f98af3513242a122cd428097c0"
+      },
+      "QA.md": {
+        "archive_sha256": "5a9cf869f2b9bb23cab783e81750f11c0f12122e993c27b9d1d32e002e54f5ee",
+        "source_sha256": "5a9cf869f2b9bb23cab783e81750f11c0f12122e993c27b9d1d32e002e54f5ee"
+      },
+      "README.md": {
+        "archive_sha256": "71066f4cdc8f1678d6db6361c1dcf55e0d5b2f8799ba69967560aa43a2fecd12",
+        "source_sha256": "71066f4cdc8f1678d6db6361c1dcf55e0d5b2f8799ba69967560aa43a2fecd12"
+      },
+      "devto.md": {
+        "archive_sha256": "5c8f84e08059247406d33721b97fd3bb2418f6ef36e830ec128d74a5f6a92935",
+        "source_sha256": "5c8f84e08059247406d33721b97fd3bb2418f6ef36e830ec128d74a5f6a92935"
+      },
+      "hn.txt": {
+        "archive_sha256": "46015363171087fb7ef379e4e26b9220f3fac8c43442a841e9a37202fe2a0a6b",
+        "source_sha256": "46015363171087fb7ef379e4e26b9220f3fac8c43442a841e9a37202fe2a0a6b"
+      },
+      "linkedin.md": {
+        "archive_sha256": "827982523414786a28d9a7a37bfca9e605d3ed512dca99ed71c72fe42fd7e991",
+        "source_sha256": "827982523414786a28d9a7a37bfca9e605d3ed512dca99ed71c72fe42fd7e991"
+      },
+      "medium.md": {
+        "archive_sha256": "de56ca7be82117994952b356c62142822174b63e3af85ef0bab2ef940cda6f4e",
+        "source_sha256": "de56ca7be82117994952b356c62142822174b63e3af85ef0bab2ef940cda6f4e"
+      },
+      "podcast/01-fuente.md": {
+        "archive_sha256": "c280ada1050ce3629b1646950278f5c82a7f006996127c269b2d5b2e401704be",
+        "source_sha256": "c280ada1050ce3629b1646950278f5c82a7f006996127c269b2d5b2e401704be"
+      },
+      "podcast/QA.md": {
+        "archive_sha256": "a67a2aff93d73b2eab9675cc169e28db3e9da7900fa31f37e04be8bb39754b4d",
+        "source_sha256": "a67a2aff93d73b2eab9675cc169e28db3e9da7900fa31f37e04be8bb39754b4d"
+      },
+      "podcast/README.md": {
+        "archive_sha256": "8b0f6534288b4c93d77e7f6246239f0485550fafad1239281d7f72800974cfb2",
+        "source_sha256": "8b0f6534288b4c93d77e7f6246239f0485550fafad1239281d7f72800974cfb2"
+      },
+      "podcast/guion-breve-QA.md": {
+        "archive_sha256": "79f4102142040600c96cfe7ac0b2cee7af1d4e888fdbe5e0f0a477bc50aec286",
+        "source_sha256": "79f4102142040600c96cfe7ac0b2cee7af1d4e888fdbe5e0f0a477bc50aec286"
+      },
+      "podcast/guion-breve.md": {
+        "archive_sha256": "dfaeaca0b99d977173c24acd8ba5dcf0c7be78a1746589db67c8cafa71a03fe4",
+        "source_sha256": "dfaeaca0b99d977173c24acd8ba5dcf0c7be78a1746589db67c8cafa71a03fe4"
+      },
+      "podcast/guion.md": {
+        "archive_sha256": "d8296a25d3dfeee9ddd5ddb1de280ea51770af8db53ab779981b1313791daaae",
+        "source_sha256": "d8296a25d3dfeee9ddd5ddb1de280ea51770af8db53ab779981b1313791daaae"
+      },
+      "podcast/origen.yaml": {
+        "archive_sha256": "7ff04b61bdffaf73602bd5a512f70ddfc0c27507c41d82b155641ab6d82c73df",
+        "source_sha256": "f4204d53da9d62c5a9ab8f8ac2511208b2e39dcd99b312ffbcb0f72047ed978e"
+      },
+      "podcast/personalizacion.txt": {
+        "archive_sha256": "1bf86d346fa5da129e3b6ff471b446eaf5fe142ec4af438768c3946744b26c8b",
+        "source_sha256": "1bf86d346fa5da129e3b6ff471b446eaf5fe142ec4af438768c3946744b26c8b"
+      },
+      "reddit-dataisbeautiful.md": {
+        "archive_sha256": "2cad3998e0cf318bf1e362143e9145fc744800d7edfba58d5fca0111fe7399e5",
+        "source_sha256": "2cad3998e0cf318bf1e362143e9145fc744800d7edfba58d5fca0111fe7399e5"
+      },
+      "reddit-hilos.md": {
+        "archive_sha256": "1b3e8f0be48f5fbf91bf55f860ad0ba9db52b4fb7fcdd2d3f15275c86a94db28",
+        "source_sha256": "1b3e8f0be48f5fbf91bf55f860ad0ba9db52b4fb7fcdd2d3f15275c86a94db28"
+      },
+      "social-corto.md": {
+        "archive_sha256": "ca3ea893f6999724080e4c489dbd7eba38c0c6726c917ac9b5b097f00bbfd47c",
+        "source_sha256": "ca3ea893f6999724080e4c489dbd7eba38c0c6726c917ac9b5b097f00bbfd47c"
+      },
+      "social.json": {
+        "archive_sha256": "3eeb75a15c04549508d32f0cb317b36052a64f99aae8b67b7bb53558c51e85bd",
+        "source_sha256": "3eeb75a15c04549508d32f0cb317b36052a64f99aae8b67b7bb53558c51e85bd"
+      },
+      "x.md": {
+        "archive_sha256": "6bba3180567e0e29a18523ef1ce6ea5005d0cb26ac5858824ab56f7662bd450f",
+        "source_sha256": "6bba3180567e0e29a18523ef1ce6ea5005d0cb26ac5858824ab56f7662bd450f"
+      }
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "f45d34f355636a41b1ac514c8115517b0b394d0d",
+  "sources": {
+    "_pages/tesis-post3-anexo-metodologico-en.md": "a9653097b9192249dc49058cfffa0a9767b6a11148e3c29afa0db7f9d8adfcf1",
+    "_pages/tesis-post3-anexo-metodologico.md": "da1c8c48eec2f5fe0b5ecd692c985632c857e1b599c981536b791d59bcb1893f",
+    "_pages/tesis-post4-anexo-metodologico-en.md": "ff2cbcf8b6c4bb69103dd72913e18c0564bc24953774c753aeb9668fcbeaf123",
+    "_pages/tesis-post4-anexo-metodologico.md": "a21103782f404cb5e446899a41c7572a6136398221ec630e266b65f2155d9f05",
+    "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md": "5ef782bb176c03cc4bb26a4ad65a48a7580fdb39532f302b804da3a0413d6fdd",
+    "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "5672354531cf876374e29f883177a539759627e5813ac88143f9d9e935f0d1fd",
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md": "c43eef09582f12dbeae7b3cfa9c783862c24e65e9925371aa6629c2943f4617b",
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "6891c6a41550d25308b73ae616aa71801942628e2d3aab36551a668ae22659fb"
+  },
+  "status": "historical_not_current"
+}
