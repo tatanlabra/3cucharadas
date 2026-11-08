@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "source_sha": "79b00606ee14b0def8e35982ce8ea92dfa21b57b",
+  "red_observation": {
+    "original_gate": "post III public run stopped after row 8/32; no receipt; exit 130 after SIGINT",
+    "retry_without_screenshots": "stopped after row 8/32; no receipt; exit 130 after SIGINT",
+    "instrumented_trace": [
+      "DBG group noJS start es article",
+      "DBG noJS goto done 200",
+      "DBG noJS scroll done 0 { complete: false, naturalWidth: 0, currentSrc: '' }",
+      "DBG noJS evaluate start 0",
+      "no subsequent output before SIGINT"
+    ],
+    "diagnostic_log": "docs/plans/20261108-thesis-production/evidence/figure-correction/verify-thesis-post3-browser-debug.log"
+  },
+  "green_test": {
+    "command": "node docs/plans/20261108-thesis-production/evidence/figure-correction/test-nojs-host-poll.mjs",
+    "exit_code": 0,
+    "javascriptEnabled": false,
+    "slowInitial": false,
+    "neverInitial": false,
+    "slowReady": true,
+    "slowNaturalWidth": 100,
+    "slowElapsedMs": 810,
+    "neverReadyWithin350Ms": false,
+    "neverElapsedMs": 351
+  },
+  "scope": "host Node polling of image.complete; final noJS figure predicate remains unchanged"
+}

@@ -1,0 +1,14 @@
+{"progress":"1/32","post":3,"locale":"es","kind":"article","theme":"light","width":320,"failures":[]}
+{"progress":"2/32","post":3,"locale":"es","kind":"article","theme":"light","width":390,"failures":[]}
+{"progress":"3/32","post":3,"locale":"es","kind":"article","theme":"light","width":768,"failures":[]}
+{"progress":"4/32","post":3,"locale":"es","kind":"article","theme":"light","width":1440,"failures":[]}
+{"progress":"5/32","post":3,"locale":"es","kind":"article","theme":"academic-night","width":320,"failures":[]}
+{"progress":"6/32","post":3,"locale":"es","kind":"article","theme":"academic-night","width":390,"failures":[]}
+{"progress":"7/32","post":3,"locale":"es","kind":"article","theme":"academic-night","width":768,"failures":[]}
+{"progress":"8/32","post":3,"locale":"es","kind":"article","theme":"academic-night","width":1440,"failures":[]}
+DBG group noJS start es article
+DBG noJS goto start es article
+DBG noJS goto done 200
+DBG noJS scroll start 0
+DBG noJS scroll done 0 { complete: false, naturalWidth: 0, currentSrc: '' }
+DBG noJS evaluate start 0

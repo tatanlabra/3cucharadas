@@ -1,0 +1,88 @@
+{
+  "plan_contract_version": 1,
+  "contract_id": "thesis-production",
+  "contract_sha256": "9beb36fa2896eca1d492d0f3d4655a60a479e1a1e30bfce54e833da30e6d0858",
+  "definition_sha256": "719268c00e502ebd842236e3452a33c63ef2e9a78dbb6ea563008c97e5892cbc",
+  "result": "COMPLETE",
+  "integral_complete": true,
+  "filtered": false,
+  "selected_count": 5,
+  "failures": 0,
+  "skips": 0,
+  "authorized_exclusions": [],
+  "unresolved_skips": [],
+  "mandatory_not_done": [],
+  "mandatory_phases_not_done": [],
+  "todo": [
+    {
+      "id": "T0",
+      "phase": "P0",
+      "status": "[x]",
+      "step": "Custodia e invariantes",
+      "evidence": [
+        "AC-P0"
+      ]
+    },
+    {
+      "id": "T1",
+      "phase": "P1",
+      "status": "[x]",
+      "step": "Calidad local y gates",
+      "evidence": [
+        "AC-P1",
+        "AC-GEN"
+      ]
+    },
+    {
+      "id": "T2",
+      "phase": "P2",
+      "status": "[x]",
+      "step": "Remotos y despliegue actual",
+      "evidence": [
+        "AC-P2"
+      ]
+    },
+    {
+      "id": "T3",
+      "phase": "P3",
+      "status": "[x]",
+      "step": "Playwright publico",
+      "evidence": [
+        "AC-P3"
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-P0",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z/AC-P0.json"
+    },
+    {
+      "id": "AC-P1",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z/AC-P1.json"
+    },
+    {
+      "id": "AC-P2",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z/AC-P2.json"
+    },
+    {
+      "id": "AC-P3",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z/AC-P3.json"
+    },
+    {
+      "id": "AC-GEN",
+      "status": "pass",
+      "exit_code": 0,
+      "receipt": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z/AC-GEN.json"
+    }
+  ],
+  "evidence_dir": "activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/r5-integral/thesis-production/20261108T033336.999171Z"
+}

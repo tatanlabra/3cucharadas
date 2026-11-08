@@ -1,0 +1,47 @@
+diff --git a/scripts/verify_thesis_series_browser.mjs b/scripts/verify_thesis_series_browser.mjs
+index 19cf3875..53883866 100644
+--- a/scripts/verify_thesis_series_browser.mjs
++++ b/scripts/verify_thesis_series_browser.mjs
+@@ -537,6 +537,21 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
+   }
+ }
+ 
++export async function waitForImageCompleteNoJs(image, timeoutMs = 15_000) {
++  const deadline = Date.now() + timeoutMs;
++  while (Date.now() < deadline) {
++    const remaining = deadline - Date.now();
++    let complete;
++    try {
++      complete = await bounded(image.evaluate((node) => node.complete), remaining,
++        'nojs-image-poll-timeout');
++    } catch { return false; }
++    if (complete) return true;
++    await new Promise((done) => setTimeout(done, Math.min(250, Math.max(1, deadline - Date.now()))));
++  }
++  return false;
++}
++
+ async function inspectNoJs(browser, config, locale, kind, baseUrl) {
+   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+   const page = await context.newPage();
+@@ -545,16 +560,10 @@ async function inspectNoJs(browser, config, locale, kind, baseUrl) {
+       { waitUntil: 'domcontentloaded', timeout: 30_000 });
+     const rows = page.locator('.page__content figure.post3-figure img.post3-theme-image');
+     for (let i = 0; i < await rows.count(); i += 1) {
+-      await rows.nth(i).scrollIntoViewIfNeeded();
+-      await rows.nth(i).evaluate((image) => {
+-        image.loading = 'eager';
+-        if (image.complete) return null;
+-        return new Promise((done) => {
+-          const timeout = setTimeout(done, 15_000);
+-          image.addEventListener('load', () => { clearTimeout(timeout); done(); }, { once: true });
+-          image.addEventListener('error', () => { clearTimeout(timeout); done(); }, { once: true });
+-        });
+-      });
++      const image = rows.nth(i);
++      await image.scrollIntoViewIfNeeded();
++      await image.evaluate((node) => { node.loading = 'eager'; });
++      await waitForImageCompleteNoJs(image);
+     }
+     return await page.evaluate((payload) => ({
+       locale: payload.locale, kind: payload.kind, httpStatus: payload.status,

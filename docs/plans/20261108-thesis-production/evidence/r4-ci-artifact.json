@@ -1,0 +1,20 @@
+{
+  "sha": "79b00606ee14b0def8e35982ce8ea92dfa21b57b",
+  "pipeline": 3041154458,
+  "status": "success",
+  "jobs": [
+    {
+      "id": 17838028961,
+      "name": "pages",
+      "status": "success"
+    },
+    {
+      "id": 17838028960,
+      "name": "build_site",
+      "status": "success"
+    }
+  ],
+  "artifact_build_job": 17838028960,
+  "zip_sha256": "aa049cdfe7e3199a7d81e9ce40667f7d3aa31ca1ea4196be5f43b6c79d668d1f",
+  "artifact_root": "/tmp/codex-thesis-correction-ci-artifact/public"
+}

@@ -31,6 +31,10 @@ HIGH END se evalúa como calidad editorial medida: jerarquía legible, gráficos
 
 ## Derivas
 
+- D13: la prueba pública sin JavaScript reprodujo una espera infinita del verificador cuando la imagen no estaba completa. Se sustituye la espera de eventos del navegador por sondeo desde Node con plazo de 15 segundos; se conserva el predicado y se exige revisión Claude dirigida.
+
+- Gitleaks bloqueó el primer push por seis SHA256 asociados a rutas visual_tokens. Se verificaron contra los archivos y se registraron excepciones exactas por commit/ruta/regla/línea en .gitleaksignore; el detector siguió rechazando un secreto sintético. Hooks activos en ambos pushes.
+
 - Claude editorial B1–B8: sincronizar límites ES/EN, recuperar cautelas omitidas, retirar metáforas/etiquetas y corregir referencias a un preregistro independiente o estimadores no implementados. La evidencia del productor RCID identifica controles sin cierres registrados y agregación ponderada por expuestos. Se corrigen prosa, alt y etiquetas de la figura III desde su generador; cifras y CSV intactos.
 
 - Corrección humana posterior: restaurar justificación de párrafos; retirar excepción anterior de alineación natural.
@@ -104,7 +108,7 @@ phases:
   rollback: Corregir archivos propios o commit correctivo; nunca force push
   mandatory: true
 - id: P2
-  status: pending
+  status: done
   objective: Remotos y despliegue actual
   depends_on:
   - P1
@@ -115,7 +119,7 @@ phases:
   rollback: Corregir archivos propios o commit correctivo; nunca force push
   mandatory: true
 - id: P3
-  status: pending
+  status: done
   objective: Playwright publico
   depends_on:
   - P2
@@ -177,7 +181,7 @@ tasks:
   - incubadora/tesis_mae_mejorada/tests/*post4_visual_geometry.py
   - incubadora/tesis_mae_mejorada/tests/test_post4_pdf_composition.py
   deliverable: Remotos y despliegue actual
-  status: pending
+  status: done
   acceptance:
   - AC-P2
   mandatory: true
@@ -195,7 +199,7 @@ tasks:
   - incubadora/tesis_mae_mejorada/tests/*post4_visual_geometry.py
   - incubadora/tesis_mae_mejorada/tests/test_post4_pdf_composition.py
   deliverable: Playwright publico
-  status: pending
+  status: done
   acceptance:
   - AC-P3
   mandatory: true
@@ -238,10 +242,10 @@ acceptance:
   falsified_by:
     status: observed
     method: fixture
-    observed_at: '2026-11-08T02:52:56Z'
+    observed_at: '2026-11-08T03:24:24Z'
     fixture_sha256: 09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f
-    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-P0-red.json
-    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-P0-green.json
+    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P0-red.json
+    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P0-green.json
 - id: AC-P1
   phase: P1
   task: T1
@@ -267,10 +271,10 @@ acceptance:
   falsified_by:
     status: observed
     method: fixture
-    observed_at: '2026-11-08T02:53:02Z'
+    observed_at: '2026-11-08T03:24:30Z'
     fixture_sha256: c74e8a248776d56bd97e33abcdc0a1292c0ee3c7f3b4a3eee03d72d7200a929c
-    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-P1-red.json
-    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-P1-green.json
+    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P1-red.json
+    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P1-green.json
 - id: AC-P2
   phase: P2
   task: T2
@@ -290,7 +294,13 @@ acceptance:
     red_input_paths: *id001
     green_input_paths: *id001
     fixture_path: activos/3cucharadas/scripts/verify_thesis_production.py
-  falsified_by: null
+  falsified_by:
+    status: observed
+    method: fixture
+    observed_at: '2026-11-08T03:25:41Z'
+    fixture_sha256: 72d8fac26f54447ac0b95890ed3a125f5ffdacc73a5812bf1f2981df438883e4
+    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P2-red.json
+    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P2-green.json
 - id: AC-P3
   phase: P3
   task: T3
@@ -309,7 +319,13 @@ acceptance:
     red_input_paths: *id001
     green_input_paths: *id001
     fixture_path: activos/3cucharadas/scripts/verify_thesis_visual_quality.mjs
-  falsified_by: null
+  falsified_by:
+    status: observed
+    method: fixture
+    observed_at: '2026-11-08T03:26:37Z'
+    fixture_sha256: c74e8a248776d56bd97e33abcdc0a1292c0ee3c7f3b4a3eee03d72d7200a929c
+    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P3-red.json
+    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-P3-green.json
 - id: AC-GEN
   phase: P1
   task: T1
@@ -329,10 +345,10 @@ acceptance:
   falsified_by:
     status: observed
     method: fixture
-    observed_at: '2026-11-08T02:52:58Z'
+    observed_at: '2026-11-08T03:24:26Z'
     fixture_sha256: d9d25817e4df00ecc840fa48c237f0cc1d698985838fecbab6e4f999d5b4618d
-    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-GEN-red.json
-    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r2/AC-GEN-green.json
+    red_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-GEN-red.json
+    green_receipt: activos/3cucharadas/docs/plans/20261108-thesis-production/evidence/contract-r3/AC-GEN-green.json
 changes:
 - id: CH1
   description: Justificacion, panorama temporal y geometria corregidos; nueva revision Claude
@@ -344,7 +360,7 @@ changes:
   - user-chat:corregir-integralmente-revision-claude-y-productivo
 emergent_tasks: []
 completion:
-  status: in_progress
+  status: complete
   require_all_mandatory_tasks_done: true
   require_all_acceptance_passed: true
   allow_authorized_deferred_exclusions: true

@@ -121,7 +121,7 @@
     "scripts/verify_thesis_post3.rb": "40c5cb33e04fd288167093aecf98b71f40a5c9ad4240f5f70a09ec5fff330aec",
     "scripts/verify_thesis_post3_browser.mjs": "fb501d5fca03904a8a238ae5790c54c005ac178facbe28c1564fe720ea410cef",
     "scripts/verify_thesis_post4_browser.mjs": "d873f3fcdb94d3fc51089838aefb9f046f6cc71d6d8f1de6c7a024dcd9e0a476",
-    "scripts/verify_thesis_series_browser.mjs": "9842cfdf21c3e21ff291d36fac0c0f0e670b3544d2d9af48f675b58c155deafd",
+    "scripts/verify_thesis_series_browser.mjs": "a575bcc1e05d6d068fb5944b3cc1c52cc20971375e904ab45bfab0b6b4665e1e",
     "scripts/verify_thesis_visual_quality.mjs": "c74e8a248776d56bd97e33abcdc0a1292c0ee3c7f3b4a3eee03d72d7200a929c",
     "scripts/verify_visual_assets.rb": "ec524afc38b3b83c6bab690162deca8427c9b92bb4c3d5bdb204908f7068a20d",
     "tests/test_post3_visual_tokens.py": "870593b73ea7f6a268f562e9f07a38e99948ca9b9a0c02f986ec8a0956ecdc61",
@@ -138,7 +138,16 @@
     "../../incubadora/tesis_mae_mejorada/tests/test_post4_visual_geometry.py": "ee6eb250d755e04d762c4f72192eb21ab0e35ed4290e11d04b3cff53be5ab3b9",
     "../../incubadora/tesis_mae_mejorada/tests/verify_post4_visual_geometry.py": "d9d25817e4df00ecc840fa48c237f0cc1d698985838fecbab6e4f999d5b4618d",
     "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/result.md": "d6df917718e23a17110faec006e0cf959bca729f38514d324e420518ef775933",
-    "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/receipt.json": "748e2ca7d5c5d6e336b4883ab2df591cb4654513f8e7540d8764615b429ff8ae"
+    "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/receipt.json": "748e2ca7d5c5d6e336b4883ab2df591cb4654513f8e7540d8764615b429ff8ae",
+    "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/gate-before.mjs": "9842cfdf21c3e21ff291d36fac0c0f0e670b3544d2d9af48f675b58c155deafd",
+    "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/gate.diff": "41c53f066fc785ee3a0f3f205fb2b6c7cbfe0d7fc1fe1a008ca90186410f6c93",
+    "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/briefing.md": "c4ccdaeb85ea84d0f73912e80efa3ebc3e547caa04dd8bbf4763170097929f5c",
+    "docs/plans/20261108-thesis-production/evidence/figure-correction/test-nojs-host-poll.mjs": "d6ade8220972b72765b3156dafd9a5eec486499182fab1dfcc7fc1fe8a86f3b4",
+    "docs/plans/20261108-thesis-production/evidence/figure-correction/r4-nojs-host-poll-falsification.json": "e9db5f045a38eb2bed41fc4fa56ea9c37bfdffd495059dce520e46a76fbe3020",
+    "docs/plans/20261108-thesis-production/evidence/figure-correction/r4-post3-browser-public-incomplete.json": "39665e91d001db2e2fcf50c7bc52135e8ccb4fc01f6e0b18bd4facb445e57111",
+    "docs/plans/20261108-thesis-production/evidence/figure-correction/verify-thesis-post3-browser-debug.log": "21db322e52dc655e76fcf72e6913d8bb8b87447063b7a97dde7c2145ba806f57",
+    "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/result.md": "6ca80b422911c198410e9258f546f902d1f4d7a973c3fafc84200da9fc0b88f4",
+    "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/receipt.json": "1f7d5b6c42ed361427820ccf2dd3fed67f4ec6b7c3358c0333ca171fb5b7f898"
   },
   "original_response": "docs/plans/20261108-thesis-production/evidence/claude-editorial-r4/result.md",
   "original_sha256": "2bf1abff9aa254302567c604e39ed5b515e1291f8d00011397d01d5a59b409e2",
@@ -156,6 +165,13 @@
       "original_sha256": "d6df917718e23a17110faec006e0cf959bca729f38514d324e420518ef775933",
       "receipt": "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/receipt.json",
       "effective_model": "claude-sonnet-5-5"
+    },
+    {
+      "scope": "nojs_wait_gate_only",
+      "original_response": "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/result.md",
+      "original_sha256": "6ca80b422911c198410e9258f546f902d1f4d7a973c3fafc84200da9fc0b88f4",
+      "receipt": "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/receipt.json",
+      "effective_model": "claude-sonnet-5-5"
     }
   ],
   "prior_full_reviews": [
@@ -163,5 +179,14 @@
     "docs/plans/20261108-thesis-production/evidence/claude-editorial-r3/result.md",
     "docs/plans/20261108-thesis-production/evidence/claude-correction/result.md"
   ],
-  "scope": "Complete editorial review chain closed by r4 F1-F6; independent final technical/visual review covers corrected figures, generators, CSS, guards and PDF. Both required before publication."
+  "scope": "Complete editorial review chain closed by r4 F1-F6; independent final technical/visual review covers corrected figures, generators, CSS, guards and PDF. Both required before publication. Directed third review approves no-JavaScript host-polling correction; no article, figure or CSS changes.",
+  "superseded_inputs": [
+    {
+      "path": "scripts/verify_thesis_series_browser.mjs",
+      "previous_sha256": "9842cfdf21c3e21ff291d36fac0c0f0e670b3544d2d9af48f675b58c155deafd",
+      "replacement_sha256": "a575bcc1e05d6d068fb5944b3cc1c52cc20971375e904ab45bfab0b6b4665e1e",
+      "reason": "Host polling replaces disabled browser callbacks; identical final figure predicate",
+      "review": "docs/plans/20261108-thesis-production/evidence/claude-nojs-gate-r1/result.md"
+    }
+  ]
 }

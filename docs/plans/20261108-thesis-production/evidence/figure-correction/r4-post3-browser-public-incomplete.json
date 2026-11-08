@@ -1,0 +1,17 @@
+{
+  "status": "INCOMPLETE",
+  "command": "node scripts/verify_thesis_post3_browser.mjs --base-url https://3cucharadas.cl --artifact-root /tmp/codex-thesis-correction-ci-artifact/public --summary --screenshot-dir /tmp/thesis-correction-public-functional --receipt docs/plans/20261108-thesis-production/evidence/figure-correction/r4-post3-browser-public.json",
+  "source_sha": "79b00606ee14b0def8e35982ce8ea92dfa21b57b",
+  "observed_progress": "8/32",
+  "observed_rows": "ES article; light and academic-night at 320, 390, 768, 1440; all failures []",
+  "last_output": "2026-11-08 03:07:17 UTC, row 8/32",
+  "termination": "SIGINT sent 2026-11-08 03:13 UTC after approximately six minutes without progress; exit 130",
+  "location_of_stall": "after article ES rows and before noJS/print progress; exact operation not yet known",
+  "receipt_written": false,
+  "screenshots": [
+    "/tmp/thesis-correction-public-functional/post3-es-article-light-390.png",
+    "/tmp/thesis-correction-public-functional/post3-es-article-light-1440.png",
+    "/tmp/thesis-correction-public-functional/post3-es-article-academic-night-390.png",
+    "/tmp/thesis-correction-public-functional/post3-es-article-academic-night-1440.png"
+  ]
+}

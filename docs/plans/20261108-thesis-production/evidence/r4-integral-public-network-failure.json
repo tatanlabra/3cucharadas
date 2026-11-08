@@ -1,0 +1,6731 @@
+{
+  "status": "FAIL",
+  "testedAt": "2026-11-08T03:16:53.576Z",
+  "baseUrl": "https://3cucharadas.cl",
+  "matrix": "8 routes x 2 themes x 4 widths",
+  "rows": [
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 103,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 36,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 36,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 95,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 36,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 36,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 94,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 95,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 23,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 27,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 23,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 27,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 19,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 19,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 23,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 27,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 23,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 27,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 19,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 19,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 21,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 28,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 21,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 28,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 18,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 18,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 21,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 28,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 21,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 28,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 18,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post3/territorial-audit-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 18,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "geometry": null,
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": []
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 12.5,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 12.5,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 288,
+        "contentWidth": 288,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 15.54,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 15.54,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 358,
+        "contentWidth": 358,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 17.12,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 732,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 17.12,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 732,
+        "contentWidth": 732,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 732,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 18.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 796,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 18.61,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 796,
+        "contentWidth": 796,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 796,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 12.5,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 12.5,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 288,
+        "contentWidth": 288,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 15.54,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.54,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 358,
+        "contentWidth": 358,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 17.12,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 732,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 17.12,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 732,
+        "contentWidth": 732,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 732,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 18.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 796,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 18.61,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 796,
+        "contentWidth": 796,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 796,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED"
+      ],
+      "externalErrors": [
+        "request:https://3cucharadas.goatcounter.com/count?p=%2Fen%2Fdatos%2Feducacion%2Fpolitica-publica%2Fcierre-escolar-educacion-superior-causal-ml%2F&t=Extending%20my%20thesis%20in%203%20spoonfuls%20(part%20IV)%3A%20do%20school%20closures%20close%20the%20door%20to%20higher%20education%3F%20-%203%20Cucharadas&s=1440&b=153&rnd=0ssd3:net::ERR_NETWORK_CHANGED"
+      ],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 12.5,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 12.5,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 288,
+        "contentWidth": 288,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": [
+        "console-or-network"
+      ]
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [
+        "request:https://3cucharadas.cl/assets/fonts/fira-sans/FiraSans-Medium-sub.woff2:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/fonts/fira-sans/FiraSans-Bold-sub.woff2:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/images/3cucharadas-logo-128.webp:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/site-core.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/theme-toggle.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/site-nav.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/motion.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/lunr/lunr.min.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/images/clabra2026-320.webp:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/en/search-store.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED",
+        "request:https://3cucharadas.cl/assets/js/lunr/lunr-site.js?v=1794106759:net::ERR_NETWORK_CHANGED",
+        "console:Failed to load resource: net::ERR_NETWORK_CHANGED"
+      ],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [
+        {
+          "alt": "3 Cucharadas",
+          "src": "https://3cucharadas.cl/assets/images/3cucharadas-logo-128.webp",
+          "markup": "<img src=\"/assets/images/3cucharadas-logo-128.webp\" alt=\"3 Cucharadas\" loading=\"eager\">",
+          "complete": false
+        },
+        {
+          "alt": "",
+          "src": "https://3cucharadas.cl/assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp",
+          "markup": "<img src=\"/assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp\" srcset=\"/assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero",
+          "complete": false
+        },
+        {
+          "alt": "",
+          "src": "https://3cucharadas.cl/assets/images/clabra2026-320.webp",
+          "markup": "<img class=\"page__byline-avatar\" src=\"/assets/images/clabra2026-320.webp\" width=\"32\" height=\"32\" alt=\"\" decoding=\"async\" loading=\"eager\">",
+          "complete": false
+        },
+        {
+          "alt": "Cristián Labra Olivares",
+          "src": "https://3cucharadas.cl/assets/images/clabra2026-320.webp",
+          "markup": "<img src=\"/assets/images/clabra2026-320.webp\" srcset=\"/assets/images/clabra2026-320.webp 320w, /assets/images/clabra2026.webp 1122w\" sizes=\"(max-width: 1024px) 56px, 160px\" width=\"",
+          "complete": false
+        }
+      ],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 15.54,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 15.54,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 358,
+        "contentWidth": 358,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": [
+        "image-or-variant",
+        "console-or-network"
+      ]
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 17.12,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 732,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 17.12,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 732,
+        "contentWidth": 732,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 732,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 112,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 18.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 796,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 18.61,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 796,
+        "contentWidth": 796,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 796,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 12.5,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 12.5,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 288,
+        "contentWidth": 288,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 15.54,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.54,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 358,
+        "contentWidth": 358,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 17.12,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 732,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 17.12,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 732,
+        "contentWidth": 732,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 732,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 112,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/selection-ladder-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 18.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "geometry": {
+              "unmeasured": false,
+              "family": "selection",
+              "counts": {
+                "value": 10,
+                "rung": 10,
+                "ci": 10,
+                "point": 10,
+                "spine": 8
+              },
+              "renderedWidth": 796,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 18.61,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "imageWidth": 796,
+        "contentWidth": 796,
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "family": "selection",
+            "counts": {
+              "value": 10,
+              "rung": 10,
+              "ci": 10,
+              "point": 10,
+              "spine": 8
+            },
+            "renderedWidth": 796,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 11.04,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 11.04,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.32,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.72,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 13.72,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 14.07,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 11.36,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 11.36,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 457,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 11.36,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 11.36,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 11.04,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 11.04,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.32,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.72,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.72,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 14.07,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 456,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 11.36,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 11.36,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 457,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-es-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 11.36,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 11.36,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 11.43,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.43,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 14.21,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 14.21,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.92,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 10.92,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 455,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-light.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.92,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.34,
+            "minRenderedTextPx": 10.92,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 11.43,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 288,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.43,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 288,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 14.21,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 358,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 14.21,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 358,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.92,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.92,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 455,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "https://3cucharadas.cl/assets/images/tesis-post4/longitudinal-regimes-en-dark.svg",
+        "https://3cucharadas.cl/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.92,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "geometry": {
+              "unmeasured": false,
+              "family": "longitudinal",
+              "counts": {
+                "value": 6,
+                "category": 6,
+                "bar": 6,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.92,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "geometry": {
+              "unmeasured": false,
+              "family": "causal",
+              "counts": {
+                "gateValue": 6,
+                "gateLine": 12,
+                "paesValue": 12,
+                "category": 9,
+                "paesBar": 12,
+                "spine": 8
+              },
+              "renderedWidth": 620,
+              "failures": [],
+              "collisionCount": 0
+            },
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "svgLayout": {
+        "fillRatio": 1
+      },
+      "svgGeometry": {
+        "unmeasured": false,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "family": "longitudinal",
+            "counts": {
+              "value": 6,
+              "category": 6,
+              "bar": 6,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "family": "causal",
+            "counts": {
+              "gateValue": 6,
+              "gateLine": 12,
+              "paesValue": 12,
+              "category": 9,
+              "paesBar": 12,
+              "spine": 8
+            },
+            "renderedWidth": 620,
+            "failures": [],
+            "collisionCount": 0
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    }
+  ],
+  "summary": {
+    "rows": 64,
+    "failed": 2,
+    "screenshots": 0,
+    "minTextContrast": 5.73,
+    "minSvgContrast": 4.67,
+    "minSvgTextPx": 10.28
+  }
+}
