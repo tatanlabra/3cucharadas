@@ -1,0 +1,16 @@
+{
+  "type": "verified-file-hash-false-positives",
+  "findings": [
+    {
+      "fingerprint": "213bfd96922d2b2d35db3a64dcc0895b41a39587:docs/plans/20261108-thesis-production/evidence/r4-approval-before-nojs.json:generic-api-key:118",
+      "path": "scripts/build_post3_visual_tokens.py",
+      "verified_file_sha256": "8c0ccdcd83366f2d3d20f25caaa05c71efab1e6b1124e46df66e5252c6d7ac34"
+    },
+    {
+      "fingerprint": "213bfd96922d2b2d35db3a64dcc0895b41a39587:docs/plans/20261108-thesis-production/evidence/r4-approval-before-nojs.json:generic-api-key:127",
+      "path": "tests/test_post3_visual_tokens.py",
+      "verified_file_sha256": "870593b73ea7f6a268f562e9f07a38e99948ca9b9a0c02f986ec8a0956ecdc61"
+    }
+  ],
+  "scope": "exact commit/path/rule/line fingerprints; detector unchanged"
+}
