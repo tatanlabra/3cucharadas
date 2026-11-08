@@ -1,0 +1,53 @@
+{
+  "blocked_push_exit": 1,
+  "confirmed_false_positives": [
+    {
+      "file": "docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json",
+      "line": 118,
+      "source": "scripts/build_post3_visual_tokens.py",
+      "sha256": "8c0ccdcd83366f2d3d20f25caaa05c71efab1e6b1124e46df66e5252c6d7ac34",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json:generic-api-key:118"
+    },
+    {
+      "file": "docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json",
+      "line": 127,
+      "source": "tests/test_post3_visual_tokens.py",
+      "sha256": "870593b73ea7f6a268f562e9f07a38e99948ca9b9a0c02f986ec8a0956ecdc61",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261107-thesis-editorial-iii-iv/evidence/claude/decision.json:generic-api-key:127"
+    },
+    {
+      "file": "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-before.json",
+      "line": 113,
+      "source": "scripts/build_post3_visual_tokens.py",
+      "sha256": "8c0ccdcd83366f2d3d20f25caaa05c71efab1e6b1124e46df66e5252c6d7ac34",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-before.json:generic-api-key:113"
+    },
+    {
+      "file": "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-before.json",
+      "line": 122,
+      "source": "tests/test_post3_visual_tokens.py",
+      "sha256": "870593b73ea7f6a268f562e9f07a38e99948ca9b9a0c02f986ec8a0956ecdc61",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-before.json:generic-api-key:122"
+    },
+    {
+      "file": "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-final.json",
+      "line": 115,
+      "source": "scripts/build_post3_visual_tokens.py",
+      "sha256": "8c0ccdcd83366f2d3d20f25caaa05c71efab1e6b1124e46df66e5252c6d7ac34",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-final.json:generic-api-key:115"
+    },
+    {
+      "file": "docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-final.json",
+      "line": 124,
+      "source": "tests/test_post3_visual_tokens.py",
+      "sha256": "870593b73ea7f6a268f562e9f07a38e99948ca9b9a0c02f986ec8a0956ecdc61",
+      "fingerprint": "f45d34f355636a41b1ac514c8115517b0b394d0d:docs/plans/20261108-thesis-production/evidence/claude-visual-r2/inputs-final.json:generic-api-key:124"
+    }
+  ],
+  "ignore_scope": "Exact original commit/path/rule/line fingerprints only; no rule disabled",
+  "synthetic_secret_probe": {
+    "exit": 1,
+    "output": "11:56PM INF scanned ~45 bytes (45 bytes) in 67.9ms\n11:56PM WRN leaks found: 1\n"
+  },
+  "raw_build_logs": "Four captured Jekyll logs retain trailing whitespace verbatim; all non-log commit files pass git diff --check; immutable reviewed logs preserved."
+}
