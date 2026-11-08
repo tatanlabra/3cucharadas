@@ -40,6 +40,22 @@ local_residue_paths:
   - assets/dist/memoria_gobernada
   - assets/data/catastro_sii/local
 owned_large_files:
+  assets/data/tesis-scientific-reset/post4-public-projection.json:
+    owner: editorial-tesis-post4
+    role: proyeccion-publica-agregada-para-verificar-resultados-y-cobertura
+    retention: conservar-mientras-el-post-y-su-contrato-cientifico-la-requieran
+  assets/data/tesis-scientific-reset/post4-expected-output-inventory.json:
+    owner: editorial-tesis-post4
+    role: inventario-completo-de-resultados-esperados-y-estados-de-estimabilidad
+    retention: conservar-mientras-el-post-y-su-contrato-cientifico-lo-requieran
+  assets/images/tesis-post4/scientific-reset/public-combined-projection.json:
+    owner: editorial-tesis-post4
+    role: copia-verificada-de-proyeccion-publica-para-reproducir-figuras-primarias
+    retention: conservar-con-el-manifiesto-de-figuras-y-sus-hashes
+  assets/images/tesis-post4/scientific-reset/sensitivity/public-combined-projection.json:
+    owner: editorial-tesis-post4
+    role: copia-verificada-de-proyeccion-publica-para-reproducir-figuras-de-sensibilidad
+    retention: conservar-con-el-manifiesto-de-sensibilidad-y-sus-hashes
   docs/plans/20261107-thesis-editorial-iii-iv/evidence/hero/source.png:
     owner: editorial-tesis-post4
     role: maestro-editorial-v2-con-procedencia-y-variantes-reproducibles
