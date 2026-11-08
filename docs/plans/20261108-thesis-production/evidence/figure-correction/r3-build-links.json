@@ -1,0 +1,22 @@
+{
+  "build_exit": 0,
+  "source_health_exit": 0,
+  "source_report": "r3-source-final.json",
+  "reference_gate": {
+    "exit": 0,
+    "entries": 238,
+    "files": 36
+  },
+  "artifact": {
+    "exit": 0,
+    "bytes": 98841249,
+    "entries": 1802
+  },
+  "links": {
+    "exit": 0,
+    "pages": 8,
+    "local_links": 504
+  },
+  "baseline_exit": 0,
+  "preview": "http://127.0.0.1:4005"
+}

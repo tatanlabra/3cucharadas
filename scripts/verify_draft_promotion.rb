@@ -34,6 +34,7 @@ module DraftPromotionCheck
   module_function
 
   EDITORIAL_CUTOFF_DATE = Date.new(2026, 10, 31)
+  THESIS_JUSTIFIED_REFS = %w[costos-cierre-escolar-trayectorias cierre-escolar-educacion-superior-causal-ml].freeze
   REQUIRED_FRONT_KEYS = %w[
     layout title subtitle date categories tags description excerpt
     author lang ref permalink toc ai_disclosure
@@ -95,6 +96,12 @@ module DraftPromotionCheck
     cleaned.gsub!(/^```.*?^```/m, "")
     cleaned.gsub!(/`[^`]+`/, "")
     cleaned
+  end
+
+  def scoped_thesis_justification?(stylesheet)
+    stylesheet.match?(
+      /\.thesis-extension-post\.post3-evidence\s+\.page__content\s+p\s*\{\s*text-align:\s*justify;\s*hyphens:\s*auto;/
+    )
   end
 
   def clean_liquid_url(raw)
@@ -163,18 +170,18 @@ module DraftPromotionCheck
         errors << "editorial: first-person plural pronoun (nosotros/nuestro) detected; use first-person singular (yo/mi)"
       end
 
-      # 5c. Justificado general; III–IV tienen alineación natural aprobada y
-      # comprobada en navegador, acotada a sus refs y dos clases de presentación.
+      # 5c. Justificado general; III–IV exigen regla CSS acotada que también
+      # alcanza sus anexos. El gate de navegador comprueba el estilo efectivo.
       has_justify_css = body.match?(/text-align\s*:\s*justify/i)
       has_justify_kramdown = body.include?("{: .text-justify}")
-      natural_refs = %w[costos-cierre-escolar-trayectorias cierre-escolar-educacion-superior-causal-ml]
       stylesheet = File.join(root, "assets/css/main.scss")
-      has_scoped_natural = natural_refs.include?(front["ref"]) &&
+      thesis_post = THESIS_JUSTIFIED_REFS.include?(front["ref"])
+      has_scoped_justify = thesis_post &&
         (%w[thesis-extension-post post3-evidence] - Array(front["classes"])).empty? &&
-        File.file?(stylesheet) && File.read(stylesheet).match?(
-          /\.thesis-extension-post\.post3-evidence\s+\.page__content\s+:is\(p,\s*li\)\s*\{\s*text-align:\s*start;/
-        )
-      unless has_justify_css || has_justify_kramdown || has_scoped_natural
+        File.file?(stylesheet) && scoped_thesis_justification?(File.read(stylesheet))
+      if thesis_post && !has_scoped_justify
+        errors << "layout: thesis III–IV require scoped paragraph justification and hyphens: auto"
+      elsif !thesis_post && !(has_justify_css || has_justify_kramdown)
         errors << "layout: missing text justification (add text-align: justify in CSS or {: .text-justify})"
       end
 
@@ -356,7 +363,18 @@ module DraftPromotionCheck
       return false
     end
 
-    puts "CANARY OK (red=9 violations caught, green=0 errors)"
+    stylesheet = File.read(File.join(root, "assets/css/main.scss"))
+    altered = stylesheet.sub(
+      /(\.thesis-extension-post\.post3-evidence\s+\.page__content\s+p\s*\{\s*text-align:\s*)justify;/,
+      '\\1start;'
+    )
+    unless scoped_thesis_justification?(stylesheet) && altered != stylesheet &&
+        !scoped_thesis_justification?(altered)
+      warn "FAIL [canary-thesis-justify]: scoped CSS mutation did not turn the guard red"
+      return false
+    end
+
+    puts "CANARY OK (red=9 violations caught + scoped CSS mutation, green=0 errors)"
     true
   end
 end

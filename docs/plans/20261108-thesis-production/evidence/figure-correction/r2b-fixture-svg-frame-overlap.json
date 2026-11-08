@@ -1,0 +1,104 @@
+{
+  "status": "WRONG_FAILURE",
+  "fixture": "svg-frame-overlap",
+  "isolatedCollision": false,
+  "wouldPassWithoutTargetMark": false,
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 110,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  },
+  "mutant": {
+    "failures": [
+      "svg-label-geometry"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [],
+    "criticalErrors": [],
+    "transientAborts": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-spine-a-right",
+          "crossingPx": [
+            -9649.88,
+            222.77
+          ]
+        },
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-spine-a-top",
+          "crossingPx": [
+            -9819.12,
+            220.77
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-spine-a-right",
+              "crossingPx": [
+                -9649.88,
+                222.77
+              ]
+            },
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-spine-a-top",
+              "crossingPx": [
+                -9819.12,
+                220.77
+              ]
+            }
+          ],
+          "collisionCount": 2
+        }
+      ]
+    }
+  }
+}

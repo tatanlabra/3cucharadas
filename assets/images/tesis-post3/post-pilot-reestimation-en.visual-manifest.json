@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "45ef87566dd2945d4333821a194111345e5214a6608e742729a30ec03a2fe404",
+    "source_sha256": "ad3e36895604a0ead525a9c7aa698d72ce78b3bc8f1ac6a7bada9bd58f8e0245",
     "version": "1.0.0"
   },
   "runtime_dependencies": {

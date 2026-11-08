@@ -1,0 +1,138 @@
+REF avaluos-ii-brecha-residencial
+SOURCE _posts/2026-09-11-avaluos-ii-brecha-residencial-en.md lang=en
+SOURCE _posts/2026-09-11-avaluos-ii-brecha-residencial.md lang=es
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/alt-text.md
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/linkedin.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/social.json
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-01.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-02.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-03.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-04.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-05.txt
+COPY difusion/paquetes/avaluos-ii-brecha-residencial/x-single.txt
+COVERAGE avaluos-ii-brecha-residencial: 2 posts, 9 piezas, 145 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF cierre-escolar-educacion-superior-causal-ml
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md lang=en
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md lang=es
+SOURCE _pages/tesis-post4-anexo-metodologico.md lang=es annex_of=cierre-escolar-educacion-superior-causal-ml
+SOURCE _pages/tesis-post4-anexo-metodologico-en.md lang=en annex_of=cierre-escolar-educacion-superior-causal-ml
+COPY difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-carrusel.html
+COPY difusion/linkedin/cierre-escolar-educacion-superior-causal-ml-en-carrusel.html
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/01-en-source.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/devto.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/hn.txt
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/medium.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/reddit-dataisbeautiful.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/reddit-hilos.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/social-corto.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/social.json
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/x.md
+COVERAGE cierre-escolar-educacion-superior-causal-ml: 2 posts, 2 anexos, 12 piezas, 426 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF costos-cierre-escolar-trayectorias
+SOURCE _posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md lang=en
+SOURCE _posts/2026-10-23-costos-cierre-escolar-trayectorias.md lang=es
+SOURCE _pages/tesis-post3-anexo-metodologico.md lang=es annex_of=costos-cierre-escolar-trayectorias
+SOURCE _pages/tesis-post3-anexo-metodologico-en.md lang=en annex_of=costos-cierre-escolar-trayectorias
+COPY difusion/linkedin/costos-cierre-escolar-trayectorias-carrusel.html
+COPY difusion/linkedin/costos-cierre-escolar-trayectorias-en-carrusel.html
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/01-en-source.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/devto.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/hn.txt
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/medium.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/reddit-dataisbeautiful.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/reddit-hilos.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/social-corto.md
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/social.json
+COPY difusion/paquetes/costos-cierre-escolar-trayectorias/x.md
+COVERAGE costos-cierre-escolar-trayectorias: 2 posts, 2 anexos, 12 piezas, 280 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF extender-tesis-no-es-agregar-anos
+SOURCE _posts/2026-10-11-extender-tesis-no-es-agregar-anos-en.md lang=en
+SOURCE _posts/2026-10-11-extender-tesis-no-es-agregar-anos.md lang=es
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/01-en-source.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/devto.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/hn.txt
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/linkedin.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/medium.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/reddit-dataisbeautiful.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/reddit-hilos.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/social-corto.md
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/social.json
+COPY difusion/paquetes/extender-tesis-no-es-agregar-anos/x.md
+COVERAGE extender-tesis-no-es-agregar-anos: 2 posts, 10 piezas, 160 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF jueces-locales-cpu-laya-vega-arc
+SOURCE _posts/2026-10-31-jueces-locales-cpu-laya-vega-arc-en.md lang=en
+SOURCE _posts/2026-10-31-jueces-locales-cpu-laya-vega-arc.md lang=es
+NORMALIZE decimal 0.4 (es)
+NORMALIZE decimal 0.4 (es)
+NORMALIZE decimal 0.4 (es)
+NORMALIZE decimal 0.4 (es)
+NORMALIZE decimal 0.2 (es)
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/01-en-source.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/correccion-social-DESCARTADA.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/devto.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/hn.txt
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/linkedin.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/medium.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/reddit-target.md
+EXTRACTION /home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/jueces-locales-cpu-laya-vega-arc/reddit-target.md: título, URL y primer comentario; reglas y recordatorios son notas operativas
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/social-corto.md
+COPY difusion/paquetes/jueces-locales-cpu-laya-vega-arc/social.json
+COVERAGE jueces-locales-cpu-laya-vega-arc: 2 posts, 9 piezas, 91 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF multiagente-penta-agent-autopoiesis-parte-iv
+SOURCE _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv-en.md lang=en
+SOURCE _posts/2026-10-31-multiagente-penta-agent-autopoiesis-parte-iv.md lang=es
+NORMALIZE decimal 0.6 (es)
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/01-en-source.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/devto.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/hn.txt
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/linkedin.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/medium.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/reddit-hilos.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/reddit-target.md
+EXTRACTION /home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/reddit-target.md: título, URL y primer comentario; reglas y recordatorios son notas operativas
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/social-corto.md
+COPY difusion/paquetes/multiagente-penta-agent-autopoiesis-parte-iv/social.json
+COVERAGE multiagente-penta-agent-autopoiesis-parte-iv: 2 posts, 9 piezas, 18 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF nushell-coprocesador-estructurado
+SOURCE _posts/2026-08-29-nushell-coprocesador-estructurado-en.md lang=en
+SOURCE _posts/2026-08-29-nushell-coprocesador-estructurado.md lang=es
+COPY difusion/linkedin/nushell-coprocesador-estructurado-carrusel.html
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COPY difusion/paquetes/nushell-coprocesador-estructurado/01-en-source.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/devto.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/hn.txt
+COPY difusion/paquetes/nushell-coprocesador-estructurado/linkedin.md
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COPY difusion/paquetes/nushell-coprocesador-estructurado/medium.md
+COPY difusion/paquetes/nushell-coprocesador-estructurado/reddit-target.md
+EXTRACTION /home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/nushell-coprocesador-estructurado/reddit-target.md: título, URL y primer comentario; reglas y recordatorios son notas operativas
+COPY difusion/paquetes/nushell-coprocesador-estructurado/social-corto.md
+EQUIVALENCE 6239.0 ms -> 6.2 s (1 decimales)
+EQUIVALENCE 9537.0 ms -> 9.5 s (1 decimales)
+COVERAGE nushell-coprocesador-estructurado: 2 posts, 8 piezas, 80 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF replica-tesis-establecimientos-educacionales
+SOURCE _posts/2026-08-29-replica-tesis-establecimientos-educacionales-en.md lang=en
+SOURCE _posts/2026-08-29-replica-tesis-establecimientos-educacionales.md lang=es
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/01-en-source.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/devto.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/hn.txt
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/linkedin.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/medium.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/reddit-dataisbeautiful.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/reddit-hilos.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/social-corto.md
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/social.json
+COPY difusion/paquetes/replica-tesis-establecimientos-educacionales/x.md
+COVERAGE replica-tesis-establecimientos-educacionales: 2 posts, 10 piezas, 133 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+REF rss-gobierna-como-lees
+SOURCE _posts/2026-06-28-rss-en.md lang=en
+SOURCE _posts/2026-06-28-rss.md lang=es
+COPY difusion/paquetes/rss-gobierna-como-lees/social-corto.md
+COVERAGE rss-gobierna-como-lees: 2 posts, 1 piezas, 5 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+PASS: coherencia numérica; 9 ref(s) explícitas

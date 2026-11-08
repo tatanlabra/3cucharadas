@@ -1,8 +1,8 @@
 {
   "accessibility": {
-    "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
+    "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado por expuestos de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
     "keyboard_checked": true,
-    "long_description": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos. Figura 4. Serie histórica 2006–2024 de cierres inferidos desde los datos (RCID v1), subagregados por régimen institucional y brechas basales NNA en G−1. Aunque el agregado de 19 cohortes (+9,11 pp) y sus cotas de Manski (+0,43 a +16,21 pp) no cruzan cero, las asimetrías institucionales y de rotación previa en G−1 impiden promover causalidad.",
+    "long_description": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado por expuestos de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos. Figura 4. Serie histórica 2006–2024 de cierres inferidos desde los datos (RCID v1), subagregados por régimen institucional y brechas basales NNA en G−1. Aunque el agregado de 19 cohortes (+9,11 pp) y sus cotas de Manski (+0,43 a +16,21 pp) no cruzan cero, las asimetrías institucionales y de rotación previa en G−1 impiden promover causalidad.",
     "non_color_encoding": "Posición horizontal/vertical, marcadores diferenciados, bandas sombreadas, líneas de referencia y etiquetas directas.",
     "table_fallback": "cohort-series-infographic-data.csv"
   },
@@ -18,7 +18,7 @@
   "evidence": {
     "data_cut": "Serie completa 2004–2025 bajo RCID v1 (audit/post3_full_series_did_2004_2025_v1.json).",
     "denominator": "19 cohortes estimables de progresión (2006–2024) y 6.190 expuestos vs. 82.753 controles (2016–2019).",
-    "estimand": "ATT(g) ponderado por celda exacta, agregado Callaway y Sant'Anna y diferencia basal ponderada.",
+    "estimand": "ATT(g) ponderado por celda exacta, agregado ponderado por expuestos y diferencia basal ponderada.",
     "population": "56.862 observaciones expuestas y 553.630 controles en 1.028 episodios con soporte (2006–2024).",
     "question": "¿Cómo varía la falla de progresión entre 2006 y 2024 bajo RCID v1 y qué asimetrías NNA persisten en G−1?",
     "transformation": "Pareo exacto por celda, depuración de flujo estudiantil (RCID v1) y cotas de Manski de la serie.",
@@ -30,7 +30,7 @@
   "renderer": {
     "command": "/opt/entornos/mamba312/bin/python scripts/336_post3_visuals.py build",
     "name": "336_post3_visuals",
-    "source_sha256": "45ef87566dd2945d4333821a194111345e5214a6608e742729a30ec03a2fe404",
+    "source_sha256": "ad3e36895604a0ead525a9c7aa698d72ce78b3bc8f1ac6a7bada9bd58f8e0245",
     "version": "1.0.0"
   },
   "runtime_dependencies": {
@@ -68,7 +68,7 @@
       "format": "svg",
       "locale": "es",
       "path": "cohort-series-infographic-es-light.svg",
-      "sha256": "2b01ac5b1a78f061bffedbeb945a58277cd4feb752272764bf5917ccc0507c95",
+      "sha256": "ffbb917c2ac8e6292e94ae36e695ce0df3ac41052445e6038cc79819a8db074b",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -76,7 +76,7 @@
       "format": "png",
       "locale": "es",
       "path": "cohort-series-infographic-es-light.png",
-      "sha256": "c856c3702487bfd6fea19d48e5f15be62c4f682435e78fca2f81a5940c3f94ea",
+      "sha256": "b8ed31a753044a0efc7440640cb175fd8ea450ad4a9da4e7784c4a51daffa89b",
       "theme": "light",
       "viewport": "desktop"
     },
@@ -84,7 +84,7 @@
       "format": "svg",
       "locale": "es",
       "path": "cohort-series-infographic-es-light-mobile.svg",
-      "sha256": "fcf85f2749bcdd8515be9c6bef4313148fbd9d88f949aee6ecf51dc4ff2a5cd2",
+      "sha256": "cc3ac4fb0c97e738e2e95cfac76cf81743f4d51bf537d91bcbaacd9dc11989f1",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -92,7 +92,7 @@
       "format": "png",
       "locale": "es",
       "path": "cohort-series-infographic-es-light-mobile.png",
-      "sha256": "7400f586806c192f9f9bf8427cafe66cc31cafda2b4307ad1d743d87e6847180",
+      "sha256": "85bee02aa726dd3438b399ec40f8dc46886487186de2f3bee548becc88583855",
       "theme": "light",
       "viewport": "mobile"
     },
@@ -100,7 +100,7 @@
       "format": "svg",
       "locale": "es",
       "path": "cohort-series-infographic-es-dark.svg",
-      "sha256": "9f78e7ebb2829a74d2b8c3cda9a8cce3b7fbdf2c43ffa7b5b39626100666e8f3",
+      "sha256": "739213353688aa45b723be3d4b7343d5857c4934d7a512f935a12d120c7a9c53",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -108,7 +108,7 @@
       "format": "png",
       "locale": "es",
       "path": "cohort-series-infographic-es-dark.png",
-      "sha256": "7684752a47903deabd33981144e33dd275a984b8ddb64924083c23a1ee6d3cad",
+      "sha256": "89ef858d9b1e4337c1d727005cee688be532fe5ceed298e42717dc15a69940e3",
       "theme": "dark",
       "viewport": "desktop"
     },
@@ -116,7 +116,7 @@
       "format": "svg",
       "locale": "es",
       "path": "cohort-series-infographic-es-dark-mobile.svg",
-      "sha256": "38850d861ef8f8b648e915ff750ca2c218ed44dc50b882965fab4af27f8e30b5",
+      "sha256": "30407b6a31c44b1a9b4d23a7c7a97c906690533891256672a058a31b2e88060b",
       "theme": "dark",
       "viewport": "mobile"
     },
@@ -124,7 +124,7 @@
       "format": "png",
       "locale": "es",
       "path": "cohort-series-infographic-es-dark-mobile.png",
-      "sha256": "c1b2af9996e09d748f2fda93ee84fd1dbb86951c0514723349c03244e32103fd",
+      "sha256": "4c41108733b53be2a4ce21e0c9fc6aae6adebbb1b74500aefb0361cfdfb8b6ca",
       "theme": "dark",
       "viewport": "mobile"
     }

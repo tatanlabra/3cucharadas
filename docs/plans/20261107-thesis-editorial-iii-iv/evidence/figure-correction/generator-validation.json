@@ -1,0 +1,161 @@
+{
+  "generated_at_utc": "2026-11-08T02:04:14.577344+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "geometry_green",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "POST4_GEOMETRY_OK variants=24 selection_mobile_320_min=12.50px",
+      "expected_text": "POST4_GEOMETRY_OK",
+      "pass": true
+    },
+    {
+      "name": "selection_collision_red",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-selection-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL selection-ladder: label crosses mark selection-value-a-5 / selection-ci-a-5",
+      "expected_text": "EXPECTED_FAIL selection-ladder: label crosses mark selection-value-a-5 / selection-ci-a-5",
+      "pass": true
+    },
+    {
+      "name": "longitudinal_neighbor_collision_red",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-longitudinal-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL longitudinal-regimes: label crosses mark longitudinal-value-1-1 / longitudinal-bar-0-1",
+      "expected_text": "EXPECTED_FAIL longitudinal-regimes: label crosses mark longitudinal-value-1-1 / longitudinal-bar-0-1",
+      "pass": true
+    },
+    {
+      "name": "causal_neighbor_collision_red",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-causal-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL causal-ml-heterogeneity-paes: label crosses mark causal-paes-value-1-1 / causal-paes-bar-0-1",
+      "expected_text": "EXPECTED_FAIL causal-ml-heterogeneity-paes: label crosses mark causal-paes-value-1-1 / causal-paes-bar-0-1",
+      "pass": true
+    },
+    {
+      "name": "causal_gate_line_collision_red",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-causal-gate-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL causal GATE label crosses line causal-gate-value-persist_2yr-0 / causal-gate-line-any_he_two_year-0",
+      "expected_text": "EXPECTED_FAIL causal GATE label crosses line causal-gate-value-persist_2yr-0 / causal-gate-line-any_he_two_year-0",
+      "pass": true
+    },
+    {
+      "name": "pytest",
+      "command": [
+        "/opt/entornos/mamba312/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_post4_visual_geometry.py",
+        "tests/test_post4_pdf_composition.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "................                                                         [100%]",
+      "expected_text": "[100%]",
+      "pass": true
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "/opt/entornos/mamba312/bin/ruff",
+        "check",
+        "scripts/352_post4_visuals.py",
+        "scripts/353_render_and_send_post4_pdf.py",
+        "tests/test_post4_visual_geometry.py",
+        "tests/verify_post4_visual_geometry.py",
+        "tests/test_post4_pdf_composition.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "All checks passed!",
+      "expected_text": "All checks passed!",
+      "pass": true
+    },
+    {
+      "name": "visual_assets_v13",
+      "command": [
+        "ruby",
+        "scripts/verify_visual_assets.rb",
+        "--strict"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "Gate de activos visuales OK: 18 manifest(s), 238 activo(s) referenciados desde 32 posts, 0 aviso(s).",
+      "expected_text": "Gate de activos visuales OK",
+      "pass": true
+    }
+  ],
+  "visual_manifest": {
+    "research_path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_visuals/manifest.json",
+    "blog_path": "/home/ende/Descargas/programaciones/activos/3cucharadas/assets/images/tesis-post4/manifest.json",
+    "sha256": "fe602d8df2df8c9b43378cb2695fc59d7bdba8570f3794d6a14f02276eae6b36",
+    "entries": 51,
+    "mirror_byte_identical": true
+  },
+  "pdf_manifest": {
+    "path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.manifest.json",
+    "sha256": "8c13d6d5636d35b6d5eddb2a9554ec4a33a1ae473d9efa3f5e3bb53d74329656",
+    "pdf_sha256": "b4e6df4ed77f2d222bb465936a8f265c5c0a626f88aac1f18b5620b041cf8b51",
+    "pdf_pages": 23,
+    "figures": 3,
+    "tables": 6,
+    "figure_assets": [
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-es-light.png",
+        "sha256": "cf63526d9e1e1a1104fed2e3674b9f22359bc524f3b9eba2d82b96cdce4a2d4a"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+        "sha256": "fcd9123497a82e2ba8df03b3011f8ace5649fbbe9ce7a45009d4d54abad191fc"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+        "sha256": "ffc9611aff2c407bbec00cb68a80ccbd3d39835f52f3977fd1d38db84010a6af"
+      }
+    ],
+    "source_sha256": "a22d95f88ca41a6b8fc39e14d4ac24f65b9b5a256eef4874e06d9910b5a183b8",
+    "annex_sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+  },
+  "visual_inspection": {
+    "figure1_pdf_page": 5,
+    "figure1_pdf_screenshot": "/tmp/post4-pdf-dedicated-05.png",
+    "inspected_by": "figures_pdf and root",
+    "note": "Figure 1 alone with caption, legible; root reviewed page 5."
+  }
+}

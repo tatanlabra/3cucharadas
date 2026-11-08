@@ -1,0 +1,4640 @@
+{
+  "status": "PASS",
+  "testedAt": "2026-11-08T01:13:16.179Z",
+  "baseUrl": "http://127.0.0.1:4005",
+  "matrix": "8 routes x 2 themes x 4 widths",
+  "rows": [
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 105,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 104,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 105,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 36,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 54,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 36,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 97,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 55,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 37,
+            "minContrast": 5.73,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 10.28,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 10.28,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 36,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 12.78,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 54,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 12.78,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 36,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 96,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "id": "iii-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 97,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.62,
+        "minRenderedTextPx": 13.31,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 55,
+            "minContrast": 7.62,
+            "minRenderedTextPx": 13.31,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 37,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 23,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 27,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 23,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 27,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 19,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 332,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 19,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 23,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 27,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 23,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 27,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 331,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 19,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 332,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 19,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 21,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 28,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 21,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 28,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 18,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.67,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 18,
+            "minContrast": 4.67,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 26,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 13.41,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 21,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 28,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 13.41,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 16.67,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 21,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 28,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 16.67,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 354,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 18,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "id": "iii-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math"
+        ]
+      },
+      "textContrast": {
+        "count": 355,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post3/sample-flow-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post3/territorial-audit-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 15.47,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post3-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 18,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 15.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post3-4",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 26,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 15.47,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.45,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 35,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 14.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 35,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.64,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.64,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.64,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.64,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.45,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 35,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 14.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 35,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 109,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.64,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.64,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.64,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.64,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.45,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 35,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 14.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 35,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.61,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 5.89,
+        "minRenderedTextPx": 11.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 38,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.61,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.45,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 35,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 14.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 35,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 110,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.61,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "id": "iv-article",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 1,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "Font Awesome 6 Free"
+        ]
+      },
+      "textContrast": {
+        "count": 111,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 1,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/selection-ladder-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 1,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "minRenderedTextPx": 11.61,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-1",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 38,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.61,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 11.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 53,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.32,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 13.96,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 13.96,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 53,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 14.07,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 11.27,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.27,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 455,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 11.27,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.27,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 62,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 11.23,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 53,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.32,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 13.96,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 13.96,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 53,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 14.07,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 454,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 11.27,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.27,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "es",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 455,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-es-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 11.27,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.27,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 62,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 11.43,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 52,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.43,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 14.21,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 43,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 52,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 14.21,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 10.97,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 10.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "light",
+      "expectedTheme": "light",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "light",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 452,
+        "unmeasured": false,
+        "minimum": 5.73,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-light.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 4.94,
+        "minRenderedTextPx": 10.97,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 41,
+            "minContrast": 5.89,
+            "minRenderedTextPx": 10.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#faf7f0",
+            "labels": 61,
+            "minContrast": 4.94,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 320,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 11.43,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 11.45,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 52,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.43,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 390,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 14.21,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 43,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 14.23,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 52,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 14.21,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 768,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 16.688,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 451,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 10.97,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 10.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "id": "iv-annex",
+      "locale": "en",
+      "theme": "academic-night",
+      "expectedTheme": "academic-night",
+      "width": 1440,
+      "httpStatus": 200,
+      "expectedFigures": 2,
+      "criticalErrors": [],
+      "externalErrors": [],
+      "themeValue": "academic-night",
+      "documentOverflow": false,
+      "clipped": [],
+      "fonts": {
+        "bodyFira": true,
+        "bodyPx": 18,
+        "faceLoaded": true,
+        "loadedFaces": [
+          "Fira Sans",
+          "Fira Sans",
+          "Fira Sans",
+          "Font Awesome 6 Brands",
+          "Font Awesome 6 Free",
+          "KaTeX_Main",
+          "KaTeX_Math",
+          "KaTeX_Size1",
+          "KaTeX_Size2",
+          "KaTeX_Size4"
+        ]
+      },
+      "textContrast": {
+        "count": 452,
+        "unmeasured": false,
+        "minimum": 9.64,
+        "uncertainBackgrounds": 0,
+        "failures": []
+      },
+      "figureCount": 2,
+      "imagesFailed": [],
+      "figureSourcesFailed": [],
+      "figureSources": [
+        "http://127.0.0.1:4005/assets/images/tesis-post4/longitudinal-regimes-en-dark.svg",
+        "http://127.0.0.1:4005/assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.svg"
+      ],
+      "svgContrast": {
+        "count": 2,
+        "unmeasured": false,
+        "minimum": 7.74,
+        "minRenderedTextPx": 10.97,
+        "failures": [],
+        "figures": [
+          {
+            "id": "fig-post4-2",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 41,
+            "minContrast": 9.64,
+            "minRenderedTextPx": 10.97,
+            "failures": []
+          },
+          {
+            "id": "fig-post4-3",
+            "unmeasured": false,
+            "canvas": "#161616",
+            "labels": 61,
+            "minContrast": 7.74,
+            "minRenderedTextPx": 11.63,
+            "failures": []
+          }
+        ]
+      },
+      "screenshots": [],
+      "screenshotError": null,
+      "transientAborts": [],
+      "failures": []
+    }
+  ],
+  "summary": {
+    "rows": 64,
+    "failed": 0,
+    "screenshots": 0,
+    "minTextContrast": 5.73,
+    "minSvgContrast": 4.67,
+    "minSvgTextPx": 10.28
+  }
+}

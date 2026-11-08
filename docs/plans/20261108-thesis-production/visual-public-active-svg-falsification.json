@@ -1,0 +1,37 @@
+{
+  "status": "EXPECTED_FAIL",
+  "fixture": "broken-active-svg",
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 104,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": []
+  },
+  "mutant": {
+    "failures": [
+      "image-or-variant",
+      "svg-contrast",
+      "svg-text-size",
+      "console-or-network"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [
+      {
+        "alt": "Infografía en tres paneles bajo la regla RCID v1 con 1.141 e",
+        "src": "https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+        "markup": "<img class=\"post3-theme-image\" src=\"/assets/images/tesis-post3/cohort-series-infographic-es-light.svg\" srcset=\"/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.",
+        "complete": false
+      }
+    ],
+    "criticalErrors": [
+      "request:https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg:net::ERR_FAILED",
+      "console:Failed to load resource: net::ERR_FAILED",
+      "request:https://3cucharadas.cl/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg:net::ERR_FAILED",
+      "console:Failed to load resource: net::ERR_FAILED"
+    ],
+    "transientAborts": []
+  }
+}

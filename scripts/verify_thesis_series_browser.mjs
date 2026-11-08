@@ -66,6 +66,14 @@ const option = (args, flag) => {
   const index = args.indexOf(flag);
   return index >= 0 ? args[index + 1] : null;
 };
+const bounded = async (promise, milliseconds, label) => {
+  let timer;
+  try {
+    return await Promise.race([promise, new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(label)), milliseconds);
+    })]);
+  } finally { clearTimeout(timer); }
+};
 const sourcePath = (config, locale, kind) => resolve(siteRoot,
   `${kind === 'article' ? config.post : config.annex}${locale === 'en' ? '-en' : ''}.md`);
 const route = (config, locale, kind) =>
@@ -119,6 +127,26 @@ const manifestBinding = (number, artifactRoot) => {
     sha256: sha256(readFileSync(manifestPath)) };
 };
 
+function normalizeObservedCloudflareHtml(served) {
+  let decodedEmails = 0;
+  let html = served.replace(/href="\/cdn-cgi\/l\/email-protection#([0-9a-f]{4,})"/gi, (match, hex) => {
+    if (hex.length % 2) return match;
+    const bytes = Buffer.from(hex, 'hex');
+    const address = [...bytes.subarray(1)].map((byte) => String.fromCharCode(byte ^ bytes[0])).join('');
+    if (!/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(address)) return match;
+    decodedEmails += 1;
+    return `href="mailto:${address}"`;
+  });
+  const decodeScript = '<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>';
+  const decodeScripts = html.split(decodeScript).length - 1;
+  if (decodeScripts === 1) html = html.replace(decodeScript, '');
+  const beaconTag = /<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js\/[a-z0-9]+" integrity="sha512-[A-Za-z0-9+/=]+" data-cf-beacon='[^']+' crossorigin="anonymous"><\/script>/g;
+  const beacons = (html.match(beaconTag) || []).length;
+  if (beacons === 1) html = html.replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js\/[a-z0-9]+" integrity="sha512-[A-Za-z0-9+/=]+" data-cf-beacon='[^']+' crossorigin="anonymous"><\/script>\r?\n(?=<\/body>)/, '');
+  return { html, safe: decodeScripts <= 1 && beacons <= 1,
+    transformations: { decodedEmails, decodeScripts, beacons } };
+}
+
 function evaluate(row) {
   const errors = [];
   if (row.httpStatus !== 200 || !row.artifactBound || !row.sourceFresh || !row.sourceMarkerBound)
@@ -141,7 +169,8 @@ function evaluate(row) {
   if (!row.publicContentSafe) errors.push('public-content-safety');
   if (!row.themeSurfaceValid) errors.push('theme-surface');
   if (!row.editorialGeometryValid) errors.push('editorial-width-mismatch');
-  if (!row.naturalTextFlowValid) errors.push('unnatural-text-flow');
+  if (!row.paragraphJustificationValid) errors.push('paragraph-justification');
+  if (!row.figureOneWidthValid) errors.push('figure-one-width');
   if (!row.darkPanelToneValid) errors.push('dark-panel-tone-mismatch');
   if (row.criticalErrors.length) errors.push('critical-resource-or-console-error');
   return errors;
@@ -157,7 +186,8 @@ function runFixture(name) {
     dataFallbackValid: true, keyboardFocusValid: true, svgTextMinPx: 10,
     tableWrappersValid: true, tableHeadersScoped: true, tableContractValid: true,
     idsUnique: true, imagesNamed: true, publicContentSafe: true,
-    themeSurfaceValid: true, editorialGeometryValid: true, naturalTextFlowValid: true,
+    themeSurfaceValid: true, editorialGeometryValid: true, paragraphJustificationValid: true,
+    figureOneWidthValid: true,
     darkPanelToneValid: true,
     criticalErrors: []
   };
@@ -171,6 +201,8 @@ function runFixture(name) {
     'missing-table': { tableContractValid: false },
     'missing-visual-identity': { visualIdentityValid: false },
     'mismatched-editorial-width': { editorialGeometryValid: false },
+    'unjustified-paragraph': { paragraphJustificationValid: false },
+    'narrow-figure': { figureOneWidthValid: false },
     'off-theme-panel': { darkPanelToneValid: false },
     'missing-he-agenda': { ivLinkPresent: false },
     'he-blocker': { publicContentSafe: false },
@@ -192,6 +224,8 @@ function runFixture(name) {
     'private-content': 'public-content-safety', 'missing-table': 'table-contract',
     'missing-visual-identity': 'visual-identity-contract',
     'mismatched-editorial-width': 'editorial-width-mismatch',
+    'unjustified-paragraph': 'paragraph-justification',
+    'narrow-figure': 'figure-one-width',
     'off-theme-panel': 'dark-panel-tone-mismatch',
     'missing-he-agenda': 'series-navigation', 'he-blocker': 'public-content-safety',
     'missing-footnote': 'missing-references', 'missing-annex': 'route-artifact-binding',
@@ -225,7 +259,9 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
   });
   try {
     const response = await page.goto(baseUrl + pageRoute, { waitUntil: 'domcontentloaded', timeout: 30_000 });
-    await page.evaluate(() => document.fonts.ready);
+    try {
+      await page.waitForFunction(() => document.fonts.status === 'loaded', null, { timeout: 15_000 });
+    } catch { criticalErrors.push('fonts-load-timeout'); }
     if (liveFixture === 'overflow') {
       await page.evaluate(() => {
         const probe = document.createElement('div');
@@ -233,9 +269,16 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
         probe.style.cssText = 'position:absolute;left:0;top:0;width:10000px;height:1px;';
         document.body.append(probe);
       });
+    } else if (liveFixture === 'unjustified-paragraph') {
+      await page.evaluate(() => document.querySelector('.page__content p')
+        ?.style.setProperty('text-align', 'start', 'important'));
+    } else if (liveFixture === 'narrow-figure') {
+      await page.evaluate(() => document.querySelector('#fig-post4-1')
+        ?.style.setProperty('width', '40%', 'important'));
     }
-    const html = response?.ok() ? await response.text() : '';
+    const html = response?.ok() ? await bounded(response.text(), 15_000, 'html-body-timeout') : '';
     const built = existsSync(artifact) ? readFileSync(artifact, 'utf8') : '';
+    const normalizedServed = normalizeObservedCloudflareHtml(html);
     const sourceText = readFileSync(source, 'utf8');
     const sourceFresh = existsSync(artifact) && statSync(artifact).mtimeMs >= statSync(source).mtimeMs;
     const markers = kind === 'article'
@@ -246,15 +289,27 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
     const figures = page.locator('.page__content figure.post3-figure');
     for (let i = 0; i < await figures.count(); i += 1) {
       await figures.nth(i).scrollIntoViewIfNeeded();
-      await figures.nth(i).locator('img.post3-theme-image').waitFor({ state: 'visible' });
-      await figures.nth(i).locator('img.post3-theme-image').evaluate((image) => {
-        image.loading = 'eager';
-        if (!image.complete) return new Promise((done) => {
-          image.addEventListener('load', done, { once: true });
-          image.addEventListener('error', done, { once: true });
-        });
-        return null;
-      });
+      await figures.nth(i).locator('img.post3-theme-image').waitFor({ state: 'visible', timeout: 15_000 });
+      const loadState = await figures.nth(i).locator('img.post3-theme-image').evaluate((image) =>
+        new Promise((done) => {
+          let settled = false;
+          const finish = (state) => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(timer);
+            image.removeEventListener('load', onLoad);
+            image.removeEventListener('error', onError);
+            done(state);
+          };
+          const onLoad = () => finish('loaded');
+          const onError = () => finish('error');
+          const timer = setTimeout(() => finish('timeout'), 15_000);
+          image.addEventListener('load', onLoad);
+          image.addEventListener('error', onError);
+          image.loading = 'eager';
+          if (image.complete) finish(image.naturalWidth > 0 ? 'loaded' : 'error');
+        }));
+      if (loadState === 'timeout') criticalErrors.push(`image-load-timeout:${await figures.nth(i).getAttribute('id')}`);
     }
     const focusRows = [];
     for (let i = 0; i < await figures.count(); i += 1) {
@@ -270,7 +325,7 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
         && Boolean(document.activeElement?.closest('.figure-data')), await figures.nth(i).getAttribute('id'));
       focusRows.push(visible && fallback);
     }
-    const row = await page.evaluate(async (payload) => {
+    const row = await bounded(page.evaluate(async (payload) => {
       const article = document.querySelector('.page__content');
       const articleBox = article?.getBoundingClientRect();
       const body = article?.innerText || '';
@@ -314,7 +369,7 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
               const target = new URL(link.href);
               const assetPath = target.pathname.replace(/^\/en(?=\/assets\/)/, '');
               if (target.origin !== location.origin) return false;
-              const response = await fetch(link.href);
+              const response = await fetch(link.href, { signal: AbortSignal.timeout(15_000) });
               if (assetPath === '/assets/data/tesis-post4/post4_higher_education_causal_ml_v1.json'
                 && payload.number === 4) {
                 const data = await response.json();
@@ -345,7 +400,8 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
           }));
           let svgTextPx = 0;
           try {
-            const svg = await (await fetch(image.currentSrc)).text();
+            const svg = await (await fetch(image.currentSrc,
+              { signal: AbortSignal.timeout(15_000) })).text();
             const width = Number(svg.match(/viewBox="[^\"]*?\s([0-9.]+)\s[0-9.]+"/)?.[1] || 0);
             const declared = [...svg.matchAll(/font-size:\s*([0-9.]+)px/g)].map((m) => Number(m[1]));
             if (width && declared.length && imageBox) svgTextPx = Math.min(...declared) * imageBox.width / width;
@@ -381,7 +437,9 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
       const expectedLayout = payload.viewport.width < 768 ? '-mobile.svg' : '.svg';
       const firstPara = article?.querySelector(':scope > p:not(.table-caption)');
       const firstBox = firstPara?.getBoundingClientRect();
-      const firstParaStyle = firstPara ? getComputedStyle(firstPara) : null;
+      const paragraphs = [...(article?.querySelectorAll('p') || [])];
+      const figureOne = article?.querySelector('#fig-post4-1');
+      const figureOneBox = figureOne?.getBoundingClientRect();
       return {
         locale: payload.locale, kind: payload.kind, theme: payload.theme,
         viewportWidth: payload.viewport.width,
@@ -439,9 +497,15 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
           const box = wrapper.getBoundingClientRect();
           return Math.abs(box.left - firstBox.left) <= 2 && Math.abs(box.width - firstBox.width) <= 2;
         }),
-        naturalTextFlowValid: Boolean(firstParaStyle)
-          && ['start', 'left'].includes(firstParaStyle.textAlign)
-          && firstParaStyle.hyphens === 'none',
+        paragraphJustificationValid: paragraphs.length > 0 && paragraphs.every((paragraph) => {
+          const style = getComputedStyle(paragraph);
+          return style.textAlign === 'justify' && style.hyphens === 'auto';
+        }),
+        figureOneWidthValid: payload.number !== 4 || payload.kind !== 'article'
+          || Boolean(articleBox && figureOneBox && figureOneBox.width >= articleBox.width * 0.98
+            && figureOneBox.width <= articleBox.width + 2),
+        figureOneWidthRatio: payload.number === 4 && payload.kind === 'article' && articleBox && figureOneBox
+          ? Math.round(figureOneBox.width / articleBox.width * 1000) / 1000 : null,
         darkPanelToneValid: payload.theme !== 'academic-night' || figureRows.every((figure) =>
           figure.canvasToken === nightBackground && figure.surfaceToken === nightLayer
             && figure.surface === rootBackground),
@@ -450,11 +514,13 @@ async function inspectPage(browser, config, locale, kind, theme, viewport, baseU
     }, {
       locale, kind, theme, viewport, title: sourceTitle(source), slug: config.slug,
       number: config.current, post4CsvContracts
-    });
+    }), 60_000, 'rendered-figure-evaluation-timeout');
     Object.assign(row, {
       route: pageRoute, httpStatus: response?.status() || 0,
-      artifactBound: Boolean(html && built && html === built), sourceFresh, sourceMarkerBound,
+      artifactBound: Boolean(html && built && normalizedServed.safe && normalizedServed.html === built), sourceFresh, sourceMarkerBound,
       artifactSha256: built ? sha256(built) : null, servedSha256: html ? sha256(html) : null,
+      normalizedServedSha256: html ? sha256(normalizedServed.html) : null,
+      cloudflareTransformations: normalizedServed.transformations,
       sourceSha256: sha256(sourceText), expectedFigures: config.figures[kind],
       keyboardFocusValid: focusRows.length === row.figureCount && focusRows.every(Boolean),
       tableContractValid: true, criticalErrors
@@ -475,9 +541,21 @@ async function inspectNoJs(browser, config, locale, kind, baseUrl) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
   const page = await context.newPage();
   try {
-    const response = await page.goto(baseUrl + route(config, locale, kind), { waitUntil: 'domcontentloaded' });
+    const response = await page.goto(baseUrl + route(config, locale, kind),
+      { waitUntil: 'domcontentloaded', timeout: 30_000 });
     const rows = page.locator('.page__content figure.post3-figure img.post3-theme-image');
-    for (let i = 0; i < await rows.count(); i += 1) await rows.nth(i).scrollIntoViewIfNeeded();
+    for (let i = 0; i < await rows.count(); i += 1) {
+      await rows.nth(i).scrollIntoViewIfNeeded();
+      await rows.nth(i).evaluate((image) => {
+        image.loading = 'eager';
+        if (image.complete) return null;
+        return new Promise((done) => {
+          const timeout = setTimeout(done, 15_000);
+          image.addEventListener('load', () => { clearTimeout(timeout); done(); }, { once: true });
+          image.addEventListener('error', () => { clearTimeout(timeout); done(); }, { once: true });
+        });
+      });
+    }
     return await page.evaluate((payload) => ({
       locale: payload.locale, kind: payload.kind, httpStatus: payload.status,
       noOverflow: document.documentElement.scrollWidth <= document.documentElement.clientWidth + 2,
@@ -493,7 +571,8 @@ async function inspectPrint(browser, config, locale, kind, baseUrl) {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const page = await context.newPage();
   try {
-    const response = await page.goto(baseUrl + route(config, locale, kind), { waitUntil: 'domcontentloaded' });
+    const response = await page.goto(baseUrl + route(config, locale, kind),
+      { waitUntil: 'domcontentloaded', timeout: 30_000 });
     const images = page.locator('.page__content img.post3-theme-image');
     await images.evaluateAll((nodes) => nodes.forEach((image) => { image.loading = 'eager'; }));
     for (let i = 0; i < await images.count(); i += 1) await images.nth(i).scrollIntoViewIfNeeded();
@@ -538,6 +617,7 @@ export async function main(number) {
     process.exitCode = 2;
     return;
   }
+  const baseUrl = (option(args, '--base-url') || 'http://127.0.0.1:4004').replace(/\/$/, '');
   const manifestFixture = option(args, '--manifest-fixture');
   if (manifestFixture) {
     if (number !== 4 || manifestFixture !== 'missing-csv') {
@@ -565,7 +645,41 @@ export async function main(number) {
     } finally { rmSync(scratch, { recursive: true, force: true }); }
     return;
   }
-  const baseUrl = (option(args, '--base-url') || 'http://127.0.0.1:4004').replace(/\/$/, '');
+  const htmlFixture = option(args, '--html-fixture');
+  if (htmlFixture) {
+    if (number !== 3 || htmlFixture !== 'changed-prose-and-extra-script') {
+      console.error(JSON.stringify({ status: 'ERROR', error: `unknown HTML fixture: ${htmlFixture}` }));
+      process.exitCode = 2;
+      return;
+    }
+    const pageRoute = route(config, 'es', 'article');
+    const response = await fetch(baseUrl + pageRoute, { signal: AbortSignal.timeout(15_000) });
+    const served = await response.text();
+    const built = readFileSync(resolve(artifactRoot, pageRoute.replace(/^\//, ''), 'index.html'), 'utf8');
+    const proseMutant = served.replace('Una escuela puede dejar de figurar', 'Una escuela no puede dejar de figurar');
+    const scriptMutant = served.replace('</body>', '<script src="/assets/js/unexpected.js"></script>\n</body>');
+    const baseline = normalizeObservedCloudflareHtml(served);
+    const duplicateDecode = served.replace(
+      '<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>',
+      '<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'.repeat(2));
+    const beaconProbe = '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vtest" integrity="sha512-AAAA" data-cf-beacon=\'{}\' crossorigin="anonymous"></script>\n';
+    const duplicateBeacon = served.replace('</body>', `${beaconProbe}${beaconProbe}</body>`);
+    const proseRejected = proseMutant !== served && normalizeObservedCloudflareHtml(proseMutant).html !== built;
+    const scriptRejected = scriptMutant !== served && normalizeObservedCloudflareHtml(scriptMutant).html !== built;
+    const duplicateDecodeRejected = duplicateDecode !== served
+      && !normalizeObservedCloudflareHtml(duplicateDecode).safe;
+    const duplicateBeaconRejected = duplicateBeacon !== served
+      && !normalizeObservedCloudflareHtml(duplicateBeacon).safe;
+    const discriminates = response.ok && baseline.safe && baseline.html === built && proseRejected
+      && scriptRejected && duplicateDecodeRejected && duplicateBeaconRejected;
+    console.log(JSON.stringify({ status: discriminates ? 'EXPECTED_FAIL' : 'WRONG_FAILURE',
+      htmlFixture, baselineBound: baseline.safe && baseline.html === built,
+      cloudflareTransformations: baseline.transformations, proseRejected, scriptRejected,
+      duplicateDecodeRejected, duplicateBeaconRejected,
+      builtSha256: sha256(built), normalizedServedSha256: sha256(baseline.html) }));
+    process.exitCode = discriminates ? 1 : 2;
+    return;
+  }
   const requestedLanguage = option(args, '--lang');
   if (requestedLanguage && !['es', 'en'].includes(requestedLanguage)) {
     console.error(JSON.stringify({ status: 'ERROR', error: `unknown language: ${requestedLanguage}` }));
@@ -574,7 +688,8 @@ export async function main(number) {
   }
   const locales = requestedLanguage ? [requestedLanguage] : ['es', 'en'];
   const liveFixture = option(args, '--live-fixture');
-  if (liveFixture && !['missing-annex', 'overflow'].includes(liveFixture)) {
+  if (liveFixture && (!['missing-annex', 'overflow', 'unjustified-paragraph', 'narrow-figure'].includes(liveFixture)
+      || (liveFixture === 'narrow-figure' && number !== 4))) {
     console.error(JSON.stringify({ status: 'ERROR', error: `unknown live fixture: ${liveFixture}` }));
     process.exitCode = 2;
     return;
@@ -596,32 +711,48 @@ export async function main(number) {
   if (liveFixture) {
     try {
       const kind = liveFixture === 'missing-annex' ? 'annex' : 'article';
-      const viewport = { width: 390, height: 844 };
+      const viewport = liveFixture === 'narrow-figure'
+        ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
       const baseline = await inspectPage(browser, config, 'es', kind, 'light', viewport,
         baseUrl, artifactRoot, null);
       const mutated = await inspectPage(browser, config, 'es', kind, 'light', viewport,
         baseUrl, artifactRoot, null, liveFixture);
-      const expected = liveFixture === 'missing-annex' ? 'route-artifact-binding' : 'document-overflow';
+      const expected = {
+        'missing-annex': 'route-artifact-binding', overflow: 'document-overflow',
+        'unjustified-paragraph': 'paragraph-justification', 'narrow-figure': 'figure-one-width'
+      }[liveFixture];
       const discriminates = baseline.failures.length === 0 && mutated.failures.includes(expected)
-        && (liveFixture === 'missing-annex' ? mutated.httpStatus === 404 : mutated.documentOverflow);
+        && (liveFixture === 'missing-annex' ? mutated.httpStatus === 404
+          : liveFixture === 'overflow' ? mutated.documentOverflow
+            : liveFixture === 'narrow-figure' ? mutated.figureOneWidthRatio < 0.98
+              : !mutated.paragraphJustificationValid);
       console.log(JSON.stringify({ status: discriminates ? 'EXPECTED_FAIL' : 'WRONG_FAILURE',
         liveFixture, baseline: { httpStatus: baseline.httpStatus, failures: baseline.failures,
           tableCount: baseline.tableCount, tableWrappersValid: baseline.tableWrappersValid,
           tableHeadersScoped: baseline.tableHeadersScoped, sourceFresh: baseline.sourceFresh },
         mutated: { httpStatus: mutated.httpStatus, failures: mutated.failures,
-          documentOverflow: mutated.documentOverflow }, expected }));
+          documentOverflow: mutated.documentOverflow,
+          paragraphJustificationValid: mutated.paragraphJustificationValid,
+          figureOneWidthRatio: mutated.figureOneWidthRatio }, expected }));
       process.exitCode = discriminates ? 1 : 2;
     } finally { await browser.close(); }
     return;
   }
   const rows = [], noJs = [], print = [];
+  const totalRows = locales.length * 2 * themes.length * viewports.length;
   try {
     for (const locale of locales) for (const kind of ['article', 'annex']) {
-      for (const theme of themes) for (const viewport of viewports)
-        rows.push(await inspectPage(browser, config, locale, kind, theme, viewport,
-          baseUrl, artifactRoot, screenshotDir));
+      for (const theme of themes) for (const viewport of viewports) {
+        const row = await inspectPage(browser, config, locale, kind, theme, viewport,
+          baseUrl, artifactRoot, screenshotDir);
+        rows.push(row);
+        process.stderr.write(`${JSON.stringify({ progress: `${rows.length}/${totalRows}`, post: number,
+          locale, kind, theme, width: viewport.width, failures: row.failures })}\n`);
+      }
       noJs.push(await inspectNoJs(browser, config, locale, kind, baseUrl));
       print.push(await inspectPrint(browser, config, locale, kind, baseUrl));
+      process.stderr.write(`${JSON.stringify({ progress: `${rows.length}/${totalRows}`, post: number,
+        locale, kind, noJs: noJs.at(-1).figures, print: print.at(-1).figuresVisible })}\n`);
     }
   } finally { await browser.close(); }
   const groups = new Map();
@@ -640,7 +771,8 @@ export async function main(number) {
     || row.navLinks !== 4 || !row.figures);
   const printFailures = print.filter((row) => row.httpStatus !== 200 || !row.figuresVisible);
   const cssArtifact = resolve(artifactRoot, 'assets/css/main.css');
-  const cssResponse = await fetch(`${baseUrl}/assets/css/main.css`);
+  const cssResponse = await fetch(`${baseUrl}/assets/css/main.css`,
+    { signal: AbortSignal.timeout(15_000) });
   const cssServed = cssResponse.ok ? Buffer.from(await cssResponse.arrayBuffer()) : null;
   const cssBound = Boolean(cssServed && existsSync(cssArtifact)
     && sha256(cssServed) === sha256(readFileSync(cssArtifact)));

@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "generated_at_utc": "2026-11-08T02:45:49.626625+00:00",
+  "checks": [
+    {
+      "name": "visual_generation",
+      "command": "/opt/entornos/mamba312/bin/python scripts/352_post4_visuals.py",
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "observed": "POST4_VISUALS_OK visuals=48 files=51 csvs=3"
+    },
+    {
+      "name": "geometry_green",
+      "command": "/opt/entornos/mamba312/bin/python tests/verify_post4_visual_geometry.py",
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "observed": "POST4_GEOMETRY_OK variants=24 selection_mobile_320_min=12.50px"
+    },
+    {
+      "name": "pdf_render",
+      "command": "/opt/entornos/mamba312/bin/python scripts/353_render_and_send_post4_pdf.py render",
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "observed": "POST4_ODT_AND_PDF_VERIFIED pages=24 figures=3 tables=6; LibreOffice required approved escalation"
+    },
+    {
+      "name": "pytest",
+      "command": "/opt/entornos/mamba312/bin/python -m pytest -q tests/test_post4_visual_geometry.py tests/test_post4_pdf_composition.py",
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "observed": "19 passed"
+    },
+    {
+      "name": "ruff",
+      "command": "/opt/entornos/mamba312/bin/ruff check scripts/352_post4_visuals.py scripts/353_render_and_send_post4_pdf.py tests/test_post4_visual_geometry.py tests/verify_post4_visual_geometry.py tests/test_post4_pdf_composition.py",
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "observed": "All checks passed!"
+    },
+    {
+      "name": "v13_global",
+      "command": "ruby scripts/verify_visual_assets.rb --strict",
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "exit": 0,
+      "observed": "18 manifests, 238 assets, 32 posts, 0 warnings"
+    }
+  ],
+  "visual_manifest": {
+    "path": "/home/ende/Descargas/programaciones/activos/3cucharadas/assets/images/tesis-post4/manifest.json",
+    "sha256": "d3f354f8784d0f8806a5b0cd9238e044a69d2a2eb4d0485add367a0d4b7e9c97",
+    "entries": 51,
+    "mirror_byte_identical": true,
+    "files_match_hashes": true,
+    "source_sha256": "9c3726048021a1cf5ac697cd92a119173863ab06e0ebc479eedc78635991c436",
+    "csv_sha256": {
+      "selection-ladder-data.csv": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633",
+      "longitudinal-regimes-data.csv": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1",
+      "causal-ml-heterogeneity-paes-data.csv": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    }
+  },
+  "pdf_manifest": {
+    "path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.manifest.json",
+    "sha256": "fc9f95ae56074cf43385401ac8f8a89aeaf0d3e8bcbaac0cd3209ae68cd269c4",
+    "pdf_sha256": "d866c2d255f1e9f3088dbda1f2b265724e9b1d5a0b99bee6cff2689c4b0cdc27",
+    "pdf_pages": 24,
+    "figures": 3,
+    "tables": 6,
+    "source_sha256": "6891c6a41550d25308b73ae616aa71801942628e2d3aab36551a668ae22659fb",
+    "annex_sha256": "a21103782f404cb5e446899a41c7572a6136398221ec630e266b65f2155d9f05",
+    "image_sha256": [
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-es-light.png",
+        "sha256": "0bc9743e1aaadd44013c4282eb2eddd3c2d7c560a85598e4302797ecaaa6f389"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+        "sha256": "26c661d5e0f3953e8c5ad9eed612db14bc81351df9ed33e119f00de3700bfa62"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+        "sha256": "82b7a85e85bda477764f82431f5a4baec3bd4fb57a80f18e3dd9cd1622ba0c2e"
+      }
+    ],
+    "all_hashes_current": true
+  },
+  "negative_guards": "Six producer/browser mutants were proven red in r3/r2 receipts; not rerun after r4 label-only edit. Geometry green rerun on all 24 variants."
+}

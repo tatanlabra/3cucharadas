@@ -364,7 +364,7 @@
   "editorial": {
     "en": {
       "cohort-series-infographic": {
-        "alt": "Three-panel infographic under the RCID v1 rule. Panel A displays the 19 estimable annual cohorts for progression failure or grade lag from 2006 to 2024: all 19 point estimates are positive, ranging from 0.94 to 28.22 percentage points, with a median of 7.18 and a Callaway and Sant'Anna student-weighted aggregate of 9.11 points whose Manski bounds span 0.43 to 16.21. Panel B shows attenuation across institutional regimes from 12.15 points in 2006–2010 and 7.82 in 2011–2015 to 5.29 in 2016–2019, 2.70 in 2020–2022, and 2.59 in 2023–2024. Panel C shows G minus 1 baseline gaps after exact matching: individual SEP eligibility is balanced at minus 1.07 points, whereas exposed students face lower school SEP agreements at minus 10.06 points, lower full-day schooling at minus 18.54 points, lower valid record coverage at minus 19.24 points, and higher prior school switching at plus 16.52 points.",
+        "alt": "Three-panel infographic under the RCID v1 rule. Panel A displays the 19 estimable annual cohorts for progression failure or grade lag from 2006 to 2024: all 19 point estimates are positive, ranging from 0.94 to 28.22 percentage points, with a median of 7.18 and an exposed-weighted aggregate of 9.11 points whose Manski bounds span 0.43 to 16.21. Panel B shows attenuation across institutional regimes from 12.15 points in 2006–2010 and 7.82 in 2011–2015 to 5.29 in 2016–2019, 2.70 in 2020–2022, and 2.59 in 2023–2024. Panel C shows G minus 1 baseline gaps after exact matching: individual SEP eligibility is balanced at minus 1.07 points, whereas exposed students face lower school SEP agreements at minus 10.06 points, lower full-day schooling at minus 18.54 points, lower valid record coverage at minus 19.24 points, and higher prior school switching at plus 16.52 points.",
         "caption": "Figure 4. Historical 2006–2024 series of data-inferred closures (RCID v1), regime sub-aggregates, and G−1 NNA baseline gaps. Although the 19-cohort aggregate (+9.11 pp) and its Manski bounds (+0.43 to +16.21 pp) exclude zero, institutional and prior-mobility asymmetries at G−1 still preclude causal promotion."
       },
       "post-pilot-reestimation": {
@@ -382,7 +382,7 @@
     },
     "es": {
       "cohort-series-infographic": {
-        "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado de Callaway y Sant'Anna de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
+        "alt": "Infografía en tres paneles bajo la regla RCID v1. El panel A muestra las 19 cohortes anuales estimables de falla de progresión o rezago entre 2006 y 2024: las 19 son positivas, con rango de 0,94 a 28,22 puntos porcentuales, mediana de 7,18 y agregado ponderado por expuestos de 9,11 puntos, cuyas cotas de Manski van de 0,43 a 16,21. El panel B resume la atenuación por régimen institucional desde 12,15 puntos en 2006–2010 y 7,82 en 2011–2015 hasta 5,29 en 2016–2019, 2,70 en 2020–2022 y 2,59 en 2023–2024. El panel C muestra las brechas basales en G menos 1 tras el pareo exacto: la elegibilidad SEP es similar, con menos 1,07 puntos, pero los expuestos asisten a escuelas con menos convenio SEP, menos 10,06 puntos, menos JEC, menos 18,54 puntos, menor cobertura de acta, menos 19,24 puntos, y mayor rotación previa, más 16,52 puntos.",
         "caption": "Figura 4. Serie histórica 2006–2024 de cierres inferidos desde los datos (RCID v1), subagregados por régimen institucional y brechas basales NNA en G−1. Aunque el agregado de 19 cohortes (+9,11 pp) y sus cotas de Manski (+0,43 a +16,21 pp) no cruzan cero, las asimetrías institucionales y de rotación previa en G−1 impiden promover causalidad."
       },
       "post-pilot-reestimation": {
@@ -929,179 +929,179 @@
       "theme": "dark"
     },
     {
-      "bytes": 86749,
+      "bytes": 85932,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "es",
       "layout": "desktop",
       "path": "cohort-series-infographic-es-light.svg",
-      "sha256": "2b01ac5b1a78f061bffedbeb945a58277cd4feb752272764bf5917ccc0507c95",
+      "sha256": "ffbb917c2ac8e6292e94ae36e695ce0df3ac41052445e6038cc79819a8db074b",
       "theme": "light"
     },
     {
-      "bytes": 348562,
+      "bytes": 346395,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "cohort-series-infographic-es-light.png",
-      "sha256": "c856c3702487bfd6fea19d48e5f15be62c4f682435e78fca2f81a5940c3f94ea",
+      "sha256": "b8ed31a753044a0efc7440640cb175fd8ea450ad4a9da4e7784c4a51daffa89b",
       "theme": "light"
     },
     {
-      "bytes": 83972,
+      "bytes": 83420,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "es",
       "layout": "mobile",
       "path": "cohort-series-infographic-es-light-mobile.svg",
-      "sha256": "fcf85f2749bcdd8515be9c6bef4313148fbd9d88f949aee6ecf51dc4ff2a5cd2",
+      "sha256": "cc3ac4fb0c97e738e2e95cfac76cf81743f4d51bf537d91bcbaacd9dc11989f1",
       "theme": "light"
     },
     {
-      "bytes": 311929,
+      "bytes": 312652,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "cohort-series-infographic-es-light-mobile.png",
-      "sha256": "7400f586806c192f9f9bf8427cafe66cc31cafda2b4307ad1d743d87e6847180",
+      "sha256": "85bee02aa726dd3438b399ec40f8dc46886487186de2f3bee548becc88583855",
       "theme": "light"
     },
     {
-      "bytes": 86749,
+      "bytes": 85932,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "es",
       "layout": "desktop",
       "path": "cohort-series-infographic-es-dark.svg",
-      "sha256": "9f78e7ebb2829a74d2b8c3cda9a8cce3b7fbdf2c43ffa7b5b39626100666e8f3",
+      "sha256": "739213353688aa45b723be3d4b7343d5857c4934d7a512f935a12d120c7a9c53",
       "theme": "dark"
     },
     {
-      "bytes": 351948,
+      "bytes": 350021,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "es",
       "layout": "desktop",
       "path": "cohort-series-infographic-es-dark.png",
-      "sha256": "7684752a47903deabd33981144e33dd275a984b8ddb64924083c23a1ee6d3cad",
+      "sha256": "89ef858d9b1e4337c1d727005cee688be532fe5ceed298e42717dc15a69940e3",
       "theme": "dark"
     },
     {
-      "bytes": 83972,
+      "bytes": 83420,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "es",
       "layout": "mobile",
       "path": "cohort-series-infographic-es-dark-mobile.svg",
-      "sha256": "38850d861ef8f8b648e915ff750ca2c218ed44dc50b882965fab4af27f8e30b5",
+      "sha256": "30407b6a31c44b1a9b4d23a7c7a97c906690533891256672a058a31b2e88060b",
       "theme": "dark"
     },
     {
-      "bytes": 313397,
+      "bytes": 314149,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "es",
       "layout": "mobile",
       "path": "cohort-series-infographic-es-dark-mobile.png",
-      "sha256": "c1b2af9996e09d748f2fda93ee84fd1dbb86951c0514723349c03244e32103fd",
+      "sha256": "4c41108733b53be2a4ce21e0c9fc6aae6adebbb1b74500aefb0361cfdfb8b6ca",
       "theme": "dark"
     },
     {
-      "bytes": 88383,
+      "bytes": 88019,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "en",
       "layout": "desktop",
       "path": "cohort-series-infographic-en-light.svg",
-      "sha256": "629875e6529e47e7af6037c0eb79e6a3fea7b84ed9a8dffea57784aa7f3ea4f7",
+      "sha256": "6b6cf0551ceb2b9d66a41d68525abe795b893780f26c343adb02548cbe0a43f1",
       "theme": "light"
     },
     {
-      "bytes": 348911,
+      "bytes": 345621,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "cohort-series-infographic-en-light.png",
-      "sha256": "51b17f692410ed061a02b1c22b34bda2745d975affed251313f096e88e3c9775",
+      "sha256": "ada5b9939e22eadaad380352064abac1577b3655b745e2db124e2b2c7cfbe10b",
       "theme": "light"
     },
     {
-      "bytes": 83014,
+      "bytes": 83285,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "en",
       "layout": "mobile",
       "path": "cohort-series-infographic-en-light-mobile.svg",
-      "sha256": "b10eeed8c4bf26b7e75e8533ea03bf23b16b22abfaac21473de79f1ea64d43c5",
+      "sha256": "8d77739b64a57e732b8e8820b23ca10e2163331600c004dffed4972beca360ae",
       "theme": "light"
     },
     {
-      "bytes": 309139,
+      "bytes": 311016,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "cohort-series-infographic-en-light-mobile.png",
-      "sha256": "6d0aec02bd301305b0475010a552f66eb2257cc38b109b7c1f69dd14166d930c",
+      "sha256": "f45d2f5b636d851b7d9f3d424ccfa04e27e25a5ca2704bd3d499cec468c6c425",
       "theme": "light"
     },
     {
-      "bytes": 88383,
+      "bytes": 88019,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "en",
       "layout": "desktop",
       "path": "cohort-series-infographic-en-dark.svg",
-      "sha256": "80d2ecdf3c0201943c3cdf29dae95150efbf384a549d3b195015840d57895718",
+      "sha256": "b2cb92e7408c3430b72d7a24e11603376738a764b71fbcf08fccf3ec1a85bec8",
       "theme": "dark"
     },
     {
-      "bytes": 352207,
+      "bytes": 348779,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "en",
       "layout": "desktop",
       "path": "cohort-series-infographic-en-dark.png",
-      "sha256": "eac236f96f4e9f26144c71a3b33625282363ead4cbcf00cac19db8deffc569c7",
+      "sha256": "6737218ad7445db7bf4ac59eb641f509fbf49559bc1bd323761d5d828294fdd0",
       "theme": "dark"
     },
     {
-      "bytes": 83014,
+      "bytes": 83285,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "svg",
       "language": "en",
       "layout": "mobile",
       "path": "cohort-series-infographic-en-dark-mobile.svg",
-      "sha256": "17e6aeaa9e7543788efac9acbb032ddedf5bcad3fb4318f8253f3e05f708184e",
+      "sha256": "1f87523427d666d91d706ee481e33b2234d5d9e2ecb520fa50a89bd10622b02a",
       "theme": "dark"
     },
     {
-      "bytes": 310694,
+      "bytes": 312546,
       "data_sha256": "9c412b4ecfd50c29fbf085e5f5c68b98cc8d0b1790d242b25b3d528180d7585a",
       "figure_id": "cohort-series-infographic",
       "format": "png",
       "language": "en",
       "layout": "mobile",
       "path": "cohort-series-infographic-en-dark-mobile.png",
-      "sha256": "6f0a3a25bf75bfdb3b17d5bd1e7684e162e8450a47a953fbddcd8aed9b298cfe",
+      "sha256": "611c3c7cf6c24b7c753cd64ff637cddd58df3b3a09aabaecfaf3f3c1916b285c",
       "theme": "dark"
     },
     {
@@ -1139,7 +1139,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "sample-flow-es.visual-manifest.json",
-      "sha256": "4c2ccbb8a321e6bf913bb7e78f273c750c596ec0a2947f0fe44633c71698f598",
+      "sha256": "30754f21c029e75fc76ee12e0dad4b71e16adc7d65961995e2481cb05ac76054",
       "visual_id": "post3-sample-flow-es"
     },
     {
@@ -1147,7 +1147,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "sample-flow-en.visual-manifest.json",
-      "sha256": "29c76551f77a46b0a46dbb93ad768ebfab2364ff96c4ff48fdb109a5c543992b",
+      "sha256": "c8b73642424bef3f9641eb6d53b11def13a6a7d08949581cb0a55e66c44018e2",
       "visual_id": "post3-sample-flow-en"
     },
     {
@@ -1155,7 +1155,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "post-pilot-reestimation-es.visual-manifest.json",
-      "sha256": "4ecc4b777f7f8682c34360af86dadc8050525cf646318fe7e47f652501b35854",
+      "sha256": "bbe54445722df6badd1f5cda300762beed3ad3350d566349fe445b95ba03fb14",
       "visual_id": "post3-post-pilot-reestimation-es"
     },
     {
@@ -1163,7 +1163,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "post-pilot-reestimation-en.visual-manifest.json",
-      "sha256": "3ccaa7f7af6112024d52d158d1a1ace2676035b789aabc182ecad83700cb5e55",
+      "sha256": "b6602263996958affa1f0da08d67d941a7b3677ff18a6a37de68c14862bd87a2",
       "visual_id": "post3-post-pilot-reestimation-en"
     },
     {
@@ -1171,7 +1171,7 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "territorial-audit-es.visual-manifest.json",
-      "sha256": "bd87dc0b1bdf773b405a7cb01464bb9caa972619000f43c5e9d78d8d1dee9d26",
+      "sha256": "e45bd9d1e30eb5533da592d9157f2c19612ecb3edf45304e4fc682232a9ec10a",
       "visual_id": "post3-territorial-audit-es"
     },
     {
@@ -1179,32 +1179,32 @@
       "format": "json",
       "kind": "visual_manifest",
       "path": "territorial-audit-en.visual-manifest.json",
-      "sha256": "ffccfe127ed93a6da6459313e329ed3037b70fb45c9f5a0003c5d2830b5dd70a",
+      "sha256": "150cb37f40a69f03e8fea510585cdcadecfc44f1cfec5be1394a99c71ef7f0c8",
       "visual_id": "post3-territorial-audit-en"
     },
     {
-      "bytes": 7852,
+      "bytes": 7835,
       "format": "json",
       "kind": "visual_manifest",
       "path": "cohort-series-infographic-es.visual-manifest.json",
-      "sha256": "6d8ae68c09b91b87038369a46f70fb139bcb605cab583cbe992b08777c3d3579",
+      "sha256": "909a2d80f282be9010a76233e8f5b395bbbb63572d17515d753beed2960c5989",
       "visual_id": "post3-cohort-series-infographic-es"
     },
     {
-      "bytes": 7825,
+      "bytes": 7758,
       "format": "json",
       "kind": "visual_manifest",
       "path": "cohort-series-infographic-en.visual-manifest.json",
-      "sha256": "7dd5caf0f2fac99f08a06b41648492b72275b5c31ff1d747c3db45757e6b9efc",
+      "sha256": "25033797f5635ce55da9068361a24fe8d814c370f11504a2ac93f177c477660d",
       "visual_id": "post3-cohort-series-infographic-en"
     }
   ],
   "generator": {
-    "matplotlib": "3.11.1",
+    "matplotlib": "3.11.2",
     "path": "scripts/336_post3_visuals.py",
     "png_dpi": 250,
     "png_dpi_mobile": 300,
-    "sha256": "45ef87566dd2945d4333821a194111345e5214a6608e742729a30ec03a2fe404"
+    "sha256": "ad3e36895604a0ead525a9c7aa698d72ce78b3bc8f1ac6a7bada9bd58f8e0245"
   },
   "schema_version": 2,
   "scope": {

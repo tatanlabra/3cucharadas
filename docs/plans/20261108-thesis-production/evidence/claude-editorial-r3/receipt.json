@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "provider": "claude",
+  "backend": "cli",
+  "mode": "review",
+  "cli_profile": "standard",
+  "status": "OK",
+  "classification": "COMPLETED",
+  "reason": "COMPLETED",
+  "raw_exit": 0,
+  "normalized_exit": 0,
+  "requested_model": "sonnet",
+  "fallback_models": [],
+  "effective_model": "claude-sonnet-5-5",
+  "session_id": "6ed8e401-e3d9-4b13-b938-1c9238553cd4",
+  "started_at": "2026-11-08T02:33:56.101Z",
+  "finished_at": "2026-11-08T02:36:44.432Z",
+  "duration_ms": 168331,
+  "prompt_sha256": "7035b413b0ef0e7f5653d0c0b1d8f2a167cdc56002abea6ca3240a9c88407cee",
+  "system_prompt_sha256": null,
+  "response_sha256": "381ba923a50fb26631b159cd49a25913246f706d26b032f30f2ee638f9354eef",
+  "retry_policy": {
+    "transient_retries": 0,
+    "retry_delay_seconds": 5,
+    "handoff_contract_retries": 1,
+    "handoff_contract_retry_used": false
+  },
+  "markers": {
+    "PLAN_STATE v2": true,
+    "HANDOFF-TRACE:": true,
+    "MODEL-REPORT:": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "backend": "cli",
+      "classification": "COMPLETED",
+      "raw_exit": 0,
+      "normalized_exit": 0,
+      "requested_model": "sonnet",
+      "fallback_models": [],
+      "effective_model": "claude-sonnet-5-5",
+      "session_id": "6ed8e401-e3d9-4b13-b938-1c9238553cd4",
+      "started_at": "2026-11-08T02:33:56.101Z",
+      "finished_at": "2026-11-08T02:36:44.414Z",
+      "duration_ms": 168330,
+      "stdout_sha256": "d22be2bd7cb420a287e9df6ededc71115c9356fd403ee773394b279ef6acf7c8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_sha256": "d22be2bd7cb420a287e9df6ededc71115c9356fd403ee773394b279ef6acf7c8",
+      "retry_decision": "stop",
+      "markers": {
+        "PLAN_STATE v2": true,
+        "HANDOFF-TRACE:": true,
+        "MODEL-REPORT:": true
+      },
+      "prompt_sha256": "7035b413b0ef0e7f5653d0c0b1d8f2a167cdc56002abea6ca3240a9c88407cee",
+      "response_file": "response-attempt.1.txt"
+    }
+  ]
+}

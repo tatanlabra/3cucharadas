@@ -1,0 +1,207 @@
+{
+  "receipt_version": 1,
+  "kind": "criterion_execution",
+  "run_id": "20261108T011726.993255Z",
+  "contract_id": "thesis-production",
+  "contract_document": "activos/3cucharadas/docs/plans/20261108-thesis-production/contract.md",
+  "contract_sha256": "169223ffecc8eb73b330cdae6e60fd0d30aec53c833bfab6f5446c874d6ee612",
+  "definition_sha256": "0d3863989ac033082c981c7f0c3a69239c3c2bbf443e19bf9c631d0c3fef823d",
+  "criterion_id": "AC-P1",
+  "criterion_command": "cd activos/3cucharadas && ruby scripts/verify_site_health.rb --profile source --report /tmp/thesis-production-contract-source.json && ruby scripts/verify_reference_links.rb && node scripts/verify_thesis_visual_quality.mjs --base-url http://127.0.0.1:4005 --report /tmp/thesis-production-contract-local.json",
+  "criterion_command_sha256": "cef3be573c612aae0f7e52a10a9422b96d996af6939968d9b564e9c96fa5f22c",
+  "phase": "P1",
+  "task": "T1",
+  "scope": "tree",
+  "started_at": "2026-11-08T01:17:27Z",
+  "finished_at": "2026-11-08T01:19:09Z",
+  "exit_code": 1,
+  "execution_status": "fail",
+  "reason": null,
+  "input_files_before": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "b462848699003c5035109b1ba89448c57d6170e83dcbbf1df8efd0e8d0c55e1d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "2c157cf2b90763969a0d160e4494143133b5a473e072f36d1a7cc3f831f425a4"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "8f0729be2f76b4f5fe53ab5e7c07eb327646ec6d1e7185685725a72b7bf40db2"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "3c8fd8e1c3e832dbb86da04473881d4b493ddcbc29ed22595e24ff055c283a3b"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_production.py",
+      "exists": true,
+      "sha256": "72d8fac26f54447ac0b95890ed3a125f5ffdacc73a5812bf1f2981df438883e4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_extension_post_ii_browser.mjs",
+      "exists": true,
+      "sha256": "7b36eb21386dadbf329db6ca8a12f5773ccc14b0cbd336215b4b7d6b416d12fd"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post3_browser.mjs",
+      "exists": true,
+      "sha256": "fb501d5fca03904a8a238ae5790c54c005ac178facbe28c1564fe720ea410cef"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post4_browser.mjs",
+      "exists": true,
+      "sha256": "d873f3fcdb94d3fc51089838aefb9f046f6cc71d6d8f1de6c7a024dcd9e0a476"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_browser.mjs",
+      "exists": true,
+      "sha256": "e13902124ab2f7d62fec22972da55bb18cd6d9781adf68bb71f22193a11d908a"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_series_browser.mjs",
+      "exists": true,
+      "sha256": "ed0e8a127df07fe40d005a62478686498b15e280f9d9b7ec66280e4676a62009"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_visual_quality.mjs",
+      "exists": true,
+      "sha256": "88466bb24820e335a2c10f29c399f6dd2acd6c91fa3df9480789bac3020ce1a0"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/manifest.json",
+      "exists": true,
+      "sha256": "e2f680a9596bfe6c7d481eebe2143d62e0214752705747b6b62340e7723eae9b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/manifest.json",
+      "exists": true,
+      "sha256": "bb579f6e064d85f525a41189bd5866484d9f1857772bf64c2d8863cdd66d3455"
+    }
+  ],
+  "input_files_after": [
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md",
+      "exists": true,
+      "sha256": "b462848699003c5035109b1ba89448c57d6170e83dcbbf1df8efd0e8d0c55e1d"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+      "exists": true,
+      "sha256": "67499f2df8adb8fa215f99c3f212c358b8cbac1a682f273e93c906b04e05e38a"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md",
+      "exists": true,
+      "sha256": "2c157cf2b90763969a0d160e4494143133b5a473e072f36d1a7cc3f831f425a4"
+    },
+    {
+      "path": "activos/3cucharadas/_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "exists": true,
+      "sha256": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "8f0729be2f76b4f5fe53ab5e7c07eb327646ec6d1e7185685725a72b7bf40db2"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post3-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "442f8ea89cbf1929448446542b7495a631dfdeecd422e72fc8f207476ce6e921"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico-en.md",
+      "exists": true,
+      "sha256": "3c8fd8e1c3e832dbb86da04473881d4b493ddcbc29ed22595e24ff055c283a3b"
+    },
+    {
+      "path": "activos/3cucharadas/_pages/tesis-post4-anexo-metodologico.md",
+      "exists": true,
+      "sha256": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_editorial_delivery.py",
+      "exists": true,
+      "sha256": "09370e38d5caba168dafef9f08dd77f6dee873dd5bac0b0a999b411f1baaf65f"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_production.py",
+      "exists": true,
+      "sha256": "72d8fac26f54447ac0b95890ed3a125f5ffdacc73a5812bf1f2981df438883e4"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_extension_post_ii_browser.mjs",
+      "exists": true,
+      "sha256": "7b36eb21386dadbf329db6ca8a12f5773ccc14b0cbd336215b4b7d6b416d12fd"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post3_browser.mjs",
+      "exists": true,
+      "sha256": "fb501d5fca03904a8a238ae5790c54c005ac178facbe28c1564fe720ea410cef"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_post4_browser.mjs",
+      "exists": true,
+      "sha256": "d873f3fcdb94d3fc51089838aefb9f046f6cc71d6d8f1de6c7a024dcd9e0a476"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_recreation_post_i_browser.mjs",
+      "exists": true,
+      "sha256": "e13902124ab2f7d62fec22972da55bb18cd6d9781adf68bb71f22193a11d908a"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_series_browser.mjs",
+      "exists": true,
+      "sha256": "ed0e8a127df07fe40d005a62478686498b15e280f9d9b7ec66280e4676a62009"
+    },
+    {
+      "path": "activos/3cucharadas/scripts/verify_thesis_visual_quality.mjs",
+      "exists": true,
+      "sha256": "88466bb24820e335a2c10f29c399f6dd2acd6c91fa3df9480789bac3020ce1a0"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post3/manifest.json",
+      "exists": true,
+      "sha256": "e2f680a9596bfe6c7d481eebe2143d62e0214752705747b6b62340e7723eae9b"
+    },
+    {
+      "path": "activos/3cucharadas/assets/images/tesis-post4/manifest.json",
+      "exists": true,
+      "sha256": "bb579f6e064d85f525a41189bd5866484d9f1857772bf64c2d8863cdd66d3455"
+    }
+  ],
+  "inputs_stable": true,
+  "stdout": "PASS contract: Nonempty invariants and seven complete phase contracts\nPASS workflow-yaml: 3 workflows parse and have jobs\nPASS runtime-declarations: Node/Bundler declarations agree\nPASS git-integrity (0)\nPASS whitespace (0)\nPASS governance (0)\nPASS visual-assets (0)\nPASS diffusion-coherence (0)\nPASS diffusion-coherence-legacy (0)\nPASS distribution-policy (0)\nPASS test-verify_difusion_coherente (0)\nPASS test-verify_visual_assets_mobile (0)\nPASS test-site_health (0)\nPASS test-polyglot_doctor (0)\nPASS test-math_keyboard (0)\nPASS test-jekyll_to_devto (0)\nPASS test-verify_distribution_done (0)\nPASS test-reconciliar_distribucion (0)\nPASS test-verify_repo_governance (0)\nPASS test-devto_draft_policy (0)\nPASS test-devto_noop (0)\nPASS test-ai_disclosure (0)\nPASS test-series_title_convention (0)\nPASS test-notification (0)\nPASS test-accessible-regions (0)\nPASS test-static-contrast (0)\nPASS test-graph-contrast (0)\nPASS post3-visual-tokens (0)\nPASS test-post3-visual-tokens (0)\nPASS post3-scientific-editorial (0)\nPASS test-post3-scientific-editorial (0)\nPASS test-post3-browser-contract (0)\nPASS: /tmp/thesis-production-contract-source.json\nREFERENCE_LINKS_VALID 235 entradas en 36 archivos\n{\"status\":\"FAIL\",\"rows\":64,\"failed\":2,\"screenshots\":0,\"minTextContrast\":5.73,\"minSvgContrast\":4.67,\"minSvgTextPx\":10.28,\"failedRows\":[{\"route\":\"/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/\",\"theme\":\"light\",\"width\":320,\"failures\":[\"console-or-network\"],\"textContrast\":[],\"svgContrast\":[],\"criticalErrors\":[\"console:Failed to load resource: net::ERR_NETWORK_CHANGED\",\"console:Failed to load resource: net::ERR_NETWORK_CHANGED\"]},{\"route\":\"/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/\",\"theme\":\"light\",\"width\":1440,\"failures\":[\"console-or-network\"],\"textContrast\":[],\"svgContrast\":[],\"criticalErrors\":[\"console:Failed to load resource: net::ERR_NETWORK_CHANGED\"]}]}\n",
+  "stderr": ""
+}

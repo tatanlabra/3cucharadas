@@ -1,0 +1,106 @@
+{
+  "status": "WRONG_FAILURE",
+  "fixture": "svg-frame-overlap",
+  "isolatedCollision": false,
+  "wouldPassWithoutTargetMark": false,
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 110,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  },
+  "mutant": {
+    "failures": [
+      "svg-label-geometry"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [],
+    "criticalErrors": [],
+    "transientAborts": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-spine-a-top",
+          "crossingPx": [
+            -9900.75,
+            220.77
+          ]
+        },
+        {
+          "type": "label-text",
+          "label": "selection-value-a-1",
+          "other": "text_8",
+          "otherText": "N DML = 38.525",
+          "overlapPx": [
+            23.79,
+            9.72
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-spine-a-top",
+              "crossingPx": [
+                -9900.75,
+                220.77
+              ]
+            },
+            {
+              "type": "label-text",
+              "label": "selection-value-a-1",
+              "other": "text_8",
+              "otherText": "N DML = 38.525",
+              "overlapPx": [
+                23.79,
+                9.72
+              ]
+            }
+          ],
+          "collisionCount": 2
+        }
+      ]
+    }
+  }
+}

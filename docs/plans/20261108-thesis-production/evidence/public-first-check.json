@@ -1,0 +1,882 @@
+{
+  "expected_sha": "1959f6591f3c4a7aa9d6954883746c58dbf8a351",
+  "remote_refs": {
+    "gitlab": "1959f6591f3c4a7aa9d6954883746c58dbf8a351",
+    "github": "1959f6591f3c4a7aa9d6954883746c58dbf8a351"
+  },
+  "pages": [
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/anexo-metodologico/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+      "article_dom_equal": true
+    },
+    {
+      "route": "/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/anexo-metodologico/",
+      "article_dom_equal": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp",
+      "public_sha256": "cf613c8d980b36714d3b8051014d5e664596142f9b8abaf2ad274ca53bfc987b",
+      "local_sha256": "cf613c8d980b36714d3b8051014d5e664596142f9b8abaf2ad274ca53bfc987b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-mobile-800x450.webp",
+      "public_sha256": "064051cf8a0fd8975fe4fe2b5ee5a40c30eae62a1c3be41e22464ce077c36b24",
+      "local_sha256": "064051cf8a0fd8975fe4fe2b5ee5a40c30eae62a1c3be41e22464ce077c36b24",
+      "equal": true
+    },
+    {
+      "path": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/og-1200x630.webp",
+      "public_sha256": "dc98d584a24e0433f4fdcac3cecb7c9a45889538535a287d52c2840b0149b0ef",
+      "local_sha256": "dc98d584a24e0433f4fdcac3cecb7c9a45889538535a287d52c2840b0149b0ef",
+      "equal": true
+    },
+    {
+      "path": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-1280x720.webp",
+      "public_sha256": "67584a0c255a7be70d59ba7412d661b407452f246db4d15820057e15c87912d7",
+      "local_sha256": "67584a0c255a7be70d59ba7412d661b407452f246db4d15820057e15c87912d7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/teaser-mobile-640x360.webp",
+      "public_sha256": "864d17b423f1e7397cf553dadd45579971aaf0e13fda84ee0aa29ea783b2b6d7",
+      "local_sha256": "864d17b423f1e7397cf553dadd45579971aaf0e13fda84ee0aa29ea783b2b6d7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-data.csv",
+      "public_sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a",
+      "local_sha256": "cb82f6185462c69beb7b148d7fbcfa6955f48da3801486183b99c69d43f0325a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.png",
+      "public_sha256": "6f0a3a25bf75bfdb3b17d5bd1e7684e162e8450a47a953fbddcd8aed9b298cfe",
+      "local_sha256": "6f0a3a25bf75bfdb3b17d5bd1e7684e162e8450a47a953fbddcd8aed9b298cfe",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark-mobile.svg",
+      "public_sha256": "17e6aeaa9e7543788efac9acbb032ddedf5bcad3fb4318f8253f3e05f708184e",
+      "local_sha256": "17e6aeaa9e7543788efac9acbb032ddedf5bcad3fb4318f8253f3e05f708184e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark.png",
+      "public_sha256": "eac236f96f4e9f26144c71a3b33625282363ead4cbcf00cac19db8deffc569c7",
+      "local_sha256": "eac236f96f4e9f26144c71a3b33625282363ead4cbcf00cac19db8deffc569c7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-dark.svg",
+      "public_sha256": "80d2ecdf3c0201943c3cdf29dae95150efbf384a549d3b195015840d57895718",
+      "local_sha256": "80d2ecdf3c0201943c3cdf29dae95150efbf384a549d3b195015840d57895718",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.png",
+      "public_sha256": "6d0aec02bd301305b0475010a552f66eb2257cc38b109b7c1f69dd14166d930c",
+      "local_sha256": "6d0aec02bd301305b0475010a552f66eb2257cc38b109b7c1f69dd14166d930c",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-light-mobile.svg",
+      "public_sha256": "b10eeed8c4bf26b7e75e8533ea03bf23b16b22abfaac21473de79f1ea64d43c5",
+      "local_sha256": "b10eeed8c4bf26b7e75e8533ea03bf23b16b22abfaac21473de79f1ea64d43c5",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-light.png",
+      "public_sha256": "51b17f692410ed061a02b1c22b34bda2745d975affed251313f096e88e3c9775",
+      "local_sha256": "51b17f692410ed061a02b1c22b34bda2745d975affed251313f096e88e3c9775",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en-light.svg",
+      "public_sha256": "629875e6529e47e7af6037c0eb79e6a3fea7b84ed9a8dffea57784aa7f3ea4f7",
+      "local_sha256": "629875e6529e47e7af6037c0eb79e6a3fea7b84ed9a8dffea57784aa7f3ea4f7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-en.visual-manifest.json",
+      "public_sha256": "7dd5caf0f2fac99f08a06b41648492b72275b5c31ff1d747c3db45757e6b9efc",
+      "local_sha256": "7dd5caf0f2fac99f08a06b41648492b72275b5c31ff1d747c3db45757e6b9efc",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.png",
+      "public_sha256": "c1b2af9996e09d748f2fda93ee84fd1dbb86951c0514723349c03244e32103fd",
+      "local_sha256": "c1b2af9996e09d748f2fda93ee84fd1dbb86951c0514723349c03244e32103fd",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark-mobile.svg",
+      "public_sha256": "38850d861ef8f8b648e915ff750ca2c218ed44dc50b882965fab4af27f8e30b5",
+      "local_sha256": "38850d861ef8f8b648e915ff750ca2c218ed44dc50b882965fab4af27f8e30b5",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark.png",
+      "public_sha256": "7684752a47903deabd33981144e33dd275a984b8ddb64924083c23a1ee6d3cad",
+      "local_sha256": "7684752a47903deabd33981144e33dd275a984b8ddb64924083c23a1ee6d3cad",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-dark.svg",
+      "public_sha256": "9f78e7ebb2829a74d2b8c3cda9a8cce3b7fbdf2c43ffa7b5b39626100666e8f3",
+      "local_sha256": "9f78e7ebb2829a74d2b8c3cda9a8cce3b7fbdf2c43ffa7b5b39626100666e8f3",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.png",
+      "public_sha256": "7400f586806c192f9f9bf8427cafe66cc31cafda2b4307ad1d743d87e6847180",
+      "local_sha256": "7400f586806c192f9f9bf8427cafe66cc31cafda2b4307ad1d743d87e6847180",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg",
+      "public_sha256": "fcf85f2749bcdd8515be9c6bef4313148fbd9d88f949aee6ecf51dc4ff2a5cd2",
+      "local_sha256": "fcf85f2749bcdd8515be9c6bef4313148fbd9d88f949aee6ecf51dc4ff2a5cd2",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-light.png",
+      "public_sha256": "c856c3702487bfd6fea19d48e5f15be62c4f682435e78fca2f81a5940c3f94ea",
+      "local_sha256": "c856c3702487bfd6fea19d48e5f15be62c4f682435e78fca2f81a5940c3f94ea",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es-light.svg",
+      "public_sha256": "2b01ac5b1a78f061bffedbeb945a58277cd4feb752272764bf5917ccc0507c95",
+      "local_sha256": "2b01ac5b1a78f061bffedbeb945a58277cd4feb752272764bf5917ccc0507c95",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/cohort-series-infographic-es.visual-manifest.json",
+      "public_sha256": "6d8ae68c09b91b87038369a46f70fb139bcb605cab583cbe992b08777c3d3579",
+      "local_sha256": "6d8ae68c09b91b87038369a46f70fb139bcb605cab583cbe992b08777c3d3579",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/manifest.json",
+      "public_sha256": "e2f680a9596bfe6c7d481eebe2143d62e0214752705747b6b62340e7723eae9b",
+      "local_sha256": "e2f680a9596bfe6c7d481eebe2143d62e0214752705747b6b62340e7723eae9b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/missingness-bounds-data.csv",
+      "public_sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28",
+      "local_sha256": "841a0ce3cade37069a8a0c909f3f54fe0accc00372f97c8b61010e8f6e33df28",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-data.csv",
+      "public_sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869",
+      "local_sha256": "35d50e0c07c9998ee09fa2dafc0a2b3e7f4f88d2a600083aea20aa968edc5869",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.png",
+      "public_sha256": "90592f59974f82366c86bbd2ec522e9099bab4daf6e2bfe1ef9d4dcb68a3b835",
+      "local_sha256": "90592f59974f82366c86bbd2ec522e9099bab4daf6e2bfe1ef9d4dcb68a3b835",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark-mobile.svg",
+      "public_sha256": "591fbf519857f197e0304dccb7692ffede0cd5d9a2ada2a64b378db594dffd43",
+      "local_sha256": "591fbf519857f197e0304dccb7692ffede0cd5d9a2ada2a64b378db594dffd43",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.png",
+      "public_sha256": "ad9748b92762d96c8774c084c1b28a68c51fc80c47c5bffc8197dec9a8c29b58",
+      "local_sha256": "ad9748b92762d96c8774c084c1b28a68c51fc80c47c5bffc8197dec9a8c29b58",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-dark.svg",
+      "public_sha256": "9d7f1052e9d215427dad6f33c4e459b5d265e0f9c9c8d4085f8b16d4b6765a9d",
+      "local_sha256": "9d7f1052e9d215427dad6f33c4e459b5d265e0f9c9c8d4085f8b16d4b6765a9d",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.png",
+      "public_sha256": "c15a46c9b38f4e0df043cbd7dc4aab202790e746c5847d759789a0559de0d310",
+      "local_sha256": "c15a46c9b38f4e0df043cbd7dc4aab202790e746c5847d759789a0559de0d310",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light-mobile.svg",
+      "public_sha256": "38bfd27933000b9c977a0a4ef096e1d57922fa883201e2d8bb88e17160551081",
+      "local_sha256": "38bfd27933000b9c977a0a4ef096e1d57922fa883201e2d8bb88e17160551081",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.png",
+      "public_sha256": "30183efd217c78f5319047ac36a5a9cebc7d721748e991d90c73a5a307e3903e",
+      "local_sha256": "30183efd217c78f5319047ac36a5a9cebc7d721748e991d90c73a5a307e3903e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en-light.svg",
+      "public_sha256": "2328f1dad5cfdc33057355cbd19cabc8848c0376da52542e613b0c9d6f8b34db",
+      "local_sha256": "2328f1dad5cfdc33057355cbd19cabc8848c0376da52542e613b0c9d6f8b34db",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-en.visual-manifest.json",
+      "public_sha256": "3ccaa7f7af6112024d52d158d1a1ace2676035b789aabc182ecad83700cb5e55",
+      "local_sha256": "3ccaa7f7af6112024d52d158d1a1ace2676035b789aabc182ecad83700cb5e55",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.png",
+      "public_sha256": "6020158ee14061580469ac3e09cad090c386e9a220f1a88c430b047778642f4b",
+      "local_sha256": "6020158ee14061580469ac3e09cad090c386e9a220f1a88c430b047778642f4b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark-mobile.svg",
+      "public_sha256": "00bd990454e2ad24d479fafbb54e62f96cfc9ba34b482d150b26e54b584ddebf",
+      "local_sha256": "00bd990454e2ad24d479fafbb54e62f96cfc9ba34b482d150b26e54b584ddebf",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.png",
+      "public_sha256": "152eb467cbdc2a9fcd1b52fe75b18e365f039e57361fbaafd861fe731d32683f",
+      "local_sha256": "152eb467cbdc2a9fcd1b52fe75b18e365f039e57361fbaafd861fe731d32683f",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-dark.svg",
+      "public_sha256": "17e3acae81bb585f1b182dbca7ef006da4b88f3b30154b0a25b4eb5baba1497e",
+      "local_sha256": "17e3acae81bb585f1b182dbca7ef006da4b88f3b30154b0a25b4eb5baba1497e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.png",
+      "public_sha256": "44604f0ecc221e1fe53423c7c44ca7478b81e4b122be7cdec6b90f3977005ff7",
+      "local_sha256": "44604f0ecc221e1fe53423c7c44ca7478b81e4b122be7cdec6b90f3977005ff7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light-mobile.svg",
+      "public_sha256": "56728445cc9dcaf42088171bdc1ada64dc70b5198cd4c2b4d08b5182163c7c87",
+      "local_sha256": "56728445cc9dcaf42088171bdc1ada64dc70b5198cd4c2b4d08b5182163c7c87",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.png",
+      "public_sha256": "fd887d63211779dc8fbbd7bc9f2ba25dfd6ce0caea688bd1caacda2a10adb378",
+      "local_sha256": "fd887d63211779dc8fbbd7bc9f2ba25dfd6ce0caea688bd1caacda2a10adb378",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es-light.svg",
+      "public_sha256": "84a925810b525037c170935791743fe46d4a13c13e9db3c8ff238183719a684e",
+      "local_sha256": "84a925810b525037c170935791743fe46d4a13c13e9db3c8ff238183719a684e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/post-pilot-reestimation-es.visual-manifest.json",
+      "public_sha256": "4ecc4b777f7f8682c34360af86dadc8050525cf646318fe7e47f652501b35854",
+      "local_sha256": "4ecc4b777f7f8682c34360af86dadc8050525cf646318fe7e47f652501b35854",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-data.csv",
+      "public_sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953",
+      "local_sha256": "e6b37c5de6216e91b451c5f8aac4753635761e6998f53d5ae6d2f10176802953",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.png",
+      "public_sha256": "e8ed91a1cf19ad30e8626a3a390d6b411aac20443cdefc9f5ad8acbcd3fce98e",
+      "local_sha256": "e8ed91a1cf19ad30e8626a3a390d6b411aac20443cdefc9f5ad8acbcd3fce98e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-dark-mobile.svg",
+      "public_sha256": "44288498c2925848d9374e0de1934f528fd3cc6bc3f3621bb760cda3991b87b2",
+      "local_sha256": "44288498c2925848d9374e0de1934f528fd3cc6bc3f3621bb760cda3991b87b2",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-dark.png",
+      "public_sha256": "556fb7ecbf5d8ad1d0c72a13035371bed629afb95546d4bf7869991c5b3dd113",
+      "local_sha256": "556fb7ecbf5d8ad1d0c72a13035371bed629afb95546d4bf7869991c5b3dd113",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-dark.svg",
+      "public_sha256": "50ad989bf3c543e0622cb6d27da65eff93df5f8af673c12ccd7d84f0c4090730",
+      "local_sha256": "50ad989bf3c543e0622cb6d27da65eff93df5f8af673c12ccd7d84f0c4090730",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.png",
+      "public_sha256": "bf9041eb127024e6baaa8b43c390de255c40ef8fe0c9b028229921b1407ab62f",
+      "local_sha256": "bf9041eb127024e6baaa8b43c390de255c40ef8fe0c9b028229921b1407ab62f",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-light-mobile.svg",
+      "public_sha256": "65f3c6dcc26b11ac54d645c2de0ddeb5e5950f0e8f2ea51b96dd0e81a174adf2",
+      "local_sha256": "65f3c6dcc26b11ac54d645c2de0ddeb5e5950f0e8f2ea51b96dd0e81a174adf2",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-light.png",
+      "public_sha256": "398455b020a9063f23e7e545aab80f489ad3f2469dad83fb1077809cc5104d1a",
+      "local_sha256": "398455b020a9063f23e7e545aab80f489ad3f2469dad83fb1077809cc5104d1a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en-light.svg",
+      "public_sha256": "8ea2a5efeb7153afa305790d332b82d1915e3ac090b081687fa5dddfd1410a5a",
+      "local_sha256": "8ea2a5efeb7153afa305790d332b82d1915e3ac090b081687fa5dddfd1410a5a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-en.visual-manifest.json",
+      "public_sha256": "29c76551f77a46b0a46dbb93ad768ebfab2364ff96c4ff48fdb109a5c543992b",
+      "local_sha256": "29c76551f77a46b0a46dbb93ad768ebfab2364ff96c4ff48fdb109a5c543992b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.png",
+      "public_sha256": "0a20e7b76e59f383297a52683bb900119c1d3f9ab81042906a576f2a23d055ba",
+      "local_sha256": "0a20e7b76e59f383297a52683bb900119c1d3f9ab81042906a576f2a23d055ba",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-dark-mobile.svg",
+      "public_sha256": "06a9b66eb3da62d3fee471e9059d1e6cb26628af83ccb65f677e214b35ef19da",
+      "local_sha256": "06a9b66eb3da62d3fee471e9059d1e6cb26628af83ccb65f677e214b35ef19da",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-dark.png",
+      "public_sha256": "bab66e8a3d06d606f5b6fa2802b681d5c295b1fd669ed0382d0a652ee76ef596",
+      "local_sha256": "bab66e8a3d06d606f5b6fa2802b681d5c295b1fd669ed0382d0a652ee76ef596",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-dark.svg",
+      "public_sha256": "300d9fd7aec27f449bf51277a6c8ca981f4a0ca7a47019925544a1ee5db226fe",
+      "local_sha256": "300d9fd7aec27f449bf51277a6c8ca981f4a0ca7a47019925544a1ee5db226fe",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.png",
+      "public_sha256": "7acc78c00fed81bcf3973df2889438fa695f832c7767128f6e1ad09d3f96e483",
+      "local_sha256": "7acc78c00fed81bcf3973df2889438fa695f832c7767128f6e1ad09d3f96e483",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-light-mobile.svg",
+      "public_sha256": "319515bea8858e2136a6e9668b27afc87563b340c10cb4d405f9f14ff33ab4ad",
+      "local_sha256": "319515bea8858e2136a6e9668b27afc87563b340c10cb4d405f9f14ff33ab4ad",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-light.png",
+      "public_sha256": "1791e2369fb0c401ec15d4baff226950094963060089875fb1f2e1d7985243b8",
+      "local_sha256": "1791e2369fb0c401ec15d4baff226950094963060089875fb1f2e1d7985243b8",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es-light.svg",
+      "public_sha256": "e690c8351f238585c931047bae3a3e14f3bdced04f15da5479fb8519d2c41a2e",
+      "local_sha256": "e690c8351f238585c931047bae3a3e14f3bdced04f15da5479fb8519d2c41a2e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/sample-flow-es.visual-manifest.json",
+      "public_sha256": "4c2ccbb8a321e6bf913bb7e78f273c750c596ec0a2947f0fe44633c71698f598",
+      "local_sha256": "4c2ccbb8a321e6bf913bb7e78f273c750c596ec0a2947f0fe44633c71698f598",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-data.csv",
+      "public_sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b",
+      "local_sha256": "5c1c084f412010830c526b549e77d9d38dd038d9db2ead906fed379b7c506f6b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.png",
+      "public_sha256": "5cff75823e4f4b992febf2eec0e720e44fc11e2f08d3895a12a6b25bad51c80c",
+      "local_sha256": "5cff75823e4f4b992febf2eec0e720e44fc11e2f08d3895a12a6b25bad51c80c",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-dark-mobile.svg",
+      "public_sha256": "a2a555d56f36960e0faf8830312116e971640152396ffbe33cdcb18a03aae024",
+      "local_sha256": "a2a555d56f36960e0faf8830312116e971640152396ffbe33cdcb18a03aae024",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-dark.png",
+      "public_sha256": "84a62609890cd1d1069d158089920814bf8dba65a903acd6f5febd031c6cee26",
+      "local_sha256": "84a62609890cd1d1069d158089920814bf8dba65a903acd6f5febd031c6cee26",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-dark.svg",
+      "public_sha256": "60ff3568cda5b2145b233708b3a468e58b4fe82c8d79b6345f652288046c2c94",
+      "local_sha256": "60ff3568cda5b2145b233708b3a468e58b4fe82c8d79b6345f652288046c2c94",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.png",
+      "public_sha256": "1ca0ca5f265cc19b203224dc35c77165c67d255013e9d82d91f961cc3673e023",
+      "local_sha256": "1ca0ca5f265cc19b203224dc35c77165c67d255013e9d82d91f961cc3673e023",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-light-mobile.svg",
+      "public_sha256": "74e0078f5554d04a8c3d0e26af369e3182ba7751b323766d6ae788135a7447bc",
+      "local_sha256": "74e0078f5554d04a8c3d0e26af369e3182ba7751b323766d6ae788135a7447bc",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-light.png",
+      "public_sha256": "843b31afa8ab8bede01cae86964e632ffdd61d0fea4ad74804752e6d6eae2e3d",
+      "local_sha256": "843b31afa8ab8bede01cae86964e632ffdd61d0fea4ad74804752e6d6eae2e3d",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en-light.svg",
+      "public_sha256": "619ecc4220ae53ce564ad679fabd2d12f94dee7ba06a2787c0250d9a6ea2190f",
+      "local_sha256": "619ecc4220ae53ce564ad679fabd2d12f94dee7ba06a2787c0250d9a6ea2190f",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-en.visual-manifest.json",
+      "public_sha256": "ffccfe127ed93a6da6459313e329ed3037b70fb45c9f5a0003c5d2830b5dd70a",
+      "local_sha256": "ffccfe127ed93a6da6459313e329ed3037b70fb45c9f5a0003c5d2830b5dd70a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.png",
+      "public_sha256": "3abb0c800f20c70fdb7793d983fbdef66e27abbda8f275fee9e9e9a38b25f462",
+      "local_sha256": "3abb0c800f20c70fdb7793d983fbdef66e27abbda8f275fee9e9e9a38b25f462",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-dark-mobile.svg",
+      "public_sha256": "138ae704b4bfad67bc674cca9a9fba75994ae61cd4fe49f9f8ad178d9fc42c3a",
+      "local_sha256": "138ae704b4bfad67bc674cca9a9fba75994ae61cd4fe49f9f8ad178d9fc42c3a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-dark.png",
+      "public_sha256": "ab346787d07d946a0f0eebf2ee471843c216dfaf67a831e1660e089b82c1a2c0",
+      "local_sha256": "ab346787d07d946a0f0eebf2ee471843c216dfaf67a831e1660e089b82c1a2c0",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-dark.svg",
+      "public_sha256": "1840e0fa50c3bb867b6aa5383c7c8faf0d82d20166c27410b043929b747e49f5",
+      "local_sha256": "1840e0fa50c3bb867b6aa5383c7c8faf0d82d20166c27410b043929b747e49f5",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.png",
+      "public_sha256": "bb575ec13fe194f1337cce1c3b22bd771cd1c2d34ad522bf7c30b4dd8c50afb5",
+      "local_sha256": "bb575ec13fe194f1337cce1c3b22bd771cd1c2d34ad522bf7c30b4dd8c50afb5",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-light-mobile.svg",
+      "public_sha256": "d8a48d01fcc6daaddac80cae76dfa3146da89d047e24cb253a0c55ae54a38770",
+      "local_sha256": "d8a48d01fcc6daaddac80cae76dfa3146da89d047e24cb253a0c55ae54a38770",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-light.png",
+      "public_sha256": "92a3fa66e1dd947217415227c6b8b4b09ca941dc03bf7430628a19a8e985edee",
+      "local_sha256": "92a3fa66e1dd947217415227c6b8b4b09ca941dc03bf7430628a19a8e985edee",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es-light.svg",
+      "public_sha256": "8f0f37987bbbef1a6edb24940535fcdc87e777a89d24b181323bb4d0a2e4a67f",
+      "local_sha256": "8f0f37987bbbef1a6edb24940535fcdc87e777a89d24b181323bb4d0a2e4a67f",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post3/territorial-audit-es.visual-manifest.json",
+      "public_sha256": "bd87dc0b1bdf773b405a7cb01464bb9caa972619000f43c5e9d78d8d1dee9d26",
+      "local_sha256": "bd87dc0b1bdf773b405a7cb01464bb9caa972619000f43c5e9d78d8d1dee9d26",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-data.csv",
+      "public_sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4",
+      "local_sha256": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.png",
+      "public_sha256": "90a0f3ba6470c0f9a22c7ec1fff4deeaad28be5197bedb283ec951975061285b",
+      "local_sha256": "90a0f3ba6470c0f9a22c7ec1fff4deeaad28be5197bedb283ec951975061285b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark-mobile.svg",
+      "public_sha256": "ccdcccb8baf9580afafff4169b65163d671bcbfd69a9676d119e82484aafb27f",
+      "local_sha256": "ccdcccb8baf9580afafff4169b65163d671bcbfd69a9676d119e82484aafb27f",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.png",
+      "public_sha256": "5bd17daa8a22b40f71bb1ab7067018fafa1d7244ba419bbe3535d24d55bbdc5a",
+      "local_sha256": "5bd17daa8a22b40f71bb1ab7067018fafa1d7244ba419bbe3535d24d55bbdc5a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-dark.svg",
+      "public_sha256": "650f9306df0572ffe4c795378cda7349eb324649dd839e2456fbcf41eed3b7ea",
+      "local_sha256": "650f9306df0572ffe4c795378cda7349eb324649dd839e2456fbcf41eed3b7ea",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.png",
+      "public_sha256": "37385ee75ae453ef71f53cd8fff4543a9562638da1549fd9f187bbb5862b9392",
+      "local_sha256": "37385ee75ae453ef71f53cd8fff4543a9562638da1549fd9f187bbb5862b9392",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light-mobile.svg",
+      "public_sha256": "cfb31ec92d123f3468189b7212d0c513dd7a339c0d1f64c12f8cd24a14213202",
+      "local_sha256": "cfb31ec92d123f3468189b7212d0c513dd7a339c0d1f64c12f8cd24a14213202",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.png",
+      "public_sha256": "c69c5356db7d85230bc6017f72544fc10dda8da7fdd97da920c87c153fd7db46",
+      "local_sha256": "c69c5356db7d85230bc6017f72544fc10dda8da7fdd97da920c87c153fd7db46",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-en-light.svg",
+      "public_sha256": "411bd3110540e7a4548f128e4e9a72aa8026e83bd02e097ce1cb1486bb29937e",
+      "local_sha256": "411bd3110540e7a4548f128e4e9a72aa8026e83bd02e097ce1cb1486bb29937e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.png",
+      "public_sha256": "6a1e11a3459b01223904065bb3f2b85c72013992a439f893baf7fc66dc3ca12d",
+      "local_sha256": "6a1e11a3459b01223904065bb3f2b85c72013992a439f893baf7fc66dc3ca12d",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark-mobile.svg",
+      "public_sha256": "cce18237f08039f3cdda2a027c31d2e0442feb156f4e3556901949b42ffd2715",
+      "local_sha256": "cce18237f08039f3cdda2a027c31d2e0442feb156f4e3556901949b42ffd2715",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.png",
+      "public_sha256": "7e9e9062df418ee878dde227dda2f3356997725aec61ef511a612e63d8181d8c",
+      "local_sha256": "7e9e9062df418ee878dde227dda2f3356997725aec61ef511a612e63d8181d8c",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-dark.svg",
+      "public_sha256": "54da45c29884f39b1f9ea5422c3edb6bafdb699748d1cdec756548004b3c2f8e",
+      "local_sha256": "54da45c29884f39b1f9ea5422c3edb6bafdb699748d1cdec756548004b3c2f8e",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.png",
+      "public_sha256": "5bf8a2581812807a794e488df27eefdabe2a7b092d1caeb10a8f26ec6e185cd0",
+      "local_sha256": "5bf8a2581812807a794e488df27eefdabe2a7b092d1caeb10a8f26ec6e185cd0",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light-mobile.svg",
+      "public_sha256": "b3754f0b4f4a0c672255ac1e5625a59aae16b0d85031c6a2103e4a1962579f79",
+      "local_sha256": "b3754f0b4f4a0c672255ac1e5625a59aae16b0d85031c6a2103e4a1962579f79",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+      "public_sha256": "63402f66538e65d6b947cd206849ba1e5a06fc89bf034b8369560c253f5a9848",
+      "local_sha256": "63402f66538e65d6b947cd206849ba1e5a06fc89bf034b8369560c253f5a9848",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.svg",
+      "public_sha256": "9bd6b7acfb6e5d82a41468c007a86eb794c5394175a736613b13c4ae4824f18c",
+      "local_sha256": "9bd6b7acfb6e5d82a41468c007a86eb794c5394175a736613b13c4ae4824f18c",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-data.csv",
+      "public_sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1",
+      "local_sha256": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.png",
+      "public_sha256": "5f5a12cb39934faecc55a77591c1cb9c7e4ff1bb047c3a93fdebfab477297959",
+      "local_sha256": "5f5a12cb39934faecc55a77591c1cb9c7e4ff1bb047c3a93fdebfab477297959",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-dark-mobile.svg",
+      "public_sha256": "c115aa5d3643fb07afa35c0a7a8a9cabfa5c8d776cb51d32b3d8db1d41285afa",
+      "local_sha256": "c115aa5d3643fb07afa35c0a7a8a9cabfa5c8d776cb51d32b3d8db1d41285afa",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-dark.png",
+      "public_sha256": "78f55f95038c6198302dbc13ec0c89dbc4aa34909d6a67e7c02ffa94fb028c5d",
+      "local_sha256": "78f55f95038c6198302dbc13ec0c89dbc4aa34909d6a67e7c02ffa94fb028c5d",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-dark.svg",
+      "public_sha256": "cd494136005e84afa0c25f5f0f18ac9ca83d92876ecd6f9669a33b31bf7917f1",
+      "local_sha256": "cd494136005e84afa0c25f5f0f18ac9ca83d92876ecd6f9669a33b31bf7917f1",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.png",
+      "public_sha256": "22180a6eb7142cbfb94f5f69cee7f688306274f712e9361e901b81657d5ff894",
+      "local_sha256": "22180a6eb7142cbfb94f5f69cee7f688306274f712e9361e901b81657d5ff894",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-light-mobile.svg",
+      "public_sha256": "a02643215abbd2dd22f8c812cbb093f3affc89643bee01134a71b2c5348027c0",
+      "local_sha256": "a02643215abbd2dd22f8c812cbb093f3affc89643bee01134a71b2c5348027c0",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-light.png",
+      "public_sha256": "a8f71a6c8dbd3dd25f43e575c99aa1da6a45219e13ef25d0236ecd996488b390",
+      "local_sha256": "a8f71a6c8dbd3dd25f43e575c99aa1da6a45219e13ef25d0236ecd996488b390",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-en-light.svg",
+      "public_sha256": "53000552975f9949d9b66322eb39df4bc459b9931ad07191357fb5113d1e8e2a",
+      "local_sha256": "53000552975f9949d9b66322eb39df4bc459b9931ad07191357fb5113d1e8e2a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.png",
+      "public_sha256": "0bd5c8fda389df831dbbf868ee9a22023ff15b5910eabe70e0e791ff9eeb8033",
+      "local_sha256": "0bd5c8fda389df831dbbf868ee9a22023ff15b5910eabe70e0e791ff9eeb8033",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-dark-mobile.svg",
+      "public_sha256": "cd99e6ce659b7e3325b6f592ac96dc697f82c2388acd4c55d166b79a742d09fa",
+      "local_sha256": "cd99e6ce659b7e3325b6f592ac96dc697f82c2388acd4c55d166b79a742d09fa",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-dark.png",
+      "public_sha256": "4bad373378dba1a6822c88b886779e59e8dd7100b8654ebf61a00b63d5fa4719",
+      "local_sha256": "4bad373378dba1a6822c88b886779e59e8dd7100b8654ebf61a00b63d5fa4719",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-dark.svg",
+      "public_sha256": "b11ccb127e996e8cc9f7462d9fda3f6fa8d19689d776a1116858d10817eeb87a",
+      "local_sha256": "b11ccb127e996e8cc9f7462d9fda3f6fa8d19689d776a1116858d10817eeb87a",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.png",
+      "public_sha256": "cc4f7f9bab85b68feb11119ec4ceffb1c1551f66ca0c9377ade6ae91166c9467",
+      "local_sha256": "cc4f7f9bab85b68feb11119ec4ceffb1c1551f66ca0c9377ade6ae91166c9467",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-light-mobile.svg",
+      "public_sha256": "60293458a04c645e39bc38bdbc918425e08dd63ade57af50538e95a0dc7fe305",
+      "local_sha256": "60293458a04c645e39bc38bdbc918425e08dd63ade57af50538e95a0dc7fe305",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+      "public_sha256": "c35375a79f4671ed1b8410d1bb731a01167f46d099eb9dfc566253dd1e736f37",
+      "local_sha256": "c35375a79f4671ed1b8410d1bb731a01167f46d099eb9dfc566253dd1e736f37",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/longitudinal-regimes-es-light.svg",
+      "public_sha256": "7759ecc91091ececdda30370ad7fb66d93fb86b78ed27d455fe66768bec2dba4",
+      "local_sha256": "7759ecc91091ececdda30370ad7fb66d93fb86b78ed27d455fe66768bec2dba4",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/manifest.json",
+      "public_sha256": "bb579f6e064d85f525a41189bd5866484d9f1857772bf64c2d8863cdd66d3455",
+      "local_sha256": "bb579f6e064d85f525a41189bd5866484d9f1857772bf64c2d8863cdd66d3455",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-data.csv",
+      "public_sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633",
+      "local_sha256": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-dark-mobile.png",
+      "public_sha256": "3caca667186e90dc4df5014c084a6cd99637557b7f2ec3ebe943b080aae260be",
+      "local_sha256": "3caca667186e90dc4df5014c084a6cd99637557b7f2ec3ebe943b080aae260be",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-dark-mobile.svg",
+      "public_sha256": "e56dd4c1f518fe33ced97b9f7f2b8e5504f54915530fe1de88156d143d86ba09",
+      "local_sha256": "e56dd4c1f518fe33ced97b9f7f2b8e5504f54915530fe1de88156d143d86ba09",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-dark.png",
+      "public_sha256": "bd7cf3f28b3614b4a2a58f966ae105eeec917bdbb324f7f7bf804cbbadad138b",
+      "local_sha256": "bd7cf3f28b3614b4a2a58f966ae105eeec917bdbb324f7f7bf804cbbadad138b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-dark.svg",
+      "public_sha256": "62c6a4744c7976dbc7dc8663aefab0c0387823ceada82017d615e9bc1abf0602",
+      "local_sha256": "62c6a4744c7976dbc7dc8663aefab0c0387823ceada82017d615e9bc1abf0602",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-light-mobile.png",
+      "public_sha256": "faf729c6649e4096c5201802fa4728d7098c3b8294ab92d24e11a70e99897832",
+      "local_sha256": "faf729c6649e4096c5201802fa4728d7098c3b8294ab92d24e11a70e99897832",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-light-mobile.svg",
+      "public_sha256": "70c8995ed1a8ba362e758cd368ac397ac5d66ac3fcee69746932cf08d6fd80f3",
+      "local_sha256": "70c8995ed1a8ba362e758cd368ac397ac5d66ac3fcee69746932cf08d6fd80f3",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-light.png",
+      "public_sha256": "c7f135cea089c3e28fe5e67135cd27afaac6be2ba7ab873e2d26df7ee2080ee5",
+      "local_sha256": "c7f135cea089c3e28fe5e67135cd27afaac6be2ba7ab873e2d26df7ee2080ee5",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-en-light.svg",
+      "public_sha256": "211a5a0b90c002659192fe1870456d866b170baa8dfa3cf0ae0a0b104be2e0d7",
+      "local_sha256": "211a5a0b90c002659192fe1870456d866b170baa8dfa3cf0ae0a0b104be2e0d7",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-dark-mobile.png",
+      "public_sha256": "3d286401cd0701c5d8af06715abeffe2900d28942ba8c2c9346432b312f64ace",
+      "local_sha256": "3d286401cd0701c5d8af06715abeffe2900d28942ba8c2c9346432b312f64ace",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-dark-mobile.svg",
+      "public_sha256": "c3ebb7cc595b5d0b7e9f95ccb33939f13d1b5a7ee28ecf0adf5efead18947208",
+      "local_sha256": "c3ebb7cc595b5d0b7e9f95ccb33939f13d1b5a7ee28ecf0adf5efead18947208",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-dark.png",
+      "public_sha256": "e30ed393cff425806041c7bfdf4ee99e6410c7f13a935cb67a853aa80b559fff",
+      "local_sha256": "e30ed393cff425806041c7bfdf4ee99e6410c7f13a935cb67a853aa80b559fff",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-dark.svg",
+      "public_sha256": "d434725236c8332dd842b9c8cd835fb553c35e0297fd9cf7e3532fc1ebff0598",
+      "local_sha256": "d434725236c8332dd842b9c8cd835fb553c35e0297fd9cf7e3532fc1ebff0598",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-light-mobile.png",
+      "public_sha256": "f299d112e53162534626d86dffd9fbced40754a7a000ca025c4946286e869565",
+      "local_sha256": "f299d112e53162534626d86dffd9fbced40754a7a000ca025c4946286e869565",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-light-mobile.svg",
+      "public_sha256": "daa12b55da0055f38b4e15c9c98174dd9adbfb572f8ae161800cd1050457430b",
+      "local_sha256": "daa12b55da0055f38b4e15c9c98174dd9adbfb572f8ae161800cd1050457430b",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-light.png",
+      "public_sha256": "0bd68340903392aad2b22aa556a9ee9861062f9ec23d72f05ebcb25d564451da",
+      "local_sha256": "0bd68340903392aad2b22aa556a9ee9861062f9ec23d72f05ebcb25d564451da",
+      "equal": true
+    },
+    {
+      "path": "assets/images/tesis-post4/selection-ladder-es-light.svg",
+      "public_sha256": "b7b9a4fb67230901d01a42030bf9955a66e788226160e256a1ed745c5754da3f",
+      "local_sha256": "b7b9a4fb67230901d01a42030bf9955a66e788226160e256a1ed745c5754da3f",
+      "equal": true
+    }
+  ],
+  "failures": [],
+  "pipeline": {
+    "id": 3040975045,
+    "iid": 423,
+    "project_id": 57339918,
+    "sha": "1959f6591f3c4a7aa9d6954883746c58dbf8a351",
+    "ref": "main",
+    "status": "success",
+    "source": "push",
+    "created_at": "2026-11-08T00:52:40.560Z",
+    "updated_at": "2026-11-08T00:56:46.702Z",
+    "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/pipelines/3040975045",
+    "name": null
+  },
+  "jobs": [
+    {
+      "id": 17837108968,
+      "name": "pages",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/17837108968"
+    },
+    {
+      "id": 17837108967,
+      "name": "build_site",
+      "status": "success",
+      "web_url": "https://gitlab.com/tatanlabra/3cucharadas/-/jobs/17837108967"
+    }
+  ],
+  "status": "PASS"
+}

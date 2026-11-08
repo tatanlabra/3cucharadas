@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg role="img" aria-labelledby="figure-title figure-desc" preserveAspectRatio="xMidYMid meet" style="max-width:100%;height:auto" xmlns:xlink="http://www.w3.org/1999/xlink" width="327.589679pt" height="800.856pt" viewBox="0 0 327.589679 800.856" xmlns="http://www.w3.org/2000/svg" version="1.1"><title id="figure-title">Causal ML and PAES/PDT admission</title><desc id="figure-desc">CATE heterogeneity across GATE quintiles and causal decomposition on PAES/PDT 2021-2026 outcomes.</desc>
+<svg role="img" aria-labelledby="figure-title figure-desc" preserveAspectRatio="xMidYMid meet" style="max-width:100%;height:auto" xmlns:xlink="http://www.w3.org/1999/xlink" width="327.589679pt" height="964.8pt" viewBox="0 0 327.589679 964.8" xmlns="http://www.w3.org/2000/svg" version="1.1"><title id="figure-title">Causal ML and PAES/PDT admission</title><desc id="figure-desc">CATE heterogeneity across GATE quintiles and causal decomposition on PAES/PDT 2021-2026 outcomes.</desc>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-07T20:59:23.366670</dc:date>
+    <dc:date>2026-11-07T23:43:00.808701</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,8 +21,8 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 800.856
-L 327.589679 800.856
+   <path d="M 0 964.8
+L 327.589679 964.8
 L 327.589679 0
 L 0 0
 z
@@ -30,10 +30,10 @@ z
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 65.90975 438.934
-L 317.74323 438.934
-L 317.74323 253.0408
-L 65.90975 253.0408
+    <path d="M 65.90975 531.67
+L 317.74323 531.67
+L 317.74323 281.524
+L 65.90975 281.524
 z
 " style="fill: #262626"/>
    </g>
@@ -46,63 +46,63 @@ L 0 3.5
 " style="stroke: #b5beca; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#mfacbbc3193" x="85.342989" y="438.934" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="85.342989" y="531.67" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_1">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(78.367676 458.089)">G1</text>
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(65.530176 473.689)">lowest</text>
+     <g id="causal-category-0-1">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(78.367676 550.825)">G1</text>
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(65.530176 566.425)">lowest</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#mfacbbc3193" x="138.58474" y="438.934" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="138.58474" y="531.67" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_2">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="138.58474" y="458.089" transform="rotate(-0 138.58474 458.089)">G2</text>
+     <g id="causal-category-0-2">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="138.58474" y="550.825" transform="rotate(-0 138.58474 550.825)">G2</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#mfacbbc3193" x="191.82649" y="438.934" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="191.82649" y="531.67" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_3">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(184.25399 458.089)">G3</text>
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(169.804693 473.689)">median</text>
+     <g id="causal-category-0-3">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(184.25399 550.825)">G3</text>
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(169.804693 566.425)">median</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#mfacbbc3193" x="245.068241" y="438.934" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="245.068241" y="531.67" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_4">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="245.068241" y="458.089" transform="rotate(-0 245.068241 458.089)">G4</text>
+     <g id="causal-category-0-4">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="245.068241" y="550.825" transform="rotate(-0 245.068241 550.825)">G4</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#mfacbbc3193" x="298.309991" y="438.934" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="298.309991" y="531.67" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_5">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(290.633898 458.089)">G5</text>
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(276.230304 473.689)">highest</text>
+     <g id="causal-category-0-5">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(290.633898 550.825)">G5</text>
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(276.230304 566.425)">highest</text>
      </g>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_6">
-      <path d="M 65.90975 425.655914
-L 317.74323 425.655914
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+      <path d="M 65.90975 513.802429
+L 317.74323 513.802429
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
      </g>
      <g id="line2d_7">
       <defs>
@@ -111,74 +111,131 @@ L -3.5 0
 " style="stroke: #b5beca; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="425.655914" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="513.802429" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_6">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="431.733414" transform="rotate(-0 58.90975 431.733414)">-15</text>
+     <g id="text_1">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="519.879929" transform="rotate(-0 58.90975 519.879929)">-15.0</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_8">
-      <path d="M 65.90975 381.395629
-L 317.74323 381.395629
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+      <path d="M 65.90975 484.023143
+L 317.74323 484.023143
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
      </g>
      <g id="line2d_9">
       <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="381.395629" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="484.023143" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_7">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="387.473129" transform="rotate(-0 58.90975 387.473129)">-10</text>
+     <g id="text_2">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="490.100643" transform="rotate(-0 58.90975 490.100643)">-12.5</text>
      </g>
     </g>
     <g id="ytick_3">
      <g id="line2d_10">
-      <path d="M 65.90975 337.135343
-L 317.74323 337.135343
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+      <path d="M 65.90975 454.243857
+L 317.74323 454.243857
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
      </g>
      <g id="line2d_11">
       <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="337.135343" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="454.243857" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_8">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="343.212843" transform="rotate(-0 58.90975 343.212843)">-5</text>
+     <g id="text_3">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="460.321357" transform="rotate(-0 58.90975 460.321357)">-10.0</text>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_12">
-      <path d="M 65.90975 292.875057
-L 317.74323 292.875057
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+      <path d="M 65.90975 424.464571
+L 317.74323 424.464571
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
      </g>
      <g id="line2d_13">
       <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="292.875057" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="424.464571" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_9">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="298.952557" transform="rotate(-0 58.90975 298.952557)">0</text>
+     <g id="text_4">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="430.542071" transform="rotate(-0 58.90975 430.542071)">-7.5</text>
      </g>
     </g>
-    <g id="text_10">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #b5beca" x="34.253969" y="345.9874" transform="rotate(-90 34.253969 345.9874)">Effect (pp)</text>
+    <g id="ytick_5">
+     <g id="line2d_14">
+      <path d="M 65.90975 394.685286
+L 317.74323 394.685286
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="394.685286" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="400.762786" transform="rotate(-0 58.90975 400.762786)">-5.0</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_16">
+      <path d="M 65.90975 364.906
+L 317.74323 364.906
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="364.906" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="370.9835" transform="rotate(-0 58.90975 370.9835)">-2.5</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_18">
+      <path d="M 65.90975 335.126714
+L 317.74323 335.126714
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="335.126714" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="341.204214" transform="rotate(-0 58.90975 341.204214)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_20">
+      <path d="M 65.90975 305.347429
+L 317.74323 305.347429
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="305.347429" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="311.424929" transform="rotate(-0 58.90975 311.424929)">2.5</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #b5beca" x="24.193188" y="406.597" transform="rotate(-90 24.193188 406.597)">Effect (pp)</text>
     </g>
    </g>
-   <g id="line2d_14">
-    <path d="M 65.90975 292.875057
-L 317.74323 292.875057
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #f2f5f8; stroke-opacity: 0.75; stroke-width: 1.1"/>
+   <g id="line2d_22">
+    <path d="M 65.90975 335.126714
+L 317.74323 335.126714
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #f2f5f8; stroke-opacity: 0.75; stroke-width: 1.1"/>
    </g>
-   <g id="line2d_15">
-    <path d="M 77.356726 401.401278
-L 130.598477 320.759037
-L 183.840228 322.175366
-L 237.081978 306.153143
-L 290.323729 319.69679
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
+   <g id="causal-gate-line-any_he_two_year-0">
+    <path d="M 77.356726 481.164331
+L 130.598477 372.648614
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
     <defs>
      <path id="mc7dbc30ebb" d="M 0 3.75
 C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165
@@ -192,21 +249,42 @@ C -1.948425 3.354876 -0.994512 3.75 0 3.75
 z
 " style="stroke: #64d8e9"/>
     </defs>
-    <g clip-path="url(#p3aea59975e)">
-     <use xlink:href="#mc7dbc30ebb" x="77.356726" y="401.401278" style="fill: #64d8e9; stroke: #64d8e9"/>
-     <use xlink:href="#mc7dbc30ebb" x="130.598477" y="320.759037" style="fill: #64d8e9; stroke: #64d8e9"/>
-     <use xlink:href="#mc7dbc30ebb" x="183.840228" y="322.175366" style="fill: #64d8e9; stroke: #64d8e9"/>
-     <use xlink:href="#mc7dbc30ebb" x="237.081978" y="306.153143" style="fill: #64d8e9; stroke: #64d8e9"/>
-     <use xlink:href="#mc7dbc30ebb" x="290.323729" y="319.69679" style="fill: #64d8e9; stroke: #64d8e9"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#mc7dbc30ebb" x="77.356726" y="481.164331" style="fill: #64d8e9; stroke: #64d8e9"/>
+     <use xlink:href="#mc7dbc30ebb" x="130.598477" y="372.648614" style="fill: #64d8e9; stroke: #64d8e9"/>
     </g>
    </g>
-   <g id="line2d_16">
-    <path d="M 85.342989 363.868555
-L 138.58474 300.487826
-L 191.82649 279.242889
-L 245.068241 297.124045
-L 298.309991 286.413055
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
+   <g id="causal-gate-line-any_he_two_year-1">
+    <path d="M 130.598477 372.648614
+L 183.840228 374.554489
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#mc7dbc30ebb" x="130.598477" y="372.648614" style="fill: #64d8e9; stroke: #64d8e9"/>
+     <use xlink:href="#mc7dbc30ebb" x="183.840228" y="374.554489" style="fill: #64d8e9; stroke: #64d8e9"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-any_he_two_year-2">
+    <path d="M 183.840228 374.554489
+L 237.081978 352.994286
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#mc7dbc30ebb" x="183.840228" y="374.554489" style="fill: #64d8e9; stroke: #64d8e9"/>
+     <use xlink:href="#mc7dbc30ebb" x="237.081978" y="352.994286" style="fill: #64d8e9; stroke: #64d8e9"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-any_he_two_year-3">
+    <path d="M 237.081978 352.994286
+L 290.323729 371.219209
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#mc7dbc30ebb" x="237.081978" y="352.994286" style="fill: #64d8e9; stroke: #64d8e9"/>
+     <use xlink:href="#mc7dbc30ebb" x="290.323729" y="371.219209" style="fill: #64d8e9; stroke: #64d8e9"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-ipcft_two_year-0">
+    <path d="M 85.342989 430.658663
+L 138.58474 345.370789
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
     <defs>
      <path id="m9b4cdb9a9a" d="M -3.75 3.75
 L 3.75 3.75
@@ -215,21 +293,42 @@ L -3.75 -3.75
 z
 " style="stroke: #f08ca3; stroke-linejoin: miter"/>
     </defs>
-    <g clip-path="url(#p3aea59975e)">
-     <use xlink:href="#m9b4cdb9a9a" x="85.342989" y="363.868555" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
-     <use xlink:href="#m9b4cdb9a9a" x="138.58474" y="300.487826" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
-     <use xlink:href="#m9b4cdb9a9a" x="191.82649" y="279.242889" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
-     <use xlink:href="#m9b4cdb9a9a" x="245.068241" y="297.124045" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
-     <use xlink:href="#m9b4cdb9a9a" x="298.309991" y="286.413055" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m9b4cdb9a9a" x="85.342989" y="430.658663" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+     <use xlink:href="#m9b4cdb9a9a" x="138.58474" y="345.370789" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="line2d_17">
-    <path d="M 93.329252 394.496673
-L 146.571002 315.182241
-L 199.812753 337.932028
-L 253.054503 292.963578
-L 306.296254 341.472851
-" clip-path="url(#p3aea59975e)" style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
+   <g id="causal-gate-line-ipcft_two_year-1">
+    <path d="M 138.58474 345.370789
+L 191.82649 316.782674
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m9b4cdb9a9a" x="138.58474" y="345.370789" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+     <use xlink:href="#m9b4cdb9a9a" x="191.82649" y="316.782674" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-ipcft_two_year-2">
+    <path d="M 191.82649 316.782674
+L 245.068241 340.844337
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m9b4cdb9a9a" x="191.82649" y="316.782674" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+     <use xlink:href="#m9b4cdb9a9a" x="245.068241" y="340.844337" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-ipcft_two_year-3">
+    <path d="M 245.068241 340.844337
+L 298.309991 326.431163
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m9b4cdb9a9a" x="245.068241" y="340.844337" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+     <use xlink:href="#m9b4cdb9a9a" x="298.309991" y="326.431163" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-persist_2yr-0">
+    <path d="M 93.329252 471.873194
+L 146.571002 365.144234
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
     <defs>
      <path id="m6eb106a70d" d="M 0 -3.75
 L -3.75 3.75
@@ -237,447 +336,546 @@ L 3.75 3.75
 z
 " style="stroke: #f1c75b; stroke-linejoin: miter"/>
     </defs>
-    <g clip-path="url(#p3aea59975e)">
-     <use xlink:href="#m6eb106a70d" x="93.329252" y="394.496673" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
-     <use xlink:href="#m6eb106a70d" x="146.571002" y="315.182241" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
-     <use xlink:href="#m6eb106a70d" x="199.812753" y="337.932028" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
-     <use xlink:href="#m6eb106a70d" x="253.054503" y="292.963578" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
-     <use xlink:href="#m6eb106a70d" x="306.296254" y="341.472851" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m6eb106a70d" x="93.329252" y="471.873194" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+     <use xlink:href="#m6eb106a70d" x="146.571002" y="365.144234" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="patch_3">
-    <path d="M 65.90975 438.934
-L 65.90975 253.0408
+   <g id="causal-gate-line-persist_2yr-1">
+    <path d="M 146.571002 365.144234
+L 199.812753 395.75734
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m6eb106a70d" x="146.571002" y="365.144234" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+     <use xlink:href="#m6eb106a70d" x="199.812753" y="395.75734" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-persist_2yr-2">
+    <path d="M 199.812753 395.75734
+L 253.054503 335.245831
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m6eb106a70d" x="199.812753" y="395.75734" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+     <use xlink:href="#m6eb106a70d" x="253.054503" y="335.245831" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-gate-line-persist_2yr-3">
+    <path d="M 253.054503 335.245831
+L 306.296254 400.522026
+" clip-path="url(#pbcd28f3ebc)" style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
+    <g clip-path="url(#pbcd28f3ebc)">
+     <use xlink:href="#m6eb106a70d" x="253.054503" y="335.245831" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+     <use xlink:href="#m6eb106a70d" x="306.296254" y="400.522026" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="causal-spine-0-left">
+    <path d="M 65.90975 531.67
+L 65.90975 281.524
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_4">
-    <path d="M 317.74323 438.934
-L 317.74323 253.0408
+   <g id="causal-spine-0-right">
+    <path d="M 317.74323 531.67
+L 317.74323 281.524
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_5">
-    <path d="M 65.90975 438.934
-L 317.74323 438.934
+   <g id="causal-spine-0-bottom">
+    <path d="M 65.90975 531.67
+L 317.74323 531.67
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_6">
-    <path d="M 65.90975 253.0408
-L 317.74323 253.0408
+   <g id="causal-spine-0-top">
+    <path d="M 65.90975 281.524
+L 317.74323 281.524
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="text_11">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #64d8e9" x="77.356726" y="412.908952" transform="rotate(-0 77.356726 412.908952)">−12.3</text>
+   <g id="causal-gate-value-any_he_two_year-0">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #64d8e9" x="90.667164" y="504.273057" transform="rotate(-0 90.667164 504.273057)">−12.3</text>
    </g>
-   <g id="text_12">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #64d8e9" x="290.323729" y="331.204465" transform="rotate(-0 290.323729 331.204465)">−3.0</text>
+   <g id="causal-gate-value-any_he_two_year-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #64d8e9" x="290.323729" y="355.73398" transform="rotate(-0 290.323729 355.73398)">−3.0</text>
    </g>
-   <g id="text_13">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="85.342989" y="355.016498" transform="rotate(-0 85.342989 355.016498)">−8.0</text>
+   <g id="causal-gate-value-ipcft_two_year-0">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="85.342989" y="400.879377" transform="rotate(-0 85.342989 400.879377)">−8.0</text>
    </g>
-   <g id="text_14">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="298.309991" y="277.560998" transform="rotate(-0 298.309991 277.560998)">+0.7</text>
+   <g id="causal-gate-value-ipcft_two_year-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="298.309991" y="314.519449" transform="rotate(-0 298.309991 314.519449)">+0.7</text>
    </g>
-   <g id="text_15">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="93.329252" y="381.395629" transform="rotate(-0 93.329252 381.395629)">−11.5</text>
+   <g id="causal-gate-value-persist_2yr-0">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="119.950127" y="489.979" transform="rotate(-0 119.950127 489.979)">−11.5</text>
    </g>
-   <g id="text_16">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="306.296254" y="352.980525" transform="rotate(-0 306.296254 352.980525)">−5.5</text>
+   <g id="causal-gate-value-persist_2yr-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="292.985816" y="416.007254" transform="rotate(-0 292.985816 416.007254)">−5.5</text>
    </g>
-   <g id="text_17">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="65.90975" y="243.0408" transform="rotate(-0 65.90975 243.0408)">A. GATE by CATE quintile (pp)</text>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="65.90975" y="271.524" transform="rotate(-0 65.90975 271.524)">A. GATE by CATE quintile (pp)</text>
    </g>
    <g id="legend_1">
-    <g id="patch_7">
-     <path d="M 71.92975 226.433616
-L 200.392719 226.433616
-Q 202.112719 226.433616 202.112719 224.713616
-L 202.112719 165.873616
-Q 202.112719 164.153616 200.392719 164.153616
-L 71.92975 164.153616
-Q 70.20975 164.153616 70.20975 165.873616
-L 70.20975 224.713616
-Q 70.20975 226.433616 71.92975 226.433616
+    <g id="patch_3">
+     <path d="M 71.92975 247.20648
+L 200.392719 247.20648
+Q 202.112719 247.20648 202.112719 245.48648
+L 202.112719 186.64648
+Q 202.112719 184.92648 200.392719 184.92648
+L 71.92975 184.92648
+Q 70.20975 184.92648 70.20975 186.64648
+L 70.20975 245.48648
+Q 70.20975 247.20648 71.92975 247.20648
 z
 " style="fill: #161616; opacity: 0.8; stroke: #586174; stroke-linejoin: miter"/>
     </g>
-    <g id="line2d_18">
-     <path d="M 73.64975 176.738616
-L 82.24975 176.738616
-L 90.84975 176.738616
+    <g id="line2d_23">
+     <path d="M 73.64975 197.51148
+L 82.24975 197.51148
+L 90.84975 197.51148
 " style="fill: none; stroke: #64d8e9; stroke-width: 2.4; stroke-linecap: square"/>
      <g>
-      <use xlink:href="#mc7dbc30ebb" x="82.24975" y="176.738616" style="fill: #64d8e9; stroke: #64d8e9"/>
+      <use xlink:href="#mc7dbc30ebb" x="82.24975" y="197.51148" style="fill: #64d8e9; stroke: #64d8e9"/>
      </g>
     </g>
-    <g id="text_18">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="179.748616" transform="rotate(-0 97.72975 179.748616)">HE 2-yr (p=0.024)</text>
+    <g id="text_11">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="200.52148" transform="rotate(-0 97.72975 200.52148)">HE 2-yr (p=0.024)</text>
     </g>
-    <g id="line2d_19">
-     <path d="M 73.64975 196.638616
-L 82.24975 196.638616
-L 90.84975 196.638616
+    <g id="line2d_24">
+     <path d="M 73.64975 217.41148
+L 82.24975 217.41148
+L 90.84975 217.41148
 " style="fill: none; stroke: #f08ca3; stroke-width: 2.4; stroke-linecap: square"/>
      <g>
-      <use xlink:href="#m9b4cdb9a9a" x="82.24975" y="196.638616" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
+      <use xlink:href="#m9b4cdb9a9a" x="82.24975" y="217.41148" style="fill: #f08ca3; stroke: #f08ca3; stroke-linejoin: miter"/>
      </g>
     </g>
-    <g id="text_19">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="199.648616" transform="rotate(-0 97.72975 199.648616)">IP/CFT (p=0.0007)</text>
+    <g id="text_12">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="220.42148" transform="rotate(-0 97.72975 220.42148)">IP/CFT (p=0.0007)</text>
     </g>
-    <g id="line2d_20">
-     <path d="M 73.64975 216.538616
-L 82.24975 216.538616
-L 90.84975 216.538616
+    <g id="line2d_25">
+     <path d="M 73.64975 237.31148
+L 82.24975 237.31148
+L 90.84975 237.31148
 " style="fill: none; stroke: #f1c75b; stroke-width: 2.4; stroke-linecap: square"/>
      <g>
-      <use xlink:href="#m6eb106a70d" x="82.24975" y="216.538616" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
+      <use xlink:href="#m6eb106a70d" x="82.24975" y="237.31148" style="fill: #f1c75b; stroke: #f1c75b; stroke-linejoin: miter"/>
      </g>
     </g>
-    <g id="text_20">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="219.548616" transform="rotate(-0 97.72975 219.548616)">Persist. (p=0.025)</text>
+    <g id="text_13">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="240.32148" transform="rotate(-0 97.72975 240.32148)">Persist. (p=0.025)</text>
     </g>
    </g>
   </g>
   <g id="axes_2">
-   <g id="patch_8">
-    <path d="M 65.90975 755.456
-L 317.74323 755.456
-L 317.74323 569.5628
-L 65.90975 569.5628
+   <g id="patch_4">
+    <path d="M 65.90975 919.4
+L 317.74323 919.4
+L 317.74323 669.254
+L 65.90975 669.254
 z
 " style="fill: #262626"/>
    </g>
    <g id="matplotlib.axis_3">
     <g id="xtick_6">
-     <g id="line2d_21">
+     <g id="line2d_26">
       <g>
-       <use xlink:href="#mfacbbc3193" x="99.512165" y="755.456" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="99.512165" y="919.4" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_21">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(82.547165 774.611)">Takes</text>
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(70.301774 790.211)">PAES/PDT</text>
+     <g id="causal-category-1-1">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(82.547165 938.555)">Takes</text>
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(70.301774 954.155)">PAES/PDT</text>
      </g>
     </g>
     <g id="xtick_7">
-     <g id="line2d_22">
+     <g id="line2d_27">
       <g>
-       <use xlink:href="#mfacbbc3193" x="161.055048" y="755.456" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="161.055048" y="919.4" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_22">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="161.055048" y="774.611" transform="rotate(-0 161.055048 774.611)">Applies</text>
+     <g id="causal-category-1-2">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="161.055048" y="938.555" transform="rotate(-0 161.055048 938.555)">Applies</text>
      </g>
     </g>
     <g id="xtick_8">
-     <g id="line2d_23">
+     <g id="line2d_28">
       <g>
-       <use xlink:href="#mfacbbc3193" x="222.597932" y="755.456" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="222.597932" y="919.4" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_23">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="222.597932" y="774.611" transform="rotate(-0 222.597932 774.611)">Enrols</text>
+     <g id="causal-category-1-3">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="222.597932" y="938.555" transform="rotate(-0 222.597932 938.555)">Enrols</text>
      </g>
     </g>
     <g id="xtick_9">
-     <g id="line2d_24">
+     <g id="line2d_29">
       <g>
-       <use xlink:href="#mfacbbc3193" x="284.140816" y="755.456" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#mfacbbc3193" x="284.140816" y="919.4" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_24">
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(259.063003 774.611)">Top 20%</text>
-      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(272.486519 790.211)">(EB)</text>
+     <g id="causal-category-1-4">
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(259.063003 938.555)">Top 20%</text>
+      <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; fill: #f2f5f8" transform="translate(272.486519 954.155)">(EB)</text>
      </g>
     </g>
    </g>
    <g id="matplotlib.axis_4">
-    <g id="ytick_5">
-     <g id="line2d_25">
-      <path d="M 65.90975 724.4738
-L 317.74323 724.4738
-" clip-path="url(#p87a18ca994)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
-     </g>
-     <g id="line2d_26">
-      <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="724.4738" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_25">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="730.5513" transform="rotate(-0 58.90975 730.5513)">-10</text>
-     </g>
-    </g>
-    <g id="ytick_6">
-     <g id="line2d_27">
-      <path d="M 65.90975 680.213514
-L 317.74323 680.213514
-" clip-path="url(#p87a18ca994)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
-     </g>
-     <g id="line2d_28">
-      <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="680.213514" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_26">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="686.291014" transform="rotate(-0 58.90975 686.291014)">-5</text>
-     </g>
-    </g>
-    <g id="ytick_7">
-     <g id="line2d_29">
-      <path d="M 65.90975 635.953229
-L 317.74323 635.953229
-" clip-path="url(#p87a18ca994)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
-     </g>
+    <g id="ytick_9">
      <g id="line2d_30">
-      <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="635.953229" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
-      </g>
+      <path d="M 65.90975 908.2824
+L 317.74323 908.2824
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
      </g>
-     <g id="text_27">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="642.030729" transform="rotate(-0 58.90975 642.030729)">0</text>
-     </g>
-    </g>
-    <g id="ytick_8">
      <g id="line2d_31">
-      <path d="M 65.90975 591.692943
-L 317.74323 591.692943
-" clip-path="url(#p87a18ca994)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
-     </g>
-     <g id="line2d_32">
       <g>
-       <use xlink:href="#m2cc783cb6e" x="65.90975" y="591.692943" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="908.2824" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_28">
-      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="597.770443" transform="rotate(-0 58.90975 597.770443)">5</text>
+     <g id="text_14">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="914.3599" transform="rotate(-0 58.90975 914.3599)">-12.5</text>
      </g>
     </g>
-    <g id="text_29">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #b5beca" x="34.253969" y="662.5094" transform="rotate(-90 34.253969 662.5094)">Effect (pp)</text>
+    <g id="ytick_10">
+     <g id="line2d_32">
+      <path d="M 65.90975 880.4884
+L 317.74323 880.4884
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="880.4884" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="886.5659" transform="rotate(-0 58.90975 886.5659)">-10.0</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_34">
+      <path d="M 65.90975 852.6944
+L 317.74323 852.6944
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_35">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="852.6944" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="858.7719" transform="rotate(-0 58.90975 858.7719)">-7.5</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_36">
+      <path d="M 65.90975 824.9004
+L 317.74323 824.9004
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_37">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="824.9004" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="830.9779" transform="rotate(-0 58.90975 830.9779)">-5.0</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_38">
+      <path d="M 65.90975 797.1064
+L 317.74323 797.1064
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_39">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="797.1064" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="803.1839" transform="rotate(-0 58.90975 803.1839)">-2.5</text>
+     </g>
+    </g>
+    <g id="ytick_14">
+     <g id="line2d_40">
+      <path d="M 65.90975 769.3124
+L 317.74323 769.3124
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_41">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="769.3124" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="775.3899" transform="rotate(-0 58.90975 775.3899)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_15">
+     <g id="line2d_42">
+      <path d="M 65.90975 741.5184
+L 317.74323 741.5184
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_43">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="741.5184" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="747.5959" transform="rotate(-0 58.90975 747.5959)">2.5</text>
+     </g>
+    </g>
+    <g id="ytick_16">
+     <g id="line2d_44">
+      <path d="M 65.90975 713.7244
+L 317.74323 713.7244
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_45">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="713.7244" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="719.8019" transform="rotate(-0 58.90975 719.8019)">5.0</text>
+     </g>
+    </g>
+    <g id="ytick_17">
+     <g id="line2d_46">
+      <path d="M 65.90975 685.9304
+L 317.74323 685.9304
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 0.9,1.485; stroke-dashoffset: 0; stroke: #586174; stroke-width: 0.9"/>
+     </g>
+     <g id="line2d_47">
+      <g>
+       <use xlink:href="#m2cc783cb6e" x="65.90975" y="685.9304" style="fill: #b5beca; stroke: #b5beca; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: end; fill: #b5beca" x="58.90975" y="692.0079" transform="rotate(-0 58.90975 692.0079)">7.5</text>
+     </g>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #b5beca" x="24.193188" y="794.327" transform="rotate(-90 24.193188 794.327)">Effect (pp)</text>
     </g>
    </g>
-   <g id="patch_9">
-    <path d="M 77.356726 635.953229
-L 92.127018 635.953229
-L 92.127018 733.148816
-L 77.356726 733.148816
+   <g id="causal-paes-bar-0-1">
+    <path d="M 77.356726 769.3124
+L 92.127018 769.3124
+L 92.127018 891.383648
+L 77.356726 891.383648
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f08ca3; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f08ca3; opacity: 0.92"/>
    </g>
-   <g id="patch_10">
-    <path d="M 138.89961 635.953229
-L 153.669902 635.953229
-L 153.669902 695.704614
-L 138.89961 695.704614
+   <g id="causal-paes-bar-0-2">
+    <path d="M 138.89961 769.3124
+L 153.669902 769.3124
+L 153.669902 844.3562
+L 138.89961 844.3562
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f08ca3; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f08ca3; opacity: 0.92"/>
    </g>
-   <g id="patch_11">
-    <path d="M 200.442494 635.953229
-L 215.212786 635.953229
-L 215.212786 701.989575
-L 200.442494 701.989575
+   <g id="causal-paes-bar-0-3">
+    <path d="M 200.442494 769.3124
+L 215.212786 769.3124
+L 215.212786 852.249696
+L 200.442494 852.249696
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f08ca3; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f08ca3; opacity: 0.92"/>
    </g>
-   <g id="patch_12">
-    <path d="M 261.985378 635.953229
-L 276.75567 635.953229
-L 276.75567 658.437454
-L 261.985378 658.437454
+   <g id="causal-paes-bar-0-4">
+    <path d="M 261.985378 769.3124
+L 276.75567 769.3124
+L 276.75567 797.551104
+L 261.985378 797.551104
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f08ca3; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f08ca3; opacity: 0.92"/>
    </g>
-   <g id="patch_13">
-    <path d="M 92.127018 635.953229
-L 106.897311 635.953229
-L 106.897311 663.306085
-L 92.127018 663.306085
+   <g id="causal-paes-bar-1-1">
+    <path d="M 92.127018 769.3124
+L 106.897311 769.3124
+L 106.897311 803.665784
+L 92.127018 803.665784
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f1c75b; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f1c75b; opacity: 0.92"/>
    </g>
-   <g id="patch_14">
-    <path d="M 153.669902 635.953229
-L 168.440194 635.953229
-L 168.440194 637.281037
-L 153.669902 637.281037
+   <g id="causal-paes-bar-1-2">
+    <path d="M 153.669902 769.3124
+L 168.440194 769.3124
+L 168.440194 770.98004
+L 153.669902 770.98004
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f1c75b; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f1c75b; opacity: 0.92"/>
    </g>
-   <g id="patch_15">
-    <path d="M 215.212786 635.953229
-L 229.983078 635.953229
-L 229.983078 648.700191
-L 215.212786 648.700191
+   <g id="causal-paes-bar-1-3">
+    <path d="M 215.212786 769.3124
+L 229.983078 769.3124
+L 229.983078 785.321744
+L 215.212786 785.321744
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f1c75b; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f1c75b; opacity: 0.92"/>
    </g>
-   <g id="patch_16">
-    <path d="M 276.75567 635.953229
-L 291.525962 635.953229
-L 291.525962 641.441504
-L 276.75567 641.441504
+   <g id="causal-paes-bar-1-4">
+    <path d="M 276.75567 769.3124
+L 291.525962 769.3124
+L 291.525962 776.205312
+L 276.75567 776.205312
 z
-" clip-path="url(#p87a18ca994)" style="fill: #f1c75b; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #f1c75b; opacity: 0.92"/>
    </g>
-   <g id="patch_17">
-    <path d="M 106.897311 635.953229
-L 121.667603 635.953229
-L 121.667603 629.314186
-L 106.897311 629.314186
+   <g id="causal-paes-bar-2-1">
+    <path d="M 106.897311 769.3124
+L 121.667603 769.3124
+L 121.667603 760.9742
+L 106.897311 760.9742
 z
-" clip-path="url(#p87a18ca994)" style="fill: #72d6a4; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #72d6a4; opacity: 0.92"/>
    </g>
-   <g id="patch_18">
-    <path d="M 168.440194 635.953229
-L 183.210486 635.953229
-L 183.210486 597.889383
-L 168.440194 597.889383
+   <g id="causal-paes-bar-2-2">
+    <path d="M 168.440194 769.3124
+L 183.210486 769.3124
+L 183.210486 721.50672
+L 168.440194 721.50672
 z
-" clip-path="url(#p87a18ca994)" style="fill: #72d6a4; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #72d6a4; opacity: 0.92"/>
    </g>
-   <g id="patch_19">
-    <path d="M 229.983078 635.953229
-L 244.75337 635.953229
-L 244.75337 610.547825
-L 229.983078 610.547825
+   <g id="causal-paes-bar-2-3">
+    <path d="M 229.983078 769.3124
+L 244.75337 769.3124
+L 244.75337 737.404888
+L 229.983078 737.404888
 z
-" clip-path="url(#p87a18ca994)" style="fill: #72d6a4; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #72d6a4; opacity: 0.92"/>
    </g>
-   <g id="patch_20">
-    <path d="M 291.525962 635.953229
-L 306.296254 635.953229
-L 306.296254 620.462129
-L 291.525962 620.462129
+   <g id="causal-paes-bar-2-4">
+    <path d="M 291.525962 769.3124
+L 306.296254 769.3124
+L 306.296254 749.8566
+L 291.525962 749.8566
 z
-" clip-path="url(#p87a18ca994)" style="fill: #72d6a4; opacity: 0.92"/>
+" clip-path="url(#pc932d07526)" style="fill: #72d6a4; opacity: 0.92"/>
    </g>
-   <g id="line2d_33">
-    <path d="M 65.90975 635.953229
-L 317.74323 635.953229
-" clip-path="url(#p87a18ca994)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #f2f5f8; stroke-opacity: 0.75; stroke-width: 1.1"/>
+   <g id="line2d_48">
+    <path d="M 65.90975 769.3124
+L 317.74323 769.3124
+" clip-path="url(#pc932d07526)" style="fill: none; stroke-dasharray: 4.07,1.76; stroke-dashoffset: 0; stroke: #f2f5f8; stroke-opacity: 0.75; stroke-width: 1.1"/>
    </g>
-   <g id="patch_21">
-    <path d="M 65.90975 755.456
-L 65.90975 569.5628
+   <g id="causal-spine-1-left">
+    <path d="M 65.90975 919.4
+L 65.90975 669.254
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_22">
-    <path d="M 317.74323 755.456
-L 317.74323 569.5628
+   <g id="causal-spine-1-right">
+    <path d="M 317.74323 919.4
+L 317.74323 669.254
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_23">
-    <path d="M 65.90975 755.456
-L 317.74323 755.456
+   <g id="causal-spine-1-bottom">
+    <path d="M 65.90975 919.4
+L 317.74323 919.4
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="patch_24">
-    <path d="M 65.90975 569.5628
-L 317.74323 569.5628
+   <g id="causal-spine-1-top">
+    <path d="M 65.90975 669.254
+L 317.74323 669.254
 " style="fill: none; stroke: #586174; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="text_30">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="84.741872" y="748.402036" transform="rotate(-0 84.741872 748.402036)">−11.0</text>
+   <g id="causal-paes-value-0-1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="90.896161" y="907.429808" transform="rotate(-0 90.896161 907.429808)">−11.0</text>
    </g>
-   <g id="text_31">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="146.284756" y="710.957834" transform="rotate(-0 146.284756 710.957834)">−6.8</text>
+   <g id="causal-paes-value-0-2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="146.284756" y="860.40236" transform="rotate(-0 146.284756 860.40236)">−6.8</text>
    </g>
-   <g id="text_32">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="207.82764" y="717.242795" transform="rotate(-0 207.82764 717.242795)">−7.5</text>
+   <g id="causal-paes-value-0-3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="207.82764" y="868.295856" transform="rotate(-0 207.82764 868.295856)">−7.5</text>
    </g>
-   <g id="text_33">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="269.370524" y="673.690674" transform="rotate(-0 269.370524 673.690674)">−2.5</text>
+   <g id="causal-paes-value-0-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f08ca3" x="269.370524" y="813.597264" transform="rotate(-0 269.370524 813.597264)">−2.5</text>
    </g>
-   <g id="text_34">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="99.512165" y="678.559305" transform="rotate(-0 99.512165 678.559305)">−3.1</text>
+   <g id="causal-paes-value-1-1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="99.512165" y="737.51752" transform="rotate(-0 99.512165 737.51752)">−3.1</text>
    </g>
-   <g id="text_35">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="161.055048" y="652.534257" transform="rotate(-0 161.055048 652.534257)">−0.1</text>
+   <g id="causal-paes-value-1-2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="161.055048" y="695.82652" transform="rotate(-0 161.055048 695.82652)">−0.1</text>
    </g>
-   <g id="text_36">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="222.597932" y="663.953411" transform="rotate(-0 222.597932 663.953411)">−1.4</text>
+   <g id="causal-paes-value-1-3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="222.597932" y="713.948208" transform="rotate(-0 222.597932 713.948208)">−1.4</text>
    </g>
-   <g id="text_37">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="284.140816" y="656.694724" transform="rotate(-0 284.140816 656.694724)">−0.6</text>
+   <g id="causal-paes-value-1-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f1c75b" x="284.140816" y="726.39992" transform="rotate(-0 284.140816 726.39992)">−0.6</text>
    </g>
-   <g id="text_38">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="114.282457" y="623.656171" transform="rotate(-0 114.282457 623.656171)">+0.8</text>
+   <g id="causal-paes-value-2-1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #72d6a4" x="114.282457" y="754.7498" transform="rotate(-0 114.282457 754.7498)">+0.8</text>
    </g>
-   <g id="text_39">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="175.82534" y="592.231369" transform="rotate(-0 175.82534 592.231369)">+4.3</text>
+   <g id="causal-paes-value-2-2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #72d6a4" x="175.82534" y="715.28232" transform="rotate(-0 175.82534 715.28232)">+4.3</text>
    </g>
-   <g id="text_40">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="237.368224" y="604.88981" transform="rotate(-0 237.368224 604.88981)">+2.9</text>
+   <g id="causal-paes-value-2-3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #72d6a4" x="237.368224" y="731.180488" transform="rotate(-0 237.368224 731.180488)">+2.9</text>
    </g>
-   <g id="text_41">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #f2f5f8" x="298.911108" y="614.804114" transform="rotate(-0 298.911108 614.804114)">+1.8</text>
+   <g id="causal-paes-value-2-4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: middle; fill: #72d6a4" x="298.911108" y="743.6322" transform="rotate(-0 298.911108 743.6322)">+1.8</text>
    </g>
-   <g id="text_42">
-    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="65.90975" y="559.5628" transform="rotate(-0 65.90975 559.5628)">B. PAES/PDT 2021–2026 (N = 29,218)</text>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="65.90975" y="659.254" transform="rotate(-0 65.90975 659.254)">B. PAES/PDT 2021–2026 (N = 29,218)</text>
    </g>
    <g id="legend_2">
-    <g id="patch_25">
-     <path d="M 71.92975 542.955616
-L 264.593344 542.955616
-Q 266.313344 542.955616 266.313344 541.235616
-L 266.313344 502.295616
-Q 266.313344 500.575616 264.593344 500.575616
-L 71.92975 500.575616
-Q 70.20975 500.575616 70.20975 502.295616
-L 70.20975 541.235616
-Q 70.20975 542.955616 71.92975 542.955616
+    <g id="patch_5">
+     <path d="M 71.92975 634.93648
+L 264.593344 634.93648
+Q 266.313344 634.93648 266.313344 633.21648
+L 266.313344 594.27648
+Q 266.313344 592.55648 264.593344 592.55648
+L 71.92975 592.55648
+Q 70.20975 592.55648 70.20975 594.27648
+L 70.20975 633.21648
+Q 70.20975 634.93648 71.92975 634.93648
 z
 " style="fill: #161616; opacity: 0.8; stroke: #586174; stroke-linejoin: miter"/>
     </g>
-    <g id="patch_26">
-     <path d="M 73.64975 516.170616
-L 90.84975 516.170616
-L 90.84975 510.150616
-L 73.64975 510.150616
+    <g id="patch_6">
+     <path d="M 73.64975 608.15148
+L 90.84975 608.15148
+L 90.84975 602.13148
+L 73.64975 602.13148
 z
 " style="fill: #f08ca3; opacity: 0.92"/>
     </g>
-    <g id="text_43">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="516.170616" transform="rotate(-0 97.72975 516.170616)">Raw gap</text>
+    <g id="text_25">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="608.15148" transform="rotate(-0 97.72975 608.15148)">Raw gap</text>
     </g>
-    <g id="patch_27">
-     <path d="M 73.64975 536.070616
-L 90.84975 536.070616
-L 90.84975 530.050616
-L 73.64975 530.050616
+    <g id="patch_7">
+     <path d="M 73.64975 628.05148
+L 90.84975 628.05148
+L 90.84975 622.03148
+L 73.64975 622.03148
 z
 " style="fill: #f1c75b; opacity: 0.92"/>
     </g>
-    <g id="text_44">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="536.070616" transform="rotate(-0 97.72975 536.070616)">Student DML</text>
+    <g id="text_26">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="97.72975" y="628.05148" transform="rotate(-0 97.72975 628.05148)">Student DML</text>
     </g>
-    <g id="patch_28">
-     <path d="M 189.458344 516.170616
-L 206.658344 516.170616
-L 206.658344 510.150616
-L 189.458344 510.150616
+    <g id="patch_8">
+     <path d="M 189.458344 608.15148
+L 206.658344 608.15148
+L 206.658344 602.13148
+L 189.458344 602.13148
 z
 " style="fill: #72d6a4; opacity: 0.92"/>
     </g>
-    <g id="text_45">
-     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="213.538344" y="516.170616" transform="rotate(-0 213.538344 516.170616)">Full DML</text>
+    <g id="text_27">
+     <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="213.538344" y="608.15148" transform="rotate(-0 213.538344 608.15148)">Full DML</text>
     </g>
    </g>
   </g>
-  <g id="text_46">
+  <g id="text_28">
    <text style="font-weight: 700; font-size: 14px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #f2f5f8" x="7.2" y="20.29" transform="rotate(-0 7.2 20.29)">Causal ML and PAES/PDT admission</text>
   </g>
-  <g id="text_47">
-   <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #b5beca" x="7.2" y="59.616" transform="rotate(-0 7.2 59.616)">A: student controls · B: student/full DML</text>
+  <g id="text_29">
+   <text style="font-size: 13px; font-family: 'Cucharadas Figure'; text-anchor: start; fill: #b5beca" x="7.2" y="70.38" transform="rotate(-0 7.2 70.38)">A: student controls · B: student/full DML</text>
   </g>
  </g>
  <defs>
-  <clipPath id="p3aea59975e">
-   <rect x="65.90975" y="253.0408" width="251.83348" height="185.8932"/>
+  <clipPath id="pbcd28f3ebc">
+   <rect x="65.90975" y="281.524" width="251.83348" height="250.146"/>
   </clipPath>
-  <clipPath id="p87a18ca994">
-   <rect x="65.90975" y="569.5628" width="251.83348" height="185.8932"/>
+  <clipPath id="pc932d07526">
+   <rect x="65.90975" y="669.254" width="251.83348" height="250.146"/>
   </clipPath>
  </defs>
 </svg>

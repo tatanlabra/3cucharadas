@@ -2201,10 +2201,21 @@ html[data-theme="academic-night"] .tabla-desliza {
   text-decoration-thickness: 2px;
 }
 
-/* Relato y anexos III–IV: lectura natural también en la medida estrecha móvil. */
-.thesis-extension-post.post3-evidence .page__content :is(p, li) {
+/* Relato y anexos III–IV: párrafos justificados con partición por idioma;
+   las listas conservan alineación natural. */
+.thesis-extension-post.post3-evidence .page__content p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.thesis-extension-post.post3-evidence .page__content li {
   text-align: start;
   hyphens: none;
+}
+
+/* Figura principal IV: aprovechar la columna disponible sin invadir el TOC. */
+.thesis-extension-post.post3-evidence #fig-post4-1 {
+  width: 100%;
 }
 
 .post3-evidence .tabla-desliza table {

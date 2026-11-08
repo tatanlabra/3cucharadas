@@ -44,6 +44,8 @@ function evaluate(row) {
   if (row.svgContrast.unmeasured || row.svgContrast.failures.length)
     failures.push('svg-contrast');
   if (row.svgContrast.minRenderedTextPx < 9) failures.push('svg-text-size');
+  if (row.id.startsWith('iv-') && (row.svgGeometry.unmeasured || row.svgGeometry.failures.length))
+    failures.push('svg-label-geometry');
   if (row.criticalErrors.length) failures.push('console-or-network');
   if (row.screenshotError) failures.push('screenshot');
   return failures;
@@ -55,6 +57,10 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
   const context = await browser.newContext({ viewport, reducedMotion: 'reduce', colorScheme: 'light' });
   await context.addInitScript((mode) => localStorage.setItem('3cucharadas-theme', mode), theme);
   const page = await context.newPage();
+  if (fixture === 'broken-active-svg') {
+    await page.route('**/assets/images/tesis-post3/cohort-series-infographic-es-light-mobile.svg',
+      (request) => request.abort('failed'));
+  }
   const criticalErrors = [];
   const externalErrors = [];
   page.on('console', (message) => {
@@ -95,6 +101,7 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
     });
     await page.waitForTimeout(150);
     const measurements = await page.evaluate(async (expected) => {
+      const round = (number) => Math.round(number * 100) / 100;
       const parseColor = (value) => {
         const match = value?.match(/^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s/]+([\d.]+))?\s*\)$/i);
         if (!match) return null;
@@ -166,6 +173,146 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
       const figureSourcesFailed = figures.map((figure) => figure.querySelector('img.post3-theme-image'))
         .filter((image) => !image || !(image.currentSrc || '').endsWith(expectedVariant))
         .map((image) => image?.currentSrc || 'missing image');
+      const figureSources = figures.map((figure) => figure.querySelector('img.post3-theme-image')?.currentSrc || '');
+      const ladderImage = figures.find((figure) => figure.id === 'fig-post4-1')
+        ?.querySelector('img.post3-theme-image');
+      const svgLayout = ladderImage && content ? {
+        imageWidth: round(ladderImage.getBoundingClientRect().width),
+        contentWidth: round(content.getBoundingClientRect().width),
+        fillRatio: content.getBoundingClientRect().width
+          ? round(ladderImage.getBoundingClientRect().width / content.getBoundingClientRect().width)
+          : 0 } : { fillRatio: expected.entryId === 'iv-article' ? 0 : 1 };
+      const measureFigureGeometry = async (xml, renderedWidth, figureId) => {
+        const contracts = {
+          'fig-post4-1': { family: 'selection', roles: {
+            value: [/^selection-value-[ab]-[1-5]$/, 10],
+            rung: [/^selection-rung-[ab]-[1-5]$/, 10],
+            ci: [/^selection-ci-[ab]-[1-5]$/, 10],
+            point: [/^selection-point-[ab]-[1-5]$/, 10],
+            spine: [/^selection-spine-[ab]-(?:top|right|bottom|left)$/, 8] },
+          textRoles: ['value', 'rung'], markRoles: ['ci', 'point', 'spine'] },
+          'fig-post4-2': { family: 'longitudinal', roles: {
+            value: [/^longitudinal-value-[01]-[1-3]$/, 6],
+            category: [/^longitudinal-category-[01]-[1-3]$/, 6],
+            bar: [/^longitudinal-bar-[01]-[1-3]$/, 6],
+            spine: [/^longitudinal-spine-[01]-(?:top|right|bottom|left)$/, 8] },
+          textRoles: ['value', 'category'], markRoles: ['bar', 'spine'] },
+          'fig-post4-3': { family: 'causal', roles: {
+            gateValue: [/^causal-gate-value-[a-z0-9_]+-[04]$/, 6],
+            gateLine: [/^causal-gate-line-[a-z0-9_]+-[0-3]$/, 12],
+            paesValue: [/^causal-paes-value-[0-2]-[1-4]$/, 12],
+            category: [/^causal-category-[01]-[1-5]$/, 9],
+            paesBar: [/^causal-paes-bar-[0-2]-[1-4]$/, 12],
+            spine: [/^causal-spine-[01]-(?:top|right|bottom|left)$/, 8] },
+          textRoles: ['gateValue', 'paesValue', 'category'], markRoles: ['gateLine', 'paesBar', 'spine'] }
+        };
+        const contract = contracts[figureId];
+        if (!contract) return { unmeasured: true, reason: `unknown figure ${figureId}`, failures: [] };
+        const svg = document.importNode(xml.documentElement, true);
+        const holder = document.createElement('div');
+        holder.style.cssText = `position:fixed;left:-10000px;top:0;width:${renderedWidth}px;visibility:hidden;pointer-events:none`;
+        svg.style.width = `${renderedWidth}px`;
+        svg.style.height = 'auto';
+        holder.append(svg);
+        document.body.append(holder);
+        try {
+          await document.fonts.ready;
+          const idNodes = [...svg.querySelectorAll('[id]')];
+          const ids = Object.entries(contract.roles).map(([kind, [pattern]]) =>
+            [kind, idNodes.filter((node) => pattern.test(node.id))]);
+          const byKind = Object.fromEntries(ids);
+          const counts = Object.fromEntries(ids.map(([kind, nodes]) => [kind, nodes.length]));
+          if (Object.entries(contract.roles).some(([kind, [, count]]) => counts[kind] !== count))
+            return { unmeasured: true, reason: `${contract.family} QA IDs missing`, counts, failures: [] };
+          const mutation = {
+            'svg-value-overlap': ['fig-post4-1', 'selection-value-a-1', 'selection-ci-a-1'],
+            'svg-longitudinal-overlap': ['fig-post4-2', 'longitudinal-value-0-1', 'longitudinal-bar-1-1'],
+            'svg-causal-overlap': ['fig-post4-3', 'causal-paes-value-1-1', 'causal-paes-bar-0-1'],
+            'svg-own-bar-overlap': ['fig-post4-2', 'longitudinal-value-1-2', 'longitudinal-bar-1-2'],
+            'svg-gate-line-overlap': ['fig-post4-3', 'causal-gate-value-persist_2yr-0',
+              'causal-gate-line-any_he_two_year-0'],
+            'svg-frame-overlap': ['fig-post4-1', 'selection-value-a-1', 'selection-spine-a-top']
+          }[expected.fixture];
+          if (mutation?.[0] === figureId) {
+            const value = svg.querySelector(`#${mutation[1]}`);
+            const ci = svg.querySelector(`#${mutation[2]}`);
+            const a = value.getBoundingClientRect(), b = ci.getBoundingClientRect();
+            const linePath = /(?:-gate-line-|-spine-)/.test(ci.id)
+              ? (ci.matches('path') ? ci : ci.querySelector('path')) : null;
+            const midpoint = linePath?.getPointAtLength(linePath.getTotalLength()
+              * (expected.fixture === 'svg-frame-overlap' ? 0.64 : 0.5));
+            const centre = midpoint ? new DOMPoint(midpoint.x, midpoint.y)
+              .matrixTransform(linePath.getScreenCTM()) : null;
+            const targetX = expected.fixture === 'svg-own-bar-overlap'
+              ? b.left + 4 + a.width / 2 : centre?.x ?? b.left + b.width / 2;
+            const targetY = centre?.y ?? b.top + b.height / 2;
+            value.style.transform = `translate(${targetX - a.left - a.width / 2}px, ${targetY - a.top - a.height / 2}px)`;
+          }
+          const box = (node, pad = 0) => {
+            const r = node.getBoundingClientRect();
+            return { left: r.left - pad, right: r.right + pad, top: r.top - pad,
+              bottom: r.bottom + pad, width: r.width, height: r.height };
+          };
+          const overlap = (a, b) => ({ x: Math.min(a.right, b.right) - Math.max(a.left, b.left),
+            y: Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) });
+          const labels = contract.textRoles.flatMap((kind) => byKind[kind].map((node) => ({
+            id: node.id, text: node.textContent.trim().slice(0, 65), box: box(node) })));
+          const scale = renderedWidth / Number(svg.getAttribute('viewBox').split(/\s+/)[2]);
+          const marks = contract.markRoles.flatMap((kind) => byKind[kind].map((node) => {
+            const path = node.matches('path') ? node : node.querySelector('path');
+            let curve = null;
+            if ((kind === 'gateLine' || kind === 'spine') && path?.getScreenCTM()) {
+              const length = path.getTotalLength();
+              const steps = Math.max(2, Math.ceil(length * scale / 2));
+              curve = Array.from({ length: steps + 1 }, (_, index) => {
+                const point = path.getPointAtLength(length * index / steps);
+                const screen = new DOMPoint(point.x, point.y).matrixTransform(path.getScreenCTM());
+                return { x: screen.x, y: screen.y };
+              });
+            }
+            return { id: node.id, kind, curve,
+              box: box(node, kind === 'ci' ? Math.max(1.5,
+                parseFloat(path?.style.strokeWidth || '2') * scale / 2)
+                : kind === 'point' ? 1 : 0) };
+          }));
+          if (marks.some((mark) => (mark.kind === 'gateLine' || mark.kind === 'spine') && !mark.curve))
+            return { unmeasured: true, reason: 'line path geometry unavailable', counts, failures: [] };
+          const otherText = [...svg.querySelectorAll('text')].filter((node) =>
+            !contract.textRoles.some((kind) => byKind[kind].some((group) => group.contains(node)))
+              && node.textContent.trim())
+            .map((node) => ({ id: node.closest('[id]')?.id || 'text',
+              text: node.textContent.trim().slice(0, 65), box: box(node) }));
+          const failures = [];
+          for (const label of labels) {
+            if (label.box.width < 1 || label.box.height < 1) {
+              failures.push({ type: 'unrendered-label', label: label.id });
+              continue;
+            }
+            for (const mark of marks) {
+              if (mark.curve) {
+                const crossing = mark.curve.find((point) => point.x > label.box.left - 1.5
+                  && point.x < label.box.right + 1.5 && point.y > label.box.top - 1.5
+                  && point.y < label.box.bottom + 1.5);
+                if (crossing) failures.push({ type: 'label-mark', label: label.id,
+                  mark: mark.id, crossingPx: [round(crossing.x), round(crossing.y)] });
+                continue;
+              }
+              const hit = overlap(label.box, mark.box);
+              if (hit.x > 2 && hit.y > 1.5) failures.push({ type: 'label-mark',
+                label: label.id, mark: mark.id, overlapPx: [round(hit.x), round(hit.y)] });
+            }
+            for (const text of [...labels, ...otherText]) {
+              if (text.id === label.id) continue;
+              const hit = overlap(label.box, text.box);
+              if (hit.x > 2 && hit.y > 2) failures.push({ type: 'label-text',
+                label: label.id, other: text.id, otherText: text.text,
+                overlapPx: [round(hit.x), round(hit.y)] });
+            }
+          }
+          return { unmeasured: false, family: contract.family, counts, renderedWidth: round(renderedWidth),
+            failures: failures.slice(0, 30), collisionCount: failures.length };
+        } finally { holder.remove(); }
+      };
       const svgRows = await Promise.all(figures.map(async (figure) => {
         const image = figure.querySelector('img.post3-theme-image');
         if (!image?.currentSrc) return { id: figure.id, unmeasured: true, reason: 'image missing' };
@@ -179,6 +326,8 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
           const viewWidth = Number(xml.documentElement.getAttribute('viewBox')?.split(/\s+/)?.[2]);
           const renderedWidth = image.getBoundingClientRect().width;
           if (!bg || !viewWidth || !renderedWidth) return { id: figure.id, unmeasured: true, reason: 'svg geometry' };
+          const geometry = /^fig-post4-[123]$/.test(figure.id)
+            ? await measureFigureGeometry(xml, renderedWidth, figure.id) : null;
           const labels = [...xml.querySelectorAll('text')].map((text) => {
             const style = text.getAttribute('style') || '';
             const fill = style.match(/(?:^|;)\s*fill:\s*(#[0-9a-f]{6})/i)?.[1];
@@ -188,7 +337,7 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
               ratio: fg ? Math.round(contrast(fg, bg) * 100) / 100 : null,
               renderedPx: font ? Math.round(font * renderedWidth / viewWidth * 100) / 100 : null };
           });
-          return { id: figure.id, unmeasured: labels.length === 0 || labels.some((label) => label.ratio === null
+          return { id: figure.id, geometry, unmeasured: labels.length === 0 || labels.some((label) => label.ratio === null
             || label.renderedPx === null), canvas, labels: labels.length,
           minContrast: Math.min(...labels.map((label) => label.ratio ?? 0)),
           minRenderedTextPx: Math.min(...labels.map((label) => label.renderedPx ?? 0)),
@@ -218,11 +367,18 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
         figureCount: figures.length,
         imagesFailed: imageRows.filter((image) => !image.complete),
         figureSourcesFailed,
+        figureSources,
         svgContrast: { count: svgRows.length, unmeasured: svgRows.some((row) => row.unmeasured),
           minimum: Math.min(...svgRows.map((row) => row.minContrast ?? 0)),
           minRenderedTextPx: Math.min(...svgRows.map((row) => row.minRenderedTextPx ?? 0)),
-          failures: svgRows.flatMap((row) => row.failures || []).slice(0, 20), figures: svgRows } };
-    }, { theme, width });
+          failures: svgRows.flatMap((row) => row.failures || []).slice(0, 20), figures: svgRows },
+        svgLayout,
+        svgGeometry: { unmeasured: expected.entryId.startsWith('iv-')
+          && svgRows.some((row) => !row.geometry || row.geometry.unmeasured),
+        failures: svgRows.flatMap((row) => row.geometry?.failures || []),
+        figures: svgRows.filter((row) => row.geometry).map((row) => ({
+          id: row.id, ...row.geometry })) } };
+    }, { theme, width, fixture, entryId: entry.id });
     const row = { route: path, id: entry.id, locale, theme, expectedTheme: theme, width,
       httpStatus: response?.status() || 0, expectedFigures: entry.figures,
       criticalErrors, externalErrors, ...measurements, screenshots: [], screenshotError: null };
@@ -233,16 +389,30 @@ async function inspect(browser, baseUrl, entry, locale, theme, width, screenshot
         const top = resolve(screenshotDir, `${name}-top.png`);
         await page.screenshot({ path: top, animations: 'disabled' });
         row.screenshots.push(top);
-        if (width === 320 || width === 1440) {
-          const figure = page.locator('.page__content figure.post3-figure').first();
-          if (await figure.count()) {
-            const figurePath = resolve(screenshotDir, `${name}-figure.png`);
-            await figure.screenshot({ path: figurePath, animations: 'disabled' });
-            row.screenshots.push(figurePath);
+        if (entry.id.startsWith('iv-') || width === 320 || width === 1440) {
+          const figuresToCapture = entry.id === 'iv-article'
+            ? ['#fig-post4-1'] : entry.id === 'iv-annex'
+              ? ['#fig-post4-2', '#fig-post4-3'] : ['.page__content figure.post3-figure'];
+          for (const selector of figuresToCapture) {
+            const figure = page.locator(selector).first();
+            if (await figure.count()) {
+              const figurePath = resolve(screenshotDir, `${name}-${selector.startsWith('#')
+                ? selector.slice(1) : 'figure'}.png`);
+              await figure.screenshot({ path: figurePath, animations: 'disabled' });
+              row.screenshots.push(figurePath);
+            }
           }
         }
       } catch (error) { row.screenshotError = error.message; }
     }
+    row.transientAborts = criticalErrors.filter((error) => {
+      if (!error.startsWith('request:') || !error.endsWith(':net::ERR_ABORTED')
+        || row.imagesFailed.length || row.figureSourcesFailed.length) return false;
+      const url = error.slice('request:'.length, -':net::ERR_ABORTED'.length);
+      return /\/assets\/images\/tesis-post[34]\/[a-z0-9-]+\.svg$/.test(url)
+        && !row.figureSources.includes(url);
+    });
+    row.criticalErrors = criticalErrors.filter((error) => !row.transientAborts.includes(error));
     row.failures = evaluate(row);
     return row;
   } finally { await context.close(); }
@@ -254,8 +424,12 @@ async function main() {
   const reportPath = readOption(args, '--report');
   const screenshotDir = readOption(args, '--screenshot-dir');
   const fixture = readOption(args, '--fixture');
+  const ivFigureOnly = args.includes('--iv-figure-only');
+  const ivOnly = args.includes('--iv-only');
   if (!/^https?:\/\//.test(baseUrl) || !existsSync(playwrightPath)
-    || (fixture && fixture !== 'low-contrast')) {
+    || (fixture && !['low-contrast', 'broken-active-svg', 'svg-value-overlap',
+      'svg-longitudinal-overlap', 'svg-causal-overlap', 'svg-own-bar-overlap',
+      'svg-gate-line-overlap', 'svg-frame-overlap'].includes(fixture))) {
     console.error(JSON.stringify({ status: 'ERROR', error: 'invalid base URL, Playwright path or fixture' }));
     process.exitCode = 2;
     return;
@@ -269,26 +443,60 @@ async function main() {
   let report;
   try {
     if (fixture) {
-      const entry = routes[0];
+      const geometryFixture = fixture?.startsWith('svg-') && fixture !== 'broken-active-svg';
+      const entry = geometryFixture ? (['svg-value-overlap', 'svg-frame-overlap'].includes(fixture)
+        ? routes[2] : routes[3]) : routes[0];
       const baseline = await inspect(browser, baseUrl, entry, 'es', 'light', 390, null);
       const mutant = await inspect(browser, baseUrl, entry, 'es', 'light', 390, null, fixture);
-      const discriminates = baseline.failures.length === 0 && mutant.failures.includes('text-contrast')
-        && mutant.textContrast.failures.some((failure) => failure.ratio === 1);
+      const expectedCollision = {
+        'svg-value-overlap': ['selection-value-a-1', 'selection-ci-a-1'],
+        'svg-longitudinal-overlap': ['longitudinal-value-0-1', 'longitudinal-bar-1-1'],
+        'svg-causal-overlap': ['causal-paes-value-1-1', 'causal-paes-bar-0-1'],
+        'svg-own-bar-overlap': ['longitudinal-value-1-2', 'longitudinal-bar-1-2'],
+        'svg-gate-line-overlap': ['causal-gate-value-persist_2yr-0',
+          'causal-gate-line-any_he_two_year-0'],
+        'svg-frame-overlap': ['selection-value-a-1', 'selection-spine-a-top']
+      }[fixture];
+      const targetMarkHits = geometryFixture ? mutant.svgGeometry.failures.filter((failure) =>
+        failure.type === 'label-mark' && failure.label === expectedCollision[0]) : [];
+      const isolatedCollision = geometryFixture && ['svg-own-bar-overlap', 'svg-frame-overlap'].includes(fixture)
+        ? mutant.svgGeometry.failures.length === 1 && targetMarkHits.length === 1
+          && targetMarkHits[0].mark === expectedCollision[1]
+          && mutant.failures.length === 1 && mutant.failures[0] === 'svg-label-geometry'
+        : null;
+      const discriminates = baseline.failures.length === 0 && (fixture === 'low-contrast'
+        ? mutant.failures.includes('text-contrast')
+          && mutant.textContrast.failures.some((failure) => failure.ratio === 1)
+        : geometryFixture
+          ? mutant.failures.includes('svg-label-geometry')
+            && targetMarkHits.some((failure) => failure.mark === expectedCollision[1])
+            && (isolatedCollision === null || isolatedCollision)
+          : mutant.failures.includes('image-or-variant')
+            && mutant.imagesFailed.some((image) => image.src.includes('cohort-series-infographic-es-light-mobile.svg'))
+            && mutant.criticalErrors.some((error) => error.includes('cohort-series-infographic-es-light-mobile.svg')));
       report = { status: discriminates ? 'EXPECTED_FAIL' : 'WRONG_FAILURE', fixture,
+        ...(isolatedCollision !== null ? { isolatedCollision,
+          wouldPassWithoutTargetMark: isolatedCollision } : {}),
         baseline: { failures: baseline.failures, minimum: baseline.textContrast.minimum,
           sampled: baseline.textContrast.count,
           contrastFailures: baseline.textContrast.failures.slice(0, 5),
-          imagesFailed: baseline.imagesFailed, figureSourcesFailed: baseline.figureSourcesFailed },
+          imagesFailed: baseline.imagesFailed, figureSourcesFailed: baseline.figureSourcesFailed,
+          svgGeometry: baseline.svgGeometry },
         mutant: { failures: mutant.failures, minimum: mutant.textContrast.minimum,
-          samples: mutant.textContrast.failures.slice(0, 3) } };
+          samples: mutant.textContrast.failures.slice(0, 3), imagesFailed: mutant.imagesFailed,
+          criticalErrors: mutant.criticalErrors, transientAborts: mutant.transientAborts,
+          svgGeometry: mutant.svgGeometry } };
       process.exitCode = discriminates ? 1 : 2;
     } else {
       const rows = [];
-      for (const entry of routes) for (const locale of locales) for (const theme of themes)
+      for (const entry of (ivFigureOnly ? [routes[2]] : ivOnly ? routes.slice(2) : routes))
+        for (const locale of locales)
+        for (const theme of themes)
         for (const width of widths) rows.push(await inspect(browser, baseUrl, entry, locale, theme,
           width, screenshotDir));
       report = { status: rows.every((row) => row.failures.length === 0) ? 'PASS' : 'FAIL',
-        testedAt: new Date().toISOString(), baseUrl, matrix: '8 routes x 2 themes x 4 widths',
+        testedAt: new Date().toISOString(), baseUrl,
+        matrix: `${ivFigureOnly ? '2' : ivOnly ? '4' : '8'} routes x 2 themes x 4 widths`,
         rows, summary: { rows: rows.length, failed: rows.filter((row) => row.failures.length).length,
           screenshots: rows.reduce((total, row) => total + row.screenshots.length, 0),
           minTextContrast: round(Math.min(...rows.map((row) => row.textContrast.minimum))),
@@ -306,6 +514,7 @@ async function main() {
       failedRows: report.rows.filter((row) => row.failures.length).map((row) => ({
         route: row.route, theme: row.theme, width: row.width, failures: row.failures,
         textContrast: row.textContrast.failures.slice(0, 2), svgContrast: row.svgContrast.failures.slice(0, 2),
+        svgLayout: row.svgLayout, svgGeometry: row.svgGeometry,
         criticalErrors: row.criticalErrors.slice(0, 2) })) }
     : report));
 }

@@ -1,0 +1,116 @@
+{
+  "status": "EXPECTED_FAIL",
+  "fixture": "svg-own-bar-overlap",
+  "isolatedCollision": true,
+  "wouldPassWithoutTargetMark": true,
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 456,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [],
+      "figures": [
+        {
+          "id": "fig-post4-2",
+          "unmeasured": false,
+          "family": "longitudinal",
+          "counts": {
+            "value": 6,
+            "category": 6,
+            "bar": 6,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        },
+        {
+          "id": "fig-post4-3",
+          "unmeasured": false,
+          "family": "causal",
+          "counts": {
+            "gateValue": 6,
+            "gateLine": 12,
+            "paesValue": 12,
+            "category": 9,
+            "paesBar": 12,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  },
+  "mutant": {
+    "failures": [
+      "svg-label-geometry"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [],
+    "criticalErrors": [],
+    "transientAborts": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [
+        {
+          "type": "label-mark",
+          "label": "longitudinal-value-1-2",
+          "mark": "longitudinal-bar-1-2",
+          "overlapPx": [
+            28.86,
+            17
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "id": "fig-post4-2",
+          "unmeasured": false,
+          "family": "longitudinal",
+          "counts": {
+            "value": 6,
+            "category": 6,
+            "bar": 6,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [
+            {
+              "type": "label-mark",
+              "label": "longitudinal-value-1-2",
+              "mark": "longitudinal-bar-1-2",
+              "overlapPx": [
+                28.86,
+                17
+              ]
+            }
+          ],
+          "collisionCount": 1
+        },
+        {
+          "id": "fig-post4-3",
+          "unmeasured": false,
+          "family": "causal",
+          "counts": {
+            "gateValue": 6,
+            "gateLine": 12,
+            "paesValue": 12,
+            "category": 9,
+            "paesBar": 12,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  }
+}

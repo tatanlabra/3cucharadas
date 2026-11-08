@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "scripts/verify_thesis_editorial_delivery.py",
+    "--check",
+    "baseline"
+  ],
+  "exit_code": 0,
+  "stdout": "EDITORIAL_DELIVERY_VALID check=baseline fixture=none\n",
+  "stderr": "",
+  "observed_at": "2026-11-08T00:53:40.973973+00:00"
+}

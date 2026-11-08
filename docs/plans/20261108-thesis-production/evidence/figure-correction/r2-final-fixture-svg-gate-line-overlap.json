@@ -1,0 +1,150 @@
+{
+  "status": "EXPECTED_FAIL",
+  "fixture": "svg-gate-line-overlap",
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 456,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [],
+      "figures": [
+        {
+          "id": "fig-post4-2",
+          "unmeasured": false,
+          "family": "longitudinal",
+          "counts": {
+            "value": 6,
+            "category": 6,
+            "bar": 6,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        },
+        {
+          "id": "fig-post4-3",
+          "unmeasured": false,
+          "family": "causal",
+          "counts": {
+            "gateValue": 6,
+            "gateLine": 12,
+            "paesValue": 12,
+            "category": 9,
+            "paesBar": 12,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  },
+  "mutant": {
+    "failures": [
+      "svg-label-geometry"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [],
+    "criticalErrors": [],
+    "transientAborts": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [
+        {
+          "type": "label-mark",
+          "label": "causal-gate-value-persist_2yr-0",
+          "mark": "causal-gate-line-any_he_two_year-0",
+          "crossingPx": [
+            -9888.84,
+            465.75
+          ]
+        },
+        {
+          "type": "label-mark",
+          "label": "causal-gate-value-persist_2yr-0",
+          "mark": "causal-gate-line-ipcft_two_year-0",
+          "crossingPx": [
+            -9904.25,
+            461.21
+          ]
+        },
+        {
+          "type": "label-mark",
+          "label": "causal-gate-value-persist_2yr-0",
+          "mark": "causal-gate-line-persist_2yr-0",
+          "crossingPx": [
+            -9876.34,
+            466.43
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "id": "fig-post4-2",
+          "unmeasured": false,
+          "family": "longitudinal",
+          "counts": {
+            "value": 6,
+            "category": 6,
+            "bar": 6,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        },
+        {
+          "id": "fig-post4-3",
+          "unmeasured": false,
+          "family": "causal",
+          "counts": {
+            "gateValue": 6,
+            "gateLine": 12,
+            "paesValue": 12,
+            "category": 9,
+            "paesBar": 12,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [
+            {
+              "type": "label-mark",
+              "label": "causal-gate-value-persist_2yr-0",
+              "mark": "causal-gate-line-any_he_two_year-0",
+              "crossingPx": [
+                -9888.84,
+                465.75
+              ]
+            },
+            {
+              "type": "label-mark",
+              "label": "causal-gate-value-persist_2yr-0",
+              "mark": "causal-gate-line-ipcft_two_year-0",
+              "crossingPx": [
+                -9904.25,
+                461.21
+              ]
+            },
+            {
+              "type": "label-mark",
+              "label": "causal-gate-value-persist_2yr-0",
+              "mark": "causal-gate-line-persist_2yr-0",
+              "crossingPx": [
+                -9876.34,
+                466.43
+              ]
+            }
+          ],
+          "collisionCount": 3
+        }
+      ]
+    }
+  }
+}

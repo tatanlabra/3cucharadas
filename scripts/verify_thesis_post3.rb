@@ -949,7 +949,7 @@ class ThesisPost3Verifier
     when "safeguards-causal-promotion"
       replace_all!(documents, "es", /resguardos prudenciales no son efectos estimados de esas decisiones/i, "decisiones reducen los efectos del cierre", fixture)
     when "effective-clusters-drift"
-      replace_all_across!(documents, annexes, "en", "21.1 effective episodes", "22.1 effective episodes", fixture)
+      replace_all_across!(documents, annexes, "en", /(?<![\d.])21\.1(?!\d)/, "22.1", fixture)
     when "iv-promotion"
       replace_all_across!(documents, annexes, "es", /no (?:se ejecuta|ejecuto) una regresión instrumental en esta versión/i, "ejecuto una regresión instrumental en esta versión", fixture)
     when "math-katex-percent-comment"

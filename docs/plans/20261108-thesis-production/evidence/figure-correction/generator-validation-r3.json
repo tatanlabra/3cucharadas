@@ -1,0 +1,186 @@
+{
+  "generated_at_utc": "2026-11-08T02:35:03.097440+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "geometry_green",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "POST4_GEOMETRY_OK variants=24 selection_mobile_320_min=12.50px",
+      "pass": true
+    },
+    {
+      "name": "selection_ci_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-selection-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL selection-ladder: label crosses mark selection-value-a-5 / selection-ci-a-5",
+      "pass": true
+    },
+    {
+      "name": "longitudinal_neighbor_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-longitudinal-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL longitudinal-regimes: label crosses mark longitudinal-value-1-1 / longitudinal-bar-0-1",
+      "pass": true
+    },
+    {
+      "name": "causal_neighbor_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-causal-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL causal-ml-heterogeneity-paes: label crosses mark causal-paes-value-1-1 / causal-paes-bar-0-1",
+      "pass": true
+    },
+    {
+      "name": "gate_line_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-causal-gate-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL causal GATE label crosses line causal-gate-value-persist_2yr-0 / causal-gate-line-any_he_two_year-0",
+      "pass": true
+    },
+    {
+      "name": "frame_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-frame-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL selection-ladder: label crosses mark selection-rung-a-1 / selection-spine-a-top",
+      "pass": true
+    },
+    {
+      "name": "own_bar_red",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "tests/verify_post4_visual_geometry.py",
+        "--inject-causal-own-bar-overlap"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 1,
+      "expected_exit": 1,
+      "output": "EXPECTED_FAIL causal-ml-heterogeneity-paes: label crosses mark causal-paes-value-2-2 / causal-paes-bar-2-2",
+      "pass": true
+    },
+    {
+      "name": "pytest",
+      "argv": [
+        "/opt/entornos/mamba312/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_post4_visual_geometry.py",
+        "tests/test_post4_pdf_composition.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "...................                                                      [100%]",
+      "pass": true
+    },
+    {
+      "name": "ruff",
+      "argv": [
+        "/opt/entornos/mamba312/bin/ruff",
+        "check",
+        "scripts/352_post4_visuals.py",
+        "scripts/353_render_and_send_post4_pdf.py",
+        "tests/test_post4_visual_geometry.py",
+        "tests/verify_post4_visual_geometry.py",
+        "tests/test_post4_pdf_composition.py"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "All checks passed!",
+      "pass": true
+    },
+    {
+      "name": "v13_global",
+      "argv": [
+        "ruby",
+        "scripts/verify_visual_assets.rb",
+        "--strict"
+      ],
+      "cwd": "/home/ende/Descargas/programaciones/activos/3cucharadas",
+      "exit": 0,
+      "expected_exit": 0,
+      "output": "Gate de activos visuales OK: 18 manifest(s), 238 activo(s) referenciados desde 32 posts, 0 aviso(s).",
+      "pass": true
+    }
+  ],
+  "visual_manifest": {
+    "path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_visuals/manifest.json",
+    "sha256": "a29020d552c24eb42bff845dc090629befd86e7bd06a728d492493a543e972d8",
+    "entries": 51,
+    "mirror_byte_identical": true,
+    "files_match_hashes": true,
+    "source_sha256": "9c3726048021a1cf5ac697cd92a119173863ab06e0ebc479eedc78635991c436",
+    "csv_sha256": {
+      "selection-ladder-data.csv": "6056a24f6fe3e43fd4c4bd2506f67d9c76b5987fe26db2ec1d4ba54e7d618633",
+      "longitudinal-regimes-data.csv": "932ec642a695de1a04804f5729464d54d731c2f28e0e2a3d37cea5100f3628d1",
+      "causal-ml-heterogeneity-paes-data.csv": "9ca491fdc0f317c5431fdc09292118cf80e3f70938f4edfc2330dd9ea57dc3a4"
+    }
+  },
+  "pdf_manifest": {
+    "path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.manifest.json",
+    "sha256": "3c820dd86d335eba0b6bf621b382521ab43ab89d755b810c7d71ae0f6f19ed09",
+    "pdf_sha256": "105b3144661b0c5e75aae83270ffdaca48ca9a7e3617aeeaad0a4ae7693c3377",
+    "pdf_pages": 24,
+    "figures": 3,
+    "tables": 6,
+    "source_sha256": "78e042432093baafd4019a7c0b39c99739bd9d9af0a639c7efca92b9f3fe752c",
+    "annex_sha256": "3f8ee9211d29aec08c72210c363fbe7f9d26a43c1ebc9205153b697d4495bc73",
+    "image_sha256": [
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/selection-ladder-es-light.png",
+        "sha256": "0bc9743e1aaadd44013c4282eb2eddd3c2d7c560a85598e4302797ecaaa6f389"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png",
+        "sha256": "26c661d5e0f3953e8c5ad9eed612db14bc81351df9ed33e119f00de3700bfa62"
+      },
+      {
+        "source_path": "activos/3cucharadas/assets/images/tesis-post4/longitudinal-regimes-es-light.png",
+        "sha256": "ae851d48dd7ff23e699f303bf8067921e74d8fc585d58394d478325e4d21cb86"
+      }
+    ],
+    "all_hashes_current": true
+  },
+  "observed_browser_r2": {
+    "status": "60/64; four EN desktop longitudinal frame-near failures",
+    "source": "figure-correction/r2-visual-local.json",
+    "measured_text_to_left_spine_px": 1.3223,
+    "resolution": "r3 source label shifted +0.10 data x; final browser QA pending"
+  }
+}

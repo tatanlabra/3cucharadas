@@ -1,0 +1,17 @@
+{
+  "before": {
+    "source_health_exit": 1,
+    "test_failure": "effective-clusters-drift returned PASS because annex retained 21.1 episodes"
+  },
+  "change": "Negative fixture now mutates all standalone 21.1 tokens across EN article and annex; production predicate unchanged",
+  "red": {
+    "exit": 1,
+    "output": "POST3_INVALID: clusters efectivos ausentes en: 21.1"
+  },
+  "green": {
+    "exit": 0,
+    "runs": 3,
+    "assertions": 393,
+    "failures": 0
+  }
+}

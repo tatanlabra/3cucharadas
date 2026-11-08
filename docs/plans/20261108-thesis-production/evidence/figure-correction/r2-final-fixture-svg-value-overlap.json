@@ -1,0 +1,120 @@
+{
+  "status": "EXPECTED_FAIL",
+  "fixture": "svg-value-overlap",
+  "baseline": {
+    "failures": [],
+    "minimum": 5.73,
+    "sampled": 110,
+    "contrastFailures": [],
+    "imagesFailed": [],
+    "figureSourcesFailed": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [],
+          "collisionCount": 0
+        }
+      ]
+    }
+  },
+  "mutant": {
+    "failures": [
+      "svg-label-geometry"
+    ],
+    "minimum": 5.73,
+    "samples": [],
+    "imagesFailed": [],
+    "criticalErrors": [],
+    "transientAborts": [],
+    "svgGeometry": {
+      "unmeasured": false,
+      "failures": [
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-ci-a-1",
+          "overlapPx": [
+            128.32,
+            3.28
+          ]
+        },
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-point-a-1",
+          "overlapPx": [
+            11.3,
+            11.3
+          ]
+        },
+        {
+          "type": "label-mark",
+          "label": "selection-value-a-1",
+          "mark": "selection-spine-a-left",
+          "crossingPx": [
+            -9986.37,
+            330.64
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "id": "fig-post4-1",
+          "unmeasured": false,
+          "family": "selection",
+          "counts": {
+            "value": 10,
+            "rung": 10,
+            "ci": 10,
+            "point": 10,
+            "spine": 8
+          },
+          "renderedWidth": 358,
+          "failures": [
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-ci-a-1",
+              "overlapPx": [
+                128.32,
+                3.28
+              ]
+            },
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-point-a-1",
+              "overlapPx": [
+                11.3,
+                11.3
+              ]
+            },
+            {
+              "type": "label-mark",
+              "label": "selection-value-a-1",
+              "mark": "selection-spine-a-left",
+              "crossingPx": [
+                -9986.37,
+                330.64
+              ]
+            }
+          ],
+          "collisionCount": 3
+        }
+      ]
+    }
+  }
+}

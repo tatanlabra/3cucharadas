@@ -1,16 +1,16 @@
 {
   "figures": 3,
   "tables": 6,
-  "pages": 22,
+  "pages": 24,
   "inputs": {
-    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "8dc3d36fb8fd519ec2924e0fb16ca90c0c1df2ba8f2490afa0171c9d93c8517d",
-    "_pages/tesis-post4-anexo-metodologico.md": "9c8711ab8358efa3e0eaa89cb37151cbd30a16ecd0211c07b69e591ba3dac689"
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "6891c6a41550d25308b73ae616aa71801942628e2d3aab36551a668ae22659fb",
+    "_pages/tesis-post4-anexo-metodologico.md": "a21103782f404cb5e446899a41c7572a6136398221ec630e266b65f2155d9f05"
   },
   "images": {
-    "assets/images/tesis-post4/selection-ladder-es-light.png": "0bd68340903392aad2b22aa556a9ee9861062f9ec23d72f05ebcb25d564451da",
-    "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png": "63402f66538e65d6b947cd206849ba1e5a06fc89bf034b8369560c253f5a9848",
-    "assets/images/tesis-post4/longitudinal-regimes-es-light.png": "c35375a79f4671ed1b8410d1bb731a01167f46d099eb9dfc566253dd1e736f37"
+    "assets/images/tesis-post4/selection-ladder-es-light.png": "0bc9743e1aaadd44013c4282eb2eddd3c2d7c560a85598e4302797ecaaa6f389",
+    "assets/images/tesis-post4/causal-ml-heterogeneity-paes-es-light.png": "26c661d5e0f3953e8c5ad9eed612db14bc81351df9ed33e119f00de3700bfa62",
+    "assets/images/tesis-post4/longitudinal-regimes-es-light.png": "82b7a85e85bda477764f82431f5a4baec3bd4fb57a80f18e3dd9cd1622ba0c2e"
   },
   "pdf_path": "/home/ende/Descargas/programaciones/incubadora/tesis_mae_mejorada/outputs/post4_delivery/post4_borrador_educacion_superior_causal_ml.pdf",
-  "pdf_sha256": "75dac714c3cb5beb0718a35909c6d22ec77668111181eb0e85a3e44b8566edc8"
+  "pdf_sha256": "d866c2d255f1e9f3088dbda1f2b265724e9b1d5a0b99bee6cff2689c4b0cdc27"
 }
