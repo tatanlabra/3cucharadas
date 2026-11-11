@@ -1,0 +1,193 @@
+{
+  "posts": [
+    {
+      "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n",
+      "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+      "author": {
+        "did": "did:plc:v2tiac7n52wcyoz6vkfjajob",
+        "handle": "labra.bsky.social",
+        "displayName": "Cristián Labra O.",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreiezmwl6zfrzbxlbo2aiz44uwjm2ysoeuxr7yql5ignjvqymf2kixm",
+        "associated": {
+          "activitySubscription": {
+            "allowSubscriptions": "followers"
+          }
+        },
+        "labels": [],
+        "createdAt": "2023-08-30T04:37:36.269Z"
+      },
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2026-11-07T21:59:30.565474+00:00",
+        "embed": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "$type": "app.bsky.embed.external#external",
+            "description": "Efectos causales del cierre de escuelas sobre el ingreso, tipo de institución, persistencia, titulación y selectividad en la educación superior chilena (2007–2026) mediante diferencias en diferencias y Causal Machine Learning.",
+            "thumb": {
+              "$type": "blob",
+              "ref": {
+                "$link": "bafkreia26lucvjyymedhnpzild5un6hrcroaznkhnlzz3fdjdxrp2a27ba"
+              },
+              "mimeType": "image/webp",
+              "size": 21978
+            },
+            "title": "Extender mi tesis en 3 cucharadas (parte IV): ¿cierran los cierres escolares la puerta de la educación superior?",
+            "uri": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=bluesky&utm_medium=social&utm_campaign=cierre-escolar-educacion-superior-causal-ml&utm_content=es"
+          }
+        },
+        "facets": [
+          {
+            "$type": "app.bsky.richtext.facet",
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#tag",
+                "tag": "Educación"
+              }
+            ],
+            "index": {
+              "$type": "app.bsky.richtext.facet#byteSlice",
+              "byteEnd": 265,
+              "byteStart": 254
+            }
+          },
+          {
+            "$type": "app.bsky.richtext.facet",
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#tag",
+                "tag": "PolíticaPública"
+              }
+            ],
+            "index": {
+              "$type": "app.bsky.richtext.facet#byteSlice",
+              "byteEnd": 284,
+              "byteStart": 266
+            }
+          }
+        ],
+        "langs": [
+          "es"
+        ],
+        "text": "En la parte IV de la extensión de mi tesis cruzo cierres escolares con matrícula SIES y puntajes PAES: el salto aparente tras controles básicos se aplana al separar selección previa, y la recomposición institucional concentra la caída en IP y CFT. #Educación #PolíticaPública"
+      },
+      "embed": {
+        "external": {
+          "uri": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=bluesky&utm_medium=social&utm_campaign=cierre-escolar-educacion-superior-causal-ml&utm_content=es",
+          "title": "Extender mi tesis en 3 cucharadas (parte IV): ¿cierran los cierres escolares la puerta de la educación superior?",
+          "description": "Efectos causales del cierre de escuelas sobre el ingreso, tipo de institución, persistencia, titulación y selectividad en la educación superior chilena (2007–2026) mediante diferencias en diferencias y Causal Machine Learning.",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreia26lucvjyymedhnpzild5un6hrcroaznkhnlzz3fdjdxrp2a27ba"
+        },
+        "$type": "app.bsky.embed.external#view"
+      },
+      "bookmarkCount": 0,
+      "replyCount": 1,
+      "repostCount": 0,
+      "likeCount": 0,
+      "quoteCount": 0,
+      "indexedAt": "2026-11-07T21:59:31.270Z",
+      "labels": []
+    },
+    {
+      "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfzpsd72p",
+      "cid": "bafyreigsjvjthht3fpgjucttrgiy4x2jbjf2a4xgglhsyezw7p35kqzzue",
+      "author": {
+        "did": "did:plc:v2tiac7n52wcyoz6vkfjajob",
+        "handle": "labra.bsky.social",
+        "displayName": "Cristián Labra O.",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreiezmwl6zfrzbxlbo2aiz44uwjm2ysoeuxr7yql5ignjvqymf2kixm",
+        "associated": {
+          "activitySubscription": {
+            "allowSubscriptions": "followers"
+          }
+        },
+        "labels": [],
+        "createdAt": "2023-08-30T04:37:36.269Z"
+      },
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2026-11-07T21:59:32.413804+00:00",
+        "embed": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "$type": "app.bsky.embed.external#external",
+            "description": "Causal effects of school closures on entry, institution type, persistence, graduation, and selectivity in Chilean higher education (2007–2026) using difference-in-differences and Causal Machine Learning.",
+            "thumb": {
+              "$type": "blob",
+              "ref": {
+                "$link": "bafkreia26lucvjyymedhnpzild5un6hrcroaznkhnlzz3fdjdxrp2a27ba"
+              },
+              "mimeType": "image/webp",
+              "size": 21978
+            },
+            "title": "Extending my thesis in 3 spoonfuls (part IV): do school closures close the door to higher education?",
+            "uri": "https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=bluesky&utm_medium=social&utm_campaign=cierre-escolar-educacion-superior-causal-ml&utm_content=en"
+          }
+        },
+        "facets": [
+          {
+            "$type": "app.bsky.richtext.facet",
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#tag",
+                "tag": "Education"
+              }
+            ],
+            "index": {
+              "$type": "app.bsky.richtext.facet#byteSlice",
+              "byteEnd": 263,
+              "byteStart": 253
+            }
+          },
+          {
+            "$type": "app.bsky.richtext.facet",
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#tag",
+                "tag": "PublicPolicy"
+              }
+            ],
+            "index": {
+              "$type": "app.bsky.richtext.facet#byteSlice",
+              "byteEnd": 277,
+              "byteStart": 264
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "$type": "app.bsky.feed.post#replyRef",
+          "parent": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n"
+          },
+          "root": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n"
+          }
+        },
+        "text": "In part IV of my thesis extension I link school closures with SIES higher-education enrolment and PAES scores: the apparent jump after basic controls flattens once prior selection is separated, concentrating the drop in vocational-technical institutes. #Education #PublicPolicy"
+      },
+      "embed": {
+        "external": {
+          "uri": "https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=bluesky&utm_medium=social&utm_campaign=cierre-escolar-educacion-superior-causal-ml&utm_content=en",
+          "title": "Extending my thesis in 3 spoonfuls (part IV): do school closures close the door to higher education?",
+          "description": "Causal effects of school closures on entry, institution type, persistence, graduation, and selectivity in Chilean higher education (2007–2026) using difference-in-differences and Causal Machine Learning.",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreia26lucvjyymedhnpzild5un6hrcroaznkhnlzz3fdjdxrp2a27ba"
+        },
+        "$type": "app.bsky.embed.external#view"
+      },
+      "bookmarkCount": 0,
+      "replyCount": 0,
+      "repostCount": 0,
+      "likeCount": 0,
+      "quoteCount": 0,
+      "indexedAt": "2026-11-07T21:59:32.581Z",
+      "labels": []
+    }
+  ]
+}

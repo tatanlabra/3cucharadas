@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "archived_source_commit": "f45d34f355636a41b1ac514c8115517b0b394d0d",
+  "authorization": "User resumed III/IV diffusion and shared podcast, then explicitly authorized commit/push after checks. Archived editions remain historical.",
+  "packages": {
+    "costos-cierre-escolar-trayectorias": {
+      "sources": {
+        "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md": "430aaf5d7a6ddb639e67ee14bcba0207da0e9e1ab11d053f0f8410b09b071e5c",
+        "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "bad473d666d7e60fe2ea231adddf5c78e054fe28339380a2896293c9455b9c3e"
+      },
+      "artifacts": {
+        "podcast/README.md": "1cc6f17ee37271f0d0a85b2934b19ef59c12092fb4c5b7df4ff5e2992a92b3ec",
+        "podcast/origen.json": "415df2d70fc9bc8984d710214746100a2842d2da8a7b5f74d283d441cc23fde0"
+      }
+    },
+    "cierre-escolar-educacion-superior-causal-ml": {
+      "sources": {
+        "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md": "b9e3ea4576890972e895966bdd49a9f7d0ead0ff9ffd1d4db233b4e37841494f",
+        "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672"
+      },
+      "artifacts": {
+        "00-metadata.json": "977fad17affe9acc2b2642907c694ac4623deb74e20d2c600e95eed68fb318eb",
+        "QA.md": "530fefbcb752c09b3f49d2645d7288f1f7583400fcaba80b4a798b3cd4315778",
+        "README.md": "d5f00a954d86b3999682ec8fb71d2d1cc75aba2a01fd437e5c265f59500c46a7",
+        "linkedin.md": "1feee536242792b9ce6c2313b1624e8abbf02e5ffd8c5009e74361151880d1e9",
+        "medium.md": "4379051dfb91d3b87ed1593de6145ebaf4b89f6955958718bc7b5a9fa0d31f7f",
+        "x.md": "40e24e0d443e277a68865d37bc9da7d77fd45d411606154053837ebf324e03d6"
+      }
+    }
+  }
+}

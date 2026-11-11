@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzysxnquv623",
+      "cid": "bafyreiaz5xmzghvbymnc6hcelwk3j3jkawsw2kvre2rqh224kcmlo5mkpy",
+      "author": {
+        "did": "did:plc:v2tiac7n52wcyoz6vkfjajob",
+        "handle": "labra.bsky.social",
+        "displayName": "Cristián Labra O.",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreiezmwl6zfrzbxlbo2aiz44uwjm2ysoeuxr7yql5ignjvqymf2kixm",
+        "associated": {
+          "activitySubscription": {
+            "allowSubscriptions": "followers"
+          }
+        },
+        "labels": [],
+        "createdAt": "2023-08-30T04:37:36.269Z"
+      },
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2026-11-11T01:37:00.883931+00:00",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "$type": "app.bsky.feed.post#replyRef",
+          "parent": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreigsjvjthht3fpgjucttrgiy4x2jbjf2a4xgglhsyezw7p35kqzzue",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfzpsd72p"
+          },
+          "root": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n"
+          }
+        },
+        "text": "Correction to Part IV: the revision replaces earlier results and figures. Overall access contrasts allow negative and positive differences; they identify neither causal closure effects nor an unambiguous decline in technical/professional enrolment in the modern era."
+      },
+      "bookmarkCount": 0,
+      "replyCount": 0,
+      "repostCount": 0,
+      "likeCount": 0,
+      "quoteCount": 0,
+      "indexedAt": "2026-11-11T01:37:01.074Z",
+      "labels": []
+    }
+  ]
+}

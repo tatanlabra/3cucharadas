@@ -1,0 +1,31 @@
+Run options: --name /test_archived_copy/ --seed 42672
+
+# Running:
+
+FF
+
+Finished in 0.530859s, 3.7675 runs/s, 3.7675 assertions/s.
+
+  1) Failure:
+VerifyDiffusionCoherenceTest#test_archived_copy_alone_does_not_provide_current_coverage [tests/test_verify_difusion_coherente.rb:77]:
+REF fixture
+SOURCE _posts/fixture-es.md lang=es
+COPY difusion/historico/scientific-reset-20261108/linkedin/fixture-carrusel.html
+COVERAGE fixture: 1 posts, 1 piezas, 1 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+PASS: coherencia numérica; 1 ref(s) explícitas
+
+
+  2) Failure:
+VerifyDiffusionCoherenceTest#test_archived_copy_is_not_current_but_same_copy_in_active_directory_is_rejected [tests/test_verify_difusion_coherente.rb:62]:
+REF fixture
+SOURCE _posts/fixture-es.md lang=es
+COPY difusion/historico/scientific-reset-20261108/linkedin/fixture-carrusel.html
+COPY difusion/paquetes/fixture/linkedin.txt
+COVERAGE fixture: 1 posts, 2 piezas, 1 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+FAIL: coherencia numérica; 1 ref(s) explícitas
+- difusion/historico/scientific-reset-20261108/linkedin/fixture-carrusel.html: cifras ausentes del post: 99
+
+
+2 runs, 2 assertions, 2 failures, 0 errors, 0 skips
+
+EXIT=1

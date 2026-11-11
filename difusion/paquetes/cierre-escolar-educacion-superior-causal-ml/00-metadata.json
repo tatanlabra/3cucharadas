@@ -1,0 +1,20 @@
+{
+  "ref": "cierre-escolar-educacion-superior-causal-ml",
+  "estado": "preparacion_local",
+  "canonical": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+  "canonical_en": "https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+  "source_sha256": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672",
+  "git_head": "a8f18e8b08a883f09d0d28a80faba6ab2bb95319",
+  "fecha": "2026-11-10",
+  "envios_nuevos": 2,
+  "historico": "difusion/historico/scientific-reset-20261108/cierre-escolar-educacion-superior-causal-ml",
+  "correcciones": {
+    "mastodon": "ES/EN editado y verificado",
+    "bluesky": "2 aclaraciones publicadas y verificadas"
+  },
+  "destinos_excluidos_por_autor": [
+    "devto",
+    "hackernews"
+  ],
+  "linkedin_carrusel": "espera_decision_tecnologia_sesion_paralela"
+}

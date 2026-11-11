@@ -207,6 +207,10 @@ module DiffusionCoherence
     end
     basename = LEGACY_PIECE_NAMES.fetch(ref, ref)
     legacy = Dir.glob(File.join(root, "difusion", "**", "#{basename}-*")) + Dir.glob(File.join(root, "difusion", "**", "#{basename}.*"))
+    # Archived editions preserve provenance, not current campaign coverage.
+    # The same stale copy under an active directory must still fail.
+    archive_root = File.join(root, "difusion", "historico") + File::SEPARATOR
+    legacy.reject! { |path| path.start_with?(archive_root) }
     # Historical artifacts are MD/HTML; state JSON is a ledger, never public copy.
     legacy.select! { |path| %w[.md .html].include?(File.extname(path)) }
     pieces = Dir.glob(File.join(package, "*")) + legacy

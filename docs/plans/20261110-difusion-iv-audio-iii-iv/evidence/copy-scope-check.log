@@ -1,0 +1,12 @@
+REF cierre-escolar-educacion-superior-causal-ml
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md lang=en
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md lang=es
+SOURCE _pages/tesis-post4-anexo-metodologico.md lang=es annex_of=cierre-escolar-educacion-superior-causal-ml
+SOURCE _pages/tesis-post4-anexo-metodologico-en.md lang=en annex_of=cierre-escolar-educacion-superior-causal-ml
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/medium.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/x.md
+COVERAGE cierre-escolar-educacion-superior-causal-ml: 2 posts, 2 anexos, 3 piezas, 143 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+PASS: coherencia numérica; 1 ref(s) explícitas
+
+EXIT=0

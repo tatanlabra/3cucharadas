@@ -1,0 +1,115 @@
+{
+  "id": "117577401315592948",
+  "created_at": "2026-11-07T21:59:25.194Z",
+  "in_reply_to_id": "117577401287171882",
+  "in_reply_to_account_id": "110566853628340199",
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "en",
+  "uri": "https://mastodon.social/users/asiole/statuses/117577401315592948",
+  "url": "https://mastodon.social/@asiole/117577401315592948",
+  "replies_count": 0,
+  "reblogs_count": 0,
+  "favourites_count": 0,
+  "quotes_count": 0,
+  "edited_at": "2026-11-11T01:36:36.505Z",
+  "favourited": false,
+  "reblogged": false,
+  "muted": false,
+  "bookmarked": false,
+  "pinned": false,
+  "content": "<p>Correction to Part IV: the revision replaces earlier results and figures. Overall access contrasts allow negative and positive differences; they identify neither causal closure effects nor an unambiguous decline in technical/professional enrolment in the modern era. <a href=\"https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">3cucharadas.cl/en/datos/educac</span><span class=\"invisible\">ion/politica-publica/cierre-escolar-educacion-superior-causal-ml/</span></a></p>",
+  "filtered": [],
+  "reblog": null,
+  "application": {
+    "name": "3cucharadas-difusion",
+    "website": "http://3cucharadas.cl"
+  },
+  "account": {
+    "id": "110566853628340199",
+    "username": "asiole",
+    "acct": "asiole",
+    "display_name": "Cristián Labra O.",
+    "locked": true,
+    "bot": false,
+    "discoverable": true,
+    "indexable": true,
+    "group": false,
+    "created_at": "2023-06-18T00:00:00.000Z",
+    "note": "<p>🇨🇱 <a href=\"https://mastodon.social/tags/seguimos\" class=\"mention hashtag\" rel=\"tag\">#<span>seguimos</span></a> | Datos | Políticas Sociales | MLOps | 🎾🏀⚽️🕹️💻🤷🏻‍♂️</p>",
+    "url": "https://mastodon.social/@asiole",
+    "uri": "https://mastodon.social/users/asiole",
+    "avatar": "https://files.mastodon.social/accounts/avatars/110/566/853/628/340/199/original/f0e82bb23bb85b37.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/110/566/853/628/340/199/original/f0e82bb23bb85b37.png",
+    "avatar_description": "",
+    "header": "https://files.mastodon.social/accounts/headers/110/566/853/628/340/199/original/f0841f3d09af87d7.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/110/566/853/628/340/199/original/f0841f3d09af87d7.png",
+    "header_description": "",
+    "followers_count": 7,
+    "following_count": 68,
+    "statuses_count": 30,
+    "last_status_at": "2026-11-07",
+    "hide_collections": true,
+    "show_media": true,
+    "show_media_replies": true,
+    "show_featured": true,
+    "noindex": false,
+    "feature_approval": {
+      "automatic": [
+        "followers"
+      ],
+      "manual": [],
+      "current_user": "automatic"
+    },
+    "emojis": [],
+    "roles": [],
+    "fields": [
+      {
+        "name": "País",
+        "value": "🇨🇱",
+        "verified_at": null
+      },
+      {
+        "name": "Blog",
+        "value": "<a href=\"http://3cucharadas.cl\" target=\"_blank\" rel=\"nofollow noopener me\" translate=\"no\"><span class=\"invisible\">http://</span><span class=\"\">3cucharadas.cl</span><span class=\"invisible\"></span></a>",
+        "verified_at": null
+      }
+    ]
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [],
+  "emojis": [],
+  "tagged_collections": [],
+  "quote": null,
+  "card": {
+    "url": "https://3cucharadas.cl/en/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/",
+    "title": "Extending my thesis in 3 spoonfuls (part IV): do school closures close the door to higher education?",
+    "description": "Causal effects of school closures on entry, institution type, persistence, graduation, and selectivity in Chilean higher education (2007–2026) using difference-in-differences and Causal Machine Learning.",
+    "language": "en",
+    "type": "link",
+    "author_name": "",
+    "author_url": "",
+    "provider_name": "3 Cucharadas",
+    "provider_url": "",
+    "html": "",
+    "width": 662,
+    "height": 348,
+    "image": "https://files.mastodon.social/cache/preview_cards/images/213/922/266/original/69aaeee05b40f836.webp",
+    "image_description": "Nocturnal editorial illustration of student pathways departing from a closed high school and branching toward university campuses and vocational-technical institutes, representing the separation between pre-existing selection and causal effect.",
+    "embed_url": "",
+    "blurhash": "U64CSdR3Z{p0tpadawj^I8kEbeadr;kWoMax",
+    "published_at": "2026-11-04T13:00:00.000Z",
+    "missing_attribution": false,
+    "authors": []
+  },
+  "poll": null,
+  "quote_approval": {
+    "automatic": [
+      "public"
+    ],
+    "manual": [],
+    "current_user": "automatic"
+  }
+}

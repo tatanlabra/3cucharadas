@@ -22,6 +22,7 @@ ai_disclosure:
   components:
     text: assisted
     hero: generated
+    audio: generated
 last_modified_at: 2026-11-07 20:30:00 -0300
 header:
   teaser: /assets/images/heroes-v2/costos-cierre-escolar-trayectorias/teaser-1280x720.webp
@@ -39,6 +40,17 @@ distribution:
   social: false
   republish: []
   skip_reason: "Diffusion deferred by author."
+audio:
+  duracion_s: 768
+  fecha: "2026-11-10"
+  generador: NotebookLM (Google)
+  voces: 2
+  idioma: es
+  plataformas:
+    - nombre: Spotify
+      url: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
+    - nombre: Apple Podcasts
+      url: https://podcasts.apple.com/cl/podcast/id6811713988
 published: true
 f2_complete: true
 publication_authorized: true

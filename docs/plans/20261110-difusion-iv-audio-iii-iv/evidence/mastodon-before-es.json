@@ -1,0 +1,117 @@
+{
+  "id": "117577401287171882",
+  "created_at": "2026-11-07T21:59:24.759Z",
+  "in_reply_to_id": null,
+  "in_reply_to_account_id": null,
+  "sensitive": false,
+  "spoiler_text": "",
+  "visibility": "public",
+  "language": "es",
+  "uri": "https://mastodon.social/users/asiole/statuses/117577401287171882",
+  "url": "https://mastodon.social/@asiole/117577401287171882",
+  "replies_count": 1,
+  "reblogs_count": 0,
+  "favourites_count": 0,
+  "quotes_count": 0,
+  "edited_at": null,
+  "content": "<p>En la parte IV de la extensión de mi tesis cruzo cierres escolares con matrícula SIES y puntajes PAES: el salto aparente tras controles básicos se aplana al separar selección previa, y la recomposición institucional concentra la caída en IP y CFT. <a href=\"https://mastodon.social/tags/Educaci%C3%B3n\" class=\"mention hashtag\" rel=\"tag\">#<span>Educación</span></a> <a href=\"https://mastodon.social/tags/Pol%C3%ADticaP%C3%BAblica\" class=\"mention hashtag\" rel=\"tag\">#<span>PolíticaPública</span></a> <a href=\"https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=mastodon&amp;utm_medium=social&amp;utm_campaign=cierre-escolar-educacion-superior-causal-ml&amp;utm_content=es\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">3cucharadas.cl/datos/educacion</span><span class=\"invisible\">/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=mastodon&amp;utm_medium=social&amp;utm_campaign=cierre-escolar-educacion-superior-causal-ml&amp;utm_content=es</span></a></p>",
+  "reblog": null,
+  "application": {
+    "name": "3cucharadas-difusion",
+    "website": "http://3cucharadas.cl"
+  },
+  "account": {
+    "id": "110566853628340199",
+    "username": "asiole",
+    "acct": "asiole",
+    "display_name": "Cristián Labra O.",
+    "locked": true,
+    "bot": false,
+    "discoverable": true,
+    "indexable": true,
+    "group": false,
+    "created_at": "2023-06-18T00:00:00.000Z",
+    "note": "<p>🇨🇱 <a href=\"https://mastodon.social/tags/seguimos\" class=\"mention hashtag\" rel=\"tag\">#<span>seguimos</span></a> | Datos | Políticas Sociales | MLOps | 🎾🏀⚽️🕹️💻🤷🏻‍♂️</p>",
+    "url": "https://mastodon.social/@asiole",
+    "uri": "https://mastodon.social/users/asiole",
+    "avatar": "https://files.mastodon.social/accounts/avatars/110/566/853/628/340/199/original/f0e82bb23bb85b37.png",
+    "avatar_static": "https://files.mastodon.social/accounts/avatars/110/566/853/628/340/199/original/f0e82bb23bb85b37.png",
+    "avatar_description": "",
+    "header": "https://files.mastodon.social/accounts/headers/110/566/853/628/340/199/original/f0841f3d09af87d7.png",
+    "header_static": "https://files.mastodon.social/accounts/headers/110/566/853/628/340/199/original/f0841f3d09af87d7.png",
+    "header_description": "",
+    "followers_count": 7,
+    "following_count": 68,
+    "statuses_count": 30,
+    "last_status_at": "2026-11-07",
+    "hide_collections": true,
+    "show_media": true,
+    "show_media_replies": true,
+    "show_featured": true,
+    "noindex": false,
+    "feature_approval": {
+      "automatic": [
+        "followers"
+      ],
+      "manual": [],
+      "current_user": "denied"
+    },
+    "emojis": [],
+    "roles": [],
+    "fields": [
+      {
+        "name": "País",
+        "value": "🇨🇱",
+        "verified_at": null
+      },
+      {
+        "name": "Blog",
+        "value": "<a href=\"http://3cucharadas.cl\" target=\"_blank\" rel=\"nofollow noopener me\" translate=\"no\"><span class=\"invisible\">http://</span><span class=\"\">3cucharadas.cl</span><span class=\"invisible\"></span></a>",
+        "verified_at": null
+      }
+    ]
+  },
+  "media_attachments": [],
+  "mentions": [],
+  "tags": [
+    {
+      "name": "educacion",
+      "url": "https://mastodon.social/tags/educacion"
+    },
+    {
+      "name": "politicapublica",
+      "url": "https://mastodon.social/tags/politicapublica"
+    }
+  ],
+  "emojis": [],
+  "tagged_collections": [],
+  "quote": null,
+  "card": {
+    "url": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=mastodon&utm_medium=social&utm_campaign=cierre-escolar-educacion-superior-causal-ml&utm_content=es",
+    "title": "Extender mi tesis en 3 cucharadas (parte IV): ¿cierran los cierres escolares la puerta de la educación superior?",
+    "description": "Efectos causales del cierre de escuelas sobre el ingreso, tipo de institución, persistencia, titulación y selectividad en la educación superior chilena (2007–2026) mediante diferencias en diferencias y Causal Machine Learning.",
+    "language": "es",
+    "type": "link",
+    "author_name": "",
+    "author_url": "",
+    "provider_name": "3 Cucharadas",
+    "provider_url": "",
+    "html": "",
+    "width": 662,
+    "height": 348,
+    "image": "https://files.mastodon.social/cache/preview_cards/images/213/922/265/original/0b738d53563ec976.webp",
+    "image_description": "Ilustración nocturna de trayectorias estudiantiles que parten desde un liceo cerrado y se bifurcan hacia campus universitarios e institutos técnico-profesionales, representando la separación entre selección previa y efecto causal.",
+    "embed_url": "",
+    "blurhash": "U64CSdR3Z{p0tpadawj^I8kEbeadr;kWoMax",
+    "published_at": "2026-11-04T13:00:00.000Z",
+    "authors": []
+  },
+  "poll": null,
+  "quote_approval": {
+    "automatic": [
+      "public"
+    ],
+    "manual": [],
+    "current_user": "denied"
+  }
+}

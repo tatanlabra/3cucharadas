@@ -1,0 +1,24 @@
+{
+  "ref": "costos-cierre-escolar-trayectorias",
+  "posts_asociados": [
+    "cierre-escolar-educacion-superior-causal-ml"
+  ],
+  "estado": "publicado_verificado_por_hash",
+  "titulo_propuesto": "Baja natalidad y cierre de escuelas",
+  "duracion_master_s": 746.800181,
+  "duracion_con_cortinas_s": 768.300181,
+  "master_sha256": "4a494c3df12fe867205fb395838945fe7f4e01ab49380734df08a2a29ed072d7",
+  "con_cortinas_sha256": "b17fa59baaabf1642f800d329836a1e253d0aa336f2f86f7bfb564ea611f8499",
+  "custodia": "${XDG_STATE_HOME:-$HOME/.local/state}/3cucharadas/renders/costos-cierre-escolar-trayectorias/20261110-reemplazo-iii-iv/",
+  "spotify_nuevo": "https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7",
+  "contenido_hablado_verificado": false,
+  "instruccion_autor": "Un mismo audio para Posts III y IV; reemplaza el anterior.",
+  "sonoridad_lufs": -16.36,
+  "pico_dbtp": -1.65,
+  "ajuste_final_db": -0.3,
+  "titulo_publicado": "Cuando cierra un colegio, ¿qué ocurre con sus estudiantes?",
+  "fecha_actualizacion": "2026-11-10",
+  "feed_rss": "https://anchor.fm/s/1173891c8/podcast/rss",
+  "feed_guid": "b911d802-a4c8-40c2-8ce6-6d9f9ec169f9",
+  "audio_publico_sha256": "b17fa59baaabf1642f800d329836a1e253d0aa336f2f86f7bfb564ea611f8499"
+}

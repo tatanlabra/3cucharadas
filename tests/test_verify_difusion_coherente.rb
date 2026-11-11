@@ -52,6 +52,32 @@ class VerifyDiffusionCoherenceTest < Minitest::Test
     [out + err, status]
   end
 
+  def test_archived_copy_is_not_current_but_same_copy_in_active_directory_is_rejected
+    post('es', 'Total 42')
+    copy('linkedin.txt', 'Total 42')
+    archived = File.join(@root, 'difusion/historico/scientific-reset-20261108/linkedin/fixture-carrusel.html')
+    FileUtils.mkdir_p(File.dirname(archived))
+    File.write(archived, '<p>Total 99</p>')
+    out, status = gate('fixture')
+    assert status.success?, out
+    refute_includes out, 'COPY difusion/historico/'
+
+    FileUtils.cp(archived, File.join(@root, 'difusion/linkedin/fixture-carrusel.html'))
+    out, status = gate('fixture')
+    refute status.success?, out
+    assert_includes out, '99'
+  end
+
+  def test_archived_copy_alone_does_not_provide_current_coverage
+    post('es', 'Total 42')
+    archived = File.join(@root, 'difusion/historico/scientific-reset-20261108/linkedin/fixture-carrusel.html')
+    FileUtils.mkdir_p(File.dirname(archived))
+    File.write(archived, '<p>Total 42</p>')
+    out, status = gate('fixture')
+    refute status.success?, out
+    assert_includes out, 'sin cobertura'
+  end
+
   def test_equivalent_tex_and_locale_values_with_txt_and_json_coverage
     post('es', 'Tasa 0{,}00893 y 0{,}20; 16.955 viviendas.')
     post('en', 'Rate 0.00893 and 0.20; 16,955 dwellings.')

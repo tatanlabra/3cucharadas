@@ -13,9 +13,9 @@
     "_pages/tesis-post4-anexo-metodologico-en.md": "6094dd9836604cf68c5bf8a1ea0a9aa4450f90c199b5eae0de2817dfcd1cd945",
     "_pages/tesis-post4-anexo-metodologico.md": "5890e1d0101c60e4bb49ca7ed199d8c53c64be8bb86414a2b2dcfc68904355ba",
     "_posts/2026-10-23-costos-cierre-escolar-trayectorias-en.md": "430aaf5d7a6ddb639e67ee14bcba0207da0e9e1ab11d053f0f8410b09b071e5c",
-    "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "d43588ecfab11c28ea28fce4fe5f310362d3969137d085988dde0a219b538e22",
+    "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "bad473d666d7e60fe2ea231adddf5c78e054fe28339380a2896293c9455b9c3e",
     "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md": "b9e3ea4576890972e895966bdd49a9f7d0ead0ff9ffd1d4db233b4e37841494f",
-    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "6ac97d5ed70f963ffe04f9eb9ccd588c1c7ec7e154b5020f07db7e7485e92ab6",
+    "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672",
     "assets/css/main.scss": "1ee16590cfe9bba9ae81355c45e0ea3b9e520fe931d04f64a7ee051c2484ad0d",
     "assets/data/tesis-scientific-reset/post3-public-aggregate.json": "bea720c01e1cb04b8759ff5651d1b164a411576b8a4f1533c2fb0e564f0871b9",
     "assets/data/tesis-scientific-reset/post3-sensitivity-source.json": "edcc575f08d4caf3a08b74bf7ffb5fdb807ce1d813ce2bed6cb58631ab638aea",
@@ -411,7 +411,8 @@
     "403 bindings establish exact artifact identity; they do not imply semantic reading of every file.",
     "Technical bridge r2 failed handoff formatting; original verdict preserved and separately ratified with successful transport.",
     "Metadata promotion verified by exact inverse substitution; publication still requires final build, browser, CI and public checks.",
-    "Six accessible region names aligned to existing table captions after metadata promotion; independently reviewed, with visible prose unchanged."
+    "Six accessible region names aligned to existing table captions after metadata promotion; independently reviewed, with visible prose unchanged.",
+    "Audio metadata added to III/IV ES only; inverse substitution independently reproduces previously reviewed bytes. Scientific bodies and other 401 bindings unchanged. Peer did not listen to audio or repeat full scientific review. Previous review preserved in release evidence."
   ],
   "review_evidence": [
     {
@@ -433,9 +434,13 @@
     {
       "id": "six-aria-label-delta",
       "sha256": "68bfd37982b68f82f42c68b471feb02cb6912cce62cec7481153a1a712f38552"
+    },
+    {
+      "id": "audio-iii-iv-metadata-delta-peer",
+      "sha256": "57ae919636057c364a21b3115c26af64a04fb00363e3e51abb641dadbd27638d"
     }
   ],
-  "reviewer": "Claude Code (claude-sonnet-5-5), editorial and technical reviews; Codex integration and independent metadata-delta verification",
+  "reviewer": "Claude Code (claude-sonnet-5-5), editorial and technical reviews; Codex integration and independent metadata-delta verification; Codex peer (gpt-6-sol high), audio metadata delta only",
   "schema_version": 1,
   "scope": "semantic_scientific_reset_iii_iv"
 }

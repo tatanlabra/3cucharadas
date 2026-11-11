@@ -7,11 +7,76 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import importlib.util
 
 
 REPO = Path(__file__).resolve().parents[1]
 SCRIPT = REPO / "scripts/verify_thesis_historical_diffusion.py"
 ARCHIVE = REPO / "difusion/historico/scientific-reset-20261108"
+spec = importlib.util.spec_from_file_location("historical_diffusion", SCRIPT)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+
+class CurrentPackageTest(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.slug = module.SLUGS[0]
+        self.package = self.root / "difusion/paquetes" / self.slug
+        self.package.mkdir(parents=True)
+        (self.package / "linkedin.md").write_text("Current descriptive campaign")
+        sources = {}
+        for name in module.SOURCES:
+            if name.startswith("_posts/") and self.slug in name:
+                path = self.root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("Current source " + name)
+                sources[name] = module.sha(path.read_bytes())
+        self.data = {"schema_version": 1, "archived_source_commit": module.SOURCE_COMMIT,
+                     "packages": {self.slug: {"sources": sources, "artifacts": {
+                         "linkedin.md": module.sha((self.package / "linkedin.md").read_bytes())}}}}
+        self.receipt = self.root / module.CURRENT_RECEIPT
+        self.receipt.parent.mkdir(parents=True)
+        self.receipt.write_text(json.dumps(self.data))
+        self.historical = {"old.md": {"source_sha256": module.sha(b"Old claim"), "archive_sha256": module.sha(b"Old claim")}}
+
+    def check(self):
+        module.check_current_package(self.root, self.slug, self.package, self.historical)
+
+    def test_current_bound_package_is_admitted(self):
+        self.check()
+
+    def test_missing_receipt_is_rejected(self):
+        self.receipt.unlink()
+        with self.assertRaisesRegex(ValueError, "sin revisión vigente"):
+            self.check()
+
+    def test_changed_piece_is_rejected(self):
+        (self.package / "linkedin.md").write_text("Unreviewed change")
+        with self.assertRaisesRegex(ValueError, "inventario vigente"):
+            self.check()
+
+    def test_changed_source_is_rejected(self):
+        source = next(iter(self.data["packages"][self.slug]["sources"]))
+        (self.root / source).write_text("New source")
+        with self.assertRaisesRegex(ValueError, "fuente vigente modificada"):
+            self.check()
+
+    def test_restored_old_piece_rejected_even_when_inventoried(self):
+        (self.package / "linkedin.md").write_bytes(b"Old claim")
+        self.data["packages"][self.slug]["artifacts"]["linkedin.md"] = module.sha(b"Old claim")
+        self.receipt.write_text(json.dumps(self.data))
+        with self.assertRaisesRegex(ValueError, "pieza histórica restaurada"):
+            self.check()
+
+    def test_empty_package_is_rejected(self):
+        (self.package / "linkedin.md").unlink()
+        self.data["packages"][self.slug]["artifacts"] = {}
+        self.receipt.write_text(json.dumps(self.data))
+        with self.assertRaisesRegex(ValueError, "inventario vigente vacío"):
+            self.check()
 
 
 class HistoricalDiffusionTest(unittest.TestCase):

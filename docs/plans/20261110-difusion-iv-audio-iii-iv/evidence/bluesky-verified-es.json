@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzysxnquv622",
+      "cid": "bafyreifidhdknyvkfnezciuvx3ncrdrbknh5mbbh6br6akjrgd5weugotq",
+      "author": {
+        "did": "did:plc:v2tiac7n52wcyoz6vkfjajob",
+        "handle": "labra.bsky.social",
+        "displayName": "Cristián Labra O.",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:v2tiac7n52wcyoz6vkfjajob/bafkreiezmwl6zfrzbxlbo2aiz44uwjm2ysoeuxr7yql5ignjvqymf2kixm",
+        "associated": {
+          "activitySubscription": {
+            "allowSubscriptions": "followers"
+          }
+        },
+        "labels": [],
+        "createdAt": "2023-08-30T04:37:36.269Z"
+      },
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2026-11-11T01:37:00.607581+00:00",
+        "langs": [
+          "es"
+        ],
+        "reply": {
+          "$type": "app.bsky.feed.post#replyRef",
+          "parent": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n"
+          },
+          "root": {
+            "$type": "com.atproto.repo.strongRef",
+            "cid": "bafyreifnkssmzdpgieesktjklnnv6yybpedatb7yb5h7snbn5kh4t6xxxe",
+            "uri": "at://did:plc:v2tiac7n52wcyoz6vkfjajob/app.bsky.feed.post/3mzqvfxyl5s2n"
+          }
+        },
+        "text": "Corrección del Post IV: la revisión reemplaza resultados y figuras anteriores. Los contrastes de acceso total admiten diferencias negativas y positivas; no identifican efectos causales del cierre ni una caída inequívoca en IP/CFT en la era moderna."
+      },
+      "bookmarkCount": 0,
+      "replyCount": 0,
+      "repostCount": 0,
+      "likeCount": 0,
+      "quoteCount": 0,
+      "indexedAt": "2026-11-11T01:37:00.879Z",
+      "labels": []
+    }
+  ]
+}

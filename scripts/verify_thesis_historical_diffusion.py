@@ -32,6 +32,7 @@ DERIVATIVES = tuple(
     for language in ("", "-en")
     for extension in ("html", "json")
 )
+CURRENT_RECEIPT = "docs/contracts/thesis-current-diffusion.json"
 
 
 def git(repo: Path, *args: str) -> bytes:
@@ -50,6 +51,31 @@ def expected_archive(raw: bytes, slug: str, name: str) -> bytes:
     if old not in raw:
         raise ValueError(f"referencia histórica ausente: {slug}/{name}")
     return raw.replace(old, new)
+
+
+def check_current_package(repo: Path, slug: str, package: Path, historical: dict) -> None:
+    """Admit a separately inventoried current campaign, never a restored archive."""
+    receipt = repo / CURRENT_RECEIPT
+    if not receipt.is_file() or receipt.is_symlink():
+        raise ValueError(f"paquete activo sin revisión vigente: {slug}")
+    data = json.loads(receipt.read_text(encoding="utf-8"))
+    entry = data.get("packages", {}).get(slug, {})
+    if data.get("schema_version") != 1 or data.get("archived_source_commit") != SOURCE_COMMIT:
+        raise ValueError("recibo de campaña vigente inválido")
+    expected_sources = {name for name in SOURCES if name.startswith("_posts/") and slug in name}
+    if set(entry.get("sources", {})) != expected_sources:
+        raise ValueError(f"fuentes vigentes incompletas: {slug}")
+    for name in expected_sources:
+        if entry["sources"][name] != sha((repo / name).read_bytes()):
+            raise ValueError(f"fuente vigente modificada: {name}")
+    if package.is_symlink() or any(p.is_symlink() for p in package.rglob("*")):
+        raise ValueError(f"paquete vigente enlazado: {slug}")
+    actual = {p.relative_to(package).as_posix(): sha(p.read_bytes()) for p in package.rglob("*") if p.is_file()}
+    if not actual or entry.get("artifacts") != actual:
+        raise ValueError(f"inventario vigente vacío o modificado: {slug}")
+    old_hashes = {h for item in historical.values() for h in (item["source_sha256"], item["archive_sha256"])}
+    if old_hashes.intersection(actual.values()):
+        raise ValueError(f"pieza histórica restaurada como vigente: {slug}")
 
 
 def check(repo: Path, archive_root: Path, receipt: Path) -> str:
@@ -91,8 +117,7 @@ def check(repo: Path, archive_root: Path, receipt: Path) -> str:
     checked = 0
     for slug in SLUGS:
         old_prefix = f"difusion/paquetes/{slug}/"
-        if (repo / old_prefix).exists():
-            raise ValueError(f"paquete activo obsoleto: {slug}")
+        current_package = repo / old_prefix
         package = archive_root / slug
         if not package.is_dir() or package.is_symlink():
             raise ValueError(f"paquete histórico ausente o enlazado: {slug}")
@@ -103,6 +128,8 @@ def check(repo: Path, archive_root: Path, receipt: Path) -> str:
         files = data["packages"][slug]
         if not isinstance(files, dict) or len(source_names) < 10 or set(files) != source_names:
             raise ValueError(f"manifiesto vacío o incompleto: {slug}")
+        if current_package.exists():
+            check_current_package(repo, slug, current_package, files)
         actual = {p.relative_to(package).as_posix() for p in package.rglob("*") if p.is_file()}
         if actual != source_names:
             raise ValueError(f"archivo faltante o extra: {slug}")

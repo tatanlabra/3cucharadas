@@ -1,0 +1,16 @@
+REF cierre-escolar-educacion-superior-causal-ml
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml-en.md lang=en
+SOURCE _posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md lang=es
+SOURCE _pages/tesis-post4-anexo-metodologico.md lang=es annex_of=cierre-escolar-educacion-superior-causal-ml
+SOURCE _pages/tesis-post4-anexo-metodologico-en.md lang=en annex_of=cierre-escolar-educacion-superior-causal-ml
+COPY difusion/historico/scientific-reset-20261108/linkedin/cierre-escolar-educacion-superior-causal-ml-carrusel.html
+COPY difusion/historico/scientific-reset-20261108/linkedin/cierre-escolar-educacion-superior-causal-ml-en-carrusel.html
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/medium.md
+COPY difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/x.md
+COVERAGE cierre-escolar-educacion-superior-causal-ml: 2 posts, 2 anexos, 5 piezas, 143 cifras; excluye años, cifras enteras de un dígito, tamaños comunes y encabezados/código de copy Markdown
+FAIL: coherencia numérica; 1 ref(s) explícitas
+- difusion/historico/scientific-reset-20261108/linkedin/cierre-escolar-educacion-superior-causal-ml-carrusel.html: cifras ausentes del corpus canónico: 14.64, 50.61, 65.24, 82, 62153, 38525, 23628, 13835, 29218, 79709054, 13.24, 5.63
+- difusion/historico/scientific-reset-20261108/linkedin/cierre-escolar-educacion-superior-causal-ml-en-carrusel.html: cifras ausentes del corpus canónico: 14.64, 50.61, 65.24, 82, 62153, 38525, 23628, 13835, 29218, 79709054, 13.24, 5.63
+
+EXIT=1
