@@ -9,6 +9,20 @@
         "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md": "bad473d666d7e60fe2ea231adddf5c78e054fe28339380a2896293c9455b9c3e"
       },
       "artifacts": {
+        "linkedin/.gitignore": "744a1502c1d7ad664e0677975e40beb6cf6abfe3f49da5311af22b109a50af68",
+        "linkedin/README.md": "f7e94cab9986657bd1910d23ee426c02bd943fd407ddd9e2545a2599a6a070db",
+        "linkedin/assets/FiraSans-Medium.ttf": "7e7acee3fda79ae2cc3ec899f14f7a5b9e988b27a88f31a81a8ad4cb870b8987",
+        "linkedin/assets/FiraSans-Regular.ttf": "43c240a110cf888686d13cd17400fd0ca376ce55656150e52abff95f67a9532e",
+        "linkedin/assets/OFL-FiraSans.txt": "5c29650250730778eccb5475b112d32a8e0c9dd1860d9509693329652bf8e9eb",
+        "linkedin/assets/hero.png": "b0d1ac6fda75fdf4609ea2baf4e926e8d782aa221de3e339ddd3229de150951d",
+        "linkedin/content.json": "64d36e23f4582dcdbef26e20ffef6f217911a13222f64b717c643be99d0225c6",
+        "linkedin/evidence/build.json": "f453600a195deda18bd79c3a2c54218ea05105c9a08bf17fbb9bffa56dd09179",
+        "linkedin/evidence/layout.json": "4bdb810c285b46a9698598c4e27b4d17ddacaf691fa5a1303175bce07528c9bf",
+        "linkedin/evidence/negative-probes.json": "511a3875ccb8213f2d2d42f577e3e1bb9696d7be514a2ba056e18ce95d3e1ad9",
+        "linkedin/evidence/qa.json": "38fb7da3b6948985f6241a6f03c2363d700c386c8aa377da85d875e0f7b153a7",
+        "linkedin/evidence/telegram-delivery.json": "bbd0042a579a014a2b81177e474377d3fe5c106cd0752d494105fc51bd8ac631",
+        "linkedin/evidence/visual-review.json": "37399bfea0d3ac0e35f4554c4336c26980a22b4246e15b3fdadf0984d23a7b6e",
+        "linkedin/source-lock.json": "a2f9365e587cbbab64a8d82f53da45d01d6e262ab49a16e1f3b91483689af6cb",
         "podcast/README.md": "1cc6f17ee37271f0d0a85b2934b19ef59c12092fb4c5b7df4ff5e2992a92b3ec",
         "podcast/origen.json": "415df2d70fc9bc8984d710214746100a2842d2da8a7b5f74d283d441cc23fde0"
       }
@@ -19,10 +33,27 @@
         "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672"
       },
       "artifacts": {
-        "00-metadata.json": "977fad17affe9acc2b2642907c694ac4623deb74e20d2c600e95eed68fb318eb",
-        "QA.md": "530fefbcb752c09b3f49d2645d7288f1f7583400fcaba80b4a798b3cd4315778",
-        "README.md": "d5f00a954d86b3999682ec8fb71d2d1cc75aba2a01fd437e5c265f59500c46a7",
+        "00-metadata.json": "c750ef563bdd94ca807d35f8f1160100d76950af56fa999803c8ac9e238d9a26",
+        "QA.md": "947e48d0c844bd6948267bcdf8351661da64b9d984c4497ddc9017ae2508ee4f",
+        "README.md": "d7498a9229adf81d3e24601328ad3262b5914169e9809b4a2fae757d8e3a451c",
         "linkedin.md": "1feee536242792b9ce6c2313b1624e8abbf02e5ffd8c5009e74361151880d1e9",
+        "linkedin/.gitignore": "744a1502c1d7ad664e0677975e40beb6cf6abfe3f49da5311af22b109a50af68",
+        "linkedin/README.md": "3a4a66b0ffc53614ddfe1e41ed2ac6635b34a8fda1054411bf6c3d2de98cf507",
+        "linkedin/assets/FiraSans-Medium.ttf": "7e7acee3fda79ae2cc3ec899f14f7a5b9e988b27a88f31a81a8ad4cb870b8987",
+        "linkedin/assets/FiraSans-Regular.ttf": "43c240a110cf888686d13cd17400fd0ca376ce55656150e52abff95f67a9532e",
+        "linkedin/assets/OFL-FiraSans.txt": "0f00200159149239638e56183cd73f345b202af97c4486787df148d656e52fd2",
+        "linkedin/assets/hero.png": "387aea229f99d4e2461438e1def0c56a57f458b45f8c4328490e0543acb1ef11",
+        "linkedin/content.json": "4ddbd4eea9ade3e5fc41ab4a71d5292ff25bbdd6c5a9ff9562e10e27609a01d4",
+        "linkedin/evidence/build.json": "923bf8d4fadcdd517053feaf81d79917bc0702fecb8606a41a7a9da022ccce13",
+        "linkedin/evidence/layout.json": "588ccf8211764380775301c4a97b32174770fdacf0f8c67cce96f93770e52d53",
+        "linkedin/evidence/negative-probes.json": "aa117b5ec66183c9288865e7328204238aed9666e4101f7aac932bf40a25459c",
+        "linkedin/evidence/peer-review-final.md": "084781b04bce3bd77535881ca15df28dcccf4eedb3c48d3c908b2101c6a2c305",
+        "linkedin/evidence/peer-review-initial.md": "6f062c2dd8ae0253b3ddf1ee10f9ce061ee5486b94dc33a3dcd841373a0caf00",
+        "linkedin/evidence/qa.json": "4237f6f508b6da058702eebe5c7dfc92cd8644501a60770fb308cbd233f410ff",
+        "linkedin/evidence/visual-review.json": "2447c9990d7b00d15dae657c488c3b6c48ca3f979a8aea80bdbec6f23d85a9bf",
+        "linkedin/source-lock.json": "45cb7786b00855bc461b6209db681c64c8083b8437e6d039d7d4b24bd0642f10",
+        "linkedin/texto-accesible.md": "f8a94ca9914c70ae0a43804203dc32e7c927a18704566c590c89a189124b6fe1",
+        "linkedin/visual-manifest.json": "f716a27b2776b3a42767e76e2005f9514b61d62806142d8d123d425bb6d09431",
         "medium.md": "4379051dfb91d3b87ed1593de6145ebaf4b89f6955958718bc7b5a9fa0d31f7f",
         "x.md": "40e24e0d443e277a68865d37bc9da7d77fd45d411606154053837ebf324e03d6"
       }

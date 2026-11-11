@@ -1,0 +1,66 @@
+{
+  "manifest_version": "1.0.0",
+  "visual_id": "educacion-iv-linkedin",
+  "generated_at": "2026-11-11T09:23:01.730876+00:00",
+  "renderer": {
+    "name": "HTML/CSS + Chromium native",
+    "version": "4503bfb3",
+    "command": "python3 scripts/render_linkedin_native.py --content difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/content.json --output difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/out",
+    "source_sha256": "2b2ff64ebec33807cece322f3f5f495855165a955fcd679dedaeffc898508ffe"
+  },
+  "evidence": {
+    "question": "Cambios de matrícula superior entre generaciones y liceos comparables",
+    "population": "Estudiantes de media de liceos con pérdida de oferta y controles; eras separadas",
+    "unit": "puntos porcentuales",
+    "estimand": "Diferencia descriptiva entre cambios de generaciones, no efecto causal identificado",
+    "denominator": "Grupo inicial elegible con seguimiento completo, incluye no ingresantes",
+    "data_cut": "Post IV vigente, eventos 2009–2024 según desenlace",
+    "transformation": "Valores e intervalos copiados del post, sin reestimación",
+    "uncertainty": "IC 97,5 % acceso; 98,75 % destinos; 95 % persistencia y titulación. Errores de clasificación/enlace no incluidos"
+  },
+  "decision": {
+    "chart_type": "point and interval",
+    "rationale": "Magnitud, cero y dirección incierta visibles; misma escala entre destinos",
+    "rejected_alternatives": [
+      "Barras sin intervalos: ocultan incertidumbre",
+      "Sankey: no existen flujos individuales identificados"
+    ],
+    "discard_condition": "Cambios en fuente, ventanas o estimando; ilegibilidad en escala móvil"
+  },
+  "sources": [
+    {
+      "id": "post4",
+      "reference": "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+      "accessed_at": "2026-11-11",
+      "license": "Contenido propio del autor; régimen del repositorio",
+      "sha256": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672"
+    }
+  ],
+  "variants": [
+    {
+      "locale": "es",
+      "theme": "dark",
+      "viewport": "1080x1350; preview 390px",
+      "format": "json",
+      "path": "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/content.json",
+      "sha256": "4ddbd4eea9ade3e5fc41ab4a71d5292ff25bbdd6c5a9ff9562e10e27609a01d4"
+    }
+  ],
+  "accessibility": {
+    "alt": "Contrastes descriptivos con intervalos para acceso, destinos, persistencia y titulación; no identifican causalidad.",
+    "long_description": "Comparaciones por eras con magnitudes y límites rotulados. Intervalos modernos cruzan cero; no prueba igualdad. Notas secundarias pequeñas a 390px.",
+    "table_fallback": "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/texto-accesible.md",
+    "non_color_encoding": "Valores, intervalos, etiquetas y posición; ninguna conclusión depende solo del color",
+    "keyboard_checked": false
+  },
+  "runtime_dependencies": {
+    "local": [
+      "Fira Sans",
+      "Chromium",
+      "Playwright Core",
+      "Poppler",
+      "pypdf"
+    ],
+    "remote": []
+  }
+}

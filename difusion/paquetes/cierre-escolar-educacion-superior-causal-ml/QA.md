@@ -4,7 +4,7 @@
 - HTML público cotejado en reclamo principal, contrastes, intervalos y nota de corrección.
 - Mastodon ES/EN editado y Bluesky ES/EN aclarado por decisión humana. Cuatro textos comprobados por API pública.
 - Spotify: el autor reemplazó archivo conservando URL; SHA del enclosure público idéntico al archivo final de distribución. No se escuchó ni transcribió integralmente el contenido; no se afirma auditoría científica del audio.
-- LinkedIn: copy preparado; carrusel en espera de decisión tecnológica de otra sesión, sin intervención en sus archivos.
+- LinkedIn: PDF IV nativo de 12 páginas, revisión científica independiente APPROVE tras corrección; inspección individual y móvil; cinco pruebas negativas + original verde. Recibos en linkedin/evidence/. Acceso del 2026-11-11 redirige a login y desafío humano Cloudflare; sin subida ni envío.
 - X: 3 bloques, 246/237/210 caracteres contando URL como 23. No enviados.
 - Medium: adaptación EN local; requiere fijar canónico EN y comprobar tras publicación. Guía consultada: https://help.medium.com/hc/en-us/articles/214550207-Importing-a-post-to-Medium.
 - Reddit: reglas del destino pendientes, sin formulario abierto ni envío.

@@ -50,3 +50,18 @@ El navegador automatizable no encontró Chrome disponible. LinkedIn/X/Medium sig
 - LinkedIn: espera entrega del carrusel desde sesión paralela. Archivos linkedin del paquete III y scripts nuevos excluidos del commit.
 - Editorial III conserva dependencia explícita: después de difusión. Handoff incorporado; no se realizaron depósitos ni comunicaciones.
 - Telegram debe distinguir publicación del audio y correcciones verificadas de campaña incompleta. Ninguna falta de respuesta del autor se interpreta como permiso adicional.
+
+## Actualización 2026-11-11 — carrusel IV
+
+PLAN_STATE v2: tablero pb-20261111T015934392Z-a185e533; estado vivo mantenido vía MCP.
+
+- Panel validado a la derecha: estaba abajo en una fila; recolocado a 42 × 42.
+- Carrusel III de sesión paralela terminado; tecnología HTML/CSS + Chromium disponible. Su commit 4503bfb3 aporta el renderer reutilizado para IV.
+- Carrusel IV ejecutado: 12 páginas, todos los desenlaces principales y cuatro destinos, intervalos y límites. PDF y hash concreto en linkedin/evidence/qa.json.
+- Revisión cruzada detectó límite del control demasiado genérico: explicitados supervivencia, desplazados y eventos posteriores no verificados. Revisor APPROVE del contenido; integrador revisó todas las páginas a tamaño individual y 390 px.
+- Falsación: cinco defectos rechazados y original aceptado. No se modificó ningún verificador para aceptar el carrusel.
+- LinkedIn probado el 2026-11-11: redirige al login y exige desafío humano Cloudflare. Sin subida, borrador remoto ni publicación.
+- X/Medium/Reddit: siguen sin envío; no se reintentaron en esta fase de carrusel. Editorial III conserva secuencia posterior a difusión.
+- Telegram: aviso parcial anterior enviado, confirmado por publication-telegram-sent. No se afirma envío del nuevo PDF.
+
+HANDOFF-TRACE: integrador → audio_delta_review | collaboration | contenido recibido, corregido y APPROVE; respuesta final original preservada en linkedin/evidence/peer-review-final.md.

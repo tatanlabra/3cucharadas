@@ -1,0 +1,31 @@
+{
+  "reviewed_at": "2026-11-11T09:23:01.724499+00:00",
+  "pdf_sha256": "73a6a231513d5984fb8fdd7ff0b934edfec7268bc7d60e4af72dc0885c6d52a9",
+  "pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "views": [
+    "individual 720x900 previews; final revised page 11 reread",
+    "all pages at 390px width; final revised page 11 reread"
+  ],
+  "observed_overlap": false,
+  "clipped_text": false,
+  "reviewer": "Codex integrator",
+  "limits": [
+    "Small secondary notes and axis labels at mobile width; PDF allows zoom",
+    "Tagged PDF, not PDF/UA certified",
+    "Visual check is not exhaustive geometric proof"
+  ],
+  "final_rerender": "12 pages pixel-identical to reviewed pages after whitespace-only license normalization"
+}

@@ -1,0 +1,22 @@
+{
+  "engine": "HTML/CSS + Chromium",
+  "seconds": 1.616,
+  "inputs": {
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/content.json": "4ddbd4eea9ade3e5fc41ab4a71d5292ff25bbdd6c5a9ff9562e10e27609a01d4",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/source-lock.json": "45cb7786b00855bc461b6209db681c64c8083b8437e6d039d7d4b24bd0642f10",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/build.py": "98fb92c69778f21c28462f9b72d43ea1305f679ea55fe702299c48aa4f4da83b",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/template.py": "2b2ff64ebec33807cece322f3f5f495855165a955fcd679dedaeffc898508ffe",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/verify.py": "b0ab471d5901d772ea67b7adffc2b64cb730e7c69fab17cbc59364cf6f4e1a0f",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/render.mjs": "fdcfaae58b56867f0299d3654070ac9dbfc3da20783abf560784031e99c315bb",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/FiraSans-Medium.ttf": "7e7acee3fda79ae2cc3ec899f14f7a5b9e988b27a88f31a81a8ad4cb870b8987",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/FiraSans-Regular.ttf": "43c240a110cf888686d13cd17400fd0ca376ce55656150e52abff95f67a9532e",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/OFL-FiraSans.txt": "0f00200159149239638e56183cd73f345b202af97c4486787df148d656e52fd2",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/hero.png": "387aea229f99d4e2461438e1def0c56a57f458b45f8c4328490e0543acb1ef11"
+  },
+  "pdf_sha256": "73a6a231513d5984fb8fdd7ff0b934edfec7268bc7d60e4af72dc0885c6d52a9",
+  "source_sha256": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672",
+  "content_sha256": "4ddbd4eea9ade3e5fc41ab4a71d5292ff25bbdd6c5a9ff9562e10e27609a01d4",
+  "chromium": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+  "pages": 12
+}

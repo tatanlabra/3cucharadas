@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "wrong-number",
+      "exit": 1,
+      "marker": "MISSING_TEXT",
+      "expected_result": true,
+      "artifact_sha256": "9f595dbc2b7c02fccd58c22ca5e976bcd35b658920c66fdeb2b884194d4b0a5b"
+    },
+    {
+      "case": "missing-page",
+      "exit": 1,
+      "marker": "PAGE_COUNT",
+      "expected_result": true,
+      "artifact_sha256": "11125b9d365488c24dd8a134dc2d8e03f1d9f40e4e2f323dc8e6440f48ce2da3"
+    },
+    {
+      "case": "raster",
+      "exit": 1,
+      "marker": "RASTER_ONLY",
+      "expected_result": true,
+      "artifact_sha256": "c32c0c27f6d0e389f4f7c21b48c524696731efd5e8b12618fac3ee1029274a71"
+    },
+    {
+      "case": "overflow",
+      "exit": 1,
+      "marker": "SLIDE_OVERFLOW",
+      "expected_result": true
+    },
+    {
+      "case": "frozen-content",
+      "errors": [
+        "CONTENT_CHANGED_AFTER_FREEZE",
+        "NUMBER_NOT_IN_SOURCE"
+      ],
+      "expected_result": true
+    },
+    {
+      "case": "green",
+      "exit": 0,
+      "marker": null,
+      "expected_result": true,
+      "artifact_sha256": "73a6a231513d5984fb8fdd7ff0b934edfec7268bc7d60e4af72dc0885c6d52a9"
+    }
+  ]
+}

@@ -6,9 +6,9 @@ Estado: campaña en curso. Mastodon/Bluesky corregidos y verificados. Spotify ac
 |---|---|---|
 | Mastodon ES/EN | Corregido y verificado | Registro en _data/distribucion.yml |
 | Bluesky ES/EN | Aclaraciones verificadas | Originales conservados |
-| Spotify III–IV | Reemplazo verificado por hash | Desplegar enlace en ambos posts ES |
+| Spotify III–IV | Reemplazo verificado por hash | Enlace desplegado y comprobado en ambos posts ES |
 | Apple | Programa enlazado y feed Spotify actualizado | No se verificó propagación del reemplazo en Apple |
-| LinkedIn | Copy vigente | Carrusel nuevo: esperar decisión de tecnología de otra sesión; después revisión/publicación |
+| LinkedIn | PDF IV de 12 páginas y copy validados | Login y desafío humano Cloudflare; no publicado |
 | X | Hilo vigente preparado | Publicación pendiente |
 | Medium EN | Adaptación vigente preparada | Revisión final, canónico y publicación pendientes |
 | Reddit | Pendiente | Reglas vigentes, adaptación, envío y verificación de un subreddit pertinente |

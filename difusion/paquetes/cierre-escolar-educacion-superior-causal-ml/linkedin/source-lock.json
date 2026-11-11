@@ -1,0 +1,20 @@
+{
+  "frozen_at": "2026-11-11T09:21:09.158147+00:00",
+  "source": "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+  "source_sha256": "825fe015865215c6c48aeb65b40741d9110731962648313a34c93cd4b2752672",
+  "content_sha256": "4ddbd4eea9ade3e5fc41ab4a71d5292ff25bbdd6c5a9ff9562e10e27609a01d4",
+  "decisions": [
+    "12 láminas ES: acceso, cuatro destinos, persistencia, titulación, sensibilidades y límites",
+    "Puntos e intervalos; escala idéntica entre destinos; comparación descriptiva",
+    "PDF nativo oscuro para LinkedIn ES; no modifica variantes del sitio",
+    "Revisión independiente: explicitar supervivencia, contaminación y eventos posteriores de controles en lámina 11",
+    "Licencia OFL normalizada a LF y sin espacios finales; palabras idénticas al original"
+  ],
+  "assets": {
+    "assets/images/heroes-v2/cierre-escolar-educacion-superior-causal-ml/hero-1600x900.webp": "cf613c8d980b36714d3b8051014d5e664596142f9b8abaf2ad274ca53bfc987b",
+    "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/FiraSans-Medium.ttf": "7e7acee3fda79ae2cc3ec899f14f7a5b9e988b27a88f31a81a8ad4cb870b8987",
+    "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/FiraSans-Regular.ttf": "43c240a110cf888686d13cd17400fd0ca376ce55656150e52abff95f67a9532e",
+    "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/OFL-FiraSans.txt": "0f00200159149239638e56183cd73f345b202af97c4486787df148d656e52fd2",
+    "difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/hero.png": "387aea229f99d4e2461438e1def0c56a57f458b45f8c4328490e0543acb1ef11"
+  }
+}

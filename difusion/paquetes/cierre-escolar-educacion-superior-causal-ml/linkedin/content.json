@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "title": "Después del liceo",
+  "lang": "es",
+  "series": "EDUCACIÓN IV",
+  "source": "_posts/2026-11-04-cierre-escolar-educacion-superior-causal-ml.md",
+  "url": "https://3cucharadas.cl/datos/educacion/politica-publica/cierre-escolar-educacion-superior-causal-ml/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post4",
+  "slides": [
+    {
+      "id": "01",
+      "kind": "cover",
+      "kicker": "EDUCACIÓN · PARTE IV",
+      "title": "Después del liceo",
+      "body": "¿Qué aparece en educación superior tras la pérdida de oferta escolar? Comparé generaciones de liceos y sus controles.",
+      "takeaway": "Observo brechas; no identifico un efecto del cierre.",
+      "note": "Cristián Labra Olivares · 3 Cucharadas",
+      "source_claims": [
+        "P4-01"
+      ]
+    },
+    {
+      "id": "02",
+      "kind": "method",
+      "kicker": "CÓMO LO COMPARÉ",
+      "title": "Generaciones distintas, misma pregunta",
+      "body": "Comparé cambios en matrícula superior registrada: liceos con pérdida de oferta frente a controles.",
+      "takeaway": "El calendario usa egreso esperado, no egreso efectivo.",
+      "note": "No sigo a las mismas personas entre generaciones. Parte de la ventana anterior puede coincidir con el evento.",
+      "source_claims": [
+        "P4-02",
+        "P4-05"
+      ],
+      "cards": [
+        {
+          "label": "Anterior",
+          "text": "Mismo grado, cinco años antes del evento."
+        },
+        {
+          "label": "Posterior",
+          "text": "Mismo grado, un año antes del evento."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "kind": "chart",
+      "kicker": "CUCHARADA 1 · ACCESO",
+      "title": "La dirección sigue abierta",
+      "body": "Contraste de cambios en matrícula de pregrado, en los dos años siguientes al egreso esperado.",
+      "takeaway": "Ambos intervalos cruzan cero: no prueba igualdad.",
+      "note": "No mide primera entrada de la vida. Las eras difieren en reglas, muestras y grados.",
+      "source_claims": [
+        "P4-02",
+        "P4-04",
+        "P4-06",
+        "P4-07"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": -2.31,
+          "lo": -5.26,
+          "hi": 0.29
+        },
+        {
+          "label": "2016–2024",
+          "value": -2.43,
+          "lo": -5.67,
+          "hi": 1.27
+        }
+      ],
+      "domain": [
+        -6,
+        6
+      ],
+      "ticks": [
+        -6,
+        -3,
+        0,
+        3,
+        6
+      ],
+      "interval": "IC 97,5 %"
+    },
+    {
+      "id": "04",
+      "kind": "chart",
+      "kicker": "CUCHARADA 2 · DESTINOS",
+      "title": "Solo universidad",
+      "body": "Cambio del grupo con evento menos cambio de controles. Los cuatro destinos comparten el grupo inicial.",
+      "takeaway": "El intervalo histórico es negativo; no demuestra causalidad.",
+      "note": "Ventana de dos años. Categorías excluyentes; no prueban sustituciones individuales.",
+      "source_claims": [
+        "P4-09",
+        "P4-10",
+        "P4-11"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": -2.07,
+          "lo": -4.18,
+          "hi": -0.23
+        },
+        {
+          "label": "2016–2024",
+          "value": 0.83,
+          "lo": -2.59,
+          "hi": 3.88
+        }
+      ],
+      "domain": [
+        -8,
+        8
+      ],
+      "ticks": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "interval": "IC 98,75 %"
+    },
+    {
+      "id": "05",
+      "kind": "chart",
+      "kicker": "CUCHARADA 2 · DESTINOS",
+      "title": "Solo IP/CFT",
+      "body": "Cambio del grupo con evento menos cambio de controles. Los cuatro destinos comparten el grupo inicial.",
+      "takeaway": "IP/CFT: institutos profesionales y centros de formación técnica.",
+      "note": "Ventana de dos años. Categorías excluyentes; no prueban sustituciones individuales.",
+      "source_claims": [
+        "P4-09",
+        "P4-10",
+        "P4-11"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": -0.31,
+          "lo": -2.97,
+          "hi": 2.4
+        },
+        {
+          "label": "2016–2024",
+          "value": -2.61,
+          "lo": -5.51,
+          "hi": 1.0
+        }
+      ],
+      "domain": [
+        -8,
+        8
+      ],
+      "ticks": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "interval": "IC 98,75 %"
+    },
+    {
+      "id": "06",
+      "kind": "chart",
+      "kicker": "CUCHARADA 2 · DESTINOS",
+      "title": "Ambos tipos",
+      "body": "Cambio del grupo con evento menos cambio de controles. Los cuatro destinos comparten el grupo inicial.",
+      "takeaway": "Universidad e IP/CFT en la misma ventana; no implica un traslado.",
+      "note": "Ventana de dos años. Categorías excluyentes; no prueban sustituciones individuales.",
+      "source_claims": [
+        "P4-09",
+        "P4-10",
+        "P4-11"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": 0.07,
+          "lo": -0.33,
+          "hi": 0.43
+        },
+        {
+          "label": "2016–2024",
+          "value": -0.64,
+          "lo": -1.93,
+          "hi": 0.18
+        }
+      ],
+      "domain": [
+        -8,
+        8
+      ],
+      "ticks": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "interval": "IC 98,75 %"
+    },
+    {
+      "id": "07",
+      "kind": "chart",
+      "kicker": "CUCHARADA 2 · DESTINOS",
+      "title": "Ninguno registrado",
+      "body": "Cambio del grupo con evento menos cambio de controles. Los cuatro destinos comparten el grupo inicial.",
+      "takeaway": "Sin registro en la ventana no significa que nunca estudió.",
+      "note": "Ventana de dos años. Categorías excluyentes; no prueban sustituciones individuales.",
+      "source_claims": [
+        "P4-09",
+        "P4-10",
+        "P4-11"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": 2.31,
+          "lo": -0.61,
+          "hi": 5.58
+        },
+        {
+          "label": "2016–2024",
+          "value": 2.43,
+          "lo": -1.68,
+          "hi": 6.05
+        }
+      ],
+      "domain": [
+        -8,
+        8
+      ],
+      "ticks": [
+        -8,
+        -4,
+        0,
+        4,
+        8
+      ],
+      "interval": "IC 98,75 %"
+    },
+    {
+      "id": "08",
+      "kind": "chart",
+      "kicker": "CUCHARADA 3 · CONTINUIDAD",
+      "title": "Persistir en los registros",
+      "body": "Matrícula en al menos dos de los tres años posteriores al egreso esperado; no tienen que ser consecutivos.",
+      "takeaway": "Incluye a quienes no ingresaron: no es una tasa entre ingresantes.",
+      "note": "Contrastes descriptivos. La era moderna aporta 26 liceos con evento y tiene precisión débil.",
+      "source_claims": [
+        "P4-12",
+        "P4-13"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": -3.13,
+          "lo": -5.3,
+          "hi": -1.2
+        },
+        {
+          "label": "2016–2023",
+          "value": -1.9,
+          "lo": -5.01,
+          "hi": 1.31
+        }
+      ],
+      "domain": [
+        -6,
+        6
+      ],
+      "ticks": [
+        -6,
+        -3,
+        0,
+        3,
+        6
+      ],
+      "interval": "IC 95 %"
+    },
+    {
+      "id": "09",
+      "kind": "chart",
+      "kicker": "CUCHARADA 3 · TITULACIÓN",
+      "title": "Titularse requiere más tiempo",
+      "body": "Título de pregrado registrado en seis años calendarios inclusivos desde el primer año posterior al egreso esperado.",
+      "takeaway": "Las cohortes sin seguimiento completo se excluyen, no valen cero.",
+      "note": "Mismo grupo inicial, no solo ingresantes. La era moderna aporta 16 liceos con evento.",
+      "source_claims": [
+        "P4-12",
+        "P4-14"
+      ],
+      "rows": [
+        {
+          "label": "2009–2015",
+          "value": -1.47,
+          "lo": -2.69,
+          "hi": -0.28
+        },
+        {
+          "label": "2016–2019",
+          "value": -2.28,
+          "lo": -5.56,
+          "hi": 0.71
+        }
+      ],
+      "domain": [
+        -6,
+        6
+      ],
+      "ticks": [
+        -6,
+        -3,
+        0,
+        3,
+        6
+      ],
+      "interval": "IC 95 %"
+    },
+    {
+      "id": "10",
+      "kind": "limits",
+      "kicker": "COMPROBACIONES",
+      "title": "Cambiar la comparación importa",
+      "body": "Las sensibilidades alteran soporte, población o pesos. No son experimentos equivalentes.",
+      "takeaway": "Coincidir en el signo no basta para identificar un efecto.",
+      "note": "La versión completa conserva las variantes y sus intervalos, incluidos resultados contrarios.",
+      "source_claims": [
+        "P4-08",
+        "P4-19",
+        "P4-20"
+      ],
+      "items": [
+        "Con controles de pérdida futura, el punto de acceso histórico cambia a positivo.",
+        "Algunas ventanas de generaciones anteriores alcanzan el año del evento.",
+        "Las cotas por enlaces incompletos admiten ambos signos; no son intervalos de confianza."
+      ]
+    },
+    {
+      "id": "11",
+      "kind": "limits",
+      "kicker": "LO QUE NO SE PUEDE CONCLUIR",
+      "title": "Una brecha no explica su causa",
+      "body": "Los controles favorecen liceos que sobrevivieron. Algunos podrían recibir estudiantes desplazados; no se verificó que todos siguieran sin eventos similares.",
+      "takeaway": "Ni un resultado impreciso prueba ausencia de efecto.",
+      "note": "El método doblemente robusto no fue estimable con la especificación fijada.",
+      "source_claims": [
+        "P4-15",
+        "P4-16",
+        "P4-21",
+        "P4-05",
+        "P4-07"
+      ],
+      "items": [
+        "Las diferencias por subgrupos son exploratorias, no perfiles de daño causal.",
+        "El aprendizaje automático flexible no se ejecutó en esta revisión."
+      ]
+    },
+    {
+      "id": "12",
+      "kind": "cta",
+      "kicker": "EL ANÁLISIS COMPLETO",
+      "title": "Seguir la trayectoria",
+      "body": "Lee las tres cucharadas, las figuras y el anexo: qué muestran los registros y qué queda por identificar.",
+      "takeaway": "Leer en 3cucharadas.cl",
+      "note": "Incluye audio compartido con la parte III. Las cifras de la edición anterior no son comparables.",
+      "source_claims": [
+        "P4-16",
+        "P4-17"
+      ]
+    }
+  ]
+}
