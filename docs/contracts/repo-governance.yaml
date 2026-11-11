@@ -40,6 +40,14 @@ local_residue_paths:
   - assets/dist/memoria_gobernada
   - assets/data/catastro_sii/local
 owned_large_files:
+  difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/assets/hero.png:
+    owner: editorial-tesis-post3
+    role: portada-derivada-del-hero-canonico-para-pdf-nativo
+    retention: conservar-con-source-lock-y-recibos-mientras-el-carrusel-se-distribuya
+  difusion/paquetes/cierre-escolar-educacion-superior-causal-ml/linkedin/assets/hero.png:
+    owner: editorial-tesis-post4
+    role: portada-derivada-del-hero-canonico-para-pdf-nativo
+    retention: conservar-con-source-lock-y-recibos-mientras-el-carrusel-se-distribuya
   assets/data/tesis-scientific-reset/post4-public-projection.json:
     owner: editorial-tesis-post4
     role: proyeccion-publica-agregada-para-verificar-resultados-y-cobertura
