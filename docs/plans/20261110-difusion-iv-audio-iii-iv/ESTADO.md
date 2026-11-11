@@ -1,6 +1,6 @@
 # PLAN_STATE v2 — cierre y difusión III–IV
 
-Estado documental: implementación local verificada; commit/push autorizados; despliegue pendiente.
+Estado documental: implementación publicada en ambos remotos (commit 0d2d3ccb); CI y comprobación pública en curso. Tablero vivo: pb-20261111T015934392Z-a185e533.
 HANDOFF-TRACE: Codex integrador → Codex revisor gpt-6-sol high | collaboration | revisión de delta recibida, APPROVE, original bajo evidence/.
 
 ## Alcance decidido por el autor
@@ -38,3 +38,15 @@ La revisión científica original queda preservada en evidence/semantic-review-b
 El chequeo numérico antes incluía carruseles archivados; dos casos fallaron antes del cambio. Excluye ahora solo difusion/historico/; el mismo contenido obsoleto en carpeta activa sigue siendo rechazado. La custodia histórica admite campañas nuevas solo con fuentes e inventario ligados a hashes, sin restaurar piezas históricas exactas. Conserva 42 archivos, ocho fuentes y ocho carruseles históricos.
 
 El navegador automatizable no encontró Chrome disponible. LinkedIn/X/Medium siguen requiriendo sesión apropiada o interacción del autor. Ningún paquete local equivale a publicación. difusion/pilotos/ era ajeno y no se incluye en commit.
+
+## Ejecución desatendida y bloqueos comprobados
+
+- Panel tmux reabierto y enlazado al tablero propio; no modifica planes de otras sesiones.
+- Commit 0d2d3ccb enviado a GitLab y GitHub; pipeline inicial 3052480166. El tablero registra el resultado final del despliegue y aviso.
+- El inventario final incluye solo el podcast III y las piezas IV de esta tarea. La verificación de custodia pasó sobre worktree aislado del commit; el árbol compartido incorpora trabajo ajeno de carrusel y no representa el release.
+- X: navegación autenticada intentada con perfil Default; net::ERR_HTTP_RESPONSE_CODE_FAILURE. Sin envío.
+- Medium: acceso a borradores alcanza desafío humano de Cloudflare. Sin envío; no se intenta eludir el desafío.
+- Reddit: la página de reglas no expone las reglas por bloqueo web; sin reglas comprobadas ni envío.
+- LinkedIn: espera entrega del carrusel desde sesión paralela. Archivos linkedin del paquete III y scripts nuevos excluidos del commit.
+- Editorial III conserva dependencia explícita: después de difusión. Handoff incorporado; no se realizaron depósitos ni comunicaciones.
+- Telegram debe distinguir publicación del audio y correcciones verificadas de campaña incompleta. Ninguna falta de respuesta del autor se interpreta como permiso adicional.
