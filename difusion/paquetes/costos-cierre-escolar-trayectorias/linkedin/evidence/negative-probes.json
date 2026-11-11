@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "wrong-number",
+      "exit": 1,
+      "marker": "MISSING_TEXT",
+      "expected_result": true,
+      "artifact_sha256": "42feadb17d509b2dff2f51402163faed711ec65b29c2836583baaa11c9ae0465"
+    },
+    {
+      "case": "missing-page",
+      "exit": 1,
+      "marker": "PAGE_COUNT",
+      "expected_result": true,
+      "artifact_sha256": "45f7d7f0a5e1fd30f58669113be74204851291c9195a4e6fcdde6a523cedd1a5"
+    },
+    {
+      "case": "raster",
+      "exit": 1,
+      "marker": "RASTER_ONLY",
+      "expected_result": true,
+      "artifact_sha256": "f29603922ce6f91feefbf9acc91e51f11239796b4a8f9473acd4555665c419ca"
+    },
+    {
+      "case": "overflow",
+      "exit": 1,
+      "marker": "SLIDE_OVERFLOW",
+      "expected_result": true
+    },
+    {
+      "case": "frozen-content",
+      "errors": [
+        "CONTENT_CHANGED_AFTER_FREEZE",
+        "NUMBER_NOT_IN_SOURCE"
+      ],
+      "expected_result": true
+    },
+    {
+      "case": "green",
+      "exit": 0,
+      "marker": null,
+      "expected_result": true,
+      "artifact_sha256": "1b0874412f087617aef19a7e9504f1343e1769c938383e30787620ad8a3974d3"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "title": "Después de perder la escuela",
+  "lang": "es",
+  "source": "_posts/2026-10-23-costos-cierre-escolar-trayectorias.md",
+  "url": "https://3cucharadas.cl/datos/educacion/politica-publica/costos-cierre-escolar-trayectorias/?utm_source=linkedin&utm_medium=carousel&utm_campaign=tesis_post3_piloto",
+  "slides": [
+    {
+      "id": "01",
+      "kind": "cover",
+      "kicker": "EDUCACIÓN · PARTE III",
+      "title": "Después de perder la escuela",
+      "body": "Conseguir otra vacante no resuelve toda la transición. Seguí el avance escolar y la matrícula registrada para entender qué ocurre después.",
+      "takeaway": "Observo diferencias. Todavía no puedo atribuirlas al cierre.",
+      "source_claims": [
+        "P3-01"
+      ],
+      "note": "Cristián Labra Olivares · 3 Cucharadas"
+    },
+    {
+      "id": "02",
+      "kind": "diagram",
+      "kicker": "LA PREGUNTA",
+      "title": "Una vacante es solo el comienzo",
+      "body": "Importa seguir la trayectoria: aparecer matriculado y avanzar al curso esperado son señales distintas.",
+      "steps": [
+        "Escuela de origen",
+        "Pérdida de oferta",
+        "Trayectoria posterior"
+      ],
+      "branches": [
+        "¿Avanzó de curso?",
+        "¿Aparece matriculado?"
+      ],
+      "takeaway": "La continuidad registrada no resume toda la experiencia educativa.",
+      "source_claims": [
+        "P3-01",
+        "P3-05",
+        "P3-10"
+      ],
+      "note": "Esquema conceptual: no representa flujos medidos ni destinos individuales."
+    },
+    {
+      "id": "03",
+      "kind": "method",
+      "kicker": "CÓMO LO COMPARÉ",
+      "title": "Dos eras, dos reglas documentales",
+      "body": "Comparé estudiantes de escuelas con pérdida de oferta con controles de características previas similares.",
+      "cards": [
+        {
+          "label": "2005–2015",
+          "text": "Era histórica"
+        },
+        {
+          "label": "2016–2024",
+          "text": "Era moderna"
+        }
+      ],
+      "takeaway": "El cambio de definición impide leer las eras como una evolución homogénea.",
+      "source_claims": [
+        "P3-02",
+        "P3-03"
+      ],
+      "note": "Un código desaparecido no prueba un cierre jurídico. El pareo no iguala circunstancias que no observo."
+    },
+    {
+      "id": "04",
+      "kind": "chart",
+      "kicker": "CUCHARADA 1 · AVANCE ESCOLAR",
+      "title": "Más dificultades de avance registrado",
+      "body": "Diferencia ajustada en la falta de progresión observada, frente al grupo comparable.",
+      "rows": [
+        {
+          "label": "2005–2015",
+          "value": 9.58,
+          "lo": 6.83,
+          "hi": 15.87
+        },
+        {
+          "label": "2016–2024",
+          "value": 4.98,
+          "lo": 2.65,
+          "hi": 8.16
+        }
+      ],
+      "domain": [
+        0,
+        18
+      ],
+      "ticks": [
+        0,
+        6,
+        12,
+        18
+      ],
+      "interval": "IC 98,75 %",
+      "takeaway": "Son diferencias en el nivel posterior, no estimaciones de daño causado.",
+      "source_claims": [
+        "P3-04",
+        "P3-06",
+        "P3-07"
+      ],
+      "note": "Unidad: puntos porcentuales. Poblaciones e intervalos se explican en el artículo."
+    },
+    {
+      "id": "05",
+      "kind": "chart",
+      "kicker": "CUCHARADA 2 · MATRÍCULA",
+      "title": "Dos años sin aparecer en el registro",
+      "body": "La ausencia de matrícula observada es más frecuente en los agregados del grupo con evento.",
+      "rows": [
+        {
+          "label": "2005–2015",
+          "value": 1.94,
+          "lo": 1.32,
+          "hi": 2.83
+        },
+        {
+          "label": "2016–2023",
+          "value": 1.13,
+          "lo": 0.23,
+          "hi": 2.56
+        }
+      ],
+      "domain": [
+        0,
+        3
+      ],
+      "ticks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "interval": "IC 98,75 %",
+      "takeaway": "Ausencia de registro no equivale a abandono escolar.",
+      "source_claims": [
+        "P3-04",
+        "P3-11",
+        "P3-12",
+        "P3-13"
+      ],
+      "note": "Puntos porcentuales. La ventana moderna excluye 2024: falta su segundo año de seguimiento."
+    },
+    {
+      "id": "06",
+      "kind": "chart",
+      "kicker": "EL PROMEDIO NO ES CADA AÑO",
+      "title": "También hay resultados que contradicen el promedio",
+      "body": "Dos cohortes modernas ilustran la heterogeneidad de la ausencia de matrícula durante dos años.",
+      "rows": [
+        {
+          "label": "Cohorte 2020",
+          "value": -0.5,
+          "lo": -1.56,
+          "hi": 1.55
+        },
+        {
+          "label": "Cohorte 2023",
+          "value": -1.12,
+          "lo": -1.6,
+          "hi": -0.4
+        }
+      ],
+      "domain": [
+        -2,
+        2
+      ],
+      "ticks": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interval": "IC 95 %",
+      "takeaway": "Un agregado positivo no significa que todas las cohortes tengan el mismo signo.",
+      "source_claims": [
+        "P3-14"
+      ],
+      "note": "Contraejemplos, no selección representativa. El signo no prueba causalidad."
+    },
+    {
+      "id": "07",
+      "kind": "limits",
+      "kicker": "CUCHARADA 3 · LOS LÍMITES",
+      "title": "La diferencia ya tenía antecedentes",
+      "body": "Un indicador previo muestra menor continuidad en las 15 cohortes con tasas públicas. Usa otra población inicial y no tiene ajuste.",
+      "items": [
+        "El indicador previo no corrige la brecha principal.",
+        "Las cotas por datos incompletos no son intervalos de confianza.",
+        "Las cotas de no escolarización real admiten ambos signos."
+      ],
+      "takeaway": "Ninguna de estas comprobaciones convierte la asociación en causalidad.",
+      "source_claims": [
+        "P3-09",
+        "P3-15",
+        "P3-20"
+      ],
+      "note": "Cotas y contrastes principales mantienen poblaciones distintas."
+    },
+    {
+      "id": "08",
+      "kind": "actions",
+      "kicker": "QUÉ HACER CON ESTA SEÑAL",
+      "title": "Seguir a las personas, además de contar vacantes",
+      "body": "Estas diferencias justifican comprobar la continuidad, sin presentarlas como una cuenta de daños causados.",
+      "items": [
+        "Comprobar vacantes y trayectos.",
+        "Verificar destinos cuando se pierde el rastro administrativo.",
+        "Contrastar la escolarización fuera de la cobertura del registro."
+      ],
+      "takeaway": "Son implicaciones prudenciales, no efectos estimados de una intervención.",
+      "source_claims": [
+        "P3-18",
+        "P3-20"
+      ],
+      "note": "Comprobar continuidad exige contrastar fuentes y destinos."
+    },
+    {
+      "id": "09",
+      "kind": "cta",
+      "kicker": "EL ANÁLISIS COMPLETO",
+      "title": "La trayectoria importa más que la vacante",
+      "body": "Lee las tres cucharadas, las figuras y el anexo metodológico: qué observé, cómo lo comparé y qué todavía no puedo concluir.",
+      "takeaway": "3cucharadas.cl",
+      "source_claims": [
+        "P3-18",
+        "P3-19"
+      ],
+      "note": "Revisión vigente: las cifras anteriores no son comparables con estas."
+    }
+  ]
+}

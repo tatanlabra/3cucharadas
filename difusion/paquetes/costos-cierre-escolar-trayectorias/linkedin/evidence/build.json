@@ -1,0 +1,22 @@
+{
+  "engine": "HTML/CSS + Chromium",
+  "seconds": 1.747,
+  "inputs": {
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/content.json": "64d36e23f4582dcdbef26e20ffef6f217911a13222f64b717c643be99d0225c6",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/source-lock.json": "a2f9365e587cbbab64a8d82f53da45d01d6e262ab49a16e1f3b91483689af6cb",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/build.py": "98fb92c69778f21c28462f9b72d43ea1305f679ea55fe702299c48aa4f4da83b",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/template.py": "2b2ff64ebec33807cece322f3f5f495855165a955fcd679dedaeffc898508ffe",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/verify.py": "b0ab471d5901d772ea67b7adffc2b64cb730e7c69fab17cbc59364cf6f4e1a0f",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/scripts/linkedin_native/render.mjs": "fdcfaae58b56867f0299d3654070ac9dbfc3da20783abf560784031e99c315bb",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/assets/FiraSans-Medium.ttf": "7e7acee3fda79ae2cc3ec899f14f7a5b9e988b27a88f31a81a8ad4cb870b8987",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/assets/FiraSans-Regular.ttf": "43c240a110cf888686d13cd17400fd0ca376ce55656150e52abff95f67a9532e",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/assets/OFL-FiraSans.txt": "5c29650250730778eccb5475b112d32a8e0c9dd1860d9509693329652bf8e9eb",
+    "/home/ende/Descargas/programaciones/activos/3cucharadas/difusion/paquetes/costos-cierre-escolar-trayectorias/linkedin/assets/hero.png": "b0d1ac6fda75fdf4609ea2baf4e926e8d782aa221de3e339ddd3229de150951d"
+  },
+  "pdf_sha256": "1b0874412f087617aef19a7e9504f1343e1769c938383e30787620ad8a3974d3",
+  "source_sha256": "bad473d666d7e60fe2ea231adddf5c78e054fe28339380a2896293c9455b9c3e",
+  "content_sha256": "64d36e23f4582dcdbef26e20ffef6f217911a13222f64b717c643be99d0225c6",
+  "chromium": "/home/ende/.agent-browser/browsers/chrome-151.0.7922.77/chrome",
+  "pages": 9
+}

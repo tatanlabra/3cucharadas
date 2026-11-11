@@ -1,0 +1,27 @@
+"""HTML composition: CSS Grid, native line breaking and flexible conclusion zone."""
+from html import escape as e
+from pathlib import Path
+
+def fmt(n): return ('+' if n>0 else '−' if n<0 else '')+f'{abs(n):.2f}'.replace('.',',')
+def build(c,out,assets):
+ css='''@font-face{font-family:Fira;src:url(file:///usr/share/fonts/TTF/FiraSans-Regular.ttf)}@font-face{font-family:Fira;src:url(file:///usr/share/fonts/TTF/FiraSans-Medium.ttf);font-weight:500}
+ @page{size:810pt 1012.5pt;margin:0}*{box-sizing:border-box}body{margin:0;color:#f2f5f8;font-family:Fira;background:#161616;-webkit-print-color-adjust:exact;print-color-adjust:exact}section{width:1080px;height:1350px;padding:58px 64px 44px;display:flex;flex-direction:column;break-after:page;overflow:hidden}section:last-child{break-after:auto}header{display:flex;justify-content:space-between;align-items:center;font-size:30px;color:#b5beca;margin-bottom:42px}header b{font-weight:500;color:#64d8e9}header i{font-style:normal;background:#a79cff;color:#161616;padding:6px 16px;border-radius:30px}h1,h2,p{margin:0}h1{font-size:66px;line-height:1.07;font-weight:500;letter-spacing:-1px;margin:18px 0 28px}h2{font-weight:500;font-size:32px;color:#64d8e9}p{font-size:42px;line-height:1.22}.body{margin-bottom:30px;color:#d3d9e0}.content{display:grid;gap:20px}.card{background:#232831;border-radius:24px;padding:24px 30px}.metric{display:grid;grid-template-columns:290px 1fr;gap:20px;align-items:center}.value{font-size:84px;line-height:1.1;color:#64d8e9;font-weight:500}.metric:nth-child(2) .value{color:#a79cff}.label{font-size:30px;color:#b5beca}.interval{font-size:32px}.graph{height:92px;width:100%;overflow:visible}.caption{font-size:30px;color:#b5beca}.bottom{margin-top:auto;padding-top:20px}.takeaway{border-left:8px solid #64d8e9;padding:16px 24px;background:#202329;font-size:42px;line-height:1.2}.note{font-size:30px;line-height:1.23;color:#b5beca;margin-top:22px}.list{counter-reset:items}.list .card{display:grid;grid-template-columns:54px 1fr;font-size:40px;line-height:1.22;padding:20px 24px}.list .card:before{counter-increment:items;content:counter(items,decimal-leading-zero);color:#a79cff;font-size:30px}.eras{grid-template-columns:1fr 1fr}.eras strong{font-size:56px;font-weight:500;color:#a79cff}.eras p{font-size:36px;margin-top:30px}.steps{display:flex;gap:14px;align-items:stretch}.step{flex:1;padding:25px 18px;border:2px solid #424953;border-radius:20px;font-size:36px;line-height:1.2}.step b{display:block;color:#64d8e9;font-size:48px;margin-bottom:30px}.branches{display:flex;gap:20px;margin-top:18px}.branches p{flex:1;color:#a79cff;font-size:38px}.cover{padding:58px 64px 44px;background:#161616}.cover h1{font-size:98px;line-height:1.03;max-width:920px}.hero{width:100%;height:330px;object-fit:cover;border-radius:28px;margin:22px 0}.cover .body{font-size:42px}.cta{display:block;text-decoration:none;background:#64d8e9;color:#161616;padding:22px 28px;font-size:44px;border-radius:14px;font-weight:500}'''
+ pages=[]
+ for i,d in enumerate(c['slides'],1):
+  special=d['kind'] in ['cover','cta'];parts=[f'<section class="{"cover" if special else ""}" data-page="{i}"><header><b>3 Cucharadas</b><span>EDUCACIÓN III</span><i>{i:02d}</i></header><h2>{e(d["kicker"])}</h2><h1>{e(d["title"])}</h1>']
+  if special:parts.append(f'<img class="hero" src="{(assets/"hero.png").as_uri()}" alt="">')
+  parts.append(f'<p class="body">{e(d["body"])}</p>')
+  if d['kind']=='chart':
+   parts.append('<div class="content">');lo,hi=d['domain'];x=lambda n:15+(n-lo)/(hi-lo)*440
+   for j,r in enumerate(d['rows']):
+    color='#64d8e9' if j==0 else '#a79cff';yy=30
+    ticks=''.join(f'<line x1="{x(v)}" y1="12" x2="{x(v)}" y2="48" stroke="#626974"/><text x="{x(v)}" y="79" text-anchor="middle" fill="#b5beca" font-size="24" font-family="Fira">{str(v).replace("-","−")}</text>' for v in d['ticks'])
+    svg=f'<svg class="graph" viewBox="0 0 470 92">{ticks}<line x1="{x(r["lo"])}" y1="30" x2="{x(r["hi"])}" y2="30" stroke="{color}" stroke-width="5"/><circle cx="{x(r["value"])}" cy="30" r="8" fill="{color}"/></svg>'
+    parts.append(f'<div class="card metric"><div><div class="label">{e(r["label"])}</div><div class="value">{fmt(r["value"])}</div></div><div><div class="interval">[{fmt(r["lo"])}; {fmt(r["hi"])}]</div>{svg}</div></div>')
+   parts.append(f'</div><p class="caption" style="margin-top:18px">{e(d["interval"])} · puntos porcentuales</p>')
+  elif d['kind']=='method':parts.append('<div class="content eras">'+''.join(f'<div class="card"><strong>{e(r["label"])}</strong><p>{e(r["text"])}</p></div>' for r in d['cards'])+'</div>')
+  elif d['kind']=='diagram':parts.append('<div class="steps">'+''.join(f'<div class="step"><b>{j+1:02d}</b>{e(t)}</div>' for j,t in enumerate(d['steps']))+'</div><div class="branches">'+''.join(f'<p class="card">{e(t)}</p>' for t in d['branches'])+'</div>')
+  elif 'items' in d:parts.append('<div class="content list">'+''.join(f'<div class="card">{e(t)}</div>' for t in d['items'])+'</div>')
+  takeaway=f'<a class="cta" href="{e(c["url"])}">{e(d["takeaway"])} ↗</a>' if d['kind']=='cta' else f'<p class="takeaway">{e(d["takeaway"])}</p>'
+  parts.append(f'<footer class="bottom">{takeaway}<p class="note">{e(d["note"])}</p></footer></section>');pages.append(''.join(parts))
+ out.write_text('<!doctype html><html lang="es"><meta charset="utf-8"><title>Educación III · C</title><style>'+css+'</style><body>'+''.join(pages)+'</body></html>')
