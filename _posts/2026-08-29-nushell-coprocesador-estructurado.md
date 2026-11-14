@@ -3,7 +3,7 @@ layout: single
 title: "Nushell en 3 cucharadas: ¿cuándo una shell estructurada le saca jugo a un agente?"
 subtitle: "R, microbenchmarks y 380 ejecuciones para distinguir mejora, empeoramiento e indiferencia"
 date: 2026-08-29 00:00:00 -0400
-last_modified_at: 2026-10-31 18:21:00 -0300
+last_modified_at: 2026-11-14 10:05:00 -0300
 categories: [ia, productividad, desarrollo, multiagente]
 tags: [nushell, shell, agentes, claude-code, codex, routing, context-engineering, docker, arch-linux, benchmark, r]
 description: "Probé con evidencia si una ruta selectiva hacia Nushell ayuda a agentes de código: mejoró algunos aciertos, elevó tiempo y tokens, y fue indiferente en un caso real agregado."
@@ -20,7 +20,7 @@ toc_sticky: true
 comments: true
 author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
-entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 y Claude Code + Codex sobre el mismo workspace"
+entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 (y 0.117.0 en la nota posterior), Python 3 y Claude Code + Codex (más subagentes limpios en Antigravity en la nota posterior) sobre el mismo workspace"
 audio:
   duracion_s: 989
   fecha: "2026-09-13"
@@ -49,7 +49,11 @@ en_abstract: >
   master's thesis. Nushell improved accuracy in some task families, increased
   latency and output tokens, and produced no accuracy advantage in the real
   aggregate case. The defensible result is therefore a bounded routing rule, not
-  a claim that Nushell is generally superior.
+  a claim that Nushell is generally superior. A November 2026 postscript after 76
+  days of live use (40,172 commands, plus 150 deterministic and 18 clean-agent runs
+  on Nushell 0.117.0) shows that Python one-liners cover almost every everyday join,
+  narrows Nushell to compact system tables, documents a silent tmpfs omission in
+  sys disks, and rules out nu --mcp.
 visual_id: structured-shell
 ai_disclosure:
   level: some_ai
@@ -226,6 +230,26 @@ El resultado no es que Nushell gane. En el corpus afinado mejoró el acierto; en
 Lo más interesante tampoco fue Nushell. Fue descubrir que una *skill* podía no activarse, que una regla sobre archivos ocultos podía estar incompleta y que una tubería podía devolver `null` con éxito aparente. El benchmark terminó evaluando tanto a la herramienta como a mis propias suposiciones.
 
 Seguramente hay mejores rutas. Si están usando Nushell, DuckDB, `jq`, Python, MCP, *skills* u otra estrategia que dé al agente una ventaja concreta, me interesa conocer **qué problema resuelve, frente a qué línea base y cómo comprobaron que realmente mejora el flujo**. Más que coleccionar herramientas, sería bueno empezar a coleccionar evidencia sobre cuándo vale la pena usarlas y qué mejoran concretamente en el flujo.
+
+---
+
+## Nota posterior — Tras setenta y seis días de uso real
+
+<div class="notice--info" markdown="1">
+
+**Nota añadida el 14 de noviembre de 2026 (Nushell 0.117.0).** Dos meses y medio después de publicar este texto revisé qué ocurrió en mi trabajo diario cuando ningún experimento empujaba al agente hacia una herramienta determinada. El artículo original del 29 de agosto se conserva intacto arriba.
+
+</div>
+
+Cuando dejé a mis agentes elegir solos durante 76 días, prácticamente ignoraron Nushell. De **40.172 comandos** ejecutados en sesiones reales, Claude Code no la usó nunca y Codex apenas 16 veces (menos de una cada dos mil consultas), casi siempre para mirar rápido espacio en disco o memoria. Peor aún: al revisar el registro de mi propio envoltorio descubrí que el **95,9 %** de sus filas no eran trabajo real, sino ruido de mis pruebas automáticas escribiendo en el mismo archivo.
+
+La razón es sencilla: en la computadora de quien programa ya vive una navaja suiza que los modelos dominan de memoria, **Python**. En agosto comparé Nushell contra tuberías clásicas de texto, pero cuando puse a **18 agentes con contexto limpio** a resolver tareas reales sin darles pistas, los nueve del grupo libre eligieron un comando corto de `python3 -c`, ambos brazos acertaron todo (**18/18**) y Python gastó menos tokens al cruzar registros con configuraciones. Pedirles que cambiaran de idioma a mitad de camino fue como contratar dos traductores para leer una sola página.
+
+¿Queda entonces algún rincón donde Nushell sí ayude? Sí, uno pequeño y concreto: pedirle al sistema una tabla lista sobre sí mismo, como buscar archivos grandes incluyendo carpetas ocultas (`ls -a **/*`), donde escribió casi la mitad de código y devolvió cerca de una sexta parte del texto que entregaba Python. Pero incluso ahí apareció otra trampa silenciosa: al revisar espacio libre con `sys disks`, Nushell omitió sin dar error las carpetas que viven en memoria temporal (`tmpfs`, como `/tmp`), obligando al agente a repetir la consulta por fuera y a gastar más del doble de tokens.
+
+También cerré la duda que había dejado abierta sobre mantener encendido un servidor dedicado de Nushell para agentes (`nu --mcp`, su conector al protocolo estándar de herramientas). Si un comando tarda en correr, el ahorro real viene de **guardar su salida una sola vez en un archivo temporal** en lugar de repetirlo, igual que sacar una foto a una pizarra en vez de copiarla tres veces. El servidor dedicado tardó lo mismo que ese archivo temporal, pero cobró un peaje fijo enorme solo por presentarse (**23.496 bytes**, equivalentes a unas seis páginas de texto) y encima devolvió cada respuesta duplicada en dos formatos, así que nunca recupera su costo en la ventana de memoria del modelo.
+
+Con esa evidencia hice lo contrario de inflar la integración: **achiqué la regla**, anoté el punto ciego de `/tmp` y descarté el servidor dedicado. Sigue siendo una medición local en mi estación Linux (150 pruebas repetidas de comandos y 18 con agentes limpios), no una ley universal, pero deja una enseñanza fácil de recordar: **la mejor herramienta para un agente rara vez es la más elegante en el papel, sino la más simple que ya sabe usar sin tropezar en silencio**.
 
 ## Referencias y notas
 

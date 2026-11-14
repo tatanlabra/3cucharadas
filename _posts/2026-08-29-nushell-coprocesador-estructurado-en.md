@@ -3,7 +3,7 @@ layout: single
 title: "Nushell in three spoonfuls: when does a structured shell actually help an agent?"
 subtitle: "R, microbenchmarks, and 380 runs to separate improvement, regression, and no material difference"
 date: 2026-08-29 00:00:00 -0400
-last_modified_at: 2026-10-31 18:21:00 -0300
+last_modified_at: 2026-11-14 10:05:00 -0300
 categories: [ai, productivity, development, multi-agent]
 tags: [nushell, shell, agents, claude-code, codex, routing, context-engineering, docker, arch-linux, benchmark, r]
 description: "I tested whether selectively routing coding-agent tasks through Nushell helps: it improved accuracy on some tasks, increased latency and output tokens, and made no accuracy difference in a real aggregate case."
@@ -20,7 +20,7 @@ toc_sticky: true
 comments: true
 author_profile: true
 repo: https://github.com/tatanlabra/penta-agent
-entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1, and Claude Code + Codex on the same workspace"
+entorno: "EndeavourOS (Arch), zsh, Nushell 0.115.1 (and 0.117.0 in the postscript), Python 3, and Claude Code + Codex (plus clean Antigravity subagents in the postscript) on the same workspace"
 header:
   teaser: /assets/images/heroes-v2/nushell-coprocesador-estructurado/teaser-1280x720.webp
   og_image: /assets/images/heroes-v2/nushell-coprocesador-estructurado/og-1200x630.webp
@@ -38,7 +38,11 @@ en_abstract: >
   master's thesis. Nushell improved accuracy in some task families, increased
   latency and output tokens, and produced no accuracy advantage in the real
   aggregate case. The defensible result is therefore a bounded routing rule, not
-  a claim that Nushell is generally superior.
+  a claim that Nushell is generally superior. A November 2026 postscript after 76
+  days of live use (40,172 commands, plus 150 deterministic and 18 clean-agent runs
+  on Nushell 0.117.0) shows that Python one-liners cover almost every everyday join,
+  narrows Nushell to compact system tables, documents a silent tmpfs omission in
+  sys disks, and rules out nu --mcp.
 visual_id: structured-shell
 ai_disclosure:
   level: some_ai
@@ -214,6 +218,26 @@ The result is not that Nushell wins. It improved accuracy on the tuned corpus; i
 The most interesting finding was not Nushell either. It was discovering that a *skill* might never activate, that a rule about hidden files might be incomplete, and that a pipeline could return `null` with apparent success. The benchmark ended up testing both the tool and my assumptions.
 
 There are probably better routes. If you use Nushell, DuckDB, `jq`, Python, MCP, *skills*, or another strategy that gives an agent a concrete advantage, I would like to know **what problem it solves, what baseline you compared it against, and how you verified that it actually improved the workflow**. Rather than collecting tools, it would be good to start collecting evidence about when they are worth using and what they measurably improve.
+
+---
+
+## Postscript — After seventy-six days of live use
+
+<div class="notice--info" markdown="1">
+
+**Postscript added November 14, 2026 (Nushell 0.117.0).** Two and a half months after publishing this post, I checked what happened in my day-to-day work once no experiment was nudging the agent toward a particular tool. The original August 29 article remains intact above.
+
+</div>
+
+Left to choose on their own for 76 days, my agents essentially ignored Nushell. Across **40,172 shell commands** in real working sessions, Claude Code never picked it once and Codex used it only 16 times (fewer than one in two thousand calls), almost always for a quick look at disk space or process memory. Worse still, auditing my own wrapper log revealed an uncomfortable lesson: **95.9%** of its historical rows were not real work at all, just noise from my automated tests writing to the same file.
+
+The reason is simple: every developer workstation already has a Swiss Army knife that language models know by heart—**Python**. In August I compared Nushell against classic text pipelines, yet when I gave **18 clean-context agents** real tasks with no hints, all nine in the unconstrained group reached for a short `python3 -c` one-liner, both groups answered every case accurately (**18/18**), and Python spent fewer tokens when joining log files with configuration. Asking an agent to switch languages mid-task turned out to be like hiring two translators to read a single page.
+
+Does Nushell still earn a place anywhere? Yes, in one narrow niche: asking the operating system for a ready-made table about itself, such as finding large files across hidden folders (`ls -a **/*`), where it needed roughly half the code and returned about one-sixth of the text volume of Python. Even there, though, another silent trap appeared: when checking free space with `sys disks`, Nushell quietly skipped temporary in-memory folders (`tmpfs`, such as `/tmp`) without raising an error, forcing the agent to re-run the check outside Nushell and spend more than twice as many tokens.
+
+I also settled the question I had left open about keeping a dedicated Nushell server running for agents (`nu --mcp`, its connector to the standard tool protocol). When a command is slow, the real savings come from **saving its output once to a temporary file** instead of running it repeatedly—like snapping one photo of a whiteboard rather than copying it out three times. The dedicated server ran no faster than that temporary file, yet charged a steep upfront toll just to introduce itself (**23,496 bytes**, roughly six pages of text) and returned every answer twice in two formats, so it never pays back its memory cost inside the model's context window.
+
+With that evidence in hand, I did the opposite of expanding the integration: **I shrank the rule**, recorded the `/tmp` blind spot, and ruled out the dedicated server. This remains a local check on my own Linux workstation (150 repeated command runs and 18 clean-agent runs), not a universal law, but it leaves a takeaway that is easy to keep in mind: **the best tool for an agent is rarely the most elegant one on paper—it is the simplest one the model already knows how to use without tripping in silence**.
 
 ## References and notes
 
