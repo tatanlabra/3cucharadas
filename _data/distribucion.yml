@@ -413,7 +413,10 @@
     fecha: '2026-11-01'
     url_publicada: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
     estado: publicado
-    nota: "Audio reemplazado el 2026-11-10: episodio compartido por Posts III y IV, 12:48 con cortinas. Mismo ID y título; archivo público del RSS idéntico al máster de distribución verificado por SHA-256. Procedencia actual en difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/origen.json; versión anterior conservada en histórico."
+    nota: 'Audio reemplazado el 2026-11-10: episodio compartido por Posts III y IV,
+      12:48 con cortinas. Mismo ID y título; archivo público del RSS idéntico al máster
+      de distribución verificado por SHA-256. Procedencia actual en difusion/paquetes/costos-cierre-escolar-trayectorias/podcast/origen.json;
+      versión anterior conservada en histórico.'
   - plataforma: linkedin
     fecha: '2026-11-01'
     url_publicada: https://www.linkedin.com/posts/cristianlabra_carrusel-efectos-de-los-cierres-ugcPost-7522753696963649538-ADHa/
@@ -443,18 +446,21 @@
     fecha: '2026-11-10'
     url_publicada: https://open.spotify.com/episode/4VIIXt7nDk8RwrtkqEVVZ7
     estado: publicado
-    nota: "Episodio compartido con Post III; reemplazo verificado por hash del audio público del RSS, duración 12:48. No es un segundo episodio."
+    nota: Episodio compartido con Post III; reemplazo verificado por hash del audio
+      público del RSS, duración 12:48. No es un segundo episodio.
   - plataforma: mastodon
     fecha: 2026-11-07
     url_publicada: https://mastodon.social/@asiole/117577401287171882
     url_publicada_en: https://mastodon.social/@asiole/117577401315592948
-    nota: "Textos ES/EN corregidos el 2026-11-10 por reconstrucción científica; verificados mediante API pública."
+    nota: Textos ES/EN corregidos el 2026-11-10 por reconstrucción científica; verificados
+      mediante API pública.
     resultado_30d:
   - plataforma: bluesky
     fecha: 2026-11-07
     url_publicada: https://bsky.app/profile/labra.bsky.social/post/3mzqvfxyl5s2n
     url_publicada_en: https://bsky.app/profile/labra.bsky.social/post/3mzqvfzpsd72p
-    nota: "Aclaraciones ES/EN publicadas y verificadas el 2026-11-10; originales conservados como historial."
+    nota: Aclaraciones ES/EN publicadas y verificadas el 2026-11-10; originales conservados
+      como historial.
     url_correccion: https://bsky.app/profile/labra.bsky.social/post/3mzysxnquv622
     url_correccion_en: https://bsky.app/profile/labra.bsky.social/post/3mzysxnquv623
     resultado_30d:
